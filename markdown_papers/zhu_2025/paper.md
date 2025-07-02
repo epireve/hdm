@@ -60,18 +60,18 @@ TKG represents a signifcant and vibrant branch of KG, garnering considerable int
 
 1 Big Data Research Center, University of Electronic Science and Technology of China, Chengdu, 611731, Sichuan, China. <sup>2</sup> Chengdu Union Big Data Tech. Inc., Chengdu, 610000, Sichuan, China. ✉e-mail: [dbchen@uestc.edu.cn](mailto:dbchen@uestc.edu.cn)
 
-| Thomas Wolff                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                              |  |  |  |  |
+| Thomas Wolff | | | | | |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|--|--|--|--|
-| Thomas Wolff (July 14, 1954, New York City - July<br>31, 2000, Kern County) was a noted mathematician,<br>working primarily<br>in the fields of<br>harmonic<br>analysis,<br>complex<br>analysis,<br>and<br>partial<br>differential equations. As<br>an<br>undergraduate at<br>Harvard University he regularly played poker with<br>his classmate Bill Gates. While a graduate student<br>at<br>the University of<br>California, Berkeley<br>from<br>1976 to 1979 … |                                              |  |  |  |  |
-| DocRED                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                              |  |  |  |  |
-| Subject: Thomas Wolff<br>Relation: date of birth                                                                                                                                                                                                                                                                                                                                                                                                                   | Object: July 14, 1954                        |  |  |  |  |
-| Subject: Thomas Wolff<br>Relation: place of birth                                                                                                                                                                                                                                                                                                                                                                                                                  | Object: New York City                        |  |  |  |  |
-| Subject: Niklas Bergqvist<br>Object: UCB<br>Relation: educated at                                                                                                                                                                                                                                                                                                                                                                                                  |                                              |  |  |  |  |
-| Tem-DocRED                                                                                                                                                                                                                                                                                                                                                                                                                                                         |                                              |  |  |  |  |
-| Subject: Thomas Wolff<br>Relation: born in                                                                                                                                                                                                                                                                                                                                                                                                                         | Object: New York City<br>Time: July 14, 1954 |  |  |  |  |
-| Subject: Thomas Wolff<br>Relation: educated at                                                                                                                                                                                                                                                                                                                                                                                                                     | Object: UCB<br>Time: 1976                    |  |  |  |  |
+| Thomas Wolff (July 14, 1954, New York City - July<br>31, 2000, Kern County) was a noted mathematician,<br>working primarily<br>in the fields of<br>harmonic<br>analysis,<br>complex<br>analysis,<br>and<br>partial<br>differential equations. As<br>an<br>undergraduate at<br>Harvard University he regularly played poker with<br>his classmate Bill Gates. While a graduate student<br>at<br>the University of<br>California, Berkeley<br>from<br>1976 to 1979 … | | | | | |
+| DocRED | | | | | |
+| Subject: Thomas Wolff<br>Relation: date of birth | Object: July 14, 1954 | | | | |
+| Subject: Thomas Wolff<br>Relation: place of birth | Object: New York City | | | | |
+| Subject: Niklas Bergqvist<br>Object: UCB<br>Relation: educated at | | | | | |
+| Tem-DocRED | | | | | |
+| Subject: Thomas Wolff<br>Relation: born in | Object: New York City<br>Time: July 14, 1954 | | | | |
+| Subject: Thomas Wolff<br>Relation: educated at | Object: UCB<br>Time: 1976 | | | | |
 
-<span id="page-1-0"></span>**Fig. 1**Comparison of samples between DocRED and Tem-DocRED. UCB denotes the University of California, Berkeley.
+<span id="page-1-0"></span>**Figure 1**Comparison of samples between DocRED and Tem-DocRED. UCB denotes the University of California, Berkeley.
 
 temporal dimension allows for the inference of relationships between facts based on their chronological order, enhancing the ability to reason about connections within the data. Given that relations extracted from documents are ofen incomplete, the expansion into the time domain provides additional context necessary for inferring missing links, thereby simplifying the task of relational reasoning. In conclusion, document-level temporal relation extraction (DocTRE) exploration is highly relevant and valuable as it leverages the temporal aspects of the data to enrich our understanding of the underlying relationships and patterns.
 
@@ -101,14 +101,14 @@ In order to construct a DocTRE dataset, we propose a novel method for updating D
 
 **Combination Relation Patterns.** In the Re-DocRED, relations can be mainly divided into two categories: event relations and timestamp relations. Te event relation expresses an event that occurred between two entities. Te timestamp relation expresses that an event happened at a certain moment. In the statistical process, triplets are classifed based on the types of entities included. For each timestamp relation, there may be one or more event
 
-| Task<br>instruction    | Please judge whether each sentence is correct based on the<br>context, only judge the content without judging the syntax,<br>and only return a score within the range of [0,1] for each<br>sentence. The higher the score, the greater the possibility<br>of sentence correctness. Please only return the list of<br>scores without others. There are 4 sentences here. | [0.0, 0.9, 0.0, 0.2]                                                      |
+| Task<br>instruction | Please judge whether each sentence is correct based on the<br>context, only judge the content without judging the syntax,<br>and only return a score within the range of [0,1] for each<br>sentence. The higher the score, the greater the possibility<br>of sentence correctness. Please only return the list of<br>scores without others. There are 4 sentences here. | [0.0, 0.9, 0.0, 0.2] |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| Context                | Context: Thomas Wolff (July 14, 1954, New York City - July<br>31, 2000, Kern County ) was a noted mathematician, working<br>primarily in the fields of harmonic analysis, complex<br>analysis, and partial differential equations. As an<br>undergraduate at Harvard University … for his contributions<br>to analysis and particularly to the Kakeya conjecture.       | Filter                                                                    |
-| Candidate<br>sentences | Sentences: ['The educational institution attended by Thomas<br>Wolff is University of California , Berkeley on July 14 ,<br>1954.', 'The educational institution attended by Thomas<br>Wolff is University of California , Berkeley on 1976.', …]                                                                                                                       | S: Thomas Wolff<br>R: educated at<br>O: UCB<br>T: 1984<br>Temporal Relaon |
+| Context | Context: Thomas Wolff (July 14, 1954, New York City - July<br>31, 2000, Kern County ) was a noted mathematician, working<br>primarily in the fields of harmonic analysis, complex<br>analysis, and partial differential equations. As an<br>undergraduate at Harvard University … for his contributions<br>to analysis and particularly to the Kakeya conjecture. | Filter |
+| Candidate<br>sentences | Sentences: ['The educational institution attended by Thomas<br>Wolff is University of California , Berkeley on July 14 ,<br>1954.', 'The educational institution attended by Thomas<br>Wolff is University of California , Berkeley on 1976.', …] | S: Thomas Wolff<br>R: educated at<br>O: UCB<br>T: 1984<br>Temporal Relaon |
 
 Prompt Construcon
 
-<span id="page-3-0"></span>**Fig. 2** Te automatic data generation framework with an example document. UCB denotes to the University of California, Berkeley.
+<span id="page-3-0"></span>**Figure 2** Te automatic data generation framework with an example document. UCB denotes to the University of California, Berkeley.
 
 relations that can be combined with it. Tis combination pattern can be discovered based on the shared entity. In the Re-DocRED, the logic rule of relation patterns can be represented as follows:
 
@@ -120,48 +120,47 @@ $$
 (s, R_e, o) \wedge (o, R_t, t) \Rightarrow (s, R_{tem}, o, t) \tag{2}
 $$
 
- where (*s*, *Re*, *o*) and (*s*, *Rt*,*t*) are existed triplets in Re-DocRED, *Re*represents the event relation,*Rt*represents the timestamp relation, and*Rtem*represents the temporal relation.*s*, *o*, and *t*are annotated as entities in Re-DocRED, but*t*denotes a timestamp like*July 9*.
+where (*s*, *Re*, *o*) and (*s*, *Rt*,*t*) are existed triplets in Re-DocRED, *Re*represents the event relation,*Rt*represents the timestamp relation, and*Rtem*represents the temporal relation.*s*, *o*, and *t*are annotated as entities in Re-DocRED, but*t*denotes a timestamp like*July 9*.
 
 In the Re-DocRED, we have found 31 combination relation patterns. On the basis of each pattern, two triplets with corresponding relations can be combined into a quadruple with the timestamp. For example, <*"Tomas Wolf", "born in", "New York City", "July 14,1954"*> can be constructed from <*"Tomas Wolf", "date of birth", "July 14,1954"*> and <*"Tomas Wolf ", "place of birth", "New York City"*> based on the combination relation pattern "*place of birth*∧*date of birth*⇒*born in*". Details of all relation patterns can be found in Table [1.](#page-4-0) Hypotheses of relations from Re-DocRED are show in Table [2.](#page-5-0)
 
 **Generation by GPT.**In this procedure, GPT-3.5 is selected as the generator to generate timestamps for existing triplets. As GPT is a widely adopted LLM, it possesses robust capabilities in text comprehension and content generation, making it well-suited for our task. Taking into account both economic expenditure and model capabilities, we have opted for GPT-3.5. Before utilizing GPT-3.5 to generate quadruples, triplets that have been transformed by combination relation patterns are no longer used. On the other hand, triplets with timestamp relations are not utilized because they have included temporal information.
 *Prompt Construction.*As shown in Fig. [2,](#page-3-0) the prompt word template consists of three parts, i.e., task instruction, context, and candidate sentences. Each candidate sentence represents a quadruple and the task instruction is used to judge the correctness of quadruples based on the context. Te task instruction directs the LLM to focus on content correctness while ignoring syntax errors. Te LLM is asked to use a score within the range of [0,1] rather than "yes" or "no", which provides more fexible judgments of sentences. To avoid the model misinterpreting the correlation between score and correctness, correlation statements are added to ensure that scores and correctness are positively correlated. In the process of the test, we noticed that GPT sometimes incorrectly counts the number of sentences. So we add "Tere are*n*sentences here" at the end. Te context denotes the context of the document without any changes. Each sentence is constructed by a triplet and a time mention. Here we adopt hypotheses proposed in DocGNR[E19,](#page-12-15) which transforms each relation as a natural language description. We use them to transform each triplet as a sentence, and add the timestamp at the tail of the sentence, such as "Te educational institution attended by subject is object on timestamp". Because the same hypothesis is used for any triplet with the corresponding relation and timestamp, some grammar errors may exist in sentences. So we demand GPT to "only judge the content without judging the syntax" in the task instruction, the syntax error may result in a score of 0. Each triplet can be combined with any timestamp to construct quadruples, but at most one quadruple is correct. So each prompt only includes the sentence list about one triplet, which is convenient for us to fnd the possible answer based on the maximum score.
 
-<span id="page-4-0"></span>
 
-| ID I  | Original Relation I                              | ID II | Original Relation II               | Temporal Relation                                    |  |
+| ID I | Original Relation I | ID II | Original Relation II | Temporal Relation | |
 |-------|--------------------------------------------------|-------|------------------------------------|------------------------------------------------------|--|
-| P17   | country                                          | P571  | inception                          | established in                                       |  |
-| P17   | country                                          | P577  | publication date                   | published in                                         |  |
-| P17   | country                                          | P585  | point in time                      | hold in                                              |  |
-| P19   | place of birth                                   | P569  | date of birth                      | born in                                              |  |
-| P20   | place of death                                   | P570  | date of death                      | died in                                              |  |
-| P50   | author                                           | P577  | publication date                   | created by                                           |  |
-| P57   | director                                         | P577  | publication date                   | directed                                             |  |
-| P112  | founded by                                       | P571  | inception                          | founded by                                           |  |
-| P123  | publisher                                        |       | inception                          | published by                                         |  |
-| P127  | owned by                                         | P576  | dissolved, abolished or demolished | abolished by                                         |  |
-| P131  | located in the administrative territorial entity | P576  | dissolved, abolished or demolished | abolished by                                         |  |
-| P131  | located in the administrative territorial entity | P571  | inception                          | established in the administrative territorial entity |  |
-| P161  | cast member                                      | P577  | publication date                   | performed by                                         |  |
-| P162  | producer                                         | P577  | publication date                   | produced by                                          |  |
-| P175  | performer                                        | P577  | publication date                   | performed by                                         |  |
-| P178  | developer                                        | P577  | publication date                   | developed by                                         |  |
-| P264  | record label                                     | P577  | publication date                   | published by                                         |  |
-| P276  | location                                         | P580  | start time                         | hold in                                              |  |
-| P276  | location                                         | P585  | point in time                      | hold in                                              |  |
-| P400  | platform                                         | P577  | publication date                   | released for                                         |  |
-| P495  | country of origin                                | P577  | publication date                   | published in                                         |  |
-| P607  | confict                                          | P580  | start time                         | had a confict with                                   |  |
-| P674  | characters                                       | P577  | publication date                   | character of                                         |  |
-| P710  | participant                                      | P580  | start time                         | participated by                                      |  |
-| P710  | participant                                      | P585  | point in time                      | participated by                                      |  |
-| P1001 | applies to jurisdiction                          | P577  | publication date                   | applied to jurisdiction                              |  |
-| P1001 | applies to jurisdiction                          | P585  | point in time                      | applied to jurisdiction                              |  |
-| P1344 | participant of                                   | P580  | start time                         | participated                                         |  |
-| P1344 | participant of                                   | P585  | point in time                      | participated                                         |  |
-| P1366 | replaced by                                      | P576  | dissolved, abolished or demolished | replaced by                                          |  |
-| P1441 | present in work                                  | P577  | publication date                   | presented in work                                    |  |
+| P17 | country | P571 | inception | established in | |
+| P17 | country | P577 | publication date | published in | |
+| P17 | country | P585 | point in time | hold in | |
+| P19 | place of birth | P569 | date of birth | born in | |
+| P20 | place of death | P570 | date of death | died in | |
+| P50 | author | P577 | publication date | created by | |
+| P57 | director | P577 | publication date | directed | |
+| P112 | founded by | P571 | inception | founded by | |
+| P123 | publisher | | inception | published by | |
+| P127 | owned by | P576 | dissolved, abolished or demolished | abolished by | |
+| P131 | located in the administrative territorial entity | P576 | dissolved, abolished or demolished | abolished by | |
+| P131 | located in the administrative territorial entity | P571 | inception | established in the administrative territorial entity | |
+| P161 | cast member | P577 | publication date | performed by | |
+| P162 | producer | P577 | publication date | produced by | |
+| P175 | performer | P577 | publication date | performed by | |
+| P178 | developer | P577 | publication date | developed by | |
+| P264 | record label | P577 | publication date | published by | |
+| P276 | location | P580 | start time | hold in | |
+| P276 | location | P585 | point in time | hold in | |
+| P400 | platform | P577 | publication date | released for | |
+| P495 | country of origin | P577 | publication date | published in | |
+| P607 | confict | P580 | start time | had a confict with | |
+| P674 | characters | P577 | publication date | character of | |
+| P710 | participant | P580 | start time | participated by | |
+| P710 | participant | P585 | point in time | participated by | |
+| P1001 | applies to jurisdiction | P577 | publication date | applied to jurisdiction | |
+| P1001 | applies to jurisdiction | P585 | point in time | applied to jurisdiction | |
+| P1344 | participant of | P580 | start time | participated | |
+| P1344 | participant of | P585 | point in time | participated | |
+| P1366 | replaced by | P576 | dissolved, abolished or demolished | replaced by | |
+| P1441 | present in work | P577 | publication date | presented in work | |
 **Table 1.**Combinations of original relations for new relations, including wikidata IDs and relation names.
 *Filter.*For each group of sentences, the sentence with the maximum score may be the correct answer. However, the judgment of the large model may not necessarily be correct, even if the score is high. To ensure the reliability of data as much as possible, the restrictions on scores are as follows:
 
@@ -175,41 +174,40 @@ However, there may still be errors in the results from generation from LLMs, and
 
 In addition, we redefned all relations of Re-DocRED as shown in Table [3](#page-6-0) on the basis of original relation descriptions. Each relation name is modifed with its description to represent the occurrence of an event and relations that can't be transformed are removed, such as*mother*, *subsidiary*, and so on. Te statistics of the new dataset, Tem-DocRED, are shown in Table [4.](#page-6-1) Additionally, the statistics of Re-DocRED are also shown in Table [4.](#page-6-1) Compared to Re-DocRED, there are fewer facts in these documents. More downstream tasks about TKG
 
-<span id="page-5-0"></span>
 
-| ID    | Hypothesis                                                                                                                          |
+| ID | Hypothesis |
 |-------|-------------------------------------------------------------------------------------------------------------------------------------|
-| P17   | Te sovereign state of this item sub. is obj.                                                                                        |
-| P19   | Te birth location of the person, animal or fctional character sub. is obj.                                                          |
-| P20   | Te death location of the person, animal or fctional character sub. is obj.                                                          |
-| P50   | Te main creator(s) of the written work sub. is(are) obj.                                                                            |
-| P57   | Te director of this flm, TV-series, stageplay or video game is obj.                                                                 |
-| P112  | Te founder or co-founder of this organization, religion or place sub. is obj.                                                       |
-| P123  | Te organization or person responsible for publishing books, periodicals, games or sofware sub. is obj.                              |
-| P127  | Te owner of sub. is obj.                                                                                                            |
-| P131  | sub. is located on the territory of the following administrative entity obj.                                                        |
-| P161  | Te actor performing live sub. for a camera or audience has obj.                                                                     |
-| P162  | Te producer(s) of this flm or music work sub. is(are) obj.                                                                          |
-| P175  | Te performer involved in the performance or the recoding of the work sub. is obj.                                                   |
-| P178  | Te organization or person that developed sub. is obj.                                                                               |
-| P264  | Te brand and trademark associated with the marketing of subject music recordings and music videos sub. is obj.                      |
-| P276  | Te location of the item, physical object or event sub. is within is obj.                                                            |
-| P400  | Te platform for which the work sub. has been developed or released / specifc platform version fo the sofware sub. developed is obj. |
-| P495  | Te country of origin of the creative work sub. is obj.                                                                              |
-| P569  | Te date on which sub. was born is obj.                                                                                              |
-| P570  | Te date on which sub. died is obj.                                                                                                  |
-| P571  | Te date or point in time when the organization/subject sub. was founded/created is obj.                                             |
-| P576  | Te date or point in time on which the organization sub. was dissolved/disappeared or the building sub. demolished is obj.           |
-| P577  | Te data or point in time the work sub. is frst published or released is obj.                                                        |
-| P580  | Te time the item sub. begins to exist or the statement sub. starts being valid is obj.                                              |
-| P585  | Te time and date sub. took place, existed or the statement sub. was true is obj.                                                    |
-| P607  | Te battles, wars or other military engagements in which the person or item sub. participated is obj.                                |
-| P674  | Te characters which appear in sub. has obj.                                                                                         |
-| P710  | Te person, group of people or organization that actively takes/took part in the event sub. has obj.                                 |
-| P1001 | Te institution, law or public ofce sub. belongs to or has power over or applies to the country, state or municipality obj.          |
-| P1344 | Te event that the person or the organization sub. was a participant in is obj.                                                      |
-| P1366 | Te person or item obj. replaces sub.                                                                                                |
-| P1441 | Te work in which the fctional entity or historical person sub. is present is obj.                                                   |
+| P17 | Te sovereign state of this item sub. is obj. |
+| P19 | Te birth location of the person, animal or fctional character sub. is obj. |
+| P20 | Te death location of the person, animal or fctional character sub. is obj. |
+| P50 | Te main creator(s) of the written work sub. is(are) obj. |
+| P57 | Te director of this flm, TV-series, stageplay or video game is obj. |
+| P112 | Te founder or co-founder of this organization, religion or place sub. is obj. |
+| P123 | Te organization or person responsible for publishing books, periodicals, games or sofware sub. is obj. |
+| P127 | Te owner of sub. is obj. |
+| P131 | sub. is located on the territory of the following administrative entity obj. |
+| P161 | Te actor performing live sub. for a camera or audience has obj. |
+| P162 | Te producer(s) of this flm or music work sub. is(are) obj. |
+| P175 | Te performer involved in the performance or the recoding of the work sub. is obj. |
+| P178 | Te organization or person that developed sub. is obj. |
+| P264 | Te brand and trademark associated with the marketing of subject music recordings and music videos sub. is obj. |
+| P276 | Te location of the item, physical object or event sub. is within is obj. |
+| P400 | Te platform for which the work sub. has been developed or released / specifc platform version fo the sofware sub. developed is obj. |
+| P495 | Te country of origin of the creative work sub. is obj. |
+| P569 | Te date on which sub. was born is obj. |
+| P570 | Te date on which sub. died is obj. |
+| P571 | Te date or point in time when the organization/subject sub. was founded/created is obj. |
+| P576 | Te date or point in time on which the organization sub. was dissolved/disappeared or the building sub. demolished is obj. |
+| P577 | Te data or point in time the work sub. is frst published or released is obj. |
+| P580 | Te time the item sub. begins to exist or the statement sub. starts being valid is obj. |
+| P585 | Te time and date sub. took place, existed or the statement sub. was true is obj. |
+| P607 | Te battles, wars or other military engagements in which the person or item sub. participated is obj. |
+| P674 | Te characters which appear in sub. has obj. |
+| P710 | Te person, group of people or organization that actively takes/took part in the event sub. has obj. |
+| P1001 | Te institution, law or public ofce sub. belongs to or has power over or applies to the country, state or municipality obj. |
+| P1344 | Te event that the person or the organization sub. was a participant in is obj. |
+| P1366 | Te person or item obj. replaces sub. |
+| P1441 | Te work in which the fctional entity or historical person sub. is present is obj. |
 
 **Table 2.**Te hypotheses of relations in the Re-DocRED, which are used for constructing new temporal relations in Table [1.](#page-4-0)
 
@@ -223,44 +221,42 @@ Each part of the data in the JSON fle is represented as a list. As shown in Fig.
 
 Te fle*rel\_info.json*is a dict where the key represents the relationship code, and the value indicates the meaning of the relationship. Te distribution of diferent relationship types across the facts is illustrated in Fig. [4a.](#page-8-0) Te Tem-DocRED dataset contains 33 distinct relationship types. Among them, the "established in the administrative territorial entity" relationship has the highest frequency, followed by the "joined" relationship,
 
-<span id="page-6-0"></span>
 
-| ID    | Original Relation            | Temporal Relation |  |  |
+| ID | Original Relation | Temporal Relation | | |
 |-------|------------------------------|-------------------|--|--|
-| P39   | position held                | position held     |  |  |
-| P54   | member of sports team        | participated by   |  |  |
-| P58   | screenwriter                 | written by        |  |  |
-| P69   | educated at                  | educated at       |  |  |
-| P86   | composer                     | composed by       |  |  |
-| P108  | employer                     | worked for        |  |  |
-| P118  | league                       | participated      |  |  |
-| P166  | award received               | award received    |  |  |
-| P170  | creator                      | created by        |  |  |
-| P176  | manufacturer                 | manufactured by   |  |  |
-| P272  | production company           | produced by       |  |  |
-| P361  | part of                      | joined            |  |  |
-| P463  | member of                    | joined            |  |  |
-| P527  | has part                     | joined by         |  |  |
-| P676  | lyrics by                    | written by        |  |  |
-| P740  | location of formation        | formed in         |  |  |
-| P807  | separated from               | separated from    |  |  |
-| P937  | work location                | worked in         |  |  |
-| P1056 | product or material produced | produced          |  |  |
-| P1365 | replaces                     | replaced          |  |  |
+| P39 | position held | position held | | |
+| P54 | member of sports team | participated by | | |
+| P58 | screenwriter | written by | | |
+| P69 | educated at | educated at | | |
+| P86 | composer | composed by | | |
+| P108 | employer | worked for | | |
+| P118 | league | participated | | |
+| P166 | award received | award received | | |
+| P170 | creator | created by | | |
+| P176 | manufacturer | manufactured by | | |
+| P272 | production company | produced by | | |
+| P361 | part of | joined | | |
+| P463 | member of | joined | | |
+| P527 | has part | joined by | | |
+| P676 | lyrics by | written by | | |
+| P740 | location of formation | formed in | | |
+| P807 | separated from | separated from | | |
+| P937 | work location | worked in | | |
+| P1056 | product or material produced | produced | | |
+| P1365 | replaces | replaced | | |
 **Table 3.**Redefned relations for relations in Re-DocRED, including Wikidata IDs and relation names.
 
-<span id="page-6-1"></span>
 
-|                  | Re-DocRED |        |        | Tem-DocRED |       |       |  |
+| | Re-DocRED | | | Tem-DocRED | | | |
 |------------------|-----------|--------|--------|------------|-------|-------|--|
-| Dataset          | Train     | Dev    | Test   | Train      | Dev   | Test  |  |
-| # Documents      | 3,053     | 500    | 500    | 2,124      | 371   | 348   |  |
-| # Entities       | 59,359    | 9,684  | 9,779  | 43,095     | 7,606 | 7,151 |  |
-| # Triples        | 85,932    | 17,284 | 17,448 | 10,908     | 2,308 | 2,483 |  |
-| # Sentences      | 24,256    | 4,110  | 3,966  | 16,984     | 3,046 | 2,771 |  |
-| Avg. # Entities  | 19.4      | 19.4   | 19.6   | 20.2       | 20.5  | 20.5  |  |
-| Avg. # Facts     | 28.1      | 34.6   | 34.9   | 5.1        | 6.2   | 7.1   |  |
-| Avg. # Sentences | 7.9       | 8.2    | 7.9    | 8.0        | 8.2   | 8.0   |  |
+| Dataset | Train | Dev | Test | Train | Dev | Test | |
+| # Documents | 3,053 | 500 | 500 | 2,124 | 371 | 348 | |
+| # Entities | 59,359 | 9,684 | 9,779 | 43,095 | 7,606 | 7,151 | |
+| # Triples | 85,932 | 17,284 | 17,448 | 10,908 | 2,308 | 2,483 | |
+| # Sentences | 24,256 | 4,110 | 3,966 | 16,984 | 3,046 | 2,771 | |
+| Avg. # Entities | 19.4 | 19.4 | 19.6 | 20.2 | 20.5 | 20.5 | |
+| Avg. # Facts | 28.1 | 34.6 | 34.9 | 5.1 | 6.2 | 7.1 | |
+| Avg. # Sentences | 7.9 | 8.2 | 7.9 | 8.0 | 8.2 | 8.0 | |
 **Table 4.**Comparison of relation statistics between Re-DocRED and Tem-DocRED. Avg denotes the number of elements averaged to each document.
 
 which appears 2,572 times. Other relationship types, such as "born in", "died in", "directed", "produced", and "replaced" are encountered with medium frequency. Te quantity of facts with "produced" and "separated from" is very few, so corresponding facts are more difcult to extract. Te meaning of each relation is shown in Table [2.](#page-5-0)
@@ -298,7 +294,7 @@ Following previous works of DocRE[30](#page-12-26),[31](#page-12-27), we employ 
 ![](_page_8_Figure_2.jpeg)
 <!-- Image Description: The image is a bar chart showing the distribution of named entity types in a dataset. The categories are: PER (person), TIME, LOC (location), NUM (number), MISC (miscellaneous), and ORG (organization). The chart displays the count of each entity type, with LOC having the highest frequency (14485) and NUM having the lowest (3317). The chart likely illustrates the dataset's characteristics and informs the methodology section of a natural language processing or information extraction paper. -->
 
-<span id="page-8-0"></span>**Fig. 4**Statistics of entities and relations in the Tem-DocRED, where**(a)**shows the number of facts containing diferent relationship types, and**(b)** shows the number of entities of diferent types.
+<span id="page-8-0"></span>**Figure 4**Statistics of entities and relations in the Tem-DocRED, where**(a)**shows the number of facts containing diferent relationship types, and**(b)** shows the number of entities of diferent types.
 
 sometimes generate completely wrong answers. Although we have defned the form of the answer, they also generate wrong content, such as repeated relations or some unrelated phrases. Tey also generate incomplete facts of missing symbols or missing some content, such as <*'Rihanna', 'born in', 'Barba'*> or <*'Rihanna', 'born in', 'Barbados', '2010'*>. Symbol issues usually can be dealt with by rules, but missing content issues can't.
 
@@ -307,24 +303,23 @@ Among all LLMs, GLM-4 and Llama-3 outperform other LLMs. Tese models are specifc
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image displays a system for prompt reconstruction using LLMs and LoRA. A diagram illustrates the LLM + LoRA architecture, showing attention mechanisms and fine-tuning. Another diagram depicts a knowledge graph (TKG) representing factual information extracted from text, with nodes for entities, relations, and timestamps. A flowchart shows the process of generating quadruples (entity1, relation, entity2, timestamp) from the TKG, comparing predicted and positive results. The purpose is to visualize the architecture and workflow of a knowledge-based prompt reconstruction system. -->
 
-<span id="page-9-0"></span>**Fig. 5**Te LLM framework for DocTRE includes fne-tuning an LLM with prompts via LoRA. Generated results are fltered to remove irrelevant quadruples, and the remaining quadruples are used to construct the TKG.
+<span id="page-9-0"></span>**Figure 5**Te LLM framework for DocTRE includes fne-tuning an LLM with prompts via LoRA. Generated results are fltered to remove irrelevant quadruples, and the remaining quadruples are used to construct the TKG.
 
-<span id="page-9-1"></span>
 
-|               | With fltering |       |       | NF     |       |
+| | With fltering | | | NF | |
 |---------------|---------------|-------|-------|--------|-------|
-| Model         | Pre           | Rec   | F1    | Ign F1 | F1    |
-| Baichuan-7B   | 12.84         | 20.02 | 15.65 | 15.65  | 12.72 |
-| Baichuan-2-7B | 16.65         | 16.63 | 16.64 | 16.64  | 12.94 |
-| ChatGLM-3-6B  | 15.75         | 18.97 | 17.21 | 17.21  | 14.04 |
-| Gemma-7B      | 20.87         | 20.38 | 20.62 | 20.62  | 17.66 |
-| GLM-4-9B      | 24.99         | 28.63 | 26.69 | 26.69  | 23.21 |
-| Llama-2-7B    | 18.93         | 26.46 | 22.07 | 22.07  | 18.07 |
-| Llama-3-8B    | 28.19         | 28.55 | 28.37 | 28.37  | 24.17 |
-| Qwen-1.5-7B   | 11.63         | 12.93 | 12.24 | 12.24  | 10.16 |
-| Qwen-2-7B     | 22.53         | 26.82 | 24.49 | 24.45  | 20.79 |
-| Yi-1.5-6B     | 15.35         | 27.63 | 19.74 | 19.74  | 16.89 |
-| Yi-1.5-9B     | 16.27         | 29.20 | 20.89 | 20.86  | 17.91 |
+| Model | Pre | Rec | F1 | Ign F1 | F1 |
+| Baichuan-7B | 12.84 | 20.02 | 15.65 | 15.65 | 12.72 |
+| Baichuan-2-7B | 16.65 | 16.63 | 16.64 | 16.64 | 12.94 |
+| ChatGLM-3-6B | 15.75 | 18.97 | 17.21 | 17.21 | 14.04 |
+| Gemma-7B | 20.87 | 20.38 | 20.62 | 20.62 | 17.66 |
+| GLM-4-9B | 24.99 | 28.63 | 26.69 | 26.69 | 23.21 |
+| Llama-2-7B | 18.93 | 26.46 | 22.07 | 22.07 | 18.07 |
+| Llama-3-8B | 28.19 | 28.55 | 28.37 | 28.37 | 24.17 |
+| Qwen-1.5-7B | 11.63 | 12.93 | 12.24 | 12.24 | 10.16 |
+| Qwen-2-7B | 22.53 | 26.82 | 24.49 | 24.45 | 20.79 |
+| Yi-1.5-6B | 15.35 | 27.63 | 19.74 | 19.74 | 16.89 |
+| Yi-1.5-9B | 16.27 | 29.20 | 20.89 | 20.86 | 17.91 |
 **Table 5.**Experimental results of LLMs for DocTRE on Tem-DocRED. NF denotes the results without fltering.
 
 Tis is because there are few overlapping facts between the training and test sets, the introduction of timestamps makes the intersection smaller compared to Re-DocRED. Te results obtained without a flter are generally lower. On the contrary, flters efectively reduce incorrect predictions, thus improving precision without afecting recall. Consequently, this leads to an overall improvement in the F1 score. While a flter can mitigate some formatting errors, addressing hallucinations remains a signifcant challenge due to their inherent complexity.
@@ -336,19 +331,18 @@ To further explore the performance of LLMs on the facts with diferent relations,
 ![](_page_10_Figure_1.jpeg)
 <!-- Image Description: This bar chart compares the recall performance of three large language models (LLaMA-3-8B, GLM-4-9B, Qwen-2-7B) across six different tasks. Each task (e.g., "participated," "published by") represents a specific type of question the models were asked to answer about a dataset. The chart's purpose is to illustrate the relative strengths and weaknesses of the models in retrieving relevant information, with higher recall indicating better performance. The x-axis represents the task, and the y-axis represents the recall score. -->
 
-<span id="page-10-0"></span>**Fig. 6**Te performance of several LLMs on the top six facts with diferent relations in terms of quantitative ranking. Te quantity of relevant facts increases from lef to right. Recall indicates the proportion of relevant facts in the test set that are predicted correctly.
+<span id="page-10-0"></span>**Figure 6**Te performance of several LLMs on the top six facts with diferent relations in terms of quantitative ranking. Te quantity of relevant facts increases from lef to right. Recall indicates the proportion of relevant facts in the test set that are predicted correctly.
 
-<span id="page-10-1"></span>
 
-|               | With fltering |       |       |        | NF    |
+| | With fltering | | | | NF |
 |---------------|---------------|-------|-------|--------|-------|
-| Model         | Pre           | Rec   | F1    | Ign F1 | F1    |
-| Baichuan-2-7B | 14.89         | 11.20 | 12.78 | 12.78  | 9.23  |
-| Gemma-7B      | 16.41         | 12.48 | 14.18 | 14.18  | 11.29 |
-| GLM-4-9B      | 23.30         | 22.51 | 22.90 | 22.86  | 18.28 |
-| Llama-3-8B    | 25.57         | 19.49 | 22.12 | 22.12  | 16.76 |
-| Qwen-2-7B     | 18.48         | 19.33 | 18.90 | 18.90  | 14.77 |
-| Yi-1.5-6B     | 14.17         | 20.70 | 16.82 | 16.79  | 12.86 |
+| Model | Pre | Rec | F1 | Ign F1 | F1 |
+| Baichuan-2-7B | 14.89 | 11.20 | 12.78 | 12.78 | 9.23 |
+| Gemma-7B | 16.41 | 12.48 | 14.18 | 14.18 | 11.29 |
+| GLM-4-9B | 23.30 | 22.51 | 22.90 | 22.86 | 18.28 |
+| Llama-3-8B | 25.57 | 19.49 | 22.12 | 22.12 | 16.76 |
+| Qwen-2-7B | 18.48 | 19.33 | 18.90 | 18.90 | 14.77 |
+| Yi-1.5-6B | 14.17 | 20.70 | 16.82 | 16.79 | 12.86 |
 **Table 6.**Experimental results of LLMs without entity annotations for DocTRE on Tem-DocRED.
 
 the cluster classifcation method, we utilize regular expressions to recognize timestamps within clusters. Entities and timestamps are used to construct prompts. Te results obtained on the test set, using extracted entities and timestamps, are presented in Table [6](#page-10-1). Compared to the results derived from annotated entities, all metrics decline. Tis decline is primarily attributed to the fact that some mentions are not extracted during the mention extraction phase. If no any mention associated with an entity is extracted, the relations about that entity cannot be predicted. Furthermore, to strictly assess the impact of coreference resolution on the results, when mentions referring to the same entity are incorrectly split into multiple groups, only the frst group of mentions pointing to the same entity is considered valid, even though quadruples containing mentions from other groups would be semantically correct. GLM-4 outperforms other models in this setting, demonstrating its superior robustness for entities.
@@ -356,27 +350,25 @@ the cluster classifcation method, we utilize regular expressions to recognize ti
 To evaluate the efectiveness of the training and to assess the zero-sample inference ability of the model, LLMs without fne-tuning are utilized to reason about the underlying facts in the document. As shown in Table [7](#page-11-2), parameters of most LLMs without fne-tuning result to all wrong answers, so all metrics of them are zero. GLM-4-9B and Llama-3-8B outperform other models again in this task, and pre-training makes an important contribution. Although they obtain better precision, the recall of them is also terrible. GLM-4 uses hybrid autoregressive training, so it performs relatively well. However, in general, the zero-sample performance of these models with fewer parameters is worrisome.
 **Pros & Cons.**Te proposed framework is based on LLM to achieve the automatic temporal relation extraction, so it inherits the advantages of LLMs. Firstly, the framework leverages LLMs' understanding and generative capabilities to handle complex temporal reasoning and infer implicit timestamps from context, outperforming rule-based or pattern-matching methods. Secondly, the pre-trained LLM can ensure that it is suitable for various felds, and address diferent temporal relation extraction issues with fne-tuning and ruled flters. Finally, the framework adopts the modular design, so the LLM, fne-tuning method, and post processing can be updated and replaced. In the future, the LLM or other modules can be replaced by a more efective method to improve the performance of the system.
 
-<span id="page-11-2"></span>
 
-|               | With fltering |      |      | NF     |      |
+| | With fltering | | | NF | |
 |---------------|---------------|------|------|--------|------|
-| Model         | Pre           | Rec  | F1   | Ign F1 | F1   |
-| Baichuan-2-7B | 0.00          | 0.00 | 0.00 | 0.00   | 0.00 |
-| Gemma-7B      | 0.00          | 0.00 | 0.00 | 0.00   | 0.00 |
-| GLM-4-9B      | 22.22         | 0.24 | 0.48 | 0.48   | 0.42 |
-| Llama-3-8B    | 2.71          | 0.24 | 0.44 | 0.44   | 0.35 |
-| Qwen-2-7B     | 0.00          | 0.00 | 0.00 | 0.00   | 0.00 |
-| Yi-1.5-6B     | 0.00          | 0.00 | 0.00 | 0.00   | 0.00 |
+| Model | Pre | Rec | F1 | Ign F1 | F1 |
+| Baichuan-2-7B | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
+| Gemma-7B | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
+| GLM-4-9B | 22.22 | 0.24 | 0.48 | 0.48 | 0.42 |
+| Llama-3-8B | 2.71 | 0.24 | 0.44 | 0.44 | 0.35 |
+| Qwen-2-7B | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
+| Yi-1.5-6B | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
 **Table 7.**Experimental results of LLMs without entity annotations and fne-tuning for DocTRE on Tem-DocRED.
 
-<span id="page-11-3"></span>
 
-| Method                     | Training<br>Complexity | Inference<br>Complexity | Key Bottleneck                                                                |
+| Method | Training<br>Complexity | Inference<br>Complexity | Key Bottleneck |
 |----------------------------|------------------------|-------------------------|-------------------------------------------------------------------------------|
-| Rule-Based Systems         | Negligible             | low                     | Limited to predefned patterns; poor generalization.                           |
-| Traditional Neural Network | Moderate               | Moderate                | Struggles with long-range dependencies in documents.                          |
-| PLM-based Systems          | Moderate               | Moderate                | Little heavier fne-tuning and inference latency compared traditional methods. |
-| LLM-based Systems (Ours)   | High                   | Moderate                | Reduced parameters via LoRA, but still slower than non-LLM baselines.         |
+| Rule-Based Systems | Negligible | low | Limited to predefned patterns; poor generalization. |
+| Traditional Neural Network | Moderate | Moderate | Struggles with long-range dependencies in documents. |
+| PLM-based Systems | Moderate | Moderate | Little heavier fne-tuning and inference latency compared traditional methods. |
+| LLM-based Systems (Ours) | High | Moderate | Reduced parameters via LoRA, but still slower than non-LLM baselines. |
 **Table 8.**Computational complexity comparison between LLM-based systems and other previous methods.
 
 However, there are some limitations of the LLM framework. Fine-tuning LLMs requires signifcant GPU resources (e.g., at least single RTX3090 for small models), limiting accessibility for low-resource settings. Apart from this, errors in entity linking or timestamp extraction propagate to downstream relation extraction, degrading performance. Te framework struggles with precise temporal granularity due to sparse annotations in Tem-DocRED. Tis does not cause errors, but creates redundancy of information.
@@ -388,7 +380,6 @@ A cursive comparison of training computational complexity and inference speed of
 
 Te code includes data construction and evaluation. We released and shared all our code ([https://github.com/](https://github.com/jzhu000/GTKG) [jzhu000/GTKG](https://github.com/jzhu000/GTKG)).
 
-Received: 10 December 2024; Accepted: 24 April 2025; Published: xx xx xxxx
 
 ### References
 

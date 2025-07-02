@@ -26,7 +26,6 @@ keywords:
 - knowledge graphs
 ---
 
-
 # DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE
 
 Anna-Katharina Nitschke1,\*, Carlos Brandl1,\*, Fabian Egersdorfer ¨ 1 , Magdalena Gortz ¨ 2,3, Markus Hohenfellner<sup>3</sup> , and Matthias Weidemuller ¨ 1,†
@@ -45,11 +44,11 @@ Cancer Research Center (DKFZ), Heidelberg, Germany.
 
 June 3, 2025
 
-# ABSTRACT
+## ABSTRACT
 
 Digital Twins hold great potential to personalize clinical patient care, provided the concept is translated to meet specific requirements dictated by established clinical workflows. We present a generalizable Digital Twin design combining knowledge graphs and ensemble learning to reflect the entire patient's clinical journey and assist clinicians in their decision-making. Such Digital Twins can be predictive, modular, evolving, informed, interpretable and explainable with applications ranging from oncology to epidemiology.
 
-# 1 Introduction
+## 1 Introduction
 
 In the era of precision medicine, Digital Twins (DTs) are emerging as a long-term goal with the potential to revolutionize healthcare delivery and have experienced a surge of publications in recent years [\[1\]](#page-7-0) [\[2\]](#page-7-1). Precision medicine aims at leveraging multi-omic, demographic, environmental, and lifestyle patient data to improve the prediction of disease occurrences and deliver personalized treatment recommendations [\[3\]](#page-7-2). The DT as a detailed, digital replica of an individual patient extends the definition of precision medicine by enabling drug discovery and development, real-time health monitoring, and surgery planning and rehearsal [\[4,](#page-7-3) [5\]](#page-7-4). For explicit clinical applications, DTs of organs, like the heart, have been proposed. Those are usually driven by mechanistic models, simulating variables like blood flow and blood pressure to create synthetic physiological data like photoplethysmograms [\[6\]](#page-7-5). Recent advances in machine learning have enabled well-performing models for many clinical tasks, which can form a basis for a predictive DT. The combination of mechanistic models with machine learning models is conceptually desired, but the integration of (multiple) machine learning and mechanistic models into a unified framework is still part of active research [\[7,](#page-7-6) [8\]](#page-7-7). In particular, such hybrid approaches allow for disease management along the entire patient journey [\[5\]](#page-7-4). The application of DTs along the patient journey has also been desired for personalized multiple sclerosis care [\[9\]](#page-7-8) and oncology [\[10\]](#page-7-9). As current concepts of DT in medicine are tailored to a specific disease and medical question, it is difficult to extend them towards other diseases or new procedures. Recently, there has also been a call for a modular, nonspecialized concept which can effectively integrate multiple subsystems for specialized cases [\[11\]](#page-7-10).
 
@@ -57,7 +56,7 @@ Graph-based frameworks have been proposed to describe and connect data processin
 
 This paper presents a general design for a patient DT to reflect the evolving clinical patient journey based on a bipartite knowledge graph. Our design bears five characterizing features, F1: Modular, F2: Informed, F3: Predictive, F4: Evolving, F5: Explainable and Interpretable, ensuring compliance with identified requirements.
 
-# 2 Fundamental Considerations
+## 2 Fundamental Considerations
 
 ## 1 Requirements for a Digital Twin in Clinical Patient Care
 
@@ -75,7 +74,7 @@ Secondly, there exists an *active phase*for which the DT needs to predict change
 
 Finally, there is a*monitoring phase*, which entails making predictions regarding changes in the patient's state without any interventions. This could be, for example, the observation of disease-specific parameters after treatment, indicating the recurrence of a disease. The DT continuously tracks, for example, follow-up biomarkers, imaging data, and patient-reported outcomes. Real-time updates of the DT may trigger early detection of tumor recurrence.
 
-# 3 Design of the Digital Twin
+## 3 Design of the Digital Twin
 
 Figure [2](#page-3-0) schematically depicts our DT design for clinical patient care. The design includes four components: the data backbone, the resource description framework, the backend builder and the operational mode. The design is characterized by five features, F1: Modular, F2: Informed, F3: Predictive, F4: Evolving, F5: Explainable and Interpretable.
 
@@ -86,7 +85,7 @@ The first step of building a DT is to access the *clinical datasystems* (A) whic
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: The image displays a flowchart illustrating a longitudinal digital twin system. At each time point (T₀, Tᵢ, Tᵢ₊₁, Tₙ), a real patient's multi-modal data updates their digital twin. The digital twin, informed by a digital cohort, provides decision support to clinicians, who then make medical decisions impacting the real patient, creating a feedback loop. The figure uses stick figures to represent patients and clinicians and grid-like figures for digital twins. The purpose is to visually demonstrate the iterative process and data flow within the proposed system. -->
 
-<span id="page-2-0"></span>Figure 1: Visualisation of the general design of a DT for clinical patient care generating an interface between the real world (orange; including the patient and the clinician) and the digital world (blue; including the Digital Cohort - Data Cohort and the DT - patient-specific information and algorithmic structure). Multi-modal data gets transferred from the real patient to the DT, which presents its decision support to the clinician for a medical decision.
+<span id="page-2-0"></span>**Figure 1:** Visualisation of the general design of a DT for clinical patient care generating an interface between the real world (orange; including the patient and the clinician) and the digital world (blue; including the Digital Cohort - Data Cohort and the DT - patient-specific information and algorithmic structure). Multi-modal data gets transferred from the real patient to the DT, which presents its decision support to the clinician for a medical decision.
 
 ality. The data is locally saved and often distributed between the different clinical institutions (*DataStore 1, ..., DataStore M*). To make it accessible to machine learning algorithms, the data must be collected, brought in a consistent format, and always up-to-date. This is ensured by what we now call the *data transformer*(A.a). It needs access to the*clinical datasystems*and should support the current FHIR® protocol for output and input, as well as other protocols used for data exchange in the clinic as input. In case of privacy-sensitive data, the output of locally running models can be forwarded and made accessible in the same way. The*data transformer*(A.a) passes the data of former and current patients from the*clinical datasystems*(A) into the DT (B), explicitly to the*data backbone*(B1). The*data backbone*(B1) consists of the*Digital Cohort*(DC) (B1.1), an internal storage of the data of previous and current patients, and the*patient data*(B1.2), an internal storage of all measured as well as predicted states of the current patient of interest. Those two are connected via an*updater*(B1.a), which at time intervals TDC passes data from the patient of interest to the DC. The*data backbone*is the foundation on which models within the*Resource Description Framework*(RDF) (B2) are going to be trained via the*Updater RDF*(B2.a) after some time period TRDF .
 
@@ -97,11 +96,11 @@ We aim for a DT design that makes the most out of every piece of knowledge provi
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This diagram details a digital twin architecture for clinical datasystems. It shows data flowing from clinical datasystems (A) into a data backbone (B1), which feeds a resource description framework (RDF) based digital twin (B2). A backend builder (B3) creates a knowledge graph using RDF, updated (B4) with new patient data. The front-end (C) presents multi-modal data input and outputs processed results, visualizing data with stylized figures, tables, and charts. The image illustrates the system's data flow and processing steps. -->
 
-<span id="page-3-0"></span>Figure 2: Schematic overview of our proposed software solution for patient-centered DTs in Medicine. It consists of 3 different containers, which are labeled A-C. Those represent the different interacting building blocks, where A is the existing clinical data systems feeding into B, the DT itself, explicitly the *data backbone*(B1). The*Resource Description Framework*(B2) stores all available information about models and their links with attributes, which the*back-end builder*(B3) uses to construct a knowledge graph upon which the*operational mode*(B4) is going to perform predictions. The user interacts over C the*front-end*, where block C<sup>1</sup> represents the inputs and C<sup>2</sup> the corresponding outputs from executing the function *run*(within B4). More detailed information about the design is given in the text.
+<span id="page-3-0"></span>**Figure 2:** Schematic overview of our proposed software solution for patient-centered DTs in Medicine. It consists of 3 different containers, which are labeled A-C. Those represent the different interacting building blocks, where A is the existing clinical data systems feeding into B, the DT itself, explicitly the *data backbone*(B1). The*Resource Description Framework*(B2) stores all available information about models and their links with attributes, which the*back-end builder*(B3) uses to construct a knowledge graph upon which the*operational mode*(B4) is going to perform predictions. The user interacts over C the*front-end*, where block C<sup>1</sup> represents the inputs and C<sup>2</sup> the corresponding outputs from executing the function *run*(within B4). More detailed information about the design is given in the text.
 
 aggregation methods might be necessary. For example, to aggregate the cumulative effects of parallel treatments or to account for differences in reliability between the upstream models. In another study, we investigated the building block and tested different weighting schemes for the fusion model. The base models were given either by different data-modalities, pre-existing models, or different diagnostic procedures. The fusion methods included accuracy weighting, entropy weighting, linear regression, logistic regression and neural network models. For the use cases of heart disease detection and glioma diagnosis, there was no significant performance difference between those different weighting methods [\[16\]](#page-7-15).
 
-#### 3 Operational Mode
+### 3 Operational Mode
 
 Attributes determined by real-world diagnostics are used as starting points, activating all available pathways to reveal the most plausible completion of all relevant attributes of the knowledge graph. This update and execution is performed via the*operational mode*'s (B4) *Run*function (B4.a). Input to the *Run*-function is coming from the *front-end*(C)*multi-modal data input*(C1.1) and*user settings*(C1.2). The new input is propagated through the knowledge graph until a maximally holistic attribute estimation is reached. This state of the current best knowledge of the patient of interest is stored within the *patient data*by the*updater PD*(B1.b). This feedback can also be used during the RDF update to adapt or refine the models, constantly improving the DT. Additionally, new models could be added to the RDF, and evidence-based models like CIG can be updated, leading to a constant improvement of the DTs [Evolving Digital Twin].
 
@@ -114,11 +113,11 @@ Based on this provenance chain, the fusion models' acceptance and propagation of
 ![](_page_4_Figure_7.jpeg)
 <!-- Image Description: The image is a flowchart illustrating a data fusion model. Two base models (triangles) independently process attributes (black and white circles) using `m.evaluate()` and `m.propagate()` functions. Results are aggregated by `f.aggregate()`, then propagated (`f.propagate()`) to multiple fusion models (rectangles) via provenance chains (small rectangles). The flowchart visually depicts the data flow and processing steps within the fusion framework. -->
 
-<span id="page-4-0"></span>Figure 3: Local structure of the knowledge graph. Outputs from two different models (green and red) are passed on to the fusion model of an internal attribute (circle). Which then gets forwarded to downstream models. The signature propagation from upstream to downstream models is illustrated by colored signatures on the provenance chain. Labels indicate subroutines from the network algorithm described in Figure [4.](#page-5-0)
+<span id="page-4-0"></span>**Figure 3:** Local structure of the knowledge graph. Outputs from two different models (green and red) are passed on to the fusion model of an internal attribute (circle). Which then gets forwarded to downstream models. The signature propagation from upstream to downstream models is illustrated by colored signatures on the provenance chain. Labels indicate subroutines from the network algorithm described in Figure [4.](#page-5-0)
 
 Finally, the*output*(C2) of the Run-function is visualized in a user-oriented, intuitive way, presenting insight into predicted attribute values, algorithmic prediction, and performance measures, as well as model-agnostic interpretation methods to allow medical explainability by clinicians [Explainable Digital Twin]. Additionally, the graph structure itself is intrinsically interpretable as a type of technical interpretability [Interpretable Digital Twin], as the propagated signatures can be used to backtrack the influences of different attributes.
 
-# 4 Conclusion
+## 4 Conclusion
 
 ## 1 Clinical Translation
 
@@ -127,7 +126,7 @@ Despite the promise of DTs in clinical care, a clear roadmap to clinical use rem
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a model fusion algorithm. A base model (`b`) and a fusion model (`f`) are shown. The algorithm involves conditional checks for input updates and real-world input, determining whether to evaluate, aggregate, or propagate each model. The flowchart illustrates the data flow and decision-making process within the fusion system, specifying actions based on model input and whether the fusion model is already in the processed set (`P`). -->
 
-<span id="page-5-0"></span>Figure 4: Flowchart illustration of the main network propagation and aggregation scheme in the operational mode. Behaviour differs between base models (left) and fusion models (right). The fusion models only propagate if their respective attribute is set externally or the provenance chain P does not already contain its own signature. Loops can run locally and independently of each other.
+<span id="page-5-0"></span>**Figure 4:** Flowchart illustration of the main network propagation and aggregation scheme in the operational mode. Behaviour differs between base models (left) and fusion models (right). The fusion models only propagate if their respective attribute is set externally or the provenance chain P does not already contain its own signature. Loops can run locally and independently of each other.
 
 tem for each model and systematically reporting to regulators will be critical for compliance and transparency. Third, strong data protection is essential. Our approach addresses privacy by enabling local base model training, which significantly reduces patient-level data transfer. Additional security methods, such as differential privacy or encryption, can further mitigate risks. Fourth, clinical adoption depends on clinician trust and understanding of the DT results. Therefore, the recommended design includes interactive dashboards, incorporates modelagnostic explanations, and is easily scalable. On the liability side, the role of the DT is supportive, not prescriptive: the ultimate responsibility remains with the clinician, and transparency features (e.g., explanations and confidence intervals) help clinicians assess when to rely on the DT versus their own expertise.
 
@@ -135,11 +134,11 @@ tem for each model and systematically reporting to regulators will be critical f
 
 Each feature of the presented Digital Twin design enables compliance with distinct requirements that are posed on such a decision support system in the clinical context. A Predictive Digital Twin (through the inclusion of predictive base models) enables decision support along the whole patient journey (within all clinical phases: observation, active, and monitoring). A first type of bidirectional communication between the real and digital world, as well as handling real-time data, is facilitated. A Modular Digital Twin will allow the implementation of several properties, such as handling of privacy-sensitive data, distributed data sources, multimodal input data, big data, data use optimization, information loss and missing values. Additionally, it facilitates the adaptation to new procedures, as well as reliable and robust predictions. An Evolving Digital Twin leads to continuous learning (evolution) through a second type of bidirectional communication between Digital Twin instances of individual patients and the Digital Cohort. This simplifies the update of the decision support system and the scalability to new settings. An Informed Digital Twin that is evidence-adaptive can be generated by including computer-interpretable clinical guidelines (as a type of medical evidence) as base models. The inclusion of Informed Machine Learning using clinical guidelines for final hypothesis validation leads to a third type of bidirectional communication between experts and the Digital Twin. An Interpretable and Explainable Digital Twin will enhance clinical acceptance by the interpretable algorithmic design of the bipartite knowledge graph, explainable visualization methods, and an interactive output design. A more elaborate argumentation of how the Digital Twin design complies with the requirements mentioned above can be found in the appendix.
 
-#### 3 Limitations
+### 3 Limitations
 
 Despite the strengths of the DT design already presented, it has some limitations. General limitations come from the reliance of our approach on the availability of data and base models. Therefore, data of higher quantity and breadth needs to be collected to be able to use the DT as a holistic decision support system. Additionally, the use of supervised machine learning only allows for the identification of structures within the data. Furthermore, broad service accessibility needs to be ensured, as it could otherwise be a driver for inequality in health-service provision [\[17\]](#page-8-0) and widen a socio-economic gap [\[18\]](#page-8-1). A designspecific limitation is the modularity of the Digital Twin. It can be understood as a trade-off between increasing the relative amount of training data (input feature) and losing information between features by splitting them up. In the ideal case where all data is available together and in sufficient quantity, then approaches with better performance could be developed.
 
-#### 4 Future Opportunities
+### 4 Future Opportunities
 
 Our scalable approach allows the application to several settings and, therefore, can be applied to a broad variety of medical cases. One example is cardiology, where many mechanistic, evidence-based models are available. Our DT successfully enables the combination of mechanistic with AI-based models. Another example is in oncology, e.g., for prostate cancer, where multi-modal data is becoming increasingly relevant [\[19\]](#page-8-2), and the heterogeneity of the disease leads to a variety of treatment options and patient journeys [\[20\]](#page-8-3), which can all be represented in our graph structure. Beyond cardiology and oncology, DTs have broad potential to improve clinical decision support in many clinical fields, e.g., pulmonology (for managing chronic respiratory diseases like asthma by predicting exacerbations), endocrinology (for continuous monitoring and prediction of blood glucose trends to improve treatment strategies in diabetes), critical care (for realtime monitoring and early-warning systems in intensive care units), surgical planning (for creating patient-specific models to optimize preoperative planning and predict surgical outcomes) as well as infectious diseases (for modeling the spread of infections, which could aid in personalized treatment during outbreaks). The predictive nature of the DT over several steps in the patient journey can also improve early diagnosis or prevention of diseases [\[5\]](#page-7-4). Due to the nature of limited clinical data before a disease, the DT will need large-scale routine medical data with socioeconomic and behavioural data. In addition, digital devices, such as wearables that track physiological parameters, can enable a new dimension of predictive modelling. First applications might be common chronic diseases like diabetes or hypertension.
 
@@ -147,7 +146,7 @@ Therefore, given an ideal environment with the availability of data and base mod
 
 The Digital Twin for clinical patient care shows a huge potential for improving current clinical practice. The proposed design within this paper enables the identified key requirements. Still, further improvement, scaling, critical analysis, and risk assessments of the presented DT design are crucial in generating guidelines for the Digital Twin development in a clinical environment.
 
-# Acknowledgements
+## Acknowledgements
 
 This work was realized through support by the German Federal Ministry for Economic Affairs and Climate Action (funding #01MT21004F - CLINIC5.1).
 
@@ -157,15 +156,15 @@ The funders played no role in study design, concept development, or the writing 
 
 We want to thank all the project partners of the CLINIC5.1 consortium, in particular Stefan Duensing, Annette Duensing, David Bonekamp, Clara Meinzer, Matthias Rath, and Martina Heller for the numerous insights to oncological patient diagnosis and treatment. We also thank Ullrich Kothe, Pingchuan Ma, and Bj ¨ orn ¨ Ommer for the fruitful discussions of our concept's technical side.
 
-# Author contributions
+## Author contributions
 
 A.N and C.B.: Conceptualisation, Writing—original draft, Writing—review and editing. A.N and F.E.: Visualizations. F.E.: Algorithmic development, Writing—original draft of operational mode, Writing—review and editing. M.G.: Clinical insights, Writing-original draft of clinical translation, Writing—review and editing. M.H.: Clinical insights, Writing—review, Funding acquisition M.W.: Writing—review and editing, Funding acquisition, Supervision All authors have read and agreed to the submitted version of the manuscript.
 
-# Competing Interests
+## Competing Interests
 
 The authors declare no competing interests.
 
-# References
+## References
 
 - <span id="page-7-0"></span>[1] Eric J. Topol. High-performance medicine: The convergence of human and artificial intelligence.*Nature Medicine*, 25(1):44–56, January 2019.
 - <span id="page-7-1"></span>[2] Evangelia Katsoulakis, Qi Wang, Huanmei Wu, Leili Shahriyari, Richard Fletcher, Jinwei Liu, Luke Achenie, Hongfang Liu, Pamela Jackson, Ying Xiao, Tanveer Syeda-Mahmood, Richard Tuli, and Jun Deng. Digital twins for health: a scoping review. *npj Digital Medicine*, 7(1):1–11, 2024. Publisher: Nature Publishing Group.

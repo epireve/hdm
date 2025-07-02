@@ -52,7 +52,8 @@ keywords:
 
 **Nazanin Mahjourian**<sup>∗</sup> **, Vinh Nguyen,**Department of Mechanical Engineering - Engineering Mechanics, Michigan Technological University, Houghton, MI 49931
 
-# ABSTRACT
+## ABSTRACT
+
 *Manufacturing requires reliable object detection methods for precise picking and handling of diverse types of manufacturing parts and components. Traditional object detection methods utilize either only 2D images from cameras or 3D data from lidars or similar 3D sensors. However, each of these sensors have weaknesses and limitations. Cameras do not have depth perception and 3D sensors typically do not carry color information. These weaknesses can undermine the reliability and robustness of industrial manufacturing systems. To address these challenges, this work proposes a multi-sensor system combining an red-green-blue (RGB) camera and a 3D point cloud sensor. The two sensors are calibrated for precise alignment of the multimodal data captured from the two hardware devices. A novel multimodal object detection method is developed to process both RGB and depth data. This object detector is based on the Faster R-CNN baseline that was originally designed to process only camera images. The results show that the multimodal model significantly outperforms the depth-only and RGB-only baselines on established object detection metrics. More specifically, the multimodal model improves mAP by 13% and raises Mean Precision by 11.8% in comparison to the RGB-only baseline. Compared to the depth-only baseline, it improves mAP by 78% and raises Mean Precision by 57%. Hence, this method facilitates more reliable and robust object detection in service to smart manufacturing applications.*
 
 **Keywords: Computer Vision, Multimodal Object Detection, Early Fusion, Smart Manufacturing**
@@ -150,7 +151,7 @@ To help isolate the impact of feeding depth data to the object detection model a
 
 In all experiments, models are trained from scratch with all weights initialized to random values. No weights are shared between the three model variants, and no weights are initialized from pretraining on any other dataset.
 
-#### 3.6 Training and Evaluation Setup
+### 3.6 Training and Evaluation Setup
 
 All models were trained on NVIDIA Tesla T4 GPUs with a driver version of 535.104.05 and CUDA version 12.2. All models used a batch size of 4, which was a compromise between ensuring sufficient gradient stability and keeping the memory requirements within the limits of our hardware. The models were trained using the Stochastic Gradient Descent (SGD) optimizer with a learning rate of 0.001, Nesterov momentum of 0.9, and weight decay of 1e-4. SGD has been widely used in object detection tasks and has proven effective in training Faster R-CNN models. The SGD optimizer with the specified learning rate and Nesterov momentum helps the model converge to an appropriate local minimum while also benefiting from faster updates due to the momentum term. The SGD optimizer is computationally efficient, and can lead to better generalization performance compared to other optimizers like Adam.
 
@@ -171,17 +172,16 @@ To ensure reproducibility and robustness of the analysis, all three variants wer
 
 This section presents the evaluations results comparing the performance of the RGB-only, Depth-only, and RGB-D model variants using the mAP and Mean Precision metrics over the test set. Table [1](#page-5-2) and Fig. [6](#page-6-1) compare the metrics from the three models. Fig. [6](#page-6-1) also shows error bars indicating standard deviation of the metrics over the 10 runs for each model.
 
-| Model      | Mean mAP | Mean Precision |
+| Model | Mean mAP | Mean Precision |
 |------------|----------|----------------|
-| Depth-only | 0.269    | 0.301          |
-| RGB-only   | 0.425    | 0.424          |
-| RGB-D      | 0.480    | 0.474          |
+| Depth-only | 0.269 | 0.301 |
+| RGB-only | 0.425 | 0.424 |
+| RGB-D | 0.480 | 0.474 |
 
-<span id="page-5-2"></span>
 
-| TABLE 1: Comparison of the Depth-only, RGB, and RGB-D model |  |  |
+| TABLE 1: Comparison of the Depth-only, RGB, and RGB-D model | | |
 |-------------------------------------------------------------|--|--|
-| variants over the test set.                                 |  |  |
+| variants over the test set. | | |
 
 The RGB-D model, which uses both images and depth, achieves a mean mAP of 0.480, outperforming the RGB-only model's mean mAP of 0.425, and the Depth-only model's mean mAP of 0.269. Similarly, the mean precision metric further demonstrates the RGB-D model's superior performance with a score of 0.474 in contrast to the RGB-only model's 0.424 and the Depth-only model's 0.301. These results are visually summarized in Figure [6,](#page-6-1) where the RGB-D model demonstrates a
 

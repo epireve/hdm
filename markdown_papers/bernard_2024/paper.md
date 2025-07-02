@@ -27,8 +27,6 @@ images_removed: 1
 keywords: 
 ---
 
-
-
 # PKG API: A Tool for Personal Knowledge Graph Management
 
 Nolwenn Bernard University of Stavanger Stavanger, Norway nolwenn.m.bernard@uis.no
@@ -45,15 +43,15 @@ Weronika Łajewska University of Stavanger Stavanger, Norway weronika.lajewska@u
 
 Vinay Setty University of Stavanger Stavanger, Norway vinay.j.setty@uis.no
 
-# ABSTRACT
+## ABSTRACT
 
 Personal knowledge graphs (PKGs) offer individuals a way to store and consolidate their fragmented personal data in a central place, improving service personalization while maintaining full user control. Despite their potential, practical PKG implementations with user-friendly interfaces remain scarce. This work addresses this gap by proposing a complete solution to represent, manage, and interface with PKGs. Our approach includes (1) a user-facing PKG Client, enabling end-users to administer their personal data easily via natural language statements, and (2) a service-oriented PKG API. To tackle the complexity of representing these statements within a PKG, we present an RDF-based PKG vocabulary that supports this, along with properties for access rights and provenance.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Information systems → Web services; Web applications; Data management systems; Personalization; • Human-centered computing → Natural language interfaces.
 
-# KEYWORDS
+## KEYWORDS
 
 Personal Knowledge Graphs, Personal Data Management, Knowledge Representation, Semantic Technologies
 
@@ -67,7 +65,7 @@ WWW '24 Companion, May 13–17, 2024, Singapore, Singapore
 
 <https://doi.org/10.1145/3589335.3651247>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 A personal knowledge graph (PKG) is "a resource of structured information about entities related to an individual, their attributes, and the relations between them" [\[1\]](#page-3-1). A PKG offers the possibility to centrally store all information related to its owner such as personal relationship, preferences on food, and calendar data [\[23\]](#page-3-2). This enables the delivery of highly personalized services while maintaining the owner's full control over their data. In today's digital world, where personal data is often fragmented across multiple accounts with different service providers, a PKG provides a solution for consolidating information. Crucially, one of the most essential features of a PKG is that the individual is put in control of their data, allowing owners to determine what data is stored and what services have access to it [\[23\]](#page-3-2). Despite the clear potential of PKGs and the growing research interest around them [\[2\]](#page-3-3), efforts have so far remained mostly on the conceptual level. Practical implementations, especially those that directly interface with users, are lacking. This paper aims to address that gap.
 
@@ -102,9 +100,8 @@ While there are several definitions of PKGs [\[1,](#page-3-1) [5\]](#page-3-5), 
 
 Our proposed PKG API focuses on enabling user-friendly interactions via natural language (NL). This requires a way to automatic translate NL statements to a structured query language that can directly interact with the PKG. Methods for such NL-tostructured-language translation traditionally focus on conversion to SQL [\[30,](#page-3-14) [32\]](#page-3-15), with interactive approaches [\[26\]](#page-3-16) and LLMs [\[13,](#page-3-17) [22\]](#page-3-18) being the state of the art. A similar pattern is followed in the case of conversion from natural language to SPARQL, which can be used for querying knowledge graphs. While earlier methods were based, for example, on rules [\[17\]](#page-3-19) and machine translation [\[31\]](#page-3-20), recent studies start to explore LLMs [\[25,](#page-3-21) [29\]](#page-3-22). LLMs have also been utilized to translate NL queries to different API calls [\[18,](#page-3-23) [21\]](#page-3-24).
 
-<span id="page-1-1"></span>
 
-Figure 2: Screenshot of the home screen after submission of a natural language statement.
+**Figure 2:** Screenshot of the home screen after submission of a natural language statement.
 
 ## 3 OVERVIEW AND ARCHITECTURE
 
@@ -133,7 +130,7 @@ PKG API: A Tool for Personal Knowledge Graph Management WWW '24 Companion, May 1
 <span id="page-2-2"></span>![](_page_2_Figure_9.jpeg)
 <!-- Image Description: The image depicts a flowchart illustrating the processing of a user's natural language preference ("I dislike all movies with Tom Cruise"). It shows the stages: user interface input, transformation by NL2PKG (Natural Language to Package), connection to a package (PKG) via a connector, and final representation in PKG format using RDF (Resource Description Framework) triples. Code snippets illustrate the data structure at each stage, detailing subject, predicate, object, and preference values. The diagram's purpose is to explain the system's architecture for processing and storing user preferences. -->
 
-# <span id="page-2-1"></span>Figure 3: Life of a statement from NL to PKG. 5 NATURAL LANGUAGE TO PKG
+## <span id="page-2-1"></span>Figure 3: Life of a statement from NL to PKG. 5 NATURAL LANGUAGE TO PKG
 
 To facilitate user-friendly interactions with PKGs, we present a twostage NL2PKG approach that translates natural language statements to API calls that perform operations on the PKG, such as storing stated preferences or retrieving previous statements.
 

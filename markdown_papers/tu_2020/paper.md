@@ -23,7 +23,6 @@ keywords:
 - sparql
 ---
 
-
 # <span id="page-0-1"></span>SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs
 
 ![](_page_0_Figure_1.jpeg)
@@ -31,7 +30,7 @@ keywords:
 
 Yamei Tu, Rui Qiu, Han-Wei Shen
 
-<span id="page-0-0"></span>Fig. 1: Our Semantic Knowledge Graph is equipped with a dataflow system that allows users to create semantic queries in an interactive manner. The system includes operator components ( ) and visualizer components ( ), which users can connect using a simple drag-and-drop interface to build various analysis pipelines for their specific requirements.
+<span id="page-0-0"></span>**Figure 1:** Our Semantic Knowledge Graph is equipped with a dataflow system that allows users to create semantic queries in an interactive manner. The system includes operator components ( ) and visualizer components ( ), which users can connect using a simple drag-and-drop interface to build various analysis pipelines for their specific requirements.
 
 **Abstract**—The number of published research papers has experienced exponential growth in recent years, which makes it crucial to develop new methods for efficient and versatile information extraction and knowledge discovery. To address this need, we propose a Semantic Knowledge Graph (SKG) that integrates semantic concepts from abstracts and other meta-information to represent the corpus. The SKG can support various semantic queries in academic literature thanks to the high diversity and rich information content stored within. To extract knowledge from unstructured text, we develop a Knowledge Extraction Module that includes a semi-supervised pipeline for entity extraction and entity normalization. We also create an ontology to integrate the concepts with other meta information, enabling us to build the SKG. Furthermore, we design and develop a dataflow system that demonstrates how to conduct various semantic queries flexibly and interactively over the SKG. To demonstrate the effectiveness of our approach, we conduct the research based on the visualization literature and provide real-world use cases to show the usefulness of the SKG. The dataset and codes for this work are available at [https://osf.io/aqv8p/?view\\_only=2c26b36e3e3941ce999df47e4616207f](https://osf.io/aqv8p/?view_only=2c26b36e3e3941ce999df47e4616207f).
 
@@ -91,20 +90,20 @@ The Semantic Knowledge Graph (SKG) serves as a foundational representation of a 
 <span id="page-2-0"></span>![](_page_2_Figure_3.jpeg)
 <!-- Image Description: This image depicts two entity relationship diagrams. The left diagram ("Meta-data Entity") shows relationships between "Conference," "Venue," "Author," and "Paper," illustrating metadata connections like authorship, venue, and citation. The right diagram ("Semantic Entity") displays a "Concept" entity linked to attributes including "application," "data," "method," "visualization," and "evaluation," representing semantic information. The diagrams illustrate the distinction between metadata and semantic data within a research context. -->
 
-Fig. 2: The schematic ontology of Semantic Knowledge Graph. It contains four meta-data entity types and one semantic entity type. *Concepts*with different semantic roles are captured in relationships between*Paper*and*Concept*.
+**Figure 2:** The schematic ontology of Semantic Knowledge Graph. It contains four meta-data entity types and one semantic entity type. *Concepts*with different semantic roles are captured in relationships between*Paper*and*Concept*.
 
 - *Paper*: Represents each paper with attributes of title, a unique id, publication year, and URL to the semantic scholar. It has outgoing relations to all the other four entity types.
 - *Concept*: Represents the scientific keyword or keyphrases extracted from paper abstracts. If the *Concept*is recognized in the DBPedia, it will include a URL attribute that leads to the corresponding DBPedia page. Since*Concept*can have different semantic roles in abstracts, we capture such information in the relationships that connect*Concept*and*Paper*. Specifically, we define five types of *Concept*to categorize knowledge in abstracts:
-  -*Application*: the *Concept*that describes the*application*such as biology, business, or*task*like image classification.
-  -*Data*: the *Concept*that describes the*data*or*dataset*, e.g., volume data, image, MNIST dataset.
-  - *Method*: the *Concept*that describes the*method*, *algorithm*or*technique*, such as cross validation, Random Forest.
+-*Application*: the *Concept*that describes the*application*such as biology, business, or*task*like image classification.
+-*Data*: the *Concept*that describes the*data*or*dataset*, e.g., volume data, image, MNIST dataset.
+- *Method*: the *Concept*that describes the*method*, *algorithm*or*technique*, such as cross validation, Random Forest.
 - *Visualization*: the *Concept*that describes the*visualization*or*chart*, e.g., visual analytic system, bar chart, heat map.
 - *Evaluation*: the *Concept*that describes the*evaluation*, e.g., quantitative evaluation, expert interview, user study.
 - *Author*: Represents authors with an attribute of the full name.
 - *Journal*: Represents journal entity with an attribute of the name.
 - *Venue*: Similar to *Journal*entity, it represents the venue where one paper has been published.
 
-# 3.2 SKG Construction
+## 3.2 SKG Construction
 
 Constructing a useful and effective knowledge graph can be challenging, as it depends on both the quantity and quality of data it contains. Therefore, as the first step, we create a large domain-specific dataset that includes both metadata and raw text to be used in the SKG. We then extract concepts from the raw text, to transform the unstructured textual data into structured knowledge. To accomplish this, we develop a semi-supervised module that combines machine computation ability with human intelligence. Finally, using the metadata and concepts obtained from the previous steps, we represent our knowledge graph in the Resource Description Framework (RDF). The RDF format is the standard for representing knowledge in the semantic web, which allows machines to process and reason about data in a meaningful way. In summary, our SKG construction involves the following steps:
 
@@ -114,22 +113,22 @@ Constructing a useful and effective knowledge graph can be challenging, as it de
 
 Below, we describe each of the steps in detail.
 
-# 2.1*VISBank*dataset
+## 2.1*VISBank*dataset
 
 Several well-known academic datasets are available in the visualization domain. However, they do not cover all the necessary information we need as they are not built for knowledge graph purposes. For example, VisPub [\[25\]](#page-9-29) is a popular benchmark dataset that contains various metadata about papers in the IEEE VIS conferences, but it does not cover other relevant fields, such as virtual reality, or graphics. Another dataset, VitaLITy [\[39\]](#page-9-30), covers 38 popular data visualization publication venues. However, it does not contain the citation relationships as it focuses on utilizing abstract to generate semantic embeddings for serendipity discovery. Thus, we construct a new dataset called*VISBank*, which is ideal for constructing knowledge graphs in the visualization domain.
 
-<span id="page-2-2"></span>Table 1: Statistical information regarding the *VISBank*dataset includes (A) the coverage of key attributes of papers covered in*VISBank*; (B) a comparison of the *VISBank*with other datasets in the VIS literature; (C) The paper distributions across sub-areas in the VIS literature.
+<span id="page-2-2"></span>**Table 1:** Statistical information regarding the *VISBank*dataset includes (A) the coverage of key attributes of papers covered in*VISBank*; (B) a comparison of the *VISBank*with other datasets in the VIS literature; (C) The paper distributions across sub-areas in the VIS literature.
 
-|                     | Title         | 100%          |      | Graphics &Visualization                 | 55,759 |
+| | Title | 100% | | Graphics &Visualization | 55,759 |
 |---------------------|---------------|---------------|------|-----------------------------------------|--------|
-| (A)                 | Abstract      | 85.2%         |      | Human-Computer Interaction              | 36,719 |
-| Coverage            | Author        | 99.7%         | (C)  | Knowledge & Data mining                 | 9,490  |
-| of Key<br>Attribute | Venue/Journal | 99.3%         | Sub  | Virtual/Augmented Reality               | 7,648  |
-|                     | Total         | 125,745       | Area | Cognitive Visualization                 | 6,514  |
-| (B)                 | VisPub        | 3,120/3,503   |      | Mobile & Ubiquitous Visualization 4,524 |        |
-| Compare             | VitaLITy      | 52,784/59,232 |      | User Interface, System                  | 2,279  |
-|                     | S2ORC         | 125,745/135M  |      | Others                                  | 2,812  |
-*VISBank*offers high extensiveness and diversity in terms of the data it covers, making it a valuable resource for researchers in the visualization field. The dataset contains 125, 745 papers from 3520 venues and 88 journals, following the same format as the Semantic Scholar Open Research Corpus (S2ORC) [\[30\]](#page-9-31) [2](#page-2-1) . We compute the coverage of several key attributes in the*VISBank*and report it in [Table 1A](#page-2-2). The high percentage indicates that*VISBank*provides comprehensive metadata coverage, providing a strong foundation for SKG construction. Additionally, we compare*VISBank*with two aforementioned datasets, i.e.,*VisPub*and*VitaLITy*. The results are presented in [Table 1B](#page-2-2). The high coverage of both datasets suggests that our *VISBank*merges various data sources in the visualization literature, ensuring compliance with the FAIR principles for making data more findable, accessible, interoperable, and reusable. Also, the paper distribution across related areas in the visualization literature is shown in [Table 1C](#page-2-2), highlighting the multidisciplinary nature of the data in the*VISBank*.
+| (A) | Abstract | 85.2% | | Human-Computer Interaction | 36,719 |
+| Coverage | Author | 99.7% | (C) | Knowledge & Data mining | 9,490 |
+| of Key<br>Attribute | Venue/Journal | 99.3% | Sub | Virtual/Augmented Reality | 7,648 |
+| | Total | 125,745 | Area | Cognitive Visualization | 6,514 |
+| (B) | VisPub | 3,120/3,503 | | Mobile & Ubiquitous Visualization 4,524 | |
+| Compare | VitaLITy | 52,784/59,232 | | User Interface, System | 2,279 |
+| | S2ORC | 125,745/135M | | Others | 2,812 |
+**VISBank:** offers high extensiveness and diversity in terms of the data it covers, making it a valuable resource for researchers in the visualization field. The dataset contains 125, 745 papers from 3520 venues and 88 journals, following the same format as the Semantic Scholar Open Research Corpus (S2ORC) [\[30\]](#page-9-31) [2](#page-2-1) . We compute the coverage of several key attributes in the*VISBank*and report it in [Table 1A](#page-2-2). The high percentage indicates that*VISBank*provides comprehensive metadata coverage, providing a strong foundation for SKG construction. Additionally, we compare*VISBank*with two aforementioned datasets, i.e.,*VisPub*and*VitaLITy*. The results are presented in [Table 1B](#page-2-2). The high coverage of both datasets suggests that our *VISBank*merges various data sources in the visualization literature, ensuring compliance with the FAIR principles for making data more findable, accessible, interoperable, and reusable. Also, the paper distribution across related areas in the visualization literature is shown in [Table 1C](#page-2-2), highlighting the multidisciplinary nature of the data in the*VISBank*.
 
 We construct the *VISBank*dataset by extracting relevant papers from the S2ORC dataset. The reason is that S2ORC contains over 136 million scientific papers with rich meta-data, including raw text information. However, it can be challenging to identify a small target subset from such a large corpus. To narrow down the selection, we first filtered the attribute of "field of study" to "computer science", which is the smallest superset of visualization, resulting in 12 million papers. Next, we identify the relevant sub-fields by performing a keyword-based search. For instance, we use the keyword "visualization" to identify related journal and venue names such as*Journal of Visualization*and*IEEE Transactions on Visualization and Computer Graphics*. By using this approach, we have compiled a full list of 3520 relevant venues and 88 journals, which can be found in the supplemental material. We further filter papers that appear in those venues and journals. Additionally, we also map papers from *VisPub*and*VitaLITy*to S2ORC by matching their titles and integrate the matched ones into*VISBank*. We process
 
@@ -138,13 +137,13 @@ We construct the *VISBank*dataset by extracting relevant papers from the S2ORC d
 <span id="page-3-2"></span><span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image presents a three-stage workflow diagram for training a named entity recognition (NER) model. Stage A shows unsupervised pipeline creation using entity extraction and classification from documents to generate training samples. Stage B depicts selecting high-confidence samples through human feedback and fine-tuning. Stage C shows fine-tuning a pre-trained NER model using recognition and normalization steps, leveraging DBpedia Spotlight. The diagrams illustrate the process flow, highlighting data transformation and model refinement. -->
 
-Fig. 3: The process of transforming unstructured text into *Concept*entities involves three steps: (A) preparing a training dataset for the Named Entity Recognition (NER) model by utilizing machine semantic understanding ability, (B) incorporating human feedback into the training dataset, and (C) training the NER model to recognize all entities in the*VISBank*and perform normalization to eliminate redundant information.
+**Figure 3:** The process of transforming unstructured text into *Concept*entities involves three steps: (A) preparing a training dataset for the Named Entity Recognition (NER) model by utilizing machine semantic understanding ability, (B) incorporating human feedback into the training dataset, and (C) training the NER model to recognize all entities in the*VISBank*and perform normalization to eliminate redundant information.
 
 each abstract to extract*Concept*entities as explained below and add this information into*VISBank*.
 
 ## 2.2 Concept Entity Extraction
 
-*VISBank*contains meta information that can be directly transformed into the meta-data entities in SKG. However, the*Concept*entity needs to be extracted and classified from the abstracts, which can be a challenging task when considering the requirement of high accuracy and efficiency. To address this issue, we propose a semi-supervised module to perform the Named Entity Recognition (NER) task that simultaneously recognizes entities and classifies them into the five named*Concept*types mentioned above. The module consists of three key steps to reduce the labeling effort required to prepare the training dataset for NER: (1) unsupervised pipeline to generate weak training samples; (2) filtering high-confidence samples and soliciting human annotators to create high-quality training samples; (3) supervised training of a NER model, as shown in [Figure 3.](#page-3-0)
+**VISBank:** contains meta information that can be directly transformed into the meta-data entities in SKG. However, the*Concept*entity needs to be extracted and classified from the abstracts, which can be a challenging task when considering the requirement of high accuracy and efficiency. To address this issue, we propose a semi-supervised module to perform the Named Entity Recognition (NER) task that simultaneously recognizes entities and classifies them into the five named*Concept*types mentioned above. The module consists of three key steps to reduce the labeling effort required to prepare the training dataset for NER: (1) unsupervised pipeline to generate weak training samples; (2) filtering high-confidence samples and soliciting human annotators to create high-quality training samples; (3) supervised training of a NER model, as shown in [Figure 3.](#page-3-0)
 
 To generate weak training samples, our unsupervised pipeline first extracts candidate entities from the text. To do so, we first generate the Part-of-Speech (POS) tag for each token, indicating its grammatical function in the sentence. We then use a rule-based approach to extract the noun n-grams based on the POS tags. This approach has high readability and is easy to tune to achieve high coverage of all candidate entities [\[55\]](#page-10-16). We adopt the same rules from previous work [\[53\]](#page-10-17).
 
@@ -155,11 +154,10 @@ For question answering, we employ a RoBERTa model that is finetuned on the SQuAD
 $$
 score_S(q, d, t_i) = \frac{e^{\mathbf{W}_S \cdot \mathbf{v_i}}}{\sum_j e^{\mathbf{W}_S \cdot \mathbf{v_j}}}, \quad score_E(q, d, t_i) = \frac{e^{\mathbf{W}_E \cdot \mathbf{v_i}}}{\sum_j e^{\mathbf{W}_E \cdot \mathbf{v_j}}}.
 $$
- (1)
+(1)
 
 v<sup>i</sup> is the embedding of a token ti, which is an intermediate output in the model. v<sup>i</sup> shares the same dimensions with the weight matrix WS, W<sup>E</sup> (768d). Then, the probability of a span s starting from position i and ending at position j to answer the question is computed as:
 
-<span id="page-3-1"></span>
 $$
 p(s_{t_i:t_j}|q,d) = Softmax(scores(q,d,t_i) \cdot score_E(q,d,t_j)) \tag{2}
 $$
@@ -187,44 +185,43 @@ Using the ontology defined in [Figure 2,](#page-2-0) we transform the metadata a
 
 SKG is represented using RDF (Resource Description Framework) triplets because it is the most powerful and expressive standard designed by the World Wide Web Consortium (W3C). RDF triplets harmonize
 
-Table 2: Summarizing the utilization of our SKG in different real-world scenarios that involve semantic queries.
+**Table 2:** Summarizing the utilization of our SKG in different real-world scenarios that involve semantic queries.
 
-<span id="page-4-2"></span>
 
-| Entity            | Ontology                                                                                                                                                      | Supported Task                                           | Usage Scenarios of Semantic Queries                                                                                                                                       |
+| Entity | Ontology | Supported Task | Usage Scenarios of Semantic Queries |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Paper             | Paper<br>Concept<br>/hasData/hasApplication/<br>/hasMethod/hasVisualization<br>cites<br>/hasEvaluation                                                        | • Document Retrieval<br>• Automatic Literature<br>Review | Find academic papers related to text mining and visualization, and provide a summary of the<br>tasks that can be addressed by the different methods used in these papers. |
-| Author            | Paper<br>Concept<br>/hasData/hasApplication/<br>creator<br>/hasMethod/hasVisualization<br>/hasEvaluation<br>Author                                            | • Reviewer Finder<br>• Researcher Profiling              | Find potential reviewers to evaluate a new research paper focused on using neural networks<br>for parameter exploration in ensemble simulations.                          |
-| Venue<br>/Journal | Paper<br>Concept<br>/hasData/hasApplication/<br>appearsInVenue<br>/hasMethod/hasVisualization<br>/hasEvaluation<br>Conference<br>Venue<br>appearsInConference | • Conference Finder<br>• Journal Comparison              | Find possible conferences to submit the work related to improving trust in ML<br>through visualization and compare those conferences based on their accepted papers.      |
+| Paper | Paper<br>Concept<br>/hasData/hasApplication/<br>/hasMethod/hasVisualization<br>cites<br>/hasEvaluation | • Document Retrieval<br>• Automatic Literature<br>Review | Find academic papers related to text mining and visualization, and provide a summary of the<br>tasks that can be addressed by the different methods used in these papers. |
+| Author | Paper<br>Concept<br>/hasData/hasApplication/<br>creator<br>/hasMethod/hasVisualization<br>/hasEvaluation<br>Author | • Reviewer Finder<br>• Researcher Profiling | Find potential reviewers to evaluate a new research paper focused on using neural networks<br>for parameter exploration in ensemble simulations. |
+| Venue<br>/Journal | Paper<br>Concept<br>/hasData/hasApplication/<br>appearsInVenue<br>/hasMethod/hasVisualization<br>/hasEvaluation<br>Conference<br>Venue<br>appearsInConference | • Conference Finder<br>• Journal Comparison | Find possible conferences to submit the work related to improving trust in ML<br>through visualization and compare those conferences based on their accepted papers. |
 
 all the relations into a < s, p, o > format, where the subject entity s and object entity o are connected by the predicate p. This generality can integrate various types of information, which is efficient for data publication and interchange. The triplets follow the schematic ontology defined in [Figure 2,](#page-2-0) and a specific version of the schema can be found in the supplemental material.
 
-#Entity Type #Count Paper 125745 Concept 766276 Author 181031 Journal 1355 Conference 4367 # Relation Type # Count cites 344389 creator 398670 appearsInJournal 57330 appearsInConf\*111558 hasDATA 350262 hasAPPLICATION 333562 hasMETHOD 537921 hasVISUALIZATION 99284 hasEVALUATION 172981 (B) (C) (D) After construction, each instance in*VISBank*can be seen as a subgraph that surrounds the*Paper*entity. An example of such a subgraph is shown in [Figure 4.](#page-4-0) The paper titled "LDAvis: a method for visualizing for visualizing and interpreting," was written by Carson Sievert, and Kenneth Shirley and published in*Proceedings of the Workshop on Interactive Language Learning, Visualization, and Interfaces*. The paper
+## Entity Type #Count Paper 125745 Concept 766276 Author 181031 Journal 1355 Conference 4367 # Relation Type # Count cites 344389 creator 398670 appearsInJournal 57330 appearsInConf\*111558 hasDATA 350262 hasAPPLICATION 333562 hasMETHOD 537921 hasVISUALIZATION 99284 hasEVALUATION 172981 (B) (C) (D) After construction, each instance in*VISBank*can be seen as a subgraph that surrounds the*Paper*entity. An example of such a subgraph is shown in [Figure 4.](#page-4-0) The paper titled "LDAvis: a method for visualizing for visualizing and interpreting," was written by Carson Sievert, and Kenneth Shirley and published in*Proceedings of the Workshop on Interactive Language Learning, Visualization, and Interfaces*. The paper
 
 ![](_page_4_Figure_5.jpeg)
 <!-- Image Description: The image is a graph illustrating the relationships between the LDAvis topic modeling visualization method and related works. Nodes represent publications, methods (e.g., Termite visualization techniques), datasets, and individuals (e.g., Kenneth Shirley). Edges depict connections such as citations, data usage, and method application. The graph visually summarizes the context and contributions of LDAvis within the field of topic modeling visualization. -->
 
-<span id="page-4-0"></span>Fig. 4: A subgraph from SKG that is built from one paper record.
+<span id="page-4-0"></span>**Figure 4:** A subgraph from SKG that is built from one paper record.
 
 focuses on the task of *topic interpretation*based on*topic-term relationship*using*Latent Dirichlet Allocation*and*interactive visualization*.
 
-<span id="page-4-1"></span>Table 3: The statistics of different entities and relations in SKG. *(Conf\* is short for Conference)*
+<span id="page-4-1"></span>**Table 3:** The statistics of different entities and relations in SKG. *(Conf\* is short for Conference)*
 
-| Entity Type | #Number | Relation Type                    | #Number |
+| Entity Type | #Number | Relation Type | #Number |
 |-------------|---------|----------------------------------|---------|
-| Paper       | 125,745 | cites (Paper→Paper)              | 344,389 |
-|             |         | creator (Paper → Author)         | 398,670 |
-| Concept     | 766,276 | appearsInJournal (Paper→Journal) | 57,330  |
-|             |         | appearsInConf* (Paper→Conf*)     | 111,558 |
-| Author      | 181,031 | hasData (Paper→Concept)          | 350,262 |
-|             |         | hasApplication (Paper→Concept)   | 333,562 |
-| Journal     | 1,355   | hasMethod (Paper→Concept)        | 537,921 |
-|             |         | hasVisualization (Paper→Concept) | 99,284  |
-| Conference  | 4,367   | hasEvaluation (Paper→Concept)    | 172,981 |
+| Paper | 125,745 | cites (Paper→Paper) | 344,389 |
+| | | creator (Paper → Author) | 398,670 |
+| Concept | 766,276 | appearsInJournal (Paper→Journal) | 57,330 |
+| | | appearsInConf* (Paper→Conf*) | 111,558 |
+| Author | 181,031 | hasData (Paper→Concept) | 350,262 |
+| | | hasApplication (Paper→Concept) | 333,562 |
+| Journal | 1,355 | hasMethod (Paper→Concept) | 537,921 |
+| | | hasVisualization (Paper→Concept) | 99,284 |
+| Conference | 4,367 | hasEvaluation (Paper→Concept) | 172,981 |
 
 [Table 3](#page-4-1) presents the counts of various entity types and relation types contained in the constructed SKG. Each of the ∼126k *Paper*entities has an average of 3.1 outgoing relations to*Author*entities and 2.7 outgoing relations that cite other papers. Additionally, our module identifies an average of 11.9*Concept*entities for each*Paper*. Among these *Concept*entities, around 23.4% are related to data or datasets, 22.3% pertain to applications or tasks, and 36% refer to methods, algorithms, or techniques discussed in the abstract. Approximately 6.6% entities are related to visualization since some papers do not explicitly discuss visualization techniques. Finally, 11.6% entities introduce the evaluation methods or metrics employed.
 
-# 3.3 Semantic Queries over the SKG
+## 3.3 Semantic Queries over the SKG
 
 Semantic queries over SKG can be seen as extracting a subgraph by following some search criteria. In this section, we explain how SKG empowers information retrieval and analysis through semantic queries. However, due to the complexity and diversity of the SKG, constructing different semantic queries to achieve various goals in structured query languages such as SPARQL can be a time-consuming task. To overcome this challenge, we extract the essence of semantic queries and develop an algorithm that handles various semantic queries with high efficiency and scalability.
 
@@ -240,33 +237,33 @@ Specifically, starting from each source entity ni, we first find all reachable e
 
 ## <span id="page-5-0"></span>Algorithm 1 Semantic Query over the SKG
 
-| 1: Input: SKG G = (N, E) and its ontology Gont, source entities Ns, number of       |
+| 1: Input: SKG G = (N, E) and its ontology Gont, source entities Ns, number of |
 |-------------------------------------------------------------------------------------|
-| target entities K, desired entity type t                                            |
-| 2: Output: target entities Nt with type t, Es→t = {ni → nj  ni ∈ Ns, nj ∈ Nt}       |
-| 3: Declare: Candidates nodes Nc, Candidate edges Ec                                 |
-| 4: for ni ∈ Ns do                                                                   |
+| target entities K, desired entity type t |
+| 2: Output: target entities Nt with type t, Es→t = {ni → nj ni ∈ Ns, nj ∈ Nt} |
+| 3: Declare: Candidates nodes Nc, Candidate edges Ec |
+| 4: for ni ∈ Ns do |
 | 5:<br>d ← shortest_dist(type(ni), t, Gont) // hops between source and target entity |
-| 6:<br>Nd ← all_destinations(ni, cutoff=d, G) // all reachable nodes with d-hops     |
-| 7:<br>for nd ∈ Nd do                                                                |
-| 8:<br>if type(nd)= t then // find candidate entities with type t                    |
-| 9:<br>s ← score(ni, nd, G) // the number of connections between (ni, nd)            |
-| 10:<br>Nc ← add((nd, s)) // keep recording score of each candidate entity           |
-| 11:<br>Ec ← add((ni, nd)) // adding the relation                                    |
-| 12:<br>end if                                                                       |
-| 13:<br>end for                                                                      |
-| 14: end for                                                                         |
+| 6:<br>Nd ← all_destinations(ni, cutoff=d, G) // all reachable nodes with d-hops |
+| 7:<br>for nd ∈ Nd do |
+| 8:<br>if type(nd)= t then // find candidate entities with type t |
+| 9:<br>s ← score(ni, nd, G) // the number of connections between (ni, nd) |
+| 10:<br>Nc ← add((nd, s)) // keep recording score of each candidate entity |
+| 11:<br>Ec ← add((ni, nd)) // adding the relation |
+| 12:<br>end if |
+| 13:<br>end for |
+| 14: end for |
 | 15: Nt ← sortedByValue(Nc)[0:K] // sort the candidate entities and return the top-K |
-| 16: for e = (ni, nj ) ∈ Ec do                                                       |
-| 17:<br>if nj ∈ Nt then // filter edges according to target entity                   |
-| 18:<br>Es→t ← add(ni, nj )                                                          |
-| 19:<br>end if                                                                       |
-| 20: end for                                                                         |
-|                                                                                     |
+| 16: for e = (ni, nj ) ∈ Ec do |
+| 17:<br>if nj ∈ Nt then // filter edges according to target entity |
+| 18:<br>Es→t ← add(ni, nj ) |
+| 19:<br>end if |
+| 20: end for |
+| |
 
 return the top-K as target entities Nt. We also select relations that start from entities in N<sup>s</sup> to entities in N<sup>t</sup> as target edges Es→t.
 
-# 3.4 A Dataflow System for Interactive Semantic Querying
+## 3.4 A Dataflow System for Interactive Semantic Querying
 
 ## 4.1 System Requirements
 
@@ -304,7 +301,7 @@ Table Viewer presents raw data in a tabular manner (T4). It enables users to dev
 
 Node Viewer serves as a bridge between our SKG with DBpedia, displaying the corresponding DBpedia webpage when a user clicks on a*Concept*of interest in*Expander*, as shown in [Figure 1E](#page-0-0). Additionally, the *Web Viewer*offers a GUI interface for users to query [\(Figure 1](#page-0-0)e1) or perform SPARQL queries on the DBpedia [\(Figure 1](#page-0-0)e2).
 
-#### 4 EVALUATION OF CONCEPT ENTITY EXTRACTION
+### 4 EVALUATION OF CONCEPT ENTITY EXTRACTION
 
 The quality of SKG heavily depends on the concept entities, which are extracted by our semi-supervised module. We conduct an evaluation of this process from two perspectives: (1) whether the unsupervised pipeline can reduce labor work for users and (2) whether the fine-tuned NER model can accurately extract entities.
 
@@ -313,7 +310,7 @@ To assess this, we computed the f1-score of NER results by comparing the unsuper
 <span id="page-6-3"></span><span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image displays a bar chart comparing the performance of different pre-trained language models (Unsupervised, SciBERT, BERT-large, BERT-base, DistilBERT, RoBERTa) across six aspects: Data, Application, Method, Visualization, Evaluation, and an Overall score. Each model's performance in each category is represented by a bar, with scores ranging from approximately 0.1 to 0.9. The chart likely serves to illustrate the comparative strengths and weaknesses of each model for the paper's specific application. A horizontal dashed line indicates a benchmark score. -->
 
-Fig. 5: The F1 scores for five fine-tuned language models and an unsupervised pipeline on the Named Entity Recognition (NER) task.
+**Figure 5:** The F1 scores for five fine-tuned language models and an unsupervised pipeline on the Named Entity Recognition (NER) task.
 
 malization, which can compensate for some partially-matched entities. Therefore, we computed the f1-score at the token level instead of the entity level, which is more appropriate in our usage scenario. Our evaluation results are presented in [Figure 5.](#page-6-0)
 
@@ -321,7 +318,7 @@ The unsupervised pipeline achieved an f1-score of over 0.5, except for the*data*
 
 We utilized an early-stop mechanism to fully fine-tune five language models and compared their performance. The results are shown in [Figure 5.](#page-6-0) It is clear that all five models achieved good f1 scores compared to the unsupervised ones. Among those, the average f1-score of RoBERTa is the highest, and SciBERT is the second. We infer the reason is that RoBERTa has employed a dynamic masking mechanism for each batch during training that improves its generalizability on downstream tasks. On the other hand, SciBERT's training on a large corpus of scientific text may explain its strong performance in our scenarios. Given RoBERTa's superior performance, we selected it for the case studies. Further details about model training and inference can be found in the supplemental material.
 
-# 5 CASE STUDY
+## 5 CASE STUDY
 
 In this section, we present two real-world scenarios to (1) qualitatively and quantitatively evaluate the quality of SKG; (2) showcase the versatile nature of the dataflow system to perform semantic queries. The terms "*Concept*type" and "dimension" are used interchangeably throughout the cases.
 
@@ -334,7 +331,7 @@ The purpose of this study is to demonstrate the efficiency of SKG in summarizing
 <span id="page-6-2"></span>![](_page_6_Figure_11.jpeg)
 <!-- Image Description: This image displays a node-link diagram illustrating a co-authorship network. Nodes represent researchers, clustered geographically (USA, China, Germany, UK, etc.). Links connect co-authors. Node size may indicate publication count or centrality. The visualization helps analyze collaboration patterns and identify key researchers within specific geographical regions and institutions (Harvard, Georgia Tech). Numbers (1-6) likely denote clusters or subgroups for further analysis within the paper. -->
 
-Fig. 6: The collaboration network of scholars on the topic of improving trust in machine learning through visualization.
+**Figure 6:** The collaboration network of scholars on the topic of improving trust in machine learning through visualization.
 
 ## 1.1 Co-authorship Analysis
 
@@ -346,35 +343,35 @@ In addition to the findings in the original STAR paper, we highlight some additi
 
 Through these explorations, we affirm that the papers contained in the SKG are extensive to support a literature review. Also, the meta-data, such as authors, are of high quality to provide insights for meta-data analysis.
 
-# 1.2 Topic Analysis
+## 1.2 Topic Analysis
 
-This study aims to evaluate the quality of extracted*Concepts*in SKG by comparing them with concepts summarized by domain experts. The result will illustrate how SKG can help in the semantic summarization of papers. In the STAR, the experts summarize the topics from multiple perspectives. We chose four dimensions that are relevant to the relationships between*Concepts*and*Papers*in SKG. Specifically, four dimensions include*domain, ML types, ML Methods, and visual*<span id="page-7-1"></span><span id="page-7-0"></span>Table 4: Comparison of automatically summarized concepts in SKG with the expert summarization in STAR paper.
+This study aims to evaluate the quality of extracted*Concepts*in SKG by comparing them with concepts summarized by domain experts. The result will illustrate how SKG can help in the semantic summarization of papers. In the STAR, the experts summarize the topics from multiple perspectives. We chose four dimensions that are relevant to the relationships between*Concepts*and*Papers*in SKG. Specifically, four dimensions include*domain, ML types, ML Methods, and visual*<span id="page-7-1"></span><span id="page-7-0"></span>**Table 4:** Comparison of automatically summarized concepts in SKG with the expert summarization in STAR paper.
 
-| Domain<br>(88.9%)           | ML Types<br>(100%)               | ML Methods<br>(81.8%)                     | Visual<br>Representation<br>(82.3%) |
+| Domain<br>(88.9%) | ML Types<br>(100%) | ML Methods<br>(81.8%) | Visual<br>Representation<br>(82.3%) |
 |-----------------------------|----------------------------------|-------------------------------------------|-------------------------------------|
-|                             |                                  | Convolutional<br>Neural Network (8)       | Bar Chart (1)                       |
-| Biology (3)                 | Classification(45)               |                                           | Box Plot (0)                        |
-|                             |                                  | Deep Convolutional<br>Network (0)         | Matrix (15)                         |
-| Business (1)                | Regression(9)                    | Deep Feed<br>Forward (0)                  | Glyph/Icon<br>/Thumbnail (4)        |
-| Computer                    | Association(1)                   |                                           | Grid-based (3)                      |
-| Vision (5)                  |                                  | Deep Neural<br>Network (5)                | Heatmap (2)                         |
-| Computer (18)               | Clustering(167)                  | Deep Q-Network (5)                        | Histogram (1)                       |
-|                             |                                  | Generative<br>Adversarial<br>Network (10) | Icicle Plot (1)                     |
-| Health (8)                  | Dimensionality                   |                                           | Line Chart (0)                      |
-|                             | Reduction (31)                   |                                           | Node-link                           |
-|                             |                                  | Long Short<br>Term Memory (2)             | Diagram (2)                         |
-|                             | Humanities(10)<br>Supervised (5) |                                           | Parallel<br>Coordinate (7)          |
-|                             |                                  | Recurrent Neural<br>Network (7)           | Pixel-based (0)                     |
-| Nutrition (0)               | Semi-supervised (1)              | Variational                               | Radial Layout (1)                   |
-|                             |                                  | Auto-Encoder (1)                          | Scatterplot (47)                    |
-| Simulation (8)              | Reinforcement (3)                | Dimensionality<br>Reduction (31)          | Similarity<br>Layout (0)            |
-| Social/(3)<br>Socioeconomic | Unsupervised (1)                 |                                           | Table/List (14)                     |
-|                             |                                  | Ensemble<br>Learning (7)                  | Treemap (2)                         |
+| | | Convolutional<br>Neural Network (8) | Bar Chart (1) |
+| Biology (3) | Classification(45) | | Box Plot (0) |
+| | | Deep Convolutional<br>Network (0) | Matrix (15) |
+| Business (1) | Regression(9) | Deep Feed<br>Forward (0) | Glyph/Icon<br>/Thumbnail (4) |
+| Computer | Association(1) | | Grid-based (3) |
+| Vision (5) | | Deep Neural<br>Network (5) | Heatmap (2) |
+| Computer (18) | Clustering(167) | Deep Q-Network (5) | Histogram (1) |
+| | | Generative<br>Adversarial<br>Network (10) | Icicle Plot (1) |
+| Health (8) | Dimensionality | | Line Chart (0) |
+| | Reduction (31) | | Node-link |
+| | | Long Short<br>Term Memory (2) | Diagram (2) |
+| | Humanities(10)<br>Supervised (5) | | Parallel<br>Coordinate (7) |
+| | | Recurrent Neural<br>Network (7) | Pixel-based (0) |
+| Nutrition (0) | Semi-supervised (1) | Variational | Radial Layout (1) |
+| | | Auto-Encoder (1) | Scatterplot (47) |
+| Simulation (8) | Reinforcement (3) | Dimensionality<br>Reduction (31) | Similarity<br>Layout (0) |
+| Social/(3)<br>Socioeconomic | Unsupervised (1) | | Table/List (14) |
+| | | Ensemble<br>Learning (7) | Treemap (2) |
 *representations*, which are corresponded to *Concepts*with semantic roles of*application, task, method, visualization*in SKG.
 
 To perform the comparison, we began by retrieving all the*Concept*entities from 162*Paper*entities from SKG, denoted as C. From the STAR, we also obtained a set of concepts summarized by the domain experts as the ground truth, referred to as C ′ . For each concept c ′ ∈ C′ , we count its occurrence that appeared in C. We list all the ground truth concepts c ′ with their occurrence in [Table 4.](#page-7-0) Also, in the header, the set coverage of each dimension is reported. The overall coverage is over 80%, indicating that our SKG can capture information that is considered as important by the domain experts. However, we noticed that the number of papers we found is smaller than the number reported in the STAR. The reason is that some concepts are not explicitly mentioned in the abstract paragraph due to the limited length, which leaves room for further data integration in SKG. In addition, we observed that for each ground truth*Concept*entity c ′ ∈ C′ , we were able to locate a range of more specific concepts in C. For instance, when examining the concept of "classification", we identified "binary classification," "multi-label classification," "sentiment analysis" and more. We believe this rich data evidence can inspire researchers to refine their summarization strategies, accelerating the the knowledge discovery process and making it easier for them to perform literature reviews.
 
-# 5.2 Knowledge Discovery of Text Mining
+## 5.2 Knowledge Discovery of Text Mining
 
 With the wealth of information available in SKG, we illustrate how the dataflow system can effectively support interactive queries for various tasks. In this case, we invite a Ph.D. student, Emily, with a focus on*text analysis and visualization*, to use our dataflow system for her information-seeking needs related to her research interests.
 
@@ -409,7 +406,7 @@ To analyze the research interests of the two authors, Emily built another analys
 <span id="page-8-1"></span><span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
 <!-- Image Description: The image displays a system for exploring and visualizing relationships within a dataset. It shows several interface screenshots (a-f) illustrating a node querier and node expander tools, creating interactive network graphs. Panels (g-i) demonstrate additional querying and comparison functionalities. Panel (i) is a larger network graph connecting various concepts (e.g., algorithms, data sets, visualization techniques) highlighting relationships and connections within the dataset, aiding analysis and providing a visual overview of the topic area. -->
 
-Fig. 7: Exploring knowledge discovery through text mining using two pipelines: (P1) document retrieval and summarization; (P2) comparing research interests between*Jaegul Choo*and*Giuseppe Carenini*; (P1') a Sankey diagram generated by a *visualizer*after component d in P1.
+**Figure 7:** Exploring knowledge discovery through text mining using two pipelines: (P1) document retrieval and summarization; (P2) comparing research interests between*Jaegul Choo*and*Giuseppe Carenini*; (P1') a Sankey diagram generated by a *visualizer*after component d in P1.
 
 his research topics in g' → h' . Emily then utilized a*comparer*to perform a graph comparison between the two authors ( I ).
 
@@ -429,7 +426,7 @@ Transferability: Although our SKG was built from documents in the visualization 
 
 With the explosion of data online, the knowledge graph is a trend as it integrates various data sources into a unified representation. This data integration facilitates efficient data utilization later. Going forward, we anticipate the continued growth and integration of new knowledge into visualization SKGs. Besides, the heterogeneous information captured in the SKG presents an exciting opportunity to explore the insights that could be gained from machine learning. It would be interesting to see how machine learning algorithms could benefit domain experts by uncovering previously unknown relationships and patterns in the data.
 
-#### 7 CONCLUSION
+### 7 CONCLUSION
 
 In this work, we propose utilizing a Semantic Knowledge Graph (SKG) to improve information retrieval and analysis in academic literature. To construct SKG, we introduce a semi-supervised module that extracts and categorizes knowledge from unstructured text. We then showcase the utility of SKG in academic papers exploration by summarizing the supported semantic queries and implementing a dataflow system to enable interactive and efficient querying. Our approach is demonstrated in the field of visualization literature through multiple real-world case studies that effectively demonstrate the usefulness of the approach.
 
@@ -479,7 +476,7 @@ izing large knowledge graphs: A performance analysis. *Future Generation Compute
 - <span id="page-9-30"></span>[39] A. Narechania, A. Karduni, R. Wesslen, and E. Wall. Vitality: Promoting serendipitous discovery of academic literature with transformers & visual analytics. *IEEE Transactions on Visualization and Computer Graphics*, 28(1):486–496, 2021. [3](#page-2-4)
 - <span id="page-9-20"></span>[40] R. Navigli and S. P. Ponzetto. Babelnet: The automatic construction, evaluation and application of a wide-coverage multilingual semantic network.
 
-*Artificial intelligence*, 193:217–250, 2012. [2](#page-1-1)
+**Artificial intelligence:** , 193:217–250, 2012. [2](#page-1-1)
 
 - <span id="page-10-13"></span>[41] M. A. Pellegrino, V. Scarano, and C. Spagnuolo. Move cultural heritage knowledge graphs in everyone's pocket. *Semantic Web*, (Preprint):1–37, 2020. [2](#page-1-1)
 - <span id="page-10-15"></span>[42] Y. Qiu, Y. Qiao, S. Yang, and J. Yang. Tax-kg: Taxation big data visualization system for knowledge graph. In *2020 IEEE 5th International Conference on Signal and Image Processing (ICSIP)*, pp. 425–429. IEEE, 2020. [2](#page-1-1)

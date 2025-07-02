@@ -15,7 +15,6 @@ images_kept: "10"
 images_removed: "0"
 ---
 
-
 Contents lists available at [ScienceDirect](https://www.elsevier.com/locate/cogsys)
 
 ![](_page_0_Picture_2.jpeg)
@@ -28,7 +27,7 @@ journal homepage: [www.elsevier.com/locate/cogsys](https://www.elsevier.com/loca
 ![](_page_0_Picture_5.jpeg)
 <!-- Image Description: That image is the cover of a journal issue of *Cognitive Systems Research*. It's not a technical illustration containing diagrams, charts, graphs, or equations. The cover shows only the journal's title, subtitle ("Cognitive Systems Research"), publisher information (ScienceDirect), and the editor-in-chief's name. Its purpose is to identify the publication. -->
 
-# Temporal heterogeneity in cognitive architectures
+## Temporal heterogeneity in cognitive architectures
 
 Carlos Johnnatan Sandoval-Arrayga, Gustavo Palacios-Ramirez, Felix Francisco Ramos-Corchado [∗](#page-0-0)
 
@@ -94,7 +93,7 @@ In Section [8](#page-6-1) (Discussion) a summary of the findings of this work is
 
 Finally, in Section [9](#page-8-0) (Materials and Methods) we detail the inner workings and calculations of the implementation.
 
-#### 2. Related work
+### 2. Related work
 
 <span id="page-1-0"></span>In recent times, the study of the effects of both structural and temporal heterogeneity has gained relevance in computing areas, such as evolutionary algorithms, complexity science, or random Boolean networks, to name a few [\(Escobar, Kim, & Gershenson,](#page-9-7) [2019;](#page-9-7) [Gershen](#page-9-8)[son,](#page-9-8) [2012](#page-9-8); [López-Díaz, Sánchez-Puig, & Gershenson,](#page-9-9) [2023](#page-9-9); [Martinez,](#page-9-10) [Rodriguez, & Gershenson,](#page-9-10) [2022;](#page-9-10) [Mei, Muller, & Ramaswamy](#page-9-11), [2022](#page-9-11); [Sánchez-Puig, Zapata, Pineda, Iñiguez, & Gershenson,](#page-9-12) [2022\)](#page-9-12).
 
@@ -104,7 +103,7 @@ Finally, we will dedicate a small paragraph to describing the reasons why we bel
 
 The following are some of the properties that other systems have exhibited when they take into account temporal heterogeneity in their implementation versions of the same systems:
 
-#### – Speed and Convergence.
+### – Speed and Convergence.
 
 In [Martinez et al.](#page-9-10) ([2022\)](#page-9-10), two versions of the same evolutionary algorithm were implemented, one with temporal homogeneity and the other with temporal heterogeneity. The results showed that the version with temporal heterogeneity converged with fewer executed instructions and in less time.
 
@@ -116,7 +115,7 @@ Another interesting idea from this result is the concept of ''slower is faster''
 
 The above can be interpreted as follows: If cognitive functions associated with low-level tasks are faster than those associated with high-level tasks, then the concepts (attractors) that lowlevel areas could understand would only be determined by their own structure; the concept space (attractors) that a high-level module could have would be affected by the structure of the lowlevel modules; finally, although the conceptual space in low-level modules (the space of attractors) could not be modified by highlevel modules, what could be modified is the behavior of low-level modules (the type of dynamics that attractors follow).
 
-#### – Autonomy.
+### – Autonomy.
 
 In [Vernon, Lowe, Thill, and Ziemke](#page-9-15) [\(2015](#page-9-15)), it is proposed that for a system to be autonomous, it must make decisions influenced by the environment, but not determined by it. On the other hand, in [Fernández, Maldonado, and Gershenson](#page-9-16) ([2014](#page-9-16)), it is proposed that one way to determine the autonomy of a system from its environment is to measure the complexity that exists in the system and divide it by the complexity of the environment. If the quotient is greater than 1, it means that the system is more complex than the environment and therefore the environment does not determine its behavior. Additionally, in [López-Díaz et al.](#page-9-9) ([2023](#page-9-9)), criticality is defined as the region within the variables of the system where complexity is maximized (maximum autonomy from the environment is obtained).
 
@@ -124,7 +123,7 @@ Finally, in [López-Díaz et al.](#page-9-9) ([2023\)](#page-9-9), several exper
 
 From this section, it can be inferred that certain desirable properties (speed and convergence, bottom-up conceptualization, and autonomy) are correlated with temporal heterogeneity.
 
-#### 3. Evidence from cognitive science
+### 3. Evidence from cognitive science
 
 <span id="page-2-0"></span>In the previous section, it was shown how other computational systems have benefited from temporal heterogeneity. In this chapter, evidence from cognitive sciences will be presented to support the idea that the human mind exhibits temporal heterogeneity. Finally, with the support of the presented evidence, we discuss how temporal heterogeneity could be incorporated into cognitive architectures.
 
@@ -145,9 +144,9 @@ Even more, additional evidence could be taken into account in cognitive architec
 ![](_page_2_Figure_12.jpeg)
 <!-- Image Description: This diagram illustrates the interaction between executive and perceptual memory systems in the brain. It depicts a lateral view of the brain, color-coded to represent different memory components (e.g., conceptual, semantic, episodic). Arrows show information flow between executive memory (actions, plans, rules) and perceptual memory (sensory inputs), suggesting a hierarchical and interconnected model of memory processing. Time parameters (t₁, t₂, etc.) likely represent temporal aspects of processing within each memory component. -->
 
-<span id="page-2-2"></span>**Fig. 1.**The Brain's Perception-Action Balancing Act. Adapted from [Fuster](#page-9-1) [\(2009\)](#page-9-1). In this figure we can appreciate the hierarchical organization of memories proposed by Fuster. On the left-hand side, we have the types of executive memory, and on the right-hand side, we have the types of perceptual memory. At the bottom of the figure, we have memories associated with the species (phyletic memory), and as we ascend, we find increasingly abstract memories until we reach conceptual memory.
+<span id="page-2-2"></span>**Figure 1.**The Brain's Perception-Action Balancing Act. Adapted from [Fuster](#page-9-1) [\(2009\)](#page-9-1). In this figure we can appreciate the hierarchical organization of memories proposed by Fuster. On the left-hand side, we have the types of executive memory, and on the right-hand side, we have the types of perceptual memory. At the bottom of the figure, we have memories associated with the species (phyletic memory), and as we ascend, we find increasingly abstract memories until we reach conceptual memory.
 
-#### 4. Bio-inspired model
+### 4. Bio-inspired model
 
 <span id="page-2-1"></span>From Section [2,](#page-1-0) we hypothesize that it heterogeneity could help save energy, reduce the number of learning steps to adapt to the environment, generate concepts more similar to those of humans, and facilitate the creation of autonomous agents.
 
@@ -171,7 +170,7 @@ where each corresponds to the times marked in the modules of [Fig.](#page-2-2) [
 
 Since the implementation carried out for this work is closely related to the case study, the specific details of the implementation will be addressed in the following section (case study, Section [5](#page-3-0)) as it was deemed more appropriate to address them together.
 
-#### 5. Case study
+### 5. Case study
 
 <span id="page-3-0"></span>The present research is a mixed-method study. On the one hand, it aims to qualitatively compare the most abstract percepts that agents use to make decisions. On the other hand, it aims to quantitatively measure how effective certain percepts are in adapting to the environment.
 
@@ -191,65 +190,64 @@ In our model, the values used to simulate myelination ensure that brain regions 
 
 The organization of this section is as follows: The subsection ''Virtual World'' details the characteristics of the world in which the agents develop, the elements it contains, its extent, and the rules of movement. The subsection ''Virtual Agents'' describes the structure of the agents' minds in depth, along with the cognitive science principles that inspire the proposed model. Lastly, the subsection ''Evolution'' describes the evolutionary policies of the process followed in this case study.
 
-####*5.1. Virtual world*The virtual world is comprised of a 50 × 50 grid. The virtual agent moves between grid locations as follows: if the agent is at a certain grid location at time , then at time + 1 it can move to any of the adjacent grid locations (i.e. the agent moves in a discrete and orthogonal manner).
+### *5.1. Virtual world*The virtual world is comprised of a 50 × 50 grid. The virtual agent moves between grid locations as follows: if the agent is at a certain grid location at time , then at time + 1 it can move to any of the adjacent grid locations (i.e. the agent moves in a discrete and orthogonal manner).
 
 Additionally, within the grid locations, some of the following elements may be present: food, coins, barriers, or empty space. A grid**Table 1**
 
 <span id="page-3-2"></span>The table displays the percentage of cells occupied by: food, coins, barriers, and empty cells.
 
-| Percentage occupied by food     |  | 23% |
+| Percentage occupied by food | | 23% |
 |---------------------------------|--|-----|
-| Percentage occupied by coins    |  | 25% |
-| Percentage occupied by barriers |  | 26% |
-| Percentage of empty cells       |  | 26% |
-|                                 |  |     |
+| Percentage occupied by coins | | 25% |
+| Percentage occupied by barriers | | 26% |
+| Percentage of empty cells | | 26% |
+| | | |
 
 ![](_page_3_Figure_18.jpeg)
 <!-- Image Description: This image depicts a grid-based game environment used to illustrate a fitness function in an evolutionary algorithm. A robot navigates the grid, collecting energy (yellow coins) and avoiding obstacles (brick walls). Top progress bars represent "fitness" (green) and "energy" (yellow). The robot's position and the location of resources are shown. Apples may represent another reward type. The image illustrates the game state at a particular point in the algorithm's execution. -->
 
-<span id="page-3-1"></span>**Fig. 2.**In this figure, an example of a virtual agent situated on the grid with the previously described objects (coins, food, and barriers) can be observed. In the figure, food is represented by an apple, while barriers are depicted as small brick walls. The virtual agent is represented by a robot, and its energy level is indicated by the yellow bar, while its fitness is represented by the green bar.
+<span id="page-3-1"></span>**Figure 2.**In this figure, an example of a virtual agent situated on the grid with the previously described objects (coins, food, and barriers) can be observed. In the figure, food is represented by an apple, while barriers are depicted as small brick walls. The virtual agent is represented by a robot, and its energy level is indicated by the yellow bar, while its fitness is represented by the green bar.
 
 location cannot contain more than one element. Food serves to increase the agent's energy level. Coins raise its level of physical fitness, while barriers prevent the agent from occupying that location (see [Fig.](#page-3-1) [2\)](#page-3-1).
 
 The elements described in the previous paragraph are randomly distributed on a single grid, following these considerations: (see [Table](#page-3-2) [1](#page-3-2)).
 
-####*5.2. Virtual agents*
+### *5.2. Virtual agents*
 
 In this section, we will describe the virtual agents. The description is divided into interoception, exteroception, phylogeny, and ontogeny.
 
 The structure of this section is as follows: First, we will explain the reasons why we believe each of these characteristics is crucial for evolving the agent. Then we will provide technical and detailed descriptions of the elements that compose it.
 
-#### Interoception
+### Interoception
 
 In 4E cognition [\(Lakoff & Núñez,](#page-9-23) [2000](#page-9-23); [Rohde,](#page-9-24) [2010](#page-9-24); [Vernon et al.](#page-9-15), [2015\)](#page-9-15), embodiment is often listed as one of the necessary characteristics to develop cognition similar to humans. However, we believe that this characteristic goes beyond having two legs and two arms. We propose that embodiment is more related to how the existence of the mind depends on the existence of the body, just as the existence of the body depends on the processes of the mind. Thus, the mind and body would form two systems that could be described as strongly coupled, as proposed in [Maturana and Varela](#page-9-25) ([1991\)](#page-9-25).
 
 In this work, we focus on energy as a property of embodiment, as we consider it one of the most critical properties that link the existence of the mind to a body ([Chernavski,](#page-9-26) [2000](#page-9-26)). This is because mental processes require the energy produced in a body in order to exist, just as the body relies on the ingenuity of the mind in order to obtain energy more efficiently and to continue existing.
 
-#### Table 2
+### Table 2
 
 The following table shows the maximum amount of energy that the agent can store, the energy consumed each time a neural network is activated, and the energy consumed by the agent when performing a movement. The weights were computed such that the maximum energy consumption achievable per step amounts to 1%—half of it originating from movement (0.5%), and the other half from the utilization of all perceptual and motor layers. As there are a total of six perceptual layers and motor layers (see [Fig.](#page-4-0) [3](#page-4-0)), the energy expended when each of these layers is executed equals 0.5%/6 = 0.833%. We term the process of executing each of these layers ''thinking.
 
-<span id="page-4-1"></span>
 
-| Total amount of energy             | 100%   |
+| Total amount of energy | 100% |
 |------------------------------------|--------|
-| Energy consumption due to movement | .5%    |
+| Energy consumption due to movement | .5% |
 | Energy consumption due to thinking | .0833% |
 
 ![](_page_4_Figure_4.jpeg)
 <!-- Image Description: This diagram illustrates a three-layered model with "motor" and "perceptual" components. Each layer includes a buffer. Orange arrows represent internal processing within each motor/perceptual stream, while black arrows show bidirectional connections between corresponding motor and perceptual layers. The figure likely depicts the information flow and interaction between motor and perceptual processes in the context of the paper. -->
 
-<span id="page-4-0"></span>**Fig. 3.**The figure presents a diagram of the cognitive architecture used. Blue boxes represent perceptual areas, while red boxes represent motor areas. The direction of the arrows indicates the flow of information. Orange arrows indicate inputs that trigger the execution of neural networks, whereas the black arrows update the input information of the neural network but do not trigger activation. Within each layer, there is a twolayer neural network utilizing the Hebbian learning algorithm as proposed by [Sanger](#page-9-27) ([1989](#page-9-27)). The number of times the buffers need to be executed before summarizing the information and passing it on to the next layer varies:; it is 3 in the case of experiments with temporal heterogeneity and 1 in the case of temporal homogeneity.
+<span id="page-4-0"></span>**Figure 3.**The figure presents a diagram of the cognitive architecture used. Blue boxes represent perceptual areas, while red boxes represent motor areas. The direction of the arrows indicates the flow of information. Orange arrows indicate inputs that trigger the execution of neural networks, whereas the black arrows update the input information of the neural network but do not trigger activation. Within each layer, there is a twolayer neural network utilizing the Hebbian learning algorithm as proposed by [Sanger](#page-9-27) ([1989](#page-9-27)). The number of times the buffers need to be executed before summarizing the information and passing it on to the next layer varies:; it is 3 in the case of experiments with temporal heterogeneity and 1 in the case of temporal homogeneity.
 
 For this study, we opted to create an energy level bar that depends on food to generate more energy. On the other hand, as the agent moves or thinks, it consumes energy. How energy is produced or consumed is described in [Table](#page-4-1) [2](#page-4-1).
 
-#### Exteroception
+### Exteroception
 
 Exteroception is the perception of stimuli external to the body. In the field of cognitive architectures, it is often the only type of perception taken into account ([Kotseruba & Tsotsos,](#page-9-28) [2020\)](#page-9-28), which is why we will not dwell on the philosophical consequences of exteroception and will limit ourselves to defining the agent's exteroception in this case study.
 
 The agent's visual area in this case study consists of a 5x5 grid centered on the agent. In this region, the agent can sense the types of objects that exist (food, coins, and barriers).
 
-#### Phylogeny
+### Phylogeny
 
 To construct the agent's mind, a multi-layer neural network architecture with some modifications, shown in [Fig.](#page-4-0) [3,](#page-4-0) was designed. The phylogeny consists of the initial weights of the neural networks, while the composition of the architecture is detailed below.
 
@@ -257,21 +255,20 @@ The architecture shown in [Fig.](#page-4-0) [3](#page-4-0) consists of*buffers*a
 
 In the layer boxes, inputs from the orange arrows cause the neural network hosted in that layer to perform its calculations and produce its
 
-#### Table 3
+### Table 3
 
 In this table, the number of neurons used as input and output in all neural networks is shown. The number of input neurons in the neural networks is composed of the output from the lower layer (if present), the output from the lateral layer, and the output from the upper layer (if present).
 
-<span id="page-4-2"></span>
 
 | Input neurons | Output neurons |
 |---------------|----------------|
-|               | 39             |
-| 56            | 19             |
-| 28            | 9              |
-| 47            | 4              |
-| 32            | 8              |
-| 17            | 9              |
-|               | 97             |
+| | 39 |
+| 56 | 19 |
+| 28 | 9 |
+| 47 | 4 |
+| 32 | 8 |
+| 17 | 9 |
+| | 97 |
 
 outputs. Meanwhile, inputs from the black arrows only update the data in their input layer without triggering any execution.
 
@@ -291,7 +288,7 @@ A visual representation of this process can be seen in [Fig.](#page-5-1) [4](#pa
 
 Finally, one last vector is created, concatenating the three binary vectors and adding additional values representing the energy level, the fitness score, and the input vectors from Motor Layer 1 and Perceptual Layer 2. This results in a vector of length 24+24+24+1+1+4+19 = 97. This is reflected in [Tables](#page-4-2) [3](#page-4-2) and [4](#page-9-29).
 
-#### Ontogeny
+### Ontogeny
 
 In the case of ontogeny, each of the neural networks is a Hebbian learning neural network that uses Sanger's rule ([Sanger,](#page-9-27) [1989\)](#page-9-27). The rationale behind this choice is that each layer learns to distinguish the primary values presented to it. Subsequently, the evolutionary algorithm will prioritize the descendants of those agents who are better adapted to the environment. Ultimately, the goal is to observe the values that each layer distinguishes as important in order to qualitatively analyze whether these distinctions correspond to similar distinctions that a human should make.
 
@@ -300,7 +297,7 @@ When it comes to buffers, their influence on ontogeny varies depending on the ty
 ![](_page_5_Figure_2.jpeg)
 <!-- Image Description: The image displays a game environment grid showing a robot, food items (apples), coins, and barriers. A sequence of 24 grid cells is represented visually and then encoded as three binary vectors: one each for food, coins, and barriers, indicating the presence (1) or absence (0) of each element in each cell. This illustrates a data representation technique likely used for AI or game development. -->
 
-<span id="page-5-1"></span>**Fig. 4.**On the left, the figure displays the agent's field of view, which is highlighted in yellow. On the right-hand side, there is a representation of the linearization of the agent's visual field, depicted as a yellow vector. At the bottom of the figure, this yellow vector is binarized into three separate new vectors.
+<span id="page-5-1"></span>**Figure 4.**On the left, the figure displays the agent's field of view, which is highlighted in yellow. On the right-hand side, there is a representation of the linearization of the agent's visual field, depicted as a yellow vector. At the bottom of the figure, this yellow vector is binarized into three separate new vectors.
 
 short-term memory, once they output information to the next layer, they forget everything they have learned, limiting their impact on the agent's ontogeny.
 
@@ -308,7 +305,7 @@ On the other hand, for buffers with long-term memory, after their execution, con
 
 Lastly, we want to emphasize that the concept of ''buffers'' does not emerge from thin air. The biological inspiration leading us to consider the existence of certain mechanisms in the brain that could be simulated with buffers stems from evidence in neuroscience. In certain studies, it is suggested that specific neurotransmitters can function as markers, causing neurons to wait for a certain amount of time (while neurotransmitters, calcium ions, and potassium ions accumulate in synapses) before various ion channels open in a synchronized manner ([Hasselmo, Giocomo, Brandon, & Yoshida](#page-9-30), [2010](#page-9-30); [Hucho](#page-9-31), [1993](#page-9-31); [Walker, Brooks, & Holden-Dye,](#page-9-32) [1996](#page-9-32)).
 
-####*5.3. Evolution*In this section, the process carried out to evolve the population of agents will be described. In this case, the weights of the neural networks of each agent were chosen as the species' phylogeny (genotype), where each agent represents its own species. At the beginning of the process, the weights of the neural networks were randomly initialized with values less than 1 × 10−4 .
+### *5.3. Evolution*In this section, the process carried out to evolve the population of agents will be described. In this case, the weights of the neural networks of each agent were chosen as the species' phylogeny (genotype), where each agent represents its own species. At the beginning of the process, the weights of the neural networks were randomly initialized with values less than 1 × 10−4 .
 
 The ontogeny of the species is conceived as the learning that the agent undergoes during its life. In addition, we propose that the ontogeny of a species is the phylogeny of its offspring.
 
@@ -318,17 +315,17 @@ Each of the agents is placed in its own world, meaning they do not compete with 
 
 For this experiment, no recombination operator was considered. Ontogeny was used as the mutation operator, involving a slight variation to each of the genes in the order of 10−<sup>6</sup> to 10−<sup>4</sup> ([Johnston, Keats, &](#page-9-33) [Sherman,](#page-9-33) [2019\)](#page-9-33).
 
-####*5.4. Execution*For the execution of the model, 45,000 runs of the evolutionary process were conducted for each of the 6 models (average no longterm memory, peek-end rule no long-term memory, decay no long-term memory, average long-term memory, peek-end rule long-term memory, decay long-term memory).
+### *5.4. Execution*For the execution of the model, 45,000 runs of the evolutionary process were conducted for each of the 6 models (average no longterm memory, peek-end rule no long-term memory, decay no long-term memory, average long-term memory, peek-end rule long-term memory, decay long-term memory).
 
 For each of the evolutionary processes, 100 agents were placed, and they were allowed to live as long as the amount of food they had remained positive.
 
 Fitness was calculated as the number of coins each individual managed to acquire. The average of the top 10% of individuals with the best fitness is calculated and plotted in [Figs.](#page-7-0) [6](#page-7-0) and [7.](#page-7-1) However, the analysis of these graphs is carried out in Section [6](#page-5-0).
 
-#### 6. Results
+### 6. Results
 
 <span id="page-5-0"></span>In this section, the description of the results will be presented in 2 subsections. The first subsection will present the quantitative results of the fitness obtained by the agents using different types of buffers, time models (heterogeneous and homogeneous), as well as the different types of memory in the buffers (long-term or short-term). In the second subsection, the qualitative results obtained from the experiment will be presented. In this case, some of the ''concepts'' that the cognitive architecture managed to learn in perceptual layer 1 will be qualitatively analyzed, with the aim of comparing them to what we would expect a human to learn to recognize.
 
-####*6.1. Fitness*
+### *6.1. Fitness*
 
 In this subsection, we focus on comparing the effect of temporal heterogeneity and homogeneity on the speed at which agents evolve to collect more coins (fitness).
 
@@ -343,11 +340,11 @@ On the other hand, analyzing the 3 models with long-term memory ([Fig.](#page-7-
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image is a diagram illustrating a selection process, possibly in a genetic algorithm or evolutionary robotics context. It shows two groups: "Ancestors" with varying fitness levels (represented by robots and black circles, with a fitness scale) and "Offspring". Arrows indicate the probabilistic selection of ancestors (10% and 90%) to create offspring (70% and 30%). The percentages represent the probability of each ancestor type contributing to the next generation. Dice visually represent the stochastic nature of the selection. -->
 
-<span id="page-6-2"></span>**Fig. 5.**Illustration showing how the agents are selected to progress from one stage to the next. In the image, the robots positioned lower represent those with lower fitness, while the robots positioned higher indicate those with higher fitness. Randomly, 10% of the robots with the highest fitness are selected to populate 70% of the next generation of robots. Meanwhile, 90% of the robots with lower fitness are used to populate the remaining 30% of the subsequent generation.
+<span id="page-6-2"></span>**Figure 5.**Illustration showing how the agents are selected to progress from one stage to the next. In the image, the robots positioned lower represent those with lower fitness, while the robots positioned higher indicate those with higher fitness. Randomly, 10% of the robots with the highest fitness are selected to populate 70% of the next generation of robots. Meanwhile, 90% of the robots with lower fitness are used to populate the remaining 30% of the subsequent generation.
 
 lower fitness compared to their counterpart without long-term memory. The peek-end rule model with temporal heterogeneity is the only model that benefited from having long-term memory, reaching a fitness level as high as 50.
 
-####*6.2. Percepts*
+### *6.2. Percepts*
 
 <span id="page-6-3"></span>For the qualitative aspect, we aimed to assess whether the ''percepts'' learned by the cognitive architecture bore any resemblance to the percepts we would expect a human to learn in a similar situation.
 
@@ -355,7 +352,7 @@ To achieve this, we filtered the weights affecting the first output neuron of ea
 
 However, unlike the quantitative part, luck was not on our side in this case. The results suggest that while modeling percepts using neural networks with Sanger's Hebbian learning can yield a functional agent, this modeling approach is not as helpful when the attempt is made to interpret these data as human percepts (see [Fig.](#page-8-1) [8](#page-8-1)).
 
-#### 7. Conclusions
+### 7. Conclusions
 
 <span id="page-6-0"></span>From the results, we can draw a couple of conclusions. On the one hand, the quantitative findings presented in Section [6](#page-5-0) seem to provide evidence that temporal heterogeneity could assist in finding parameter optimizations for a model more swiftly, as evident in the figures shown in Section [6](#page-5-0), except for [Fig.](#page-7-2) [6\(c\)](#page-7-2).
 
@@ -367,7 +364,7 @@ Additionally, in [Fig.](#page-7-3) [7\(b\)](#page-7-3), we can observe that the 
 
 Lastly, from qualitative Section [6.2](#page-6-3), we can conclude that this representation of percepts using a Hebbian neural network with Sanger learning might not be useful for modeling humans and subsequently reviewing what they learned through simple inspections;, to achieve this purpose, changes to the data structures used in the architecture's layers would likely be necessary.
 
-#### 8. Discussion
+### 8. Discussion
 
 <span id="page-6-1"></span>In this study, evidence was presented regarding the potential advantages that cognitive architectures could gain from temporal heterogeneity. Additionally, the concept of buffers between brain areas was introduced, which is one of the central ideas of this study, as their purpose extends beyond summarizing received information. These buffers are direct contributors to the temporal heterogeneity within the system. While biological evidence can be found supporting the possibility of such mechanisms ([Hasselmo et al.](#page-9-30), [2010;](#page-9-30) [Hucho](#page-9-31), [1993](#page-9-31); [Walker et al.](#page-9-32), [1996](#page-9-32)), a robust demonstration of their existence in the human brain remains an open hypothesis.
 
@@ -385,24 +382,24 @@ Another ongoing endeavor is to enhance the agent's interoception by creating a w
 ![](_page_7_Figure_3.jpeg)
 <!-- Image Description: The image contains three line graphs (a, b, c) showing fitness over generations for two groups, "Het" and "Hom." Each graph displays a different fitness metric: (a) average fitness, (b) peak-end fitness, and (c) decay fitness. The graphs illustrate the progression of fitness values for both groups over time, allowing comparison of their evolutionary trajectories under the respective fitness measures. -->
 
-<span id="page-7-2"></span><span id="page-7-0"></span>**Fig. 6.** No long-term memory model. The figure displays the results obtained from evaluating the model without long-term memory. The orange line represents the models with temporal homogeneity, while the blue line represents the models with temporal heterogeneity. In both cases, only the average of the top 10 agents with the highest fitness during that run was plotted. On the -axis, the number of generations is plotted, while on the -axis, the average fitness of the top 10% of agents is graphed. In the experiment, temporal heterogeneity in the architecture's behavior was induced by setting to 3 the parameter for the number of activations each buffer required before producing an output. On the other hand, temporal homogeneity was induced by changing this parameter to 1.
+<span id="page-7-2"></span><span id="page-7-0"></span>**Figure 6.** No long-term memory model. The figure displays the results obtained from evaluating the model without long-term memory. The orange line represents the models with temporal homogeneity, while the blue line represents the models with temporal heterogeneity. In both cases, only the average of the top 10 agents with the highest fitness during that run was plotted. On the -axis, the number of generations is plotted, while on the -axis, the average fitness of the top 10% of agents is graphed. In the experiment, temporal heterogeneity in the architecture's behavior was induced by setting to 3 the parameter for the number of activations each buffer required before producing an output. On the other hand, temporal homogeneity was induced by changing this parameter to 1.
 
-<span id="page-7-3"></span><span id="page-7-1"></span>**Fig. 7.** Long-term memory model. The figure displays the results obtained from evaluating the model using long-term memory. The orange line represents the models with temporal homogeneity, while the blue line represents the models with temporal heterogeneity. In both cases, only the average of the top 10 agents with the highest fitness during that run was plotted. On the -axis, the number of generations is plotted, while on the -axis, the average fitness of the top 10% of agents is graphed. In the experiment, temporal heterogeneity in the architecture's behavior was induced by setting to 3 the parameter for the number of activations each buffer required before producing an output. On the other hand, temporal homogeneity was induced by changing this parameter to 1.
+<span id="page-7-3"></span><span id="page-7-1"></span>**Figure 7.** Long-term memory model. The figure displays the results obtained from evaluating the model using long-term memory. The orange line represents the models with temporal homogeneity, while the blue line represents the models with temporal heterogeneity. In both cases, only the average of the top 10 agents with the highest fitness during that run was plotted. On the -axis, the number of generations is plotted, while on the -axis, the average fitness of the top 10% of agents is graphed. In the experiment, temporal heterogeneity in the architecture's behavior was induced by setting to 3 the parameter for the number of activations each buffer required before producing an output. On the other hand, temporal homogeneity was induced by changing this parameter to 1.
 
 ![](_page_8_Figure_2.jpeg)
 <!-- Image Description: The image displays 20 heatmaps, arranged in four rows and five columns. Each row presents four 5x5 heatmaps representing the agent's perception of "Food," "Coins," and "Barriers" in a grid-based environment, with a final heatmap showing an unknown representation. The color intensity in each cell likely corresponds to the perceived presence/strength of the feature. The image likely illustrates the agent's learned representations or sensory input at different points in time or under different conditions within the paper's simulated environment. -->
 
-<span id="page-8-1"></span>**Fig. 8.**This figure displays the first percept from each of the 12 models used in the experiment. For each experiment, 3 percepts (food, coins, and barriers) were extracted. The first three rows correspond to the percepts of models using buffers without long-term memory. The last three rows represent the percepts of models with buffers incorporating long-term memory. The first column of three percepts corresponds to percepts originating from models with temporal heterogeneity, while the three percepts in the second column are from models with temporal homogeneity. Additionally, each row from top to bottom corresponds to percepts from the models: average, peek-end rule, decay, average, peek-end rule, and decay, respectively.
+<span id="page-8-1"></span>**Figure 8.**This figure displays the first percept from each of the 12 models used in the experiment. For each experiment, 3 percepts (food, coins, and barriers) were extracted. The first three rows correspond to the percepts of models using buffers without long-term memory. The last three rows represent the percepts of models with buffers incorporating long-term memory. The first column of three percepts corresponds to percepts originating from models with temporal heterogeneity, while the three percepts in the second column are from models with temporal homogeneity. Additionally, each row from top to bottom corresponds to percepts from the models: average, peek-end rule, decay, average, peek-end rule, and decay, respectively.
 
 with a better understanding of the significance of food for survival and offer a platform for studying certain dietary issues.
 
 Finally, it is important to emphasize that this experiment does not provide conclusive evidence for the significance of temporal heterogeneity in cognitive architectures or its existence in human brains. What it does offer is hope and evidence of the feasibility of such a mechanism and its potential importance in generating cognitive architectures. However, we believe that there is still much work to be done in this regard to comprehend the effect of temporal heterogeneity on cognitive architectures.
 
-#### 9. Materials and methods
+### 9. Materials and methods
 
 <span id="page-8-0"></span>In this section, a detailed description of the calculations used in the previous sections is provided. To do so, we will divide this section into three parts: buffers, layer, and evolution.
 
-####*9.1. Buffers*The most important variables of the buffer object are:
+### *9.1. Buffers*The most important variables of the buffer object are:
 
 -**Vector**: stores a vector of information.
 - **Type**: stores the buffer type (average, decay, peek-end rule).
@@ -427,22 +424,21 @@ $$
 
 Additionally, each time n equals *activations*, the buffer yields v as the result.
 
-#### *9.2. Layers*Unlike buffers, which have only a single input vector, layers have three input vectors: the bottom input vector B, the lateral input vector
+### *9.2. Layers*Unlike buffers, which have only a single input vector, layers have three input vectors: the bottom input vector B, the lateral input vector
 
-#### Table 4
+### Table 4
 
 In the table, the quantity of input neurons for each layer is depicted, distributed across the number of neurons receiving information from the lower, lateral, and upper layers, respectively. Subsequently, the sum of these three inputs is computed, referred to as the ''total input.''. The term ''total output'' designates the quantity of output neurons in the network.
 
-<span id="page-9-29"></span>
 
-| Layer              | Bottom | Lateral | Top | Total Input | Output |
+| Layer | Bottom | Lateral | Top | Total Input | Output |
 |--------------------|--------|---------|-----|-------------|--------|
-| Perceptual layer 1 | 74     | 4       | 19  | 97          | 39     |
-| Perceptual layer 2 | 39     | 8       | 9   | 56          | 19     |
-| Perceptual layer 3 | 19     | 9       | 0   | 28          | 9      |
-| Motor layer 1      | 0      | 39      | 8   | 47          | 4      |
-| Motor layer 2      | 4      | 19      | 9   | 32          | 8      |
-| Motor layer 3      | 8      | 9       | 0   | 17          | 9      |
+| Perceptual layer 1 | 74 | 4 | 19 | 97 | 39 |
+| Perceptual layer 2 | 39 | 8 | 9 | 56 | 19 |
+| Perceptual layer 3 | 19 | 9 | 0 | 28 | 9 |
+| Motor layer 1 | 0 | 39 | 8 | 47 | 4 |
+| Motor layer 2 | 4 | 19 | 9 | 32 | 8 |
+| Motor layer 3 | 8 | 9 | 0 | 17 | 9 |
 
 L, and the top input vector T. The distribution of neurons is described in [Table](#page-9-29) [4.](#page-9-29)
 
@@ -457,24 +453,25 @@ The output vector is computed each time*on*is true. The variable*on*becomes fals
 
 Lastly, the execution of the layers follows a round-robin protocol, starting with perceptual layer 1, followed by perceptual layer 2, perceptual layer 3, motor layer 3, motor layer 2, and finally, motor layer 1.
 
-####*9.3. World*The world is composed of a grid of 50x50 cells. For each cell, an element was chosen to contain from the following list: food, coin, barrier, or empty cell. The selection of these elements was done using a uniform probability distribution.
+### *9.3. World*The world is composed of a grid of 50x50 cells. For each cell, an element was chosen to contain from the following list: food, coin, barrier, or empty cell. The selection of these elements was done using a uniform probability distribution.
 
-#### CRediT authorship contribution statement
+### CRediT authorship contribution statement
+
 **Carlos Johnnatan Sandoval-Arrayga:**Writing – review & editing, Writing – original draft, Methodology, Investigation, Formal analysis, Data curation, Conceptualization.**Gustavo Palacios-Ramirez:**Writing – original draft, Software, Investigation.**Felix Francisco Ramos-Corchado:**Writing – Methodology, review & editing, Funding acquisition, General supervision.
 
-#### Declaration of competing interest
+### Declaration of competing interest
 
 The authors declare the following financial interests/personal relationships which may be considered as potential competing interests: Carlos Johnnatan Sandoval Arrayga reports financial support was provided by conahcyt. Gustavo Palacios Torres reports financial support was provided by conahcyt. Felix Francisco Ramos Corchado reports financial support was provided by CINVESTAV.
 
-#### Data availability
+### Data availability
 
 Data will be available on request.
 
-#### Acknowledgments
+### Acknowledgments
 
 This work's research was possible thanks to the grants and support from Consejo Nacional de Ciencia y Tecnologia, Mexico to the authors and the Center for Research and Advanced Studies. (CINVESTAV).
 
-#### References
+### References
 
 - <span id="page-9-2"></span>[Aceves, Carlos Alejandro Sánchez, Ramos, Félix, Ramirez, Gustavo Palacios, & San](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb1)[doval, Carlos Johnnatan \(2023\). Computational model of the alerting function in](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb1) attention.*[Cognitive Systems Research](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb1)*, *77*, 226–237.
 - <span id="page-9-26"></span>[Chernavski, Dmitrii S. \(2000\). The origin of life and thinking from the viewpoint of](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb2) [modern physics.](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb2) *Physics-Uspekhi*, *43*(2), 151.

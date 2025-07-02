@@ -58,11 +58,11 @@ Yingying Zhang<sup>1</sup> , Jakob Beetz<sup>1</sup>
 
 <sup>1</sup>RWTH Aachen University, Germany
 
-# Abstract
+## Abstract
 
 With the emerging application and development of digital twin technologies in the Architecture, Engineering, and Construction (AEC) sector, effective monitoring and prediction of the built environment is an important step toward energy transformation. The temporal properties are always implied in the events, either explicitly or implicitly. However, if the temporal evolution data between multiple stakeholders is not properly documented and structured, this valuable data will not be transformed into meaningful actions. As a result, the AEC collaborative work requires a structured model to integrate heterogeneous information and fully document state changes over the process of multiple iterations. In this paper, we introduce a workflow on a Temporal Knowledge Graph (TKG) in order to link observation data and the building environment context in a generic inductive framework. The temporal properties of events are documented in a graph and can be queried through dedicated SPARQL queries. The main contribution of this research is an approach to track the temporal information of linked building data, in order to derive additional information for digital twin scenarios.
 
-# Introduction
+## Introduction
 
 Over the past decades, Semantic Web (SW) has facilitated data interoperability and cross-domain linking in the Architecture, Engineering, and Construction (AEC) sector (Pauwels et al., 2017). Semantic Web (SW) languages have shown the ability to link static heterogeneous graphs, while real-world problems in the AEC industry are constantly evolving and undergoing state changes (Deshpande et al., 2014). In many cases, from multi-party collaborative architecture design to IoT-assisted facility management, these processes are time-sensitive and usually composed of sequences of events. Properly considering these dynamic insights and how to utilize big data to enable datadriven building energy retrofits is still a great challenge we currently face (Hu et al., 2021).
 
@@ -98,22 +98,22 @@ The ISO 21597 Information container for linked document delivery (ICDD) and ISO 
 
 As a prevalent paradigm, the Knowledge Graph (KG) can greatly support applications such as interoperability, natural language processing, and reasoning (Pauwels et al., 2018). But as big data expands in modern society, there are limitations to the ability of knowledge graphs to represent state changes and entities evolve over time. For example, the following set of facts about architect Ludwig Mies van der Rohe was extracted from DBpedia (see in listing 1), it is known that Mies was once the director of Bauhaus. However, most of the facts evolve over time (see in listing 2), so suppose a natural language question is asked: "who was the director of the Bauhaus?" The answer should be the director in 1919-1928 was Walter Gropius and the director in 1930-1933 was Mies, whereas traditional knowledge mapping does not support the expression of information that contains temporal constraints.
 
-|                 |  |  |  |  | (Ludwig Mies van der Rohe birthPlace , "Aachen") |  |  |  |
+| | | | | | (Ludwig Mies van der Rohe birthPlace , "Aachen") | | | |
 |-----------------|--|--|--|--|--------------------------------------------------|--|--|--|
-|                 |  |  |  |  | (Ludwig Mies van der Rohe, directorOf , "Bauhaus |  |  |  |
-| ")              |  |  |  |  |                                                  |  |  |  |
-|                 |  |  |  |  | (Ludwig Mies van der Rohe, citizenship ,         |  |  |  |
-| ""Germany ""US) |  |  |  |  |                                                  |  |  |  |
+| | | | | | (Ludwig Mies van der Rohe, directorOf , "Bauhaus | | | |
+| ") | | | | | | | | |
+| | | | | | (Ludwig Mies van der Rohe, citizenship , | | | |
+| ""Germany ""US) | | | | | | | | |
 
-*Listing 1: Facts about Mies van der Rohe*|               |  | (Ludwig Mies van der Rohe birthPlace , "Aachen")  |  |
+*Listing 1: Facts about Mies van der Rohe*| | | (Ludwig Mies van der Rohe birthPlace , "Aachen") | |
 |---------------|--|---------------------------------------------------|--|
-| [1886-3-27]   |  |                                                   |  |
-|               |  | (Ludwig Mies van der Rohe, directorOf , "Bauhaus  |  |
-| ")[1930-1933] |  |                                                   |  |
-|               |  | (Ludwig Mies van der Rohe, citizenship , "Germany |  |
-| ")[1886-1944] |  |                                                   |  |
-|               |  | (Ludwig Mies van der Rohe, citizenship , "US")    |  |
-| [1944-1969]   |  |                                                   |  |
+| [1886-3-27] | | | |
+| | | (Ludwig Mies van der Rohe, directorOf , "Bauhaus | |
+| ")[1930-1933] | | | |
+| | | (Ludwig Mies van der Rohe, citizenship , "Germany | |
+| ")[1886-1944] | | | |
+| | | (Ludwig Mies van der Rohe, citizenship , "US") | |
+| [1944-1969] | | | |
 *Listing 2: Facts about Mies van der Rohe with annotations*Temporal Knowledge Graph (TKG) is a type of extended knowledge graph that can be described as an asynchronous stream of temporal events. TKG is typically composed of a set of nodes and edges where nodes represent the entities of resources and edges represent the relationships between entities, as well as time-stamped data associated with each node and edge will be added to the triple.
 
 The concept of TKG first appeared in the computer science domain (Gutierrez et al., 2005) (Gutierrez et al., 2006) and has recently been applied in several fields to solve time-constrained problems in real-life. The current applications of TKG mainly include temporal data integration, that is, the integration of heterogeneous data sets in a common temporal frame including temporal data, which is significant for dynamic application scenarios such as financial transactions, and recommendation systems. Temporal question answering enables complex queries to be performed on TKG to answer complex temporal questions (Saxena et al., 2021). With the growth of Graph neural networks (GNNs) research, the temporal GNN algorithm is applied on TKG to derive insights about the state of things. Introducing TKG into the AEC domain will be an important step towards enhancing the ability to derive new knowledge from dynamic events. Specific TKG application scenarios are listed below:
@@ -138,7 +138,7 @@ To represent and link building-related assets on the web, heterogeneous data nee
 
 ![](_page_2_Figure_8.jpeg)
 <!-- Image Description: This image is a knowledge graph illustrating an ontology of sensor readings. Nodes represent classes (red) and instances (blue) of sensor data, while grey nodes are literals (e.g., "22.4"). Edges show relationships (e.g., `sosa:hasResult`, `sosa:isObservedBy`). The graph depicts a sensor (`inst:sensor_mq3`) observing a property (`inst:room101`) and producing an observation with a numeric result. The purpose is to visually represent the structure and relationships within the data model. -->
-*Figure 1: Describe Digital Twin Entities and Properties in Knowledge Graphs*#### Describing Temporal Data in Knowledge Graphs
+***Figure 1:** Describe Digital Twin Entities and Properties in Knowledge Graphs*#### Describing Temporal Data in Knowledge Graphs
 
 As the prevalence of IoT and Digital Twins technologies grows, what they offer is a powerful paradigm for the development of the AEC sector. For example, real-time feedback on human behavior, physical observations (locations, equipment, etc.), external weather data, and other rich knowledge play a pivotal role in data linkage. In the previous section, the representation of static physical assets has been achieved, while the description of the temporal knowledge, which is continuously updated in the digital twin process, still has certain limitations. The RDF model is an atemporal snapshot of information. As shown in figure 2, for example, in a building, different agents create different events or relationships at different times. The creation of events points to the creation of nodes in the knowledge graph, when a new relationship is updated then an edge is also updated. Different from the standard RDF triple*< s, p,o >*, the temporal knowledge graph becomes a four-triples by adding the time factor to the triple. The W3C has not yet made a standard specification of the temporal knowledge graph, but there have been numerous attempts to interpret temporal data at different granularities based on RDF model, here we mainly use the RDF model summarized from the following studies (Gutierrez et al., 2006) (Leblay and Chekol, 2018) and the temporal RDF interpretation model can be seen in figure3.
 
@@ -160,44 +160,52 @@ $$
 
 ![](_page_3_Figure_9.jpeg)
 <!-- Image Description: The image displays a data model illustrating a time series. Two dates ("2022-11-20" and "2022-12-25") represent the start and end points. Intermediate time intervals (T1...Tn) are linked to a subject (ex:<dc/room101>) and object (ex:<sensor/dht11>) via a predicate (sosa:isObservedBy). `hasStartTime` and `hasEndTime` indicate temporal relationships. The diagram likely shows the structure of time-stamped sensor data in the paper. -->
-*Figure 3: Illustration of temporal knowledge graph syntax and cases*In listing 3 we use Digital Twin enabled Linked Building Data as a case study to create a knowledge graph instances with location, observation, sensor and actuator perspectives.
+***Figure 3:** Illustration of temporal knowledge graph syntax and cases*In listing 3 we use Digital Twin enabled Linked Building Data as a case study to create a knowledge graph instances with location, observation, sensor and actuator perspectives.
 
 ```text
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-
-    syntax-ns#> .
+syntax-ns#> .
 @prefix time: <http://www.w3.org/2006/time#>.
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-     .
+.
 ```text
 
 ```text
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
-#Location
+
+## Location
+
 <reiffMuseum/dc/r101> rdf:type sosa:
-    ObservableProperty ;
-  sosa:isObservedBy[2022-05-24,2022-12-24] <
-    sensor/mq3> .
-#Observation
+ObservableProperty ;
+sosa:isObservedBy[2022-05-24,2022-12-24] <
+sensor/mq3> .
+
+## Observation
+
 <observation/27> rdf:type sosa:Observation ;
-  sosa:hasFeatureOfInterest <reiffMuseum/r102>
-    ;
-  sosa:observedProperty <reiffMuseum/r102/
-    airQuality > ;
-  sosa:madeBySensor <sensor/30> ;
-  sosa:hasResult[2022-12-01,2022-12-31] [
-    qudt -1-1:unit qudt-unit -1-1:Kilowatthour ;
-    qudt -1-1:numericValue "22.4"^^xsd:double ]
-    .
-#Sensor
+sosa:hasFeatureOfInterest <reiffMuseum/r102>
+;
+sosa:observedProperty <reiffMuseum/r102/
+airQuality > ;
+sosa:madeBySensor <sensor/30> ;
+sosa:hasResult[2022-12-01,2022-12-31] [
+qudt -1-1:unit qudt-unit -1-1:Kilowatthour ;
+qudt -1-1:numericValue "22.4"^^xsd:double ]
+.
+
+## Sensor
+
 <sensor/926> rdf:type sosa:Sensor ;
-  sosa:madeObservation[2022-11-01,2022-11-30] <
-    Observation/235>, <Observation/236> .
-# Actuation
+sosa:madeObservation[2022-11-01,2022-11-30] <
+Observation/235>, <Observation/236> .
+
+## Actuation
+
 <windowCloser/987> rdf:type sosa:Actuator ;
-  sosa:madeActuation[2022,12,25] <actuation/188>
-     ;
+sosa:madeActuation[2022,12,25] <actuation/188>
+;
 ```text
 
 /104#state> .*Listing 3: Representing temporal properties in SOSA ontology*ssn:forProperty[2022-05-01,2023-05-01] <window
@@ -211,16 +219,16 @@ Here the DC chair in the RWTH Reiff building is used as a case study, which cons
 
 ![](_page_4_Figure_0.jpeg)
 <!-- Image Description: This image displays a 3D model of a building's floor plan with sensors (represented by wifi symbols) located in various rooms. Three line graphs are linked to specific locations: one shows Room 102's air quality over time, another its humidity, and the third shows Room 104's temperature. The image illustrates the spatial distribution of sensor data, showing how environmental factors vary across the building. -->
-*Figure 4: Usecase: Sensor data stream in Reiff building*better understand how natural relationships are evolved. The following two listings show examples of temporal SPARQL-based queries. Different from the standard SPARQL query syntax, the time attribute was introduced into the triple, so there will be an additional time factor in the query. The first query listing is a sample that retrieves the result of an observation at a given time point, see in Listing 4.
+***Figure 4:** Usecase: Sensor data stream in Reiff building*better understand how natural relationships are evolved. The following two listings show examples of temporal SPARQL-based queries. Different from the standard SPARQL query syntax, the time attribute was introduced into the triple, so there will be an additional time factor in the query. The first query listing is a sample that retrieves the result of an observation at a given time point, see in Listing 4.
 
 ```text
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 SELECT ?Result
 WHERE {
-  ?Observation sosa:hasResult[?t] ?Result .
-  FILTER (?Observation="Observation/2324" and ?t
-     ="2022-12-24T00:00:00+00:00"^^xsd:
-    dateTimeStamp)
+?Observation sosa:hasResult[?t] ?Result .
+FILTER (?Observation="Observation/2324" and ?t
+="2022-12-24T00:00:00+00:00"^^xsd:
+dateTimeStamp)
 }
 ```text
 *Listing 4: Query example for retrieve the result of an observation at a given time point*Listing 5 depicts a sample query about a time interval, supposing the user wants to retrieve the observation result of the air quality sensor in Room 101 at a certain time period or time point.
@@ -229,10 +237,10 @@ WHERE {
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 SELECT ?t1 ?tn ?result
 WHERE {
-  ?Room sosa:isObservedBy[?t1,?tn] ?sensor .
-  ?sensor sosa:hasResult[?t1,?tn] ?result .
-  FILTER(?Room = "dc/r101" and ?sensor = "sensor
-    /mq3" )
+?Room sosa:isObservedBy[?t1,?tn] ?sensor .
+?sensor sosa:hasResult[?t1,?tn] ?result .
+FILTER(?Room = "dc/r101" and ?sensor = "sensor
+/mq3" )
 }
 ```text
 *Listing 5: Query example for retrieve the sensor observations for a time period*

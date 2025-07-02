@@ -68,11 +68,11 @@ Several existing work in the area adapt existing knowledge graph embedding model
 
 • Computing methodologies → Learning latent representations; • Information systems → Novelty in information retrieval; Question answering;
 
-#### KEYWORDS
+### KEYWORDS
 
 temporal knowledge graph, learning representations
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Julien Leblay, Melisachew Wudage Chekol, and Xin Liu. 2020. Towards Temporal Knowledge Graph Embeddings with Arbitrary Time Precision. In Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20), October 19–23, 2020, Virtual Event, Ireland. ACM, New York, NY, USA, [10](#page-9-0) pages. [https://doi.org/10.1145/3340531.](https://doi.org/10.1145/3340531.3412028) [3412028](https://doi.org/10.1145/3340531.3412028)
 
@@ -99,7 +99,7 @@ Permission to make digital or hard copies of all or part of this work for person
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
 <!-- Image Description: The image displays a line graph comparing two datasets over time (from approximately 1800 to 2000). A blue line shows one dataset with fluctuating growth, while a red line illustrates a second dataset exhibiting consistently smoother, but less rapid, growth. The y-axes represent different scales for each dataset, likely reflecting different units of measurement. The graph likely illustrates a comparison of two related trends over time, with the difference in growth patterns being a key finding of the paper. -->
 
-Figure 1: Number of facts that hold on any given year from 1800 in 2019 in Wikidata (red) and number of distinct relations in use over the same period (blue).
+**Figure 1:** Number of facts that hold on any given year from 1800 in 2019 in Wikidata (red) and number of distinct relations in use over the same period (blue).
 
 year. This is shown in red on Figure [1](#page-1-0) on a portion stretching from 1800 to 2020. While there is a fairly small and constant amount of knowledge about the past, this amount grows exponentially as time approaches to the present. This is in part because gathering precise information is increasingly hard as we look farther into the past, and in part because knowledge simply accumulates (more facts becoming true than false) over time. The skew is apparent not only in terms of absolute number of facts valid at any period of time, but also in terms of distinct relations in use over time (as shown in blue on Figure [1\)](#page-1-0). That is, the overall "vocabulary" of the graph drifts with time, as certain relations become obsolete (emperor-of), and new ones emerge (follows-on-twitter).
 
@@ -188,9 +188,9 @@ For a detailed discussion on temporal KG embeddings, we refer to the survey [\[1
 <span id="page-3-1"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: The image is a graph depicting the historical relationships between Germany, its capitals (Berlin and Bonn), and France. Nodes represent cities and countries, colored blue (cities) and green (countries). Edges show capital-country relations, labeled with date ranges indicating the validity of each relationship. The graph illustrates the changing capitals of Germany and their temporal overlap, including periods of division and reunification. -->
 
-Figure 2: Example of a Temporal Knowledge Graph.
+**Figure 2:** Example of a Temporal Knowledge Graph.
 
-# <span id="page-3-0"></span>3 EMBEDDING TEMPORAL KNOWLEDGE
+## <span id="page-3-0"></span>3 EMBEDDING TEMPORAL KNOWLEDGE
 
 In this section, we formalize our problem statement and detail our approach as well as the infrastructure to support it.
 
@@ -226,7 +226,7 @@ Scopes fully determines the size of the vectors that are used to represent time 
 
 Example 3.5. For scope ′′ of our previous example, the date 12 ., 2019 can be represented within a vector of four sections of sizes 4, 3, 5, 7, respectively, by setting positions (0, 0, 1, 4) to 1, and 0 set elsewhere. More precisely, there are 4 quarters in a year, 3 months in a quarter, 5 weeks in a month, and 7 days in a week. Hence, to represent these temporal elements, we use vectors of sizes: 4 for quarters, 3 for months, 5 for weeks, and 7 for days. Accordingly, we set the first position of the quarters sub-vector to 1 (as January is in the first quarter) and the rest to 0, likewise, 1 in the first position of the months sub-vector (as January is the first month in the first quarter), 1 in the second position of the weeks sub-vector (as the 12th of January is in the second week), and finally 1 in the fifth position of the days sub-vector.
 
-| Quarters         | Months      | Weeks                 | Days                            |
+| Quarters | Months | Weeks | Days |
 |------------------|-------------|-----------------------|---------------------------------|
 | 0<br>0<br>1<br>0 | 1<br>0<br>0 | 0<br>1<br>0<br>0<br>0 | 0<br>0<br>0<br>0<br>1<br>0<br>0 |
 
@@ -237,17 +237,17 @@ Note that we can represent a time point with a coarser granularity than that of 
 <span id="page-4-2"></span>![](_page_4_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a hierarchical temporal model. Three colored nodes (green, blue, red) represent Germany, its capital, and Berlin, respectively. These connect to a series of 3D blocks representing data at different time granularities (centuries, decades, years, months, days). Each block ($W_c$, $W_d$, etc.) is divided into upper and lower sections. Arrows show data flow across timescales and the functions $f_{1980's}(s, p, o)$ and $f_{Jan. 16, 1989}(s, p, o)$ likely denote transformations applied at those time points. The illustration's purpose is to visualize the temporal dependencies in the data. -->
 
-Figure 3: The architecture of our model.
+**Figure 3:** The architecture of our model.
 
 Example 3.6. In the same scope ′′, the interval [2 2019; 24 2019] can be represented with a single vector when narrowing down to the month (M) granularity:
 
-| Quarters         | Months      | Weeks                 | Days                            |
+| Quarters | Months | Weeks | Days |
 |------------------|-------------|-----------------------|---------------------------------|
 | 0<br>0<br>1<br>0 | 1<br>1<br>0 | 0<br>0<br>0<br>0<br>0 | 0<br>0<br>0<br>0<br>0<br>0<br>0 |
 
 Further narrowing down the above example to day granularity (d), we must use two vectors:
 
-| Quarters         | Months      | Weeks                 | Days                            |
+| Quarters | Months | Weeks | Days |
 |------------------|-------------|-----------------------|---------------------------------|
 | 1<br>0<br>0<br>0 | 1<br>0<br>0 | 0<br>1<br>1<br>1<br>1 | 0<br>0<br>0<br>0<br>0<br>0<br>0 |
 | 1<br>0<br>0<br>0 | 0<br>1<br>0 | 0<br>0<br>0<br>1<br>0 | 1<br>1<br>1<br>1<br>1<br>0<br>0 |
@@ -294,39 +294,38 @@ Next, we describe the datasets that we used, our implementation and setup as wel
 
 <span id="page-4-1"></span><sup>2</sup>We tested TransE and RotatE [\[32\]](#page-9-9) in our evaluation, but virtually any TransE variant can be used.
 
-<span id="page-5-1"></span>
 
-|                      | FB15k  | WN18   | YAGO11K | Wikidata12K | ICEWS14 |
+| | FB15k | WN18 | YAGO11K | Wikidata12K | ICEWS14 |
 |----------------------|--------|--------|---------|-------------|---------|
-| # non-temporal facts | 592213 | 151442 | 0       | 0           | 0       |
-| # temporal facts     | 0      | 0      | 20508   | 40621       | 90730   |
-| # entities           | 14951  | 40943  | 10623   | 12554       | 7128    |
-| # relations          | 1345   | 18     | 10      | 24          | 230     |
-| Hits@1 (%)           | —      | —      | 16.3    | 40.3        | 43.9    |
-| Hits@3 (%)           | —      | —      | 24.4    | 48.4        | 63.8    |
-| Hits@10 (%)          | —      | —      | 36.6    | 59.1        | 75.9    |
-| MR                   | —      | —      | 738     | 187         | 147     |
-| MRR                  | —      | —      | .23     | .74         | .56     |
+| # non-temporal facts | 592213 | 151442 | 0 | 0 | 0 |
+| # temporal facts | 0 | 0 | 20508 | 40621 | 90730 |
+| # entities | 14951 | 40943 | 10623 | 12554 | 7128 |
+| # relations | 1345 | 18 | 10 | 24 | 230 |
+| Hits@1 (%) | — | — | 16.3 | 40.3 | 43.9 |
+| Hits@3 (%) | — | — | 24.4 | 48.4 | 63.8 |
+| Hits@10 (%) | — | — | 36.6 | 59.1 | 75.9 |
+| MR | — | — | 738 | 187 | 147 |
+| MRR | — | — | .23 | .74 | .56 |
 
-#### Table 1: Dataset characteristics, with best performances obtained on RotatE.
+### Table 1: Dataset characteristics, with best performances obtained on RotatE.
 
-<span id="page-5-5"></span>Table 2: Assessment of time validity prediction on a layer given correct predictions on all prior layers.
+<span id="page-5-5"></span>**Table 2:** Assessment of time validity prediction on a layer given correct predictions on all prior layers.
 
-|         |      | YAGO11K |      |      |      | Wikidata12K |      |      |      | ICEWS14 |      |      |
+| | | YAGO11K | | | | Wikidata12K | | | | ICEWS14 | | |
 |---------|------|---------|------|------|------|-------------|------|------|------|---------|------|------|
-|         | ROC  | BA      | Pr.  | Rec. | ROC  | BA          | Pr.  | Rec. | ROC  | BA      | Pr.  | Rec. |
-| CENTURY | .970 | .822    | .839 | .665 | .968 | .764        | .905 | .538 | –    | –       | –    | –    |
-| DECADE  | .911 | .728    | .859 | .476 | .946 | .727        | .925 | .463 | –    | –       | –    | –    |
-| YEAR    | .807 | .737    | .841 | .607 | .756 | .663        | .904 | .349 | –    | –       | –    | –    |
-| MONTH   | .954 | .893    | .989 | .814 | –    | –           | –    | –    | .738 | .608    | .987 | .217 |
-| DAY     | .978 | .929    | .994 | .894 | –    | –           | –    | –    | .625 | .561    | .980 | .122 |
-| ToKEi   | .924 | .822    | .905 | .691 | .890 | .718        | .911 | .450 | .681 | .585    | .983 | .169 |
+| | ROC | BA | Pr. | Rec. | ROC | BA | Pr. | Rec. | ROC | BA | Pr. | Rec. |
+| CENTURY | .970 | .822 | .839 | .665 | .968 | .764 | .905 | .538 | – | – | – | – |
+| DECADE | .911 | .728 | .859 | .476 | .946 | .727 | .925 | .463 | – | – | – | – |
+| YEAR | .807 | .737 | .841 | .607 | .756 | .663 | .904 | .349 | – | – | – | – |
+| MONTH | .954 | .893 | .989 | .814 | – | – | – | – | .738 | .608 | .987 | .217 |
+| DAY | .978 | .929 | .994 | .894 | – | – | – | – | .625 | .561 | .980 | .122 |
+| ToKEi | .924 | .822 | .905 | .691 | .890 | .718 | .911 | .450 | .681 | .585 | .983 | .169 |
 
-#### 1 Datasets
+### 1 Datasets
 
 We used the Wikidata, YAGO and ICEWS datasets, which all feature time validity information, and have been used on prior work on the topic. The YAGO11k and Wikidata12K datasets are those provided in [\[5\]](#page-9-10) formatted to our needs. As YAGO11K has fact validities defined at each level from centuries down to days, we use the scope = ( [1 1100; 30 2019], (C, D, Y, M, d)). Wikidata12K on the other hand only has data for years, hence we restricted the scope to = ( [1 1100; 30 2019], (C, D, Y)). Both datasets contain open and closed validity intervals. We clipped open intervals to the min and max dates of the considered scope. The ICEWS14 dataset was originally published in [\[35\]](#page-9-16). It covers the year 2014, and each event is defined using time points, occurring on exactly one day. The scope is defined as = ( [1 .; 30 .], (M, d)). Table [1](#page-5-1) shows some statistics over the datasets, as well as non-temporal datasets commonly used in related work for comparison. These are based on FreeBase (FB15k) and WordNet (WN18).
 
-#### 2 Implementation
+### 2 Implementation
 
 We implemented our approach[3](#page-5-2) by building upon some existing project[4](#page-5-3) , which features several TransE variant. We use python3, the PyTorch library, and ran our experiments on a server equipped with 164GB of memory, 16x1.2GHz CPUs, and 8x1.5GHz GPUs (GeForce GTX 1080 Ti), each with 256MB of memory. Our model is named ToKEi.
 
@@ -334,7 +333,7 @@ We pre-trained on RotatE and TransE, to demonstrate the ability of our model to 
 
 performance we could achieve on the non-temporal embedding scenario (shown in Table [1\)](#page-5-1) were not impressive, this presented a good use case for us, as we aim to improve performances in a temporal context (as noted in Section [3,](#page-3-0) we can also start with a random initialization). The best embedding dimension size (ℎ) and margin obtained on those models is kept unchanged for training our model downstream. Other hyper-parameters include learning rate (), phase lengths (), i.e., the number of iterations spent on each layer, the number of negative examples () for each positive one and the adversarial temperature () used in negative sampling [\[32\]](#page-9-9). We experimented with a wide range of parameters with the following bound ∈ [.00001, .1], ∈ [1000, 20000], ∈ [0, 128], and ∈ [0, 1]. For YAGO11K and Wikidata12K, while performances vary with each metrics presented below, we found that the configuration { = 5000, = .001, = 128, = 1} gave among the best results across all datasets. Unless specified otherwise, we report results for this configuration. We also found that further restricting any of { = 5000, = .001, = 32} significantly reduced training time with close, in some cases even better, performances. For ICEWS14, we report numbers for parameters { = 15000, = .001, = 0}, the best performing model. For each dataset, we randomly assigned 15% of the facts to test, 15% to validation, and used the remainder for training. For each of the following experiments, we present a breakdown of performances per layer, then average all layers under the ToKEi line.
 
-#### <span id="page-5-0"></span>4.3 Independent Layer Performance
+### <span id="page-5-0"></span>4.3 Independent Layer Performance
 
 Due to the incremental nature of our model, errors can accumulate as we move towards layers of finer granularities. We first wanted to evaluate the performance of each layer omitting any potential error
 
@@ -344,96 +343,95 @@ Due to the incremental nature of our model, errors can accumulate as we move tow
 
 <span id="page-5-4"></span><sup>5</sup> Since trends were similar for both, in the interest of space, we report the RotatE results only.
 
-| dates<br>to<br>spond | picked         | rando<br>purely | mly.           |                |                |                |                |                |                | ICE            |                |                |
+| dates<br>to<br>spond | picked | rando<br>purely | mly. | | | | | | | ICE | | |
 |----------------------|----------------|-----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
-|                      |                |                 | YAGO11K        |                |                | Wikidata12K    |                |                |                |                | WS14           |                |
-|                      | ROC            | BA              | Precision      | Recall         | ROC            | BA             | Precision      | Recall         | ROC            | BA             | Precision      | Recall         |
-| CENTURY              | (.912)<br>.854 | (.788)<br>.763  | (.265)<br>.268 | (.686)<br>.757 | (.903)<br>.844 | (.707)<br>.723 | (.285)<br>.117 | (.482)<br>.974 | –              | –              | –              | –              |
-| DECADE               | (.939)<br>.866 | (.849)<br>.769  | (.496)<br>.460 | (.772)<br>.714 | (.903)<br>.808 | (.573)<br>.673 | (.809)<br>.255 | (.147)<br>.569 | –              | –              | –              | –              |
-| YEAR                 | (.916)<br>.835 | (.510)<br>.735  | (.589)<br>.549 | (.021)<br>.659 | (.858)<br>.805 | (.524)<br>.647 | (.728)<br>.572 | (.048)<br>.580 | –              | –              | –              | –              |
-| MONTH                | (.923)<br>.828 | (.815)<br>.759  | (.375)<br>.445 | (.678)<br>.920 | –              | –              | –              | –              | (.716)<br>.716 | (.587)<br>.587 | (.029)<br>.029 | (.192)<br>.192 |
-| DAY                  | (.883)<br>.824 | (.501)<br>.714  | (1.)<br>.571   | (.001)<br>.580 | –              | –              | –              | –              | (.696)<br>.691 | (.572)<br>.520 | (.527)<br>.667 | (.144)<br>.041 |
-| ToKEi                | .841 (.915)    | (.693)<br>.748  | (.545)<br>.459 | (.432)<br>.726 | (.888)<br>.819 | (.601)<br>.681 | (.607)<br>.381 | (.226)<br>.472 | (.706)<br>.704 | (.579)<br>.553 | (.278)<br>.348 | (.168)<br>.116 |
-|                      |                |                 |                |                |                |                |                |                |                |                |                |                |
+| | | | YAGO11K | | | Wikidata12K | | | | | WS14 | |
+| | ROC | BA | Precision | Recall | ROC | BA | Precision | Recall | ROC | BA | Precision | Recall |
+| CENTURY | (.912)<br>.854 | (.788)<br>.763 | (.265)<br>.268 | (.686)<br>.757 | (.903)<br>.844 | (.707)<br>.723 | (.285)<br>.117 | (.482)<br>.974 | – | – | – | – |
+| DECADE | (.939)<br>.866 | (.849)<br>.769 | (.496)<br>.460 | (.772)<br>.714 | (.903)<br>.808 | (.573)<br>.673 | (.809)<br>.255 | (.147)<br>.569 | – | – | – | – |
+| YEAR | (.916)<br>.835 | (.510)<br>.735 | (.589)<br>.549 | (.021)<br>.659 | (.858)<br>.805 | (.524)<br>.647 | (.728)<br>.572 | (.048)<br>.580 | – | – | – | – |
+| MONTH | (.923)<br>.828 | (.815)<br>.759 | (.375)<br>.445 | (.678)<br>.920 | – | – | – | – | (.716)<br>.716 | (.587)<br>.587 | (.029)<br>.029 | (.192)<br>.192 |
+| DAY | (.883)<br>.824 | (.501)<br>.714 | (1.)<br>.571 | (.001)<br>.580 | – | – | – | – | (.696)<br>.691 | (.572)<br>.520 | (.527)<br>.667 | (.144)<br>.041 |
+| ToKEi | .841 (.915) | (.693)<br>.748 | (.545)<br>.459 | (.432)<br>.726 | (.888)<br>.819 | (.601)<br>.681 | (.607)<br>.381 | (.226)<br>.472 | (.706)<br>.704 | (.579)<br>.553 | (.278)<br>.348 | (.168)<br>.116 |
+| | | | | | | | | | | | | |
 
-<span id="page-6-0"></span>Table 3: Sample-based time prediction. The main results correspond to dates selected recursively closer to the present, while results in parenthesis corre-
+<span id="page-6-0"></span>**Table 3:** Sample-based time prediction. The main results correspond to dates selected recursively closer to the present, while results in parenthesis corre-
 
-<span id="page-6-1"></span>
 
-| in            |                  |
+| in | |
 |---------------|------------------|
-|               |                  |
-|               |                  |
-| Results       |                  |
-|               |                  |
-|               |                  |
-| queries.      |                  |
-|               |                  |
-| (subject)     |                  |
-|               |                  |
-|               |                  |
-| head          |                  |
-| and           |                  |
-|               |                  |
-| (object)      |                  |
-|               |                  |
-| tail          |                  |
-|               |                  |
-|               |                  |
-|               |                  |
-| distinguished |                  |
-|               |                  |
-|               |                  |
-| pairs,        |                  |
-| in            |                  |
-|               |                  |
-| presented     |                  |
-|               |                  |
-|               |                  |
-| are           |                  |
-|               |                  |
-| HyTE          |                  |
-|               |                  |
-| Rank.         |                  |
-|               |                  |
-|               |                  |
-|               |                  |
-| Reciprocal    |                  |
-|               |                  |
-| Mean          |                  |
-|               |                  |
-| and           |                  |
-| Rank,         | with 𝑙𝑟 = .0001. |
-|               |                  |
-| Mean          |                  |
-|               |                  |
-| @N,           | obtained         |
-|               |                  |
-| HITS          |                  |
-|               | parenthesis      |
-| Table 4:      |                  |
-|               |                  |
+| | |
+| | |
+| Results | |
+| | |
+| | |
+| queries. | |
+| | |
+| (subject) | |
+| | |
+| | |
+| head | |
+| and | |
+| | |
+| (object) | |
+| | |
+| tail | |
+| | |
+| | |
+| | |
+| distinguished | |
+| | |
+| | |
+| pairs, | |
+| in | |
+| | |
+| presented | |
+| | |
+| | |
+| are | |
+| | |
+| HyTE | |
+| | |
+| Rank. | |
+| | |
+| | |
+| | |
+| Reciprocal | |
+| | |
+| Mean | |
+| | |
+| and | |
+| Rank, | with 𝑙𝑟 = .0001. |
+| | |
+| Mean | |
+| | |
+| @N, | obtained |
+| | |
+| HITS | |
+| | parenthesis |
+| **Table 4:** | |
+| | |
 
-| ICEWS14<br>HITS@3<br>–<br>–<br>–<br>–<br>–<br>–<br>.279<br>.218<br>.248<br>.592<br>.491<br>HITS@1<br>–<br>–<br>–<br>–<br>.384<br>.232<br>.188<br>.210<br>.095<br>.363<br>.418<br>(.465)<br>(.353)<br>(.421)<br>(.442)<br>MRR<br>–<br>.520<br>.484<br>.700<br>–<br>–<br>–<br>.465<br>.522<br>.208<br>.342<br>(203.4)<br>(160.1)<br>(129.1)<br>(23.9)<br>179/237<br>–<br>MR<br>79<br>198<br>–<br>–<br>–<br>150.1<br>913.0<br>444.4<br>270.1<br>Wikidata12K<br>(.721)<br>(.670)<br>(.615)<br>(.669)<br>HITS@10<br>.416/.250<br>–<br>–<br>–<br>.539<br>.807<br>.785<br>.689<br>.539<br>.332<br>.520<br>(.548)<br>(.523)<br>(.486)<br>(.519)<br>HITS@3<br>–<br>–<br>–<br>–<br>–<br>–<br>.521<br>.543<br>.400<br>.228<br>.390<br>(.323)<br>(.304)<br>(.307)<br>(.311)<br>HITS@1<br>–<br>–<br>–<br>–<br>–<br>.329<br>.652<br>.337<br>.253<br>.152<br>.244<br>(.595)<br>(.522)<br>(.498)<br>(.533)<br>(.521)<br>(.500)<br>MRR<br>–<br>.652<br>.321<br>.291<br>–<br>.553<br>.456<br>.316<br>.150<br>.058<br>.307<br>(152.9)<br>(278.4)<br>(54.0)<br>(114.8)<br>(36.6)<br>(51.8)<br>107/1069<br>–<br>MR<br>564<br>551<br>–<br>1349.1<br>161.7<br>991.6<br>305.7<br>807.9<br>723.2<br>YAGO11K<br>(.825)<br>(.761)<br>(.733)<br>(.796)<br>(.778)<br>(.779)<br>HITS@10<br>.384/.160<br>–<br>.512<br>.476<br>.681<br>.800<br>.684<br>.496<br>.119<br>.470<br>.251<br>(.674)<br>(.606)<br>(.578)<br>(.623)<br>(.611)<br>(.618)<br>HITS@3<br>–<br>–<br>–<br>–<br>.656<br>.634<br>.533<br>.379<br>.169<br>.060<br>.355<br>(.476)<br>(.395)<br>(.374)<br>(.395)<br>(.384)<br>.218 (.405)<br>HITS@1<br>–<br>.231<br>.216<br>–<br>–<br>.426<br>.212<br>.096<br>.025<br>.331<br>[8]<br>[8]<br>TA-DISTMULT<br>[9]<br>[16]<br>TA-TRANSE<br>DE-SimplE<br>CENTURY<br>DECADE |  |  |  |  |  |  |         |        |      |
+| ICEWS14<br>HITS@3<br>–<br>–<br>–<br>–<br>–<br>–<br>.279<br>.218<br>.248<br>.592<br>.491<br>HITS@1<br>–<br>–<br>–<br>–<br>.384<br>.232<br>.188<br>.210<br>.095<br>.363<br>.418<br>(.465)<br>(.353)<br>(.421)<br>(.442)<br>MRR<br>–<br>.520<br>.484<br>.700<br>–<br>–<br>–<br>.465<br>.522<br>.208<br>.342<br>(203.4)<br>(160.1)<br>(129.1)<br>(23.9)<br>179/237<br>–<br>MR<br>79<br>198<br>–<br>–<br>–<br>150.1<br>913.0<br>444.4<br>270.1<br>Wikidata12K<br>(.721)<br>(.670)<br>(.615)<br>(.669)<br>HITS@10<br>.416/.250<br>–<br>–<br>–<br>.539<br>.807<br>.785<br>.689<br>.539<br>.332<br>.520<br>(.548)<br>(.523)<br>(.486)<br>(.519)<br>HITS@3<br>–<br>–<br>–<br>–<br>–<br>–<br>.521<br>.543<br>.400<br>.228<br>.390<br>(.323)<br>(.304)<br>(.307)<br>(.311)<br>HITS@1<br>–<br>–<br>–<br>–<br>–<br>.329<br>.652<br>.337<br>.253<br>.152<br>.244<br>(.595)<br>(.522)<br>(.498)<br>(.533)<br>(.521)<br>(.500)<br>MRR<br>–<br>.652<br>.321<br>.291<br>–<br>.553<br>.456<br>.316<br>.150<br>.058<br>.307<br>(152.9)<br>(278.4)<br>(54.0)<br>(114.8)<br>(36.6)<br>(51.8)<br>107/1069<br>–<br>MR<br>564<br>551<br>–<br>1349.1<br>161.7<br>991.6<br>305.7<br>807.9<br>723.2<br>YAGO11K<br>(.825)<br>(.761)<br>(.733)<br>(.796)<br>(.778)<br>(.779)<br>HITS@10<br>.384/.160<br>–<br>.512<br>.476<br>.681<br>.800<br>.684<br>.496<br>.119<br>.470<br>.251<br>(.674)<br>(.606)<br>(.578)<br>(.623)<br>(.611)<br>(.618)<br>HITS@3<br>–<br>–<br>–<br>–<br>.656<br>.634<br>.533<br>.379<br>.169<br>.060<br>.355<br>(.476)<br>(.395)<br>(.374)<br>(.395)<br>(.384)<br>.218 (.405)<br>HITS@1<br>–<br>.231<br>.216<br>–<br>–<br>.426<br>.212<br>.096<br>.025<br>.331<br>[8]<br>[8]<br>TA-DISTMULT<br>[9]<br>[16]<br>TA-TRANSE<br>DE-SimplE<br>CENTURY<br>DECADE | | | | | | | | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|--|--|---------|--------|------|
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | HITS@10 | MR     | MRR  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | –       | –      | –    |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | –       | –      | –    |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | –       | –      | –    |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .304    | 2067.3 | .260 |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .284    | 2136.5 | .212 |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .294    | 2101.9 | .236 |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | –       | –      | –    |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .591    | –      | .457 |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .625    | 128    | .275 |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .686    | 276    | .477 |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |  |  |  |  |  | .725    | –      | .526 |
+| | | | | | | | HITS@10 | MR | MRR |
+| | | | | | | | – | – | – |
+| | | | | | | | – | – | – |
+| | | | | | | | – | – | – |
+| | | | | | | | .304 | 2067.3 | .260 |
+| | | | | | | | .284 | 2136.5 | .212 |
+| | | | | | | | .294 | 2101.9 | .236 |
+| | | | | | | | – | – | – |
+| | | | | | | | .591 | – | .457 |
+| | | | | | | | .625 | 128 | .275 |
+| | | | | | | | .686 | 276 | .477 |
+| | | | | | | | .725 | – | .526 |
 
 occurring in prior layers. To do so, we conducted our first experiment as follows. We applied our transformations on test examples using the first layer0 (centuries in the case of YAGO11K and Wikidata12K, months for ICEWS14), and logged the AUC-ROC (ROC), balanced accuracy (BA), precision (Pr.) and recall (Rec.) across all time slots of that layer. Then, we selected the correct slot from the ground truth for that layer, applied the transformation on that slot, and repeated the operations for layer 1 (respectively decades and days). Finally, we proceeded similarly for subsequent layers. This corresponds to queries of the form "Given that Bonn was capital of Germany on the XXℎ century, in which of its decades was it also true?" Table [2](#page-5-5) shows results for the best hyper-parameters.
 
 The results are generally high for both YAGO11K and Wikidata12K, with a dip in performance for YEAR, effectively the hardest granularity to predict. Note that unless there is some periodicity in the data, data skew can mainly be dealt with (and absorbed) by the first layer of the model, e.g. once a century has been correctly predicted, decades are rather uniformly distributed and so on. Although MONTH and DAY are the deepest layers, the model performs well in part due to the prevalence on year-level, and openended validity interval (as already mentioned, more facts become valid than invalid over time). Performances are noticeably lower on ICEWS. We attribute this in part to the fact that all validity intervals are effectively time points. This can be seen in the very poor recall despite high precision. This combined with the low BA, and relatively higher AUC-ROC point to a failure to properly discriminate true positive and negative across the margin-based threshold. This trend can also be observed in other experiments.
 
-#### <span id="page-7-0"></span>4.4 Time Prediction
+### <span id="page-7-0"></span>4.4 Time Prediction
 
 In the next experiment, we measured the model's ability to predict whether a fact was valid on a given date. For this, we picked 10 dates within the relevant time scope. For each of these dates, we computed time-adjusted scores on every test fact, and checked predictions (discriminated score > .5) against the ground truth.
 
@@ -449,43 +447,41 @@ Since ICEWS14 is exclusively composed of time points, we proceeded slightly diff
 
 The mean Jaccard results for YAGO11K are encouraging, getting on average 30% of our predicted intervals right. For Wikidata12K, the scoping performance is less satisfactory, but the accuracy remains acceptable, generally 5 to 15 times higher than that of a random guess. On the ICEWS14 dataset, the model tends to predict validity within 3 months or 90 days of the correct time point on average, getting close to 34% and 16% of its months and days predictions accuracy overall.
 
-#### <span id="page-7-2"></span>4.6 Temporal Node Prediction
+### <span id="page-7-2"></span>4.6 Temporal Node Prediction
 
 Next, we discuss the ranking performances of our model. While this is a key metric in the non-temporal KG embeddings literature, and despite being used in existing temporal KG embedding literature, to the best of our knowledge, the task has never been formally redefined for the temporal setting. Indeed, the meaning of ranking varies when time is involved and depending on how time is modeled. Since most existing temporal KG models treat time as a fixed set of labels, it is generally assumed that HITS@N results are reported given correct labels as part of the inputs. Among others, this does not help understand how models behave outside the correct valid times. This is also not well defined when a fact is valid in more than one time intervals. With these limitations in mind, we compare the HITS@1, 3, 10 of various approaches. In our case, HITS@N is obtained by ranking on the mid-points of every valid interval, averaging over all test quadruples thus formed. This test amounts to queries of the form "What was Germany's capital in May 1985?"
 
 The results, reported in Table [4,](#page-6-1) show only slight degradation of performances as we move towards fine grained layers. The results on YAGO11K surpass the best competitors down to the YEAR and MONTH layers on HITS@3 and HITS@10 respectively. For HITS@1, TA-TRANSE has the best performance when comparing
 
-<span id="page-8-1"></span>
 
-|         | YAGO11K |      |      | Wikidata12K |      |      | ICEWS14  |      |      |
+| | YAGO11K | | | Wikidata12K | | | ICEWS14 | | |
 |---------|---------|------|------|-------------|------|------|----------|------|------|
-|         | Jaccard | MPA  | RG   | Jaccard     | MPA  | RG   | MP Dist. | MPA  | RG   |
-| CENTURY | .442    | .872 | .145 | .218        | .824 | .154 | –        | –    | –    |
-| DECADE  | .313    | .584 | .043 | .181        | .582 | .059 | –        | –    | –    |
-| YEAR    | .242    | .483 | .037 | .129        | .322 | .046 | –        | –    | –    |
-| MONTH   | .240    | .481 | .034 | –           | –    | –    | 2.4      | .410 | .085 |
-| DAY     | .240    | .481 | .031 | –           | –    | –    | 74.6     | .243 | .003 |
-| ToKEi   | .295    | .580 | .058 | .176        | .503 | .086 | N/A      | .327 | .044 |
+| | Jaccard | MPA | RG | Jaccard | MPA | RG | MP Dist. | MPA | RG |
+| CENTURY | .442 | .872 | .145 | .218 | .824 | .154 | – | – | – |
+| DECADE | .313 | .584 | .043 | .181 | .582 | .059 | – | – | – |
+| YEAR | .242 | .483 | .037 | .129 | .322 | .046 | – | – | – |
+| MONTH | .240 | .481 | .034 | – | – | – | 2.4 | .410 | .085 |
+| DAY | .240 | .481 | .031 | – | – | – | 74.6 | .243 | .003 |
+| ToKEi | .295 | .580 | .058 | .176 | .503 | .086 | N/A | .327 | .044 |
 
-#### Table 5: Time scoping performances.
+### Table 5: Time scoping performances.
 
-Table 6: Re-ranking error and Mean Re-rank Delta. Results in parenthesis obtained with = .0001.
+**Table 6:** Re-ranking error and Mean Re-rank Delta. Results in parenthesis obtained with = .0001.
 
-<span id="page-8-2"></span>
 
-|         | YAGO11K     |             |                 | PRE         | Wikidata12K | ICEWS14         |      |      |         |
+| | YAGO11K | | | PRE | Wikidata12K | ICEWS14 | | | |
 |---------|-------------|-------------|-----------------|-------------|-------------|-----------------|------|------|---------|
-|         | PRE         |             | NRE<br>MRD      |             | NRE         | MRD             | PRE  | NRE  | MRD     |
-| CENTURY | .110 (.076) | .370 (.923) | +321.4 (+446.5) | .101 (.060) | .462 (.943) | +226.9 (+353.2) | –    | –    | –       |
-| DECADE  | .153 (.101) | .340 (.475) | +207.8 (+360.6) | .182 (.104) | .391 (.503) | +140.1 (+206.9) | –    | –    | –       |
-| YEAR    | .276 (.130) | .257 (.515) | -310.2 (+219.3) | .383 (.103) | .228 (.518) | -490.1 (+262.8) | –    | –    | –       |
-| MONTH   | .472 (.082) | .278 (.598) | -493.7 (+446.0) | –           | –           | –               | .314 | .440 | +1437.5 |
-| DAY     | .571 (.085) | .183 (.599) | -851.2 (+443.9) | –           | –           | –               | .294 | .501 | +1636.7 |
-| ToKEi   | .316 (.095) | .286 (.622) | -225.2 (+383.3) | .222 (.089) | .360 (.655) | -41.0 (+274.3)  | .304 | .471 | +1537.1 |
+| | PRE | | NRE<br>MRD | | NRE | MRD | PRE | NRE | MRD |
+| CENTURY | .110 (.076) | .370 (.923) | +321.4 (+446.5) | .101 (.060) | .462 (.943) | +226.9 (+353.2) | – | – | – |
+| DECADE | .153 (.101) | .340 (.475) | +207.8 (+360.6) | .182 (.104) | .391 (.503) | +140.1 (+206.9) | – | – | – |
+| YEAR | .276 (.130) | .257 (.515) | -310.2 (+219.3) | .383 (.103) | .228 (.518) | -490.1 (+262.8) | – | – | – |
+| MONTH | .472 (.082) | .278 (.598) | -493.7 (+446.0) | – | – | – | .314 | .440 | +1437.5 |
+| DAY | .571 (.085) | .183 (.599) | -851.2 (+443.9) | – | – | – | .294 | .501 | +1636.7 |
+| ToKEi | .316 (.095) | .286 (.622) | -225.2 (+383.3) | .222 (.089) | .360 (.655) | -41.0 (+274.3) | .304 | .471 | +1537.1 |
 
 with layers YEAR, MONTH and DATE. However, on CENTURY and DECADE layers, ToKEi outperforms TA-TRANSE. The results on Wikidata12K is on-par with other approaches. The main difference is on the HITS@10 where TA-TRANSE achieves 80% by contrast ToKEi achieves 72% on the CENTURY layer. On the ICEWS14 dataset, ToKEi lags behind, especially on HITS@10 and mean rank. This shows that ToKEi is well-suited for valid time model temporal KGs such as YAGO11K and Wikidata12K which contain temporally scoped facts. DE-SimplE outperforms all the models on the ICEWS14 dataset.
 
-#### 7 Re-ranking Error Analysis
+### 7 Re-ranking Error Analysis
 
 One of our claims is that our meta-model can adjust non-temporal embedding to any time point. To test this claim, we introduce some metrics to compare rankings within and outside their validity intervals. More precisely, we would like our rankings to be at least as good as the non-temporal ranking on any valid time point, and no better on invalid ones. This is what we report in Table [6,](#page-8-2) as mean Positive Re-ranking Error (PRE), and mean negative re-ranking Error (NRE). More formally, given some query (?, , , ) and correct answer ˆ, is the ratio of time points for which the rank obtained with (, , ˆ ) is strictly worse than that obtained with (, , ˆ ), out of all valid time points for (, , ˆ ), i.e.,
 
@@ -493,7 +489,7 @@ $$
 PRE(p, o) = \frac{|\{t \mid (\hat{s}, p, o) \text{ valid in } t \text{ and } r_t(\hat{s}, p, o) > r(\hat{s}, p, o)\}|}{|\{t \mid (\hat{s}, p, o) \text{ valid in } t\}|}
 $$
 
- is defined similarly, where we count temporal rankings better or equal to the non-temporal one on invalid time points only.
+is defined similarly, where we count temporal rankings better or equal to the non-temporal one on invalid time points only.
 
 $$
 NRE(p, o) = \frac{|\{t \mid (\hat{s}, p, o) \text{ invalid in } t \text{ and } r_t(\hat{s}, p, o) \le r(\hat{s}, p, o)\}|}{|\{t \mid (\hat{s}, p, o) \text{ invalid in } t\}|}
@@ -509,13 +505,13 @@ where is the set of queries.
 
 This is computed on valid time points only. The higher, the better. As shown in Table [6,](#page-8-2) positive re-ranking is very good but negative re-ranking is acceptable. Our best performing model in PRE/MRD tends to have poor NRE, leaving room for improvement. We believe this validates the point that our model can leverage the power of future non-temporal embedding models by fine-tuning it to any relevant time scope.
 
-#### <span id="page-8-0"></span>5 CONCLUSION
+### <span id="page-8-0"></span>5 CONCLUSION
 
 In this work, we propose a temporal KG embedding model for learning representations of TKG on arbitrary time precision. We have implemented ToKEi, and carried out several experiments using existing metrics as well as introducing new ones that we believe are needed to better understand the performance of temporal models in such contexts. Our evaluation shows promising performances on general knowledge graphs, with fact validities spanning a wide variety of time periods. However, the model requires more fine tuning when time point validities dominate the data.
 
 Other challenges include scalability, as most temporal models have now been tested in datasets smaller than for non-temporal models, let alone real-world KGs; as an example, Wikidata features more than 300M facts, approximately 1.5% of which have temporal annotations. We plan to support models beyond the TransE family, <span id="page-9-0"></span>and support more complex time validity scenarios. Finally, we believe that the hierarchical nature of our approach can be applied on contexts other than temporal, e.g. spatial or uncertain data.
 
-# ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 This work is partly supported by the New Energy and Industrial Technology Development Organization (NEDO) and JSPS Grantin-Aid for Early-Career Scientists (Grant Number 19K20352). This work was conducted while Julien Leblay worked at the Artificial Intelligence Research Center (AIRC), AIST, Japan.
 

@@ -25,7 +25,6 @@ keywords:
 - well-defined
 ---
 
-
 # Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets
 
 Nitheesh K. Lakshminarayana Intel, Bangalore, India
@@ -58,25 +57,25 @@ The rest of the paper is organized as follows: In section 2, we discuss the chal
 
 A typical setup for autonomous driving data collection (*e.g*. nuScenes[1] and Apolloscape[4] platforms, and setup used by Jacob and Rabha[5]) constitutes multiple monocular and stereo cameras, LiDAR, RADARs, GPS, and any vehicle (On-Board Diagnostics) OBD sensors. Each sensor device must be accurately calibrated for its intrinsic and extrinsic params. Intrinsic calibration for each sensor type is generally provided by the manufacturer, but accurate extrinsic calibrations, for example, lidar-to-cams, pose several challenges and is still considered an open research problem in itself. For a typical data collection sensor configuration, as shown in Table 1, the data generated will be in the order
 
-| Sensor     | Resolution | FPS | Count |
+| Sensor | Resolution | FPS | Count |
 |------------|------------|-----|-------|
-| Stereo Cam | 3840x1080  | 15  | 4     |
-| Mono Cam   | 1280x600   | 30  | 2     |
-| LiDAR      | 16 channel | 10  | 1     |
-| GPS        | -          | 10  | 1     |
-| OBD        | -          | 1   | 1     |
+| Stereo Cam | 3840x1080 | 15 | 4 |
+| Mono Cam | 1280x600 | 30 | 2 |
+| LiDAR | 16 channel | 10 | 1 |
+| GPS | - | 10 | 1 |
+| OBD | - | 1 | 1 |
 
 Table 1. Sensor configuration for a typical multimodal AD data collection platform used in [5].
 
-| Camera          | Stereo      | Mono     |  |  |  |
+| Camera | Stereo | Mono | | | |
 |-----------------|-------------|----------|--|--|--|
-| Resolution      | 1920x1080   | 1280x600 |  |  |  |
-| Channel         | 3           | 3        |  |  |  |
-| FPS             | 15          | 30       |  |  |  |
-| Cams per Rig    | 2           | 2        |  |  |  |
-| Rigs            | 4           | 1        |  |  |  |
-| Data rate MB/s  | 632.81      | 131.83   |  |  |  |
-| Total data rate | 764.65 MB/s |          |  |  |  |
+| Resolution | 1920x1080 | 1280x600 | | | |
+| Channel | 3 | 3 | | | |
+| FPS | 15 | 30 | | | |
+| Cams per Rig | 2 | 2 | | | |
+| Rigs | 4 | 1 | | | |
+| Data rate MB/s | 632.81 | 131.83 | | | |
+| Total data rate | 764.65 MB/s | | | | |
 
 Table 2. Data rate for a typical multi-camera AD data capture platform show in Table 1.
 
@@ -141,9 +140,9 @@ datastore
 | |-- meta
 | '-- video
 '-rosbag
-   '--location
-     '--yyyy-mm-dd
-        '--yyyy-mm-dd-hh-mm-ss
+'--location
+'--yyyy-mm-dd
+'--yyyy-mm-dd-hh-mm-ss
 ```text
 
 Figure 2. Data storage hierarchy.
@@ -176,26 +175,26 @@ by analyzing the graphs of the data timestamps and time between consecutive data
 
 First, the metadata of the rosbag from a selected recording (Figure 4) is verified for the date of collection, duration, start and end times, and the size of the data. The date and the timestamps should match correctly. Any data collection platform with a fixed sensor configuration captures raw data of a specific size for a specific duration of time. For example, with sensor configuration shown in Table 1, we have observed that a drive of 2 minutes should correspond to around 60GB of rosbag file. Therefore, the size of the chosen rosbag should align with the expected size scale to be termed as good data. Recordings not corresponding to this size is an indication of bad data. Along with this metadata, the list of recorded data types (Figure 4) is analyzed to see if all the sensors data are present and if their corresponding fps matches the sensor configuration. All the predefined data types corresponding to the sensor configuration should
 
-| File                                  |  | : 2017-11-01_17-24-53.bag  |      |             |  |  |  |                               |  |
+| File | | : 2017-11-01_17-24-53.bag | | | | | | | |
 |---------------------------------------|--|----------------------------|------|-------------|--|--|--|-------------------------------|--|
-| Duration                              |  | : 101.532182 sec           |      |             |  |  |  |                               |  |
-| Start time : Wed Nov 01 2017 17:24:53 |  |                            |      |             |  |  |  |                               |  |
-| End time                              |  | : Wed Nov 01 2017 17:26:35 |      |             |  |  |  |                               |  |
-| Size                                  |  |                            |      |             |  |  |  | : 48.6 GB [52169457806 bytes] |  |
-| Total msgs : 61512                    |  |                            |      |             |  |  |  |                               |  |
-| Sensor                                |  |                            | Freq | Data_Type   |  |  |  |                               |  |
-| /frontCam/info                        |  |                            | 15.0 | CameraInfo  |  |  |  |                               |  |
-| /frontCam/raw                         |  |                            | 15.0 | Image       |  |  |  |                               |  |
-| /gps/fix                              |  |                            | 42.0 | NavSatFix   |  |  |  |                               |  |
-| /imu/data                             |  |                            | 42.0 | Imu         |  |  |  |                               |  |
-| /lidar/points                         |  |                            | 9.9  | PointCloud2 |  |  |  |                               |  |
-| /rearCam/info                         |  |                            | 15.0 | CameraInfo  |  |  |  |                               |  |
-| /rearCam/raw                          |  |                            | 15.0 | Image       |  |  |  |                               |  |
-| /leftCam/info                         |  |                            | 15.0 | CameraInfo  |  |  |  |                               |  |
-| /leftCam/raw                          |  |                            | 15.0 | Image       |  |  |  |                               |  |
-| /rightCam/info                        |  |                            | 15.0 | CameraInfo  |  |  |  |                               |  |
-| /rightCam/raw                         |  |                            | 15.0 | Image       |  |  |  |                               |  |
-|                                       |  |                            |      |             |  |  |  |                               |  |
+| Duration | | : 101.532182 sec | | | | | | | |
+| Start time : Wed Nov 01 2017 17:24:53 | | | | | | | | | |
+| End time | | : Wed Nov 01 2017 17:26:35 | | | | | | | |
+| Size | | | | | | | | : 48.6 GB [52169457806 bytes] | |
+| Total msgs : 61512 | | | | | | | | | |
+| Sensor | | | Freq | Data_Type | | | | | |
+| /frontCam/info | | | 15.0 | CameraInfo | | | | | |
+| /frontCam/raw | | | 15.0 | Image | | | | | |
+| /gps/fix | | | 42.0 | NavSatFix | | | | | |
+| /imu/data | | | 42.0 | Imu | | | | | |
+| /lidar/points | | | 9.9 | PointCloud2 | | | | | |
+| /rearCam/info | | | 15.0 | CameraInfo | | | | | |
+| /rearCam/raw | | | 15.0 | Image | | | | | |
+| /leftCam/info | | | 15.0 | CameraInfo | | | | | |
+| /leftCam/raw | | | 15.0 | Image | | | | | |
+| /rightCam/info | | | 15.0 | CameraInfo | | | | | |
+| /rightCam/raw | | | 15.0 | Image | | | | | |
+| | | | | | | | | | |
 
 Figure 4. Example metadata of a rosbag recording from a typical AD sensor configuration shown in Table 1. A short 2 minutes drive with this type of sensor configuration leads to around 60 GB of raw data.
 
@@ -265,19 +264,19 @@ As the last step, the OBD data containing the vehicle parameters (gear, rpm, ste
 
 Verification is done using the graph plots of the OBD data, as shown in Figures 11-14. Plotting the raw OBD data (Figure11) does not provide a meaningful interpretation of the data as the data range for each for feature ranges from 10s to 1000s. Features are hence normalized and plotted for verification, as shown in Figure 12. This normalized graph enables us to interpret the data better. For example,
 
-| gear   | lat    | $\ln q$ | <b>CDM</b> |    |                                                                                                                      |        |                                                                 |
+| gear | lat | $\ln q$ | <b>CDM</b> | | | | |
 |--------|--------|---------|------------|----|----------------------------------------------------------------------------------------------------------------------|--------|-----------------------------------------------------------------|
-| 3.000  | 17.528 | 78.234  |            | 37 | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                                                             |        | 1554881886506                                                   |
-| 3.000  | nan    | nan     |            | 37 | 599.900                                                                                                              |        | 16.863 1554881727756                                            |
-| 3.000  | nan    | nan     |            | 37 | 603.700                                                                                                              |        | 1554881542800                                                   |
-| 3.000  | 17.505 | 78.243  |            | 37 | 599.500                                                                                                              | 16.078 | 1554881629406                                                   |
-| 3.000  | 17.510 | 78.241  |            | 37 | 599.800                                                                                                              | 14,118 | 1554881687506                                                   |
-| 3.000  | 17.502 | 78,243  |            | 37 | 599.900                                                                                                              |        | 1554881601250                                                   |
-| 3.000  | 17.534 | 78.235  |            | 31 | 605.900                                                                                                              | 21,961 | 1554881951506                                                   |
-| 3.000  | 17,486 | 78,246  |            | 37 | 600,000                                                                                                              | 15,686 | 1554881437200                                                   |
-| 3.000  | 17.506 | 78.242  |            | 37 | 599,900                                                                                                              | 15,686 | 1554881644700                                                   |
-| 3.000  | 17.500 | 78.244  |            | 38 | 599.200                                                                                                              | 16,863 | 1554881585400                                                   |
-| 40.392 |        |         |            |    | 1847.250<br>1841.750<br>1846.250<br>1846.500<br>1852.750<br>1845.500<br>1607.500<br>1848.750<br>1874.250<br>1847,000 |        | speed steering throttle timestamp<br>14,902<br>16.078<br>15.294 |
+| 3.000 | 17.528 | 78.234 | | 37 | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | | 1554881886506 |
+| 3.000 | nan | nan | | 37 | 599.900 | | 16.863 1554881727756 |
+| 3.000 | nan | nan | | 37 | 603.700 | | 1554881542800 |
+| 3.000 | 17.505 | 78.243 | | 37 | 599.500 | 16.078 | 1554881629406 |
+| 3.000 | 17.510 | 78.241 | | 37 | 599.800 | 14,118 | 1554881687506 |
+| 3.000 | 17.502 | 78,243 | | 37 | 599.900 | | 1554881601250 |
+| 3.000 | 17.534 | 78.235 | | 31 | 605.900 | 21,961 | 1554881951506 |
+| 3.000 | 17,486 | 78,246 | | 37 | 600,000 | 15,686 | 1554881437200 |
+| 3.000 | 17.506 | 78.242 | | 37 | 599,900 | 15,686 | 1554881644700 |
+| 3.000 | 17.500 | 78.244 | | 38 | 599.200 | 16,863 | 1554881585400 |
+| 40.392 | | | | | 1847.250<br>1841.750<br>1846.250<br>1846.500<br>1852.750<br>1845.500<br>1607.500<br>1848.750<br>1874.250<br>1847,000 | | speed steering throttle timestamp<br>14,902<br>16.078<br>15.294 |
 
 Figure 10. Example of OBD data containing vehicle parameters.
 

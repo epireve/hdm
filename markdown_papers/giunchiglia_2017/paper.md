@@ -62,7 +62,7 @@ Abstract. We propose a model of the situational context of a person and show how
 
 Keywords: Personal Situational Context · Data Streams.
 
-# 1 Introduction
+## 1 Introduction
 
 A lot of prior work has focused on collecting and exploiting massive streams of data, e.g., sensor data and annotations. A first line of work has concentrated on using the streams of personal data for learning daily human behavior, including physical activity, see, e.g., [\[11\]](#page-7-0), assessment personality states, see, e.g., [\[12\]](#page-7-1), and visiting points of interest [\[3\]](#page-7-2). The Reality Mining project [\[4\]](#page-7-3) collected smartphone sensors, including call records, cellular tower IDs, and Bluetooth proximity logs to study students' social networks and daily activities. In the same vein, the StudentLife project [\[15,](#page-7-4)[9\]](#page-7-5) employed smartphone sensors and questionnaires as the means for inferring the mental health, academic performance, and other behavioral trends of university students, under different workloads and term progress. Slightly different in focus, but still based on the collection of streams of data, is the work on the Experience Sampling Method (ESM). The ESM is an intensive longitudinal social and psychological research methodology, where participants are asked to report their thoughts and behaviours [\[14\]](#page-7-6). Here the focus is not so much on learning from the sensor data but, rather, on collecting the user provided answers. In all this work, little attention has been posed on how to represent and manage these data streams. The most common solution has
 
@@ -95,7 +95,7 @@ where C<sup>i</sup> is the ith situational context of me. We assume that me can 
 $$
 C(me) = \langle L(C(me)), E(L(C(me))) \rangle.
 $$
- (2)
+(2)
 
 In the following, we drop the argument me to simplify the notation. L(C) is the (current) Location of me. L(C) defines the boundaries inside which the current scenario evolves. The location is an endurant, which is wholly present whenever it is present, and it persists in time while keeping its identity [\[6\]](#page-7-10). E(L(C)) is an Event within which me is involved. The event is a perdurant, which is composed of temporal parts [\[6\]](#page-7-10). L(C) and E(L(C)), as the priors of experience, define the scenario being modeled and the space-time volume within which the current scenario evolves. This is a consequence of the foundational modeling decision that contexts are the space-time prior to experience. In other words, the situational context of me is univocally defined by me's spatial position and temporal position. In practice, any electronic device can easily provide us with the spatial position (via GPS, annotations, etc.) and temporal position (via timestamp) of a person.
 
@@ -118,25 +118,25 @@ Finally, the context contains various types of things interacting with one anoth
 $$
 P(C) = \langle me, \{P\}, \{O\}, \{F\}, \{A\}\rangle
 $$
- (5)
+(5)
 
 where {P} and {O} are, respectively, a set of persons (e.g., Bob) and objects (e.g., Mary's smartphone) populating the current context. {F} and {A} are, respectively, a set of functions and actions involving me, persons and objects. We define a Generic object G, consisting of me, {P}, and {O}, i.e., G = me ∪ {P}∪ {O}. Functions define the roles that different generic objects have towards one another [\[8\]](#page-7-14). Thus a person can be a friend with another person, a horse can be a transportation means for person, while a phone can be a communication medium among people. Functions are endurants. Actions model how generic objects G change in time [\[8\]](#page-7-14), e.g., Mary touches her smartphone in a certain moment, while she walks or eats at some other times. Actions are perdurants. Functions are characterized by the set of actions which enable them [\[8\]](#page-7-14). Thus for instance, the function friend might be associated with the actions talking to, helping, or listening to. Similarly, a smartphone (i.e., Ga) can be recognized as an entertainment tool for Mary (i.e., Gb), because the smartphone allows certain actions related to the entertainment of Mary, e.g., playing videos, playing music, etc. Hence, for two generic objects G<sup>a</sup> and Gb, in the context, we have the following:
 
 $$
 F(G_a, G_b) = \langle A_1(G_a, G_b), \dots, A_n(G_a, G_b) \rangle;
 $$
- (6)
+(6)
 
 where a function F relates G<sup>a</sup> with Gb, namely, it is associated with the set of actions (A1, . . . , An) involving G<sup>b</sup> that G<sup>a</sup> can do or allow.
 
-| Property types                                             | Entity types Location; Sub-location | Event; Sub-event Person; me |                              | Object                            |
+| Property types | Entity types Location; Sub-location | Event; Sub-event Person; me | | Object |
 |------------------------------------------------------------|-------------------------------------|-----------------------------|------------------------------|-----------------------------------|
-| Spatial property: relating to or<br>occupying space        | Coordinates<br>Volume               | None                        | Coordinates                  | Coordinates                       |
-| Temporal property: relating<br>to time                     | None                                | Start-EndTime               | None                         | None                              |
-| Function property: indicating<br>attributes of functions   | Location functions                  | None                        |                              | Person functions Object functions |
-| Action property: indicating<br>attributes of actions       | None                                | Person actions<br>None      |                              | Object actions                    |
-| External property: relating to<br>outward features         | Name<br>ID                          | Name<br>ID                  | Name<br>ID<br>Gender         | Name<br>ID<br>Color               |
-| Internal property: relating to<br>persons' internal states | None                                | None                        | InPain<br>InMood<br>InStress | None                              |
+| Spatial property: relating to or<br>occupying space | Coordinates<br>Volume | None | Coordinates | Coordinates |
+| Temporal property: relating<br>to time | None | Start-EndTime | None | None |
+| Function property: indicating<br>attributes of functions | Location functions | None | | Person functions Object functions |
+| Action property: indicating<br>attributes of actions | None | Person actions<br>None | | Object actions |
+| External property: relating to<br>outward features | Name<br>ID | Name<br>ID | Name<br>ID<br>Gender | Name<br>ID<br>Color |
+| Internal property: relating to<br>persons' internal states | None | None | InPain<br>InMood<br>InStress | None |
 
 <span id="page-3-0"></span>Table 1. Properties of the principal Entity types of a situational context.
 
@@ -147,13 +147,13 @@ We define Location, Sub-location, Event, Sub-event and Generic object as Entity 
 ![](_page_4_Figure_3.jpeg)
 <!-- Image Description: This image depicts an Entity-Relationship Diagram (ERD) for a data model. It shows entities like *Location*, *Event*, *Object*, and *Human*, with attributes specified for each. Relationships between entities are illustrated, such as "Part of" and "With," along with cardinality. Enumerations (e.g., *ColorEnum*, *GenderEnum*) define attribute value sets. The diagram likely serves to formally define the data structure used within the paper's system or application. -->
 
-<span id="page-4-1"></span>Fig. 1. An example of ETG modeling the situational context.
+<span id="page-4-1"></span>Figure 1. An example of ETG modeling the situational context.
 
 We represent the schema of the situational context of me as an eType Graph (ETG), i.e., an Enhanced Entity-Relationship (EER) model. See Figure [1](#page-4-1) for a simplified version of an ETG representing a personal situational context. An ETG is a knowledge graph where nodes are etypes, decorated by data properties, which in turn are linked by object properties. Each etype (represented as a box) is decorated with its data properties. For example, the etype Human has the data property Gender, and the data type (the green box) of Gender is GenderEnum. Also, etypes are connected with object properties showing their relations (represented as rhombuses). One such example, is the relation With which in turn is associated its own cardinality. Finally, as from EER models, it is possible to have inheritance relations among he etypes, e.g., a Generic Object is specialized into Object and Human.
 
 Given that a context is represented by a single ETG, we represent the evolution in time of the life of a person as a sequence of ETGs, each representing the state of affairs at a certain time and for a certain time interval. In turn, this sequence of ETGs is populated by the input data streams, where each element of the stream will populate the ETG for that time slot. Of course for each input stream there will be a dedicated suitable property for the proper etype. Thus, for instance, the GPS will populate the data property GPSLocation of the etypes person and/ or phone, while the label of a location, e.g., Trento will be used to create an object property link between the etype person and the etype location. Given the above, a life sequence, as defined in Section 2, is just a sequence of contexts satisfying a certain property, namely, a subset of the overall sequence of ETGs, populated by the input data streams. So for instance we may have Mary's life sequence of her moving around in Trento, see example above, or we can have the life sequence of all the times she has studied in her office at the University in the last year. Notice that this latter life sequence is composed of contexts which are not adjacent in time. This is a very powerful representational mechanism which can be used, for instance, to represent habits as (not necessarily adjacent) life sequences occurring recursively with a certain frequency.
 
-# <span id="page-5-0"></span>4 Case Study
+## <span id="page-5-0"></span>4 Case Study
 
 To validate the formalization described above, we describe how it can be used to represent the Smart University stream dataset (SU).[1](#page-5-1) The app used for the data collection is called iLog [\[18](#page-7-15)[,17\]](#page-7-16). The SU data set has been used in a large number of case studies, see, e.g., [\[19,](#page-7-17)[20\]](#page-7-18). SU has been collected from one hundred and fifty-eight university students over a period of four weeks. It contains 139.239 annotations and approximately one terabyte of data. The dataset is organized into multiple datasets, one for each me, where each dataset is associated with a unique identifier across all types of data. The annotations done by each me are generated every half-hour based on the answers of the participants to four closedended questions. Based on this, the best choice is to build a sequence of ETGs, one for every half an hour for each me. The four questions are "Where are you?", "What are you doing?", "With whom are you?", and "What is your mood?" and are based on the HETUS (Harmonized European Time Use Surveys) standard.[2](#page-5-2)
 
@@ -165,45 +165,44 @@ Figures [2](#page-6-2) and [3](#page-6-3) provide a small, clean and anonymized 
 
 <span id="page-5-2"></span><sup>2</sup> https://ec.europa.eu/eurostat/web/time-use-survey.
 
-| Identifier of $me$ $\{14\}$<br>me |                                                    |        |         |                                    |     | Location {L}                               |                |                      |          |  |
+| Identifier of $me$ $\{14\}$<br>me | | | | | | Location {L} | | | | |
 |-----------------------------------|----------------------------------------------------|--------|---------|------------------------------------|-----|--------------------------------------------|----------------|----------------------|----------|--|
-| id                                | timestamp                                          | gender | faculty | perceived stress extraversion mood |     | where                                      | latitude       | longitude            | accuracy |  |
-|                                   | 14 2021-05-01 10:56:00 UTC Female Computer science |        |         | 23                                 | 25  | Bar, Pub, etc. 46.0670° N                  |                | $11.15$ °E           | 151      |  |
-|                                   | 14 2021-05-01 10:57:00 UTC Female Computer science |        |         | 23 <sub>1</sub>                    | 251 | Bar, Pub, etc.                             | 46.0675° N     | 11.15°E              | 151      |  |
-|                                   | 14 2021-05-01 10:58:00 UTC Female Computer science |        |         | 23                                 | 25  | Bar. Pub. etc.                             |                | 46.083° N 11.1632° E | 151      |  |
-|                                   | 14 2021-05-01 10:59:00 UTC Female Computer science |        |         | 23                                 | 25  | Bar, Pub, etc.                             | $46.06°$ N     | 11.15° E             | 151      |  |
-|                                   | 14 2021-05-01 11:00:00 UTC Female Computer science |        |         | 23                                 | 25  | 4 University Library                       | $46.1^\circ$ N | $11.2^{\circ}$ E     | 1230     |  |
-|                                   | 14 2021-05-01 11:01:00 UTC Female Computer science |        |         | 23                                 | 25  | 4 University Library 46.0675° N            |                | 11.15° E             |          |  |
-|                                   | 14 2021-05-01 11:02:00 UTC Female Computer science |        |         | 231                                | 25  | 4 University Library 46.0675° N            |                | 11.15°E              | 50       |  |
-|                                   | 14 2021-05-01 11:03:00 UTC Female Computer science |        |         | 23                                 | 25  | 4 University Library 46.0668° N 11.1497° E |                |                      | 50       |  |
-|                                   | 14 2021-05-01 11:04:00 UTC Female Computer science |        |         | 23                                 | 25  | 4 University Library 46.0668° N 11.1497° E |                |                      | 50       |  |
-|                                   | 14 2021-05-01 11:05:00 UTC Female Computer science |        |         | 23                                 | 25  | 4 University Library                       | $46.067$ ° N   | 11.164°E             |          |  |
-|                                   | 14 2021-05-01 11:06:00 UTC Female Computer science |        |         | 231                                | 25  | 4 University Library 46,0670° N            |                | $11.15^{\circ}$ F    | 160      |  |
+| id | timestamp | gender | faculty | perceived stress extraversion mood | | where | latitude | longitude | accuracy | |
+| | 14 2021-05-01 10:56:00 UTC Female Computer science | | | 23 | 25 | Bar, Pub, etc. 46.0670° N | | $11.15$ °E | 151 | |
+| | 14 2021-05-01 10:57:00 UTC Female Computer science | | | 23 <sub>1</sub> | 251 | Bar, Pub, etc. | 46.0675° N | 11.15°E | 151 | |
+| | 14 2021-05-01 10:58:00 UTC Female Computer science | | | 23 | 25 | Bar. Pub. etc. | | 46.083° N 11.1632° E | 151 | |
+| | 14 2021-05-01 10:59:00 UTC Female Computer science | | | 23 | 25 | Bar, Pub, etc. | $46.06°$ N | 11.15° E | 151 | |
+| | 14 2021-05-01 11:00:00 UTC Female Computer science | | | 23 | 25 | 4 University Library | $46.1^\circ$ N | $11.2^{\circ}$ E | 1230 | |
+| | 14 2021-05-01 11:01:00 UTC Female Computer science | | | 23 | 25 | 4 University Library 46.0675° N | | 11.15° E | | |
+| | 14 2021-05-01 11:02:00 UTC Female Computer science | | | 231 | 25 | 4 University Library 46.0675° N | | 11.15°E | 50 | |
+| | 14 2021-05-01 11:03:00 UTC Female Computer science | | | 23 | 25 | 4 University Library 46.0668° N 11.1497° E | | | 50 | |
+| | 14 2021-05-01 11:04:00 UTC Female Computer science | | | 23 | 25 | 4 University Library 46.0668° N 11.1497° E | | | 50 | |
+| | 14 2021-05-01 11:05:00 UTC Female Computer science | | | 23 | 25 | 4 University Library | $46.067$ ° N | 11.164°E | | |
+| | 14 2021-05-01 11:06:00 UTC Female Computer science | | | 231 | 25 | 4 University Library 46,0670° N | | $11.15^{\circ}$ F | 160 | |
 
 A Context Model for Personal Data Streams 7
 
-<span id="page-6-2"></span>
 
-| Fig. 2. Me and the current location. |  |  |  |
+| Figure 2. Me and the current location. | | | |
 |--------------------------------------|--|--|--|
 |--------------------------------------|--|--|--|
 
-|    | Identifier of $me$ $\{14\}$             | Event $\{E\}$   | Person {P(Other)} | Object {O} |           |    |  |                                                                          |
+| | Identifier of $me$ $\{14\}$ | Event $\{E\}$ | Person {P(Other)} | Object {O} | | | | |
 |----|-----------------------------------------|-----------------|-------------------|------------|-----------|----|--|--------------------------------------------------------------------------|
-| id | timestamp                               | what            | with              |            |           |    |  | notification app name touch event wifi connection wifi network available |
-|    | 14 2021-05-01 10:56:00 UTC Coffee Break |                 | Classmate(s)      |            | mail, sms | 44 |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 10:57:00 UTC Coffee Break |                 | Classmate(s)      |            |           |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 10:58:00 UTC Coffee Break |                 | Classmate(s)      |            |           |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 10:59:00 UTC Coffee Break |                 | Classmate(s)      |            |           |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:00:00 UTC              | Studying        | Classmate(s)      |            |           |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:01:00 UTC              | Studying        | Classmate(s)      |            | mail      | 32 |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:02:00 UTC              | Studying        | Classmate(s)      |            | mail      |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:03:00 UTC              | <b>Studying</b> | Classmate(s)      |            | mail      |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:04:00 UTC              | Studying        | Classmate(s)      |            | mail      |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:05:00 UTC              | Studying        | Classmate(s)      |            | mail      |    |  | uni wifi Bob's Hotspot, uni wifi                                         |
-|    | 14 2021-05-01 11:06:00 UTC              | Studying        | Classmate(s)      |            | mail, sms | 8  |  | uni wifi Bob's Hotspot, uni wifi                                         |
+| id | timestamp | what | with | | | | | notification app name touch event wifi connection wifi network available |
+| | 14 2021-05-01 10:56:00 UTC Coffee Break | | Classmate(s) | | mail, sms | 44 | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 10:57:00 UTC Coffee Break | | Classmate(s) | | | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 10:58:00 UTC Coffee Break | | Classmate(s) | | | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 10:59:00 UTC Coffee Break | | Classmate(s) | | | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:00:00 UTC | Studying | Classmate(s) | | | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:01:00 UTC | Studying | Classmate(s) | | mail | 32 | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:02:00 UTC | Studying | Classmate(s) | | mail | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:03:00 UTC | <b>Studying</b> | Classmate(s) | | mail | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:04:00 UTC | Studying | Classmate(s) | | mail | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:05:00 UTC | Studying | Classmate(s) | | mail | | | uni wifi Bob's Hotspot, uni wifi |
+| | 14 2021-05-01 11:06:00 UTC | Studying | Classmate(s) | | mail, sms | 8 | | uni wifi Bob's Hotspot, uni wifi |
 
-<span id="page-6-3"></span>Fig. 3. The current event, the people and the object with Me.
+<span id="page-6-3"></span>Figure 3. The current event, the people and the object with Me.
 
 - Human's External Properties: They are mainly collected synchronously and are represented by the variables "gender" and "faculty".
 - Human's Internal Properties: They are both synchronic, i.e., "extraversion", and diachronic, i.e.,"mood".

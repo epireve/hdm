@@ -31,7 +31,6 @@ keywords:
 - retrieval-augmented
 ---
 
-
 # Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction
 
 Yanjun Gao<sup>1</sup>, Ruizhe Li<sup>2</sup>, Emma Croxford<sup>1</sup>, Samuel Tesch<sup>1</sup>, Daniel To<sup>1</sup>, John Caskey<sup>1</sup>, Brian W. Patterson<sup>1</sup>, Matthew M. Churpek<sup>1</sup>, Timothy Miller<sup>4</sup>, Dmitriy Dligach<sup>3</sup>, and Majid Afshar<sup>1</sup>
@@ -40,7 +39,7 @@ Yanjun Gao<sup>1</sup>, Ruizhe Li<sup>2</sup>, Emma Croxford<sup>1</sup>, Samuel
 
 While Large Language Models (LLMs) have showcased their potential in diverse language tasks, their application in the healthcare arena needs to ensure the minimization of diagnostic errors and the prevention of patient harm. A Medical Knowledge Graph (KG) houses a wealth of structured medical concept relations sourced from authoritative references, such as UMLS, making it a valuable resource to ground LLMs' diagnostic process in knowledge. In this paper, we examine the synergistic potential of LLMs and medical KG in predicting diagnoses given electronic health records (EHR), under the framework of Retrieval-augmented generation (RAG). We proposed a novel graph model: DR.KNOWS, that selects the most relevant pathology knowledge paths based on the medical problem descriptions. In order to evaluate DR.KNOWS, we developed the first comprehensive human evaluation approach to assess the performance of LLMs for diagnosis prediction and examine the rationale behind their decision-making processes, aimed at improving diagnostic safety. Using real-world hospital datasets, our study serves to enrich the discourse on the role of medical KGs in grounding medical knowledge into LLMs, revealing both challenges and opportunities in harnessing external knowledge for explainable diagnostic pathway and the realization of AI-augmented diagnostic decision support systems.
 
-# 1 Introduction
+## 1 Introduction
 
 The ubiquitous use of Electronic Health Records (EHRs) and the standard documentation practice of daily care notes are integral to the continuity of patient care by providing a comprehensive account of the patient's health trajectory, inclusive of condition status, diagnoses, and treatment plans (Brown et al., 2014). Yet, the ever-increasing complexity and verbosity of EHR narratives, often laden with redundant information, presents the risk of cognitive overload for healthcare providers, potentially culminating in diagnostic inaccuracies (Rule et al., 2021; Liu et al., 2022; Nijor et al., 2022; Furlow, 2020). Physicians often skip sections of lengthy and repetitive notes and rely on decisional shortcuts (i.e. decisional heuristics) that contribute to diagnostic errors (Croskerry, 2005).
 
@@ -59,12 +58,12 @@ Current efforts at automating diagnosis generation from daily progress notes lev
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a four-step process for medical diagnosis using an LLM. Step 1 extracts concepts from a patient progress note and maps them to knowledge graph paths. Step 2 uses perplexity estimation to select the best prompt template from candidates, incorporating those paths. Step 3 uses the selected template to prompt an LLM, predicting diagnoses. Finally, Step 4 involves physician evaluation of the LLM's output against the original note. A key component is a knowledge graph (DR.Knows) representing relationships between medical concepts. -->
 
-Figure 1: Study overview: we focused on generating diagnoses (red font text in the Plan section) using the SOAP-Format Progress Note with the aid of large language models (LLM). The input consists of Subjective, Objective and Assessment sections (the dotted line box on the example progress note), and diagnoses in the Plan sections are the ground truth. We introduced an innovative knowledge graph model, namely DR.KNOWS, that identifies and extracts the most relevant knowledge trajectories from the UMLS Knowledge Graph. The nodes for the UMLS knowledge graph are Concept Unique Identifiers (CUIs) and edges are the semantic relations among CUIs. We experimented with prompting ChatGPT for diagnosis generation, with and without DR.KNOWS predicted knowledge paths. Furthermore, we investigated how this knowledge grounding influences the diagnostic output of LLMs using human evaluation. Text with underlines are the UMLS concepts identified through a concept extractor.
+**Figure 1:** Study overview: we focused on generating diagnoses (red font text in the Plan section) using the SOAP-Format Progress Note with the aid of large language models (LLM). The input consists of Subjective, Objective and Assessment sections (the dotted line box on the example progress note), and diagnoses in the Plan sections are the ground truth. We introduced an innovative knowledge graph model, namely DR.KNOWS, that identifies and extracts the most relevant knowledge trajectories from the UMLS Knowledge Graph. The nodes for the UMLS knowledge graph are Concept Unique Identifiers (CUIs) and edges are the semantic relations among CUIs. We experimented with prompting ChatGPT for diagnosis generation, with and without DR.KNOWS predicted knowledge paths. Furthermore, we investigated how this knowledge grounding influences the diagnostic output of LLMs using human evaluation. Text with underlines are the UMLS concepts identified through a concept extractor.
 
 ![](_page_2_Figure_3.jpeg)
 <!-- Image Description: The image is a directed acyclic graph illustrating the relationships between medical symptoms and conditions in a 47-year-old female patient presenting with fever, coughing, and sepsis. Nodes represent symptoms (fever, coughing) and conditions (sepsis, pneumonia), while edges depict relationships like "has pathological process," "is a," or "temporally follows." The graph visualizes the patient's symptoms and their potential underlying causes, aiding in differential diagnosis within the paper's context. -->
 
-Figure 2: Inferring possible diagnoses within 2-hops from a UMLS knowledge graph given a patient's medical description. We highlight the UMLS medical concept in the color boxes ("female", "sepsis", etc). Each concept has its own subgraph, where concepts are the vertices, and semantic relations are the edges (for space constraint, we neglect the subgraph for "female" in this graph presentation). On the first hop, we could identify the most relevant neighbor concepts to the input description. The darker color the vertices are, the more relevant they are to the input description. A second hop could be further performed based on the most relevant nodes, and reach the final diagnoses "Pneumonia and influenza" and "Respiratory Distress Syndrome". Note that we use the preferred text of Concept Unique Identifiers (CUIs) for presentation purposes. The actual UMLS KG is built on CUIs rather than preferred text.
+**Figure 2:** Inferring possible diagnoses within 2-hops from a UMLS knowledge graph given a patient's medical description. We highlight the UMLS medical concept in the color boxes ("female", "sepsis", etc). Each concept has its own subgraph, where concepts are the vertices, and semantic relations are the edges (for space constraint, we neglect the subgraph for "female" in this graph presentation). On the first hop, we could identify the most relevant neighbor concepts to the input description. The darker color the vertices are, the more relevant they are to the input description. A second hop could be further performed based on the most relevant nodes, and reach the final diagnoses "Pneumonia and influenza" and "Respiratory Distress Syndrome". Note that we use the preferred text of Concept Unique Identifiers (CUIs) for presentation purposes. The actual UMLS KG is built on CUIs rather than preferred text.
 
 Our work and contribution are structured into four primary components:
 
@@ -89,7 +88,7 @@ We summarized the deployment of evaluation metrics in Table 2. On CUI prediction
 
 > we first applied automated metrics including CUI-based Recall, Precision, F-score, and two ROUGE variants (ROUGE-2 and ROUGE-L Lin (2004)). Then we asked two medical professionals to conduct a human evaluation using our proposed framework under the supervision of two senior physicians. By examining the effects of graph prompting on LLMs with real-world EHR data, we strive to contribute to an explainable AI diagnostic pathway.
 
-# 2 Results
+## 2 Results
 
 ## 1 Data overview
 
@@ -97,59 +96,59 @@ We used two sets of progress notes from different clinical settings in this stud
 
 Gao et al. (2022, 2023) introduced a subset of 1005 progress notes from MIMIC-III with active diagnoses annotated from the Plan sections. Therefore, we applied this dataset for training and evaluation for both graph model intrinsic evaluation (§2.2) and diagnosis summarization (§2.3). The IN-HOUSE dataset did not contain human annotation. Still, by parsing the text with a medical concept extractor that was based on UMLS SNOMED-CT vocabulary, we were able to pull out concepts that belonged to the semantic type of T047 DISEASE AND SYNDROMES. We deployed this set of concepts as the ground truth data to train and evaluate the graph model in §2.2. The final set of IN-HOUSE data contained 4815 progress notes. We presented the descriptive statistics in Table 1. When contrasting with MIMIC-III, the IN-HOUSE dataset exhibited a greater number of CUIs in its input, leading to an extended CUI output. Additionally, MIMIC-III encompassed a wider range of abstractive concepts compared to the progress notes of IN-HOUSE. Example Plan sections from the two datasets are in the Appendix A.
 
-| Dataset   | Dept. | #Input<br>CUIs | #Output<br>CUIs | % Abstractive<br>Concepts |
+| Dataset | Dept. | #Input<br>CUIs | #Output<br>CUIs | % Abstractive<br>Concepts |
 |-----------|-------|----------------|-----------------|---------------------------|
-| MIMIC-III | ICU   | 15.95          | 3.51            | 48.92%                    |
-| IN-HOUSE  | All   | 41.43          | 5.81            | <1%                       |
+| MIMIC-III | ICU | 15.95 | 3.51 | 48.92% |
+| IN-HOUSE | All | 41.43 | 5.81 | <1% |
 
-Table 1: Average number of unique Concept Unique Identifiers (CUI) in the input and output on the two EHR dataset: MIMIC-III and IN-HOUSE. Abstractive concepts are those not found in the input, but present in the gold standard diagnoses.
+**Table 1:** Average number of unique Concept Unique Identifiers (CUI) in the input and output on the two EHR dataset: MIMIC-III and IN-HOUSE. Abstractive concepts are those not found in the input, but present in the gold standard diagnoses.
 
 Given that our work encompasses a public EHR dataset (MIMIC-III) and a private EHR dataset with protected health information (IN-HOUSE), we conducted training using three distinct computing environments. Specifically, most of the experiments on MIMIC-III were done on Google Cloud Computing (GCP), utilizing 1-2 NVIDIA A100 40GB GPUs, and a conventional server equipped with 1 RTX 3090 Ti 24GB GPU. The IN-HOUSE EHR dataset is stored on a workstation located within a hospital research lab. The workstation operates within a HIPAA-compliant network, ensuring the confidentiality, integrity, and availability of electronic protected health information (ePHI), and is equipped with a single NVIDIA V100 32GB GPU. To use ChatGPT, we utilized an in-house ChatGPT-3.5-turbo version hosted on our local cloud infrastructure. This setup ensures that no data is transmitted to OpenAI or external websites, and we are in strict compliance with the MIMIC data usage agreement.
 
-| Evaluation metrics                      | Description                                                                                                                                                                                                            | Tasks                                                |
+| Evaluation metrics | Description | Tasks |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| CUI-based Recall,<br>Precision, F-score | An automated metric measuring the set overlap of<br>predicted CUIs and gold CUIs. Formulas are described<br>in §4.                                                                                                     | CUI prediction (§2.2);<br>Diagnosis prediction(§2.3) |
-| ROUGE-2, ROUGE-L<br>Lin (2004)          | Automated metrics measuring the overlap of the<br>bigrams (ROUGE-2) or longest common sub-sequences<br>(ROUGE-L) between predicted text and reference text.                                                            | Diagnosis prediction(§2.3)                           |
-| Human evaluation                        | Medical professionals evaluating ChatGPT's diagnosis<br>output and reasoning output. Sub-categories include<br>accuracy, omission, abstraction, plausibility, specificity<br>and others. Details can be found at §4.3. | Diagnosis prediction(§2.3)                           |
+| CUI-based Recall,<br>Precision, F-score | An automated metric measuring the set overlap of<br>predicted CUIs and gold CUIs. Formulas are described<br>in §4. | CUI prediction (§2.2);<br>Diagnosis prediction(§2.3) |
+| ROUGE-2, ROUGE-L<br>Lin (2004) | Automated metrics measuring the overlap of the<br>bigrams (ROUGE-2) or longest common sub-sequences<br>(ROUGE-L) between predicted text and reference text. | Diagnosis prediction(§2.3) |
+| Human evaluation | Medical professionals evaluating ChatGPT's diagnosis<br>output and reasoning output. Sub-categories include<br>accuracy, omission, abstraction, plausibility, specificity<br>and others. Details can be found at §4.3. | Diagnosis prediction(§2.3) |
 
-Table 2: Overview of the evaluation for the tasks. Note that for CUI-based evaluation, the text is first converted to a set of UMLS CUIs using a concept extractor.
+**Table 2:** Overview of the evaluation for the tasks. Note that for CUI-based evaluation, the text is first converted to a set of UMLS CUIs using a concept extractor.
 
-|                         | MIMIC |                       |                       |                       | IN-HOUSE |                       |                       |                       |
+| | MIMIC | | | | IN-HOUSE | | | |
 |-------------------------|-------|-----------------------|-----------------------|-----------------------|----------|-----------------------|-----------------------|-----------------------|
-| Model                   | Top N | Recall                | Precision             | F-Score               | Top N    | Recall                | Precision             | F-Score               |
-| Concept Ex.<br>(95% CI) | -     | 56.91<br>55.62, 58.18 | 13.59<br>12.32, 14.88 | 21.13<br>19.85, 22.41 | -        | 90.11<br>88.84, 91.37 | 12.38<br>11.09, 13.66 | 20.09<br>18.81, 21.37 |
-| MultiAttnW              | 4     | 26.91                 | 22.79                 | 23.10                 | 6        | 24.68                 | 15.82                 | 17.69                 |
-| (95% CI)                | 6     | 25.64, 28.19<br>29.14 | 21.51, 24.06<br>16.73 | 21.83, 24.39<br>19.94 | 8        | 23.35, 25.91<br>28.69 | 14.55, 17.10<br>15.82 | 16.40, 18.96<br>17.33 |
-| TriAttnW                | 4     | 27.85, 30.41<br>29.85 | 15.46, 18.00<br>17.61 | 18.66, 21.22<br>20.93 | 6        | 27.43, 29.98<br>34.00 | 14.55, 17.11<br>22.88 | 16.06, 18.60<br>23.39 |
-| (95% CI)                | 6     | 26.23, 33.45<br>37.06 | 16.33, 18.89<br>19.10 | 19.67, 22.21<br>25.20 | 8        | 31.04,36.97<br>44.58  | 20.92, 24.85<br>22.43 | 21.71, 25.06<br>25.70 |
-|                         |       | 35.80, 38.33          | 17.82, 20.37          | 23.93, 26.48          |          | 41.38, 47.78          | 20.62, 24.23          | 24.06, 27.37          |
+| Model | Top N | Recall | Precision | F-Score | Top N | Recall | Precision | F-Score |
+| Concept Ex.<br>(95% CI) | - | 56.91<br>55.62, 58.18 | 13.59<br>12.32, 14.88 | 21.13<br>19.85, 22.41 | - | 90.11<br>88.84, 91.37 | 12.38<br>11.09, 13.66 | 20.09<br>18.81, 21.37 |
+| MultiAttnW | 4 | 26.91 | 22.79 | 23.10 | 6 | 24.68 | 15.82 | 17.69 |
+| (95% CI) | 6 | 25.64, 28.19<br>29.14 | 21.51, 24.06<br>16.73 | 21.83, 24.39<br>19.94 | 8 | 23.35, 25.91<br>28.69 | 14.55, 17.10<br>15.82 | 16.40, 18.96<br>17.33 |
+| TriAttnW | 4 | 27.85, 30.41<br>29.85 | 15.46, 18.00<br>17.61 | 18.66, 21.22<br>20.93 | 6 | 27.43, 29.98<br>34.00 | 14.55, 17.11<br>22.88 | 16.06, 18.60<br>23.39 |
+| (95% CI) | 6 | 26.23, 33.45<br>37.06 | 16.33, 18.89<br>19.10 | 19.67, 22.21<br>25.20 | 8 | 31.04,36.97<br>44.58 | 20.92, 24.85<br>22.43 | 21.71, 25.06<br>25.70 |
+| | | 35.80, 38.33 | 17.82, 20.37 | 23.93, 26.48 | | 41.38, 47.78 | 20.62, 24.23 | 24.06, 27.37 |
 
 ### 2 Evaluation of DR.KNOWS on Predicting Diagnoses
 
-Table 3: Performance comparison between concept extraction (Concept Ex.) and two DR.KNOWS variants on target CUI prediction using MIMIC and IN-HOUSE dataset.
+**Table 3:** Performance comparison between concept extraction (Concept Ex.) and two DR.KNOWS variants on target CUI prediction using MIMIC and IN-HOUSE dataset.
 
 We compared DR.KNOWS with QuickUMLS (Soldaini and Goharian, 2016), which is a concept extraction baseline that identified the medical concepts from raw text. We took input text, parsed it with the QuickUMLS and outputted a list of concepts. Table 3 provided results on the two EHR datasets MIMIC and IN-HOUSE. The selection of different top *N* values was determined by the disparity in length between the two datasets (see App. A). DR.KNOWS demonstrated superior precision and F-score across both datasets compared to the baseline, with precision scores of 19.10 (95% CI: 17.82 - 20.37) versus 13.59 (95% CI: 12.32 - 14.88) on MIMIC, and 22.88 (95% CI: 20.92 - 24.85) versus 12.38 (95% CI: 11.09 - 13.66) on the in-house dataset. Additionally, its F-scores of 25.20 on MIMIC and 25.70 on the in-house dataset exceeded the comparison scores of 21.13 (95% CI: 19.85 - 22.41) and 20.09 (95% CI: 18.81 - 21.37), respectively, underscoring its effectiveness in accurately predicting diagnostic CUIs. The TriAttn*<sup>w</sup>* variant of Dr. Knows consistently outperformed the MultiAttn*<sup>w</sup>*variant on both datasets, with F-scores of 25.20 (95% CI: 23.93 - 26.48) versus 23.10 (95% CI: 21.83 - 24.39) on MIMIC and 25.70 (95% CI: 24.06 - 27.37) versus 17.69 (95% CI: 16.40 - 18.96) on IN-HOUSE. The concept extractor baseline reached the highest recall, with 56.91 on MIMIC and 90.11 on IN-HOUSE, as it found all the input concepts that overlapped with the reference CUIs, in particular on the IN-HOUSE dataset that was largely an extractive dataset (App. A).
 
-# 3 Prompting Large Language Models for Diagnosis Generation
+## 3 Prompting Large Language Models for Diagnosis Generation
 
-| Model                  | ROUGE 2               | ROUGE L      | CUI Recall   | CUI Precision | CUI F-Score  |  |  |  |
+| Model | ROUGE 2 | ROUGE L | CUI Recall | CUI Precision | CUI F-Score | | | |
 |------------------------|-----------------------|--------------|--------------|---------------|--------------|--|--|--|
-| Prompt-based Zero-shot |                       |              |              |               |              |  |  |  |
-| ChatGPT                | 7.05                  | 19.77        | 23.68        | 15.52         | 16.04        |  |  |  |
-| (95% CI)               | 6.54, 7.56            | 19.26, 20.28 | 23.18, 24.19 | 15.00, 16.02  | 15.53, 16.55 |  |  |  |
-| +Path                  | 5.70                  | 15.49        | 25.33        | 17.05         | 18.21        |  |  |  |
-| (95% CI)               | 5.19, 6.21            | 14.98, 15.99 | 24.82, 25.84 | 16.29, 17.81  | 17.46, 18.98 |  |  |  |
-|                        | Prompt-based Few-shot |              |              |               |              |  |  |  |
-| ChatGPT 3-shot         | 9.63                  | 21.84        | 22.71        | 19.57         | 21.02        |  |  |  |
-| (95% CI)               | 8.32,10.06            | 19.99,22.09  | 20.99,23.96  | 17.23, 19.78  | 20.26, 21.79 |  |  |  |
-| 5-shot                 | 9.73                  | 21.23        | 22.45        | 19.67         | 20.96        |  |  |  |
-| (95% CI)               | 8.52, 10.18           | 19.58, 21.72 | 20.93, 23.80 | 17.66, 20.33  | 20.19, 21.73 |  |  |  |
-| 3-shot+Path            | 10.66                 | 24.32        | 26.48        | 24.22         | 25.30        |  |  |  |
-| (95% CI)               | 9.17, 10.72           | 22.44, 24.25 | 25.33, 28.36 | 21.44, 24.21  | 24.52, 26.06 |  |  |  |
-| 5-shot+Path            | 11.73                 | 25.43        | 27.76        | 24.56         | 26.02        |  |  |  |
-| (95% CI)               | 10.51, 12.25          | 23.53, 25.35 | 26.56, 29.39 | 22.47, 25.12  | 25.25, 26.78 |  |  |  |
+| Prompt-based Zero-shot | | | | | | | | |
+| ChatGPT | 7.05 | 19.77 | 23.68 | 15.52 | 16.04 | | | |
+| (95% CI) | 6.54, 7.56 | 19.26, 20.28 | 23.18, 24.19 | 15.00, 16.02 | 15.53, 16.55 | | | |
+| +Path | 5.70 | 15.49 | 25.33 | 17.05 | 18.21 | | | |
+| (95% CI) | 5.19, 6.21 | 14.98, 15.99 | 24.82, 25.84 | 16.29, 17.81 | 17.46, 18.98 | | | |
+| | Prompt-based Few-shot | | | | | | | |
+| ChatGPT 3-shot | 9.63 | 21.84 | 22.71 | 19.57 | 21.02 | | | |
+| (95% CI) | 8.32,10.06 | 19.99,22.09 | 20.99,23.96 | 17.23, 19.78 | 20.26, 21.79 | | | |
+| 5-shot | 9.73 | 21.23 | 22.45 | 19.67 | 20.96 | | | |
+| (95% CI) | 8.52, 10.18 | 19.58, 21.72 | 20.93, 23.80 | 17.66, 20.33 | 20.19, 21.73 | | | |
+| 3-shot+Path | 10.66 | 24.32 | 26.48 | 24.22 | 25.30 | | | |
+| (95% CI) | 9.17, 10.72 | 22.44, 24.25 | 25.33, 28.36 | 21.44, 24.21 | 24.52, 26.06 | | | |
+| 5-shot+Path | 11.73 | 25.43 | 27.76 | 24.56 | 26.02 | | | |
+| (95% CI) | 10.51, 12.25 | 23.53, 25.35 | 26.56, 29.39 | 22.47, 25.12 | 25.25, 26.78 | | | |
 
-Table 4: Best performance on MIMIC test set (with annotated active diagnoses) from ChatGPT across all prompt styles with (+Path) and without DR.KNOWS path prompting. We report ROUGE-2, ROUGE-L, CUI Recall, Precision and F-score to illustrate the performance difference better. We use teal color to highlight the 95% confidence interval (CIs) when there is a distinct CIs for the +Path compared to no path scenarios.
+**Table 4:** Best performance on MIMIC test set (with annotated active diagnoses) from ChatGPT across all prompt styles with (+Path) and without DR.KNOWS path prompting. We report ROUGE-2, ROUGE-L, CUI Recall, Precision and F-score to illustrate the performance difference better. We use teal color to highlight the 95% confidence interval (CIs) when there is a distinct CIs for the +Path compared to no path scenarios.
 
 Results reported in automated metrics Shifting from a zero-shot to a few-shot learning scenario resulted in a clear boost in performance. The few-shot's minimum ROUGE-2 score of 9.63 (95% CI: 8.32 - 10.06), surpassed the zero-shot's maximum of 7.05 (95% CI: 6.54 - 7.56), and the few-shot's minimum CUI-F score of 20.96 (95% CI: 20.19 - 21.73) outperformed zero-shot's score of 18.21 (95% CI: 17.46. - 18.98).
 
@@ -162,17 +161,17 @@ Figure 4 describes all components of the diagnosis scores, considering six disti
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image presents two pairs of box plots comparing diagnostic and reasoning scores with and without knowledge graph (KG) assistance. Each box plot displays the median, interquartile range, and outliers for a group. The plots visually compare the distribution of scores for diagnosis and reasoning tasks, showing the impact of KG integration on performance. The x-axis represents the task (Diagnosis/Reasoning) and KG use (No KG/KG), while the y-axis shows the score (0-1). -->
 
-Figure 3: Overall performance for ChatGPT models with the absence ("No KG") and the presence of DR.KNOWS ("KG").
+**Figure 3:** Overall performance for ChatGPT models with the absence ("No KG") and the presence of DR.KNOWS ("KG").
 
 ![](_page_7_Figure_4.jpeg)
 <!-- Image Description: The image displays six bar charts comparing frequencies of different qualitative attributes for two groups, "KG" and "No KG". The charts assess abstraction, accuracy, plausibility, and specificity, further broken down by omission types (direct, indirect, epistemic, aleatoric). The purpose is to show the differences in these attributes between the two groups across various categorization schemes related to omission uncertainty. -->
 
-Figure 4: Diagnosis scores for ChatGPT models with the absence ("No KG") and the presence of DR.KNOWS ("KG").
+**Figure 4:** Diagnosis scores for ChatGPT models with the absence ("No KG") and the presence of DR.KNOWS ("KG").
 
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The image presents six bar charts comparing two groups (KG and No KG) across various aspects of knowledge representation. Each chart displays the frequency of responses for binary (Yes/No) or Likert scale (Strongly Disagree to Strongly Agree) questions. The metrics assessed are omission, abstraction, effective abstraction, poor comprehension, poor rationale, and poor recall. The charts likely illustrate the effectiveness of a KG (Knowledge Graph) intervention on knowledge representation quality. -->
 
-Figure 5: Reasoning scores for ChatGPT models with the absence ("No KG") and the presence of Dr.Knows ("KG").
+**Figure 5:** Reasoning scores for ChatGPT models with the absence ("No KG") and the presence of Dr.Knows ("KG").
 
 "No" answers (p=0.09).
 
@@ -184,41 +183,41 @@ Another error observed occurred when DR.KNOWS selected the source CUIs that were
 
 In addition to DR.KNOWS' errors, there were instances where ChatGPT failed to leverage accurate
 
-Figure 6: An error example of DR.KNOWS retrieved knowledge pathways. DR.KNOWS finds two paths leading to irrelevant and misleading diagnosis, marked as red fonts. The symbol represents a self-loop.
+**Figure 6:** An error example of DR.KNOWS retrieved knowledge pathways. DR.KNOWS finds two paths leading to irrelevant and misleading diagnosis, marked as red fonts. The symbol represents a self-loop.
 
 ![](_page_9_Figure_3.jpeg)
 <!-- Image Description: The image displays a patient's medical progress note and its analysis by a knowledge-based system. The top section shows the patient's input data including symptoms and lab results. Below, the system outputs six knowledge paths linking the symptoms to possible diagnoses like renal failure and cirrhosis. Finally, it presents the gold standard diagnosis and predicted diagnoses based on the knowledge paths and input data. The image demonstrates the system's ability to process medical data and infer diagnoses. -->
 
-Figure 7: An example from ChatGPT with DR.KNOWS extracted knowledge pathways. Two paths had source CUIs ("Consulting with (procedure), Drug Allergy") that were less likely to generate pertinent paths for clinical diagnoses. Note that the path of "Drug allergy" led to a path contradicting to the "No Known Drug Allergies" description in the input. The path of "cirrhosis of liver" was a correct diagnosis, but ChatGPT failed to include it.
+**Figure 7:** An example from ChatGPT with DR.KNOWS extracted knowledge pathways. Two paths had source CUIs ("Consulting with (procedure), Drug Allergy") that were less likely to generate pertinent paths for clinical diagnoses. Note that the path of "Drug allergy" led to a path contradicting to the "No Known Drug Allergies" description in the input. The path of "cirrhosis of liver" was a correct diagnosis, but ChatGPT failed to include it.
 
-| Input progress note:<br>01:00 AM Allergies                                                                                                                                       | <assessment> 24 year old man with a history of episodic dizziness, h/o pneumothorax who was admitted for fever and hypotension with good<br/>response to fluid resuscitation but persistently elevated temperature and findings on CXR, now found to be positive and influenza A. Chief<br/>Complaint: sepsis I saw and examined the patient, and was physically present with the ICU resident for key portions of the services provided. I<br/>agree with his/her note above, including assessment and plan. HPI: 24 Hour Events: NASAL SWAB - At 06:53 PM EKG - At 09:05 PM FEVER - 101.2 F-</assessment> |  |  |  |  |  |
+| Input progress note:<br>01:00 AM Allergies | <assessment> 24 year old man with a history of episodic dizziness, h/o pneumothorax who was admitted for fever and hypotension with good<br/>response to fluid resuscitation but persistently elevated temperature and findings on CXR, now found to be positive and influenza A. Chief<br/>Complaint: sepsis I saw and examined the patient, and was physically present with the ICU resident for key portions of the services provided. I<br/>agree with his/her note above, including assessment and plan. HPI: 24 Hour Events: NASAL SWAB - At 06:53 PM EKG - At 09:05 PM FEVER - 101.2 F-</assessment> | | | | | |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|--|
-| Dr.Knows retrieved top-6 knowledge paths:                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Influenza (diagnosis) $\rightarrow$ pathological process of $\rightarrow$ Communicable disease, NOS $\sigma$ <path></path>                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Influenza (diagnosis) $\rightarrow$ self $\rightarrow$ Influenza (diagnosis) $\sigma$ <path></path>                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Systemic infections $\rightarrow$ self $\rightarrow$ Systemic infections $\sigma$ <path></path>                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Systemic infections $\rightarrow$ possibly equivalent to $\rightarrow$ Septicemia, unspecified $\sigma$ <path></path>                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Systemic infections $\rightarrow$ possibly equivalent to $\rightarrow$ Septicemia, unspecified $\sigma$ <path></path>                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Influenza (diagnosis) $\rightarrow$ pathological process of $\rightarrow$ Communicable disease, NOS $\rightarrow$ has pathological process $\rightarrow$ Pneumonia <path></path> |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| <b>Gold Standard Diagnosis:</b><br>cardiogenic syncope, and psychogenic syncope                                                                                                  | Influenza A; ANEMIA; THROMBOCYTOPENIA; HYPOPHOSPHATEMIA; dizziness/syncope includes orthostatic hypotension, vasovagal syncope,                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |  |  |  |  |  |
-| Predicted Diagnoses (no paths provided):<br>Influenza A; Sepsis; Pneumothorax                                                                                                    | Plausible diagnoses? X<br>$\left(\frac{\pi}{2},\frac{\pi}{2}\right)$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  |  |  |  |  |
-| Predicted Diagnoses (with knowledge paths input):<br>Influenza A; Pneumonia c/b influenza A; Sepsis                                                                              | Plausible diagnoses?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  |  |  |  |  |
+| Dr.Knows retrieved top-6 knowledge paths: | | | | | | |
+| Influenza (diagnosis) $\rightarrow$ pathological process of $\rightarrow$ Communicable disease, NOS $\sigma$ <path></path> | | | | | | |
+| Influenza (diagnosis) $\rightarrow$ self $\rightarrow$ Influenza (diagnosis) $\sigma$ <path></path> | | | | | | |
+| Systemic infections $\rightarrow$ self $\rightarrow$ Systemic infections $\sigma$ <path></path> | | | | | | |
+| Systemic infections $\rightarrow$ possibly equivalent to $\rightarrow$ Septicemia, unspecified $\sigma$ <path></path> | | | | | | |
+| Systemic infections $\rightarrow$ possibly equivalent to $\rightarrow$ Septicemia, unspecified $\sigma$ <path></path> | | | | | | |
+| Influenza (diagnosis) $\rightarrow$ pathological process of $\rightarrow$ Communicable disease, NOS $\rightarrow$ has pathological process $\rightarrow$ Pneumonia <path></path> | | | | | | |
+| <b>Gold Standard Diagnosis:</b><br>cardiogenic syncope, and psychogenic syncope | Influenza A; ANEMIA; THROMBOCYTOPENIA; HYPOPHOSPHATEMIA; dizziness/syncope includes orthostatic hypotension, vasovagal syncope, | | | | | |
+| Predicted Diagnoses (no paths provided):<br>Influenza A; Sepsis; Pneumothorax | Plausible diagnoses? X<br>$\left(\frac{\pi}{2},\frac{\pi}{2}\right)$ | | | | | |
+| Predicted Diagnoses (with knowledge paths input):<br>Influenza A; Pneumonia c/b influenza A; Sepsis | Plausible diagnoses? | | | | | |
 
-Figure 8: Illustration of ChatGPT with KG paths selected by DR.KNOWS, introducing abstraction concepts and enhancing predicted diagnosis plausibility. Human annotators find the predicted diagnosis from ChatGPT, with knowledge paths, more plausible compared to the one without.
+**Figure 8:** Illustration of ChatGPT with KG paths selected by DR.KNOWS, introducing abstraction concepts and enhancing predicted diagnosis plausibility. Human annotators find the predicted diagnosis from ChatGPT, with knowledge paths, more plausible compared to the one without.
 
-| <b>Sonderated "Reasoning" (no knowledge paths provided):</b>                                                                                                                                                                                                                                                                                                                                                                                                 |                    | Correct reasoning? X | Œ |
+| <b>Sonderated "Reasoning" (no knowledge paths provided):</b> | | Correct reasoning? X | Œ |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|---|
-| The patient has a positive test for influenza A, which could explain the fever and CXR findings. Sepsis<br>is also a concern given the patient's history of hypotension and response to fluid resuscitation. The<br>patient's history of pneumothorax could be a contributing factor to the presentation.                                                                                                                                                    |                    |                      |   |
-| <b>Some Senance of The Senance of Conventional Conventsion</b> Separated:                                                                                                                                                                                                                                                                                                                                                                                    | Correct reasoning? |                      |   |
-| The patient presents with fever, hypotension, and findings on CXR, and is found to be positive for<br>influenza A. The knowledge graph shows that influenza is a communicable disease that can lead to<br>pneumonia, which is consistent with the CXR findings. Additionally, the patient has sepsis, which is a<br>common complication of pneumonia. These diagnoses are directly inferred from the input note and<br>relevant knowledge graph information. |                    |                      |   |
+| The patient has a positive test for influenza A, which could explain the fever and CXR findings. Sepsis<br>is also a concern given the patient's history of hypotension and response to fluid resuscitation. The<br>patient's history of pneumothorax could be a contributing factor to the presentation. | | | |
+| <b>Some Senance of The Senance of Conventional Conventsion</b> Separated: | Correct reasoning? | | |
+| The patient presents with fever, hypotension, and findings on CXR, and is found to be positive for<br>influenza A. The knowledge graph shows that influenza is a communicable disease that can lead to<br>pneumonia, which is consistent with the CXR findings. Additionally, the patient has sepsis, which is a<br>common complication of pneumonia. These diagnoses are directly inferred from the input note and<br>relevant knowledge graph information. | | | |
 
-Figure 9: The "Reasoning" output of ChatGPT with and without knowledge paths on the same input example as in Fig 8. The highlighted green text demonstrates the utilization of DR.KNOWS knowledge paths to enhance ChatGPT's reasoning capabilities. Human evaluators find that the ChatGPT with KG produces correct reasoning.
+**Figure 9:** The "Reasoning" output of ChatGPT with and without knowledge paths on the same input example as in Fig 8. The highlighted green text demonstrates the utilization of DR.KNOWS knowledge paths to enhance ChatGPT's reasoning capabilities. Human evaluators find that the ChatGPT with KG produces correct reasoning.
 
 > knowledge paths presented. Figure 7 includes a knowledge path about "Cirrhosis of liver", which was a correct diagnosis. However, ChatGPT did not contain this diagnosis.
 
 > Finally, when DR.KNOWS retrieved the correct knowledge paths and ChatGPT utilized it well, there was an improvement in the output quality. Figure 8 presents an example where all the paths retrieved by DR.KNOWS were relevant to the input, and successfully led to ChatGPT outputting plausible diagnoses. This led to higher PLAUSIBILITY scores from human evaluators.
 
-# 3 Discussion
+## 3 Discussion
 
 On the few-shot setting, with and without DR.KNOWS retrieved paths, ChatGPT demonstrated a median diagnostic accuracy of 66% and exhibited a remarkable median score exceeding 94% in reasoning, as per human evaluation. The incorporation of DR.KNOWS retrieved paths proved to be beneficial, enhancing ChatGPT's performance, as evidenced by higher scores from automated metrics and improvements noted in ABSTRACTION and RATIONALE aspects during human evaluation. A primary source of errors stemmed from DR.KNOWS incorrectly identifying irrelevant target concepts and initiating retrievals with less effective CUIs. This issue, along with ChatGPT's struggle to incorporate the correct paths, was highlighted as key areas for improvements.
 
@@ -243,9 +242,9 @@ The detailed scoring in human evaluation not only highlighted ChatGPT's performa
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: The image depicts a graph-based model for medical concept extraction. Input text ("47 yrs female with fever, coughing, and sepsis") is processed by SapBERT, generating text and concept encodings. These encodings are used to extract subgraphs from a knowledge graph, which are then fed through a graph neural network, a path encoder, and a path ranker to identify the top N scored CUIs (UMLS concepts). The diagram illustrates the workflow, showing data flow between the various model components. -->
 
-Figure 10: DR.KNOWS model architecture. The input concepts ("female", "fever", etc) are represented by concept unique identifiers (CUIs, represented as the combination of letters and numbers, e.g."C0243026", "C0015967").
+**Figure 10:** DR.KNOWS model architecture. The input concepts ("female", "fever", etc) are represented by concept unique identifiers (CUIs, represented as the combination of letters and numbers, e.g."C0243026", "C0015967").
 
-# 4 Methods
+## 4 Methods
 
 ## 1 Grounding Medical Knowledge with Knowledge Graph
 
@@ -261,7 +260,7 @@ This section introduces the architecture design for DR.KNOWS. As shown in Figure
 
 > representation, input text, and concept representation. The top N scores among the set of 1-hop neighbor nodes, aggregated from all paths pointing to those nodes, guide the subsequent hop exploration. In case a suitable diagnosis node is not found, termination is assigned to the self-loop pointing to the current node.
 
-#### 1.2 Contextualized Node Representation
+### 1.2 Contextualized Node Representation
 
 We defined the deterministic UMLS knowledge graph*G*=*VE*based on SNOMED CUIs and semantic relations, where*V*is a set of CUIs, and*E*is a set of semantic relations. Given an input text x containing a set of source CUIs*Vsrc*✓*V*, and their 1-hop relations *Esrc*✓*E*, we can construct relation paths for each <sup>h</sup>v*i*i*<sup>I</sup> <sup>i</sup>*=1 ✓ *Vsrc*as P =*{*p1*,* p2*,...,* p*<sup>J</sup> }* s.t. p*<sup>j</sup>*=*{*v1*,* e1*,*v<sup>2</sup>*...* e*t*1*,* v*t*}, *j*2*J*, where t is a pre-defined scalar and *J* is non-deterministic. Relations e*<sup>t</sup>* were encoded as one-hot embeddings. We concatenated all concept names for v*<sup>i</sup>* with special token [SEP], s.t. l*<sup>i</sup>* = [name 1 [SEP] name 2 [SEP] ...], and encoded l*<sup>i</sup>* using SapBERT (Liu et al., 2021) to obtain h*i*. This allowed the CUI representation to serve as the contextualized representation of its corresponding concept names. We chose SapBERT for its UMLS-trained biomedical concept representation. The h*<sup>i</sup>*is further updated through topological representation using SGIN:
 
@@ -326,7 +325,7 @@ $$
 $$
 S_i^{\text{Tri}} = \phi(\text{Relu}(\sigma(\alpha_i))).
 $$
- (6)
+(6)
 
 where hx*,* p*<sup>i</sup>*and h<sup>v</sup> have same dimensionality*D*, and is a MLP. Finally, we aggregated the MultiAttn or TriAttn scores on all candidate nodes , and select the top *N*entity*V<sup>N</sup>*for next hop iteration based on the aggregated scores:
 
@@ -337,7 +336,7 @@ $$
 $$
 \mathcal{V}_N = \text{argmax}_N(\beta).
 $$
- (7)
+(7)
 
 ### 1.4 Loss Function
 
@@ -364,20 +363,20 @@ $$
 
 where *<sup>A</sup><sup>i</sup>*is the anchor embedding, defined as <sup>h</sup><sup>x</sup> <sup>h</sup>v, and is Hadamard product. <sup>P</sup>*<sup>i</sup>*indicates a summation over a set of indices*i*, typically representing different training samples or pairs. Inspired from (Yasunaga et al., 2022), we construct cos(*Ai, fi*+) and cos(*Ai, fi*) to calculate cosine similarity between *A<sup>i</sup>*and positive feature*fi*<sup>+</sup> or negative feature *fi*, respectively. This equation measures the loss when the similarity between an anchor and its positive feature is not significantly greater than the similarity between the same anchor and a negative feature, considering a margin for desired separation. Appendix C described the full DR.KNOWS model training process.
 
-#### 1.5 Prompting for foundational models
+### 1.5 Prompting for foundational models
 
 To incorporate graph model predicted paths into a prompt, we applied a prompt engineering strategy utilizing domain-independent prompt patterns, as delineated in White et al. (2023). Our prompt was constructed with two primary components: the *output customization*prompt, which specifies the requirement of exploiting knowledge paths, and the*context control patterns*, which are directly linked to the DR.KNOWS's output.
 
 Given that our core objective was to assess the extent to which the prompt can bolster the model's performance, it became imperative to test an array of prompts. Gonen et al. (2022) presented a technique, BETTERPROMPT, which relied on SELECTING PROMPTS BY ESTIMATING LANGUAGE MODEL LIKELIHOOD (SPELL). Essentially, we initiated the process with a set of manual task-specific prompts,
 
-| Group              | Output Customization Prompts and No.                                                                                                                                                                                                                                                                                                        | Perplexity           |
+| Group | Output Customization Prompts and No. | Perplexity |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
 | Non-Subj.<br>Subj. | A. <explain> B.You may utilize these facts: C. You may find these facts helpful:<br/>D. /E. *Act as a medical doctor, and list the top three direct and indirect diagnoses from<br/>the Assessment. *(You will be provided with some hints from a knowledge graph.)<br/>Explain the reasoning and assumptions behind your answer.</explain> | 3.86e-13<br>1.03e-03 |
-| No.                | Context Control with Path Presentation                                                                                                                                                                                                                                                                                                      |                      |
-| 1                  | Structural.e.g. "Infectious Diseases –> has pathological process –> Pneumonia<br>""–>" is added to tokenizers as a new token.                                                                                                                                                                                                               |                      |
-| 2                  | Clause. e.g. "Infectious Diseases has pathological process Pneumonia"                                                                                                                                                                                                                                                                       |                      |
+| No. | Context Control with Path Presentation | |
+| 1 | Structural.e.g. "Infectious Diseases –> has pathological process –> Pneumonia<br>""–>" is added to tokenizers as a new token. | |
+| 2 | Clause. e.g. "Infectious Diseases has pathological process Pneumonia" | |
 
-Table 5: Five manually designed prompts (Output Customization) and two path representation styles (Context Control) we create for the path-prompting experiments. There are 10 prompt patterns in total (5 Output Customization x 2 Context Control). For each Output Customization prompt, we generate 50 paraphrases using ChatGPT and run BETTERPROMPT to obtain the perplexity. This table also include the average perplexity for each prompt. Prompts with \*are also deployed for path-less T5 fine-tuning (baseline).
+**Table 5:** Five manually designed prompts (Output Customization) and two path representation styles (Context Control) we create for the path-prompting experiments. There are 10 prompt patterns in total (5 Output Customization x 2 Context Control). For each Output Customization prompt, we generate 50 paraphrases using ChatGPT and run BETTERPROMPT to obtain the perplexity. This table also include the average perplexity for each prompt. Prompts with \*are also deployed for path-less T5 fine-tuning (baseline).
 
 subsequently expanding the prompt set via automatic paraphrasing facilitated by ChatGPT and backtranslation. We then ranked these prompts by their perplexity score (averaged over a representative sample of task inputs), ultimately selecting those prompts exhibiting the lowest perplexity.
 
@@ -401,7 +400,7 @@ When evaluating the output diagnoses, we applied the above evaluation metric as 
 
 ### 3 Metrics Development for Human Evaluation
 
-#### 3.1 Motivation
+### 3.1 Motivation
 
 Existing frameworks of human evaluation have been implemented for generative AI on certain tasks such as radiology report generation, but the field of diagnosis generation remains underdeveloped. Robust evaluation methodologies like SaferDX (Singh et al., 2019) have paved the way for assessing missed
 
@@ -409,7 +408,7 @@ Existing frameworks of human evaluation have been implemented for generative AI 
 
 > We identified seven broad aspects widely deployed in human evaluation for biomedical NLP tasks: (1) Factual Consistency (Guo et al., 2020; Yadav et al., 2021; Wallace et al., 2020; Abacha et al., 2023; Moramarco et al., 2021; Otmakhova et al., 2022; Dalla Serra et al., 2022; Cai et al., 2022), (2) Hallucination (Guo et al., 2020; Umapathi et al., 2023), (3) Quality of Evidence (Otmakhova et al., 2022; Singhal et al., 2023), (4) Safety / Potential for Harm (Singhal et al., 2023; Dalla Serra et al., 2022; Adams et al., 2023), (5) Confidence (Otmakhova et al., 2022), (6) Omission (Abacha et al., 2023), and (7) Linguistic Quality (Radev and Tam, 2003; Guo et al., 2020). These aspects were then broken down and more clearly defined for inclusion in a human evaluation framework. The only factor not considered was Linguistic Quality. This factor was tied to general domain tasks and those intent on the fluency and readability of generated text for the general population. However, in a clinical setting, this is not a key focus so attention was given to aspects relating to content, instead.
 
-#### 3.2 Survey Development
+### 3.2 Survey Development
 
 Evaluation criteria The intent of evaluation of clinical diagnostic reasoning tasks is to verify that inclusion of generative LLMs in the clinical setting does not introduce additional potential for harm on patients. Therefore, the diagnostic evaluation portion was largely influenced by the revised SaferDx instrument (Singh et al., 2019) because of its applications in identifying and defining diagnostic errors and their potential for harm. Based on this instrument and our 6 identified aspects of manual evaluation from literature searching, the diagnostic evaluation process was broken down into 4 sections: (1) ACCURACY, (2) PLAUSIBILITY, (3) SPECIFICITY, and (4) OMISSION AND UNCERTAINTY. ACCURACY was intended to capture the factuality of the diagnostic output as well as penalize a model for hallucinating output that does not qualify as a diagnosis. PLAUSIBILITY, which is conditional on ACCURACY, was intended to capture the potential for harm present in an inaccurate diagnosis. SPECIFICITY, which is conditional on PLAUSIBILITY, is defined as the level of detail provided in the diagnosis. Finally, OMISSION AND UNCERTAINTY defined cases when a diagnosis is not included in the list of outputted diagnoses but would be considered by a clinician in the clinical setting based upon the input data. In the case of the omission, the UNCERTAINTY further defined the reasons as*aleatoric uncertainty*– when LLM has been provided with the necessary information but has not utilized it;*epistemic uncertainty* – when the input to LLM does not contain the data needed to make a diagnosis.
 
@@ -420,7 +419,7 @@ In addition to the aspects outlined above, the evaluators were also asked to ans
 ![](_page_18_Figure_1.jpeg)
 <!-- Image Description: The image presents a flowchart detailing the evaluation of a medical diagnosis system's output. It shows a diagnostic reasoning process, analyzing RCA stenosis, epistaxis, and PVCs. The process is scored using criteria like omission, uncertainty, accuracy, plausibility, and specificity for diagnosis, and comprehension, recall, and rationale for reasoning. Evaluation questions are provided to assess the quality and completeness of the system's output based on the defined metrics. -->
 
-Figure 11: The structure of the survey questions given an LLM output. The output consists of two components: diagnoses (red-colored text) and reasoning (blue-colored text). For each component, there are corresponding questions evaluating certain aspects.
+**Figure 11:** The structure of the survey questions given an LLM output. The output consists of two components: diagnoses (red-colored text) and reasoning (blue-colored text). For each component, there are corresponding questions evaluating certain aspects.
 
 scoring process, but served as an additional piece of information. For the reasoning output, EFFECTIVE ABSTRACTION, conditional on ABSTRACTION, was also utilized to determine if any of the abstracted output aided or hindered the reasoning.
 
@@ -436,7 +435,7 @@ The construct validity of the proposed survey received further support from our 
 
 > evaluation framework for text summarization from publications in the Association for Computational Linguistics and PubMed, and identified the 7 broad aspects of manual evaluation (see §??). We also used the SaferDx survey instrument to guide our survey development, ensuring the survey was designed with a focus on diagnostic safety.
 
-#### 3.3 Survey scoring
+### 3.3 Survey scoring
 
 Once the resident and medical student were verified as in agreement with the senior clinicians, each was given a set of output records from each model to evaluate. In total, at least 92 records were evaluated for each model.
 
@@ -460,11 +459,11 @@ $$
 
 where*c*¯*<sup>i</sup>*is the mean of the comprehension scores,*e*¯*<sup>i</sup>*is the mean of the recall scores,*a*¯*<sup>i</sup>*is the mean of the rationale scores for record*i*. The denominator is 15 because each component was scored on a 5-point Likert scale and this 15 normalizes the scores into a (0*,*1) scale.
 
-#### 3.4 Significance Testing
+### 3.4 Significance Testing
 
 Statistical significance testing was performed utilizing a paired assumption. Since the KG and No KG scoring processes were done using the same progress notes, a pair was considered to be the score from each model for a particular progress note. Tests on statistical significance between normalized diagnosis and reasoning scores used a two-sided paired t-test. This is because the diagnosis and reasoning scores were quantitative values on a 0 to 1 scale. In cases where analysis was done on aspects of the scores (i.e. SPECIFICITY, OMISSION, PLAUSIBILITY), a McNemar test was utilized. The Likert and binary scale values were considered nominal categories for this test. All statistical significance testing was performed in R v4.3.1.
 
-# References
+## References
 
 Asma Ben Abacha, Wen-wai Yim, George Michalopoulos, and Thomas Lin. 2023. An investigation of evaluation metrics for automated medical note generation.*arXiv preprint arXiv:2305.17364*.
 

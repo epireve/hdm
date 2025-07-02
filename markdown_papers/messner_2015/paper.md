@@ -151,10 +151,10 @@ Illustrating the model. We illustrate BoxTE with an example, shown in Figure 1. 
 
 Example 4.1.*Consider the following temporal knowledge graph* G = {r(h, t|τ1), s(t, h|τ1), s(t, h|τ2)}*, defined over* E = {h, t}*,* R = {r, s}*, and* T = {τ1, τ2}*. The BoxTE configurations at time stamps*τ<sup>1</sup>*and*τ<sup>2</sup>*are shown on the left and right of Figure 1, respectively. The relations*r*and*s*are color coded with black and red, respectively.*
 
-*Observe that the fact*r(h, t)*is true in time stamp* τ1*, but false at time stamp* τ2*, while the fact*s(t, h)*remains true for both time stamps. In more detail, BoxTE assigns largermagnitude time bumps*τ r <sup>1</sup>*and*τ r 2*for the relation* r*. In turn,*τ r <sup>1</sup>*makes*r(h, t|τ1)*true, as this bump moves the final representation of*h*into* r <sup>h</sup>*, and*τ r <sup>2</sup>*makes*r(h, t|τ2)*false, by bumping this representation away from* r <sup>h</sup>*. By contrast, for*![](_page_3_Figure_0.jpeg)
+**Observe that the fact:** r(h, t)*is true in time stamp* τ1*, but false at time stamp* τ2*, while the fact*s(t, h)*remains true for both time stamps. In more detail, BoxTE assigns largermagnitude time bumps*τ r <sup>1</sup>*and*τ r 2*for the relation* r*. In turn,*τ r <sup>1</sup>*makes*r(h, t|τ1)*true, as this bump moves the final representation of*h*into* r <sup>h</sup>*, and*τ r <sup>2</sup>*makes*r(h, t|τ2)*false, by bumping this representation away from* r <sup>h</sup>*. By contrast, for*![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image displays two diagrams illustrating spatial transformations (τ1 and τ2) on a pair of rectangular objects. Each diagram shows a "before" and "after" state of the objects and their relative positions, represented by labeled vectors indicating translations (τ1, τ2) along the x and y axes. The red rectangles depict the object's bounding box before and after the transformation. The purpose is to visually demonstrate the effects of the transformations. -->
 
-Figure 1: A sample BoxTE configuration for the TKG G at time stamps τ<sup>1</sup> (left) and τ<sup>2</sup> (right). Time bumps τ r 1 , τ r 2 , τ s 1 and τ s 2 are computed as τ r <sup>1</sup> = α<sup>r</sup>K<sup>τ</sup><sup>1</sup> , τ r <sup>2</sup> = α<sup>r</sup>K<sup>τ</sup><sup>2</sup> , τ s <sup>1</sup> = α<sup>s</sup>K<sup>τ</sup><sup>1</sup> , and τ s <sup>2</sup> = α<sup>s</sup>K<sup>τ</sup><sup>2</sup> , respectively, and represented by dotted arrows. Relation r and corresponding time bumps τ r 1 , τ r 2 are color coded with black, whereas the relation s, and the corresponding time bumps τ s 1 , τ s 2 are color coded in red. For all time bumps, relation superscripts are dropped in the figure for better visibility.
+**Figure 1:** A sample BoxTE configuration for the TKG G at time stamps τ<sup>1</sup> (left) and τ<sup>2</sup> (right). Time bumps τ r 1 , τ r 2 , τ s 1 and τ s 2 are computed as τ r <sup>1</sup> = α<sup>r</sup>K<sup>τ</sup><sup>1</sup> , τ r <sup>2</sup> = α<sup>r</sup>K<sup>τ</sup><sup>2</sup> , τ s <sup>1</sup> = α<sup>s</sup>K<sup>τ</sup><sup>1</sup> , and τ s <sup>2</sup> = α<sup>s</sup>K<sup>τ</sup><sup>2</sup> , respectively, and represented by dotted arrows. Relation r and corresponding time bumps τ r 1 , τ r 2 are color coded with black, whereas the relation s, and the corresponding time bumps τ s 1 , τ s 2 are color coded in red. For all time bumps, relation superscripts are dropped in the figure for better visibility.
 *the relation* s*,*τ s <sup>1</sup>*and*τ s <sup>2</sup>*are smaller, and do not ultimately affect the correctness of the fact*s(t, h)*over time. As all time bumps are computed from the same matrices*K<sup>τ</sup><sup>1</sup>*and*K<sup>τ</sup><sup>2</sup>*, this implies that BoxTE learns a smaller-norm*α<sup>s</sup>*, reflecting the temporal stability of relation* s*.*### 5 Model Properties
 
 We now study the representation power and inductive capacity of BoxTE. In particular, we show that BoxTE is fully expressive and extends the inductive capacity of BoxE to capture inference patterns*across time*.
@@ -199,7 +199,7 @@ Cross-time inference patterns
 
 Inversion: r1(x, y|τ1) ⇔ r2(y, x|τ2) Hierarchy: r1(x, y|τ1) ⇒ r2(x, y|τ2) Intersection: r1(x, y|τ1) ∧ r2(x, y|τ2) ⇒ r3(x, y|τ3) Composition r1(x, y|τ1) ∧ r2(y, z|τ2) ⇒ r3(x, z|τ3) Mutual exclusion: r1(x, y|τ1) ∧ r2(x, y|τ2) ⇒ ⊥
 
-Table 1: Cross-time inference patterns, where we omit universal quantification over variables. BoxTE captures all these patterns, but composition. Fixed-time inference patterns are the special case where the time stamps coincide.
+**Table 1:** Cross-time inference patterns, where we omit universal quantification over variables. BoxTE captures all these patterns, but composition. Fixed-time inference patterns are the special case where the time stamps coincide.
 
 which requires r<sup>1</sup> at τ<sup>1</sup> to be subsumed in r<sup>2</sup> at τ2, without any implications on the state of these relations on other time stamps. The list of such cross-time inference patterns is provided in Table 1. BoxTE captures all these cross-time inference patterns, but composition. To study cross-time patterns, we define, for a time stamp τ and relation r, the timeinduced relation head box r h|τ and the time-induced relation tail box r t|τ as:
 
@@ -239,19 +239,19 @@ where ∩ denotes box intersection. Mutual exclusion and inversion hold by analo
 
 By capturing cross-time inference patterns, BoxTE can model the interplay between relations across time. For instance, BoxTE can represent that any two entities engaging in formal negotiations at time stamp τ<sup>1</sup> sign a formal agreement at time stamp τ2. It can also model relation behavior at single time stamp granularity, and thus capture patterns specifically at times when they hold, while learning appropriate temporal relation-specific behaviors. By contrast, existing models have shortcomings when combining inference
 
-|             | ICEWS14 | ICEWS05-15 | GDELT     |
+| | ICEWS14 | ICEWS05-15 | GDELT |
 |-------------|---------|------------|-----------|
-| E           | 7,128   | 10,488     | 500       |
-| R           | 230     | 251        | 20        |
-| T           | 365     | 4017       | 366       |
-| Gtrain      | 72,826  | 386,962    | 2,735,685 |
-| Gvalid      | 8,963   | 46,092     | 341,961   |
-| Gtest       | 8,941   | 46,275     | 341,961   |
-| G           | 90,730  | 479,329    | 3,419,607 |
-| Timespan    | 1 year  | 11 years   | 1 year    |
-| Granularity | Daily   | Daily      | Daily     |
+| E | 7,128 | 10,488 | 500 |
+| R | 230 | 251 | 20 |
+| T | 365 | 4017 | 366 |
+| Gtrain | 72,826 | 386,962 | 2,735,685 |
+| Gvalid | 8,963 | 46,092 | 341,961 |
+| Gtest | 8,941 | 46,275 | 341,961 |
+| G | 90,730 | 479,329 | 3,419,607 |
+| Timespan | 1 year | 11 years | 1 year |
+| Granularity | Daily | Daily | Daily |
 
-Table 2: TKGC datasets with dataset statistics
+**Table 2:** TKGC datasets with dataset statistics
 
 patterns and time modeling. For instance, TTransE can only capture rigid inverse relations if either the relation translation is set to 0, or if the time translation is set to 0, effectively eliminating the temporal component of the model.
 
@@ -262,26 +262,26 @@ In this section, we evaluate BoxTE on TKG benchmarks ICEWS14, ICEWS15 (Garc´ıa
 In addition to these two experiments, we study the interpretability of BoxTE using a subset of YAGO (Suchanek, Kasneci, and Weikum 2007), perform an ablation study on BoxTE with different model variations, and conduct a robustness analysis relative to embedding dimensionality. These additional experiments can be found in the appendix of the full paper.
 
 Datasets. We briefly present ICEWS14, ICEWS5-15, and GDELT, and report their statistics in Table 2.*ICEWS14*and*ICEWS5-15*(Garc´ıa-Duran, Duman ´ ciˇ c, and Niepert 2018) ´ are both subsets of the*Integrated Crisis Early Warning System (ICEWS)*dataset (Boschee et al. 2015), which stores temporal socio-political facts starting from 1995. More specifically, ICEWS14 includes facts from 2014 involving frequently occurring entities, and ICEWS5-15 includes analogous facts between 2005 and 2015 inclusive. By design, ICEWS datasets are limited in their temporal patterns, as geo-political events, e.g., negotiations, visits, are sparse and largely temporally uncorrelated across distinct entities.
-*GDELT*is a subset of the larger*Global Database of Events, Language, and Tone*(GDELT) TKG (Leetaru and Schrodt 2013), which stores facts about human behavior starting from 1979. GDELT contains facts with daily time stamps between April 1, 2015 and March 31, 2016 inclusive, and only includes facts involving the 500 most frequent entities and 20 most common relations. Unlike ICEWS, GDELT is dense (∼2.7 million facts for 500 entities, 20 relations), includes rich temporal patterns, and captures a diverse range of relationships with complicated temporal dynamics.
+**GDELT:** is a subset of the larger*Global Database of Events, Language, and Tone*(GDELT) TKG (Leetaru and Schrodt 2013), which stores facts about human behavior starting from 1979. GDELT contains facts with daily time stamps between April 1, 2015 and March 31, 2016 inclusive, and only includes facts involving the 500 most frequent entities and 20 most common relations. Unlike ICEWS, GDELT is dense (∼2.7 million facts for 500 entities, 20 relations), includes rich temporal patterns, and captures a diverse range of relationships with complicated temporal dynamics.
 
-| Model       | ICEWS14 |      |      |      |      | ICEWS5-15 |      |      |      |      | GDELT |      |      |      |      |
+| Model | ICEWS14 | | | | | ICEWS5-15 | | | | | GDELT | | | | |
 |-------------|---------|------|------|------|------|-----------|------|------|------|------|-------|------|------|------|------|
-|             | MR      | MRR  | H@1  | H@3  | H@10 | MR        | MRR  | H@1  | H@3  | H@10 | MR    | MRR  | H@1  | H@3  | H@10 |
-| TTransE     | -       | .255 | .074 | -    | .601 | -         | .271 | .084 | -    | .616 | -     | .115 | 0.0  | .160 | .318 |
-| DE-SimplE   | -       | .526 | .418 | .592 | .725 | -         | .513 | .392 | .578 | .748 | -     | .230 | .141 | .248 | .403 |
-| TA-DistMult | -       | .477 | .363 | -    | .686 | -         | .474 | .346 | -    | .728 | -     | .206 | .124 | .219 | .365 |
-| ChronoR(a)  | -       | .594 | .496 | .654 | .773 | -         | .684 | .611 | .730 | .821 | -     | -    | -    | -    | -    |
-| ChronoR(b)  | -       | .625 | .547 | .669 | .773 | -         | .675 | .596 | .723 | .820 | -     | -    | -    | -    | -    |
-| TComplEx    | -       | .610 | -    | -    | -    | -         | .660 | -    | -    | -    | -     | -    | -    | -    | -    |
-| TNTComplEx  | -       | .620 | .520 | .660 | .760 | -         | .670 | .590 | .710 | .810 | -     | -    | -    | -    | -    |
-| TeLM        | -       | .625 | .545 | .673 | .774 | -         | .678 | .599 | .728 | .823 | -     | -    | -    | -    | -    |
-| TeMP-SA     | -       | .607 | .484 | .684 | .840 | -         | .680 | .553 | .769 | .913 | -     | .232 | .152 | .245 | .377 |
-| TeMP-GRU    | -       | .601 | .478 | .681 | .825 | -         | .691 | .566 | .782 | .917 | -     | .275 | .191 | .297 | .437 |
-| BoxTE (k=2) | 161     | .615 | .532 | .667 | .767 | 98        | .664 | .576 | .720 | .822 | 48    | .339 | .251 | .366 | .507 |
-| BoxTE (k=3) | 162     | .614 | .530 | .668 | .765 | 101       | .666 | .582 | .719 | .820 | 49    | .344 | .259 | .369 | .507 |
-| BoxTE (k=5) | 160     | .613 | .528 | .664 | .763 | 96        | .667 | .582 | .719 | .820 | 50    | .352 | .269 | .377 | .511 |
+| | MR | MRR | H@1 | H@3 | H@10 | MR | MRR | H@1 | H@3 | H@10 | MR | MRR | H@1 | H@3 | H@10 |
+| TTransE | - | .255 | .074 | - | .601 | - | .271 | .084 | - | .616 | - | .115 | 0.0 | .160 | .318 |
+| DE-SimplE | - | .526 | .418 | .592 | .725 | - | .513 | .392 | .578 | .748 | - | .230 | .141 | .248 | .403 |
+| TA-DistMult | - | .477 | .363 | - | .686 | - | .474 | .346 | - | .728 | - | .206 | .124 | .219 | .365 |
+| ChronoR(a) | - | .594 | .496 | .654 | .773 | - | .684 | .611 | .730 | .821 | - | - | - | - | - |
+| ChronoR(b) | - | .625 | .547 | .669 | .773 | - | .675 | .596 | .723 | .820 | - | - | - | - | - |
+| TComplEx | - | .610 | - | - | - | - | .660 | - | - | - | - | - | - | - | - |
+| TNTComplEx | - | .620 | .520 | .660 | .760 | - | .670 | .590 | .710 | .810 | - | - | - | - | - |
+| TeLM | - | .625 | .545 | .673 | .774 | - | .678 | .599 | .728 | .823 | - | - | - | - | - |
+| TeMP-SA | - | .607 | .484 | .684 | .840 | - | .680 | .553 | .769 | .913 | - | .232 | .152 | .245 | .377 |
+| TeMP-GRU | - | .601 | .478 | .681 | .825 | - | .691 | .566 | .782 | .917 | - | .275 | .191 | .297 | .437 |
+| BoxTE (k=2) | 161 | .615 | .532 | .667 | .767 | 98 | .664 | .576 | .720 | .822 | 48 | .339 | .251 | .366 | .507 |
+| BoxTE (k=3) | 162 | .614 | .530 | .668 | .765 | 101 | .666 | .582 | .719 | .820 | 49 | .344 | .259 | .369 | .507 |
+| BoxTE (k=5) | 160 | .613 | .528 | .664 | .763 | 96 | .667 | .582 | .719 | .820 | 50 | .352 | .269 | .377 | .511 |
 
-Table 3: Temporal knowledge graph completion results for BoxTE on ICEWS14, ICEWS5-15, and GDELT. Results for competing models are the best reported from their respective papers, which are referenced in Section 3.
+**Table 3:** Temporal knowledge graph completion results for BoxTE on ICEWS14, ICEWS5-15, and GDELT. Results for competing models are the best reported from their respective papers, which are referenced in Section 3.
 
 ### Temporal Knowledge Graph Completion
 
@@ -297,18 +297,18 @@ In terms of performance relative to k, BoxTE performs best with k = 2 on ICEWS14
 
 Finally, we note that BoxTE is robust when training on all benchmarks, as it maintains strong performance even when not supplemented with temporal smoothness regularization. By contrast, TNTComplEx and ChronoR suffer significantly without regularization. This further highlights the inductive capacity of BoxTE, which can autonomously learn temporal properties from data, and suggests that this model is a strong, natural choice for applications on novel datasets where such regularizations are not known, or are not compatible with the data. We discuss this experiment in more detail as an ablation study in the appendix of the full paper.
 
-| Model       | ICEWS14 |      |      |      |      | ICEWS5-15 |      |      |      |      | GDELT |      |      |      |      |
+| Model | ICEWS14 | | | | | ICEWS5-15 | | | | | GDELT | | | | |
 |-------------|---------|------|------|------|------|-----------|------|------|------|------|-------|------|------|------|------|
-|             | MR      | MRR  | H@1  | H@3  | H@10 | MR        | MRR  | H@1  | H@3  | H@10 | MR    | MRR  | H@1  | H@3  | H@10 |
-| DE-SimplE   | -       | .526 | .418 | .592 | .725 | -         | .513 | .392 | .578 | .748 | -     | .230 | .141 | .248 | .403 |
-| TComplEx    | -       | .560 | -    | -    | -    | -         | .580 | -    | -    | -    | -     | -    | -    | -    | -    |
-| TNTComplEx  | -       | .560 | -    | -    | -    | -         | .600 | -    | -    | -    | -     | -    | -    | -    | -    |
-| BoxTE (k=1) | 183     | .576 | .478 | .639 | .753 | 122       | .564 | .452 | .635 | .770 | 62    | .250 | .167 | .270 | .411 |
-| BoxTE (k=2) | 177     | .580 | .483 | .642 | .755 | 110       | .567 | .458 | .631 | .775 | 63    | .246 | .164 | .265 | .404 |
-| BoxTE (k=3) | 182     | .582 | .491 | .640 | .748 | 125       | .570 | .465 | .636 | .763 | 64    | .242 | .161 | .260 | .398 |
-| BoxTE (k=5) | 183     | .581 | .493 | .632 | .742 | 134       | .567 | .469 | .623 | .746 | 66    | .236 | .156 | .253 | .390 |
+| | MR | MRR | H@1 | H@3 | H@10 | MR | MRR | H@1 | H@3 | H@10 | MR | MRR | H@1 | H@3 | H@10 |
+| DE-SimplE | - | .526 | .418 | .592 | .725 | - | .513 | .392 | .578 | .748 | - | .230 | .141 | .248 | .403 |
+| TComplEx | - | .560 | - | - | - | - | .580 | - | - | - | - | - | - | - | - |
+| TNTComplEx | - | .560 | - | - | - | - | .600 | - | - | - | - | - | - | - | - |
+| BoxTE (k=1) | 183 | .576 | .478 | .639 | .753 | 122 | .564 | .452 | .635 | .770 | 62 | .250 | .167 | .270 | .411 |
+| BoxTE (k=2) | 177 | .580 | .483 | .642 | .755 | 110 | .567 | .458 | .631 | .775 | 63 | .246 | .164 | .265 | .404 |
+| BoxTE (k=3) | 182 | .582 | .491 | .640 | .748 | 125 | .570 | .465 | .636 | .763 | 64 | .242 | .161 | .260 | .398 |
+| BoxTE (k=5) | 183 | .581 | .493 | .632 | .742 | 134 | .567 | .469 | .623 | .746 | 66 | .236 | .156 | .253 | .390 |
 
-Table 4: TKGC results for BoxTE and competing models in the bounded-parameter setting.
+**Table 4:** TKGC results for BoxTE and competing models in the bounded-parameter setting.
 
 ### Parameter-bounded Experiments for TKGC
 

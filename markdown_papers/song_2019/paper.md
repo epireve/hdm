@@ -25,8 +25,6 @@ keywords:
 - temporal reasoning
 ---
 
-
-
 # Temporal reasoning for timeline summarisation in social media
 
 Jiayu Song<sup>1</sup> , Mahmud Akhter<sup>1</sup> , Dana Atzil-Slonim<sup>2</sup> , Maria Liakata<sup>1</sup>,<sup>3</sup>
@@ -67,9 +65,9 @@ Task Given an individual's timeline (a series of posts between two dates [\(Tsak
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This image compares two model training methods: fine-tuning and knowledge distillation. (a) shows fine-tuning, where a "Teacher" model is trained on a temporal reasoning dataset. (b) depicts knowledge distillation. A "Teacher" model, trained on a timeline summarization dataset, transfers knowledge to a "Student" model, minimizing language modeling loss. The diagrams illustrate data flow and model interactions in each approach. -->
 
-Figure 1: Overview of proposed method. (a) represents fine-tuning the teacher model on the temporal reasoning dataset; (b) In the KD process, we input the timeline summarisation dataset into both the Teacher and Student models, transferring temporal reasoning knowledge while using it to assist the timeline summarisation task to fine-tune Student model.
+**Figure 1:** Overview of proposed method. (a) represents fine-tuning the teacher model on the temporal reasoning dataset; (b) In the KD process, we input the timeline summarisation dataset into both the Teacher and Student models, transferring temporal reasoning knowledge while using it to assist the timeline summarisation task to fine-tune Student model.
 
-#### 1 Proposed architecture
+### 1 Proposed architecture
 
 To generate timeline summaries on social media we consider two sub-processes (see Fig. [1\)](#page-2-0):
 
@@ -101,13 +99,11 @@ aim for the student to learn temporal reasoning and also use this ability when g
 
 PRT: Learning a significantly smaller model that accurately recreates the whole geometry of a complex teacher model is often impossible. [Passalis](#page-10-14) [and Tefas](#page-10-14) [\(2018\)](#page-10-14) uses the conditional probability distribution to describe the samples. Here, Y<sup>t</sup> = {yt<sup>1</sup> , yt<sup>2</sup> , ..., ytl} ∈ R vocab<sup>t</sup> denote the output logits of the teacher model, and Y<sup>s</sup> = {ys<sup>1</sup> , ys<sup>2</sup> , ..., ysl} ∈ R vocab<sup>s</sup> denote the output logits of the student model, where y<sup>t</sup> and y<sup>s</sup> are vectors and l is sentence length, vocab<sup>t</sup> and vocab<sup>s</sup> are the vocabulary sizes of teacher and student models respectively. We can define the conditional probability distribution for the teacher model as Eq. [1,](#page-3-0) and student model as Eq. [2,](#page-3-1) where K is a symmetric kernel with scale parameter σ.
 
-<span id="page-3-0"></span>
 $$
 p_{i|j} = \frac{K(\mathbf{y_{t}}_{i}, \mathbf{y_{t}}_{j}; 2\sigma_{t}^{2})}{\sum_{k=1, k\neq j}^{l} K(\mathbf{y_{t}}_{k}, \mathbf{y_{t}}_{j}; 2\sigma_{t}^{2})}
 $$
- (1)
+(1)
 
-<span id="page-3-1"></span>
 $$
 q_{i|j} = \frac{K(\mathbf{y}_{\mathbf{s}i}, \mathbf{y}_{\mathbf{s}j}; 2\sigma_s^2)}{\sum_{k=1, k\neq j}^l K(\mathbf{y}_{\mathbf{s}k}, \mathbf{y}_{\mathbf{s}j}; 2\sigma_s^2)}
 $$
@@ -127,17 +123,16 @@ $$
 
 NST matches the distributions of neuron selectivity patterns between teacher and student networks.
 
-<span id="page-4-0"></span>
 
-| NarrativeTime dataset (Rogers et al., 2024)                                                                                                                                                                                  |                                                                                 | <b>NarrativeReason</b>                                                                                                                                                    |
+| NarrativeTime dataset (Rogers et al., 2024) | | <b>NarrativeReason</b> |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Story: On the other hand, it's <event class="OCCURRENCE" eid="e1"><br/>turning</event> out to be another very bad week for Asia. The financial<br>assistance from the World Bank and the International Monetary Fund are not | Event 1: (financial week,<br>turning, bad for Asia)                             | Question: your task is to identify the temporal relation<br>between Event 1 and Event 2 based on the Story: {STORY}.<br>Answer: Event 1 is SIMULTANEOUS to Event 2        |
-| <event class="OCCURRENCE" eid="e4">helping</event> . In the last<br>twenty-four hours, the value of the Indonesian stock market has <event<br>class="OCCURRENCE" eid="e7"&gt;fallen by twelve percent. The</event<br>        | Event 2: (financial assistance,<br>not helping, bad financial<br>week for Asia) | <b>Question:</b> your task is to identify the temporal relation<br>between Event 1 and Event 3 based on the Story: {STORY}.<br>Answer: Event 1 is AFTER Event 3           |
-| Indonesian currency has <event <br="" class="OCCURRENCE">eid="e9"&gt;<math>lost</math></event> twenty six percent of its value                                                                                               | Event 3: (Indonesian stock)<br>market value, fallen, by twelve                  | <b>Question:</b> your task is to identify the temporal relation<br>between Event 2 and Event 1 based on the Story: {STORY}.<br>Answer: Event 2 is SIMULTANEOUS to Event 1 |
-| $\leq$ eiid="ei375" eventID="e1" /><br>$\leq$ eiid="ei378" eventID="e4" />                                                                                                                                                   | percent)<br>Event 4: (Indonesian currency,                                      | <b>Question:</b> your task is to identify the temporal relation<br>between Event 2 and Event 3 based on the Story: {STORY}.                                               |
-| <tlink <br="" eventinstanceid="ei375" lid="5" reltype="SIMULTANEOUS">relatedToEventInstance="ei378"/&gt; </tlink>                                                                                                            | lost, twenty six percent of its<br>value)<br>$\cdots$                           | Answer: Event 2 is AFTER Event 3<br>                                                                                                                                      |
+| Story: On the other hand, it's <event class="OCCURRENCE" eid="e1"><br/>turning</event> out to be another very bad week for Asia. The financial<br>assistance from the World Bank and the International Monetary Fund are not | Event 1: (financial week,<br>turning, bad for Asia) | Question: your task is to identify the temporal relation<br>between Event 1 and Event 2 based on the Story: {STORY}.<br>Answer: Event 1 is SIMULTANEOUS to Event 2 |
+| <event class="OCCURRENCE" eid="e4">helping</event> . In the last<br>twenty-four hours, the value of the Indonesian stock market has <event<br>class="OCCURRENCE" eid="e7"&gt;fallen by twelve percent. The</event<br> | Event 2: (financial assistance,<br>not helping, bad financial<br>week for Asia) | <b>Question:</b> your task is to identify the temporal relation<br>between Event 1 and Event 3 based on the Story: {STORY}.<br>Answer: Event 1 is AFTER Event 3 |
+| Indonesian currency has <event <br="" class="OCCURRENCE">eid="e9"&gt;<math>lost</math></event> twenty six percent of its value | Event 3: (Indonesian stock)<br>market value, fallen, by twelve | <b>Question:</b> your task is to identify the temporal relation<br>between Event 2 and Event 1 based on the Story: {STORY}.<br>Answer: Event 2 is SIMULTANEOUS to Event 1 |
+| $\leq$ eiid="ei375" eventID="e1" /><br>$\leq$ eiid="ei378" eventID="e4" /> | percent)<br>Event 4: (Indonesian currency, | <b>Question:</b> your task is to identify the temporal relation<br>between Event 2 and Event 3 based on the Story: {STORY}. |
+| <tlink <br="" eventinstanceid="ei375" lid="5" reltype="SIMULTANEOUS">relatedToEventInstance="ei378"/&gt; </tlink> | lost, twenty six percent of its<br>value)<br>$\cdots$ | Answer: Event 2 is AFTER Event 3<br> |
 
-Figure 2: The temporal relations between events. The text in the left column comes from *NarrativeTime dataset*, and we filtered it to keep only verbs. We represent events triggered by verbs using relational triples, as shown in the middle column. In the right column, we construct question/answer pairs for all events.
+**Figure 2:** The temporal relations between events. The text in the left column comes from *NarrativeTime dataset*, and we filtered it to keep only verbs. We represent events triggered by verbs using relational triples, as shown in the middle column. In the right column, we construct question/answer pairs for all events.
 
 We transfer the last hidden layer T = t(x) of the teacher model to the last hidden layer S = s(x) of the student model given input text x. Specifically, we transfer neuron selectivity knowledge from {t(x) <sup>∗</sup>,i} N <sup>i</sup>=1 to {s(x) ∗,i}<sup>M</sup> <sup>i</sup>=1, where N and M are the hidden state dimensions. Then we follow [Huang and Wang](#page-9-10) [\(2017\)](#page-9-10) in using Maximum Mean Discrepancy (MMD) to calculate the distance between the activation patterns of student {s(x) ∗,i}<sup>M</sup> <sup>i</sup>=1 and teacher neurons {t(x) <sup>∗</sup>,i} N <sup>i</sup>=1. Here, we use squared MMD to calculate the diatance between t and s.
 
@@ -151,7 +146,6 @@ CRD maximizes the lower-bound to the mutual information between the teacher and 
 
 by minimizing the following loss function:
 
-<span id="page-4-1"></span>
 $$
 L_{CRD}(\mathbf{x}) = -\mathbb{E}_{q(\mathbf{s}, \mathbf{t} | positive)} [\log h(\mathbf{s}, \mathbf{t})] - N \cdot \mathbb{E}_{q(\mathbf{s}, \mathbf{t} | negative)} [\log(1 - h(\mathbf{s}, \mathbf{t}))]
 $$
@@ -167,13 +161,13 @@ where M is the cardinality of the dataset, and we need to normalize s and t by L
 
 The knowledge distillation process transfers temporal reasoning knowledge from the teacher to the student model. At the same time, we want this knowledge to benefit the timeline summarisation task. Thus, we fine-tune the student model on the timeline summarisation dataset [§4.1,](#page-4-2) enabling it to both learn from the teacher model and use the language modeling loss (for next token prediction) Llanguage to integrate temporal reasoning knowledge with timeline summarisation information.
 
-#### 4 Mental Health Timeline Summary
+### 4 Mental Health Timeline Summary
 
 We apply the student model to other domains, specifically to generate mental health-related summaries for timelines [§4.1](#page-4-2) from social media. For the mental health summary, we use the format proposed by [Song et al.](#page-10-2) [\(2024\)](#page-10-2), which includes three key clinical concepts (diagnosis, inter- and intrapersonal relations, moments of change). We follow their method to prompt the student model to generate a summary for each timeline.
 
 ### 4 Experiments
 
-#### <span id="page-4-2"></span>4.1 Datasets
+### <span id="page-4-2"></span>4.1 Datasets
 
 We conduct experiments on three different datasets. We fine-tune the teacher model on the 'NarrativeReason' dataset. When distilling the temporal
 
@@ -201,7 +195,7 @@ LLaMA: We prompt LLaMA-3 (without any finetuning) to generate mental health rela
 
 TH-VAE: We use TH-VAE [\(Song et al.,](#page-10-2) [2024\)](#page-10-2) to generate mental health summaries for comparison, while we use LLaMA-3 to generate high-level summaries.
 
-#### 3 Evaluation
+### 3 Evaluation
 
 We work with the timeline summaries from [Song](#page-10-2) [et al.](#page-10-2) [\(2024\)](#page-10-2) ([§4.1\)](#page-4-2). Like [Song et al.](#page-10-2) [\(2024\)](#page-10-2), we employ *Factual Consistency (FC)*, to measure how consistent timeline summaries are with the original timelines, and *Evidence Appropriateness (EA)*, to measure the consistency between human written summaries and corresponding timeline summaries [\(Song et al.,](#page-10-2) [2024\)](#page-10-2). Here, we use the annotated timeline evidence from [Song et al.](#page-10-2) [\(2024\)](#page-10-2) to directly generate high-level summaries. By contrast [Song et al.](#page-10-2) [\(2024\)](#page-10-2), generated clinically meaningful summaries from the timeline by first using TH-VAE to generate evidence related to mental health before generating high-level summaries. Since the goal of our paper is to validate the role of temporal reasoning in timeline summarisation, we directly use the annotated evidence to generate the highlevel summary as the point is to make better use of the evidence rather than extract it from scratch. [2](#page-5-1)
 
@@ -223,7 +217,7 @@ Human evaluation: Based on the results of the automatic evaluation, we selected 
 
 inclusion of temporal reasoning information. The fine-tuned model L-Phi shows the greatest improvement in terms of factual consistency and usefulness (general). This aligns with our findings when analyzing the summaries, where the fine-tuned model significantly reduces hallucination, as shown in Table [2.](#page-7-1) In addition, we found that the fine-tuned model did not show significant improvement in terms of Moments of Change (MOC). In Appendix [A.4,](#page-11-8) we give examples of summaries generated by different models, these examples clearly demonstrate that the fine-tuned model can effectively reduce hallucinations.
 
-#### 1 Why knowledge distillation works
+### 1 Why knowledge distillation works
 
 Here we analyze from a representation learning perspective why the Phitl model performs better. We run two experiments on: (1)task understanding probing experiment and (2) Joint Task Representation Learning (JTRL). We analyze the internal representations of Phitl against Phijoint. We construct our probing dataset from the test dataset of the latter. We pose the two tasks as binary classification and extract activations for the last layer. We use UMAP [\(McInnes et al.,](#page-9-11) [2018\)](#page-9-11) to project the activations to lower dimensions [\(Sainburg et al.,](#page-10-16) [2021;](#page-10-16) [Tseriotou et al.,](#page-10-17) [2023\)](#page-10-17). In Figure [3,](#page-7-2) we can see that the activations of Phijoint are well separated for each task, whereas those ofPhitl overlap. Given the performance of Phitl, this would suggest that the model learned better representations for the tasks due to more task-specific polysemantic [\(Olah et al.,](#page-10-18) [2020\)](#page-10-18) neurons.
 
@@ -231,29 +225,27 @@ To validate our hypothesis, we ran another set of experiments (JTRL) to analyze 
 
 To calculate CKA, we used the same probing dataset. First, we calculate the sentence embeddings of each input by averaging the hidden state representation of the tokens. Then, we calculate the CKA similarity score between the mean sentence embeddings and each layer representation of the
 
-<span id="page-7-0"></span>
 
-| Metric | P-PhiNST | P-PhiCRD  | P-PhiP RT      | P-PhiNST &CRD | P-PhiNST &P RT | P-PhiP RT &CRD | Phijoint | –     |
+| Metric | P-PhiNST | P-PhiCRD | P-PhiP RT | P-PhiNST &CRD | P-PhiNST &P RT | P-PhiP RT &CRD | Phijoint | – |
 |--------|----------|-----------|----------------|---------------|----------------|----------------|----------|-------|
-| FC     | .344     | .369      | .378           | .397          | .438           | .345           | .238     | –     |
-| EA     | .968     | .954      | .965           | .969          | .973           | .961           | .941     | –     |
-| Metric | L-PhiNST | L-PhiP RT | L-PhiNST &P RT | LLaMA         | TH-VAE         | PhiICL         | Phitemp  | Phitl |
-| FC     | .367     | .385      | .424           | .372          | .378           | .412           | .141     | .184  |
-| EA     | .968     | .966      | .971           | .956          | .97            | .965           | .895     | .966  |
+| FC | .344 | .369 | .378 | .397 | .438 | .345 | .238 | – |
+| EA | .968 | .954 | .965 | .969 | .973 | .961 | .941 | – |
+| Metric | L-PhiNST | L-PhiP RT | L-PhiNST &P RT | LLaMA | TH-VAE | PhiICL | Phitemp | Phitl |
+| FC | .367 | .385 | .424 | .372 | .378 | .412 | .141 | .184 |
+| EA | .968 | .966 | .971 | .956 | .97 | .965 | .895 | .966 |
 
-Table 1: Automatic evaluation for factual consistency (FC), evidence appropriateness (EA) for timeline summarisation of the different models. Higher is better. Best results are in bold and second-best results in underline.
+**Table 1:** Automatic evaluation for factual consistency (FC), evidence appropriateness (EA) for timeline summarisation of the different models. Higher is better. Best results are in bold and second-best results in underline.
 
-<span id="page-7-1"></span>
 
-| Aspect                  | Phi  | P-Phi | LLaMA | L-Phi |
+| Aspect | Phi | P-Phi | LLaMA | L-Phi |
 |-------------------------|------|-------|-------|-------|
-| Factual Consistency     | 2.90 | 3.32  | 3.58  | 3.83  |
-| Usefulness (General)    | 2.60 | 3.13  | 3.17  | 3.48  |
-| (Diagnosis)             | 2.90 | 3.37  | 3.45  | 3.62  |
-| (Inter-& Intrapersonal) | 2.95 | 3.00  | 3.40  | 3.51  |
-| (MoC)                   | 2.97 | 2.97  | 3.42  | 3.47  |
+| Factual Consistency | 2.90 | 3.32 | 3.58 | 3.83 |
+| Usefulness (General) | 2.60 | 3.13 | 3.17 | 3.48 |
+| (Diagnosis) | 2.90 | 3.37 | 3.45 | 3.62 |
+| (Inter-& Intrapersonal) | 2.95 | 3.00 | 3.40 | 3.51 |
+| (MoC) | 2.97 | 2.97 | 3.42 | 3.47 |
 
-Table 2: Human evaluation results based on 5-point Likert scales (1 is worst, 5 is best). Best in bold.
+**Table 2:** Human evaluation results based on 5-point Likert scales (1 is worst, 5 is best). Best in bold.
 
 model. We did this both for the individual models and between models' layers. From Figure [4,](#page-7-3) we can see that Phitl shows a gradual increase in CKA across layers, peaking in the mid-to-late layers. This indicates that as the layers progress, Phitl preserves and refines the information from the initial embeddings in a task-relevant way. The is likely due to KD encouraging this alignment by transferring task-relevant knowledge from the teacher. While Phijoint shows an initial increase in CKA, it saturates and flattens early. This shows failure to refine representations effectively in deeper layers, presumably due to conflicting objectives between the tasks. The lower CKA in later layers suggests that the model moves away from the initial embeddings in a less effective way for task-specific learning. Lastly, the CKA values between models show that they learn vastly different representations. In short, Phitl's ability to align with the initial embeddings correlates with its better task performance, as the CKA value reflects how well the model retains and transforms meaningful input information throughout its layers.
 
@@ -271,12 +263,12 @@ We have created a dataset (*NarrativeReason*), containing relation triples to re
 
 (b) UMAP projection Phitl
 
-Figure 3: The UMAP projection forPhijoint and Phitl show the last layer activations for both models. We can see that Phitl has more polysemantic activations compared to Phijoint.
+**Figure 3:** The UMAP projection forPhijoint and Phitl show the last layer activations for both models. We can see that Phitl has more polysemantic activations compared to Phijoint.
 
 <span id="page-7-3"></span>![](_page_7_Figure_12.jpeg)
 <!-- Image Description: The image displays a line graph titled "CKA Analysis," showing the CKA (Centering Kernel Alignment) values across layers of a neural network. Three lines represent CKA values for `Phi`, `PhiJoint`, and the comparison between them (`Phi` vs `PhiJoint`). The x-axis represents network layers (0-30), and the y-axis shows CKA values (0-1). The graph likely illustrates the alignment or similarity between different feature representations at various network depths, assessing the model's feature learning process. -->
 
-Figure 4: CKA similarity score of both within and between Phitl and Phijoint model representations.
+**Figure 4:** CKA similarity score of both within and between Phitl and Phijoint model representations.
 
 significantly reducing hallucinations. Analysing the model's internal representations shows that KD leads to better feature representations within the model, more aligned with timeline summarisation.
 
@@ -326,7 +318,7 @@ timeline data to incorrect diagnoses and even recommendations for potentially ha
 - <span id="page-9-14"></span>Benjamin Muller, Yanai Elazar, Benoît Sagot, and Djamé Seddah. 2021. [First align, then predict: Un](https://doi.org/10.18653/v1/2021.eacl-main.189)[derstanding the cross-lingual ability of multilingual](https://doi.org/10.18653/v1/2021.eacl-main.189) [BERT.](https://doi.org/10.18653/v1/2021.eacl-main.189) In *Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume*, pages 2214–2231, Online. Association for Computational Linguistics.
 - <span id="page-9-4"></span>Alexander Nakhimovsky. 1987. [Temporal reasoning in](https://aclanthology.org/E87-1042) [natural language understanding: The temporal struc](https://aclanthology.org/E87-1042)[ture of the narrative.](https://aclanthology.org/E87-1042) In *Third Conference of the European Chapter of the Association for Computational*
 
-*Linguistics*, Copenhagen, Denmark. Association for Computational Linguistics.
+**Linguistics:** , Copenhagen, Denmark. Association for Computational Linguistics.
 
 - <span id="page-10-9"></span>Qiang Ning, Hao Wu, Rujun Han, Nanyun Peng, Matt Gardner, and Dan Roth. 2020. [TORQUE: A reading](https://doi.org/10.18653/v1/2020.emnlp-main.88) [comprehension dataset of temporal ordering ques](https://doi.org/10.18653/v1/2020.emnlp-main.88)[tions.](https://doi.org/10.18653/v1/2020.emnlp-main.88) In *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pages 1158–1172, Online. Association for Computational Linguistics.
 - <span id="page-10-11"></span>Qiang Ning, Ben Zhou, Zhili Feng, Haoruo Peng, and Dan Roth. 2018. [CogCompTime: A tool for under](https://doi.org/10.18653/v1/D18-2013)[standing time in natural language.](https://doi.org/10.18653/v1/D18-2013) In *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations*, pages 72–77, Brussels, Belgium. Association for Computational Linguistics.
@@ -367,110 +359,110 @@ We use Meta-Llama-3-8B as teacher model and Phi-3-mini-4k-instruct as student mo
 
 <span id="page-11-7"></span>After fine-tuning the teacher model, we used the *TEMPREASON*dataset (?) to evaluate its performance pre- and post-fine-tuning. Specifically, we focused on the*L3* part of the dataset, which deals with event-event relations, to determine whether the model could accurately infer the temporal sequence between two events. We use F1 as the evaluation metrics, the experimental results show that the fine-tuned model achieved a 0.07 improvement in this metric compared to the pre-fine-tuning model, highlighting its enhanced ability to infer event-event temporal relations.
 
-#### A.3 Joint learning
+### A.3 Joint learning
 
 When fine-tuning Phi using joint learning, we mix the timeline summarization and temporal reasoning datasets and shuffle their order. We then fine-tune Phi using this mixed dataset. For each data instance in this dataset, we prepend a prompt to clarify the task, ensuring that the LLM understands which task each data instance belongs to. For example, for timeline summarization data, we add the prompt "This is a timeline summarization task, your task is to summarize the provided timeline + timeline summarisation text". Similarly, for temporal reasoning tasks, we would prepend a different prompt to clarify the task at hand, ensuring that Phi can learn to apply its knowledge accordingly to each type of task.
 
 ## <span id="page-11-8"></span>A.4 Examples of summaries generated in different models
 
-| Gold  | (Diagnosis)This teenager girl had attempted suicide and is at high risk of                                                                         |
+| Gold | (Diagnosis)This teenager girl had attempted suicide and is at high risk of |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-|       | trying again. She is depressed and lonely. She engages in self-hurt, like                                                                          |
-|       | cutting herself, not eating, and abusing medication.                                                                                               |
-|       | She is being bullied at school, physically and sexually harassed. In addition,                                                                     |
-|       | she defines herself as pansexual, (though she feels confused about this                                                                            |
-|       | identity), which is not excepted at home by her mother. She also fears not                                                                         |
-|       | being accepted by her friends. Furthermore, she has difficulty sleeping and                                                                        |
-|       | suffers from nightmares. The home environment is stressful. Her parents                                                                            |
-|       | argue about her situation, which triggers her stress and panic. She has bad                                                                        |
-|       | experience with therapy and healthcare, and is suspicious towards the system.                                                                      |
-|       | Her sense of agency is low.                                                                                                                        |
-|       | (IIP)She is longing for love and companionship. The other is perceived as                                                                          |
-|       | unhelpful, uncaring, intrusive, and threatening. Her parents are especially                                                                        |
-|       | seen as not understanding, unaccepting, controlling, and intimidating. The                                                                         |
-|       | response of self is self-pity, self-blame, and hopelessness.                                                                                       |
-|       | (MOC)There is no sign of improvement in her mental health during the                                                                               |
-|       | timeline, but she has been evaluated and will receive antidepressant medicine                                                                      |
-|       | soon.                                                                                                                                              |
-| L-Phi | (Diagnosis)The individual seems to be grappling with significant emotional                                                                         |
-|       | turmoil, likely stemming from depression or anxiety disorders. They convey                                                                         |
-|       | uncertainty about their sexual identity, coupled with recurring negativity                                                                         |
-|       | from others, leading to challenges in maintaining social connections. Ev                                                                           |
-|       | idence of self-injurious actions such as self-mutilation and thoughts of                                                                           |
-|       | ending one's life have been observed.<br>This person has faced relentless                                                                          |
-|       | torment within educational settings, intensifying their alienation and despon                                                                      |
-|       | dency. Although their past interactions with mental health professionals                                                                           |
-|       | aren't directly mentioned, it can be inferred that they have sought assistance                                                                     |
-|       | previously due to their consistent references to obtaining help. Fluctuations                                                                      |
-|       | in their psychological well-being appear to be influenced by family disputes                                                                       |
-|       | and insensitivity from acquaintances, further complicating their situation.                                                                        |
-|       | (IIP)The individual grapples with depression, anxiety, and suicidal thoughts,                                                                      |
-|       | manifesting feelings of despair, loneliness, and apprehension about being                                                                          |
-|       | judged by loved ones and acquaintances. These experiences highlight their<br>urgent need for empathy and comprehension from those around them, yet |
-|       | they find themselves subjected to criticism and misunderstanding owing                                                                             |
-|       | to their sexual orientation and mental wellbes. Consequently, this person                                                                          |
-|       | demonstrates limited self-forgiveness and has trouble acknowledging per                                                                            |
-|       | sonal weaknesses and reaching out for assistance.                                                                                                  |
-|       | (MOC)The overall mood and functioning of the individual remains consis                                                                             |
-|       | tently low throughout the timeline, with no clear evidence of any significant                                                                      |
-|       | positive change. Additionally, there appears to be no specific event that                                                                          |
-|       | triggers any noticeable change in the individual's mood or well-being.                                                                             |
-|       |                                                                                                                                                    |
+| | trying again. She is depressed and lonely. She engages in self-hurt, like |
+| | cutting herself, not eating, and abusing medication. |
+| | She is being bullied at school, physically and sexually harassed. In addition, |
+| | she defines herself as pansexual, (though she feels confused about this |
+| | identity), which is not excepted at home by her mother. She also fears not |
+| | being accepted by her friends. Furthermore, she has difficulty sleeping and |
+| | suffers from nightmares. The home environment is stressful. Her parents |
+| | argue about her situation, which triggers her stress and panic. She has bad |
+| | experience with therapy and healthcare, and is suspicious towards the system. |
+| | Her sense of agency is low. |
+| | (IIP)She is longing for love and companionship. The other is perceived as |
+| | unhelpful, uncaring, intrusive, and threatening. Her parents are especially |
+| | seen as not understanding, unaccepting, controlling, and intimidating. The |
+| | response of self is self-pity, self-blame, and hopelessness. |
+| | (MOC)There is no sign of improvement in her mental health during the |
+| | timeline, but she has been evaluated and will receive antidepressant medicine |
+| | soon. |
+| L-Phi | (Diagnosis)The individual seems to be grappling with significant emotional |
+| | turmoil, likely stemming from depression or anxiety disorders. They convey |
+| | uncertainty about their sexual identity, coupled with recurring negativity |
+| | from others, leading to challenges in maintaining social connections. Ev |
+| | idence of self-injurious actions such as self-mutilation and thoughts of |
+| | ending one's life have been observed.<br>This person has faced relentless |
+| | torment within educational settings, intensifying their alienation and despon |
+| | dency. Although their past interactions with mental health professionals |
+| | aren't directly mentioned, it can be inferred that they have sought assistance |
+| | previously due to their consistent references to obtaining help. Fluctuations |
+| | in their psychological well-being appear to be influenced by family disputes |
+| | and insensitivity from acquaintances, further complicating their situation. |
+| | (IIP)The individual grapples with depression, anxiety, and suicidal thoughts, |
+| | manifesting feelings of despair, loneliness, and apprehension about being |
+| | judged by loved ones and acquaintances. These experiences highlight their<br>urgent need for empathy and comprehension from those around them, yet |
+| | they find themselves subjected to criticism and misunderstanding owing |
+| | to their sexual orientation and mental wellbes. Consequently, this person |
+| | demonstrates limited self-forgiveness and has trouble acknowledging per |
+| | sonal weaknesses and reaching out for assistance. |
+| | (MOC)The overall mood and functioning of the individual remains consis |
+| | tently low throughout the timeline, with no clear evidence of any significant |
+| | positive change. Additionally, there appears to be no specific event that |
+| | triggers any noticeable change in the individual's mood or well-being. |
+| | |
 
-| P-Phi | (Diagnosis) Based on the provided social media posts, the individual appears   |
+| P-Phi | (Diagnosis) Based on the provided social media posts, the individual appears |
 |-------|--------------------------------------------------------------------------------|
-|       | to be struggling with several mental health challenges including depression,   |
-|       | anxiety, self-harm tendencies, and possible substance misuse. The summary      |
-|       | below provides a comprehensive overview of these issues as observed from       |
-|       | the data available in the documents: The individual displays signs of de       |
-|       | pression through frequent expressions of sadness, hopelessness, and lack       |
-|       | of motivation. Anxiety is evident in their constant worrying about future      |
-|       | events and excessive fear responses. Self-harm tendencies are apparent in      |
-|       | some of the social media posts where they mention engaging in harmful          |
-|       | behaviors such as cutting or burning themselves. Lastly, there are indications |
-|       | of possible substance misuse, as they frequently post about using drugs or     |
-|       | alcohol to cope with their emotional struggles. Overall, this person seems to  |
-|       | be dealing with significant mental health concerns that require professional   |
-|       | intervention and support.                                                      |
-|       | (IIP)The user wishes to find a partner who accepts them as they are while      |
-|       | expecting people to understand and respect their sexuality. They seek support  |
-|       | and understanding from those close to them but face challenges such as their   |
-|       | family's lack of understanding and acceptance of their sexuality, leading to   |
-|       | feelings of isolation and longing for connection. This has resulted in the     |
-|       | user experiensiong anxiety, depression, and self-harm tendencies, displaying   |
-|       | signs of distress and disconnection within their immediate environment.        |
-|       | However, despite these difficulties, the user demonstrates resilience and      |
-|       | hope for finding acceptance and understanding in the future.",                 |
-|       | (MOC)The overall mood and functioning of the individual remains consis         |
-|       | tently low throughout the timeline, with no clear evidence of any significant  |
-|       | positive change. Additionally, there appears to be no specific event that      |
-|       | triggers any noticeable change in the person's mood or well-being.             |
-| LLaMA | (Diagnosis) This individual presents with severe depression, characterized     |
-|       | by persistent suicidal ideation, feelings of worthlessness, and hopelessness.  |
-|       | They also express intense loneliness, confusion about their sexual orienta     |
-|       | tion, and distress from interpersonal conflicts at home and school. These      |
-|       | factors contribute to their emotional pain, exacerbated by triggers related to |
-|       | romantic relationships and social acceptance. The individual has engaged       |
-|       | in self-harm behaviors, including cutting, and experiences frequent suicidal   |
-|       | ideation, indicating a high risk of suicide. They have shown some aware        |
-|       | ness of the need for professional help, having sought therapy and started      |
-|       | anti-depressant medication, although they currently lack regular therapeutic   |
-|       | support due to their therapist's absence. Physical health concerns arise from  |
-|       | neglecting nutrition and engaging in self-harming behaviors, while there is    |
-|       | no specific mention of other physical health issues. The individual demon      |
-|       | strates low motivation for change and limited coping strategies, relying       |
-|       | heavily on romantic relationships for validation and occasionally misusing     |
-|       | prescription medication. Despite these challenges, it is crucial to address    |
-|       | their immediate safety risks and facilitate access to comprehensive mental     |
-|       | health care, including therapy, appropriate medication management, and         |
-|       | support groups that can provide both emotional understanding and practical     |
-|       | assistance in managing their symptoms and improving their quality of life.     |
-|       |                                                                                |
+| | to be struggling with several mental health challenges including depression, |
+| | anxiety, self-harm tendencies, and possible substance misuse. The summary |
+| | below provides a comprehensive overview of these issues as observed from |
+| | the data available in the documents: The individual displays signs of de |
+| | pression through frequent expressions of sadness, hopelessness, and lack |
+| | of motivation. Anxiety is evident in their constant worrying about future |
+| | events and excessive fear responses. Self-harm tendencies are apparent in |
+| | some of the social media posts where they mention engaging in harmful |
+| | behaviors such as cutting or burning themselves. Lastly, there are indications |
+| | of possible substance misuse, as they frequently post about using drugs or |
+| | alcohol to cope with their emotional struggles. Overall, this person seems to |
+| | be dealing with significant mental health concerns that require professional |
+| | intervention and support. |
+| | (IIP)The user wishes to find a partner who accepts them as they are while |
+| | expecting people to understand and respect their sexuality. They seek support |
+| | and understanding from those close to them but face challenges such as their |
+| | family's lack of understanding and acceptance of their sexuality, leading to |
+| | feelings of isolation and longing for connection. This has resulted in the |
+| | user experiensiong anxiety, depression, and self-harm tendencies, displaying |
+| | signs of distress and disconnection within their immediate environment. |
+| | However, despite these difficulties, the user demonstrates resilience and |
+| | hope for finding acceptance and understanding in the future.", |
+| | (MOC)The overall mood and functioning of the individual remains consis |
+| | tently low throughout the timeline, with no clear evidence of any significant |
+| | positive change. Additionally, there appears to be no specific event that |
+| | triggers any noticeable change in the person's mood or well-being. |
+| LLaMA | (Diagnosis) This individual presents with severe depression, characterized |
+| | by persistent suicidal ideation, feelings of worthlessness, and hopelessness. |
+| | They also express intense loneliness, confusion about their sexual orienta |
+| | tion, and distress from interpersonal conflicts at home and school. These |
+| | factors contribute to their emotional pain, exacerbated by triggers related to |
+| | romantic relationships and social acceptance. The individual has engaged |
+| | in self-harm behaviors, including cutting, and experiences frequent suicidal |
+| | ideation, indicating a high risk of suicide. They have shown some aware |
+| | ness of the need for professional help, having sought therapy and started |
+| | anti-depressant medication, although they currently lack regular therapeutic |
+| | support due to their therapist's absence. Physical health concerns arise from |
+| | neglecting nutrition and engaging in self-harming behaviors, while there is |
+| | no specific mention of other physical health issues. The individual demon |
+| | strates low motivation for change and limited coping strategies, relying |
+| | heavily on romantic relationships for validation and occasionally misusing |
+| | prescription medication. Despite these challenges, it is crucial to address |
+| | their immediate safety risks and facilitate access to comprehensive mental |
+| | health care, including therapy, appropriate medication management, and |
+| | support groups that can provide both emotional understanding and practical |
+| | assistance in managing their symptoms and improving their quality of life. |
+| | |
 
-|     | (IIP)«ANALYSIS» The individual displays a deep-seated wish for a ro<br>mantic partnership,<br>frequently expressing a desire for a<br>girlfriend or<br>¨<br>¨<br>boyfriend.They grapple with their sexual orientation, identifying as poten-<br>tially pansexual but expressing uncertainty about their own understanding.<br>Their pressing need for companionship and support is apparent, highlighted<br>by their loneliness and fear of revealing their true self to friends. Moreover,<br>they face considerable mental health challenges, including suicidal ideation,<br>self-harming behaviors, and difficulty managing their prescribed medica<br>tions. Interactions with peers are perceived negatively, with the individual<br>reporting bullying and feeling victimized rather than supported. There is<br>no evidence of recognizing complexity in others' behavior; instead, social<br>exchanges are colored by negativity and conflict. Their response to others is<br>marked by fear, vulnerability, and a pervasive sense of being misunderstood.<br>The fear of coming out to friends due to potential rejection or negative reac<br>tions underscores a profound lack of confidence in interpersonal relations<br>and a heightened sensitivity to judgment from others. On a deeply personal<br>level, the individual experiences overwhelming despair and self-blame. They<br>consistently berate themselves (Ï'm such a screw-up¨), burdened by guilt (Ït's<br>all my fault¨), reflecting a severe erosion of self-esteem and self-worth. This<br>self-criticism is coupled with a high risk of self-harm and persistent thoughts<br>of suicide, demonstrating a pronounced inability to practice self-compassion<br>and accept their own strengths and weaknesses. A dysfunctional intraper<br>sonal pattern.<br>(MOC)The individual's emotional state<br>fluctuates significantly between<br>periods of profound despair and intermittent moments of hopefulness. These<br>shifts are closely tied to various stressors, including family conflicts, school<br>related issues, and personal identity struggles. |
+| | (IIP)«ANALYSIS» The individual displays a deep-seated wish for a ro<br>mantic partnership,<br>frequently expressing a desire for a<br>girlfriend or<br>¨<br>¨<br>boyfriend.They grapple with their sexual orientation, identifying as poten-<br>tially pansexual but expressing uncertainty about their own understanding.<br>Their pressing need for companionship and support is apparent, highlighted<br>by their loneliness and fear of revealing their true self to friends. Moreover,<br>they face considerable mental health challenges, including suicidal ideation,<br>self-harming behaviors, and difficulty managing their prescribed medica<br>tions. Interactions with peers are perceived negatively, with the individual<br>reporting bullying and feeling victimized rather than supported. There is<br>no evidence of recognizing complexity in others' behavior; instead, social<br>exchanges are colored by negativity and conflict. Their response to others is<br>marked by fear, vulnerability, and a pervasive sense of being misunderstood.<br>The fear of coming out to friends due to potential rejection or negative reac<br>tions underscores a profound lack of confidence in interpersonal relations<br>and a heightened sensitivity to judgment from others. On a deeply personal<br>level, the individual experiences overwhelming despair and self-blame. They<br>consistently berate themselves (Ï'm such a screw-up¨), burdened by guilt (Ït's<br>all my fault¨), reflecting a severe erosion of self-esteem and self-worth. This<br>self-criticism is coupled with a high risk of self-harm and persistent thoughts<br>of suicide, demonstrating a pronounced inability to practice self-compassion<br>and accept their own strengths and weaknesses. A dysfunctional intraper<br>sonal pattern.<br>(MOC)The individual's emotional state<br>fluctuates significantly between<br>periods of profound despair and intermittent moments of hopefulness. These<br>shifts are closely tied to various stressors, including family conflicts, school<br>related issues, and personal identity struggles. |
 |-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Phi | (Diagnosis)As an AI developed by Microsoft, I am programmed to follow<br>strict ethical guidelines prioritizing user safety and privacy. Consequently,<br>I can only analyze personal data in a secure and consensual environment<br>specifically tailored for professional use. In a hypothetical scenario where<br>such conditions are met, a trained professional would cautiously assess the<br>situation, taking care to uphold confidentiality and abide by legal standards.<br>This case involves an individual grappling with various mental health issues,<br>including depression, anxiety, potential self-harm behaviors, and profound<br>despair. Their struggle extends to uncertainties about sexual orientation,<br>experiences of bullying, familial discord, and<br>negative remarks stemming<br>from disclosed private information, all contributing to significant distress<br>over body image and self-worth.<br>Alarmingly, they have openly expressed<br>thoughts of suicide, underscoring the critical need for immediate interven<br>tion by certified mental health experts.<br>It must be emphasized that this<br>description serves as an example and does not substitute for actual therapeu<br>tic engagement with a licensed practitioner.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Phi | (Diagnosis)As an AI developed by Microsoft, I am programmed to follow<br>strict ethical guidelines prioritizing user safety and privacy. Consequently,<br>I can only analyze personal data in a secure and consensual environment<br>specifically tailored for professional use. In a hypothetical scenario where<br>such conditions are met, a trained professional would cautiously assess the<br>situation, taking care to uphold confidentiality and abide by legal standards.<br>This case involves an individual grappling with various mental health issues,<br>including depression, anxiety, potential self-harm behaviors, and profound<br>despair. Their struggle extends to uncertainties about sexual orientation,<br>experiences of bullying, familial discord, and<br>negative remarks stemming<br>from disclosed private information, all contributing to significant distress<br>over body image and self-worth.<br>Alarmingly, they have openly expressed<br>thoughts of suicide, underscoring the critical need for immediate interven<br>tion by certified mental health experts.<br>It must be emphasized that this<br>description serves as an example and does not substitute for actual therapeu<br>tic engagement with a licensed practitioner. |
 
 (IIP) Based on the analysis of the individual's social media posts, several intrapersonal and interpersonal patterns have been identified that require careful consideration. The person has a profound need for connection and understanding about their sexual identity, frequently encountering dismissive reactions and misinterpretations from others which exacerbate their sense of confusion and loneliness. Their online communications reveal a struggle between a deep yearning for authentic connections and a pervasive fear of being judged, leading to fragmented expression of thoughts, especially when discussing sensitive issues like suicidal ideation and self-harm. This inner turmoil manifests externally through mixed signals expressing dark humor alongside serious statements indicative of self-directed hostility and despair. Yet, despite this volatility, they showcase resilience by acknowledging the necessity of medical assistance and therapy, suggesting a complex emotional landscape wherein adaptive behaviors coexist with maladaptive ones. Their response to external stimuli ranges from experiencing acute distress due to perceived betrayals and ridicule to demonstrating a proactive approach towards mental health management. It becomes apparent that while they grapple with severe depression, self-harm tendencies, and possible substance abuse, they simultaneously seek solace within specialized communities and display sporadic but meaningful strides toward recovery. Given the gravity of their situation, marked by life-thyesing thoughts and harmful coping mechanisms, urgent and multifaceted interventions are imperative. Such measures should encompass crisis stabilization, continuous psych. (MOC)The individual's mood, well-being, and functioning exhibit significant fluctuations over time, transitioning between periods of despair and suicidal ideation as well as moments when they seek connection and support. These emotional shifts have been influenced by various events such as the loss of therapy access, familial conflicts, discovering potential partners with similar sexual orientation preferences, and a breach of privacy resulting from others reading their personal notes. However, there have also been positive developments including contemplating medication adjustments and identifying commonality in sexual orientation among their peer group, which has contributed to some degree of stability and improvement in their mental state. Despite these advancements, negative experiences persist, particularly marked by increased suicidal thoughts following the cessation of therapeutic sessions and heightened family discord. This complex interplay of factors underscores the importance of closely monitoring the patient's evolving needs and responses to ongoing treatments.
 
-Table 3: We have highlighted hallucinations and obvious errors in yellow. Compared to the gold summary, the summary generated by Phi still lacks some key information, especially in the 'Diagnosis' part.
+**Table 3:** We have highlighted hallucinations and obvious errors in yellow. Compared to the gold summary, the summary generated by Phi still lacks some key information, especially in the 'Diagnosis' part.

@@ -43,7 +43,7 @@ Zhang Y, Qin G, Aguilar B, Rappaport N, Yurkovich JT, Pflieger L, Huang S, Hood 
 
 © 2024 Zhang, Qin, Aguilar, Rappaport, Yurkovich, Pflieger, Huang, Hood and Shmulevich. This is an open-access article distributed under the terms of the [Creative](http://creativecommons.org/licenses/by/4.0/) [Commons Attribution License \(CC BY\). The](http://creativecommons.org/licenses/by/4.0/) [use, distribution or reproduction in other](http://creativecommons.org/licenses/by/4.0/) [forums is permitted, provided the original](http://creativecommons.org/licenses/by/4.0/) [author\(s\) and the copyright owner\(s\) are](http://creativecommons.org/licenses/by/4.0/) [credited and that the original publication in](http://creativecommons.org/licenses/by/4.0/) [this journal is cited, in accordance with](http://creativecommons.org/licenses/by/4.0/) [accepted academic practice. No use,](http://creativecommons.org/licenses/by/4.0/) [distribution or reproduction is permitted](http://creativecommons.org/licenses/by/4.0/) [which does not comply with these terms.](http://creativecommons.org/licenses/by/4.0/)
 
-# [A framework towards digital](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full) [twins for type 2 diabetes](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full)
+## [A framework towards digital](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full) [twins for type 2 diabetes](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full)
 
 Yue Zhang<sup>1</sup> , Guangrong Qin<sup>1</sup> , Boris Aguilar<sup>1</sup> , Noa Rappaport1,2, James T. Yurkovich2,3, Lance Pflieger2,3, Sui Huang1 , Leroy Hood1,2,3 and Ilya Shmulevich<sup>1</sup> \*
 
@@ -73,7 +73,7 @@ Here, we introduce a framework for a T2D DT designed to continuously monitor pat
 
 ### 2 Materials and methods
 
-#### 1 Dataset description and processing
+### 1 Dataset description and processing
 
 In this study we used the Arivale dataset, described in detail in ([14](#page-8-0), [15](#page-8-0)). Briefly, the Arivale dataset includes longitudinal data from ∼5,000 deeply phenotyped individuals undergoing a wellness program. These data include comprehensive self-reported data coupled with multiomic data (proteomics, metabolomics, clinical labs). The process of collecting multiomic and clinical data in Arivale has been described in the existing literature ([15](#page-8-0)).
 
@@ -86,15 +86,15 @@ Prior to analysis, the data were filtered and cleaned in a number of ways. First
 
 TABLE 1 Table of sample characteristics. This table shows descriptive statistics for the test sample after filtering the data.
 
-| Variable | Count | Min   | Mean  | Median | Max    | Std   |
+| Variable | Count | Min | Mean | Median | Max | Std |
 |----------|-------|-------|-------|--------|--------|-------|
-| Age      | 1,131 | 18.00 | 49.53 | 49.00  | 87.00  | 11.29 |
-| bmi      | 1,131 | 17.74 | 27.63 | 26.15  | 53.35  | 6.04  |
-| HbA1c    | 1,131 | 3.60  | 5.51  | 5.50   | 8.30   | 0.43  |
-| Glucose  | 1,131 | 70.00 | 93.24 | 91.00  | 199.00 | 12.18 |
-| eGFR     | 1,131 | 41.00 | 90.17 | 90.00  | 131.00 | 15.17 |
-| Insulin  | 1,131 | 1.40  | 10.67 | 8.90   | 55.10  | 7.34  |
-| HOMA-IR  | 1,131 | 0.25  | 2.56  | 1.98   | 20.34  | 2.16  |
+| Age | 1,131 | 18.00 | 49.53 | 49.00 | 87.00 | 11.29 |
+| bmi | 1,131 | 17.74 | 27.63 | 26.15 | 53.35 | 6.04 |
+| HbA1c | 1,131 | 3.60 | 5.51 | 5.50 | 8.30 | 0.43 |
+| Glucose | 1,131 | 70.00 | 93.24 | 91.00 | 199.00 | 12.18 |
+| eGFR | 1,131 | 41.00 | 90.17 | 90.00 | 131.00 | 15.17 |
+| Insulin | 1,131 | 1.40 | 10.67 | 8.90 | 55.10 | 7.34 |
+| HOMA-IR | 1,131 | 0.25 | 2.56 | 1.98 | 20.34 | 2.16 |
 
 remaining proteomic or clinical features. Imputation with missforest ([18\)](#page-8-0) (implemented in the python missingpy package) was performed to fill in missing values for the remaining metabolomic features. Subjects with values for clinical variables above certain thresholds (HbA1c>12, glucose >200, insulin >60) were removed. In total, this resulted in 1,131 subjects with data at 6 months, of which 639 had results at 1 year.
 
@@ -119,15 +119,15 @@ We tested a variety of machine learning models for these tasks, including variou
 
 Considering the importance of interpretability in healthcare digital twins and the ability to select highly predictive features based on regression model weights, we aimed to discern the relationships among these highly weighted features and their connection to the disease processes in T2D and CKD. To <span id="page-4-0"></span>TABLE 2 Description of the feature sets used in predicting clinical trajectories. All feature sets include the baseline feature as one of the variables.
 
-| Feature set           | #<br>Variables                     | Description                                                                        |
+| Feature set | #<br>Variables | Description |
 |-----------------------|------------------------------------|------------------------------------------------------------------------------------|
-| Baseline              | 1                                  | Only using the t0 value of the clinical variable<br>being predicted.               |
-| Demographics<br>only  | 4                                  | Age, sex, BMI (+ baseline)                                                         |
-| Clinical—<br>selected | 15                                 | Selected clinical + demographic variables<br>associated with T2D                   |
-| Clinical—full         | 71                                 | All clinical + demographic variables (with less<br>than 10% missingness threshold) |
-| Proteomics            | 263                                | All proteins with less than 10% missingness                                        |
-| Metabolomics          | 711                                | All metabolites with less than 10% missingness                                     |
-| All                   | 1,043<br>All of the above combined |                                                                                    |
+| Baseline | 1 | Only using the t0 value of the clinical variable<br>being predicted. |
+| Demographics<br>only | 4 | Age, sex, BMI (+ baseline) |
+| Clinical—<br>selected | 15 | Selected clinical + demographic variables<br>associated with T2D |
+| Clinical—full | 71 | All clinical + demographic variables (with less<br>than 10% missingness threshold) |
+| Proteomics | 263 | All proteins with less than 10% missingness |
+| Metabolomics | 711 | All metabolites with less than 10% missingness |
+| All | 1,043<br>All of the above combined | |
 
 accomplish this, we leveraged the SPOKE knowledge graph ([13\)](#page-8-0). Our version of this graph consists of approximately 2 million nodes (with 22 types) and over 14 million edges (54 types); a description of the graph's nodes and edges is in [Supplementary](#page-8-0) [Table 3](#page-8-0). Knowledge graphs such as SPOKE can be used to explore the relationships among the most predictive features, generate hypotheses regarding the connections between these features and the disease processes in T2D and CKD, and identify potentially significant yet unmeasured related features (genes, proteins, metabolites) for subsequent investigation.
 
@@ -145,20 +145,20 @@ Our results highlight the application of multiomic data in predicting T2D trajec
 
 TABLE 3 Table of changes in the clinical variables at 6 months and 1 year. The "# >= 5%" column indicates the number of samples that had an increase (or decrease in the case of eGFR) in the variable of at least 5%.
 
-| Changes after 6 months |       |        |       |        |       |       |         |  |  |
+| Changes after 6 months | | | | | | | | | |
 |------------------------|-------|--------|-------|--------|-------|-------|---------|--|--|
-|                        | Count | Min    | Mean  | Median | Max   | Std   | # >= 5% |  |  |
-| d_HbA1c                | 1,131 | −1.50  | −0.05 | −0.10  | 1.40  | 0.29  | 185     |  |  |
-| d_Glucose              | 1,131 | −49.00 | −0.48 | 0.00   | 39.00 | 7.78  | 299     |  |  |
-| d_GFR                  | 1,131 | −30.00 | 1.04  | 0.00   | 45.00 | 9.44  | 250     |  |  |
-| d_Insulin              | 1,131 | −31.50 | −0.89 | −0.40  | 22.70 | 4.97  | 453     |  |  |
-| d_HOMA-IR              | 1,131 | −11.09 | −0.24 | −0.12  | 7.09  | 1.43  | 455     |  |  |
-| Changes after 1 year   |       |        |       |        |       |       |         |  |  |
-| d_1y_HbA1c             | 639   | −1.90  | −0.11 | −0.10  | 1.00  | 0.31  | 87      |  |  |
-| d_1y_Glucose           | 639   | −57.00 | −0.18 | 1.00   | 51.00 | 8.89  | 204     |  |  |
-| d_1y_GFR               | 639   | −28.00 | −0.05 | 0.00   | 53.00 | 10.44 | 176     |  |  |
-| d_1y_Insulin           | 639   | −33.20 | −0.98 | −0.60  | 54.40 | 5.41  | 247     |  |  |
-| d_1y_HOMA-IR           | 639   | −12.90 | −0.25 | −0.11  | 23.29 | 1.80  | 253     |  |  |
+| | Count | Min | Mean | Median | Max | Std | # >= 5% | | |
+| d_HbA1c | 1,131 | −1.50 | −0.05 | −0.10 | 1.40 | 0.29 | 185 | | |
+| d_Glucose | 1,131 | −49.00 | −0.48 | 0.00 | 39.00 | 7.78 | 299 | | |
+| d_GFR | 1,131 | −30.00 | 1.04 | 0.00 | 45.00 | 9.44 | 250 | | |
+| d_Insulin | 1,131 | −31.50 | −0.89 | −0.40 | 22.70 | 4.97 | 453 | | |
+| d_HOMA-IR | 1,131 | −11.09 | −0.24 | −0.12 | 7.09 | 1.43 | 455 | | |
+| Changes after 1 year | | | | | | | | | |
+| d_1y_HbA1c | 639 | −1.90 | −0.11 | −0.10 | 1.00 | 0.31 | 87 | | |
+| d_1y_Glucose | 639 | −57.00 | −0.18 | 1.00 | 51.00 | 8.89 | 204 | | |
+| d_1y_GFR | 639 | −28.00 | −0.05 | 0.00 | 53.00 | 10.44 | 176 | | |
+| d_1y_Insulin | 639 | −33.20 | −0.98 | −0.60 | 54.40 | 5.41 | 247 | | |
+| d_1y_HOMA-IR | 639 | −12.90 | −0.25 | −0.11 | 23.29 | 1.80 | 253 | | |
 
 <span id="page-5-0"></span>clinical variables often fluctuate. However, despite the noise, significant predictions of short-term changes were possible with clinical, proteomic, and metabolomic data.
 
@@ -173,7 +173,7 @@ We also identified a subgraph of related nodes consisting of the top predictive 
 ![](_page_5_Figure_7.jpeg)
 <!-- Image Description: Figure 3 presents a multi-panel analysis of protein classifiers and networks related to type 2 diabetes and chronic kidney disease. Panels A and C are bar charts showing logistic regression weights for proteins in HbA1C and eGFR classifiers, respectively. Panels B, D, E, and F are network diagrams illustrating protein-protein interactions and relationships with drugs and diseases, using color-coding to distinguish types of interactions (e.g., binds, treats, contraindicates). The purpose is to visualize relationships between proteins and clinical characteristics. -->
 
-#### (A,C) show the top 10 highest weighted protein predictors for dHbA1c and deGFR, respectively, at 6 months, using L1-regularized logistic regression. The bars indicate the range that the coefficients take over the 10 cross-validation runs. (B,D) Show the approximate Steiner subgraph on SPOKE using the top 10 highest weighted proteins. A node outlined in red is part of the input set. Blue nodes are proteins, while orange nodes are diseases, and purple nodes are compounds. Light blue edges represent protein-protein interactions, while gray edges represent all other types of connections, and are labeled with the edge type. (E,F) Show the shortest paths from each of the top 10 proteins to the nodes for T2D and CKD.
+### (A,C) show the top 10 highest weighted protein predictors for dHbA1c and deGFR, respectively, at 6 months, using L1-regularized logistic regression. The bars indicate the range that the coefficients take over the 10 cross-validation runs. (B,D) Show the approximate Steiner subgraph on SPOKE using the top 10 highest weighted proteins. A node outlined in red is part of the input set. Blue nodes are proteins, while orange nodes are diseases, and purple nodes are compounds. Light blue edges represent protein-protein interactions, while gray edges represent all other types of connections, and are labeled with the edge type. (E,F) Show the shortest paths from each of the top 10 proteins to the nodes for T2D and CKD.
 
 smallest subgraph that contains all of the nodes of interest. These results are shown in [Figures 3B,D](#page-5-0) for the dHbA1c and deGFR predictors. This shows both the relationships within the feature sets as well as one possible relationship with T2D. Using knowledge graphs allows us to explore indirect connections among the top predictive features, and between features and the disease of interest. We can see that the top predictive features are densely connected by protein-protein interaction edges, and we can see how some nodes are connected to T2D. Since the proteomic data only included hundreds of proteins, there are many additional proteins that could be predictive of a T2D trajectory, but have not been measured, and identifying proteins that are highly connected to measured predictive proteins could suggest new features to measure. For example, NLRP3, which connects the predictive proteins to the T2D node, is known to be related to T2D progression ([28](#page-9-0), [29\)](#page-9-0). In the deGFR predictors subgraph, TNFA is connected to many predictive proteins and is also known to be related to the progression of CKD ([30\)](#page-9-0). This indicates using the knowledge graphs, we can not only find the relationship between the predictive features and disease, but also find additional features or genes that are relevant to the disease.
 
@@ -186,7 +186,7 @@ In our digital twin system design, which incorporates machine learning, knowledg
 ![](_page_6_Figure_7.jpeg)
 <!-- Image Description: This figure presents two horizontal bar charts (A and B). Each chart displays the top associated proteins for a specific predictive protein, indicated by "dHbA1C-predictive proteins" (A) and "dgfr-predictive proteins" (B). The y-axis lists the proteins (e.g., UFO_HUMAN, AKT1_HUMAN), and the x-axis represents the "Topic PageRank score," indicating the strength of association. Higher scores denote stronger associations. The charts likely illustrate protein networks relevant to the predictive proteins analyzed in the study. -->
 
-#### FIGURE 4
+### FIGURE 4
 
 This shows the highest topic pageRank scores for protein nodes in SPOKE, using the top 10 highest weighted protein predictors for dHbA1c and deGFR, respectively. The query set of features are the same as the proteins in the figure above. Names with red text indicate proteins that also have positive weights for the given prediction task across all 10 cross-validation runs, but were not one of the 10 highest.
 
@@ -260,27 +260,27 @@ All claims expressed in this article are solely those of the authors and do not 
 
 The Supplementary Material for this article can be found online at: [https://www.frontiersin.org/articles/10.3389/fdgth.2024.](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full#supplementary-material) [1336050/full#supplementary-material](https://www.frontiersin.org/articles/10.3389/fdgth.2024.1336050/full#supplementary-material)
 
-#### SUPPLEMENTARY FIGURE 1
+### SUPPLEMENTARY FIGURE 1
 
 All nonzero coefficients for the dHbA1c logistic regression predictors at 6 months, using the clinical, proteomic, and metabolomic feature sets. The bars indicate the range of coefficient values across all cross-validation runs.
 
-#### SUPPLEMENTARY FIGURE 2
+### SUPPLEMENTARY FIGURE 2
 
 All nonzero coefficients for the deGFR logistic regression predictors at 6 months, using the clinical, proteomic, and metabolomic feature sets. The bars indicate the range of coefficient values across all cross-validation runs.
 
-#### SUPPLEMENTARY FIGURE 3
+### SUPPLEMENTARY FIGURE 3
 
 Prediction results for changes in HbA1c, eGFR, Glucose, Insulin, and HOMA-IR, using a LASSO regression model for predicting the delta values.
 
-#### SUPPLEMENTARY TABLE 1
+### SUPPLEMENTARY TABLE 1
 
 List of all multiomic features used for the different prediction models.
 
-#### SUPPLEMENTARY TABLE 2
+### SUPPLEMENTARY TABLE 2
 
 Tables showing all prediction results for the multiomic models, with R2 metrics for the regressions and F1 metrics for the classifications.
 
-#### SUPPLEMENTARY TABLE 3 An overview of the nodes and edges of the SPOKE knowledge graph.
+### SUPPLEMENTARY TABLE 3 An overview of the nodes and edges of the SPOKE knowledge graph.
 
 SUPPLEMENTARY TABLE 4
 

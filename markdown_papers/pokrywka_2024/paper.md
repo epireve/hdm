@@ -32,13 +32,13 @@ Jeremi I. Kaczmarek *Adam Mickiewicz University, Poznan University of Medical Sc
 
 Edward J. Gorzela ´nczyk *Kazimierz Wielki University, The Society for the Substitution "Medically Assisted Recovery"* Poland medsystem@medsystem.com.pl
 
-*Abstract*—The detection of suicide risk in social media is a critical task with potential life-saving implications. This paper presents a study on leveraging state-of-the-art natural language processing solutions for identifying suicide risk in social media posts as a submission for the "IEEE BigData 2024 Cup: Detection of Suicide Risk on Social Media" conducted by the kubapok team. We experimented with the following configurations of transformer-based models: fine-tuned DeBERTa, GPT-4o with CoT and few-shot prompting, and fine-tuned GPT-4o. The task setup was to classify social media posts into four categories: indicator, ideation, behavior, and attempt. Our findings demonstrate that the fine-tuned GPT-4o model outperforms two other configurations, achieving high accuracy in identifying suicide risk. Notably, our model achieved second place in the competition. By demonstrating that straightforward, general-purpose models can achieve state-of-the-art results, we propose that these models, combined with minimal tuning, may have the potential to be effective solutions for automated suicide risk detection on social media.
+**Abstract:** The detection of suicide risk in social media is a critical task with potential life-saving implications. This paper presents a study on leveraging state-of-the-art natural language processing solutions for identifying suicide risk in social media posts as a submission for the "IEEE BigData 2024 Cup: Detection of Suicide Risk on Social Media" conducted by the kubapok team. We experimented with the following configurations of transformer-based models: fine-tuned DeBERTa, GPT-4o with CoT and few-shot prompting, and fine-tuned GPT-4o. The task setup was to classify social media posts into four categories: indicator, ideation, behavior, and attempt. Our findings demonstrate that the fine-tuned GPT-4o model outperforms two other configurations, achieving high accuracy in identifying suicide risk. Notably, our model achieved second place in the competition. By demonstrating that straightforward, general-purpose models can achieve state-of-the-art results, we propose that these models, combined with minimal tuning, may have the potential to be effective solutions for automated suicide risk detection on social media.
 
-*Index Terms*—suicide risk detection, AI in medicine, natural language processing.
+**Index Terms:** suicide risk detection, AI in medicine, natural language processing.
 
 ## I. INTRODUCTION
 
-# *A. Suicide and Suicidal Behavior: Definitions, Distinctions, and Determinants*
+## *A. Suicide and Suicidal Behavior: Definitions, Distinctions, and Determinants*
 
 Suicide is a major global health concern, with over 720,000 individuals taking their own lives each year (WHO 2024). The true scale of the problem is likely underestimated, as many non-fatal attempts remain unreported. These behaviors often result in injury, disability, and long-lasting psychological trauma, extending beyond individuals to affect families and communities. The broad social and economic implications further highlight the urgent need for effective public health strategies[1](#page-0-0)
 
@@ -46,24 +46,24 @@ While the definition of suicide is generally consistent in the literature, termi
 
 <span id="page-0-2"></span>TABLE I COMPARISON OF THE SUICIDE RISK LEVEL LABELS UTILIZED IN THE TRAINING DATA WITH PSYCHIATRIC AND PSYCHOLOGICAL TERMINOLOGY ADAPTED FOR THIS WORK.
 
-| Term      | Benchmark Dataset [2], [3]     | This Work                         |
+| Term | Benchmark Dataset [2], [3] | This Work |
 |-----------|--------------------------------|-----------------------------------|
-| Indicator | The post content has no ex     | -                                 |
-|           | plicit expression concerning   |                                   |
-|           | suicide.                       |                                   |
-| Ideation  | The post content has explicit  | Thoughts,<br>considerations,      |
-|           | suicidal expression, but there | and plans of suicide.             |
-|           | is no plan to commit suicide.  |                                   |
-| Behavior  | The post content<br>has ex     | Self-directed,<br>injurious<br>be |
-|           | plicit suicidal expression and | havior with an intent to die.     |
-|           | a plan to commit suicide or    |                                   |
-|           | self-harming behaviors.        |                                   |
-| Attempt   | The post content has explicit  | Non-fatal, self-directed, inju    |
-|           | expressions concerning his     | rious behavior with an intent     |
-|           | toric suicide attempts.        | to die.                           |
-| Suicide   | -                              | Fatal, self-directed, injurious   |
-|           |                                | behavior with an intent to        |
-|           |                                | die.                              |
+| Indicator | The post content has no ex | - |
+| | plicit expression concerning | |
+| | suicide. | |
+| Ideation | The post content has explicit | Thoughts,<br>considerations, |
+| | suicidal expression, but there | and plans of suicide. |
+| | is no plan to commit suicide. | |
+| Behavior | The post content<br>has ex | Self-directed,<br>injurious<br>be |
+| | plicit suicidal expression and | havior with an intent to die. |
+| | a plan to commit suicide or | |
+| | self-harming behaviors. | |
+| Attempt | The post content has explicit | Non-fatal, self-directed, inju |
+| | expressions concerning his | rious behavior with an intent |
+| | toric suicide attempts. | to die. |
+| Suicide | - | Fatal, self-directed, injurious |
+| | | behavior with an intent to |
+| | | die. |
 
 Suicidal ideation refers to ruminating, thinking, or planning suicide. Suicidal behavior, on the other hand, is defined as an act of self-harm performed with the intent to die. If the behavior results in death, it is classified as suicide; if it does not, it is considered a suicide attempt. Terms like "failed" or "unsuccessful" attempt should be avoided, as they imply that death is the desired outcome [\[1\]](#page-6-0).
 
@@ -75,7 +75,7 @@ The etiology of suicidal behavior is complex and multifactorial, involving psych
 
 <span id="page-0-1"></span><span id="page-0-0"></span><sup>2</sup><https://www.nimh.nih.gov/health/statistics/suicide>
 
-# *B. Motivation for Suicide Risk Detection Algorithms on the Internet*
+## *B. Motivation for Suicide Risk Detection Algorithms on the Internet*
 
 The rapid pace of societal changes, characterized by digitalization and increased information accessibility, has introduced new dimensions to the etiology of suicide. Social media, in particular, has garnered attention as a potential contributor to the deterioration of mental health, especially among youth. Several phenomena, mainly cyberbullying and trolling, displacement of beneficial activities, and persistent preoccupation, are often regarded as exacerbating existing risk factors or acting as independent contributors, correlating with increased prevalence of self-harm, suicidal ideation, and other mental health problems [\[5\]](#page-6-4).
 
@@ -83,7 +83,7 @@ However, these same platforms, when combined with advancements in technology suc
 
 One promising approach involves suicide risk detection systems deployed within social media platforms. These systems can analyze vast and diverse datasets, including the content of posts and comments, precise metadata such as time stamps and user interactions, and employ Natural Language Processing (NLP) to identify emotions, sentiments, and specific risk factors indicative of suicidal behavior. Moreover, advanced Artificial Intelligence (AI) models have the potential to discern subtle patterns suggestive of underlying somatic or neuropsychiatric symptoms. Detection systems enable continuous content monitoring, facilitate early intervention, and offer the possibility of preventing numerous tragedies through timely and targeted responses. Although detecting suicide risk is the primary objective of current systems, the ability to differentiate between genuine suicidal intent and self-harm threats without the intent to die is an intriguing perspective worth mentioning.
 
-# *C. kubapok at IEEE BigData 2024 Cup: Detection of Suicide Risk on Social Media*
+## *C. kubapok at IEEE BigData 2024 Cup: Detection of Suicide Risk on Social Media*
 
 In recent years, the field of NLP developed rapidly. This may be attributed mainly to artificial neural network architecture Transformers [\[6\]](#page-6-5) and training neural models with massive amounts of text. The excellent results of the contemporary NLP models are promising for the development of suicidal detectors based on Internet texts. However, the question arises: which NLP method would work the best for this task?
 
@@ -133,21 +133,21 @@ The dataset exhibited a relatively balanced representation of posts across the i
 
 <span id="page-3-0"></span>TABLE II DISTRIBUTION OF POSTS ACROSS DATASET SPLITS
 
-| Dataset Split          | Number of Posts |
+| Dataset Split | Number of Posts |
 |------------------------|-----------------|
-| Training (Annotated)   | 500             |
-| Training (Unannotated) | 1500            |
-| Preliminary Test       | 100             |
+| Training (Annotated) | 500 |
+| Training (Unannotated) | 1500 |
+| Preliminary Test | 100 |
 
 <span id="page-3-1"></span>TABLE III DISTRIBUTION AND CHARACTERISTICS OF RISK CATEGORIES IN THE ANNOTATED TRAINING SET
 
-| Category  | Number of Posts | Avg Characters | Avg Words |
+| Category | Number of Posts | Avg Characters | Avg Words |
 |-----------|-----------------|----------------|-----------|
-| Indicator | 129             | 697            | 136       |
-| Ideation  | 190             | 835            | 162       |
-| Behavior  | 140             | 913            | 178       |
-| Attempt   | 41              | 1776           | 339       |
-| All       | 500             | 899            | 174       |
+| Indicator | 129 | 697 | 136 |
+| Ideation | 190 | 835 | 162 |
+| Behavior | 140 | 913 | 178 |
+| Attempt | 41 | 1776 | 339 |
+| All | 500 | 899 | 174 |
 
 Below, we provide one sample of each category from the training dataset. If the sample exceeds 500 characters, it is truncated. Please note that the comments may include distressing content or contain offensive language.
 
@@ -221,33 +221,33 @@ The results reported as weighted F1 scores on the preliminary test set provided 
 
 <span id="page-4-2"></span>TABLE IV PRELIMINARY TEST SCORES PROVIDED BY THE COMPETITION ORGANIZERS OF OUR METHODS
 
-| Solution                    | wF1  |
+| Solution | wF1 |
 |-----------------------------|------|
-| DeBERTa-base single model   | 64.8 |
-| DeBERTa-base ensemble       | 69.0 |
+| DeBERTa-base single model | 64.8 |
+| DeBERTa-base ensemble | 69.0 |
 | DeBERTa-large best ensemble | 73.0 |
-| GPT-4o CoT 100 shot         | 58.9 |
-| GPT-4o CoT 500 shot         | 58.9 |
-| GPT-4o ft single model      | 73.6 |
-| GPT-4o ft ensemble          | 74.8 |
+| GPT-4o CoT 100 shot | 58.9 |
+| GPT-4o CoT 500 shot | 58.9 |
+| GPT-4o ft single model | 73.6 |
+| GPT-4o ft ensemble | 74.8 |
 
 <span id="page-4-3"></span>TABLE V FINAL SCORES OF ALL THE TEAMS PARTICIPATING IN THE FINAL EVALUATION
 
-| Rank | Team Name                        | wF1  |
+| Rank | Team Name | wF1 |
 |------|----------------------------------|------|
-| 1    | Detection of Suicide             | 76.1 |
-| 2    | kubapok                          | 75.5 |
-| 3    | mukumuku                         | 75.1 |
-| 4    | BioNLP@WCM                       | 74.6 |
-| 5    | Calculators                      | 73.4 |
-| 6    | The Dual                         | 73.1 |
-| 7    | BNU AI and Mental Health         | 71.1 |
-| 8    | MindFlow                         | 70.7 |
-| 9    | EEEAT                            | 69.9 |
-| 10   | MIDAS                            | 69.8 |
-| 11   | PotatoTomato                     | 69.1 |
-| 12   | LifeWatcher                      | 55.3 |
-| 13   | Data Science and Decision Making | 55.0 |
+| 1 | Detection of Suicide | 76.1 |
+| 2 | kubapok | 75.5 |
+| 3 | mukumuku | 75.1 |
+| 4 | BioNLP@WCM | 74.6 |
+| 5 | Calculators | 73.4 |
+| 6 | The Dual | 73.1 |
+| 7 | BNU AI and Mental Health | 71.1 |
+| 8 | MindFlow | 70.7 |
+| 9 | EEEAT | 69.9 |
+| 10 | MIDAS | 69.8 |
+| 11 | PotatoTomato | 69.1 |
+| 12 | LifeWatcher | 55.3 |
+| 13 | Data Science and Decision Making | 55.0 |
 
 that the test dataset was small (100 samples) or due to the inconsistency of the DeBERTa model performance. However, for fine-tuned GPT-4o, we used only three models, and all the results were consistently high. That's why we ultimately chose fine-tuned GPT-4o for the final solution. The least performing method was GPT-4o without fine-tuning, but only with CoT and few-shot learning methods. This model performed almost the same when 100 and 500-shot examples from the training dataset were used as examples in the prompt.
 

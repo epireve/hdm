@@ -124,7 +124,6 @@ The system of equations [\(1\)](#page-1-0) is integrated implicitly as a fully-c
 
 In reactive low Mach number compressible flows, flow and chemistry are tightly coupled through density and viscosity, and the non-zero divergence constraint Q<sup>T</sup> is imposed on the velocity
 
-<span id="page-2-1"></span>
 $$
 \nabla \cdot \mathbf{v} = Q_T
 $$
@@ -137,7 +136,6 @@ $$
 
 where D/Dt denotes the material derivative and W the mean molecular weight. The momentum equation for the velocity v is given by
 
-<span id="page-2-2"></span>
 $$
 \frac{\partial \mathbf{v}}{\partial t} = -\mathbf{v} \cdot \nabla \mathbf{v} - \frac{\nabla p_1}{\rho} \n+ \frac{1}{\rho} \left[ \nabla \cdot \mu \left( \frac{\nabla \mathbf{v}}{\rho} + \left( \frac{\nabla \mathbf{v}}{\rho} \right)^T - \frac{2}{3} (\nabla \cdot \mathbf{v}) \underline{\mathbf{I}} \right) \right]^{(4)}
 $$
@@ -147,7 +145,7 @@ where µ is the dynamic viscosity, p<sup>1</sup> the hydrodynamic pressure, I th
 <span id="page-2-3"></span>![](_page_2_Figure_6.jpeg)
 <!-- Image Description: The image contains two plots comparing nekCRF and Chemkin models. The top plot shows temperature (T) in Kelvin versus time (t) in seconds, illustrating a sharp temperature increase around t = 0.04 s. The bottom plot displays the mass fraction of OH (Y<sub>OH</sub>) versus time, showing a corresponding increase at the same time point. Both plots demonstrate a step-like change in the variables around 0.04 s, likely representing a reaction or ignition event. The purpose is to compare the results of the two models' predictions of temperature and OH radical concentration during a combustion process. -->
 
-Figure 1: Comparison of the time histories of temperature and YOH (symbols) against the Chemkin solution (lines).
+**Figure 1:** Comparison of the time histories of temperature and YOH (symbols) against the Chemkin solution (lines).
 
 splitting method [\[22\]](#page-8-14). The resulting semi-discrete coupled system is solved in a three-step procedure [\[14\]](#page-8-6): First, an intermediate velocity is evaluated using the explicit contributions. Next, the hydrodynamic pressure is computed to enforce the divergence constraint (Eq. [\(3\)](#page-2-1)). Finally, the velocity is advanced to the next (flow) timestep. Each step is efficiently treated by techniques tailored to the governing physics: classical fourth-order Runge-Kutta for the hyperbolic advection term, diagonally preconditioned conjugate gradient iteration for the viscous block coupled Helmholtz problem, and hybrid multigrid preconditioned GMRES with Chebyshev accelerated Schwarz (polynomial levels) and Jacobi (algebraic levels of coarse p=1 problem) smoothing for the variable coefficient Poisson solve [\[6\]](#page-7-5).
 
@@ -159,18 +157,18 @@ nekRS has been validated through comparisons with nek5000 and the method of manu
 
 The first test case validates the integration of reaction source terms within a time-varying volume, where the thermodynamic pressure is also subject to variation. A homogeneous stoichiometric H2 air mixture initially at 780 K and 1 atm is compressed in an adiabatic, closed domain mimicking an internal combustion engine of bore 92 mm, stroke 86 mm operating at 500 rpm and compression ratio of 3. The piston kinematics are imposed in the movement of the lower surface in the nekCRF model, which tracks the mesh motion using the arbitrary Lagrangian-Eulerian formulation of [\[23\]](#page-8-15). The piston kinematics are also imposed on a variable-volume batch reactor model implemented and solved using Chemkin [\[24\]](#page-8-16). Chemical kinetics are described by the detailed reaction mechanism of Li et al. [\[25\]](#page-8-17). The temporal evolution of temperature and YOH of the two solutions are compared in Fig. [1,](#page-2-3) showing the autoignition resulting from the mixture compression. The relative error in the ignition delay time defined by the time of maximum YOH with respect to the Chemkin solution is 0.02%.
 
-#### 2 Laminar planar premixed flame
+### 2 Laminar planar premixed flame
 
 In contrast to the previous case, this test includes spatial gradients and incorporates both advection and diffusion terms in addition to the reactive source term. A planar premixed H2-air flame is considered for a lean mixture (equivalence ratio ϕ = 0.6) at T<sup>u</sup> = 298 K and p = 5 atm. Using a Cantera-based [\[20\]](#page-8-12) freely-propagating, premixed flat flame solver and the Li et al. [\[25\]](#page-8-17) reaction mechanism, the laminar flame speed and thickness are found to be S<sup>L</sup> = 51.437 cm/s and δ<sup>f</sup> = (T<sup>b</sup> − Tu)/ max(dT /dx) = 7.516 × 10<sup>−</sup><sup>2</sup> mm, respectively. The 1-D Cantera solution is interpolated on the spectral element mesh for a domain with length equal to L = 200δ<sup>f</sup> and height H = δ<sup>f</sup> , where the flame is placed at x = 130δ<sup>f</sup> . The velocity is set to Uin = S<sup>L</sup> at the inflow, where Dirichlet boundary conditions (BC) are imposed on temperature and species mass fractions. Zero-Neumann BC are considered at the outflow, while the remaining boundaries are periodic. The discretization uses a non-uniform grid with element of size h = δ<sup>f</sup> around the flame increasing up to h = 25δ<sup>f</sup> towards the in- and outflow; the solution on each element is approximated using p = 7th order polynomials. Figure [2](#page-3-0) shows that the flame structure computed with the new solver is in very good agreement with the profiles obtained with Cantera and LAVp.
 
-#### <span id="page-3-1"></span>3.3 Early flame kernel development
+### <span id="page-3-1"></span>3.3 Early flame kernel development
 
 Finally, the code is validated in a more complex application by considering a lean (ϕ = 0.4) premixed hydrogen-air mixture initially at temperature T<sup>0</sup> = 800 K and pressure p = 40 bar. At these conditions, the laminar flame thickness and speed computed with Cantera and the Li et al. mechanism [\[25\]](#page-8-17) are δ<sup>f</sup> = 20 µm and S<sup>L</sup> =
 
 <span id="page-3-0"></span>![](_page_3_Figure_5.jpeg)
 <!-- Image Description: The image presents a double-y-axis plot comparing computational fluid dynamics (CFD) results. The top panel shows temperature (T) profiles from three different solvers (Cantera, nekCRF, LAVP), demonstrating agreement in temperature rise. The bottom panel displays the mole fraction (Y<sub>k</sub>) of various chemical species (H₂, H₂O, OH, HO₂) along the x-axis (normalized spatial coordinate). This comparison validates the accuracy and consistency of the different simulation methods used in the paper. -->
 
-Figure 2: Comparison of temperature and selected species mass fraction profiles in the flame normal direction against Cantera (black line) and LAVp (× symbol) solutions.
+**Figure 2:** Comparison of temperature and selected species mass fraction profiles in the flame normal direction against Cantera (black line) and LAVp (× symbol) solutions.
 
 44.5 cm/s, respectively, resulting in a flame time t<sup>f</sup> = δ<sup>f</sup> /S<sup>L</sup> = 4.55 × 10<sup>−</sup><sup>5</sup> s. The initial turbulent flow field is homogeneous and isotropic with integral length scale l<sup>I</sup> = 15.1δ<sup>f</sup> and turbulent intensity u ′ = 6.6SL, and was constructed following the methodology proposed in [\[26\]](#page-8-18), where the homogeneous and isotropic turbulent fields were generated with the controlled linear forcing method described in [\[27\]](#page-8-19). Ignition of the mixture is achieved with a centrally-located energy deposition source varying smoothly in space and time as discussed in [\[26\]](#page-8-18). A spherical mesh with a diameter of diameter D = 144δ<sup>f</sup> is used (Fig. [3\(](#page-4-1)a)) comprising E = 0.5 M spectral elements with a polynomial order p = 7, resulting in 2.23 billion degrees of freedom (DOFs), taking into account the 13 unknowns per grid point. The excess species N<sup>2</sup> is calculated as YN<sup>2</sup> = 1 − P i̸=N<sup>2</sup> Yi . In the central region of radius R ≤ 41δ<sup>f</sup> , the elements are of size δ<sup>f</sup> in all directions, while in the outer region they are of size 2.4δ<sup>f</sup> in the radial direction and increase from 2.8δ<sup>f</sup> to 4.8δ<sup>f</sup> in the other directions.
 
@@ -179,7 +177,7 @@ CVODE absolute tolerances were set to 10<sup>−</sup><sup>4</sup> of max{Yk} of
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: The image contains two subfigures. (a) shows a computational mesh, a quarter-section of a cylindrical grid likely for fluid dynamics simulation. (b) presents a sequence of four 3D visualizations, color-coded by a scalar value (likely velocity magnitude, |V|/SL), showing the evolution of a phenomenon over time (t = 0.5tf to 2.0tf). The purpose is to illustrate numerical mesh and the temporal evolution of a simulated system, possibly a turbulent flow or similar. -->
 
-Figure 3: (a) Slice of a quarter of the mesh (b) flame kernels defined by the T = 1600 K isotherm and colored by the flow velocity magnitude at four time instants.
+**Figure 3:** (a) Slice of a quarter of the mesh (b) flame kernels defined by the T = 1600 K isotherm and colored by the flow velocity magnitude at four time instants.
 
 ## <span id="page-4-0"></span>4 Performance
 
@@ -194,25 +192,24 @@ To compare the performance, the case presented in Section [3.3](#page-3-1) is ev
 <span id="page-4-2"></span>![](_page_4_Figure_7.jpeg)
 <!-- Image Description: The image displays a graph plotting iHRR/(ρ c<sub>pu</sub><sup>2</sup> T) against t/t<sub>f</sub>, comparing data from LAVp (blue line) and nekCRF (red dots). Three inset diagrams show the spatial evolution of a quantity (likely a concentration or density) at times t=0.5t<sub>f</sub>, t<sub>f</sub>, and 2t<sub>f</sub>. The graph and insets illustrate the temporal and spatial evolution of a system, likely showcasing the agreement or discrepancy between two numerical models (LAVp and nekCRF) over time. -->
 
-Figure 4: Comparison of the time histories of the integral heat release rate and instantaneous isocontours of temperature. Insets: T = 1600K isotherms on an x − z slice at four time instants.
+**Figure 4:** Comparison of the time histories of the integral heat release rate and instantaneous isocontours of temperature. Insets: T = 1600K isotherms on an x − z slice at four time instants.
 
 marks provide valuable insights into expected behavior, showing that reaction rates on GPUs can achieve speedups between 6x and 9x, depending on the size of the chemistry model. Other performance-relevant kernels, which are primarily limited by memory bandwidth, can achieve peak speedups of 9x. This performance difference aligns with the hardware capabilities. However, in typical production runs, the overall speedup tends to be lower because certain parts of the workload fit within the CPU's last-level cache, which provides more competitive bandwidth compared to the GPU's memory bandwidth.
 
 Striving for a closely matching comparison, it is important to note that nekCRF has been more thoroughly optimized compared to LAVp, which may lead to an overestimation of performance improvements. To assess potential speedup ranges for the entire solver, multiple experiments were conducted and the results are summarized in Table [1.](#page-4-3)
 
-<span id="page-4-3"></span>
 
 | use case | speedup |
 |----------|---------|
-| Smax     | 22      |
-| Rmax     | 14      |
-| R0.5     | 4       |
+| Smax | 22 |
+| Rmax | 14 |
+| R0.5 | 4 |
 
-Table 1: Speedup factors compared to LAVp.
+**Table 1:** Speedup factors compared to LAVp.
 
 The maximum achievable speedup per compute unit (CU) was measured to be Smax = 22. In this scenario, both codes handle a large local problem size, which minimizes the impact of caching effects on the CPU. However, when considering the maximum throughput Rmax = 1/(nCU · t) of each solver, where nCU is the number of compute units (24 GPUs for nekCRF and 300 CPUs using all available cores for LAVp), the speedup reduces to 14 due to caching effects. Notably, R0.5, the speedup at 50% of Rmax, utilizing 480 GPUs on JUWELS Booster and 2000 CPUs on LUMI, offers a different perspective. This strong scaling use case demonstrates that while nekCRF remains faster on a GPU-based system, its competitive advantage diminishes as communication overhead becomes more significant.
 
-#### 2 Strong scaling
+### 2 Strong scaling
 
 To stress test strong scaling, the investigation focuses on the configuration outlined in Section [3.3,](#page-3-1) employing a refined mesh with approximately doubled resolution in each spatial direction and a two times smaller outer timestep. The refinement leads to a case with E = 4.1 million spectral elements and 18 billion DOFs. Computations are conducted across a range of N=50 to 800 compute nodes (85% of the JSC system size), with the lower limit determined by the available GPU memory. However, the focus here is on up to 600 nodes, as the parallel efficiency η for larger node counts becomes smaller than 50%.
 
@@ -222,22 +219,21 @@ The solver statistics averages over the outer (fluid) timestep are reported in T
 
 The elapsed time for the integration of 200 timesteps with dt = 10<sup>−</sup><sup>3</sup> t<sup>f</sup> (CF L ≈ 3) is shown in Fig. [5](#page-5-1) together with its breakdown into the contributions of the velocity, pressure and thermochemistry parts. The solvers for velocity, pressure, and thermochemistry exhibit different scaling characteristics. Among them, the thermochemistry solver is the most compute-intensive,
 
-<span id="page-5-0"></span>
 
-| pIter       | 11  |
+| pIter | 11 |
 |-------------|-----|
-| vIter       | 34  |
-| cvSteps     | 4.5 |
+| vIter | 34 |
+| cvSteps | 4.5 |
 | jtv/cvSteps | 7.4 |
 | nni/cvSteps | 1.1 |
-| nli/nni     | 6.4 |
+| nli/nni | 6.4 |
 
-Table 2: Solver statistics averaged over 200 timesteps.
+**Table 2:** Solver statistics averaged over 200 timesteps.
 
 <span id="page-5-1"></span>![](_page_5_Figure_8.jpeg)
 <!-- Image Description: This graph displays the elapsed time (in seconds) of a computation versus the number of compute nodes used. Multiple lines represent different computational components ("total," "ideal," "thermo-chemistry," "velocity," and "pressure"). The "total" line shows overall elapsed time, decreasing with more nodes but less efficiently than the "ideal" line (representing perfect scaling). Other lines show individual component times, demonstrating varying degrees of parallel scalability. The graph illustrates the efficiency and limitations of parallelization across different parts of the computation. -->
 
-Figure 5: Strong scalability of the different solver components.
+**Figure 5:** Strong scalability of the different solver components.
 
 with ηtc = 0.72 on 600 compute nodes. On the other hand, the fluid solver shows diminishing returns (poor scaling) beyond 200 nodes, specifically when the number of grid points per processing unit n = 1.75M is considerably smaller than n0.<sup>8</sup> - the number of grid points per GPU required to achieve η = 0.8. According to [\[29\]](#page-9-0), the value of n0.<sup>8</sup> was measured to be around 4-5M on ANL's Polaris, a system similar to JUWELS Booster. This results in an overall parallel efficiency of η = 0.51 on 600 nodes. It is noteworthy that in typical production runs employing a more complex chemistry model and/or higher number of grid points per GPU, the efficiency will be significantly higher.
 
@@ -245,28 +241,27 @@ To delve into the details of the thermochemistry solver, a time breakdown is pre
 
 To further analyze the observed parallel effi-
 
-<span id="page-6-0"></span>
 
-|                      | N=50   | %  | N=600 | %  |
+| | N=50 | % | N=600 | % |
 |----------------------|--------|----|-------|----|
-| total                | 339s   |    | 39.4s |    |
-| newton solve         | 64.4s  | 19 | 8.3s  | 21 |
-| linear solve         | 274.6s | 81 | 31.1s | 79 |
-|                      |        |    |       |    |
-| low-level components |        |    |       |    |
-| other                | 98.2s  | 29 | 10.0s | 25 |
-| diffusion            | 95.8s  | 28 | 8.15s | 21 |
-| gramSchmidt          | 57.2s  | 17 | 5.60s | 14 |
-| MPI Allreduce        | 2.60s  | 1  | 4.18s | 11 |
-| MPI halo             | 12.8s  | 4  | 3.40s | 9  |
-| localQQT             | 20.1s  | 6  | 3.30s | 8  |
-| MPI pack/unpack      | 8.32s  | 2  | 2.31s | 6  |
-| advection            | 25.4s  | 7  | 2.54s | 6  |
-| rates                | 22.9s  | 7  | 2.23s | 6  |
-| properties           | 6.32s  | 2  | 0.75s | 2  |
-|                      |        |    |       |    |
+| total | 339s | | 39.4s | |
+| newton solve | 64.4s | 19 | 8.3s | 21 |
+| linear solve | 274.6s | 81 | 31.1s | 79 |
+| | | | | |
+| low-level components | | | | |
+| other | 98.2s | 29 | 10.0s | 25 |
+| diffusion | 95.8s | 28 | 8.15s | 21 |
+| gramSchmidt | 57.2s | 17 | 5.60s | 14 |
+| MPI Allreduce | 2.60s | 1 | 4.18s | 11 |
+| MPI halo | 12.8s | 4 | 3.40s | 9 |
+| localQQT | 20.1s | 6 | 3.30s | 8 |
+| MPI pack/unpack | 8.32s | 2 | 2.31s | 6 |
+| advection | 25.4s | 7 | 2.54s | 6 |
+| rates | 22.9s | 7 | 2.23s | 6 |
+| properties | 6.32s | 2 | 0.75s | 2 |
+| | | | | |
 
-Table 3: Time breakdown of the thermochemistry solve.
+**Table 3:** Time breakdown of the thermochemistry solve.
 
 ciency of the thermochemistry solve, it is useful to separate it into two factors: computational efficiency and communication efficiency.
 
@@ -274,21 +269,20 @@ Computational efficiency measures how well local compute kernels scale relative 
 
 Communication efficiency (computation time to total runtime ratio) measures the overhead caused by off-device communication as the problem is scaled. The main limiter in the present case is associated with inner products (in the linear solver) necessitating global synchronization, which are known to scale poorly due to internode latency. To mitigate the impact, a Gram-Schmidt variant is employed that requires only one global synchronization step [\[19\]](#page-8-11). Yet, inner products to compute the initial and final residual norms in the Newton or linear solver are challenging to reduce or overlap, posing limitations on scalability. This is evident in the increasing relative MPI\_Allreduce cost. The global C <sup>0</sup> assembly is imposed through a nearest-neighbor exchange locally (QQ<sup>T</sup> ) and across neighbor processes (MPI halo). On average, messages of size 212 kB are exchanged among 17 neighbors achieving an aggregated bidirectional bandwidth of 148 GB/s on 50 nodes (74% of theoretical node injection bandwidth 200 GB/s), which
 
-<span id="page-6-2"></span>
 
-| kernel      | limiter | FOM        |
+| kernel | limiter | FOM |
 |-------------|---------|------------|
-| diffusion   | GMEM bw | 987 GB/s   |
-| gramSchmidt | GMEM bw | 802 GB/s   |
-| rates       | latency | 2.4 TFLOPS |
-| localQQT    | GMEM bw | 580 GB/s   |
-| advection   | GMEM bw | 935 GB/s   |
+| diffusion | GMEM bw | 987 GB/s |
+| gramSchmidt | GMEM bw | 802 GB/s |
+| rates | latency | 2.4 TFLOPS |
+| localQQT | GMEM bw | 580 GB/s |
+| advection | GMEM bw | 935 GB/s |
 
-Table 4: Performance top 5 kernels.
+**Table 4:** Performance top 5 kernels.
 
 decreases by 17% on 600 nodes. However, the offdevice communication (MPI\_Neighbor\_alltoall) within QQ<sup>T</sup> can be fully overlapped by local computation, allowing the effective cost to be hidden to a large extent. Consequently, the most significant factor contributing to the effective communication cost is the MPI\_Allreduce operation. The measured communication efficiency was approximately 0.8.
 
-#### <span id="page-6-1"></span>4.3 Compute kernels
+### <span id="page-6-1"></span>4.3 Compute kernels
 
 This section aims to assess the kernel performance, with a focus on the top five most time-consuming kernels of the thermochemistry solver, as summarized in Table [4.](#page-6-2) The evaluation includes identifying the dominant performance limiter and presenting a figure of merit (FOM).
 

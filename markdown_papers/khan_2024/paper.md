@@ -149,7 +149,7 @@ Keynote 1.*Integrating Knowledge Graph with Large Language Model: From the Persp
 
 Keynote 2.*Industry-level Knowledge Graph Platform for Largescale, Diverse and Dynamic Scenarios*– Haofen Wang (Tongji University, China).
 
-#### Session 2
+### Session 2
 
 Keynote 3.*Knowledge Graph-Based Large Language Model Finetuning and Its Applications*– Wei Hu (Nanjing University, China).
 
@@ -159,7 +159,7 @@ Paper Presentation:*Leveraging LLMs Few-shot Learning to Improve Instruction-dri
 
 Paper Presentation:*SPIREX: Improving LLM-based Relation Extraction from RNA-focused Scientific Literature using Graph Machine Learning*- Emanuele Cavalleri, Mauricio Soto-Gomez, Ali Pashaeibarough, Dario Malchiodi, Harry Caufield, Justin Reese, Chris J Mungall, Peter Robinson, Elena Casiraghi, Giorgio Valentini, and Marco Mesiti.
 
-#### Session 3
+### Session 3
 
 Industry Talk:*Integrating GenAI with Graph: Innovations and Insights from NebulaGraph*– Siwei Gu and Yihang Yu (NebulaGraph). Paper Presentation:*Enhancing Large Language Models with Multimodality and Knowledge Graphs for Hallucination-free Open-set Object Recognition*- Xinfu Liu, Yirui Wu, Yuting Zhou, Junyang Chen, Huan Wang, Ye Liu, and Shaohua Wan.
 
@@ -167,7 +167,7 @@ Paper Presentation:*From Instructions to ODRL Usage Policies: An Ontology Guided
 
 Paper Presentation:*Knowledge Graph Efficient Construction: Embedding Chain-of-Thought into LLMs*- Jixuan Nie, Xia Hou, Wenfeng Song, Xuan Wang, Xingliang Jin, Xinyu Zhang, ShuoZhe Zhang, and Jiaqi Shi.
 
-#### Session 4
+### Session 4
 
 Paper Presentation:*Benchmarking and Analyzing In-context Learning, Fine-tuning and Supervised Learning for Biomedical Knowledge Curation: A Focused Study on Chemical Entities of Biological Interest*- Yusuf Abdulle, Emily Groves, Minhong Wang, Holger Kunz, Jason Hoelscher-Obermaier, Ronin Wu, and Honghan Wu.
 

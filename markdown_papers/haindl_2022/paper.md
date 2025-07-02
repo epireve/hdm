@@ -25,7 +25,6 @@ keywords:
 - machine learning
 ---
 
-
 # Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing
 
 Philipp Haindl philipp.haindl@scch.at Software Competence Center Hagenberg Hagenberg, Austria
@@ -56,11 +55,11 @@ Bernhard Moser bernhard.moser@scch.at Software Competence Center Hagenberg Hagen
 
 human-AI teaming, IIoT, knowledge graphs, relational machine learning, software architecture, smart manufacturing
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Philipp Haindl, Georg Buchgeher, Maqbool Khan, and Bernhard Moser. 2022. Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing. In New Ideas and Emerging Results (ICSE-NIER'22), May 21–29, 2022, Pittsburgh, PA, USA. ACM, New York, NY, USA, [5](#page-4-0) pages. <https://doi.org/10.1145/3510455.3512788>
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Applications of AI in smart manufacturing are manifold, ranging from improving maintenance times of machinery, the detection of failures in the product or the machinery to the prevention of harm to manufacturing operators. In general, complex processes that are worked on collaboratively are characterized by a sequence of reactive and proactive elements, which each actor alternatingly supporting the other. AI-enabled systems in smart manufacturing are capable of self-sensing, self-adaptation, self-organization, and self-decision [\[17,](#page-4-1) [20\]](#page-4-2), allowing them to respond to physical changes in the production environment in various ways - by stopping machines, adapting production tasks, or suggesting the change of production parameters. However, effective teaming between manufacturing operators and AI-enabled manufacturing systems requires mutual trust into the other's capabilities, primarily resulting from self-sensing and self-adaption. With regards to collaborative AI systems, this demands a high degree of situational awareness for each other actor's needs, knowledge of the production process, and its adjustable parameters.
 
@@ -72,7 +71,7 @@ models of the manufacturing process and the semantics of trust factors for human
 
 In this paper we first present the initial reference software architecture as one important contribution of the Teaming.AI [1](#page-1-0) project. The remainder of the paper is structured as follows: First we sketch the envisioned approach based on a use case from one of the industrial partners in Section [2,](#page-1-1) before we elaborate the identified challenges for such a reference architecture in Section [3.](#page-1-2) Afterwards, we present the current status of this software architecture in Section [4.](#page-2-0) Finally, we sketch our next research activities and conclude the paper in Section [5.](#page-3-0)
 
-#### <span id="page-1-1"></span>2 ENVISIONED APPROACH
+### <span id="page-1-1"></span>2 ENVISIONED APPROACH
 
 One of our industrial partners specializes in high-precision machining of large-sized parts by milling or grinding based on cast materials or machine-welded structures. Manufacturing operators must manually clamp large and heavy parts into high-precision manufacturing machines to perform grinding or milling operations. This process takes up a large portion of the total cycle time of a work order and workers are exposed to occupational hazards. A reliable full automation by an AI-assisted robotic system is beyond the capabilities of current AI-based technologies, due to large part variety and the complexity of the associated handling processes.
 
@@ -82,7 +81,7 @@ The general approach envisioned in our research project uses these data for mach
 
 From a functional perspective, the teaming of manufacturing operators and AI in an industrial manufacturing process raises specific challenges related to relational machine learning, processing IIoT streaming data, the modeling and monitoring of trust (factors), and the continuous evaluation of human feedback and compliance with ethical policies. From a non-functional perspective, scalability and timing requirements of the components play a special role for meeting the functional requirements in such a system.
 
-#### <span id="page-1-2"></span>3 RESEARCH CHALLENGES
+### <span id="page-1-2"></span>3 RESEARCH CHALLENGES
 
 In multiple workshops over the course of six months our research consortium identified five core challenges relevant for a reference architecture for human-AI teaming in smart manufacturing. These workshops involved researchers from software engineering (3), knowledge engineering (3), machine learning (4), computer vision (2), vision systems (2), and human factors (1) and domain experts from the companies, such as production and quality managers.
 
@@ -108,48 +107,48 @@ Figure [1](#page-3-1) shows the different components of this reference architect
 
 Product- and process specific models for the manufacturing process are imported into the knowledge graph by means of batches. In this regard, importing might also comprise to convert these domainspecific models into a graph representation such as RDF (Resource Description Framework). This component also embodies the functionality needed for authoring and versioning the models.
 
-#### 2 ML Experimentation
+### 2 ML Experimentation
 
 During the continuous improvement and testing of AI-based systems, huge amounts of data are generated that can be used for targeted experiments with these systems [\[1,](#page-4-20) [2\]](#page-4-21). Particularly, the indeterministic nature of data-driven algorithms and their entanglement with the used training data underpins the need for continuous experimentation and validation of AI components.
 
-#### 3 Introspection & Policy Monitoring
+### 3 Introspection & Policy Monitoring
 
 Explainability of AI (XAI) [\[23\]](#page-4-22), ethics-based auditability [\[14\]](#page-4-23), and the alignment with human rights and autonomy [\[8\]](#page-4-24) are common examples for ethical requirements towards AI systems. In recent years, several policies and guidelines have been presented by companies, e.g., Google [\[18\]](#page-4-25), governmental bodies, e.g., the EU [\[7\]](#page-4-26), and standardization organizations, e.g., from IEEE [\[8\]](#page-4-24). The compliance with these standards and policies needs to be assured throughout the operation of any AI-enabled software system. To this end, this component encapsulates introspection capabilities, i.e., the self-directed evaluation of the AI system by itself, and additional monitoring and validation facilities related to ethical standards and policies. While introspection is triggered ad-hoc, e.g., upon the detection of suspicious interaction patterns, monitoring and validation is performed continuously at runtime. To also take into account historical data when evaluating the compliance with ethical policies, all processed events are stored in the event store.
 
-#### 4 Knowledge Graph
+### 4 Knowledge Graph
 
 Due to the emerging use of knowledge graphs to represent ontologies and semantic data, they also become increasingly important to formalize expert knowledge, process, and simulation data in manufacturing [\[13\]](#page-4-27). Based on the frequency of updates to the data, the reference architecture differentiates between a dynamic and a static knowledge subgraph. Models related to the product, the manufacturing process, and to experimentation are static in the sense that they do not need to be continuously updated at runtime. These data are embodied in the static subgraph. The dynamic subgraph on the other hand covers operational data accruing in the manufacturing process itself [\[21,](#page-4-28) [22\]](#page-4-29), augmented by added facts from relational machine learning to optimize the interplay between human and AI. This interplay can, e.g., be optimized by proactively giving the operator recommendations for the next manufacturing step or suggesting parameter changes for the machinery to respond to observed product quality deviations, detected by the AI systems.
 
-#### 5 Graph-based ML Engine
+### 5 Graph-based ML Engine
 
 This component provides relational machine learning capabilities that focus on the application of machine learning methods onto relational or graph-structured data such as knowledge graphs. An essential prerequisite for this is the calculation of graph embeddings, i.e., the transfer of a graph representation into a vector space. to orchestrate complex machine learning tasks (e.g., via frameworks such as Kubeflow, TensorFlow Extended, or MLFlow) it provides a framework abstraction layer to make these frameworks accessible through a generic software interface.
 
-#### 6 Teaming Engine
+### 6 Teaming Engine
 
 The orchestration engine controls the reliable execution of the teaming process, which is defined in the teaming model. This model structures the concrete sequence of activities in the interaction between the AI system and the manufacturing operator. Also, it gives a framework to define which policies are relevant in a specific time period of the manufacturing process and to formalize the ground rules for team interaction, as described by the 4S Interdependence Framework of Johnson and Vera [\[10\]](#page-4-30). For the orchestration of the
 
-#### ICSE-NIER'22, May 21–29, 2022, Pittsburgh, PA, USA
+### ICSE-NIER'22, May 21–29, 2022, Pittsburgh, PA, USA
 
 <span id="page-3-1"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This image is a system architecture diagram depicting a graph-based machine learning (ML) system for production line management. It shows the system's components, including model authoring, ML experimentation, a knowledge graph (with dynamic and static subgraphs), a graph-based ML engine, operational support (self-diagnosis, decision support), and integration with production line systems (IoT sensors, HMI). Data flows and interactions between components are illustrated through arrows, indicating a complex, interconnected architecture. -->
 
-Figure 1: Reference Software Architecture For Human-AI Teaming in Smart Manufacturing.
+**Figure 1:** Reference Software Architecture For Human-AI Teaming in Smart Manufacturing.
 
 teaming process, two types of events are processed by the teaming engine: Raw events are extracted from the production line system through IIoT sensors, whereby teaming events are exchanged by the different components after processing. As a result, only teaming events contain contextual data. The orchestration engine can only work with teaming events, since the contextual data must also be evaluated to decide on the next manufacturing activity. The event translation merges several atomic events so that they can be used for decision-making by the orchestration engine.
 
-#### 7 Operation Support
+### 7 Operation Support
 
 The current situation on the shopfloor, i.e., the position of parts and movements of the manufacturing operator, machine settings, and their observed effects on production quality must be taken into account when giving recommendations to the manufacturing operator. Thereby, tracking and scene analysis (TSA) is provided by the situation awareness component, based on media data such as video, imagery or audio recordings. The system's self diagnosis evaluates the reliability of its recommendations and prematurely alerts upon violations of policies. The interplay of these components, the knowledge graph, and machine learning components for the calculation and selection of recommended actions to the manufacturing operator is controlled by the decision support component.
 
 For the storage of near-realtime data acquired from the production line systems, a time series database is provided. Media data from the TSA system are persisted in the context media database.
 
-#### 8 Production Line Systems
+### 8 Production Line Systems
 
 Operational data from production and contextual systems, e.g., auxillary systems or manufacturing process control, are acquired from IIoT sensors or from machine-specific implementations, e.g., based on the OPC Unified Architecture [\[4\]](#page-4-31). An HMI (Human Machine
 
 Interface) is provided to interact with the manufacturing operator, to gather context-dependent feedback about the relevance of given recommendations by the AI. Also, it allows to acquire information about unexpectedly taken actions by the manufacturing operator.
 
-#### <span id="page-3-0"></span>5 FUTURE WORK AND CONCLUSION
+### <span id="page-3-0"></span>5 FUTURE WORK AND CONCLUSION
 
 The presented reference software architecture is framework- and technology agnostic. It shall serve as a blueprint for deriving the software architecture for a particular manufacturing context in a producing company. We use this reference architecture to derive the concrete architecture for the AI-enabled smart manufacturing systems of our three industrial partners in the automotive, energy systems, and precision machining domain. Thus, all three companies have different manufacturing processes in place that result in diverging scalability and interoperability requirements of the software architecture. The validation of the reference architecture will investigate its applicability to different manufacturing contexts, its scalability, and its suitability for validating the compliance of ethical standards during operation. To examine its applicability we will conduct expert interviews with software architects of our industrial partners after having applied the reference software architecture. Likewise, we will conduct interviews with manufacturing operators to assess the suitability of the overall approach and how well it supports the teaming between human and AI in smart manufacturing. Complementary, the quantitative validation will use data acquired from runtime probes to examine the scalability and the consistency among the data shards under heavy load.
 

@@ -31,9 +31,6 @@ images_removed: 1
 keywords: 
 ---
 
-
-
-
 # Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web
 
 [LUIGI ASPRINO,](https://orcid.org/0000-0003-1907-0677) University of Bologna, Italy [ENRICO DAGA,](https://orcid.org/0000-0002-3184-5407) The Open University, UK [ALDO GANGEMI,](https://orcid.org/0000-0001-5568-2684) Consiglio Nazionale delle Ricerche (CNR) and University of Bologna, Italy [PAUL MULHOLLAND,](https://orcid.org/0000-0001-6598-0757) The Open University, UK
@@ -90,7 +87,7 @@ ACM Transactions on Internet Technology, Vol. 23, No. 1, Article 6. Publication 
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a data integration process using SPARQL. A JSON file is transformed into RDF using a FacadeX metamodel. Two SPARQL queries are shown: a SELECT query retrieving an address and a CONSTRUCT query building a graph of names. The diagram visually depicts the data flow from the JSON source, through the RDF transformation, to the final query results, showcasing the interaction between JSON, RDF, and SPARQL. -->
 
-Fig. 1. An example scenario showing how users interact with the SPARQL Anything endpoint to retrieve desired information (solid lines) or to construct an knowledge graph (dashed lines) from a JSON file.
+Figure 1. An example scenario showing how users interact with the SPARQL Anything endpoint to retrieve desired information (solid lines) or to construct an knowledge graph (dashed lines) from a JSON file.
 
 The meta-model that drives our approach is called Facade-X, while the implementation of the approach, supporting files in a variety of formats, is a system named SPARQL Anything. Facade-X is inspired by one of the GoF patterns,6 and it is based on a set of basic data structures that are composed together: containment (inspired by the GoF pattern Composite), ordering (an unbound list), key-values (a map), and typing (the unary predicate of description logic). As such, it can be expressed by using a subset of the RDF specification [\[18\]](#page-28-0): resources, types, properties, and container membership properties. In this work, we consider such fundamental RDF shapes as *structural ontology design patterns*[\[30\]](#page-29-0).
 
@@ -103,7 +100,7 @@ The approach of using a façade for integrating data into RDF pipelines has been
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The image presents three flow diagrams comparing knowledge graph completion (KGC) approaches. (a) shows a traditional KGC cycle with 'Input', 'Observe', 'Design', 'Transform', and 'Output' stages. (b) revises this by adding 'Reengineer' and 'Remodel' stages. (c) illustrates a 'Facade-X' approach using SPARQL, incorporating 'Input', 'Observe', 'Rengineer', 'Remodel', 'Transform', and 'Output'. The diagrams compare the evolution of KGC methodologies. -->
 
-Fig. 2. Alternative Knowledge Graph Construction (KGC) processes.
+Figure 2. Alternative Knowledge Graph Construction (KGC) processes.
 
 shows improvements in performance; *(v)* we discuss challenges and opportunities of the approach by engaging with the reference user community.
 
@@ -185,18 +182,17 @@ In the previous section, we have introduced the Facade-X meta-model and shown ho
 
 ACM Transactions on Internet Technology, Vol. 23, No. 1, Article 6. Publication date: February 2023.
 
-<span id="page-8-0"></span>
 
-| ∀k.NumberKey(k) → Key(k)                                                                          |  |  |  |  |  |  |
+| ∀k.NumberKey(k) → Key(k) | | | | | | |
 |---------------------------------------------------------------------------------------------------|--|--|--|--|--|--|
-| ∀(x,y).hasSlot(x,y) → Container(x) ∧ Slot(y)                                                      |  |  |  |  |  |  |
-| ∀(x,y).hasKey(x,y) → Slot(x) ∧ Key(y)                                                             |  |  |  |  |  |  |
-| ∀(x,y).hasValue(x,y) → Slot(x) ∧ Value(y)                                                         |  |  |  |  |  |  |
-| ∀(x,y).hasSlot(x,y) ↔ hasContainer(y, x)                                                          |  |  |  |  |  |  |
-| ¬∃(x,y, z).hasContainer(x,y) ∧ hasValue(x, z)<br>∀(x,y, z).hasValue(x,y) ∧ hasValue(x, z) → y = z |  |  |  |  |  |  |
-| ∀(x,y, z).hasContainer(x,y) ∧ hasContainer(x, z) → y = z                                          |  |  |  |  |  |  |
-| ∀(c,s1,s2,n).hasSlot(c,s1) ∧ hasSlot(c,s2) ∧ hasKey(s1,n) ∧ hasKey(s2,n) → s1 = s2                |  |  |  |  |  |  |
-|                                                                                                   |  |  |  |  |  |  |
+| ∀(x,y).hasSlot(x,y) → Container(x) ∧ Slot(y) | | | | | | |
+| ∀(x,y).hasKey(x,y) → Slot(x) ∧ Key(y) | | | | | | |
+| ∀(x,y).hasValue(x,y) → Slot(x) ∧ Value(y) | | | | | | |
+| ∀(x,y).hasSlot(x,y) ↔ hasContainer(y, x) | | | | | | |
+| ¬∃(x,y, z).hasContainer(x,y) ∧ hasValue(x, z)<br>∀(x,y, z).hasValue(x,y) ∧ hasValue(x, z) → y = z | | | | | | |
+| ∀(x,y, z).hasContainer(x,y) ∧ hasContainer(x, z) → y = z | | | | | | |
+| ∀(c,s1,s2,n).hasSlot(c,s1) ∧ hasSlot(c,s2) ∧ hasKey(s1,n) ∧ hasKey(s2,n) → s1 = s2 | | | | | | |
+| | | | | | | |
 
 Formats such as CSV, JSON, or XML have different meta-models that can be mapped to RDF in different ways, despite the common patterns shared by them. Facade-X provides a common semantics to encode them all. Facade-X assumes the notion of a façade as "an object that serves as a front-facing interface masking more complex underlying or structural code."11 Applied to our problem of abstracting the reverse engineering of heterogeneous source data, Facade-X is a generic meta-model*(a)*to inform the development of transformers from an open-ended set of formats and*(b)*to generate RDF content in a consistent and predictable way. To support the reader, we introduce a guide scenario reusing the data of the Tate Gallery collection, published on GitHub.12 The repository contains CSV tables with metadata of artworks and artists and a set of JSON files with details about each catalogue record, e.g., details of the hierarchy of archive subjects. Both types of resources include references to Web URLs pointing to digital images of the artworks. The file artwork\_data.csv includes metadata of the artworks in the collection and references several external resources, such as a JSON file with the artwork subject headings and a link to a JPG thumbnail image. Similarly, the file artists\_data.csv includes the list of artists, linking to a collection of JSON documents for each artist.
 
@@ -232,10 +228,10 @@ What about data values? We observe how CSV data may have an optional "header," w
 
 This is an example from the Tate Gallery open data14:
 
-| 1 | id,accession_number,title,     | 1 | [ a fx:root ; rdf:_1 [ xyz:id "1034"; xyz:     |
+| 1 | id,accession_number,title, | 1 | [ a fx:root ; rdf:_1 [ xyz:id "1034"; xyz: |
 |---|--------------------------------|---|------------------------------------------------|
-| 2 | 1035,A00001,"A Figure Bowing", |   | accession_number "A00002"; xyz:title "A Figure |
-| 3 |                                |   | Bowing";  ],  ]                                |
+| 2 | 1035,A00001,"A Figure Bowing", | | accession_number "A00002"; xyz:title "A Figure |
+| 3 | | | Bowing"; ], ] |
 
 **JSON**. The JavaScript Object Notation is specified by ECMA.<sup>15</sup> The syntax defines three types of elements: *objects*, a set of key-value pairs, where keys are supposed to be unique; *values*, which are either strings, numbers, Boolean, or the primitive "null," and *arrays*, which specify sequences (containing other arrays, objects, or values). We interpret objects and arrays as containers. We reuse rdf:Property to link objects to values. Arrays are represented by the ordered sequence component. Values are expressed as rdf:Literal, selecting relevant XSD datatypes from the RDFS specification: xsd:string, xsd:boolean, xsd:int, xsd:float. <sup>16</sup> The following example shows a JSON document with metadata of an artist in the Tate Gallery Collection. The JSON file will be represented as follows in RDF (in Turtle syntax):
 
@@ -246,12 +242,12 @@ This is an example from the Tate Gallery open data14:
 4 "id": 1561,
 5 "activePlaces": [ "Ukrayina", "Moskov" ]
 6 }
-                                                   1 [ a fx:root ;
-                                                   2 xyz:fc "Kazimir Malevich",
-                                                   3 xyz:gender "Male"
-                                                   4 xyz:id 1561^^xsd:int,
-                                                   5 xyz:activePlaces [
-                                                   6 rdf:_1 "Ukrayina"; rdf:_2 "Moskov" ]]
+1 [ a fx:root ;
+2 xyz:fc "Kazimir Malevich",
+3 xyz:gender "Male"
+4 xyz:id 1561^^xsd:int,
+5 xyz:activePlaces [
+6 rdf:_1 "Ukrayina"; rdf:_2 "Moskov" ]]
 ```text
 
 <sup>1</sup>[4https://github.com/tategallery/collection.](https://github.com/tategallery/collection)
@@ -269,7 +265,7 @@ So far, we collected the following components: rdf:Property, rdf:ContainerMember
 ![](_page_10_Figure_4.jpeg)
 <!-- Image Description: This diagram shows a class inheritance hierarchy. `rdfs:Class` is a superclass of an unnamed "any container" class. This container class allows string and list keys, each holding either `rdfs:Class` or `rdfs:Literal` values, with `rdf:type` being a `rdfs:Class`. A `fx:root` (singleton) class inherits from the container. The diagram illustrates the relationships and data types within a specific ontology or data model. -->
 
-Fig. 3. Facade-X/RDF entity-relation diagram.
+Figure 3. Facade-X/RDF entity-relation diagram.
 
 At this stage, we have all we need to implement the basic data structures identified in the previous section into RDF. Figure 3 illustrates the resulting Facade-X/RDF as an entity-relation diagram.
 
@@ -363,19 +359,19 @@ Our job is to extract this information from the web content and express it as da
 
 The first thing to do is to get the list of artists' web pages, which we will subsequently query with SPARQL Anything to extract the useful metadata. The following HTML content snippet gives us a clue:
 
-| v <div class="letter-group" id="letter-group-A"><br/><math>&lt;</math>h4&gt;A<br/><math>\overline{\mathbf{v}}</math> <ul><br/>k<li class="artist" data-filter="collection " data-image="https://imma.ie/wp-content/uploads/2018/11/48-676x1024.jpg">…</li>&lt;<br/>&gt;<li class="artist" data-filter="collection usa " data-image="/wp-content/themes/imma/css/img/no-img-dark.png"></li><br/>v<li class="artist" data-filter="collection " data-image="https://imma.ie/wp-content/uploads/2018/11/845.jpg"></li></ul></div> | $\overline{\mathbf{v}}$ <div id="az-group"></div> |  |
+| v <div class="letter-group" id="letter-group-A"><br/><math>&lt;</math>h4&gt;A<br/><math>\overline{\mathbf{v}}</math> <ul><br/>k<li class="artist" data-filter="collection " data-image="https://imma.ie/wp-content/uploads/2018/11/48-676x1024.jpg">…</li>&lt;<br/>&gt;<li class="artist" data-filter="collection usa " data-image="/wp-content/themes/imma/css/img/no-img-dark.png"></li><br/>v<li class="artist" data-filter="collection " data-image="https://imma.ie/wp-content/uploads/2018/11/845.jpg"></li></ul></div> | $\overline{\mathbf{v}}$ <div id="az-group"></div> | |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|--|
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |  |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                   |  |
-| $\mathbf{v}$ <a href="https://imma.ie/artists/marina-abramovic/"> == <math>\mathcal{S}\theta</math></a>                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                   |  |
-| "Abramović, Marina "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                   |  |
-| <span style=""> abramovic-marina</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                   |  |
-| $\langle$ a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                   |  |
-| $\langle$ /li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                   |  |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| $\mathbf{v}$ <a href="https://imma.ie/artists/marina-abramovic/"> == <math>\mathcal{S}\theta</math></a> | | |
+| "Abramović, Marina " | | |
+| <span style=""> abramovic-marina</span> | | |
+| $\langle$ a> | | |
+| $\langle$ /li> | | |
 
 <sup>2</sup>[1https://spice-h2020.eu.](https://spice-h2020.eu)
 
@@ -403,7 +399,7 @@ ACM Transactions on Internet Technology, Vol. 23, No. 1, Article 6. Publication 
 3 select distinct ?artistUrl ?artistNickname
 4 WHERE {
 5 SERVICE <x-sparql-anything:media-type=text/html,html.selector=#az-group,location=https://imma.ie/artists/>
-          {
+{
 6 [] xhtml:data-image [] ;
 7 rdf:_1 [ xhtml:href ?artistUrl ;
 8 ?i [ a xhtml:span ; rdf:_1 ?artistNickname ]].} .
@@ -466,13 +462,13 @@ Since*V*<sup>∗</sup> subsumes*L* (*G*), we also have that any sentence of a pl
 
 *7.1.2 Proving that Facade-X Subsumes Relational Model.*A**Relational Database (RDB)**is a collection of named relational tables where each table is a subset of the cartesian product of the domain of its attributes. Intuitively, an RDB can be expressed as a collection of containers, one for each tuple stored in the database, where each container is made up of*(i)*the name of the table storing the tuple;*(ii)*the names of the attributes of the tuple;*(iii)*the values of the tuple. For example, consider the Restaurant Database shown in Table [2](#page-17-0) constituted by two relational tables:*(i) Customer*that stores the name and tax ID of the customers of a restaurant; and*(ii) Order*that stores the orders of the customers of the restaurant. The set of containers expressing the database is shown in the Listings 3.
 
-| (Customer, Customer ID, Tax ID, Name, 1, XXX1, Vincent Vega)          |
+| (Customer, Customer ID, Tax ID, Name, 1, XXX1, Vincent Vega) |
 |-----------------------------------------------------------------------|
-| (Customer, Customer ID, Tax ID, Name, 2, XXX2, Jules Winnfield)       |
-| (Customer, Customer ID, Tax ID, Name, 3, XXX3, Mia Wallace)           |
-| (Order, Order No, Customer ID, Product, 1, 1, Royale with Cheese)     |
-| (Order, Order No, Customer ID, Product, 2, 2, Big Kahuna Burger)      |
-| (Order, Order No, Customer ID, Product, 3, 3, Durward Kirby Burger)   |
+| (Customer, Customer ID, Tax ID, Name, 2, XXX2, Jules Winnfield) |
+| (Customer, Customer ID, Tax ID, Name, 3, XXX3, Mia Wallace) |
+| (Order, Order No, Customer ID, Product, 1, 1, Royale with Cheese) |
+| (Order, Order No, Customer ID, Product, 2, 2, Big Kahuna Burger) |
+| (Order, Order No, Customer ID, Product, 3, 3, Durward Kirby Burger) |
 | (Order, Order No, Customer ID, Product, 4, 3, Five Dollar Milk Shake) |
 
 Listing 3. A set of containers expressing the restaurant database.
@@ -484,16 +480,15 @@ Without loss of generality, we can express each tuple*<sup>t</sup>* <sup>=</sup>
 
 <sup>30</sup>D indicates the domain of a function.
 
-<span id="page-17-0"></span>
 
-| Customer ID | Tax ID | Name            | Order No | Customer ID | Product                |
+| Customer ID | Tax ID | Name | Order No | Customer ID | Product |
 |-------------|--------|-----------------|----------|-------------|------------------------|
-|             |        |                 | 1        | 1           | Royale with Cheese     |
-| 1           | XXX1   | Vincent Vega    | 2        | 2           | Big Kahuna Burger      |
-| 2           | XXX2   | Jules Winnfield | 3        | 3           | Durward Kirby Burger   |
-| 3           | XXX3   | Mia Wallace     | 4        | 3           | Five Dollar Milk Shake |
-| Customer    |        |                 |          |             |                        |
-|             |        |                 |          | Order       |                        |
+| | | | 1 | 1 | Royale with Cheese |
+| 1 | XXX1 | Vincent Vega | 2 | 2 | Big Kahuna Burger |
+| 2 | XXX2 | Jules Winnfield | 3 | 3 | Durward Kirby Burger |
+| 3 | XXX3 | Mia Wallace | 4 | 3 | Five Dollar Milk Shake |
+| Customer | | | | | |
+| | | | | Order | |
 
 Table 2. Restaurant Database
 
@@ -523,9 +518,9 @@ ACM Transactions on Internet Technology, Vol. 23, No. 1, Article 6. Publication 
 
 <span id="page-18-0"></span>The intent of the Facadify function is to interpret the components of the input format as basic data structures and to instantiate the Facade-X model accordingly. For example, the containers derived from member can be interpreted as key/value pairs. An example of such transformation is provided in the Listings 4 and 5.
 
-| c: ((u1, u2), JSON)<br>u1: ((name, Orlando), member)<br>u2: ((family name, Bloom), member) | hasSlot(c, u1)<br>hasValue(u1, Orlando)<br>hasSlot(c, u2)<br>hasValue(u2, Bloom)<br>hasKey(u1, name)<br>hasKey(u2, family name) |  |
+| c: ((u1, u2), JSON)<br>u1: ((name, Orlando), member)<br>u2: ((family name, Bloom), member) | hasSlot(c, u1)<br>hasValue(u1, Orlando)<br>hasSlot(c, u2)<br>hasValue(u2, Bloom)<br>hasKey(u1, name)<br>hasKey(u2, family name) | |
 |--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|--|
-| Listing 4. Container-non-terminal pairs.                                                   | Listing 5. Facade-X model.                                                                                                      |  |
+| Listing 4. Container-non-terminal pairs. | Listing 5. Facade-X model. | |
 
 ![](_page_18_Figure_3.jpeg)
 <!-- Image Description: The image shows a comparison of two data representations. On the left is a less structured representation of a person's name (Orlando Bloom), listing "name" and "family name" separately. The right side displays a more structured representation using a list-like notation, explicitly labeling the "name" and "family_name" fields with their respective string values. This illustrates a transition to a more formal and machine-readable data format, likely within the context of data modeling or database design. -->
@@ -544,14 +539,14 @@ An example of triplification is shown in Listing 6.
 
 In this section, we laid the theoretical foundation of the façade-based KGC. We demonstrate that the Facade-X meta-model is general and flexible enough to specify data with any format described by a grammar. We then specify KGC in terms of two activities, namely, *containerification*(i.e., the definition of rules for generating a set of containers from a sequence of values) and*facadification*(i.e., the instantiation of Facade-X from a set of containers). Note that, although containerification and facadification functions out of a grammar might be automated, we currently assume that those functions are designed by humans.
 
-# 7.2 Cognitive Complexity
+## 7.2 Cognitive Complexity
 
 We present a quantitative analysis on the cognitive complexity of SPARQL Anything, SPARQL Generate, RML, and ShExML frameworks. One effective measure of complexity is the number of distinct items or variables that need to be combined within a query or expression [\[33\]](#page-29-0). Such a measure of complexity has previously been used to explain difficulties in the comprehensibility of Description Logic statements [\[62\]](#page-30-0). Specifically, we counted the number of tokens needed for expressing a set of competency questions. We selected four JSON files from the case studies of the SPICE project where each file contains the metadata of artworks of a collection. Each file is organised as a JSON array containing a list of JSON objects (one for each artwork). This simple data structure avoids favouring one approach over the others. Then, an analysis of the schema of the selected resources allowed us to define a set of 12**competency questions (CQs)**that were then specified as SPARQL queries or mapping rules according to the language of each framework, in particular:*(i)*8 CQs (named q1–q8), aimed at retrieving data from the sources, were specified as SELECT queries (according to SPARQL Anything and SPARQL Generate);*(ii)*4 CQs (named q9–q12), meant for transforming the source data to RDF, were expressed as CONSTRUCT queries (according to SPARQL Anything and SPARQL Generate) or as mapping rules complying with RML and ShExML. These queries/rules intend to generate a blank node for each artwork and to attach the artwork's metadata as data properties of the node. Competency questions, queries, experimental data, and code used for the experiment are available on the GitHub repository of the SPARQL
 
 <span id="page-19-0"></span>![](_page_19_Figure_1.jpeg)
 <!-- Image Description: The image presents two bar charts comparing the number of tokens and distinct tokens generated per query across four methods: SPARQL Anything, SPARQL-Generate, RML, and ShExML. Chart (a) shows the total number of tokens per query, while (b) illustrates the number of unique tokens. Both charts show a significant increase in tokens (both total and unique) for queries q9-q12, suggesting a potential relationship between query complexity and token generation. -->
 
-Fig. 6. Analysis of the number of tokens needed for expressing each competency question.
+Figure 6. Analysis of the number of tokens needed for expressing each competency question.
 
 Anything project.<sup>33</sup> Finally, we tokenized the queries (by using "(){},;\n\t\r as token delimiters) and we computed the total number of tokens and the number of distinct tokens needed for each query. By observing the average number of tokens (cf. Figure 6(a)) per query, we can conclude that RML is very verbose (109.75 tokens) with respect to SPARQL Anything (26.25 tokens) and SPARQL Generate (30.75 tokens) whose verbosity is similar (they differ of ∼6.5%), and ShExML, which required 54.75 tokens, on average. However, the average number of*distinct*tokens (cf. Figure 6(b)) per query shows that SPARQL Anything requires less cognitive load than other frameworks. In fact, while SPARQL Anything required 18.25 distinct tokens, SPARQL Generate needed 25.5 distinct tokens (∼39.72% more), RML 45.25 distinct tokens (∼150% more), and ShExML 49.25 (∼168% more).
 
@@ -571,9 +566,9 @@ ACM Transactions on Internet Technology, Vol. 23, No. 1, Article 6. Publication 
 ![](_page_20_Figure_1.jpeg)
 <!-- Image Description: The image presents two bar and line charts comparing the execution times of four RDF data mapping tools: SPARQL Anything, SPARQL-Generate, RML Mapper, and ShExML. (a) shows execution time per individual query (12 queries total), demonstrating varied performance across queries. (b) illustrates execution time scaling with increasing input data size, revealing how performance changes as input grows. Both charts use milliseconds (ms) for the execution time. The purpose is to compare the efficiency and scalability of the different tools. -->
 
-Fig. 7. Analysis of the execution time.
+Figure 7. Analysis of the execution time.
 
-# 7.4 Experiments with a Triple-filtering Approach
+## 7.4 Experiments with a Triple-filtering Approach
 
 In this section, we experiment with an alternative strategy to the one of transforming the whole content before query execution, which we call*triple-filtering*. This approach inspects the SPARQL Anything query and only transforms the parts of the data matching any of the triple patterns included. We select two queries from the evaluation setting previously introduced. The first is focused on querying an open data file in SPARQL (Scenario 1); the second, on building a knowledge graph from legacy data (Scenario 2).
 
@@ -600,7 +595,7 @@ We execute the three queries with JSON documents of increasing size, from 10 to 
 <span id="page-21-0"></span>![](_page_21_Figure_1.jpeg)
 <!-- Image Description: The image presents two sets of bar charts (Scenarios 1 and 2) illustrating performance results. Scenario 1 shows query response times (y-axis, in seconds) across varying data scales (x-axis, from 10 to 10k and then 1M), comparing three different methods (represented by different colored bars). Scenario 2 shows response times for querying artists, artworks, and subjects, again comparing the same three methods. Error bars indicate variance. The charts demonstrate how response times scale with different data sizes and query types. -->
 
-Fig. 8. The x axis reports the size of the collection, while the y axis the execution time in seconds. The first query is in blue bars, the second green, and the third red. The marked bars refer to the triple-filtering method.
+Figure 8. The x axis reports the size of the collection, while the y axis the execution time in seconds. The first query is in blue bars, the second green, and the third red. The marked bars refer to the triple-filtering method.
 
 files with artists' and artworks' metadata. The latter references a collection of 69,202 JSON files, containing additional metadata such as a hierarchy of subjects. Not all of the data are needed for the mappings. We report the execution of three CONSTRUCT queries.<sup>35</sup> Results are reported in Figure 8(b). The first (Artists) joins the two CSV and produces a KG of artists' metadata linked to their collection of artworks (our method saves 43% of the time). The second (Artworks) selects only the artworks and artists' names from the artworks CSV (our method saves 47% of the time). The third (Artworks-s) extracts basic metadata about artworks and, for each one of them, queries the JSON file for extracting the list of subjects (our method saves 14% of the time). This last query accesses the CSV file and all the referenced artworks' JSON files, meaning that most of the time is spent in I/O operations on the file system.
 
@@ -613,7 +608,7 @@ To add an empirical element to the multi-faceted evaluation of the approach, we 
 ![](_page_21_Figure_7.jpeg)
 <!-- Image Description: The image displays three pie charts (a, b, c) showing the percentage distribution of responses to a perceived difficulty question. Each segment represents a difficulty level: very difficult, difficult, neutral, easy, and very easy. The charts likely compare responses across different groups or conditions, illustrating varying levels of perceived ease/difficulty in completing a task or process. The charts' purpose is to visually present quantitative survey data related to usability or task complexity within the paper. -->
 
-Fig. 9. We asked users about the usability of three notations: (a) RML, (b) SPARQL Generate, and (c) SPARQL Anything.
+Figure 9. We asked users about the usability of three notations: (a) RML, (b) SPARQL Generate, and (c) SPARQL Anything.
 
 survey participants were Semantic Web practitioners, SPARQL developers/users, and Master Students learning advanced Semantic Web technologies. The survey was open for 1 week, and 27 completed responses were received.
 
@@ -635,15 +630,15 @@ Participants were asked whether they transformed all or part of a resource. 11.1
 
 The final set of questions **compared the usability of three notations**for transforming non-RDF data: RML, SPARQL Generate, and SPARQL Anything. Participants were presented with a JSON file containing six metadata properties of two different artwork images. Participants were then presented with the RML, SPARQL Generate, and SPARQL Anything notations required to transform the file. For each notation, the participant rated its difficultly level and provided an explanation for their rating. 7.4% rated the RML code as very easy, 22.2% as easy, 29.6% as neutral, and 40.7% as difficult. In explanation, 18.5% found the RML syntax straightforward when used in combination with the JSON file structure. 37% commented that RML would become easier to use with greater familiarity. 22% stated that they found the syntax verbose. 14.8% rated the SPARQL Generate code as very easy, 40.7% as easy, 29.6% as neutral, and 14.8% as difficult. In explanation, <span id="page-23-0"></span>25.9% distinguished the GENERATE and ITERATOR sections of the code, with 14.8% explicitly stating that the GENERATE section was easier to understand. 33.3% commented that SPARQL Generate would become easier to understand with familiarity. 14.8% stated that SPARQL Generate was concise, 18.5% that it was intuitive.**29.6% rated the SPARQL Anything code as very easy, 63% as easy, 3.7% as neutral, and 3.7% as difficult**. In explanation, 29.6% commented on the simplicity of mapping JSON to RDF in the WHERE clause. 37% commented on how only standard SPARQL features were required. 11.1% described the notation as concise. This verdict is summarised in Figure [9.](#page-21-0)
 
-# 8 RELATED WORK
+## 8 RELATED WORK
 
 We consider related work in end-user development, approaches to extend the SPARQL language, and methods for Semantic Lifting.
 
-# 8.1 End-user Development
+## 8.1 End-user Development
 
 Motivation for our work resides in research on end-user development and human interaction with data. End-user development is defined by Reference [\[43\]](#page-29-0) as *"methods, techniques, and tools that allow users of software systems, who are acting as non-professional software developers, at some point to create, modify or extend a software artefact."*Many end-user development tasks are concerned with the use of software to manipulate data. End-user development initially focused on the use of spreadsheets and related tools but has more recently evolved to encompass sending, receiving, and manipulating data from web APIs, IoT devices, and robots [\[52\]](#page-30-0). Unlike professional software development, end-user development involves the construction of software for personal rather than public use [\[39\]](#page-29-0) to carry out professional activities. Many SPARQL users fall into the category of enduser developer. In a survey of SPARQL users, Reference [\[61\]](#page-30-0) found that although 58% came from the computer science and IT domain, other SPARQL users came from non-IT areas, including social sciences and the humanities, business and economics, and biomedical, engineering, or physical sciences. Findings in this area [\[51\]](#page-30-0) suggest that the data with which users work is more often primarily list-based and/or hierarchical rather than tabular. For example, Reference [\[14\]](#page-28-0) proposes an extension to spreadsheets to explicitly support hierarchical data, and Reference [\[34\]](#page-29-0) proposes an alternative formulation to spreadsheets in which data is represented as*list-of-lists*, rather than tables. Therefore, our proposal goes in this direction and accounts for recent findings in end-user development research.
 
-# 8.2 Approaches to Extend SPARQL
+## 8.2 Approaches to Extend SPARQL
 
 We survey approaches to extend SPARQL. A standard method for extending SPARQL is by providing custom functions to be used in FILTER or BIND operators.<sup>37</sup> Query processing engines can extend SPARQL by using so-called magic properties. This approach defines custom predicates to be used for instructing specific behaviour at query execution.<sup>38</sup> SPARQL Generate [\[42\]](#page-29-0) introduces a novel approach for performing data transformation from heterogeneous sources into RDF by extending the SPARQL syntax with a new GENERATE operator [\[42\]](#page-29-0). The method introduces two more operators, SOURCE and ITERATOR. Custom functions perform ad hoc operations on the supported formats, for example, relying on XPath or JSONPath. However, there are also approaches to extend SPARQL without changes to the standard syntax. For example, BASIL [\[24\]](#page-28-0) allows to
 
@@ -653,7 +648,7 @@ We survey approaches to extend SPARQL. A standard method for extending SPARQL is
 
 define parametric queries by enforcing a convention in SPARQL variable names. SPARQL Anything reuses BASIL variables to support parametric queries and file names. SPARQL Microservice [\[46\]](#page-29-0) provides a framework that, on the basis of API mapping specification, wraps web APIs in SPARQL endpoints, and uses JSON-LD profile to translate the JSON responses of the API into RDF. In this article, we follow a similar, minimalist approach and extend SPARQL by *overriding*the behaviour of the SERVICE operator.
 
-# 8.3 Semantic Lifting
+## 8.3 Semantic Lifting
 
 We now discuss approaches to Semantic Lifting from the user standpoint. In general, Semantic Lifting refers to the task of transforming non-RDF resources into RDF. We can classify approaches to Semantic lifting into format-based and ontology-based.
 *8.3.1 Format-based Lifting.*In the format-based lifting the transformation depends solely on the input format.

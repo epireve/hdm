@@ -29,7 +29,6 @@ keywords:
 - inter-disciplinary
 ---
 
-
 # Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0
 
 Ben Gaffineta,b, Jana Al Haj Ali<sup>a</sup> , Yannick Naudet<sup>b</sup> , Herv´e Panetto<sup>a</sup>
@@ -56,21 +55,21 @@ Before the conceptual understanding between communities drifts further apart we 
 
 Recently a few landmark reviews have been performed on the progress of HDTs. The reviews come from authors with various backgrounds which informs their point of view and understanding and restricts the scope of their efforts. From Industry multiple reviews are investigating topics that are closely related and overlapping with HDTs, namely the topics of Humancentric DTs [10] and Human-Robot Collaboration DTs [11]. One review from Industry is exclusively focused on HDTs [12]. From Healthcare four reviews that exclusively focus on HDTs have been published [13, 14, 15, 16]. From the field of Mobility a pivotal review [17] has provided a solid basis for HDT developments in their discipline. Finally a set of two reviews are general in scope [18, 19] without restricting themselves to a specific application domain. Besides the application area, the reviews also differ in their focus. Some are interested in the conceptualisation of HDTs while others explore the enabling technologies to provide guidance for designers and developers. See Table 1
 
-| Reference                   | Domain     | Scope    | Focus      |  |
+| Reference | Domain | Scope | Focus | |
 |-----------------------------|------------|----------|------------|--|
-| Asad et al. [10]            | Industry   | Other DT | Pragmatic  |  |
-| Chen et al. [14]            | Healthcare | HDT      | Pragmatic  |  |
-| Chen et al. [16]            | Healthcare | HDT      | Pragmatic  |  |
-| Hu et al. [17]              | Mobility   | HDT      | Pragmatic  |  |
-| Lauer-Schmaltz et al. [15]  | Healthcare | HDT      | Conceptual |  |
-| Lin et al. [19]             | General    | HDT      | Conceptual |  |
-| Miller and Spatz [18]       | General    | HDTS     | Conceptual |  |
-| Ramasubramanian et al. [11] | Industry   | Other DT | Pragmatic  |  |
-| Sahal et al. [13]           | Healthcare | HDT      | Pragmatic  |  |
-| Wang et al. [12]            | Industry   | HDT      | Pragmatic  |  |
-| Our Review                  | General    | HDT      | Conceptual |  |
+| Asad et al. [10] | Industry | Other DT | Pragmatic | |
+| Chen et al. [14] | Healthcare | HDT | Pragmatic | |
+| Chen et al. [16] | Healthcare | HDT | Pragmatic | |
+| Hu et al. [17] | Mobility | HDT | Pragmatic | |
+| Lauer-Schmaltz et al. [15] | Healthcare | HDT | Conceptual | |
+| Lin et al. [19] | General | HDT | Conceptual | |
+| Miller and Spatz [18] | General | HDTS | Conceptual | |
+| Ramasubramanian et al. [11] | Industry | Other DT | Pragmatic | |
+| Sahal et al. [13] | Healthcare | HDT | Pragmatic | |
+| Wang et al. [12] | Industry | HDT | Pragmatic | |
+| Our Review | General | HDT | Conceptual | |
 
-Table 1: Classification of prior reviews and alignment of our own review.
+**Table 1:** Classification of prior reviews and alignment of our own review.
 
 for an overview on the domain, scope and focus of each review. We elaborate on the content of the past reviews and the perceived research gap we seek to address.
 
@@ -106,23 +105,23 @@ To achieve exhaustive and reproducible results we adopt a methodology that consi
 
 To align our efforts with the main objective of the systematic literature review, we define an overall guiding research question which is:
 
-# What is a general definition for HDTs that applies to all application areas?
+## What is a general definition for HDTs that applies to all application areas?
 
 From the overall guiding question, we define a set of specific research questions (RQ) to extract relevant information from selected papers. We list our research questions below alongside their rationale.
 
-| ID    | Reseach Question                              | Section       |
+| ID | Reseach Question | Section |
 |-------|-----------------------------------------------|---------------|
-| RQ1   | How<br>has<br>the<br>research<br>into<br>HDTs | Section 4.1   |
-|       | evolved?                                      | Section 4.2   |
-| RQ2   | What are the main application areas for       | Section 4.1   |
-|       | HDTs?                                         |               |
-| RQ3.1 | What is the scope of the twinned entity?      | Section 4.3.2 |
-| RQ3.2 | How is the concept of DT understood           | Section 4.3.1 |
-|       | and used?                                     |               |
-| RQ4   | What are the challenges for HDT devel         | Section 6     |
-|       | opment and future research directions?        |               |
+| RQ1 | How<br>has<br>the<br>research<br>into<br>HDTs | Section 4.1 |
+| | evolved? | Section 4.2 |
+| RQ2 | What are the main application areas for | Section 4.1 |
+| | HDTs? | |
+| RQ3.1 | What is the scope of the twinned entity? | Section 4.3.2 |
+| RQ3.2 | How is the concept of DT understood | Section 4.3.1 |
+| | and used? | |
+| RQ4 | What are the challenges for HDT devel | Section 6 |
+| | opment and future research directions? | |
 
-Table 2: Summary of Research Questions with links to the relevant sections.
+**Table 2:** Summary of Research Questions with links to the relevant sections.
 
 - RQ1: How has the research into HDTs evolved? With this research question we quantify the growth rate of HDT research and identify the main research locations that are active in the field. These insights help understand the influences and centre of interest for HDT research overall. The results of this research question are of special interest when considering them alongside the application areas which are at the centre of RQ2.
 - RQ2: What are the main application areas for HDTs? While the concept of HDT has taken strong roots in manufacturing Industry and Healthcare, it is continuously expanding into new domains. With this research question we gain insights into the variety of fields that contribute to conceptualising and building HDTs. We have to understand the differences of vocabulary and methods for each field to establish a useful definition and taxonomy for all applications.
@@ -133,7 +132,7 @@ whether the authors explicitly use an existing definition or propose their own. 
 - RQ3.1: What is the scope of the twinned entity? The nature of the twinned entity varies depending on the application case. With this question we investigate whether there is consensus on the twinned entity.
 - RQ3.2: How is the concept of DT understood and used? Not all HDTs are implemented, or conceptualised, with all the characteristics of a full DT. With this research question we explore proposed concepts and case studies and to what extent they include characteristics from DTs.
 
-# • RQ4: What are the challenges for HDT development and future research directions?
+## • RQ4: What are the challenges for HDT development and future research directions?
 
 ## 2. Review Protocol
 
@@ -141,11 +140,11 @@ To guarantee reproducibility of results, we define a protocol for conducting the
 
 ## 2.1. Search Strategy
 
-| 1. SCOPUS              | 5. MEDLINE        |
+| 1. SCOPUS | 5. MEDLINE |
 |------------------------|-------------------|
-| 2. Web of Science      | 6. PubMed         |
-| 3. ACM Digital Library | 7. ArXiv          |
-| 4. IEEE Xplore         | 8. Google Scholar |
+| 2. Web of Science | 6. PubMed |
+| 3. ACM Digital Library | 7. ArXiv |
+| 4. IEEE Xplore | 8. Google Scholar |
 
 We select 8 databases to identify relevant research on HDTs. Given the novelty of the HDT concept and the limited literature we choose to use Google Scholar and arXiv to include preprint articles instead of restricting ourselves to journal and conference papers. The full list of selected databases can be seen at the start of the Section. The databases are queried using search strings that consist of keywords and logical operators. To cover the largest possible extent, we apply the search to the full body text instead of restricting ourselves to the Title, Keywords or Abstracts. To minimise the number of irrelevant papers collected we apply the following stopping criterion: Stop collecting articles after encountering 10 consecutive articles with no reasonable link to the search query. The stopping criterion is especially relevant for Google Scholar.
 
@@ -174,19 +173,19 @@ S1 = "Human Digital Twin" OR "Patient Digital Twin" OR "Worker Digital Twin" OR 
 
 An alternative approach we considered was a composite search string e.g.: ("Human" OR "Patient") AND "Digital Twin". Unfortunately this approach led to an unmanageable number of results, many with poor relevance. The above described string will include papers that use the words "Human" and "Digital Twin" independently and far apart in the article. We queried the
 
-| Database        | Number of Papers | Percentage |
+| Database | Number of Papers | Percentage |
 |-----------------|------------------|------------|
-| ACM             | 23               | 4.11%      |
-| arXiv           | 9                | 1.61%      |
-| Google Scholar  | 302              | 53.93%     |
-| IEEE Xplore     | 37               | 6.61%      |
-| MEDLINE         | 10               | 1.79%      |
-| PubMed          | 10               | 1.79%      |
-| SCOPUS          | 71               | 12.68%     |
-| Total collected | 560              | 100.00%    |
-| Total unique    | 389              | 69.46%     |
+| ACM | 23 | 4.11% |
+| arXiv | 9 | 1.61% |
+| Google Scholar | 302 | 53.93% |
+| IEEE Xplore | 37 | 6.61% |
+| MEDLINE | 10 | 1.79% |
+| PubMed | 10 | 1.79% |
+| SCOPUS | 71 | 12.68% |
+| Total collected | 560 | 100.00% |
+| Total unique | 389 | 69.46% |
 
-Table 3: Number or records extracted by database and total number of unique records
+**Table 3:** Number or records extracted by database and total number of unique records
 
 databases listed in Section 3.2.1 on June 15th 2023 and obtain a total of 1009 results. During the collection of records our stopping criterion is applied which reduces the number of collected records to 560. The breakdown of how many results have been found for each database, and how many are unique, are listed in 3.3.
 
@@ -211,7 +210,7 @@ We have gathered all papers on HDTs based on our query defined in Section 3.3, i
 ![](_page_14_Figure_0.jpeg)
 <!-- Image Description: This image displays a timeline charting the development of Human Digital Twins (HDTs). It shows key milestones, including the first mention of HDTs in scientific literature (2018), categorization into passive, semi-active, and active HDTs (2019), and the introduction of an HDT conceptual model (2021). The timeline also features descriptions of HDTs and their components, illustrating the evolution of the concept and its applications across various fields like healthcare and mobility. The figure uses text boxes and a horizontal timeline to organize the information chronologically. -->
 
-Figure 1: Timeline of Human Digital Twins (HDT) and various conceptual perspectives.
+**Figure 1:** Timeline of Human Digital Twins (HDT) and various conceptual perspectives.
 
 another domain, namely into Healthcare [22]. Within only 3 years the number of publications in Healthcare surpassed the ones from Industry, and is now the most active application area in terms of number of scientific publications. Since 2020 the concept of HDT is entering many different application areas. The number of application areas has been increasing since. Two notable application domains that emerged later are Mobility, and Metaverse applications. Research in Mobility applications started in 2021 [23] and has experienced a slight increase since.
 
@@ -220,17 +219,17 @@ another domain, namely into Healthcare [22]. Within only 3 years the number of p
 ![](_page_15_Figure_0.jpeg)
 <!-- Image Description: This bar chart displays the number of publications per year (2017-2023) categorized by industry sector: Healthcare, Industry, Metaverse, Mobility, and Other. It shows a significant increase in publications across all sectors from 2017 to 2023, with Healthcare and Industry consistently showing the highest numbers. The chart's purpose is to illustrate trends in publication output within different technological sectors over time. -->
 
-Figure 2: Number of publications by year and by application area. In 2023 papers were screened until the 15th of June.
+**Figure 2:** Number of publications by year and by application area. In 2023 papers were screened until the 15th of June.
 
 ![](_page_15_Figure_2.jpeg)
 <!-- Image Description: The image contains two charts analyzing paper publications. (a) is a pie chart showing the distribution of papers across five application categories: Healthcare (26), Industry (29), Metaverse (7), Mobility (5), and Other (23). (b) is a bar chart and line graph showing the number of unique categories and total number of papers published each year from 2020 to 2023, illustrating a growth trend. Both charts likely demonstrate the topic distribution and publication volume in a specific research field over time. -->
 
-Figure 3: (a) Total number of publications by application area. (b) Total number of papers categorised as "Other" and number of unique categories that have less than 4 papers.
+**Figure 3:** (a) Total number of publications by application area. (b) Total number of papers categorised as "Other" and number of unique categories that have less than 4 papers.
 
 ![](_page_16_Figure_0.jpeg)
 <!-- Image Description: The bar chart displays the number of publications per year (2017-2023) categorized by continent (Africa, Asia, Europe, North America). It illustrates the publication trend over time for each region. The year 2022 shows the highest total number of publications, primarily from Europe. The chart's purpose is to visually represent geographical distribution of publications within the study's timeframe. -->
 
-Figure 4: Number of publications by year and continent.
+**Figure 4:** Number of publications by year and continent.
 
 ## 2. Geographic Distribution
 
@@ -243,7 +242,7 @@ This section provides an answer to RQ3: What is the conceptual understanding, or
 ![](_page_17_Figure_0.jpeg)
 <!-- Image Description: This stacked bar chart displays the number of publications per country categorized by sector: Healthcare, Industry, Metaverse, Mobility, and Other. The y-axis represents the publication count, and the x-axis lists various countries. The chart's purpose is to visualize the geographical distribution of publications across different sectors, highlighting which countries are most prolific in each area. The USA shows the highest overall publication count. -->
 
-Figure 5: Number of publications by country and application area.
+**Figure 5:** Number of publications by country and application area.
 
 the appearance of conflicting perspectives on the HDT concept. A point of disagreement is the nature of the data flows between the human and HDT. To be precise HDTs are presented as simulation models without continuous synchronisation [9, 24] or as a fully synchronised digital representation that maintains bi-directional data flow with its human [25]. A second point of contention is the scope of the HDT's real-world twin. In Miller and Spatz [18] an HDT may model a class of humans, while a more common conception is that HDTs model human individuals.
 
@@ -265,7 +264,7 @@ In 2018 a major paper [31] presents how the concept of DT is used differently in
 ![](_page_19_Figure_0.jpeg)
 <!-- Image Description: The image illustrates three representations of digital twins: digital model, digital shadow, and digital twin. Each panel shows a physical object (grey box with gears) and a digital object (light blue box with circuit diagram). Arrows indicate automatic (solid) and manual (dashed) data flow between them. The digital model uses only manual data flow, the digital shadow uses automatic data flow from physical to digital object, and the digital twin features bidirectional automatic data flow. The image clarifies the distinctions between these concepts. -->
 
-Figure 6: (a) Digital Model, (b) Digital Shadow and (c) Digital Twin as introduced in Kritzinger et al. [31]. The categories are distinguished by the level of data integration.
+**Figure 6:** (a) Digital Model, (b) Digital Shadow and (c) Digital Twin as introduced in Kritzinger et al. [31]. The categories are distinguished by the level of data integration.
 
 (i) Digital Models represent physical objects without any automated data exchange (e.g. simulations): "A change in state of the physical object has no direct effect on the digital object and vice versa." [31]
 
@@ -280,11 +279,11 @@ As an additional anchor for our understanding of DTs we use a more recent defini
 
 | Definition provided | Digital Twin | Digital Shadow | Digital Model |
 |---------------------|--------------|----------------|---------------|
-| or referenced       | Count        | Count          | Count         |
-| Yes                 | 39           | 5              | 12            |
-| No                  | 10           | 6              | 18            |
+| or referenced | Count | Count | Count |
+| Yes | 39 | 5 | 12 |
+| No | 10 | 6 | 18 |
 
-Table 4: Number of publications grouped by level of integration and whether they provide a definition before using the HDT concept.
+**Table 4:** Number of publications grouped by level of integration and whether they provide a definition before using the HDT concept.
 
 conceptual approach and implement it in the same paper are counted as case study papers only.
 
@@ -297,7 +296,7 @@ A second major factor that impacts the integration level is whether the paper is
 ![](_page_21_Figure_0.jpeg)
 <!-- Image Description: This stacked bar chart displays the number of publications categorized by topic and type of digital technology: Digital Model, Digital Shadow, and Digital Twin. Each bar represents a category (e.g., Healthcare, Industry, Metaverse), with segments indicating the count of publications focusing on each digital technology within that category. The chart illustrates the relative prevalence of different digital technologies across various application domains in the literature. -->
 
-Figure 7: Level of data integration in reviewed paper, categorised by application domain and whether the study is conceptual in nature or a practical case-study.
+**Figure 7:** Level of data integration in reviewed paper, categorised by application domain and whether the study is conceptual in nature or a practical case-study.
 
 the concept. All of the conceptual proposals are at least Digital Shadows indicating a more strict adherence to the tenants of digital twinning in the community. Nonetheless when implementing case studies nearly a third of the papers present digital models. Only Mobility applications succeed in having full data integration for both their conceptual models and implemented case studies, however the field is rather new and only 5 publications have been analysed. A third of papers from Healthcare that focus on the conceptual aspects of HDTs propose Digital Models instead, indicating a drift in conceptual understanding. Actual case studies are dominated by Digital Models because the research is mostly focused on creating working models first, and integrating said models later. Metaverse applications are highly focused on 3D avatar creation which tend to be decoupled from any human subject, as a consequence they should be considered Digital Models.
 
@@ -318,7 +317,7 @@ From this analysis we can observe the overwhelming consensus that the twinned en
 ![](_page_23_Figure_0.jpeg)
 <!-- Image Description: The pie chart displays the distribution of 85+2+3=90 data points across three categories: "Human individual" (94.44%), "Human role" (3.33%), and "System containing humans" (2.22%). The chart likely illustrates the prevalence of different perspectives or entities in a dataset analyzed in the paper, potentially related to human-centered systems or similar topics. The large proportion of "Human individual" suggests a focus on individual human experiences within the study. -->
 
-Figure 8: Count of publications categorised by the nature of the twinned entity.
+**Figure 8:** Count of publications categorised by the nature of the twinned entity.
 
 from a human user of the HDT, which is similar to the operator of a traditional DT.
 
@@ -331,7 +330,7 @@ For our analysis, we come back to the high-level model of a DT and its twinned e
 ![](_page_24_Figure_0.jpeg)
 <!-- Image Description: The image is a diagram illustrating the concept of digital twins. It shows two columns, "Physical World" and "Digital World," with corresponding representations of physical objects, twinned entities, and humans, linked to their digital counterparts (digital objects, digital twins, and human digital twins). The diagram clarifies terminology, differentiating between various types of digital representations and their scope (general vs. human-only). Boxes list synonyms for physical and digital entities, aiding in defining the terminology and clarifying the various types of digital twins. -->
 
-Figure 9: Vocabulary for Digital Twin and Human Digital Twin.
+**Figure 9:** Vocabulary for Digital Twin and Human Digital Twin.
 
 tem. Likewise, an HDT receives data automatically from a human individual through a data acquisition interface. However additional data can be entered manually. The data is processed and models are run to create feedback that is returned through a human-machine interface to the twinned human. How the feedback is given represents a major difference from traditional DTs and is discussed in a dedicated Section 5.4.
 
@@ -344,7 +343,7 @@ For DTs in general the twinned entity can be any physical object. One aspect tha
 ![](_page_25_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates four digital twin approaches for human-machine interaction. (i) shows a human digital model built from manual data; (ii) a shadow twin using automatic data flow; (iii) a human digital twin incorporating both; and (iv) a traditional digital twin linked to a technical system. Arrows denote automatic (solid) and manual (dashed) data flow between the human individual and their digital representation. The diagram clarifies different data acquisition methods and their resulting digital twin types. -->
 
-Figure 10: Overview of entities and data flows for (i) Human Digital Model; (ii) Human Digital Shadow; (iii) Human Digital Twin and; (iv) traditional Digital Twin.
+**Figure 10:** Overview of entities and data flows for (i) Human Digital Model; (ii) Human Digital Shadow; (iii) Human Digital Twin and; (iv) traditional Digital Twin.
 
 However there is a special case which tests the boundary of this condition. Is it still an HDT if the twinned entity is a human individual including a strongly coupled technical system? A system is strongly coupled when its components are highly interdependent and hard to separate. A hypothetical example would be a pacemaker or insulin pump where the twinned human is highly dependent on the technical system's functioning. In contrast, for weakly coupled systems the human can remove themselves from the interaction and exist independently. An illustrative example of a weakly coupled technical system is a smart car that provides driver assistance [17]. Exoskeletons are another great example, where the coupling can be weak if a worker is using the exoskeleton temporarily [37], or strong if the augmented human is permanently dependent on the system.
 
@@ -353,7 +352,7 @@ We take the position that a single DT that encompasses a human and a weakly coup
 ![](_page_26_Figure_0.jpeg)
 <!-- Image Description: This diagram illustrates an augmented human system. A central "Augmented Human Digital Twin" block receives data via manual and automatic flows from a "Human Individual" and a "Technical System". Data flows are depicted using different line styles (dashed, solid, etc.) indicating data acquisition methods and coupling strengths. The diagram showcases the interplay of human, digital, and technical components within an augmented human framework. -->
 
-Figure 11: Data flows of an augmented Human Digital Twin (aHDT) where a human and a strongly coupled technical system is twinned to a single DT.
+**Figure 11:** Data flows of an augmented Human Digital Twin (aHDT) where a human and a strongly coupled technical system is twinned to a single DT.
 
 two separate DTs with the ability to share data with each other, as proposed in [38] for a Human-Robot Collaboration context. The most interesting edge case is a DT containing a human and a strongly coupled technical system. Like before data from both the human and technical system are gathered and processed, with the only difference being the level of interdependence. If the strongly coupled technical system is meant to accompany the human for a long period of time, or even their entire life, then we consider it a special type of HDT. To be precise with our language we propose that the DT of a human including technical systems that augment the twinned human should be referred to as Augmented Human Digital Twin (see Figure 11).
 
@@ -449,7 +448,7 @@ HDTs concentrate data about a human individual and with an appropriate design ph
 ![](_page_36_Figure_0.jpeg)
 <!-- Image Description: The image presents a conceptual framework for Human Digital Twins (HDTs). It uses a diagram divided into "Twinned Entity" (showing human, augmented human, and technical system options) and "Data Integration" (illustrating digital model, digital shadow, and digital twin with varying levels of automatic data input and feedback). The diagram visually explains how different combinations of twinned entities and data integration methods lead to different types of HDTs. A short description clarifies the essential elements of an HDT. -->
 
-Figure 12: Essentials of Human Digital Twins and categorisation framework based on the twinned entity and level of data integration.
+**Figure 12:** Essentials of Human Digital Twins and categorisation framework based on the twinned entity and level of data integration.
 
 ## Conclusions
 
@@ -471,107 +470,107 @@ Data Integration: With the level of data integration we distinguish papers by th
 
 Study Type: We distinguish between papers that perform case studies and papers that present purely conceptual work. If a paper proposes a conceptual model and presents results from a case study in the same paper the paper will be classified as case study. Reviews are treated separately in Section 2 and are not included in the tables below. The possible categories are encoded in the table as: Case-Study, Concept
 
-| R<br>fe<br>e<br>re<br>nc<br>e                                                                       | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w                       | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e              |
+| R<br>fe<br>e<br>re<br>nc<br>e | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e |
 |-----------------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------|-------------------------------------|-------------------------------|
-| [<br>]<br>l.<br>B<br>i e<br>6<br>3<br>t<br>ar<br>re<br>s<br>a                                       | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Pe<br>l.<br>5<br>0<br>t<br>sa<br>an<br>e<br>e<br>a<br>p                                   | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>O<br>ke<br>b<br>le<br>l.<br>4<br>i<br>1<br>t<br>g<br>e<br>a                               | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>S<br>he<br>l<br>i<br>2<br>5<br>ng                                                         | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Lo<br>da<br>le<br>l.<br>6<br>1<br>t<br>ns<br>e<br>a                                       | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>ba<br>l e<br>l.<br>Iq<br>5<br>9<br>t<br>a                                                 | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>b<br>l.<br>Tr<br>in<br>6<br>4<br>t<br>g<br>o<br>er<br>e<br>a                              | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>D<br>B<br>d<br>l.<br>ic<br>is<br>6<br>5<br>t<br>t<br>e<br>en<br>e<br>e<br>a               | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>A<br>l-<br>Zy<br>d<br>l.<br>6<br>6<br>t<br>ou<br>e<br>a                                   | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>H<br>de<br>B<br>d<br>l.<br>6<br>0<br>t<br>er<br>na<br>n<br>z-<br>ou<br>ss<br>ar<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>iv<br>i<br>du<br>l<br>a | S<br>D                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>l.<br>R<br>iv<br>6<br>7<br>t<br>er<br>a<br>e<br>a                                         | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>ba<br>h<br>l.<br>K<br>i e<br>6<br>8<br>t<br>o<br>y<br>as<br>a                             | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>M<br>l.<br>is<br>6<br>9<br>tz<br>t<br>ou<br>e<br>a<br>r                                   | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>C<br>hu<br>de<br>O<br>ko<br>kw<br>4<br>2<br>n<br>o<br>-                                   | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>C<br>i<br>ha<br>i e<br>l.<br>7<br>0<br>t<br>ar<br>am<br>a                                 | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Je<br>d<br>D<br>7<br>1<br>ns<br>en<br>a<br>n<br>en<br>g                                   | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>C<br>ha<br>ks<br>hu<br>l.<br>2<br>2<br>t<br>e<br>a                                        | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>C<br>ha<br>ks<br>hu<br>d<br>N<br>h<br>i<br>ia<br>7<br>2<br>t<br>a<br>n<br>ra<br>su        | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>U<br>h<br>le<br>be<br>l.<br>7<br>3<br>t<br>n<br>rg<br>e<br>a                              | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>H<br>l.<br>7<br>4<br>ig<br>t<br>er<br>n<br>ou<br>e<br>a                                   | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>T<br>ha<br>ha<br>l.<br>7<br>5<br>t<br>t<br>m<br>o<br>ra<br>n<br>e<br>a                    | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>A<br>le<br>ks<br>l.<br>7<br>6<br>t<br>ey<br>ev<br>e<br>a                                  | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>S<br>l.<br>in<br>is<br>i e<br>9<br>t<br>a                                                 | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>l.<br>B<br>i e<br>6<br>3<br>t<br>ar<br>re<br>s<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Pe<br>l.<br>5<br>0<br>t<br>sa<br>an<br>e<br>e<br>a<br>p | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>O<br>ke<br>b<br>le<br>l.<br>4<br>i<br>1<br>t<br>g<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>S<br>he<br>l<br>i<br>2<br>5<br>ng | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Lo<br>da<br>le<br>l.<br>6<br>1<br>t<br>ns<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>ba<br>l e<br>l.<br>Iq<br>5<br>9<br>t<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>b<br>l.<br>Tr<br>in<br>6<br>4<br>t<br>g<br>o<br>er<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>D<br>B<br>d<br>l.<br>ic<br>is<br>6<br>5<br>t<br>t<br>e<br>en<br>e<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>A<br>l-<br>Zy<br>d<br>l.<br>6<br>6<br>t<br>ou<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>H<br>de<br>B<br>d<br>l.<br>6<br>0<br>t<br>er<br>na<br>n<br>z-<br>ou<br>ss<br>ar<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | S<br>D | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>l.<br>R<br>iv<br>6<br>7<br>t<br>er<br>a<br>e<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>ba<br>h<br>l.<br>K<br>i e<br>6<br>8<br>t<br>o<br>y<br>as<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>M<br>l.<br>is<br>6<br>9<br>tz<br>t<br>ou<br>e<br>a<br>r | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>C<br>hu<br>de<br>O<br>ko<br>kw<br>4<br>2<br>n<br>o<br>- | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>C<br>i<br>ha<br>i e<br>l.<br>7<br>0<br>t<br>ar<br>am<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Je<br>d<br>D<br>7<br>1<br>ns<br>en<br>a<br>n<br>en<br>g | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>C<br>ha<br>ks<br>hu<br>l.<br>2<br>2<br>t<br>e<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>C<br>ha<br>ks<br>hu<br>d<br>N<br>h<br>i<br>ia<br>7<br>2<br>t<br>a<br>n<br>ra<br>su | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>U<br>h<br>le<br>be<br>l.<br>7<br>3<br>t<br>n<br>rg<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>H<br>l.<br>7<br>4<br>ig<br>t<br>er<br>n<br>ou<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>T<br>ha<br>ha<br>l.<br>7<br>5<br>t<br>t<br>m<br>o<br>ra<br>n<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>A<br>le<br>ks<br>l.<br>7<br>6<br>t<br>ey<br>ev<br>e<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>S<br>l.<br>in<br>is<br>i e<br>9<br>t<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
 
-| R<br>fe<br>e<br>re<br>nc<br>e                                                           | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w                       | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e              |
+| R<br>fe<br>e<br>re<br>nc<br>e | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e |
 |-----------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------|-------------------------------------|-------------------------------|
-| [<br>]<br>d<br>l.<br>Ta<br>in<br>i e<br>7<br>7<br>t<br>r<br>a                           | l<br>hc<br>H<br>t<br>ea<br>ar<br>e          | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>B<br>hr<br>l.<br>i e<br>7<br>8<br>t<br>a<br>am<br>a                           | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>D<br>l.<br>7<br>9<br>te<br>t<br>os<br>e<br>a                                  | H<br>l<br>hc<br>t<br>ea<br>ar<br>e          | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>B<br>de<br>k<br>is<br>l.<br>8<br>0<br>t<br>ou<br>s<br>e<br>a                  | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Jo<br>h<br>l.<br>5<br>1<br>t<br>se<br>p<br>e<br>a                             | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>C<br>d<br>d<br>in<br>Tr<br>6<br>2<br>te<br>ar<br>a<br>n<br>en<br>sa<br>ux     | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>do<br>l.<br>En<br>8<br>1<br>t<br>e<br>a                                       | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>W<br>l.<br>8<br>2<br>t<br>an<br>g<br>e<br>a                                   | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Sp<br>l.<br>8<br>3<br>t<br>ar<br>ro<br>e<br>a<br>w                            | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>N<br>de<br>l.<br>2<br>6<br>t<br>t<br>au<br>e<br>a                             | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>G<br>le<br>d<br>h<br>le<br>Po<br>2<br>0<br>ra<br>es<br>s<br>r<br>an<br>e<br>r | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>l.<br>M<br>in<br>i e<br>8<br>4<br>t<br>t<br>on<br>a                           | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Z<br>he<br>l.<br>8<br>5<br>t<br>ng<br>e<br>a                                  | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>M<br>l.<br>in<br>i e<br>8<br>6<br>t<br>t<br>on<br>a                           | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>S<br>ha<br>l.<br>8<br>7<br>t<br>ng<br>g<br>ua<br>n<br>e<br>a                  | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Sp<br>l.<br>8<br>8<br>t<br>ar<br>ro<br>w<br>e<br>a                            | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>k<br>l<br>l.<br>L<br>¨oc<br>in<br>8<br>9<br>t<br>e<br>a                       | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>O<br>l.<br>i<br>j<br>9<br>0<br>t<br>g<br>un<br>se<br>u<br>e<br>a              | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Z<br>ha<br>l.<br>9<br>1<br>t<br>ng<br>e<br>a                                  | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>L<br>l.<br>iu<br>9<br>2<br>t<br>e<br>a                                        | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>G<br>le<br>d<br>Po<br>h<br>le<br>9<br>3<br>ra<br>es<br>s<br>r<br>an<br>e<br>r | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>l.<br>M<br>9<br>4<br>t<br>ar<br>uy<br>am<br>a<br>e<br>a                       | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>l.<br>M<br>9<br>5<br>te<br>t<br>er<br>ns<br>e<br>a                            | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D                              | C<br>t<br>on<br>ce<br>p       |
+| [<br>]<br>d<br>l.<br>Ta<br>in<br>i e<br>7<br>7<br>t<br>r<br>a | l<br>hc<br>H<br>t<br>ea<br>ar<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>B<br>hr<br>l.<br>i e<br>7<br>8<br>t<br>a<br>am<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>D<br>l.<br>7<br>9<br>te<br>t<br>os<br>e<br>a | H<br>l<br>hc<br>t<br>ea<br>ar<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>B<br>de<br>k<br>is<br>l.<br>8<br>0<br>t<br>ou<br>s<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Jo<br>h<br>l.<br>5<br>1<br>t<br>se<br>p<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>C<br>d<br>d<br>in<br>Tr<br>6<br>2<br>te<br>ar<br>a<br>n<br>en<br>sa<br>ux | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>do<br>l.<br>En<br>8<br>1<br>t<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>W<br>l.<br>8<br>2<br>t<br>an<br>g<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Sp<br>l.<br>8<br>3<br>t<br>ar<br>ro<br>e<br>a<br>w | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>N<br>de<br>l.<br>2<br>6<br>t<br>t<br>au<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>G<br>le<br>d<br>h<br>le<br>Po<br>2<br>0<br>ra<br>es<br>s<br>r<br>an<br>e<br>r | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>l.<br>M<br>in<br>i e<br>8<br>4<br>t<br>t<br>on<br>a | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Z<br>he<br>l.<br>8<br>5<br>t<br>ng<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>M<br>l.<br>in<br>i e<br>8<br>6<br>t<br>t<br>on<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>S<br>ha<br>l.<br>8<br>7<br>t<br>ng<br>g<br>ua<br>n<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Sp<br>l.<br>8<br>8<br>t<br>ar<br>ro<br>w<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>k<br>l<br>l.<br>L<br>¨oc<br>in<br>8<br>9<br>t<br>e<br>a | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>O<br>l.<br>i<br>j<br>9<br>0<br>t<br>g<br>un<br>se<br>u<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Z<br>ha<br>l.<br>9<br>1<br>t<br>ng<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>L<br>l.<br>iu<br>9<br>2<br>t<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>G<br>le<br>d<br>Po<br>h<br>le<br>9<br>3<br>ra<br>es<br>s<br>r<br>an<br>e<br>r | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>l.<br>M<br>9<br>4<br>t<br>ar<br>uy<br>am<br>a<br>e<br>a | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>l.<br>M<br>9<br>5<br>te<br>t<br>er<br>ns<br>e<br>a | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D | C<br>t<br>on<br>ce<br>p |
 
-| R<br>fe<br>e<br>re<br>nc<br>e                                                                    | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w                       | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e              |
+| R<br>fe<br>e<br>re<br>nc<br>e | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e |
 |--------------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------|-------------------------------------|-------------------------------|
-| [<br>]<br>C<br>l<br>l e<br>l.<br>9<br>6<br>t<br>ar<br>o<br>a                                     | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | S<br>D                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>G<br>l.<br>9<br>7<br>t<br>re<br>co<br>e<br>a                                           | du<br>In<br>tr<br>s<br>y                    | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Le<br>l.<br>9<br>8<br>t<br>e<br>e<br>a                                                 | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>B<br>ka<br>l.<br>9<br>9<br>t<br>as<br>ra<br>n<br>e<br>a                                | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>C<br>l.<br>7<br>in<br>3<br>ta<br>t<br>t<br>on<br>s<br>n<br>es<br>cu<br>e<br>a          | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>S<br>ha<br>l.<br>1<br>0<br>0<br>tr<br>t<br>ro<br>y<br>e<br>a                           | In<br>du<br>tr<br>s<br>y                    | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>la<br>l.<br>B<br>j<br>i e<br>3<br>3<br>t<br>a<br>a                                     | du<br>In<br>tr<br>s<br>y                    | le<br>R<br>o                       | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>l.<br>M<br>in<br>i e<br>3<br>6<br>t<br>t<br>on<br>a                                    | du<br>In<br>tr<br>s<br>y                    | Sy<br>te<br>s<br>m                 | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>A<br>d<br>V<br>de<br>ha<br>3<br>0<br>sc<br>on<br>e<br>an<br>an<br>eg<br>en<br>r        | In<br>du<br>tr<br>s<br>y                    | Sy<br>te<br>s<br>m                 | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>D<br>l<br>lo<br>d<br>M<br>f<br>ia<br>ie<br>1<br>0<br>1<br>t<br>on<br>a<br>a<br>n<br>ar | M<br>ta<br>e<br>ve<br>rs<br>e               | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>W<br>l.<br>1<br>0<br>2<br>t<br>u<br>e<br>a                                             | M<br>ta<br>e<br>ve<br>rs<br>e               | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>S                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>N<br>1<br>0<br>3<br>g<br>uy<br>en                                                      | M<br>ta<br>e<br>ve<br>rs<br>e               | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>le<br>l<br>Ja<br>1<br>0<br>4<br>e                                                      | M<br>ta<br>e<br>ve<br>rs<br>e               | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>N<br>1<br>0<br>5<br>g<br>uy<br>en                                                      | M<br>ta<br>e<br>ve<br>rs<br>e               | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>In<br>l.<br>1<br>0<br>6<br>t<br>am<br>ur<br>a<br>e<br>a                                | M<br>ta<br>e<br>ve<br>rs<br>e               | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>S<br>h<br>l.<br>7<br>io<br>1<br>0<br>ta<br>t<br>cc<br>e<br>a                           | M<br>ta<br>e<br>ve<br>rs<br>e               | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>W<br>l.<br>1<br>0<br>8<br>t<br>an<br>g<br>e<br>a                                       | M<br>b<br>i<br>l<br>i<br>ty<br>o            | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>l.<br>L<br>ia<br>1<br>0<br>9<br>t<br>o<br>e<br>a                                       | b<br>l<br>M<br>i<br>i<br>ty<br>o            | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>W<br>2<br>3<br>g<br>an                                                                 | b<br>l<br>M<br>i<br>i<br>ty<br>o            | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>W<br>l.<br>4<br>3<br>t<br>an<br>g<br>e<br>a                                            | M<br>b<br>l<br>i<br>i<br>ty<br>o            | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>W<br>l.<br>1<br>1<br>0<br>t<br>an<br>g<br>e<br>a                                       | M<br>b<br>l<br>i<br>i<br>ty<br>o            | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Z<br>i<br>bu<br>h<br>ka<br>l.<br>1<br>1<br>1<br>t<br>sc<br>e<br>a                      | O<br>he<br>t<br>r                           | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Iw<br>k<br>i e<br>l.<br>1<br>1<br>2<br>t<br>a<br>a                                     | O<br>he<br>t<br>r                           | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
+| [<br>]<br>C<br>l<br>l e<br>l.<br>9<br>6<br>t<br>ar<br>o<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | S<br>D | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>G<br>l.<br>9<br>7<br>t<br>re<br>co<br>e<br>a | du<br>In<br>tr<br>s<br>y | d<br>du<br>l<br>In<br>iv<br>i<br>a | S<br>D | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Le<br>l.<br>9<br>8<br>t<br>e<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>B<br>ka<br>l.<br>9<br>9<br>t<br>as<br>ra<br>n<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>C<br>l.<br>7<br>in<br>3<br>ta<br>t<br>t<br>on<br>s<br>n<br>es<br>cu<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>S<br>ha<br>l.<br>1<br>0<br>0<br>tr<br>t<br>ro<br>y<br>e<br>a | In<br>du<br>tr<br>s<br>y | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>la<br>l.<br>B<br>j<br>i e<br>3<br>3<br>t<br>a<br>a | du<br>In<br>tr<br>s<br>y | le<br>R<br>o | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>l.<br>M<br>in<br>i e<br>3<br>6<br>t<br>t<br>on<br>a | du<br>In<br>tr<br>s<br>y | Sy<br>te<br>s<br>m | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>A<br>d<br>V<br>de<br>ha<br>3<br>0<br>sc<br>on<br>e<br>an<br>an<br>eg<br>en<br>r | In<br>du<br>tr<br>s<br>y | Sy<br>te<br>s<br>m | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>D<br>l<br>lo<br>d<br>M<br>f<br>ia<br>ie<br>1<br>0<br>1<br>t<br>on<br>a<br>a<br>n<br>ar | M<br>ta<br>e<br>ve<br>rs<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>W<br>l.<br>1<br>0<br>2<br>t<br>u<br>e<br>a | M<br>ta<br>e<br>ve<br>rs<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>S | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>N<br>1<br>0<br>3<br>g<br>uy<br>en | M<br>ta<br>e<br>ve<br>rs<br>e | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>le<br>l<br>Ja<br>1<br>0<br>4<br>e | M<br>ta<br>e<br>ve<br>rs<br>e | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>N<br>1<br>0<br>5<br>g<br>uy<br>en | M<br>ta<br>e<br>ve<br>rs<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>In<br>l.<br>1<br>0<br>6<br>t<br>am<br>ur<br>a<br>e<br>a | M<br>ta<br>e<br>ve<br>rs<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>S<br>h<br>l.<br>7<br>io<br>1<br>0<br>ta<br>t<br>cc<br>e<br>a | M<br>ta<br>e<br>ve<br>rs<br>e | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>W<br>l.<br>1<br>0<br>8<br>t<br>an<br>g<br>e<br>a | M<br>b<br>i<br>l<br>i<br>ty<br>o | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>l.<br>L<br>ia<br>1<br>0<br>9<br>t<br>o<br>e<br>a | b<br>l<br>M<br>i<br>i<br>ty<br>o | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>W<br>2<br>3<br>g<br>an | b<br>l<br>M<br>i<br>i<br>ty<br>o | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>W<br>l.<br>4<br>3<br>t<br>an<br>g<br>e<br>a | M<br>b<br>l<br>i<br>i<br>ty<br>o | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>W<br>l.<br>1<br>1<br>0<br>t<br>an<br>g<br>e<br>a | M<br>b<br>l<br>i<br>i<br>ty<br>o | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Z<br>i<br>bu<br>h<br>ka<br>l.<br>1<br>1<br>1<br>t<br>sc<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Iw<br>k<br>i e<br>l.<br>1<br>1<br>2<br>t<br>a<br>a | O<br>he<br>t<br>r | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
 
-| fe<br>R<br>e<br>re<br>nc<br>e                                                                | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w                       | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e              |
+| fe<br>R<br>e<br>re<br>nc<br>e | A<br>l<br>ic<br>io<br>t<br>p<br>p<br>a<br>n | T<br>in<br>w | In<br>io<br>te<br>t<br>g<br>ra<br>n | T<br>y<br>p<br>e |
 |----------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------|-------------------------------------|-------------------------------|
-| [<br>]<br>In<br>1<br>1<br>3<br>am<br>a<br>ur                                                 | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>Fu<br>l.<br>4<br>in<br>i e<br>1<br>1<br>t<br>r<br>a                                | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>O<br>ke<br>b<br>le<br>d<br>C<br>i<br>i<br>1<br>1<br>5<br>g<br>a<br>n<br>a          | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>fe<br>H<br>1<br>1<br>6<br>a<br>z                                                   | O<br>he<br>t<br>r                           | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>l.<br>M<br>1<br>1<br>7<br>ty<br>t<br>ar<br>no<br>v<br>e<br>a                       | O<br>he<br>t<br>r                           | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>lo<br>l.<br>Ta<br>1<br>1<br>8<br>t<br>y<br>r<br>e<br>a                             | O<br>he<br>t<br>r                           | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>C<br>he<br>1<br>1<br>9<br>n                                                        | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>B<br>l.<br>1<br>2<br>0<br>t<br>rn<br>e<br>e<br>a<br>y                              | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Q<br>l.<br>1<br>2<br>1<br>t<br>u<br>e<br>a                                         | O<br>he<br>t<br>r                           | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>X<br>ia<br>l.<br>1<br>2<br>2<br>t<br>ng<br>e<br>a                                  | O<br>he<br>t<br>r                           | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>A<br>dr<br>lo<br>l.<br>io<br>1<br>2<br>3<br>t<br>n<br>p<br>ou<br>s<br>e<br>a       | O<br>he<br>t<br>r                           | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>G<br>l.<br>1<br>2<br>4<br>t<br>ne<br>cc<br>o<br>e<br>a                             | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>S                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>K<br>l.<br>1<br>2<br>5<br>t<br>op<br>p<br>on<br>en<br>e<br>a                       | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>S                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>R<br>l.<br>1<br>2<br>6<br>t<br>am<br>os<br>e<br>a                                  | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>S                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>C<br>he<br>l.<br>1<br>2<br>7<br>t<br>ng<br>e<br>a                                  | O<br>he<br>t<br>r                           | In<br>d<br>iv<br>i<br>du<br>l<br>a | S<br>D                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>l.<br>B<br>in<br>1<br>2<br>8<br>t<br>or<br>g<br>e<br>a                             | O<br>he<br>t<br>r                           | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>t<br>on<br>ce<br>p       |
-| [<br>]<br>ho<br>d<br>he<br>X<br>in<br>K<br>ic<br>1<br>2<br>9<br>z<br>u<br>an<br>uz<br>m<br>v | O<br>he<br>t<br>r                           | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>B<br>l<br>l<br>l.<br>ic<br>i e<br>3<br>9<br>t<br>ar<br>e<br>a<br>r                 | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>C<br>he<br>1<br>3<br>0<br>ng                                                       | O<br>he<br>t<br>r                           | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Pr<br>ks<br>ha<br>l.<br>3<br>5<br>t<br>o<br>c<br>e<br>a                            | O<br>he<br>t<br>r                           | R<br>le<br>o                       | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
-| [<br>]<br>Pr<br>ks<br>ha<br>l.<br>3<br>4<br>t<br>o<br>c<br>e<br>a                            | O<br>he<br>t<br>r                           | R<br>le<br>o                       | D<br>M                              | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>In<br>1<br>1<br>3<br>am<br>a<br>ur | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>Fu<br>l.<br>4<br>in<br>i e<br>1<br>1<br>t<br>r<br>a | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>O<br>ke<br>b<br>le<br>d<br>C<br>i<br>i<br>1<br>1<br>5<br>g<br>a<br>n<br>a | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>fe<br>H<br>1<br>1<br>6<br>a<br>z | O<br>he<br>t<br>r | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>l.<br>M<br>1<br>1<br>7<br>ty<br>t<br>ar<br>no<br>v<br>e<br>a | O<br>he<br>t<br>r | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>lo<br>l.<br>Ta<br>1<br>1<br>8<br>t<br>y<br>r<br>e<br>a | O<br>he<br>t<br>r | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>C<br>he<br>1<br>1<br>9<br>n | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>B<br>l.<br>1<br>2<br>0<br>t<br>rn<br>e<br>e<br>a<br>y | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Q<br>l.<br>1<br>2<br>1<br>t<br>u<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>X<br>ia<br>l.<br>1<br>2<br>2<br>t<br>ng<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>iv<br>i<br>du<br>l<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>A<br>dr<br>lo<br>l.<br>io<br>1<br>2<br>3<br>t<br>n<br>p<br>ou<br>s<br>e<br>a | O<br>he<br>t<br>r | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>T | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>G<br>l.<br>1<br>2<br>4<br>t<br>ne<br>cc<br>o<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>S | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>K<br>l.<br>1<br>2<br>5<br>t<br>op<br>p<br>on<br>en<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>S | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>R<br>l.<br>1<br>2<br>6<br>t<br>am<br>os<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>S | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>C<br>he<br>l.<br>1<br>2<br>7<br>t<br>ng<br>e<br>a | O<br>he<br>t<br>r | In<br>d<br>iv<br>i<br>du<br>l<br>a | S<br>D | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>l.<br>B<br>in<br>1<br>2<br>8<br>t<br>or<br>g<br>e<br>a | O<br>he<br>t<br>r | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>t<br>on<br>ce<br>p |
+| [<br>]<br>ho<br>d<br>he<br>X<br>in<br>K<br>ic<br>1<br>2<br>9<br>z<br>u<br>an<br>uz<br>m<br>v | O<br>he<br>t<br>r | d<br>du<br>l<br>In<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>B<br>l<br>l<br>l.<br>ic<br>i e<br>3<br>9<br>t<br>ar<br>e<br>a<br>r | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>C<br>he<br>1<br>3<br>0<br>ng | O<br>he<br>t<br>r | In<br>d<br>du<br>l<br>iv<br>i<br>a | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Pr<br>ks<br>ha<br>l.<br>3<br>5<br>t<br>o<br>c<br>e<br>a | O<br>he<br>t<br>r | R<br>le<br>o | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
+| [<br>]<br>Pr<br>ks<br>ha<br>l.<br>3<br>4<br>t<br>o<br>c<br>e<br>a | O<br>he<br>t<br>r | R<br>le<br>o | D<br>M | C<br>S<br>dy<br>tu<br>as<br>e |
 
 ## References
 

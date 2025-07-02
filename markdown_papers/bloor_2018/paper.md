@@ -38,7 +38,7 @@ Daniel Bloor<sup>1</sup> , Nnamdi Ugwuoke<sup>1</sup> , David Taylor<sup>3</sup>
 
 <sup>4</sup> Biomedical Sciences, Swansea University, Swansea, United Kingdom.
 
-*Keywords*: *personal health knowledge graph, patient monitoring, COPD*Abstract. Healthcare providers face significant challenges with managing and monitoring patient data outside of clinics, particularly with limited resources and insufficient feedback on their patients' conditions. Effective management of these symptoms and exploration of larger bodies of data are vital for maintaining long-term quality of life and preventing late interventions. In this paper, we propose a framework for constructing personal health knowledge graphs from heterogeneous data sources. Our approach integrates clinical databases, relevant ontologies, and standard healthcare guidelines to support alert generation, clinicians' interpretation and querying of patient data. Through a use case focusing on monitoring Chronic Obstructive Lung Disease (COPD) patients, we demonstrate that inference and reasoning on personal health knowledge graphs built with our framework can aid in patient monitoring and enhance the efficacy and accuracy of patient data queries.
+**Keywords:**  *personal health knowledge graph, patient monitoring, COPD*Abstract. Healthcare providers face significant challenges with managing and monitoring patient data outside of clinics, particularly with limited resources and insufficient feedback on their patients' conditions. Effective management of these symptoms and exploration of larger bodies of data are vital for maintaining long-term quality of life and preventing late interventions. In this paper, we propose a framework for constructing personal health knowledge graphs from heterogeneous data sources. Our approach integrates clinical databases, relevant ontologies, and standard healthcare guidelines to support alert generation, clinicians' interpretation and querying of patient data. Through a use case focusing on monitoring Chronic Obstructive Lung Disease (COPD) patients, we demonstrate that inference and reasoning on personal health knowledge graphs built with our framework can aid in patient monitoring and enhance the efficacy and accuracy of patient data queries.
 
 ## 1 Introduction
 
@@ -54,7 +54,7 @@ Based on this framework, we implemented a modular system as a use case for monit
 
 ## 2 Methods
 
-# 1 Data
+## 1 Data
 
 The MIMIC-III[\[5\]](#page-5-4) dataset was used to test the prototype system and validating some components of the proposed framework. MIMIC-III[\[5\]](#page-5-4) is a large freely accessible database featuring anonymized data on patients admitted to critical care units at a tertiary care hospital. This gave us a multimodal dataset of both structured and unstructured data, including vital sign measurements and clinical notes, for a large number of patients with varying symptom severity. We used this data to test our risk scoring and alert generation for COPD patients, and it demonstrated the challenges of managing such data. Although our system is designed to be as independent of specific data sources as possible.
 
@@ -69,7 +69,7 @@ The proposed framework consists of the following main components (see Figure [1]
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a system for creating Personal Health Knowledge Graphs. Heterogeneous data (EHR, sensor data, genome, etc.) is ingested, stored in MongoDB, harmonized (transformation and semantic mapping), and then used to build knowledge graphs (Neo4j). Machine learning is applied, and a reasoning engine generates an API providing data analytics, patient queries, alerts, predictions, and a dashboard. The process incorporates domain knowledge (ontologies, literature). -->
 
-<span id="page-2-0"></span>Figure 1: The personal health knowledge graph (PHKG) framework
+<span id="page-2-0"></span>**Figure 1:** The personal health knowledge graph (PHKG) framework
 *Time series data summarization.*This is an important step for constructing temporal KGs. For example, in our use case of MIMIC-III data, the summaries (such as averages and the mode) of the measurements are splitting a day into quarters, i.e., a summary for each 6 hours of the day. Timestamps are stored typically as properties of a node and can be accessed easily through queries, and smart filters can be applied using comparisons with other dates, such as only returning results featuring a timestamp within a time/date-range.
 
 Statistics can also be computed for detecting condition shifts, e.g. the Kolmogorov-Smirnov test can be used to compare the distribution of the most recent 3 days of the patient's measurements with the rest of the month before it in our use case. This comparison can help to understand whether something concerning may be happening with the patient's symptoms acutely.
@@ -109,7 +109,7 @@ The system for COPD was shown to produce alerts based on the triggers that can b
 ![](_page_4_Figure_6.jpeg)
 <!-- Image Description: The image displays a graph database schema with nodes representing "Respiratory Rate" and "AlertGra..." entities, connected by relationships like "hasTrigger" and "hasAlert". A central node (4602) connects multiple "AlertGra..." nodes. A separate table shows node properties for "Personalisation," including ID, max, min, and type. Cypher queries are shown, demonstrating how to create personalized alerts based on respiratory rate, integrating node properties and relationships within the database. The dotted line highlights a data flow example. -->
 
-<span id="page-4-0"></span>Figure 2: Query on knowledge graph presenting measurements that triggered alerts, with the alert nodes and relationships also presented. A personalization relationship example is also featured, see the node property (personalization) indicated by the dashed arrow.
+<span id="page-4-0"></span>**Figure 2:** Query on knowledge graph presenting measurements that triggered alerts, with the alert nodes and relationships also presented. A personalization relationship example is also featured, see the node property (personalization) indicated by the dashed arrow.
 
 Queries over PHKGs benefit greatly from the augmented domain knowledge stored within the graphs. As illustrated in Figure [3,](#page-5-8) we executed a query using ICD9 code "4932", which corresponds to "Asthma with chronic obstructive pulmonary disease (COPD)". Through the "is-
 
@@ -118,21 +118,21 @@ SubClassOf" relationship, the query infers the relevant conditions that the user
 <span id="page-5-8"></span>![](_page_5_Figure_2.jpeg)
 <!-- Image Description: The image displays a code snippet and a table. The code is a Cypher query that retrieves user IDs and associated conditions (likely medical diagnoses) from a graph database. The table shows the query's output: user IDs in one column and a list of their associated conditions in the other. The purpose is to illustrate data retrieval and representation within a knowledge graph context, likely for demonstrating a specific data analysis or knowledge reasoning method within the paper. -->
 
-Figure 3: Querying PHKG on patient condition with subclass inferences. In the output below the query, we see user IDs and their diagnoses. While these three example patients have not been diagnosed with the exact condition queried, they exhibit conditions that are subclasses of it within the ontology. These conditions are of ICD9 codes 49322, 49321 and 49320 from the subclasses.
+**Figure 3:** Querying PHKG on patient condition with subclass inferences. In the output below the query, we see user IDs and their diagnoses. While these three example patients have not been diagnosed with the exact condition queried, they exhibit conditions that are subclasses of it within the ontology. These conditions are of ICD9 codes 49322, 49321 and 49320 from the subclasses.
 
-#### 4 Conclusion
+### 4 Conclusion
 
 We have successfully applied our framework to construct personal health knowledge graphs (PHKGs) for monitoring COPD. By transforming personal health data and integrating it with relevant domain knowledge via ontology-based semantic mapping, our system achieves enhanced contextual understanding over the PHKGs, which can aid in automated alert generation, clinical decision support, and patient query. In future work, we will focus on improving the machine learning and multimodal analysis capabilities of the system, leveraging advanced algorithms such as graph neural networks, to enable more effective and accurate inferences.
 
-#### Acknowledgements
+### Acknowledgements
 
 This work is partially funded by KESS II programme.
 
-#### Availability of data and materials
+### Availability of data and materials
 
 The code and demo of the PHKG for COPD is avialble at [https://github.com/Bluer01/COPH.](https://github.com/Bluer01/COPH)
 
-#### References
+### References
 
 - <span id="page-5-0"></span>[1] A. Gyrard, M. Gaur, S. Shekarpour, K. Thirunarayan, and S. A, "Personalized health knowledge graph,"*CEUR Workshop Proc*, 2018.
 - <span id="page-5-1"></span>[2] O. Seneviratne, J. Harris, C.-H. Chen, and D. L. McGuinness, "Personal health knowledge graph for clinically relevant diet recommendations," in *Workshop on Personal Knowledge Graphs co-located with AKBC'21*, 2021.

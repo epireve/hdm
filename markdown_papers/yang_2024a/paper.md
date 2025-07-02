@@ -37,7 +37,6 @@ keywords:
 - zero-shot
 ---
 
-
 # Graphusion: Leveraging Large Language Models for Scientific Knowledge Graph Fusion and Construction in NLP Education
 
 Rui Yang<sup>1</sup><sup>∗</sup> , Boming Yang<sup>2</sup> , Sixun Ouyang<sup>3</sup> , Tianwei She<sup>3</sup> , Aosong Feng<sup>4</sup> , Yuang Jiang<sup>3</sup> , Freddy Lecue<sup>5</sup> , Jinghui Lu<sup>3</sup> , Irene Li<sup>2</sup>,3<sup>∗</sup>
@@ -55,7 +54,7 @@ Recently, large language models (LLMs) such as GPT [\(Achiam et al.,](#page-8-0)
 <span id="page-0-0"></span>![](_page_0_Figure_7.jpeg)
 <!-- Image Description: This image presents a concept graph illustrating two learning paths for sentence simplification in NLP. The first path (without a knowledge system) suggests a sequence from basic NLP foundations to machine learning approaches. The second (with a system) depicts a concept graph showing how word distributions, vector representations, and structured learning contribute to sentence simplification, further enhanced by in-domain texts and a knowledge graph. The graph visually represents the relationships between these concepts. -->
 
-Figure 1: Comparison of QA systems with and without a knowledge system.
+**Figure 1:** Comparison of QA systems with and without a knowledge system.
 
 knowledge to LLMs, they can generate more reliable content. Additionally, KG-enhanced LLMs can be applied to various KG tasks as well, including graph completion, reasoning and more [\(Zhu](#page-10-6) [et al.,](#page-10-6) [2023;](#page-10-6) [Chen et al.,](#page-8-2) [2023\)](#page-8-2).
 
@@ -86,7 +85,7 @@ A KG is defined as a set of triplets: KG = {(h<sup>i</sup> , r<sup>i</sup> , ti)
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: The image is a flowchart depicting a knowledge graph (KG) fusion process. It shows three stages: seed concept generation using topic modeling on free-text scientific data; candidate triplet extraction using various machine translation methods (statistical and neural); and KG fusion, involving entity merging, conflict resolution, and novel triplet inference, again using different machine translation approaches. Relationships between these steps are indicated using labels like "PREREQUISITE_OF," "USED_FOR," "CONJUNCTION," "HYPONYM_OF," and "PART_OF". The flowchart illustrates the workflow and relationships between different components of the proposed KG fusion system. -->
 
-Figure 2: Graphusion framework illustration. Gaphusion consists of 3 steps: S1 Seed Concept Generation, S2 Candidate Triplet Extraction and S3 KG Fusion.
+**Figure 2:** Graphusion framework illustration. Gaphusion consists of 3 steps: S1 Seed Concept Generation, S2 Candidate Triplet Extraction and S3 KG Fusion.
 
 an expert-annotated KG EG as input, in order to provide some existing knowledge. In our setting, the number of triplets of KG is much larger than EG. We select the domain to be NLP, so the entities are concepts only, other entity types such as people, organizations are not our focus. Following previous works [\(Luan et al.,](#page-9-8) [2018\)](#page-9-8), we define 7 relations types: Prerequisite\_of, Used\_for, Compare, Conjunction, Hyponym\_of, Evaluate\_for and Part\_OF.
 
@@ -151,48 +150,46 @@ The evaluation of KGC is challenging since each model generating different tripl
 
 ### 4 Experiments
 
-#### 1 Link Prediction
+### 1 Link Prediction
 
 We conduct experiments using the LectureBankCD dataset [\(Li et al.,](#page-9-14) [2021\)](#page-9-14) and report the performance on the NLP domain. LectureBankCD contains up to 322 pre-defined NLP concepts and prerequisite relation labels on the concept pairs. We benchmark on the official test set against the following Supervised Baselines: DeepWalk [\(Perozzi et al.,](#page-9-15) [2014\)](#page-9-15), and Node2vec [\(Grover and Leskovec,](#page-8-9) [2016\)](#page-8-9), P2V [\(Wu et al.,](#page-9-16) [2020\)](#page-9-16), and BERT [\(Devlin et al.,](#page-8-10) [2019\)](#page-8-10). These methods utilize pre-trained or graphbased models to encode concept embeddings and then perform binary classification to determine the presence of positive or negative edges in given concept pairs. In our LLM-based experiments, we show two main settings: Zero-shot, which employs LP Prompt; and Zero-shot with RAG, which enhances zero-shot with the addition of Retrieval Augmented Generation (RAG) method [\(Krishna,](#page-9-17) [2023\)](#page-9-17). RAG has shown to improve on existing LLMs on text generation tasks such as QA. In Tab. [1,](#page-4-0) we observe that the zero-shot performance of GPT-4 and GPT-4o surpasses that of the best traditional supervised baseline. This suggests that LLMs can recover a domain-specific concept graph without relying on expert annotations. With the aid of RAG, which incorporates more domain-specific data, GPT-4o achieves significant improvements.
 
-#### 2 Knowledge Graph Completion
+### 2 Knowledge Graph Completion
 
 To conduct KGC, we need a large-scale free-text corpus to serve as the knowledge source. Since there is no standard benchmark for evaluation, we collected the proceedings papers from the ACL conference[1](#page-4-1) spanning 2017-2023, which includes
 
-<span id="page-4-0"></span>
 
-| Model                | Accuracy | F1 Score |  |  |  |
+| Model | Accuracy | F1 Score | | | |
 |----------------------|----------|----------|--|--|--|
-| Supervised Baselines |          |          |  |  |  |
-| DeepWalk             | 0.6292   | 0.5860   |  |  |  |
-| P2V                  | 0.6369   | 0.5961   |  |  |  |
-| Node2vec             | 0.6209   | 0.6181   |  |  |  |
-| BERT                 | 0.7088   | 0.6963   |  |  |  |
-| Zero-shot            |          |          |  |  |  |
-| LLaMa2               | 0.6058   | 0.6937   |  |  |  |
-| GPT-3.5              | 0.6123   | 0.7139   |  |  |  |
-| GPT-4                | 0.7639   | 0.7964   |  |  |  |
-| GPT-4o               | 0.7980   | 0.7958   |  |  |  |
-| Zero-shot with RAG   |          |          |  |  |  |
-| GPT-3.5              | 0.7587   | 0.7793   |  |  |  |
-| GPT-4                | 0.7755   | 0.7958   |  |  |  |
-| GPT-4o               | 0.8117   | 0.8181   |  |  |  |
+| Supervised Baselines | | | | | |
+| DeepWalk | 0.6292 | 0.5860 | | | |
+| P2V | 0.6369 | 0.5961 | | | |
+| Node2vec | 0.6209 | 0.6181 | | | |
+| BERT | 0.7088 | 0.6963 | | | |
+| Zero-shot | | | | | |
+| LLaMa2 | 0.6058 | 0.6937 | | | |
+| GPT-3.5 | 0.6123 | 0.7139 | | | |
+| GPT-4 | 0.7639 | 0.7964 | | | |
+| GPT-4o | 0.7980 | 0.7958 | | | |
+| Zero-shot with RAG | | | | | |
+| GPT-3.5 | 0.7587 | 0.7793 | | | |
+| GPT-4 | 0.7755 | 0.7958 | | | |
+| GPT-4o | 0.8117 | 0.8181 | | | |
 
-Table 1: Evaluation of the link prediction task on the LectureBankCD-NLP test set.
+**Table 1:** Evaluation of the link prediction task on the LectureBankCD-NLP test set.
 
 a total of 4,605 papers. Considering that abstracts provide high-density, noise-free information and save computational resources, we perform topic modeling on the abstracts of these articles. Eventually, we successfully generate 688 seed concepts. We implement Graphusion on four selected models: LLaMa3-70b[2](#page-4-2) , GPT-3.5, GPT-4 and GPT-4o. Two domain experts participate in the evaluation. Tab. [2](#page-4-3) shows the evaluation results of these models on the quality of concept entity and relation, as well as the experts' consistency score. Overall, the rating for concept entity surpasses relation, demonstrating the challenging of relation extraction. Among all, GPT-4o achieves the best on both concept and relation. Additionally, the high consistency score among the experts indicates the reliability of the expert evaluation.
 
-<span id="page-4-3"></span>
 
-| Model   | Concept Entity |       | Relation  |       |
+| Model | Concept Entity | | Relation | |
 |---------|----------------|-------|-----------|-------|
-|         | Rating         | Kappa | Rating    | Kappa |
-| LLaMA   | 2.83+0.47      | 0.63  | 1.82+0.81 | 0.51  |
-| GPT-3.5 | 2.90+0.38      | 0.48  | 2.14+0.83 | 0.67  |
-| GPT-4   | 2.84+0.50      | 0.68  | 2.36+0.81 | 0.65  |
-| GPT-4o  | 2.92+0.32      | 0.65  | 2.37+0.82 | 0.67  |
+| | Rating | Kappa | Rating | Kappa |
+| LLaMA | 2.83+0.47 | 0.63 | 1.82+0.81 | 0.51 |
+| GPT-3.5 | 2.90+0.38 | 0.48 | 2.14+0.83 | 0.67 |
+| GPT-4 | 2.84+0.50 | 0.68 | 2.36+0.81 | 0.65 |
+| GPT-4o | 2.92+0.32 | 0.65 | 2.37+0.82 | 0.67 |
 
-Table 2: Rating for the qaulity of concept entity and relation, and IAA score for the expert evaluation.
+**Table 2:** Rating for the qaulity of concept entity and relation, and IAA score for the expert evaluation.
 
 ## 5 TutorQA
 
@@ -202,18 +199,17 @@ We introduce the TutorQA benchmark, a QA dataset designed for concept graph reas
 
 <span id="page-4-2"></span><sup>2</sup> <https://llama.meta.com/llama3/>
 
-<span id="page-5-0"></span>
 
-| Dataset                          | Domain       | Answer Type                     | With KG | Collection      |
+| Dataset | Domain | Answer Type | With KG | Collection |
 |----------------------------------|--------------|---------------------------------|---------|-----------------|
-| CBT (Hill et al., 2015)          | Open-Domain  | Multiple Choice                 | No      | Automated       |
-| LectureBankCD (Li et al., 2021)  | NLP, CV, BIO | Binary                          | Yes     | Expert-verified |
-| FairytaleQA (Xu et al., 2022)    | Open-Domain  | Open-ended                      | No      | Expert-verified |
-| ChaTa (Hicke et al., 2023)       | CS           | Free Text                       | No      | Students        |
-| ExpertQA (Malaviya et al., 2023) | Science      | Free Text                       | No      | Expert-verified |
-| TutorQA (this work)              | NLP          | Open-Ended, Entity List, Binary | Yes     | Expert-verified |
+| CBT (Hill et al., 2015) | Open-Domain | Multiple Choice | No | Automated |
+| LectureBankCD (Li et al., 2021) | NLP, CV, BIO | Binary | Yes | Expert-verified |
+| FairytaleQA (Xu et al., 2022) | Open-Domain | Open-ended | No | Expert-verified |
+| ChaTa (Hicke et al., 2023) | CS | Free Text | No | Students |
+| ExpertQA (Malaviya et al., 2023) | Science | Free Text | No | Expert-verified |
+| TutorQA (this work) | NLP | Open-Ended, Entity List, Binary | Yes | Expert-verified |
 
-Table 3: Comparison with other similar benchmarks: Educational or general QA benchmarks.
+**Table 3:** Comparison with other similar benchmarks: Educational or general QA benchmarks.
 
 lenging topics that require interaction with the completed graph, as well as proficiency in text comprehension and question answering. We list some similar benchmarks in Tab. [3.](#page-5-0) While numerous opendomain QA benchmarks exist, our focus has been primarily on those within the scientific domain and tailored for college-level education, aligning with our objective to compare with benchmarks that can emulate a learning scenario. Among those, TutorQA is distinguished by its diversity in answer types and features expert-verified questions, ensuring a high standard of quality and relevance.
 
@@ -233,19 +229,18 @@ Task 5: Similar Concepts The task requires identifying concepts linked to a cent
 
 Task 6: Idea Hamster The task prompts participants to develop project proposals by applying learned concepts to real-world contexts, providing examples and outcomes to fuel creativity.
 
-#### 2 KG-Enhanced Model
+### 2 KG-Enhanced Model
 
 To address TutorQA tasks, we first utilize Graphusion framework to construct an NLP KG. Then we design an enhanced framework for the interaction
 
 between the LLM and the concept graph, which includes two steps: command query and answer generation. In the command query stage, an LLM independently generates commands to query the concept graph upon receiving the query, thereby retrieving relevant paths. During the answer generation phase, these paths are provided to the LLM as contextual prompt, enabling it to perform concept graph reasoning and generate answers.
 
-#### 3 Evaluation
+### 3 Evaluation
 
 Accuracy We report accuracy score for Task 1 and Task 4, as they are binary classification tasks.
 
 Similarity score For Tasks 2 and 3, the references consist of a list of concepts. Generally, LLMs demonstrate creativity by answering with novel concepts, which are often composed of more contemporary and fresh words, even though they might not exactly match the words in the concept graph. Consequently, conventional evaluation metrics like keyword matching are unsuitable for these tasks. To address this, we propose the similarity score. This metric calculates the semantic similarity between the concepts in the predicted list Cpred and the ground truth list Cgold. Specifically, as shown in Eq. [1,](#page-5-1) for a concept m from the predicted list, and a concept n from the ground truth list, we calculate the cosine similarity between their embeddings achieved from pre-trained BERT model [\(Devlin et al.,](#page-8-10) [2019\)](#page-8-10). We then average these similarity scores to obtain the similarity score.
 
-<span id="page-5-1"></span>
 $$
 Score = \frac{\sum_{m \in C_{pred}} \sum_{n \in C_{gold}} sim(m, n)}{|C_{pred}| \times |C_{gold}|}.
 $$
@@ -254,38 +249,35 @@ By averaging the similarity scores, the final score provides a comprehensive mea
 
 Hit Rate For Task 5, we employ the classical Hit Rate metric, expressed as a percentage. This measure exemplifies the efficiency of LLM at retrieving and presenting relevant concepts in its output as compared to a provided list of target concepts.
 
-<span id="page-6-0"></span>
 
-| Task 1: Relation Judgment<br>Question: In the field of Natural Language Processing, I have<br>come across the concepts of Penn Treebank and first-order logic.<br>Considering the relation of Hyponym-Of, which establishes a<br>hierarchical relationship where one entity is a more specific<br>version or subtype of another, would it be accurate to say that<br>the concept "Penn Treebank" is a hyponym of "first-order logic"?<br>Answer: No.<br>Evaluation: Accuracy | Task 4: Subgraph Completion<br>Question: Given the following triplets constituting a sub-graph, please<br>infer the relationship between "story ending generation" and "natural<br>language generation."<br>Triplets: story ending generation - Is-a-Prerequisite-of - sentiment<br>control; sentence generation - Is-a-Prerequisite-of - NLG;<br>natural language generation - Conjunction - natural language<br>understanding<br>Relationships Types: Compare, Part-of,Hyponym-Of<br>Answer: Hyponym-Of |  |  |
+| Task 1: Relation Judgment<br>Question: In the field of Natural Language Processing, I have<br>come across the concepts of Penn Treebank and first-order logic.<br>Considering the relation of Hyponym-Of, which establishes a<br>hierarchical relationship where one entity is a more specific<br>version or subtype of another, would it be accurate to say that<br>the concept "Penn Treebank" is a hyponym of "first-order logic"?<br>Answer: No.<br>Evaluation: Accuracy | Task 4: Subgraph Completion<br>Question: Given the following triplets constituting a sub-graph, please<br>infer the relationship between "story ending generation" and "natural<br>language generation."<br>Triplets: story ending generation - Is-a-Prerequisite-of - sentiment<br>control; sentence generation - Is-a-Prerequisite-of - NLG;<br>natural language generation - Conjunction - natural language<br>understanding<br>Relationships Types: Compare, Part-of,Hyponym-Of<br>Answer: Hyponym-Of | | |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|
-| Task 2: Prerequisite Prediction<br>Question: In the domain of Natural Language Processing, I want<br>to learn about Meta-Learning, what concepts should I learn first?<br>Answer: probabilities, optimization, machine learning resources,<br>loss function<br>Evaluation: Similarity Score                                                                                                                                                                                  | Evaluation: Accuracy<br>Task 5: Clustering<br>Question: Given the concept PCA, can you provide some similar concepts?<br>Please provide some similar concepts.<br>Answer: Canonical Correlation Analysis, matrix factorization, linear<br>discriminant analysis, singular value decomposition; maximum likelihood<br>estimation.                                                                                                                                                                          |  |  |
-| Task 3: Path Searching<br>Question: In the domain of Natural Language Processing, I know<br>about the concept of optimization, now I want to learn about the<br>concept of neural language modeling, what concept path should I<br>follow?<br>Answer: optimization, machine learning resources,<br>semi-supervised learning, neural networks, neural language<br>modeling<br>Evaluation: Similarity Score                                                                    | Evaluation: Hit Rate<br>Task 6: Idea Hamster<br>Question: I already know about sentiment analysis, social media analysis,<br>sentence simplification, text summarization, citation networks. In the<br>domain of Natural Language Processing, what potential project can I work<br>on? Give me a possible idea. Show me the title and project description.<br>Answer: (open ended)                                                                                                                        |  |  |
+| Task 2: Prerequisite Prediction<br>Question: In the domain of Natural Language Processing, I want<br>to learn about Meta-Learning, what concepts should I learn first?<br>Answer: probabilities, optimization, machine learning resources,<br>loss function<br>Evaluation: Similarity Score | Evaluation: Accuracy<br>Task 5: Clustering<br>Question: Given the concept PCA, can you provide some similar concepts?<br>Please provide some similar concepts.<br>Answer: Canonical Correlation Analysis, matrix factorization, linear<br>discriminant analysis, singular value decomposition; maximum likelihood<br>estimation. | | |
+| Task 3: Path Searching<br>Question: In the domain of Natural Language Processing, I know<br>about the concept of optimization, now I want to learn about the<br>concept of neural language modeling, what concept path should I<br>follow?<br>Answer: optimization, machine learning resources,<br>semi-supervised learning, neural networks, neural language<br>modeling<br>Evaluation: Similarity Score | Evaluation: Hit Rate<br>Task 6: Idea Hamster<br>Question: I already know about sentiment analysis, social media analysis,<br>sentence simplification, text summarization, citation networks. In the<br>domain of Natural Language Processing, what potential project can I work<br>on? Give me a possible idea. Show me the title and project description.<br>Answer: (open ended) | | |
 
-Figure 3: TutorQA tasks: We present a sample data instance and the corresponding evaluation metric for each task. Note: Task 6 involves open-ended answers, which are evaluated through human assessment.
+**Figure 3:** TutorQA tasks: We present a sample data instance and the corresponding evaluation metric for each task. Note: Task 6 involves open-ended answers, which are evaluated through human assessment.
 
 Our comparative analysis in Table [4,](#page-6-1) which features GPT-4o as the base model, reveals significant improvement across Tasks 1 to 5. These findings underscore the pivotal role of integrating a KG into our pipeline, solidly confirming our assertion that knowledge-augmented systems exhibit exceptional QA capabilities. The marked enhancements are indicative of the substantial potential that KGs hold for advancing NLP applications, especially in educational contexts where such systems can tailor and enhance the learning experience with deeper, context-relevant insights.
 
-<span id="page-6-1"></span>
 
-| Setting   | T1    | T2    | T3    | T4    | T5    |
+| Setting | T1 | T2 | T3 | T4 | T5 |
 |-----------|-------|-------|-------|-------|-------|
 | Zero-shot | 69.20 | 64.42 | 66.61 | 44.00 | 11.45 |
-| Ours      | 92.00 | 80.29 | 77.85 | 50.00 | 15.65 |
+| Ours | 92.00 | 80.29 | 77.85 | 50.00 | 15.65 |
 
-Table 4: Evaluation of TutorQA on Tasks 1-5. T1, T4: accuracy; T2, T3: similarity score; T5: hit rate.
+**Table 4:** Evaluation of TutorQA on Tasks 1-5. T1, T4: accuracy; T2, T3: similarity score; T5: hit rate.
 
 Expert Evaluation In Task 6, where open-ended answers are generated without gold-standard responses, we resort to expert evaluation for comparative analysis between baseline results and our model. Despite available LLM-centric metrics like G-Eval [\(Liu et al.,](#page-9-21) [2023\)](#page-9-21), the specific evaluation needs of this task warrant distinct criteria, particularly examining the persuasive and scientifically sound elements of generated project proposals. Four evaluation criteria, rated on a 1-5 scale, are employed: *Concept Relevancy*: the project's alignment with the query concepts. *Concept Coverage*: the extent to which the project encompasses
 
 the query concepts. *Project Convincity*: the persuasiveness and practical feasibility of the project. *Scientific Factuality*: the scientific accuracy of the information within the project. Evaluation by two NLP experts, with a Kappa score of 0.6689, suggests substantial agreement. The results in Table [5](#page-6-2) indicate that while both settings achieve high scores across all criteria, our pipeline exhibits a marginally superior performance, particularly in terms of Convincity and Factuality. This suggests that our pipeline might be better at generating content that is not only factually accurate but also presents it in a way that is more persuasive to the reader.
 
-<span id="page-6-2"></span>
 
-| Model     | Relevancy |       | Coverage Convincity Factuality |       |
+| Model | Relevancy | | Coverage Convincity Factuality | |
 |-----------|-----------|-------|--------------------------------|-------|
-| Zero-shot | 4.750     | 4.840 | 4.380                          | 4.625 |
-| Ours      | 4.845     | 4.905 | 4.720                          | 4.770 |
+| Zero-shot | 4.750 | 4.840 | 4.380 | 4.625 |
+| Ours | 4.845 | 4.905 | 4.720 | 4.770 |
 
-Table 5: Expert evaluation of TutorQA on Task 6.
+**Table 5:** Expert evaluation of TutorQA on Task 6.
 
 ## 6 Ablation Study and Analysis
 
@@ -296,25 +288,25 @@ We explore the potential of external data in enhancing concept graph recovery. T
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image presents a bar chart comparing the performance of four model variations ("Base," "Doc," "Con," "Wiki") on two metrics: accuracy (Acc) and F1-score (F1). Each bar represents a model's performance on a respective metric. The chart visually displays the relative improvement of different model variations. The legend clarifies the color coding for each model. The purpose is to quantitatively illustrate the impact of different data augmentation techniques on model performance. -->
 
-Figure 4: Link Prediction Ablation Study: Comparison of models with external data.
+**Figure 4:** Link Prediction Ablation Study: Comparison of models with external data.
 
-#### 2 Graphusion Modules
+### 2 Graphusion Modules
 
 We conduct an ablation study on the KGC task by comparing different settings, as shown in Fig [5.](#page-7-1) We evaluate four configurations: Link Prediction using the LP prompt (*LP*), Link Prediction with RAG (*LPRAG*), Candidate Triplet Extraction without Fusion (*Extraction*), and Graphusion (*Graphusion*). In the first two settings, we implement a straightforward scenario where concept pairs are provided, and the relationship is predicted directly through link prediction. All experiments are conducted using GPT-4 as the base language model. We report the average human evaluation rating on relation quality. The concept entities remain fixed, so their ratings are not included. Our findings indicate that the Graphusion framework achieves the best performance. Removing the core fusion component (the *Extraction*setting) significantly diminishes performance, underscoring the effectiveness of the fusion module.
 
 <span id="page-7-1"></span>![](_page_7_Figure_5.jpeg)
 <!-- Image Description: The image displays a bar chart comparing four methods—LP, LPRAG, Extraction, and Graphusion—based on their "Rating" scores. The chart shows Graphusion achieving the highest rating (2.37), while Extraction has the lowest (1.8). LPRAG and LP show intermediate ratings of 2.12 and 2.07 respectively. The chart's purpose is to visually represent and compare the performance of these four methods, likely within the context of a larger study evaluating graph-based techniques. -->
 
-Figure 5: Ablation study on Graphusion modules: We compare four settings with GPT-4o as base.
+**Figure 5:** Ablation study on Graphusion modules: We compare four settings with GPT-4o as base.
 
-#### 3 Graphusion Case Study
+### 3 Graphusion Case Study
 
 In Fig [6,](#page-7-2) we present case studies from our Graphusion framework using GPT-4o. Graphusion effectively merges similar concepts (neural MT and neural machine translation) and resolves relational conflicts (prerequisite of vs hyponym of). Additionally, it can infer novel triplets absent from the input. We highlight both positive and negative outputs from Graphusion. For instance, it correctly identifies that a technique is used for a task (hierarchical attention network, used for, reading comprehension). However, it may make mistakes in concept recognition, such as concepts with poor granularity (annotated data, model generated summary) and identifying incorrect relations (word embedding being inaccurately categorized as part of computer science).
 
 <span id="page-7-2"></span>![](_page_7_Figure_9.jpeg)
 <!-- Image Description: The image displays a series of labeled boxes representing knowledge triplets. Each triplet consists of two concepts and a relation ("Used-for," "Hyponym of," "Prerequisite-of," "Compare," "Conjunction," "Is-a-Prerequisite-of," "Part-of"). The triplets are grouped into sections: "Merging," "Resolution," "Novel Triplets," and "More Cases," illustrating different types of relationships between concepts, likely in the context of natural language processing or a similar field. The image's purpose is to visually represent and categorize these relationships for clarity and analysis within the paper. -->
 
-Figure 6: Case studies for Graphusion on the GPT-4o model: Correct parts are highlighted in green, resolved and merged parts in orange, and incorrect parts in red.
+**Figure 6:** Case studies for Graphusion on the GPT-4o model: Correct parts are highlighted in green, resolved and merged parts in orange, and incorrect parts in red.
 
 ## 4 TutorQA Task 2 & Task 3: Concept Entity Counts
 
@@ -323,7 +315,7 @@ As depicted in Fig [7,](#page-8-11) We evaluate the average number of concept en
 <span id="page-8-11"></span>![](_page_8_Figure_0.jpeg)
 <!-- Image Description: The image displays a bar chart comparing the performance of "Graphusion" and "Zero-shot" methods on Tasks 2 and 3. The vertical axis represents the count, and the horizontal axis shows the tasks. Each bar indicates the count for each method on each task, with numerical values above the bars. The chart likely illustrates a quantitative comparison of the two methods' effectiveness within the context of the paper. -->
 
-Figure 7: Comparison of concept counts in Task 2 and Task 3.
+**Figure 7:** Comparison of concept counts in Task 2 and Task 3.
 
 ## 7 Conclusion
 
@@ -388,7 +380,7 @@ In our research, we have meticulously addressed ethical considerations, particul
 - <span id="page-10-6"></span>Yuqi Zhu, Xiaohan Wang, Jing Chen, Shuofei Qiao, Yixin Ou, Yunzhi Yao, Shumin Deng, Huajun Chen, and Ningyu Zhang. 2023. [Llms for knowledge graph](https://api.semanticscholar.org/CorpusID:258833039) [construction and reasoning: Recent capabilities and](https://api.semanticscholar.org/CorpusID:258833039) [future opportunities.](https://api.semanticscholar.org/CorpusID:258833039) *ArXiv*, abs/2305.13168.
 - <span id="page-10-8"></span>Brian Zylich, Adam Viola, Brokk Toggerson, Lara Al-Hariri, and Andrew S. Lan. 2020. [Exploring auto](https://api.semanticscholar.org/CorpusID:220364751)[mated question answering methods for teaching assis](https://api.semanticscholar.org/CorpusID:220364751)[tance.](https://api.semanticscholar.org/CorpusID:220364751) *Artificial Intelligence in Education*, 12163:610 – 622.
 
-# A Prompt Templates
+## A Prompt Templates
 
 ## A.1 Main Framework
 
@@ -400,7 +392,7 @@ Do you think learning {concept_1} will help in understanding {concept_2}?
 Hints:
 1. Answer YES or NO only.
 2. This is a directional relation, which means if the answer is "YES", (B, A) is
-   false, but (A, B) is true.
+false, but (A, B) is true.
 3. Your answer will be used to create a knowledge graph.
 {Additional Information}
 ```text
@@ -413,22 +405,22 @@ We have two {domain} related concepts: A: {concept\_1} and B: {concept\_2}. Asse
 
 ## Extraction Prompt
 
-| ### Instruction:<br>You are a domain expert in natural language processing, and now you are building a<br>knowledge graph in this domain. |                                                                                                                                                                                                                                                                                                                                              |  |  |  |  |  |
+| ### Instruction:<br>You are a domain expert in natural language processing, and now you are building a<br>knowledge graph in this domain. | | | | | | |
 |-------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|--|
-|                                                                                                                                           | Given a context (### Content), and a query concept (### Concept), do the following:                                                                                                                                                                                                                                                          |  |  |  |  |  |
-|                                                                                                                                           | 1. Extract the query concept and in-domain concepts from the context, which should<br>be fine-grained: could be introduced by a lecture slide page, or a whole<br>lecture, or possibly to have a Wikipedia page.                                                                                                                             |  |  |  |  |  |
-|                                                                                                                                           | 2. Determine the relations between the query concept and the extracted concepts, in<br>a triplet format: ( <head concept="">, <relation>, <tail concept="">). The relation<br/>should be functional, aiding learners in understanding the knowledge. The query<br/>concept can be the head concept or tail concept.</tail></relation></head> |  |  |  |  |  |
-|                                                                                                                                           | We define 7 types of the relations:                                                                                                                                                                                                                                                                                                          |  |  |  |  |  |
-|                                                                                                                                           | a) Compare: Represents a relation between two or more entities where a<br>comparison is being made. For example, "A is larger than B" or "X is more<br>efficient than Y."                                                                                                                                                                    |  |  |  |  |  |
-|                                                                                                                                           | b) Part-of: Denotes a relation where one entity is a constituent or component of<br>another. For instance, "Wheel is a part of a Car."                                                                                                                                                                                                       |  |  |  |  |  |
-|                                                                                                                                           | c) Conjunction: Indicates a logical or semantic relation where two or more<br>entities are connected to form a group or composite idea. For example, "Salt<br>and Pepper."                                                                                                                                                                   |  |  |  |  |  |
-|                                                                                                                                           | d) Evaluate-for: Represents an evaluative relation where one entity is assessed<br>in the context of another. For example, "A tool is evaluated for its<br>effectiveness."                                                                                                                                                                   |  |  |  |  |  |
-|                                                                                                                                           | e) Is-a-Prerequisite-of: This dual-purpose relation implies that one entity is<br>either a characteristic of another or a required precursor for another. For<br>instance, "The ability to code is a prerequisite of software development."                                                                                                  |  |  |  |  |  |
-|                                                                                                                                           | f) Used-for: Denotes a functional relation where one entity is utilized in<br>accomplishing or facilitating the other. For example, "A hammer is used for<br>driving nails."                                                                                                                                                                 |  |  |  |  |  |
-|                                                                                                                                           | g) Hyponym-Of: Establishes a hierarchical relation where one entity is a more<br>specific version or subtype of another. For instance, "A Sedan is a hyponym<br>of a Car."                                                                                                                                                                   |  |  |  |  |  |
-|                                                                                                                                           | 3. Please note some relations are strictly directional. For example, "A tool is<br>evaluated for B" indicates (A, Evaluate-for, B), NOT (B, Evaluate-for, A).<br>Among the seven relation types, only "a) Compare" and "c) Conjunction" are not<br>direction-sensitive.                                                                      |  |  |  |  |  |
-|                                                                                                                                           | 4. You can also extract triplets from the extracted concepts, and the query concept<br>may not be necessary in the triplets.                                                                                                                                                                                                                 |  |  |  |  |  |
-|                                                                                                                                           | 5. Your answer should ONLY contain a list of triplets, each triplet is in this<br>format: (concept, relation, concept). For example: "(concept, relation, concept)<br>(concept, relation, concept)." No numbering and other explanations are needed.                                                                                         |  |  |  |  |  |
+| | Given a context (### Content), and a query concept (### Concept), do the following: | | | | | |
+| | 1. Extract the query concept and in-domain concepts from the context, which should<br>be fine-grained: could be introduced by a lecture slide page, or a whole<br>lecture, or possibly to have a Wikipedia page. | | | | | |
+| | 2. Determine the relations between the query concept and the extracted concepts, in<br>a triplet format: ( <head concept="">, <relation>, <tail concept="">). The relation<br/>should be functional, aiding learners in understanding the knowledge. The query<br/>concept can be the head concept or tail concept.</tail></relation></head> | | | | | |
+| | We define 7 types of the relations: | | | | | |
+| | a) Compare: Represents a relation between two or more entities where a<br>comparison is being made. For example, "A is larger than B" or "X is more<br>efficient than Y." | | | | | |
+| | b) Part-of: Denotes a relation where one entity is a constituent or component of<br>another. For instance, "Wheel is a part of a Car." | | | | | |
+| | c) Conjunction: Indicates a logical or semantic relation where two or more<br>entities are connected to form a group or composite idea. For example, "Salt<br>and Pepper." | | | | | |
+| | d) Evaluate-for: Represents an evaluative relation where one entity is assessed<br>in the context of another. For example, "A tool is evaluated for its<br>effectiveness." | | | | | |
+| | e) Is-a-Prerequisite-of: This dual-purpose relation implies that one entity is<br>either a characteristic of another or a required precursor for another. For<br>instance, "The ability to code is a prerequisite of software development." | | | | | |
+| | f) Used-for: Denotes a functional relation where one entity is utilized in<br>accomplishing or facilitating the other. For example, "A hammer is used for<br>driving nails." | | | | | |
+| | g) Hyponym-Of: Establishes a hierarchical relation where one entity is a more<br>specific version or subtype of another. For instance, "A Sedan is a hyponym<br>of a Car." | | | | | |
+| | 3. Please note some relations are strictly directional. For example, "A tool is<br>evaluated for B" indicates (A, Evaluate-for, B), NOT (B, Evaluate-for, A).<br>Among the seven relation types, only "a) Compare" and "c) Conjunction" are not<br>direction-sensitive. | | | | | |
+| | 4. You can also extract triplets from the extracted concepts, and the query concept<br>may not be necessary in the triplets. | | | | | |
+| | 5. Your answer should ONLY contain a list of triplets, each triplet is in this<br>format: (concept, relation, concept). For example: "(concept, relation, concept)<br>(concept, relation, concept)." No numbering and other explanations are needed. | | | | | |
 
 6. If ### Content is empty, output None.
 
@@ -446,7 +438,7 @@ Do you think learning {concept_1} will help in understanding {concept_2}?
 Hints:
 1. Answer YES or NO only.
 2. This is a directional relation, which means if the answer is "YES", (B, A) is
-   false, but (A, B) is true.
+false, but (A, B) is true.
 3. Your answer will be used to create a knowledge graph.
 And here are related contents to help:
 {related documents concatenation}
@@ -460,7 +452,7 @@ Do you think learning {concept_1} will help in understanding {concept_2}?
 Hints:
 1. Answer YES or NO only.
 2. This is a directional relation, which means if the answer is "YES", (B, A) is
-   false, but (A, B) is true.
+false, but (A, B) is true.
 3. Your answer will be used to create a knowledge graph.
 And here are related contents to help:
 We know that {concept_1} is a prerequisite of the following concepts:
@@ -477,7 +469,7 @@ The following concepts are the prerequisites of {concept_2}:
 
 We have two {domain} related concepts: A: {concept\_1} and B: {concept\_2}. Do you think learning {concept\_1} will help in understanding {concept\_2}? Hints: 1. Answer YES or NO only. 2. This is a directional relation, which means if the answer is "YES", (B, A) is false, but (A, B) is true. 3. Your answer will be used to create a knowledge graph. And here are related contents to help: {Wikipedia introductory paragraph of {concept\_1}} {Wikipedia introductory paragraph of {concept\_2}}
 
-# B Experimental Setup
+## B Experimental Setup
 
 ## B.1 Experiments
 
@@ -501,60 +493,59 @@ NLP-Papers We downloaded conference papers from EMNLP, ACL, and NAACL spanning t
 
 Since LectureBankCD contains data from three domains: NLP, computer vision (CV), and bioinformatics (BIO), we further compare the performance across all the domains, presenting the results in Tab. [6.](#page-16-0) Specifically, the RAG data predominantly consists of NLP-related content, which is why there is no noticeable improvement in the CV and BIO domains when using RAG.
 
-<span id="page-16-0"></span>
 
-| Method               | NLP    |        | CV     |        | BIO    |        | Overall |        |
+| Method | NLP | | CV | | BIO | | Overall | |
 |----------------------|--------|--------|--------|--------|--------|--------|---------|--------|
-|                      | Acc    | F1     | Acc    | F1     | Acc    | F1     | Acc     | F1     |
-| Supervised Baselines |        |        |        |        |        |        |         |        |
-| P2V                  | 0.6369 | 0.5961 | 0.7642 | 0.7570 | 0.7200 | 0.7367 | 0.7070  | 0.6966 |
-| BERT                 | 0.7088 | 0.6963 | 0.7572 | 0.7495 | 0.7067 | 0.7189 | 0.7242  | 0.7216 |
-| DeepWalk             | 0.6292 | 0.5860 | 0.7988 | 0.7910 | 0.7911 | 0.8079 | 0.7397  | 0.7283 |
-| Node2vec             | 0.6209 | 0.6181 | 0.8197 | 0.8172 | 0.7956 | 0.8060 | 0.7454  | 0.7471 |
-| LLM - Supervised     |        |        |        |        |        |        |         |        |
-| LLaMA - Classifier   | 0.6684 | 0.6475 | 0.6184 | 0.6549 | 0.6043 | 0.6644 | 0.6304  | 0.6556 |
-| LLaMA - Graph        | 0.7174 | 0.7673 | 0.7839 | 0.8223 | 0.8217 | 0.8464 | 0.7743  | 0.8120 |
-| Zero-shot (zs)       |        |        |        |        |        |        |         |        |
-| LLaMA                | 0.6058 | 0.6937 | 0.6092 | 0.6989 | 0.6261 | 0.6957 | 0.6137  | 0.6961 |
-| GPT-3.5              | 0.6123 | 0.7139 | 0.6667 | 0.7271 | 0.6696 | 0.6801 | 0.6495  | 0.7070 |
-| GPT-4                | 0.7639 | 0.7946 | 0.7391 | 0.7629 | 0.7348 | 0.7737 | 0.7459  | 0.7771 |
-| Zero-shot + RAG      |        |        |        |        |        |        |         |        |
-| GPT-3.5              | 0.7587 | 0.7793 | 0.6828 | 0.7123 | 0.6870 | 0.7006 | 0.7095  | 0.7307 |
-| GPT-4                | 0.7755 | 0.7958 | 0.7230 | 0.7441 | 0.7174 | 0.7200 | 0.7386  | 0.7533 |
+| | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 |
+| Supervised Baselines | | | | | | | | |
+| P2V | 0.6369 | 0.5961 | 0.7642 | 0.7570 | 0.7200 | 0.7367 | 0.7070 | 0.6966 |
+| BERT | 0.7088 | 0.6963 | 0.7572 | 0.7495 | 0.7067 | 0.7189 | 0.7242 | 0.7216 |
+| DeepWalk | 0.6292 | 0.5860 | 0.7988 | 0.7910 | 0.7911 | 0.8079 | 0.7397 | 0.7283 |
+| Node2vec | 0.6209 | 0.6181 | 0.8197 | 0.8172 | 0.7956 | 0.8060 | 0.7454 | 0.7471 |
+| LLM - Supervised | | | | | | | | |
+| LLaMA - Classifier | 0.6684 | 0.6475 | 0.6184 | 0.6549 | 0.6043 | 0.6644 | 0.6304 | 0.6556 |
+| LLaMA - Graph | 0.7174 | 0.7673 | 0.7839 | 0.8223 | 0.8217 | 0.8464 | 0.7743 | 0.8120 |
+| Zero-shot (zs) | | | | | | | | |
+| LLaMA | 0.6058 | 0.6937 | 0.6092 | 0.6989 | 0.6261 | 0.6957 | 0.6137 | 0.6961 |
+| GPT-3.5 | 0.6123 | 0.7139 | 0.6667 | 0.7271 | 0.6696 | 0.6801 | 0.6495 | 0.7070 |
+| GPT-4 | 0.7639 | 0.7946 | 0.7391 | 0.7629 | 0.7348 | 0.7737 | 0.7459 | 0.7771 |
+| Zero-shot + RAG | | | | | | | | |
+| GPT-3.5 | 0.7587 | 0.7793 | 0.6828 | 0.7123 | 0.6870 | 0.7006 | 0.7095 | 0.7307 |
+| GPT-4 | 0.7755 | 0.7958 | 0.7230 | 0.7441 | 0.7174 | 0.7200 | 0.7386 | 0.7533 |
 
-Table 6: Link prediction results across all domains on the LectureBankCD test set: We present accuracy (Acc) and F1 scores. Bolded figures indicate the best performance in the zero-shot setting, while underlined scores represent the highest achievements in the supervised setting. In this paper, we apply LLaMA2-70b for all experiments.
+**Table 6:** Link prediction results across all domains on the LectureBankCD test set: We present accuracy (Acc) and F1 scores. Bolded figures indicate the best performance in the zero-shot setting, while underlined scores represent the highest achievements in the supervised setting. In this paper, we apply LLaMA2-70b for all experiments.
 
 ## C.2 Ablation Study
 
 <span id="page-16-1"></span>Prompting Strategies In Tab. [7,](#page-16-1) we explore the impact of different prompting strategies for concept graph recovery, comparing CoT and zero-shot prompts across both NLP and CV domains. The results indicate the introduction of CoT is not improving. We further find that CoT Prompting more frequently results in negative predictions. This finding serves as a drawback for our study, as it somewhat suppresses the performance of our system. This observation highlights the need to balance the impact of CoT on the rigor and complexity of predictions, especially in the context of graph recovery.
 
-| Model                 |                  | NLP              |                  | CV               |
+| Model | | NLP | | CV |
 |-----------------------|------------------|------------------|------------------|------------------|
-|                       | Acc              | F1               | Acc              | F1               |
+| | Acc | F1 | Acc | F1 |
 | GPT-4 zs<br>GPT-4 CoT | 0.7639<br>0.7342 | 0.7946<br>0.6537 | 0.7391<br>0.6122 | 0.7629<br>0.4159 |
 
-Table 7: Comparison of zero-shot and CoT prompts with GPT-4: Results on NLP and CV.
+**Table 7:** Comparison of zero-shot and CoT prompts with GPT-4: Results on NLP and CV.
 
 <span id="page-17-0"></span>Finetuning We further explore the impact of finetuning on additional datasets, with results detailed in Table [8.](#page-17-0) Specifically, we utilize LLaMA2-70b [\(Touvron et al.,](#page-9-0) [2023\)](#page-9-0), finetuning it on two previously mentioned datasets: TutorialBank and NLP-Papers. Both the zero-shot LLaMA and the finetuned models are employed to generate answers. As these answers are binary (YES or NO), we can calculate both the accuracy and F1 score for evaluation. However, the results indicate that finetuning does not yield positive outcomes. This can be attributed to two potential factors: 1) the poor quality of data, and 2) limited effectiveness in aiding the graph recovery task. We leave this part as the future work.
 
-| Dataset      | Acc    | F1     |
+| Dataset | Acc | F1 |
 |--------------|--------|--------|
-| LLaMA2-70b   | 0.6058 | 0.6937 |
+| LLaMA2-70b | 0.6058 | 0.6937 |
 | TutorialBank | 0.4739 | 0.0764 |
-| NLP Papers   | 0.5435 | 0.6363 |
+| NLP Papers | 0.5435 | 0.6363 |
 
-Table 8: Comparison of the effect of finetuning: Results on NLP domain.
+**Table 8:** Comparison of the effect of finetuning: Results on NLP domain.
 
-# D Graphusion: human evaluation rubric
+## D Graphusion: human evaluation rubric
 
 - 1. Concept Entity Quality
-  - Excellent (3 points): Both concepts are highly relevant and specific to the domain. At an appropriate level of detail, neither too broad nor too specific. For example, a concept could be introduced by a lecture slide page, or a whole lecture, or possibly have a Wikipedia page.
-  - Acceptable (2 points): Concept is somewhat relevant, or granularity is acceptable.
-  - Poor (1 point): Concept is at an inappropriate level of detail, too broad or too specific.
+- Excellent (3 points): Both concepts are highly relevant and specific to the domain. At an appropriate level of detail, neither too broad nor too specific. For example, a concept could be introduced by a lecture slide page, or a whole lecture, or possibly have a Wikipedia page.
+- Acceptable (2 points): Concept is somewhat relevant, or granularity is acceptable.
+- Poor (1 point): Concept is at an inappropriate level of detail, too broad or too specific.
 - 2. Relation Quality
-  - Correct (3 points): The relation logically and accurately describes the relationship between the head and tail concepts.
-  - Somewhat Correct (2 points): The relation is acceptable but has minor inaccuracies or there might be another better or correct answer.
-  - Incorrect (1 point): The relation does not logically describe the relationship between the concepts.
+- Correct (3 points): The relation logically and accurately describes the relationship between the head and tail concepts.
+- Somewhat Correct (2 points): The relation is acceptable but has minor inaccuracies or there might be another better or correct answer.
+- Incorrect (1 point): The relation does not logically describe the relationship between the concepts.
 
 ## <span id="page-18-0"></span>E TutorQA
 
@@ -562,49 +553,49 @@ Table 8: Comparison of the effect of finetuning: Results on NLP domain.
 
 <span id="page-18-1"></span>We show the data analysis in Tab. [9.](#page-18-1)
 
-| Task | Question Token |     |       | Concept Count |     |      | Number |
+| Task | Question Token | | | Concept Count | | | Number |
 |------|----------------|-----|-------|---------------|-----|------|--------|
-|      | Max            | Min | Mean  | Max           | Min | Mean |        |
-| T1   | 77             | 61  | 68.00 | -             | -   | -    | 250    |
-| T2   | 27             | 22  | 23.48 | 7             | 1   | 1.79 | 250    |
-| T3   | 40             | 34  | 36.66 | 8             | 2   | 3.36 | 250    |
-| T4   | 88             | 76  | 83.00 | -             | -   | -    | 250    |
-| T5   | 21             | 18  | 19.26 | 8             | 1   | 4.76 | 100    |
-| T6   | 54             | 42  | 48.62 | -             | -   | -    | 100    |
+| | Max | Min | Mean | Max | Min | Mean | |
+| T1 | 77 | 61 | 68.00 | - | - | - | 250 |
+| T2 | 27 | 22 | 23.48 | 7 | 1 | 1.79 | 250 |
+| T3 | 40 | 34 | 36.66 | 8 | 2 | 3.36 | 250 |
+| T4 | 88 | 76 | 83.00 | - | - | - | 250 |
+| T5 | 21 | 18 | 19.26 | 8 | 1 | 4.76 | 100 |
+| T6 | 54 | 42 | 48.62 | - | - | - | 100 |
 
-Table 9: TutorQA data statistics comparison: The answers in T1 are only "True" or "False", and the answers in T4 are relations, while the answers in T6 are free text with open-ended answers.
+**Table 9:** TutorQA data statistics comparison: The answers in T1 are only "True" or "False", and the answers in T4 are relations, while the answers in T6 are free text with open-ended answers.
 
 ### E.2 Task 2 and Task 3: case study
 
-| Question [Task2] | In the field of Natural Language Processing, I want to learn about multilingual model. What concepts<br>should I learn first?                                                            |
+| Question [Task2] | In the field of Natural Language Processing, I want to learn about multilingual model. What concepts<br>should I learn first? |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GPT-4o           | Tokenization, Embeddings, Transfer Learning, Cross-lingual Transfer, Zero-shot Learning, Mul<br>tilingual Corpora, Language Modeling, Fine-tuning, Evaluation Metrics, Pretrained Models |
-| Ours             | language models, machine translation, cross-lingual embeddings, transfer learning, tokenization,<br>fine-tuning                                                                          |
-| Question [Task3] | In the field of Natural Language Processing, I know about natural language processing intro, now I<br>want to learn about t-sne. What concept path should I follow?                      |
-| GPT-4o           | natural language processing, dimensionality reduction, t-SNE, perplexity, high-dimensional data,<br>data visualization, machine learning                                                 |
-| Ours             | natural language processing intro, vector representations, t-sne                                                                                                                         |
+| GPT-4o | Tokenization, Embeddings, Transfer Learning, Cross-lingual Transfer, Zero-shot Learning, Mul<br>tilingual Corpora, Language Modeling, Fine-tuning, Evaluation Metrics, Pretrained Models |
+| Ours | language models, machine translation, cross-lingual embeddings, transfer learning, tokenization,<br>fine-tuning |
+| Question [Task3] | In the field of Natural Language Processing, I know about natural language processing intro, now I<br>want to learn about t-sne. What concept path should I follow? |
+| GPT-4o | natural language processing, dimensionality reduction, t-SNE, perplexity, high-dimensional data,<br>data visualization, machine learning |
+| Ours | natural language processing intro, vector representations, t-sne |
 
-Table 10: Case study on TutorQA Task 2 and Task 3: GPT-4o, and GPT-4o-Graphusion.
+**Table 10:** Case study on TutorQA Task 2 and Task 3: GPT-4o, and GPT-4o-Graphusion.
 
-#### E.3 Task 4: case study
+### E.3 Task 4: case study
 
 | Question | Given the following edges constituting a concept subgraph, please identify and select the possible type of<br>relationship between natural language generation and natural language understanding. |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GPT-4o   | Is-a-Prerequisite-of                                                                                                                                                                               |
-| Ours     | Conjunction                                                                                                                                                                                        |
+| GPT-4o | Is-a-Prerequisite-of |
+| Ours | Conjunction |
 
-Table 11: Case study on TutorQA Task 4: GPT-4o, and GPT-4o-Graphusion.
+**Table 11:** Case study on TutorQA Task 4: GPT-4o, and GPT-4o-Graphusion.
 
-#### E.4 Task 6: Human Evaluation Rubrics
+### E.4 Task 6: Human Evaluation Rubrics
 
 - Concept Relevancy (1-5):
-  - Rate how well the project description aligns with the provided query concepts.
-  - Score 1 if the project is not related to any of the query concepts.
-  - Score 5 if the project directly addresses and is entirely based on the provided query concepts.
+- Rate how well the project description aligns with the provided query concepts.
+- Score 1 if the project is not related to any of the query concepts.
+- Score 5 if the project directly addresses and is entirely based on the provided query concepts.
 - Concept Coverage (1-5):
-  - Evaluate how comprehensively the project description covers the query concepts.
-  - Score 1 if only a minimal or superficial coverage of the concepts is present.
-  - Score 5 if all query concepts are thoroughly and extensively discussed in the project description.
+- Evaluate how comprehensively the project description covers the query concepts.
+- Score 1 if only a minimal or superficial coverage of the concepts is present.
+- Score 5 if all query concepts are thoroughly and extensively discussed in the project description.
 
 ## • Project Convincity (1-5):
 
@@ -622,53 +613,51 @@ Table 11: Case study on TutorQA Task 4: GPT-4o, and GPT-4o-Graphusion.
 
 Task 6: Case Study To further understand how knowledge graphs could help the reasoning, we present a case study on task 6 in Tab. [12.](#page-19-0) The posed question incorporates five concepts (highlighted in blue), with the task being to formulate a feasible project proposal. Although LLaMA offers a substantial project description, its content and relevance to the highlighted concepts (marked in orange) are somewhat lacking. In contrast, GPT-4o not only references the queried concepts but also provides detailed insights (highlighted in purple) on their potential utility within the project, such as the role of *neural question answering*. Lastly, with Graphusion constructed KG, the model provides a more comprehensive solution, elaborating on the concepts and introducing additional ones (highlighted in lavender) that come from the recovered concept graph, like *dependency parsing*and*event extraction*, while initially addressing the queried concepts.
 
-<span id="page-19-0"></span>
 
-| Question | I already know about neural question answering, social media analysis, topic modeling, relation extraction, and<br>word embedding variations. In the domain of natural language processing, what potential project can I work<br>on? Give me a possible idea. Show me the title and project description.                                                                                                                                                                                                                                                                                                                                                       |
+| Question | I already know about neural question answering, social media analysis, topic modeling, relation extraction, and<br>word embedding variations. In the domain of natural language processing, what potential project can I work<br>on? Give me a possible idea. Show me the title and project description. |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LLaMA    | Title: Exploring the Impact of Emojis on Textual Emotions; Description: Emojis have become an integral part<br>of online communicationThe project will involve the following tasks: 1. Data Collection: We will collect<br>a dataset of text messagesand their corresponding emotional labels (positive, negative, neutral). 2. Data<br>Preprocessing: We will preprocess the data by removing stop words                                                                                                                                                                                                                                                      |
-| GPT-4o   | Title: Multi-faceted Analysis of Social Media Discussions on Climate Change; Description: This project<br>aims to  Utilizing neural question answering, we can automatically address common inquiries people have<br>about climate topics. Social media analysis will uncover trends, sentiment, and influential users shaping the<br>conversation. Topic modeling will identify underlying themes in these discussions                                                                                                                                                                                                                                        |
-| Ours     | Title: Enhanced Social Media Insights through Multilingual Aspect-Based Sentiment Analysis; Description::<br>This project aims to develop a comprehensive system for analyzing social media data to extract and understand<br>user sentiments across multiple languages. By leveraging neural question answering, topic modeling, and<br>relation extraction, the system will identify key aspects and sentiments from posts. Dependency parsing and<br>event extraction will help in understanding syntactic and event-based relations Word embedding variations and<br>multilingual word embeddings will ensure accurate sentiment analysis across languages |
+| LLaMA | Title: Exploring the Impact of Emojis on Textual Emotions; Description: Emojis have become an integral part<br>of online communicationThe project will involve the following tasks: 1. Data Collection: We will collect<br>a dataset of text messagesand their corresponding emotional labels (positive, negative, neutral). 2. Data<br>Preprocessing: We will preprocess the data by removing stop words |
+| GPT-4o | Title: Multi-faceted Analysis of Social Media Discussions on Climate Change; Description: This project<br>aims to Utilizing neural question answering, we can automatically address common inquiries people have<br>about climate topics. Social media analysis will uncover trends, sentiment, and influential users shaping the<br>conversation. Topic modeling will identify underlying themes in these discussions |
+| Ours | Title: Enhanced Social Media Insights through Multilingual Aspect-Based Sentiment Analysis; Description::<br>This project aims to develop a comprehensive system for analyzing social media data to extract and understand<br>user sentiments across multiple languages. By leveraging neural question answering, topic modeling, and<br>relation extraction, the system will identify key aspects and sentiments from posts. Dependency parsing and<br>event extraction will help in understanding syntactic and event-based relations Word embedding variations and<br>multilingual word embeddings will ensure accurate sentiment analysis across languages |
 
-Table 12: Case study on TutorQA Task 6: LLaMA, GPT-4o, and our pipeline with constructed KG from Graphusion (part). We highlight the relevant concepts, irrelevant concepts, concept details and expanded relevant concepts.
+**Table 12:** Case study on TutorQA Task 6: LLaMA, GPT-4o, and our pipeline with constructed KG from Graphusion (part). We highlight the relevant concepts, irrelevant concepts, concept details and expanded relevant concepts.
 
 In Table [13,](#page-20-0) we present another example. Similarly to previous observations, LLaMA tends to provide much irrelevant information, whereas GPT-4o and our model offer more viable project proposals. Furthermore, our model demonstrates the ability to suggest detailed concepts and incorporate related concepts as extensions.
 
-<span id="page-20-0"></span>
 
 | Question | I already know about neural question answering, recurrent neural networks and gated recurrent units. In the<br>domain of natural language processing, what potential project can I work on? Give me a possible idea. Show |
 |----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|          | me the title and project description.                                                                                                                                                                                     |
-| LLaMA2   | Title: Exploring the Use of Multimodal Fusion for Enhancing Question Answering Systems; Description:                                                                                                                      |
-|          | Question answering systems have been a crucial component of natural language processing research in recent                                                                                                                |
-|          | years. While most question answering systems rely solely on textual information, there is a growing interest                                                                                                              |
-|          | in incorporating multimodal information (such as images, videos, and audio) to improve the accuracy and                                                                                                                   |
-|          | robustness of these systems. In this project, we aim to explore the use of multimodal fusion for enhancing                                                                                                                |
-|          | question answering systems. The project will involve the following tasks: 1. Collecting and annotating a                                                                                                                  |
-|          | large dataset of multimodal question answering examples, where each example consists of a question, a set of                                                                                                              |
-|          | candidate answers, and relevant multimodal information (such as images, videos, or audio)[Stops because                                                                                                                   |
-|          | of the length restriction]                                                                                                                                                                                                |
-| GPT-4o   | Title: Sentiment Analysis and Trend Prediction in Social Media Data; Description: Leverage the power of                                                                                                                   |
-|          | natural language processing to analyze and predict trends in social media sentiment. Your project will focus                                                                                                              |
-|          | on collecting and processing large volumes of social media posts from various platforms. Using advanced                                                                                                                   |
-|          | sentiment analysis techniques, you will classify these posts into categories like positive, negative, and neutral.                                                                                                        |
-|          | The challenge is to accurately interpret not just the explicit text, but also the implied and contextual sentiment.                                                                                                       |
-|          | Furthermore, apply time-series analysis to predict future sentiment trends, which can be invaluable for businesses,                                                                                                       |
-|          | political campaigns, and public relations. This project combines NLP with data science to provide actionable                                                                                                              |
-|          | insights from the vast and dynamic world of social media.                                                                                                                                                                 |
-| Ours     | Title: Adaptive Learning Assistant for Personalized Education; Description: The project aims to develop an                                                                                                                |
-|          | Adaptive Learning Assistant (ALA) that leverages neural question answering, recurrent neural networks (RNNs),                                                                                                             |
-|          | and gated recurrent units (GRUs) to provide personalized educational support. By integrating text mining                                                                                                                  |
-|          | techniques, the ALA will analyze educational content and student interactions to identify knowledge gaps and                                                                                                              |
-|          | learning preferences. Using document ranking, it will curate and recommend personalized learning materials                                                                                                                |
-|          | and quizzes. The system will employ character-level language models to understand and generate nuanced                                                                                                                    |
-|          | responses to student inquiries, facilitating a more interactive and engaging learning experience. Additionally,                                                                                                           |
-|          | incorporating a neural Turing machine architecture will enable the ALA to remember and utilize past interactions                                                                                                          |
-|          | to improve its recommendations over time, adapting to the evolving needs of each learner. This project not                                                                                                                |
-|          | only aims to enhance the educational experience by providing tailored support but also seeks to explore the                                                                                                               |
-|          | boundaries of current AI capabilities in understanding and responding to complex human learning behaviors.                                                                                                                |
+| | me the title and project description. |
+| LLaMA2 | Title: Exploring the Use of Multimodal Fusion for Enhancing Question Answering Systems; Description: |
+| | Question answering systems have been a crucial component of natural language processing research in recent |
+| | years. While most question answering systems rely solely on textual information, there is a growing interest |
+| | in incorporating multimodal information (such as images, videos, and audio) to improve the accuracy and |
+| | robustness of these systems. In this project, we aim to explore the use of multimodal fusion for enhancing |
+| | question answering systems. The project will involve the following tasks: 1. Collecting and annotating a |
+| | large dataset of multimodal question answering examples, where each example consists of a question, a set of |
+| | candidate answers, and relevant multimodal information (such as images, videos, or audio)[Stops because |
+| | of the length restriction] |
+| GPT-4o | Title: Sentiment Analysis and Trend Prediction in Social Media Data; Description: Leverage the power of |
+| | natural language processing to analyze and predict trends in social media sentiment. Your project will focus |
+| | on collecting and processing large volumes of social media posts from various platforms. Using advanced |
+| | sentiment analysis techniques, you will classify these posts into categories like positive, negative, and neutral. |
+| | The challenge is to accurately interpret not just the explicit text, but also the implied and contextual sentiment. |
+| | Furthermore, apply time-series analysis to predict future sentiment trends, which can be invaluable for businesses, |
+| | political campaigns, and public relations. This project combines NLP with data science to provide actionable |
+| | insights from the vast and dynamic world of social media. |
+| Ours | Title: Adaptive Learning Assistant for Personalized Education; Description: The project aims to develop an |
+| | Adaptive Learning Assistant (ALA) that leverages neural question answering, recurrent neural networks (RNNs), |
+| | and gated recurrent units (GRUs) to provide personalized educational support. By integrating text mining |
+| | techniques, the ALA will analyze educational content and student interactions to identify knowledge gaps and |
+| | learning preferences. Using document ranking, it will curate and recommend personalized learning materials |
+| | and quizzes. The system will employ character-level language models to understand and generate nuanced |
+| | responses to student inquiries, facilitating a more interactive and engaging learning experience. Additionally, |
+| | incorporating a neural Turing machine architecture will enable the ALA to remember and utilize past interactions |
+| | to improve its recommendations over time, adapting to the evolving needs of each learner. This project not |
+| | only aims to enhance the educational experience by providing tailored support but also seeks to explore the |
+| | boundaries of current AI capabilities in understanding and responding to complex human learning behaviors. |
 
-Table 13: Case study on TutorQA Task 6: We compare the results of LLaMA2, GPT-4o, and GPT-4-Graphusion. We highlight the relevant concepts, irrelevant concepts, concept details and expanded relevant concepts.
+**Table 13:** Case study on TutorQA Task 6: We compare the results of LLaMA2, GPT-4o, and GPT-4-Graphusion. We highlight the relevant concepts, irrelevant concepts, concept details and expanded relevant concepts.
 
 ## F Knowledge Graph Construction Analysis
 
@@ -679,23 +668,23 @@ Average Rating We compare expert ratings on the Graphusion KGC results produced 
 
 ### LLaMA GPT-3 GPT-4 GPT-4o
 
-Figure 8: Concept entity quality rating by human evaluation, grouped by relation type.
+**Figure 8:** Concept entity quality rating by human evaluation, grouped by relation type.
 
 <span id="page-21-1"></span>![](_page_21_Figure_5.jpeg)
 <!-- Image Description: This bar chart displays average ratings for different large language models (LLaMA, GPT-3, GPT-4, GPT-40) across eight relation types (Is-a-Prerequisite-of, Used-for, etc.). Each bar represents a model's average rating for a specific relation. The chart visually compares the performance of the models in understanding and generating these relationships, with higher ratings indicating better performance. The x-axis shows relation types and the y-axis shows the average rating (presumably on a scale of 0-3.5). -->
 
-Figure 9: Relation entity quality rating by human evaluation, grouped by relation type.
+**Figure 9:** Relation entity quality rating by human evaluation, grouped by relation type.
 
 Relation Type Distribution We then compare the Graphusion results for each relation type across the four selected base LLMs, as shown in Fig. [10.](#page-22-0) All models tend to predict Prerequisite\_of and Used\_For relations. The results from LLaMA show relatively even distributions across relation types, whereas the results from the GPT family do not.
 
 <span id="page-22-0"></span>![](_page_22_Figure_1.jpeg)
 <!-- Image Description: This image displays four pie charts comparing the relative frequencies of five different types of relationships (Is-a-Prerequisite-of, Part-of, Evaluate-for, Hyponym-Of, Used-for, and Conjunction) found in text generated by four large language models: LLAMA, GPT-3, GPT-4, and GPT-40. Each chart shows the percentage distribution of these relationship types within the respective model's output, allowing for a visual comparison of the models' relational reasoning capabilities. -->
 
-Figure 10: Relation type distribution.
+**Figure 10:** Relation type distribution.
 
 Word cloud Visualization Finally, in Fig. [11,](#page-23-0) we present a word cloud visualization of the concepts extracted by Graphusion, comparing the four base LLMs. High-frequency concepts include word embedding, model, neural network, language model, and others.
 
 <span id="page-23-0"></span>![](_page_23_Figure_1.jpeg)
 <!-- Image Description: This image displays four word clouds, one each for LLAMA, GPT-3, GPT-4, and GPT-40 language models. Each cloud visualizes the frequency of terms associated with each model's capabilities and research areas. Larger font sizes indicate higher frequency. Common themes across all models include "language model," "natural language," "machine translation," "question answering," and "neural network," highlighting core functionalities and research focuses within large language models. -->
 
-Figure 11: Word cloud visualization for extracted concepts.
+**Figure 11:** Word cloud visualization for extracted concepts.

@@ -36,7 +36,7 @@ Luana Bulla, Ludovica Marinucci and Misael Mongiovì ISTC - Consiglio Nazionale 
 
 Moral values as commonsense norms shape our everyday individual and community behavior. The possibility to extract moral attitude rapidly from natural language is an appealing perspective that would enable a deeper understanding of social interaction dynamics and the individual cognitive and behavioral dimension. In this work we focus on detecting moral content from natural language and we test our methods on a corpus of tweets previously labeled as containing moral values or violations, according to Moral Foundation Theory. We develop and compare two different approaches: (i) a framebased symbolic value detector based on knowledge graphs and (ii) a zero-shot machine learning model fine-tuned on a task of Natural Language Inference (NLI) and a task of emotion detection. Our approaches achieve considerable performances without the need for prior training.
 
-# 1 Introduction
+## 1 Introduction
 
 Morality as a set of social and acceptable behavioral norms [\(Haidt,](#page-7-0) [2012\)](#page-7-0) is part of the commonsense knowledge that determines dynamics of action among social agents in areas like societal interaction [\(Haidt,](#page-7-1) [2001\)](#page-7-1), individual conception of rightness and wrongness [\(Young and Saxe,](#page-8-0) [2011\)](#page-8-0), moral taste and emotions [\(Graham et al.,](#page-7-2) [2009\)](#page-7-2), political commitment [\(Clifford and Jerit,](#page-7-3) [2013\)](#page-7-3), public figure credibility [\(Graham et al.,](#page-7-4) [2012\)](#page-7-4) and narratives for explainable causal dependence of events or processes [\(Forbes et al.,](#page-7-5) [2020\)](#page-7-5).
 
@@ -82,9 +82,9 @@ Framester is a linked data hub that provides a formal semantics for frames [\(Ga
 
 Recently, a novel layer, ValueNet[2](#page-2-3) , has been added on top of Framester. It includes moral and cultural values, and formalizes Haidt's [\(Gra](#page-7-7)[ham et al.,](#page-7-7) [2013\)](#page-7-7) and Curry's theories [\(Curry](#page-7-17) [et al.,](#page-7-17) [2021\)](#page-7-17), aligning values to Framester frames, along with a foundational ontology backbone, i.e. DOLCE-Zero [\(Gangemi et al.,](#page-7-18) [2003a\)](#page-7-18).
 
-# <span id="page-2-4"></span>4 Methods
+## <span id="page-2-4"></span>4 Methods
 
-#### <span id="page-2-1"></span>4.1 Theoretical Grounding
+### <span id="page-2-1"></span>4.1 Theoretical Grounding
 
 Through the reuse of ValueNet, our work solely focuses on Haidt's Moral Foundation Theory (MFT). MFT is grounded on the idea that, while morality could vary widely in its extension (for example, what is considered a harmful or caring behavior depends on geographical, temporal, cultural and many others dimensions), its intension presents some recurring patterns that allow to delineate a psychological system of "intuitive ethics" [\(Gra](#page-7-7)[ham et al.,](#page-7-7) [2013\)](#page-7-7). MFT is "a nativist, culturaldevelopmentalist, intuitionist, and pluralist approach to the study of morality" [\(Graham et al.,](#page-7-7) [2013\)](#page-7-7): "nativist" in its neurophysiological grounding; "cultural-developmentalist" in including environmental variables in the morality-building process; "intuitionist" in declaring that there is no unique moral or non-moral trigger, but rather many patterns combining in a rationalized judgment; "pluralist" in considering that more than one narrative could fit the moral explanation process. At the core of MFT there are six dyads of values and violations:
 
@@ -102,7 +102,7 @@ of leadership and deference to authority, as well as respect for tradition.
 - *Purity / Degradation:* derived from psychology of disgust, it implies the idea of a more elevated spiritual life, it is expressed via metaphors like "the body as a temple", including the more spiritual side of religious beliefs.
 - *Liberty / Oppression:* it expresses the desire of freedom and the feeling of oppression when it is negated.
 
-#### <span id="page-3-0"></span>4.2 Zero-shot Models
+### <span id="page-3-0"></span>4.2 Zero-shot Models
 
 Starting from the method developed by [Yin et al.](#page-8-12) [\(2019\)](#page-8-12), we adapt a checkpoint for BART-large[3](#page-3-2) trained on the MultiNLI (MNLI) dataset [\(Kim et al.,](#page-8-18) [2018\)](#page-8-18). Since this model has been shown to perform well for topic labeling [\(Khan and Chua,](#page-8-19) [Decem](#page-8-19)[ber \(2021\)](#page-8-19) and for claim verification [\(Reddy et al.,](#page-8-20) [2021\)](#page-8-20), it is a reasonable candidate for our task.
 
@@ -118,7 +118,7 @@ In the third step, we combine the first and second methods by unifying the predi
 
 All these strategies assume that artificial intelligence models can capture the interactions and connections of social groups, as well as information about individuals. Consequently, it is argued that a model might be able to draw a line of similarity between morally connoted words and ideas depending on the lexical information provided in the training phase not directly attributable to a classification method.
 
-#### <span id="page-3-1"></span>4.3 Frame-based Value Reasoner
+### <span id="page-3-1"></span>4.3 Frame-based Value Reasoner
 
 The frame-based value reasoner is a tool based on a frame semantics approach [\(Fillmore,](#page-7-13) [1982\)](#page-7-13). Its pipeline consists of the following three main steps. The first one is knowledge graph generation from natural language: the input sentence is passed to FRED, which returns a knowledge graph that includes detected FrameNet frames and frame elements, VerbNet roles, and linking to DBpedia entities and WordNet synsets.
 
@@ -136,7 +136,7 @@ no value or violation is detected, the sentence is labeled as "non-moral".
 
 This value detection process is heuristically transparent, since it keeps track of triggering elements (e.g. synset, linked entity, frame evocation, lexical unit, etc.), so providing a fully explainable moral value detector.
 
-# 5 Experiments and Results
+## 5 Experiments and Results
 
 To examine the effectiveness of our approaches in the moral value detection task, we focus on the challenge of recognizing them in the Moral Foundation Twitter Corpus (MFTC) [\(Hoover et al.,](#page-8-9) [2020\)](#page-8-9).
 
@@ -158,44 +158,44 @@ Although performances differ, the two methods perform similarly in terms of F1, 
 
 <span id="page-4-1"></span><sup>7</sup>[https://github.com/StenDoipanni/](https://github.com/StenDoipanni/MoralDilemmas) [MoralDilemmas](https://github.com/StenDoipanni/MoralDilemmas)
 
-| Moral Value | Metric    |     |     |     | Random Zero-shot Emotion-Zero-shot Emotion-Zero-shot+ Frame-based |     |
+| Moral Value | Metric | | | | Random Zero-shot Emotion-Zero-shot Emotion-Zero-shot+ Frame-based | |
 |-------------|-----------|-----|-----|-----|-------------------------------------------------------------------|-----|
-|             | Precision | .09 | .29 | .51 | .29                                                               | .29 |
-| Care        | Recall    | .18 | .63 | .36 | .69                                                               | .57 |
-|             | F1-score  | .11 | .40 | .42 | .41                                                               | .39 |
-| Harm        | Precision | .13 | .30 | .31 | .29                                                               | .39 |
-|             | Recall    | .24 | .80 | .59 | .82                                                               | .70 |
-|             | F1-score  | .17 | .44 | .41 | .43                                                               | .50 |
-| Purity      | Precision | .04 | .07 | .10 | .07                                                               | .18 |
-|             | Recall    | .08 | .28 | .30 | .32                                                               | .20 |
-|             | F1-score  | .05 | .11 | .15 | .12                                                               | .19 |
-| Degradation | Precision | .04 | .12 | .15 | .12                                                               | .45 |
-|             | Recall    | .09 | .63 | .30 | .66                                                               | .11 |
-|             | F1-score  | .06 | .20 | .20 | .20                                                               | .18 |
-| Loyalty     | Precision | .07 | .40 | .73 | .40                                                               | .40 |
-|             | Recall    | .15 | .45 | .14 | .46                                                               | .30 |
-|             | F1-score  | .10 | .42 | .24 | .43                                                               | .34 |
-| Betrayal    | Precision | .05 | .17 | .37 | .17                                                               | .57 |
-|             | Recall    | .10 | .44 | .29 | .44                                                               | .17 |
-|             | F1-score  | .07 | .25 | .32 | .25                                                               | .27 |
-| Fairness    | Precision | .07 | .60 | .85 | .58                                                               | .16 |
-|             | Recall    | .15 | .47 | .26 | .48                                                               | .11 |
-|             | F1-score  | .09 | .53 | .40 | .53                                                               | .13 |
-| Cheating    | Precision | .11 | .54 | .64 | .54                                                               | .75 |
-|             | Recall    | .22 | .29 | .19 | .29                                                               | .28 |
-|             | F1-score  | .15 | .38 | .30 | .38                                                               | .41 |
-| Authority   | Precision | .04 | .17 | .40 | .18                                                               | .15 |
-|             | Recall    | .08 | .28 | .04 | .29                                                               | .08 |
-|             | F1-score  | .05 | .21 | .07 | .22                                                               | .11 |
-| Subversion  | Precision | .08 | .20 | .15 | .17                                                               | .28 |
-|             | Recall    | .16 | .36 | .39 | .40                                                               | .17 |
-|             | F1-score  | .11 | .25 | .21 | .24                                                               | .21 |
-| Non-moral   | Precision | .44 | .40 | .46 | .47                                                               | .59 |
-|             | Recall    | .66 | .28 | .86 | .91                                                               | .72 |
-|             | F1-score  | .53 | .33 | .60 | .62                                                               | .65 |
-| All         | Precision | .22 | .35 | .46 | .38                                                               | .47 |
-|             | Recall    | .36 | .41 | .52 | .67                                                               | .48 |
-|             | F1-score  | .27 | .35 | .42 | .45                                                               | .44 |
+| | Precision | .09 | .29 | .51 | .29 | .29 |
+| Care | Recall | .18 | .63 | .36 | .69 | .57 |
+| | F1-score | .11 | .40 | .42 | .41 | .39 |
+| Harm | Precision | .13 | .30 | .31 | .29 | .39 |
+| | Recall | .24 | .80 | .59 | .82 | .70 |
+| | F1-score | .17 | .44 | .41 | .43 | .50 |
+| Purity | Precision | .04 | .07 | .10 | .07 | .18 |
+| | Recall | .08 | .28 | .30 | .32 | .20 |
+| | F1-score | .05 | .11 | .15 | .12 | .19 |
+| Degradation | Precision | .04 | .12 | .15 | .12 | .45 |
+| | Recall | .09 | .63 | .30 | .66 | .11 |
+| | F1-score | .06 | .20 | .20 | .20 | .18 |
+| Loyalty | Precision | .07 | .40 | .73 | .40 | .40 |
+| | Recall | .15 | .45 | .14 | .46 | .30 |
+| | F1-score | .10 | .42 | .24 | .43 | .34 |
+| Betrayal | Precision | .05 | .17 | .37 | .17 | .57 |
+| | Recall | .10 | .44 | .29 | .44 | .17 |
+| | F1-score | .07 | .25 | .32 | .25 | .27 |
+| Fairness | Precision | .07 | .60 | .85 | .58 | .16 |
+| | Recall | .15 | .47 | .26 | .48 | .11 |
+| | F1-score | .09 | .53 | .40 | .53 | .13 |
+| Cheating | Precision | .11 | .54 | .64 | .54 | .75 |
+| | Recall | .22 | .29 | .19 | .29 | .28 |
+| | F1-score | .15 | .38 | .30 | .38 | .41 |
+| Authority | Precision | .04 | .17 | .40 | .18 | .15 |
+| | Recall | .08 | .28 | .04 | .29 | .08 |
+| | F1-score | .05 | .21 | .07 | .22 | .11 |
+| Subversion | Precision | .08 | .20 | .15 | .17 | .28 |
+| | Recall | .16 | .36 | .39 | .40 | .17 |
+| | F1-score | .11 | .25 | .21 | .24 | .21 |
+| Non-moral | Precision | .44 | .40 | .46 | .47 | .59 |
+| | Recall | .66 | .28 | .86 | .91 | .72 |
+| | F1-score | .53 | .33 | .60 | .62 | .65 |
+| All | Precision | .22 | .35 | .46 | .38 | .47 |
+| | Recall | .36 | .41 | .52 | .67 | .48 |
+| | F1-score | .27 | .35 | .42 | .45 | .44 |
 
 Table 1. Precision, Recall and F1 score for each model on the MFTC dataset.
 
@@ -213,7 +213,7 @@ A necessary caveat is that, being the value labeling a subjective task, a certai
 
 could depend on two factors. The first factor is the success of the FRED tool in producing a knowledge graph from a fragmented syntax like the one used in tweets. In fact, even when a well formed graph is produced, if the value trigger is not in the main sentence e.g. it is an adjective of a pronoun in a subordinate sentence, it is possible that its disambiguation / frame evocation is not shown in the graph, due to internal FRED saliency heuristics. The second factor is that human value labeling is a task carried out with a certain subjective threshold. If we consider the example: "Horrible amount of anti-Islam bigotry are Paris attacks. ISIS murder more MUSLIMS than anyone else.", value labels for this sentence are "cheating" and "harm", while the detector predicts "cheating", "harm" and "purity". This happens because, along with triggers like the fs:Offenses and fs:Killing Framester frames, wn:murder-noun-1 Word-Net synset and the dbr:Bigotry DBpedia entity, the DBpedia entry dbr:Muslim is also retrieved, which according to "purity" definition (see Sect. [4.1\)](#page-2-1) covers the semantics of a more spiritual aspect of life, and it is therefore a "purity" trigger.
 
-# <span id="page-6-1"></span>7 Conclusions and Future Work
+## <span id="page-6-1"></span>7 Conclusions and Future Work
 
 In our work we detect latent moral content from natural language in a versatile and transparent way, proposing two approaches (zero-shot and heuristic) that do not require training. The approaches assume Haidt's Moral Foundation Theory as a reference for moral values, and have been tested on the Moral Foundation Twitter Corpus.
 

@@ -28,7 +28,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # <span id="page-0-0"></span>Sequential Recommendation with Graph Neural Networks
 
 Jianxin Chang<sup>1</sup> , Chen Gao<sup>1</sup> , Yu Zheng<sup>1</sup> , Yiqun Hui<sup>2</sup> , Yanan Niu<sup>2</sup> , Yang Song<sup>2</sup> , Depeng Jin<sup>1</sup> , Yong Li<sup>1</sup>
@@ -53,7 +52,7 @@ Sequential recommendation aims to leverage users' historical behaviors to predic
 
 Sequential Recommendation, Graph Neural Networks, Dynamic User Preferences
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Jianxin Chang<sup>1</sup> , Chen Gao<sup>1</sup> , Yu Zheng<sup>1</sup> , Yiqun Hui<sup>2</sup> , Yanan Niu<sup>2</sup> , Yang Song<sup>2</sup> , Depeng Jin<sup>1</sup> , Yong Li<sup>1</sup> . 2021. Sequential Recommendation with Graph Neural Networks. In Proceedings of the 44th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '21), July 11–15, 2021, Virtual Event, Canada. ACM, New York, NY, USA, [10](#page-9-0) pages. <https://doi.org/10.1145/3404835.3462968>
 
@@ -65,7 +64,7 @@ ACM ISBN 978-1-4503-8037-9/21/07. . . \$15.00
 
 <https://doi.org/10.1145/3404835.3462968>
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Sequential recommendation attempts to predict a user's next behavior by exploiting their historical behavior-sequences, which has been widely adopted in modern online information systems, such as news, video, advertisements, etc. Differ from traditional recommendation tasks that model user preferences in a static fashion, sequential recommendation is capable of capturing user's evolved and dynamic preferences. For example, a user may prefer to watch soccer news only during the period of World Cup, which can be regarded as a kind of short-term preference.
 
@@ -86,13 +85,13 @@ To summarize, the contributions of this paper are as follows,
 - We propose to aggregate implicit signals into explicit ones from user behaviors by designing graph neural network-based models on constructed item-item interest graphs. Then we design dynamic-pooling for filtering and reserving activated core preferences for recommendation.
 - We conduct extensive experiments on two large-scale datasets collected from real-world applications. The experimental results show significant performance improvements compared with the state-of-the-art methods of sequential recommendation. Further studies also verify that our method can model long behavioral sequences effectively and efficiently.
 
-#### 2 PROBLEM FORMULATION
+### 2 PROBLEM FORMULATION
 
 Here we provide a formal definition of sequential recommendation. Assume we have a set of items, denoted by X, where ∈ X denotes an item. The number of items is denoted as |X|. Generally, a user has a sequential interaction sequence with items: {1, 2, . . . , }, where is the number of interactions and is the -th item that the user has interacted with. Sequential recommendation aims to predict the next item +<sup>1</sup> that matches the user's preferences. The user's preferences can be inferred from chronological useritem implicit feedback. Based on the above definition, the task of sequential recommendation can be formulated as follows:
 
 Input: The interaction history for each user {1, 2, . . . , }. Output: A recommendation model that estimates the probability that a user with interaction history {1, 2, . . . , } will interact with the target item at the ( + 1)-th step.
 
-#### 3 METHODOLOGY
+### 3 METHODOLOGY
 
 Figure [1](#page-2-0) illustrates our proposed SURGE model which is made up of the following four parts, which we will elaborate on one by one.
 
@@ -101,7 +100,7 @@ Figure [1](#page-2-0) illustrates our proposed SURGE model which is made up of t
 - Interest-extraction Graph Pooling Layer. Considering users' different preferences at different moments, a dynamic graph pooling operation is conducted to adaptively reserve dynamicallyactivated core preferences.
 - Prediction Layer. After the pooled graphs are flattened into reduced sequences, we model the evolution of the enhanced interest signals and predict the next item that the user has high probability to interact with.
 
-#### 1 Interest Graph Construction
+### 1 Interest Graph Construction
 
 To integrate and distinguish different types of preferences in users' rich historical behaviors, we can convert loose item sequences into tight item-item interest graphs. The co-occurrence relationship between two items is a reasonable construction criterion, but the challenge is that the sparseness of the co-occurrence relationship is not enough to generate a connected graph for each user. In this section, we propose a novel way based on metric learning to automatically construct graph structures for each interaction sequence to explore the distribution of its interests.
 
@@ -126,7 +125,7 @@ $$
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
 <!-- Image Description: This flowchart depicts a graph neural network architecture for interest modeling. Stage A constructs an "Interest Graph" from an "Interaction Sequence" using metric learning. Stage B shows an interest-fusion graph convolutional layer, highlighting cluster-aware and query-aware attention mechanisms. Stage C performs interest extraction via graph pooling after soft cluster assignment. Finally, stage D flattens the resulting graph into an interest sequence for prediction. The diagram illustrates the data flow and key operations within the proposed model. -->
 
-16 Figure 1: Illustration of the SURGE model. Each interaction sequence is re-constructed into an interest graph (A) based on metric learning, and interest fusion (B) and extraction (C) are dynamically performed on the graph. The currently activated core interest sequence (D) is obtained by flattening the pooled graph after interest fusing and extracting, which can be used for further modeling and prediction. Best viewed in color.
+16 **Figure 1:** Illustration of the SURGE model. Each interaction sequence is re-constructed into an interest graph (A) based on metric learning, and interest fusion (B) and extraction (C) are dynamically performed on the graph. The currently activated core interest sequence (D) is obtained by flattening the pooled graph after interest fusing and extracting, which can be used for further modeling and prediction. Best viewed in color.
 
 where computes the similarity metric between the two item embeddings ®ℎ and ®ℎ for the -th head, and each head implictly capture different perspective of semantics.
 
@@ -137,7 +136,7 @@ Therefore, we extract the symmetric sparse non-negative adjacency matrix from by
 $$
 A_{ij} = \begin{cases} 1, & M_{ij} >= Rank_{\varepsilon n^2}(M); \\ 0, & \text{otherwise}; \end{cases}
 $$
- (3)
+(3)
 
 where Rank<sup>2</sup> () returns the value of the <sup>2</sup> -th largest value in the metric matrix . is the number of nodes and controls the overall sparsity of the generated graph.
 
@@ -145,7 +144,7 @@ It is different from the absolute threshold strategy of the entire graph [\[5\]]
 
 latter returns the indices of a fixed number of maximum values of each row in the adjacency matrix, which will make each node of the generated graph have the same degree. Forcing a uniform sparse distribution will make the downstream GCN unable to fully utilize the graph's dense or sparse structure information.
 
-#### 2 Interest-fusion Graph Convolutional Layer
+### 2 Interest-fusion Graph Convolutional Layer
 
 As mentioned above, we have learnable interest graphs which separate diverse interests. The core interests and peripheral interests form large clusters and small clusters respectively, and different types of interests form different clusters. Furthermore, to gather weak signals to strong ones that can accurately reflect user preferences, we need to aggregate information in the constructed graph.
 
@@ -191,7 +190,7 @@ $$
 
 where neighborhood N of node includes node itself. In the context of containing self-loop propagation (when equals ), controls how much information the target node can receive, and controls how much information the source node can send.
 
-#### 3 Interest-extraction Graph Pooling Layer
+### 3 Interest-extraction Graph Pooling Layer
 
 The fusion of implicit interest signals to explicit interest signals is completed by performing information aggregation on the interest graph. In this section, we use the graph pooling method [\[17,](#page-9-20) [22,](#page-9-21) [37\]](#page-9-22) to further extract the fused information. Similar to the downsampling of feature maps in Pooling in CNN, graph pooling aims to downsize the graph reasonably. Through the coarsening of the constructed graph structure, loose interest is transformed into tight interest and its distribution is maintained.
 
@@ -251,7 +250,7 @@ $$
 
 where the weight is the score of each node before pooling, and the Readout function can be a function such as Mean, Sum, Max, etc. We use the simple sum function here to ensure permutation invariant and leave other functions for future exploration. We feed this graph-level representation into the final prediction layer to better extract each cluster's information in the pooling layer.
 
-#### 4 Prediction Layer
+### 4 Prediction Layer
 
 3.4.1 Interest evolution modeling. Under the joint influence of the external environment and internal cognition, the users' core interests are continually evolving. The user may become interested in various sports for a time and need books at another time. However, only using the readout operation mentioned above does not consider the evolution between core interests, which will undoubtedly cause the time order's bias. To supply the final representation of interest with more relative historical information, it is also necessary to consider the chronological relationship between interests.
 
@@ -277,18 +276,17 @@ $$
 
 where O is the training set and |O| is the number of training instances. Θ denotes the set of trainable parameters and controls the penalty strength. The label = 1 indicates a positive instance and = 0 indicates a negative instance. And ˆ stands for the network's output after the softmax layer, representing the predicted probability of the next item being clicked. Besides, the three
 
-Table 1: Statistics of the Datasets.
+**Table 1:** Statistics of the Datasets.
 
-<span id="page-5-0"></span>
 
-| Dataset  | Users  | Items   | Instances  | Average Length |
+| Dataset | Users | Items | Instances | Average Length |
 |----------|--------|---------|------------|----------------|
-| Taobao   | 36,915 | 64,138  | 1,471,155  | 39.85          |
-| Kuaishou | 60,813 | 292,286 | 14,952,659 | 245.88         |
+| Taobao | 36,915 | 64,138 | 1,471,155 | 39.85 |
+| Kuaishou | 60,813 | 292,286 | 14,952,659 | 245.88 |
 
 regularization terms in Section [3.3.2](#page-3-0) are added to the final recommendation objective function to obtain the better performance and more interpretable cluster assignments.
 
-#### 4 EXPERIMENT
+### 4 EXPERIMENT
 
 In this section, we conduct experiments on two real-world datasets for sequential recommendation to evaluate our proposed method, with the purpose of answering the following three questions.
 
@@ -296,7 +294,7 @@ In this section, we conduct experiments on two real-world datasets for sequentia
 - RQ2: Can the proposed method be able to handle sequences with various length effectively and efficiently?
 - RQ3: What is the effect of different components in the method?
 
-#### 1 Experimental Settings
+### 1 Experimental Settings
 
 4.1.1 Dataset. We evaluate the recommendation performance on a public e-commerce dataset and an industrial short-video dataset. Table [1](#page-5-0) summarizes the basic statistics of the two datasets. Average Length represents the average of users' history length, which indicates that the scale of the industry dataset we adopt is much larger than the public dataset.
 
@@ -313,13 +311,13 @@ In this section, we conduct experiments on two real-world datasets for sequentia
 
 4.1.3 Baselines. To demonstrate the effectiveness of our SURGE model, we compare it with competitive sequential recommenders. The baselines are classified into two categories: non-sequential model that only captures user's static interest, and sequential models that consider dynamic interest patterns.
 
-#### Non-sequential Models:
+### Non-sequential Models:
 
 - NCF [\[9\]](#page-9-26): This method combines matrix factorization and multilayer perceptrons to predict user interactions, and it is the stateof-the-art general recommender.
 - DIN [\[46\]](#page-9-2): This method uses attention mechanism with the target item as the query vector. Representation of the user is obtained by aggregating the history interaction with the attention weights.
 - LightGCN [\[8\]](#page-9-27): This is the state-of-the-art model which uses graph neural network to extract higher-order connectivity for the recommendation.
 
-#### Sequential Models:
+### Sequential Models:
 
 - Caser [\[24\]](#page-9-28): This method embeds a set of recent item sequences in time and latent space into an image feature and uses convolution filters to learn the sequence patterns.
 - GRU4REC [\[10\]](#page-9-3): This method uses GRU to model user session sequences and encode user interest into a final state.
@@ -338,23 +336,23 @@ It is worth noting that session recommendation is another recommendation task si
 
 <sup>§</sup><https://www.tensorflow.org>
 
-|          |          | Taobao |         |          | Kuaishou |          |          |         |
+| | | Taobao | | | Kuaishou | | | |
 |----------|----------|--------|---------|----------|----------|----------|----------|---------|
-| Method   | AUC      | GAUC   | MRR     | NDCG@2   | AUC      | GAUC     | MRR      | NDCG@2  |
-| NCF      | 0.7128   | 0.7221 | 0.1446  | 0.0829   | 0.5559   | 0.5531   | 0.7734   | 0.8327  |
-| DIN      | 0.7637   | 0.8524 | 0.3091  | 0.2352   | 0.6160   | 0.7483   | 0.8863   | 0.9160  |
-| LightGCN | 0.7483   | 0.7513 | 0.1669  | 0.1012   | 0.6403   | 0.6407   | 0.8175   | 0.8653  |
-| Caser    | 0.8312   | 0.8499 | 0.3508  | 0.2890   | 0.7795   | 0.8097   | 0.9100   | 0.9336  |
-| GRU4REC  | 0.8635   | 0.8680 | 0.3993  | 0.3422   | 0.8156   | 0.8333   | 0.9174   | 0.9391  |
-| DIEN     | 0.8477   | 0.8745 | 0.4011  | 0.3404   | 0.7037   | 0.7800   | 0.9030   | 0.9284  |
-| SLi-Rec  | 0.8664   | 0.8669 | 0.3617  | 0.2971   | 0.7978   | 0.8128   | 0.9075   | 0.9318  |
-| SURGE    | 0.8906∗∗ | 0.8888 | 0.4228∗ | 0.3625∗∗ | 0.8525∗∗ | 0.8610∗∗ | 0.9316∗∗ | 0.9495∗ |
+| Method | AUC | GAUC | MRR | NDCG@2 | AUC | GAUC | MRR | NDCG@2 |
+| NCF | 0.7128 | 0.7221 | 0.1446 | 0.0829 | 0.5559 | 0.5531 | 0.7734 | 0.8327 |
+| DIN | 0.7637 | 0.8524 | 0.3091 | 0.2352 | 0.6160 | 0.7483 | 0.8863 | 0.9160 |
+| LightGCN | 0.7483 | 0.7513 | 0.1669 | 0.1012 | 0.6403 | 0.6407 | 0.8175 | 0.8653 |
+| Caser | 0.8312 | 0.8499 | 0.3508 | 0.2890 | 0.7795 | 0.8097 | 0.9100 | 0.9336 |
+| GRU4REC | 0.8635 | 0.8680 | 0.3993 | 0.3422 | 0.8156 | 0.8333 | 0.9174 | 0.9391 |
+| DIEN | 0.8477 | 0.8745 | 0.4011 | 0.3404 | 0.7037 | 0.7800 | 0.9030 | 0.9284 |
+| SLi-Rec | 0.8664 | 0.8669 | 0.3617 | 0.2971 | 0.7978 | 0.8128 | 0.9075 | 0.9318 |
+| SURGE | 0.8906∗∗ | 0.8888 | 0.4228∗ | 0.3625∗∗ | 0.8525∗∗ | 0.8610∗∗ | 0.9316∗∗ | 0.9495∗ |
 
-<span id="page-6-0"></span>Table 2: Performance comparisons (bold means p-value < 0.05, bold\* means p-value < 0.01, and bold\*\* means p-value < 0.001.)
+<span id="page-6-0"></span>**Table 2:** Performance comparisons (bold means p-value < 0.05, bold\* means p-value < 0.01, and bold\*\* means p-value < 0.001.)
 
 The maximum length for user interaction sequences is 50 for the Taobao dataset and 250 for the Kuaishou dataset. We apply careful grid-search to find the best hyper-parameters. All regularization coefficients are searched in [1 −7 , 1 −5 , 1 −3 ]. The pooling length of the user interaction sequence is searched in [10, 20, 30, 40, 50] for Taobao dataset and [50, 100, 150, 200, 250] for Kuaishou dataset.
 
-#### 2 Overall Performance (RQ1)
+### 2 Overall Performance (RQ1)
 
 Table [2](#page-6-0) illustrates the results on the two datasets. From the results, we have the following observations:
 
@@ -373,7 +371,7 @@ From the results, we can observe that all models are challenging to capture user
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image presents two line graphs comparing the performance of five different recommendation models (DIN, DIEN, CASER, GRU4REC, SURGE) across varying sequence lengths. The left graph uses the Taobao dataset, and the right graph uses the Kuaishou dataset. Both graphs plot the Gaussian Area Under the Curve (GAUC) metric against sequence length, showing how model performance changes with the length of user interaction sequences. The purpose is to illustrate the models' robustness to different sequence lengths on different datasets. -->
 
-Figure 2: Performance breakdown by sequence lengths on the two datasets. Best viewed in color.
+**Figure 2:** Performance breakdown by sequence lengths on the two datasets. Best viewed in color.
 
 ignore the sequence length, and its performance in each length group is relatively stable. Although SLi-Rec jointly considers users' long-term and short-term interests, it still models for noise-filled sequences, so it is inevitable to suffer performance degradation on long sequences.
 
@@ -388,14 +386,14 @@ Table [3](#page-7-1) shows each model's training time on the two datasets. We ca
 <span id="page-7-0"></span>![](_page_7_Figure_8.jpeg)
 <!-- Image Description: The image contains two line graphs comparing the performance of six different recommendation models (DIN, DIEN, CASER, GRU4REC, SLi-Rec, SURGE) on two datasets: Taobao and Kuaishou. The y-axis represents the area under the ROC curve (GAUC), a metric for model performance, while the x-axis shows the number of iterations during training. The graphs illustrate how the GAUC changes as the models are trained, enabling a comparison of their convergence and overall performance on each dataset. -->
 
-Figure 3: Test performance of the baselines by iterations on two datasets. Best viewed in color.
+**Figure 3:** Test performance of the baselines by iterations on two datasets. Best viewed in color.
 
-<span id="page-7-1"></span>Table 3: Total training time until convergence of baselines on two real-world datasets, where m indicates minutes.
+<span id="page-7-1"></span>**Table 3:** Total training time until convergence of baselines on two real-world datasets, where m indicates minutes.
 
-| Dataset  | DIN    | Caser   | GRU4REC | DIEN   | SLi-Rec | SURGE  |
+| Dataset | DIN | Caser | GRU4REC | DIEN | SLi-Rec | SURGE |
 |----------|--------|---------|---------|--------|---------|--------|
-| Taobao   | 22.65m | 23.66m  | 26.78m  | 18.74m | 27.82m  | 14.96m |
-| Kuaishou | 20.59m | 120.26m | 73.35m  | 28.47m | 28.84m  | 22.86m |
+| Taobao | 22.65m | 23.66m | 26.78m | 18.74m | 27.82m | 14.96m |
+| Kuaishou | 20.59m | 120.26m | 73.35m | 28.47m | 28.84m | 22.86m |
 
 kuaishou dataset, our method's efficiency improvement compared with all baselines is more than 20%. The reason is that SURGE performs a pooling operation on the sequence before feeding the embedding sequence into the recurrent neural network, which greatly reduces the number of recurrent steps. Besides, since most of the noise is filtered, the compressed sequence only contains the core interest, which will undoubtedly help speed up the model's convergence. Therefore, we concluded that the SURGE model can more efficiently model users' long-term historical sequence.
 
@@ -413,19 +411,19 @@ The results are shown in Table [4.](#page-8-0) We can observe that interest extr
 
 <span id="page-8-0"></span>Sequential Recommendation with Graph Neural Networks SIGIR '21, July 11–15, 2021, Virtual Event, Canada
 
-Table 4: Ablation study of the key designs
+**Table 4:** Ablation study of the key designs
 
-|                        |                    |     | Taobao        | Kuaishou      |     |  |
+| | | | Taobao | Kuaishou | | |
 |------------------------|--------------------|-----|---------------|---------------|-----|--|
-|                        | Model              | AUC | MRR           | AUC           | MRR |  |
-|                        | w/o Fusion         |     | 0.8307 0.0317 | 0.7149 0.9076 |     |  |
-| Interest<br>Fusion     | w/o Query-aware    |     | 0.8720 0.3929 | 0.7641 0.9069 |     |  |
-|                        | w/o Cluster-aware  |     | 0.8764 0.3973 | 0.8213 0.9186 |     |  |
-|                        | w/ Fusion          |     | 0.8906 0.4228 | 0.8525 0.9316 |     |  |
-| Interest<br>Extraction | w/o Extraction     |     | 0.8513 0.3605 | 0.8240 0.9182 |     |  |
-|                        | w/o Readout        |     | 0.8578 0.3720 | 0.8422 0.9257 |     |  |
-|                        | w/o Regularization |     | 0.8815 0.3430 | 0.8487 0.9291 |     |  |
-|                        | w/ Extraction      |     | 0.8906 0.4228 | 0.8525 0.9316 |     |  |
+| | Model | AUC | MRR | AUC | MRR | |
+| | w/o Fusion | | 0.8307 0.0317 | 0.7149 0.9076 | | |
+| Interest<br>Fusion | w/o Query-aware | | 0.8720 0.3929 | 0.7641 0.9069 | | |
+| | w/o Cluster-aware | | 0.8764 0.3973 | 0.8213 0.9186 | | |
+| | w/ Fusion | | 0.8906 0.4228 | 0.8525 0.9316 | | |
+| Interest<br>Extraction | w/o Extraction | | 0.8513 0.3605 | 0.8240 0.9182 | | |
+| | w/o Readout | | 0.8578 0.3720 | 0.8422 0.9257 | | |
+| | w/o Regularization | | 0.8815 0.3430 | 0.8487 0.9291 | | |
+| | w/ Extraction | | 0.8906 0.4228 | 0.8525 0.9316 | | |
 
 different prediction layers on the compressed sequence, including Attention (DIN), GRU (GRU4Rec), AUGRU (DIEN) and TIME4LSTM (SLi-Rec), and the results are shown in Figure [4.](#page-8-1)
 
@@ -444,7 +442,7 @@ Graph Neural Networks for Recommendation. In recommendation scenarios, the input
 <span id="page-8-1"></span>![](_page_8_Figure_11.jpeg)
 <!-- Image Description: The image presents two bar charts comparing the Area Under the Curve (AUC) performance of different recommendation models on two datasets: Taobao and Kuaishou. Each chart shows baseline model AUCs (white bars) and AUCs after adding an "Interest Evolution Layer" (dark bars). The x-axis lists various models (DIN, GRU4REC, DIEN, SLI-Rec), while the y-axis represents AUC values. The charts illustrate the performance improvement achieved by incorporating the proposed layer. -->
 
-Figure 4: Performance comparison of the proposed method using different interest evolution layers.
+**Figure 4:** Performance comparison of the proposed method using different interest evolution layers.
 
 to factorizing user-item rating matrices into user and item embedding matrices for recommendation [\[2\]](#page-9-40) and Wang et al. [\[29\]](#page-9-41) further proposed the general solution for implicit recommendation task. GCN-based methods have achieved the state-of-the-art performance in other recommendation problems, such as social recommendation [\[6,](#page-9-42) [32,](#page-9-43) [40\]](#page-9-44), knowledge graph-based recommendation [\[27,](#page-9-45) [28\]](#page-9-46), multi-behavior recommendation [\[12\]](#page-9-47), bundle recommendation [\[3\]](#page-9-48), etc. There are some works [\[33\]](#page-9-31) utilizing graph neural networks for session-based recommendation, a problem similar with sequential recommendation. In session-based recommendation, one of most important goals is to capture the seasonal repetitive behaviors, making it has big difference with sequential recommendation, which is a more general and important problem in the research area.
 
@@ -456,33 +454,33 @@ In this work, we studies the task of sequential recommender systems. We propose 
 
 As for future work, we plan to conduct A/B tests on the online system to further evaluate our proposed solution's recommendation performance. We also plan to consider using multiple types of behaviors, such as clicks and favorites, to explore fine-grained multiple interactions from noisy historical sequences.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 This work was supported in part by The National Key Research and Development Program of China under grant 2020AAA0106000, the National Natural Science Foundation of China under U1936217, 61971267, 61972223, 61941117, 61861136003, Beijing Natural Science Foundation under L182038, Beijing National Research Center for Information Science and Technology under 20031887521, and research fund of Tsinghua University - Tencent Joint Laboratory for Internet Innovation Technology.
 
 - <span id="page-9-45"></span><span id="page-9-18"></span>[26] Petar Velickovic, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Liò, and Yoshua Bengio. 2018. Graph Attention Networks. In ICLR.
 - <span id="page-9-46"></span><span id="page-9-44"></span><span id="page-9-43"></span><span id="page-9-41"></span><span id="page-9-39"></span><span id="page-9-32"></span><span id="page-9-31"></span><span id="page-9-30"></span><span id="page-9-22"></span><span id="page-9-12"></span><span id="page-9-9"></span><span id="page-9-8"></span><span id="page-9-7"></span><span id="page-9-5"></span>[27] Hongwei Wang, Miao Zhao, Xing Xie, Wenjie Li, and Minyi Guo. 2019. Knowledge graph convolutional networks for recommender systems. In WWW. 3307–3313.
-  - [28] Xiang Wang, Xiangnan He, Yixin Cao, Meng Liu, and Tat-Seng Chua. 2019. KGAT: Knowledge Graph Attention Network for Recommendation. In KDD. 950–958.
-  - [29] Xiang Wang, Xiangnan He, Meng Wang, Fuli Feng, and Tat-Seng Chua. 2019. Neural graph collaborative filtering. In SIGIR. 165–174.
-  - [30] Xiao Wang, Meiqi Zhu, Deyu Bo, Peng Cui, Chuan Shi, and Jian Pei. 2020. AM-GCN: Adaptive Multi-channel Graph Convolutional Networks. In KDD.
-  - [31] Ziyang Wang, Wei Wei, Gao Cong, Xiao-Li Li, Xian-Ling Mao, and Minghui Qiu. 2020. Global context enhanced graph neural networks for session-based recommendation. In SIGIR. 169–178.
-  - [32] Le Wu, Peijie Sun, Yanjie Fu, Richang Hong, Xiting Wang, and Meng Wang. 2019. A neural influence diffusion model for social recommendation. In SIGIR. 235–244.
-  - [33] Shu Wu, Yuyuan Tang, Yanqiao Zhu, Liang Wang, Xing Xie, and Tieniu Tan. 2019. Session-based recommendation with graph neural networks. In AAAI. 346–353.
-  - [34] Xuan Wu, Lingxiao Zhao, and Leman Akoglu. 2018. A Quest for Structure: Jointly Learning the Graph Structure and Semi-Supervised Classification. In CIKM.
-  - [35] Chengfeng Xu, Pengpeng Zhao, Yanchi Liu, Victor S Sheng, Jiajie Xu, Fuzhen Zhuang, Junhua Fang, and Xiaofang Zhou. 2019. Graph Contextualized Self-Attention Network for Session-based Recommendation. In IJCAI. 3940–3946.
-  - [36] Rex Ying, Ruining He, Kaifeng Chen, Pong Eksombatchai, William L Hamilton, and Jure Leskovec. 2018. Graph convolutional neural networks for web-scale recommender systems. In KDD. 974–983.
-  - [37] Zhitao Ying, Jiaxuan You, Christopher Morris, Xiang Ren, William L Hamilton, and Jure Leskovec. 2018. Hierarchical Graph Representation Learning with Differentiable Pooling. In NeurIPS.
-  - [38] Donghan Yu, Ruohong Zhang, Zhengbao Jiang, Yuexin Wu, and Yiming Yang. 2020. Graph-Revised Convolutional Network. In ECML PKDD.
-  - [39] Zeping Yu, Jianxun Lian, Ahmad Mahmoody, Gongshen Liu, and Xing Xie. 2019. Adaptive User Modeling with Long and Short-Term Preferences for Personalized Recommendation. In IJCAI. 4213–4219.
-  - [40] Jun Zhang, Chen Gao, Depeng Jin, and Yong Li. 2021. Group-Buying Recommendation for Social E-Commerce. In ICDE.
-  - [41] Xiang Zhang and Marinka Zitnik. 2020. GNNGuard: Defending Graph Neural Networks against Adversarial Attacks. In NeurIPS.
-  - [42] Jianan Zhao, Xiao Wang, Chuan Shi, Binbin Hu, Guojie Song, and Yanfang Ye. 2021. Heterogeneous Graph Structure Learning for Graph Neural Networks. In AAAI.
-  - [43] Tong Zhao, Yozen Liu, Leonardo Neves, Oliver Woodford, Meng Jiang, and Neil Shah. 2021. Data Augmentation for Graph Neural Networks. In AAAI.
-  - [44] Wei Zhao, Benyou Wang, Jianbo Ye, Yongqiang Gao, Min Yang, and Xiaojun Chen. 2018. PLASTIC: Prioritize Long and Short-term Information in Top-n Recommendation using Adversarial Training. In IJCAI. 3676–3682.
-  - [45] Guorui Zhou, Na Mou, Ying Fan, Qi Pi, Weijie Bian, Chang Zhou, Xiaoqiang Zhu, and Kun Gai. 2019. Deep interest evolution network for click-through rate prediction. In AAAI. 5941–5948.
-  - [46] Guorui Zhou, Xiaoqiang Zhu, Chenru Song, Ying Fan, Han Zhu, Xiao Ma, Yanghui Yan, Junqi Jin, Han Li, and Kun Gai. 2018. Deep interest network for click-through rate prediction. In KDD. 1059–1068.
-  - [47] Han Zhu, Daqing Chang, Ziru Xu, Pengye Zhang, Xiang Li, Jie He, Han Li, Jian Xu, and Kun Gai. 2019. Joint optimization of tree-based index and deep model for recommender systems. In NeurIPS. 3971–3980.
-  - [48] Yanqiao Zhu, Weizhi Xu, Jinghao Zhang, Qiang Liu, Shu Wu, and Liang Wang. 2021. Deep Graph Structure Learning for Robust Representations: A Survey. In IJCAI.
+- [28] Xiang Wang, Xiangnan He, Yixin Cao, Meng Liu, and Tat-Seng Chua. 2019. KGAT: Knowledge Graph Attention Network for Recommendation. In KDD. 950–958.
+- [29] Xiang Wang, Xiangnan He, Meng Wang, Fuli Feng, and Tat-Seng Chua. 2019. Neural graph collaborative filtering. In SIGIR. 165–174.
+- [30] Xiao Wang, Meiqi Zhu, Deyu Bo, Peng Cui, Chuan Shi, and Jian Pei. 2020. AM-GCN: Adaptive Multi-channel Graph Convolutional Networks. In KDD.
+- [31] Ziyang Wang, Wei Wei, Gao Cong, Xiao-Li Li, Xian-Ling Mao, and Minghui Qiu. 2020. Global context enhanced graph neural networks for session-based recommendation. In SIGIR. 169–178.
+- [32] Le Wu, Peijie Sun, Yanjie Fu, Richang Hong, Xiting Wang, and Meng Wang. 2019. A neural influence diffusion model for social recommendation. In SIGIR. 235–244.
+- [33] Shu Wu, Yuyuan Tang, Yanqiao Zhu, Liang Wang, Xing Xie, and Tieniu Tan. 2019. Session-based recommendation with graph neural networks. In AAAI. 346–353.
+- [34] Xuan Wu, Lingxiao Zhao, and Leman Akoglu. 2018. A Quest for Structure: Jointly Learning the Graph Structure and Semi-Supervised Classification. In CIKM.
+- [35] Chengfeng Xu, Pengpeng Zhao, Yanchi Liu, Victor S Sheng, Jiajie Xu, Fuzhen Zhuang, Junhua Fang, and Xiaofang Zhou. 2019. Graph Contextualized Self-Attention Network for Session-based Recommendation. In IJCAI. 3940–3946.
+- [36] Rex Ying, Ruining He, Kaifeng Chen, Pong Eksombatchai, William L Hamilton, and Jure Leskovec. 2018. Graph convolutional neural networks for web-scale recommender systems. In KDD. 974–983.
+- [37] Zhitao Ying, Jiaxuan You, Christopher Morris, Xiang Ren, William L Hamilton, and Jure Leskovec. 2018. Hierarchical Graph Representation Learning with Differentiable Pooling. In NeurIPS.
+- [38] Donghan Yu, Ruohong Zhang, Zhengbao Jiang, Yuexin Wu, and Yiming Yang. 2020. Graph-Revised Convolutional Network. In ECML PKDD.
+- [39] Zeping Yu, Jianxun Lian, Ahmad Mahmoody, Gongshen Liu, and Xing Xie. 2019. Adaptive User Modeling with Long and Short-Term Preferences for Personalized Recommendation. In IJCAI. 4213–4219.
+- [40] Jun Zhang, Chen Gao, Depeng Jin, and Yong Li. 2021. Group-Buying Recommendation for Social E-Commerce. In ICDE.
+- [41] Xiang Zhang and Marinka Zitnik. 2020. GNNGuard: Defending Graph Neural Networks against Adversarial Attacks. In NeurIPS.
+- [42] Jianan Zhao, Xiao Wang, Chuan Shi, Binbin Hu, Guojie Song, and Yanfang Ye. 2021. Heterogeneous Graph Structure Learning for Graph Neural Networks. In AAAI.
+- [43] Tong Zhao, Yozen Liu, Leonardo Neves, Oliver Woodford, Meng Jiang, and Neil Shah. 2021. Data Augmentation for Graph Neural Networks. In AAAI.
+- [44] Wei Zhao, Benyou Wang, Jianbo Ye, Yongqiang Gao, Min Yang, and Xiaojun Chen. 2018. PLASTIC: Prioritize Long and Short-term Information in Top-n Recommendation using Adversarial Training. In IJCAI. 3676–3682.
+- [45] Guorui Zhou, Na Mou, Ying Fan, Qi Pi, Weijie Bian, Chang Zhou, Xiaoqiang Zhu, and Kun Gai. 2019. Deep interest evolution network for click-through rate prediction. In AAAI. 5941–5948.
+- [46] Guorui Zhou, Xiaoqiang Zhu, Chenru Song, Ying Fan, Han Zhu, Xiao Ma, Yanghui Yan, Junqi Jin, Han Li, and Kun Gai. 2018. Deep interest network for click-through rate prediction. In KDD. 1059–1068.
+- [47] Han Zhu, Daqing Chang, Ziru Xu, Pengye Zhang, Xiang Li, Jie He, Han Li, Jian Xu, and Kun Gai. 2019. Joint optimization of tree-based index and deep model for recommender systems. In NeurIPS. 3971–3980.
+- [48] Yanqiao Zhu, Weizhi Xu, Jinghao Zhang, Qiang Liu, Shu Wu, and Liang Wang. 2021. Deep Graph Structure Learning for Robust Representations: A Survey. In IJCAI.
 
 ## <span id="page-9-0"></span>REFERENCES
 

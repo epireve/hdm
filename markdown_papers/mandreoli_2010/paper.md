@@ -26,14 +26,13 @@ keywords:
 - next-generation
 ---
 
-
 # 9
 
-# Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies, and Algorithms
+## Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies, and Algorithms
 
 Federica Mandreoli<sup>1</sup> , Manuela Montangero Dip. di Scienze Fisiche, Informatiche e Matematiche, Modena, Italy <sup>1</sup> Corresponding author
 
-# INTRODUCTION
+## INTRODUCTION
 
 The proliferation of data sources accessible via the Web and the availability of large amount of data created by humans and machines represent an enormous opportunity to improve knowledge in a wide range of application fields, including life science.
 
@@ -57,7 +56,7 @@ This chapter focusses on the main sources of heterogeneity in the life science c
 
 The rest of the chapter is organized as follows. Section 2 provides an overview of the data sources that can be exploited in life science applications. [Section 3](#page-4-0) presents an example from a computer science perspective and an overview of the main traditional techniques to deal with entity resolution and data fusion. [Section 4](#page-20-0) presents some new challenges that emerged more recently and relative proposed solutions.
 
-# OVERVIEW OF LIFE SCIENCE DATA SOURCES
+## OVERVIEW OF LIFE SCIENCE DATA SOURCES
 
 This section provides an overview of the different kinds of publicly available data sources that can be exploited in a data integration application for the life science domain.
 
@@ -73,7 +72,7 @@ Of particular interest for knowledge sharing on the Web in a wide range of appli
 
 Finally, life science digital libraries can be exploited to enable the connection of life science data to the related literature. PubMed [\[22\]](#page-31-0) is probably the most known digital library for the biomedical literature. PubMed comprises more than 27 million citations for the biomedical literature from MEDLINE, life science journals, and online books. Citations may include links to full-text content from PubMed Central and publisher websites. It supports a highly expressive query language. Queries can contain Boolean operators, such as AND and OR, and field-based filters, such as searches limited to the title fields, and the specification of MeSH terms.
 
-# ADDRESSING DATA HETEROGENEITY
+## ADDRESSING DATA HETEROGENEITY
 
 Dealing with multiple manifestations of the same real-world entity across several data sources is a very common challenge for many modern applications, including life science applications. This challenge is referenced as data heterogeneity in the data management research field where the final aim is often to get a unified or integrated view of the real-world entities represented in the data sources.
 
@@ -83,20 +82,20 @@ Essentially, each dataset provides a detailed and highly specialized view of the
 
 these concepts, in the following we will exemplify the main features of five datasets, one for each category, for the breast cancer case.
 
-The TCGA [\[24\]](#page-31-0) is a comprehensive, multidimensional map of the key genomic changes in 33 types of cancer. The TCGA dataset contains 2.5 petabytes of data describing tumor tissue and matched normal tissues from more than 11,000 patients. Data can be downloaded in the JavaScript Object Notation (JSON) [\[25\]](#page-31-0) or Tab Separated Value (TSV) [\[26\]](#page-31-0) format. For instance, [Fig. 9.1](#page-6-0)A shows an instance of the collected genomic changes for breast cancer in JSON format.
+The TCGA [\[24\]](#page-31-0) is a comprehensive, multidimensional map of the key genomic changes in 33 types of cancer. The TCGA dataset contains 2.5 petabytes of data describing tumor tissue and matched normal tissues from more than 11,000 patients. Data can be downloaded in the JavaScript Object Notation (JSON) [\[25\]](#page-31-0) or Tab Separated Value (TSV) [\[26\]](#page-31-0) format. For instance, [Figure 9.1](#page-6-0)A shows an instance of the collected genomic changes for breast cancer in JSON format.
 
 CancerData.com [\[27\]](#page-31-0) is a website developed and maintained by the Medical Informatics and Knowledge Engineering team of Maastro Clinic, Maastricht, The Netherlands, whose main aim is to create a shared database with medical imaging and characteristics in patients with cancer, tumors and treatments. For instance, the Tumor Hypoxia dataset stems from an assessment of time-dependent gene-expression changes in response to hypoxia. This study provides additional biological insights and helps in predicting the impact of hypoxia on patient prognosis. Transcriptome profiling was performed for three cancer cell lines (DU145, HT29, and MCF7) after hypoxic exposure (0%) at eight time points (0, 1, 2, 4, 8, 12, 16, and 24 h). The breast cancer cell line is MCF7. The MCF7 data set is made up of one cell intensity file in CEL format for each time point and one TSV file that contains metainformation about the conducted experiments.
 
 The Cancer Incidence in Five Continents [\[28\]](#page-31-0) provides comparable data on cancer incidence from as wide a range of geographical locations worldwide as possible. For instance, CI5plus contains updated annual incidence rates for 118 selected populations from 102 cancer registries, for the longest period available (up to 2007), for all cancers and 27 major types. The data are recorded as text files in Comma Separated Value (CSV) format, and can be incorporated easily into statistical packages for further analysis. Registries and cancers are associated with numerical codes. Annual incidence data about breast cancer can be obtained by selecting the rows containing the breast cancer code.
 
-The Disease Ontology (DO) [\[29\]](#page-31-0) is an OBO foundry ontology for human disease. Its purpose is to provide consistent, reusable, and sustainable descriptions of human disease terms, phenotype characteristics, and related medical vocabulary disease concepts. Each concept in DO has a unique identifier, denoted as DOID, an explicit name, a definition, and a list of synonyms and is related to other DOIDs through a set of relationships, such as hypernymy and hyponymy. Moreover, it is mapped to the concepts of other widely diffused ontologies, i.e., MeSH, ICD, NCIs thesaurus, SNOMED, and OMIM. For instance, a screenshot of the breast cancer DOID and related DOIDs (synonyms in blue, hypernymies and hyponimies in gray) is shown in [Fig. 9.1](#page-6-0)B. DO can be downloaded in OWL format [\[30\].](#page-31-0)
+The Disease Ontology (DO) [\[29\]](#page-31-0) is an OBO foundry ontology for human disease. Its purpose is to provide consistent, reusable, and sustainable descriptions of human disease terms, phenotype characteristics, and related medical vocabulary disease concepts. Each concept in DO has a unique identifier, denoted as DOID, an explicit name, a definition, and a list of synonyms and is related to other DOIDs through a set of relationships, such as hypernymy and hyponymy. Moreover, it is mapped to the concepts of other widely diffused ontologies, i.e., MeSH, ICD, NCIs thesaurus, SNOMED, and OMIM. For instance, a screenshot of the breast cancer DOID and related DOIDs (synonyms in blue, hypernymies and hyponimies in gray) is shown in [Figure 9.1](#page-6-0)B. DO can be downloaded in OWL format [\[30\].](#page-31-0)
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: The image contains three parts. (A) shows JSON-formatted data describing a gene, including its name, location, symbol, ID, and classification. (B) is a graph illustrating relationships between different types of breast cancer, with "breast cancer" as the central node. (C) displays XML metadata describing a journal article, including publication details and title. The image likely illustrates data integration and analysis within a cancer genomics study. -->
 
 FIGURE 9.1 Data samples. (A) A TCGA record in JSON format; (B) Representation of the DO concept "breast cancer"; (C) A PubMed record in XML format.
 
-The last data sample comes from PubMed [\[22\]](#page-31-0). Search results can be represented in different formats: text, MEDLINE, and XML. For instance, [Fig. 9.1C](#page-6-0) shows an extract of one of the results for the query "NUT family breast cancer" in XML format.
+The last data sample comes from PubMed [\[22\]](#page-31-0). Search results can be represented in different formats: text, MEDLINE, and XML. For instance, [Figure 9.1C](#page-6-0) shows an extract of one of the results for the query "NUT family breast cancer" in XML format.
 
 As evidenced in [\[23\],](#page-31-0) integrating publicly and freely available data on cancer, like the ones presented earlier, is a key research direction to enable knowledge discovery in health informatics generally and on tumor growth specifically. This means dealing with the different facets of data heterogeneity in an effective way.
 
@@ -108,7 +107,7 @@ To meet these requirements, data heterogeneity is faced in a twofold manner. Fir
 
 Second, different sources can provide conflicting data. Conflicts can arise because of incomplete data, erroneous data, and out-of-date data. Returning incorrect data in a query result can be misleading and even harmful. This challenge is addressed by means of data fusion techniques that are able to fuse records on the same real-world entity into a single record and resolve possible conflicts from different data sources. Entity resolution aims at removing redundancy and increasing conciseness of the data, whereas data fusion aims at increasing correctness of data.
 
-Traditionally, schema mapping and matching, entity resolution, and data fusion represent the three main steps of a data integration process as shown in Fig. 9.2. The output of the first step is a unified view of the involved data sources at the schema level. Although different approaches and architectures on how to manage data sharing at schema level are currently available, for ease of reference in the following we assume that the output of this phase is a global schema where all the data available at the source level can be represented. The next steps, i.e., entity resolution and data fusion, are the focus of this chapter and will then operate on such a global data view.
+Traditionally, schema mapping and matching, entity resolution, and data fusion represent the three main steps of a data integration process as shown in Figure 9.2. The output of the first step is a unified view of the involved data sources at the schema level. Although different approaches and architectures on how to manage data sharing at schema level are currently available, for ease of reference in the following we assume that the output of this phase is a global schema where all the data available at the source level can be represented. The next steps, i.e., entity resolution and data fusion, are the focus of this chapter and will then operate on such a global data view.
 
 ![](_page_8_Figure_4.jpeg)
 <!-- Image Description: The image is a layered architecture diagram illustrating a data integration process. Three data sources feed into a schema mapping layer, followed by entity resolution and then data fusion. The final output is fed to an application. The diagram visually represents the sequential steps involved in combining data from multiple sources into a unified view for a specific application. -->
@@ -117,7 +116,7 @@ FIGURE 9.2 The data integration process.
 
 ## 244 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
 
-# 1 Entity Resolution
+## 1 Entity Resolution
 
 This entity resolution problem consists in identifying different records referring to the same real-world entity. The problem comes into different declinations reflecting different perspectives:
 
@@ -127,7 +126,7 @@ This entity resolution problem consists in identifying different records referri
 
 In the following we will refer to the general entity resolution problem. Traditionally, entity resolution techniques can be broadly divided into two categories: similarity based and learning based.
 
-# 1.1 Similarity-Based Techniques
+## 1.1 Similarity-Based Techniques
 
 Similarity-based techniques require similarity functions and thresholds to determine if two records are similar or not. Similarity is computed component by component using a similarity function that is proper for the property domain. To decide if the two records are similar or not, there are two main ways to proceed:
 
@@ -146,7 +145,7 @@ w1$s f1(r1:name; r2:name)
 þw2$s f2(r1:symbol; r2:symbol)
 þw3 s f3(r1:gene-id; r2:gene-id)
 þw4$s f4(r1:is-cancer-gene; r2:is-cancer-gene) -
-                                                   s:
+s:
 ```text
 
 This method is easy to implement; nevertheless it is not trivial to tune the threshold value and, eventually, weights that should reflect which, among the record properties, are more predictive.
@@ -248,7 +247,7 @@ $$
 Dice(s_1, s_2) = \frac{2 \cdot |S_1 \cap S_2|}{|S_1| + |S_2|}.
 $$
 
-#### 250 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
+### 250 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
 
 The MongeeElkan [\[61\]](#page-33-0) similarity function has been proposed to deal with long strings. It compares each token of the first string with all tokens of the second to find the best match according to a secondary similarity function sim for tokens (e.g., the Levenshtein edit distance) and then, the function is defined as:
 
@@ -256,7 +255,7 @@ The MongeeElkan [\[61\]](#page-33-0) similarity function has been proposed to de
 $$
 s_1, s_2
 $$
-) =  $\frac{1}{k} \sum_{i=1}^{k} \max_{j=1}^{h} sim(t_1, i, t_2, j)$ .
+) = $\frac{1}{k} \sum_{i=1}^{k} \max_{j=1}^{h} sim(t_1, i, t_2, j)$ .
 
 The TF.IDF (term frequencyeinverse document frequency) weighting scheme associates weights to words to reflect how important they are for a document (string) in a set of documents (strings) D, called corpus. Given a string <sup>s</sup> <sup>¼</sup> <sup>t</sup>1t2.tk with <sup>k</sup> tokens, TFsðt1;s<sup>Þ</sup> is the number of times (term frequency) the token ti appears in the string <sup>s</sup> (document) and IDFsðt1; <sup>D</sup><sup>Þ</sup> (inverse document frequency) is the inverse fraction of the number of documents that contain the token, obtained by dividing the total number of documents by the number of documents containing the term. IDFsðt1; <sup>D</sup>Þ is a measure of how much information the word provides. The weight of ti with respect to D is defined as:
 
@@ -290,7 +289,7 @@ $$
 
 where <sup>p</sup> ¼ <sup>j</sup>n<sup>1</sup>n<sup>2</sup><sup>j</sup> maxfjn<sup>1</sup>j;jn<sup>2</sup>jg: 100 is the percentage difference between the two numbers.
 
-# 2 Data fusion
+## 2 Data fusion
 
 Data fusion consists in combining records that refer to the same realworld entity into a single representation by resolving possible conflicts from different data sources.
 
@@ -312,12 +311,12 @@ $$
 
 Choosing a good conflict resolution function for a specific data heterogeneity problem is not an easy task. To this end, expert users usually weight different aspects such as the cost of the strategy, in terms of the
 
-| Function       | Definition                                                                                                                           | Strategy           |
+| Function | Definition | Strategy |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| CONCAT         | Returns the<br>concatenated values.<br>May include<br>annotations, such as the<br>names of the data<br>sources                       | Pass It On         |
-| MOST COMPLETE  | Returns the nonnull<br>value of the source that<br>contains the fewest null<br>values in the property<br>in question                 | Trust Your Friends |
-| AVERAGE/MEDIAN | Compute average and<br>median of all present<br>nonnull data values                                                                  | Meet in the Middle |
-| MOST RECENT    | Returns the most recent<br>value. Recency is<br>evaluated with the help<br>of another attribute or<br>other metadata about<br>values | Keep Up to Date    |
+| CONCAT | Returns the<br>concatenated values.<br>May include<br>annotations, such as the<br>names of the data<br>sources | Pass It On |
+| MOST COMPLETE | Returns the nonnull<br>value of the source that<br>contains the fewest null<br>values in the property<br>in question | Trust Your Friends |
+| AVERAGE/MEDIAN | Compute average and<br>median of all present<br>nonnull data values | Meet in the Middle |
+| MOST RECENT | Returns the most recent<br>value. Recency is<br>evaluated with the help<br>of another attribute or<br>other metadata about<br>values | Keep Up to Date |
 
 <span id="page-18-0"></span>TABLE 9.1 Samples of Conflict Resolution Functions From [\[65\]](#page-33-0) for the Strategies Described in the Text
 
@@ -335,7 +334,7 @@ computation cost, the quality of the results, and the information at function di
 
 5: Compute <sup>r</sup> ¼ ðp<sup>1</sup> : <sup>v</sup>1;.; pn : vn<sup>Þ</sup>
 
-#### 2.2 The Data Fusion Process
+### 2.2 The Data Fusion Process
 
 The data fusion process takes in input a collection of records referring to the same real-world entity and comes up with a single consistent representation of the real-world object by implementing the conflict resolution strategy and function selected for the specific task.
 
@@ -356,13 +355,13 @@ The output is a record <sup>r</sup> ¼ ðp<sup>1</sup> : <sup>v</sup>1; .; pn : 
 
 Many researches address the implementation of the data fusion process in practical contexts. The most diffused data model is the relational model that is implemented in Relational Database Management Systems (RDMSs). Samples of RDMSs are IBM DB2 [\[66\],](#page-33-0) Oracle [\[67\],](#page-33-0) and PostgreSQL [\[68\]](#page-33-0). Standard techniques are devised in terms of the standard database operators join and union: join-based techniques generally combine records from different tables while evaluating some predicates on some of their properties; union-based techniques generally build a common schema first and then append the different record sets from the source tables. Less standard techniques extend the relational model or the existing relational operators or combine operators to incorporate additional information and fuse data. A detailed implementation of the data fusion process in the relational model is described in [\[69\]](#page-33-0). This work introduces standard and advanced relational operators and examines their abilities in fusing data from different data sources. Moreover, it compares different data integration systems with respect to the kind of data fusion support.
 
-# LATEST TRENDS AND CHALLENGES
+## LATEST TRENDS AND CHALLENGES
 
 <span id="page-20-0"></span>Entity resolution and data fusion are problems that have been initially addressed for "controlled" data sources, usually databases, whereby the owner of the data source can guarantee a high degree of data representation homogeneity, correctness, up-to-dateness, security, and so on. Nowadays, the situation has greatly changed, mostly because of the advent of the Internet and the Web. New opportunities arose, as well as new problems to be addressed. In particular, we can detect the following emerging research fields and directions: Big Data provide access to a huge amount of dynamic, heterogeneous, and interesting data that are not guaranteed to be consistent; crowd-sourcing easily provides the possibility to involve a large number of human workers to collaborate on tasks that are still difficult for computers; privacy issues arise when dealing with data sources that might contain sensitive and private information; integration of textual data with nontextual data, for example, images, that are more and more available and might contain interesting information.
 
 In the following section we concentrate on Big Data integration (BDI) and the use of crowdsourcing. We present new challenges and newly arising problems, providing some of the solutions devised up to now.
 
-# 1 Big Data Integration
+## 1 Big Data Integration
 
 We are now living in what is called the Big Data era, that is, we are now generating, collecting, and storing an incredible amount of digital data at a high rate every day. Data come from the most variable sources in most variable domains: medical records, genomics, sensor networks, social networks, Web logs, Web text documents, e-commerce product details, and so on. Big Data applications work with data coming from different sources not only to improve their data quality but also to enrich their data or to perform data analysis that might be impossible if data are derived from a single source. For example, to prevent the outbreak of epidemics it is fundamental to be able to find out as soon as possible (ideally in real time) the occurrence of unusual patterns of symptoms. Early detection of such patterns might be conducted by collecting and analyzing very heterogeneous data coming from several different sources: emergency hospital admissions, travel and immigrant records, drug purchases in pharmacies, family doctor files, social network data, and probably many others.
 
@@ -408,7 +407,7 @@ Temporal entity resolution tries to address the former problem by using temporal
 
 Temporal entity resolution models adjust the way in which pairwise similarities are computed to work in this setting, usually adopting a machine learning approach [92e[94\].](#page-34-0) Temporal entity resolution techniques determine the way in which pairs of records should be compared taking into consideration the way in which they evolved in time, often using a similarity function defined in a temporal entity resolution model [\[93,95\].](#page-34-0)
 
-#### 1.3 Data Fusion and Big Data
+### 1.3 Data Fusion and Big Data
 
 In the context of Big Data, the variety of sources, especially those accessible on the Web, brings along new problems that cannot be ignored if one wants to resolve conflicts and produce quality integrated data. Indeed, some sources might be copies, crawls, or aggregates from others, some might be produced by humans, and some might be built by exchanging data with or buying data from other sources [\[96\]](#page-34-0). Moreover, data often dynamically change and sources undergo continuous updates to reflect these changes, leaving behind an evolving history of true values. The consequence is that many sources might provide erroneous or out-ofdate data and these undesired data might be propagated by copiers (sources that copied data from other sources). To make things more complicated, also copiers behavior might vary in time, by changing coping source or stopping coping or coping at different time rates. Traditional techniques for data fusion are usually not suitable in the Big Data context as they have been devised to work off-line, are time-consuming, and do not take into consideration the fact that, during the aggregation process, data might have changed.
 
@@ -416,7 +415,7 @@ Authors in [\[97\]](#page-34-0) are the first to propose an on-line data fusion 
 
 The work in [\[98\]](#page-34-0) addresses the problem of determining the copying relationship between sources and between the evolving true values. They also propose some measures for the quality of data sources, such as coverage (how many values in history a given source covers), exactness (how many updates conform to the reality), and freshness (how quickly a source captures a new value).
 
-# 2 A Crowdsource Approach
+## 2 A Crowdsource Approach
 
 Problems related to data integration have been studied for decades and many automated algorithms have been devised; nevertheless, at the same time other studies described the difficulties and limits of machine-based approaches in producing exact results [\[99\].](#page-34-0) Starting from the beginning of the new millennium, some works began investigating the benefits of human interaction to help solving problems that are difficult for computers [\[48,51,100\]](#page-32-0). The concept of Human-in-the-loop refers to the idea of using human cognitive abilities in the process of solving a problem. Sometimes an expert in the field might be needed, but in other cases the fact of being human and not a machine might be sufficient. More recently, crowdsourcing has attracted significant attention because of the availability of easily accessible crowdsourcing platforms (e.g., Amazon Mechanical Turk (AMT) [\[101\],](#page-35-0) CrowdFlower [\[102\],](#page-35-0) MicroWorkers [\[103\],](#page-35-0) etc.), which help "people with a problem" meet "people available to work to the problem."
 
@@ -449,13 +448,13 @@ Crowdsourcing has attracted much attention in the last years, and many approache
 
 Even if crowdsourcing is promising, we have seen that it opens a new world of problematics that have to be addressed. First, we do not have to forget that crowdsourcing needs a budget to be dedicated to this activity and that a too small budget might result in useless results, if the number of answers is not enough. Second, humans can make mistakes too, and hence quality issues have to be taken into serious considerations if one does not want to frustrate the effort (and the budget). Last (but not for importance), authors in [\[113\]](#page-35-0) consider what is called the Truth Inference problem: given the workers' answers, how do we effectively infer the truth for each task? They compare 17 different existing algorithms on five datasets and show that these algorithms are not stable across datasets and that no one consistently outperforms the others. Hence, they conclude that the truth inference problem has not been fully solved and suggest some possible future research directions.
 
-# CONCLUSIONS
+## CONCLUSIONS
 
 This chapter reviews the main modeling, methodological, and algorithmic solutions that stemmed from the computer science field to address the issue of data heterogeneity in a data integration context.
 
 It is intended for life science researchers and practitioners who need to integrate disparate and heterogeneous data sources to improve knowledge of specific phenomena. To this end, it provides an overview of the different publicly available data sources that can be exploited in the life science context and promotes a systematic approach to address data heterogeneity issues founded on computer science solutions. Finally, it <span id="page-30-0"></span>provides an overview of the main challenges that researchers studying data integration solutions are facing to provide valuable answers to cutting-edge applications.
 
-# References
+## References
 
 - [1] D. Gomez-Cabrero, I. Abugessaisa, D. Maier, E. Andrew, Teschendorff, M. Merkenschlager, A. Gisel, E. Ballestar, E. Bongcam-Rudloff, A. Conesa, J. Tegner, Data integration in the era of omics: current and future challenges, BMC Syst. Biol. 8 (S-2) (2014) I1.
 - [2] B. Golshan, A. Halevy, G. Mihaila, W.-C. Tan, Data integration: after the teenage years, in: Proceedings of the 36th ACM SIGMOD-SIGACT-SIGAI Symposium on Principles of Database Systems, PODS '17, 2017, pp. 101e106.
@@ -547,7 +546,7 @@ of Data, SIGMOD 2010, Indianapolis, Indiana, USA, June 6e10, 2010, 2010, pp. 303
 - [79] M. Bilenko, B. Kamath, R.J. Mooney, Adaptive blocking: learning to scale up record linkage, in: Proceedings of the 6th IEEE International Conference on Data Mining (ICDM 2006), 18e22 December 2006, Hong Kong, China, 2006, pp. 87e96.
 - [80] H-sik Kim, D. Lee, Harra: fast iterative hashed record linkage for large-scale data collections, in: Proceedings of the 13th International Conference on Extending Database Technology, EDBT '10, ACM, New York, NY, USA, 2010, pp. 525e536.
 
-#### REFERENCES 269
+### REFERENCES 269
 
 - <span id="page-34-0"></span>[81] G. Papadakis, W. Nejdl, Efficient entity resolution methods for heterogeneous information spaces, in: Workshops Proceedings of the 27th International Conference on Data Engineering, ICDE 2011, April 11e16, 2011, Hannover, Germany, 2011, pp. 304e307.
 - [82] C.-M. Kastorini, G. Papadakis, H.J. Milionis, K. Kalantzi, P.E. Puddu, V. Nikolaou, K.N. Vemmos, J.A. Goudevenos, D.B. Panagiotakos, Comparative analysis of a-priori and a-posteriori dietary patterns using state-of-the-art classification algorithms: a case/case-control study, Artif. Intelligence Med. 59 (3) (2013) 175e183.
@@ -570,7 +569,7 @@ of Data, SIGMOD 2010, Indianapolis, Indiana, USA, June 6e10, 2010, 2010, pp. 303
 - [99] H. Kopcke¨ Andreas Thor, E. Rahm, Evaluation of entity resolution approaches on realworld match problems, PVLDB 3 (1) (2010) 484e493.
 - [100] S.R. Jeffery, M.J. Franklin, A.Y. Halevy, Pay-as-you-go user feedback for dataspace systems, in: Proceedings of the ACM SIGMOD International Conference on Management of Data, SIGMOD 2008, Vancouver, BC, Canada, June 10e12, 2008, 2008, pp. 847e860.
 
-#### <span id="page-35-0"></span>270 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
+### <span id="page-35-0"></span>270 9. DEALING WITH DATA HETEROGENEITY IN A DATA FUSION PERSPECTIVE
 
 - [101] [http://www.mturk.com.](http://www.mturk.com)
 - [102] [https://www.crowdflower.com.](https://www.crowdflower.com)

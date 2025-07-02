@@ -58,15 +58,15 @@ Consider constructing an ontology about computers, including formal axioms to de
 
 ```text
 % "Available RAM is the total RAM minus the occupied RAM."
-   available_ram(Computer,A) :-
-       isa(Computer,computer),
-       ram_size(Computer,S),
-       occupied_ram(Computer,R),
-       A is S - R.
-  % "The number of free expansion-slots is the total number
+available_ram(Computer,A) :-
+isa(Computer,computer),
+ram_size(Computer,S),
+occupied_ram(Computer,R),
+A is S - R.
+% "The number of free expansion-slots is the total number
 . % of slots minus the number filled."
-   free_slots(Computer,N) :-
-       isa(Computer,computer),
+free_slots(Computer,N) :-
+isa(Computer,computer),
 ```text
 
 The two axioms above are syntactically different, yet they both instantiate the same general axiom, which we could explicate as:
@@ -75,10 +75,10 @@ expansion\_slots(Computer,X), occupied\_slots(Computer,O),
 
 ```text
 FREE_SPACE(X,S) :-
-    isa(X,CLASS),
-    CAPACITY(X,C),
-    OCCUPIED_SPACE(X,O),
-    S is C - O.
+isa(X,CLASS),
+CAPACITY(X,C),
+OCCUPIED_SPACE(X,O),
+S is C - O.
 ```text
 
 N is X - O.
@@ -93,10 +93,10 @@ This is typically done with inheritance. The knowledge engineer encodes an expli
 
 ```text
 free_space(Container,F) :-
-    isa(Container,container),
-    capacity(Container,C),
-    occupied_space(Container,O),
-    F is C - O.
+isa(Container,container),
+capacity(Container,C),
+occupied_space(Container,O),
+F is C - O.
 ```text
 
 To use inheritance to import this axiom into our computer theory, we assert that computers are containers and that ram size is a special case (a 'subslot,' in the terminology of frame systems) of the capacity relation:
@@ -106,8 +106,8 @@ To use inheritance to import this axiom into our computer theory, we assert that
 subclass of(computer,container).
 % "RAM size is a measure of capacity."
 capacity(X,Y) :-
-        isa(X,computer),
-        ram size(X,Y).
+isa(X,computer),
+ram size(X,Y).
 ```text
 
 However, this becomes problematic here as there is a second notion of "computers as containers" in our original axioms, namely computers as containers of expansion cards. If we map this notion onto our computer theory in the same way, by adding the axiom:
@@ -115,8 +115,8 @@ However, this becomes problematic here as there is a second notion of "computers
 ```text
 % "Number of expansion slots is a measure of capacity"
 capacity(X,Y) :-
-        isa(X,computer),
-        expansion slots(X,Y).
+isa(X,computer),
+expansion slots(X,Y).
 ```text
 
 then the resulting representation captures that a computer has two capacities (memory capacity and slot capacity), but loses the constraints among their relations. Consequently, memory capacity may be used to compute the number of free expansion slots, and slot capacity may be used to compute available RAM. This illustrates how the general container theory can be "overlaid"
@@ -134,13 +134,13 @@ Another pseudo-solution is to parameterize the container theory, by adding an ar
 ```text
 % "Free space for content-type T = capacity for T - occupied T."
 free space(Container,ContentType,F) :-
-  isa(Container,container),
-  capacity(Container,ContentType,C),
-  occupied space(Container,ContentType,O),
-  F is C - O.
+isa(Container,container),
+capacity(Container,ContentType,C),
+occupied space(Container,ContentType,O),
+F is C - O.
 % "ram size denotes a computer's RAM capacity."
 capacity(X,ram,Y) :-
-  isa(X,computer),
+isa(X,computer),
 ```text
 
 ram size(X,Y).
@@ -159,10 +159,10 @@ A theory acquires its status as a pattern by the way it is used, rather than by 
 
 ```text
 free_space(Container,F) :-
-    isa(Container,container),
-    capacity(Container,C),
-    occupied_space(Container,O),
-    F is C - O.
+isa(Container,container),
+capacity(Container,C),
+occupied_space(Container,O),
+F is C - O.
 ```text
 
 Second, using terminology from category theory [5], the knowledge engineer defines a morphism for each intended application of this pattern in the target knowledge-base. A morphism is a consistent<sup>5</sup> mapping of the pattern's nonlogical symbols, or signature, to terms in the knowledge-base, specifying how the pattern should be transformed. Finally, when the knowledge base is loaded, morphed copies of this pattern are imported, one for each morphism. In our example, there are two morphisms for this pattern:
@@ -173,15 +173,15 @@ Second, using terminology from category theory [5], the knowledge engineer defin
 
 ```text
 container -> computer
-         capacity -> ram_size
-         free_space -> available_ram
-         occupied_space -> occupied_ram
+capacity -> ram_size
+free_space -> available_ram
+occupied_space -> occupied_ram
 isa -> isa and
-         container -> computer
-         capacity -> expansion_slots
-         free_space -> free_slots
-         occupied_space -> occupied_slots
-         isa -> isa
+container -> computer
+capacity -> expansion_slots
+free_space -> free_slots
+occupied_space -> occupied_slots
+isa -> isa
 ```text
 
 (The reason for mapping a symbol to itself, e.g., the last line in these morphisms, is explained in the next paragraph). When these morphisms are applied, two copies of the container pattern are created, corresponding to the two ways, described above, in which computers are modeled as containers.
@@ -191,7 +191,7 @@ There may be symbols in the pattern that have no counterpart in the target knowl
 ![](_page_6_Figure_4.jpeg)
 <!-- Image Description: The image presents two diagrams illustrating analogous systems. The left shows a "distribution network" with producers (P), intermediaries (I), and consumers (C), depicting a flow of resources. The right shows a simple electrical circuit with a battery, switch, and appliances (laser source, computer), illustrating electricity flow. Both diagrams use boxes and arrows to represent components and their relationships. The purpose is to explain the concept of a distribution network by comparing it to a familiar electrical circuit analogy. -->
 
-Fig. 10.1. A knowledge pattern is created by abstracting the structure of a theory (here, about electrical circuits).
+Figure 10.1. A knowledge pattern is created by abstracting the structure of a theory (here, about electrical circuits).
 
 <sup>6</sup> Although specific axioms may be removed if they do not contribute to assertions about symbols that are imported. A dependency analysis algorithm could, in principle, identify and remove such "dead code".
 
@@ -200,7 +200,7 @@ Fig. 10.1. A knowledge pattern is created by abstracting the structure of a theo
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image displays a "distribution network" pattern (left) and its morphism to an electrical circuit (right). The left diagram shows producers (P), intermediaries (I), and consumers (C) in a hierarchical flow. The right diagram depicts a battery, switch, and appliances (laser source, computer) powered by electricity. A large arrow indicates the mapping between the two, detailed below in a "morphism" table showing corresponding elements. The image illustrates an analogy between abstract network structure and a concrete electrical system. -->
 
-Fig. 10.2. A knowledge pattern is applied by specifying a mapping from symbols in the pattern to symbols in the target ontology of interest.
+Figure 10.2. A knowledge pattern is applied by specifying a mapping from symbols in the pattern to symbols in the target ontology of interest.
 
 ## 4 Using Patterns for Building a Knowledge-Base
 
@@ -211,7 +211,7 @@ Our interest here is how the underlying knowledge-base was assembled from compon
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The image presents a formal specification of a Directed Acyclic Graph (DAG). It includes a diagram showing a sample DAG with labeled nodes and directed edges, illustrating the structure. The text provides a synopsis, description explaining the DAG's role in modeling real-world phenomena, a signature listing key elements, and axioms formally defining relationships between nodes using predicate logic. The numbered axioms describe "to," "from," "reaches," and "reachable-from" relationships within the DAG structure. -->
 
-Fig. 10.3. A knowledge pattern used in KB-PHaSE.
+Figure 10.3. A knowledge pattern used in KB-PHaSE.
 
 eral model of distribution as an independent, self-contained pattern, shown in Figure 10.5. Then we defined a morphism that creates from it a model of electrical circuits, as shown Figure 10.6.
 
@@ -222,7 +222,7 @@ By separating these theories as modular entities, they are available for reuse. 
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image presents a "Blockable-DAG" pattern, extending DAG theory. It includes a directed acyclic graph (DAG) diagram showing nodes labeled N1-N8, where N5 is explicitly marked as a "blocked node," illustrating the concept of preventing reachability. The accompanying text defines the pattern's signature, including predicates like `blocked`, `unblocked`, and `unblocked-reaches`, and lists axioms extending standard DAG axioms to incorporate node blocking. The image's purpose is to formally define the blockable-DAG pattern within the context of the paper. -->
 
-Fig. 10.4. Another knowledge pattern used in KB-PHaSE.
+Figure 10.4. Another knowledge pattern used in KB-PHaSE.
 
 ## 5 The Semantics of Knowledge Patterns
 
@@ -233,7 +233,7 @@ A knowledge pattern is incorporated into a knowledge base by a syntactic process
 ![](_page_10_Figure_1.jpeg)
 <!-- Image Description: The image presents a "Distribution Network" pattern, depicted by two diagrams showing producers (P), intermediaries (I), and consumers (C) connected in a flow network. The accompanying text describes the pattern's application to modeling systems like electrical circuits, specifying nodes and transport material type. Logical axioms define the relationships, including conditions for a consumer being "supplied." The diagrams visually represent the flow of material from producers to consumers via intermediaries. -->
 
-Fig. 10.5. The knowledge pattern for distribution networks, used by KB-PHaSE.
+Figure 10.5. The knowledge pattern for distribution networks, used by KB-PHaSE.
 
 achieved. We provide here an outline of an approach to doing this, although a full solution requires further work.
 
@@ -242,7 +242,7 @@ When morphing a knowledge pattern, we are "bringing the abstract theory to the a
 ![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image presents a formal specification of an "electrical-circuit" theory. It uses a table to map concepts from a directed acyclic graph (DAG) representation to terms in the electrical circuit domain (e.g., DAG node to Electrical-Device). A description explains the model's representation of power supply, appliances, and connectors. Finally, it includes axioms, formalized using logical notation, defining power relationships within the model. -->
 
-Fig. 10.6. The theory for electrical circuits in KB-PHaSE, defined as a morphism of the "distribution network" knowledge pattern.
+Figure 10.6. The theory for electrical circuits in KB-PHaSE, defined as a morphism of the "distribution network" knowledge pattern.
 
 the complement to morphing, namely "bringing the application to the abstract theory." The approach is illustrated schematically in Figure 10.8.
 
@@ -251,12 +251,12 @@ This method is exactly that used in both object-oriented composition, and reason
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts the architecture of a knowledge base (KB), PHaSE KB. It shows how different models (DAG, Blockable DAG, Discrete Event Model) contribute to building the KB. The models are broken down into components like Processing and Distribution Networks, which feed into Optical and Electrical Circuits. These, along with Machines and Spatial Relations, constitute the ground facts within PHaSE KB. The diagram illustrates the data flow and relationships between different elements in constructing the KB. -->
 
-Fig. 10.7. The component theories used in KB-PHaSE. Each box denotes a theory (set of rules) describing a phenomenon, and arcs denote inclusion relations, the thick arcs involving morphing the source.
+Figure 10.7. The component theories used in KB-PHaSE. Each box denotes a theory (set of rules) describing a phenomenon, and arcs denote inclusion relations, the thick arcs involving morphing the source.
 
 ![](_page_12_Figure_3.jpeg)
 <!-- Image Description: The image is a flowchart illustrating a problem-solving method. A "Problem" is mapped to an "Isomorphic problem" using "mapping axioms." The original problem is solved using inference with a morphed knowledge pattern. The isomorphic problem is solved using direct knowledge pattern inference. Finally, the "Isomorphic solution" is mapped back to the "Solution" using the same "mapping axioms". The flowchart depicts a two-path approach to problem-solving via isomorphic transformation. -->
 
-Fig. 10.8. To provide semantics for the syntactic process of morphing (the left down arrow), we consider its equivalence to using the knowledge pattern directly, along with mapping axioms to translate a domain-specific problem into/out of an isomorphic one expressed using the pattern's ontology (the other three arrows).
+Figure 10.8. To provide semantics for the syntactic process of morphing (the left down arrow), we consider its equivalence to using the knowledge pattern directly, along with mapping axioms to translate a domain-specific problem into/out of an isomorphic one expressed using the pattern's ontology (the other three arrows).
 
 mechanism is used in reasoning by analogy, where a problem is transferred between a base and a target theory [9].
 

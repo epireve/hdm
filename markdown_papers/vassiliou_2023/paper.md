@@ -34,7 +34,7 @@ Abstract. The explosion in the size and the complexity of the available Knowledg
 
 Keywords: Semantic Summaries · RDF/S · Workload-based.
 
-# 1 Introduction
+## 1 Introduction
 
 Daily, a tremendous amount of new information becomes available online. RDF Knowledge graphs (KGs) rapidly grow to include millions or even billions of triples that are offered through the web. For example, the Linked Open Data Cloud, currently includes more than 62 billion triples, organized in large and complex RDF data graphs [\[1\]](#page-15-0).
 
@@ -53,7 +53,7 @@ The solution. Instead of relying on node weights or on individual provided set o
 
 To the best of our knowledge, this is the first approach to constructing personalized, structural, non-quotient semantic summaries exploiting generic query workloads. The rest of this paper is organized as follows: Section 2 provides preliminaries and problem definition. Then Section 3 presents our solution, iSummary, detailing the various steps for generating a personalized summary. Section 4 presents the experimental evaluation of our work, whereas Section 4 presents related work. Finally, Section 5 concludes this paper and presents directions for future work.
 
-# 2 Preliminaries & Problem Definition
+## 2 Preliminaries & Problem Definition
 
 Preliminaries. In this paper, we focus on RDF Knowledge Graphs, as RDF is among the most widely-used standards for publishing and representing data on the Web, promoted by the W3C for semantic web applications. An RDF KG G is a set of triples of the form (s, p, o). A triple states that a subject s has the property p, and the value of that property is the object o. We consider only well-formed triples, according to the RDF specification [\[23\]](#page-16-4). These belong to (U ∪ B) x U x (U ∪ B ∪ L), where U is a set of Uniform Resource Identifiers (URIs), L a set of typed or untyped literals (constants), and B a set of blank nodes (unknown URIs or literals); U, B,L are pairwise disjoint. Additionally, we assume an infinite set X of variables that is disjoint from the previous sets. Blank nodes are essential features of RDF allowing to support unknown URI/literal tokens. The RDF standard includes the rdf:type property, which allows specifying the type(s) of a resource. Each resource can have zero, one or several types. For querying, we use SPARQL [\[2\]](#page-15-4), the W3C standard for querying RDF datasets. The basic building units of the SPARQL queries are triple pattern and Basic Graph Pattern (BGP). A triple pattern is a triple from (U ∪B ∪ X )x(U ∪ X ))x(U ∪B ∪L∪ X ). A set of triple patterns constitutes a basic graph pattern (BGP).
 
@@ -68,7 +68,7 @@ A way to select the three additional nodes and the edges for the result summary,
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 3 of the paper, showing content related to the research topic. -->
 
-Fig. 1. Example RDF KG.
+Figure 1. Example RDF KG.
 
 Formal problem statement. The previous example makes it obvious that requesting the user to provide weights each time for all (or a least some) of the nodes is impractical. Next, we formally present the problem of λ/κ-Personalized Summary and we show that, although useful, besides impractical it is also computationally expensive.
 
@@ -90,7 +90,7 @@ Over the years many approximations have been proposed for resolving the Steiner 
 
 For the rest of the paper, without loss of generality, we will focus on 1/κ-Personalized Summaries (in short κ-Personalized Summaries), where the user provides only a single seed node as input, for not perplexing definitions and algorithms and due to space limitations. Extending the presented solution and algorithms for multiple seed nodes is straightforward.
 
-# 3 iSummary
+## 3 iSummary
 
 As we have shown in the previous section, computing the κ-Personalized Summary is both impractical, as different weights should be assigned to the graph nodes for each distinct user query, and computationally expensive, as it requires computing a Steiner Tree solution. In this section, we are going to provide an elegant approximate solution based on query workloads.
 
@@ -100,18 +100,18 @@ Having such a query log available, our first idea is that we can use it to mine 
 
 Example 2. Assume that for our example KG, shown in Figure [1,](#page-3-0) we have available a query log consisting of the following SPARQL queries:
 
-| Q1. SELECT ?x ?y WHERE                                |
+| Q1. SELECT ?x ?y WHERE |
 |-------------------------------------------------------|
-| {x? a Person. y? a Professor. ?x advisor ?y.}         |
-| Q2. SELECT ?x ?y WHERE                                |
+| {x? a Person. y? a Professor. ?x advisor ?y.} |
+| Q2. SELECT ?x ?y WHERE |
 | {x? a Person. y? a Organization. ?y affiliatedOf ?x.} |
-| Q3. SELECT ?x ?y WHERE                                |
-| {x? a Person. y? a Organization. ?y affilatedOf ?x.   |
-| ?y orgName "FORTH".}                                  |
-| Q4. SELECT ?y WHERE                                   |
-| {y? a Organization.}                                  |
-| Q5. SELECT ?y WHERE                                   |
-| {y? a Publication. ?x authored ?y. ?x a Institute.}   |
+| Q3. SELECT ?x ?y WHERE |
+| {x? a Person. y? a Organization. ?y affilatedOf ?x. |
+| ?y orgName "FORTH".} |
+| Q4. SELECT ?y WHERE |
+| {y? a Organization.} |
+| Q5. SELECT ?y WHERE |
+| {y? a Publication. ?x authored ?y. ?x a Institute.} |
 
 Now assume that a user is interested in a 2-Personalized Summary for the node P erson. Based on the query log we can identify that relevant queries to user input are Q1, Q2, and Q3. Examining those queries we can identify that the useful nodes are the P rofessor and Organization. In fact, as Organization is used in two queries it should be most useful according to the available query log. As we are looking for a 2-Personalized Summary it will be included in the result. On the other hand, if the user is interested in a 2-Personalized Summary for the node P ublication the relevant query is Q5 which suggests that the Institute node should be included in the result.
 
@@ -123,7 +123,7 @@ Example 3. We now continue our example for constructing a 2-Personalized Summary
 
 In the case we are interested in a 3-Personalized Summary for the node P erson, the summary would have to include the P rofessor node as well. To link P erson with P rofessor we would filter the queries to keep only those where both P rofessor and P erson appear, e.g. Q1. Then for linking those nodes, we would keep the most frequent shortest path, i.e., t<sup>2</sup> : (P erson, advisor, P rofessor). Now the 3-Personalized Summary for P erson would include both t<sup>1</sup> and t2.
 
-#### 3.1 The algorithm
+### 3.1 The algorithm
 
 Now we are ready to present the corresponding algorithm for constructing a κ-Personalized Summary for an input node s. The algorithm is presented in Algorithm [1](#page-7-0) and receives as input κ, s and a query log Q. It starts by including the first node in the summary (line 2), the one selected by the user. Then it filters the queries to keep only Qs, i.e., the ones including s (line 3). Next, it calculates the frequency of all nodes in Q<sup>s</sup> and selects the k − 1 ones with the higher frequency to be included in the result summary (line 4), i.e., the topk−<sup>1</sup> ones.
 
@@ -131,7 +131,7 @@ The next step is to visit one by one these nodes each time identifying an optima
 
 The result produced by the aforementioned algorithm is deterministic based on its implementation, as in the case of ties, these are broken by keeping the first choice. However as already explained a personalized workload-based summary might not be unique as many nodes can have the same frequency in the available queries, or there might be available many different shortest paths to connect
 
-#### Algorithm 1 iSummary
+### Algorithm 1 iSummary
 
 Input: An user-selected node s, a query workload Q, the number of the most useful nodes to be included in the summary κ. Output: S a κ-Personalized summary for s
 
@@ -151,7 +151,7 @@ However, usually, the number of nodes requested by the user to be included in th
 
 Limitations. The aforementioned algorithm provides an elegant solution to the κ-Personalized Summary problem and can be trivially extended for the λ/κ-Personalized Summary problem as well, just by searching for queries including the λ nodes and then exploiting those queries to link them in the summary. However, it assumes that adequate queries are available in the query log. In other words, it assumes that a) there are queries available including user input, and b) that there are at least κ other nodes available in those queries. These assumptions hold for popular online KGs which can easily log user queries but might not hold for other less popular KGs. As such our approach should be considered complementary to approaches working directly on the graphs of the KGs. However, as we showed the problem is NP-complete, and neither existing approximate solutions nor competitors (as we will show) will terminate within a reasonable time.
 
-# 4 Experimental Evaluation
+## 4 Experimental Evaluation
 
 In this chapter, we present the experiments performed for evaluating our approach using three real world datasets along with the corresponding query workloads. The source code and guidelines on how to download the datasets and the workloads are available online[4](#page-8-1) .
 
@@ -167,7 +167,7 @@ Bio2RDF is a biological database that uses semantic web technologies to provide 
 
 <sup>4</sup> <https://anonymous.4open.science/r/iSummary-47F2/>
 
-#### 4.2 Metrics
+### 4.2 Metrics
 
 We already have proven the theoretical bound of our algorithm in terms of quality when compared to an optimal solution. In addition, as it is not feasible to compute the optimal solution for our big graphs for evaluating the quality of the generated algorithms we use coverage. Coverage has been proved rather useful in evaluating structural, non-quotient semantic summaries in the past [\[15\]](#page-16-7), [\[16\]](#page-16-8), [\[18\]](#page-16-1), [\[20\]](#page-16-5), [\[21\]](#page-16-9). The idea behind coverage is that, ideally, we would like to maximize the fragments of the queries that are answered by the summary. More specifically, a summary that is able to provide answers to bigger and more query fragments from the query workload is preferable. However, as we are generating personalized summaries, we would like the generated summaries to maximize the number and fragments that include the input provided by the user. As such, we define coverage as follows:
 
@@ -182,7 +182,7 @@ where nodes(qi) and edges(qi) denote the number of nodes and edges respectively 
 
 In our experiments, we set wn=0.5 and w<sup>p</sup> = 0.5 as we perceive both nodes and edges as equally important in a summary.
 
-#### 4.3 Baselines & Competitors
+### 4.3 Baselines & Competitors
 
 To evaluate our system, we use for each query workload a percentage of the queries for constructing the personalized summary (train queries) and the remaining queries for evaluating node selection and coverage of the constructed summary (test queries).
 
@@ -197,7 +197,7 @@ Finally, we explore an approximate version of the personalized PageRank [5](#pag
 ![](_page_10_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 10 of the paper, showing content related to the research topic. -->
 
-Fig. 2. Coverage as the number of queries increases.
+Figure 2. Coverage as the number of queries increases.
 
 ### 4.4 Coverage for Various Query Log Sizes
 
@@ -214,27 +214,27 @@ Next, we compare iSummary with baselines and competitors. For iSummary and Rando
 ![](_page_11_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 11 of the paper, showing content related to the research topic. -->
 
-Fig. 3. DBpedia coverage for various k and baselines.
+Figure 3. DBpedia coverage for various k and baselines.
 
 The results for DBpedia are shown in Fig. [3.](#page-11-0) As shown approaches that work on the data graph have worst coverage than the ones working directly on the queries. GLIMPSE performs worst for all cases, as providing just a node as an input is not enough for GLIMPSE to provide a high-quality summary in terms of coverage. PPR has better results than GLIMPSE, but still, it is outperformed by both Random and iSummary. Note that Random is not purely random as it randomly selects nodes and edges to construct a summary from the queries involving the input node. As shown iSummary outperforms all baselines almost two times when compared with GLIMPSE, random by 17-24% and PPR by 32-37%.
 
 ![](_page_11_Figure_4.jpeg)
 <!-- Image Description: Figure 4 from page 11 of the paper, showing content related to the research topic. -->
 
-Fig. 4. Wikidata coverage for various k and baselines.
+Figure 4. Wikidata coverage for various k and baselines.
 
 The same trend appears for WikiData as shown in Fig. [4.](#page-11-1) GLIMPSE is not able to produce output for such a big graph in our machine as it fully loads the memory and the application crashes after some time. In this case, iSummary dominates the remaining baselines, achieving in most of the cases a two times higher coverage.
 
 ![](_page_12_Figure_2.jpeg)
 <!-- Image Description: Figure 2 from page 12 of the paper, showing content related to the research topic. -->
 
-Fig. 5. Bio2RDF coverage for various k and baselines.
+Figure 5. Bio2RDF coverage for various k and baselines.
 
 Finally, results for Bio2RDF are shown in Fig. [5.](#page-12-0) Now even PPR cannot process such a big graph and after 24 hours and we stopped its execution. Again iSummary is better than Random by 25-30%.
 
 Overall, as we can see in all cases our approach has consistently better results than all baselines, demonstrating the high quality of the generated summaries. We can also notice that as the size of the personalized summary increases (κ=5,10,15) the coverage increases as well, as more nodes are added to the summary. Note also that as the size of WikiData queries is larger than the other datasets it is reasonable to be a bit more difficult to cover them and as such coverage is smaller. Nevertheless, the algorithm shows stability among different datasets always dominating other approaches.
 
-#### 4.6 Comparing Execution Time
+### 4.6 Comparing Execution Time
 
 The average execution times for the various algorithms, for different κ are presented in Figure [6.](#page-13-0) We only present results for DBpedia as it is the only dataset that all competitors are able to run. As shown, approaches relying on the KG (PPR and GLIMPSE) to calculate the summary require one order of magnitude more execution time than the ones relying on query logs. iSummary is just a bit slower than Random showing that linking the k nodes using queries has a minimal impact on query execution, but highly improves summaries' quality.
 
@@ -243,11 +243,11 @@ The average execution times for the various algorithms, for different κ are pre
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 13 of the paper, showing content related to the research topic. -->
 
-Fig. 6. Execution time for the various k and algorithms
+Figure 6. Execution time for the various k and algorithms
 
 Further, we can observe that as the k grows, all algorithms require more time to identify and link more nodes. Overall, however, iSummary is only 0.13 times slower than Random, 14 times faster than GLIMPSE, and 40 times faster than PPR, however dominating all baselines in terms of coverage.
 
-# 5 Related Work
+## 5 Related Work
 
 In this Section, we focus on personalized, structural, and non-quotient summaries and we present related works. For a complete overview of the works in the area, the interested reader is forwarded to relevant surveys available in the domain [\[6\]](#page-15-11), [\[11\]](#page-15-12).
 
@@ -259,7 +259,7 @@ Finally, there is latest approach named WBSUM [\[20\]](#page-16-5) which exploit
 
 Overall, our work is the first, structural, non-quotient, workload-based personalized summarization method. Our work accepts minimal user input, and exploits query workloads to generate high-quality summaries. Further our algorithm is linear in the number of queries available and as such efficient and scalable.
 
-# 6 Conclusions
+## 6 Conclusions
 
 In this paper, we present a summarization method able to construct personalized, workload-based, semantic summaries with high quality. We formulate the problem of λ/κ-Personalized summaries and provide an elegant algorithm for resolving it, linear in the number of queries available in the query logs with theoretical guarantees. Our algorithm effectively identifies different weight assignments for different inputs and is able to efficiently and effectively identify how to link the selected nodes based on the available queries.
 
@@ -271,11 +271,11 @@ Another really interesting direction is to study how personalized summaries chan
 
 Finally, as λ/κ-Personalized summaries are not unique, introducing the element of diversity would be interesting so that the users are not always presented with the same personalized summary.
 
-# Acknowledgments
+## Acknowledgments
 
 This research project was supported by the Hellenic Foundation for Research and Innovation (H.F.R.I.) under the "2nd Call for H.F.R.I. Research Projects to support Post-Doctoral Researchers" (iQARuS Project No 1147).
 
-# References
+## References
 
 - 1. The linked open data cloud. <https://lod-cloud.net/>, accessed: 2022-09-22
 - 2. W3C Recommendation, SPARQL query language for rdf. [https://www.w3.org/](https://www.w3.org/TR/rdf-sparql-query/) [TR/rdf-sparql-query/](https://www.w3.org/TR/rdf-sparql-query/), accessed: 2019-10-09

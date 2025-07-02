@@ -20,9 +20,6 @@ keywords:
 - user-centred
 ---
 
-
-
-
 # Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment
 
 Gerd Hübscher Hübscher & Partner Patentanwälte GmbH Linz, Austria gerd@huebscher.at
@@ -39,11 +36,11 @@ ABSTRACT
 
 Digitalisation of knowledge work, especially in communicationintensive domains is one of the greatest challenges, but also one of the greatest opportunities to improve today's working environments. This demands for a flexible system that supports both knowledge intensive creative work and highly individual processes. Smooth integration is hindered by the lack of the task context in knowledge management systems so far. Furthermore, a model to define and handle mental concepts, which are typically evolving during daily work, is missing, to allow for targeted use of appropriate knowledge in process tasks. In this paper, we propose a bottomup approach to model and store the static and dynamic aspects of knowledge in terms of data objects and tasks that are connected with each other. The proposed solution leverages the flexibility of a graph-based model to enable open and continuously evolving user-centred processes for knowledge work, but also predefined administrative processes. Besides our approach, we show results from testing a prototypical implementation in a real-life setting in the domain of intellectual property management applications.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Information systems → Enterprise information systems; Graph-based database models; Process control systems; • Applied computing → Document management and text processing.
 
-# KEYWORDS
+## KEYWORDS
 
 knowledge work, business process management, human communication, graph database
 
@@ -51,7 +48,7 @@ knowledge work, business process management, human communication, graph database
 
 Gerd Hübscher, Verena Geist, Dagmar Auer, Nicole Hübscher, and Josef Küng. 2020. Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment. In The 22nd International Conference on Information Integration and Web-based Applications Services (iiWAS '20), November 30-December 2, 2020, Chiang Mai, Thailand. ACM, New York, NY, USA, [10](#page-9-0) pages.<https://doi.org/10.1145/3428757.3429260>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Companies and other organisations today are faced with a highly dynamic, competitive environment. The digitalisation of communication-intensive knowledge work is one of the greatest challenges, but also one of the greatest opportunities in today's working environments. Knowledge workers like researchers, developers, consultants or lawyers heavily rely on communication. From a knowledge perspective, observable communication data is mostly unstructured and requires a-priori knowledge to extract semantic concepts.
 
@@ -87,7 +84,7 @@ The contributions of our work to solve the problems identified before are basica
 
 The further paper is structured as follows. Sect. [2](#page-1-0) provides related work in the area of knowledge work, flexible support for business processes and human communication. Our proposed model and modelling approach is presented in Sect. [3.](#page-2-0) The following Sect. [4](#page-5-0) provides insight into the user interface concept, which supports users to handle the high complexity of the underlying graph-based model. The demonstration example we use throughout this paper is further visualised with screenshots. The presentation of our approach, the implemented user-perspective and the test case are finished by a discussion of the most important results in Sect. [5.](#page-8-0) The paper concludes with a summary and an outlook on future work in Sect. [6.](#page-8-1)
 
-# <span id="page-1-0"></span>2 RELATED WORK
+## <span id="page-1-0"></span>2 RELATED WORK
 
 Different areas of research, such as knowledge work, business processes and their automation, document management, and user interaction modelling, have a strong impact on our work.
 
@@ -113,11 +110,11 @@ A more recent related approach for designing digital work is suggested in [\[24\
 
 plans at run-time and to take decisions within the dynamic working context, this approach defines explicit process models (top-down approach). An opportunistic approach to BPM, called oBPM [\[12\]](#page-9-32), supports bottom-up model creation, though, the focus is rather on document-centric and object-oriented artefact specification but not on human communication and process-oriented knowledge work.
 
-# <span id="page-2-0"></span>3 THE TEAM SYSTEM
+## <span id="page-2-0"></span>3 THE TEAM SYSTEM
 
 The overall vision for the TEAM System (TEAM – inTegrated knowlEdge and tAsk Management) is to support people to effectively and efficiently work on their predefined administrative tasks as well as on flexible knowledge-intensive ones. Besides the integration of data and task management also communication needs to be considered, to seamlessly mature integrated knowledge and task management.
 
-# 1 Three Layers Architecture
+## 1 Three Layers Architecture
 
 The model of the TEAM System follows a graph-based, metamodelling approach. The two-dimensions of the approach are represented by data and task components which are related to each other by task relations. Furthermore, a fine-grained representation of data is considered, by relating data components to each other. To allow for seamless knowledge and process maturing, starting with only a small set of basic types and instances, a highly flexible model is needed, which can be easily enriched and adapted by qualified users from the application domain. Therefore, we do not rely on rather stable data types for the TEAM model, but on a schema-free approach using types for classification. When installing the system, the type model will only contain some core types, such as address. All others will be defined by experienced users when using the system for their daily work. As we follow a meta-modelling approach, these types are described by data and can easily be added, changed, etc. during run-time.
 
@@ -126,7 +123,7 @@ The TEAM System has a three-layered model: the meta model, the domain model and 
 <span id="page-2-1"></span>![](_page_2_Figure_15.jpeg)
 <!-- Image Description: The diagram illustrates a three-layered meta-modeling approach. The top layer, "Meta Model," is divided into "MM.TypeModel" (defining core type concepts) and "MM.InstanceModel" (defining core instance concepts). Arrows indicate a "type" relationship. The middle layer, "Domain Model," defines domain-specific concepts and relations. The bottom layer, "Instance Model," shows domain-specific instances. The diagram visually represents the hierarchical relationship between the meta-model, domain model, and instance model in the context of the paper. -->
 
-Figure 1: Overview of the three layers of the TEAM model
+**Figure 1:** Overview of the three layers of the TEAM model
 
 Meta model. Describes the core characteristics of instances (data object, data object relation, task, task relation) and their classifying types. Furthermore, constraints like the one specifying that a task relation can either relate to a data object or a data object relation, are defined here.
 
@@ -140,7 +137,7 @@ The overall vision for the TEAM System is to support knowledge workers to effect
 
 In the further presentation of the TEAM model we use Latin letters for instance abbreviations and Greek ones for types.
 
-# 2 Data Components and their Relations
+## 2 Data Components and their Relations
 
 Even though much information is stored in unstructured or semistructured documents, we strive to extract a fine-grained representation of the data. To increase data quality and to build consistent process chains, each entity exists only once in the system, e.g. if several people have the same first name, the name is referenced by all concerned persons.
 
@@ -179,30 +176,30 @@ Thus, each element is finally assigned to an observable data object d ★ 0 - d 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: The image is a directed acyclic graph illustrating a hierarchical data structure. Nodes represent data elements (labeled `d<sup>o</sup><sub>i</sub>` and `d<sup>*</sup><sub>i</sub>`), and edges represent relationships annotated with `r<sup>o</sup><sub>i</sub>` and `r<sup>*</sup><sub>i</sub>`. The graph shows a query ("Anfrage") traversing the structure, highlighting the path followed. Leaf nodes represent individual data points (e.g., "Paul," "Zimmermann"), culminating in an email address. The graph's purpose is to depict a data access or search process within the paper. -->
 
-Figure 2: = ( ∪ ) with observable d ★ and nonobservable d ◦ data objects.
+**Figure 2:** = ( ∪ ) with observable d ★ and nonobservable d ◦ data objects.
 
-Table 1: Details for the data objects d in Fig. [2.](#page-4-0)
+**Table 1:** Details for the data objects d in Fig. [2.](#page-4-0)
 
-| id          | data object type | value                      |
+| id | data object type | value |
 |-------------|------------------|----------------------------|
-| ★<br>𝑑<br>0 | String           | "Paul"                     |
-| ★<br>𝑑<br>1 | String           | "Zimmermann"               |
-| ★<br>𝑑<br>2 | String           | "zimmermann@polymind.gmbh" |
-| ★<br>𝑑<br>3 | String           | "Anfrage"                  |
-| ◦<br>𝑑<br>0 | FirstName        | -                          |
-| ◦<br>𝑑<br>1 | LastName         | -                          |
-| ◦<br>𝑑<br>2 | EMailAddress     | -                          |
-| ◦<br>𝑑<br>3 | NaturalPerson    | -                          |
-| ◦<br>𝑑<br>4 | EMailContact     | -                          |
-| ◦<br>𝑑<br>5 | Sender           | -                          |
-| ◦<br>𝑑<br>6 | Receiver         | -                          |
-| ◦<br>𝑑<br>7 | Subject          | -                          |
-| ◦<br>𝑑<br>8 | DateReceived     | -                          |
-| ◦<br>𝑑<br>9 | EMail            | -                          |
+| ★<br>𝑑<br>0 | String | "Paul" |
+| ★<br>𝑑<br>1 | String | "Zimmermann" |
+| ★<br>𝑑<br>2 | String | "zimmermann@polymind.gmbh" |
+| ★<br>𝑑<br>3 | String | "Anfrage" |
+| ◦<br>𝑑<br>0 | FirstName | - |
+| ◦<br>𝑑<br>1 | LastName | - |
+| ◦<br>𝑑<br>2 | EMailAddress | - |
+| ◦<br>𝑑<br>3 | NaturalPerson | - |
+| ◦<br>𝑑<br>4 | EMailContact | - |
+| ◦<br>𝑑<br>5 | Sender | - |
+| ◦<br>𝑑<br>6 | Receiver | - |
+| ◦<br>𝑑<br>7 | Subject | - |
+| ◦<br>𝑑<br>8 | DateReceived | - |
+| ◦<br>𝑑<br>9 | EMail | - |
 
 Within the TEAM model, we have two connected semantic subgraphs, the instance and the type graph, integrated via type relations. To maintain an overview, Fig. [2](#page-4-0) only shows the data instance graph.
 
-# 3 Task Components and their Relations
+## 3 Task Components and their Relations
 
 Besides the data components and their relations, the tasks and the relations between data objects / data object relations and tasks build the overall integrated, dynamic model. Thus, it is no longer just data enriched with semantics, but especially information and knowledge within a dynamic context.
 
@@ -231,33 +228,32 @@ The data and task perspectives are integrated via task relations of different ki
 <span id="page-4-1"></span>![](_page_4_Figure_19.jpeg)
 <!-- Image Description: The image is a directed graph depicting a state transition model. Nodes represent states (d⁰₉₉, t₀, d⁰₉, d⁰₁₁), labeled with identifiers. Directed edges represent transitions, labeled with variables (y⁰ᵢ, y¹ᵃ, y²ᵖ, y³ʳ, y⁴ʳ, y⁵ᶜ, r⁰₁₁). The graph likely illustrates a system's possible states and transitions between them, possibly for analysis or modeling in the context of the paper. -->
 
-Figure 3: Graph , integrating the data and task perspectives.
+**Figure 3:** Graph , integrating the data and task perspectives.
 
 Table [2](#page-5-1) provides an overview of the types of all instances involved in Fig. [3.](#page-4-1)
 
 task relations also denote the exchange of data objects between tasks, thereby describing the underlying business processes and make communication between users explicit. Thus, the orientation of the corresponding task type relations explicitly documents the process direction.
 
-<span id="page-5-1"></span>
 
-| Table 2: Details for the instances in Fig. 3. |  |  |  |  |  |  |
+| **Table 2:** Details for the instances in Figure 3. | | | | | | |
 |-----------------------------------------------|--|--|--|--|--|--|
 |-----------------------------------------------|--|--|--|--|--|--|
 
-| id           | type                          |  |
+| id | type | |
 |--------------|-------------------------------|--|
-| t0           | ProcessEMail                  |  |
-| ◦<br>𝑑<br>99 | User                          |  |
-| ◦<br>𝑑<br>9  | EMail                         |  |
-| ◦<br>𝑑<br>11 | CaseFile                      |  |
-| ◦<br>r<br>11 | ActHasEMail of kind has       |  |
-| 𝑖<br>y<br>0  | relation of kind instantiates |  |
-| 𝑎<br>y<br>1  | relation of kind allocates    |  |
-| 𝑝<br>y<br>2  | relation of kind processes    |  |
-| 𝑟<br>y<br>3  | relation of kind references   |  |
-| 𝑟<br>y<br>4  | relation of kind references   |  |
-| 𝑐<br>y<br>5  | relation of kind creates      |  |
+| t0 | ProcessEMail | |
+| ◦<br>𝑑<br>99 | User | |
+| ◦<br>𝑑<br>9 | EMail | |
+| ◦<br>𝑑<br>11 | CaseFile | |
+| ◦<br>r<br>11 | ActHasEMail of kind has | |
+| 𝑖<br>y<br>0 | relation of kind instantiates | |
+| 𝑎<br>y<br>1 | relation of kind allocates | |
+| 𝑝<br>y<br>2 | relation of kind processes | |
+| 𝑟<br>y<br>3 | relation of kind references | |
+| 𝑟<br>y<br>4 | relation of kind references | |
+| 𝑐<br>y<br>5 | relation of kind creates | |
 
-# <span id="page-5-0"></span>4 USER INTERFACE CONCEPT
+## <span id="page-5-0"></span>4 USER INTERFACE CONCEPT
 
 Although in principle, the proposed TEAM System has a limited set of core components, the complexity of a model graph derived from a real-world scenario, like the one shown in Figure [4](#page-5-2) for the small scenario prescribed, goes beyond a usual presentation frame.
 
@@ -268,7 +264,7 @@ Although in principle, the proposed TEAM System has a limited set of core compon
 
 Therefore, in a user interface, it is necessary to break down the complexity of the model graph so that users can interact with the model, i.e. reference, create and relate data objects during the execution of tasks. Concerning the above scenario, a first user should, for example, be able to view an incoming e-mail for relating it to an existing case file or for extracting further information from the e-mail content by way of relating or creating data objects. In the following, several key aspects of user interaction design are illustrated.
 
-# 1 Representation of data objects
+## 1 Representation of data objects
 
 A first problem that arises in the visual representation of the proposed model is that only observable data objects have a value assigned and can therefore be directly represented. However, the displayable content of the majority of data objects results from their respective subordinate data objects, which together make up the visually presentable content of the superordinate data object. For example, after parsing, an e-mail is represented by a data object that has subordinate data objects like sender, receiver, subject, dateReceived etc.
 
@@ -281,7 +277,7 @@ Simple text representation requires sequential visual processing. However, to ge
 <span id="page-5-3"></span>![](_page_5_Figure_15.jpeg)
 <!-- Image Description: The image is a diagram illustrating an email communication timeline. It shows a simplified representation of an email exchange, with labelled sections (a-i) indicating different aspects like sender(s) (a, f), recipient(s) (h,i), email subject (b), email body (g), date and time (d), and email attachments (e). The diagram likely serves to illustrate the communication process in the context of a patent-related matter. The blue dots denote attachment files or similar information. -->
 
-Figure 5: An e-mail data object shown in block view
+**Figure 5:** An e-mail data object shown in block view
 
 As can be seen in Figure [5,](#page-5-3) subordinate data objects can be displayed via nested data object components, like a status indicator (a) for displaying the presence of a related dateProcessed data object, a simple text representation for subject (b), sender (c), receiver (f), textBody (g) as well as dateReceived (h). In Addition, the data object type name (d) can be displayed together with action buttons (e, i) like a button (i) to pick the data object. The nested structure allows for a fine grained loading and updating of the user interface.
 
@@ -290,17 +286,17 @@ For a full visual representation of a data object, the data object component sup
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image displays a screenshot of an email client showing two email threads (a and b). Thread (a) shows notifications regarding a patent application filing and trademark application review. Thread (b) shows a response to a first office action on an Austrian patent application, noting a change of address and requesting expert opinion before responding. The image illustrates the workflow and communication related to patent prosecution within a specific case study. -->
 
-Figure 6: The e-mail data object of Figure [5](#page-5-3) (a) shown in detail view (b)
+**Figure 6:** The e-mail data object of Figure [5](#page-5-3) (a) shown in detail view (b)
 
 Apart from a general default layout for data objects, the content of the different views can be overridden by assigning a specific renderer to the corresponding data object type. However, the preset default layout supports an evolving model, where the user can also add data object types and data object type relations as described in more detail in subsection [4.5.](#page-6-1)
 
-# 2 Searching for data objects
+## 2 Searching for data objects
 
 Just like the representation of data objects, the search for data objects has to be based on observable data objects which can, therefore, be searched for directly. To search for more complex data objects, a graph traversal of predefined length against the direction of neighbouring data object relations is performed for each resulting data object with a matching value. For the resulting paths, matching data object nodes are identified and returned as search result.
 
 Continuing the example above, if a user enters the search term Paul polymind, the search term is first split into the separate tokens Paul and polymind, for both of which a search for data objects with a matching value is performed, resulting in the start nodes Paul Zimmermann and zimmermann@polymind.gmbh. Traversing from these two nodes upwards against the direction of data object relations, the first matching node would be the eMailContact of Paul Zimmermann, and further naturalPerson Paul Zimmermann. Both would be returned as search results.
 
-# 3 Enforcing the explicit selection of pre-requisite data objects
+## 3 Enforcing the explicit selection of pre-requisite data objects
 
 Another specific problem in this context is that in contrast to conventional user interfaces, not only the data objects entered but also the data objects requested by the user should be captured.
 
@@ -312,7 +308,7 @@ task types are determined by searching the type model for those task types, that
 
 Continuing the above example, for processing the incoming email, a first administrative user can pick the e-mail data object and open the action-menu on the top right. Consequently, a list of possible task types is shown, i.e. such task types, which have at least one task type relation to the data object type of the picked e-mail data object.
 
-# 4 Enforcing unique data objects within the system
+## 4 Enforcing unique data objects within the system
 
 One of the key concepts of the TEAM model is the uniqueness of data objects for relating tasks with each other via task relations to common data objects. This is a prerequisite to form interconnected process paths within the graph.
 
@@ -324,7 +320,7 @@ With more complex data objects, the concept of reusable, that means pick-, drag-
 
 As shown in Figure [8,](#page-7-1) an administrative user, who changes the correspondence address of the patent proprietor first invalidates the data object relation between the legalPerson and the old address with the option to invalidate the address data object as well in case the old address will or should not be reused. Afterwards, he adds a new address data object by opening up the editor, first selecting for the new address and creating one in case no results are found.
 
-# <span id="page-6-1"></span>4.5 Execution of tasks and model evolution
+## <span id="page-6-1"></span>4.5 Execution of tasks and model evolution
 
 Modifying data objects by creating, removing, validating or invalidating data object relations is, according to the definition of the TEAM System, exclusively performed within the scope of tasks. As each possible modification action creates a corresponding task relation, data modification can be tracked at a fine grained level. As each task relation is reflected by a task type relation in the type model, the way of performing a task can be modelled beyond instance level and allows the support of users, that require assistance on how to perform certain task types. However, knowledge workers with the appropriate access rights can expand the type model by simply adding task relations of new task type relations, data object relations of new data object type relations or even by adding or modifying data objects and tasks of new data object types and task types.
 
@@ -335,30 +331,29 @@ In the aforementioned example, the administrative user could add a new data obje
 <span id="page-7-0"></span>![](_page_7_Figure_2.jpeg)
 <!-- Image Description: The image displays a screenshot of a software interface, likely a case management system. Sections (a) and (c) show email threads, with sender, receiver, subject, and body text visible, illustrating communication between patent applicants and their representatives. Section (b) displays a task creation menu with options to process, reply to, update, or invalidate the displayed emails. The image's purpose is to demonstrate the system's functionality in handling patent-related communication and tasks. -->
 
-Figure 7: Picking one or more data object with button (a) into a basket (b) and selecting a task type for instantiating a task
+**Figure 7:** Picking one or more data object with button (a) into a basket (b) and selecting a task type for instantiating a task
 
-<span id="page-7-1"></span>
 
-| Company Name            |                                  |  |
+| Company Name | | |
 |-------------------------|----------------------------------|--|
-| Short Name              |                                  |  |
-| E-Mail Contact          |                                  |  |
-| Phone number            |                                  |  |
-| Fax number              |                                  |  |
-| Website URL             |                                  |  |
-| Address                 |                                  |  |
-|                         |                                  |  |
-| Salutation              | (Lüfteneggerstraße 10, Linz, AT) |  |
-| Closing                 |                                  |  |
-| VAT                     |                                  |  |
-| Bank Account            |                                  |  |
-| Debitor Account Number  |                                  |  |
-| Creditor Account Number |                                  |  |
-|                         | create new address               |  |
+| Short Name | | |
+| E-Mail Contact | | |
+| Phone number | | |
+| Fax number | | |
+| Website URL | | |
+| Address | | |
+| | | |
+| Salutation | (Lüfteneggerstraße 10, Linz, AT) | |
+| Closing | | |
+| VAT | | |
+| Bank Account | | |
+| Debitor Account Number | | |
+| Creditor Account Number | | |
+| | create new address | |
 
-Figure 8: Searching for new address data objects after invalidating the data object relation to the old address data object
+**Figure 8:** Searching for new address data objects after invalidating the data object relation to the old address data object
 
-# 6 Context-based knowledge work
+## 6 Context-based knowledge work
 
 The introduction of tasks connected to data objects via task relations makes it difficult to decide which data objects are to be displayed within the tasks as an entry point for further navigation. For example, when assigning an e-mail to a case file, from a hierarchical perspective, showing the case file as entry point would be sufficient, however, that way, the main aspects of the task performed remain hidden from the user. On the other hand, displaying all modifications that occurred within a task by showing all task relations to the user is not suitable either. Therefore, we decided to reuse the information learned from the prescribed method of integrating a random-access task-view with the possibility of picking
 
@@ -366,7 +361,7 @@ data objects throughout the system to allow for a context-based view of data obj
 
 Figure [9](#page-8-2) shows a two-screen view of the random-access task area, allowing the knowledge worker to arrange data objects as he prefers. At the same time, the user can view data objects and create new ones, for example, in the above example, to write a response e-mail taking into account all relevant data objects within the context of the current task.
 
-# 7 Communication by delegation of tasks
+## 7 Communication by delegation of tasks
 
 One problem of nowadays e-mail communication is that apart from using suitable file formats, information is usually not exchanged in a structured, reusable way. Although within the TEAM System, e-mails can be processed as data objects, information can also be shared by creating a task referencing the required data objects and assigning this task to another user. Thereby, the unique data objects are linking task performed by different users via task relations, thus building process-chains.
 
@@ -374,30 +369,29 @@ For example, an administrative user can pass the task of substantially replying 
 
 In summary, it is possible to make the complex model graph accessible to users for interaction, especially due to the measures described above.
 
-<span id="page-8-2"></span>
 
 ![](_page_8_Figure_2.jpeg)
 <!-- Image Description: The image displays screenshots of a software interface, likely for process management. Panel (a) shows a file browser; (b) shows an email composer; (c) shows a document viewer with a letter and flowchart; and (d) shows a document with a flowchart (numbered 28-33) illustrating a process workflow, accompanied by German text describing the process steps and data relationships. The diagrams visually represent stages of a process and serve to explain the associated text's technical details. -->
 
-Figure 9: Knowledge work: Within a task (a) a user can display relevant data objects (c) and arrange them in a detail view (d) as required. Furthermore, data objects can also be edited (b).
+**Figure 9:** Knowledge work: Within a task (a) a user can display relevant data objects (c) and arrange them in a detail view (d) as required. Furthermore, data objects can also be edited (b).
 
-# <span id="page-8-0"></span>5 RESULTS
+## <span id="page-8-0"></span>5 RESULTS
 
 Test systems of the prototype were implemented at several patent law firms in Austria and user feedback was collected from administrative staff as well as from dedicated knowledge workers.
 
-# 1 User perception
+## 1 User perception
 
 After the test phase, both user groups reported satisfying experiences concerning the presentation of information within the test system. However, the need to explicitly execute a task for changing data objects took some getting used to. In particular, it was observed that many users had difficulties in selecting the appropriate task type or in specifying a new task type correctly before actually executing the planned activity. To change multiple data objects regardless of their origin or context within one task was a new experience for the users and enabled to focus on the task in its context, while requiring less user interaction. However, due to the possibility to change existing task types and to edit all data objects within a task, the users tended to extend existing general task types instead of creating new specific ones.
 
 On the other hand, changing or specifying new data object types was intuitive for most knowledge workers as well as the administrative staff within their own knowledge domains. Defining types for both groups of users, which is needed when data objects are handed over by tasks, requires more communication between the affected groups. The tests performed showed that users tend to use more general task types and data object types in favour of more specific ones. One reason therefore might be the extended effort to define types and to choose whether to model aspects as task types or as data object types. For example, one can model (i) specific document types like eMail or letter, all referenced by the same more general task type sendDocument or (ii) specific task types like sendEMail or sendLetter, all referencing a more general data object type document.
 
-# 2 Technical aspects
+## 2 Technical aspects
 
 The prototypical implementation showed that the integration of the knowledge and task/process perspectives leads to a very complex graph model, especially with the task perspective, as every change of a data object or a data object relation results in at least one task relation. Thus, it is important to provide a suitable user interface, which hides much of this complexity from the user. This can be achieved by specialised views and editors that (i) integrate the fine grained data and hide many of the more detailed levels of the graph model, (ii) allow to focus on either the knowledge or the task perspective and (iii) split the overall graph to selected subgraphs, e.g., the current data object or task and all directly related data objects or tasks.
 
 However, with respect to data objects, after reaching a certain saturation level the number of newly created data objects quickly decreases, while their reuse increases. Only the number of data object relations, continues to grow, as users are expressing new mental concepts by relating existing data objects.
 
-# <span id="page-8-1"></span>6 CONCLUSION
+## <span id="page-8-1"></span>6 CONCLUSION
 
 To overcome the shortcomings of current approaches and IT systems concerning the integration of knowledge and tasks/processes as well as flexibly evolving mental concepts of the application domain, we propose the TEAM model.
 
@@ -413,11 +407,11 @@ Testing the prototype in a real-life setting showed that the developed user inte
 
 Business processes are recorded through bipartite paths of tasks and data objects in the knowledge/process graph. In future work, we will use this fine-grained tracing to (i) identify new data object types and task types based on a set of instances and for (ii) graphbased process mining on the sequences of tasks interconnected by data objects to discover recurrent (hidden) execution patterns.
 
-# ACKNOWLEDGMENTS
+## ACKNOWLEDGMENTS
 
 The research reported in this paper has been partly supported by the Austrian Ministry for Transport, Innovation and Technology, the Federal Ministry of Science, Research and Economy, and the Province of Upper Austria in the frame of the COMET center SCCH, by the LIT Secure and Correct Systems Lab funded by the State of Upper Austria and by the FFG BRIDGE project KnoP-2D (grant no. 871299). Furthermore, the development, integration and testing of the prototype was supported by polymind GmbH, Vienna, Austria.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-9-14"></span>[1] Dagmar Auer, Verena Geist, and Dirk Draheim. 2009. Extending BPMN with Submit/Response-Style User Interaction Modeling. In 2009 IEEE Conference on Commerce and Enterprise Computing. IEEE, 368–374. [https://doi.org/10.1109/](https://doi.org/10.1109/CEC.2009.75) [CEC.2009.75](https://doi.org/10.1109/CEC.2009.75)
 - <span id="page-9-5"></span>[2] Diane E Bailey, Paul M Leonardi, and Jan Chong. 2010. Minding the gaps: Understanding technology interdependence and coordination in knowledge work. Organization Science 21, 3 (2010), 713–730.

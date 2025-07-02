@@ -29,8 +29,6 @@ keywords:
 ---
 
 
-<span id="page-0-0"></span>
-
 # InfoMAE: Pair-Efficient Cross-Modal Alignment for Multimodal Time-Series Sensing Signals
 
 Tomoyoshi Kimura tkimura4@illinois.edu University of Illinois Urbana-Champaign Urbana, IL, USA
@@ -69,7 +67,7 @@ significantly improved multimodal pairing efficiency. It also improves unimodal 
 
 Multimodal sensing, Self-supervised learning, Internet of Things
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Tomoyoshi Kimura, Xinlin Li, Osama Hanna, Yatong Chen, Yizhuo Chen, Denizhan Kara, Tianshi Wang, Jinyang Li, Xiaomin Ouyang, Shengzhong Liu, Mani Srivastava, Suhas Diggavi, and Tarek Abdelzaher. 2025. InfoMAE: Pair-Efficient Cross-Modal Alignment for Multimodal Time-Series Sensing Signals. In Proceedings of the ACM Web Conference 2025 (WWW '25), April 28-May 2, 2025, Sydney, NSW, Australia. ACM, New York, NY, USA, [12](#page-11-0) pages. <https://doi.org/10.1145/3696410.3714853>
 
@@ -84,7 +82,7 @@ WWW '25, April 28-May 2, 2025, Sydney, NSW, Australia Tomoyoshi Kimura et al.
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
 <!-- Image Description: The image presents a flowchart illustrating three multimodal learning approaches: supervised learning, self-supervised learning (large and small scale), and modality pair-efficient self-supervised learning. Each approach is depicted with diagrams showing data input (paired or unimodal), encoders (frozen or trainable), predictions, and labels. The diagrams visually compare the different training methods and their data requirements, highlighting the differences in encoder utilization and loss functions across scales. -->
 
-Figure 1: Comparison of supervised learning, self-supervised learning, and pair-efficient self-supervised learning.
+**Figure 1:** Comparison of supervised learning, self-supervised learning, and pair-efficient self-supervised learning.
 
 heterogeneous properties, such as sampling rate, timestamp, or duration, that increase the likelihood of capturing asynchronous events. For example, in vibration sensing applications (machine monitoring, vehicle detection), multimodal sensors (geophone, microphone, thermometer, etc.) often operate at different sampling rates, leading to temporal misalignments that require manual calibration [\[40\]](#page-8-3). Second, raw signals often lack intuitive interpretability. Unlike images or text, where visual features can be easily matched to textual captions, capturing useful signatures between sensing modalities like motion or frequency waves is challenging. Preprocessing and calibrating these signals requires modality-specific domain knowledge, which is labor-intensive and susceptible to operational errors. Finally, sensors for IoT are subject to varying deployment conditions, leading to sparse and noisy data [\[36\]](#page-8-4). For example, in human activity recognition (HAR) applications, wearable IMU sensors generate multimodal motion streams for real-time monitoring, fitness tracking, or healthcare purposes. Each modality can be independently affected by device constraints, platform heterogeneity, sensor failures, or variations in deployment environments, leading to missing or incomplete data streams. This heterogeneity often yields poor-quality uncorrelated multimodal pairs or incomplete datasets with significant gaps and missing data. As IoT networks scale in quantity and the number of modalities, acquiring large-scale, high-quality multimodal pairs becomes increasingly time-consuming, error-prone, and less reliable.
 
@@ -98,13 +96,13 @@ We extensively evaluate InfoMAE across various combinations of pretrained unimod
 
 ### <span id="page-2-2"></span>2 Analysis of Cross-Modal Alignment
 
-#### 1 Notation
+### 1 Notation
 
 Consider sets of unsynchronized sensory modality data X = { }∈ , where each set contains unlabeled samples of fixedlength windows partitioned from the time-series signals of the -th sensory modality. Let = | | denote the size of each set.
 
 For the -th sample of modality set , we apply Short-Time Fourier Transform (STFT) to obtain its time-frequency representation, x ∈ R ×× , where is the number of input channels, is the number of time intervals within a sample window, and is the spectrum length in the frequency domain. We have a set of modality encoders E = {1, 2, . . . , } to extract the modality embeddings of each sample and a set of modality decoders D = {1, 2, . . . , } to map the samples from the embedding space back to the time-frequency domain <sup>X</sup><sup>ˆ</sup> <sup>=</sup> {<sup>ˆ</sup> }∈ as a part of the reconstruction process. Additionally, there is a set of multimodal data X = { }∈ consisting of a subset of modalities ⊆ ˆ, where samples across the modalities are synchronized in time and have equal sizes | 1 | = · · · = | |. Note that each synchronized data of modality can also be a subset of the unsynchronized unimodal set such that ⊆ , as any synchronized multimodal data is inherently unsynchronized when considered independently. Finally, we have a set of labeled data for supervised learning and finetuning on a much smaller scale, where each sample has a corresponding label for each downstream task.
 
-#### 2 Problem Definition
+### 2 Problem Definition
 
 Prior multimodal SSL practices rely on large-scale, fully synchronized multimodal sets X to learn joint multimodal representations for downstream tasks. However, these approaches overlook two challenges: (i) Insufficient multimodal data: When |X | is small, existing methods struggle to learn effective joint representations, and (ii) Unutilized unimodal data: The abundance of unimodal data is often ignored. In IoT applications, synchronized multimodal sets are limited due to signal heterogeneities, temporal misalignment, or domain variances, leading to incomplete modalities. This results in limited synchronized multimodal data compared to unimodal data (| | ≤ | |). To better leverage unimodal data, our problem falls under the SSL setting with unimodal pretrained models and limited multimodal pairs, consisting of two stages:
 
@@ -115,11 +113,11 @@ Stage 2: Efficient Cross-Modal Alignment. Given a set of synchronized modalities
 <span id="page-2-0"></span>![](_page_2_Figure_10.jpeg)
 <!-- Image Description: This figure illustrates three levels of alignment between two data modalities (A and B), visualized as scatter plots. "No Align" shows unaligned data clouds. "Instance-level" depicts point-to-point alignment using red dashed lines. "Distribution-level" shows aligned distributions, represented by ellipses encompassing the data points and marked with an 'x' indicating their center. The figure demonstrates the progression from unaligned to increasingly aligned data across different alignment strategies. -->
 
-Figure 2: An illustration of instance-level vs. distributionlevel Cross-Modal Alignment
+**Figure 2:** An illustration of instance-level vs. distributionlevel Cross-Modal Alignment
 
 large-scale multimodal data, this work aims to improve the data efficiency of learning robust joint representations given only limited multimodal pairs.
 
-#### 3 Factorization & Distributional Alignment
+### 3 Factorization & Distributional Alignment
 
 This section analyzes multimodal representation factorization in the information space and demonstrates how it enables distributionlevel alignment of unimodal representations.
 
@@ -133,7 +131,6 @@ be achieved using <sup>1</sup> separately and <sup>2</sup> separately. Formally,
 
 Definition 2.1. (Sufficient Common Variable) is defined as the sufficient common variable between 1, <sup>2</sup> if and only if = <sup>1</sup> (1) = <sup>2</sup> (2) for some 1, 2, and
 
-<span id="page-3-7"></span>
 $$
 (\forall f_1, f_2) \Big( [f_1(X_1) = f_2(X_2)] \implies [(\exists f) f(U) = f_1(X_1) = f_2(X_2)] \Big), \tag{1}
 $$
@@ -144,7 +141,6 @@ namely, any common (shared) function between 1, 2 can be computed using . Buildi
 
 However, it is not clear how to find a sufficient common variable or a shared representation. We show that an approximation of the shared representation can be obtained by solving the following optimization problem, and later in Section [3,](#page-3-0) we propose the differentiable loss objectives with proof provided in Appendix [A.](#page-9-7)
 
-<span id="page-3-1"></span>
 $$
 \min H(U) \text{ s.t. } X_1 \perp X_2 \mid U, (\exists s_1, s_2) \ U = s_1(X_1) = s_2(X_2) \tag{2}
 $$
@@ -155,30 +151,29 @@ The conditional independence in Equation [2](#page-3-1) enforces a form of distr
 
 Similarly, we look for approximate representations. In particular, we replace equalities with a distance constraint , and independence is replaced by small mutual information. In Section [3,](#page-3-0) we discuss the detailed implementation of a differentiable loss function to find the approximate representations.
 
-#### <span id="page-3-0"></span>3 InfoMAE
+### <span id="page-3-0"></span>3 InfoMAE
 
 This section introduces InfoMAE, a novel cross-modal alignment framework that efficiently aligns unimodal representations at the distribution and instance levels. We provide a detailed overview of InfoMAE's cross-modal alignment module in Figure [3.](#page-4-0)
 
-#### 1 Unimodal Pretraining
+### 1 Unimodal Pretraining
 
 Unlike standard multimodal SSL that pretrains on synchronized multimodal pairs, we first initiate unimodal pretraining on largescale unsynchronized unimodal data. In the first stage, we pretrain each encoder independently on unimodal data with masked reconstruction, defined as the following for each modality ∈ :
 
 $$
 \mathcal{L}_i^{\text{unimodal}} = ||\hat{X}_i - X_i||^2 \mid \hat{X}_i = D_i(E_i(X_i)).
 $$
- (3)
+(3)
 
 The pretrained unimodal encoders extract a generalized representation for each modality . However, they do not guarantee
 
 information compatibility between modalities when used together in the downstream tasks. In the following sections, we present InfoMAE's different components (as illustrated in Figure [4\)](#page-4-1) to calibrate the encoders to explicitly align the modalities in both the distribution-level and instance-level with only a limited amount of multimodal pair X .
 
-#### 2 Distribution-level Alignment
+### 2 Distribution-level Alignment
 
 We begin with the differentiable objective function that we optimize to obtain the (approximate) shared ( ) and private representations ( ) defined in Section [2.3.2.](#page-2-1) To extract that is a function of both 1, 2, we equivalently extract <sup>1</sup> = shared 1 (<sup>1</sup> (1)),<sup>2</sup> = shared 2 (<sup>2</sup> (2)), where 1, <sup>2</sup> are 2-layer MLP projectors that maps the general representation into factorized representations, and enforce a constraint that <sup>1</sup> = 2. Similarly, we extract <sup>1</sup> = private 1 (<sup>1</sup> (1)),<sup>2</sup> = private 2 (<sup>2</sup> (2)). U = {1,2} and V = {1,2} denote the shared and private representations, respectively.
 
 3.2.1 Shared Representation. As described in Section [2,](#page-2-2) we aim to find the shared representation that solves the optimization problem in Definition [\(2.2\)](#page-3-2). However, due to the difficulty of the optimization problem [2](#page-0-0) and the possibility that a shared representation does not exist, we instead approximate the shared representation by minimizing the following objective
 
-<span id="page-3-3"></span>
 $$
 \mathcal{L}^{\text{shared}}_{\text{info}} = \alpha d(U_1, U_2) + \beta (H(U_1) + H(U_2)) + I(X_1; X_2 | U_1) + I(X_1; X_2 | U_2),
 $$
@@ -186,7 +181,6 @@ $$
 
 where and are the hyperparameters controlling the weight of each term, and (·) is a distance measure. The first two terms in the loss function aim to find <sup>1</sup> = <sup>2</sup> with minimal entropy, while the last two terms aim to impose conditional independence of 1, <sup>2</sup> given <sup>1</sup> or 2. We would like to note that the entropy and conditional mutual information listed in Eq. [\(4\)](#page-3-3) are not easy to compute or differentiate. To alleviate this, we reduce these terms into probabilistic density functions below:
 
-<span id="page-3-4"></span>
 $$
 \mathcal{L}_{\text{info}}^{\text{shared}} = \alpha d(U_1, U_2) + \sum_{i=1}^{2} \mathbb{E}_{X_1, X_2, U_i} \left[ \log \frac{p_{X_1, X_2, U_i}}{p_{X_1} p_{X_2} p_{U_i}} \right] + (1 - \beta) \log \frac{p_{X_i, U_i}}{p_{X_i} p_{U_i}} + \log \frac{p_{X_{3-i}, U_i}}{p_{X_{3-i}} p_{U_i}} \right].
 $$
@@ -194,11 +188,10 @@ $$
 
 Due to the space limit, we leave the detailed proof and discussion in Appendix [A.](#page-9-7) To further enhance the differentiability of Eq. [\(5\)](#page-3-4) by avoiding directly computing the probabilistic density (e.g., log <sup>1</sup> ,2 , <sup>1</sup> <sup>2</sup> ), we follow [\[31,](#page-8-14) [50,](#page-8-15) [59\]](#page-9-8) and utilize the densityratio trick to train a discriminator R, which given 1, 2, , outputs the probability that 1, 2, are generated from 1,2, , instead of <sup>1</sup> <sup>2</sup> . The density ratio can then be estimated as
 
-<span id="page-3-6"></span>
 $$
 \log \frac{p_{X_1, X_2, U_1}}{p_{X_1} p_{X_2} p_{U_1}} = \log \frac{\mathcal{R}(X_1; X_2; U_1)}{1 - \mathcal{R}(X_1; X_2; U_1)}.
 $$
- (6)
+(6)
 
 We train the discriminators jointly with the encoders and describe the training for both in Appendix [D.](#page-11-1)
 
@@ -207,14 +200,13 @@ We train the discriminators jointly with the encoders and describe the training 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
 <!-- Image Description: This figure illustrates the InfoMAE architecture for multimodal data. The left shows the InfoMAE pipeline: two modalities undergo masking, then pass through pretrained encoders and decoders. The center depicts the "information space," showing how encoder outputs ($U_1$, $U_2$) from each modality are aligned, both at the instance and distributional levels. The right visualizes this alignment in a feature space, with arrows representing shared and private information loss during the alignment process. The overall purpose is to demonstrate the model's architecture and its approach to multimodal learning by aligning information from different modalities. -->
 
-Figure 3: Overview of InfoMAE's alignment in the information space. InfoMAE adopts an information theory-inspired objective to align the factorized representations. Best viewed in color.
+**Figure 3:** Overview of InfoMAE's alignment in the information space. InfoMAE adopts an information theory-inspired objective to align the factorized representations. Best viewed in color.
 
 <span id="page-4-1"></span>![](_page_4_Figure_4.jpeg)
 <!-- Image Description: Figure 4 illustrates four key learning objectives of the InfoMAE model. It uses Venn diagrams to show distributional alignment (overlapping features), a schematic to represent data reconstruction from augmented views (Aug 1, Aug 2), another schematic depicting instance alignment (matching features across augmentations), and a final diagram demonstrating temporal locality (connections between data points). The diagrams visually explain how InfoMAE achieves these learning goals. -->
 
 3.2.2 Private Representation. As the decoders take both the shared and private representations as input, the self-reconstruction objective would enforce the private representations to capture the implicit modality-specific information. Following Definition [2.3,](#page-3-5) we minimize the entropy of the private representations (1,2). In addition, for each modality, we expect the private and shared representations to be independent. To better guide the learning process, we explicitly minimize their mutual information. The objectives of the private representations can be summarized as the following:
 
-<span id="page-4-2"></span>
 $$
 \mathcal{L}^{\text{private}}_{\text{info}} = \gamma H(V_1) + \gamma H(V_2) + \epsilon I(V_1; U_1) + \epsilon I(V_2; U_2), \qquad (7)
 $$
@@ -223,7 +215,7 @@ where and are used as the hyperparameters for private entropy and shared private
 
 While the formulation effectively aligns modality representations within the information space, it depends on further learning objectives to ensure they are meaningful for downstream tasks. Next, we will describe the additional components of InfoMAE that are designed to capture meaningful representations.
 
-#### 3 Self Reconstruction
+### 3 Self Reconstruction
 
 InfoMAE applies the masked reconstruction objective to enforce that the learned representation captures the critical semantical information through reconstruction loss. Following MAE[\[23\]](#page-8-16), we mask out 75% of the patched input. To ensure both the shared and private representation are meaningful, the decoder takes in the concatenated shared and private representations h = u ||v to reconstruct the input xˆ . We compute the MSE on the masked portion of the reconstructed xˆ and the original input x with
 
@@ -233,7 +225,7 @@ $$
 \mathcal{L}_{\text{reconstruction}} = \delta \sum_{i \in M} \sum_{j \in B} ||\mathbf{x}_{ij} - \hat{\mathbf{x}}_{ij}||^2 | \hat{\mathbf{x}}_{ij} = D_i(\mathbf{h}_{ij}). \tag{8}
 $$
 
-#### 4 Instance-level Alignment
+### 4 Instance-level Alignment
 
 Augmentations are primarily used to generate different views for private-space contrastive learning in most existing works [\[28,](#page-8-12) [37,](#page-8-13) [40\]](#page-8-3). However, we argue that the transformation invariance property should be reflected in both private and shared representations to understand the instance variances. Thus, InfoMAE adds a contrastive loss on the concatenated representation of the shared and private spaces h by treating two randomly different augmented views as the positive pairs with and as the hyperparameters.
 
@@ -241,7 +233,7 @@ $$
 \mathcal{L}_{\text{aug}} = \lambda \sum_{i \in M} \sum_{j \in B} \log \frac{\exp (\mathbf{h}_{ij} \cdot \mathbf{h'}_{ij} / \tau)}{\sum_{k \neq j \in B} \exp (\frac{\mathbf{h}_{ij} \cdot \mathbf{h'}_{ik}}{\tau}) + \sum_{k \in B} \exp (\frac{\mathbf{h}_{ij} \cdot \mathbf{h'}_{ik}}{\tau})} . \tag{9}
 $$
 
-#### 5 Temporal Locality
+### 5 Temporal Locality
 
 We apply a simple ranking constraint to learn temporal locality of time-series signals. During pretraining, a sequence sampler randomly selects a batch of sequences consisting of a fixed number of consecutive samples, while the samples across sequences are distant in time. We define ′ = Í =1 Í =1 ( , ), as the average Euclidean distance (d) of all sample embedding pairs between the sequence and ′ of length . Then, the temporal constraint with a hyperparameter can be defined as::
 
@@ -257,26 +249,26 @@ $$
 \mathcal{L} = \mathcal{L}_{\text{info}}^{\text{shared}} + \mathcal{L}_{\text{info}}^{\text{private}} + \mathcal{L}_{\text{reconstruction}} + \mathcal{L}_{\text{aug}} + \mathcal{L}_{\text{temp}}.\tag{11}
 $$
 
-| Framework       |                   | Aligned Domains    | T𝑆𝑒𝑖   | 𝑀𝐴𝑐𝑜   | G𝑆𝑒𝑖        | 𝑇𝐴𝑐𝑜   | T𝑆𝑒𝑖   | 𝑇𝐴𝑐𝑜   | G𝑆𝑒𝑖   | 𝑀𝐴𝑐𝑜       | T𝑆𝑒𝑖   | 𝐺𝐴𝑐𝑜   |
+| Framework | | Aligned Domains | T𝑆𝑒𝑖 | 𝑀𝐴𝑐𝑜 | G𝑆𝑒𝑖 | 𝑇𝐴𝑐𝑜 | T𝑆𝑒𝑖 | 𝑇𝐴𝑐𝑜 | G𝑆𝑒𝑖 | 𝑀𝐴𝑐𝑜 | T𝑆𝑒𝑖 | 𝐺𝐴𝑐𝑜 |
 |-----------------|-------------------|--------------------|--------|--------|-------------|--------|--------|--------|--------|------------|--------|--------|
-|                 | Joint<br>Pretrain | Modal<br>Alignment | Acc    | F1     | Acc         | F1     | Acc    | F1     | Acc    | F1         | Acc    | F1     |
-| Unimodal Concat | ✗                 | ✗                  | 0.6731 | 0.6699 | 0.5392      | 0.5281 | 0.4454 | 0.4366 | 0.7247 | 0.7217     | 0.6584 | 0.6543 |
-| CMC [62]        | ✗                 | ✓                  | 0.6792 | 0.6702 | 0.4313      | 0.4356 | 0.4173 | 0.4032 | 0.6919 | 0.6877     | 0.6497 | 0.6335 |
-| FOCAL [40]      | ✗                 | ✓                  | 0.7462 | 0.7432 | 0.6249      | 0.6249 | 0.5613 | 0.5579 | 0.7549 | 0.7527     | 0.7194 | 0.7160 |
-| GMC [54]        | ✗                 | ✓                  | 0.7354 | 0.7317 | 0.6591      | 0.6523 | 0.4756 | 0.4720 | 0.8044 | 0.8053     | 0.7247 | 0.7211 |
-| SimCLR [6]      | ✗                 | ✓                  | 0.3061 | 0.2742 | 0.2873      | 0.2609 | 0.2974 | 0.2758 | 0.2981 | 0.2698     | 0.2800 | 0.2308 |
-| TNC [63]        | ✗                 | ✓                  | 0.1969 | 0.0815 | 0.1788      | 0.1312 | 0.1855 | 0.1021 | 0.1929 | 0.0896     | 0.1949 | 0.1041 |
-| TSTCC [14]      | ✗                 | ✓                  | 0.3001 | 0.2706 | 0.2639      | 0.2393 | 0.2867 | 0.2432 | 0.3048 | 0.2842     | 0.2860 | 0.2337 |
-| InfoMAE         | ✗                 | ✓                  | 0.7950 | 0.7929 | 0.6986      | 0.7007 | 0.5928 | 0.5908 | 0.8326 | 0.8324     | 0.7636 | 0.7537 |
-| Joint Pretrain  | ✓                 | ✗                  |        |        | Acc: 0.3329 |        |        |        |        | F1: 0.3039 |        |        |
+| | Joint<br>Pretrain | Modal<br>Alignment | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 |
+| Unimodal Concat | ✗ | ✗ | 0.6731 | 0.6699 | 0.5392 | 0.5281 | 0.4454 | 0.4366 | 0.7247 | 0.7217 | 0.6584 | 0.6543 |
+| CMC [62] | ✗ | ✓ | 0.6792 | 0.6702 | 0.4313 | 0.4356 | 0.4173 | 0.4032 | 0.6919 | 0.6877 | 0.6497 | 0.6335 |
+| FOCAL [40] | ✗ | ✓ | 0.7462 | 0.7432 | 0.6249 | 0.6249 | 0.5613 | 0.5579 | 0.7549 | 0.7527 | 0.7194 | 0.7160 |
+| GMC [54] | ✗ | ✓ | 0.7354 | 0.7317 | 0.6591 | 0.6523 | 0.4756 | 0.4720 | 0.8044 | 0.8053 | 0.7247 | 0.7211 |
+| SimCLR [6] | ✗ | ✓ | 0.3061 | 0.2742 | 0.2873 | 0.2609 | 0.2974 | 0.2758 | 0.2981 | 0.2698 | 0.2800 | 0.2308 |
+| TNC [63] | ✗ | ✓ | 0.1969 | 0.0815 | 0.1788 | 0.1312 | 0.1855 | 0.1021 | 0.1929 | 0.0896 | 0.1949 | 0.1041 |
+| TSTCC [14] | ✗ | ✓ | 0.3001 | 0.2706 | 0.2639 | 0.2393 | 0.2867 | 0.2432 | 0.3048 | 0.2842 | 0.2860 | 0.2337 |
+| InfoMAE | ✗ | ✓ | 0.7950 | 0.7929 | 0.6986 | 0.7007 | 0.5928 | 0.5908 | 0.8326 | 0.8324 | 0.7636 | 0.7537 |
+| Joint Pretrain | ✓ | ✗ | | | Acc: 0.3329 | | | | | F1: 0.3039 | | |
 
-<span id="page-5-0"></span>Table 1: Linear probing performance of Moving Object Detection on domain M. We align pretrained unimodal encoders from different domains. || means seismic encoder from domain A and acoustic encoder from domain B are aligned.
+<span id="page-5-0"></span>**Table 1:** Linear probing performance of Moving Object Detection on domain M. We align pretrained unimodal encoders from different domains. || means seismic encoder from domain A and acoustic encoder from domain B are aligned.
 
 InfoMAE adopts both distribution-level and instance-level alignment of each modality's factorized shared and private representations. Since the cross-modal alignment of InfoMAE is also a generalized multimodal framework, we would also like to note that this objective can be used as the joint multimodal pretraining objective.
 
-#### 4 Evaluation
+### 4 Evaluation
 
-#### <span id="page-5-1"></span>4.1 Experimental Setup
+### <span id="page-5-1"></span>4.1 Experimental Setup
 
 4.1.1 Backbone Encoder. We adopt the SWIN Transformer (SW-T) [\[41\]](#page-8-19) as the backbone encoder for our framework. SW-T computes local attention within shifted windows on input spectrogram patches to extract comprehensive time-frequency representations.
 
@@ -284,7 +276,7 @@ InfoMAE adopts both distribution-level and instance-level alignment of each moda
 
 4.1.3 Baselines. We compare InfoMAE with different SOTA SSL baselines including unimodal CL (SimCLR[\[7\]](#page-8-20), MoCo[\[8\]](#page-8-21)), multimodal CL (CMC[\[62\]](#page-9-6), GMC[\[54\]](#page-9-5), FOCAL [\[40\]](#page-8-3)), temporal CL (TNC[\[63\]](#page-9-9), TSTCC[\[14\]](#page-8-18)), and MAE based frameworks (MAE[\[23\]](#page-8-16), CAV-MAE[\[17\]](#page-8-22)).
 
-#### 2 Cross-Modal Alignment Evaluation
+### 2 Cross-Modal Alignment Evaluation
 
 4.2.1 Moving Object Detection. We evaluate InfoMAE against prior CL works [\[7,](#page-8-20) [14,](#page-8-18) [40,](#page-8-3) [54,](#page-9-5) [62,](#page-9-6) [63\]](#page-9-9) on cross-modal alignment with various combinations of unimodal encoders (seismic and acoustic) pretrained with different domains. We align the encoders with a small scale of multimodal pairs (5% of the unimodal data scale) and an even smaller subset of labeled multimodal pairs from domain M for finetuning. MOD application involves two modalities (seismic and acoustic). Therefore we represent the domains of the unimodal representations with two letters (e.g.,Sei||Aco represents aligning the seismic encoder pretrained on domain T and acoustic encoder pretrained on domain G).
 
@@ -292,52 +284,51 @@ In addition to the prior CL baselines, we also show the performance for direct c
 
 4.2.2 Human Activity Recognition. Besides MOD application, we also evaluate InfoMAE on HAR applications. In contrast to MOD evaluation, which aligns unimodal encoders pretrained on different domains, we analyze how additional unsynchronized data from the same domains could assist the downstream performance given the limited number of multimodal pairs. Here, we independently pretrain all unimodal encoders on unsynchronized IMU data from either PAMAP2, RW-HAR, or Combined, which is the concatenation of the former two. Then, we use a small portion of the synchronized multimodal data pairs from PAMAP2 for cross-modal alignment
 
-<span id="page-6-2"></span>
 
-| Multimodal Data | Supervised |        | Joint Pretrain |        | CMC    |        | GMC    |        | FOCAL  |        | InfoMAE |        |
+| Multimodal Data | Supervised | | Joint Pretrain | | CMC | | GMC | | FOCAL | | InfoMAE | |
 |-----------------|------------|--------|----------------|--------|--------|--------|--------|--------|--------|--------|---------|--------|
-|                 | Acc        | F1     | Acc            | F1     | Acc    | F1     | Acc    | F1     | Acc    | F1     | Acc     | F1     |
-| 5%              |            |        | 0.3329         | 0.3039 | 0.7087 | 0.6989 | 0.8614 | 0.8616 | 0.8694 | 0.8668 | 0.8828  | 0.8808 |
-| 15%             | 0.5740     | 0.5663 | 0.6142         | 0.6104 | 0.8111 | 0.8062 | 0.8781 | 0.8753 | 0.8727 | 0.8703 | 0.9049  | 0.9028 |
-| 25%             |            |        | 0.7071         | 0.7938 | 0.8433 | 0.8372 | 0.8774 | 0.8759 | 0.8848 | 0.8831 | 0.9290  | 0.9270 |
-| 50%             |            |        | 0.8942         | 0.8920 | 0.8754 | 0.8724 | 0.8948 | 0.8938 | 0.9009 | 0.8994 | 0.9377  | 0.9367 |
+| | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 |
+| 5% | | | 0.3329 | 0.3039 | 0.7087 | 0.6989 | 0.8614 | 0.8616 | 0.8694 | 0.8668 | 0.8828 | 0.8808 |
+| 15% | 0.5740 | 0.5663 | 0.6142 | 0.6104 | 0.8111 | 0.8062 | 0.8781 | 0.8753 | 0.8727 | 0.8703 | 0.9049 | 0.9028 |
+| 25% | | | 0.7071 | 0.7938 | 0.8433 | 0.8372 | 0.8774 | 0.8759 | 0.8848 | 0.8831 | 0.9290 | 0.9270 |
+| 50% | | | 0.8942 | 0.8920 | 0.8754 | 0.8724 | 0.8948 | 0.8938 | 0.9009 | 0.8994 | 0.9377 | 0.9367 |
 
-Table 2: Alignment performance (MM) with different multimodal pair ratios from MOD.
+**Table 2:** Alignment performance (MM) with different multimodal pair ratios from MOD.
 
-<span id="page-6-0"></span>Table 3: Linear probing performance of HAR on PAMAP2 by aligning pretrained unimodal encoders.
+<span id="page-6-0"></span>**Table 3:** Linear probing performance of HAR on PAMAP2 by aligning pretrained unimodal encoders.
 
-| Unimodal<br>Pretrain Domain    | Combined |        |        | PAMAP2 | RW-HAR |        |
+| Unimodal<br>Pretrain Domain | Combined | | | PAMAP2 | RW-HAR | |
 |--------------------------------|----------|--------|--------|--------|--------|--------|
-| Multimodal<br>Alignment Domain | PAMAP2   |        | PAMAP2 |        | PAMAP2 |        |
-| Metric                         | Acc      | F1     | Acc    | F1     | Acc    | F1     |
-| Concat                         | 0.7843   | 0.7000 | 0.7763 | 0.6210 | 0.5675 | 0.4187 |
-| CMC                            | 0.7334   | 0.6508 | 0.7285 | 0.6788 | 0.7010 | 0.5956 |
-| FOCAL                          | 0.7922   | 0.7129 | 0.7354 | 0.6327 | 0.7643 | 0.6243 |
-| GMC                            | 0.7314   | 0.5915 | 0.7344 | 0.5869 | 0.7414 | 0.5816 |
-| SimCLR                         | 0.7299   | 0.6190 | 0.7075 | 0.5426 | 0.7225 | 0.5581 |
-| TNC                            | 0.5431   | 0.4080 | 0.5889 | 0.4824 | 0.6378 | 0.5167 |
-| TSTCC                          | 0.7299   | 0.6003 | 0.7065 | 0.5773 | 0.7354 | 0.5864 |
-| InfoMAE                        | 0.8261   | 0.7303 | 0.8117 | 0.7175 | 0.7912 | 0.6901 |
+| Multimodal<br>Alignment Domain | PAMAP2 | | PAMAP2 | | PAMAP2 | |
+| Metric | Acc | F1 | Acc | F1 | Acc | F1 |
+| Concat | 0.7843 | 0.7000 | 0.7763 | 0.6210 | 0.5675 | 0.4187 |
+| CMC | 0.7334 | 0.6508 | 0.7285 | 0.6788 | 0.7010 | 0.5956 |
+| FOCAL | 0.7922 | 0.7129 | 0.7354 | 0.6327 | 0.7643 | 0.6243 |
+| GMC | 0.7314 | 0.5915 | 0.7344 | 0.5869 | 0.7414 | 0.5816 |
+| SimCLR | 0.7299 | 0.6190 | 0.7075 | 0.5426 | 0.7225 | 0.5581 |
+| TNC | 0.5431 | 0.4080 | 0.5889 | 0.4824 | 0.6378 | 0.5167 |
+| TSTCC | 0.7299 | 0.6003 | 0.7065 | 0.5773 | 0.7354 | 0.5864 |
+| InfoMAE | 0.8261 | 0.7303 | 0.8117 | 0.7175 | 0.7912 | 0.6901 |
 
 <span id="page-6-1"></span>![](_page_6_Figure_6.jpeg)
 <!-- Image Description: The image presents two grouped bar charts comparing the accuracy of four different synchronization methods (No sync, CMC, FOCAL, InfoMAE) for seismic and acoustic data. Each bar represents a method's accuracy across various data sets (TM, GT, TT, GM, TG). The charts illustrate the performance variation of the methods across different datasets and data modalities (seismic vs. acoustic). The purpose is to visually compare the effectiveness of the synchronization techniques. -->
 
-Figure 5: Unimodal linear probing accuracy of MOD with and without cross-modal alignment.
+**Figure 5:** Unimodal linear probing accuracy of MOD with and without cross-modal alignment.
 
 and downstream finetuning. We present the results in Table [3.](#page-6-0) Info-MAE consistently achieves the best performance, with an average of 4.09% and 5.16% improvements in accuracy and the F1-score compared to the best-performing baseline, FOCAL. The improvement is most significant in aligning unimodal encoders pretrained on RW-HAR, which completely differs from the alignment set (PAMAP2). This further demonstrates InfoMAE's robustness as an alignment framework with a limited amount of multimodal pairs, reflecting its superior ability to utilize the unimodal data better even when they are from different domains.
 
-#### 3 Unimodal Evaluation
+### 3 Unimodal Evaluation
 
 We analyze how incorporating the multimodal correspondences into each unimodal encoder after alignment could benefit the downstream tasks. Figure [5](#page-6-1) shows the accuracy for seismic and acoustic modalities before and after cross-modal alignment in the MOD application. With limited multimodal pairs, the pretrained unimodal encoders could gain the most significant performance improvements with InfoMAE. This emphasizes the InfoMAE's superior efficiency in enforcing cross-modal correspondence to each modality
 
 <span id="page-6-3"></span>![](_page_6_Figure_11.jpeg)
 <!-- Image Description: This image presents a bar chart comparing the performance of several self-supervised learning methods (CMC, FOCAL, GMC, MoCo, SimCLR, TSTCC, TNC, MAE, CAV-MAE, InfoMAE) across two domains (G and T). Two metrics are shown: accuracy and F1-score. Each bar represents a method's performance on a specific domain and metric. The chart's purpose is to visually compare the effectiveness of different self-supervised learning approaches in a domain adaptation setting. -->
 
-Figure 6: Performance of Joint Pretraining on MOD (seismic and acoustic) dataset and then finetuned on unseen domains.
+**Figure 6:** Performance of Joint Pretraining on MOD (seismic and acoustic) dataset and then finetuned on unseen domains.
 
 to improve their downstream performance, with only a few multimodal pairs required. With InfoMAE, the aligned unimodal model can generate the most holistic representations through distributional alignment compared to geometric alignment (CMC, FOCAL).
 
-#### 4 Multimodal Pairing Efficiency
+### 4 Multimodal Pairing Efficiency
 
 We also evaluate InfoMAE's alignment performance at varying amounts of multimodal data for MOD application in Table [2.](#page-6-2) We align both encoders pretrained from domain M (sei||aco) and compare them to standard joint pretraining with different ratios of multimodal data. Additionally, we provide supervised performance on the same amount of labeled data used for finetuning. InfoMAE consistently achieves superior multimodal data efficiency, with minimal degradation as we reduce the number of multimodal pairs. InfoMAE has an average of 3.42% gain over the highest-performing baselines and over 60% compared to joint model pretraining, which performs poorly in the absence of multimodal data. Joint pretraining even performs worse than the supervised approach with only 5% of multimodal data, indicating the standard self-supervised pretraining fails to learn effective representations with an insufficient amount of synchronized multimodal data. In contrast, the two-stage learning paradigm of InfoMAE leveraging widely available unsynchronized unimodal data could effectively mitigate this problem.
 
@@ -345,15 +336,15 @@ We also evaluate InfoMAE's alignment performance at varying amounts of multimoda
 
 While InfoMAE excels as an efficient cross-modal alignment framework under limited pairs, it also demonstrates remarkable flexibility as a standard multimodal SSL framework. We evaluate InfoMAE against prior state-of-the-art works on Joint Multimodal Pretraining using abundant multimodal pairs, as shown in Figure [6.](#page-6-3) We use synchronized, unlabeled multimodal data from the MOD dataset to pretrain backbone encoders. Then we freeze the pretrained encoders and perform linear probing using labeled multimodal data
 
-<span id="page-7-1"></span>Table 4: Ablation accuracy of MOD cross-modal alignment.
+<span id="page-7-1"></span>**Table 4:** Ablation accuracy of MOD cross-modal alignment.
 
-| Frameworks | 𝑇sei  𝑀aco | 𝐺sei  𝑇aco | 𝑇sei  𝑇aco | 𝐺sei  𝑀aco | 𝑇sei  𝐺aco |
+| Frameworks | 𝑇sei 𝑀aco | 𝐺sei 𝑇aco | 𝑇sei 𝑇aco | 𝐺sei 𝑀aco | 𝑇sei 𝐺aco |
 |------------|------------|------------|------------|------------|------------|
-| noTemp     | 0.6946     | 0.5881     | 0.5044     | 0.7435     | 0.6651     |
-| noShared   | 0.7683     | 0.6504     | 0.5298     | 0.8125     | 0.7395     |
-| noPrivate  | 0.5479     | 0.4180     | 0.2873     | 0.6259     | 0.5399     |
-| noAug      | 0.7863     | 0.6973     | 0.5881     | 0.8232     | 0.7924     |
-| InfoMAE    | 0.7950     | 0.6986     | 0.5928     | 0.8326     | 0.8326     |
+| noTemp | 0.6946 | 0.5881 | 0.5044 | 0.7435 | 0.6651 |
+| noShared | 0.7683 | 0.6504 | 0.5298 | 0.8125 | 0.7395 |
+| noPrivate | 0.5479 | 0.4180 | 0.2873 | 0.6259 | 0.5399 |
+| noAug | 0.7863 | 0.6973 | 0.5881 | 0.8232 | 0.7924 |
+| InfoMAE | 0.7950 | 0.6986 | 0.5928 | 0.8326 | 0.8326 |
 
 from domains and , as described in Section [4.1.](#page-5-1) InfoMAE consistently outperforms the MAE-based framework and achieves better performance than other contrastive baselines. We leave more evaluation on Joint Multimodal Pretraining across four real-world datasets to Appendix [E.](#page-11-2) Prior works, primarily designed for joint multimodal pretraining, often struggle with limited multimodal pairs and show significant performance degradation. In contrast, InfoMAE not only improves multimodal pairing efficiency but maintains high performance with minimal performance degradation.
 
@@ -361,7 +352,7 @@ from domains and , as described in Section [4.1.](#page-5-1) InfoMAE consistentl
 
 Finally, we study how each module of InfoMAE contributes to its performance through ablation studies. We evaluate four variants of InfoMAE by removing temporal, shared, private, and augmentation components in Table [4.](#page-7-1) The absence of either shared or private components leads to a significant degradation, implying the significance of factorized representation for cross-modal alignment. The drop in performance after removing temporal locality constraints also indicates the importance of learning temporal correspondence for time-series signals. Without temporal locality, the learned representations lose crucial temporal correspondence and can significantly compromise the ability to learn multimodal correspondences on top of the unimodal representations. Conversely, InfoMAE without augmentations does not significantly reduce the performance, demonstrating its robustness toward augmentation choices, in contrast to many contrastive learning frameworks that require careful selection of augmentations to avoid representational collapses.
 
-#### 5 Related Work
+### 5 Related Work
 
 Self-Supervised Multimodal Learning. Self-supervised learning (SSL) techniques, such as Contrastive Learning (CL) and masked reconstructions, have achieved significant success in visual, textual, and time-series representation learning [\[5,](#page-8-23) [14,](#page-8-18) [15,](#page-8-24) [18,](#page-8-25) [55,](#page-9-1) [58,](#page-9-12) [63,](#page-9-9) [74,](#page-9-13) [76,](#page-9-14) [78\]](#page-9-15). Masked reconstruction learns informative representations by reconstructing masked inputs [\[4,](#page-8-26) [13,](#page-8-27) [23,](#page-8-16) [34,](#page-8-28) [73\]](#page-9-16), with various masking strategies explored [\[2,](#page-8-29) [30,](#page-8-30) [77\]](#page-9-17), and extended to timefrequency spectrograms [\[26,](#page-8-31) [29\]](#page-8-32) and videos [\[19,](#page-8-33) [64\]](#page-9-18). Multimodal representation learning has become increasingly important with diverse applications [\[3,](#page-8-34) [38,](#page-8-35) [56,](#page-9-11) [57,](#page-9-19) [79\]](#page-9-20). Recent works leverage CL to learn correspondences between modalities [\[11,](#page-8-0) [51,](#page-9-4) [53,](#page-9-21) [54,](#page-9-5) [62,](#page-9-6) [66,](#page-9-22) [80\]](#page-9-23), and others pretrain unified encoders for multimodal representations [\[25,](#page-8-36) [47\]](#page-8-37). Factorized Multimodal Learning [\[24,](#page-8-38) [28,](#page-8-12) [37,](#page-8-13) [40,](#page-8-3) [67\]](#page-9-24) further decouples multimodal learning by acknowledging both modality-specific and modality-shared information. FOCAL [\[40\]](#page-8-3) proposed contrastive learning objectives to learn shared and private representation in the orthogonal space. FactorizedCL [\[37\]](#page-8-13) separates
 
@@ -369,15 +360,15 @@ the shared and private space based on their relevance to the downstream tasks. S
 
 Multimodal Information Theory. There has been a long history of exploring common information between random variables in information theory [\[16,](#page-8-40) [72,](#page-9-28) [75\]](#page-9-29), and it is still an active research field [\[20–](#page-8-41)[22,](#page-8-42) [60\]](#page-9-30). However, it remains challenging to compute the common information in practical applications. Kleinman1 et al. [\[33\]](#page-8-43) combines Variational Autoencoders with Gacs-Korner Common Information. Mai et al. [\[46\]](#page-8-44) proposes to measure the information redundancy for multimodal data. However, they do not explicitly consider the unique information for factorization. InfoMAE adopts the informational factorization considering both private and shared information to construct a joint representation in a task-agnostic manner rather than extracting task-related information like [\[37\]](#page-8-13).
 
-#### 6 Discussion & Conclusion
+### 6 Discussion & Conclusion
 
 In this paper, we proposed InfoMAE, a pairing-efficient multi-stage SSL paradigm for multimodal IoT sensing. It first pretrains independent modality encoders on large-scale unimodal data sets. Then, it leverages a novel information theory-based optimization to achieve distributional cross-modal alignment with only limited multimodal pairs. Extensive evaluations compared to standard multimodal SSL frameworks demonstrated the superior efficiency and effectiveness of InfoMAE across multiple real-world IoT applications. We believe it opens new opportunities for developing more data-efficient and qualitative self-supervised multimodal models. In the Appendix, we provide additional evaluations and describe more details on the proof, datasets, implementation, and limitations.
 
-#### Acknowledgments
+### Acknowledgments
 
 Research reported in this paper was sponsored in part by the Army Research Laboratory under Cooperative Agreement W911NF-17- 20196, NSF CNS 20-38817, and the Boeing Company. It was also supported in part by ACE, one of the seven centers in JUMP 2.0, a Semiconductor Research Corporation (SRC) program sponsored by DARPA. The views and conclusions contained in this document are those of the author(s) and should not be interpreted as representing the official policies of the CCDC Army Research Laboratory, or the US government. The US government is authorized to reproduce and distribute reprints for government purposes notwithstanding any copyright notation hereon.
 
-#### References
+### References
 
 <span id="page-7-0"></span>[1] H. Alwassel, D. Mahajan, B. Korbar, L. Torresani, B. Ghanem, and D. Tran. Selfsupervised learning by cross-modal audio-video clustering. Advances in Neural Information Processing Systems, 33:9758–9770, 2020.
 
@@ -466,11 +457,11 @@ WWW '25, April 28-May 2, 2025, Sydney, NSW, Australia Tomoyoshi Kimura et al.
 - <span id="page-9-20"></span>[79] Z. Zheng, A. Ma, L. Zhang, and Y. Zhong. Deep multisensor learning for missingmodality all-weather mapping. ISPRS Journal of Photogrammetry and Remote Sensing, 174:254–264, 2021.
 - <span id="page-9-23"></span>[80] M. Zolfaghari, Y. Zhu, P. Gehler, and T. Brox. Crossclr: Cross-modal contrastive learning for multi-modal video representations. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 1450–1459, 2021.
 
-#### Appendix
+### Appendix
 
-#### <span id="page-9-7"></span>A Information Formulation
+### <span id="page-9-7"></span>A Information Formulation
 
-# A.1 Proof of the Equivalence between [\(1\)](#page-3-7) and [\(2\)](#page-3-1)
+## A.1 Proof of the Equivalence between [\(1\)](#page-3-7) and [\(2\)](#page-3-1)
 
 We first show the equivalence between the condition [\(1\)](#page-3-7) and the constraints in [\(2\)](#page-3-1) by proving the following proposition.
 
@@ -480,13 +471,12 @@ We first show the equivalence between the condition [\(1\)](#page-3-7) and the c
 $$
 (\forall f_1, f_2)
 $$
-  $([f_1(X_1) = f_2(X_2)] \implies [(\exists f) f(U) = f_1(X_1) = f_2(X_2)]$ .
+$([f_1(X_1) = f_2(X_2)] \implies [(\exists f) f(U) = f_1(X_1) = f_2(X_2)]$ .
 
 <span id="page-9-31"></span>(b) There is a one-to-one mapping between and (i.e., <sup>1</sup> ⊥⊥ <sup>2</sup> | ).
 
 Proof. We first prove the direction [\(b\)](#page-9-31) =⇒ [\(a\)](#page-9-32) using properties of basic information-theory measures (Chapter 2 in [\[10\]](#page-8-45)). For any 1, <sup>2</sup> such that <sup>1</sup> (1) = <sup>2</sup> (2), we have
 
-<span id="page-9-33"></span>
 $$
 0 \stackrel{(i)}{=} I(X_1; X_2 | U) \stackrel{(ii)}{\geq} I(f_1(X_1); f_2(X_2) | U) \stackrel{(iii)}{\geq} 0, \tag{12}
 $$
@@ -497,7 +487,7 @@ Next, we prove the other direction [\(a\)](#page-9-32) =⇒ [\(b\).](#page-9-31)
 
 Note that it is difficult to obtain a random variable that satisfies [\(a\)](#page-9-32) (i.e. the sufficient common variable in Defined [2.2\)](#page-3-2). The Proposition [A.1](#page-9-34) allows us to find a random variable (if it exists) instead. And the one with minimum entropy can be obtained by solving the optimization problem [\(2\)](#page-3-1).
 
-# A.2 Derivation of the Shared Loss [\(4\)](#page-3-3)
+## A.2 Derivation of the Shared Loss [\(4\)](#page-3-3)
 
 We first group the terms that only depend on 1 or 2 as follows.
 
@@ -505,24 +495,22 @@ shared
 $$
 = \alpha d(U_1, U_2) + \beta (H(U_1) + H(U_2)) + I(X_1; X_2 | U_1)
 $$
- (13)
-+  $I(X_1; X_2 | U_2)$
+(13)
++ $I(X_1; X_2 | U_2)$
 
-<span id="page-9-35"></span>
 $$
 = \alpha d(U_1, U_2) + \mathcal{L}(U_1) + \mathcal{L}(U_2), \qquad (14)
 $$
 
 L
 
-<span id="page-10-3"></span>
 
-| Dataset                             | Modalities (Freq)                                                                                              | Sample Length           | Overlap        | Classes             | #Pretrain<br>Samples       | Used for<br>Alignment | #Alignment<br>Samples | # Finetune<br>Samples               |
+| Dataset | Modalities (Freq) | Sample Length | Overlap | Classes | #Pretrain<br>Samples | Used for<br>Alignment | #Alignment<br>Samples | # Finetune<br>Samples |
 |-------------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------|----------------|---------------------|----------------------------|-----------------------|-----------------------|-------------------------------------|
-| Domain<br>M<br>Domain G<br>Domain T | (8kHz) seismic (100Hz)<br>acoustic<br>(8kHz) seismic (100Hz)<br>acoustic<br>(8kHz) seismic (100Hz)<br>acoustic | 2 sec<br>2 sec<br>2 sec | 0%<br>0%<br>0% | 5 sec<br>2 sec<br>4 | 39,609<br>35,168<br>43,819 | ✓<br>✗<br>✗           | 1981<br>-<br>-        | 734<br>3136 (joint)<br>4205 (joint) |
-| PAMAP2<br>RW-HAR                    | gyro, mag, lig (all 50Hz)<br>acc,<br>gyr, mag (all 100Hz)<br>acc,                                              | 5 sec<br>2 sec          | 50%<br>50%     | 18<br>8             | 9,611<br>12,887            | ✓<br>✗                | 4805<br>-             | 961<br>-                            |
+| Domain<br>M<br>Domain G<br>Domain T | (8kHz) seismic (100Hz)<br>acoustic<br>(8kHz) seismic (100Hz)<br>acoustic<br>(8kHz) seismic (100Hz)<br>acoustic | 2 sec<br>2 sec<br>2 sec | 0%<br>0%<br>0% | 5 sec<br>2 sec<br>4 | 39,609<br>35,168<br>43,819 | ✓<br>✗<br>✗ | 1981<br>-<br>- | 734<br>3136 (joint)<br>4205 (joint) |
+| PAMAP2<br>RW-HAR | gyro, mag, lig (all 50Hz)<br>acc,<br>gyr, mag (all 100Hz)<br>acc, | 5 sec<br>2 sec | 50%<br>50% | 18<br>8 | 9,611<br>12,887 | ✓<br>✗ | 4805<br>- | 961<br>- |
 
-Table 5: Statistical summaries of domains and datasets
+**Table 5:** Statistical summaries of domains and datasets
 
 where (1,2) can be measured using the Euclidean distance or other distance measures. And
 
@@ -581,9 +569,9 @@ Combining [\(14\)](#page-9-35), [\(18\)](#page-10-1) and [\(19\)](#page-10-2), w
 $$
 \mathcal{L}_{\text{info}}^{\text{shared}} = \alpha d(U_1, U_2) + \sum_{i=1}^{2} \mathbb{E}_{X_1, X_2, U_i} \left[ \log \frac{p_{X_1, X_2, U_i}}{p_{X_1} p_{X_2} p_{U_i}} + (1 - \beta) \log \frac{p_{X_i, U_i}}{p_{X_i} p_{U_i}} + \log \frac{p_{X_{3-i}, U_i}}{p_{X_{3-i}} p_{U_i}} \right].
 $$
- (21)
+(21)
 
-# A.3 Derivation of the Private Loss [\(7\)](#page-4-2)
+## A.3 Derivation of the Private Loss [\(7\)](#page-4-2)
 
 Similar to [\(18\)](#page-10-1), since (<sup>1</sup> |1) = (<sup>2</sup> |2) = 0, we have that
 
@@ -624,29 +612,28 @@ Combined is a concatenated dataset of RealWord-HAR and PAMAP2. Since PAMAP2 does
 
 <span id="page-11-0"></span>WWW '25, April 28-May 2, 2025, Sydney, NSW, Australia Tomoyoshi Kimura et al.
 
-<span id="page-11-3"></span>Table 6: Inference profiling on Raspberry Pi 4 device.
+<span id="page-11-3"></span>**Table 6:** Inference profiling on Raspberry Pi 4 device.
 
 | App. | P99 (s) | Average (s) | Model Size (MB) | # Parameters (M) |
 |------|---------|-------------|-----------------|------------------|
-| MOD  | 0.5803  | 0.2259      | 47.9820         | 12.565831        |
-| HAR  | 0.1728  | 0.1690      | 17.8810         | 4.669818         |
+| MOD | 0.5803 | 0.2259 | 47.9820 | 12.565831 |
+| HAR | 0.1728 | 0.1690 | 17.8810 | 4.669818 |
 
-Table 7: Cross-modal alignment with sparse pairs.
+**Table 7:** Cross-modal alignment with sparse pairs.
 
-<span id="page-11-4"></span>
 
-| Framework |        | GMC    |        | FOCAL  | InfoMAE |        |
+| Framework | | GMC | | FOCAL | InfoMAE | |
 |-----------|--------|--------|--------|--------|---------|--------|
-| Ratio     | Acc    | F1     | Acc    | F1     | Acc     | F1     |
-| 0.01      | 0.8252 | 0.8247 | 0.8573 | 0.8556 | 0.8794  | 0.8786 |
-| 0.02      | 0.8305 | 0.8272 | 0.8580 | 0.8573 | 0.8821  | 0.8811 |
-| 0.03      | 0.8667 | 0.865  | 0.8560 | 0.8529 | 0.8875  | 0.8841 |
+| Ratio | Acc | F1 | Acc | F1 | Acc | F1 |
+| 0.01 | 0.8252 | 0.8247 | 0.8573 | 0.8556 | 0.8794 | 0.8786 |
+| 0.02 | 0.8305 | 0.8272 | 0.8580 | 0.8573 | 0.8821 | 0.8811 |
+| 0.03 | 0.8667 | 0.865 | 0.8560 | 0.8529 | 0.8875 | 0.8841 |
 
-#### C Data Preprocessing
+### C Data Preprocessing
 
 We partition the time-series data into segments of uniform length. Each segment is subdivided into intervals with overlaps. We apply the Fourier transform to the signal in each interval to derive its spectral content, thereby retaining both temporal and spectral characteristics. During training, we adopt the same augmentations as FOCAL [\[40\]](#page-8-3) to the input before and after the fourier-transform.
 
-#### <span id="page-11-1"></span>D Experiment and Implementation Details
+### <span id="page-11-1"></span>D Experiment and Implementation Details
 
 During pretraining, we randomly sample a batch of sequences of consecutive samples. We jointly optimize the backbone encoders and decoders with AdamW [\[43\]](#page-8-46) optimizer and Cosine scheduler [\[42\]](#page-8-47). We also train discriminators for density-ratio estimations [\[31,](#page-8-14) [59\]](#page-9-8). We apply convolution blocks to map the time-frequency sample into a one-dimensional embedding to match the input dimension <sup>1</sup> with their shared and private representations 1,1, followed by 5-layer MLP to their density ratio.
 
@@ -654,36 +641,36 @@ While InfoMAE's training requires additional computation due to the discriminato
 
 Computation. We conducted our experiments on NVIDIA RTX 4090 GPUs (24GB). The training time varies from minutes for finetuning to 2 days for pretraining. The training time for cross-modal alignment is faster with fewer multimodal pairs.
 
-#### <span id="page-11-2"></span>E Additional Evaluation
+### <span id="page-11-2"></span>E Additional Evaluation
 
-#### <span id="page-11-7"></span>E.1 Evaluation: Sparse cross-modal alignment
+### <span id="page-11-7"></span>E.1 Evaluation: Sparse cross-modal alignment
 
 We conduct additional experiments to evaluate InfoMAE under extremely sparse conditions, reducing the availability of multimodal pairs to as low as 1%, 2%, and 3%. These results, presented in Table [7,](#page-11-4) highlight that InfoMAE continues to outperform top-performing baselines across these extremely constrained scenarios. The findings illustrate InfoMAE's robustness in aligning representations under sparse multimodal pairing conditions.
 
 <span id="page-11-5"></span>![](_page_11_Figure_15.jpeg)
 <!-- Image Description: The image displays a grouped bar chart comparing the performance of several self-supervised learning methods (CAV-MAE, CMC, FOCAL, GMC, MAE, MoCo, SimCLR, TNC, TSTCC, InfoMAE) across three different datasets (MOD, RW-HAR, PAMAP2). The y-axis represents performance, likely a metric like accuracy, while the x-axis shows the datasets. The chart's purpose is to visually demonstrate the relative effectiveness of each method on each dataset, allowing for easy comparison and analysis within the paper. -->
 
-Figure 7: Joint Multimodal Pretraining compared with previous joint pretraining SSL frameworks on four datasets.
+**Figure 7:** Joint Multimodal Pretraining compared with previous joint pretraining SSL frameworks on four datasets.
 
-<span id="page-11-6"></span>Table 8: Ablation accuracy with Joint Pretraining.
+<span id="page-11-6"></span>**Table 8:** Ablation accuracy with Joint Pretraining.
 
-| Frameworks     | MOD    | RW-HAR | PAMAP2 |
+| Frameworks | MOD | RW-HAR | PAMAP2 |
 |----------------|--------|--------|--------|
-| woTemp         | 0.8734 | 0.8442 | 0.6948 |
-| woShared       | 0.9531 | 0.8771 | 0.8095 |
-| woPrivate      | 0.9082 | 0.9100 | 0.8080 |
+| woTemp | 0.8734 | 0.8442 | 0.6948 |
+| woShared | 0.9531 | 0.8771 | 0.8095 |
+| woPrivate | 0.9082 | 0.9100 | 0.8080 |
 | woAugmentation | 0.9538 | 0.9106 | 0.8163 |
-| InfoMAE        | 0.9826 | 0.9411 | 0.8478 |
+| InfoMAE | 0.9826 | 0.9411 | 0.8478 |
 
-#### E.2 Joint Multimodal Pretraining
+### E.2 Joint Multimodal Pretraining
 
 Although InfoMAE is primarily designed for learning settings where the multimodal pairs are scarce, InfoMAE demonstrates strong flexibility and generalization as a standard multimodal SSL framework when abundant multimodal pairs are available. Figure [7](#page-11-5) presents additional finetuning performance on joint multimodal pretraining. InfoMAE significantly exceeds the MAE-based SSL framework and achieves comparable or superior performance to the SOTA baselines. It is noteworthy that these baselines are mainly designed for joint multimodal pretraining. InfoMAE is a universal framework for cross-modal alignment that achieves comparable performance as multimodal SSL with few sacrifices.
 
-#### E.3 Additional Ablation Studies
+### E.3 Additional Ablation Studies
 
 In Table [8,](#page-11-6) we present additional ablation accuracy on joint multimodal pretraining, evaluating variants InfoMAE when abundant multimodal data is available. We find the results consistent with the performance presented in Section [4.6](#page-7-2)
 
-#### F Limitations and Future Work
+### F Limitations and Future Work
 
 Pretraining Overhead and Efficiency. Compared to contrastive SSL (e.g., FOCAL, CMC, etc.), InfoMAE incurs additional computational overhead due to its autoencoder architecture and density ratio estimation. While this enhances multimodal alignment, it increases training complexity. Future work could explore concurrent unimodal pretraining, optimized attention mechanisms like FlashAttention, and alternative density ratio estimation techniques without training discriminators to improve efficiency.
 

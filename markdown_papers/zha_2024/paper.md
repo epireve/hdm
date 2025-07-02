@@ -34,11 +34,11 @@ Artificial Intelligence (AI) is making a profound impact in almost every domain.
 
 Additional Key Words and Phrases: Artificial intelligence, machine learning, data-centric AI
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, and Xia Hu. 2023. Data-centric Artificial Intelligence: A Survey. 1, 1 (June 2023), [39](#page-38-0) pages. [https://doi.org/10.1145/nnnnnnn.](https://doi.org/10.1145/nnnnnnn.nnnnnnn) [nnnnnnn](https://doi.org/10.1145/nnnnnnn.nnnnnnn)
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 The past decade has witnessed dramatic progress in Artificial Intelligence (AI), which has made a profound impact in almost every domain, such as natural language processing [\[47\]](#page-29-0), computer vision [\[236\]](#page-36-0), recommender system [\[285\]](#page-37-0), healthcare [\[161\]](#page-33-0), biology [\[249\]](#page-36-1), finance [\[175\]](#page-34-0), and so forth. A vital enabler of these great successes is the availability of abundant and high-quality data. Many major AI breakthroughs occur only after we have the access to the right training data. For example, AlexNet [\[127\]](#page-32-0), one of the first successful convolutional neural networks, was designed based on
 
@@ -46,7 +46,7 @@ XXXX-XXXX/2023/6-ART \$15.00
 
 <https://doi.org/10.1145/nnnnnnn.nnnnnnn>
 
-Fig. 1. Motivating examples that highlight the central role of data in AI. On the left, large and high-quality training data are the driving force of recent successes of GPT models, while model architectures remain similar, except for more model weights. The detailed data collection strategies of GPT models are provided in [\[34,](#page-29-1) [172,](#page-34-1) [174,](#page-34-2) [187,](#page-34-3) [188,](#page-34-4) [296\]](#page-37-1). On the right, when the model becomes sufficiently powerful, we only need to engineer prompts (inference data) to accomplish our objectives, with the model being fixed.
+Figure 1. Motivating examples that highlight the central role of data in AI. On the left, large and high-quality training data are the driving force of recent successes of GPT models, while model architectures remain similar, except for more model weights. The detailed data collection strategies of GPT models are provided in [\[34,](#page-29-1) [172,](#page-34-1) [174,](#page-34-2) [187,](#page-34-3) [188,](#page-34-4) [296\]](#page-37-1). On the right, when the model becomes sufficiently powerful, we only need to engineer prompts (inference data) to accomplish our objectives, with the model being fixed.
 
 the ImageNet dataset [\[59\]](#page-30-0). AlphaFold [\[117\]](#page-32-1), a breakthrough of AI in scientific discovery, will not be possible without annotated protein sequences [\[163\]](#page-33-1). The recent advances in large language models rely on large text data for training [\[34,](#page-29-1) [121,](#page-32-2) [187,](#page-34-3) [188\]](#page-34-4) (left of Figure [1\)](#page-1-0). Besides training data, well-designed inference data has facilitated the initial recognition of numerous critical issues in AI and unlocked new model capabilities. A famous example is adversarial samples [\[129\]](#page-32-3) that confuse neural networks through specialized modifications of input data, which causes a surge of interest in studying AI security. Another example is prompt engineering [\[146\]](#page-33-2), which accomplishes various tasks by solely tuning the input data to probe knowledge from the model while keeping the model fixed (right of Figure [1\)](#page-1-0). In parallel, the value of data has been well-recognized in industries. Many big tech companies have built infrastructures to organize, understand, and debug data for building AI systems [\[7,](#page-28-0) [15,](#page-28-1) [231,](#page-35-0) [234\]](#page-36-2). All these efforts in constructing training data, inference data, and the infrastructure to maintain data have paved the path for the achievements in AI today.
 
@@ -67,11 +67,11 @@ By answering these questions, we make three contributions. Firstly, we provide a
 
 This survey is structured as follows. Section [2](#page-2-0) presents an overview of the concepts and tasks related to data-centric AI. Then, we elaborate on the needs, representative methods, and challenges of three general data-centric AI goals, including training data development (Section [3\)](#page-7-0), inference data development (Section [4\)](#page-16-0), and data maintenance (Section [5\)](#page-19-0). Section [6](#page-24-0) summarizes benchmarks for various tasks. Section [7](#page-26-0) discusses data-centric AI from a global view and highlights the potential future directions. Finally, we conclude this survey in Section [8.](#page-28-2)
 
-# 2 BACKGROUND OF DATA-CENTRIC AI
+## 2 BACKGROUND OF DATA-CENTRIC AI
 
 This section provides a background of data-centric AI. Section [2.1](#page-2-1) defines the relevant concepts. Section [2.2](#page-3-0) discusses why data-centric AI is needed. Section [2.3](#page-4-0) draws a big picture of the related tasks and presents a goal-driven taxonomy to organize the existing literature. Section [2.4](#page-5-0) focuses on automation and human participation in data-centric AI.
 
-# 2.1 Definitions
+## 2.1 Definitions
 
 Researchers have described data-centric AI in different ways. Ng et al. defined it as "the discipline of systematically engineering the data used to build an AI system" [\[168\]](#page-33-5). Polyzotis and Zaharia described it as "an exciting new research field that studies the problem of constructing high-quality datasets for machine learning" [\[183\]](#page-34-5). Jarrahi et al. mentioned that data-centric AI "advocates for a systematic and iterative approach to dealing with data issues" [\[109\]](#page-31-1). Miranda noted that data-centric AI focuses on the problems that "do not only involve the type of model to use, but also the quality of data at hand" [\[162\]](#page-33-6). While all these descriptions have emphasized the importance of data, the scope of data-centric AI remains ambiguous, i.e., what tasks and techniques belong to data-centric AI. Such ambiguity could prevent us from grasping a concrete picture of this field. Before starting the survey, it is essential to define some relevant concepts:
 
@@ -82,22 +82,22 @@ Researchers have described data-centric AI in different ways. Ng et al. defined 
 - Data Maintenance: Data maintenance refers to the process of maintaining the quality and reliability of data, which often involves efficient algorithms, tools, and infrastructures to understand and debug data. Data maintenance plays a crucial role in AI since it ensures training and inference data are accurate and consistent [\[107\]](#page-31-2).
 - Data-centric AI: Data-centric AI refers to a framework to develop, iterate, and maintain data for AI systems [\[269\]](#page-37-2). Data-centric AI involves the tasks and methods for building effective training data, designing proper inference data, and maintaining the data.
 
-#### 2.2 Need for Data-centric AI
+### 2.2 Need for Data-centric AI
 
 In the past, AI was often viewed as a model-centric field, where the focus was on advancing model designs given fixed datasets. However, the overwhelming reliance on fixed datasets does not necessarily lead to better model behavior in real-world applications, as it overlooks the breadth, difficulty, and fidelity of data to the underlying problem [\[155\]](#page-33-7). Moreover, the models are often difficult to transfer from one problem to another since they are highly specialized and tailored to specific problems. Furthermore, undervaluing data quality could trigger data cascades [\[200\]](#page-34-9), causing negative effects such as decreased accuracy and persistent biases [\[36\]](#page-29-2). This can severely hinder the applicability of AI systems, particularly in high-stakes domains.
 
 Consequently, the attention of researchers and practitioners has gradually shifted toward datacentric AI to pursue data excellence [\[9\]](#page-28-3). Data-centric AI places a greater emphasis on enhancing the quality and quantity of the data with the model relatively more fixed. While this transition is still ongoing, we have already witnessed several accomplishments that shed light on its benefits. For example, the advancement of large language models is greatly dependent on the use of huge datasets [\[34,](#page-29-1) [121,](#page-32-2) [187,](#page-34-3) [188\]](#page-34-4). Compared to GPT-2 [\[188\]](#page-34-4), GPT-3 [\[34\]](#page-29-1) only made minor modifications in the neural architecture while spending efforts collecting a significantly larger high-quality dataset for training. ChatGPT [\[174\]](#page-34-2), a remarkably successful application of GPT-3, adopts a similar neural architecture as GPT-3 and uses a reinforcement learning from human feedback procedure [\[48\]](#page-30-4) to generate high-quality labeled data for fine-tuning. A new approach, known as prompt engineering [\[146\]](#page-33-2), has seen significant success by focusing solely on tuning data inputs. The benefits of data-centric approaches can also be validated by practitioners [\[169,](#page-33-4) [189,](#page-34-7) [241\]](#page-36-4). For instance, Landing AI, a computer vision company, observes improved accuracy, reduced development time, and more
 
 ![](_page_4_Figure_1.jpeg)
-<!-- Image Description: The image is a hierarchical diagram outlining the key components of data-centric AI.  It branches from "Data-centric AI" into three main areas:  "Training data development" (including data collection, labeling, preparation, reduction, and augmentation); "Inference data development" (including in-distribution and out-of-distribution evaluation, and prompt engineering); and "Data maintenance" (including data understanding, quality assurance, and storage/retrieval).  The diagram visually organizes the multifaceted aspects of data-centric AI development and management. -->
+<!-- Image Description: The image is a hierarchical diagram outlining the key components of data-centric AI. It branches from "Data-centric AI" into three main areas: "Training data development" (including data collection, labeling, preparation, reduction, and augmentation); "Inference data development" (including in-distribution and out-of-distribution evaluation, and prompt engineering); and "Data maintenance" (including data understanding, quality assurance, and storage/retrieval). The diagram visually organizes the multifaceted aspects of data-centric AI development and management. -->
 
-Fig. 2. Data-centric AI framework.
+Figure 2. Data-centric AI framework.
 
 consistent and scalable methods from the adoption of data-centric approaches [\[169\]](#page-33-4). All these achievements demonstrate the promise of data-centric AI.
 
 It is noteworthy that data-centric AI does not diminish the value of model-centric AI. Instead, these two paradigms are complementarily interwoven in building AI systems. On the one hand, model-centric methods can be used to achieve data-centric AI goals. For example, we can utilize a generation model, such as GAN [\[86,](#page-31-3) [283\]](#page-37-3) and diffusion model [\[101,](#page-31-4) [124,](#page-32-7) [194\]](#page-34-10), to perform data augmentation and generate more high-quality data. On the other hand, data-centric AI could facilitate the improvement of model-centric AI objectives. For instance, the increased availability of augmented data could inspire further advancements in model design. Therefore, in production scenarios, data and models tend to evolve alternatively in a constantly changing environment [\[183\]](#page-34-5).
 
-#### 2.3 Tasks in Data-centric AI
+### 2.3 Tasks in Data-centric AI
 
 The ambitious movement to data-centric AI can not be achieved without making progress on concrete and specific tasks. Unfortunately, most of the existing literature has been focused on discussing the foundations and perspectives of data-centric AI without clearly specifying the associated tasks [\[108,](#page-31-0) [109,](#page-31-1) [183,](#page-34-5) [209\]](#page-35-1). As an effort to resolve this ambiguity, the recently proposed DataPerf benchmark [\[155\]](#page-33-7) has defined six data-centric AI tasks: training set creation, test set creation, selection algorithm, debugging algorithm, slicing algorithm, and valuation algorithm. However, this flat taxonomy can only partially cover the existing data-centric AI literature. For example, some crucial tasks such as data labeling [\[284\]](#page-37-4) are not included. The selection algorithm only addresses instance selection but not feature selection [\[138\]](#page-32-4). The test set creation is restricted to selecting items from a supplemental set rather than generating a new set [\[203\]](#page-35-2). Thus, a more nuanced taxonomy is necessary to fully encompass data-centric AI literature.
 
@@ -105,21 +105,21 @@ To gain a more comprehensive understanding of data-centric AI, we draw a big pic
 
 - Training data development: The goal of training data development is to collect and produce rich and high-quality training data to support the training of machine learning models. It consists of five sub-goals, including 1) data collection for gathering raw training data, 2) data labeling for adding informative labels, 3) data preparation for cleaning and transforming data, 4) data reduction for decreasing data size with potentially improved performance, and 5) data augmentation for enhancing data diversity without collecting more data.
 
-| Goal                         | Sub-goal            | Tasks                                                                                                                                    |  |  |  |
+| Goal | Sub-goal | Tasks | | | |
 |------------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-| Training data<br>development | Collection          | Dataset discovery [28], data integration [222], raw data synthesis [133]                                                                 |  |  |  |
-|                              | Labeling            | Crowdsourced labeling [130], semi-supervised labeling [298], active learning [192],<br>data programming [191], distant supervision [160] |  |  |  |
-|                              | Preparation         | Data cleaning [289], feature extraction [199], feature transformation [5]                                                                |  |  |  |
-|                              | Reduction           | Feature selection [138], dimensinality reduction [2], instance selection [193]                                                           |  |  |  |
-|                              | Augmentation        | Basic manipulation [282], augmentation data synthesis [79], upsampling [273]                                                             |  |  |  |
-| Inference data               | In-distribution     | Data slicing [53], algorithmic recourse [120]                                                                                            |  |  |  |
-| development                  | Out-of-distribution | Generating adversarial samples [165], generating samples with distribution shift [125]                                                   |  |  |  |
-|                              |                     | Prompt engineeringManual prompt engineering [206], automated prompt engineering [239]                                                    |  |  |  |
-| Data<br>maintenance          | Understanding       | Visual summarization [37], clustering for visualization [72],<br>visualization recommendation [254], valuation [83]                      |  |  |  |
-|                              | Quality assurance   | Quality assessment [195], quality improvement [19]                                                                                       |  |  |  |
-|                              | Storage & retrieval | Resource allocation [100], query index selection [224], query rewriting [12]                                                             |  |  |  |
+| Training data<br>development | Collection | Dataset discovery [28], data integration [222], raw data synthesis [133] | | | |
+| | Labeling | Crowdsourced labeling [130], semi-supervised labeling [298], active learning [192],<br>data programming [191], distant supervision [160] | | | |
+| | Preparation | Data cleaning [289], feature extraction [199], feature transformation [5] | | | |
+| | Reduction | Feature selection [138], dimensinality reduction [2], instance selection [193] | | | |
+| | Augmentation | Basic manipulation [282], augmentation data synthesis [79], upsampling [273] | | | |
+| Inference data | In-distribution | Data slicing [53], algorithmic recourse [120] | | | |
+| development | Out-of-distribution | Generating adversarial samples [165], generating samples with distribution shift [125] | | | |
+| | | Prompt engineeringManual prompt engineering [206], automated prompt engineering [239] | | | |
+| Data<br>maintenance | Understanding | Visual summarization [37], clustering for visualization [72],<br>visualization recommendation [254], valuation [83] | | | |
+| | Quality assurance | Quality assessment [195], quality improvement [19] | | | |
+| | Storage & retrieval | Resource allocation [100], query index selection [224], query rewriting [12] | | | |
 
-|  |  |  |  |  |  |  |  |  | Table 1. Representative tasks under the data-centric AI framework. |  |
+| | | | | | | | | | Table 1. Representative tasks under the data-centric AI framework. | |
 |--|--|--|--|--|--|--|--|--|--------------------------------------------------------------------|--|
 |--|--|--|--|--|--|--|--|--|--------------------------------------------------------------------|--|
 
@@ -128,14 +128,14 @@ To gain a more comprehensive understanding of data-centric AI, we draw a big pic
 
 Following the three general goals, we survey various data-centric AI tasks, summarized in Table [1.](#page-5-1)
 
-#### 2.4 Automation and Human Participation in Data-centric AI
+### 2.4 Automation and Human Participation in Data-centric AI
 
 Data-centric AI consists of a spectrum of tasks related to different data lifecycle stages. To keep pace with the ever-growing size of the available data, in some data-centric AI tasks, it is imperative to develop automated algorithms to streamline the process. For example, there is an increasing interest in automation in data augmentation [\[56,](#page-30-2) [273\]](#page-37-7), and feature transformation [\[122\]](#page-32-11). Automation in these tasks will improve not only efficiency but also accuracy [\[155\]](#page-33-7). Moreover, automation can facilitate the consistency of the results, reducing the chance of human errors. Whereas for some other tasks, human involvement is essential to ensure the data is consistent with our intentions. For example, humans often play an indispensable role in labeling data [\[284\]](#page-37-4), which helps machine learning algorithms learn to make the desired predictions. Whether human participation is needed depends on whether our objective is to align data with human expectations. In this survey, we
 
 ![](_page_6_Figure_1.jpeg)
-<!-- Image Description: The image is a flowchart illustrating the automation levels in data-centric AI papers.  It branches from a "Data-centric AI Paper" source into "Automation" and "Collaboration" paths.  Each path shows further branching into levels of automation (programmatic, learning-based, pipeline) and participation (full, partial, minimum).  The diagram categorizes approaches to AI paper creation based on the degree of automation and human involvement. -->
+<!-- Image Description: The image is a flowchart illustrating the automation levels in data-centric AI papers. It branches from a "Data-centric AI Paper" source into "Automation" and "Collaboration" paths. Each path shows further branching into levels of automation (programmatic, learning-based, pipeline) and participation (full, partial, minimum). The diagram categorizes approaches to AI paper creation based on the degree of automation and human involvement. -->
 
-Fig. 3. Data-centric AI papers are categorized into automation and collaboration depending on whether human participation is needed. Each method has a different level of automation or requires a different degree of human participation.
+Figure 3. Data-centric AI papers are categorized into automation and collaboration depending on whether human participation is needed. Each method has a different level of automation or requires a different degree of human participation.
 
 categorize each paper into automation and collaboration, where the former focuses on automating the process, and the latter concerns human participation. Automation-oriented methods usually have different automation objectives. We can identify several levels of automation from the existing methods:
 
@@ -152,13 +152,13 @@ Note that this categorization does not intend to differentiate good and bad meth
 Similarly, the degree of human participation, to a certain extent, only reflects the tradeoff between efficiency (less human labor) and effectiveness (better aligned with humans). The selection of methods depends on the application domain and stakeholders' needs. To summarize, we design Figure [3](#page-6-0) to organize the existing data-centric AI papers. We assign each paper to either a level of automation or a degree of human participation.
 
 ![](_page_7_Figure_1.jpeg)
-<!-- Image Description: This flowchart illustrates a data preparation pipeline for machine learning.  It depicts the stages from data collection (using existing datasets, crowdsourcing, and other sources) through labeling, cleaning, feature transformation and reduction, data augmentation, and finally, model training.  Each stage is represented by a labeled box with icons symbolizing the process, showing the flow of data from raw to augmented, ready-for-training format. -->
+<!-- Image Description: This flowchart illustrates a data preparation pipeline for machine learning. It depicts the stages from data collection (using existing datasets, crowdsourcing, and other sources) through labeling, cleaning, feature transformation and reduction, data augmentation, and finally, model training. Each stage is represented by a labeled box with icons symbolizing the process, showing the flow of data from raw to augmented, ready-for-training format. -->
 
-Fig. 4. An overview of training data development. Note that the figure illustrates only a general pipeline, and not all steps are mandatory. For instance, unsupervised learning does not require data labeling. These steps can be executed in a different order as well. For example, data augmentation can occur before data reduction.
+Figure 4. An overview of training data development. Note that the figure illustrates only a general pipeline, and not all steps are mandatory. For instance, unsupervised learning does not require data labeling. These steps can be executed in a different order as well. For example, data augmentation can occur before data reduction.
 
 Some previous surveys only focus on specific scopes of data-centric AI, such as data augmentation [\[74,](#page-30-1) [215,](#page-35-6) [250\]](#page-36-8), data labeling [\[284\]](#page-37-4), and feature selection [\[138\]](#page-32-4). The novelty of our paper is that it provides a holistic view of the tasks, methods, and benchmarks by providing a goal-driven taxonomy to organize the tasks followed by an automation- and collaboration-oriented design to categorize methods. Moreover, we discuss the needs, challenges, and future directions from the broad data-centric AI view, aiming to motivate collective initiatives to push forward this field.
 
-#### 3 TRAINING DATA DEVELOPMENT
+### 3 TRAINING DATA DEVELOPMENT
 
 Training data provides the foundation for machine learning models, as the model performance is heavily influenced by its quality and quantity. In this section, we summarize the essential steps to create and process training data, visualized in Figure [4.](#page-7-1) Data creation focuses on effectively and efficiently encoding human intentions into datasets, including data collection (Section [3.1\)](#page-7-2) and data labeling (Section [3.2\)](#page-9-0). Data processing aims to make data suitable for learning, including data preparation (Section [3.3\)](#page-11-0), data reduction (Section [3.4\)](#page-12-0), and data augmentation (Section [3.5\)](#page-14-0). After introducing these steps, we discuss pipeline search (Section [3.6\)](#page-15-0), an emerging trend that aims to connect them and search for the most effective end-to-end solution. Table [2](#page-9-1) summarizes the representative tasks and methods for training data development.
 
@@ -178,45 +178,45 @@ Raw data synthesis. In some scenarios, it is more efficient to synthesize a data
 
 3.1.3 Challenges. Data collection is a very challenging process that requires careful planning. From the technical perspective, datasets are often diverse and not well-aligned with each other, so it is non-trivial to measure their relatedness or integrate them appropriately. Effectively synthesizing data from the existing dataset is also tricky, as it heavily relies on domain knowledge. Moreover, some critical issues during data collection can not be resolved solely from a technical perspective. For example, in many real-world situations, we may be unable to locate a readily available dataset that aligns with our requirements so we still have to collect data from the ground up. However, some data sources can be difficult to obtain due to legal, ethical, or logistical reasons. Collecting new data also involves ethical considerations, particularly with regard to informed consent, data
 
-#### 10 Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, and Xia Hu
+### 10 Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, and Xia Hu
 
-| Sub-goal     | Task                        | Method type   | Automation level/<br>participation degree | Reference                        |
+| Sub-goal | Task | Method type | Automation level/<br>participation degree | Reference |
 |--------------|-----------------------------|---------------|-------------------------------------------|----------------------------------|
-|              | Dataset discovery           | Collaboration | Minimum                                   | [28, 75, 167]                    |
-| Collection   | Data integration            | Automation    | Programmatic                              | [128, 137]                       |
-|              | Data integration            | Automation    | Learning-based                            | [221, 222]                       |
-|              | Raw data synthesis          | Automation    | Programmatic                              | [133]                            |
-|              | Crowdsourced labeling       | Collaboration | Full                                      | [58, 130, 227]                   |
-|              | Semi-supervised labeling    | Collaboration | Partial                                   | [46, 174, 295, 298]              |
-| Labeling     | Active learning             | Collaboration | Partial                                   | [55, 66, 192, 274]               |
-|              | Data programming            | Collaboration | Partial                                   | [27, 80]                         |
-|              | Data programming            | Collaboration | Minimum                                   | [103, 190, 191, 278]             |
-|              | Distant supervision         | Automation    | Learning-based                            | [160]                            |
-|              | Data cleaning               | Automation    | Programmatic                              | [289]                            |
-|              | Data cleaning               | Automation    | Learning-based                            | [98, 116, 126, 135]              |
-|              | Data cleaning               | Collaboration | Partial                                   | [244]                            |
-| Preparation  | Feature extraction          | Automation    | Programmatic                              | [14, 199]                        |
-|              | Feature extraction          | Automation    | Learning-based                            | [127, 248]                       |
-|              | Feature transformation      | Automation    | Programmatic                              | [5, 24]                          |
-|              | Feature transformation      | Automation    | Learning-based                            | [122]                            |
-|              | Feature selection           | Automation    | Programmatic                              | [10, 229]                        |
-|              | Feature selection           | Automation    | Learning-based                            | [245, 258]                       |
-| Reduction    | Feature selection           | Collaboration | Partial                                   | [208, 287]                       |
-|              | Dimensionality reduction    | Automation    | Learning-based                            | [2, 13, 255]                     |
-|              | Instance selection          | Automation    | Programmatic                              | [186, 193][148]                  |
-|              | Instance selection          | Automation    | Learning-based                            | [148, 225]                       |
-|              | Basic manipulation          | Automation    | Programmatic                              | [42, 93, 250, 282, 282, 288].    |
-|              | Basic manipulation          | Automation    | Learning-based                            | [56]                             |
-| Augmentation | Augmentation data synthesis | Automation    | Learning-based                            | [79, 102, 104, 216]              |
-|              | Upsampling                  | Automation    | Programmatic                              | [41, 95]                         |
-|              | Upsampling                  | Automation    | Learning-based                            | [273]                            |
-| -            | Pipeline search             | Automation    | Pipeline                                  | [68, 76, 97, 132, 154, 159, 280] |
+| | Dataset discovery | Collaboration | Minimum | [28, 75, 167] |
+| Collection | Data integration | Automation | Programmatic | [128, 137] |
+| | Data integration | Automation | Learning-based | [221, 222] |
+| | Raw data synthesis | Automation | Programmatic | [133] |
+| | Crowdsourced labeling | Collaboration | Full | [58, 130, 227] |
+| | Semi-supervised labeling | Collaboration | Partial | [46, 174, 295, 298] |
+| Labeling | Active learning | Collaboration | Partial | [55, 66, 192, 274] |
+| | Data programming | Collaboration | Partial | [27, 80] |
+| | Data programming | Collaboration | Minimum | [103, 190, 191, 278] |
+| | Distant supervision | Automation | Learning-based | [160] |
+| | Data cleaning | Automation | Programmatic | [289] |
+| | Data cleaning | Automation | Learning-based | [98, 116, 126, 135] |
+| | Data cleaning | Collaboration | Partial | [244] |
+| Preparation | Feature extraction | Automation | Programmatic | [14, 199] |
+| | Feature extraction | Automation | Learning-based | [127, 248] |
+| | Feature transformation | Automation | Programmatic | [5, 24] |
+| | Feature transformation | Automation | Learning-based | [122] |
+| | Feature selection | Automation | Programmatic | [10, 229] |
+| | Feature selection | Automation | Learning-based | [245, 258] |
+| Reduction | Feature selection | Collaboration | Partial | [208, 287] |
+| | Dimensionality reduction | Automation | Learning-based | [2, 13, 255] |
+| | Instance selection | Automation | Programmatic | [186, 193][148] |
+| | Instance selection | Automation | Learning-based | [148, 225] |
+| | Basic manipulation | Automation | Programmatic | [42, 93, 250, 282, 282, 288]. |
+| | Basic manipulation | Automation | Learning-based | [56] |
+| Augmentation | Augmentation data synthesis | Automation | Learning-based | [79, 102, 104, 216] |
+| | Upsampling | Automation | Programmatic | [41, 95] |
+| | Upsampling | Automation | Learning-based | [273] |
+| - | Pipeline search | Automation | Pipeline | [68, 76, 97, 132, 154, 159, 280] |
 
 Table 2. Papers for achieving different sub-goals of training data development.
 
 privacy, and data security. Researchers and practitioners must be aware of these challenges in studying and executing data collection.
 
-# 3.2 Data Labeling
+## 3.2 Data Labeling
 
 Data labeling is the process of assigning one or more descriptive tags or labels to a dataset, enabling algorithms to learn from and make predictions on the labeled data. Traditionally, this is a timeconsuming and resource-intensive manual process, particularly for large datasets. Recently, more efficient labeling methods have been proposed to reduce human efforts. In what follows, we discuss the need for data labeling, efficient labeling strategies, and challenges.
 
@@ -240,7 +240,7 @@ Distant supervision. Another weakly-supervised approach is distant supervision, 
 
 3.2.3 Challenges. The main challenge for data labeling stems from striking a balance between label quality, label quantity, and financial cost. If given adequate financial support, it is possible to hire a sufficient number of expert annotators to obtain a satisfactory quantity of high-quality labels. However, when we have a relatively tight budget, we often have to resort to more efficient labeling strategies. Identifying the proper labeling strategy often requires domain knowledge to balance different tradeoffs, particularly human labor and label quality/quantity. Another difficulty lies in the subjectivity of labeling. While the instructions may be clear to the designer, they may be misinterpreted by annotators, which leads to labeling noise. Last but not least, ethical considerations, such as data privacy and bias, remain a pressing issue, especially when the labeling task is distributed to a large and undefined group of people.
 
-#### 3.3 Data Preparation
+### 3.3 Data Preparation
 
 Data preparation involves cleaning and transforming raw data into a format that is appropriate for model training. Conventionally, this process often necessitates a considerable amount of engineering work with laborious trial and error. To automate this process, state-of-the-art approaches often adopt search algorithms to discover the most effective strategies. In this subsection, we introduce the need, representative methods, and challenges for data preparation.
 
@@ -258,13 +258,13 @@ Feature transformation. Feature transformation refers to the process of converti
 
 3.3.3 Challenges. Properly cleaning and transforming data is challenging due to the unique characteristics of different datasets. For example, the errors and inconsistencies in text data are quite different from those in time-series data. Even if two datasets have the same data type, their feature values and potential issues can be very diverse. Thus, researchers and data scientists often need to devote a significant amount of time and effort to clean the data. Although learning-based methods can search for the optimal preparation strategy automatically [\[122,](#page-32-11) [126\]](#page-32-15), it remains a challenge to design the appropriate search space, and the search often requires a non-trivial amount of time.
 
-#### 3.4 Data Reduction
+### 3.4 Data Reduction
 
 The goal of data reduction is to reduce the complexity of a given dataset while retaining its essential information. This is often achieved by either reducing the feature size or the sample size. Our discussion will focus on the need for data reduction, representative methods for feature and sample size reduction, and challenges.
 
 3.4.1 Need for Data Reduction. With more data being collected at an unprecedented pace, data reduction plays a critical role in boosting training efficiency. From the sample size perspective, reducing the number of samples leads to a simpler yet representative dataset, which can alleviate memory and computation constraints. It also helps to alleviate data imbalance issues by downsampling the samples from the majority class [\[186\]](#page-34-15). Similarly, reducing feature size brings many benefits. For example, eliminating irrelevant or redundant features mitigates the risk of overfitting [\[138\]](#page-32-4). Smaller feature sizes will also enable faster training and inference in model deployment [\[242\]](#page-36-17). In addition, only keeping a subset of features will make the model more interpretable [\[51,](#page-30-12) [52,](#page-30-13) [243\]](#page-36-18). Data reduction techniques can enable the model to focus only on the essential information, thereby enhancing accuracy, efficiency, and interpretability.
 
-# 3.4.2 Methods for Reducing Feature Size. From the feature perspective, we discuss two common reduction strategies.
+## 3.4.2 Methods for Reducing Feature Size. From the feature perspective, we discuss two common reduction strategies.
 
 Feature selection. Feature selection is the process of selecting a subset of features most relevant to the intended tasks [\[138\]](#page-32-4). It can be broadly classified into filter, wrapper, and embedded methods. Filter methods [\[229\]](#page-35-9) evaluate and select features independently using a scoring function based on statistical properties such as information gain [\[10\]](#page-28-9). Although filter methods are very efficient, they ignore feature dependencies and interactions with the model. Wrapper methods alleviate these issues by leveraging the model performance to assess the quality of selected features and refining the selection iteratively [\[258\]](#page-36-12). While these methods often achieve better performances, they are computationally more expensive. Embedded methods, from another angle, integrate feature selection into the model training process [\[245\]](#page-36-11) so that the selection process is optimized in an endto-end manner. Beyond automation, active feature selection takes into account human knowledge and incrementally selects the most appropriate features [\[208,](#page-35-10) [287\]](#page-37-11). Feature selection reduces the complexity, producing cleaner and more understandable data while retaining feature semantics.
 
@@ -276,7 +276,7 @@ Dimensionality reduction. Dimensionality reduction aims to transform high-dimens
 
 be over associating with protected attributes [\[256\]](#page-36-19). Fairness-aware data reduction is a critical yet under-explored research direction.
 
-#### 3.5 Data Augmentation
+### 3.5 Data Augmentation
 
 Data augmentation is a technique to increase the size and diversity of data by artificially creating variations of the existing data, which can often improve the model performance. It is worth noting that even though data augmentation and data reduction seem to have contradictory objectives, they can be used in conjunction with each other. While data reduction focuses on eliminating redundant information, data augmentation aims to enhance data diversity. We will delve into the need for data augmentation, various representative methods, and the associated challenges.
 
@@ -291,15 +291,15 @@ Augmentation data synthesis. Another category focuses on synthesizing new traini
 3.5.3 Methods Tailored for Class Imbalance. Class imbalance is a fundamental challenge in machine learning, where the number of majority samples is much larger than that of minority samples. Data augmentation can be used to perform upsampling on the minority class to balance the data distribution. One popular approach is SMOTE [\[41\]](#page-29-10), which involves generating synthetic samples
 
 ![](_page_15_Figure_1.jpeg)
-<!-- Image Description: The image presents a flowchart illustrating a model evaluation framework.  It shows "in-distribution" evaluation using data slicing and algorithmic recourse, and "out-of-distribution" evaluation using adversarial samples and distribution shift analysis.  All evaluations feed into a central "Model" which is refined via "Prompt engineering" to understand the decision boundary and improve robustness and sensitivity.  Simple icons represent data analysis techniques. -->
+<!-- Image Description: The image presents a flowchart illustrating a model evaluation framework. It shows "in-distribution" evaluation using data slicing and algorithmic recourse, and "out-of-distribution" evaluation using adversarial samples and distribution shift analysis. All evaluations feed into a central "Model" which is refined via "Prompt engineering" to understand the decision boundary and improve robustness and sensitivity. Simple icons represent data analysis techniques. -->
 
-Fig. 5. An overview of inference data development.
+Figure 5. An overview of inference data development.
 
 by linearly interpolating between minority instances and their neighbors. ADASYN [\[95\]](#page-31-14) is an extension of SMOTE that generates additional synthetic samples for data points that are more difficult to learn, as determined by the ratio of majority class samples in their nearest neighbors. A recent study proposes AutoSMOTE, a learning-based algorithm that searches for best oversampling strategies with reinforcement learning [\[273\]](#page-37-7).
 
 3.5.4 Challenges. One critical challenge in data augmentation is that there is no single augmentation strategy that is suitable for all scenarios. Different data types may require diverse strategies. For example, compared to image data, graph data is irregular and not well-aligned, and thus the vanilla Mixup strategy can not be directly applied [\[93\]](#page-31-11). Even though two datasets have the same data type, the optimal strategy differs. For instance, we often need to upsample the minority samples differently to achieve the best results [\[273\]](#page-37-7). Although search-based algorithms can identify the best strategies with trial and error, it also increases the computation and storage costs, which can be a limiting factor in some applications. More effective and efficient data augmentation techniques are required to overcome these challenges.
 
-#### 3.6 Pipeline Search
+### 3.6 Pipeline Search
 
 In real-world applications, we often encounter complex data pipelines, where each pipeline step corresponds to a task associated with one of the aforementioned sub-goals. Despite the progress made in each individual task, a pipeline typically functions as a whole, and the various pipeline steps may have an interactive effect. For instance, the best data augmentation strategy may depend on the selected features. Pipeline search is a recent trend that tries to automatically search for the best combinations. This subsection introduces some representative pipeline search algorithms.
 
@@ -307,11 +307,11 @@ One of the first pipeline search frameworks is AutoSklearn [\[76\]](#page-30-11)
 
 Despite these progresses, pipeline search still faces a significant challenge due to the high computational overhead since the search algorithm often needs to try different module combinations repeatedly. This overhead becomes more pronounced as the number of modules increases, leading to an exponential growth of the search space. Thus, more efficient search strategies [\[97,](#page-31-15) [154\]](#page-33-12) are required to enable a broader application of pipeline search in real-world scenarios.
 
-#### 4 INFERENCE DATA DEVELOPMENT
+### 4 INFERENCE DATA DEVELOPMENT
 
 Another crucial component in building AI systems is to design inference data to evaluate a trained model or unlock a specific capability of the model. In the conventional model-centric paradigm, we often adopt a hold-out evaluation set that is not included in the training data to measure model performance using specific metrics such as accuracy. However, relying solely on performance metrics may not fully capture many important properties of a model, such as its robustness, generalizability, and rationale in decision-making. Moreover, as models become increasingly large, it becomes possible to obtain the desired predictions by solely engineering the data input. This section introduces some representative methods that evaluate models from a more granular view, or engineering data inputs for inference, shown in Figure [5.](#page-15-1) Our discussion involves in-distribution set evaluation (Section [4.1\)](#page-16-1), out-of-distribution evaluation (Section [4.2\)](#page-17-0), and prompt engineering (Section [4.3\)](#page-19-1). We summarize the relevant tasks and methods in Table [3.](#page-17-1)
 
-#### 4.1 In-distribution Evaluation
+### 4.1 In-distribution Evaluation
 
 In-distribution evaluation data construction aims to generate samples that conform to training data. We will begin by addressing the need for constructing in-distribution evaluation sets. Next, we will review representative methods for two scenarios: evaluating important sub-populations on which the model underperforms through data slicing, and assessing decision boundaries through algorithmic recourse. Lastly, we will discuss the challenges.
 
@@ -321,21 +321,21 @@ In-distribution evaluation data construction aims to generate samples that confo
 
 To reduce human effort, automated slicing methods have been developed to discover important data slices by sifting through all potential slices in the data space. One representative work is SliceFinder [\[53\]](#page-30-5), which identifies slices that are both interpretable (i.e., slicing based on a small set of features) and problematic (the model performs poorly on the slice). To solve this search problem, SliceFinder offers two distinct methods, namely the tree-based search and the lattice-based search. The former is more efficient, while the latter has better efficacy. SliceLine [\[198\]](#page-34-20) is another notable work that addresses the scalability limitations of slice finding by focusing on both algorithmic and system perspectives. This approach is motivated by frequent itemset mining and leverages relevant monotonicity properties and upper bounds for effective pruning. Moreover, to address hidden stratification, which occurs when each labeled class contains multiple semantically distinct subclasses, GEORGE [\[217\]](#page-35-14) employs clustering algorithms to slide data across different subclasses. Another tool for automated slicing is Multiaccuracy [\[123\]](#page-32-19), where a simple "auditor" is trained to predict the residual of the full model using input features. Multiaccuracy, in general, is an efficient approach since it only requires a small amount of audit data. Data slicing allows researchers and
 
-| Sub-goal     | Task                  |               | Method type Automation level/<br>participation degree References |                                                    |
+| Sub-goal | Task | | Method type Automation level/<br>participation degree References | |
 |--------------|-----------------------|---------------|------------------------------------------------------------------|----------------------------------------------------|
-|              | Data slicing          | Collaboration | Minimum                                                          | [16]                                               |
-| In           | Data slicing          | Collaboration | Partial                                                          | [202, 267]                                         |
-| distribution | Data slicing          | Automation    | Learning-based                                                   | [53, 123, 198, 217]                                |
-|              | Algorithmic recourse  | Collaboration | Minimum                                                          | [20, 26, 38, 57, 62, 118, 136, 149, 184, 212, 237] |
-|              | Adversarial samples   | Collaboration | Minimum                                                          | [99]                                               |
-|              | Adversarial samples   | Automation    | Learning-based                                                   | [23, 43, 71, 151, 165, 177, 210]                   |
-| Out-of       | Distribution shift    | Collaboration | Full                                                             | [63, 125, 197]                                     |
-| distribution | Distribution shift    | Collaboration | Partial                                                          | [90, 211]                                          |
-|              | Distribution shift    | Automation    | Programmatic                                                     | [11, 87, 145, 223]                                 |
-|              | Distribution shift    | Automation    | Learning-based                                                   | [73, 91]                                           |
-| Prompt       | Manual engineering    | Collaboration | Partial                                                          | [205-207]                                          |
-| engineering  | Automated engineering | Automation    | Programmatic                                                     | [94, 115, 264]                                     |
-|              | Automated engineering | Automation    | Learning-based                                                   | [82, 239]                                          |
+| | Data slicing | Collaboration | Minimum | [16] |
+| In | Data slicing | Collaboration | Partial | [202, 267] |
+| distribution | Data slicing | Automation | Learning-based | [53, 123, 198, 217] |
+| | Algorithmic recourse | Collaboration | Minimum | [20, 26, 38, 57, 62, 118, 136, 149, 184, 212, 237] |
+| | Adversarial samples | Collaboration | Minimum | [99] |
+| | Adversarial samples | Automation | Learning-based | [23, 43, 71, 151, 165, 177, 210] |
+| Out-of | Distribution shift | Collaboration | Full | [63, 125, 197] |
+| distribution | Distribution shift | Collaboration | Partial | [90, 211] |
+| | Distribution shift | Automation | Programmatic | [11, 87, 145, 223] |
+| | Distribution shift | Automation | Learning-based | [73, 91] |
+| Prompt | Manual engineering | Collaboration | Partial | [205-207] |
+| engineering | Automated engineering | Automation | Programmatic | [94, 115, 264] |
+| | Automated engineering | Automation | Learning-based | [82, 239] |
 
 Table 3. Papers for achieving different sub-goals of inference data development.
 
@@ -380,9 +380,9 @@ In production scenarios, data is not created once but is rather continuously upd
 To ensure proper maintenance, it is essential to first understand the data. The following discussion covers the need for data understanding techniques, ways to gain insights through visualization and valuation, and the challenges involved.
 
 ![](_page_20_Figure_1.jpeg)
-<!-- Image Description: This diagram illustrates a data maintenance process.  Three interconnected blocks represent "Data Understanding" (data visualization and valuation), "Data Quality Assurance" (quality assessment and improvement), and "Data Storage & Retrieval" (resource allocation and query acceleration).  Arrows show how each component contributes to the central "Data Maintenance" process, which supplies high-quality data.  Simple icons further clarify the functions of each block. -->
+<!-- Image Description: This diagram illustrates a data maintenance process. Three interconnected blocks represent "Data Understanding" (data visualization and valuation), "Data Quality Assurance" (quality assessment and improvement), and "Data Storage & Retrieval" (resource allocation and query acceleration). Arrows show how each component contributes to the central "Data Maintenance" process, which supplies high-quality data. Simple icons further clarify the functions of each block. -->
 
-Fig. 6. An overview of data maintenance.
+Figure 6. An overview of data maintenance.
 
 5.1.1 Need for Data Understanding Techniques. Real-world data often comes in large volumes and complexity, which can make it difficult to understand and analyze. There are three main reasons why data understanding techniques are crucial. Firstly, comprehending a large number of raw data samples can be challenging for humans. To make it more manageable, we need to summarize the data and present it in a more concise and accessible way. Secondly, real-world data is often high-dimensional, while human perception is limited to two-or-three-dimensional space. Therefore, visualizing data in a lower-dimensional space is essential for understanding the data. Finally, it is crucial for organizations and stakeholders to understand the value of their data assets and the contribution of each data sample to the performance.
 
@@ -394,25 +394,25 @@ Clustering for visualization. Real-world data can be high-dimensional and with c
 
 Visualization recommendation. Building upon various visualization formats, there has been a surge of interest in visualization recommendation, which involves suggesting the most suitable visualization formats for a particular user. Programmatic automation approaches rank visualization candidates based on predefined rules composed of human perceptual metrics such as data type,
 
-| Sub-goal            | Task                         | Method type   | Automation level/<br>participation degree | Reference             |
+| Sub-goal | Task | Method type | Automation level/<br>participation degree | Reference |
 |---------------------|------------------------------|---------------|-------------------------------------------|-----------------------|
-|                     | Visual summarization         | Collaboration | Minimum                                   | [33, 37, 61, 78, 238] |
-|                     | Clustering for visualization | Automation    | Learning-based                            | [72]                  |
-| Understanding       | Visualization recommendation | Automation    | Programmatic                              | [254]                 |
-|                     | Visualization recommendation | Automation    | Learning-based                            | [150]                 |
-|                     | Visualization recommendation | Collaboration | Partial                                   | [213, 219]            |
-|                     | Valuation                    | Automation    | Learning-based                            | [3, 83, 84]           |
-|                     | Quality assessment           | Collaboration | Minimum/partial                           | [18, 181, 195, 257]   |
-|                     | Quality improvement          | Automation    | Programmatic                              | [17, 29, 49]          |
-| Quality assurance   | Quality improvement          | Automation    | Learning-based                            | [19]                  |
-|                     | Quality improvement          | Automation    | Pipeline                                  | [204, 230]            |
-|                     | Quality improvement          | Collaboration | Partial                                   | [44, 60, 81, 247]     |
-|                     | Resource allocation          | Automation    | Programmatic                              | [6, 152, 252]         |
-|                     | Resource allocation          | Automation    | Learning-based                            | [100, 233]            |
-| Storage & retrieval | Query index selection        | Automation    | Programmatic                              | [39, 224, 232]        |
-|                     | Query index selection        | Automation    | Learning-based                            | [179, 196]            |
-|                     | Query rewriting              | Automation    | Programmatic                              | [12, 40]              |
-|                     | Query rewriting              | Automation    | Learning-based                            | [96, 294]             |
+| | Visual summarization | Collaboration | Minimum | [33, 37, 61, 78, 238] |
+| | Clustering for visualization | Automation | Learning-based | [72] |
+| Understanding | Visualization recommendation | Automation | Programmatic | [254] |
+| | Visualization recommendation | Automation | Learning-based | [150] |
+| | Visualization recommendation | Collaboration | Partial | [213, 219] |
+| | Valuation | Automation | Learning-based | [3, 83, 84] |
+| | Quality assessment | Collaboration | Minimum/partial | [18, 181, 195, 257] |
+| | Quality improvement | Automation | Programmatic | [17, 29, 49] |
+| Quality assurance | Quality improvement | Automation | Learning-based | [19] |
+| | Quality improvement | Automation | Pipeline | [204, 230] |
+| | Quality improvement | Collaboration | Partial | [44, 60, 81, 247] |
+| | Resource allocation | Automation | Programmatic | [6, 152, 252] |
+| | Resource allocation | Automation | Learning-based | [100, 233] |
+| Storage & retrieval | Query index selection | Automation | Programmatic | [39, 224, 232] |
+| | Query index selection | Automation | Learning-based | [179, 196] |
+| | Query rewriting | Automation | Programmatic | [12, 40] |
+| | Query rewriting | Automation | Learning-based | [96, 294] |
 
 Table 4. Papers for achieving different sub-goals of data maintenance.
 
@@ -440,7 +440,7 @@ Apart from automation, collaborative approaches have been developed to encourage
 
 5.2.4 Challenges. Ensuring data quality poses two main challenges. Firstly, selecting the most suitable assessment metric is not a straightforward task and heavily relies on domain knowledge. A single metric may not always be adequate in a constantly evolving environment. Secondly, quality improvement is a vital yet laborious process that necessitates careful consideration. Although automation is crucial in ensuring sustainable data quality, human involvement may also be necessary to ensure that the data quality meets human expectations. Therefore, data assessment metrics and data improvement strategies must be thoughtfully designed.
 
-#### 5.3 Data Storage & Retrieval
+### 5.3 Data Storage & Retrieval
 
 Data storage and retrieval systems play an indispensable role in providing the necessary data to build AI systems. To expedite the process of data acquisition, various efficient strategies have been proposed. In the following discussion, we elaborate on the importance of efficient data storage and retrieval, review some representative acceleration methods for resource allocation and query acceleration, and discuss the challenges associated with them.
 
@@ -458,7 +458,7 @@ Query rewriting. In parallel, query rewriting aims to reduce the workload by ide
 
 5.3.4 Challenges. Existing data storage and retrieval methods typically focus on optimizing specific parts of the system, such as resource allocation and query acceleration we mentioned. However, the real data administration system as a whole can be complex since it needs to process a vast amount of data in various formats and structures, making end-to-end optimization a challenging task. Additionally, apart from efficiency, data storage and retrieval require consideration of several other crucial and challenging aspects, such as data access control and system maintenance.
 
-#### 6 DATA BENCHMARK
+### 6 DATA BENCHMARK
 
 In the previous sections, we explored a diverse range of data-centric AI tasks throughout various stages of the data lifecycle. Examining benchmarks is a promising approach for gaining insight into the progress of research and development in these tasks, as benchmarks comprehensively evaluate various methods based on standard and agreed-upon metrics. It is important to note that, within the context of data-centric AI, we are specifically interested in data benchmarks rather than model benchmarks, which should assess various techniques aimed at achieving data excellence. In this section, we survey the existing benchmarks for different goals of data-centric AI. Firstly, we will introduce the benchmark collection strategy, and subsequently, we will summarize and analyze the collected benchmarks.
 
@@ -466,48 +466,48 @@ Collection strategy. We primarily utilize Google Scholar to search for benchmark
 
 Summary of the collected benchmarks. Table [5](#page-25-0) comprises the 36 benchmarks that we collected using the above process, out of which 23 incorporate open-source codes. Notably, we did not
 
-| Reference                 | Sub-goal            | Task                                                    | Domain                      | Data modality                      | Open-source |  |  |  |
+| Reference | Sub-goal | Task | Domain | Data modality | Open-source | | | |
 |---------------------------|---------------------|---------------------------------------------------------|-----------------------------|------------------------------------|-------------|--|--|--|
-| Training data development |                     |                                                         |                             |                                    |             |  |  |  |
-| Cohen et al. [54]         | Collection          | Dataset discovery                                       | Biomedical                  | Tabular, text                      | ✗           |  |  |  |
-| Poess et al. [182]        | Collection          | Data integration                                        | Database                    | Tabular, time-series               | ✗           |  |  |  |
-| Pinkel et al. [180]       | Collection          | Data integration                                        | Database                    | Tabular, graph                     | ✗           |  |  |  |
-| Wang et al. [246]         | Labeling            | Semi-supervised learning                                | AI                          | Image, text, audio                 | ✓           |  |  |  |
-| Yang et al. [259]         | Labeling            | Active learning                                         | AI                          | Tabular, image, text               | ✗           |  |  |  |
-| Meduri et al. [156]       | Labeling            | Active learning                                         | Database                    | Tabular, text                      | ✗           |  |  |  |
-| Abdelaal et al. [1]       | Preparation         | Data cleaning                                           | Database                    | Tabular, text, time-series         | ✓           |  |  |  |
-| Li et al. [139]           | Preparation         | Data cleaning                                           | Database                    | Tabular, time-series               | ✓           |  |  |  |
-| Jäger et al. [106]        | Preparation         | Data cleaning                                           | AI                          | Tabular, image                     | ✗           |  |  |  |
-| Buckley et al. [35]       | Preparation         | Feature extraction                                      | Healthcare                  | Tabular, image, time-series        | ✓           |  |  |  |
-| Vijayan et al. [235]      | Preparation         | Feature extraction                                      | Biomedical                  | Tabular, sequential                | ✓           |  |  |  |
-| Bommert et al. [31]       | Reduction           | Feature selection                                       | Biomedical                  | Tabular, sequential                | ✓           |  |  |  |
-| Espadoto et al. [70]      | Reduction           | Dimensionality reduction                                | Computer graphics           | Tabular, image, audio              | ✓           |  |  |  |
-| Grochowski et al. [89]    | Reduction           | Instance selection                                      | Computer graphics           | Tabular, image, audio              | ✓           |  |  |  |
-| Blachnik et al. [25]      | Reduction           | Instance selection                                      | Computer graphics           | Tabular, image, audio              | ✓           |  |  |  |
-| Iwana et al. [105]        | Augmentation        | All sub-goals                                           | AI                          | Time-series                        | ✓           |  |  |  |
-| Nanni et al. [166]        | Augmentation        | Basic manipulation                                      | AI                          | Image                              | ✓           |  |  |  |
-| Yoo et al. [261]          | Augmentation        | Basic manipulation                                      | AI                          | Image                              | ✓           |  |  |  |
-| Ding et al. [64]          | Augmentation        | Augmentation data synthesis                             | AI                          | Graph                              | ✗           |  |  |  |
-| Tao et al. [228]          | Augmentation        | Augmentation data synthesis                             | Computer security           | Tabular                            | ✗           |  |  |  |
-| Zoller et al. [297]       | -                   | Pipeline search                                         | AI                          | Tabular, image, audio, time-series | ✓           |  |  |  |
-| Gijsbers et al. [85]      | -                   | Pipeline search                                         | AI                          | Tabular, image, audio, time-series | ✓           |  |  |  |
-|                           |                     |                                                         | Evaluation data development |                                    |             |  |  |  |
-| Srivastava et al. [220]   | In-distribution     | Evaluation data synthesis                               | AI                          | Text                               | ✓           |  |  |  |
-| Pawelczyk et al. [178]    | In-distribution     | Algorithmic recourse                                    | AI                          | Tabular                            | ✓           |  |  |  |
-| Dong et al. [67]          | Out-of-distribution | Adversarial samples                                     | AI                          | Image                              | ✓           |  |  |  |
-| Hendrycks et al. [99]     | Out-of-distribution | Adversarial samples                                     | AI                          | Image                              | ✓           |  |  |  |
-| Yoo et al. [262]          | Out-of-distribution | Adversarial samples                                     | AI                          | Text                               | ✓           |  |  |  |
-|                           |                     |                                                         | Data maintenance            |                                    |             |  |  |  |
-| Kanthara et al. [119]     | Understanding       | Visual summarization                                    | AI                          | Tabular, text                      | ✓           |  |  |  |
-| Grinstein et al. [88]     | Understanding       | Visual summarization                                    | Human-computer interaction  | Tabular, image                     | ✓           |  |  |  |
-| Zeng et al. [268]         | Understanding       | Visualization recommendation Human-computer Interaction |                             | Tabular                            | ✗           |  |  |  |
-| Jia et al. [110]          | Understanding       | Data valuation                                          | AI                          | Image                              | ✓           |  |  |  |
-| Batini et al. [18]        | Quality assurance   | Quality assessment                                      | Database                    | Tabular                            | ✗           |  |  |  |
-| Arocena et al. [8]        | Quality assurance   | Quality improvement                                     | Database                    | Tabular                            | ✗           |  |  |  |
-| Zhang et al. [286]        | Storage & retrieval | Resource allocation                                     | Database                    | Tabular                            | ✓           |  |  |  |
-| Marcus et al. [153]       | Storage & retrieval | Query index selection                                   | Database                    | Tabular                            | ✗           |  |  |  |
-|                           |                     |                                                         | Unified benchmark           |                                    |             |  |  |  |
-| Mazumder et al. [155]     | Multiple            | 6 distinct tasks                                        | AI                          | Multiple                           | ✗           |  |  |  |
+| Training data development | | | | | | | | |
+| Cohen et al. [54] | Collection | Dataset discovery | Biomedical | Tabular, text | ✗ | | | |
+| Poess et al. [182] | Collection | Data integration | Database | Tabular, time-series | ✗ | | | |
+| Pinkel et al. [180] | Collection | Data integration | Database | Tabular, graph | ✗ | | | |
+| Wang et al. [246] | Labeling | Semi-supervised learning | AI | Image, text, audio | ✓ | | | |
+| Yang et al. [259] | Labeling | Active learning | AI | Tabular, image, text | ✗ | | | |
+| Meduri et al. [156] | Labeling | Active learning | Database | Tabular, text | ✗ | | | |
+| Abdelaal et al. [1] | Preparation | Data cleaning | Database | Tabular, text, time-series | ✓ | | | |
+| Li et al. [139] | Preparation | Data cleaning | Database | Tabular, time-series | ✓ | | | |
+| Jäger et al. [106] | Preparation | Data cleaning | AI | Tabular, image | ✗ | | | |
+| Buckley et al. [35] | Preparation | Feature extraction | Healthcare | Tabular, image, time-series | ✓ | | | |
+| Vijayan et al. [235] | Preparation | Feature extraction | Biomedical | Tabular, sequential | ✓ | | | |
+| Bommert et al. [31] | Reduction | Feature selection | Biomedical | Tabular, sequential | ✓ | | | |
+| Espadoto et al. [70] | Reduction | Dimensionality reduction | Computer graphics | Tabular, image, audio | ✓ | | | |
+| Grochowski et al. [89] | Reduction | Instance selection | Computer graphics | Tabular, image, audio | ✓ | | | |
+| Blachnik et al. [25] | Reduction | Instance selection | Computer graphics | Tabular, image, audio | ✓ | | | |
+| Iwana et al. [105] | Augmentation | All sub-goals | AI | Time-series | ✓ | | | |
+| Nanni et al. [166] | Augmentation | Basic manipulation | AI | Image | ✓ | | | |
+| Yoo et al. [261] | Augmentation | Basic manipulation | AI | Image | ✓ | | | |
+| Ding et al. [64] | Augmentation | Augmentation data synthesis | AI | Graph | ✗ | | | |
+| Tao et al. [228] | Augmentation | Augmentation data synthesis | Computer security | Tabular | ✗ | | | |
+| Zoller et al. [297] | - | Pipeline search | AI | Tabular, image, audio, time-series | ✓ | | | |
+| Gijsbers et al. [85] | - | Pipeline search | AI | Tabular, image, audio, time-series | ✓ | | | |
+| | | | Evaluation data development | | | | | |
+| Srivastava et al. [220] | In-distribution | Evaluation data synthesis | AI | Text | ✓ | | | |
+| Pawelczyk et al. [178] | In-distribution | Algorithmic recourse | AI | Tabular | ✓ | | | |
+| Dong et al. [67] | Out-of-distribution | Adversarial samples | AI | Image | ✓ | | | |
+| Hendrycks et al. [99] | Out-of-distribution | Adversarial samples | AI | Image | ✓ | | | |
+| Yoo et al. [262] | Out-of-distribution | Adversarial samples | AI | Text | ✓ | | | |
+| | | | Data maintenance | | | | | |
+| Kanthara et al. [119] | Understanding | Visual summarization | AI | Tabular, text | ✓ | | | |
+| Grinstein et al. [88] | Understanding | Visual summarization | Human-computer interaction | Tabular, image | ✓ | | | |
+| Zeng et al. [268] | Understanding | Visualization recommendation Human-computer Interaction | | Tabular | ✗ | | | |
+| Jia et al. [110] | Understanding | Data valuation | AI | Image | ✓ | | | |
+| Batini et al. [18] | Quality assurance | Quality assessment | Database | Tabular | ✗ | | | |
+| Arocena et al. [8] | Quality assurance | Quality improvement | Database | Tabular | ✗ | | | |
+| Zhang et al. [286] | Storage & retrieval | Resource allocation | Database | Tabular | ✓ | | | |
+| Marcus et al. [153] | Storage & retrieval | Query index selection | Database | Tabular | ✗ | | | |
+| | | | Unified benchmark | | | | | |
+| Mazumder et al. [155] | Multiple | 6 distinct tasks | AI | Multiple | ✗ | | | |
 
 Table 5. Data benchmarks. Note that they evaluate data rather than model.
 
@@ -542,11 +542,11 @@ Upon examining the connections to these two rapidly evolving research fields, we
 
 and various data-centric AI techniques comprehensively presents a significant challenge. Although DataPerf [\[155\]](#page-33-7) has made notable progress towards this objective, it currently supports only a limited number of tasks. The development of more unified data benchmarks would greatly accelerate research progress in this area.
 
-#### 8 CONCLUSION
+### 8 CONCLUSION
 
 This survey focuses on data-centric AI, an emerging and important research field in AI. We motivated the need for data-centric AI by showing how carefully designing and maintaining data can make AI solutions more desirable across academia and industry. Next, we provided a background of data-centric AI, which includes its definition and a goal-driven taxonomy. Then, guided by the research questions posed, we reviewed various data-centric AI techniques for different purposes from the perspectives of automation and collaboration. Furthermore, we collected data benchmarks from different domains and analyzed them at a meta-level. Lastly, we discussed data-centric AI from a global view and shared our perspectives on the blurred boundaries between data and model. We also presented potential future directions for this field. To conclude in one line, we believe that data will play an increasingly important role in building AI systems. At the same time, there are still numerous challenges that need to be addressed. We hope our survey could inspire collaborative initiatives in our community to push forward this field.
 
-#### REFERENCES
+### REFERENCES
 
 - [1] Abdelaal, M., Hammacher, C., and Schoening, H. Rein: A comprehensive benchmark framework for data cleaning methods in ml pipelines. arXiv preprint arXiv:2302.04702 (2023).
 - [2] Abdi, H., and Williams, L. J. Principal component analysis. Wiley interdisciplinary reviews: computational statistics 2, 4 (2010), 433-459.

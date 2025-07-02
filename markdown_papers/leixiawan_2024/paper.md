@@ -34,11 +34,11 @@ Haibo Hu Hong Kong Polytechnic University haibo.hu@polyu.edu.hk
 
 Answering range queries in the context of Local Differential Privacy (LDP) is a widely studied problem in Online Analytical Processing (OLAP). Existing LDP solutions all assume a uniform data distribution within each domain partition, which may not align with real-world scenarios where data distribution is varied, resulting in inaccurate estimates. To address this problem, we introduce PriPL-Tree, a novel data structure that combines hierarchical tree structures with piecewise linear (PL) functions to answer range queries for arbitrary distributions. PriPL-Tree precisely models the underlying data distribution with a few line segments, leading to more accurate results for range queries. Furthermore, we extend it to multi-dimensional cases with novel data-aware adaptive grids. These grids leverage the insights from marginal distributions obtained through PriPL-Trees to partition the grids adaptively, adapting the density of underlying distributions. Our extensive experiments on both real and synthetic datasets demonstrate the effectiveness and superiority of PriPL-Tree over state-of-the-art solutions in answering range queries across arbitrary data distributions.
 
-#### PVLDB Reference Format:
+### PVLDB Reference Format:
 
 Leixia Wang, Qingqing Ye, Haibo Hu, and Xiaofeng Meng. PriPL-Tree: Accurate Range Query for Arbitrary Distribution under Local Differential Privacy. PVLDB, 17(11): XXX-XXX, 2024. [doi:XX.XX/XXX.XX](https://doi.org/XX.XX/XXX.XX)
 
-#### PVLDB Artifact Availability:
+### PVLDB Artifact Availability:
 
 The source code, data, and/or other artifacts have been made available at [https://github.com/LeixiaWang/PriPLT.](https://github.com/LeixiaWang/PriPLT)
 
@@ -57,9 +57,9 @@ Range queries, as a prevalent query type, have been extensively studied in LDP, 
 Figure [1](#page-0-0) shows an example of this non-uniform estimation error. Given a distribution depicted as the black curve, Figure [1\(](#page-0-0)a) partitions the domain in a coarse-grained manner, resulting in a large non-uniform error. Figure [1\(](#page-0-0)b) uses finer partitions to reduce the non-uniform error, but incurs significant aggregated LDP noise error due to an increasing number of bins.
 
 <span id="page-0-0"></span>![](_page_0_Figure_19.jpeg)
-<!-- Image Description: The image shows three panels illustrating different approximations of a continuous curve using piecewise constant functions. Panel (a) displays a coarse-grained partition with a few large intervals. Panel (b) shows a fine-grained partition with many small intervals, providing a more accurate approximation. Panel (c) presents a piecewise linear approximation, connecting points on the curve with line segments.  The purpose is to illustrate the concept of partitioning a function for approximation, demonstrating the trade-off between accuracy and computational cost. -->
+<!-- Image Description: The image shows three panels illustrating different approximations of a continuous curve using piecewise constant functions. Panel (a) displays a coarse-grained partition with a few large intervals. Panel (b) shows a fine-grained partition with many small intervals, providing a more accurate approximation. Panel (c) presents a piecewise linear approximation, connecting points on the curve with line segments. The purpose is to illustrate the concept of partitioning a function for approximation, demonstrating the trade-off between accuracy and computational cost. -->
 
-#### Figure 1: An Illustration on Non-uniform Errors
+### Figure 1: An Illustration on Non-uniform Errors
 
 To tackle this challenge, we propose an innovative solution that employs a piecewise linear (PL) function to model the underlying data distribution instead of relying on a uniform assumption. By partitioning the data domain into several intervals and approximating the data distribution within each interval with a line segment, even complex data distributions can be well-approximated with a few parameters [\[33\]](#page-12-12). As shown in Figure [1\(](#page-0-0)c), the PL function accurately approximates the data distribution with a few segments (represented as frequency-slope pairs), which alleviates both nonuniform error and LDP noise error significantly.
 
@@ -111,23 +111,22 @@ Consider users and each user ( ≤ ) owns a private record containing private va
 
 The -dimensional (a.k.a., -D) range query is performed on a set of private attributes Φ⊆ { | ≤ }, where = |Φ| ≤. Let [ , ] denote the specified range for the attribute ∈ Φ. The -D range query returns the frequency of records where all queried attribute
 
-#### Table 1: Notations
+### Table 1: Notations
 
-<span id="page-2-1"></span>
 
-| Symbols       | Description                                                                    |  |  |  |  |
+| Symbols | Description | | | | |
 |---------------|--------------------------------------------------------------------------------|--|--|--|--|
-| 𝑁             | The total number of users                                                      |  |  |  |  |
-| 𝐴𝑗            | The<br>𝑗-th attribute                                                          |  |  |  |  |
-| 𝐷𝑗<br>, 𝑑𝑗    | The attribute<br>𝐴𝑗<br>'s domain<br>𝐷𝑗<br>with size<br>𝑑𝑗                      |  |  |  |  |
-| 𝑚             | The number of private attributes in the data                                   |  |  |  |  |
-| 𝜆             | The number of attributes involved in a range query                             |  |  |  |  |
-| 𝑛𝑘            | The node<br>in the PriPL-Tree<br>𝑛𝑘                                            |  |  |  |  |
-| ,<br>𝑓𝑘<br>𝛽𝑘 | The frequency<br>and the slope<br>in<br>𝑓𝑘<br>𝛽𝑘<br>𝑛𝑘                         |  |  |  |  |
-| 𝐼𝑘, 𝑠𝑘−1, 𝑠𝑘  | The interval<br>of node<br>including<br>  bucketized values<br>𝐼𝑘<br>𝑛𝑘<br> 𝐼𝑘 |  |  |  |  |
-|               | between two breakpoints<br>𝑠𝑘−1<br>and<br>𝑠𝑘                                   |  |  |  |  |
-| 𝛼             | User allocation ratio in phase 1 for PriPL-Tree                                |  |  |  |  |
-| 2<br>𝜎        | The variance of OUE with<br>𝑁 users and a privacy budget of<br>𝜖               |  |  |  |  |
+| 𝑁 | The total number of users | | | | |
+| 𝐴𝑗 | The<br>𝑗-th attribute | | | | |
+| 𝐷𝑗<br>, 𝑑𝑗 | The attribute<br>𝐴𝑗<br>'s domain<br>𝐷𝑗<br>with size<br>𝑑𝑗 | | | | |
+| 𝑚 | The number of private attributes in the data | | | | |
+| 𝜆 | The number of attributes involved in a range query | | | | |
+| 𝑛𝑘 | The node<br>in the PriPL-Tree<br>𝑛𝑘 | | | | |
+| ,<br>𝑓𝑘<br>𝛽𝑘 | The frequency<br>and the slope<br>in<br>𝑓𝑘<br>𝛽𝑘<br>𝑛𝑘 | | | | |
+| 𝐼𝑘, 𝑠𝑘−1, 𝑠𝑘 | The interval<br>of node<br>including<br> bucketized values<br>𝐼𝑘<br>𝑛𝑘<br> 𝐼𝑘 | | | | |
+| | between two breakpoints<br>𝑠𝑘−1<br>and<br>𝑠𝑘 | | | | |
+| 𝛼 | User allocation ratio in phase 1 for PriPL-Tree | | | | |
+| 2<br>𝜎 | The variance of OUE with<br>𝑁 users and a privacy budget of<br>𝜖 | | | | |
 
 values ( ∈ Φ) are within these specified ranges. Formally,
 
@@ -167,12 +166,12 @@ In this section, we propose PriPL-Tree, a private piecewise linear tree that com
 
 The piecewise linear (PL) function is capable of approximating the underlying data distribution with only a few parameters, enabling us to not rely on uniform distribution assumptions. For instance, given a Gaussian distribution in Figure [2\(](#page-3-0)a), we can approximate it using 4 segments with 8 parameters. In this case, the entire domain is divided into 4 intervals, and data in each interval = [−<sup>1</sup> , ) (1 ≤ ≤ 4) is fitted with a linear function defined by two parameters, i.e., (slope) and (sum of frequencies of all points in the interval). The linear expression is given by = + , where = /| | − (| | + 2−<sup>1</sup> − 1)/2 and | | is the interval size.
 
-To facilitate range query processing, we integrate the PL function with a hierarchical tree structure, proposing the Private Piecewise Linear Tree (PriPL-Tree). Each leaf node represents a segment (corresponding to an interval) of the PL function and stores its slope  and frequency . Each non-leaf node represents an interval and only stores the interval frequency. Like conventional hierarchical trees, the parent node stores the sum of its child nodes' frequencies. We count the layers of the tree starting from 0 at the top.
+To facilitate range query processing, we integrate the PL function with a hierarchical tree structure, proposing the Private Piecewise Linear Tree (PriPL-Tree). Each leaf node represents a segment (corresponding to an interval) of the PL function and stores its slope and frequency . Each non-leaf node represents an interval and only stores the interval frequency. Like conventional hierarchical trees, the parent node stores the sum of its child nodes' frequencies. We count the layers of the tree starting from 0 at the top.
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
-<!-- Image Description: The image compares two tree-based models, PriPL-Tree (a) and Hierarchical Tree (HT) with uniform assumptions (b), for data partitioning.  Both (a) and (b) show a tree structure where nodes represent data intervals and leaves represent subintervals with associated functions (fk).  Below each tree is a probability density function (PDF) graph, showing the data distribution. (a) displays a smooth, continuous PDF approximated by the tree, while (b) depicts a histogram-like approximation based on uniform assumptions within intervals.  The purpose is to illustrate the differences in data representation between the two methods. -->
+<!-- Image Description: The image compares two tree-based models, PriPL-Tree (a) and Hierarchical Tree (HT) with uniform assumptions (b), for data partitioning. Both (a) and (b) show a tree structure where nodes represent data intervals and leaves represent subintervals with associated functions (fk). Below each tree is a probability density function (PDF) graph, showing the data distribution. (a) displays a smooth, continuous PDF approximated by the tree, while (b) depicts a histogram-like approximation based on uniform assumptions within intervals. The purpose is to illustrate the differences in data representation between the two methods. -->
 
-Figure 2: An Example of PriPL-Tree and HT
+**Figure 2:** An Example of PriPL-Tree and HT
 
 We provide an example in Figure [2](#page-3-0) to illustrate the PriPL-Tree, comparing it to the conventional hierarchical tree (HT) with uniform assumptions. Obviously, within the same interval, the PL function can provide a more accurate approximation of the underlying distribution than uniform assumptions. As such, the PriPL-Tree captures the underlying distribution using significantly fewer leaf nodes (4 in PriPL-Tree vs. 16 in HT) and correspondingly fewer layers (2 in PriPL-Tree vs. 4 in HT). In the context of LDP, fewer layers mean each layer in the tree can be allocated more users, resulting in less noise error due to the law of large numbers. Moreover, the PriPL-Tree construction depends solely on the distribution of the underlying data, as opposed to HT, which relies on the domain size. In HT, modeling data with a large domain size requires a taller tree or a coarser granularity for leaf nodes, increasing noise errors or non-uniform errors. The PriPL-Tree is well-suited for large domain-sized scenarios while reducing both two types of errors.
 
@@ -195,13 +194,12 @@ Phase 3: PriPL-Tree Refinement. In the current PriPL-Tree, there are several fre
 Response to 1-D Range Query ( [, ]). Given a 1-D range query ( [, ]), the response is obtained by summing the frequencies ˜ of nodes that are fully within the range [, ] but whose parents are not, as well as frequencies from parts of leaf nodes that overlap but are not completely within [, ]. For example, when querying ( [200, 1024]) in Figure [3](#page-4-0) (c), we aggregate the frequencies ˜ 2 of node 2, ˜ 7 of node 7, and the frequency of the sub-range [200, 340) (i.e., [200, 339]) within node 1. All these nodes and their
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The image displays a three-phase algorithm.  Phase 1 shows a piecewise linear function fitted to a noisy histogram, estimating frequencies. Phase 2 depicts a tree structure ("PriPL-Tree") constructed using these estimates, representing frequency aggregation. Phase 3 refines this tree, adjusting frequencies and slopes without user input.  The diagrams illustrate the algorithm's progression, from initial frequency estimation to refined frequency and slope representation in a hierarchical tree structure. -->
+<!-- Image Description: The image displays a three-phase algorithm. Phase 1 shows a piecewise linear function fitted to a noisy histogram, estimating frequencies. Phase 2 depicts a tree structure ("PriPL-Tree") constructed using these estimates, representing frequency aggregation. Phase 3 refines this tree, adjusting frequencies and slopes without user input. The diagrams illustrate the algorithm's progression, from initial frequency estimation to refined frequency and slope representation in a hierarchical tree structure. -->
 
-Figure 3: Workflow of PriPL-Tree
+**Figure 3:** Workflow of PriPL-Tree
 
 corresponding frequencies can be derived by traversing the PriPL-Tree from top to bottom. Let [sub, sub] denote the intersecting range of [, ] with the interval of a leaf node ; the frequency of this sub-range ( [sub, sub]) can be computed using Eq. [\(1\)](#page-4-2). The detailed computation process is shown in Appendix A.1 in [\[36\]](#page-12-20).
 
-<span id="page-4-2"></span>
 $$
 Q([l_{\text{sub}}, r_{\text{sub}}]) = (r_{\text{sub}} - l_{\text{sub}} + 1) \cdot \left(\tilde{\beta}_k \left(\frac{l_{\text{sub}} + r_{\text{sub}} + 1 - |I_k|}{2} - s_{k-1}\right) + \frac{\tilde{f}_k}{|I_k|}\right) (1)
 $$
@@ -214,7 +212,6 @@ As a fundamental data model, the PL function has been extensively studied in str
 
 We model the continuous PL function in Eq.[\(2\)](#page-4-3) and illustrate it with =5 segments in Figure [3](#page-4-0) (a). Each (0< <) represents a breakpoint between two segments, while <sup>0</sup> and mark the domain's endpoints. Let 0 denote the intercept of the first segment. For each segment in the interval , its slope is denoted by , and its linear expression appears in the -th row of Eq.[\(2\)](#page-4-3).
 
-<span id="page-4-3"></span>
 $$
 f(v) = \begin{cases} \beta_0 + \beta_1(v - s_0), & s_0 \le v < s_1 \\ \beta_0 + \beta_1(s_1 - s_0) + \beta_2(v - s_1), & s_1 \le v < s_2 \\ \dots \\ \beta_0 + \sum_{k=1}^{K-1} \beta_k(s_k - s_{k-1}) + \beta_K(v - s_{K-1}), & s_{K-1} \le v \le s_K \end{cases}
 $$
@@ -235,11 +232,10 @@ $$
 
 Let (B) = ( (X + A) · B − Fˆ ) · ( (X + A) · B − Fˆ ) denote the loss function. By setting (B)/B = 0, we derive the closed-form solution for <sup>B</sup>ˆ, where <sup>ˆ</sup> 0 represents the estimated intercept ˆ 0 and ˆ ( > 0) represents the estimated slope ˆ of the -th segment.
 
-<span id="page-4-6"></span>
 $$
 \hat{\mathbf{B}} = ((\mathbf{X} + \mathbf{A})^T (\mathbf{X} + \mathbf{A}))^{-1} (\mathbf{X} + \mathbf{A})^T \hat{\mathbf{F}}^H.
 $$
- (6)
+(6)
 
 <span id="page-4-7"></span>3.3.2 Interval Partitioning. Building upon segment fitting, we propose a greedy method to search breakpoints one by one, achieving approximately optimal interval partitions. As described in Algorithm [1,](#page-5-1) during each search (i.e., each iteration in lines 5∼12), we traverse all candidate breakpoints in the search space Θ, fit segments based on it and the existing breakpoints S, and find the best breakpoint ∗ that minimizes the residual sum of squares (RSS). The initial search space contains all possible candidates in the whole domain. In subsequent iterations, we select values in the interval <sup>∗</sup> as the new search space. This interval <sup>∗</sup> has the maximum RSS
 
@@ -255,32 +251,31 @@ Additionally, we propose two strategies to improve interval partitioning for eff
 
 (2) Search Acceleration Strategy for Efficiency: To accelerate the search process, we propose a multi-granular search strategy instead of traversing all possible breakpoints at each search in line 7 in Algorithm [1.](#page-5-1) Given the granularity factor , which limits the maximum number of candidate breakpoints during each search, we initially explore the space Θ using a step of ⌈|Θ|/⌉ to identify an optimal breakpoint ∗ . Subsequently, we narrow the search space to [ <sup>∗</sup>−⌈|Θ|/⌉ , ∗+⌈|Θ|/⌉] and search it with a finer step of ⌈︁ |Θ|/ 2 ⌉︁ . We repeat this process until the step size reduces to 1. A relatively smaller ( < ) accelerates the search while increasing the probability of encountering local optima. Since breakpoints inherently represent different local optima partitioning the domain, primarily influences the order of breakpoint discovery rather than the final interval partitions. For brevity, this strategy is not included in Algorithm [1,](#page-5-1) but it can replace line 7 of it.
 
-<span id="page-5-2"></span>
 
-|    | Algorithm 2: PriPL-Tree Construction                                                         |  |  |  |  |  |
+| | Algorithm 2: PriPL-Tree Construction | | | | | |
 |----|----------------------------------------------------------------------------------------------|--|--|--|--|--|
-|    | Input: 𝐾 segments and<br>𝑁 (1<br>− 𝛼) users                                                  |  |  |  |  |  |
-|    | Output: PriPL-Tree<br>T                                                                      |  |  |  |  |  |
-|    | // Tree Structure Construction                                                               |  |  |  |  |  |
-|    | 1 Construct a basic balanced binary tree<br>T;                                               |  |  |  |  |  |
-|    | 2 for node 𝑛𝑘<br>in postorder traversal do                                                   |  |  |  |  |  |
-| 3  | 𝐸𝑟𝑟′ w/o<br>Compute<br>𝐸𝑟𝑟 for<br>T with<br>𝑛𝑘<br>and<br>𝑛𝑘<br>using Eq.(7);                 |  |  |  |  |  |
-| 4  | if 𝐸𝑟𝑟′ <<br>𝐸𝑟𝑟 then Remove<br>𝑛𝑘<br>;                                                      |  |  |  |  |  |
-|    | // User Allocation                                                                           |  |  |  |  |  |
-|    | 5 Assign all available users<br>𝑈0<br>= {𝑢1, 𝑢2, , 𝑢𝑁<br>(1−𝛼) } to the root;                |  |  |  |  |  |
-|    | 6 for node 𝑛𝑘<br>in level order traversal do                                                 |  |  |  |  |  |
-| 7  | if 𝑛𝑘<br>is root then Set<br>𝑈<br>′<br>= 𝜙 ;<br>𝑘                                            |  |  |  |  |  |
-| 8  | else                                                                                         |  |  |  |  |  |
-| 9  | Compute<br>ℎ𝑘<br>, the height of the subtree rooted at<br>𝑛𝑘<br>;                            |  |  |  |  |  |
-| 10 | 𝑈𝑘  <br>⌈︂<br>⌉︂<br>Set<br>𝑈<br>′<br>as<br>randomly sampled users from<br>𝑈𝑘<br>;<br>ℎ𝑘<br>𝑘 |  |  |  |  |  |
-| 11 | Allocate<br>𝑈<br>′<br>to<br>𝑛𝑘<br>for frequency estimation;<br>𝑘                             |  |  |  |  |  |
-| 12 | for node 𝑛𝑐<br>∈ 𝑐ℎ𝑖𝑙𝑑𝑟𝑒𝑛(𝑛𝑘<br>) do Assign<br>𝑈𝑐<br>=𝑈𝑘<br>−𝑈<br>′<br>to<br>𝑛𝑐<br>;<br>𝑘    |  |  |  |  |  |
-|    | // Node Frequency Estimation                                                                 |  |  |  |  |  |
-|    | 13 for each user 𝑢𝑖<br>∈ 𝑈0<br>do                                                            |  |  |  |  |  |
-| 14 | ′<br>Assign intervals of nodes<br>N𝑖 = {𝑛𝑘<br> 𝑢𝑖<br>∈ 𝑈<br>} to<br>𝑢𝑖<br>;<br>𝑘             |  |  |  |  |  |
-| 15 | Collect OUE perturbed vectors with size<br> ;<br> 𝑁𝑖                                         |  |  |  |  |  |
-|    | ¯<br>16 Estimate frequency<br>𝑓<br>for each node<br>𝑛𝑘<br>based on OUE;<br>𝑘                 |  |  |  |  |  |
-|    | 17 return PriPL-Tree<br>T;                                                                   |  |  |  |  |  |
+| | Input: 𝐾 segments and<br>𝑁 (1<br>− 𝛼) users | | | | | |
+| | Output: PriPL-Tree<br>T | | | | | |
+| | // Tree Structure Construction | | | | | |
+| | 1 Construct a basic balanced binary tree<br>T; | | | | | |
+| | 2 for node 𝑛𝑘<br>in postorder traversal do | | | | | |
+| 3 | 𝐸𝑟𝑟′ w/o<br>Compute<br>𝐸𝑟𝑟 for<br>T with<br>𝑛𝑘<br>and<br>𝑛𝑘<br>using Eq.(7); | | | | | |
+| 4 | if 𝐸𝑟𝑟′ <<br>𝐸𝑟𝑟 then Remove<br>𝑛𝑘<br>; | | | | | |
+| | // User Allocation | | | | | |
+| | 5 Assign all available users<br>𝑈0<br>= {𝑢1, 𝑢2, , 𝑢𝑁<br>(1−𝛼) } to the root; | | | | | |
+| | 6 for node 𝑛𝑘<br>in level order traversal do | | | | | |
+| 7 | if 𝑛𝑘<br>is root then Set<br>𝑈<br>′<br>= 𝜙 ;<br>𝑘 | | | | | |
+| 8 | else | | | | | |
+| 9 | Compute<br>ℎ𝑘<br>, the height of the subtree rooted at<br>𝑛𝑘<br>; | | | | | |
+| 10 | 𝑈𝑘 <br>⌈︂<br>⌉︂<br>Set<br>𝑈<br>′<br>as<br>randomly sampled users from<br>𝑈𝑘<br>;<br>ℎ𝑘<br>𝑘 | | | | | |
+| 11 | Allocate<br>𝑈<br>′<br>to<br>𝑛𝑘<br>for frequency estimation;<br>𝑘 | | | | | |
+| 12 | for node 𝑛𝑐<br>∈ 𝑐ℎ𝑖𝑙𝑑𝑟𝑒𝑛(𝑛𝑘<br>) do Assign<br>𝑈𝑐<br>=𝑈𝑘<br>−𝑈<br>′<br>to<br>𝑛𝑐<br>;<br>𝑘 | | | | | |
+| | // Node Frequency Estimation | | | | | |
+| | 13 for each user 𝑢𝑖<br>∈ 𝑈0<br>do | | | | | |
+| 14 | ′<br>Assign intervals of nodes<br>N𝑖 = {𝑛𝑘<br> 𝑢𝑖<br>∈ 𝑈<br>} to<br>𝑢𝑖<br>;<br>𝑘 | | | | | |
+| 15 | Collect OUE perturbed vectors with size<br> ;<br> 𝑁𝑖 | | | | | |
+| | ¯<br>16 Estimate frequency<br>𝑓<br>for each node<br>𝑛𝑘<br>based on OUE;<br>𝑘 | | | | | |
+| | 17 return PriPL-Tree<br>T; | | | | | |
 
 ## <span id="page-5-0"></span>3.4 PriPL-Tree Construction
 
@@ -291,9 +286,9 @@ Based on the derived partitioned intervals, we construct the PriPL-Tree, focusin
 An example of user allocation is shown in Figure [4,](#page-6-2) where colored rectangles above each node represent the randomly assigned users. Along each path, such as "<sup>0</sup> −<sup>7</sup> −<sup>8</sup> −3" in Figure [4](#page-6-2) (a), the total number of users is ′ . For each user, like the one represented by the yellow rectangle, he will participate in frequency estimations for multiple nodes, such as {6, 3, 4, 5}. The intervals of these nodes do not intersect and collectively cover the entire domain.
 
 <span id="page-6-2"></span>![](_page_6_Figure_0.jpeg)
-<!-- Image Description: The image displays two tree structures representing different node configurations in a likely decision tree or similar algorithm.  Each node (n1-n8) contains stacked colored boxes representing data or weights. The top structure (a) retains node *n*8, while the bottom (b) removes it.  A table shows the weights (*w<sub>k</sub>*) associated with nodes *n*3, *n*4, *n*5, *n*7, and *n*8 for both scenarios.  The error (Err and Err') is noted alongside each tree structure, illustrating the impact of removing *n*8 on the overall error. The image aims to demonstrate the effect of node reduction on error in the algorithm. -->
+<!-- Image Description: The image displays two tree structures representing different node configurations in a likely decision tree or similar algorithm. Each node (n1-n8) contains stacked colored boxes representing data or weights. The top structure (a) retains node *n*8, while the bottom (b) removes it. A table shows the weights (*w<sub>k</sub>*) associated with nodes *n*3, *n*4, *n*5, *n*7, and *n*8 for both scenarios. The error (Err and Err') is noted alongside each tree structure, illustrating the impact of removing *n*8 on the overall error. The image aims to demonstrate the effect of node reduction on error in the algorithm. -->
 
-Figure 4: An Example of Tree Construction ( ′ = (1 − ))
+**Figure 4:** An Example of Tree Construction ( ′ = (1 − ))
 
 3.4.2 Tree Structure Construction. Initially, we can construct a basic balanced binary tree, as illustrated in Figure [4](#page-6-2) (a). For optimization, we perform adaptive node reduction, where the reduction of a node refers to removing it from the tree and linking its child nodes to its parent. For example, reducing node <sup>8</sup> in Figure [4](#page-6-2) (a) produces the tree in Figure [4](#page-6-2) (b). We examine all non-leaf nodes through postorder traversal, adaptively determining whether to reduce each node to minimize the average error in response to range queries.
 
@@ -306,7 +301,7 @@ $$
 $$
 w_k = (l_k \cdot (d - r_k + 1) - l_p \cdot (d - r_p + 1)) / ((d + 1)d/2)
 $$
- (8)
+(8)
 
 We provide an example in Figure [4](#page-6-2) to calculate errors and decide whether to reduce 8. Considering that the existence of a non-leaf node only influences user allocation and weight calculation for its ancestor and descendant nodes, as framed by a red dash line in Figure [4,](#page-6-2) we compare the accumulated error from these nodes rather than the entire tree. Finally, we reduce 8 for a smaller error.
 
@@ -320,20 +315,18 @@ In the weighted averaging step, we traverse nodes from leaves to root, minimizin
 
 In the frequency consistency step, we update frequencies from the root to leaves to address inconsistency issues (1) and (2). The root's frequency is fixed at 1, i.e., ˜ root = 1. Given a parent node with optimized frequency ˜ ≥ 0 and its child nodes' to-beoptimized frequencies { ̇ | ∈child()}, we define the optimization problem in Eq.[\(9\)](#page-6-4). Let <sup>+</sup> be the set of child nodes with positive updated frequencies, and <sup>0</sup> be those with zero updated frequencies. According to KKT condidtions, the optimal frequency is ˜ = ̇ + (︂ ˜ − ∑︁ ∈<sup>+</sup> ̇ )︂ /︁ |+| if ∈+, and ˜ =0 if ∈0.
 
-<span id="page-6-4"></span>
 $$
 \min \sum_{n_c \in child(n_p)} (\tilde{f}_c - \dot{f}_c)^2
 $$
-  
-s.t. 
+
+s.t.
 $$
 \sum_{n_c \in child(n_p)} \tilde{f}_c = \tilde{f}_p \text{ and } \forall n_c \in child(n_p), \tilde{f}_c \ge 0
 $$
- (9)
+(9)
 
 3.5.2 Slope Refinement. To meet frequency constraints within nodes, i.e., resolving inconsistency issue (1), we refine slopes based on optimized node frequencies. For node with frequency ˜ , we must guarantee non-negativity at both endpoints of interval . Denoting the endpoints of as and , we require ( ) = ˜ /| |− ˜ (| |−1)/2 ≥ 0 and ( ) = ˜ /| |+ ˜ (| |−1)/2 ≥ 0. This establishes an effective range [− , ] for its slope, where = 2 ˜ /| | (| | − 1). We then update ˜ using Eq.[\(10\)](#page-6-5), minimizing the error ( ˜ − ˆ ) 2 and ensuring all fitted frequencies in are non-negative.
 
-<span id="page-6-5"></span>
 $$
 \tilde{\beta_k} = \begin{cases}\n-c_k, & \hat{\beta_k} < -C_k \\
 \hat{\beta_k}, & -C_k \le \hat{\beta_k} \le C_k \\
@@ -357,7 +350,7 @@ PL estimation error arises when estimating the frequency of the sub-range [sub, 
 
 3.6.3 Space and Time Complexity Analysis. Assuming PriPL-Tree's maximum segment number, i.e., the number of leaf nodes, is , the space complexity includes the size of PriPL-Tree,(), and the size of parameter matrices X and A for private PL fitting,( ·), which is ( · ) in total. The time complexity of PriPL-Tree involves two parts — the construction time and the query time. Overall, the construction time complexity mainly arises from private user data aggregation, frequency estimation, and private PL fitting during phases 1 and 2, totaling ( · + · + · log · 3 ). Here, denotes the number of iterations for EM and EMS in the SW mechanism during distribution estimation in phase 1. The query time complexity, proportional to the tree height, is (log<sup>2</sup> ). Due to space limitations, we provide a detailed analysis of the time complexity for each phase in Appendix E.1 of [\[36\]](#page-12-20).
 
-# <span id="page-7-0"></span>4 EXTENSION WITH ADAPTIVE GRIDS FOR MULTI-DIMENSIONAL QUERIES
+## <span id="page-7-0"></span>4 EXTENSION WITH ADAPTIVE GRIDS FOR MULTI-DIMENSIONAL QUERIES
 
 Building on insights from existing works summarized in Section [2.4,](#page-2-2) we combine 1-D PriPL-Trees and 2-D grids to handle multi-dimensional range queries. In contrast to uniformly constructed 2-D grids proposed by HDG [\[45\]](#page-12-11), we introduce data-aware adaptive grids. These grids leverage the accurate 1-D marginal distributions from PriPL-Trees to dynamically partition the entire domain into dense or sparse cells, adapting to data distribution density. As a result, they offer a more precise representation of 2-D data distributions and more accurate range query responses.
 
@@ -376,9 +369,9 @@ Step 3: Refining Consistency Between Grids and PriPL-Trees. Due to the noise int
 Step 4: Answering Range Queries. For 1-D queries, we can directly utilize PriPL-Trees to respond. For a 2-D query involving attributes ⟨ , ⟩, we answer it by a response matrix with × values. This matrix represents the 2-D data distribution and is estimated from 1-D histograms and 2-D adaptive grids using the maximum entropy algorithm or weighted update as described in [\[37,](#page-12-8) [45\]](#page-12-11). The critical difference between us and [\[37,](#page-12-8) [45\]](#page-12-11) is that they enforce the frequency sum of a sub-region equal to match its corresponding 1-D cell, while we enforce each frequency in the marginal distribution of the matrix to match the 1-D histogram. This fine-grained consistency fully exploits the slope information in PriPL-Trees, yielding a more accurate distribution. Further, for -D ( > 2) queries, we estimate with a 2 response matrix based on associated 2-D queries as in [\[37,](#page-12-8) [45\]](#page-12-11).
 
 <span id="page-8-3"></span>![](_page_8_Figure_0.jpeg)
-<!-- Image Description: The figure illustrates two adaptive grids visualizing marginal distributions from a PriPL-Tree.  (a) shows an adaptive grid on (Aᵢ, Aⱼ), where Aᵢ's marginal distribution (top) influences the grid's vertical partitioning, and Aⱼ's (left) influences horizontal.  (b) similarly shows an adaptive grid on (Aᵢ, Aⱼ'), demonstrating how different marginal distributions of Aⱼ (Aⱼ' on the right) affect grid refinement.  The shaded cells represent probability mass density. -->
+<!-- Image Description: The figure illustrates two adaptive grids visualizing marginal distributions from a PriPL-Tree. (a) shows an adaptive grid on (Aᵢ, Aⱼ), where Aᵢ's marginal distribution (top) influences the grid's vertical partitioning, and Aⱼ's (left) influences horizontal. (b) similarly shows an adaptive grid on (Aᵢ, Aⱼ'), demonstrating how different marginal distributions of Aⱼ (Aⱼ' on the right) affect grid refinement. The shaded cells represent probability mass density. -->
 
-Figure 5: Examples of Adaptive Grids (Black solid lines represent partitions inherited from PriPL-Trees; blue solid lines indicate newly added partitions; red dashed lines indicate deleted partitions.)
+**Figure 5:** Examples of Adaptive Grids (Black solid lines represent partitions inherited from PriPL-Trees; blue solid lines indicate newly added partitions; red dashed lines indicate deleted partitions.)
 
 ## <span id="page-8-2"></span>4.2 Adaptive 2-D Grid Partitioning
 
@@ -388,7 +381,7 @@ We introduce the squared error as below and detail the algorithm for adaptive pa
 
 > 2 (︁ 2 )︁ + ∑︁
 
-# <span id="page-8-1"></span>4.3 Consistency Refinement
+## <span id="page-8-1"></span>4.3 Consistency Refinement
 
 estimations across various datasets.
 
@@ -413,14 +406,14 @@ Competitors. We compare our methods with state-of-the-art techniques for range q
 Datasets. We use four synthetic (Gaussian, MixGaussian, Cauchy, Zipf) and four real-world datasets (Adult [\[1\]](#page-12-34), Loan [\[18\]](#page-12-35), Salary [\[19\]](#page-12-36), and Financial [\[20\]](#page-12-37)), each with 5 dimensions. On each dimension, the synthetic datasets Gaussian, Cauchy, and Zipf sample data from (0, 1), ℎ(0, 1), and (1.1) distributions, respectively. The MixGaussian dataset follows a mixture of (0, 0.5) and (3, 0.8). For applying LDP mechanisms for frequency estimation and aligning with the existing works [\[4,](#page-12-6) [7,](#page-12-7) [37,](#page-12-8) [41,](#page-12-10) [45\]](#page-12-11), all datasets are bucketized into domain [1024] for 1-D evaluations and [256] for multi-D evaluations, except for some attributes in the real-world dataset with discrete values and original domain sizes less than our specified ones. We provide statistics of these datasets in Table [2](#page-9-0) where the mean and variance are for the default attribute in 1-D scenarios. A more detailed description is provided in Appendix F of [\[36\]](#page-12-20).
 
 <span id="page-9-1"></span>![](_page_9_Figure_0.jpeg)
-<!-- Image Description: The image contains eight line graphs comparing four algorithms (PriPL-Tree, PrivNUD, AHEAD, DHT) across different datasets (Gaussian, MixGaussian, Cauchy, Zipf, Adult, Loan, Salary, Financial).  Each graph plots Mean Squared Error (MSE) against epsilon (ε), a privacy parameter. The purpose is to illustrate the algorithms' MSE performance under varying privacy levels and data distributions.  Lower MSE indicates better performance. -->
+<!-- Image Description: The image contains eight line graphs comparing four algorithms (PriPL-Tree, PrivNUD, AHEAD, DHT) across different datasets (Gaussian, MixGaussian, Cauchy, Zipf, Adult, Loan, Salary, Financial). Each graph plots Mean Squared Error (MSE) against epsilon (ε), a privacy parameter. The purpose is to illustrate the algorithms' MSE performance under varying privacy levels and data distributions. Lower MSE indicates better performance. -->
 
-Figure 6: Evaluation for 1-D Range Queries with Varying Privacy Budget
+**Figure 6:** Evaluation for 1-D Range Queries with Varying Privacy Budget
 
 <span id="page-9-2"></span>![](_page_9_Figure_2.jpeg)
-<!-- Image Description: The image presents four plots showing mean squared error (MSE) performance of different algorithms (Gaussian, MixGaussian, Zipf, Cauchy, PriPL-Tree, PrivNUD, AHEAD, DHT) across varying parameters.  Plot (a) shows MSE vs. user allocation ratio; (b) MSE vs. domain size; (c) MSE vs. query volume; and (d) MSE vs. user number. All plots use a log scale for the y-axis (MSE) and are designed to compare algorithm performance under different conditions. -->
+<!-- Image Description: The image presents four plots showing mean squared error (MSE) performance of different algorithms (Gaussian, MixGaussian, Zipf, Cauchy, PriPL-Tree, PrivNUD, AHEAD, DHT) across varying parameters. Plot (a) shows MSE vs. user allocation ratio; (b) MSE vs. domain size; (c) MSE vs. query volume; and (d) MSE vs. user number. All plots use a log scale for the y-axis (MSE) and are designed to compare algorithm performance under different conditions. -->
 
-Figure 7: Evaluation for 1-D Range Queries with Varying Parameters
+**Figure 7:** Evaluation for 1-D Range Queries with Varying Parameters
 
 Metrics. We employ the mean square error (MSE) [\[7,](#page-12-7) [37\]](#page-12-8) to quantify the deviation between the estimated ( ˜ ) and actual ( ) answers to range queries Q, denotes as (Q) = ∑︁ ∈Q( − ˜ ) 2 /|Q|. During each evaluation, we test 1,000 randomly generated range queries with a specified query volume and report the final MSE by an average of 20 repeats of the experiment.
 
@@ -432,17 +425,16 @@ In this subsection, we evaluate the performance of PriPL-Tree and its competitor
 
 Overall Performance. We evaluate PriPL-Tree against three competitors across varying privacy budgets on synthetic and realworld datasets in Figure [6.](#page-9-1) Our PriPL-Tree consistently outperforms competitors on most continuous distributions, such as Gaussian, MixGaussian, Cauchy, and those in the Adult, Loan, and Salary datasets. It significantly reduces MSEs by about 12.1% to 66.6%, averaging a 37.4% reduction across different privacy settings. In highly
 
-Table 2: Summary of Datasets
+**Table 2:** Summary of Datasets
 
-<span id="page-9-0"></span>
 
-| Dataset                                     | U.#a |   | L.#b Mean | Var.           | Dataset                           | U.#       |   | L.# Mean | Var.          |
+| Dataset | U.#a | | L.#b Mean | Var. | Dataset | U.# | | L.# Mean | Var. |
 |---------------------------------------------|------|---|-----------|----------------|-----------------------------------|-----------|---|----------|---------------|
-| Gaussian                                    | 106  | 0 | 155.0     | 775.34         | Adult                             | 32,561    | 4 | 30.36    | 336.88        |
-| MixGaussian 106                             |      | 0 |           | 135.12 2516.62 | Loan                              | 148,045   | 3 |          | 48.67 1620.19 |
-| Cauchy                                      | 106  | 5 |           | 159.37 609.50  | Salary                            | 2,013,799 | 2 | 33.59    | 515.88        |
-| Zipf                                        | 106  | 5 |           |                | 24.40 2517.47 Financial 6,362,620 |           | 5 | 0.23     | 2.65          |
-| a U.#: The number of users (i.e., samples). |      |   |           |                |                                   |           |   |          |               |
+| Gaussian | 106 | 0 | 155.0 | 775.34 | Adult | 32,561 | 4 | 30.36 | 336.88 |
+| MixGaussian 106 | | 0 | | 135.12 2516.62 | Loan | 148,045 | 3 | | 48.67 1620.19 |
+| Cauchy | 106 | 5 | | 159.37 609.50 | Salary | 2,013,799 | 2 | 33.59 | 515.88 |
+| Zipf | 106 | 5 | | | 24.40 2517.47 Financial 6,362,620 | | 5 | 0.23 | 2.65 |
+| a U.#: The number of users (i.e., samples). | | | | | | | | | |
 
 <sup>b</sup> L.#: The number of leptokurtic attributes with a kurtosis exceeding 3.
 
@@ -453,9 +445,9 @@ Impact of User Allocation Ratio . In Figure [7](#page-9-2) (a), we assess the im
 Impact of Domain Size . In Figure [7](#page-9-2) (b), we explore the impact of domain size on the 1-D Gaussian dataset, demonstrating PriPL-Tree's superiority, particularly in large domains. Notably, PriPL-Tree performs less effectively in very small domains, where
 
 <span id="page-10-1"></span>![](_page_10_Figure_0.jpeg)
-<!-- Image Description: This image presents two bar charts comparing the performance of four private data structures (PriPL-Tree, PrivNUD, AHEAD, DHT).  Chart (a) displays construction time (in seconds) on a logarithmic scale for various datasets (Adult, Salary, etc.). Chart (b) shows query time (seconds), also logarithmically scaled, across the same datasets.  The charts illustrate the trade-offs between construction and query times for the different data structures and datasets. -->
+<!-- Image Description: This image presents two bar charts comparing the performance of four private data structures (PriPL-Tree, PrivNUD, AHEAD, DHT). Chart (a) displays construction time (in seconds) on a logarithmic scale for various datasets (Adult, Salary, etc.). Chart (b) shows query time (seconds), also logarithmically scaled, across the same datasets. The charts illustrate the trade-offs between construction and query times for the different data structures and datasets. -->
 
-Figure 8: Runtime Evaluation under Different Datasets
+**Figure 8:** Runtime Evaluation under Different Datasets
 
 coarse bucketizing reduces the histogram's accuracy in representing distributions, resulting in suboptimal PL functions and inferior outcomes.
 
@@ -484,14 +476,14 @@ In this section, we review related works in both central differential privacy (D
 Range Query under DP: In DP scenarios, the far-reaching hierarchical tree and constrained inference method were first proposed by Hay et al. [\[16\]](#page-12-32) and later optimized by Qardaji et al. [\[28\]](#page-12-38). Various optimizations have since been proposed to mitigate noise errors on trees: Xiao et al. [\[43\]](#page-12-39) enhanced trees using Haar wavelet transforms; Cormode et al. [\[5\]](#page-12-40) proposed a geometric privacy budget allocation method; Li et al. [\[22\]](#page-12-18) optimized the non-uniform domain partitioning and privacy budget allocation based on data distribution and query workloads; Zhang et al. [\[49\]](#page-12-41) proposed PrivTree (i.e., a Quad-tree ) with optimized node decomposition; Huang et al. [\[17\]](#page-12-42) employed a balanced box-decomposition tree (BBD-tree) for counting arbitrarily shaped geometric ranges. Beyond hierarchical trees, Qardaji et al. [\[28\]](#page-12-38) presented the grid method with optimized
 
 <span id="page-11-1"></span>![](_page_11_Figure_0.jpeg)
-<!-- Image Description: The image contains eight plots showing Mean Squared Error (MSE) versus epsilon (ε) for different datasets (Gaussian, MixGaussian, Cauchy, Zipf, Adult, Loan, Salary, Financial). Each plot compares five algorithms: PriPL-Tree, PrivNUD, AHEAD, HDG, and PRISM.  The plots illustrate how the MSE of each algorithm varies with ε, likely a privacy parameter. The purpose is to compare the performance of the algorithms in terms of MSE under different privacy levels. -->
+<!-- Image Description: The image contains eight plots showing Mean Squared Error (MSE) versus epsilon (ε) for different datasets (Gaussian, MixGaussian, Cauchy, Zipf, Adult, Loan, Salary, Financial). Each plot compares five algorithms: PriPL-Tree, PrivNUD, AHEAD, HDG, and PRISM. The plots illustrate how the MSE of each algorithm varies with ε, likely a privacy parameter. The purpose is to compare the performance of the algorithms in terms of MSE under different privacy levels. -->
 
-Figure 9: Evaluation for 2-D Range Queries on 5-D Datasets with Varying Privacy Budget
+**Figure 9:** Evaluation for 2-D Range Queries on 5-D Datasets with Varying Privacy Budget
 
 <span id="page-11-2"></span>![](_page_11_Figure_2.jpeg)
-<!-- Image Description: The image contains four line graphs comparing the Mean Squared Error (MSE) performance of five different privacy-preserving algorithms (PriPL-Tree, PrivNUID, AHEAD, HDG, PRISM) under varying conditions.  (a) shows MSE vs. data dimension. (b) shows MSE vs. query dimension. (c) and (d) show MSE vs. covariance on Gaussian and MixGaussian data respectively.  The graphs illustrate the algorithms' robustness across different data characteristics. -->
+<!-- Image Description: The image contains four line graphs comparing the Mean Squared Error (MSE) performance of five different privacy-preserving algorithms (PriPL-Tree, PrivNUID, AHEAD, HDG, PRISM) under varying conditions. (a) shows MSE vs. data dimension. (b) shows MSE vs. query dimension. (c) and (d) show MSE vs. covariance on Gaussian and MixGaussian data respectively. The graphs illustrate the algorithms' robustness across different data characteristics. -->
 
-Figure 10: Evaluation for Multi-D Range Queries
+**Figure 10:** Evaluation for Multi-D Range Queries
 
 granularity, claiming grids are more suitable for high-dimensional queries. Recently, Zeighami et al. [\[48\]](#page-12-43) introduced a model-driven approach that learns noisy answers from multiple 2-D range count queries to predict results without complex indexes.
 
@@ -584,14 +576,14 @@ $$
 $$
 = \sum_{v \in [l_{sub}, r_{sub}]} (\tilde{\beta}_k \cdot v + b_k)
 $$
-  
-=  $\tilde{\beta}_k \cdot \frac{(l_{sub} + r_{sub}) \cdot (r_{sub} - l_{sub} + 1)}{2} + b_k \cdot (r_{sub} - l_{sub} + 1)$   
-=  $(r_{sub} - l_{sub} + 1) \cdot \left( \tilde{\beta}_k \left( \frac{l_{sub} + r_{sub} + 1 - |I_k|}{2} - s_{k-1} \right) + \frac{\tilde{f}_k}{|I_k|} \right).$ 
+
+= $\tilde{\beta}_k \cdot \frac{(l_{sub} + r_{sub}) \cdot (r_{sub} - l_{sub} + 1)}{2} + b_k \cdot (r_{sub} - l_{sub} + 1)$
+= $(r_{sub} - l_{sub} + 1) \cdot \left( \tilde{\beta}_k \left( \frac{l_{sub} + r_{sub} + 1 - |I_k|}{2} - s_{k-1} \right) + \frac{\tilde{f}_k}{|I_k|} \right).$
 
 <span id="page-14-0"></span>![](_page_14_Figure_6.jpeg)
-<!-- Image Description: The image displays a 2D graph illustrating a function f(v).  A shaded region,  denoted  Q([l<sub>sub</sub>, r<sub>sub</sub>]), represents a quantity calculated from the function's area between points l<sub>sub</sub> and r<sub>sub</sub> on the x-axis (v). A line segment,  ~β<sub>k</sub>, indicates a slope within this region. The interval [s<sub>k-1</sub>, s<sub>k</sub>] is identified and labeled I<sub>k</sub> below the x-axis, representing a sub-interval.  The graph likely depicts a step in an algorithm or a model for function approximation or optimization. -->
+<!-- Image Description: The image displays a 2D graph illustrating a function f(v). A shaded region, denoted Q([l<sub>sub</sub>, r<sub>sub</sub>]), represents a quantity calculated from the function's area between points l<sub>sub</sub> and r<sub>sub</sub> on the x-axis (v). A line segment, ~β<sub>k</sub>, indicates a slope within this region. The interval [s<sub>k-1</sub>, s<sub>k</sub>] is identified and labeled I<sub>k</sub> below the x-axis, representing a sub-interval. The graph likely depicts a step in an algorithm or a model for function approximation or optimization. -->
 
-Figure 11: An Example of ( [sub, sub]) within node .
+**Figure 11:** An Example of ( [sub, sub]) within node .
 
 ## A.2 Interval Partitioning
 
@@ -600,34 +592,34 @@ In this subsection, we illustrate the basic workflow of interval partitioning in
 A.2.1 Twice Partitioning Strategy. To illustrate the twice partitioning strategy, we present its results on the Cauchy and Salary datasets in Figure [13.](#page-14-2) The blue solid lines, representing <sup>F</sup><sup>ˆ</sup> derived by EM in SW, are jagged and noisy, while the red solid lines, representing <sup>F</sup><sup>ˆ</sup> derived by EMS in SW, are smoother but tend to flatten peak features. Initial partitions based on <sup>F</sup><sup>ˆ</sup> EM are marked by dashed blue lines and help identify critical peaks indicated by yellow stars. Subsequent partitions on <sup>F</sup><sup>ˆ</sup> EMS are shown with red dashed lines, identifying critical turning points marked by black
 
 <span id="page-14-1"></span>![](_page_14_Figure_11.jpeg)
-<!-- Image Description: This figure illustrates two breakpoint search algorithms. (a) shows iterative interval partitioning: a piecewise linear (PL) function is fitted to the data; the interval is recursively partitioned, finding the best breakpoint at each step. (b) demonstrates a search acceleration strategy. It refines the search space by iteratively reducing the step size, thus locating the optimal breakpoint more efficiently. Both (a) and (b) use line graphs depicting the data and fitted PL functions within their respective search spaces.  Equations calculate step sizes for the accelerated search. -->
+<!-- Image Description: This figure illustrates two breakpoint search algorithms. (a) shows iterative interval partitioning: a piecewise linear (PL) function is fitted to the data; the interval is recursively partitioned, finding the best breakpoint at each step. (b) demonstrates a search acceleration strategy. It refines the search space by iteratively reducing the step size, thus locating the optimal breakpoint more efficiently. Both (a) and (b) use line graphs depicting the data and fitted PL functions within their respective search spaces. Equations calculate step sizes for the accelerated search. -->
 
-Figure 12: An Example of Interval Partitioning.
+**Figure 12:** An Example of Interval Partitioning.
 
 stars. In combination, this strategy facilitates the discovery of the most crucial partitions for precise PL fitting.
 
 It is important to note that while <sup>F</sup><sup>ˆ</sup> EMS does not directly provide accurate slopes at this phase, they can be refined during the PriPL-Tree refinement phase, deriving piecewise linear lines denoted by the black solid lines in Figure [13.](#page-14-2) Additionally, this strategy does not significantly increase the time complexity of interval partitioning. Partitioning over the jagged <sup>F</sup><sup>ˆ</sup> EM typically converges quickly, and the partitioning over the smoother <sup>F</sup><sup>ˆ</sup> EMS, building on initial partitioning results, also converge swiftly. The total number of partitions remains within the maximum segment limit max.
 
 <span id="page-14-2"></span>![](_page_14_Figure_15.jpeg)
-<!-- Image Description: The image displays two histograms comparing real data distributions (green) with estimated distributions (various lines).  Subfigure (a) shows a Cauchy distribution, while (b) presents a salary distribution.  Vertical lines represent interval partitions created by different estimation methods (indicated by line styles and legend). The figure aims to illustrate the accuracy of various distribution estimation techniques in approximating real-world data. -->
+<!-- Image Description: The image displays two histograms comparing real data distributions (green) with estimated distributions (various lines). Subfigure (a) shows a Cauchy distribution, while (b) presents a salary distribution. Vertical lines represent interval partitions created by different estimation methods (indicated by line styles and legend). The figure aims to illustrate the accuracy of various distribution estimation techniques in approximating real-world data. -->
 
-Figure 13: An Example of Twice Partitioning with = 0.2
+**Figure 13:** An Example of Twice Partitioning with = 0.2
 
 A.2.2 Search Acceleration Strategy. In Figure [12](#page-14-1) (b), we illustrate the search acceleration strategy, which speeds up the initial breakpoint search during interval partitioning. Using a granularity factor of = 16, we reduce the search step from 64 to 1, limiting the breakpoint candidates to no more than 16 per search. Black dashed lines mark the candidates, with the red dashed line indicating the optimal breakpoint. This method, compared to the basic one traversing all domain values, reduces the times of PL fitting for breakpoints from () to ( · log ). Although this acceleration might lead
 
 <span id="page-15-0"></span>![](_page_15_Figure_0.jpeg)
-<!-- Image Description: This figure presents eight bar and line graphs, each showing the construction time and mean squared error (MSE) for different dataset sizes (φ).  The bars represent total construction time, split into "Private PL Fitting in Phase 1" and "Other Construction Steps." The red line plots MSE.  The datasets are Gaussian, MixGaussian, Cauchy, Zipf, Adult, Loan, Salary, and Financial, illustrating the effect of dataset characteristics and size on model construction time and accuracy. -->
+<!-- Image Description: This figure presents eight bar and line graphs, each showing the construction time and mean squared error (MSE) for different dataset sizes (φ). The bars represent total construction time, split into "Private PL Fitting in Phase 1" and "Other Construction Steps." The red line plots MSE. The datasets are Gaussian, MixGaussian, Cauchy, Zipf, Adult, Loan, Salary, and Financial, illustrating the effect of dataset characteristics and size on model construction time and accuracy. -->
 
-Figure 14: Construction Time and MSE for PriPL-Tree with Search Acceleration Strategy across Different Granularity Factors
+**Figure 14:** Construction Time and MSE for PriPL-Tree with Search Acceleration Strategy across Different Granularity Factors
 
 to a local rather than global optimal breakpoint, it has minimal impact on final results since each breakpoint in a piecewise linear function naturally represents a local optima to partition the domain. Moreover, because PL fitting occurs on a noisy histogram, a global optimal breakpoint might not accurately represent the actual distribution. Using a multi-granular search strategy that increases randomness can help mitigate this issue.
 
 To validate the search acceleration strategy, we evaluated both the accelerated PriPL-Tree construction time and the MSE of queries on corresponding trees across four synthetic and four real-world datasets in Figure [14.](#page-15-0) A granularity factor of 1024, meaning all values in the domain are traversed, represents no acceleration. The green bar indicates the accelerated private PL fitting time, which increases with . The red line shows the MSE, fluctuating irregularly with increases in , yet the variation between the highest and lowest MSEs remained within a two-fold difference. Observationally, a larger in the range of [128, 256] often provides better utility while effectively speeding up the process.
 
 <span id="page-15-1"></span>![](_page_15_Figure_4.jpeg)
-<!-- Image Description: Algorithm 3 presents an adaptive 2-D grid partitioning algorithm.  It uses two `while` loops. The first iteratively selects cells with maximal frequency from set *S*, splitting them if a condition based on frequency (`f`) and error (`ErrG`) is met; otherwise, cells are moved to set *M*. The second loop mirrors this, selecting cells from *M* with minimal frequency and merging them under a similar condition. The algorithm aims to create an adaptive grid based on data distribution, represented by marginal histograms. -->
+<!-- Image Description: Algorithm 3 presents an adaptive 2-D grid partitioning algorithm. It uses two `while` loops. The first iteratively selects cells with maximal frequency from set *S*, splitting them if a condition based on frequency (`f`) and error (`ErrG`) is met; otherwise, cells are moved to set *M*. The second loop mirrors this, selecting cells from *M* with minimal frequency and merging them under a similar condition. The algorithm aims to create an adaptive grid based on data distribution, represented by marginal histograms. -->
 
-# B TECHNICAL DETAILS FOR MULTI-DIMENSIONAL RANGE QUERIES
+## B TECHNICAL DETAILS FOR MULTI-DIMENSIONAL RANGE QUERIES
 
 In this section, we illustrate the entire workflow and detail the algorithm for adaptive 2-D grid partitioning.
 
@@ -635,14 +627,14 @@ In this section, we illustrate the entire workflow and detail the algorithm for 
 
 We provide an example of the workflow in Figure [15](#page-16-0) to illustrate this process further.
 
-# B.2 The Algorithm For Adaptive Grid Partitioning
+## B.2 The Algorithm For Adaptive Grid Partitioning
 
 Building on the concept of adaptive partitioning described in Section [4.2,](#page-8-2) we detail the algorithm in Algorithm [3](#page-15-1) and provide an example in step 2 of Figure [5.](#page-8-3) For the attribute pair ⟨ , ⟩, we initially partition its domain based on the leaf node partitions in the PriPL-Trees, creating a grid with × cells (as shown in line 1). We then dynamically adjust partition lines along each dimension for adaptive partitioning, where adding a line splits a marginal cell (as shown in line 5) and removing a line merges marginal cells (as shown in line 13). In the algorithm, let index marginal cells on both and ; we consistently select the most significant cells for splitting (high-frequency cells) or merging (low-frequency cells). This adjustment of marginal cells adheres to two principles: ensuring each cell's frequency exceeds the standard deviation of the OUE noise ¯ = √︂ 2 2 · (︁ 2 )︁ , and minimizing the squared error for range queries, as dictated by the splitting and merging conditions in lines 6 and 14.
 
 <span id="page-16-0"></span>![](_page_16_Figure_0.jpeg)
-<!-- Image Description: This flowchart illustrates a four-step algorithm for answering multi-dimensional range queries.  Step 1 uses PriPL-trees to estimate 1D histograms. Step 2 generates 2D adaptive grids from attribute pairs using adaptive splitting and merging. Step 3 refines consistency between grids and PriPL-trees via weighted averaging and frequency consistency checks. Finally, Step 4 combines these to answer λ-D range queries using a response matrix.  The figure uses trees, histograms, grids, and matrices to visually represent data structures and operations. -->
+<!-- Image Description: This flowchart illustrates a four-step algorithm for answering multi-dimensional range queries. Step 1 uses PriPL-trees to estimate 1D histograms. Step 2 generates 2D adaptive grids from attribute pairs using adaptive splitting and merging. Step 3 refines consistency between grids and PriPL-trees via weighted averaging and frequency consistency checks. Finally, Step 4 combines these to answer λ-D range queries using a response matrix. The figure uses trees, histograms, grids, and matrices to visually represent data structures and operations. -->
 
-Figure 15: Workflow of Multi-dimensional Range Queries
+**Figure 15:** Workflow of Multi-dimensional Range Queries
 
 ## C ERROR ANALYSIS ON 1-D PRIPL-TREE
 
@@ -679,32 +671,32 @@ As such, the variance of for non-leaf nodes can be deduced as follows:
 $$
 \operatorname{Var}(\tilde{f}_p) = \frac{\operatorname{Var}(\tilde{f}_p) \cdot \operatorname{Var}\left(\sum_{n_c \in \text{child}(n_p)} \tilde{f}_c\right)}{\operatorname{Var}(\tilde{f}_p) + \operatorname{Var}\left(\sum_{n_c \in \text{child}(n_p)} \tilde{f}_c\right)}
 $$
-  
+
 \n
 $$
 = \frac{\operatorname{Var}(\tilde{f}_p) \cdot \left(\sum_{n_c \in \text{child}(n_p)} \operatorname{Var}(\tilde{f}_c)\right)}{\operatorname{Var}(\tilde{f}_p) + \sum_{n_c \in \text{child}(n_p)} \operatorname{Var}(\tilde{f}_c)}
 $$
-  
+
 \n
 $$
 = \operatorname{Var}(\tilde{f}_p) - \frac{\operatorname{Var}^2(\tilde{f}_p)}{\operatorname{Var}(\tilde{f}_p) + \sum_{n_c \in \text{child}(n_p)} \operatorname{Var}(\tilde{f}_c)}
 $$
-  
+
 \n
 $$
 \leq \operatorname{Var}(\tilde{f}_p) - \frac{\operatorname{Var}^2(\tilde{f}_p)}{\operatorname{Var}(\tilde{f}_p) + b \cdot \operatorname{Var}(\tilde{f}_p)}
 $$
-  
+
 \n
 $$
 = \frac{b_k}{b_k + 1} \cdot \operatorname{Var}(\tilde{f}_p)
 $$
-  
+
 \n
 $$
 \leq \frac{K}{K + 1} \cdot \operatorname{Var}(\tilde{f}_p)
 $$
-  
+
 \n
 $$
 = O\left(\frac{K}{K + 1} \cdot \frac{\log K}{(1 - \alpha)N\epsilon^2}\right).
@@ -754,14 +746,14 @@ $$
 
 ≤ (︃ |+| + 1 |+| )︃ℎmax max (︂ {Var( ¯ )} ∪ {Var( ¯ )| ∈ child( )})︂ ≤ 2 log<sup>2</sup> · (︃ log (1 − )<sup>2</sup> )︃ = (︃ log (1 − )<sup>2</sup> )︃ . □
 
-# C.2 The Numerical Method for Calculating Noise and Sampling Error
+## C.2 The Numerical Method for Calculating Noise and Sampling Error
 
 The variances of node 's frequency ˜ after PriPL-Tree Refinement can be veiwed as a weighted average of frequency estimates of all nodes from the first two phases [\[29\]](#page-12-30), as we exemplified in Figure [16.](#page-17-0) Here, the vector V stores the original independent variances of each node, and each node maintains a weight vector W corresponding to each value in V. Let , denote the -th value in W and denote the -th value in V. For node , its final variance can be computed as ∑︁ ≤ |V<sup>|</sup> 2 , · .
 
 <span id="page-17-0"></span>![](_page_17_Figure_7.jpeg)
-<!-- Image Description: The image illustrates a hierarchical data structure.  Three vectors, W₀, W₁, and V, are shown. W₀ and W₁ represent initial and final states of a vector, respectively, with W₁ showing updated values after some process. V is a vector containing variance values (Var(fᵢ)). A tree diagram shows a hierarchical relationship between nodes (n₁, n₂, …, n₇), with a "Root" node at the top and leaf nodes (n₁-n₅) at the bottom.  The purpose is to depict a data transformation process and its resultant structure. -->
+<!-- Image Description: The image illustrates a hierarchical data structure. Three vectors, W₀, W₁, and V, are shown. W₀ and W₁ represent initial and final states of a vector, respectively, with W₁ showing updated values after some process. V is a vector containing variance values (Var(fᵢ)). A tree diagram shows a hierarchical relationship between nodes (n₁, n₂, …, n₇), with a "Root" node at the top and leaf nodes (n₁-n₅) at the bottom. The purpose is to depict a data transformation process and its resultant structure. -->
 
-#### Figure 16: An Example of Variance Computation.
+### Figure 16: An Example of Variance Computation.
 
 (For convenience, assuming all values in V are equal to ∗ and all frequencies remain positive during the frequency consistency step, we can derive weight W<sup>1</sup> as illustrated in the figure. Consequently, the final updated variance for ˜ 1 is Var( ˜ 1 ) = 113 <sup>192</sup> ∗ .)
 
@@ -773,7 +765,7 @@ For the weight vector W of node , after weighted averaging, it is updated as sho
 
 <span id="page-18-0"></span>Algorithm 4: Numerical Method for Variance Estimation Input: Frequencies ˆ or ¯ for each node and the node number | T | Output: The error variance of each node's refined frequency. // Initialize V|T |×<sup>1</sup> <sup>1</sup> Initialize vector V; <sup>2</sup> for leaf node do <sup>3</sup> Var( ¯ ) = 4 · · ( −1) 2 ; <sup>4</sup> Var( ˆ ) ≈ ( ˆ − ¯ ) <sup>2</sup> >Var( ¯ )?( ˆ − ¯ ) <sup>2</sup> − Var( ¯ ) : ( ˆ − ¯ ) 2 ; <sup>5</sup> = Var( ̇ ) = Var( ˆ ) Var( ¯ ) Var( ˆ )+Var( ¯ ) ; <sup>6</sup> for non-leaf node do <sup>7</sup> = Var( ¯ ) = 4 · · ( −1) 2 ; // Calculate W <sup>8</sup> Initialize vector W<sup>0</sup> = 0|T |×<sup>1</sup> for the root and W with only the -th value being one and others being zero for node ; <sup>9</sup> for non-leaf node visited in postorder traversal do <sup>10</sup> = ∑︁ ∈child( ) Var( ̇ ) Var( ̇ )+∑︁ ∈child( ) Var( ̇ ) ; <sup>11</sup> W = · W + (1 − ) · (∑︁ <sup>∈</sup>child( ) <sup>W</sup> ); <sup>12</sup> for node visited in level order traversal do <sup>13</sup> if ∈ <sup>+</sup> then <sup>14</sup> Let represent 's parent; <sup>15</sup> W = |+|−1 |+| · W + 1 |+| · W − ∑︁ ∈<sup>+</sup> 1 |+| · W ; // Calculate variances <sup>16</sup> for each node do <sup>17</sup> Var( ˜ ) = ∑︁ <sup>1</sup>≤ ≤ |T | <sup>2</sup> , · ; <sup>18</sup> return Var( ˜ ) of each node ;
 
-# D ERROR ANALYSIS ON MULTI-DIMENSIONAL QUERIES
+## D ERROR ANALYSIS ON MULTI-DIMENSIONAL QUERIES
 
 Multi-dimensional queries primarily depend on the estimated frequency of 2-D grids, which are adaptively constructed and refined based on the PriPL-Tree for each attribute. As such, we analyze the error in queries on these 2-D grids. As discussed in Section [4.2,](#page-8-2) for a range query that selects a portion of the area of a grid of size × , the squared error is 2 2 (︁ 2 )︁ + ∑︁ ∈ 2 , where 2 = 4 · ( −1) 2 . For simplicity, let represent the maximum grid partition size on each attribute; the asymptotic bound of the squared error is ( · 2 ·<sup>2</sup> · 2 ). Furthermore, Theorem [D.1](#page-18-1) provides the maximum absolute error, derived from Lemma [D.2](#page-18-2) and the analysis in Section [4.2.](#page-8-2)
 
@@ -789,7 +781,7 @@ $$
 $$
 \max_{c} |\hat{f}_c - f_c| = O\left(\frac{m\sqrt{\log(g^2/\beta)}}{\epsilon\sqrt{N}}\right)
 $$
- (12)
+(12)
 
 Proof. For a frequency ˆ estimated by OUE using = 2·( 2 ) users, it is unbiased and has a variance given by Var( ˆ ) = 4 ·( 2 ) · ( −1) 2 . By Bernstein's inequality, when is small,
 
@@ -806,25 +798,25 @@ By the union bound, there exist = (︃ √ log( <sup>2</sup>/) √ )︃ = (︃ l
 
 In this section, we theoretically and experimentally compare the time complexity between PriPL-Tree and its competitors. For convenience, we assume all attributes have the same domain size .
 
-# E.1 1-D Time Complexity
+## E.1 1-D Time Complexity
 
 Theoretical Analysis of PriPL-Tree: The construction time follows three phases. Phase 1 is relatively complex, involving the distribution estimation and private PL fitting two steps. The first step mainly includes the user values' aggregation time( ·) and the distribution estimation time ( · ) based on the EM or EMS algorithm within the SW mechansim, where denotes the number of iterations in EM and EMS. The second step includes matrix-based segment fitting, taking time ( 2 · ), where calculating the inverse of matrices by the Gaussian elimination method, and interval partitioning, invoking at most ( · ) segment fitting. When we apply the search acceleration strategy in interval partitioning with a granularity factor (refer to Section [3.3.2\)](#page-4-7), ( · · log ) times segment fitting is required. Next, in phase 2, involving the construction of the PriPL-Tree and the estimation of each node's frequency, the time complexity is ( + · (1 − ) · ). Phase 3, refining the PriPL-Tree through two traversals, leads to a complexity of (). Overall, the construction time complexity primarily stems from private user data aggregation, frequency estimation, and private PL fitting during phases 1 and 2, totaling ( · + · + · log · 3 ). This has been confirmed across various datasets and domain sizes , as illustrated in Figure [17.](#page-19-0) The legend labeled "LDP frequency estimation" represents user data aggregation and frequency estimation using existing LDP mechanisms.
 
 <span id="page-19-0"></span>![](_page_19_Figure_1.jpeg)
-<!-- Image Description: The image contains two bar charts showing computation times.  (a) compares times for LDP frequency estimation, private PL fitting, and tree construction across six datasets (Adult, Salary, etc.) with a domain size (d) of 1024. (b) shows the effect of varying *d* on a Gaussian dataset for the same three computational steps, demonstrating a clear increase in time with increasing *d*.  The charts illustrate the relative computational costs of different components in the algorithm and the scaling behavior with respect to the problem size (*d*). -->
+<!-- Image Description: The image contains two bar charts showing computation times. (a) compares times for LDP frequency estimation, private PL fitting, and tree construction across six datasets (Adult, Salary, etc.) with a domain size (d) of 1024. (b) shows the effect of varying *d* on a Gaussian dataset for the same three computational steps, demonstrating a clear increase in time with increasing *d*. The charts illustrate the relative computational costs of different components in the algorithm and the scaling behavior with respect to the problem size (*d*). -->
 
-Figure 17: Construction Time of PriPL-Tree
+**Figure 17:** Construction Time of PriPL-Tree
 
 Theoretical Analysis of Competitors: In Table [3,](#page-19-1) we compare the construction and query time complexities of different methods in 1-D scenarios. Because all compared methods utilize hierarchical tree structures, the construction time complexity of them primarily stems from processing users' reports, while the query time complexity depends on the tree height. In this table, the construction time complexities for AHEAD and DHT are sourced from [\[7\]](#page-12-7), and that for PrivNUD is analyzed by us using the same methodology. Since that the maximum segment number in PriPL-Tree is typically small, our construction time complexity is competitive with others, and our query time is significantly lower than our competitors.
 
-<span id="page-19-1"></span>Table 3: Time Complexity Comparison for 1-D Range Queries
+<span id="page-19-1"></span>**Table 3:** Time Complexity Comparison for 1-D Range Queries
 
-| Methods    | Construction Time                            | Query Time    |
+| Methods | Construction Time | Query Time |
 |------------|----------------------------------------------|---------------|
 | PriPL-Tree | 3<br>𝑂 (𝑁 · 𝐾 + 𝑑 · 𝑇 + 𝑑 · log𝑑<br>· 𝐾<br>) | 𝑂 (log2<br>𝐾) |
-| PrivNUD    | 𝑂 (log𝑑<br>2<br>· 𝑁 · 𝑑)                     | 𝑂 (log2<br>𝑑) |
-| AHEAD      | 𝑂 (log𝑑<br>2<br>· 𝑁 · 𝑑)                     | 𝑂 (log2<br>𝑑) |
-| DHT        | 3<br>𝑂 (𝑁 + 𝑑<br>)                           | 𝑂 (log2<br>𝑑) |
+| PrivNUD | 𝑂 (log𝑑<br>2<br>· 𝑁 · 𝑑) | 𝑂 (log2<br>𝑑) |
+| AHEAD | 𝑂 (log𝑑<br>2<br>· 𝑁 · 𝑑) | 𝑂 (log2<br>𝑑) |
+| DHT | 3<br>𝑂 (𝑁 + 𝑑<br>) | 𝑂 (log2<br>𝑑) |
 
 Experimental Comparison: To ensure a fair comparison of method runtimes, we reimplemented DHT, originally in C++, in Python to match the programming language of the other methods. We have analyzed the construction and query times across different datasets in Section [5.2.](#page-9-3) Additionally, we evaluate the construction times of different methods on varying domain sizes and the query times on varying query volumes.
 
@@ -833,109 +825,107 @@ For construction time, all methods are mainly influenced by the time of aggregat
 For query time, DHT shows a rising trend with increasing query volume(), whereas others, including PriPL-Tree, AHEAD, and PrivNUD, initially rise then decline as query volume increases. This trend is significantly pronounced for PrivNUD but slight for PriPL-Tree and AHEAD. This observation aligns with the theoretical analysis that in the hierarchical trees, the query time correlates with the differing numbers of nodes accessed at various query volumes, typically peaking when the query volume is around 50%.
 
 ![](_page_19_Figure_10.jpeg)
-<!-- Image Description: The image contains two bar graphs comparing the performance of four privacy-preserving data structures: PriPL-Tree, PrivNUD, AHEAD, and DHT.  Graph (a) shows construction time versus domain size (d), while graph (b) displays query time against query volume (vol(Q)). Both graphs use a logarithmic scale for the y-axis (time), illustrating the algorithms' scalability and efficiency under varying conditions.  The purpose is to present a performance comparison of the methods. -->
+<!-- Image Description: The image contains two bar graphs comparing the performance of four privacy-preserving data structures: PriPL-Tree, PrivNUD, AHEAD, and DHT. Graph (a) shows construction time versus domain size (d), while graph (b) displays query time against query volume (vol(Q)). Both graphs use a logarithmic scale for the y-axis (time), illustrating the algorithms' scalability and efficiency under varying conditions. The purpose is to present a performance comparison of the methods. -->
 
-Figure 18: Runtime Evaluation on Gaussian
+**Figure 18:** Runtime Evaluation on Gaussian
 
 ## <span id="page-19-3"></span>E.2 Multi-D Time Complexity
 
 Theoretical Analysis: In multi-dimensional scenarios, leveraging the 1-D and 2-D estimations is a common strategy across all methods. The construction time complexity of these hybrid lowdimensional data structures is primarily from processing user's reports, where each user reports multiple perturbed counts for nodes in the tree or cells in the grid. The query time complexity arises from computing the frequencies of the corresponding (︁ 2 )︁ 2-D grids and generating the response matrix with 2 values. Because generating the response matrix with given (︁ 2 )︁ 2-D grids is uniform for all methods, we focus on the time complexity of 2-D grids estimation for comparison, omitting the time consumption of the response matrix step. Following this idea, we analyze the time complexity of our PriPL-Tree and other competitors in Table [4.](#page-19-2) During our analysis, we note that the granularity of the grids in the PriPL-Tree method is typically smaller than the maximum number of segments per attribute, denoted as ; therefore, we set the granularity to (). For other methods, we use the optimized granularity reported in their respective papers.
 
-<span id="page-19-2"></span>Table 4: Time Complexity Comparison for -d Range Queries on -d Datasets
+<span id="page-19-2"></span>**Table 4:** Time Complexity Comparison for -d Range Queries on -d Datasets
 
-| Methods    | Construction Time                      | Query Time                              |
+| Methods | Construction Time | Query Time |
 |------------|----------------------------------------|-----------------------------------------|
-| PriPL-Tree | 2 +<br>𝑂 (𝑁 · 𝐾<br>𝑚 · 𝑑 · 𝑇 )<br>√    | 2<br>2<br>𝑂 (𝜆<br>· 𝐾<br>)<br>√         |
-| PrivNUD    | 𝑂 (log𝑑<br>2<br>· 𝑁 · 𝑑/𝑚 + 𝑁<br>𝑁 /𝑚) | 2<br>𝑂 (𝜆<br>𝑁 /𝑚)<br>·                 |
-| AHEAD      | 2<br>𝑂 (log𝑑<br>4<br>· 𝑁 · 𝑑<br>)<br>√ | 2<br>2<br>𝑂 (𝜆<br>· log4<br>𝑑<br>)<br>√ |
-| HDG        | 𝑂 (𝑁<br>𝑁 /𝑚)<br>√                     | 2<br>𝑂 (𝜆<br>𝑁 /𝑚)<br>·<br>√            |
-| PRISM      | 𝑂 (𝑁<br>𝑁 /𝑚)                          | 2<br>𝑂 (𝜆<br>𝑁 /𝑚)<br>·                 |
-|            |                                        |                                         |
+| PriPL-Tree | 2 +<br>𝑂 (𝑁 · 𝐾<br>𝑚 · 𝑑 · 𝑇 )<br>√ | 2<br>2<br>𝑂 (𝜆<br>· 𝐾<br>)<br>√ |
+| PrivNUD | 𝑂 (log𝑑<br>2<br>· 𝑁 · 𝑑/𝑚 + 𝑁<br>𝑁 /𝑚) | 2<br>𝑂 (𝜆<br>𝑁 /𝑚)<br>· |
+| AHEAD | 2<br>𝑂 (log𝑑<br>4<br>· 𝑁 · 𝑑<br>)<br>√ | 2<br>2<br>𝑂 (𝜆<br>· log4<br>𝑑<br>)<br>√ |
+| HDG | 𝑂 (𝑁<br>𝑁 /𝑚)<br>√ | 2<br>𝑂 (𝜆<br>𝑁 /𝑚)<br>·<br>√ |
+| PRISM | 𝑂 (𝑁<br>𝑁 /𝑚) | 2<br>𝑂 (𝜆<br>𝑁 /𝑚)<br>· |
+| | | |
 
 ∗: is the maximum segment number in PriPL-Tree, and is the number of iterations in the EM algorithm within the SM protocol [\[25\]](#page-12-17).
 
 Experimental Comparison: In Figure [19,](#page-20-0) we assess the actual runtime of these methods. For construction time across eight different datasets, i.e., Figure [19](#page-20-0) (a), our PriPL-Tree performs comparably to PrivNUD and is slightly longer than HDG, which is the fastest and only uses grid structures without trees. In Figure [19](#page-20-0) (c), the construction times for all methods increase with data dimensionality. PRISM is an exception, with significantly larger time consumption in 2-D cases. This is because it generates significantly finer grids in the 2-D case than in other dimensions with its granularity optimization strategy [\[41\]](#page-12-10). For query time, i.e., Figure [19](#page-20-0) (b) and (d), our PriPL-Tree method consistently achieves the fastest responses, with times increasing as query dimension increases.
 
 <span id="page-20-0"></span>![](_page_20_Figure_1.jpeg)
-<!-- Image Description: The image presents four bar charts comparing the performance of five privacy-preserving data publishing methods (PriPL-Tree, PrivNUD, AHEAD, HDG, PRISM).  (a) and (b) show construction and query times across various datasets. (c) and (d) focus on construction and query times specifically for Gaussian datasets, varying parameters *m* and  λ, respectively.  The charts use a logarithmic y-axis to represent time in seconds, illustrating the relative efficiency of each method under different conditions. -->
+<!-- Image Description: The image presents four bar charts comparing the performance of five privacy-preserving data publishing methods (PriPL-Tree, PrivNUD, AHEAD, HDG, PRISM). (a) and (b) show construction and query times across various datasets. (c) and (d) focus on construction and query times specifically for Gaussian datasets, varying parameters *m* and λ, respectively. The charts use a logarithmic y-axis to represent time in seconds, illustrating the relative efficiency of each method under different conditions. -->
 
-Figure 19: Runtime Evaluations (Defaulty, = 5 and = 2)
+**Figure 19:** Runtime Evaluations (Defaulty, = 5 and = 2)
 
 ## F DATASETS DESCRIPTION
 
 In this section, we provide additional descriptions of both synthetic and real-world datasets. For our main 1-D scenario, we illustrate the distribution for the default attribute of each dataset in Figure [20.](#page-20-1) For multi-dimensional scenarios, we present the mean, variance, skewness, and kurtosis for each attribute across all datasets. Skewness indicates data distribution asymmetry, with positive values suggesting a long right tail and negative values a long left tail. Kurtosis measures the peak sharpness and tail thickness of the distribution. We bold the Kurtosis values exceeding 3 in the following tables, indicating an excessively peaked distribution. Given the similar statistical characteristics across dimensions, we summarize the average indicators for synthetic datasets in Table [5.](#page-20-2) For real-world datasets, we detail these characteristics per attribute in the following: Adult dataset in Table [6,](#page-20-3) Loan dataset in Table [7,](#page-21-0) Salary dataset in Table [8,](#page-21-1) and Financial dataset in Table [9.](#page-21-2)
 
-<span id="page-20-2"></span>Table 5: Summary of Synthetic Datasets ( = 256)
+<span id="page-20-2"></span>**Table 5:** Summary of Synthetic Datasets ( = 256)
 
-| Dataset     | Mean   | Variance | Skewness | Kurtosis |
+| Dataset | Mean | Variance | Skewness | Kurtosis |
 |-------------|--------|----------|----------|----------|
-| Gaussian    | 155.0  | 775.34   | 1.44     | -0.28    |
-| MixGaussian | 135.12 | 2516.62  | 1.15     | -0.28    |
-| Cauchy      | 159.37 | 609.50   | 4.42     | 15.46    |
-| Zipf        | 24.40  | 2517.47  | 18.58    | 284.47   |
+| Gaussian | 155.0 | 775.34 | 1.44 | -0.28 |
+| MixGaussian | 135.12 | 2516.62 | 1.15 | -0.28 |
+| Cauchy | 159.37 | 609.50 | 4.42 | 15.46 |
+| Zipf | 24.40 | 2517.47 | 18.58 | 284.47 |
 
 <span id="page-20-1"></span>![](_page_20_Figure_7.jpeg)
-<!-- Image Description: The image displays eight histograms visualizing the frequency distributions of various datasets.  Histograms (a) and (b) show Gaussian and Mixture Gaussian distributions, respectively, while (c) and (d) illustrate Cauchy and Zipf distributions. Histograms (e)-(h) present empirical data distributions for "Adult" (fnlwgt), "Loan" (total\_pymnt), "Salary" (TotalPay), and "Financial" (amount) datasets.  The purpose is to visually compare different theoretical and empirical probability distributions in the context of the paper. -->
+<!-- Image Description: The image displays eight histograms visualizing the frequency distributions of various datasets. Histograms (a) and (b) show Gaussian and Mixture Gaussian distributions, respectively, while (c) and (d) illustrate Cauchy and Zipf distributions. Histograms (e)-(h) present empirical data distributions for "Adult" (fnlwgt), "Loan" (total\_pymnt), "Salary" (TotalPay), and "Financial" (amount) datasets. The purpose is to visually compare different theoretical and empirical probability distributions in the context of the paper. -->
 
-Figure 20: Data Distributions of 1-D Datasets
+**Figure 20:** Data Distributions of 1-D Datasets
 
-| Table 6: Summary of Adult Dataset (𝑑 |  | = 256) |
+| **Table 6:** Summary of Adult Dataset (𝑑 | | = 256) |
 |--------------------------------------|--|--------|
 |--------------------------------------|--|--------|
 
-<span id="page-20-3"></span>
 
-| Attribute      | Mean  | Variance | Skewness | Kurtosis |
+| Attribute | Mean | Variance | Skewness | Kurtosis |
 |----------------|-------|----------|----------|----------|
-| fnlwgt         | 30.36 | 336.88   | 2.19     | 4.03     |
-| age            | 21.58 | 186.06   | -0.03    | -1.64    |
-| capital-gain   | 2.71  | 353.74   | 15.90    | 250.75   |
-| capital-loss   | 5.11  | 555.48   | 15.90    | 250.93   |
-| hours-per-week | 39.44 | 152.45   | 8.82     | 80.72    |
+| fnlwgt | 30.36 | 336.88 | 2.19 | 4.03 |
+| age | 21.58 | 186.06 | -0.03 | -1.64 |
+| capital-gain | 2.71 | 353.74 | 15.90 | 250.75 |
+| capital-loss | 5.11 | 555.48 | 15.90 | 250.93 |
+| hours-per-week | 39.44 | 152.45 | 8.82 | 80.72 |
 
-# G ADDITIONAL EVALUATION ON HIGH-DIMENSIONAL DATASET
+## G ADDITIONAL EVALUATION ON HIGH-DIMENSIONAL DATASET
 
 In this section, we evaluate performance on the high-dimensional IPUMS dataset, as shown in Figure [21.](#page-21-3) This dataset, sourced from the 2022 IPUMS repository [1](#page-20-4) , contains 50 dimensions and 15,721,123 samples. Due to the high runtime complexity of AHEAD, as detailed in Appendix [E.2,](#page-19-3) it could not produce effective results on 50-D datasets within the limited time in our experimental setup, so we excluded its results from the figure. This omission does not impact
 
 <span id="page-20-4"></span><sup>1</sup>https://usa.ipums.org/usa/
 
 <span id="page-21-3"></span>![](_page_21_Figure_0.jpeg)
-<!-- Image Description: The image contains two line graphs comparing the mean squared error (MSE) of six different private query answering methods (PriPL-Tree, PrivNUD, AHEAD, HDG, PRISM) across varying parameters.  The left graph shows MSE versus privacy budget (ε), while the right graph shows MSE versus query dimension (λ). Both graphs illustrate the trade-off between privacy and accuracy for each method.  Lower MSE indicates better accuracy. -->
+<!-- Image Description: The image contains two line graphs comparing the mean squared error (MSE) of six different private query answering methods (PriPL-Tree, PrivNUD, AHEAD, HDG, PRISM) across varying parameters. The left graph shows MSE versus privacy budget (ε), while the right graph shows MSE versus query dimension (λ). Both graphs illustrate the trade-off between privacy and accuracy for each method. Lower MSE indicates better accuracy. -->
 
-<span id="page-21-0"></span>Figure 21: Evaluation of Range Queries on 50-D IPUMS
+<span id="page-21-0"></span>**Figure 21:** Evaluation of Range Queries on 50-D IPUMS
 
-Table 7: Summary of Loan Dataset ( = 256)
+**Table 7:** Summary of Loan Dataset ( = 256)
 
-| Attribute                      | Mean  | Variance | Skewness | Kurtosis |
+| Attribute | Mean | Variance | Skewness | Kurtosis |
 |--------------------------------|-------|----------|----------|----------|
-| total_pymnt                    | 48.67 | 1620.19  | 1.27     | 0.35     |
-| total_rec_int                  | 21.69 | 596.95   | 2.98     | 8.38     |
-| installment                    | 66.01 | 1595.08  | 1.12     | 0.37     |
-| total_il_high<br>_credit_limit | 5.02  | 29.44    | 5.61     | 32.28    |
-| loan_amnt                      | 93.03 | 3661.59  | 4.75     | 26.27    |
+| total_pymnt | 48.67 | 1620.19 | 1.27 | 0.35 |
+| total_rec_int | 21.69 | 596.95 | 2.98 | 8.38 |
+| installment | 66.01 | 1595.08 | 1.12 | 0.37 |
+| total_il_high<br>_credit_limit | 5.02 | 29.44 | 5.61 | 32.28 |
+| loan_amnt | 93.03 | 3661.59 | 4.75 | 26.27 |
 
-Table 8: Summary of Salary Dataset ( = 256)
+**Table 8:** Summary of Salary Dataset ( = 256)
 
-<span id="page-21-1"></span>
 
-| Attribute        | Mean  | Variance | Skewness | Kurtosis |
+| Attribute | Mean | Variance | Skewness | Kurtosis |
 |------------------|-------|----------|----------|----------|
-| TotalPay         | 33.59 | 515.88   | 1.80     | 2.56     |
-| TotalPayBenefits | 42.15 | 797.60   | 1.64     | 2.64     |
-| BasePay          | 52.80 | 1174.51  | 1.46     | 2.33     |
-| OvertimePay      | 5.08  | 140.77   | 15.43    | 240.57   |
-| OtherPay         | 6.22  | 25.47    | 13.47    | 194.04   |
-|                  |       |          |          |          |
+| TotalPay | 33.59 | 515.88 | 1.80 | 2.56 |
+| TotalPayBenefits | 42.15 | 797.60 | 1.64 | 2.64 |
+| BasePay | 52.80 | 1174.51 | 1.46 | 2.33 |
+| OvertimePay | 5.08 | 140.77 | 15.43 | 240.57 |
+| OtherPay | 6.22 | 25.47 | 13.47 | 194.04 |
+| | | | | |
 
-<span id="page-21-2"></span>Table 9: Summary of Financial Dataset ( = 256)
+<span id="page-21-2"></span>**Table 9:** Summary of Financial Dataset ( = 256)
 
-| Attribute      | Mean | Variance | Skewness | Kurtosis |
+| Attribute | Mean | Variance | Skewness | Kurtosis |
 |----------------|------|----------|----------|----------|
-| amount         | 0.23 | 2.65     | 15.76    | 247.68   |
-| oldbalanceOrg  | 3.40 | 151.81   | 15.82    | 249.22   |
-| newbalanceOrig | 4.24 | 225.10   | 15.72    | 246.97   |
-| oldbalanceDest | 0.57 | 5.61     | 15.57    | 243.49   |
-| newbalanceDest | 0.64 | 6.60     | 15.47    | 241.30   |
+| amount | 0.23 | 2.65 | 15.76 | 247.68 |
+| oldbalanceOrg | 3.40 | 151.81 | 15.82 | 249.22 |
+| newbalanceOrig | 4.24 | 225.10 | 15.72 | 246.97 |
+| oldbalanceDest | 0.57 | 5.61 | 15.57 | 243.49 |
+| newbalanceDest | 0.64 | 6.60 | 15.47 | 241.30 |
 
 our analysis, as previous experiments have already demonstrated its inferior performance compared to PrivNUD and our PriPL-Tree.
 

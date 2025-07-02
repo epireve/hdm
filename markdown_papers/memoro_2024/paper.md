@@ -25,13 +25,12 @@ keywords:
 - real-world
 ---
 
-
 # Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation
 
 <span id="page-0-0"></span>![](_page_0_Figure_1.jpeg)
 <!-- Image Description: This image from an academic paper depicts a system architecture diagram and illustrative examples. The diagram shows a conversational AI system using a query agent (LLM) and retrieval agent (LLM) interacting with external memories and processing speech-to-text and text-to-speech. Illustrative examples showcase "Query Mode" and "Queryless Mode" demonstrating the system's ability to respond to explicit and implicit user queries via bone conduction audio feedback. The system's functionality in different interaction modes is highlighted. -->
 
-Figure 1: Architecture of Memoro and its two interaction modes. (Left) System architecture of the memory assistant. (Right) Two interaction modes: (1) Query Mode where the user can ask contextual questions (2) Queryless Mode where the user can request predictive assistance and skip query formation. In both modes, responses are discreetly played back to the user using a bone conduction headset.
+**Figure 1:** Architecture of Memoro and its two interaction modes. (Left) System architecture of the memory assistant. (Right) Two interaction modes: (1) Query Mode where the user can ask contextual questions (2) Queryless Mode where the user can request predictive assistance and skip query formation. In both modes, responses are discreetly played back to the user using a bone conduction headset.
 
 ## ABSTRACT
 
@@ -61,7 +60,7 @@ Wazeer Zulfikar, Samantha Chan, and Pattie Maes. 2024. Memoro: Using Large Langu
 
 Permission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for third-party components of this work must be honored. For all other uses, contact the owner/author(s).
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Memory plays an essential role in people's lives, whether in communication, learning, decision-making, or maintaining relationships [\[4,](#page-12-0) [43\]](#page-13-0). However, memory is imperfect and error-prone due to factors such as lack of sleep, stress, and divided attention [\[55,](#page-14-0) [62\]](#page-14-1). Furthermore, neurological disorders related to memory loss, such as dementia, are rising as populations in many parts of the world grow older [\[52\]](#page-14-2).
 
@@ -87,11 +86,11 @@ In summary, the contributions of this paper are threefold:
 - (2) Exploration of a query-less approach to eliminate query time and thereby increase seamless memory assistance by inferring the user's memory need.
 - (3) A within-subject user study showing that the proposed system has good usability and low interruption in a social task while preserving conversation quality and decreasing task load as compared to no system.
 
-#### 2 RELATED WORK
+### 2 RELATED WORK
 
 Our work is related to, and inspired by past work on wearable memory augmentation systems, context-aware agents in conversations, and large language models in virtual assistants.
 
-#### 1 Wearable Memory Augmentation Systems
+### 1 Wearable Memory Augmentation Systems
 
 Wearable memory augmentation has been a well-researched area since the 1990s when Mik Lamming coined the term "memory prosthesis" [\[41\]](#page-13-15). Since then, there have been various forms of memory augmentation systems, including reminder systems and lifelogging systems [\[14,](#page-13-16) [28,](#page-13-17) [29,](#page-13-18) [34,](#page-13-5) [41,](#page-13-15) [44,](#page-13-6) [59,](#page-14-7) [69\]](#page-14-4). Lifelogging devices continuously capture signals such as audio, video, and biosignals resulting
 
@@ -99,7 +98,7 @@ in a vast store of data. In the audio domain, Vemuri et al. [\[69\]](#page-14-4)
 
 Enabling voice-based interfaces for the users helps in memory retrieval from their lifelogs [\[53\]](#page-14-10). Furthermore, voice interfaces can enable users to maintain high face focus and eye contact during conversations [\[13\]](#page-13-19). Therefore, we present a voice-based retrieval approach for an audio-based wearable memory assistant that can handle natural language queries with a focus on minimizing disruption to the primary task of the user. With concise responses from the assistant serving as memory suggestions, we aim to reduce device interaction time and preserve the quality of the primary task while using the system. Additionally, when the user is trying to retrieve specific details from a lifelog, we explore a method to allow users to skip having to form an explicit query by having the assistant infer their memory retrieval query based on the current context, as explained in the section below.
 
-#### 2 Context-aware Agents in Conversations
+### 2 Context-aware Agents in Conversations
 
 Just-in-time retrieval systems [\[36,](#page-13-9) [60\]](#page-14-3) aim to speed up the retrieval process by proactively retrieving relevant information from the database based on the user's current context. Social interactions such as conversations is a setting in which a majority of subjective memory complaints occur [\[51\]](#page-14-5). More recently, there has been growing work on real-time information access during conversations to bring filtered information to the user's attention to improve the quality of conversation [\[2,](#page-12-2) [3,](#page-12-3) [19,](#page-13-20) [37,](#page-13-21) [46,](#page-13-22) [49\]](#page-13-23). Meurisch et al. [\[46\]](#page-13-22) conducted an in-the-wild study of systems with different proactivity levels. Muller et al. [\[49\]](#page-13-23) presented guidelines for the design of user interfaces for conversation support such as to provide means for fluid transition and re-engagement to ease the switch between information retrieval and the conversation. This informed the design of the interaction of Memoro to reduce query time and response duration. While there are several ways of providing proactive support, Liu et al. [\[37\]](#page-13-21) show that a majority of users in a conversation preferred an on-demand suggestion interface over a fully proactive interface as it can be less distracting to the user experience. Wearable systems should minimize experiential disruptions to reduce users' explicit awareness of the system as this decreases cognitive load, and increases the sense of agency and sense of bodyownership [\[48\]](#page-13-24). As minimizing distraction is central to the design of Memoro, this inspired our approach to providing on-demand predictive assistance, through the Queryless Mode, in memory retrieval. Understanding user intentions and conversational context is facilitated through recent advances in LLMs.
 
@@ -120,13 +119,13 @@ Memoro has three components: the memory encoder, the retrieval agent, and the qu
 
 The wearable platform consists of a commercial bone conduction headset that communicates with a smartphone or laptop. The bone conduction headset gives the user a parallel channel of audio [\[31,](#page-13-27) [47\]](#page-13-28), allowing them to have conversations with people while being able to hear audio responses from Memoro without impeding their field of view. The headset has an in-built microphone. Speech recognition is implemented using Google's Speech-to-Text API and speech synthesis of the text response from the memory assistant uses the Google Text-to-Speech API. The large language model used is OpenAI GPT3 (davinci-003) [\[11\]](#page-13-12) with a temperature of 0.
 
-#### 1 Memory Encoder
+### 1 Memory Encoder
 
 Auditory memories are stored using a two-step process. A continuous transcription is run on what the microphone picks up, including both the speech of the user and the conversation partner, under the assumption that privacy consent has been addressed. The transcription is first stored as the Current Context of the conversation. The current context is maintained in a fixed-sized buffer of the last characters of data. We set to 75 characters for capturing the most recent couple of sentences in the prototype but can be set larger to capture more context. The buffer is continuously updated by adding new information and removing information that is beyond the threshold specified earlier. The set of information removed from the current context is chunked together into a single block and then encoded into the External Memories as a memory.
 
 Encoding of the memory is done using sentence embedding vectors of the text transcription of the full block. The embeddings capture the meaning of the memory enabling semantic search beyond keyword matching. Embeddings are calculated using pre-trained all-MiniLM-L6-v2 sentence transformer model [\[56\]](#page-14-14) which maps sentences and paragraphs to a 384-dimensional dense vector space. Through these embeddings, the most semantically relevant memories containing the answer to the user query can be selected during retrieval. The embeddings, the text transcription, and the start timestamp for each memory block are stored using a vector database for faster retrieval [\[40\]](#page-13-29). Figure [3](#page-4-1) shows the encoding process of transcriptions into external memories.
 
-#### 2 Retrieval Agent
+### 2 Retrieval Agent
 
 The aim of the retrieval agent is to take a query and respond with a concise answer from the user's encoded external memories, enabling the Query Mode. It uses a method called retrieval augmented generation developed by Lewis et al[\[42\]](#page-13-13) and used in state of the art question-answering systems [\[50,](#page-14-15) [65\]](#page-14-16).
 
@@ -139,12 +138,12 @@ The contextual search is implemented using the following approach. When the user
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
 <!-- Image Description: This flowchart depicts a conversational AI system's architecture. User speech is converted to text, processed through a query or queryless mode (depending on user input), and analyzed by a Query Agent (LLM). This agent interacts with a Memory Encoder and Retrieval Agent (LLM) to generate an inferred query and provide a text-to-speech response. The system also incorporates bone conduction feedback. The diagram illustrates the data flow and components of the system. -->
 
-Figure 2: The closed loop system architecture has a memory encoder that is continuously updated using text-to-speech. The system can be configured to use query or queryless mode. In the Query Mode, the explicit query is voiced by the user, while in the Queryless Mode, the query agent infers the query. The query and memories are inputted to the retrieval agent, which returns a concise memory suggestion that is delivered to the user through bone conduction
+**Figure 2:** The closed loop system architecture has a memory encoder that is continuously updated using text-to-speech. The system can be configured to use query or queryless mode. In the Query Mode, the explicit query is voiced by the user, while in the Queryless Mode, the query agent infers the query. The query and memories are inputted to the retrieval agent, which returns a concise memory suggestion that is delivered to the user through bone conduction
 
 <span id="page-4-1"></span>![](_page_4_Figure_4.jpeg)
 <!-- Image Description: This flowchart depicts an LLM-based conversational agent architecture. Input (microphone/bone conduction) is processed via speech-to-text and fed to a memory encoder and query former. The query is processed by a retrieval agent (LLM) to find relevant memories (using cosine similarity) from an external database. Temporal reranking and clipping refine results before a full answer generator produces a response (text-to-speech). The flowchart visually represents the information flow and processing steps involved in the agent's operation. -->
 
-Figure 3: Detailed workflow of the components of Memoro: memory encoder, retrieval agent, and query agent. The memory encoder takes speech transcriptions and maintains the context and external memories. The query agent takes in the context and produces an inferred query. The retrieval agent takes a query and retrieves an answer from external memories.
+**Figure 3:** Detailed workflow of the components of Memoro: memory encoder, retrieval agent, and query agent. The memory encoder takes speech transcriptions and maintains the context and external memories. The query agent takes in the context and produces an inferred query. The retrieval agent takes a query and retrieves an answer from external memories.
 
 language model appropriately. The template prompt can be found in Appendix [D.](#page-16-0)
 
@@ -152,11 +151,11 @@ language model appropriately. The template prompt can be found in Appendix [D.](
 
 In order to further streamline the interaction between the user and Memoro, we implemented an additional feature in the memory assistant that enables the user to receive on-demand predictive assistance without having to explicitly form a query, enabling the Queryless Mode. This is facilitated by the user requesting the memory assistant to understand the ongoing flow of the conversation and infer their precise memory need. For example, if the user is already saying "He likes to play Settlers of Catan, Pandemic and ...", and then triggers the assistant, the query agent can predict the user query "What is the third board game he likes?" allowing the user to skip query formation. To achieve this, we use a method that infers the query that the user is likely to ask based on a Current Context buffer, similar to the one implemented in the Query Mode. The question inference leverages another iteration of prompting the language model to produce the query. The prompt can be found in Appendix [D.](#page-16-0) The inferred query is then passed to the retrieval agent and the resulting concise answer is then presented to the user using text-to-speech synthesis. By implementing this feature, we aim to minimize the time spent in interactions during conversations, making Memoro more efficient and user-friendly.
 
-#### 4 USER STUDY
+### 4 USER STUDY
 
 To evaluate the interaction, usability, and experiences of users with Memoro, we conducted a within-subject study with N=20 participants and separated the two interaction modes for a detailed evaluation. In the study, the participants were introduced to fictional people and then engaged in a live conversation with the researcher about these fictional people. They experienced this in different conditions to evaluate the RQs.
 
-#### 1 Tasks
+### 1 Tasks
 
 4.1.1 Introductions to Fictional People. We created four fictional people who were introduced to the participants, one for each condition. The introductions consisted of information-dense details such as the fictional persons' occupations, families, hobbies, and interests. The scripts are provided in the Appendix [A.](#page-14-18) The introductions were played as audio with an image of the fictional person (generated using an online AI face generator[1](#page-5-0) ) displayed on screen and were around 2 minutes long per person. The experiment was designed to make it very difficult to remember all these details. The introductions formed the External Memories for subsequent interactions with the memory assistant. No additional information was encoded into the External Memories during the conversation for a careful study of the interaction modes of the system.
 
@@ -164,7 +163,7 @@ To evaluate the interaction, usability, and experiences of users with Memoro, we
 
 details). The researcher made sure to use the question set during the conversation. The responses from the participants were not scripted and they could choose when and how to interact with the system in the given condition at their discretion.
 
-#### 2 Conditions
+### 2 Conditions
 
 The conditions were designed to elicit differences to technically and subjectively evaluate Memoro during the conversation. To address RQ2, we had a No System condition, where the participant engages in the task without the use of the system to compare and understand the effects on conversational quality and task load. In order to address RQ3, which was to determine the effect of contextual awareness and conciseness on the system's usability and user preferences, we set up a Baseline LLM system that is identical to the retrieval agent for question answering but does not use contextual awareness or conciseness. Therefore, participants needed to ask comprehensive questions in the Baseline condition and receive complete answers from the system. Overall, there were four conditions:
 
@@ -195,26 +194,26 @@ system. The conciseness/verbosity of the assistant's responses was measured base
 
 independently by two researchers (who were also independent of the data collection) and analyzed following Braun and Clarke [\[8\]](#page-13-34) to generate initial themes. The researchers then reviewed the coded data and themes to come up with our final themes and analysis.
 
-#### 5 Procedure
+### 5 Procedure
 
 Figure [4](#page-7-0) summarises the study procedure. At the start of the study, participants were asked to fill in a demographic questionnaire (see Supplementary Materials). For Baseline, Query, and Queryless conditions, they were introduced to a fictional person while wearing the system. The order of the conditions was counterbalanced and the fictional introductions were presented in a randomized order. After this, they engaged in a math task for distraction to refresh their short-term memory. Then, participants were asked to sit facing the researcher and engage in a conversation about the fictional person. Before the conversation (except in the "No System" condition), participants were given video instructions on how to use the system/mode in the respective condition. Participants familiarised themselves with the mode and practiced using it with an example. During the conversation, participants were able to use the system's features (except in the "No System" condition). Next, participants answered questionnaires about their experience (Section 4.4). At the end of the study, the participants answered a final questionnaire to rank their preferred condition, explained their ranking, and provided answers to open-ended questions on their experience using the system. The study took about one hour to complete and was set in a room within the laboratory.
 
-#### 6 Participants
+### 6 Participants
 
 Participants were recruited through email lists as well as snowball sampling and word-of-mouth. 20 participants took part in the study (9 male, 9 female, 2 non-binary, age range = 18 to 32, = 23.4, = 4.2 ). Participants were fluent or native English speakers with normal or corrected-to-normal hearing. Participants rated their listening memory between 'Somewhat bad' (4), 'Neither good nor bad' (3), 'Somewhat good' (11), and 'Extremely good' (2). Additionally, the participants rated their frequency of experiencing tip-of-the-tongue moments in conversation as 'Never' (1), 'Sometimes' (13), 'About half the time' (4), and 'Most of the time' (2). The participants rated their frequency of using voice assistants as 'Not at all' (7), 'Once a month' (3), 'A few times' (4), 'Once a week' (3), 'More than once a week' (3). The study received ethics approval from the university ethics review board, and participants gave written consent to take part in the study.
 
-#### 5 RESULTS
+### 5 RESULTS
 
 We show the analysis from the user study of the systems' usability, technical evaluation, user perceptions and experience, and preferences.
 
-#### 1 Technical Evaluation
+### 1 Technical Evaluation
 
 A total of 392 interactions with the system were captured in the user study for all conditions: 102 for the Baseline, 150 for the Query Mode, and 140 for the Queryless Mode. Each interaction indicates a moment when the user requested memory assistance by using the button. We used these interactions for the technical evaluation.
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a study's procedure. Participants begin with a 3-minute demographic questionnaire, followed by a 1-hour section including introductions, a 12-minute math task (repeated under 4 conditions), a conversation, and a reflection survey. The process concludes with a 5-minute final survey. The flowchart visually represents the timeline and stages of the experimental design. -->
 
-Figure 4: Procedure for the user study for each participant
+**Figure 4:** Procedure for the user study for each participant
 
 5.1.1 Conciseness and Processing Times. The normality assumption for the response length data was not met according to the Shapiro-Wilk test (<.05). Friedman tests (k=3) were conducted to determine if there were main effects in the conciseness. The test indicated significant differences between conditions ( <sup>2</sup> = 135, <.001) in the response length from the system. The Wilcoxon signed-rank tests with Bonferroni correction in post-hoc showed that the Query Mode resulted in significantly shorter responses for the queries asked by the user as compared to the Baseline (<.001), with an 85% reduction in the mean number of characters from 115.4 to 16.6. The Queryless Mode has a response length similar to the Query mode. The average query time was also reduced by 15% from 3.4 seconds for the Baseline to 2.9 seconds for the Query Mode (=.03). The query time is not applicable for the Queryless Mode. The average processing time of the system for the Baseline and Query Mode was 1.4 seconds and 2.3 seconds for the Queryless Mode. The processing time reflects the time from the end of the query to the start of the audio feedback of the answer. Table [2](#page-8-0) shows the detailed statistical results.
 
@@ -222,7 +221,7 @@ Figure 4: Procedure for the user study for each participant
 
 5.1.3 Handling diverse queries from users. The usage of a large language model (LLM) allows the system to understand the intent of a user and enables natural language search beyond keyword matching, such as semantics. With sufficient information, it can predict the query by understanding the user's intent. The performance of the retrieval and query agents using LLMs are illustrated with the following examples of the interactions by two of the participants (P3, P19) in Figure [5.](#page-8-1) In the first example (P3), the user opted to substitute the term 'gym' with the phrase 'place for working out', and the retrieval agent comprehended the intention of the user. In the second example (P19), the query agent interpreted that the user was looking for the third activity and inferred a query for the retrieval agent, resulting in a successful interaction. More such examples can be found in Appendix [C.](#page-16-1)
 
-# 2 Conversation Quality, Task Performance, and Task Load between Conditions
+## 2 Conversation Quality, Task Performance, and Task Load between Conditions
 
 5.2.1 Quality of Conversation. There were no significant differences in conversation quality between conditions for the measures of attention ( <sup>2</sup> = 3.63, =.303), concentration ( <sup>2</sup> = 7.21, =.0655), eye contact ( <sup>2</sup> = 7.00, =.0719), and how relaxed they were during the conversation ( <sup>2</sup> = 3.85, =.278). The quality of the conversation was preserved and not reduced in any of the conditions. We found a significant difference in the naturalness of conversation between the conditions ( <sup>2</sup> = 13.8, <.01). There were significant differences between the No System condition and the system conditions: No System-Baseline <.01, No System-Query <.01, No System-Queryless <.01, No System =5.75, =1.41, Baseline =4.30, =2.03, Query =4.25, =1.94, Queryless =4.55, =1.82.
 
@@ -236,28 +235,28 @@ We found significant differences in task load (RTLX) scores between conditions (
 
 ## Table 1: Average response length and average process time from the system, and average query time by the participant in the different conditions
 
-| Condition      | Average Response Length (n chars) | Average Query Time (s) | Average Process Time (s) |
+| Condition | Average Response Length (n chars) | Average Query Time (s) | Average Process Time (s) |
 |----------------|-----------------------------------|------------------------|--------------------------|
-| Baseline       | 115.4± 82.9                       | 3.4±2.8                | 1.4±0.7                  |
-| Query Mode     | 16.6±11.0                         | 2.9±3.9                | 1.3±0.6                  |
-| Queryless Mode | 21.1±11.8                         | -                      | 2.3±0.8                  |
+| Baseline | 115.4± 82.9 | 3.4±2.8 | 1.4±0.7 |
+| Query Mode | 16.6±11.0 | 2.9±3.9 | 1.3±0.6 |
+| Queryless Mode | 21.1±11.8 | - | 2.3±0.8 |
 
 ### <span id="page-8-0"></span>Table 2: Accuracy of the responses generated from the system in the different conditions
 
-| Condition      | Correct (%) | Don't Know (%) | Incorrect (%) | Speech Recognition Error (%) |
+| Condition | Correct (%) | Don't Know (%) | Incorrect (%) | Speech Recognition Error (%) |
 |----------------|-------------|----------------|---------------|------------------------------|
-| Baseline       | 80.3        | 11.7           | 2.9           | 3.9                          |
-| Query Mode     | 84.0        | 6.0            | 6.7           | 3.3                          |
-| Queryless Mode | 70.7        | 0.7            | 23.5          | 2.8                          |
+| Baseline | 80.3 | 11.7 | 2.9 | 3.9 |
+| Query Mode | 84.0 | 6.0 | 6.7 | 3.3 |
+| Queryless Mode | 70.7 | 0.7 | 23.5 | 2.8 |
 
 <span id="page-8-1"></span>![](_page_8_Figure_6.jpeg)
 <!-- Image Description: This flowchart illustrates a system's query and queryless modes for information retrieval. The top section shows "External Memories" storing Sarah's gym activities. The bottom depicts two modes: "Query Mode," where a question ("What is the name of the place?") elicits "Pump Iron" via a retrieval agent; and "Queryless Mode," which infers ("What is Sarah's third exercise?") and retrieves "Cardio Exercises" based on contextual information. The diagram contrasts explicit querying with implicit, context-aware retrieval. -->
 
-#### Figure 5: Example interactions by P3 and P19 show the Query Mode and the Queryless mode for the same memory respectively. The timestamps are changed for reporting.
+### Figure 5: Example interactions by P3 and P19 show the Query Mode and the Queryless mode for the same memory respectively. The timestamps are changed for reporting.
 
 (=10.0, =7.06) and the Queryless Mode (=8.68, =11.4). Overall, the RTLX scores were generally lower in the system conditions compared to the No System condition: Baseline =9.34, =7.19, Query =8.51, =9.93.
 
-# 3 User Perceptions and Experience with Memoro
+## 3 User Perceptions and Experience with Memoro
 
 5.3.1 System Usability. The Query Mode of Memoro had the highest mean usability score of 80.0 (=11.8, Figure [7\)](#page-9-1). The Queryless Mode had a usability score of 77.1 (=8.1) and the Baseline had the lowest usability score of 68.75 (=15.15). Since the data was normally distributed according to the Shapiro-Wilk test (>.05), a repeated measures ANOVA showed a main effect of the systems on
 
@@ -272,12 +271,12 @@ CHI '24, May 11–16, 2024, Honolulu, HI, USA Zulfikar, et al.
 <span id="page-9-0"></span>![](_page_9_Figure_2.jpeg)
 <!-- Image Description: The image presents four box plots (a-d), each comparing four conditions ("No System," "Baseline," "Query Mode," "Queryless Mode") across a different dependent variable: (a) Confidence, (b) Recalled Relevance, (c) Difficulty, and (d) NASA TLX. The plots show the distribution of responses for each condition, with statistically significant differences indicated by asterisks above the bars. The purpose is to visually compare the impact of different system modes on user experience and performance metrics. -->
 
-Figure 6: Task Performance and task load : (a) Confidence in recalling, (b) Relevance of recalled information, (c) Perceived difficulty in recalling, and (d) Raw NASA TLX scores. \*\*\*: <.001
+**Figure 6:** Task Performance and task load : (a) Confidence in recalling, (b) Relevance of recalled information, (c) Perceived difficulty in recalling, and (d) Raw NASA TLX scores. \*\*\*: <.001
 
 <span id="page-9-1"></span>![](_page_9_Figure_4.jpeg)
 <!-- Image Description: The image displays a box plot comparing system usability scores across three modes: Baseline, Query Mode, and Queryless Mode. The y-axis represents the system usability scale (0-100). The box plots show the median, interquartile range, and range of usability scores for each mode. A horizontal line with an asterisk indicates a statistically significant difference between at least two modes. The plot visually communicates the impact of different interaction modes on system usability. -->
 
-Figure 7: System Usability Scale (SUS) scores for the different assistants. \*: <.05
+**Figure 7:** System Usability Scale (SUS) scores for the different assistants. \*: <.05
 
 Query (=5.55, =1.05) and Queryless (=5.45, =1.19) Modes had significantly higher ratings in length appropriateness (Query-Baseline:<.01, Queryless-Baseline: <.01) compared to the Baseline (=2.80, =1.47). There were no significant differences between Query and Queryless Modes (=.685).
 
@@ -300,12 +299,12 @@ Memoro: Using LLMs to Realize a Concise Interface for Real-Time Memory Augmentat
 <span id="page-10-0"></span>![](_page_10_Figure_2.jpeg)
 <!-- Image Description: The image presents four box plots (a-d), each comparing three conditions (Baseline, Query Mode, Queryless Mode) across a different user experience metric: Appropriate Length, Adaptability, Device Interruption, and Helpfulness. Each box plot displays the median, interquartile range, and outliers. Significance levels (indicated by asterisks) are shown between conditions, suggesting statistical comparisons were performed. The plots likely illustrate the impact of different modes (Query and Queryless) on these user experience aspects. -->
 
-Figure 8: User perceptions and experience of the different assistants: (a) Appropriateness of response length, (b) Adaptability, (c) Device interruption and (d) Helpfulness. \*\*: <.01
+**Figure 8:** User perceptions and experience of the different assistants: (a) Appropriateness of response length, (b) Adaptability, (c) Device interruption and (d) Helpfulness. \*\*: <.01
 
 <span id="page-10-1"></span>![](_page_10_Figure_4.jpeg)
 <!-- Image Description: The image is a stacked bar chart comparing four system modes ("No System," "Baseline," "Query Mode," "Queryless Mode") across four categories ("Most," "Second-Most," "Third-Most," "Least"). Each bar segment represents the frequency of a system mode within each category, illustrating the relative prevalence of each mode across different usage levels. The chart likely presents performance data or user behavior analysis, comparing the effectiveness or popularity of each system mode. -->
 
-Figure 9: User preferences between conditions. The plot shows the number of participants who preferred which condition the most, the second-most, the third-most and the least.
+**Figure 9:** User preferences between conditions. The plot shows the number of participants who preferred which condition the most, the second-most, the third-most and the least.
 
 questionless one has potential to be super useful with some practice. I just need to know when to hit the button for best results."
 
@@ -321,7 +320,7 @@ No System over Baseline because it "broke the conversation flow too much to be p
 
 We discuss the study findings and to what extent they address the RQs.
 
-# 1 Integrating LLMs in Wearable Memory Augmentation
+## 1 Integrating LLMs in Wearable Memory Augmentation
 
 Discussing RQ1: "How can we design a seamless wearable memory assistant using LLMs to reduce disruption to the primary task with minimal and effective input and output?" As recent advances in LLMs lead to improved capabilities in natural language processing tasks such as question answering and summarization, we found that using them in a wearable can facilitate a concise and seamless interface. It can be helpful to users for memory retrieval as all system conditions including baseline had a "helpfulness" ratings above 5.15 of 7. We found that our approach of introducing minimal output from Memoro using LLMs reduced perceived disruption/interruption (Baseline =5.55, Query =4.40, and Queryless =4.65, out of 7) while preserving their helpfulness. The use LLMs in semantic search of memories also showed that they could improve flexibility in querying by allowing users to use synonyms or alternate phrasings. This contributed to the highly rated adaptiveness of Memoro for both modes (Query =5.35 and Queryless =5.10, out of 7) to the conversation and significantly higher ratings compared to Baseline. Through the Queryless Mode, we also demonstrate that LLMs can handle understanding user intentions in memory retrieval tasks during a conversation for minimal input. The conciseness of output was significantly improved methodologically with an 85% reduction in answer length, and users rated them as having improved appropriateness of response length as compared to the Baseline condition. Overall, through the two modes of interaction of Memoro, we show a method of using LLMs for a concise interface in memory retrieval by providing flexibility
 
@@ -337,11 +336,11 @@ Discussing RQ3: "How do context awareness and conciseness affect the system's us
 
 While Query mode was the most usable and the most accurate (Section 5.2.2), Queryless Mode was the most preferred condition among the participants (10 out of 20). From the NASA RTLX scores, an explanation for these preferences could be the significant decrease in task load when using the Queryless Mode compared to using no system in the task. In addition to its good usability and accuracy, we argue that there is value in the Query mode too as it had significantly higher rated usefulness (Section 5.3.4) and felt more polite to use compared to the Baseline (Section 5.3.5). Further, on examining the participants who preferred 'No System' over any of the other conditions, hence preferring no memory assistance (P7, P16, P18, P19), we found that two of them (P7, P16) rated their auditory memory as 'Extremely Good'. They were the only two participants with that rating in the study. The other two (P18, P19) indicated that they have never used voice assistants in their daily life. This aligns with previous studies [\[67\]](#page-14-19) that people perceived increased benefits of voice assistants if they had used them before. These preferences indicate the need for more research into the influence of these factors in the design of wearable memory assistance.
 
-#### 7 LIMITATIONS AND FUTURE WORK
+### 7 LIMITATIONS AND FUTURE WORK
 
 While we show how Memoro was preferred by a majority of participants and was considered acceptable usability, we discuss the following limitations in the design and study of the wearable memory assistant.
 
-#### 1 Technical Aspects
+### 1 Technical Aspects
 
 Firstly, the encoding of external memory is based on timestamps and direct transcription of the recording of audio, inspired by existing lifelogging tools [\[29,](#page-13-18) [69\]](#page-14-4), and as the focus of the study was to explore minimally disruptive memory retrieval during a primary task. Integrating more information such as location, non-verbal gestures, facial expressions, and recognition of the conversation partner during memory encoding, can significantly advance the memory assistant by understanding more of the user's context [\[15,](#page-13-35) [61\]](#page-14-20). The location (from GPS sensor) and conversation partner information can assist in filtering older memories for accurate retrieval. Non-verbal gestures can give insightful information on body language such as low engagement or heightened nervousness which can increase the importance of the memories encoded during that period. The importance could be further modulated by users explicitly. These features can enable diverse queries of the form "Who did I meet in the cafeteria yesterday?" or "What was the name of the person Ann spoke to me about 2 days ago?". Further, implicit prompting based on disfluencies in speech, and accelerometer-based gestures can reduce input effort and time by having users perform subtle hand gestures instead of clicking the trigger button. Implicit prompting can lead to studies understanding how short the query needs to be for a conversation to seem "uninterrupted" from an external perspective.
 
@@ -351,11 +350,11 @@ Memoro: Using LLMs to Realize a Concise Interface for Real-Time Memory Augmentat
 
 Thirdly, while we look at discreet audio feedback from the system to maintain eye gaze and reduce distraction during conversations, we acknowledge that there is a chance of the masking of the conversation with sound coming from the voice interface and voicing queries (for Query Mode) might disrupt the conversation. The timing for receiving the audio feedback is determined by the user, as such, users can choose to trigger retrieval during breaks between sentences (for Query and Queryless modes) or potentially mask queries within the conversation such as by rephrasing the conversational partners' questions (for Query mode). Some users may prefer an Optical head-mounted display (OHMD) for visual feedback. For users who prefer OHMD, a similar assistant with visual answers could be given where the text-to-speech of response can be skipped. A study evaluating the pros and cons of audio-based versus heads-up display-based interaction in memory assistance would be an interesting next step.
 
-#### 2 Study Design and Population
+### 2 Study Design and Population
 
 Next, the participants were from a group from the local community who may be more accustomed to such technology as voice assistants. The experiment also was situated in a lab setting for a controlled study. Longitudinal and in-the-wild studies situated in natural settings with a geographically diverse user group while enabling both retrieval modes simultaneously are needed to understand the usefulness and applicability of Memoro in daily life outside of laboratory-based social interactions. Relatedly, longitudinal studies can employ text similarity algorithms to aid in the objective measurement of the recall ability of users. Similarly, future directions include field studies with a specific subpopulation with a higher frequency of memory assistance needs, such as the elderly, where such a system could be more useful. An example is the tip-of-the-tongue (TOT) scenario [\[10\]](#page-13-36), forgetting of certain words, which commonly occurs in older adults and increases with Aphasia. There can be an exploration of other forms of information presentation where, instead of giving direct answers, the system would give users episodic or semantic clues and optional answers [\[26\]](#page-13-37), or answers in voices of people you admire or are familiar with [\[16\]](#page-13-38).
 
-#### 3 Privacy and Social Acceptability
+### 3 Privacy and Social Acceptability
 
 Finally, it is important to consider legal, ethical, privacy and social acceptability issues in deploying memory assistants that record audio from everyday conversations. Ensuring data security for pervasive memory augmentation systems is critical beyond ensuring encrypted data storage [\[21\]](#page-13-39). As research in psychology [\[1\]](#page-12-4) shows how we are prone to the simultaneous reinforcement of recovered memories and attenuation of unrecovered memories, memory augmentation interfaces can contribute to unintended altering and manipulation of captured memories through its process of retrieval. With the increase in the subtleness of wearables with recording capabilities [\[32\]](#page-13-40), future memory augmentation systems need to implement concrete and transparent methods, such as speaker verification [\[58\]](#page-14-21), to manage permissions of recording. As this system is geared for daily use, the privacy of bystanders in the vicinity needs to also be accounted for. Further, in some states and countries, recording other people without their knowledge is illegal. While this work assumes consent for recording from all parties involved, possible methods to address privacy controls in natural settings may be to record synthesized notes, rather than direct transcriptions, to require opt-in or enable opt-out, and be able to selectively erase data on request.
 
@@ -363,11 +362,11 @@ Social acceptability of lifelogging devices can be situational [\[21\]](#page-13
 
 Such issues are not dealt with in the current design of the Memoro system and are important areas of future research. Overall, we are cautiously optimistic, based on this first experiment, that systems like Memoro may one day assist people who can use help with information and memory retrieval.
 
-#### 8 CONCLUSION
+### 8 CONCLUSION
 
 We implemented and studied a concise user interface for an audiobased wearable memory assistant, Memoro, by using LLMs to make it minimally disruptive. By comparing it with a control condition without any system during a real-time conversation task, we evaluate how Memoro increases recall confidence and reduces task load while preserving conversational quality. By comparing it with a baseline LLM, we demonstrate how the disruption caused by using a wearable for memory augmentation can be significantly decreased by adding contextual awareness and conciseness to the suggestions. We further show how a majority of the participants prefer on-demand predictive assistance (Queryless Mode) over explicitly voiced queries (Query Mode) for real-time memory retrieval using wearables. Finally, we engage in open-ended feedback to understand users' preferences, experiences, and reservations for such a system and its interaction modes. Through this work, we contribute towards integrating LLMs into wearables for real-time memory augmentation and information retrieval, assessing their potential for minimal disruption and adaptability.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-12-4"></span>[1] Michael C. Anderson, Robert A. Bjork, and Elizabeth L. Bjork. 1994. Remembering can cause forgetting: retrieval dynamics in long-term memory. Journal of Experimental Psychology: Learning, Memory, and Cognition 20, 5 (1994), 1063. <https://doi.org/10.1037/0278-7393.20.5.1063>
 - <span id="page-12-2"></span>[2] Salvatore Andolina, Valeria Orso, Hendrik Schneider, Khalil Klouche, Tuukka Ruotsalo, Luciano Gamberini, and Giulio Jacucci. 2018. Investigating Proactive Search Support in Conversations. In Proceedings of the 2018 Designing Interactive Systems Conference (Hong Kong, China) (DIS '18). Association for Computing Machinery, New York, NY, USA, 1295–1307. [https://doi.org/10.1145/3196709.](https://doi.org/10.1145/3196709.3196734) [3196734](https://doi.org/10.1145/3196709.3196734)
@@ -451,7 +450,7 @@ Memoro: Using LLMs to Realize a Concise Interface for Real-Time Memory Augmentat
 - <span id="page-14-23"></span>[71] Julie R. Williamson, Andrew Crossan, and Stephen Brewster. 2011. Multimodal Mobile Interactions: Usability Studies in Real World Settings. In Proceedings of the 13th International Conference on Multimodal Interfaces (Alicante, Spain) (ICMI '11). Association for Computing Machinery, New York, NY, USA, 361–368. <https://doi.org/10.1145/2070481.2070551>
 - <span id="page-14-8"></span>[72] Kiichiro Yamano and Katunobu Itou. 2009. Browsing Audio Life-log Data Using Acoustic and Location Information. In 2009 Third International Conference on Mobile Ubiquitous Computing, Systems, Services and Technologies. 96–101. [https:](https://doi.org/10.1109/UBICOMM.2009.57) [//doi.org/10.1109/UBICOMM.2009.57](https://doi.org/10.1109/UBICOMM.2009.57)
 
-#### <span id="page-14-18"></span>A FICTIONAL PEOPLE
+### <span id="page-14-18"></span>A FICTIONAL PEOPLE
 
 The introductions of the four fictional people were as follows:
 
@@ -465,29 +464,29 @@ Benjamin "Hey there! My name is Benjamin Martinez, and I am a 35-year-old enviro
 
 Sarah "Hello! I am called Sarah Lee, and I am a 36-year-old graphic designer living in the vibrant city of Boston, USA. I moved to Boston a few years ago after receiving a job offer from a renowned advertising agency, where I eventually helped found the agency's design department. I have a passion for expressing my creativity through various forms of art. As a talented painter, I prefer using acrylic paints to bring my imaginative ideas to life on canvas. I draw inspiration from nature and often spend weekends exploring with my beloved Siberian Husky, Luna. In addition to painting, I am an excellent cook and love experimenting with different cuisines. Some of my favorite recipes include homemade spinach and ricotta stuffed cannelloni, Thai green curry with shrimp, and a delectable Argentinean flan for dessert. I often turn to my extensive collection of cookbooks, such as "The Flavor Bible" by Karen Page and Andrew Dornenburg, online blogs like "Smitten Kitchen," and cooking shows, including "MasterChef," for inspiration and enjoy sharing my culinary creations with friends and family during dinner parties. When I'm not in the kitchen or my art studio, I can be found at my local gym, "Pump Iron," where I am an enthusiastic fitness aficionado. I follow a disciplined workout routine, focusing on a mix of cardio exercises, strength training, and yoga. I usually go to the gym at 7:00 am and spend about an hour and a half there, ensuring I get a well-rounded workout. I am also a member of a nearby CrossFit center. As a fan of strategy and critical thinking, I have amassed an impressive collection of board games, with my top three favorites being Settlers of Catan, Ticket to Ride, and Pandemic. I often organize game nights with my close friends, where we engage in friendly competition and enjoy each other's company. My love for sports is apparent in my unwavering support for my favorite soccer teams, Everton and Wrexham. I never miss a match and can often be found at local sports bars or at home, cheering on my team with friends and fellow fans."
 
-#### <span id="page-15-0"></span>B SCRIPTED QUESTIONS
+### <span id="page-15-0"></span>B SCRIPTED QUESTIONS
 
 The following shows the scripted general and specific questions for each fictional person.
 
-#### Question Set 1 (William)
+### Question Set 1 (William)
 
 General: (1) "I want to visit his family. Describe his family such as the names and ages." (2) "We should hang out with this guy more. What are his hobbies? Where does he do his activities?" Specific: (1) "I want to gift him a book for his birthday. Who are his favorite authors?" (2) "He is an inspirational father. What qualities does he teach his children?" (3) "I'd like to download his apps. What are the names of the apps he made?" (4) "His birthday is coming soon, let's surprise him. What's his age and where does he live?"
 
-#### Question Set 2 (Emily)
+### Question Set 2 (Emily)
 
 General: (1) "I want to get a house like her. Can you describe the house she has? Include as much detail." (2) "What did she do on her recent trip? Describe it. I'd like to visit and do the same itinerary" Specific: (1) "You heard about her daughter. What's her daughter's name and age?" (2) "We should take her to a movie. What's her favorite one?" (3) "She is a talented architect. What type of architecture does she like?" (4) "She told me many times but I forget. Who is her favorite photographer?"
 
-#### Question Set 3 (Benjamin)
+### Question Set 3 (Benjamin)
 
 General: (1) "My friend is going to be working near him. What is his route to work? What are the things he sees on the way?" (2) "It seems like he likes music a lot. What instruments? Where does he perform and what festivals he goes to? Which artists does he like?" Specific: (1) "Which university did he go to? I'd like to apply to it as well." (2) "Why, should we buy vegetables when he grows them? What does he grow in his vegetable garden? (3) "What is his wife's occupation? She is an ambitious woman." (4) "My friend has been looking for a job. What's the name of the non-profit organization where he is working?"
 
-#### Question Set 4 (Sarah)
+### Question Set 4 (Sarah)
 
 General: (1) "She's an excellent cook! What are some of her favorite recipes, and where does she find inspiration for her cooking?" (2) "She seems to be a fitness enthusiast. What is her workout routine, which gym and what are her timings?" Specific: (1) "I've heard she's great at painting. What is her preferred medium?" (2) "She has an impressive collection of board games. What are her top three favorite board games?" (3) "What is her pet's name and what kind of pet does she have?" (4) "She's a fan of soccer and I wanted to buy her jerseys. Which teams does she support?"
 
-#### <span id="page-16-1"></span>C EXAMPLE QUERIES
+### <span id="page-16-1"></span>C EXAMPLE QUERIES
 
-#### C.1 Baseline
+### C.1 Baseline
 
 Query: What were Sarah's favorite soccer teams?
 
@@ -507,7 +506,7 @@ Query: What does William teaches kids?
 
 Answer: Benjamin boards a commuter train from the Santa Fe Depot that takes him to the EarthGuard office located near the Sorrento Valley station.
 
-#### C.2 Query Mode
+### C.2 Query Mode
 
 Context: went to Bangladesh, Pictures of Bengal tiger, Query:What else did she do? Answer: Dhaka, Jatiya Sangsad Bhaban. Context: pet's name is Luna. It's some sort of dog Query:What type of dog does she have? Answer: Husky. Context: cycling going to get some bus 36. Query: How does he go to work after Bus 36? Answer: Train. Context: She's 7 years old I don't remember her name Query: What was her name? Answer: Sophie. Context: San Diego Music Festival
 
@@ -555,7 +554,7 @@ Make the answer more concise, such that it only contains the words needed to ans
 
 You are an assistant interface between user and a memory system. The user is engaged in a conversation with another human, and asks you in the middle for assistance. The assistant frames a query that the user would like to ask the memory system next at the end of the conversation. The recent conversation between the two humans is related to the relevant memories. The answer that the user would like to retrieve would not be in the recent conversation. The query should be very relevant to the end of the last sentence of the recent conversation. Recent conversation:*<Current Context>* What do you think that the user would like to ask the memory system to finish or clarify his last sentence? Query: [Generated Query]
 
-# <span id="page-17-1"></span>E QUESTIONNAIRES
+## <span id="page-17-1"></span>E QUESTIONNAIRES
 
 ## E.1 User experiences and Perception
 
@@ -570,7 +569,7 @@ We measured eight aspects using a 7-point Likert scale (1=strongly disagree, 7=s
 - (7) Naturalness: "I acted naturally at all times while focusing on the researcher's face and using the system."
 - (8) Ease of Ignoring the Device: "It was easy to ignore the fact that I was wearing the device."
 
-# E.2 Conversation Quality
+## E.2 Conversation Quality
 
 We measured six aspects using a 7-point Likert scale (1=strongly disagree, 7=strongly agree). [\[13\]](#page-13-19):
 

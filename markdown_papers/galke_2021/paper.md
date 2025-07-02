@@ -31,7 +31,6 @@ images_kept: "11"
 images_removed: "0"
 ---
 
-
 # Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes ?
 
 Lukas Galkea,1, ∗ , Iacopo Vagliano b , Benedikt Franke c , Tobias Zielke c , Marcel Hoffmann c , Ansgar Scherp c
@@ -66,32 +65,31 @@ Existing works on lifelong graph learning [\[10,](#page-45-8) [11,](#page-45-9) 
 
 We extend our lifelong training procedure for evolving graphs [\[13\]](#page-45-11) with a new open-world learning module, gDOC, to detect the appearance of new classes in the graph. In particular, we design our gDOC method for detecting new classes to handle imbalanced classes in graph data. It extends the class detection method Deep Open Classification (DOC) [\[17\]](#page-46-1) from textual data to graph data. We experimentally demonstrate that gDOC can detect new classes in graph data while maintaining high accuracy for classifying in-distribution vertices. The overall performance of gDOC for out-of-distribution (OOD) detection plus vertex classification is consistently higher than a plain DOC. The key to the success of gDOC is weighting the binary cross-entropy loss to counter the imbalanced graph data. Furthermore, we show how to train and retrain graph models to cope with changes, newly emerging classes, and different label rates. We demonstrate that inductively pre-trained graph models are robust to adding unlabeled data. This insight is an essential prerequisite for successful lifelong learning on graph data. For comparability of different temporal datasets, we introduced the k-neighborhood time differences measure [\[13\]](#page-45-11). The measure enables a selection of history sizes in lifelong graph learning that accounts for of the dataset's temporal granularity. We prove that our measure fulfills this critical equivariance property.
 
-# <span id="page-2-0"></span>1.1. Problem Formalization: Lifelong Learning on Graphs
+## <span id="page-2-0"></span>1.1. Problem Formalization: Lifelong Learning on Graphs
 
 The critical question in lifelong learning is whether it is helpful to maintain a single model throughout a sequence of tasks versus retraining a new model from scratch for the next task. We call the former case "warm restarts", which means that the initial model parameters for the current task come from the final parameters from the previous task. This reuse of parameter values from the current task to the next task is called internal knowledge. The latter case is the "cold restarts" scenario, in which we train a new model from random initialization for each task.
 
 Lifelong learning, i. e., maintaining a single model over time [\[18,](#page-46-2) [7\]](#page-45-5), is only beneficial when warm restarts are at least as good as cold starts under comparable training budgets. In contrast to internal knowledge, there is also external knowledge, which is the data used for incremental training. The amount of external knowledge available, i. e., the past graph data, is determined by a history size. Note that this history is not separate from the actual data. If the label of a past vertex changes, this change will be reflected in the next incremental training step. The history size is, in turn, determined based on the temporal granularity of the considered graph and the time differences within the receptive field of the GNN. The number of GNN layers defines the receptive field of a GNN. Each layer corresponds to one hop. Thus, the receptive field comprises the k-hop neighborhood of each vertex. Combined, the temporal granularity of
 
-<span id="page-3-0"></span>
 
-|            | Table 1: Summary of our Notation                                   |
+| | **Table 1:** Summary of our Notation |
 |------------|--------------------------------------------------------------------|
-| X          | A matrix holding the vertex features of each vertex as rows        |
-| y          | A vector holding the label of each vertex as its entries           |
-| Yt         | The set of classes at time t                                       |
-| T          | A task composed of the graph G along with vertex features X and    |
-|            | vertex labels y                                                    |
-| Tt         | Task t within a sequence of tasks                                  |
-| Gt         | State of the graph at time t with vertices Vt<br>and edges Et      |
-| c          | The history size used for training the GNN                         |
-| c(V, E, t) | A function to determine a history size depending on a set of ver   |
-|            | tices V and edges E with time information t                        |
-| G˜<br>t    | The trimmed graph with respect to the history size c, i. e., older |
-|            | vertices and edges are removed                                     |
-| X˜         | A matrix holding vertex features, but with rows removed that       |
-|            | correspond to vertices removed in G˜<br>t.                         |
-| y˜         | A vector holding vertex labels, but with entries removed that cor  |
-|            | respond to vertices removed in G˜<br>t.                            |
+| X | A matrix holding the vertex features of each vertex as rows |
+| y | A vector holding the label of each vertex as its entries |
+| Yt | The set of classes at time t |
+| T | A task composed of the graph G along with vertex features X and |
+| | vertex labels y |
+| Tt | Task t within a sequence of tasks |
+| Gt | State of the graph at time t with vertices Vt<br>and edges Et |
+| c | The history size used for training the GNN |
+| c(V, E, t) | A function to determine a history size depending on a set of ver |
+| | tices V and edges E with time information t |
+| G˜<br>t | The trimmed graph with respect to the history size c, i. e., older |
+| | vertices and edges are removed |
+| X˜ | A matrix holding vertex features, but with rows removed that |
+| | correspond to vertices removed in G˜<br>t. |
+| y˜ | A vector holding vertex labels, but with entries removed that cor |
+| | respond to vertices removed in G˜<br>t. |
 
 the graph and the receptive field allow one to provide comparable results across datasets with different evolution speeds.
 
@@ -100,7 +98,7 @@ We define the problem of new class detection of a graph's vertices in an evolvin
 ![](_page_3_Figure_3.jpeg)
 <!-- Image Description: The image is a graph illustrating a time-series of network data used in a machine learning context. The left section shows training data (light blue) representing the network structure across two past tasks (t-4 to t-1) labeled with 'a', 'b', and 'c'. The right section (light red) depicts the evaluation data for a current task (t), where some nodes are unknown ('?'). The dashed line separates training and evaluation data, highlighting the temporal aspect of the model and its predictive task. The graph shows how past network structures inform predictions about the future network. -->
 
-<span id="page-3-1"></span>Figure 1: Illustration of the problem of lifelong graph learning [\[13\]](#page-45-11) with class imbalance and new classes. At each time t, the learner has to classify new vertices of task T<sup>t</sup> (red). Any task might come with previously unseen classes. For example, the class "c" emerged only at task t − 2 and was subsequently added to the class set. The learner may use internal and external knowledge from previous tasks to adapt to the current task. After evaluating task Tt, we continue with task Tt+1.
+<span id="page-3-1"></span>**Figure 1:** Illustration of the problem of lifelong graph learning [\[13\]](#page-45-11) with class imbalance and new classes. At each time t, the learner has to classify new vertices of task T<sup>t</sup> (red). Any task might come with previously unseen classes. For example, the class "c" emerged only at task t − 2 and was subsequently added to the class set. The learner may use internal and external knowledge from previous tasks to adapt to the current task. After evaluating task Tt, we continue with task Tt+1.
 
 Definition 1 (Lifelong Learning [\[8\]](#page-45-6)). A learner has to perform a possibly openended sequence of learning tasks T1, T2, . . . , T<sup>T</sup> . At each time t, the learner is faced with a new learning task Tt, for which it may use the (internal and external) knowledge K that it has been provided with and accumulated in the previous tasks T1, T2, . . . , Tt−1.
 
@@ -134,7 +132,7 @@ The k-Neighborhood Time Difference Measure is Equivariant to the Temporal Granul
 
 Subsequently, we provide an overview of related work. The extended incremental training algorithm for lifelong graph learning, as well as our new class detection method gDOC, are described in Section [3.](#page-12-0) In Section [4,](#page-16-0) we describe the k-neighborhood time differences measure, which we use to determine comparable history sizes across datasets and provide proof that the measure is invariant to different temporal granularities. The datasets used in our experiments are described and analyzed in Section [5.](#page-19-0) In Sections [6](#page-24-0) to [9,](#page-34-0) we describe the experimental procedure and report the results of our four experiments. We perform experiments for each of the four lifelong graph learning settings introduced in Section [1.1.](#page-2-0) First, in Section [6,](#page-24-0) we analyze the difference between transductive vs. inductive learning, i. e., the influence of adding unlabeled data, on standard (static) datasets, pre-processed in either many-few or few-many train/test splits. Second, we analyze the case of continually adding labeled data during a sequence of tasks in Section [7.](#page-27-0) Third, in Section [8,](#page-32-0) we take the most powerful methods and the hardest dataset of the previous experiment to analyze the influence of different label rates. Lastly, in the experiments reported in Section [9,](#page-34-0) we employ our gDOC method to automatically detect new classes while still being able to correctly classify the vertices of known classes. The results are discussed in Section [10](#page-41-0) before we conclude.
 
-# <span id="page-6-1"></span>2. Related Work and Selection of Models for Experiments
+## <span id="page-6-1"></span>2. Related Work and Selection of Models for Experiments
 
 Our work connects with various research areas: graph neural networks, lifelong learning, and out-of-distribution detection.
 
@@ -218,31 +216,30 @@ These parameters that model the new classes are randomly initialized. For the ot
 
 Algorithm 1 Incremental training for lifelong graph learning under cold-start vs. warm-start condition (extended from [\[13\]](#page-45-11)).
 
-<span id="page-13-0"></span>
 
-|     | Require: Sequence of tasks T˜<br>0, · · · , T˜<br>T , model f with parameters θ, flag for                 |
+| | Require: Sequence of tasks T˜<br>0, · · · , T˜<br>T , model f with parameters θ, flag for |
 |-----|-----------------------------------------------------------------------------------------------------------|
-|     | cold or warm restarts Output:<br>Predicted labels for new vertices of each                                |
-|     | task along with decision whether it belongs to a previously known class                                   |
-|     | 1: known classes ← ∅                                                                                      |
-|     | 2: θ ← initialize parameters()                                                                            |
-|     | 3: for t ← 1 to T do<br>. Iterate through task indices                                                    |
-| 4:  | (t−1))<br>new classes ← set(y˜<br>\ known classes                                                         |
-| 5:  | if new classes 6= ∅ then                                                                                  |
-| 6:  | 0 ←<br>θ<br>expand output layer(θ,  new classes )                                                         |
-| 7:  | end if                                                                                                    |
-| 8:  | 0 ←<br>θ<br>initialize parameters()                                                                       |
-| 9:  | if t > 1 and do warm restart = TRUE then                                                                  |
-| 10: | 0 ←<br>θ<br>copy existing parameters(θ)<br>. Reuse prev. model                                            |
-| 11: | end if                                                                                                    |
-| 12: | , G˜<br>t−1, X˜ (t−1)<br>0 ←<br>0<br>(t−1))<br>θ<br>train(θ<br>, y˜<br>. Train model on prev. task        |
+| | cold or warm restarts Output:<br>Predicted labels for new vertices of each |
+| | task along with decision whether it belongs to a previously known class |
+| | 1: known classes ← ∅ |
+| | 2: θ ← initialize parameters() |
+| | 3: for t ← 1 to T do<br>. Iterate through task indices |
+| 4: | (t−1))<br>new classes ← set(y˜<br>\ known classes |
+| 5: | if new classes 6= ∅ then |
+| 6: | 0 ←<br>θ<br>expand output layer(θ, new classes ) |
+| 7: | end if |
+| 8: | 0 ←<br>θ<br>initialize parameters() |
+| 9: | if t > 1 and do warm restart = TRUE then |
+| 10: | 0 ←<br>θ<br>copy existing parameters(θ)<br>. Reuse prev. model |
+| 11: | end if |
+| 12: | , G˜<br>t−1, X˜ (t−1)<br>0 ←<br>0<br>(t−1))<br>θ<br>train(θ<br>, y˜<br>. Train model on prev. task |
 | 13: | (t)<br>, G˜<br>t, X˜ (t)<br>0<br>yˆ<br>logits ← predict(θ<br>) for Vt<br>\ Vt−1<br>. Predict on new nodes |
-| 14: | (t)<br>(t)<br>ood = unseen class detection(yˆ<br>m<br>logits)<br>. OOD-Detection                          |
-| 15: | (<br>(t)<br>ifm<br>ood,i = TRUE<br>OOD<br>(t)<br>yˆ<br>pred,i =                                           |
-|     | arg max(yˆlogits(t)<br>,i),<br>otherwise                                                                  |
-| 16: | known classes ← known classes ∪ new classes                                                               |
-| 17: | 0<br>θ ← θ                                                                                                |
-|     | 18: end for                                                                                               |
+| 14: | (t)<br>(t)<br>ood = unseen class detection(yˆ<br>m<br>logits)<br>. OOD-Detection |
+| 15: | (<br>(t)<br>ifm<br>ood,i = TRUE<br>OOD<br>(t)<br>yˆ<br>pred,i = |
+| | arg max(yˆlogits(t)<br>,i),<br>otherwise |
+| 16: | known classes ← known classes ∪ new classes |
+| 17: | 0<br>θ ← θ |
+| | 18: end for |
 
 ### <span id="page-13-1"></span>3.2. Self-Detection of New Classes using our gDOC Method
 
@@ -251,7 +248,7 @@ A successful model for lifelong learning would not only classify new data into k
 ![](_page_14_Figure_0.jpeg)
 <!-- Image Description: The diagram illustrates a graph neural network (GNN) architecture for out-of-distribution (OOD) detection. A graph at time *t*, represented by nodes and edges (adjacency matrix A), with vertex features (X), is input to the GNN. The GNN, initialized with parameters from the previous time step (t-1), outputs logits. These logits are then used to predict labels via argmax. Finally, an OOD detector determines if the prediction is in-distribution (ID) or OOD. The process combines graph representation and a neural network for improved OOD detection. -->
 
-<span id="page-14-0"></span>Figure 2: Procedure of node classification and OOD detection during the execution of a task in lifelong learning. The output logits of the graph neural network are used in two ways. Once to determine the most likely in-distribution class and once to determine whether the example is in-distribution (belongs to a known class) or out-of-distribution. When an example is detected as in-distribution, we return the argmax of the logits. Otherwise, the example is marked as out-of-distribution.
+<span id="page-14-0"></span>**Figure 2:** Procedure of node classification and OOD detection during the execution of a task in lifelong learning. The output logits of the graph neural network are used in two ways. Once to determine the most likely in-distribution class and once to determine whether the example is in-distribution (belongs to a known class) or out-of-distribution. When an example is detected as in-distribution, we return the argmax of the logits. Otherwise, the example is marked as out-of-distribution.
 
 Classification (DOC) [\[17\]](#page-46-1) approach that has been proposed for text classification and transfer it to the graph domain.
 
@@ -277,7 +274,7 @@ Real-world graphs grow and change at different speeds [\[75\]](#page-50-4). Some
 
 Below, we first introduce such a measure, which we call tdiffk. In the experiments, we will use the tdiff<sup>k</sup> measure to derive candidate history sizes as percentiles of the time differences in the data. Applying the measure can be regarded as a preprocessing step. Subsequently, we show that the history sizes that our measure produces are equivariant to the temporal granularity of the graph.
 
-# 1. Formal Definition of the tdiff<sup>k</sup> Measure
+## 1. Formal Definition of the tdiff<sup>k</sup> Measure
 
 The k-neighborhood Time Difference Distribution measure tdiff<sup>k</sup> [\[13\]](#page-45-11) enumerates the distribution of time differences within the k-hop neighborhood of each vertex. This corresponds to the receptive field [\[76\]](#page-50-5) of a GNN with k-many graph convolutional layers. Intuitively, we collect the time differences between all pairs of vertices v and w, which are reachable within at most k edges. We aggregate these time differences based on frequency, i. e., we obtain the number of times a certain time difference has been observed between v and w in the dataset. On this distribution of time differences (represented as a multiset), we compute the percentiles and use them as candidate history sizes.
 
@@ -290,13 +287,13 @@ The multiset tdiff<sup>k</sup> maps each time difference to the respective numbe
 <span id="page-17-0"></span>![](_page_17_Figure_0.jpeg)
 <!-- Image Description: The image is a graph depicting a temporal network. Nodes represent time points (3, 4, and 5), and edges connecting them show relationships with associated numerical values (differences between time points). Edge styles (solid, dashed, dotted) and colors differentiate edge types. The `tdiff2(G)` set lists these difference values, indicating the purpose of the graph: to illustrate a specific temporal difference calculation within the network. -->
 
-Figure 3: Example of time differences tdiff2(G) for hops at distance of up to 2 from each vertex. Solid lines are edges. Dashed lines indicate paths of length two. Annotations show the time difference between the endpoints of the path. The multiset tdiff2(G) holds the resulting time differences. Note that zeros are counted in both directions as both fulfill the time(u) ≤ time(v) condition.
+**Figure 3:** Example of time differences tdiff2(G) for hops at distance of up to 2 from each vertex. Solid lines are edges. Dashed lines indicate paths of length two. Annotations show the time difference between the endpoints of the path. The multiset tdiff2(G) holds the resulting time differences. Note that zeros are counted in both directions as both fulfill the time(u) ≤ time(v) condition.
 
 vertices and five edges. In this example, the 25th percentile of tdiff<sup>2</sup> is 0, the 50th is 1 (also known as median), and the 75th is also 1.
 
 The tdiff<sup>k</sup> measure is used in our experiments to compare models trained with a limited history size against models trained with the full history. Thus, we calculate the 25th, 50th, and 75th percentiles of the tdiff<sup>k</sup> distribution, which we then compare against the full graph (100th percentile) to analyze the influence of explicit knowledge.
 
-# 2. Equivariance to Temporal Granularity
+## 2. Equivariance to Temporal Granularity
 
 Any good measure to determine the discrete history sizes c : (V, E, t) 7→ N in evolving graphs should be equivariant to granularity to ensure comparability between different datasets and different granularities. This means that if we change the perspective, for instance, from years to months, we should get history sizes that are about 12 times larger (on the same data).
 
@@ -313,7 +310,7 @@ $$
 a \cdot |t(u) - t(v)| > |t'(u) - t'(v)| - a
 $$
 , and
-(ii)  $a \cdot |t(u) - t(v)| < |t'(u) - t'(v)| + a$
+(ii) $a \cdot |t(u) - t(v)| < |t'(u) - t'(v)| + a$
 
 via case differentiation.
 
@@ -325,7 +322,7 @@ Case (ii-a): t(u) = t(v). The left-hand side of (ii) becomes zero and it remains
 
 Case (ii-b): t(u) 6= t(v). Again, we transform the left-hand side of (ii) to |a · t(u) − a · t(v)|. This time, we are interested in the highest possible value with respect to (PRE), which is |t 0 (u) + a − − t 0 (v)| with 0 < < a. This is because the highest possible difference is between the upper bound t <sup>0</sup> + a − and the lower bound t 0 . With the triangle inequality, we obtain |t 0 (u) + a − − t 0 (v)| ≤ |t 0 (u)−t 0 (v)|+|a−| < |t 0 (u)−t 0 (v)|+a, which holds because |a−| < a. This concludes the proof.
 
-# 3. Summary
+## 3. Summary
 
 The k-neighborhood Time Difference Distribution tdiff<sup>k</sup> measures the granularity and temporal connectivity patterns of the given graph dataset with vertex-level time information. In general, we can hardly assume that any absolute history size on dataset A would be comparable to the same history size on dataset B. But if we derive the history size from tdiffk, e. g., the median of tdiff2, we have a strategy to find comparable history sizes across datasets, even if they come from different domains, e. g., social graphs with postings at the minute level versus citation graphs with data on, at least, daily level. This is because our tdiff<sup>k</sup> measure is equivariant to granularity and is based solely on time differences between the connected vertices.
 
@@ -349,22 +346,22 @@ In this work, we seek to understand how our methods deal with real-world dataset
 
 <span id="page-19-2"></span><sup>3</sup><https://pytorch-geometric-temporal.readthedocs.io/>
 
-| Dataset         |       | Cora  |       | Citeseer |        | Pubmed |
+| Dataset | | Cora | | Citeseer | | Pubmed |
 |-----------------|-------|-------|-------|----------|--------|--------|
-| Classes         |       | 7     |       | 6        |        | 3      |
-| Features        |       | 1,433 |       | 3,703    |        | 500    |
-| Vertices        |       | 2,708 |       | 3,327    |        | 19,717 |
-| Edges           |       | 5,278 |       | 4,552    |        | 44,324 |
-| Avg. Degree     |       | 3.90  |       | 2.77     |        | 4.50   |
-| Setting         | A     | B     | A     | B        | A      | B      |
-| Train Vertices  | 440   | 2,268 | 620   | 2,707    | 560    | 19,157 |
-| Train Edges     | 342   | 3,582 | 139   | 2,939    | 34     | 41,858 |
-| Unseen Vertices | 2,268 | 440   | 2,707 | 620      | 19,157 | 560    |
-| Unseen Edges    | 4,936 | 1,696 | 4,413 | 1,613    | 44,290 | 2,466  |
-| Test Samples    | 1,000 | 440   | 1,000 | 620      | 1,000  | 560    |
-| Label Rate      | 16.2% | 83.8% | 18.6% | 81.4%    | 2.8%   | 97.2%  |
+| Classes | | 7 | | 6 | | 3 |
+| Features | | 1,433 | | 3,703 | | 500 |
+| Vertices | | 2,708 | | 3,327 | | 19,717 |
+| Edges | | 5,278 | | 4,552 | | 44,324 |
+| Avg. Degree | | 3.90 | | 2.77 | | 4.50 |
+| Setting | A | B | A | B | A | B |
+| Train Vertices | 440 | 2,268 | 620 | 2,707 | 560 | 19,157 |
+| Train Edges | 342 | 3,582 | 139 | 2,939 | 34 | 41,858 |
+| Unseen Vertices | 2,268 | 440 | 2,707 | 620 | 19,157 | 560 |
+| Unseen Edges | 4,936 | 1,696 | 4,413 | 1,613 | 44,290 | 2,466 |
+| Test Samples | 1,000 | 440 | 1,000 | 620 | 1,000 | 560 |
+| Label Rate | 16.2% | 83.8% | 18.6% | 81.4% | 2.8% | 97.2% |
 
-<span id="page-20-0"></span>Table 2: Statistics for train-test splits: few-many (A) and many-few (B) settings on the citation networks datasets: Cora, Citeseer, and Pubmed. The unseen vertices and edges are available only after the training epochs. The test samples for measuring accuracy are a subset of the unseen vertices. The label rate is the percentage of labeled vertices for training.
+<span id="page-20-0"></span>**Table 2:** Statistics for train-test splits: few-many (A) and many-few (B) settings on the citation networks datasets: Cora, Citeseer, and Pubmed. The unseen vertices and edges are available only after the training epochs. The test samples for measuring accuracy are a subset of the unseen vertices. The label rate is the percentage of labeled vertices for training.
 
 add new vertices and edges according to the time stamps of the vertices. For our first experiment, we used two different splits on standard benchmark datasets with static graphs, which are described next. We can use these datasets to simulate two steps of a temporal graph, where the training data is step one and the unlabeled test data is step two. Thereafter, we describe our own temporal datasets that we contribute to the community and use for the other three experiments on lifelong learning.
 
@@ -374,19 +371,19 @@ Cora, Citeseer, and PubMed are standard datasets for the vertex classification t
 
 We prepare the static graph datasets in two ways: either a lot of training data and a few test data, or vice versa. Specifically, we used two different train-test splits for each dataset, which we call setting A and setting B. The setting A is derived from the original train-test split for transductive tasks [\[3\]](#page-45-1). It consists of a few labeled vertices that induce our training set and many unlabeled vertices. Setting B instead comprises many training vertices and few test vertices. We set it up by inverting the train-test mask of Setting A and assigning the edges accordingly. Setting B is motivated by applications, in which a large graph is already known and incremental changes occur over time, such as for citation recommendations, link prediction in social networks, and others [\[75,](#page-50-4) [79\]](#page-50-8). We refer to Table [2](#page-20-0) for the details of the datasets and the two settings. We used these three data sets with two different train-test splits in our first experiment described in Section [6.](#page-24-0)
 
-# <span id="page-21-1"></span>5.2. Evolving Graph Datasets
+## <span id="page-21-1"></span>5.2. Evolving Graph Datasets
 
 We published three graph datasets for lifelong learning [\[13\]](#page-45-11): one co-authorship graph dataset (PharmaBio) and two DBLP-based citation graph datasets (DBLPeasy and DBLP-hard). For PharmaBio, the classes are journal categories. For DBLP, we use conferences and journals of published papers as classes. Since we select those venues with the most publications, this serves as a proxy for a broad categorization. When new conferences and journals emerge, as they do in computer science, new classes appear in the data.
 
 The datasets were generated by imposing a minimum threshold of publications per class per year: 100 for DBLP-easy, 45 for DBLP-hard, and 20 for PharmaBio. For the co-authorship graph PharmaBio, we additionally require a minimum of two publications per author per year. In all datasets, vertex features are normalized TF-IDF representations of the publication title.
 
-<span id="page-21-0"></span>Table 3: Global dataset characteristics: total number of vertices |V |, edges |E|, features D, and classes |Y| along with number of newly appearing classes (in braces) within the T evaluation tasks
+<span id="page-21-0"></span>**Table 3:** Global dataset characteristics: total number of vertices |V |, edges |E|, features D, and classes |Y| along with number of newly appearing classes (in braces) within the T evaluation tasks
 
-| Dataset   | V       | E       | D     | Y           | T  |
+| Dataset | V | E | D | Y | T |
 |-----------|---------|---------|-------|-------------|----|
-| DBLP-easy | 45,407  | 112,131 | 2,278 | 12 (4 new)  | 12 |
+| DBLP-easy | 45,407 | 112,131 | 2,278 | 12 (4 new) | 12 |
 | DBLP-hard | 198,675 | 643,734 | 4,043 | 73 (23 new) | 12 |
-| PharmaBio | 68,068  | 2,1M    | 4,829 | 7 (0 new)   | 18 |
+| PharmaBio | 68,068 | 2,1M | 4,829 | 7 (0 new) | 18 |
 
 ## 2.1. Basic Characteristics
 
@@ -395,7 +392,7 @@ Table [3](#page-21-0) summarizes the basic characteristics of the datasets. DBLP
 ![](_page_22_Figure_0.jpeg)
 <!-- Image Description: This figure displays nine plots visualizing network data across different years. The top row shows (left to right): a horizontal bar chart of node counts per year, a log-log plot of node degree distribution, and a bar chart of label counts. The middle and bottom rows repeat this structure for two additional datasets. Each row represents a different dataset and the plots show the evolution of network characteristics (node count, degree distribution, and label distribution) over time. The log-log plots reveal power-law distributions, suggesting scale-free network properties. -->
 
-<span id="page-22-0"></span>Figure 4: Distribution of vertices per year on log scale (left column), degree distributions (middle column), label distributions (right column), for our new datasets: DBLP-easy (top row), DBLP-hard (middle row), PharmaBio (bottom row)
+<span id="page-22-0"></span>**Figure 4:** Distribution of vertices per year on log scale (left column), degree distributions (middle column), label distributions (right column), for our new datasets: DBLP-easy (top row), DBLP-hard (middle row), PharmaBio (bottom row)
 
 We report the label distribution of the datasets, the degree distribution, and the distribution over time in Figure [4.](#page-22-0) The annual number of publications grows over time. Only in PharmaBio, there is a higher amount of vertices between 1991-1997 than between 1998 and 2003. The global degree distributions of DBLP-easy and DBLP-hard seem to follow a power-law distribution [\[80\]](#page-50-9) as the degree distribution is almost a straight line except for the blurry tail. For PharmaBio, the degree distribution is more blurry, while a trend line can still be identified. Furthermore, we observe that the number of examples per class is imbalanced in all three datasets. Although the three datasets have different numbers of classes, the shape of the label distributions is similar.
 
@@ -412,18 +409,18 @@ where Pt(y) is the observed class probability at time t. We visualize the drift
 ![](_page_23_Figure_3.jpeg)
 <!-- Image Description: The image displays a line graph showing "drift magnitude" over "time" for three datasets: pharmabio, dblp-easy, and dblp-hard. The y-axis represents drift magnitude (0-1), and the x-axis shows time (1999-2014). Each dataset's drift magnitude fluctuates over time, illustrating temporal changes within the datasets. The graph likely illustrates concept drift in the context of the paper. -->
 
-<span id="page-23-0"></span>Figure 5: Magnitude of the class drift per dataset. The drift within the PharmaBio dataset (no new classes) is lower than the drift of both DBLP variants. Independent and identically distributed data would have drift magnitude zero.
+<span id="page-23-0"></span>**Figure 5:** Magnitude of the class drift per dataset. The drift within the PharmaBio dataset (no new classes) is lower than the drift of both DBLP variants. Independent and identically distributed data would have drift magnitude zero.
 
 magnitudes per dataset in Figure [5.](#page-23-0) An IID dataset would have a drift magnitude of zero by definition. As expected, the drift magnitude is high (between 0.12 and 0.16) for the two datasets with new classes: DBLP-easy and DBLPhard. On PharmaBio, which does not have new classes, the drift magnitude is consistently lower than 0.07.
 
-# 2.3. Analyzing Time Differences using tdiff<sup>k</sup>
+## 2.3. Analyzing Time Differences using tdiff<sup>k</sup>
 
 We analyze each dataset using our k-neighborhood time differences tdiff<sup>k</sup> introduced in Section [4.](#page-16-0) In Figure [6,](#page-24-1) we show the distributions for three different values of k = 1, 2, 3. As expected, the time differences increase if we allow a longer maximum path length k. For our experiments, we will use GNN models with 2 layers, i. e.,, which take into account the two-hop neighborhood of each vertex. Thus, we use tdiff<sup>2</sup> to derive candidate history sizes, which we will compare to each other in the experiments. Following the distributions for k = 2 depicted in Figure [6,](#page-24-1) we select 1, 3, 6, and 25 as history sizes for DBLP- {easy,hard} and 1, 4, 8, and 21 as history sizes for PharmaBio according to the 25th, 50th, 75th, and 100th percentiles of tdiff2.
 
 ![](_page_24_Figure_0.jpeg)
 <!-- Image Description: The image presents three box plots, each showing the difference in timesteps for three datasets (DBLP-easy, DBLP-hard, PharmaBio) across varying maximum hop values (1, 2, 3). The box plots illustrate the distribution of timestep differences, with the median, quartiles, and outliers indicated. The purpose is to compare the performance of the algorithm across different datasets and hop parameters. -->
 
-<span id="page-24-1"></span>Figure 6: Distributions of time differences tdiff<sup>k</sup> (y-axis) for DBLP-easy (left), DBLP-hard (center) and PharmaBio (right) within the k-hop neighborhood for k = {1, 2, 3} (x-axis).
+<span id="page-24-1"></span>**Figure 6:** Distributions of time differences tdiff<sup>k</sup> (y-axis) for DBLP-easy (left), DBLP-hard (center) and PharmaBio (right) within the k-hop neighborhood for k = {1, 2, 3} (x-axis).
 
 ## 2.4. Dataset Preprocessing
 
@@ -474,15 +471,15 @@ Figure [7](#page-27-1) shows the results of the GNN models and the MLP on the th
 ![](_page_27_Figure_0.jpeg)
 <!-- Image Description: This figure displays six panels of line graphs, each showing model accuracy over epochs for different graph neural network (GNN) models (MLP, GCN, GCN-64, GraphSAGE, GAT) on three datasets (cora, citeseer, pubmed). Each panel represents a unique combination of "setting" (A or B) and dataset. Shaded regions indicate confidence intervals. The purpose is to compare the performance of various GNN models under different training settings across datasets, analyzing the effect of epochs on accuracy. -->
 
-<span id="page-27-1"></span>Figure 7: Test accuracy after each inference epoch for the many-few settings A (Top) and fewmany setting B (Bottom) on the datasets Cora, Citeseer, and Pubmed. Each line resembles the mean of 100 runs and its region shows the standard deviation. The dashed lines show the results with 200 pre-training. The solid lines are the results without pre-training.
+<span id="page-27-1"></span>**Figure 7:** Test accuracy after each inference epoch for the many-few settings A (Top) and fewmany setting B (Bottom) on the datasets Cora, Citeseer, and Pubmed. Each line resembles the mean of 100 runs and its region shows the standard deviation. The dashed lines show the results with 200 pre-training. The solid lines are the results without pre-training.
 
 We compare the results of setting A and B by measuring the Jensen-Shannon divergence between the accuracy distributions. The Jenson-Shannon divergence between the two settings is lower with pre-training (between 0.0057 for GAT and 0.0115 for MLP) than it is without pre-training (between 0.0666 for GraphSAGE and 0.1013 for GCN). This shows that the accuracy distributions are similar in both train-test splits.
 
-# 5. Summary
+## 5. Summary
 
 Our results show that inductive graph neural networks perform well even though we insert new unlabeled vertices and edges after training. For all three datasets, the accuracy plateaus after very few inference epochs. This observation holds for both train-test split settings A and B, i. e., many-few and fewmany data for training and testing, respectively. In different terms, we have not observed any gain from up-training an inductive model on extra unlabeled data. This motivates us to use the warm restart strategy, i. e., reusing previous parameters, in the following experiments on lifelong learning.
 
-# <span id="page-27-0"></span>7. Experiment 2: Lifelong Learning on Graphs
+## <span id="page-27-0"></span>7. Experiment 2: Lifelong Learning on Graphs
 
 From the previous experiment, we know that inductively trained models are stable when adding unlabeled data after training. Now, we focus on the case in which we continually add more labeled data to the graph, even including new classes in addition to new vertices and edges. The aim is to determine whether parameter reuse is helpful. We consider this question in the context of whether and how many old vertices (and their edges) can be discarded when dealing with evolving graphs.
 
@@ -542,23 +539,22 @@ In contrast to retraining with different history sizes, one may also wonder how 
 
 This experiment shows that in the three analyzed datasets, with only history sizes of 3 or 4 (corresponding to 50% coverage of the receptive field of a 2-layer
 
-<span id="page-31-0"></span>
 
-| Accuracy<br>in<br>along<br>restarts)<br>4:<br>bold,<br>Table<br>cold<br>in | (with<br>the<br>our<br>with | with<br>methods<br>95%<br>datasets                         | history<br>intervals<br>95%<br>different<br>the<br>confidence<br>where | overlaps.<br>through<br>sizes<br>CI | standard<br>(column c).<br>1.96                            | method<br>the<br>of<br>best<br>error<br>The                | mean)<br>per                 | Forward<br>per<br>(=<br>and<br>case                        | and<br>dataset<br>Transfer<br>one                          | and<br>marked<br>warm<br>is<br>of<br>size)<br>difference<br>history<br>one<br>(averaged |
+| Accuracy<br>in<br>along<br>restarts)<br>4:<br>bold,<br>Table<br>cold<br>in | (with<br>the<br>our<br>with | with<br>methods<br>95%<br>datasets | history<br>intervals<br>95%<br>different<br>the<br>confidence<br>where | overlaps.<br>through<br>sizes<br>CI | standard<br>(column c).<br>1.96 | method<br>the<br>of<br>best<br>error<br>The | mean)<br>per | Forward<br>per<br>(=<br>and<br>case | and<br>dataset<br>Transfer<br>one | and<br>marked<br>warm<br>is<br>of<br>size)<br>difference<br>history<br>one<br>(averaged |
 |----------------------------------------------------------------------------|-----------------------------|------------------------------------------------------------|------------------------------------------------------------------------|-------------------------------------|------------------------------------------------------------|------------------------------------------------------------|------------------------------|------------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| Dataset                                                                    | c                           | avg.<br>cold                                               | warm<br>GAT<br>accuracy                                                | FWT                                 | avg.<br>cold                                               | GraphSAGE-Mean<br>warm<br>accuracy                         | FWT                          | MLP<br>avg.<br>cold                                        | (Baseline)<br>warm<br>accuracy                             | FWT                                                                                     |
-| DBLP-easy                                                                  | full<br>3<br>6<br>1         | 68.9 ± 0.3<br>70.3 ± 0.4<br>60.8 ± 0.5<br>± 0.4<br>70.2    | 64.9 ± 0.4<br>69.3 ± 0.3<br>± 0.4<br>± 0.4<br>70.2<br>70.2             | +4.5<br>+0.2<br>−0.1<br>+0.1        | 68.7 ± 0.3<br>± 0.4<br>71.6 ± 0.4<br>60.4 ± 0.5<br>71.1    | ± 0.4<br>69.3 ± 0.3<br>70.9 ± 0.4<br>71.4 ± 0.3<br>65.1    | +5.2<br>+0.7<br>−0.3<br>−0.2 | ± 0.4<br>61.0 ± 0.5<br>62.7 ± 0.3<br>63.4 ± 0.3<br>56.1    | ± 0.5<br>62.9 ± 0.4<br>62.7 ± 0.4<br>61.9 ± 0.4<br>62.2    | +6.6<br>+2.0<br>−0.2<br>−1.2                                                            |
-| DBLP-hard                                                                  | full<br>3<br>6<br>1         | 39.4 ± 0.2<br>44.0 ± 0.2<br>± 0.3<br>45.6 ± 0.3<br>45.1    | 45.3 ± 0.3<br>45.6 ± 0.3<br>± 0.2<br>43.7 ± 0.2<br>39.1                | −0.4<br>−0.1<br>+0.2<br>−0.1        | ± 0.3<br>± 0.4<br>44.3 ± 0.2<br>46.8 ± 0.2<br>34.5<br>46.5 | 46.7 ± 0.3<br>± 0.2<br>40.0 ± 0.2<br>± 0.3<br>45.1<br>47.1 | +5.9<br>+0.8<br>+0.2<br>+0.4 | 31.6 ± 0.3<br>33.7 ± 0.3<br>± 0.2<br>± 0.2<br>39.2<br>38.2 | 38.3 ± 0.3<br>38.9 ± 0.2<br>38.3 ± 0.2<br>36.7 ± 0.2       | −0.7<br>+7.4<br>+5.6<br>−1.1                                                            |
-| PharmaBio                                                                  | full<br>4<br>8<br>1         | 61.6 ± 0.9<br>± 0.8<br>± 0.8<br>64.3 ± 0.8<br>64.5<br>65.1 | 65.4 ± 0.9<br>65.3 ± 0.9<br>65.4 ± 0.8<br>65.4 ± 0.8                   | +3.8<br>+0.9<br>+0.3<br>+0.2        | 68.0 ± 0.8<br>68.8 ± 0.7<br>69.0 ± 0.7<br>65.4 ± 0.9       | 68.6 ± 1.0<br>69.0 ± 0.8<br>69.0 ± 0.8<br>68.4 ± 0.7       | +3.3<br>+0.2<br>−0.7<br>+1.1 | 66.3 ± 0.7<br>62.7 ± 0.9<br>± 0.8<br>65.4 ± 0.8<br>64.2    | 66.3 ± 0.9<br>65.7 ± 0.8<br>65.3 ± 0.7<br>64.4 ± 0.6       | −0.7<br>+3.9<br>+0.9<br>−1.1                                                            |
-|                                                                            |                             | avg.<br>cold                                               | warm<br>accuracy<br>SGC                                                | FWT                                 | avg.<br>cold                                               | GraphSAINT<br>warm<br>accuracy                             | FWT                          | Jumping<br>avg.<br>cold                                    | Knowledge<br>warm<br>accuracy                              | FWT                                                                                     |
-| DBLP-easy                                                                  | full<br>3<br>6<br>1         | 71.0 ± 0.4<br>± 0.4<br>66.4 ± 0.3<br>69.3 ± 0.4<br>57.1    | 63.7 ± 0.4<br>67.4 ± 0.3<br>69.3 ± 0.4<br>70.0 ± 0.4                   | −1.0<br>+7.2<br>+1.2<br>+0.1        | ± 0.3<br>66.4 ± 0.4<br>± 0.4<br>68.4 ± 0.5<br>62.1<br>68.1 | ± 0.4<br>65.3 ± 0.5<br>± 0.7<br>65.7 ± 0.5<br>63.2<br>65.5 | +1.2<br>−0.9<br>−2.8<br>−2.1 | ± 0.5<br>± 0.3<br>68.0 ± 0.4<br>68.7 ± 0.4<br>56.2<br>65.2 | 61.4 ± 0.5<br>65.9 ± 0.5<br>66.9 ± 0.6<br>66.3 ± 0.4       | −0.7<br>+5.6<br>+1.0<br>−2.5                                                            |
-| DBLP-hard                                                                  | full<br>3<br>6<br>1         | 46.9 ± 0.3<br>48.8 ± 0.4<br>± 0.3<br>± 0.2<br>34.5<br>44.1 | 41.0 ± 0.3<br>44.8 ± 0.3<br>± 0.3<br>± 0.3<br>46.2<br>47.5             | +7.0<br>+0.8<br>−0.4<br>−1.2        | 35.9 ± 0.3<br>39.3 ± 0.3<br>40.6 ± 0.3<br>41.0 ± 0.4       | 35.6 ± 0.4<br>± 0.5<br>38.8 ± 0.6<br>40.7 ± 0.4<br>38.1    | +0.5<br>−0.6<br>−1.2<br>−0.3 | 33.0 ± 0.2<br>± 0.3<br>41.0 ± 0.3<br>41.6 ± 0.3<br>39.1    | 35.3 ± 0.3<br>38.8 ± 0.4<br>± 0.5<br>40.8 ± 0.2<br>40.1    | +2.9<br>+0.3<br>−0.3<br>−0.9                                                            |
-| PharmaBio                                                                  | full<br>4<br>8<br>1         | 62.3 ± 0.9<br>64.4 ± 0.8<br>65.3 ± 0.8<br>62.4 ± 0.8       | ± 0.8<br>64.4 ± 0.8<br>64.0 ± 0.7<br>61.7 ± 0.6<br>64.5                | +2.3<br>−0.0<br>−1.4<br>−0.8        | ± 0.8<br>± 0.8<br>65.7 ± 0.8<br>67.3 ± 0.8<br>68.1<br>68.2 | 68.6 ± 0.8<br>68.4 ± 0.7<br>68.0 ± 0.7<br>± 0.8<br>66.1    | +3.0<br>+1.0<br>−2.2<br>−0.1 | 67.8 ± 0.8<br>± 0.9<br>± 0.8<br>66.8 ± 0.8<br>64.1<br>67.1 | 68.3 ± 0.9<br>± 0.8<br>67.7 ± 0.7<br>± 0.7<br>68.2<br>64.5 | +4.3<br>−0.3<br>−2.6<br>+1.1                                                            |
+| Dataset | c | avg.<br>cold | warm<br>GAT<br>accuracy | FWT | avg.<br>cold | GraphSAGE-Mean<br>warm<br>accuracy | FWT | MLP<br>avg.<br>cold | (Baseline)<br>warm<br>accuracy | FWT |
+| DBLP-easy | full<br>3<br>6<br>1 | 68.9 ± 0.3<br>70.3 ± 0.4<br>60.8 ± 0.5<br>± 0.4<br>70.2 | 64.9 ± 0.4<br>69.3 ± 0.3<br>± 0.4<br>± 0.4<br>70.2<br>70.2 | +4.5<br>+0.2<br>−0.1<br>+0.1 | 68.7 ± 0.3<br>± 0.4<br>71.6 ± 0.4<br>60.4 ± 0.5<br>71.1 | ± 0.4<br>69.3 ± 0.3<br>70.9 ± 0.4<br>71.4 ± 0.3<br>65.1 | +5.2<br>+0.7<br>−0.3<br>−0.2 | ± 0.4<br>61.0 ± 0.5<br>62.7 ± 0.3<br>63.4 ± 0.3<br>56.1 | ± 0.5<br>62.9 ± 0.4<br>62.7 ± 0.4<br>61.9 ± 0.4<br>62.2 | +6.6<br>+2.0<br>−0.2<br>−1.2 |
+| DBLP-hard | full<br>3<br>6<br>1 | 39.4 ± 0.2<br>44.0 ± 0.2<br>± 0.3<br>45.6 ± 0.3<br>45.1 | 45.3 ± 0.3<br>45.6 ± 0.3<br>± 0.2<br>43.7 ± 0.2<br>39.1 | −0.4<br>−0.1<br>+0.2<br>−0.1 | ± 0.3<br>± 0.4<br>44.3 ± 0.2<br>46.8 ± 0.2<br>34.5<br>46.5 | 46.7 ± 0.3<br>± 0.2<br>40.0 ± 0.2<br>± 0.3<br>45.1<br>47.1 | +5.9<br>+0.8<br>+0.2<br>+0.4 | 31.6 ± 0.3<br>33.7 ± 0.3<br>± 0.2<br>± 0.2<br>39.2<br>38.2 | 38.3 ± 0.3<br>38.9 ± 0.2<br>38.3 ± 0.2<br>36.7 ± 0.2 | −0.7<br>+7.4<br>+5.6<br>−1.1 |
+| PharmaBio | full<br>4<br>8<br>1 | 61.6 ± 0.9<br>± 0.8<br>± 0.8<br>64.3 ± 0.8<br>64.5<br>65.1 | 65.4 ± 0.9<br>65.3 ± 0.9<br>65.4 ± 0.8<br>65.4 ± 0.8 | +3.8<br>+0.9<br>+0.3<br>+0.2 | 68.0 ± 0.8<br>68.8 ± 0.7<br>69.0 ± 0.7<br>65.4 ± 0.9 | 68.6 ± 1.0<br>69.0 ± 0.8<br>69.0 ± 0.8<br>68.4 ± 0.7 | +3.3<br>+0.2<br>−0.7<br>+1.1 | 66.3 ± 0.7<br>62.7 ± 0.9<br>± 0.8<br>65.4 ± 0.8<br>64.2 | 66.3 ± 0.9<br>65.7 ± 0.8<br>65.3 ± 0.7<br>64.4 ± 0.6 | −0.7<br>+3.9<br>+0.9<br>−1.1 |
+| | | avg.<br>cold | warm<br>accuracy<br>SGC | FWT | avg.<br>cold | GraphSAINT<br>warm<br>accuracy | FWT | Jumping<br>avg.<br>cold | Knowledge<br>warm<br>accuracy | FWT |
+| DBLP-easy | full<br>3<br>6<br>1 | 71.0 ± 0.4<br>± 0.4<br>66.4 ± 0.3<br>69.3 ± 0.4<br>57.1 | 63.7 ± 0.4<br>67.4 ± 0.3<br>69.3 ± 0.4<br>70.0 ± 0.4 | −1.0<br>+7.2<br>+1.2<br>+0.1 | ± 0.3<br>66.4 ± 0.4<br>± 0.4<br>68.4 ± 0.5<br>62.1<br>68.1 | ± 0.4<br>65.3 ± 0.5<br>± 0.7<br>65.7 ± 0.5<br>63.2<br>65.5 | +1.2<br>−0.9<br>−2.8<br>−2.1 | ± 0.5<br>± 0.3<br>68.0 ± 0.4<br>68.7 ± 0.4<br>56.2<br>65.2 | 61.4 ± 0.5<br>65.9 ± 0.5<br>66.9 ± 0.6<br>66.3 ± 0.4 | −0.7<br>+5.6<br>+1.0<br>−2.5 |
+| DBLP-hard | full<br>3<br>6<br>1 | 46.9 ± 0.3<br>48.8 ± 0.4<br>± 0.3<br>± 0.2<br>34.5<br>44.1 | 41.0 ± 0.3<br>44.8 ± 0.3<br>± 0.3<br>± 0.3<br>46.2<br>47.5 | +7.0<br>+0.8<br>−0.4<br>−1.2 | 35.9 ± 0.3<br>39.3 ± 0.3<br>40.6 ± 0.3<br>41.0 ± 0.4 | 35.6 ± 0.4<br>± 0.5<br>38.8 ± 0.6<br>40.7 ± 0.4<br>38.1 | +0.5<br>−0.6<br>−1.2<br>−0.3 | 33.0 ± 0.2<br>± 0.3<br>41.0 ± 0.3<br>41.6 ± 0.3<br>39.1 | 35.3 ± 0.3<br>38.8 ± 0.4<br>± 0.5<br>40.8 ± 0.2<br>40.1 | +2.9<br>+0.3<br>−0.3<br>−0.9 |
+| PharmaBio | full<br>4<br>8<br>1 | 62.3 ± 0.9<br>64.4 ± 0.8<br>65.3 ± 0.8<br>62.4 ± 0.8 | ± 0.8<br>64.4 ± 0.8<br>64.0 ± 0.7<br>61.7 ± 0.6<br>64.5 | +2.3<br>−0.0<br>−1.4<br>−0.8 | ± 0.8<br>± 0.8<br>65.7 ± 0.8<br>67.3 ± 0.8<br>68.1<br>68.2 | 68.6 ± 0.8<br>68.4 ± 0.7<br>68.0 ± 0.7<br>± 0.8<br>66.1 | +3.0<br>+1.0<br>−2.2<br>−0.1 | 67.8 ± 0.8<br>± 0.9<br>± 0.8<br>66.8 ± 0.8<br>64.1<br>67.1 | 68.3 ± 0.9<br>± 0.8<br>67.7 ± 0.7<br>± 0.7<br>68.2<br>64.5 | +4.3<br>−0.3<br>−2.6<br>+1.1 |
 
 ![](_page_32_Figure_0.jpeg)
 <!-- Image Description: The image displays three line graphs comparing model accuracy over time across three datasets (dblp-easy, dblp-hard, pharmabio). Each graph shows the performance of three models (mlp, gs-mean, gat) with and without incremental training, plotting accuracy against the year. The purpose is to illustrate the temporal performance differences between the models and the impact of incremental training on accuracy for each dataset. -->
 
-<span id="page-32-1"></span>Figure 8: Results of the ablation study: Accuracy scores of once-trained, static models (solid lines) are lower than incrementally trained models (dashed lines).
+<span id="page-32-1"></span>**Figure 8:** Results of the ablation study: Accuracy scores of once-trained, static models (solid lines) are lower than incrementally trained models (dashed lines).
 
 GCN), almost all methods obtain 95% accuracy compared to the same model under full-history training. Moreover, with very small history sizes, such as using only one past task, using warm restarts is important to maintain a high level of accuracy. Furthermore, we have confirmed in an ablation study that incremental training is necessary to account for changes of the graph.
 
@@ -595,7 +591,7 @@ This experiment shows that the effect of varying the label rate is as expected: 
 ![](_page_34_Figure_0.jpeg)
 <!-- Image Description: The image displays a line graph illustrating the relationship between label rate and accuracy for a machine learning model. Multiple lines represent different model "histories" (1, 3, 6, 25) and starting conditions ("cold" and "warm"). The graph shows accuracy increasing with label rate for all conditions, with longer histories generally resulting in higher accuracy. The purpose is to demonstrate the impact of training data history and initialization on model performance. -->
 
-<span id="page-34-1"></span>Figure 9: Average accuracy of GraphSAGE with warm restarts across tasks on DBLP-hard under varying label rate
+<span id="page-34-1"></span>**Figure 9:** Average accuracy of GraphSAGE with warm restarts across tasks on DBLP-hard under varying label rate
 
 ### <span id="page-34-0"></span>9. Experiment 4: Detection of Unseen Classes
 
@@ -608,7 +604,7 @@ In previous experiments, unseen classes were part of the test data, while there 
 ![](_page_35_Figure_0.jpeg)
 <!-- Image Description: The image is a bar chart showing the number of nodes (total and unseen) for twelve tasks. The light blue bars represent the total number of nodes per task, increasing steadily from task 0 to task 10 before slightly decreasing at task 11. Small, overlaid reddish bars indicate the number of unseen nodes per task, remaining relatively small compared to the total nodes across all tasks. The chart illustrates the growth of the total number of nodes and the relatively stable proportion of unseen nodes with increasing task complexity. -->
 
-<span id="page-35-0"></span>Figure 10: Number of vertices with unseen classes per task on DBLP-hard
+<span id="page-35-0"></span>**Figure 10:** Number of vertices with unseen classes per task on DBLP-hard
 
 We used the DBLP-hard dataset, which has 23 new classes. In addition to the dataset analysis in Section [5.2,](#page-21-1) we show in Figure [10](#page-35-0) how many vertices belong to unseen classes in the DBLP-hard dataset. We also experiment with DBLP-easy, which has 4 new classes. We use the best-performing model GraphSAGE-mean along with gDOC for unseen class detection that we have introduced in Section [3.2.](#page-13-1) Our baseline is the original DOC method, also applied to the outputs of GraphSAGE-mean. We observe that in every task except for the last one, there are vertices with unseen classes.
 
@@ -625,7 +621,7 @@ We evaluate how well the models detect unseen classes. For this purpose, we use 
 ![](_page_36_Figure_0.jpeg)
 <!-- Image Description: The image displays a line graph showing the relationship between "global_mcc" (y-axis) and "doc_alpha" (x-axis) for different "doc_threshold" values (0.0, 0.25, 0.5, 0.75, 1.0). Each line represents a different doc_threshold, indicating how the global mcc metric varies with changes in doc_alpha under different thresholding conditions. The shaded areas likely represent confidence intervals. The graph likely assesses the performance of a model across various parameter settings. -->
 
-Figure 11: MCC score of gDOC with GraphSAGE-mean as GNN model (history size 3, warm restart setting) as a function of the risk reduction factor α and varying minimum threshold values. We observe that the more risk reduction does not improve the results.
+**Figure 11:** MCC score of gDOC with GraphSAGE-mean as GNN model (history size 3, warm restart setting) as a function of the risk reduction factor α and varying minimum threshold values. We observe that the more risk reduction does not improve the results.
 
 is taken into account as any of the known classes. In detail, we compute this Open Macro-F1 as
 
@@ -669,59 +665,59 @@ For thresholds, the results indicate that a high threshold (0.75) is preferable 
 
 In Figure [11,](#page-36-0) we show that risk reduction, i. e., lowering the detection threshold based on the class-specific standard deviation, does not help to increase performance. With a low minimum threshold (e. g., 0), we see the pure performance of the risk reduction technique, which peaks at α = 1 before it decreases.
 
-<span id="page-38-0"></span>Table 5: Results for unseen class detection on DBLP-easy with GraphSAGE as base model (average of 5 repetitions). α indicates that risk reduction is used with the respective factor for the standard deviation, τ is the minimum threshold. Runs named gDOC are trained with weighted cross entropy. DOC is our baseline.
+<span id="page-38-0"></span>**Table 5:** Results for unseen class detection on DBLP-easy with GraphSAGE as base model (average of 5 repetitions). α indicates that risk reduction is used with the respective factor for the standard deviation, τ is the minimum threshold. Runs named gDOC are trained with weighted cross entropy. DOC is our baseline.
 
-|      |                          |      | MCC  |      | Open F1 Macro |
+| | | | MCC | | Open F1 Macro |
 |------|--------------------------|------|------|------|---------------|
-|      |                          | cold | warm | cold | warm          |
-| c    | Open Learning Method     |      |      |      |               |
-| 1    | DOC (τ = 0.50)           | .05  | .07  | .25  | .25           |
-|      | DOC (τ = 0.50, α = 3.0)  | .05  | .07  | .25  | .25           |
-|      | gDOC (τ = 0.50)          | .04  | .08  | .30  | .33           |
-|      | gDOC (τ = 0.50, α = 3.0) | .04  | .05  | .30  | .32           |
-|      | gDOC (τ = 0.75)          | .04  | .07  | .30  | .30           |
-| 3    | DOC (τ = 0.50)           | .05  | .05  | .28  | .30           |
-|      | DOC (τ = 0.50, α = 3.0)  | .05  | .05  | .28  | .30           |
-|      | gDOC (τ = 0.50)          | .05  | .08  | .34  | .34           |
-|      | gDOC (τ = 0.50, α = 3.0) | .06  | .08  | .34  | .34           |
-|      | gDOC (τ = 0.75)          | .07  | .09  | .34  | .34           |
-| 6    | DOC (τ = 0.50)           | .06  | .06  | .31  | .32           |
-|      | DOC (τ = 0.50, α = 3.0)  | .06  | .06  | .31  | .32           |
-|      | gDOC (τ = 0.50)          | .07  | .07  | .35  | .35           |
-|      | gDOC (τ = 0.50, α = 3.0) | .07  | .07  | .35  | .35           |
-|      | gDOC (τ = 0.75)          | .09  | .10  | .35  | .35           |
-| full | DOC (τ = 0.50)           | .07  | .07  | .32  | .33           |
-|      | DOC (τ = 0.50, α = 3.0)  | .07  | .07  | .32  | .33           |
-|      | gDOC (τ = 0.50)          | .06  | .06  | .35  | .35           |
-|      | gDOC (τ = 0.50, α = 3.0) | .06  | .06  | .35  | .35           |
-|      | gDOC (τ = 0.75)          | .08  | .10  | .35  | .35           |
+| | | cold | warm | cold | warm |
+| c | Open Learning Method | | | | |
+| 1 | DOC (τ = 0.50) | .05 | .07 | .25 | .25 |
+| | DOC (τ = 0.50, α = 3.0) | .05 | .07 | .25 | .25 |
+| | gDOC (τ = 0.50) | .04 | .08 | .30 | .33 |
+| | gDOC (τ = 0.50, α = 3.0) | .04 | .05 | .30 | .32 |
+| | gDOC (τ = 0.75) | .04 | .07 | .30 | .30 |
+| 3 | DOC (τ = 0.50) | .05 | .05 | .28 | .30 |
+| | DOC (τ = 0.50, α = 3.0) | .05 | .05 | .28 | .30 |
+| | gDOC (τ = 0.50) | .05 | .08 | .34 | .34 |
+| | gDOC (τ = 0.50, α = 3.0) | .06 | .08 | .34 | .34 |
+| | gDOC (τ = 0.75) | .07 | .09 | .34 | .34 |
+| 6 | DOC (τ = 0.50) | .06 | .06 | .31 | .32 |
+| | DOC (τ = 0.50, α = 3.0) | .06 | .06 | .31 | .32 |
+| | gDOC (τ = 0.50) | .07 | .07 | .35 | .35 |
+| | gDOC (τ = 0.50, α = 3.0) | .07 | .07 | .35 | .35 |
+| | gDOC (τ = 0.75) | .09 | .10 | .35 | .35 |
+| full | DOC (τ = 0.50) | .07 | .07 | .32 | .33 |
+| | DOC (τ = 0.50, α = 3.0) | .07 | .07 | .32 | .33 |
+| | gDOC (τ = 0.50) | .06 | .06 | .35 | .35 |
+| | gDOC (τ = 0.50, α = 3.0) | .06 | .06 | .35 | .35 |
+| | gDOC (τ = 0.75) | .08 | .10 | .35 | .35 |
 
-<span id="page-39-0"></span>Table 6: Results for unseen class detection on DBLP-hard with GraphSAGE as base model (average of 5 repetitions). α indicates that risk reduction is used with the respective factor for the standard deviation, τ is the minimum threshold. Runs named gDOC are trained with weighted cross entropy. DOC is our baseline.
+<span id="page-39-0"></span>**Table 6:** Results for unseen class detection on DBLP-hard with GraphSAGE as base model (average of 5 repetitions). α indicates that risk reduction is used with the respective factor for the standard deviation, τ is the minimum threshold. Runs named gDOC are trained with weighted cross entropy. DOC is our baseline.
 
-|      |                          | MCC  |      | Open F1 Macro |      |
+| | | MCC | | Open F1 Macro | |
 |------|--------------------------|------|------|---------------|------|
-|      |                          | cold | warm | cold          | warm |
-| c    | Open Learning Method     |      |      |               |      |
-| 1    | DOC (τ = 0.50)           | .01  | .04  | .01           | .01  |
-|      | DOC (τ = 0.50, α = 3.0)  | .01  | .02  | .01           | .01  |
-|      | gDOC (τ = 0.50)          | .04  | .05  | .13           | .13  |
-|      | gDOC (τ = 0.50, α = 3.0) | .04  | .05  | .13           | .13  |
-|      | gDOC (τ = 0.75)          | .04  | .09  | .13           | .13  |
-| 3    | DOC (τ = 0.50)           | .02  | .03  | .02           | .05  |
-|      | DOC (τ = 0.50, α = 3.0)  | .02  | .03  | .02           | .05  |
-|      | gDOC (τ = 0.50)          | .05  | .06  | .15           | .15  |
-|      | gDOC (τ = 0.50, α = 3.0) | .05  | .06  | .15           | .15  |
-|      | gDOC (τ = 0.75)          | .05  | .08  | .15           | .15  |
-| 6    | DOC (τ = 0.50)           | .02  | .03  | .05           | .08  |
-|      | DOC (τ = 0.50, α = 3.0)  | .02  | .03  | .05           | .08  |
-|      | gDOC (τ = 0.50)          | .05  | .06  | .16           | .16  |
-|      | gDOC (τ = 0.50, α = 3.0) | .05  | .06  | .16           | .16  |
-|      | gDOC (τ = 0.75)          | .05  | .07  | .16           | .16  |
-| full | DOC (τ = 0.50)           | .02  | .04  | .08           | .12  |
-|      | DOC (τ = 0.50, α = 3.0)  | .02  | .04  | .08           | .12  |
-|      | gDOC (τ = 0.50)          | .04  | .05  | .16           | .16  |
-|      | gDOC (τ = 0.50, α = 3.0) | .05  | .05  | .16           | .16  |
-|      | gDOC (τ = 0.75)          | .05  | .07  | .16           | .16  |
+| | | cold | warm | cold | warm |
+| c | Open Learning Method | | | | |
+| 1 | DOC (τ = 0.50) | .01 | .04 | .01 | .01 |
+| | DOC (τ = 0.50, α = 3.0) | .01 | .02 | .01 | .01 |
+| | gDOC (τ = 0.50) | .04 | .05 | .13 | .13 |
+| | gDOC (τ = 0.50, α = 3.0) | .04 | .05 | .13 | .13 |
+| | gDOC (τ = 0.75) | .04 | .09 | .13 | .13 |
+| 3 | DOC (τ = 0.50) | .02 | .03 | .02 | .05 |
+| | DOC (τ = 0.50, α = 3.0) | .02 | .03 | .02 | .05 |
+| | gDOC (τ = 0.50) | .05 | .06 | .15 | .15 |
+| | gDOC (τ = 0.50, α = 3.0) | .05 | .06 | .15 | .15 |
+| | gDOC (τ = 0.75) | .05 | .08 | .15 | .15 |
+| 6 | DOC (τ = 0.50) | .02 | .03 | .05 | .08 |
+| | DOC (τ = 0.50, α = 3.0) | .02 | .03 | .05 | .08 |
+| | gDOC (τ = 0.50) | .05 | .06 | .16 | .16 |
+| | gDOC (τ = 0.50, α = 3.0) | .05 | .06 | .16 | .16 |
+| | gDOC (τ = 0.75) | .05 | .07 | .16 | .16 |
+| full | DOC (τ = 0.50) | .02 | .04 | .08 | .12 |
+| | DOC (τ = 0.50, α = 3.0) | .02 | .04 | .08 | .12 |
+| | gDOC (τ = 0.50) | .04 | .05 | .16 | .16 |
+| | gDOC (τ = 0.50, α = 3.0) | .05 | .05 | .16 | .16 |
+| | gDOC (τ = 0.75) | .05 | .07 | .16 | .16 |
 
 When using a high minimum threshold (0.5, 0.75, 1.0), applying risk reduction only decreases the OOD performance. In other words, the absolute best OOD detection performance is achieved when the minimum threshold τ is set to 0.75, regardless of the risk reduction factor α. Therefore, the usefulness of risk reduction for our heavily imbalanced datasets is questionable.
 
@@ -737,24 +733,24 @@ The results are shown in Table [7.](#page-41-1) The ranking of the base models i
 
 We assess how in-distribution accuracy is affected by new class detection capabilities. Therefore, we report the average accuracy across tasks, calculated in the same way as in Experiment 2 from Section [7.](#page-27-0) The results are reported in Table [8](#page-42-0) and show that, as expected, a plain GraphSAGE without OOD capabilities has a higher in-distribution accuracy than training with OOD detection capabilities (GraphSAGE+gDOC). This difference is caused by training with binary cross-entropy instead of the standard categorical cross-entropy. An interesting exception is that GraphSAGE+gDOC is better than GraphSAGE on the smallest history size configuration (c = 1). We assume that this difference is caused by GraphSAGE overfitting to the little data from a single graph snapshot, whereas the weighted cross-entropy of gDOC seems to alleviate this problem.
 
-|      |          | ID Accuracy       |      | OOD MCC |      | Open F1 |      |
+| | | ID Accuracy | | OOD MCC | | Open F1 | |
 |------|----------|-------------------|------|---------|------|---------|------|
-|      |          | cold              | warm | cold    | warm | cold    | warm |
-| c    | Method   |                   |      |         |      |         |      |
-| 1    | GS+gDOC  | 36.4              | 37.6 | .04     | .09  | .13     | .13  |
-|      | SGC+gDOC | 35.0              | 38.4 | .05     | .10  | .12     | .14  |
-|      | GAT+gDOC | 34.0              | 38.0 | .04     | .08  | .10     | .13  |
-| 3    | GS+gDOC  | 40.9              | 40.7 | .05     | .08  | .15     | .15  |
-|      | SGC+gDOC | 41.6              | 41.9 | .05     | .07  | .15     | .16  |
-|      | GAT+gDOC | 40.3              | 40.3 | .04     | .07  | .13     | .13  |
-| 6    | GS+gDOC  | 42.5              | 42.2 | .05     | .07  | .16     | .16  |
-|      | SGC+gDOC | 43.7              | 43.4 | .04     | .07  | .16     | .16  |
-|      | GAT+gDOC | 43.7              | 43.4 | .04     | .07  | .16     | .16  |
-| full | GS+gDOC  | 43.6              | 43.5 | .05     | .07  | .16     | .16  |
-|      | SGC+gDOC | out of GPU memory |      |         |      |         |      |
-|      | GAT+gDOC | 43.9              | 43.5 | .04     | .05  | .16     | .16  |
+| | | cold | warm | cold | warm | cold | warm |
+| c | Method | | | | | | |
+| 1 | GS+gDOC | 36.4 | 37.6 | .04 | .09 | .13 | .13 |
+| | SGC+gDOC | 35.0 | 38.4 | .05 | .10 | .12 | .14 |
+| | GAT+gDOC | 34.0 | 38.0 | .04 | .08 | .10 | .13 |
+| 3 | GS+gDOC | 40.9 | 40.7 | .05 | .08 | .15 | .15 |
+| | SGC+gDOC | 41.6 | 41.9 | .05 | .07 | .15 | .16 |
+| | GAT+gDOC | 40.3 | 40.3 | .04 | .07 | .13 | .13 |
+| 6 | GS+gDOC | 42.5 | 42.2 | .05 | .07 | .16 | .16 |
+| | SGC+gDOC | 43.7 | 43.4 | .04 | .07 | .16 | .16 |
+| | GAT+gDOC | 43.7 | 43.4 | .04 | .07 | .16 | .16 |
+| full | GS+gDOC | 43.6 | 43.5 | .05 | .07 | .16 | .16 |
+| | SGC+gDOC | out of GPU memory | | | | | |
+| | GAT+gDOC | 43.9 | 43.5 | .04 | .05 | .16 | .16 |
 
-<span id="page-41-1"></span>Table 7: Comparison of gDOC combined with different base models on DBLP-hard. The gDOC threshold is set to the 0.75 and no risk reduction is applied.
+<span id="page-41-1"></span>**Table 7:** Comparison of gDOC combined with different base models on DBLP-hard. The gDOC threshold is set to the 0.75 and no risk reduction is applied.
 
 ### 7. Summary
 
@@ -768,24 +764,24 @@ Our experiments show several key results. First, we have shown in Section [6](#p
 
 From the incremental training experiments with limited history sizes in Section [7,](#page-27-0) we obtain results that are almost as good as when using the entire history
 
-<span id="page-42-0"></span>Table 8: Trade-off between in-distribution classification accuracy and out-of-distribution detection performance on DBLP-hard. GraphSAGE (without an OOD detection module) is trained with categorical cross-entropy, while the methods capable of OOD detection are trained with binary cross-entropy. For ID accuracy, we always select the class with the maximum logit, regardless of any OOD threshold. NA marks no OOD detection capabilities.
+<span id="page-42-0"></span>**Table 8:** Trade-off between in-distribution classification accuracy and out-of-distribution detection performance on DBLP-hard. GraphSAGE (without an OOD detection module) is trained with categorical cross-entropy, while the methods capable of OOD detection are trained with binary cross-entropy. For ID accuracy, we always select the class with the maximum logit, regardless of any OOD threshold. NA marks no OOD detection capabilities.
 
-|      |                                 | ID Accuracy |      | OOD MCC |      |
+| | | ID Accuracy | | OOD MCC | |
 |------|---------------------------------|-------------|------|---------|------|
-|      |                                 | cold        | warm | cold    | warm |
-| c    | Method                          |             |      |         |      |
-| 1    | GraphSAGE+gDOC(τ = 0.75)        | 36.4        | 37.6 | .04     | .09  |
-|      | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 35.2        | 28.7 | .01     | .02  |
-|      | GraphSAGE                       | 34.5        | 40.0 | NA      | NA   |
-| 3    | GraphSAGE+gDOC(τ = 0.75)        | 40.9        | 40.7 | .05     | .08  |
-|      | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 39.4        | 43.1 | .02     | .03  |
-|      | GraphSAGE                       | 44.3        | 45.1 | NA      | NA   |
-| 6    | GraphSAGE+gDOC(τ = 0.75)        | 42.5        | 42.2 | .05     | .07  |
-|      | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 43.6        | 44.1 | .02     | .03  |
-|      | GraphSAGE                       | 46.5        | 46.7 | NA      | NA   |
-| full | GraphSAGE+gDOC(τ = 0.75)        | 43.6        | 43.5 | .05     | .07  |
-|      | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 42.9        | 45.1 | .02     | .04  |
-|      | GraphSAGE                       | 46.8        | 47.1 | NA      | NA   |
+| | | cold | warm | cold | warm |
+| c | Method | | | | |
+| 1 | GraphSAGE+gDOC(τ = 0.75) | 36.4 | 37.6 | .04 | .09 |
+| | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 35.2 | 28.7 | .01 | .02 |
+| | GraphSAGE | 34.5 | 40.0 | NA | NA |
+| 3 | GraphSAGE+gDOC(τ = 0.75) | 40.9 | 40.7 | .05 | .08 |
+| | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 39.4 | 43.1 | .02 | .03 |
+| | GraphSAGE | 44.3 | 45.1 | NA | NA |
+| 6 | GraphSAGE+gDOC(τ = 0.75) | 42.5 | 42.2 | .05 | .07 |
+| | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 43.6 | 44.1 | .02 | .03 |
+| | GraphSAGE | 46.5 | 46.7 | NA | NA |
+| full | GraphSAGE+gDOC(τ = 0.75) | 43.6 | 43.5 | .05 | .07 |
+| | GraphSAGE+DOC(τ = 0.5, α = 3.0) | 42.9 | 45.1 | .02 | .04 |
+| | GraphSAGE | 46.8 | 47.1 | NA | NA |
 
 of the graph: With window sizes of 3 or 4 (50% receptive field coverage), GNNs achieve at least 95% accuracy compared to using all past data for incremental training. With window sizes of 6 or 8 (75% receptive field coverage), the GNN retains at least 99% accuracy. This result holds for standard GNN architectures and scalable and sampling-based approaches. This result directly impacts lifelong learning of GNNs in evolving graphs, as the setting closely resembles real-world applications. We have investigated whether to reuse parameters from previous tasks (warm restarts). We find that reusing an "old" model is a viable strategy, even though new classes appear during the sequence of tasks and the history size is limited. We have shown that reusing parameters from previous tasks becomes critical when the history sizes are small because less explicit knowledge is available.
 
@@ -809,7 +805,7 @@ We have conducted extensive experiments to investigate how graph neural networks
 
 As future work, we intend to explore and adapt more out-of-distribution approaches to graphs, e. g., by using the IsoMax loss function [\[65\]](#page-49-7). Another promising direction of future work would adapt ideas from the L2AC framework to graphs, i. e., integrating explicit retrieval and similarity components. For the scope of this work, we have limited ourselves to techniques that provide a crisp decision rather than an OOD score because an OOD score requires validation data to tune the thresholds. Instead, the crisp unseen class detection methods presented here will apply directly to real-world applications. Next, it will be interesting to analyze why omitting old training data helps detect out-of-distribution examples. Although we have removed old data solely based on the vertex's time, future work might want to analyze different approaches to determine which vertices to keep and which to remove, given a limited "memory" budget. For example, keeping vertices with a high degree or page rank could be beneficial. Another direction of future work would be to explore when it is safe to actively shrink the output layer of the GNNs, e. g., by looking at the final layer's weights. We envision that the results of this work will spur the development of new specialized techniques for lifelong open-world learning in evolving graphs.
 
-# Availability of Data and Code
+## Availability of Data and Code
 
 - Availability of data: We published our lifelong graph learning datasets at [https://doi.org/10.5281/zenodo.3764770.](https://doi.org/10.5281/zenodo.3764770)
 - Availability of code: An implementation of our experimental framework is available at <https://github.com/lgalke/lifelong-learning>

@@ -34,9 +34,6 @@ keywords:
 - tkg-srec
 ---
 
-
-
-
 # User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation
 
 Hengchang Hu<sup>∗</sup> hengchang.hu@u.nus.edu National University of Singapore Singapore
@@ -49,11 +46,11 @@ Ruiming Tang tangruiming@huawei.com Huawei Noah's Ark Lab China
 
 Min-Yen Kan† kanmy@comp.nus.edu.sg National University of Singapore Singapore
 
-# ABSTRACT
+## ABSTRACT
 
 Knowledge Graphs (KGs) enhance recommendations by providing external connectivity between items. However, there is limited research on distilling relevant knowledge in sequential recommendation, where item connections can change over time. To address this, we introduce the Temporal Knowledge Graph (TKG), which incorporates such dynamic features of user behaviors into the original KG while emphasizing sequential relationships. The TKG captures both patterns of entity dynamics (nodes) and structural dynamics (edges). Considering real-world applications with large-scale and rapidly evolving user behavior patterns, we propose an efficient twophase framework called TKG-SRec, which strengthens Sequential Rec-ommendation with Temporal KGs. In the first phase, we learn dynamic entity embeddings using our novel Knowledge Evolution Network (KEN) that brings together pretrained static knowledge with evolving temporal knowledge. In the second stage, downstream sequential recommender models utilize these time-specific dynamic entity embeddings with compatible neural backbones like GRUs, Transformers, and MLPs. From our extensive experiments over four datasets, TKG-SRec outperforms the current state-of-theart by a statistically significant 5% on average. Detailed analysis validates that such filtered temporal knowledge better adapts entity embedding for sequential recommendation. In summary, TKG-SRec provides an effective and efficient approach.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 ## • Information systems → Recommender systems.
 
@@ -75,7 +72,7 @@ Xu Liu liuxu@comp.nus.edu.sg National University of Singapore Singapore
 
 > Rui Zhang† rayteam@yeah.net ruizhang.info China
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Sequential Recommendation (SR) models how user preferences change across temporally-ordered item sequences, evolving from the use of Markov Chains [\[9\]](#page-8-0) and Recurrent Neural Networks [\[8,](#page-8-1) [13,](#page-8-2) [21\]](#page-8-3), to Transformers [\[18,](#page-8-4) [34,](#page-8-5) [46\]](#page-8-6). In SR tasks, knowledge graphs (KGs) serve as valuable auxiliary resources, providing additional information about items through external relationships to enhance recommendation accuracy and diversity [\[61\]](#page-9-1). However, KGs contain massive irrelevant knowledge (both entities and relationships) for specific recommendation tasks, weakening performance.
 
@@ -86,7 +83,7 @@ Distilling relevant knowledge is necessary [\[6,](#page-8-7) [49\]](#page-9-2), 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This figure displays the evolution of co-purchasing ratios between iPhones and Apple Watches from 2015 to 2021, shown in a line graph. A rising trend is observed, with highlighted periods representing significant changes. Accompanying the graph are two network diagrams illustrating the supplier relationships between Apple, iPhones, and Apple Watches, at 2016 (weak relationship) and 2020 (stronger relationship). The diagrams visually represent the increased co-purchasing shown in the graph. -->
 
-Figure 1: A TKG exploits the dynamic relations among entities: (left) the co-purchase of iPhone and Apple Watch rises in prominence over time; (right) resulting in the creation of a new dependency between the two entities in the TKG.
+**Figure 1:** A TKG exploits the dynamic relations among entities: (left) the co-purchase of iPhone and Apple Watch rises in prominence over time; (right) resulting in the creation of a new dependency between the two entities in the TKG.
 
 can lead to irrelevant recommendations, as a user who first buys an Apple Watch may not find an iPhone as immediately relevant. This motivates the need for SR methods that account for asymmetric sequential relationships in knowledge distillation.
 
@@ -104,7 +101,7 @@ We refer to our aforementioned TKG modeling method as Knowledge Evolution Networ
 
 The main contributions of our work are summarized as follows: (i) To the best of our knowledge, we are the first to explore the temporal dynamicity of knowledge graphs in SR. We propose our TKG-SRec framework that exploits temporal knowledge to improve SR. (ii) We contribute KEN as the key component in our framework which models the TKG in an efficient manner. (iii) We conduct extensive experiments on four benchmark datasets, showing that our TKG-SRec consistently outperforms state-of-the-art methods. We validate the effectiveness of our KEN by integrating it with GRU, MLP, and Transformer-based instantiations.
 
-#### 2 PROBLEM FORMULATION
+### 2 PROBLEM FORMULATION
 
 The objective of sequential recommendation is to predict the next consumed item ∈ I for each user ∈ U, given his/her history sequence . The I and U are items set with volume and users set with volume . In a history sequence of length n, each element is a combination of an interacted item and its corresponding interaction time at that moment, denoted as = ( 1 , 1 ), · · · , ( , ). For brevity, the superscript will be dropped from the notation in the following. In this work, we propose to enhance sequential recommendation by further considering information from temporal knowledge graph, which is denoted as G = (V, R, E, E , X ). It
 
@@ -115,7 +112,7 @@ links items directly or indirectly as an additional source of information. The n
 - Static knowledge. The intrinsic edges E between these entities, known as static relations, are denoted by triple sets E : ( , , ). Here, is the subject entity, is the object entity and ∈ R is their relation. In our work, we preserve the original entity nodes and their static relations (such as "A is the director of B") in the knowledge graph as static knowledge.
 - Temporal knowledge. There exist various temporal relations between entities, which are represented as quadruple-sets edges E : ( , , , ). Here, the variable denotes the index of the time frame, and the granularity of these time frames is determined based on the specific needs of the task. The notation ∈ R corresponds to a particular type of time-specific relation. Moreover, we also consider the temporal properties of entity nodes, denoted as X : (, , ), indicating holds property at time .
 
-#### 3 METHODOLOGY
+### 3 METHODOLOGY
 
 Our methodology is founded on constructing temporal knowledge from user behavior (§ 3.1). We then introduce the TKG-SRec framework, which operates in two phases: entity embedding learning on TKG (Phase-1, § 3.2 and § 3.3) and sequential modeling (Phase-2, § 3.4). In Phase-1, entity embeddings are first pretrained using static knowledge, followed by refinement with temporal knowledge. Phase-2 involves using a sequential model to predict user preferences with dynamic entity embeddings.
 
@@ -130,13 +127,13 @@ For effective modeling of temporal knowledge, we divide it into time-indexed sna
 <span id="page-2-0"></span>![](_page_2_Figure_11.jpeg)
 <!-- Image Description: The image illustrates a knowledge graph (KG) evolution process. It starts with a static knowledge graph representing static relations between nodes (v1-v6). This is transformed into a temporal KG, incorporating time-dependent entity properties and relations. The temporal KG is then decomposed into entity properties (G<sup>ent</sup><sub>t</sub>) and relations (G<sup>rel</sup><sub>t</sub>) across multiple time steps (t). A final component incorporates user behavior statistics. The diagram uses nodes and directed edges to visually represent entities and relationships, respectively. The color gradient in G<sup>ent</sup><sub>t</sub> suggests time-varying node properties. -->
 
-Figure 2: Temporal KGs construction from static knowledge and temporal knowledge. The solid arrows indicate static relations, and the dotted arrows indicate temporal relations.
+**Figure 2:** Temporal KGs construction from static knowledge and temporal knowledge. The solid arrows indicate static relations, and the dotted arrows indicate temporal relations.
 
 to a series of snapshots, G : {G 1 , ..., G }, documenting finegrained relations between item entities over time. Each snapshot G depicts a directed mini graph with edges symbolizing interest transition relations (, , , ). In these snapshots, item entities can be either the source or the target of the transition relations. Focusing on first-order transitions between adjacent items in user sequences, denoted as , we include transition relations between item pairs that exceed the frequency threshold within the ℎ timeframe. For example, if there is a frequent pattern of users frequently buying AirPods right after (i.e., first-order) an iPhone in 2020, surpassing times, we include this directed link (iPhone, , 2020, AirPods) in the snapshot G <sup>2020</sup>.
 
 In summary, for temporal knowledge modeling (as depicted in Figure [2\)](#page-2-0), we introduce time-aware properties of entities into G and a new type of relation (referred to as interest transition) into G . These properties and relations are derived from user behavior statistics within the time frame , serving as hard constraints for distilling time-specific relevant knowledge. It's worth noting that in the previous examples, we used year as the time interval length ( − 1, ) for easier understanding. However, the time window length can be dynamically set. As the time window expands, the granularity of the partitioned snapshots becomes coarser. The total time span and the number of time windows partitioned can vary.
 
-#### 2 Static Pretraining on TKG
+### 2 Static Pretraining on TKG
 
 The static knowledge denotes fixed relationships E between entities. Given its high connectivity and computational demand in real scenarios, we use a structurally simple graph encoder (i.e., static encoder) for its modeling. This encoder takes -dimensional entity embeddings E ∈ R × (randomly initialized) as input, processing them with a graph neural network. Designed for modeling varied relations in knowledge graphs, its propagation function for each entity node is as follows:
 
@@ -151,7 +148,7 @@ During the static pretraining, we apply the scoring function of DistMult factori
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: Figure 3 presents a framework for Temporal Knowledge Graph enhanced Sequential Recommendation. (a) shows a graph encoder generating dynamic entity embeddings. (b) illustrates a knowledge evolution network incorporating these embeddings, using evolution units with gated mechanisms. (c) depicts a traditional sequential recommendation model, and (d) shows the proposed model (TKG-SRec) integrating the dynamic embeddings into (c). Equations (2)-(7) detail the loss function, propagation function, and gated unit updates. The figure’s purpose is to visually explain the architecture of the proposed model, highlighting its temporal dynamics. -->
 
-Figure 3: The framework of Temporal Knowledge Graph enhanced Sequential Recommendation. KEN component (b) utilizing (a) graph encoder to learn dynamic entity embeddings. Sequential recommender component (d) leverages dynamic entity embedding into the traditional RNN-based backbone (c).
+**Figure 3:** The framework of Temporal Knowledge Graph enhanced Sequential Recommendation. KEN component (b) utilizing (a) graph encoder to learn dynamic entity embeddings. Sequential recommender component (d) leverages dynamic entity embedding into the traditional RNN-based backbone (c).
 
 h (+1)
 
@@ -161,7 +158,7 @@ $$
 \mathcal{L}_{tkg}^{pre} = \sum_{(v_i, r, v_j), y} y \log(f(v_i, r, v_j)) + (1 - y) \log(1 - f(v_i, r, v_j)) \tag{2}
 $$
 
-#### 3 Temporal Tuning on TKG
+### 3 Temporal Tuning on TKG
 
 In addition to static knowledge, we leverage temporal fine-tuning to integrate temporal knowledge. Following [\[52\]](#page-9-10), we establish dynamic entity embeddings E ∈ R ×× to effectively represent entities/relations' evolution, storing unique parameters for each time. Each time's entity embedding is initialized by static entity embeddings E = E . As shown in Figure [3](#page-3-0) (b), a temporal encoder processes the embedding E at each time frame , yielding a temporal hidden state. We use gated knowledge evolution units to ensure dynamic continuity between temporal hidden states, while the temporal decoder generates predictions for the next time frame + 1 based on temporal knowledge.
 
@@ -183,19 +180,16 @@ We separate the two views in the relation propagation in previous designs, aimin
 
 3.3.2 Gated Knowledge Evolution Unit. In order to leverage the dynamic and static properties of each entity, we refer to the static hidden state h as the long-term constraints, and the temporal hidden state h , as the short-term information filters in our evolution units. Specifically, as illustrated in the green box in Figure [3](#page-3-0) (b), in ℎ unit cell, the update for each entity from <sup>h</sup>,−<sup>1</sup> <sup>→</sup> <sup>h</sup>,:
 
-<span id="page-3-1"></span>
 $$
 \mathbf{h}_{v,t} = \mathbf{h}_v^{\rho} + (1 - \beta_t) \cdot \mathbf{h}_{v,t-1} + \beta_t \cdot \tilde{\mathbf{h}}_{v,t},
 $$
 \n(5)
 
-<span id="page-3-2"></span>
 $$
 \beta_t = \sigma(\mathbf{W}_{gate}[\mathbf{h}_{v,t-1}; \mathbf{h}_{v,t}^{\tau}] + \mathbf{b}_{gate}),
 $$
 \n(6)
 
-<span id="page-3-3"></span>
 $$
 \tilde{\mathbf{h}}_{v,t} = \tanh(\mathbf{W}_{time} \cdot (\mathbf{p}_t + \mathbf{h}_{v,t}^{\tau})),\tag{7}
 $$
@@ -211,7 +205,7 @@ The entity classification task aims to classify the properties (i.e., the popula
 $$
 \mathcal{L}_{t+1}^{Ent} = \sum -\log(q(v^+, t+1)) - \log(1 - q(v^-, t+1)).
 $$
- (8)
+(8)
 
 The relation prediction task involves determining the existence of an interest transition relation in G +1 . To address this, we use ConvTransE [\[32\]](#page-8-20) as our relation decoder C, following the common practice of using graph decoders as score functions for relation prediction. We decode using the evolved representations h,. The probability of a quadruple ( , , + 1, ) existing is calculated as ( , , , + 1) = (r · C (h ,, h,)), where r represents the edge embedding. For training, positive quadruples ( , , , ) ∈ E are extracted from the TKG, marked as label = 1. And negative quadruples ( − , , , ), = 0 are sampled by replacing the subject entity. The classification criterion is the Binary Cross-Entropy loss.
 
@@ -228,7 +222,7 @@ $$
 
 The loss weight serves as a hyperparameter balancing impacts of both tasks. Through optimization, the learned entity embedding e , (from the temporal embedding table E ) intrinsically captures the distilled knowledge specific to a certain time.
 
-#### <span id="page-4-0"></span>3.4 Entity-level Sequential Modeling in SR
+### <span id="page-4-0"></span>3.4 Entity-level Sequential Modeling in SR
 
 A typical sequential recommender model (SRec) focuses on item sequential modeling, using history item representation for nextitem prediction. As shown in Figure [3.](#page-3-0)c, traditional SRec assigns item representation by randomly initialized embedding. For a better explanation, we employ GRU4Rec [\[13\]](#page-8-2) as our backbone in Phase-2, which is a straightforward yet powerful choice. Taking the traditional method, given a user's interaction sequence 1: : (1, 1) → · · · → (, ), GRU4Rec models it using GRU cells. At the ℎ position, the GRU cell processes the input of randomly initialized item embedding i and the hidden state from the previous GRU cell z−1, and then generate the hidden state for the next cell. Mathematically, z = (i, z−1). Beginning from = 1, the sequence representation is obtained by propagating through cells.
 
@@ -246,7 +240,7 @@ $$
 
 In order to better adapt the entity embeddings to SR, we don't freeze the dynamic entity embeddings, allowing them to be further fine-tuned. Finally, the ultimate objective is to minimize the loss between the predicted value ˆ and the true label .
 
-#### 5 Complexity Analysis
+### 5 Complexity Analysis
 
 Time complexity. Our TKG-SRec is a streamlined two-phase framework optimized for lightweight TKGs use. The enhanced entity embedding is directly applicable for online inference, making its time complexity equivalent to basic SR models. For training, the two-phase approach simplifies integration with a lower complexity ( + |E | + 2 ′ |E |), in contrast to the joint training's ( (|E | + 2 ′ |E |)). Here, is the maximum sequence length, is the user number, |E | and |E | are the average edge numbers of static relations and temporal relations in each snapshot. Most training time centers on the temporal knowledge evolution training with |E | + 2 ′ |E |. The parameter influences time granularity and training complexity. Nonetheless, real-world TKGs' vastness necessitates a balance.
 
@@ -254,7 +248,7 @@ Space complexity. In Phase-1, training dynamic entity embedding is memory-intens
 
 from (2) to (20) during static pretraining, with being the average entity number in a batch and 20 is the default number of sampled neighbors for propagation. For temporal tuning's sub-graph sampling, nodes are selected from temporal snapshots G +1 and G +1 rather than the full knowledge graph. This reduces space complexity from (2) to ( Í =<sup>1</sup> +1), where represents the number of entities in the -th snapshot. The entity count in each snapshot , is generally much less than the overall entity count .
 
-#### 4 EXPERIMENTS
+### 4 EXPERIMENTS
 
 Datasets. We experiment on four public datasets including LastFM [\[30\]](#page-8-21), Amazon-books [\[12\]](#page-8-22), and MovieLens [\[10\]](#page-8-23) (with two volumes). The datasets include both user–item interactions and side knowledge. To avoid heavy computation, following the common preprocessing practice [\[11,](#page-8-24) [17,](#page-8-11) [28,](#page-8-25) [39\]](#page-8-26), we filter out the overly unpopular items and inactive users with fewer than 5 records. The KGs are initially constructed by Zhao et al. [\[64\]](#page-9-13), and we also eliminate entities from KGs that are too distant (more than 3 hops) from any of the item-linked entities. For the large LastFM, we follow the practice of Huang et al. [\[17\]](#page-8-11), only keeping the last year's interaction.
 
@@ -262,7 +256,7 @@ Evaluation Protocol. Following standard SR settings [\[15,](#page-8-27) [18\]](#
 
 Baselines. To verify the effectiveness of our proposed TKG-SRec, we compare it with two groups of models. (A) Sequential recommender baselines include Caser [\[35\]](#page-8-29) using vertical and horizontal CNNs to model short-term sequences (limited to the last 15 items to avoid gradient explosion); GRU4Rec [\[13\]](#page-8-2), SASRec [\[18\]](#page-8-4), and BERT4Rec [\[34\]](#page-8-5) utilizing GRU, Transformer, and BERT model to capture sequential patterns in user interaction histories; FMLP [\[66\]](#page-9-6) employing MLPs instead of multi-head attention in the Transformer framework for improved filtering; CL4SRec [\[54\]](#page-9-14) introducing sequence-based contrastive learning with unsupervised techniques; DuoRec [\[26\]](#page-8-30) further advancing contrastive embedding training with dropout masks and sample selection. (B) KG-based recommender baselines include KGAT [\[49\]](#page-9-2) capturing high-order item relationships using attention to weigh entity neighbors; GRU4RK extending GRU4Rec with dual GRUs for item and entity embeddings (which is pretrained using TransE [\[3\]](#page-8-17)); KSR [\[17\]](#page-8-11) combining a GRU-based system with knowledge-augmented memory networks. 271 WSDM'24, March 4-8, 2024, Merida, Mexico Hengchang Hu et al.
 
-#### 1 Overall Recommendation accuracy
+### 1 Overall Recommendation accuracy
 
 Table [1](#page-6-0) shows results from various models across four datasets. Our TKG-SRec outperforms other baselines, with relative improvements in brackets. Overall, this suggests that our work successfully distilled more useful dynamic knowledge for the SR task. Among the runner-up baselines, SASRec and FMLP are notable as effective
 
@@ -272,7 +266,7 @@ When compared to the standard SR models, the models that incorporates additional
 
 Interestingly, we observed that the impact of TKG-SRec's improvement is less pronounced on the ML-1M dataset compared to other datasets. This is attributed to the smaller ratio of temporal relations (|E |) to static relations (|E |), with ML-1M having a ratio of 0.6M/4M, whereas datasets like Amazon-Books have a ratio of 0.4M/1M. Consequently, less information is derived from temporal properties and more from static ones.
 
-#### 2 Ablation Study
+### 2 Ablation Study
 
 In this section, we conduct a series of experiments to better understand the design rationality of our proposed framework.
 
@@ -282,76 +276,75 @@ In this section, we conduct a series of experiments to better understand the des
 
 <span id="page-6-0"></span>User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation WSDM '24, March 4th-8th, 2024, Mérida, Yucatán, Mexico
 
-|         | Metric                             | Caser                                | GRU4Rec                              | SASRec                               | BERT4Rec                             | FMLP                                 | CL4SRec                              | DuoRec                               | KGAT                                 | GRU4RK                               | KSR                                  | TKG-SRec                                                                             |
+| | Metric | Caser | GRU4Rec | SASRec | BERT4Rec | FMLP | CL4SRec | DuoRec | KGAT | GRU4RK | KSR | TKG-SRec |
 |---------|------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
-| ML-100K | HR@5<br>HR@10<br>NDCG@5            | 0.0469<br>0.0981<br>0.0285           | 0.0689<br>0.1368<br>0.0422           | 0.0710<br>0.1485<br>0.0446           | 0.0551<br>0.1209<br>0.0320           | 0.0764<br>0.1389<br>0.0481           | 0.0551<br>0.0870<br>0.0236           | 0.0615<br>0.123<br>0.0383            | 0.0718<br>0.1283<br>0.0433           | 0.0753<br>0.1357<br>0.0491           | 0.0700<br>0.1262<br>0.0463           | 0.0815†<br>(+6.5%)<br>0.1516†<br>(+2.0%)<br>0.0531†<br>(+8.1%)                       |
-|         | NDCG@10                            | 0.0449                               | 0.0642                               | 0.0692                               | 0.0532                               | 0.0683                               | 0.0392                               | 0.0579                               | 0.0615                               | 0.0685                               | 0.0644                               | 0.0734†<br>(+7.1%)                                                                   |
-| ML-1M   | HR@5<br>HR@10                      | 0.1375<br>0.2178                     | 0.1998<br>0.2659                     | 0.2025<br>0.2863                     | 0.1207<br>0.1955                     | 0.2010<br>0.2854                     | 0.0983<br>0.1558                     | 0.168<br>0.2526                      | 0.0801<br>0.1175                     | 0.2070<br>0.2874                     | 0.2005<br>0.2805                     | 0.2137†<br>(+3.2%)<br>0.2987†<br>(+3.8%)                                             |
-|         | NDCG@5<br>NDCG@10                  | 0.0898<br>0.1156                     | 0.1289<br>0.1537                     | 0.1391<br>0.1663                     | 0.0912<br>0.1153                     | 0.1385<br>0.1657                     | 0.0687<br>0.0872                     | 0.1081<br>0.1354                     | 0.0570<br>0.0689                     | 0.1396<br>0.1656                     | 0.1399<br>0.1657                     | 0.1464†<br>(+4.6%)<br>0.1719†<br>(+3.7%)                                             |
-| Amazon  | HR@5<br>HR@10<br>NDCG@5<br>NDCG@10 | 0.0260<br>0.0389<br>0.0180<br>0.0239 | 0.0362<br>0.0541<br>0.0241<br>0.0299 | 0.0441<br>0.0622<br>0.0309<br>0.0367 | 0.0360<br>0.0557<br>0.0257<br>0.0322 | 0.0457<br>0.0651<br>0.0287<br>0.0373 | 0.0215<br>0.035<br>0.0135<br>0.0178  | 0.0376<br>0.0564<br>0.0235<br>0.0295 | 0.0208<br>0.0368<br>0.0130<br>0.0182 | 0.0390<br>0.0533<br>0.0280<br>0.0326 | 0.0331<br>0.043<br>0.0249<br>0.0281  | 0.0489†<br>(+7.0%)<br>0.0694†<br>(+6.6%)<br>0.0308†<br>(+7.3%)<br>0.0399†<br>(+6.9%) |
-| LastFM  | HR@5<br>HR@10<br>NDCG@5<br>NDCG@10 | 0.0686<br>0.1175<br>0.0424<br>0.0581 | 0.0575<br>0.0993<br>0.035<br>0.0483  | 0.0582<br>0.1048<br>0.0355<br>0.0503 | 0.0611<br>0.0944<br>0.0333<br>0.0458 | 0.0603<br>0.1041<br>0.0358<br>0.0508 | 0.0457<br>0.0802<br>0.0280<br>0.0391 | 0.0709<br>0.1176<br>0.0429<br>0.0579 | 0.0591<br>0.1021<br>0.0322<br>0.0490 | 0.0607<br>0.1007<br>0.0380<br>0.0509 | 0.0604<br>0.0878<br>0.0415<br>0.0504 | 0.0748†<br>(+5.5%)<br>0.1143†<br>(+2.8%)<br>0.0459†<br>(+6.9%)<br>0.0617†<br>(+5.0%) |
+| ML-100K | HR@5<br>HR@10<br>NDCG@5 | 0.0469<br>0.0981<br>0.0285 | 0.0689<br>0.1368<br>0.0422 | 0.0710<br>0.1485<br>0.0446 | 0.0551<br>0.1209<br>0.0320 | 0.0764<br>0.1389<br>0.0481 | 0.0551<br>0.0870<br>0.0236 | 0.0615<br>0.123<br>0.0383 | 0.0718<br>0.1283<br>0.0433 | 0.0753<br>0.1357<br>0.0491 | 0.0700<br>0.1262<br>0.0463 | 0.0815†<br>(+6.5%)<br>0.1516†<br>(+2.0%)<br>0.0531†<br>(+8.1%) |
+| | NDCG@10 | 0.0449 | 0.0642 | 0.0692 | 0.0532 | 0.0683 | 0.0392 | 0.0579 | 0.0615 | 0.0685 | 0.0644 | 0.0734†<br>(+7.1%) |
+| ML-1M | HR@5<br>HR@10 | 0.1375<br>0.2178 | 0.1998<br>0.2659 | 0.2025<br>0.2863 | 0.1207<br>0.1955 | 0.2010<br>0.2854 | 0.0983<br>0.1558 | 0.168<br>0.2526 | 0.0801<br>0.1175 | 0.2070<br>0.2874 | 0.2005<br>0.2805 | 0.2137†<br>(+3.2%)<br>0.2987†<br>(+3.8%) |
+| | NDCG@5<br>NDCG@10 | 0.0898<br>0.1156 | 0.1289<br>0.1537 | 0.1391<br>0.1663 | 0.0912<br>0.1153 | 0.1385<br>0.1657 | 0.0687<br>0.0872 | 0.1081<br>0.1354 | 0.0570<br>0.0689 | 0.1396<br>0.1656 | 0.1399<br>0.1657 | 0.1464†<br>(+4.6%)<br>0.1719†<br>(+3.7%) |
+| Amazon | HR@5<br>HR@10<br>NDCG@5<br>NDCG@10 | 0.0260<br>0.0389<br>0.0180<br>0.0239 | 0.0362<br>0.0541<br>0.0241<br>0.0299 | 0.0441<br>0.0622<br>0.0309<br>0.0367 | 0.0360<br>0.0557<br>0.0257<br>0.0322 | 0.0457<br>0.0651<br>0.0287<br>0.0373 | 0.0215<br>0.035<br>0.0135<br>0.0178 | 0.0376<br>0.0564<br>0.0235<br>0.0295 | 0.0208<br>0.0368<br>0.0130<br>0.0182 | 0.0390<br>0.0533<br>0.0280<br>0.0326 | 0.0331<br>0.043<br>0.0249<br>0.0281 | 0.0489†<br>(+7.0%)<br>0.0694†<br>(+6.6%)<br>0.0308†<br>(+7.3%)<br>0.0399†<br>(+6.9%) |
+| LastFM | HR@5<br>HR@10<br>NDCG@5<br>NDCG@10 | 0.0686<br>0.1175<br>0.0424<br>0.0581 | 0.0575<br>0.0993<br>0.035<br>0.0483 | 0.0582<br>0.1048<br>0.0355<br>0.0503 | 0.0611<br>0.0944<br>0.0333<br>0.0458 | 0.0603<br>0.1041<br>0.0358<br>0.0508 | 0.0457<br>0.0802<br>0.0280<br>0.0391 | 0.0709<br>0.1176<br>0.0429<br>0.0579 | 0.0591<br>0.1021<br>0.0322<br>0.0490 | 0.0607<br>0.1007<br>0.0380<br>0.0509 | 0.0604<br>0.0878<br>0.0415<br>0.0504 | 0.0748†<br>(+5.5%)<br>0.1143†<br>(+2.8%)<br>0.0459†<br>(+6.9%)<br>0.0617†<br>(+5.0%) |
 
-Table 1: Overall Performance. Bold text indicates best performance, underlined text indicates second best. † indicates a statistically significant level -value< 0.05 comparing TKG-SRec with the best baseline
+**Table 1:** Overall Performance. Bold text indicates best performance, underlined text indicates second best. † indicates a statistically significant level -value< 0.05 comparing TKG-SRec with the best baseline
 
-<span id="page-6-1"></span>
 
-|       |   | TransE | RESCAL | S.K.   | T.K.𝑟𝑒𝑙 | T.K.𝑒𝑛𝑡 | w/o EU | KEN    |
+| | | TransE | RESCAL | S.K. | T.K.𝑟𝑒𝑙 | T.K.𝑒𝑛𝑡 | w/o EU | KEN |
 |-------|---|--------|--------|--------|---------|---------|--------|--------|
-| ML-HK | H | 0.0651 | 0.0630 | 0.0681 | 0.0758  | 0.0755  | 0.0700 | 0.0813 |
-|       | N | 0.0392 | 0.0388 | 0.0409 | 0.0458  | 0.0412  | 0.0453 | 0.0539 |
-|       | M | 0.0282 | 0.0283 | 0.0292 | 0.0361  | 0.0298  | 0.0373 | 0.0476 |
-| ML-1M | H | 0.1336 | 0.1324 | 0.2053 | 0.1997  | 0.1764  | 0.1614 | 0.2139 |
-|       | N | 0.0880 | 0.0902 | 0.1416 | 0.1394  | 0.1134  | 0.1068 | 0.1466 |
-|       | M | 0.0730 | 0.0763 | 0.1206 | 0.0941  | 0.0877  | 0.0890 | 0.1083 |
-| Amaz. | H | 0.0289 | 0.0302 | 0.0351 | 0.0402  | 0.0369  | 0.0351 | 0.0489 |
-|       | N | 0.0199 | 0.0211 | 0.0251 | 0.0307  | 0.0273  | 0.0268 | 0.0316 |
-|       | M | 0.0170 | 0.0181 | 0.0218 | 0.0221  | 0.0204  | 0.0205 | 0.0227 |
-| LFM   | H | 0.0547 | 0.0571 | 0.0586 | 0.0644  | 0.0651  | 0.0632 | 0.0798 |
-|       | N | 0.0353 | 0.0349 | 0.0356 | 0.0429  | 0.0401  | 0.0411 | 0.0499 |
-|       | M | 0.0290 | 0.0276 | 0.0282 | 0.0301  | 0.0314  | 0.0310 | 0.0370 |
+| ML-HK | H | 0.0651 | 0.0630 | 0.0681 | 0.0758 | 0.0755 | 0.0700 | 0.0813 |
+| | N | 0.0392 | 0.0388 | 0.0409 | 0.0458 | 0.0412 | 0.0453 | 0.0539 |
+| | M | 0.0282 | 0.0283 | 0.0292 | 0.0361 | 0.0298 | 0.0373 | 0.0476 |
+| ML-1M | H | 0.1336 | 0.1324 | 0.2053 | 0.1997 | 0.1764 | 0.1614 | 0.2139 |
+| | N | 0.0880 | 0.0902 | 0.1416 | 0.1394 | 0.1134 | 0.1068 | 0.1466 |
+| | M | 0.0730 | 0.0763 | 0.1206 | 0.0941 | 0.0877 | 0.0890 | 0.1083 |
+| Amaz. | H | 0.0289 | 0.0302 | 0.0351 | 0.0402 | 0.0369 | 0.0351 | 0.0489 |
+| | N | 0.0199 | 0.0211 | 0.0251 | 0.0307 | 0.0273 | 0.0268 | 0.0316 |
+| | M | 0.0170 | 0.0181 | 0.0218 | 0.0221 | 0.0204 | 0.0205 | 0.0227 |
+| LFM | H | 0.0547 | 0.0571 | 0.0586 | 0.0644 | 0.0651 | 0.0632 | 0.0798 |
+| | N | 0.0353 | 0.0349 | 0.0356 | 0.0429 | 0.0401 | 0.0411 | 0.0499 |
+| | M | 0.0290 | 0.0276 | 0.0282 | 0.0301 | 0.0314 | 0.0310 | 0.0370 |
 
-<span id="page-6-2"></span>Table 2: The ablation study results are presented with metrics (HR, NDCG, MRR)@5. ML-HK and Amaz. stand for ML-100K and Amazon-Books. The left column shows models using only static knowledge, while the middle column shows results with added temporal knowledge.
+<span id="page-6-2"></span>**Table 2:** The ablation study results are presented with metrics (HR, NDCG, MRR)@5. ML-HK and Amaz. stand for ML-100K and Amazon-Books. The left column shows models using only static knowledge, while the middle column shows results with added temporal knowledge.
 
-|       | M      | 0.0170           | 0.0181           | 0.0218                                                               | 0.0221           | 0.0204           | 0.0205           | 0.0227           | KEN |
+| | M | 0.0170 | 0.0181 | 0.0218 | 0.0221 | 0.0204 | 0.0205 | 0.0227 | KEN |
 |-------|--------|------------------|------------------|----------------------------------------------------------------------|------------------|------------------|------------------|------------------|-----|
-|       | H      | 0.0547           | 0.0571           | 0.0586                                                               | 0.0644           | 0.0651           | 0.0632           | 0.0798           |     |
-| LFM   | N<br>M | 0.0353<br>0.0290 | 0.0349<br>0.0276 | 0.0356<br>0.0282                                                     | 0.0429<br>0.0301 | 0.0401<br>0.0314 | 0.0411<br>0.0310 | 0.0499<br>0.0370 |     |
-|       |        |                  |                  |                                                                      |                  |                  |                  |                  |     |
-|       |        |                  |                  | Table 2: The ablation study results are presented with metrics       |                  |                  |                  |                  |     |
-|       |        |                  |                  | (HR, NDCG, MRR)@5. ML-HK and Amaz. stand for ML-100K                 |                  |                  |                  |                  |     |
-|       |        |                  |                  | and Amazon-Books. The left column shows models using                 |                  |                  |                  |                  |     |
-|       |        |                  |                  | only static knowledge, while the middle column shows re              |                  |                  |                  |                  |     |
-|       |        |                  |                  | sults with added temporal knowledge.                                 |                  |                  |                  |                  |     |
-|       |        |                  |                  |                                                                      |                  |                  |                  |                  |     |
-|       |        |                  |                  |                                                                      |                  |                  |                  |                  |     |
-|       |        | Model            |                  | Backbone                                                             |                  |                  | +TKG             |                  |     |
-|       |        | & Data           | HR               | NDCG                                                                 | MRR              | HR               | NDCG             | MRR              |     |
-|       |        | ML-HK            | 0.0689           | 0.0422                                                               | 0.0335           | 0.0753           | 0.0458           | 0.0361           |     |
-|       | GRU    | ML-1M            | 0.1472           | 0.1003                                                               | 0.0922           | 0.2070           | 0.1396           | 0.1282           |     |
-|       |        | Amaz.            | 0.0362           | 0.0241                                                               | 0.0202           | 0.0489           | 0.0396           | 0.0377           |     |
-|       |        | ML-HK            | 0.0573           | 0.0352                                                               | 0.0279           | 0.0619           | 0.0377           | 0.0297           |     |
-|       |        | ML-1M            | 0.1576           | 0.1006                                                               | 0.0925           | 0.2188           | 0.1422           | 0.1318           |     |
-|       | SASRec | Amaz.            | 0.0441           | 0.0309                                                               | 0.0297           | 0.0459           | 0.0312           | 0.0303           |     |
-|       |        | ML-HK            | 0.0764           | 0.0481                                                               | 0.0346           | 0.0668           | 0.0408           | 0.0324           |     |
-|       | FMLP   | ML-1M            | 0.2010           | 0.1385                                                               | 0.1163           | 0.2013           | 0.1376           | 0.1179           |     |
-|       |        | Amaz.            | 0.0457           | 0.0287                                                               | 0.0219           | 0.0463           | 0.0286           | 0.0223           |     |
-|       |        |                  |                  | Table 3: Backbone compatibility analysis over four sequential        |                  |                  |                  |                  |     |
-|       |        |                  |                  | datasets, evaluated with (HR, NDCG, MRR)@5.                          |                  |                  |                  |                  |     |
-|       |        |                  |                  |                                                                      |                  |                  |                  |                  |     |
-|       |        |                  |                  | underperforms KEN, confirming that taking static knowledge as        |                  |                  |                  |                  |     |
-|       |        |                  |                  |                                                                      |                  |                  |                  |                  |     |
-|       |        |                  |                  | soft constraints is a better approach to pretrain entity embeddings. |                  |                  |                  |                  |     |
-| 4.2.3 |        |                  |                  | On the compatibility of sequential modeling methods. To as           |                  |                  |                  |                  |     |
-|       |        |                  |                  | sess the general applicability of TKG-SRec, we employ pretrained     |                  |                  |                  |                  |     |
-|       |        |                  |                  | TKG embeddings with various backbones and compare them to            |                  |                  |                  |                  |     |
-|       |        |                  |                  |                                                                      |                  |                  |                  |                  |     |
+| | H | 0.0547 | 0.0571 | 0.0586 | 0.0644 | 0.0651 | 0.0632 | 0.0798 | |
+| LFM | N<br>M | 0.0353<br>0.0290 | 0.0349<br>0.0276 | 0.0356<br>0.0282 | 0.0429<br>0.0301 | 0.0401<br>0.0314 | 0.0411<br>0.0310 | 0.0499<br>0.0370 | |
+| | | | | | | | | | |
+| | | | | **Table 2:** The ablation study results are presented with metrics | | | | | |
+| | | | | (HR, NDCG, MRR)@5. ML-HK and Amaz. stand for ML-100K | | | | | |
+| | | | | and Amazon-Books. The left column shows models using | | | | | |
+| | | | | only static knowledge, while the middle column shows re | | | | | |
+| | | | | sults with added temporal knowledge. | | | | | |
+| | | | | | | | | | |
+| | | | | | | | | | |
+| | | Model | | Backbone | | | +TKG | | |
+| | | & Data | HR | NDCG | MRR | HR | NDCG | MRR | |
+| | | ML-HK | 0.0689 | 0.0422 | 0.0335 | 0.0753 | 0.0458 | 0.0361 | |
+| | GRU | ML-1M | 0.1472 | 0.1003 | 0.0922 | 0.2070 | 0.1396 | 0.1282 | |
+| | | Amaz. | 0.0362 | 0.0241 | 0.0202 | 0.0489 | 0.0396 | 0.0377 | |
+| | | ML-HK | 0.0573 | 0.0352 | 0.0279 | 0.0619 | 0.0377 | 0.0297 | |
+| | | ML-1M | 0.1576 | 0.1006 | 0.0925 | 0.2188 | 0.1422 | 0.1318 | |
+| | SASRec | Amaz. | 0.0441 | 0.0309 | 0.0297 | 0.0459 | 0.0312 | 0.0303 | |
+| | | ML-HK | 0.0764 | 0.0481 | 0.0346 | 0.0668 | 0.0408 | 0.0324 | |
+| | FMLP | ML-1M | 0.2010 | 0.1385 | 0.1163 | 0.2013 | 0.1376 | 0.1179 | |
+| | | Amaz. | 0.0457 | 0.0287 | 0.0219 | 0.0463 | 0.0286 | 0.0223 | |
+| | | | | **Table 3:** Backbone compatibility analysis over four sequential | | | | | |
+| | | | | datasets, evaluated with (HR, NDCG, MRR)@5. | | | | | |
+| | | | | | | | | | |
+| | | | | underperforms KEN, confirming that taking static knowledge as | | | | | |
+| | | | | | | | | | |
+| | | | | soft constraints is a better approach to pretrain entity embeddings. | | | | | |
+| 4.2.3 | | | | On the compatibility of sequential modeling methods. To as | | | | | |
+| | | | | sess the general applicability of TKG-SRec, we employ pretrained | | | | | |
+| | | | | TKG embeddings with various backbones and compare them to | | | | | |
+| | | | | | | | | | |
 
-Table 3: Backbone compatibility analysis over four sequential datasets, evaluated with (HR, NDCG, MRR)@5.
+**Table 3:** Backbone compatibility analysis over four sequential datasets, evaluated with (HR, NDCG, MRR)@5.
 
 <span id="page-6-3"></span>![](_page_6_Figure_9.jpeg)
 <!-- Image Description: The figure displays scatter plots comparing three knowledge graph embedding methods (TransE, RGCN, and KEN) across two datasets (ML-100K and Amazon-Books). Each plot shows "Embedding Relatedness" against "Order Distance". The y-axis represents the relatedness score, while the x-axis represents the distance between entities in a knowledge graph's traversal order. The plots illustrate how the relatedness score changes as the order distance increases for each embedding method and dataset. -->
 
-Figure 4: The correlation between entities' embedding relatedness and their order distances in interaction sequences.
+**Figure 4:** The correlation between entities' embedding relatedness and their order distances in interaction sequences.
 
 the original approach. We adapted SASRec and FMLP following the approach outlined in Section [3.4,](#page-4-0) incorporating entity-level embeddings into Transformer and MLP-based encoding layers, and combining these with item-level outcomes for final predictions. Both models integrate dynamic entity and positional embeddings.
 
@@ -365,36 +358,34 @@ the relevance of the distilled knowledge from the KG by examining the relatednes
 
 We observed that TransE and RGCN derived entity embeddings failed to clearly correlate item order distance and embedding relatedness, revealing a gap in KG and SR information and that traditional approaches fail to distill relevant knowledge from TKG. Contrarily, our KEN offers less related embeddings for distant sequence items. With increasing KG size, the correlation between order distance and embedding similarity strengthens, despite more fluctuations in Amazon-Books. This underlines the difficulty of preserving KG's static structural information while distilling information to optimize SR, especially for larger KGs with more complex structures.
 
-#### 4 Parameter Sensitivity
+### 4 Parameter Sensitivity
 
 We first analyze the sensitivity of KEN to the number of GCN layers in both static Knowledge Graph encoder and temporal Knowledge Graph encoder ′ . In the sensitivity test, we fix other hyperparameters but only vary the combination of and ′ . As shown in Table [4,](#page-7-0) we find that the model performs poorly when both and ′ are equal to 4. It is because a large number of graph convolution layers would mix too many information from neighbors, which would over-cover the origin entity properties. TKG-SRec achieves the best performance when and ′ are 1 or 2 in the four datasets.
 
-<span id="page-7-0"></span>
 
-| (𝐿, 𝐿′<br>)                                               | (1, 1) | (1, 2) | (2, 1) | (2, 2) | (3, 3) | (4, 4) |  |  |  |
+| (𝐿, 𝐿′<br>) | (1, 1) | (1, 2) | (2, 1) | (2, 2) | (3, 3) | (4, 4) | | | |
 |-----------------------------------------------------------|--------|--------|--------|--------|--------|--------|--|--|--|
-| ML-100K                                                   | 0.1082 | 0.1296 | 0.1433 | 0.1326 | 0.1029 | 0.1073 |  |  |  |
-| ML-1M                                                     | 0.2041 | 0.2853 | 0.2764 | 0.2987 | 0.2650 | 0.1920 |  |  |  |
-| Amazon-B.                                                 | 0.514  | 0.0694 | 0.0653 | 0.0647 | 0.0593 | 0.0588 |  |  |  |
-| LastFM                                                    | 0.1014 | 0.1143 | 0.1078 | 0.1076 | 0.1012 | 0.1007 |  |  |  |
-| ′<br>Table 4: R@10 w.r.t. the number of layers 𝐿<br>and 𝐿 |        |        |        |        |        |        |  |  |  |
+| ML-100K | 0.1082 | 0.1296 | 0.1433 | 0.1326 | 0.1029 | 0.1073 | | | |
+| ML-1M | 0.2041 | 0.2853 | 0.2764 | 0.2987 | 0.2650 | 0.1920 | | | |
+| Amazon-B. | 0.514 | 0.0694 | 0.0653 | 0.0647 | 0.0593 | 0.0588 | | | |
+| LastFM | 0.1014 | 0.1143 | 0.1078 | 0.1076 | 0.1012 | 0.1007 | | | |
+| ′<br>**Table 4:** R@10 w.r.t. the number of layers 𝐿<br>and 𝐿 | | | | | | | | | |
 
 We also investigate how the hidden size affects TKG-SRec performance. As shown in Table [5,](#page-7-1) it might increase model capacity with extra bits in hidden layers (where the performance improves with a rise in at the beginning). However, when is further raised, performance suffers as an overly large number of dimensions might cause overfitting. The range of 32 to 64 yields the best results.
 
-<span id="page-7-1"></span>
 
-| 𝑑            | 8      | 16     | 32     | 64     | 128    |
+| 𝑑 | 8 | 16 | 32 | 64 | 128 |
 |--------------|--------|--------|--------|--------|--------|
-| ML-100K      | 0.0974 | 0.1156 | 0.1275 | 0.1516 | 0.1328 |
-| ML-1M        | 0.2188 | 0.2446 | 0.2543 | 0.2987 | 0.2914 |
+| ML-100K | 0.0974 | 0.1156 | 0.1275 | 0.1516 | 0.1328 |
+| ML-1M | 0.2188 | 0.2446 | 0.2543 | 0.2987 | 0.2914 |
 | Amazon-Books | 0.0471 | 0.0668 | 0.0704 | 0.0697 | 0.0615 |
-| LastFM       | 0.0918 | 0.1104 | 0.1243 | 0.1237 | 0.1185 |
+| LastFM | 0.0918 | 0.1104 | 0.1243 | 0.1237 | 0.1185 |
 
-|  |  |  |  |  |  |  |  | Table 5: R@10 w.r.t. the dimension of hidden layers 𝑑. |  |  |  |  |  |
+| | | | | | | | | **Table 5:** R@10 w.r.t. the dimension of hidden layers 𝑑. | | | | | |
 |--|--|--|--|--|--|--|--|--------------------------------------------------------|--|--|--|--|--|
 |--|--|--|--|--|--|--|--|--------------------------------------------------------|--|--|--|--|--|
 
-#### 5 RELATED WORK
+### 5 RELATED WORK
 
 Knowledge Graph Completion is typically explored in static KGs, and common methods include translational models like TransE [\[3\]](#page-8-17), TransH [\[51\]](#page-9-15), and TransR [\[23\]](#page-8-31), which aim to embed nodes and relations using a scoring function; and propagation-based models use graph neural networks like GCNs [\[31\]](#page-8-32), RGCN [\[31\]](#page-8-32).
 
@@ -404,19 +395,19 @@ KG-Augmented Recommendation employs two main approaches to utilize KGs: two-phas
 
 SR specifically targets modeling users' sequential interests [\[15,](#page-8-27) [37,](#page-8-41) [60\]](#page-9-19). Enhancements in SR through KGs include KGIE [\[39\]](#page-8-26) for entity-level user interest modeling; KSR [\[17\]](#page-8-11) which integrates entity data with memory networks in recommendation systems; and KERL [\[48\]](#page-9-20) that applies knowledge-guided reinforcement learning. MKM-SR [\[25\]](#page-8-42) combines KGs with item sequences and user actions, and Chorus [\[38\]](#page-8-43) uses KGs to link items in SR. However, time-aware & dynamic KGs in SR remain unexplored. We propose to use the temporal knowledge graph to have time-aware user behaviors in KG modeling, filtering irrelevant knowledge out for SR.
 
-#### 6 CONCLUSION AND FUTURE WORK
+### 6 CONCLUSION AND FUTURE WORK
 
 In our study, we enhance KGs by tracking dynamic user behaviors to create Temporal Knowledge Graphs (TKGs). The introduced temporal knowledge in TKGs focuses on two distinct facets: entityrelated and graph structure-related. Our novel KEN component filters information by leveraging both static and dynamic knowledge over time, leading to the development of the TKG-SRec framework, a novel approach for KG+SR. Our experiments show consistent effectiveness across various datasets and three backbones.
 
 For future work, beyond merely treating behavior statistics as temporal knowledge, our framework can excel by additional factual data like product release dates. TKG-SRec sets a new paradigm for utilizing temporal knowledge in high-throughput recommendation systems. Additionally, adopting more sophisticated time modeling methods, like Time2Vec [\[19\]](#page-8-44) which captures periodicity, could further refine and improve the system's effectiveness.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 We thank the new deep learning computing framework Mind-Spore [\[1\]](#page-8-45) for the partial support of this work.
 
 User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation WSDM '24, March 4th-8th, 2024, Mérida, Yucatán, Mexico
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-8-45"></span>[1] 2020. MindSpore. https://www.mindspore.cn.
 - <span id="page-8-17"></span><span id="page-8-12"></span>[2] 2023. Apple Statistics. https://www.businessofapps.com/data/apple-statistics/. [3] Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. 2013. Translating embeddings for modeling multi-relational

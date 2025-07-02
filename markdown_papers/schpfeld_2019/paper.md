@@ -115,13 +115,13 @@ Management of research information has become an important issue for universitie
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The diagram illustrates a research information management system. Rectangles on the left categorize data sources: patents (EPO, DPMA), publications (SCOPUS, Web of Science, ORCID, National Library, PubMed), person (personnel management, organizational information, user administration), and projects (project management, GEPRIS, CORDIS). A database cylinder represents the system, fed by integrated data and accessed by multiple users via computer interfaces displaying various data visualizations. The bottom section details data standardization using CERIF and RCD data models. -->
 
-Fig. 1. Integration of research information into a research information management system (RIMS).
+Figure 1. Integration of research information into a research information management system (RIMS).
 
 euroCRIS, or the German Research Core Dataset (RCD) definitional standard for different reporting purposes recommended by the German Council of Science and Humanities since 2016.
 
-The European format for electronic data storage CERIF [20] has been developed since 1991. It is a data model and metadata format for information objects in the field of science, which allows to describe information on the entire research process (persons, organizations, projects, funding programs, facilities, equipment, services, events, indicators and measurements, etc.) and to relate them to each other (see Fig. 2).
+The European format for electronic data storage CERIF [20] has been developed since 1991. It is a data model and metadata format for information objects in the field of science, which allows to describe information on the entire research process (persons, organizations, projects, funding programs, facilities, equipment, services, events, indicators and measurements, etc.) and to relate them to each other (see Figure 2).
 
-The German Research Core Dataset or RCD (*Kerndatensatz Forschung*or KDSF in German) is a definitional standard for the collection, provision and exchange of research information, and German institutions started to implement it so far on a voluntary basis. Designed as a definition and reporting stan[da](#page-4-0)rd for research information, the RCD has been initiated by the German Council of Science and Humanities and the German Federal Ministry of Education and Research (BMBF). Its objective is to standardize the definition and structuring of research information, to improve data quality, to simplify the work and report process, and to increase the interoperability (comparability) of research information (see Fig. 3).
+The German Research Core Dataset or RCD (*Kerndatensatz Forschung*or KDSF in German) is a definitional standard for the collection, provision and exchange of research information, and German institutions started to implement it so far on a voluntary basis. Designed as a definition and reporting stan[da](#page-4-0)rd for research information, the RCD has been initiated by the German Council of Science and Humanities and the German Federal Ministry of Education and Research (BMBF). Its objective is to standardize the definition and structuring of research information, to improve data quality, to simplify the work and report process, and to increase the interoperability (comparability) of research information (see Figure 3).
 
 The RCD defines the core data that is to be kept in an aggregated form by all German universities and non-university research institutions for various documentation and reporting processes. These include the areas of (a) researchers employed by the institutions, (b) young researchers, (c) third-party funded proj[ec](#page-4-1)ts, (d) patents and spin-offs, (f) publications and (f) research infrastructures (see [12] for details on the structure and logic of the RCD). To make the data compliant with international standards, the technical RCD data model was developed on the basis of the CERIF format.
 
@@ -130,12 +130,12 @@ The application of standard data exchange formats contributes to the development
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: The image displays a conceptual entity-relationship diagram illustrating the CERIF data model. Rectangular boxes represent entity types (e.g., Project, Person), categorized by color code (base, result, etc.) in the legend. Lines connecting boxes show relationships. A second legend describes additional features (language, semantics, etc.). The diagram's purpose is to visually represent the structure and relationships within the CERIF framework. -->
 
-Fig. 2. The European CERIF data model [17].
+Figure 2. The European CERIF data model [17].
 
 <span id="page-4-1"></span>![](_page_4_Figure_3.jpeg)
 <!-- Image Description: The image displays an entity-relationship diagram (ERD) depicting a database schema. Multiple entities (e.g., Person, Publication, Patent) are shown with their attributes and relationships indicated by connecting lines. Cardinality (e.g., 1:1, 1:N, M:N) is specified. The diagram likely details the database structure used in the paper to manage information about individuals, their publications, patents, and involvement in structured doctoral programs and research infrastructure. German labels are used throughout. -->
 
-Fig. 3. The German RCD data model [23].
+Figure 3. The German RCD data model [23].
 
 to increase the data accessibility, exchange and quality. It can also simplify the reporting of research performance and reduce the human effort that is currently required to collect, integrate, and aggregate research information, and thus make the research management more efficient.
 
@@ -163,7 +163,7 @@ Another problem for institutions is the distribution of data which is usually di
 
 Information integration is the creation of a frontend. Complex analysis and requests for heterogeneous data are necessary in order to provide the institutions with valuable information and data. This information is fundamental to decision-making and the dissemination of research. In addition to solve the problems presented here, high demands are placed on the IT solutions, especially with regard to interoperability, durability and security of the application.
 
-# 5. General requirements for data quality
+## 5. General requirements for data quality
 
 In addition to the integration problems of research information mentioned above, the data to be integrated itself must also meet some requirements. Information integration only makes sense when the following questions have been clarified and answered:
 
@@ -185,28 +185,27 @@ This section will focus on the methods, processes and techniques of information 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image is a flowchart depicting an ETL (Extract, Transform, Load) process. Data is extracted from internal and external sources, then transformed, and loaded into a staging area before finally being loaded into a system called "RIMS". The flowchart illustrates the data flow and the key stages involved in this data integration process. The boxes represent processes or data stores, and the arrows show the direction of data movement. -->
 
-Fig. 4. Implementing the ETL process steps in RIMS [8].
+Figure 4. Implementing the ETL process steps in RIMS [8].
 
-##*6.1. Definition of information integration*
+## *6.1. Definition of information integration*
 
 Information integration is used as a synonym for the term data integration, which refers to the integration of the data that comes from different data sources, usually with different data structures and formats. The term information integration is defined very differently in the literature e.g. in [10] and [15]. In this paper, information integration is defined as the "*correct, complete, and efficient aggregation of data and content of heterogeneous sources into a consistent and structured set of information for effective interpretation by users and applications*" [26]. The goal of information integration is to add value from the combined data or information. More generally, information integration includes terms such as information fusion or data consolidation.
 
 ## *6.2. Integration methods and processes for research information management systems*Data sources and data structures are generally heterogeneous. This means there are many different and unknown data formats and source systems as well as data quality defects. Before loading the research information into RIMS, this information must first be selected, then prepared and transferred. These challenges can be met with an Extraction, Transformation and Loading (ETL) process. The goal of the ETL process is to clean and standardize the information or data from its different structures in order to permanently store it in the RIMS [3]. The ETL process in the context of RIMS is illustrated in Fig. 4.
 
-##*6.2.1. Extraction of research information*The extraction phase is used to select and replicate research information from various heteroge[ne](#page-7-0)ous and operative source systems. The question is which research information is being read from the data sources and imported into the work area. For this purpose, formal rules can be created for the connection of the source system with the RIMS as well as for the transmission of the information. With a large data volume of RIMS, it is advantageous to compress the data to be transformed. However, it has to be checked whether penetration options or data export procedures exist from the operative systems. A connection of the source systems must be ensured via a clearly defined interface, which is accessed by the extraction process. An interface can be, for example, a table view or an exported table subtraction as a file. The selected data is transferred from the source systems to the staging area, where the data is cleaned and transformed.
+## *6.2.1. Extraction of research information*The extraction phase is used to select and replicate research information from various heteroge[ne](#page-7-0)ous and operative source systems. The question is which research information is being read from the data sources and imported into the work area. For this purpose, formal rules can be created for the connection of the source system with the RIMS as well as for the transmission of the information. With a large data volume of RIMS, it is advantageous to compress the data to be transformed. However, it has to be checked whether penetration options or data export procedures exist from the operative systems. A connection of the source systems must be ensured via a clearly defined interface, which is accessed by the extraction process. An interface can be, for example, a table view or an exported table subtraction as a file. The selected data is transferred from the source systems to the staging area, where the data is cleaned and transformed.
 
-<span id="page-8-0"></span>
 
-|           | O. Azeroual et al. / Solving problems of research information heterogeneity during integration                                                  |
+| | O. Azeroual et al. / Solving problems of research information heterogeneity during integration |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-|           | Table 1                                                                                                                                         |
-|           | The sub-processes of the transformation phase [21,22]                                                                                           |
-|           |                                                                                                                                                 |
+| | Table 1 |
+| | The sub-processes of the transformation phase [21,22] |
+| | |
 | Filtering | Filtering refers to the extraction from operational data and the cleaning<br>of syntactic or substantive defects in the data to be transferred. |
 
 Table 1 The sub-processes of the transformation phase [21,22]
 
-##*6.2.2. Transformation of research information*The transformation gradually unifies the previously extracted research information. This step is responsible for the homogenization of the data and it should be seen as an important step in the ETL process. The transformation process has the task of preparing the data for the loading process and cleaning it up in order to convert the data extracts into a uniform internal format. Erroneous data sources make the cleaning indispensable. Contaminated data is tracked and corrected by plausibility checks. This data cleaning can be done in four successive sub-processes (see Table 1) and is decisive for the data quality in RIMS.
+## *6.2.2. Transformation of research information*The transformation gradually unifies the previously extracted research information. This step is responsible for the homogenization of the data and it should be seen as an important step in the ETL process. The transformation process has the task of preparing the data for the loading process and cleaning it up in order to convert the data extracts into a uniform internal format. Erroneous data sources make the cleaning indispensable. Contaminated data is tracked and corrected by plausibility checks. This data cleaning can be done in four successive sub-processes (see Table 1) and is decisive for the data quality in RIMS.
 
 Since the RIMS obtains its information or data from several heterogeneous sources, the data must be converted into a uniform internal format. For this, the following transformations, which can be summarized under the term of "data migration", are required [7,[8\]](#page-8-0):
 
@@ -235,9 +234,9 @@ These so-called errors or problem areas should be eliminated in order to achieve
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The flowchart depicts a data analysis workflow. It starts with a problem or question, followed by the integration of heterogeneous data sources (personnel, publication, project, financial data). A data quality check involves cleanup, transformation, harmonization, and merging steps. The merged data is then analyzed, interpreted, and used for decision-making. The diagram illustrates the process of data integration and analysis from raw, diverse sources to a final decision. -->
 
-Fig. 5. Integrating quality improvement methods in RIMS.
+Figure 5. Integrating quality improvement methods in RIMS.
 
-###*6.2.3. Loading of research information*In the final step of the ETL process, the filtered, harmonized, aggregated and enriched data from the staging area is transferred to the RIMS. If the RIMS is filled for the first time, it is called initialization. The load must be efficient to minimize source downtime and ensure the quality of the data so that they can be kept fully and consistently within the RIMS despite possible source changes.
+### *6.2.3. Loading of research information*In the final step of the ETL process, the filtered, harmonized, aggregated and enriched data from the staging area is transferred to the RIMS. If the RIMS is filled for the first time, it is called initialization. The load must be efficient to minimize source downtime and ensure the quality of the data so that they can be kept fully and consistently within the RIMS despite possible source changes.
 
 An important part of data integration for examining data quality in RIMS is the transformation phase of the ETL process. If erroneous data is identified as part of the integration of research information, it must be corrected accordingly, leading to the phase of four methods, i.e. data cleaning, data transformation, data harmonization and data merging (or data fusion). Figure 5 illustrates the different methods of data integration in RIMS.
 
@@ -256,108 +255,108 @@ In summary, the datasets of individual systems have to be adjusted, transformed,
 
 The example is presented in a personnel list for the identification of data records with incorrect data in order to demonstrate how integration methods - cleaning, transformation, harmonization and merging (or fusion) - can improve the quality of the data sources. The quality improvement integration method adds missing entries, and completed fields are automatically adjusted to a specific format according to defined rules.
 
-#### Step 1: Cleaning and transformation
+### Step 1: Cleaning and transformation
 
 In this example, the missing zip code is determined based on the addresses and added as a separate field. Cleaning rounds off the content by comparing the information with external content comparison and dynamically expanding and optimizing it with attributes. Transformation and matching promote consistency because related entries within or across systems can be automatically recognized and then linked, tuned, or merged.
 
-#### 116*O. Azeroual et al. / Solving problems of research information heterogeneity during integration*<span id="page-11-0"></span>
+### 116*O. Azeroual et al. / Solving problems of research information heterogeneity during integration*<span id="page-11-0"></span>
 
-| xml version="1.0" encoding="UTF-8"?                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| xml version="1.0" encoding="UTF-8"? |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | - <kdsf:kdsf xmlns:cf="urn:xmlns:org:eurocris:cerif-1.6-2" xmlns:kdsf="http://kerndatensatz-&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;forschung.de/version1/technisches_datenmodell/xsd/kdsf.xsd" xmlns:kdsf-basis="http://kerndatensatz-&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;forschung.de/version1/technisches_datenmodell/xsd/kdsf-basis.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></kdsf:kdsf> |
-| - <kdsf-basis:person></kdsf-basis:person>                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| <cf:cfpersid>142540</cf:cfpersid>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| - <cf:cfpersname_pers></cf:cfpersname_pers>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <cf:cfname>Jennifer Scott</cf:cfname>                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <cf:cfgender>Female</cf:cfgender>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| <cf:cfbirthdate>11/29/1983</cf:cfbirthdate>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <cf:cfaddrline1>177 Concord Street</cf:cfaddrline1>                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| <cf:cfaddrline2>NY, 11201</cf:cfaddrline2>                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| - <kdsf-basis:person></kdsf-basis:person>                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| <cf:cfpersid>187540</cf:cfpersid>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| - <cf:cfpersname_pers></cf:cfpersname_pers>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <cf:cfname>J. Scott</cf:cfname>                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <cf:cfgender>Female</cf:cfgender>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <cf:cfbirthdate>29.11.1983</cf:cfbirthdate>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <cf:cfaddrid>Concord Street, NY Brooklyn</cf:cfaddrid>                                                                                                                                                                                                                                                                                                                                                                                                              |
-| <cf:cfaddrline2>NY Brooklyn</cf:cfaddrline2>                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| - <kdsf-basis:person><br/><cf:cfpersid>142540</cf:cfpersid></kdsf-basis:person>                                                                                                                                                                                                                                                                                                                                                                                     |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| - <cf:cfpersname_pers></cf:cfpersname_pers>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <cf:cfname>Jennifer William Scott</cf:cfname>                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <cf:cfgender>Female</cf:cfgender>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| <cf:cfbirthdate>832911</cf:cfbirthdate>                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| <cf:cfaddrid>20 Concord</cf:cfaddrid>                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <cf:cfaddrline2>32801 Street</cf:cfaddrline2>                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| - <kdsf-basis:person></kdsf-basis:person>                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| <cf:cfpersid>353035</cf:cfpersid>                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| - <cf:cfpersname_pers></cf:cfpersname_pers>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| <cf:cfname>David Fenton</cf:cfname>                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| <cf:cfgender>Male</cf:cfgender>                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <cf:cfbirthdate>832911</cf:cfbirthdate>                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| <cf:cfaddrid>20 Concord</cf:cfaddrid>                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <cf:cfaddrline2>32801 Street</cf:cfaddrline2>                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| - <kdsf:publikation></kdsf:publikation>                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| - <kdsf:listofpublications></kdsf:listofpublications>                                                                                                                                                                                                                                                                                                                                                                                                               |
-| - <kdsf:aggregationsniveau></kdsf:aggregationsniveau>                                                                                                                                                                                                                                                                                                                                                                                                               |
-| <kdsf:cfrespubldate>2018</kdsf:cfrespubldate>                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <kdsf:publicationid>17</kdsf:publicationid>                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| - <kdsf:listofpublications></kdsf:listofpublications>                                                                                                                                                                                                                                                                                                                                                                                                               |
+| - <kdsf-basis:person></kdsf-basis:person> |
+| <cf:cfpersid>142540</cf:cfpersid> |
+| - <cf:cfpersname_pers></cf:cfpersname_pers> |
+| <cf:cfname>Jennifer Scott</cf:cfname> |
+| <cf:cfgender>Female</cf:cfgender> |
+| <cf:cfbirthdate>11/29/1983</cf:cfbirthdate> |
+| <cf:cfaddrline1>177 Concord Street</cf:cfaddrline1> |
+| <cf:cfaddrline2>NY, 11201</cf:cfaddrline2> |
+| |
+| |
+| - <kdsf-basis:person></kdsf-basis:person> |
+| <cf:cfpersid>187540</cf:cfpersid> |
+| - <cf:cfpersname_pers></cf:cfpersname_pers> |
+| <cf:cfname>J. Scott</cf:cfname> |
+| <cf:cfgender>Female</cf:cfgender> |
+| |
+| <cf:cfbirthdate>29.11.1983</cf:cfbirthdate> |
+| <cf:cfaddrid>Concord Street, NY Brooklyn</cf:cfaddrid> |
+| <cf:cfaddrline2>NY Brooklyn</cf:cfaddrline2> |
+| |
+| |
+| - <kdsf-basis:person><br/><cf:cfpersid>142540</cf:cfpersid></kdsf-basis:person> |
+| |
+| - <cf:cfpersname_pers></cf:cfpersname_pers> |
+| <cf:cfname>Jennifer William Scott</cf:cfname> |
+| <cf:cfgender>Female</cf:cfgender> |
+| <cf:cfbirthdate>832911</cf:cfbirthdate> |
+| <cf:cfaddrid>20 Concord</cf:cfaddrid> |
+| <cf:cfaddrline2>32801 Street</cf:cfaddrline2> |
+| |
+| |
+| - <kdsf-basis:person></kdsf-basis:person> |
+| <cf:cfpersid>353035</cf:cfpersid> |
+| - <cf:cfpersname_pers></cf:cfpersname_pers> |
+| <cf:cfname>David Fenton</cf:cfname> |
+| <cf:cfgender>Male</cf:cfgender> |
+| <cf:cfbirthdate>832911</cf:cfbirthdate> |
+| <cf:cfaddrid>20 Concord</cf:cfaddrid> |
+| <cf:cfaddrline2>32801 Street</cf:cfaddrline2> |
+| <br> |
+| |
+| - <kdsf:publikation></kdsf:publikation> |
+| - <kdsf:listofpublications></kdsf:listofpublications> |
+| - <kdsf:aggregationsniveau></kdsf:aggregationsniveau> |
+| <kdsf:cfrespubldate>2018</kdsf:cfrespubldate> |
+| |
+| <kdsf:publicationid>17</kdsf:publicationid> |
+| |
+| - <kdsf:listofpublications></kdsf:listofpublications> |
 
-#### Fig. 6. Original data from a CERIF and RCD data model.
+### Fig. 6. Original data from a CERIF and RCD data model.
 
 Table 2 Cleaning and transformation of personnel data
 
-| Data source |           |          |        |            |                                  |         |
+| Data source | | | | | | |
 |-------------|-----------|----------|--------|------------|----------------------------------|---------|
-| PersID      | Firstname | Lastname | Gender | Birth date | Address                          | Zip     |
-| 142540      | Jennifer  | Scott    | Female | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201   |
-| 187542      | Jennifer  | Scott    | Female | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201   |
-| 142540      | Jennifer  | Scott    | Female | 1983-11-29 | NY; Brooklyn; 20 Concord Street  | 11201   |
-| 353035      | David     | Fenton   | Male   | 1969-01-20 | London; 10 Downing Street        | SW1A2FF |
+| PersID | Firstname | Lastname | Gender | Birth date | Address | Zip |
+| 142540 | Jennifer | Scott | Female | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201 |
+| 187542 | Jennifer | Scott | Female | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201 |
+| 142540 | Jennifer | Scott | Female | 1983-11-29 | NY; Brooklyn; 20 Concord Street | 11201 |
+| 353035 | David | Fenton | Male | 1969-01-20 | London; 10 Downing Street | SW1A2FF |
 
 ## Step 2: Harmonization
 
 To harmonize the data, the keys for the gender are converted into the format {M, F}. This example finds related posts for Jennifer Scott. Despite the similarities between the datasets, not all the information is redundant. The adjustment functions evaluate the data in the individual records in detail and determine which ones are redundant and which ones are independent.
 
-| Data source |           |          |        |            |                                  |         |
+| Data source | | | | | | |
 |-------------|-----------|----------|--------|------------|----------------------------------|---------|
-| PersID      | Firstname | Lastname | Gender | Birth date | Address                          | Zip     |
-| 142540      | Jennifer  | Scott    | F      | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201   |
-| 187542      | Jennifer  | Scott    | F      | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201   |
-| 142540      | Jennifer  | Scott    | F      | 1983-11-29 | NY; Brooklyn; 20 Concord Street  | 11201   |
-| 353035      | David     | Fenton   | M      | 1969-01-20 | London; 10 Downing Street        | SW1A2FF |
+| PersID | Firstname | Lastname | Gender | Birth date | Address | Zip |
+| 142540 | Jennifer | Scott | F | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201 |
+| 187542 | Jennifer | Scott | F | 1983-11-29 | NY; Brooklyn; 177 Concord Street | 11201 |
+| 142540 | Jennifer | Scott | F | 1983-11-29 | NY; Brooklyn; 20 Concord Street | 11201 |
+| 353035 | David | Fenton | M | 1969-01-20 | London; 10 Downing Street | SW1A2FF |
 
-| Table 3                         |
+| Table 3 |
 |---------------------------------|
 | Harmonization of personnel data |
 
-| Table 4                   |  |
+| Table 4 | |
 |---------------------------|--|
-| Merging of personnel data |  |
+| Merging of personnel data | |
 
-| Data source |           |          |        |            |                                         |
+| Data source | | | | | |
 |-------------|-----------|----------|--------|------------|-----------------------------------------|
-| PersID      | Firstname | Lastname | Gender | Birth date | Address                                 |
-| 142540      | Jennifer  | Scott    | F      | 1983-11-29 | 11201; NY; Brooklyn; 177 Concord Street |
-| 187542      | Jennifer  | Scott    | F      | 1983-11-29 | 11201; NY; Brooklyn; 177 Concord Street |
-| 142540      | Jennifer  | Scott    | F      | 1983-11-29 | 11201; NY; Brooklyn; 20 Concord Street  |
-| 353035      | David     | Fenton   | M      | 1969-01-20 | SW1A2FF; London; 10 Downing Street      |
-| Data source |           |          |        |            |                                         |
-| PersID      | Firstname | Lastname | Gender | Birth date | Address                                 |
-| 142540      | Jennifer  | Scott    | F      | 1983-11-29 | 11201; NY; Brooklyn; 177 Concord Street |
-| 353035      | David     | Fenton   | M      | 1969-01-20 | SW1A2FF; London; 10 Downing Street      |
+| PersID | Firstname | Lastname | Gender | Birth date | Address |
+| 142540 | Jennifer | Scott | F | 1983-11-29 | 11201; NY; Brooklyn; 177 Concord Street |
+| 187542 | Jennifer | Scott | F | 1983-11-29 | 11201; NY; Brooklyn; 177 Concord Street |
+| 142540 | Jennifer | Scott | F | 1983-11-29 | 11201; NY; Brooklyn; 20 Concord Street |
+| 353035 | David | Fenton | M | 1969-01-20 | SW1A2FF; London; 10 Downing Street |
+| Data source | | | | | |
+| PersID | Firstname | Lastname | Gender | Birth date | Address |
+| 142540 | Jennifer | Scott | F | 1983-11-29 | 11201; NY; Brooklyn; 177 Concord Street |
+| 353035 | David | Fenton | M | 1969-01-20 | SW1A2FF; London; 10 Downing Street |
 
 ## Step 3: Merging
 
@@ -365,20 +364,20 @@ The merger transforms the reconciled data into a comprehensive dataset. In this 
 
 After standardizing and merging the research information in a RIMS, they can be used as an integrated database for targeted data analysis. The ultimate goal of data analysis in institutions is to extract understandable and useful research information from the multitude of heterogeneous data.
 
-##*6.3. Integration techniques for research information management systems*In the information integration phase, the research information as well as the schemes from the source systems in the RIMS are adapted to the quality requirements of the user. The techniques of information integration are summarized under the term schema management and deal with the handling of heterogeneous schemes. The task of schema integration is to merge local, heterogeneous schemas into a single and global schema. In addition, there are various integration techniques to structure the schema integration. In the context of RIMS, it is particularly important to consider the schema matching and schema mapping.
+## *6.3. Integration techniques for research information management systems*In the information integration phase, the research information as well as the schemes from the source systems in the RIMS are adapted to the quality requirements of the user. The techniques of information integration are summarized under the term schema management and deal with the handling of heterogeneous schemes. The task of schema integration is to merge local, heterogeneous schemas into a single and global schema. In addition, there are various integration techniques to structure the schema integration. In the context of RIMS, it is particularly important to consider the schema matching and schema mapping.
 
-##*6.3.1. Schema matching*Schema matching precedes schema mapping. The schema matcher should search for heterogeneous source systems for matching information units. The search can be done by using similar attribute names,
+## *6.3.1. Schema matching*Schema matching precedes schema mapping. The schema matcher should search for heterogeneous source systems for matching information units. The search can be done by using similar attribute names,
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
 <!-- Image Description: The image displays a schema matching between two database designs: RCD and CERIF. RCD shows “Person” and “Third-party funded project” tables with their respective attributes. CERIF depicts a “CfPerson_Project” table. Lines connect corresponding attributes across the two schemas, illustrating how data elements map between the databases. The purpose is to visually represent the schema mapping process, highlighting data equivalences for data integration or migration. -->
 
-Fig. 7. Simple example of Schema Matching of RCD and CERIF.
+Figure 7. Simple example of Schema Matching of RCD and CERIF.
 
 data structure or similar data. Using various methods (e.g. instance-based matching and schema-based matching), mapping can be automatically determined and generated. These methods are summarized under the term schema matching. Here, the matcher analyzes the various schemes and, among other things, their structure. The analysis finally proposes mapping solutions that can be adopted manually [24].
 
-The following Fig. 7 demonstrates a simple example of the schema matching of two relational schemas of the RCD and CERIF data model. The goal is to identify the attributes that both share the same concept.
+The following Figure 7 demonstrates a simple example of the schema matching of two relational schemas of the RCD and CERIF data model. The goal is to identify the attributes that both share the same concept.
 
-##*6.3.2. Schema mapping*After schema mat[ch](#page-13-0)ing follows the schema mapping. The data elements from the source systems are mapped to the target elements to describe the relationships between the two systems. Schema mapping can also be automated based on the attribute name or data structure. Under certain circumstances, the necessary data transformation must be derived from this.
+## *6.3.2. Schema mapping*After schema mat[ch](#page-13-0)ing follows the schema mapping. The data elements from the source systems are mapped to the target elements to describe the relationships between the two systems. Schema mapping can also be automated based on the attribute name or data structure. Under certain circumstances, the necessary data transformation must be derived from this.
 
 Figure 8 shows an example of how the mapping of a CERIF and RCD XML schema occurs within the RIMS integration.
 
@@ -386,12 +385,12 @@ Figure 8 shows an example of how the mapping of a CERIF and RCD XML schema occur
 
 Undoubtedly, the research information management systems (RIMS) lead to a more targeted and faster supply of information and are increasingly becoming a strategic success factor in the research ecosystem. Increasing volume, velocity and variety of relevant information and increasing demands on research decisions challenge the performance and reliability of research management and related systems. The core problem, however, is not the design of RIMS and its acceptance by decision-makers. The main question
 
-####*O. Azeroual et al. / Solving problems of research information heterogeneity during integration*119
+### *O. Azeroual et al. / Solving problems of research information heterogeneity during integration*119
 
 <span id="page-14-0"></span>![](_page_14_Figure_1.jpeg)
 <!-- Image Description: The image displays a comparison of two XML data representations (left and right) and their corresponding relational representation (center). The relational representation uses a tree structure showing attributes (e.g., `cfPersId`, `cfName`, `cfBirthdate`) linked to a root node (`elem:row`). The XML examples illustrate different formatting styles for the same data, demonstrating the transformation between XML structures and a relational model, likely for data integration or database design within the paper. -->
 
-Fig. 8. Source system (top left) and target system (top right) and from that resulting suggested mapping.
+Figure 8. Source system (top left) and target system (top right) and from that resulting suggested mapping.
 
 is how the various research information can be used effectively and efficiently while integrating it into the RIMS to support and improve decision-making.
 
@@ -406,9 +405,9 @@ Institutions should implement the ETL processes as early as possible in order to
 <span id="page-15-0"></span>![](_page_15_Figure_1.jpeg)
 <!-- Image Description: The image is a flowchart depicting a research information management (RIM) system's data processing pipeline. It shows sequential steps: data collection and preprocessing; schema matching and mapping; error identification and correction; duplicate detection; data transformation, harmonization, and merging; visualization and export; and finally, loading into the RIMS. The flowchart visually outlines the stages involved in preparing and integrating research data for analysis and storage. -->
 
-Fig. 9. Supporting workflow diagram.
+Figure 9. Supporting workflow diagram.
 
-# Acknowledgements
+## Acknowledgements
 
 This work has been funded by the German Center for Higher Education Research and Science Studies (DZHW) and by the German Federal Ministry of Education and Research (BMBF) in the context of the project "Helpdesk to facilitate implementation of the Research Core Dataset" (project period: 2017-2019; grant number: KDS2016).
 
@@ -446,5 +445,6 @@ This work has been funded by the German Center for Higher Education Research and
 - [29] L. Ribeiro, P. de Castro and M. Mennielli, *EUNIS EUROCRIS joint survey on CRIS and IR. Final report*, Paris: ERAI EUNIS Research and Analysis Initiative, 2016.
 
 ### 122 *O. Azeroual et al. / Solving problems of research information heterogeneity during integration*- [30] S. Spaccapietra, C. Parent and Y. Dupont, Model independent assertions for integration of heterogeneous schemas,*The VLDB J.* **1**(1) (1992), 81–126.
+
 - [31] M. Stempfhuber, Information quality in the context of CRIS and CERIF, in: *CRIS2008: 9th International Conference on Current Research Information Systems, Maribor, Slovenia, 5–7 June, 2008*.
 - [32] S. Wu, B. Stvilia and D.J. Lee, Readers, personal record managers, and community members: An exploratory study of researchers' participation in online research information management systems, *J. Libr. Metadata.* **17**(2) (2017), 57–90.

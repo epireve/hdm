@@ -59,7 +59,7 @@ Qing Huang, Zhiqiang Yuan, Zhenchang Xing, Zhengkang Zuo, Changjing Wang, Xin Xi
 
 **Index Terms**—Software Programming, Knowledge Graph, Knowledge Fusion, Semantic Enrichment, Knowledge Search.
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 To use certain APIs in programming tasks, developers resort to software documentation, such as API reference and programming tutorials. API reference documentation explains the functionalities and usage directives of individual APIs, while programming tutorials describe different tasks and scenarios in which some APIs are (or are not) applicable and how to use them properly or avoid misuses. In the literature, the former is referred to as know-what, while the latter is know-how. Recent studies construct API knowledge graph (API-KG) [\[1\]](#page-13-0), [\[2\]](#page-13-1), [\[3\]](#page-13-2) and programming task knowledge graph (Task-KG) [\[4\]](#page-13-3), [\[5\]](#page-13-4) from software documentation. They show that lifting programming knowledge from semior unstructured text into structured knowledge enables API- or task-centric knowledge recommendation and can proactively reduce API misuses.
 
@@ -68,7 +68,7 @@ Although these studies show the promising of knowledge graph methods for softwar
 <span id="page-0-0"></span>![](_page_0_Figure_11.jpeg)
 <!-- Image Description: The image displays a comparative analysis of Java string-to-integer conversion methods. Figure (a) shows a direct `Integer.parseInt()` method call from a Stack Overflow question (4412). Figure (b) demonstrates error handling using a `try-catch` block to manage `NumberFormatException`. The right side presents the Java code and API documentation for `Integer.parseInt()`, detailing its functionality and potential exceptions. The arrows visually connect the Stack Overflow snippets with the Java code and documentation, illustrating the method's usage and exception handling. -->
 
-Fig. 1: Need for the Fusion of Programming Know-What and Know-How Knowledge
+**Figure 1:** Need for the Fusion of Programming Know-What and Know-How Knowledge
 
 can be answered by know-what or know-how knowledge alone, while the rest requires a fusion of both. For example, Figure [1](#page-0-0) shows a highly up-voted and frequently-viewed question "How do I convert a String into an int in Java?[1](#page-0-1) ". To answer this question, the accepted answer posts a code
 
@@ -97,7 +97,7 @@ Our idea can be regarded as an instance of the general phenomenon "people always
 - We propose a systematic approach for KG construction, fusion and semantic enrichment, and build a prototype tool to search programming know-what and know-how knowledge coherently.
 - We apply our approach to Java API reference and programming tutorials. Our evaluation confirms the high quality of the resulting API-Task KG and provide the evidence of its effectiveness and usefulness. Our data package can be found here[5](#page-1-4)
 
-# <span id="page-1-3"></span>2 EMPIRICAL STUDY
+## <span id="page-1-3"></span>2 EMPIRICAL STUDY
 
 API-KG and Task-KG contain an abundance of structural knowledge for solving programming issues. To understand the role of know-what knowledge in API-KG and knowhow knowledge in Task-KG in addressing API usage questions, we conduct an empirical study on the questions selected from Stack Overflow, and answer the following
 
@@ -107,7 +107,7 @@ API-KG and Task-KG contain an abundance of structural knowledge for solving prog
 
 research questions:**RQ1**-*If an API usage question can be solved using API-KG or Task-KG alone, we regard it as Q1; otherwise we regard it as Q2. What are the percentages of Q1 and Q2, respectively?* **RQ2**-*Does Q1 imply the semantic relations that are not in API-KG and Task-KG?* **RQ3**-*Does Q2 imply the semantic relations that are not in API-KG and Task-KG?*
 
-# 2.1 Study Design
+## 2.1 Study Design
 
 ## <span id="page-2-0"></span>*2.1.1 Background of API-KG and Task-KG*API-KG [\[1\]](#page-13-0), [\[2\]](#page-13-1), and Task-KG [\[4\]](#page-13-3), [\[5\]](#page-13-4), have been proposed to improve the know-what and know-how knowledge accessibility by lifting programming knowledge from semior unstructured text into structured knowledge. This structured knowledge exists in the form of relations of KG. Since these relations are extracted from the document structure, we refer to them as declaration (i.e., syntactic) relations. The API-KG contains eight declaration relations, i.e.,*contain*, *extend*, *implement*, *throw*, *hasMethod*, *hasParameter*, *hasField*and*hasConstructor*. The Task-KG contains three declaration relations, i.e., *parent-child*, *sibling*and*temporal*. However, the know-what knowledge and know-how knowledge reflected in these declarations are independent, and we argue that this is not enough to solve programming issues. Therefore, we conduct an empirical study to understand the complementary nature of know-what and know-how knowledge and explore the opportunity to combine them for facilitating the discovery of more fine-grained semantic relations.
 
@@ -117,17 +117,18 @@ As developers tend to answer the questions on Stack Overflow with API descriptio
 
 Given the 100 selected questions, we ask those two Master students to extract answer points from the accepted answer of each question independently. Since two students might extract different answer points to the same question, we assign a PhD student (with more than six years of Java development experience) to check the different answer points and solve their conflicts. The Cohen's Kappa coefficient between two Master students is 0.880 (i.e., almost perfect agreement). Finally, we obtain 206 answer points, including 100 main answer points. As a result, we collect 100 top-viewed questions, each of which has a main answer point and optionally some secondary answer points.
 
-# *2.1.3 Protocol*To answer RQ1, we give these two students a 10-minute training session on how to distinguish Q1 from Q2 in the 100 top-viewed questions. If the main answer point to each question could be retrieved in API-KG or Task-KG separately, the question belongs to Q1; otherwise it belongs to Q2. However, considering that there are differences between the descriptions in the answer point and the ones in API-KG or Task-KG, those two Master students would consider the semantic similarity between the two descriptions, rather than literal similarity, when retrieving answer points. For example, the answer point to the question ["Difference be](https://stackoverflow.com/questions/355089/difference-between-stringbuilder-and-stringbuffer/20512746#20512746)[tween StringBuilder and StringBuffer"](https://stackoverflow.com/questions/355089/difference-between-stringbuilder-and-stringbuffer/20512746#20512746) is "StringBuffer is synchronized, StringBuilder is not.", while the description in API-KG is "If synchronization is required then it is recommended that StringBuffer be used". These two descriptions are literally-different but semantically-similar. For the answer point annotated differently, the PhD student serves as an arbiter to make the final decision.
+## *2.1.3 Protocol*To answer RQ1, we give these two students a 10-minute training session on how to distinguish Q1 from Q2 in the 100 top-viewed questions. If the main answer point to each question could be retrieved in API-KG or Task-KG separately, the question belongs to Q1; otherwise it belongs to Q2. However, considering that there are differences between the descriptions in the answer point and the ones in API-KG or Task-KG, those two Master students would consider the semantic similarity between the two descriptions, rather than literal similarity, when retrieving answer points. For example, the answer point to the question ["Difference be](https://stackoverflow.com/questions/355089/difference-between-stringbuilder-and-stringbuffer/20512746#20512746)[tween StringBuilder and StringBuffer"](https://stackoverflow.com/questions/355089/difference-between-stringbuilder-and-stringbuffer/20512746#20512746) is "StringBuffer is synchronized, StringBuilder is not.", while the description in API-KG is "If synchronization is required then it is recommended that StringBuffer be used". These two descriptions are literally-different but semantically-similar. For the answer point annotated differently, the PhD student serves as an arbiter to make the final decision.
 
 To answer RQ2 and RQ3, we give those two Master students a 20-minute training session on telling them the existing declaration relations (i.e., syntactic relations) in API-KG and Task-KG, so that they determine whether or not semantic relations that are not in API-KG and Task-KG exist in the questions of Q1 or Q2 type.
 
-# 2.2 Result and Analysis
+## 2.2 Result and Analysis
 
 Through analysis of the 100 questions and corresponding 206 answer points, we obtained the answers to the three research questions. For RQ1, the percentages of Q1 and Q2 are 36% and 64%, respectively. For RQ2, we find four implicit semantic relations, i.e., Function Similarity (23.5%), Function Opposite (9.8%), Behavior Difference (21.6%) and Function Replace (45.1%). For RQ3, we find seven implicit semantic relations, i.e., Function Collaboration (14.3%), Type Conversion (12.5%), Implement Constraint (10.7%), Logic Constraint (7.1%), Efficiency Comparison (5.3%) , Task Align (33.9%) and Task Overlap (16.1%).
 
-##*2.2.1 Answer to RQ1*Given each question, two students search for its main answer point in API-KG [\[2\]](#page-13-1) and Task-KG [\[4\]](#page-13-3) separately, and annotate the question as Q1 or Q2 depending on whether the answer is retrieved. Statistically, Q1 accounts for 36% while Q2 for 64%. Finally, we calculate the agreement between the two students for annotating, and the Cohen's Kappa coefficient is 0.864 (i.e., almost perfect agreement).
+## *2.2.1 Answer to RQ1*Given each question, two students search for its main answer point in API-KG [\[2\]](#page-13-1) and Task-KG [\[4\]](#page-13-3) separately, and annotate the question as Q1 or Q2 depending on whether the answer is retrieved. Statistically, Q1 accounts for 36% while Q2 for 64%. Finally, we calculate the agreement between the two students for annotating, and the Cohen's Kappa coefficient is 0.864 (i.e., almost perfect agreement).
 
-#*2.2.2 Answer to RQ2*We analyze if the semantic relations that are not in API-KG and Task-KG exist in Q1, and find that 78.3% of the answer points in Q1 imply 4 types of new API semantic relations.
+## *2.2.2 Answer to RQ2*We analyze if the semantic relations that are not in API-KG and Task-KG exist in Q1, and find that 78.3% of the answer points in Q1 imply 4 types of new API semantic relations.
+
 **Function Similarity**relation is defined that two API entities have similar usage. We find that 23.5% of the answer points in Q1 questions reveal this API relation. For the question ["How to store a large \(10 digits\) integer?"](https://stackoverflow.com/questions/1938855/how-to-store-a-large-10-digits-integer), the answer point "If at any point you need bigger numbers, you can try java.math.BigInteger, or java.math.BigDecimal" reveals that both*java.math.BigInteger*and*java.math.BigDecimal*can be used to operate bigger numbers.
 **Function Opposite**relation is defined that two API entities have opposite usage. We find that 9.8% of the answer points in Q1 questions reveal this API relation. For the question ["How to store IP Address range vs location"](https://stackoverflow.com/questions/19960243), the answer point "The higherEntry(K key) does the opposite of the lowerEntry(K key), meaning higherEntry(K key) returns a key-value mapping associated with the least key strictly greater than the given key, or null if there is no such key." reveals that*higherEntry(K key)*and*lowerEntry(K key)*have the opposite function when operating the element.
 **Behavior Difference**relation is defined that two similar API entities behave differently when completing the same task. We find that 21.6% of the answer points in Q1 questions reveal this API relation. For the question ["What is the](https://stackoverflow.com/questions/2703984/what-is-the-difference-between-the-add-and-offer-methods-in-a-queue-in-java) [difference between the add and offer methods in a Queue in](https://stackoverflow.com/questions/2703984/what-is-the-difference-between-the-add-and-offer-methods-in-a-queue-in-java) [Java"](https://stackoverflow.com/questions/2703984/what-is-the-difference-between-the-add-and-offer-methods-in-a-queue-in-java), the answer point "when element can not be added to collection the add method throws an exception and offer doesn't." reveals that*add()*and*offer()*behave differently when adding elements to a collection fails.
@@ -136,6 +137,7 @@ Through analysis of the 100 questions and corresponding 206 answer points, we ob
 In this process, we calculate the agreement between the two students for their annotations, and the Cohen's Kappa coefficient is 0.836 (i.e., substantial agreement).
 
 ## <span id="page-3-0"></span>*2.2.3 Answer to RQ3*We analyze if the semantic relations that are not in API-KG and Task-KG exist in Q2, and find that 79.3% of the answer points in Q2 imply 5 types of new API semantic relations and 2 kinds of task semantic relations.
+
 **Function Collaboration**relation is defined that two API entities should be used together when accomplishing a task. We find that 14.3% of the answer points in Q2 questions reveal this API relation. For the question ["how to start a](https://stackoverflow.com/questions/31955193) [function after stop typing in a JTextField in java"](https://stackoverflow.com/questions/31955193), the answer point "Use a Swing Timer and a DocumentListener, each time the Document is updated, reset the Time" reveals that developers should use*Time*and*DocumentListener*together when starting a function after stop typing in a JTextField.
 **Type Conversion**relation is defined that that two API entities can be converted to each other. We find that 12.5% of the answer points in Q2 questions reveal this API relation. For the question ["Convert java.util.Date to String"](https://stackoverflow.com/questions/5683728), the answer point "Convert a Date to a String using format() method" reveals that*Date*could be converted to*String*.
 
@@ -151,7 +153,7 @@ In this process, we calculate the agreement between the two students for their a
 In this process, we calculate the agreement between the two students for annotation, and the Cohen's Kappa coefficient is 0.857 (i.e., almost perfect agreement).
 *Fusion of know-what and know-how knowledge is frequently needed to solve programming issues. This fusion requires nine categories of API semantic relations and two types of task semantic relations, which are not present in the existing independent API-KG and Task-KG.*
 
-# 3 APPROACH
+## 3 APPROACH
 
 Our empirical study suggests the necessity of the fusion and mutual enrichment of know-what and know-how knowledge. As illustrated in Figure [2,](#page-4-0) our approach first constructs an API-KG and a Task-KG separately (Section [3.1\)](#page-4-1) and links the two KGs by API entities mentioned in task entities (Section [3.2\)](#page-5-0). Next, our approach infers new semantic relations from one KG to enrich the other KG (Section [3.3](#page-5-1) and Section [3.4\)](#page-6-0). Finally, we develop an API/Task-centric search engine and a web interface that recommends programming know-what and know-how knowledge as a unified whole
 
@@ -160,7 +162,7 @@ Our empirical study suggests the necessity of the fusion and mutual enrichment o
 
 Note that the figure in the middle, the red and purple dotted line represents the enriched semantic relation, and the blue dotted line represents the entity link between API-KG and Task-KG.
 
-Fig. 2: KG Construction, Enrichment and Application
+**Figure 2:** KG Construction, Enrichment and Application
 
 for text or code queries (Section [3.5\)](#page-7-0). Moreover, the figure in the middle shows an overview of API-Task KG, and the bottom figure shows an application screenshot.
 
@@ -170,7 +172,8 @@ We construct API-KG and Task-KG from API reference documentation and programming
 
 ### <span id="page-4-2"></span>*3.1.1 API-KG Construction*We adopt the methods proposed in [\[1\]](#page-13-0), [\[2\]](#page-13-1) to construct API-KG. These methods assume that API reference documentation follows a consistent semi-structured format, from which we extract eight types of API entities (Package, Class, Interface, Exception, Method, Parameter, Field) and eight types of API declaration relations (contain, extend, implement, throw, hasMethod, hasParameter, hasField, hasConstructor). These API entities and declaration relations constitute a socalled API skeleton graph [\[1\]](#page-13-0), [\[2\]](#page-13-1). Then we extract Function or Directive Sentence [\[2\]](#page-13-1) from API description as API attributes. The former defines the functionality of the API, the latter tells how to use the APIs correctly. Specifically, we resolve the pronouns in API descriptions with Neural-Coref [\[11\]](#page-13-10), and split the descriptions into sentences with Spacy [\[12\]](#page-13-11). As API descriptions contain many API tokens, general English tokenizer (e.g, Jieba [\[13\]](#page-13-12)) would break an API token into several tokens, which negatively affects sentence splitting. For example, the method "add(index, E)" will be broken into "add(index" and "E)" with the general tokenizer. Therefore, we use software-specific tokenizer as in the previous work [\[1\]](#page-13-0), [\[2\]](#page-13-1). Then we do part-of-speech (POS) tagging for the sentences and identify the function sentences based on two criteria: (1) API name is the subject in the sentence; or (2) the sentence starts with a verb phrase, for example, "returns the numbers of the elements in this collection" for*Collection.size()*. Meanwhile we identify the directive sentences according to 86 keywords (e.g., must, only) defined in an empirical study of API directives in API documentation [\[14\]](#page-13-13). For example, according to the keyword "must", we extract the directive sentence "All methods on the Array interface must be fully implemented if the JDBC driver supports the data type". We use the linking methods in [\[1\]](#page-13-0) to link the identified function and directive sentences to the corresponding APIs. Following the practice in [\[1\]](#page-13-0), [\[2\]](#page-13-1), if there are multiple function sentences, we merge them as one function-sentence attribute. We keep each directive sentence as a separate API attribute.
 
-#### <span id="page-4-3"></span>*3.1.2 Task-KG Construction*We follow the method in [\[4\]](#page-13-3) to construct Task-KG. In particular, we extract task entities, attributes and relations from the semi-structured programming tutorials.
+### <span id="page-4-3"></span>*3.1.2 Task-KG Construction*We follow the method in [\[4\]](#page-13-3) to construct Task-KG. In particular, we extract task entities, attributes and relations from the semi-structured programming tutorials.
+
 **a) Task Entity Extraction.**We use the same set of NLP tools as described in Section [3.1.1](#page-4-2) to process task texts, split them into sentences and obtain the POS tags for the sentences. Different from [\[4\]](#page-13-3) represents task entities at sentence level, we extract verb phrases as task entities which are more fine-grained and can be more accurately predicted (see Section [4.1.2\)](#page-8-0). We extract verb phrases from the sentences with Spacy and annotate them independently by two authors if a verb phrase implies a clear task intention and should be considered as a task entity. For example,"Convert Set to List" implies a task, while "pass the set as parameter to addAll()" does not. If the two annotators disagree with each other, the third author serves as an arbiter and makes the final decision. We obtain a dataset including 4,688 task phrases and 6,075 non-task phrases for training a CNNbased task phrase classifier [\[15\]](#page-13-14).
 
 Given a task phrase, we extract*Action*and*Object*based on POS tag patterns. If POS tags match the pattern*Verb+Noun(\*)*, we extract *Verb*as Action and*Noun(\*)*as Object, e.g., "Reads a single character" is chunked into Action*reads*and Object*a single character*. If POS tags match the pattern *Verb+Noun(\*)+ADP+Noun(\*)*and "ADP" means adposition, we extract*Verb+Noun(\*)*as Action and*Noun(\*)*as Object, e.g., "Remove element from Collection" is split into Action*remove element*and Object*Collection*.
@@ -182,13 +185,13 @@ Note that not all task entities have all the four task attributes. We extract im
 For API packet, we extract the API name mentioned in the sentence with the special HTML tag (e.g, <code>), for example, *remove()*in "<code>remove()</code> element from collection". If there is no special tag for the API name, we use the orthographic feature-based regular expressions [\[16\]](#page-13-15) (e.g., camel-case style, end with "()") to extract API names. Then we match the API name in the code snippet (if any) to get the corresponding package (or interface, class) name and the number of parameters, which forms the API packet. For the matching, we transform the source code into a typed Abstract Syntax Tree involving APIs by using Spoon [\[17\]](#page-13-16), a tool for partial code parsing and type resolution. For example, if put() in the task text matches sortedMap.put("a", "one") in the code, we would create an API packet <put(), java.util.sortedMap, 2> for the task. If the task does not have code snippets or the API name does not match any token in the code snippet, the API packet will have only the API name and the other two slots are null.
 **c) Task Relation Extraction.**Three types of task relations are extracted: (1)*Hierarchical Relation*between a parent task and child tasks; (2)*Sibling Relation*between the same-level child tasks; and (3)*Temporal Relation* for task execution order. Hierarchical and sibling relations are extracted based on document structure, for example, section and subsection (e.g, HTML tags <*h1*>,<*h2*>), list bullets (e.g., HTML tags <*ul*> and<*li*>). Temporal relations are extracted based on commonly used temporal words (e.g, *before*, *after*, *once*) from the task description between the adjacent child tasks.
 
-#### <span id="page-5-0"></span>3.2 KG Fusion
+### <span id="page-5-0"></span>3.2 KG Fusion
 
 KG fusion is to link the task entities in Task-KG with the API entities in API-KG. This is based on API entity linking rather than surface-level keyword matching. For example, based on the keyword matching, *add()*mentioned in a task would be confused to be linked to*List.add(E)*, *List.add(int,E)*or*Collection.add(E)*.
 
-#### *3.2.1 API Representation for Entity Linking*To achieve high-quality entity linking, we represent an API mention in the task description as a T<AP,Sent> tuple where*AP*is the API packet attribute derived for this API mention and*Sent*is the sentence where this API is mentioned. We also represent each API entity in API-KG as a AP I<AP,Sent> tuple where*AP*and*Sent*are the API packet and the function sentence attribute of this API entity. API packet represents API syntactic structure while the sentence embodies API usage semantics. Both types of information are needed as several APIs may have the same syntactic structure but their usage semantics would generally be different. For example,*List.remove(int)*and*List.remove(Object)* have the same syntactic structure (i.e., <*remove()*, *List*, *1*>), but the former is to remove an element at the given index, while the latter is to remove the given object.
+### *3.2.1 API Representation for Entity Linking*To achieve high-quality entity linking, we represent an API mention in the task description as a T<AP,Sent> tuple where*AP*is the API packet attribute derived for this API mention and*Sent*is the sentence where this API is mentioned. We also represent each API entity in API-KG as a AP I<AP,Sent> tuple where*AP*and*Sent*are the API packet and the function sentence attribute of this API entity. API packet represents API syntactic structure while the sentence embodies API usage semantics. Both types of information are needed as several APIs may have the same syntactic structure but their usage semantics would generally be different. For example,*List.remove(int)*and*List.remove(Object)* have the same syntactic structure (i.e., <*remove()*, *List*, *1*>), but the former is to remove an element at the given index, while the latter is to remove the given object.
 
-#### *3.2.2 API Entity Linking*Entity linking aims to link an entity mention in text to the entity in a knowledge graph. The entity of our concern is API, and they can be mentioned in task descriptions or user queries. Without losing the generality, we refer to Q<AP,Sent> as a query tuple (e.g., the tuple for an API mention of a task entity) and {AP I<AP,Sent>} as the set of candidate tuples for the API entities in the API-KG. Note that the API entity linking method introduced here for linking task entities and API entities will also be used for API semantic relation inference (see Section [3.3\)](#page-5-1), task-align relation inference (see Section [3.4\)](#page-6-0), and API/Task-centric knowledge graph search (see Section [3.5\)](#page-7-0).
+### *3.2.2 API Entity Linking*Entity linking aims to link an entity mention in text to the entity in a knowledge graph. The entity of our concern is API, and they can be mentioned in task descriptions or user queries. Without losing the generality, we refer to Q<AP,Sent> as a query tuple (e.g., the tuple for an API mention of a task entity) and {AP I<AP,Sent>} as the set of candidate tuples for the API entities in the API-KG. Note that the API entity linking method introduced here for linking task entities and API entities will also be used for API semantic relation inference (see Section [3.3\)](#page-5-1), task-align relation inference (see Section [3.4\)](#page-6-0), and API/Task-centric knowledge graph search (see Section [3.5\)](#page-7-0).
 
 First, we use Q<AP > as a query API packet to find a set of candidate API entities in API-KG by matching API syntactic structure (i.e., AP IAP and QAP ). To check whether two API packets are the same or not, we proposed an API packet matching method. Given a query AP1<x,y,z> and a candidate AP2<x',y',z'> where AP<x,y,z> represents an API packet<API name, package (or interface, class) name, parameter number>, if the expression (x! = null && x == x ′ )&&(y == null ∥ y == y ′ )&&(z == null ∥ z == z ′ ) is true, AP1<x,y,z> and AP2<x',y',z'> are matched, otherwise the two API packets do not match. That is, two matched API packets must always have the same non-null API name. For the package (or interface, class) name (or the parameter number), the matching is relaxed as these two slots of QAP could be null. In such cases, the second (or third) slot is regarded as matched. If the second (or third) slot is not null, then the corresponding slots of the two API packets must be the same to match the two API packets.
 
@@ -196,29 +199,29 @@ If API packet matching finds only one API entity, that API entity is linked to t
 
 For each sentence, we embed tokens into word embeddings and average all token vectors into a sentence vector. We calculate the cosine similarity between the two sentence vectors and select the API entity whose AP ISent has the highest cosine similarity with QSent. In our current tool, we train the word2vec model [\[19\]](#page-13-18) with the 128-dimensional word vectors on all the sentences in the JDK 1.8 API specification and the Java tutorial text.
 
-#### <span id="page-5-1"></span>3.3 Enrichment of API Semantic Relations
+### <span id="page-5-1"></span>3.3 Enrichment of API Semantic Relations
 
 So far the API-KG contains only API declaration (i.e., syntactic) relations extracted from document structure. However, according to our empirical study, APIs often have semantic relations with other APIs. For example,*Deque.add(E)*and*Deque.offer(E)*supports similar function, but they are also different in that "if cannot insert the element into Queue, offer() returns false while add() throws exception.". Although some API semantic relations can be inferred from API reference documentation [\[10\]](#page-13-9), and more types and more fine-grained API semantic relations can be inferred from programming tutorials (i.e., the source of Task-KG). This is because API reference documentation focuses mainly on describing individual APIs while programming tutorials often explain related APIs from the task perspective. For example, from Java API specification, existing method [\[10\]](#page-13-9) infers only a*function-similar*relation between*Deque.add(E)*and*Deque.offer(E)* based on the similarity of their function
 
 sentences. However, from the tutorial about the task "add an element to the end (tail) of a Deque[6](#page-6-1) ", we can infer the subtle behavior-difference (defined in the empirical study [2.2.3\)](#page-3-0) relation between the two APIs. According to the definitions of nine categories of API semantic relations in our empirical study [2.2.3,](#page-3-0) we develop a pattern-based method to infer these API semantic relations from the task attributes, which greatly enriches API relational knowledge in API-KG.
 
-#### <span id="page-6-4"></span>*3.3.1 Inference of API Semantic Relations*To extract API sentences that might contain certain API semantic relations, we summarize 18 sentence patterns from the task description. Specially, we parse the text description and split the text into sentences with the same software text processing method described in Section [3.1.1.](#page-4-2) If a sentence starts with a conjunction (e.g,*but*, *and*, etc.), it will not be separated from the previous sentence. This keeps the relevant sentences as a whole sentence to clarify the context of API semantic relations. For example, in "In order to update the database you need to use a Statement. *But*, instead of calling the executeQuery() method, you call the executeUpdate() method.[7](#page-6-2) ", "in order to update ..." before "But" illustrates when you should use *Statement.executeUpdate(String)*instead of*Statement.executeQuery(String)*. Then we detect API mentions in the sentences with the API mention extraction method [\[16\]](#page-13-15). If the number of detected API mentions is greater than two, the sentence will be identified as an API relation sentence. Finally, we perform POS tagging for the API sentences with Spacy.
+### <span id="page-6-4"></span>*3.3.1 Inference of API Semantic Relations*To extract API sentences that might contain certain API semantic relations, we summarize 18 sentence patterns from the task description. Specially, we parse the text description and split the text into sentences with the same software text processing method described in Section [3.1.1.](#page-4-2) If a sentence starts with a conjunction (e.g,*but*, *and*, etc.), it will not be separated from the previous sentence. This keeps the relevant sentences as a whole sentence to clarify the context of API semantic relations. For example, in "In order to update the database you need to use a Statement. *But*, instead of calling the executeQuery() method, you call the executeUpdate() method.[7](#page-6-2) ", "in order to update ..." before "But" illustrates when you should use *Statement.executeUpdate(String)*instead of*Statement.executeQuery(String)*. Then we detect API mentions in the sentences with the API mention extraction method [\[16\]](#page-13-15). If the number of detected API mentions is greater than two, the sentence will be identified as an API relation sentence. Finally, we perform POS tagging for the API sentences with Spacy.
 
 Three authors collaboratively analyze 10,129 API relation sentences and summarize 18 syntactic patterns for extracting nine types of API semantic relations. Due to space limitations, we only show one of the sentence patterns for each API semantic relation in table [1.](#page-7-1) All of 18 sentence patterns can be found in our data package. If an API sentence matches a pattern, the corresponding API relation will be extracted from the sentence. The matching is case-insensitive and the word stem is used for matching different word variants (e.g., *differ\**for*differs*, *different*, *difference*, *differences*). Our approach may infer more than one relation for the two APIs from one API sentence, because one API sentence may match several patterns at the same time. For example, based on the pattern "AE<sup>1</sup> [like/same/similar], AE<sup>2</sup> [except/but]" or the pattern "AE<sup>1</sup> [fast/better/easier/easy] than AE2", we can extract the sentence "The ConcurrentHashMap is very similar to the java.util.HashTable class, except that ConcurrentHashMap offers better concurrency than HashTable does.". At this time, we can extract a *behavior-difference*and an an*efficiency-comparison*relation for*java.util.ConcurrentHashMap*and*java.util.HashTable*.
 
 The API mentioned in an extracted API relation sentence will be linked to the corresponding API entities in API-KG by the API entity linking method described in Section [3.2,](#page-5-0) and the semantic relation between the two API entities is added to API-KG. This API relation sentence is also attached to the API entities as an inferred API relation attribute.
 
-#### <span id="page-6-0"></span>3.4 Enrichment of Task Semantic Relations
+### <span id="page-6-0"></span>3.4 Enrichment of Task Semantic Relations
 
 The Task-KG now contains three types of task relations (parent-child, sibling and temporal) extracted from the tutorial document structure. However, according to our empirical study [2.2.3,](#page-3-0) implicit task semantic relations, such as task-align relation and the task-overlap relation, are often not present in tutorial document structure, For the former, for example, the tasks "add elements to List" and "add a collection of objects to a Collection" can accomplish the same goal. For the latter, for example, the code for the task "iterate a list with an iterator" overlap with the one for another task "remove elements during iteration". In the Java tutorial, these tasks have no explicit relations because they are organized in different sections. However, with the help of API entities and API relations in API-KG, we can infer task-align and task-overlap relations to enrich Task-KG.
 
-#### <span id="page-6-3"></span>*3.4.1 Inference of Task Align Relations*
+### <span id="page-6-3"></span>*3.4.1 Inference of Task Align Relations*
 
 Recall that a task entity is represented as a <action, object> tuple. We infer a task-align relation between the two tasks if the task action phrases are similar and the APIs involved in the object have some relation in API-KG. For example, as "add elements" is similar to "add a collection of an object" and "java.util.list" extends "java.util.Collection", we will infer a task-align relation between "*add elements to List*" and "*add a collection of an object to Collection*".
 
 Given two task entities (T<sup>1</sup> and T2), we calculate a task similarity score for aligning the tasks by Simtask(T1, T2) = Actscore(T1, T2) + Objscore(T1, T2) (equation 1). If the similarity score is greater than a user-defined threshold, we infer a task-align relation between T1 and T2. In our current tool, we empirically set the threshold at 1.5 through the experiments on a small validation set of tasks. In this equation, Actscore(T1, T2) is the cosine similarity between the phrase vectors of the action phrases of T<sup>1</sup> and T2. For the Objscore(T1, T2), we match the object phrase with the API name in the API packets of the task entity to determine if the object mentions an API. If the Objects of both task entities contain APIs, we transform API mentions into two tuples <*AP*, *Sent*> where *AP*is the matched API packet and*Sent*is the task phrase. We link these two tuples to the API entities in API-KG by the API entity linking method described in Section [3.2.](#page-5-0) If the two API entities are linked and there is a certain API relation between the two API entities, Objscore(T1, T2) returns 1; otherwise 0. If either one of the Objects does not contain an API, we calculate Objscore(T1, T2) in the same way as Actscore(T1, T2) .
 
-####*3.4.2 Inference of Task Overlap Relations*
+### *3.4.2 Inference of Task Overlap Relations*
 
 We infer task-overlap relations by comparing the code snippets of the two tasks and determining if the code of one task overlaps the partial code of the other in terms of API usage.
 
@@ -230,25 +233,24 @@ Given the code snippet of a task entity, we extract the APIs and transform them 
 
 TABLE 1: Sentence Patterns for Extracting API Relation Sentences from Task Descriptions
 
-<span id="page-7-1"></span>
 
-| Relation Category      | Sentence Patterns                                        | Example                                                                                                         |
+| Relation Category | Sentence Patterns | Example |
 |------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| Function Similarity    | AE1<br>[like/similar/same] AE2                           | Deque.pop() is similar to how the removeFirst() works                                                           |
-| Function Opposite      | AE1<br>opposite (ADP) AE2                                | The floor() does the opposite of the ceiling(),                                                                 |
-| Behavior Difference    | AE1<br>and AE2<br>differ in                              | The add() and offer() methods differ in how the behave<br>if the Queue is full so no more elements can be added |
-| Function Replace       | VB ((ADP) NP) AE1<br>[instead<br>of/rather than/not] AE2 | if some of the operations in the transaction fail,<br>you would call the rollback() instead of commit().        |
-| Function Collaboration | AE1<br>(be) VB(VBN) [with/to] AE2                        | DataInputStream is used with DataOutputStream                                                                   |
-| Type Conversion        | Convert AE1 to AE2                                       | Convert List to Set                                                                                             |
-| Implement Constraint   | AE1<br>(will) use AE2                                    | remove() method will use equals() to decide.                                                                    |
-| Logic Constraint       | VB AE1<br>[after/then/until] AE2                         | run() is executed by the thread after call start()                                                              |
-| Efficiency Comparison  | AE1<br>[fast/easier] than AE2                            | HashMap is typically faster than TreeMap.                                                                       |
+| Function Similarity | AE1<br>[like/similar/same] AE2 | Deque.pop() is similar to how the removeFirst() works |
+| Function Opposite | AE1<br>opposite (ADP) AE2 | The floor() does the opposite of the ceiling(), |
+| Behavior Difference | AE1<br>and AE2<br>differ in | The add() and offer() methods differ in how the behave<br>if the Queue is full so no more elements can be added |
+| Function Replace | VB ((ADP) NP) AE1<br>[instead<br>of/rather than/not] AE2 | if some of the operations in the transaction fail,<br>you would call the rollback() instead of commit(). |
+| Function Collaboration | AE1<br>(be) VB(VBN) [with/to] AE2 | DataInputStream is used with DataOutputStream |
+| Type Conversion | Convert AE1 to AE2 | Convert List to Set |
+| Implement Constraint | AE1<br>(will) use AE2 | remove() method will use equals() to decide. |
+| Logic Constraint | VB AE1<br>[after/then/until] AE2 | run() is executed by the thread after call start() |
+| Efficiency Comparison | AE1<br>[fast/easier] than AE2 | HashMap is typically faster than TreeMap. |
 
 Note: AE (API entity), VB (verb), ADP (adposition), NP (Noun phrase), ADV (adverb), VBN (past participle).
 
 Given two code snippets (C<sup>1</sup> and C2) of the two tasks, we denote two sets of API entities involved in C1 and C2 as AP IC<sup>1</sup> and AP IC2, respectively. We calculate the code similarity between the two tasks by Simcode(C1, C2) = AP IC<sup>1</sup> T AP IC2/|AP IC1| (equation 2), which computes to what extent C<sup>1</sup> overlaps C<sup>2</sup> in terms of API usage. Note that Simcode(C1, C2) could be different from Simcode(C2, C1). So we average Simcode(C1, C2) and Simcode(C2, C1) as the code similarity of the two tasks. If the average score is greater than a given threshold, we deduce a*task-overlap*relation between the two tasks. In our current tool, we empirically set the threshold at 0.6 through the experiments on a small validation set of tasks.
 
-#### <span id="page-7-0"></span>3.5 Knowledge Graph Application
+### <span id="page-7-0"></span>3.5 Knowledge Graph Application
 
 Based on our fused and semantically-enriched API-Task KG, we developed a knowledge search tool for recommending programming know-what and know-how knowledge coherently. This tool consists of the back-end knowledge graph and the front-end web interface. The back-end is a Neo4j graph database which stores our API-Task KG. The frontend supports text/code search. Instead of simple keyword based search, our search engine uses KG methods to extract task, API and relevant attributes from the query, and perform API/Task-centric search over our API-Task KG.
 
@@ -257,7 +259,7 @@ For example, given the text query "how to insert an item in List with add()", th
 <span id="page-7-2"></span>![](_page_7_Figure_7.jpeg)
 <!-- Image Description: The image displays a knowledge graph illustrating the relationships between an API (Application Programming Interface), `Statement.executeQuery(String sql)`, and related programming concepts. Nodes represent APIs and tasks (e.g., "Deleting Records"), while edges labeled "Link" and "HasMethod" show relationships. The graph visually represents how the API is used in different programming tasks, enhancing the understanding of its functionality within a broader context. The "Best Matched API" and "Extended API-related Knowledge" sections provide textual descriptions complementing the visual representation. -->
 
-Fig. 3: Screenshot of API-centric knowledge search
+**Figure 3:** Screenshot of API-centric knowledge search
 
 another Task-align relation, the user will learn how to "Add Collection of Objects to Collection".
 
@@ -275,7 +277,7 @@ to investigate two general research questions:**RQ1**-*What is the accuracy of t
 
 This RQ examines all our KG steps from API-KG and Task-KG construction, to KG fusion, and enrichment of API and Task semantic relations. Consider the large amount of data instances in KGs, we adopt a statistical sampling method [\[6\]](#page-13-5) that examines the minimal number of data instances so that we can estimate the accuracy of the samples with the error margin 0.05 at 95% confidence level. The sampling size is 384. We recruit two graduate students (not involved in this work) with two years of Java development experience to label the sampled data instances independently. We use Cohen's kappa [\[9\]](#page-13-8) to evaluate the inter-rater agreement. For each sample, if the two students make different labels, a third student is assigned to make an additional label to resolve the conflict by the majority-win strategy. Based on the final labels, we calculate the data accuracy.
 
-##*4.1.1 API-KG construction*
+## *4.1.1 API-KG construction*
 
 The construction of API skeleton graph is mechanic, relying on only correctly parsing document format and structure. In our KG, we obtain 44,174 function sentences and 52,685 directive sentences. The accuracy of these extracted functions and directive sentences need to be examined as they rely on a set of keywords observed by ourselves and previous work [\[14\]](#page-13-13). We sample 384 function sentences and 384 directive sentences, and ask the annotators to determine whether they are function (or directive) sentences according to the definition in [\[2\]](#page-13-1). The Cohen's kappa between the two students is 0.941 and 0.876 for function sentences and directive sentences, respectively, which indicated almost perfect agreement. Based on the final labels, our keyword-based methods achieve 94.30% and 92.70% for the identification of function and directive sentences, respectively. The errors are caused by two main reasons. First, POS tagging errors, e.g., "peek" from the sentence "peek in interface Queue<E>" is tagged as a Verb, while it is actually a method name. Second, extract incomplete sentences due to incorrect sentences splitting, e.g., "returns the lowest index i such that (o==null ?". These errors could be mitigated by software-specific POS tagging and sentence splitting methods. [\[20\]](#page-13-19)
 
@@ -283,7 +285,7 @@ The construction of API skeleton graph is mechanic, relying on only correctly pa
 
 For the API-packet attribute extraction, we sampled 384 API packets from 325 task entities, and ask the annotators to determine if all the three slots of the API packets are correct. Only if all slots are correct, the API packet is regarded as correct. The two annotators have 0.931 Cohen's kappa (almost perfect agreement). Based on the final labels, the accuracy of the API-packet attributes is 89.72%.**The errors come mainly from the inaccurate package (or interface, class) name.**For example, the class name of*stream()*should be*java.util.Set*, but it is mistaken as *java.util.Map*. This is because, given *Map.keySet().stream()*, we don't know the return type of *Map.keySet()*and thus mistake*java.util.Map*for the class name of*stream()*. If this is case "Set s = Map.keySet(); s.stream()", we can identify *java.util.Set*from the variables.
 
-##*4.1.3 KG Fusion*
+## *4.1.3 KG Fusion*
 
 For the KG fusion, we sampled 384 API-Task links, and ask the annotators to determine whether the task entity is linked to the correct API entity in API-KG, based on the task entity attributes. The two annotators have 0.897 Cohen's kappa (almost perfect agreement). Based on the final labels, the entity linking method achieves 86.61% accuracy for KG fusion. Through the error analysis, the errors are mainly caused by inaccurate upper stream API packets, function sentences, code summaries, etc. For example, the task "set a generic type for a Collection" is incorrectly linked to the "java.lang.String", because we inaccurately extract "Java String'' as the API packet <*String*, *lang*, *0*> in the task attribute. In addition, we also sample 2,400 API entities from API-Task KG and transform these API entities into APIpackets. 86.46% of API packets are unique. This indicates that using the API syntactic structure can distinguish most API entities and thus provide a solid foundation for the high quality fusion of API KG and Task KG.
 
@@ -293,71 +295,70 @@ For the KG fusion, we sampled 384 API-Task links, and ask the annotators to dete
 
 <span id="page-9-0"></span>TABLE 2: Accuracy of API Semantic Relation Inference
 
-| Relation Category      | Num | Accuracy | Agreement |
+| Relation Category | Num | Accuracy | Agreement |
 |------------------------|-----|----------|-----------|
-| Function Opposite      | 8   | 1.000    | 1.000     |
-| Function Similarity    | 116 | 0.965    | 0.893     |
-| Behavior Difference    | 119 | 0.975    | 0.836     |
-| Function Replace       | 95  | 0.958    | 0.821     |
-| Function Collaboration | 412 | 0.951    | 0.793     |
-| Implement Constraint   | 91  | 0.953    | 0.768     |
-| Logical Constraint     | 43  | 0.952    | 0.780     |
-| Type Conversion        | 23  | 1.000    | 1.000     |
-| Efficiency Comparison  | 9   | 1.000    | 1.000     |
+| Function Opposite | 8 | 1.000 | 1.000 |
+| Function Similarity | 116 | 0.965 | 0.893 |
+| Behavior Difference | 119 | 0.975 | 0.836 |
+| Function Replace | 95 | 0.958 | 0.821 |
+| Function Collaboration | 412 | 0.951 | 0.793 |
+| Implement Constraint | 91 | 0.953 | 0.768 |
+| Logical Constraint | 43 | 0.952 | 0.780 |
+| Type Conversion | 23 | 1.000 | 1.000 |
+| Efficiency Comparison | 9 | 1.000 | 1.000 |
 
 annotators have 0.796 and 0.843 Cohen's Kappa respectively (almost perfect agreement). Through the error analysis, we identify two main causes of errors. First, the wrong taskalign relations are caused by the incorrect task phrases, for example, "reverse List using Stack" is task-aligned with "copy all elements of a List", but the two tasks have no relation. For the correctly identified task phrases, the accuracy of inferring task-align relation is actually 97.86%. Second, the wrong task-overlap relations are caused by the incorrect API names extracted from the code. For example, our tool may split API names incorrectly because of improper processing of HTML tag (e.g., <br>). As an example, "stream.<br>forEach()" is spilt into two names "stream" and "forEach()" rather than as a whole. Such errors affect the subsequent API entity linking and API usage matching.
 *Our KG construction, fusion and enrichment steps are accurate and produce a high-quality API-Task KG.*# 4.2 Effectiveness and Usefulness of KG (RQ2)
 
 We conduct a pilot study to evaluate if our KG-empowered knowledge search could answer the questions on SO.
 
-#*4.2.1 Dataset*To simulate real-world programming issues, we select the top 30% of questions (sorted by the descending order of view counts) from each question topic defined in the empirical study. All 30 selected questions are listed in Table [3.](#page-9-1) They had been viewed in total 25,788k times and received 22,308 votes (as of 20th August 2021), which indicates that developers frequently encounter similar problems. For each question, we collect the question title and description and the accepted answer. The descriptions of the last thirteen questions (Q18-Q30) contain problematic code snippets.
+## *4.2.1 Dataset*To simulate real-world programming issues, we select the top 30% of questions (sorted by the descending order of view counts) from each question topic defined in the empirical study. All 30 selected questions are listed in Table [3.](#page-9-1) They had been viewed in total 25,788k times and received 22,308 votes (as of 20th August 2021), which indicates that developers frequently encounter similar problems. For each question, we collect the question title and description and the accepted answer. The descriptions of the last thirteen questions (Q18-Q30) contain problematic code snippets.
 
-#*4.2.2 Effectiveness Evaluation*Our tool supports both text and code queries. For text search, we input the questions' title from Q1 to Q17. For code search, we input the code snippets from Q18 to Q30. Given a query, our tool outputs the answer including the best matched API or task entity and the extended knowledge of related APIs and/or tasks. For each question, we use the same graduate students' settings as KG quality evaluation to determine if the answer by our tool includes the accepted answer. If our answer includes the accepted answer, we regard our tool can positively answer the question (labeled as P), otherwise labeled as negative (N). We evaluate the inter-rater agreement by Cohen's kappa. We invite a third student to provide an additional label to resolve the disagreements by majority-win.
+## *4.2.2 Effectiveness Evaluation*Our tool supports both text and code queries. For text search, we input the questions' title from Q1 to Q17. For code search, we input the code snippets from Q18 to Q30. Given a query, our tool outputs the answer including the best matched API or task entity and the extended knowledge of related APIs and/or tasks. For each question, we use the same graduate students' settings as KG quality evaluation to determine if the answer by our tool includes the accepted answer. If our answer includes the accepted answer, we regard our tool can positively answer the question (labeled as P), otherwise labeled as negative (N). We evaluate the inter-rater agreement by Cohen's kappa. We invite a third student to provide an additional label to resolve the disagreements by majority-win.
 
-<span id="page-9-1"></span>
 
-| Questions             | Label | Questions              | Label |  |
+| Questions | Label | Questions | Label | |
 |-----------------------|-------|------------------------|-------|--|
-| 1.Remove equal        | N     | 16.Converting string   | P     |  |
-| item from java list.  |       | to java.util.Date      |       |  |
-| 2.How to Insert an    |       | 17.How to convert      |       |  |
-| item in List with     | P     | java.util.Date<br>to   | P     |  |
-| add()?                |       | java.sql.Date?         |       |  |
-| 3.Check if a file ex  | P     | 18.subString()         | P     |  |
-| ists.                 |       | and subSequence().     |       |  |
-| 4.Get the first ele   |       | 19.Difference          |       |  |
-| ment of the List or   | N     | between start()        | P     |  |
-| Set?                  |       | and run().             |       |  |
-| 5.Efficiently iterate | P     | 20.Read the value      | P     |  |
-| entry in Map.         |       | of field from a class. |       |  |
-| 6.rewrite the content | P     | 21.store IP address    | P     |  |
-| of a file.            |       | range vs location?     |       |  |
-| 7.ConcurrentHash      |       | 22.check if a date     |       |  |
-| Map and Hashtable     | P     | is within a certain    | p     |  |
-| in Java.              |       | range?                 |       |  |
-| 8.Sort ArrayList of   |       | 23.convert an          |       |  |
-| custom Objects by     | N     | InputStream into a     | P     |  |
-| property.             |       | String?                |       |  |
-|                       |       | 24.What could          |       |  |
-| 9.How to split a      | N     | cause<br>Invocation    | N     |  |
-| string in Java?       |       | TargetException?       |       |  |
-| 10.How to properly    |       | 25.What does cipher    |       |  |
-| stop the Thread?      | P     | .update do in java?    | P     |  |
-| 11.Avoid exception    |       | 26.How do I con        |       |  |
-| when removing         | P     | vert a String to an    | P     |  |
-| objects in a loop.    |       | int in Java?           |       |  |
-| 12.Difference<br>be   |       | 27.Difference          |       |  |
-| tween StringBuilder   | P     | between add() and      | P     |  |
-| and StringBuffer.     |       | offer().               |       |  |
-| 13.Checking file      |       | 28.Performance of      |       |  |
-| on FTP server.        | P     | TreeMap, HasMap?       | P     |  |
-| 14.How can I get      |       | 29.Cannot issue        |       |  |
-| all the components    | N     | data statement with    | P     |  |
-| of a panel in Swing?  |       | executeQuery().        |       |  |
-| 15.start a function   |       | 30.add objects to      |       |  |
-| after stop typing     | N     | List throws an         | P     |  |
-|                       |       |                        |       |  |
-| in a JTextField?      |       | exception.             |       |  |
+| 1.Remove equal | N | 16.Converting string | P | |
+| item from java list. | | to java.util.Date | | |
+| 2.How to Insert an | | 17.How to convert | | |
+| item in List with | P | java.util.Date<br>to | P | |
+| add()? | | java.sql.Date? | | |
+| 3.Check if a file ex | P | 18.subString() | P | |
+| ists. | | and subSequence(). | | |
+| 4.Get the first ele | | 19.Difference | | |
+| ment of the List or | N | between start() | P | |
+| Set? | | and run(). | | |
+| 5.Efficiently iterate | P | 20.Read the value | P | |
+| entry in Map. | | of field from a class. | | |
+| 6.rewrite the content | P | 21.store IP address | P | |
+| of a file. | | range vs location? | | |
+| 7.ConcurrentHash | | 22.check if a date | | |
+| Map and Hashtable | P | is within a certain | p | |
+| in Java. | | range? | | |
+| 8.Sort ArrayList of | | 23.convert an | | |
+| custom Objects by | N | InputStream into a | P | |
+| property. | | String? | | |
+| | | 24.What could | | |
+| 9.How to split a | N | cause<br>Invocation | N | |
+| string in Java? | | TargetException? | | |
+| 10.How to properly | | 25.What does cipher | | |
+| stop the Thread? | P | .update do in java? | P | |
+| 11.Avoid exception | | 26.How do I con | | |
+| when removing | P | vert a String to an | P | |
+| objects in a loop. | | int in Java? | | |
+| 12.Difference<br>be | | 27.Difference | | |
+| tween StringBuilder | P | between add() and | P | |
+| and StringBuffer. | | offer(). | | |
+| 13.Checking file | | 28.Performance of | | |
+| on FTP server. | P | TreeMap, HasMap? | P | |
+| 14.How can I get | | 29.Cannot issue | | |
+| all the components | N | data statement with | P | |
+| of a panel in Swing? | | executeQuery(). | | |
+| 15.start a function | | 30.add objects to | | |
+| after stop typing | N | List throws an | P | |
+| | | | | |
+| in a JTextField? | | exception. | | |
 
 Table [3](#page-9-1) presents the analysis results. For 23 (76.67%) of the 30 questions (labeled with P), the annotators believe the answers by our tool include the accepted answers of these questions and thus should be able to solve these 23 questions. Consider Q11 "Iterating through a Collection, avoiding ConcurrentModificationException when removing objects in a loop?". Given this question title, the text-based search would retrieve the tasks like "Remove Element From Collection", "Iterate a Collection" and "Remove Elements During Iteration" based on the literal text of the task phrases. However, our tool recommends the third task as the best match because our tool also considers*Concurrent-ModificationException*which is implicit in the description of the third task "Calling remove() does not cause a ConcurrentModificationException to be thrown.".
 
@@ -366,6 +367,7 @@ In addition, the inferred API or task semantic relations play an important role 
 For the N-labeled questions, our tool only recommends some related knowledge which doesn't directly cover the accepted answer. Take Q4 "Get the first element of the List or Set?" as an example. Given this question, our tool recommends "Get Elements From a Java List" as the best match task. However, this match is only for*List*but not*Set*. Then our tool recommends "Iterate Set Using Iterator" and "Iterate List Using Iterator" as the extended tasks based on the inferred task-align relation. However, the two extended tasks explain the cursor traversal rather than the index traversal, which does not solve Q4 directly.
 
 ## *4.2.3 User Study*This section is to evaluate how our knowledge recommendation helps novice developers solve the 30 SO questions.
+
 **Baseline**. To verify the effectiveness of our fused API-Task recommendation, and the helpfulness of the extended suggestions based on knowledge fusion, we use API-KG [\[2\]](#page-13-1) and Task-KG [\[4\]](#page-13-3) as our baseline. API-KG is to declare what an API is, i.e., know-what knowledge. Task-KG is to show how to use an API, i.e., know-how knowledge. The details of API-KG and Task-KG are seen in Section [2.1.1.](#page-2-0)
 
 **Methodology**. We recruit 12 undergraduate students (not involved in this work) who have novice-level Java development experience. Through a pre-study survey, we ensure that none of these students had encountered the experimental questions before. We assign them into two groups (G<sup>A</sup> and GB) randomly (6 students in each group). The G<sup>A</sup> participants use our tool to answer the questions while those in G<sup>B</sup> use the independent API-KG and Task-KG tools. G<sup>B</sup> participants can use either or both API-KG and Task-KG tools, but the two tools are separate.
@@ -374,24 +376,23 @@ For the G<sup>A</sup> participants, we give a 20-minute training session to help
 
 ### TABLE 4: Performance Comparison
 
-<span id="page-10-0"></span>
 
-| Groups | Participants | AveQCT (S)   | AveAC(%)   |
+| Groups | Participants | AveQCT (S) | AveAC(%) |
 |--------|--------------|--------------|------------|
-| GroupA | P1           | 578.7        | 93.33      |
-|        | P2           | 564.6        | 76.67      |
-|        | P3           | 506.8        | 70.00      |
-|        | P4           | 547.9        | 83.33      |
-|        | P5           | 542.8        | 73.33      |
-|        | P6           | 538.9        | 86.67      |
-|        | Ave±stddev   | 546.61±22.41 | 80.56±8.03 |
-| GroupB | P7           | 780.4        | 66.67      |
-|        | P8           | 713.4        | 56.67      |
-|        | P9           | 753.8.6      | 63.33      |
-|        | P10          | 738.4        | 70.00      |
-|        | P11          | 791.6        | 70.00      |
-|        | P12          | 746.3        | 66.67      |
-|        | Ave±stddev   | 753.98±26.02 | 65.56±4.58 |
+| GroupA | P1 | 578.7 | 93.33 |
+| | P2 | 564.6 | 76.67 |
+| | P3 | 506.8 | 70.00 |
+| | P4 | 547.9 | 83.33 |
+| | P5 | 542.8 | 73.33 |
+| | P6 | 538.9 | 86.67 |
+| | Ave±stddev | 546.61±22.41 | 80.56±8.03 |
+| GroupB | P7 | 780.4 | 66.67 |
+| | P8 | 713.4 | 56.67 |
+| | P9 | 753.8.6 | 63.33 |
+| | P10 | 738.4 | 70.00 |
+| | P11 | 791.6 | 70.00 |
+| | P12 | 746.3 | 66.67 |
+| | Ave±stddev | 753.98±26.02 | 65.56±4.58 |
 
 AveQCT: Average Question Completion Time AveAC: Average Answer Correctness
 
@@ -416,7 +417,7 @@ In summary, compared with the API- or Task-KG, our proposed API-Task KG can impr
 <span id="page-11-0"></span>![](_page_11_Figure_4.jpeg)
 <!-- Image Description: The image displays a knowledge graph illustrating relationships between a programming task ("Converting String to Int") and related concepts. Light green circles represent API entities (e.g., `Integer.parseInt`), light blue circles represent tasks ("Converting String to Long"), and arrows indicate relationships (e.g., "Link," "Throw," "Task-Align"). The graph visualizes how the initial task connects to other tasks and API elements, demonstrating the system's ability to expand beyond a single search query to provide broader context. -->
 
-Fig. 4: Screenshot of the Q26 search results
+**Figure 4:** Screenshot of the Q26 search results
 
 ture to optimize the code example in the task returned by the search engine. Figure [4](#page-11-0) shows P4's search result for Q26, in which the Throw relation between *Integer.parseInt()*and*java.lang.NumberFormatException*prompts him to get the correct answer. In contrast, none of G<sup>B</sup> participants answered correctly due to the knowledge gap. Second, the API-Task KG contains eleven semantic relations that are not present in the stand-alone API-KG or Task-KG. These semantic relations play a very important role in solving programming tasks. Q28 illustrates that Efficiency-Comparison helps improve programming with a more efficient API; Q29 illustrates that Function-replace helps fix code bugs.
 *Our evaluation provides the initial evidence of the effectiveness and usefulness of our KG methods for answering programming questions that developers frequently encounter.*# 5 DISCUSSION
@@ -427,7 +428,7 @@ For the API-Task KG construction, we construct API-KG using the methods mentione
 
 Our proposed approach is of great significance. For the semantic relations inferred, 1) they make search results interpretable. For example, for Q29, our tool recommends*statement.ExecuteQuery(String)*as the best result, and*Statement.executeUpdate(String)*as the extended result. The Function-replace relation between*Statement.ExecuteQuery(String)*and*Statement.executeUpdate(String)*can explain why such search results are obtained. 2) The semantic relations help recognize more development needs. API comparison is defined in [\[24\]](#page-13-23) and used in search engines to recognize development needs. By contrast, our proposed approach provides nine API semantic relations. For example, for Q7, the best search answer reveals not only the Behaviordifference relation between*java.util.ConcurrentHashMap*and*java.util.HashTable*, but also their Efficiency-comparison relation. So many API semantic relations between these two API entities can help recognize development needs exactly. For the resulting API-Task KG, multiple applications can benefit from it. 1) It extends the code search in a better space. The API entities of our KG can be used to match the under-development code to provide more code examples for the developers; 2) Our fused KG provides the interoperability for the code debugging. For the misused API involved in the exception information, it tells how to fix this error. 3) Our tool is also useful for code optimization. Through analyzing the Efficiency Comparison relation, we can replace the current API with the faster API.
 
-# 6 RELATED WORK
+## 6 RELATED WORK
 
 Software documentation is a common way to communicate programming knowledge [\[14\]](#page-13-13). Several studies identify the challenges in accessing and using the knowledge in documentation [\[14\]](#page-13-13). Recently, knowledge graph methods have been proposed to improve the knowledge accessibility by lifting the knowledge from document text to explicit APIs, tasks, and their relations and constraints [\[1\]](#page-13-0), [\[2\]](#page-13-1), [\[10\]](#page-13-9), [\[3\]](#page-13-2), [\[4\]](#page-13-3), [\[5\]](#page-13-4). For example, Li et al. [\[1\]](#page-13-0) and Liu et al. [\[2\]](#page-13-1) construct API KG with API caveats or directives. Such API-KGs support API-centric caveat search or knowledge summary. Sun et al. [\[4\]](#page-13-3) construct a task-oriented KG and support task-centric search. They further enhance the Task-KG with more actions and fine-grained code snippets, and integrate the Task-KG into the IDE to support task-aware API recommendation[\[5\]](#page-13-4).
 
@@ -435,11 +436,11 @@ All these works focus on either API (know-what) knowledge or task (know-how) kno
 
 In addition to software documentation, much programming knowledge exists in heterogeneous formats such as code, forum discussions, programming screencasts. Recovering the traceability across these heterogeneous formats receives much attention. Srinivas et al. [\[28\]](#page-13-27) build Graph4Code by connecting source code to various usage documentation to enrich program code semantics, while Bacchelli et al. [\[29\]](#page-13-28) link the source code to informal text in email. Treude et al. [\[30\]](#page-13-29) augment API documentation with insight sentences on SO using a machine learning-based approach. All of these works link heterogeneous knowledge by only comparing sentence semantics at the text level, which might lead to confusion when linking two entities because some APIs may have the same description. For instance, *java.util.List.get(int index)*, *java.util.ArrayList.get(int index)*, and *java.util.LinkedList.get(int index)*all have the same description: "Returns the element at the specified position in this list". At this point, the task entity is unsure which API entity should be linked. To address this issue, studies [\[31\]](#page-13-30), [\[32\]](#page-13-31) link API and its learning resources (e.g., tutorial) based on the API fully-qualified name (i.e., API syntactic structure). The API fully-qualified name, however, cannot be correctly inferred because the code example is always syntactically incomplete [\[33\]](#page-13-32). In contrast, we devise an entity-based approach to knowledge fuse that compares the Task-KG task entity to the API-KG API entity while taking both the API syntactic structure and usage semantic into account. In addition, studies [\[34\]](#page-13-33), [\[30\]](#page-13-29), [\[3\]](#page-13-2) show that the complementarity of different information sources can present a complete picture of relevant knowledge. With API and task as explicit entities in a graph, our approach supports coherent API- and task-centric knowledge search and presents programming know-what and know-how knowledge as a unified whole.
 
-# 7 CONCLUSION
+## 7 CONCLUSION
 
 In this paper, we conduct an empirical study on the API usage questions on Stack Overflow, and identify the necessity and mutual enrichment of programming know-what and know-how knowledge. Based on this study, we present a novel approach for constructing a fused and semantically enriched knowledge graph of APIs and tasks. Supported by this knowledge graph, our knowledge search engine achieves the effect of "1+1>2" through coherent API- and task-centric matching and recommendation.
 
-# 8 ACKNOWLEDGEMENTS
+## 8 ACKNOWLEDGEMENTS
 
 The work is partly supported by the National Nature Science Foundation of China under Grant (Nos. 61902162, 61862033, 62262031), the Nature Science Foundation of Jiangxi Province (20202BAB202015), and Postgraduate Innovation Fund Project of Jiangxi Province(YC2021-S308).
 

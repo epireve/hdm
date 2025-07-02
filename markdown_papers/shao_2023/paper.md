@@ -37,8 +37,6 @@ keywords:
 - tkg
 ---
 
-
-
 # StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs in Streaming Scenarios
 
 Jiasheng Zhang University of Electronic Science and Technology of China Chengdu, China zjss12358@std.uestc.edu.cn
@@ -65,7 +63,7 @@ SIGIR '23, July 23–27, 2023, Taipei, Taiwan
 
 © 2023 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN 978-1-4503-9408-6/23/07. . . \$15.00 <https://doi.org/10.1145/3539618.3591772>
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Jiasheng Zhang, Jie Shao, and Bin Cui. 2023. StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs in Streaming Scenarios. In Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '23), July 23–27, 2023, Taipei, Taiwan. ACM, New York, NY, USA, [10 p](#page-9-0)ages. [https://doi.org/10.1145/3539618.](https://doi.org/10.1145/3539618.3591772) [3591772](https://doi.org/10.1145/3539618.3591772)
 
@@ -97,13 +95,13 @@ functions and propose two temporal regularization strategies to stabilize the op
 - We propose a joint training strategy and two temporal regularizations that can effectively stabilize the optimization.
 - We conduct an extensive experimental study on StreamE. The results demonstrate its superiority in tackling the challenges in the streaming scenario.
 
-#### 2 RELATED WORK
+### 2 RELATED WORK
 
-#### 1 Representation Learning for KGs
+### 1 Representation Learning for KGs
 
 Knowledge graph representation learning aims to project entities and relations to a vector space while preserving their semantics. There are three kinds of methods, namely translation methods, semantic matching methods, and neural network methods. TransE [\[1\]](#page-9-11) is a typical translation method which regards relation as the translation from the subject entity to the object entity in the vector space. Based on TransE, many improved methods have been proposed, such as TransH [\[35\]](#page-9-12), TransR [\[20\]](#page-9-13) and TransD [\[13\]](#page-9-14). RESCAL [\[26\]](#page-9-15) is the first semantic matching method which employs restricted Tucker decomposition to learn KG representations. Since RESCAL requires a large amount of parameters, DistMult [\[39\]](#page-9-16) simplifies RESCAL by using diagonal matrix. Other semantic matching methods include HoIE [\[25\]](#page-9-17) and ComplEx [\[33\]](#page-9-18). Recently, some researchers attempt to learn KG representations based on neural networks. ConvE [\[4\]](#page-9-19) and ConvKB [\[23\]](#page-9-20) employ the convolution neural networks while others attempt to learn KG representations based on the graph neural networks, such as CompGCN [\[34\]](#page-9-21) and KBAT [\[22\]](#page-9-22). However, these methods are designed for the commonsense knowledge, but cannot handle time-sensitive knowledge.
 
-#### 2 Representation Learning for TKGs
+### 2 Representation Learning for TKGs
 
 For temporal knowledge graphs, the existing representation learning methods mainly fall into two categories.
 
@@ -123,11 +121,11 @@ A temporal knowledge graph can be denoted as G = (E, R, T ), where E and R are e
 
 can be continuously added into a TKG and E and T are enriched over time. TKG representation learning in streaming scenarios aims to learn two mapping functions : E → R and : R → R to map entities and relations to a vector space, where is the vector dimension. The mapping functions are required to handle new knowledge in real-time while being able to generate representations at arbitrary timestamps. We left modeling the update of relations as future work since the enrichment of entities is much more frequent than that of relations and the semantic of relations only change negligibly over time [\[7\]](#page-9-9).
 
-#### 4 THE PROPOSED FRAMEWORK
+### 4 THE PROPOSED FRAMEWORK
 
 As depicted in Figure [2,](#page-3-0) StreamE contains three components: 1) Entity representations that serve as the memory module to store the historical information of entities. They can be flexibly initialized and efficiently updated over time. 2) An update function that receives new knowledge to incrementally update the entity representations, where the interaction unit and the propagation unit generate the direct influence feature and the propagation influence feature respectively. A gated mechanism is learned to adaptively select the information to be updated. 3) A read function that generates entity representations at arbitrary timestamps. It considers both the periodic evolution patterns and the semantic relevance among the closely related entities. We elaborate on each component as follows.
 
-#### 1 Entity Representation Initialization
+### 1 Entity Representation Initialization
 
 The traditional TKG representation learning methods [\[10,](#page-9-29) [19\]](#page-9-10) require the entity representations to be optimized during training. However, such learnable entity representations will lead to an explosion of parameters as the number of entities increases. Furthermore, they handle unseen entities by transferring information from seen entities, which will impair the performance due to oversmoothing [\[18\]](#page-9-39). To achieve lightweight while handling unseen entities more flexibly, StreamE regards entity representations as a memory module to store the historical information of entities. Since it does not need to be optimized during training, the parameter size of our framework depends only on the number of relations, which is far smaller than the number of entities. Meanwhile, the memory module has stored the historical information of entities, and thus the representation of any unseen entity can be flexibly initialized and updated over time. Here, we provide two initialization strategies. When unseen entity is introduced into TKGs by the arriving knowledge ( , , , ) and if has the raw feature e ∈ R (e.g., text descriptions), its representation can be initialized as
 
@@ -142,7 +140,7 @@ However, there also exist many entities of which the raw features are missing. W
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: This image depicts a model architecture diagram for processing knowledge and query streams. The left side shows knowledge stream processing: identifying influenced entities, generating features using interaction and propagation units, and updating entity representations. The center shows entity representation as a stacked vector. The right side processes query streams, identifying periodic evolution patterns using multiple evolution heads, and assessing semantic relevance through a ReLU-activated neural network layer. The diagram illustrates the flow of information and the different components within the model. -->
 
-Figure 2: Illustration of the overall architecture of StreamE. In the update function, the green nodes and the yellow nodes denote the directly influenced entities and the propagated (indirectly influenced by propagation) entities of the newly-arrived knowledge ( , , , ), respectively.
+**Figure 2:** Illustration of the overall architecture of StreamE. In the update function, the green nodes and the yellow nodes denote the directly influenced entities and the propagated (indirectly influenced by propagation) entities of the newly-arrived knowledge ( , , , ), respectively.
 
 a relation often belong to the same concept and thus have similar characters. For example, all entities that act as the subject entity of relation are players. These observations inspire us to initialize representations for unseen entities with more semantics. Formally, for unseen entity that is introduced by the arriving knowledge ( , , , ), if the raw feature of is unavailable, its representation can be initialized as
 
@@ -153,7 +151,7 @@ $$
 
 where E , is the set of entities that used to be the subject entity of knowledge (?, , , −) before timestamp . E is the set of entities that used to co-occur with relation before timestamp . h − is the most recently updated representation of entity before timestamp . We employ the mean operation on these related entities to obtain the most common semantic features for initialization. For each unseen entity, the time complexity of our initialization strategy is O ( 2 ).
 
-#### 2 Update Function
+### 2 Update Function
 
 Identify influenced entities. As knowledge arrives, the graph structure will change and the semantics of entities also will change. As shown in Figure [2,](#page-3-0) when a piece of new knowledge ( , , , ) arrives, it can first change the semantics of the involved entities and , which we regard as direct influence. For example, when new knowledge (, , , 2021/11/8) arrives, entity should move close to the entity in the vector space because the relation means that Messi will play for PSG, and they should have more interactions in the future. Furthermore, the influence of the arriving knowledge can propagate through the graph structure and change the semantics of other
 
@@ -164,7 +162,7 @@ Interaction unit. The new knowledge will first change the semantics of the invol
 $$
 \mathbf{d}_{i}^{t_{p}} = \sum_{(e_{i}, r_{m}, e_{j}, t_{p}) \in \mathcal{G}} Comp(\mathbf{r}_{m}, \mathbf{h}_{j}^{t_{p}^{-}}),
 $$
- (3)
+(3)
 
 where r ∈ R is the representation of relation . h − ∈ R is the most recently updated representation of entity before timestamp . () is the composition operation such as multiplication. Since there may be more than one piece of knowledge involving
 
@@ -183,12 +181,12 @@ Update representations. We incrementally update the representations of the influ
 $$
 \mathbf{z} = \sigma(\mathbf{W}_z[\mathbf{h}_i^{t_p^-} : \mathbf{v}_i^{t_p}] + \mathbf{b}_z),
 $$
- (5)
+(5)
 
 $$
 \mathbf{c} = tanh(\mathbf{W}_c[\mathbf{h}_i^{t_p^-} : \mathbf{v}_i^{t_p}] + \mathbf{b}_c),
 $$
- (6)
+(6)
 
 $$
 \mathbf{h}_{i}^{t_{p}} = (1 - \mathbf{z}) \odot \mathbf{h}_{i}^{t_{p}^{-}} + \mathbf{z} \odot \mathbf{c}, \qquad (7)
@@ -196,7 +194,7 @@ $$
 
 where is the sigmoid activation and ⊙ denotes the element-wise product. z ∈ R is the gate vector used to determine how much historical information should be retained. c ∈ R is the write vector used to determine how much new information should be added. v is set as d if an entity gets direct influence and set as p if an entity only gets propagation influence. Our update function is scalable since the co-occurring knowledge can be handled in parallel.
 
-#### 3 Read Function
+### 3 Read Function
 
 The semantics of an entity should change slightly over time after its previous update. The existing methods such as [\[10,](#page-9-29) [19\]](#page-9-10) can only obtain representations of an entity at active timestamps and keep them unchanged until the next knowledge involving the entity arrives. Therefore, these methods always make the same response during this interval despite the evolving graph structure, which is obviously unreasonable. In this section, we design a read function to solve the above problem by predicting the future trajectory of entity representations. Assuming it is required to generate representation for entity at inactive timestamp , the read function achieves this based on the following two parts.
 
@@ -205,7 +203,7 @@ Periodic evolution patterns. The behavior of an entity often show periodic patte
 $$
 \mathbf{e}_{i}^{tq} = \frac{1}{K} \sum_{k=1}^{K} \sin(\mathbf{W}_{e}[\mathbf{h}_{i}^{t_{q}^{-}} : (\mathbf{m}_{k} \cdot t_{q}) \bmod T_{K}]),
 $$
- (8)
+(8)
 
 where is the number of evolution heads. is the period for each evolution head (e.g., four years, one year, or one month) that is represented by the time granularity of the dataset. m ∈ R is the evolution vector that preserves the evolution pattern of each period. h − is the most recently updated representation of entity before timestamp and is the modulo operation. By modulating different evolution periods , the above function can explicitly capture the periodic pattern of an entity on different scales. Finally, we use the mean average to obtain the periodic state vector.
 
@@ -220,11 +218,11 @@ where W ∈ R × is a weight matrix and N ( , ) is the set of entities that have
 $$
 \mathbf{u}_i^{tq} = \mathbf{h}_i^{tq} + \mathbf{e}_i^{tq} + \mathbf{g}_i^{tq}.
 $$
- (10)
+(10)
 
 The readout representations can be used to respond to queries at arbitrary timestamps. Our read function is fully parallel and is not required to rollback in the time dimension.
 
-#### 4 Model Training
+### 4 Model Training
 
 Recall the purpose of our framework. First, we hope that the update function can accurately extract information from the new knowledge to update the entity representations. To adequately supervise the learning of this part, we propose a reconstruction task that requires the updated representations to reconstruct the arriving knowledge. Following the strategy of TKG representation learning methods such as HyTE [\[3\]](#page-9-23), we use the margin-based ranking loss for optimization,
 
@@ -256,16 +254,15 @@ $$
 
 where u ∈ R and h ∈ R are the representations of entity at active timestamp that are respectively obtained by the read function and the update function.
 
-Table 1: Statistics of datasets.
+**Table 1:** Statistics of datasets.
 
-<span id="page-5-0"></span>
 
-| Dataset     | E      | R   | T     | 𝑁𝑞𝑢𝑎𝑑𝑟𝑢𝑝𝑙𝑒 |
+| Dataset | E | R | T | 𝑁𝑞𝑢𝑎𝑑𝑟𝑢𝑝𝑙𝑒 |
 |-------------|--------|-----|-------|------------|
-| ICEWS 14    | 7,128  | 230 | 365   | 90,730     |
-| ICEWS 05-15 | 10,488 | 251 | 4,017 | 461,329    |
-| ICEWS 18    | 23,033 | 256 | 304   | 468,588    |
-| YAGO        | 10,038 | 10  | 194   | 73,151     |
+| ICEWS 14 | 7,128 | 230 | 365 | 90,730 |
+| ICEWS 05-15 | 10,488 | 251 | 4,017 | 461,329 |
+| ICEWS 18 | 23,033 | 256 | 304 | 468,588 |
+| YAGO | 10,038 | 10 | 194 | 73,151 |
 
 Overall objective function. Combining the above four parts, the overall objective function of StreamE is defined as
 
@@ -275,7 +272,7 @@ $$
 
 where is a hyperparameter used to control the magnitude of the regularization term.
 
-#### 5 EXPERIMENTAL SETUP
+### 5 EXPERIMENTAL SETUP
 
 Dataset. We evaluate our framework on four popular temporal knowledge graph datasets, which are derived from ICEWS [\[2\]](#page-9-5) and YAGO [\[31\]](#page-9-42). ICEWS is an early warning system where political knowledge among political people and countries are continuously accrued into the database in a streaming form. We use three subsets of it for evaluation, i.e., ICEWS14, ICEWS05-15, and ICEWS18, which contain knowledge in 2014, knowledge from 2005 to 2015 and knowledge in 2018, respectively. YAGO is a temporal knowledge base that fuses information from Wikipedia. These datasets are provided by xERTE [\[10\]](#page-9-29) and we follow the standard way to split each dataset into three subsets, i.e., train/valid/test, by the ascending order of timestamps. The detailed statistics are shown in Table [1.](#page-5-0)
 
@@ -285,28 +282,28 @@ Model variants. We provide four variants of StreamE to verify the effectiveness 
 
 Implementation details. For baseline methods, we use the released official implementation to conduct the experiment. For StreamE, we implement it with PyTorch. We tune hyperparameters for both the baseline methods and StreamE using a grid search, where the best hyperparameter settings are selected with the best MRR on the validation set. We create 100 mini-batches for each epoch during training, and the number of epochs is set as 500 with early-stopping. The learning rate is set as 0.001, the dimension of representation is set as 200, and the number of the evolution head is set as 10. The trade-off ∈ {1 − 1, 1 − 2, 1 − 3}. The negative sampling number ∈ {1, 5, 10, 20}. The propagation length ∈ {1, 2, 3, 4}. The composition operation can be subtraction, multiplication, or parameterized operations. We use
 
-<span id="page-6-0"></span>Table 2: Statistics of the queries of each dataset.
+<span id="page-6-0"></span>**Table 2:** Statistics of the queries of each dataset.
 
-| Dataset     | Test size | Entity size | Percentage of unseen entities |
+| Dataset | Test size | Entity size | Percentage of unseen entities |
 |-------------|-----------|-------------|-------------------------------|
-| ICEWS 14    | 18,176    | 5,286       | 17%                           |
-| ICEWS 05-15 | 92,265    | 6,410       | 25.5%                         |
-| ICEWS 18    | 93,717    | 11,288      | 17%                           |
-| YAGO        | 14,630    | 2,134       | 39.2%                         |
+| ICEWS 14 | 18,176 | 5,286 | 17% |
+| ICEWS 05-15 | 92,265 | 6,410 | 25.5% |
+| ICEWS 18 | 93,717 | 11,288 | 17% |
+| YAGO | 14,630 | 2,134 | 39.2% |
 
 Adam [\[14\]](#page-9-43) for optimization and the batches are sequentially sampled from the knowledge sequence to maintain the temporal order. We randomly initialize the entity representations and randomly sample the negative entities for our StreamE and all the comparison models. Our MindSpore implementation code is available at [https://github.com/zjs123/StreamE.](https://github.com/zjs123/StreamE)
 
 Evaluation protocol. We evaluate the quality of the learned representations via the inductive forecasting task, which aims to predict the future knowledge for unseen entities based on the observed knowledge. To conduct the evaluation, we select the knowledge from the test set of which the involved entities are not presented during training to generate queries. Formally, given a target knowledge ( , , , ) ∈ G where or is unseen during training, we construct two queries ( , , ?, ) and (?, , , ). The inductive forecasting task is to predict the missing object entity and the missing subject entity for these two queries, respectively. We use and @ as evaluation metrics. refers to the mean reciprocal rank, which is defined as the average of the reciprocal of the rank of the correctly predicted entity for each test knowledge. @ is computed by measuring the proportion of correctly predicted entity ranked in the top- list. Both the higher and @ mean the better performance. To clarify the evaluation protocol, we provide the statistics of the test set of each dataset in Table [2.](#page-6-0) The test size is the total number of knowledge in the test set, and the entity size is the number of entities involved in these knowledge. The percentage of unseen entities indicates the percentage of the entities that do not appear in the training set.
 
-#### 6 RESULTS AND DISCUSSION
+### 6 RESULTS AND DISCUSSION
 
-#### 1 Main Results
+### 1 Main Results
 
 Table [3](#page-7-0) gives the inductive forecasting results of different methods. According to the results, we have three findings. 1) StreamE outperforms the baseline methods on all of four datasets. Compared with the second best result, our framework achieves 14.1%, 1.6%, 9.1%, and 16.7% higher on the metric on each dataset respectively, which demonstrates the superiority of StreamE on handling new knowledge. The superiority comes from two parts. First, the existing methods can only use short-term history for forecasting due to the high time complexity. On the contrary, StreamE can use the complete history by using entity representation as the memory module. Second, in these models the entity representations depend on model training and the unlearned representations of unseen entities will bring noise. Our StreamE is more robust because it learns functions to manipulate representations over time rather than learn the distinct representations. 2) Graph neural networks (GNNs) based methods (e.g., CompGCN and xERTE) significantly
 
 outperform other baseline methods, which demonstrates the effectiveness of the message passing mechanism. StreamE does not directly adopt GNNs, but our update function is also designed for transferring information among entities, which achieves the same effectiveness. Furthermore, some baseline methods can still achieve meaningful results although they are theoretically unable to handle unseen entities (e.g., TNTComplEX and CyGNet), which may be because that they can learn the co-occurrence relevance between the missing entities and the query relations. 3) Our framework achieves more improvement on the ICEWS14 and YAGO datasets, because these datasets are more sparse and our framework can effectively adapt to sparse data due to our propagation unit and read function. Furthermore, the improvement on the ICEWS 05-15 dataset is relatively small. We suggest that this is because the long time span (i.e., ten years) of this dataset makes our framework more easily bring noise when updating representations.
 
-#### 2 Ablation Study
+### 2 Ablation Study
 
 StreamE-P. In Table [4,](#page-7-1) we note that after removing the propagation unit, both Hit@1 and Hit@10 drop significantly. We suggest that this is because the arriving knowledge can change the semantics of both the involved entities and other entities. Ignoring the propagation influence makes the framework fail to extract sufficient historical information to forecast accurately. Our propagation unit can model the propagation influence by leveraging the propagation paths, and thus achieves performance improvement.
 
@@ -314,71 +311,69 @@ StreamE-LSTM. As shown in Table [4,](#page-7-1) we can see that although the LST
 
 StreamE-R & StreamE-SLP. After removing the read function from our framework, we use the recently updated representation before the query timestamp to predict the missing entity of the query. In Table [4,](#page-7-1) we can see that Hit@10 drops significantly, which demonstrates the weakness of keeping entity representations unchanged in the inactive time intervals. Furthermore, our raw framework outperforms StreamE-SLP, which shows the effectiveness of our read function in predicting the future trajectories of representations.
 
-#### 3 Detailed Analysis
+### 3 Detailed Analysis
 
 Model robustness. First, as shown in Table [4,](#page-7-1) our framework can work with several composition operations and they all achieve considerable performance, which demonstrates that the effectiveness of the update function is not relied on a specific operation. Second, as shown in Figure [3\(](#page-7-2)a), StreamE can obtain competitive performance with xERTE for the seen entity forecasting task which predicts the future knowledge for seen entities, which demonstrates that StreamE can handle both seen entities and unseen entities. Finally, we can observe in Figure [3\(](#page-7-2)b) that StreamE consistently outperforms xERTE with different training data proportions, and as the proportion of training data decreases, the performance of StreamE does not drops drastically (the performance of StreamE only drops
 
-<span id="page-7-0"></span>
 
-|                                                           | Table 3: Comparison of different methods on four datasets for the inductive forecasting task. The best and second best results |  |
+| | **Table 3:** Comparison of different methods on four datasets for the inductive forecasting task. The best and second best results | |
 |-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|--|
-| in each column are boldfaced and underlined respectively. |                                                                                                                                |  |
+| in each column are boldfaced and underlined respectively. | | |
 
-| Dataset        |       |       | ICEWS 14 |        | ICEWS 05-15 |       |       | ICEWS 18 |       |       | YAGO  |        |       |       |       |        |
+| Dataset | | | ICEWS 14 | | ICEWS 05-15 | | | ICEWS 18 | | | YAGO | | | | | |
 |----------------|-------|-------|----------|--------|-------------|-------|-------|----------|-------|-------|-------|--------|-------|-------|-------|--------|
-| Models         | MRR   | Hit@1 | Hit@3    | Hit@10 | MRR         | Hit@1 | Hit@3 | Hit@10   | MRR   | Hit@1 | Hit@3 | Hit@10 | MRR   | Hit@1 | Hit@3 | Hit@10 |
-| TransE         | 0.31  | 0.00  | 0.11     | 0.52   | 0.00        | 0.00  | 0.00  | 0.04     | 0.16  | 0.00  | 0.20  | 0.38   | 0.74  | 0.15  | 0.49  | 1.38   |
-| DistMult       | 0.29  | 0.17  | 0.21     | 0.36   | 0.02        | 0.00  | 0.03  | 0.06     | 0.05  | 0.00  | 0.00  | 0.17   | 0.05  | 0.00  | 0.03  | 0.04   |
-| CompGCN        | 2.94  | 1.77  | 2.84     | 4.62   | 6.07        | 2.85  | 7.87  | 12.02    | 2.12  | 1.10  | 2.08  | 3.70   | 0.46  | 0.17  | 0.23  | 0.71   |
-| TTransE        | 0.26  | 0.00  | 0.23     | 0.34   | 0.14        | 0.00  | 0.01  | 0.16     | 0.18  | 0.07  | 0.17  | 0.41   | 0.78  | 0.18  | 0.47  | 1.52   |
-| TA-DistMult    | 0.18  | 0.00  | 0.05     | 0.23   | 0.01        | 0.00  | 0.01  | 0.04     | 0.08  | 0.00  | 0.05  | 0.15   | 0.22  | 0.00  | 0.13  | 0.42   |
-| DE-SimplE      | 0.36  | 0.17  | 0.34     | 0.58   | 0.02        | 0.00  | 0.02  | 0.06     | 0.01  | 0.00  | 0.00  | 0.00   | 0.05  | 0.00  | 0.00  | 0.07   |
-| TNTComplEX     | 2.10  | 1.04  | 2.08     | 4.24   | 1.83        | 0.97  | 1.51  | 3.87     | 2.43  | 1.31  | 2.32  | 4.30   | 4.73  | 2.53  | 4.72  | 4.90   |
-| CyGNet         | 6.31  | 2.05  | 6.14     | 15.83  | 8.77        | 3.27  | 9.65  | 19.62    | 5.62  | 3.26  | 6.24  | 9.13   | 2.66  | 1.24  | 2.65  | 3.87   |
-| RE-GCN         | 10.52 | 7.11  | 11.03    | 16.54  | 10.17       | 7.22  | 10.70 | 15.19    | 12.51 | 7.90  | 13.83 | 21.01  | 11.31 | 7.12  | 12.21 | 18.80  |
-| xERTE          | 20.29 | 16.50 | 23.68    | 27.15  | 31.12       | 24.81 | 34.80 | 44.02    | 10.45 | 8.36  | 11.84 | 15.16  | 33.94 | 30.37 | 37.74 | 38.49  |
-| StreamE (ours) | 23.15 | 17.13 | 25.09    | 34.59  | 31.62       | 24.57 | 34.94 | 47.78    | 13.66 | 9.45  | 16.87 | 22.17  | 39.64 | 31.01 | 42.98 | 56.30  |
+| Models | MRR | Hit@1 | Hit@3 | Hit@10 | MRR | Hit@1 | Hit@3 | Hit@10 | MRR | Hit@1 | Hit@3 | Hit@10 | MRR | Hit@1 | Hit@3 | Hit@10 |
+| TransE | 0.31 | 0.00 | 0.11 | 0.52 | 0.00 | 0.00 | 0.00 | 0.04 | 0.16 | 0.00 | 0.20 | 0.38 | 0.74 | 0.15 | 0.49 | 1.38 |
+| DistMult | 0.29 | 0.17 | 0.21 | 0.36 | 0.02 | 0.00 | 0.03 | 0.06 | 0.05 | 0.00 | 0.00 | 0.17 | 0.05 | 0.00 | 0.03 | 0.04 |
+| CompGCN | 2.94 | 1.77 | 2.84 | 4.62 | 6.07 | 2.85 | 7.87 | 12.02 | 2.12 | 1.10 | 2.08 | 3.70 | 0.46 | 0.17 | 0.23 | 0.71 |
+| TTransE | 0.26 | 0.00 | 0.23 | 0.34 | 0.14 | 0.00 | 0.01 | 0.16 | 0.18 | 0.07 | 0.17 | 0.41 | 0.78 | 0.18 | 0.47 | 1.52 |
+| TA-DistMult | 0.18 | 0.00 | 0.05 | 0.23 | 0.01 | 0.00 | 0.01 | 0.04 | 0.08 | 0.00 | 0.05 | 0.15 | 0.22 | 0.00 | 0.13 | 0.42 |
+| DE-SimplE | 0.36 | 0.17 | 0.34 | 0.58 | 0.02 | 0.00 | 0.02 | 0.06 | 0.01 | 0.00 | 0.00 | 0.00 | 0.05 | 0.00 | 0.00 | 0.07 |
+| TNTComplEX | 2.10 | 1.04 | 2.08 | 4.24 | 1.83 | 0.97 | 1.51 | 3.87 | 2.43 | 1.31 | 2.32 | 4.30 | 4.73 | 2.53 | 4.72 | 4.90 |
+| CyGNet | 6.31 | 2.05 | 6.14 | 15.83 | 8.77 | 3.27 | 9.65 | 19.62 | 5.62 | 3.26 | 6.24 | 9.13 | 2.66 | 1.24 | 2.65 | 3.87 |
+| RE-GCN | 10.52 | 7.11 | 11.03 | 16.54 | 10.17 | 7.22 | 10.70 | 15.19 | 12.51 | 7.90 | 13.83 | 21.01 | 11.31 | 7.12 | 12.21 | 18.80 |
+| xERTE | 20.29 | 16.50 | 23.68 | 27.15 | 31.12 | 24.81 | 34.80 | 44.02 | 10.45 | 8.36 | 11.84 | 15.16 | 33.94 | 30.37 | 37.74 | 38.49 |
+| StreamE (ours) | 23.15 | 17.13 | 25.09 | 34.59 | 31.62 | 24.57 | 34.94 | 47.78 | 13.66 | 9.45 | 16.87 | 22.17 | 39.64 | 31.01 | 42.98 | 56.30 |
 
 <span id="page-7-2"></span>![](_page_7_Figure_4.jpeg)
 <!-- Image Description: This figure presents a performance comparison of five knowledge graph embedding methods (StreamE, xERTE, RE-GCN, CyGNet, TNTComplEX). (a) shows a bar chart comparing their performance on standard metrics (MRR, Hit@1, Hit@3, Hit@10). (b) is a line graph illustrating Hit@3 performance against varying training proportions. (c) displays a log-scale line graph comparing the time cost (in milliseconds) of each method as the number of queries increases. The figure aims to demonstrate the relative strengths and weaknesses of the methods in terms of both accuracy and efficiency. -->
 
-Figure 3: (a) Forecasting performance of different methods for seen entities on the ICEWS 05-15 dataset. (b) Performance of the inductive forecasting task with different proportions of data for training on the ICEWS 14 dataset. (c) Time cost of different methods on responding to different numbers of queries.
+**Figure 3:** (a) Forecasting performance of different methods for seen entities on the ICEWS 05-15 dataset. (b) Performance of the inductive forecasting task with different proportions of data for training on the ICEWS 14 dataset. (c) Time cost of different methods on responding to different numbers of queries.
 
-<span id="page-7-1"></span>
 
-| Dataset                            |       | ICEWS 14 | ICEWS 18 |        |  |
+| Dataset | | ICEWS 14 | ICEWS 18 | | |
 |------------------------------------|-------|----------|----------|--------|--|
-| Variants                           | Hit@1 | Hit@10   | Hit@1    | Hit@10 |  |
-| 𝐶𝑜𝑚𝑝(𝑎, 𝑏)<br>= 𝑎 ∗ 𝑏              | 17.13 | 34.59    | 9.45     | 22.17  |  |
-| 𝐶𝑜𝑚𝑝(𝑎, 𝑏)<br>= 𝑏 − 𝑎              | 17.04 | 34.15    | 9.13     | 21.92  |  |
-| 𝐶𝑜𝑚𝑝(𝑎, 𝑏)<br>= 𝑡𝑎𝑛ℎ(𝑊 [𝑎 : 𝑏])    | 16.96 | 34.03    | 9.20     | 21.53  |  |
-| StreamE-P                          | 15.41 | 31.06    | 8.69     | 16.02  |  |
-| StreamE-LSTM                       | 16.37 | 30.83    | 8.85     | 17.19  |  |
-| StreamE-R                          | 13.75 | 29.30    | 7.98     | 15.86  |  |
-| StreamE-SLP                        | 15.86 | 31.01    | 8.94     | 15.75  |  |
-| Without smoothness regularization  | 14.43 | 31.38    | 7.67     | 15.94  |  |
-| Without consistency regularization | 12.36 | 27.22    | 6.52     | 14.60  |  |
-| Without reconstruction task        | 4.30  | 8.47     | 5.08     | 10.23  |  |
+| Variants | Hit@1 | Hit@10 | Hit@1 | Hit@10 | |
+| 𝐶𝑜𝑚𝑝(𝑎, 𝑏)<br>= 𝑎 ∗ 𝑏 | 17.13 | 34.59 | 9.45 | 22.17 | |
+| 𝐶𝑜𝑚𝑝(𝑎, 𝑏)<br>= 𝑏 − 𝑎 | 17.04 | 34.15 | 9.13 | 21.92 | |
+| 𝐶𝑜𝑚𝑝(𝑎, 𝑏)<br>= 𝑡𝑎𝑛ℎ(𝑊 [𝑎 : 𝑏]) | 16.96 | 34.03 | 9.20 | 21.53 | |
+| StreamE-P | 15.41 | 31.06 | 8.69 | 16.02 | |
+| StreamE-LSTM | 16.37 | 30.83 | 8.85 | 17.19 | |
+| StreamE-R | 13.75 | 29.30 | 7.98 | 15.86 | |
+| StreamE-SLP | 15.86 | 31.01 | 8.94 | 15.75 | |
+| Without smoothness regularization | 14.43 | 31.38 | 7.67 | 15.94 | |
+| Without consistency regularization | 12.36 | 27.22 | 6.52 | 14.60 | |
+| Without reconstruction task | 4.30 | 8.47 | 5.08 | 10.23 | |
 
-Table 4: Results of ablation study.
+**Table 4:** Results of ablation study.
 
 5.1% while xERTE drops 12.4% when using 50% data for training). These observations show the robustness of StreamE.
 
 Efficiency analysis. Figure [3\(](#page-7-2)c) summarizes the time cost of different methods on responding to different numbers of queries. We can see that StreamE is more efficient than baseline methods (e.g., 100× faster than RE-GCN [\[19\]](#page-9-10)) since it is fully parallel. xERTE needs to obtain an inference graph for each query via the breadth search and thus fails to parallelly respond to the queries. RE-GCN also has
 
-<span id="page-7-3"></span>Table 5: Training time cost for each epoch and the parameter size of comparison models on the ICEWS 14 dataset.
+<span id="page-7-3"></span>**Table 5:** Training time cost for each epoch and the parameter size of comparison models on the ICEWS 14 dataset.
 
-| Models                      | StreamE | xERTE | RE-GCN |
+| Models | StreamE | xERTE | RE-GCN |
 |-----------------------------|---------|-------|--------|
-| Training time for one epoch | 40s     | 1096s | 118s   |
-| Total parameters            | 1.09M   | 3.36M | 5.96M  |
+| Training time for one epoch | 40s | 1096s | 118s |
+| Total parameters | 1.09M | 3.36M | 5.96M |
 
 high computational complexity since it needs to rollback steps for the whole graph to obtain representations and then respond to the queries. Even though CyGNet is also parallel, our StreamE is more efficient on responding to each piece of query because of its decoupled architecture. The time cost of the training phase and the parameter size of different models are shown in Table [5.](#page-7-3) We can see that besides the efficient response, our StreamE is also efficient in training (e.g., 25× faster than xERTE [\[10\]](#page-9-29)). Even though many entity representations are used to update the target representations, they are decoupled from training. Therefore, only the parameters of the relation representations, the update function, and the read function need to be optimized. Furthermore, different from baseline methods that employ recurrent architecture such as xERTE and RE-GCN, StreamE is not required to back-propagation through time,
 
 <span id="page-8-0"></span>![](_page_8_Figure_2.jpeg)
 <!-- Image Description: This figure presents three line graphs comparing the performance of four recommendation models (StreamE, xERTE, RE-GCN, StreamE-R) across different hyperparameters. (a) shows Hit@10 varying with time span. (b) displays Mean Reciprocal Rank (MRR) against the number of negative samplings for different lambda (λ) values. (c) illustrates MRR as a function of propagation length for varying λ values. The graphs aim to demonstrate the impact of these hyperparameters on recommendation accuracy. -->
 
-Figure 4: (a) The long time forecasting performance of different methods on the ICEWS 14 dataset. (b) Performance of StreamE with different negative sampling numbers on the YAGO dataset. (c) Performance of StreamE with different propagation lengths on the YAGO dataset.
+**Figure 4:** (a) The long time forecasting performance of different methods on the ICEWS 14 dataset. (b) Performance of StreamE with different negative sampling numbers on the YAGO dataset. (c) Performance of StreamE with different propagation lengths on the YAGO dataset.
 
 which brings the training efficiency. Additionally, we can see that the parameter size of StreamE is much smaller than that of the comparison models (e.g., 1/5 of RE-GCN). This is because entity representations are required to be learned in comparison models but serve as the memory module in our framework. The above observations indicate that StreamE can outperform comparison models with less training time and smaller parameter size.
 
@@ -386,17 +381,17 @@ Training strategy. In Table [4,](#page-7-1) we report the performance trained by
 
 Long time forecasting. The standard setting of forecasting task usually predicts knowledge in a short future (i.e., one day). However, in the streaming scenario, the knowledge right before the query may miss, which requires the model to predict knowledge in a long future (i.e., several days). Here, we perform a long time forecasting task, which aims to infer the knowledge at + Δ given the knowledge before , and Δ varies from one day to seven days. According to the performance in Figure [4\(](#page-8-0)a), we can see that StreamE consistently outperforms xERTE as Δ increases. Furthermore, we note that the performance of xERTE drops dramatically when Δ varies from 1 to 2. This is because the performance of xERTE heavily relies on capturing the co-occurring facts of the adjacent timestamps. Differently, our StreamE can leverage the complete history by using entity representations as the memory module.
 
-#### 4 Hyperparameter Study
+### 4 Hyperparameter Study
 
 We show the effect of hyperparameters on model performance, including the number of negative samplings , the magnitude of
 
 trade-off , and the propagation length . From Figure [4\(](#page-8-0)b), we can see that with different values, the results all improve as the increase of the number of negative samplings and when is large, the improvement becomes small. Therefore, to balance the efficiency and the performance, we set as 20. Furthermore, we observe that StreamE still achieves good performance when is small with = 0.001, which demonstrates that our framework does not depend on a large number of negative samplings. From Figure [4\(](#page-8-0)c), we can see that the performance of StreamE increases first and then decreases as the propagation length increases. This may be because a too long propagation length will bring noise since the far away entities are less relevant. Finally, we can see that a too large leads to performance decrease. This is because a too large makes the representations over-smoothed in the time dimension and thus fails to capture the time-specific semantics.
 
-#### 7 CONCLUSION
+### 7 CONCLUSION
 
 In this paper, we make the first attempt to learn temporal knowledge graph (TKG) representations in the streaming scenario. We carefully investigate the technical challenges of this problem, and propose a lightweight framework called StreamE to tackle these challenges based on the decoupled architecture. Our framework decouples entity representations from model training, and learns an update function and a read function for handling new knowledge and generating representations respectively. To stabilize the optimization, we design a joint training strategy with two temporal regularizations. The experimental results demonstrate that StreamE can achieve considerable performance improvement for standard TKG tasks while adapting to the streaming scenario. For our future work, one promising direction is to explore the scenario in which new relations will also be introduced.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 This work is supported by the National Natural Science Foundation of China (No. 61832001 and No. 62276047), Shenzhen Science and Technology Program (No. JCYJ20210324121213037) and CAAI-Huawei MindSpore Open Fund (No. CAAIXSJLJJ-2022-031A).
 

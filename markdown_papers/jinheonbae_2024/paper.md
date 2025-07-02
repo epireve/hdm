@@ -34,11 +34,11 @@ Silviu Cucerzan Microsoft Research Redmond, WA, USA silviu@microsoft.com
 
 Sujay Kumar Jauhar Microsoft Research Redmond, WA, USA sjauhar@microsoft.com
 
-# ABSTRACT
+## ABSTRACT
 
 Large Language Models (LLMs) excel at tackling various natural language tasks. However, due to the significant costs involved in re-training or fine-tuning them, they remain largely static and difficult to personalize. Nevertheless, a variety of applications could benefit from generations that are tailored to users' preferences, goals, and knowledge. Among them is web search, where knowing what a user is trying to accomplish, what they care about, and what they know can lead to improved search experiences. In this work, we propose a novel and general approach that augments an LLM with relevant context from users' interaction histories with a search engine in order to personalize its outputs. Specifically, we construct an entity-centric knowledge store for each user based on their search and browsing activities on the web, which is then leveraged to provide contextually relevant LLM prompt augmentations. This knowledge store is light-weight, since it only produces user-specific aggregate projections of interests and knowledge onto public knowledge graphs, and leverages existing search log infrastructure, thereby mitigating the privacy, compliance, and scalability concerns associated with building deep user profiles for personalization. We validate our approach on the task of contextual query suggestion, which requires understanding not only the user's current search context but also what they historically know and care about. Through a number of experiments based on human evaluation, we show that our approach is significantly better than several other LLM-powered baselines, generating query suggestions that are contextually more relevant, personalized, and useful.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Computing methodologies → Natural language processing;
 
@@ -53,19 +53,19 @@ ACM ISBN 979-8-4007-0171-9/24/05
 <https://doi.org/10.1145/3589334.3645404>
 
 <span id="page-0-0"></span>![](_page_0_Figure_17.jpeg)
-<!-- Image Description: This image from an academic paper illustrates a comparison of query suggestion methods using Large Language Models (LLMs).  Sections (A) and (B) define the search context and user's knowledge store. (C) depicts a naive LLM generating a generic query suggestion. (D) shows a knowledge-augmented LLM, "K-LaMP", incorporating personal knowledge ("Medicine") to provide a more contextually relevant query suggestion.  A table in (B) shows entity availability and a flow chart in (C) and (D) illustrates the query suggestion process. -->
+<!-- Image Description: This image from an academic paper illustrates a comparison of query suggestion methods using Large Language Models (LLMs). Sections (A) and (B) define the search context and user's knowledge store. (C) depicts a naive LLM generating a generic query suggestion. (D) shows a knowledge-augmented LLM, "K-LaMP", incorporating personal knowledge ("Medicine") to provide a more contextually relevant query suggestion. A table in (B) shows entity availability and a flow chart in (C) and (D) illustrates the query suggestion process. -->
 
-Figure 1: Illustration of our proposed Knowledge-augmented large Language Model for Personalization (K-LaMP) framework for contextual query suggestion. (A) A user's search context includes a current query and an page being viewed. (B) The user has knowledge of medicine, extracted from past search activities. (C) Conventional query suggestion with naïve LLMs generates a query unrelated to the user's knowledge and the context. (D) K-LaMP suggests a query that is personally and contextually relevant.
+**Figure 1:** Illustration of our proposed Knowledge-augmented large Language Model for Personalization (K-LaMP) framework for contextual query suggestion. (A) A user's search context includes a current query and an page being viewed. (B) The user has knowledge of medicine, extracted from past search activities. (C) Conventional query suggestion with naïve LLMs generates a query unrelated to the user's knowledge and the context. (D) K-LaMP suggests a query that is personally and contextually relevant.
 
-# KEYWORDS
+## KEYWORDS
 
 Large Language Models, Personalization, Entity-centric Knowledge, Contextual Query Suggestion
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Jinheon Baek, Nirupama Chandrasekaran, Silviu Cucerzan, Allen Herring, and Sujay Kumar Jauhar. 2024. Knowledge-Augmented Large Language Models for Personalized Contextual Query Suggestion. In Proceedings of the ACM Web Conference 2024 (WWW '24), May 13–17, 2024, Singapore, Singapore. ACM, New York, NY, USA, [14](#page-13-0) pages. [https://doi.org/10.1145/](https://doi.org/10.1145/3589334.3645404) [3589334.3645404](https://doi.org/10.1145/3589334.3645404)
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Large Language Models (LLMs) [\[6,](#page-8-0) [9,](#page-8-1) [16,](#page-8-2) [53,](#page-9-0) [69,](#page-9-1) [70\]](#page-9-2), such as GPT-4, are multi-billion parameter models trained on massive text corpora, which are capable of internalizing general knowledge across diverse domains [\[55,](#page-9-3) [59\]](#page-9-4). This capability allows them to generate plausible, reasonable, and helpful outputs in response to user inputs that been leveraged with impressive results for a diverse range of natural language tasks, including question answering and dialogue generation, even without any task-specific training [\[6,](#page-8-0) [53,](#page-9-0) [70\]](#page-9-2).
 
@@ -85,7 +85,7 @@ While our method of personalizing LLM outputs is broadly applicable to problems 
 
 In our study, we validate the effectiveness of K-LaMP for contextual query suggestion, using real-world search logs from the Bing search engine [\[2\]](#page-8-19), which is also used to construct our entitycentric knowledge store. On a battery of tests conducted via human evaluation, we find that K-LaMP substantially outperforms several LLM-powered (contextual) query suggestion baselines in generating recommendations that are better related and more useful to individuals, while maintaining high search result quality. Further analyses demonstrate that K-LaMP retrieves contextually relevant knowledge in a highly effective manner, and continues to become more performant as longer user interaction histories are processed and stored, neither of which other baselines are capable of doing.
 
-# 2 BACKGROUND AND RELATED WORK
+## 2 BACKGROUND AND RELATED WORK
 
 Large Language Models. Language models [\[24,](#page-8-20) [47,](#page-9-15) [56,](#page-9-16) [57\]](#page-9-17), which are pre-trained on unannotated text corpora using Transformer architectures [\[71\]](#page-9-18) based on self-supervised learning objectives, have been shown to acquire knowledge from text corpora [\[55,](#page-9-3) [59,](#page-9-4) [67\]](#page-9-19) and have been successfully used for various natural language tasks, such as question answering and dialogue generation tasks [\[35,](#page-8-21) [68\]](#page-9-20). Recently, Large Language Models (LLMs) [\[6,](#page-8-0) [53,](#page-9-0) [70\]](#page-9-2), which are scaled-up versions of language models, have demonstrated the capability of handling diverse language tasks across various domains. In particular, LLMs have shown increased capacity for knowledge acquisition and retention thanks to their very large number of parameters [\[49,](#page-9-21) [78\]](#page-10-5), as well as a remarkable ability to generalize across new domains with no need for additional task-specific fine-tuning and training data [\[62,](#page-9-22) [74\]](#page-10-6). Moreover, they are able to understand the context of given inputs and then generate contextually coherent responses, allowing users and system designers to easily customize LLM responses through prompt engineering [\[39,](#page-9-8) [58,](#page-9-9) [75\]](#page-10-1). For example, to generate factually correct answers in response to input questions, existing work [\[7,](#page-8-22) [40,](#page-9-23) [63\]](#page-9-24) typically augments the internalized knowledge in LLMs with externally relevant factual knowledge related to questions. However, while they can effectively provide generic responses that may apply to a broad range of users, it remains challenging to generate personalized responses that capture the unique preferences, needs, and knowledge of individual users.
 
@@ -97,11 +97,11 @@ Search Query Suggestion. The goal of query suggestion is to recommend new querie
 
 In comparison to prior work on query suggestion, we tackle the novel but practical task of contextual query suggestion, where recommendations are additionally conditioned on the web-page a user is currently viewing. This task is notably different from existing query suggestion work that leverages previously clicked pages [\[5,](#page-8-15) [15,](#page-8-16) [34,](#page-8-17) [37\]](#page-8-18) only through surface-level association (such as relationships between past queries and page titles), because it requires contextualizing the full text of the page. This novel task is of particular interest to us because it exposes the need for personalized models that recommend queries based not only on what users are interested in, but also on what and how much they know.
 
-# 3 K-LAMP: KNOWLEDGE-AUGMENTED LLMS FOR PERSONALIZED QUERY SUGGESTION
+## 3 K-LAMP: KNOWLEDGE-AUGMENTED LLMS FOR PERSONALIZED QUERY SUGGESTION
 
 In this section, we introduce our approach to generating personalized outputs using a novel knowledge-augmentation method for LLMs and our entity-centric personal knowledge store. We also detail its application to the novel task of contextual query suggestion.
 
-# 3.1 Problem Statement
+## 3.1 Problem Statement
 
 We begin with preliminaries, formally introducing LLMs and the problem of contextual query suggestion.
 
@@ -115,14 +115,14 @@ In this work, we attempt to solve the problem of contextual query suggestion by 
 
 <span id="page-2-0"></span><sup>1</sup>Without the hard requirement of an input web document included in , this definition may be relaxed to capture prior work on context-aware query suggestion [\[5,](#page-8-15) [15,](#page-8-16) [34,](#page-8-17) [37\]](#page-8-18).
 
-#### WWW '24, May 13–17, 2024, Singapore, Singapore Baek et al.
+### WWW '24, May 13–17, 2024, Singapore, Singapore Baek et al.
 
 <span id="page-3-1"></span>![](_page_3_Figure_2.jpeg)
-<!-- Image Description: The figure illustrates a query suggestion system.  (A) and (B) show past and current search queries, respectively. (C) is a memory stream storing these queries with timestamps. (D) is an entity-based knowledge store, summarizing entities (e.g., "Machine Learning") and their frequency from (C). (E) presents query suggestions based on entity familiarity and recency, categorized as familiar, unfamiliar, and lapsed entities.  The system uses entity extraction and a knowledge store to generate context-aware suggestions. -->
+<!-- Image Description: The figure illustrates a query suggestion system. (A) and (B) show past and current search queries, respectively. (C) is a memory stream storing these queries with timestamps. (D) is an entity-based knowledge store, summarizing entities (e.g., "Machine Learning") and their frequency from (C). (E) presents query suggestions based on entity familiarity and recency, categorized as familiar, unfamiliar, and lapsed entities. The system uses entity extraction and a knowledge store to generate context-aware suggestions. -->
 
-Figure 2: Overview of K-LaMP. The inputs to the system are (A) previous search logs and (B) the current search context of a user, which consist of a query and an associated web-page. (C) Each search record is stored in a memory stream along with a time stamp. (D) The entity-based knowledge store is constructed by aggregating entities extracted from the memory stream. (E) K-LaMP augmented with entities retrieved from the entity-based personal knowledge store, generates query suggestions that are compatible with the user's knowledge and interests.
+**Figure 2:** Overview of K-LaMP. The inputs to the system are (A) previous search logs and (B) the current search context of a user, which consist of a query and an associated web-page. (C) Each search record is stored in a memory stream along with a time stamp. (D) The entity-based knowledge store is constructed by aggregating entities extracted from the memory stream. (E) K-LaMP augmented with entities retrieved from the entity-based personal knowledge store, generates query suggestions that are compatible with the user's knowledge and interests.
 
-# 3.2 Knowledge Store for Output Personalization
+## 3.2 Knowledge Store for Output Personalization
 
 We now discuss our knowledge-augmented LLM framework for personalization and describe two instantiations of this framework.
 
@@ -152,36 +152,35 @@ In the case of K over users' search and browsing history, retrieval is done by f
 
 Meanwhile, for the entity-centric knowledge store K , retrieval is conditioned on the entities present in the current query and the web-page , which are further matched against K . Given that entities are atomic units with associated counts and time-stamps, the matching and retrieval process can be operationalized in flexible ways (See Figure [2\)](#page-3-1). We particularly explore three strategies for matching entities: familiar (entities frequently encountered by the user), unfamiliar (entities the user has encountered infrequently or not at all), and lapsed (entities that the user used to encounter previously but hasn't done so more recently). Specifically, for familiar entities, we sort the entities appearing in the search context [ ·] by frequency of occurrence in the knowledge store K , then sample 5 entities proportionately to their frequency. For unfamiliar entities, a similar process is used for sampling, except that entities are sorted inversely with respect to their occurrence in K . Finally, for lapsed entities, we start by filtering entities in [ · ] by time-stamp to retain only those that occur in K , but haven't been engaged with in the preceding two weeks. Then we sample from this filtered set of entities by frequency, much like we do with familiar entities.
 
-# 4 EXPERIMENTAL SETUP
+## 4 EXPERIMENTAL SETUP
 
 In this section, we outline the datasets and models used in our evaluation setup, as well as implementation details.
 
-# 4.1 Data
+## 4.1 Data
 
 We use real large-scale search logs from the Bing search engine [\[2\]](#page-8-19). Specifically, we sample three months of search logs, from May 01, 2023 to July 31, 2023. We then filter and sample this dataset to make it suitable for evaluating our task, which includes the following steps. First, because the task we are tackling is contextual query suggestion – i.e., recommendations are predicated on a current webpage the user is viewing – we filter out sessions that do not contain any clicked search results. We further filter the data to discard click events that lead to pages in domains other than Wikipedia or a curated set of 500 high-traffic news publishing sites. We do this because the entity linker [\[19\]](#page-8-32) we use maps onto Wikipedia, and we want to maximize the chances of encountering linked entities. It is worth noting that K-LaMP itself is agnostic to the choice of the linker or its underlying knowledge graph, and our approach could readily be applied to a different domain, for example, using a linker over a product graph for shopping. Finally, we filter the remaining data to discard users who had fewer than 100 page visitations for three months, who we assume are infrequent search users. In addition, we perform and apply enterprise-level privacy checks and filters, such as using search queries requested from at least 50 individuals, to ensure that the data remains suitably anonymized.
 
 The resulting data is still extremely large; therefore, we further randomly sample a subset of 1,000 users in order to get the benchmark set that forms the basis for all the evaluations we perform in this paper (Section [4.3\)](#page-5-0). This final dataset, on average, contains 493 queries, 109 sessions, 177 clicked articles, and 3, 053 encountered entities per user. For testing, we split the dataset and reserve the most recent 10 sessions of every user as prediction targets for contextual query suggestions and use all the earlier sessions to build search-and-browsing based (K ) and entity-centric (K ) personal knowledge stores for users, as described in Section [3.2.1.](#page-3-0)
 
-# <span id="page-4-1"></span>4.2 Baselines and Our Model
+## <span id="page-4-1"></span>4.2 Baselines and Our Model
 
 We compare our approach to knowledge-augmented LLMs for output personalization against several relevant baselines that make query suggestions based on the search context of users. We note that, for the fairest comparison, all baselines and our model use LLMs (specifically GPT-4) to make query suggestions. Notably, we do not include prior query suggestion approaches based on older modeling techniques (e.g., RNNs or BART [\[51,](#page-9-28) [66\]](#page-9-14)) in our main experiments due to their limited capacity for understanding longer context and complex data inputs, particularly without dedicated training data (the framework we propose needs none). Moreover, these query suggestion techniques are not designed to handle longer contexts such as the web-page a user is currently viewing, thereby making a direct comparison trivially relevant at best. Nevertheless, in the interest of completeness we have included some anecdotal comparisons in Appendix [B.](#page-10-11)
 
 The models evaluated in this work are listed as follows: (1) Query Suggestion – which uses a current query and historical queries from <sup>ℎ</sup> in the same session to suggest the next query +1; (2) Contextual Query Suggestion – which is similar to Query Suggestion, but additionally conditions the recommendation of the next query +<sup>1</sup> on a web-page , clicked as a result of current query ; (3) Contextual Query Suggestion w/ K – which includes
 
-Table 1: Main results on our contextual query suggestion task. The best results are highlighted in bold.
+**Table 1:** Main results on our contextual query suggestion task. The best results are highlighted in bold.
 
-<span id="page-5-3"></span>
 
-| Types     | Models                            | Validness (↑) | Relatedness (↑) | Usefulness (↑) | Ranking (↓) |
+| Types | Models | Validness (↑) | Relatedness (↑) | Usefulness (↑) | Ranking (↓) |
 |-----------|-----------------------------------|---------------|-----------------|----------------|-------------|
-|           | Query Suggestion                  | 1.769         | 0.962           | 0.948          | 2.736       |
-| Baselines | Contextual Query Suggestion       | 1.966         | 1.267           | 1.245          | 2.415       |
-|           | Contextual Query Suggestion w/ K𝑠 | 1.822         | 1.192           | 1.166          | 2.654       |
-| Ours      | K-LaMP (Ours)                     | 1.966         | 1.482           | 1.455          | 2.160       |
+| | Query Suggestion | 1.769 | 0.962 | 0.948 | 2.736 |
+| Baselines | Contextual Query Suggestion | 1.966 | 1.267 | 1.245 | 2.415 |
+| | Contextual Query Suggestion w/ K𝑠 | 1.822 | 1.192 | 1.166 | 2.654 |
+| Ours | K-LaMP (Ours) | 1.966 | 1.482 | 1.455 | 2.160 |
 
 retrievals from the knowledge store K over users' historical search and browsing activities, as additional context to personalize the outputs of the LLM; (4) K-LaMP – which is our full model that augments LLMs with entity-centric knowledge from the knowledge store K in order to perform contextual query suggestion.
 
-# <span id="page-5-0"></span>4.3 Evaluation Setup
+## <span id="page-5-0"></span>4.3 Evaluation Setup
 
 To evaluate the effectiveness of different query suggestion models on generating personalized outputs, a suitable evaluation metric should ideally not only capture whether the suggested queries are contextually relevant, but also whether they align well with the user's interests and knowledge. Given that contextual query suggestion is a novel problem we propose in this paper, no existing evaluation metrics are available for the task. In particular, metrics for evaluating conventional query suggestion are not applicable here because they do not account for the full context present in our task – namely the input document being consumed by the user. Therefore, we turn to human evaluation in order to measure and compare the different models on our experimental benchmark.
 
@@ -189,13 +188,13 @@ It is worth noting that human evaluation of any form of personalization is diffi
 
 Presented with this data and recommended queries from the different baselines and our model (where the system names are obscured to annotators), a human judge is asked to evaluate the following three metrics on a 3-point Likert scale[2](#page-5-1) : (1) Validity – whether an output query can be input into a search engine and be expected to yield relevant results; (2) Relatedness – whether the output query closely relates to the user's personal interests
 
-<span id="page-5-2"></span>Table 2: Results of inter-annotator agreements on all query suggestion results evaluated by humans annotators.
+<span id="page-5-2"></span>**Table 2:** Results of inter-annotator agreements on all query suggestion results evaluated by humans annotators.
 
-| Agreements                         | Metrics                                | Scores (↑)              |
+| Agreements | Metrics | Scores (↑) |
 |------------------------------------|----------------------------------------|-------------------------|
-| Exact match                        | Validness<br>Relatedness<br>Usefulness | 0.963<br>0.850<br>0.819 |
-| Cohen's kappa coefficient          | Validness<br>Relatedness<br>Usefulness | 0.606<br>0.652<br>0.622 |
-| Spearman's correlation coefficient | Ranking                                | 0.654                   |
+| Exact match | Validness<br>Relatedness<br>Usefulness | 0.963<br>0.850<br>0.819 |
+| Cohen's kappa coefficient | Validness<br>Relatedness<br>Usefulness | 0.606<br>0.652<br>0.622 |
+| Spearman's correlation coefficient | Ranking | 0.654 |
 
 and knowledge; and (3) Usefulness – whether the user is likely to click on the output query, given their historical interests and knowledge as well as their current search context. Finally, we also ask the annotators for a fourth measure: (4) Ranking – where the outputs of the different systems are ranked according to the order in which they are likely to be clicked, based on their affinity to the user's interests, knowledge, and search context. Collectively, these four evaluation metrics capture not only how good the different query suggestions are, – both individually and in relation to one another – but also how well they align with the personal aspects of our evaluation task; namely, what users care about and know.
 
@@ -207,16 +206,16 @@ Finally, regarding implementation details, we use the GPT-4 [\[53\]](#page-9-0) 
 
 <span id="page-5-1"></span><sup>2</sup>The 3-point Likert scale is composed of agree (2), neutral (1), and disagree (0).
 
-<span id="page-6-1"></span>Table 3: Results of different retrieval strategies on Retrieval Relevance to the user's current search context.
+<span id="page-6-1"></span>**Table 3:** Results of different retrieval strategies on Retrieval Relevance to the user's current search context.
 
-| Retrieval                      | Types                                                       | Retrieval Relevance (↑) |
+| Retrieval | Types | Retrieval Relevance (↑) |
 |--------------------------------|-------------------------------------------------------------|-------------------------|
-| History-based Retrieval (K𝑠 )  | Past Documents                                              | 0.299                   |
+| History-based Retrieval (K𝑠 ) | Past Documents | 0.299 |
 | Entity-centric Retrieval (K𝑒 ) | Familiar Entities<br>Unfamiliar Entities<br>Lapsed Entities | 0.936<br>0.810<br>0.849 |
 
 hyperparameters of GPT-4 as temperature = 0.7 and top = 0.95. The entity linker used to construct instantiations of the knowledge store is NEMO [\[18,](#page-8-31) [19\]](#page-8-32) [3](#page-6-0) . Prompts used to elicit responses from GPT-4 for query suggestion are in Appendix [A.](#page-10-12)
 
-# 5 EXPERIMENTAL RESULTS
+## 5 EXPERIMENTAL RESULTS
 
 We now present the set of experimental results from our evaluation, and report findings from various auxiliary studies and analyses.
 
@@ -224,22 +223,22 @@ Our main results are shown in Table [1.](#page-5-3) This confirms that our K-LaM
 
 To investigate this hypothesis further, we conduct a supplementary evaluation, which asks human annotators to rate the information retrieved from knowledge stores for a particular search context (see Section [3.2.2](#page-4-0) for details). Specifically, we report Retrieval Relevance from both instantiations of our knowledge stores in Table [3.](#page-6-1) This metric is the average score from a Yes/No question: whether the retrieved context is relevant to the current search context (1) or not (0). As shown in Table [3,](#page-6-1) the quality of retrievals from the entitycentric knowledge store is superior to those from the linear search history-based store. This is because we have far greater control with entities being the atomic units of the knowledge representation space, and are able to exactly match entities in the context against entities in the store, rather than rely on a fuzzy similarity-driven retrieval process with an embedding-based dense retriever [\[42\]](#page-9-33).
 
-# 5.1 Additional Studies and Analyses
+## 5.1 Additional Studies and Analyses
 
 Ablation over Entity Matching Strategies. Recall that K-LaMP relies on a combination of matching and retrieval of several different types of entities from its entity-centric knowledge store, namely: familiar, unfamiliar and lapsed entities (see Section [3.2.2\)](#page-4-0). In order to individually measure the contribution of each strategy, we generate knowledge-augmented query suggestions on 313 search contexts using only one type of entity and ask human annotators to evaluate the results on Validity, Relatedness, and Usefulness. The comparative results are presented in Figure [3.](#page-6-2) Firstly, they reaffirm the fact
 
 ![](_page_6_Figure_12.jpeg)
-<!-- Image Description: The image is a title indicating a section of the paper focusing on the analysis of variants of a K-LaMP (likely a specific algorithm or model).  No diagrams, charts, graphs, or equations are present; the image only provides textual information describing the section's content.  The purpose is to introduce a section dedicated to comparative analysis of different versions or modifications of the K-LaMP. -->
+<!-- Image Description: The image is a title indicating a section of the paper focusing on the analysis of variants of a K-LaMP (likely a specific algorithm or model). No diagrams, charts, graphs, or equations are present; the image only provides textual information describing the section's content. The purpose is to introduce a section dedicated to comparative analysis of different versions or modifications of the K-LaMP. -->
 
 <span id="page-6-2"></span>![](_page_6_Figure_13.jpeg)
-<!-- Image Description: The image presents a bar chart comparing scores for different query suggestion methods.  Three datasets ("Helpful," "Relatable," "Useful") are evaluated against five methods: contextual query suggestion and K-LaMP using all entities, familiar entities, unfamiliar entities, and lapsed entities.  The chart displays the performance (score) of each method on each dataset, allowing for a comparison of their effectiveness. -->
+<!-- Image Description: The image presents a bar chart comparing scores for different query suggestion methods. Three datasets ("Helpful," "Relatable," "Useful") are evaluated against five methods: contextual query suggestion and K-LaMP using all entities, familiar entities, unfamiliar entities, and lapsed entities. The chart displays the performance (score) of each method on each dataset, allowing for a comparison of their effectiveness. -->
 
-Validness Relatedness Usefulness Figure 3: Results of variants of K-LaMP on personalized knowledge retrieval strategy, and results without retrieval.
+Validness Relatedness Usefulness **Figure 3:** Results of variants of K-LaMP on personalized knowledge retrieval strategy, and results without retrieval.
 
 <span id="page-6-3"></span>![](_page_6_Figure_15.jpeg)
-<!-- Image Description: The image contains three line graphs comparing the performance of four query suggestion methods (Query Suggestion, Contextual Query Suggestion, Contextual Query Suggestion w/ Ks, and K-LaMP) across varying memory sizes (x150).  Each graph represents a different evaluation metric: Validness, Relatedness, and Usefulness.  The x-axis shows memory size, and the y-axis displays the score for each metric. The graphs illustrate the impact of memory size on the performance of each query suggestion method according to these three metrics. -->
+<!-- Image Description: The image contains three line graphs comparing the performance of four query suggestion methods (Query Suggestion, Contextual Query Suggestion, Contextual Query Suggestion w/ Ks, and K-LaMP) across varying memory sizes (x150). Each graph represents a different evaluation metric: Validness, Relatedness, and Usefulness. The x-axis shows memory size, and the y-axis displays the score for each metric. The graphs illustrate the impact of memory size on the performance of each query suggestion method according to these three metrics. -->
 
-Figure 4: Results of baselines and K-LaMP with different numbers of previous queries (i.e., different memory sizes).
+**Figure 4:** Results of baselines and K-LaMP with different numbers of previous queries (i.e., different memory sizes).
 
 that Validity is practically invariant to the choice of knowledge ingestion, since personal information does not affect whether a query is valid or not. The Relatedness and Usefulness metrics, however, are clearly impacted by the choice of entity matching strategy in consistent ways. In particular, using only "unfamiliar" entities yields the highest scores across both metrics, even outperforming the full K-LaMP model. This seems to suggest that queries stemming from new (to the user) entities, which implicitly encourage exploration, are preferred over queries that revisit familiar ground.
 
@@ -253,20 +252,20 @@ Analysis using different LLMs. Finally, we conduct an auxiliary analysis to see 
 
 <span id="page-7-0"></span>WWW '24, May 13–17, 2024, Singapore, Singapore Baek et al.
 
-Table 4: Results with different LLMs: GPT-3.5 and GPT-4.
+**Table 4:** Results with different LLMs: GPT-3.5 and GPT-4.
 
-| Methods                     | LLMs    | Validness | Relatedness | Usefulness |
+| Methods | LLMs | Validness | Relatedness | Usefulness |
 |-----------------------------|---------|-----------|-------------|------------|
-| Query Suggestion            | GPT-3.5 | 1.767     | 1.077       | 1.069      |
-|                             | GPT-4   | 1.747     | 1.080       | 1.060      |
-| Contextual Query Suggestion | GPT-3.5 | 1.967     | 1.177       | 1.202      |
-|                             | GPT-4   | 1.987     | 1.367       | 1.313      |
-| K-LaMP (Ours)               | GPT-3.5 | 2.000     | 1.279       | 1.303      |
-|                             | GPT-4   | 1.983     | 1.653       | 1.600      |
+| Query Suggestion | GPT-3.5 | 1.767 | 1.077 | 1.069 |
+| | GPT-4 | 1.747 | 1.080 | 1.060 |
+| Contextual Query Suggestion | GPT-3.5 | 1.967 | 1.177 | 1.202 |
+| | GPT-4 | 1.987 | 1.367 | 1.313 |
+| K-LaMP (Ours) | GPT-3.5 | 2.000 | 1.279 | 1.303 |
+| | GPT-4 | 1.983 | 1.653 | 1.600 |
 
 on 128 sets of query suggestions from two baselines (Query Suggestion and Contextual Query Suggestion) and our K-LaMP framework, and compare the results with GPT-4; these are shown in Table [4.](#page-7-0) Firstly, Query Suggestion is agnostic to the choice of LLMs, while Contextual Query Suggestion and K-LaMP are not. This is likely due to the fact that the latter two approaches must incorporate information from full web-pages as context and therefore benefit from the representational, reasoning and generative capabilities of the larger model. More relevant to the contributions in this paper, we find that, even with GPT-3.5-Turbo, K-LaMP shows comparable performance on the Usefulness metric with the second best model – Contextual Query Suggestion – despite the latter using GPT-4. This demonstrates the significant edge that an entity-centric representation of a user's personal interests and knowledge provides, for knowledge-augmented personalization of LLMs outputs, with high efficiency of deploying K-LaMP in real-world applications.
 
-# 5.2 Automatic Evaluation Setup
+## 5.2 Automatic Evaluation Setup
 
 While human evaluation is useful for measuring systems and gaining insights, especially on a new task like the one we introduce, the process is slow and expensive, and therefore not scalable to bigger datasets, or future extensions. To address these issues, we explore an initial set of automatic evaluation metrics mirroring the ones described in Section [4.3](#page-5-0) that may be used in the absence of human judgement. Recall that even human evaluation for tasks that deal with personalization is non-trivial; therefore, automatically evaluating the outputs of a contextual query system while conditioning on complex personal preference and knowledge data is very difficult.
 
@@ -274,29 +273,28 @@ Nevertheless, we propose and experiment with the following automatic formulation
 
 We validate these automatic evaluation metrics by ranking the systems on the test set, then computing Spearman's correlation against the ranking obtained by human judgement scores. As shown
 
-Table 5: Results with automatic evaluation metrics.
+**Table 5:** Results with automatic evaluation metrics.
 
-<span id="page-7-2"></span>
 
-| Types                             | Validness | Relatedness | Usefulness |
+| Types | Validness | Relatedness | Usefulness |
 |-----------------------------------|-----------|-------------|------------|
-| Correlation w/ Human Evaluation   | 0.445     | 0.397       | -0.016     |
-| Query Suggestion                  | 1.784     | 1.189       | 0.882      |
-| Contextual Query Suggestion       | 1.891     | 1.340       | 0.831      |
-| Contextual Query Suggestion w/ K𝑠 | 1.828     | 1.271       | 0.847      |
-| K-LaMP (Ours)                     | 1.910     | 1.472       | 0.845      |
+| Correlation w/ Human Evaluation | 0.445 | 0.397 | -0.016 |
+| Query Suggestion | 1.784 | 1.189 | 0.882 |
+| Contextual Query Suggestion | 1.891 | 1.340 | 0.831 |
+| Contextual Query Suggestion w/ K𝑠 | 1.828 | 1.271 | 0.847 |
+| K-LaMP (Ours) | 1.910 | 1.472 | 0.845 |
 
 in Table [5,](#page-7-2) we find a moderate correlation on Validity and Relatedness, indicating that our proposed automatic metrics for these measures may be used as proxies in the absence of human labeling. However, there is no correlation between automatic and human Usefulness metrics. This is expected since (contextual) query recommendation is not expected to align perfectly with actual user behavior, which is the basis of our formulation for automatically computing Usefulness; users should be surprised and delighted by suggestions they would not have otherwise thought about.
 
 There are several ways to improve the process of automatically evaluating contextual query suggestion. For example, we could use another LLM to perform a rubric-based evaluation of Validity, Relatedness and Usefulness, relying on its capacity to account for complex personal and preferential data. Or we could train parametrized versions of the automatic metrics we have proposed on manually labeled data with the goal of increasing correlation with human judgement. We leave these and other explorations to future work.
 
-# 6 CONCLUSION
+## 6 CONCLUSION
 
 In this work, we proposed a knowledge-augmentation framework for LLM output personalization called K-LaMP, that leverages historical user interactions with a search engine. The core of the personal knowledge we used for LLM augmentation relies on a novel lightweight entity-centric personal knowledge store, constructed from the queries that users issue and the web-pages that they viewed as they search and browse the web. To stress-test our personalization framework, we focused on the novel task of contextual search query suggestion, which crucially requires modeling both the contextual interests and the knowledge of users. Through human evaluation on an extensive test set, we showed that our entity-centric knowledgeaugmented LLM produces personalized query recommendations that are better related to users' intent, more useful, and consistently ranked above those produced by several other LLM-powered query suggestion models. Our findings show that entities are effective atomic units for the representation of personal knowledge, offering a robust middle-ground of performance, flexibility, privacy and scalability, when compared with other personalization approaches that rely either on deep profile building or simple linearization of a user's historical interactions. We believe that K-LaMP has the potential to impact both future research and product innovation. The use of personalized knowledge-augmentation for other search tasks such as snippet generation or question answering, the incorporation of other sources of data such as shopping or media-consumption histories, and the application to domains outside of search such as personal AI assistants, are all exciting avenues of future work. At the same time, enhanced evaluation remains an important future goal, with improved automatic metrics and real-world deployment as potential directions for exploration.
 
 <span id="page-7-1"></span><sup>4</sup>We don't specify an automatic measure of Ranking, since this can be done trivially by scoring then sorting systems by one or more of the other automatic metrics.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-8-35"></span>[1] 2008. Spearman Rank Correlation Coefficient. 502–505.
 - <span id="page-8-33"></span><span id="page-8-19"></span>[2] 2023. Bing Search.<https://www.bing.com/>
@@ -389,94 +387,90 @@ International Conference on Information and Knowledge Management, CIKM'13, San F
 - <span id="page-10-10"></span>[81] Jianling Zhong, Weiwei Guo, Huiji Gao, and Bo Long. 2020. Personalized Query Suggestions. In Proceedings of the 43rd International ACM SIGIR conference on research and development in Information Retrieval, SIGIR 2020, Virtual Event, China, July 25-30, 2020. ACM, 1645–1648.
 - <span id="page-10-8"></span>[82] Zile Zhou, Xiao Zhou, Mingzhe Li, Yang Song, Tao Zhang, and Rui Yan. 2022. Personalized Query Suggestion with Searching Dynamic Flow for Online Recruitment. In Proceedings of the 31st ACM International Conference on Information & Knowledge Management, Atlanta, GA, USA, October 17-21, 2022. ACM, 2773–2783.
 
-# <span id="page-10-12"></span>A PROMPTS
+## <span id="page-10-12"></span>A PROMPTS
 
 In this section, we provide the prompt for the K-LaMP framework in Table [8,](#page-12-0) which we use for eliciting responses from LLMs for personalized contextual query suggestion. In addition, we provide the prompts for other approaches, namely query suggestion, contextual query suggestion, and contextual query suggestion w/ K in Table [9,](#page-12-1) Table [10,](#page-13-1) and Table [11,](#page-13-2) respectively.
 
-# <span id="page-10-11"></span>B QUERY SUGGESTION EXAMPLES
+## <span id="page-10-11"></span>B QUERY SUGGESTION EXAMPLES
 
 We provide examples based on a real-world comparison of different query suggestion approaches, including commercial query suggestion models deployed in public web-search engines such as Microsoft Bing and Google. For this comparison, we use the manufactured example in Table [6,](#page-11-0) which encapsulates a user query about "Tim Cook" that leads to a web page about "Tim Cook's leadership", as well as a number of personal entities that a user has historically been interested in (such as Apple products). Example query suggestions from different approaches are shown in Table [7.](#page-11-1) These demonstrate how K-LaMP better contextualizes suggestions on the current page a user is consuming. For example, the query "Difference between Tim Cook's and Steve Jobs' approach to Apple's product development" is a contrastive information-seeking request that leverages the user context, versus "Tim Cook leadership style" (from the non-contextual query suggestion method) which isn't particularly helpful given that this is already the topic of the current page. K-LaMP's suggestions also better capture the implicit knowledge and interests of the user, based on historical browsing behavior. For example, the suggestion "Tim Cook's impact on Apple's product line" aligns more closely with the user's ostensibly technophile interests when compared with the celebrity gossipfocused suggestion "Tim Cook boyfriend" from the commercial query suggestion methods in web-search engines.
 
-| Baek et al. |  |  |
+| Baek et al. | | |
 |-------------|--|--|
-|             |  |  |
+| | | |
 
-<span id="page-11-0"></span>
 
-| Types             | Texts                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Types | Texts |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Query             | Tim Cook                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Session           | Apple   Tim Cook                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Article           | Tim Cook Leadership: A new profile examines how Apple CEO Tim Cook, with "cautious, collaborative and tactical"<br>leadership, honed the Cupertino tech giant into the world's largest company. (.)                                                                                                                                                                                                                                          |
-| Trending entities | 'GPT-4', 'OpenAI', 'Google Bard', 'Microsoft Copilot', 'Elon Musk',                                                                                                                                                                                                                                                                                                                                                                          |
-| Personal summary  | The user is interested in Apple products and technology ('Macbook', 'macOS', and 'Apple TV'). They have a keen<br>interest in ML, with topics like 'Supervised Learning' and 'Optimization'. Additionally, they enjoy animation, showing<br>interest in 'Studio Ghibli', 'Walt Disney', and 'Pixar'. Their preferences also extend to home entertainment ('DVD'<br>and 'HDTV'). Lastly, they follow baseball ('MLB' and 'New York Yankees'). |
-| Personal entities | 'Macbook', 'macOS', 'Machine Learning', 'Optimization', 'Supervised Learning', 'Apple TV', 'Animation', 'Studio<br>Ghibli', 'DVD', 'Walt Disney', 'Pixar Animation Studios', 'Apple Inc.', 'Baseball', 'HDTV', 'Major League Baseball',<br>'New York Yankees',                                                                                                                                                                               |
+| Query | Tim Cook |
+| Session | Apple Tim Cook |
+| Article | Tim Cook Leadership: A new profile examines how Apple CEO Tim Cook, with "cautious, collaborative and tactical"<br>leadership, honed the Cupertino tech giant into the world's largest company. (.) |
+| Trending entities | 'GPT-4', 'OpenAI', 'Google Bard', 'Microsoft Copilot', 'Elon Musk', |
+| Personal summary | The user is interested in Apple products and technology ('Macbook', 'macOS', and 'Apple TV'). They have a keen<br>interest in ML, with topics like 'Supervised Learning' and 'Optimization'. Additionally, they enjoy animation, showing<br>interest in 'Studio Ghibli', 'Walt Disney', and 'Pixar'. Their preferences also extend to home entertainment ('DVD'<br>and 'HDTV'). Lastly, they follow baseball ('MLB' and 'New York Yankees'). |
+| Personal entities | 'Macbook', 'macOS', 'Machine Learning', 'Optimization', 'Supervised Learning', 'Apple TV', 'Animation', 'Studio<br>Ghibli', 'DVD', 'Walt Disney', 'Pixar Animation Studios', 'Apple Inc.', 'Baseball', 'HDTV', 'Major League Baseball',<br>'New York Yankees', |
 
-Table 6: A manufactured example showing the type of data that was provided to human judges.
+**Table 6:** A manufactured example showing the type of data that was provided to human judges.
 
-<span id="page-11-1"></span>Table 7: Query suggestion results of different approaches including non-contextual and commercial methods, based on the data example in Table [6.](#page-11-0)
+<span id="page-11-1"></span>**Table 7:** Query suggestion results of different approaches including non-contextual and commercial methods, based on the data example in Table [6.](#page-11-0)
 
-| Models                       | Query Suggestion Results                                                                                                                |
+| Models | Query Suggestion Results |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| Microsoft Bing Search        | "Tim Cook Boyfriend", "Tim Cook Latest News"                                                                                            |
-| Google Search                | "Tim Cook Quotes", "Tim Cook Boyfriend"                                                                                                 |
-| Query Suggestion w/o Context | "Tim Cook leadership style", "Tim Cook net worth"                                                                                       |
-| K-LaMP (Ours)                | "Tim Cook's impact on Apple's product line",<br>"Difference between Tim Cook's and Steve Jobs' approach to Apple's product development" |
+| Microsoft Bing Search | "Tim Cook Boyfriend", "Tim Cook Latest News" |
+| Google Search | "Tim Cook Quotes", "Tim Cook Boyfriend" |
+| Query Suggestion w/o Context | "Tim Cook leadership style", "Tim Cook net worth" |
+| K-LaMP (Ours) | "Tim Cook's impact on Apple's product line",<br>"Difference between Tim Cook's and Steve Jobs' approach to Apple's product development" |
 
-<span id="page-12-0"></span>
 
-| Types          | Texts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Types | Texts |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft'   'Google'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                | You are going to suggest a search query that the user would search next based on the current query, the current session,<br>the current article, and the personal entities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| User Message   | The explanations of the query, session, article, and personal entities are as follows:<br>- The query is a specific set of phrases that the user enters into the search engine to find the information or resources<br>related to a particular topic, question, or interest.<br>- The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.<br>- The article refers to a specific webpage that the user clicks and reads from several search results displayed by the<br>search engine in response to the requested query.<br>- The personal entity refers to a topic, keyword, person, event, or any subject that is specifically relevant or appealing<br>to the individual user based on their personal interests.<br>Read the following query, session, article, and personal entities of the user as the context information, which might be<br>helpful and relevant to suggest the next query.<br>Query: {Query}<br>Session: {Session}<br>Article Title: {Article['Title']}<br>Article Text: {Article['Text']}<br>Personal Entities: {Entities}<br>Based on the above query, session, article, and personal entities, please generate one next query suggestion with the<br>rationale, in the format of<br>Query Suggestion:<br>Rationale: |
+| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft' 'Google'. |
+| | You are going to suggest a search query that the user would search next based on the current query, the current session,<br>the current article, and the personal entities. |
+| User Message | The explanations of the query, session, article, and personal entities are as follows:<br>- The query is a specific set of phrases that the user enters into the search engine to find the information or resources<br>related to a particular topic, question, or interest.<br>- The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.<br>- The article refers to a specific webpage that the user clicks and reads from several search results displayed by the<br>search engine in response to the requested query.<br>- The personal entity refers to a topic, keyword, person, event, or any subject that is specifically relevant or appealing<br>to the individual user based on their personal interests.<br>Read the following query, session, article, and personal entities of the user as the context information, which might be<br>helpful and relevant to suggest the next query.<br>Query: {Query}<br>Session: {Session}<br>Article Title: {Article['Title']}<br>Article Text: {Article['Text']}<br>Personal Entities: {Entities}<br>Based on the above query, session, article, and personal entities, please generate one next query suggestion with the<br>rationale, in the format of<br>Query Suggestion:<br>Rationale: |
 
-Table 8: The prompt used in the full instantiation of K-LaMP.
+**Table 8:** The prompt used in the full instantiation of K-LaMP.
 
-| Table 9: The prompt used in the instantiation of the query suggestion baseline. |
+| **Table 9:** The prompt used in the instantiation of the query suggestion baseline. |
 |---------------------------------------------------------------------------------|
 |---------------------------------------------------------------------------------|
 
-<span id="page-12-1"></span>
 
-| Types          | Texts                                                                                                                                                                                                                                                                                                                 |  |  |  |  |
+| Types | Texts | | | | |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|--|
-| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft'   'Google'. |  |  |  |  |
-|                | You are going to suggest a search query that the user would search next based on the current query, and the current<br>session.                                                                                                                                                                                       |  |  |  |  |
-|                | The explanations of the query, and session are as follows:                                                                                                                                                                                                                                                            |  |  |  |  |
-|                | - The query is a specific set of phrases that the user enters into the search engine to find the information or resources                                                                                                                                                                                             |  |  |  |  |
-|                | related to a particular topic, question, or interest.                                                                                                                                                                                                                                                                 |  |  |  |  |
-|                | - The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.                                                                                                                                              |  |  |  |  |
-| User Message   |                                                                                                                                                                                                                                                                                                                       |  |  |  |  |
-|                | Read the following query, and session of the user as the context information, which might be helpful and relevant to<br>suggest the next query.                                                                                                                                                                       |  |  |  |  |
-|                | Query: {Query}                                                                                                                                                                                                                                                                                                        |  |  |  |  |
-|                | Session: {Session}                                                                                                                                                                                                                                                                                                    |  |  |  |  |
-|                | Based on the above query, and session, please generate one next query suggestion with the rationale, in the format of                                                                                                                                                                                                 |  |  |  |  |
-|                | Query Suggestion:                                                                                                                                                                                                                                                                                                     |  |  |  |  |
-|                | Rationale:                                                                                                                                                                                                                                                                                                            |  |  |  |  |
+| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft' 'Google'. | | | | |
+| | You are going to suggest a search query that the user would search next based on the current query, and the current<br>session. | | | | |
+| | The explanations of the query, and session are as follows: | | | | |
+| | - The query is a specific set of phrases that the user enters into the search engine to find the information or resources | | | | |
+| | related to a particular topic, question, or interest. | | | | |
+| | - The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task. | | | | |
+| User Message | | | | | |
+| | Read the following query, and session of the user as the context information, which might be helpful and relevant to<br>suggest the next query. | | | | |
+| | Query: {Query} | | | | |
+| | Session: {Session} | | | | |
+| | Based on the above query, and session, please generate one next query suggestion with the rationale, in the format of | | | | |
+| | Query Suggestion: | | | | |
+| | Rationale: | | | | |
 
-| Table 10: The prompt used in the instantiation of the contextual query suggestion baseline. |  |  |  |  |  |  |
+| **Table 10:** The prompt used in the instantiation of the contextual query suggestion baseline. | | | | | | |
 |---------------------------------------------------------------------------------------------|--|--|--|--|--|--|
 |---------------------------------------------------------------------------------------------|--|--|--|--|--|--|
 
 <span id="page-13-1"></span><span id="page-13-0"></span>
 
-| Types          | Texts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Types | Texts |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft'   'Google'.                                                                                                                                                                                                                                                                                                |
-|                | You are going to suggest a search query that the user would search next based on the current query, the current session,<br>and the current article.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| User Message   | The explanations of the query, session, and article are as follows:<br>- The query is a specific set of phrases that the user enters into the search engine to find the information or resources<br>related to a particular topic, question, or interest.<br>- The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.<br>- The article refers to a specific webpage that the user clicks and reads from several search results displayed by the<br>search engine in response to the requested query. |
-|                | Read the following query, session, and article of the user as the context information, which might be helpful and relevant<br>to suggest the next query.<br>Query: {Query}<br>Session: {Session}<br>Article Title: {Article['Title']}<br>Article Text: {Article['Text']}                                                                                                                                                                                                                                                                                                                                             |
-|                | Based on the above query, session, and article, please generate one next query suggestion with the rationale, in the<br>format of<br>Query Suggestion:<br>Rationale:                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft' 'Google'. |
+| | You are going to suggest a search query that the user would search next based on the current query, the current session,<br>and the current article. |
+| User Message | The explanations of the query, session, and article are as follows:<br>- The query is a specific set of phrases that the user enters into the search engine to find the information or resources<br>related to a particular topic, question, or interest.<br>- The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.<br>- The article refers to a specific webpage that the user clicks and reads from several search results displayed by the<br>search engine in response to the requested query. |
+| | Read the following query, session, and article of the user as the context information, which might be helpful and relevant<br>to suggest the next query.<br>Query: {Query}<br>Session: {Session}<br>Article Title: {Article['Title']}<br>Article Text: {Article['Text']} |
+| | Based on the above query, session, and article, please generate one next query suggestion with the rationale, in the<br>format of<br>Query Suggestion:<br>Rationale: |
 
-#### Table 11: The prompt used in the instantiation of the contextual query suggestion w/ K baseline.
+### Table 11: The prompt used in the instantiation of the contextual query suggestion w/ K baseline.
 
-<span id="page-13-2"></span>
 
-| Types          | Texts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Types | Texts |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft'   'Google'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|                | You are going to suggest a search query that the user would search next based on the current query, the current session,<br>the current article, and the related article.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                | The explanations of the query, session, article, and related article are as follows:<br>- The query is a specific set of phrases that the user enters into the search engine to find the information or resources<br>related to a particular topic, question, or interest.<br>- The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.<br>- The article refers to a specific webpage that the user clicks and reads from several search results displayed by the<br>search engine in response to the requested query.<br>- The related article refers to a specific webpage that the user had previously read with interest, which may be relevant<br>to the current query, session, and article. |
-| User Message   | Read the following query, session, article, and related article of the user as the context information, which might be<br>helpful and relevant to suggest the next query.<br>Query: {Query}<br>Session: {Session}<br>Article Title: {Article['Title']}<br>Article Text: {Article['Text']}<br>Related Article Title: {RelatedArticle['Title']}<br>Related Article Text: {RelatedArticle['Text']}                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                | Based on the above query, session, article, and related article, please generate one next query suggestion with the<br>rationale, in the format of<br>Query Suggestion:<br>Rationale:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| System Message | You are an AI assistant whose primary goal is to suggest a next search query, in order to help a user search and find<br>information better on the search engine. Two different queries and entities are separated by the token ' '. For example,<br>'Microsoft' and 'Google' would appear as 'Microsoft' 'Google'. |
+| | You are going to suggest a search query that the user would search next based on the current query, the current session,<br>the current article, and the related article. |
+| | The explanations of the query, session, article, and related article are as follows:<br>- The query is a specific set of phrases that the user enters into the search engine to find the information or resources<br>related to a particular topic, question, or interest.<br>- The session refers to a sequence of queries requested by the user on the search engine, within a certain period of time<br>or with regard to the completion of a task.<br>- The article refers to a specific webpage that the user clicks and reads from several search results displayed by the<br>search engine in response to the requested query.<br>- The related article refers to a specific webpage that the user had previously read with interest, which may be relevant<br>to the current query, session, and article. |
+| User Message | Read the following query, session, article, and related article of the user as the context information, which might be<br>helpful and relevant to suggest the next query.<br>Query: {Query}<br>Session: {Session}<br>Article Title: {Article['Title']}<br>Article Text: {Article['Text']}<br>Related Article Title: {RelatedArticle['Title']}<br>Related Article Text: {RelatedArticle['Text']} |
+| | Based on the above query, session, article, and related article, please generate one next query suggestion with the<br>rationale, in the format of<br>Query Suggestion:<br>Rationale: |

@@ -36,7 +36,7 @@ Keywords: Fully Homomorphic Encryption · Privacy-Preserving · Graph-Based Mach
 
 ### 1 Introduction
 
-#### 1.1 Background and Motivation
+### 1.1 Background and Motivation
 
 The Money Laundering Problem. Money laundering is the process of concealing the origins of illegally obtained funds to make them appear legitimate. It
 
@@ -52,7 +52,7 @@ Collaborative AML. To effectively combat money laundering, a collaborative appro
 
 Privacy-Preserving Technologies. Privacy-preserving technologies, such as Homomorphic Encryption (HE), offer a promising solution. HE allows computations to be performed directly on encrypted data without decryption, ensuring data confidentiality. The increasing adoption and community support of HE, such as Fully Homomorphic Encryption over the Torus (TFHE) (section [3.2\)](#page-4-0), motivates research in applying it to AML to enable secure collaborative efforts.
 
-#### 1.2 Objective and Contributions
+### 1.2 Objective and Contributions
 
 This paper presents a novel privacy-preserving AML approach using TFHE to enable secure data sharing and collaboration between financial institutions while protecting data privacy. To the best of my knowledge, while there are recent research works that have conducted separate explorations of graph-based machine learning for AML (section [2.1\)](#page-2-0), Gradient-Boosting Tree (GBT) for AML (section [2.2\)](#page-3-0), privacy-preserving technologies (PPTs) for collaborative AML and privacypreserving machine learning respectively (section [2.3\)](#page-3-1), none have combined these areas of study to explore the use of GNN or GBT with FHE in AML, all the less so with the TFHE scheme. Hence, this paper makes the following contributions:
 
@@ -65,7 +65,7 @@ We have also released the project code repository on GitHub[1](#page-2-1) .
 
 ### 2 Related Work
 
-#### <span id="page-2-0"></span>2.1 Graph-Based Machine Learning for AML
+### <span id="page-2-0"></span>2.1 Graph-Based Machine Learning for AML
 
 The application of Graph Neural Networks (GNNs) to the domain of Anti-Money Laundering (AML) has been an active area of research. Weber et al. conducted early experiments on synthetic AML datasets, finding that variants like Fast Graph Convolutional Networks (FastGCN) offered faster computation [\[13\]](#page-17-12). They later explored GNNs and traditional machine learning methods on the real-world
 
@@ -73,11 +73,11 @@ The application of Graph Neural Networks (GNNs) to the domain of Anti-Money Laun
 
 Elliptic dataset, with GCN outperforming simpler models but being surpassed by random forest [\[14\]](#page-17-13). Recognizing the importance of temporal information, Alarab et al. [\[15\]](#page-17-14) and Pareja et al. [\[16\]](#page-17-15) developed novel GNN architectures that captured evolving financial transaction patterns over time on the Elliptic dataset. Cardoso et al. [\[17\]](#page-17-16) introduced LaundroGraph, a self-supervised graph representation learning approach tailored for AML, showcasing the potential of graph-based techniques in extracting meaningful representations from financial interaction networks. Building on these foundational works, Johannessen et al. explored heterogeneous graph neural networks for real-world AML scenarios at DNB Bank [\[18\]](#page-18-0), while Altman et al. [\[3\]](#page-17-2) and Egressy et al. [\[19\]](#page-18-1) made significant contributions in developing and evaluating GNN models on the comprehensive synthetic AMLworld dataset. This body of research consistently highlights the effectiveness of GNNs in capturing the complex, graph-structured nature of money laundering activities, paving the way for continued advancements in this field.
 
-#### <span id="page-3-0"></span>2.2 Gradient-Boosted Trees (GBT) for AML
+### <span id="page-3-0"></span>2.2 Gradient-Boosted Trees (GBT) for AML
 
 The application of gradient-boosted tree (GBT) models, such as XGBoost and LightGBM, has also gained significant traction, with several studies including Tertychnyi et al. [\[20\]](#page-18-2), Jullum et al. [\[21\]](#page-18-3) and Vassallo et al. [\[22\]](#page-18-4), demonstrating the effectiveness of these ensemble learning techniques in AML detection. More recently, researchers have explored integrating graph-based feature extraction techniques with GBT models to further enhance their performance in AML tasks. Eddin et al. [\[23\]](#page-18-5) showcased the benefits of incorporating graph-based features, such as degree and GuiltyWalker, into LightGBM models. Building on this, Altman et al. [\[3\]](#page-17-2) and Blanuša et al. [\[12\]](#page-17-11) conducted comprehensive comparisons of GNN baselines and GBT models enhanced with their Graph Feature Preprocessor (GFP) on the AMLworld dataset, finding that the GBT-GFP combination, particularly XGBoost-GFP, outperformed the GNN approaches. These advancements highlight the potential of leveraging the synergies between graph-based representations and gradient-boosted tree models for effective AML detection.
 
-#### <span id="page-3-1"></span>2.3 Privacy-Preserving Technologies (PETs)
+### <span id="page-3-1"></span>2.3 Privacy-Preserving Technologies (PETs)
 
 PETs in Financial Crimes. Privacy-Preserving Technologies (PETs) have emerged as a promising approach to protect sensitive information and enable secure data computation and analysis while preserving privacy in various domains, including finance applications [\[24\]](#page-18-6). The integration of PETs with AML efforts is a relatively new and active area of research.
 
@@ -91,11 +91,11 @@ Notably, in the area of privacy-preserving GNNs, Ran et al. [\[34\]](#page-19-1)
 
 ### 3 Homomorphic Encryption (HE)
 
-#### 3.1 HE Overview
+### 3.1 HE Overview
 
 Homomorphic Encryption (HE) is a cryptographic technique that allows computations to be directly performed on encrypted data without the need for decryption. Unlike traditional encryption, which necessitates the decryption of data before meaningful computation, HE empowers secure computation while maintaining the confidentiality of data throughout the computation process.
 
-#### <span id="page-4-0"></span>3.2 Fully Homomorphic Encryption (FHE)
+### <span id="page-4-0"></span>3.2 Fully Homomorphic Encryption (FHE)
 
 Fully Homomorphic Encryption (FHE) was imagined by Rivest et al. [\[35\]](#page-19-2) in 1978, and the first scheme was developed by Craig Gentry [\[36\]](#page-19-3) in 2009. FHE supports an unlimited number of computations on encrypted data without revealing the underlying messages. Mathematically, if a user has an arbitrary function f and aims to derive f (m1, . . . , mn) for some inputs m1, . . . , mn, the plaintexts p1, . . . , p<sup>n</sup> are first encrypted using the public key pk, i.e.:
 
@@ -112,26 +112,26 @@ $$
 Machine Learning using FHE. In the context of machine learning, a party can encrypt input data using the public key, and the model will be able to process the data without seeing the original data. The final result is also encrypted, and the data can only be decrypted by the client who has the private key. This ensures confidentiality of the data from the machine learning model.
 
 ![](_page_5_Figure_6.jpeg)
-<!-- Image Description: This flowchart illustrates a secure machine learning system.  Client data is encrypted using a public key before being sent to a server's ML model. The model processes the encrypted data, returning an encrypted result. The client then decrypts the result using a private key, ensuring data confidentiality throughout the process.  The diagram highlights the secure and insecure environments, and depicts the encryption/decryption steps with visual representations of encrypted data. -->
+<!-- Image Description: This flowchart illustrates a secure machine learning system. Client data is encrypted using a public key before being sent to a server's ML model. The model processes the encrypted data, returning an encrypted result. The client then decrypts the result using a private key, ensuring data confidentiality throughout the process. The diagram highlights the secure and insecure environments, and depicts the encryption/decryption steps with visual representations of encrypted data. -->
 
-Fig. 1. Fully Homomorphic Encryption Process in Machine Learning
+Figure 1. Fully Homomorphic Encryption Process in Machine Learning
 
 Fully Homomorphic Encryption over the Torus (TFHE). TFHE is a specialized FHE scheme designed by Chillotti et al. [\[37\]](#page-19-4) for efficient computation of Boolean circuits on encrypted data. It enables very fast gate bootstrapping as well as circuit bootstrapping and operations over Boolean gates, reducing bootstrapping time to 13ms.
 
 TFHE-Concrete. TFHE-Concrete, an extended version of TFHE in Chillotti et al. [\[38\]](#page-19-5), enhances the versatility and performance of TFHE in practical applications. It pushes the frontiers of bootstrapping by being the first to implement programmable bootstrapping (PBS), allowing for the simultaneous evaluation of arbitrary univariate function during bootstrapping. This is achieved by replacing the plaintext bits with a function of them in a lookup table. Presently, this is the most powerful technique for efficiently evaluating homomorphic non-linear functions, including activation functions in deep neural networks [\[39\]](#page-19-6). By combining the benefits of fast bootstrapping with programmable bootstrapping functionality, TFHE-Concrete enables secure and efficient computations on encrypted data, making it a valuable tool for privacy-preserving data analysis.
 
-#### 3.3 Zama's Concrete Framework
+### 3.3 Zama's Concrete Framework
 
 Zama's Concrete framework is an open-source tool that empowers developers to integrate HE into their applications without the need for in-depth cryptography knowledge [\[38\]](#page-19-5). TFHE-Concrete, as an integral part of the Concrete framework, provides comprehensive support across various categories, including leveled operations, bootstrapped operations, and PBS. It supports the approximate or exact evaluation of arbitrary functions, and supports both Boolean and integer operations, making it a versatile and integrated FHE solution.
 
-| FHE Schemes   |   | Operations                                        | Non-linear | Data Types |   |   |   |   |
+| FHE Schemes | | Operations | Non-linear | Data Types | | | | |
 |---------------|---|---------------------------------------------------|------------|------------|---|---|---|---|
-|               |   | Level Bootstrapped PBS Exact Approx Bool Int Real |            |            |   |   |   |   |
-| BGV           | ✓ | ×                                                 | ×          | ×          | ✓ | × | ✓ | × |
-| BFV           | ✓ | ×                                                 | ×          | ×          | ✓ | × | ✓ | × |
-| CKKS          | ✓ | ×                                                 | ×          | ×          | ✓ | × | × | ✓ |
-| TFHE-Lib      | × | ✓                                                 | ×          | ✓          | × | ✓ | × | × |
-| TFHE-Concrete | ✓ | ✓                                                 | ✓          | ✓          | ✓ | ✓ | ✓ | × |
+| | | Level Bootstrapped PBS Exact Approx Bool Int Real | | | | | | |
+| BGV | ✓ | × | × | × | ✓ | × | ✓ | × |
+| BFV | ✓ | × | × | × | ✓ | × | ✓ | × |
+| CKKS | ✓ | × | × | × | ✓ | × | × | ✓ |
+| TFHE-Lib | × | ✓ | × | ✓ | × | ✓ | × | × |
+| TFHE-Concrete | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | × |
 
 Table 1. Comparison of TFHE-Concrete with Other FHE Schemes [\[40\]](#page-19-7)
 
@@ -139,7 +139,7 @@ Concrete ML. Concrete ML is a privacy-preserving machine learning Python toolkit
 
 The toolkit incorporates ready-to-use FHE-friendly models with an interface equivalent to scikit-learn. Additionally, it also provides support for customs models, including deep neural networks built with PyTorch or Keras/Tensorflow. For custom models, it is necessary to implement quantization before compiling to FHE, utilizing third-party libraries like Brevitas for PyTorch. The model is subsequently converted and imported into Concrete ML through the Open Neural Network Exchange (ONNX), an open-source standard facilitating interoperability across various deep learning frameworks and hardware platforms.
 
-#### 3.4 FHE Implementation using Concrete ML
+### 3.4 FHE Implementation using Concrete ML
 
 To implement FHE in our pipelines, Concrete ML was leveraged as the FHE implementation library. Concrete ML was chosen for its suitability in realizing privacy-preserving FHE-based machine learning models and its user-friendly interface for data scientists to develop privacy-preserving models on encrypted data. Training was first done on unencrypted data, producing a model that was then converted to an FHE equivalent that can perform encrypted inference.
 
@@ -155,9 +155,9 @@ In the project, Concrete ML is used in 2 forms:
 Below is a high-level overview of the project's collaborative AML with FHE solution architecture.
 
 ![](_page_7_Figure_4.jpeg)
-<!-- Image Description: This flowchart illustrates a secure multi-party computation framework for machine learning.  Data from three banks (A, B, C) is individually encrypted using public keys before being sent to an unsecured environment containing an ML model. The model processes the encrypted data, producing an encrypted result.  Finally, decryption using a private key yields the results in a secured environment.  The diagram details the data flow, encryption/decryption steps, and the separation of secure and unsecured environments. -->
+<!-- Image Description: This flowchart illustrates a secure multi-party computation framework for machine learning. Data from three banks (A, B, C) is individually encrypted using public keys before being sent to an unsecured environment containing an ML model. The model processes the encrypted data, producing an encrypted result. Finally, decryption using a private key yields the results in a secured environment. The diagram details the data flow, encryption/decryption steps, and the separation of secure and unsecured environments. -->
 
-Fig. 2. Collaborative FHE Solution Architecture
+Figure 2. Collaborative FHE Solution Architecture
 
 - 1. Client Initialization: A financial institution (FI) initiates the AML computation process with a query.
 - 2. Query Forwarding: The centralised server forwards the query to participating FIs.
@@ -167,22 +167,22 @@ Fig. 2. Collaborative FHE Solution Architecture
 
 The above process aligns with confidentiality regulations, such as those in Singapore, where the Banking Act prohibits the disclosure of Customer Information (CI), or the existence of a non-public relationship between the customer and the bank [\[26\]](#page-18-8).
 
-# <span id="page-8-0"></span>4 TFHE-Compatible GNN Pipeline
+## <span id="page-8-0"></span>4 TFHE-Compatible GNN Pipeline
 
 ![](_page_8_Figure_2.jpeg)
-<!-- Image Description: This flowchart illustrates a five-step process for performing FHE-encrypted inference using Concrete ML.  It begins by selecting a baseline Graph Neural Network (GNN) model, then quantizes and prunes it.  The pruned GNN is trained, compiled into an FHE equivalent, and finally used for inference under FHE encryption.  Each step is represented by a descriptive icon and text label. -->
+<!-- Image Description: This flowchart illustrates a five-step process for performing FHE-encrypted inference using Concrete ML. It begins by selecting a baseline Graph Neural Network (GNN) model, then quantizes and prunes it. The pruned GNN is trained, compiled into an FHE equivalent, and finally used for inference under FHE encryption. Each step is represented by a descriptive icon and text label. -->
 
-Fig. 3. Privacy-Preserving GNN Pipeline
+Figure 3. Privacy-Preserving GNN Pipeline
 
 The GNN pipeline focused on exploring the feasibility of making a Graph Neural Network (GNN) compatible with Fully Homomorphic Encryption (FHE), a challenge that has not been extensively addressed due to the inherent complexity of GNNs. This aimed to address the lack of prior work in integrating GNNs with FHE, which is crucial for enabling privacy-preserving collaborative machine learning in domains such as anti-money laundering.
 
 The pipeline involved: selecting a GNN baseline model, quantizing and pruning it for FHE compatibility, training on Concrete ML, compiling the GNN to its FHE equivalent, and finally performing FHE inference.
 
-#### 4.1 Baseline GNN model
+### 4.1 Baseline GNN model
 
 The Graph Isomorphism Network (GIN) was selected as the baseline GNN model. GIN is a message passing GNN that uses an iterative aggregation mechanism inspired by the Weisfeiler-Lehman graph isomorphism test [\[44\]](#page-19-8). The baseline GIN model is implemented using PyTorch Geometric and adapted from previous AML studies [\[3,](#page-17-2)[19](#page-18-1)[,45\]](#page-19-9).
 
-#### 4.2 Quantization
+### 4.2 Quantization
 
 Quantization makes models TFHE-compatible by transforming floating-points to integer representation. It is the process of constraining an input from a continuous or otherwise large set of values to a discrete set. While primarily used for enhancing the efficiency and compression of neural networks, quantization also helps address specific limitations associated with with FHE [\[46\]](#page-19-10). Firstly, quantization effectively substitutes floating-point value multiplications with integer multiplications, a feasible operation in FHE. Moreover, quantization enables the reduction of values to small integers, offering a strategy to navigate the challenges posed by limited precision in programmable bootstrapping.
 
@@ -197,7 +197,7 @@ Overall, the quantization strategies encompass a reduction in weight bit width f
 
 Quantization-Aware Training (QAT). Quantization-Aware Training (QAT) was employed to ensure the GNN model's compatibility with the reduced precision requirements of Fully Homomorphic Encryption (FHE). In QAT, the neural network undergoes training with an awareness of the quantization process, enabling the model to learn and adapt to the intricacies associated with lower bit-width weights and activations [\[47,](#page-19-11)[48\]](#page-19-12). QAT was implemented using Brevitas for Pytorch. Each PyTorch layer was mapped to its quantized version in Brevitas, and the corresponding weight and bit width were configured accordingly.
 
-#### 4.3 Pruning
+### 4.3 Pruning
 
 Pruning was employed to optimize the GNN model size and computational complexity, mitigating the risk of accumulator overflow during Fully Homomorphic Encryption (FHE) computations in Concrete ML [\[47\]](#page-19-11). Pruning involves setting certain weights in the neural network to zero, reducing the model's size and computational demands.
 
@@ -205,7 +205,7 @@ Some key benefits of pruning in the context of FHE include: controlling the numb
 
 In the GNN implementation, edge pruning was performed on less informative edges to streamline graph connectivity while ensuring the integrity of the financial transactions graph and preserving critical components.
 
-#### 4.4 Compilation of GNN model to FHE Equivalent
+### 4.4 Compilation of GNN model to FHE Equivalent
 
 Final conversion of the GNN model is performed by Concrete ML, which uses the Concrete Compiler to translate the Multi-Level Intermediate Representation (MLIR) representation of the model into an FHE program, generating machine code that executes the model on encrypted data.
 
@@ -216,9 +216,9 @@ While efforts were made to develop a privacy-preserving GNN pipeline using Concr
 ### <span id="page-10-0"></span>5 TFHE-Compatible XGBoost with GFP Pipeline
 
 ![](_page_10_Figure_6.jpeg)
-<!-- Image Description: The image displays a flowchart illustrating a machine learning workflow.  It shows five sequential steps: data splitting, graph feature enrichment using GFP, Bayesian optimization, XGBoost training using Concrete ML, and FHE-encrypted inference using Concrete ML. Each step is represented by a descriptive icon and text label, outlining the process from data preparation to secure inference.  The flowchart visually depicts the methodology used in the paper. -->
+<!-- Image Description: The image displays a flowchart illustrating a machine learning workflow. It shows five sequential steps: data splitting, graph feature enrichment using GFP, Bayesian optimization, XGBoost training using Concrete ML, and FHE-encrypted inference using Concrete ML. Each step is represented by a descriptive icon and text label, outlining the process from data preparation to secure inference. The flowchart visually depicts the methodology used in the paper. -->
 
-Fig. 4. Privacy-Preserving XGBoost Pipeline
+Figure 4. Privacy-Preserving XGBoost Pipeline
 
 The privacy-preserving graph-based XGBoost pipeline was successfully developed. This novel approach combines the predictive power of XGBoost with the security and confidentiality guarantees provided by TFHE, while leveraging Snap ML Graph Feature Preprocessor (GFP) to enrich the model with informative graph-based features.
 
@@ -228,7 +228,7 @@ The XGBoost pipeline encompasses the following steps: splitting the data, enrich
 
 Data splitting was performed in a temporal manner. The transactions were ordered in ascending order of timestamps and split into train and test sets. Generally, transactions occurring before timestamp T<sup>1</sup> are included in the training set,
 
-#### 12 F. Effendi and A. Chattopadhyay
+### 12 F. Effendi and A. Chattopadhyay
 
 while transactions occurring after timestamp T<sup>1</sup> are included in the testing set. Transactions from the same day were placed in the same set too. This method was employed to prevent data leakage and ensured that the model generalizes well to unseen data by maintaining the temporal order of transactions and avoiding information leakage from future to past data. Additionally, grouping same-day transactions enhanced the integrity of the dataset and facilitated more effective model training. The distribution ensures that the training and testing sets are representative of the overall dataset while maintaining a balanced illicit ratio for effective model training and evaluation.
 
@@ -244,13 +244,13 @@ An incremental approach was adopted to assess the impact of adding various graph
 
 Bayesian optimization was employed to optimize the hyperparameters of the XG-Boost model. This method systematically explores the hyperparameter space by iteratively assessing the model's performance with various parameter combinations, guided by a probabilistic model of the objective function. By selecting hyperparameters for evaluation based on the model's predictions, Bayesian optimization efficiently navigates the search space and identifies the hyperparameters values that maximize the model's performance. This approach enables the identification of optimal hyperparameters with fewer evaluations compared to exhaustive grid search or random search methods.
 
-#### 5.4 Training and Inference using Concrete ML
+### 5.4 Training and Inference using Concrete ML
 
 After Bayesian optimization, the optimized XGBoost model undergoes the Concrete ML pipeline for training and FHE-encrypted inference. This process involves several key steps. First, the model is trained on plaintext, non-encrypted training data. Next, the floating-point values in the model are transformed into integers through a quantization step. The quantized model is then executed in a simulation environment to assess its accuracy under FHE and identify any necessary modifications to ensure full compatibility. Following this, the quantized model is compiled into an equivalent FHE circuit, which can be executed on encrypted data. Finally, once the appropriate cryptographic keys are generated, the quantized XGBoost model is executed on the encrypted data, enabling privacy-preserving inference using the Concrete ML framework.
 
 ### <span id="page-12-0"></span>6 Experiments and Results
 
-#### 6.1 Dataset
+### 6.1 Dataset
 
 Dataset Selection. To train the machine learning models, a synthetic AML dataset was used to simulate money laundering scenarios, as strict privacy regulations surrounding banking data make real-world financial crime data not easily accessible. After evaluating several publicly available datasets [\[41,](#page-19-15)[42,](#page-19-16)[3\]](#page-17-2), the AMLworld HI-Small dataset [\[3,](#page-17-2)[43\]](#page-19-17) was selected for its comprehensive representation of real-world money laundering activities.
 
@@ -263,7 +263,7 @@ Dataset Modification. Due to computational constraints posed by the slower opera
 
 These modified datasets provide a robust foundation for developing and evaluating machine learning pipelines to combat financial crimes, while accounting for the computational limitations of FHE.
 
-#### 6.2 Environment Setup
+### 6.2 Environment Setup
 
 The experiments were conducted on a Linux system with an Intel Xeon CPU E5-1630 v4 @ 3.70GHz with 8 CPU cores, using Concrete ML version 1.4.1 to implement TFHE. As Concrete ML currently does not offer GPU support, CPU resources were utilized for the experiments.
 
@@ -273,15 +273,15 @@ Experiments were conducted on the privacy-preserving XGBoost pipeline using the 
 
 Table 2. Pattern categories of Graph-Based Features
 
-|                   | Pattern Category Graph-Based Features                 |
+| | Pattern Category Graph-Based Features |
 |-------------------|-------------------------------------------------------|
-| Single-Hop        | Fan-in, fan-out, degree-in, degree-out                |
-| Multi-Hop         | Scatter-gather, simple cycle, temporal cycle patterns |
-| Vertex Statistics | Sum, variance, skewness of transaction amount         |
+| Single-Hop | Fan-in, fan-out, degree-in, degree-out |
+| Multi-Hop | Scatter-gather, simple cycle, temporal cycle patterns |
+| Vertex Statistics | Sum, variance, skewness of transaction amount |
 
 In the experiments, the Bayesian hyperparameter tuning process iteratively samples various hyperparameter combinations across 50 iterations. A 3-fold cross-validation technique is employed in each iteration, where the dataset is divided into 3 equal folds for training and evaluation, with average performance guiding subsequent iterations of the optimization process. Once optimal hyperparameters are determined, the resulting model is integrated into the graph-based gradient boosting pipeline for FHE-based inference.
 
-#### 6.4 Results and Discussion on Balanced AML Dataset 1
+### 6.4 Results and Discussion on Balanced AML Dataset 1
 
 The following analysis will examine the performance metrics from Table [3](#page-14-0) to assess the effectiveness of the Bayesian optimized XGBoost model in identifying illicit activities in the balanced AML dataset. Additionally, the discussion will explore the inference time overhead linked with FHE as depicted in Table [4.](#page-14-1)
 
@@ -293,24 +293,24 @@ Little Effect of Graph Features. Despite the presence of various graph patterns 
 
 <span id="page-14-0"></span>Table 3. Performance metrics of Bayesian optimized XGBoost on Dataset 1. It highlights the effect of FHE encryption and adding graph-based features on XGBoost performance. Clear denotes inference on unencrypted data, while FHE denotes inference on FHE-encrypted data.
 
-| Input Features                                                              | Accuracy |  | F1 |  | Precision |  | Recall                                                  |  |
+| Input Features | Accuracy | | F1 | | Precision | | Recall | |
 |-----------------------------------------------------------------------------|----------|--|----|--|-----------|--|---------------------------------------------------------|--|
-|                                                                             |          |  |    |  |           |  | Clear FHE Clear FHE Clear FHE Clear FHE                 |  |
-| Basic features                                                              |          |  |    |  |           |  | 0.9972 0.9972 0.9978 0.9978 0.9981 0.9981 0.9975 0.9975 |  |
-| + Single-hop                                                                |          |  |    |  |           |  | 0.9972 0.9972 0.9978 0.9978 0.9981 0.9981 0.9975 0.9975 |  |
-| + Multi-hop                                                                 |          |  |    |  |           |  | 0.9972 0.9972 0.9978 0.9978 0.9981 0.9981 0.9975 0.9975 |  |
-| + Vertex statistics 0.9964 0.9964 0.9972 0.9972 0.9969 0.9969 0.9975 0.9975 |          |  |    |  |           |  |                                                         |  |
+| | | | | | | | Clear FHE Clear FHE Clear FHE Clear FHE | |
+| Basic features | | | | | | | 0.9972 0.9972 0.9978 0.9978 0.9981 0.9981 0.9975 0.9975 | |
+| + Single-hop | | | | | | | 0.9972 0.9972 0.9978 0.9978 0.9981 0.9981 0.9975 0.9975 | |
+| + Multi-hop | | | | | | | 0.9972 0.9972 0.9978 0.9978 0.9981 0.9981 0.9975 0.9975 | |
+| + Vertex statistics 0.9964 0.9964 0.9972 0.9972 0.9969 0.9969 0.9975 0.9975 | | | | | | | | |
 
 <span id="page-14-1"></span>Table 4. Inference time metrics of Bayesian optimized XGBoost on Dataset 1. It highlights the effect of FHE encryption and adding graph-based features on inference time. Time Ratio compares total inference time on FHE-encrypted data to unencrypted.
 
-|                                                         |       | Inference Time (s) |              |                                      |               |  |  |
+| | | Inference Time (s) | | | | | |
 |---------------------------------------------------------|-------|--------------------|--------------|--------------------------------------|---------------|--|--|
-| Input Features                                          |       | Average (Batch)    |              | Total                                | Time Ratio    |  |  |
-|                                                         | Clear | FHE                | Clear<br>FHE |                                      | (FHE / Clear) |  |  |
-| Basic features                                          |       |                    |              | 0.008414 1009.0963 0.1683 20181.9266 | 119926.12x    |  |  |
-| + Single-hop                                            |       |                    |              | 0.005632 806.4183 0.1183 16128.3664  | 136363.27x    |  |  |
-| + Multi-hop                                             |       |                    |              | 0.007108 818.8802 0.1422 16377.6037  | 115200.84x    |  |  |
-| + Vertex statistics 0.005781 959.1578 0.1156 19183.1552 |       |                    |              |                                      | 165917.40x    |  |  |
+| Input Features | | Average (Batch) | | Total | Time Ratio | | |
+| | Clear | FHE | Clear<br>FHE | | (FHE / Clear) | | |
+| Basic features | | | | 0.008414 1009.0963 0.1683 20181.9266 | 119926.12x | | |
+| + Single-hop | | | | 0.005632 806.4183 0.1183 16128.3664 | 136363.27x | | |
+| + Multi-hop | | | | 0.007108 818.8802 0.1422 16377.6037 | 115200.84x | | |
+| + Vertex statistics 0.005781 959.1578 0.1156 19183.1552 | | | | | 165917.40x | | |
 
 XGBoost may already capture the relevant features adequately without the need for additional complexity introduced by graph features.
 
@@ -318,23 +318,23 @@ FHE Encryption Overhead. While the model's performance remained strong, the infe
 
 Future work could focus on balancing model metrics and FHE inference time, potentially by adjusting parameters or feature sets to maintain high accuracy, precision, and recall while minimizing the encryption overhead.
 
-#### 6.5 Results and Discussion on Imbalanced AML Dataset 2
+### 6.5 Results and Discussion on Imbalanced AML Dataset 2
 
 The following analysis evaluates the performance metrics (Table [5\)](#page-15-0) and inference time (Table [6\)](#page-15-1) for the imbalanced AML dataset. Here, the minority F1-score is a better measure of performance than accuracy, as the latter can be misleading by favoring the majority class. In contrast, the F1-score considers both precision and recall, offering a balanced assessment and highlighting the detection of illicit money laundering transactions.
 
 Lower Performance on Imbalanced Dataset. For the imbalanced dataset, the model faced challenges in accurately identifying illicit activities, evident from the drop in F1-score and recall compared to the balanced dataset. The imbalanced nature negatively impacted the F1-score, a key metric for such scenarios.
 
-#### 16 F. Effendi and A. Chattopadhyay
+### 16 F. Effendi and A. Chattopadhyay
 
 <span id="page-15-0"></span>Table 5. Performance metrics of Bayesian optimized XGBoost on Dataset 2. It highlights the effect of FHE encryption and adding graph-based features on XGBoost performance. Clear denotes inference on unencrypted data, while FHE denotes inference on FHE-encrypted data.
 
-| Input Features                                                              | Accuracy |  | F1 |  | Precision                                               |  | Recall |  |
+| Input Features | Accuracy | | F1 | | Precision | | Recall | |
 |-----------------------------------------------------------------------------|----------|--|----|--|---------------------------------------------------------|--|--------|--|
-|                                                                             |          |  |    |  | Clear FHE Clear FHE Clear FHE Clear FHE                 |  |        |  |
-| Basic features                                                              |          |  |    |  | 0.9016 0.9016 0.3056 0.3056 0.7857 0.7857 0.1897 0.1897 |  |        |  |
-| + Single-hop                                                                |          |  |    |  | 0.9094 0.9094 0.3867 0.3867 0.8529 0.8529 0.2500 0.2500 |  |        |  |
-| + Multi-hop                                                                 |          |  |    |  | 0.9075 0.9075 0.3733 0.3733 0.8235 0.8235 0.2414 0.2414 |  |        |  |
-| + Vertex statistics 0.9035 0.9035 0.3467 0.3467 0.7647 0.7647 0.2241 0.2241 |          |  |    |  |                                                         |  |        |  |
+| | | | | | Clear FHE Clear FHE Clear FHE Clear FHE | | | |
+| Basic features | | | | | 0.9016 0.9016 0.3056 0.3056 0.7857 0.7857 0.1897 0.1897 | | | |
+| + Single-hop | | | | | 0.9094 0.9094 0.3867 0.3867 0.8529 0.8529 0.2500 0.2500 | | | |
+| + Multi-hop | | | | | 0.9075 0.9075 0.3733 0.3733 0.8235 0.8235 0.2414 0.2414 | | | |
+| + Vertex statistics 0.9035 0.9035 0.3467 0.3467 0.7647 0.7647 0.2241 0.2241 | | | | | | | | |
 
 Improved Performance with Graph-Based Features. Despite the challenges posed by the imbalanced dataset, incorporating graph-based features improved the model's predictive capabilities. The addition of single-hop features led to the highest accuracy, F1-score, precision, and recall among all feature sets, outperforming the basic features. However, adding more advanced multi-hop and vertex statistics features resulted in a slight performance decrease compared to the single-hop features, though they still outperformed the basic features. Further investigation is required to understand the reasons behind this performance change when incorporating the additional graph-based feature categories.
 
@@ -342,14 +342,14 @@ Consistent Performance in Encrypted Inference. Moreover, the consistency in perf
 
 <span id="page-15-1"></span>Table 6. Inference time metrics of Bayesian optimized XGBoost on Dataset 2. It highlights the effect of FHE encryption and adding graph-based features on inference time. Time Ratio compares total inference time on FHE-encrypted data to unencrypted.
 
-|                                                        |                 | Inference Time (s) |              |                                     |               |  |  |
+| | | Inference Time (s) | | | | | |
 |--------------------------------------------------------|-----------------|--------------------|--------------|-------------------------------------|---------------|--|--|
-| Input Features                                         | Average (Batch) |                    |              | Total                               | Time Ratio    |  |  |
-|                                                        | Clear           | FHE                | Clear<br>FHE |                                     | (FHE / Clear) |  |  |
-| Basic features                                         |                 |                    |              | 0.003041 270.1013 0.02433 2160.8107 | 88822.54x     |  |  |
-| + Single-hop                                           | 0.003055        | 64.9026            |              | 0.02444 519.2208                    | 21246.95x     |  |  |
-| + Multi-hop                                            | 0.002270        | 34.1322            |              | 0.01816 273.0572                    | 15038.47x     |  |  |
-| + Vertex statistics 0.003607 121.0173 0.02886 968.1386 |                 |                    |              |                                     | 33546.76x     |  |  |
+| Input Features | Average (Batch) | | | Total | Time Ratio | | |
+| | Clear | FHE | Clear<br>FHE | | (FHE / Clear) | | |
+| Basic features | | | | 0.003041 270.1013 0.02433 2160.8107 | 88822.54x | | |
+| + Single-hop | 0.003055 | 64.9026 | | 0.02444 519.2208 | 21246.95x | | |
+| + Multi-hop | 0.002270 | 34.1322 | | 0.01816 273.0572 | 15038.47x | | |
+| + Vertex statistics 0.003607 121.0173 0.02886 968.1386 | | | | | 33546.76x | | |
 
 Effect of Feature Complexity on Inference Time. Interestingly, as graph-based feature complexity increased, inference time decreased for both clear and FHE-encrypted data, suggesting that the overhead of advanced features may be offset by their ability to streamline the inference process, resulting in more efficient model predictions. Further analysis is needed to validate this observation. Other potential factors contributing to this trend could include the optimization of feature representations, the inherent parallelism in graph-based computations, or the effectiveness of the Bayesian optimization process.
 
@@ -440,7 +440,7 @@ Privacy-Preserving Graph-Based ML with FHE for Collaborative AML 19
 
 This appendix outlines some of the key considerations in the design of the collaborative FHE architecture.
 
-#### A.1 Advantages of Collaborative FHE over MPC
+### A.1 Advantages of Collaborative FHE over MPC
 
 Below details the key advantages of our proposed collaborative FHE architecture in comparison to traditional Multi-Party Computation (MPC) methods in the context of AML applications.
 
@@ -450,7 +450,7 @@ In contrast, our collaborative FHE architecture does not rely on data fragmentat
 
 Moreover, our FHE architecture enables multiple FIs to encrypt and submit their data for secure computation while requiring only the inquiry FI to decrypt the final result. This significantly reduces communication overhead, resulting in improved scalability compared to MPC, which incurs considerable overhead due to constant data exchanges among participants.
 
-#### A.2 Public Key Sharing
+### A.2 Public Key Sharing
 
 Our FHE architecture effectively manages public key sharing and minimizes associated network overhead.
 
@@ -462,77 +462,74 @@ Our FHE architecture effectively manages public key sharing and minimizes associ
 
 This appendix provides additional details on the modifications made to the original AMLworld HI-Small dataset.
 
-#### B.1 Modified AML Dataset 1
+### B.1 Modified AML Dataset 1
 
 Undersampling was used to create a balanced dataset of 10,354 transactions and 15,230 accounts, preserving rows associated with the 370 money laundering pattern groups in the original dataset (Table [7\)](#page-21-0). This reduced the dataset size for FHE computations while balancing the 50
 
 <span id="page-21-0"></span>Table 7. Money Laundering Pattern Groups in AMLworld HI-Small dataset
 
-| Pattern        | Count |
+| Pattern | Count |
 |----------------|-------|
-| Fan-In         | 61    |
-| Fan-Out        | 80    |
-| Gather-Scatter | 77    |
-| Cycle          | 82    |
-| Random         | 70    |
-| Total Patterns | 370   |
+| Fan-In | 61 |
+| Fan-Out | 80 |
+| Gather-Scatter | 77 |
+| Cycle | 82 |
+| Random | 70 |
+| Total Patterns | 370 |
 
 Table 8. Characteristics of Modified AML Dataset 1
 
-| Characteristics                | Value  |
+| Characteristics | Value |
 |--------------------------------|--------|
-| Number of accounts             | 15,230 |
-| Number of transactions         | 10,354 |
-| Illicit money laundering ratio | 50%    |
+| Number of accounts | 15,230 |
+| Number of transactions | 10,354 |
+| Illicit money laundering ratio | 50% |
 
-#### B.2 Modified AML Dataset 2
+### B.2 Modified AML Dataset 2
 
 A smaller, highly imbalanced dataset was created by randomly sampling 40 out of the 370 pattern groups to represent illicit transactions (Table [9\)](#page-21-1). This resulted in 5,491 transactions across 9,070 accounts, with a 5.72% illicit ratio (Table [10\)](#page-22-0).
 
 <span id="page-21-1"></span>Table 9. Money Laundering Pattern Groups in Modified AML Dataset 2
 
-| Pattern        | Count |
+| Pattern | Count |
 |----------------|-------|
-| Fan-In         | 8     |
-| Fan-Out        | 7     |
-| Gather-Scatter | 9     |
-| Cycle          | 8     |
-| Random         | 8     |
-| Total Patterns | 40    |
+| Fan-In | 8 |
+| Fan-Out | 7 |
+| Gather-Scatter | 9 |
+| Cycle | 8 |
+| Random | 8 |
+| Total Patterns | 40 |
 
 Table 10. Characteristics of Modified AML Dataset 2
 
-<span id="page-22-0"></span>
 
-| Characteristics                      | Value |
+| Characteristics | Value |
 |--------------------------------------|-------|
-| Number of accounts                   | 9070  |
-| Number of transactions               | 5491  |
-| Illicit money laundering ratio 5.72% |       |
+| Number of accounts | 9070 |
+| Number of transactions | 5491 |
+| Illicit money laundering ratio 5.72% | |
 
 ### C Train-Test Split Distribution
 
 The datasets were split temporally, with the training set comprising 75-81% of the data (Tables [11](#page-22-1) and [12\)](#page-22-2).
 
-|  |  |  | Table 11. Train-Test Split Distribution for Modified AML Dataset 1 |  |  |  |  |  |
+| | | | Table 11. Train-Test Split Distribution for Modified AML Dataset 1 | | | | | |
 |--|--|--|--------------------------------------------------------------------|--|--|--|--|--|
 |--|--|--|--------------------------------------------------------------------|--|--|--|--|--|
 
-<span id="page-22-1"></span>
 
-|              | Percentage of Dataset Illicit Ratio |        |
+| | Percentage of Dataset Illicit Ratio | |
 |--------------|-------------------------------------|--------|
-| Train Sample | 75.85%                              | 45.47% |
-| Test Sample  | 24.15%                              | 64.16% |
+| Train Sample | 75.85% | 45.47% |
+| Test Sample | 24.15% | 64.16% |
 
 Table 12. Train-Test Split Distribution for Modified AML Dataset 2
 
-<span id="page-22-2"></span>
 
-|              | Percentage of Dataset Illicit Ratio |        |
+| | Percentage of Dataset Illicit Ratio | |
 |--------------|-------------------------------------|--------|
-| Train Sample | 81.50%                              | 4.42%  |
-| Test Sample  | 18.50%                              | 11.42% |
+| Train Sample | 81.50% | 4.42% |
+| Test Sample | 18.50% | 11.42% |
 
 ### D Definition of Graph-Based Features
 
@@ -549,21 +546,20 @@ Below are an elaboration of the vertex-statistics-based features.
 – Sum provides insight into the overall volume of financial activity. High sums may indicate potentially suspicious behavior, such as large-scale transactions or money laundering schemes.
 
 - 24 F. Effendi and A. Chattopadhyay
-  - Variance reflects the dispersion or spread of transaction amounts around the mean. High variance may suggest irregular or unpredictable patterns in financial transactions, indicative of fraudulent activities.
-  - Skewness measures the asymmetry of the distribution of transaction amounts. Positive skewness suggests a longer tail towards higher values, while negative skewness suggests a longer tail towards lower values. Extreme positive skewness may indicate unusual transaction patterns that require further investigation.
+- Variance reflects the dispersion or spread of transaction amounts around the mean. High variance may suggest irregular or unpredictable patterns in financial transactions, indicative of fraudulent activities.
+- Skewness measures the asymmetry of the distribution of transaction amounts. Positive skewness suggests a longer tail towards higher values, while negative skewness suggests a longer tail towards lower values. Extreme positive skewness may indicate unusual transaction patterns that require further investigation.
 
 ### E Hyperparameter Tuning Seach Space
 
 The Bayesian optimization search space for XGBoost hyperparameters is detailed in Table [13.](#page-23-0)
 
-<span id="page-23-0"></span>
 
-| Parameter        | Search Space Range |
+| Parameter | Search Space Range |
 |------------------|--------------------|
-| n_estimators     | (5, 30)            |
-| max_depth        | (2, 12)            |
-| learning_rate    | (0.003, 0.1)       |
-| colsample_bytree | (0.5, 1)           |
+| n_estimators | (5, 30) |
+| max_depth | (2, 12) |
+| learning_rate | (0.003, 0.1) |
+| colsample_bytree | (0.5, 1) |
 
 Table 13. Search Space for Bayesian Optimization of XGBoost Hyperparameters
 
@@ -573,32 +569,32 @@ Experiments varying n\_estimators, max\_depth, and n\_bits provided insights int
 
 <span id="page-24-0"></span>Table 14. Performance and time metrics of XGBoost models with varying n\_estimators. Experiment was conducted on Dataset 1 at fixed n\_bits = 3, learning\_rate = 0.07, colsample\_bytree = 0.98, max\_depth = 3.
 
-| n_estimator | Accuracy |  | F1-Score            |  | Inference Time (s)                   | Time     |         |
+| n_estimator | Accuracy | | F1-Score | | Inference Time (s) | Time | |
 |-------------|----------|--|---------------------|--|--------------------------------------|----------|---------|
-|             |          |  | Clear FHE Clear FHE |  | Clear                                | FHE      | Ratio   |
-| 5           |          |  |                     |  | 0.6428 0.6428 0.7822 0.7822 0.009405 | 1401.32  | 149000x |
-| 10          |          |  |                     |  | 0.6428 0.6428 0.7822 0.7822 0.013848 | 2222.64  | 160504x |
-| 50          |          |  |                     |  | 0.6432 0.6432 0.7824 0.7824 0.042257 | 26595.60 | 629379x |
-| 100         |          |  |                     |  | 0.6483 0.6483 0.7846 0.7846 0.205946 | 55523.89 | 269604x |
-| 200         |          |  |                     |  | 0.6483 0.6468 0.7846 0.7833 0.174605 | 65481.47 | 375027x |
+| | | | Clear FHE Clear FHE | | Clear | FHE | Ratio |
+| 5 | | | | | 0.6428 0.6428 0.7822 0.7822 0.009405 | 1401.32 | 149000x |
+| 10 | | | | | 0.6428 0.6428 0.7822 0.7822 0.013848 | 2222.64 | 160504x |
+| 50 | | | | | 0.6432 0.6432 0.7824 0.7824 0.042257 | 26595.60 | 629379x |
+| 100 | | | | | 0.6483 0.6483 0.7846 0.7846 0.205946 | 55523.89 | 269604x |
+| 200 | | | | | 0.6483 0.6468 0.7846 0.7833 0.174605 | 65481.47 | 375027x |
 
 <span id="page-24-1"></span>Table 15. Performance and time metrics of XGBoost models with varying max\_depth. Experiment was conducted on Dataset 1 at fixed n\_bits = 3, learning\_rate = 0.07, colsample\_bytree = 0.98, n\_estimator = 20.
 
-| max_depth | Accuracy |                     | F1-Score |                                      |          | Inference Time (s) Time Ratio |
+| max_depth | Accuracy | | F1-Score | | | Inference Time (s) Time Ratio |
 |-----------|----------|---------------------|----------|--------------------------------------|----------|-------------------------------|
-|           |          | Clear FHE Clear FHE |          | Clear                                | FHE      |                               |
-| 1         |          |                     |          | 0.3584 0.3584 0.0000 0.0000 0.019856 | 4014.30  | 202173.40x                    |
-| 4         |          |                     |          | 0.5540 0.5540 0.6809 0.6809 0.121287 | 29193.94 | 240701.55x                    |
-| 7         |          |                     |          | 0.5540 0.5540 0.6809 0.6809 1.873080 | 47420.48 | 25316.84x                     |
-| 10        |          |                     |          | 0.5540 0.5540 0.6809 0.6809 0.228830 | 40407.25 | 176581.86x                    |
-| 13        |          |                     |          | 0.5540 0.5540 0.6809 0.6809 0.184337 | 41289.46 | 223988.81x                    |
+| | | Clear FHE Clear FHE | | Clear | FHE | |
+| 1 | | | | 0.3584 0.3584 0.0000 0.0000 0.019856 | 4014.30 | 202173.40x |
+| 4 | | | | 0.5540 0.5540 0.6809 0.6809 0.121287 | 29193.94 | 240701.55x |
+| 7 | | | | 0.5540 0.5540 0.6809 0.6809 1.873080 | 47420.48 | 25316.84x |
+| 10 | | | | 0.5540 0.5540 0.6809 0.6809 0.228830 | 40407.25 | 176581.86x |
+| 13 | | | | 0.5540 0.5540 0.6809 0.6809 0.184337 | 41289.46 | 223988.81x |
 
 <span id="page-24-2"></span>Table 16. Performance and time metrics of XGBoost models with varying n\_bits. Experiment was conducted on Dataset 1 at fixed learning\_rate = 0.07, colsample\_bytree = 0.98, n\_estimator = 20, max\_depth = 3.
 
-| n_bits | Accuracy |  | F1-Score            |  |                                      |          | Inference Time (s) Time Ratio |
+| n_bits | Accuracy | | F1-Score | | | | Inference Time (s) Time Ratio |
 |--------|----------|--|---------------------|--|--------------------------------------|----------|-------------------------------|
-|        |          |  | Clear FHE Clear FHE |  | Clear                                | FHE      |                               |
-| 2      |          |  |                     |  | 0.4540 0.4540 0.4553 0.4553 0.042825 | 7244.70  | 169168.00x                    |
-| 3      |          |  |                     |  | 0.5540 0.5540 0.6809 0.6809 0.055623 | 11766.27 | 211534.87x                    |
-| 4      |          |  |                     |  | 0.6432 0.6432 0.7824 0.7824 0.055750 | 30344.95 | 544307.47x                    |
-| 8      |          |  |                     |  | 0.6428 0.6428 0.7821 0.7821 0.023308 | 32139.84 | 1378944.61x                   |
+| | | | Clear FHE Clear FHE | | Clear | FHE | |
+| 2 | | | | | 0.4540 0.4540 0.4553 0.4553 0.042825 | 7244.70 | 169168.00x |
+| 3 | | | | | 0.5540 0.5540 0.6809 0.6809 0.055623 | 11766.27 | 211534.87x |
+| 4 | | | | | 0.6432 0.6432 0.7824 0.7824 0.055750 | 30344.95 | 544307.47x |
+| 8 | | | | | 0.6428 0.6428 0.7821 0.7821 0.023308 | 32139.84 | 1378944.61x |

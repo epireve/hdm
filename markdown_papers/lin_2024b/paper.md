@@ -31,9 +31,6 @@ keywords:
 - under-denoising
 ---
 
-
-
-
 # LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated Denoising and Private Learning
 
 Yuxin Qi Shanghai Jiao Tong University Shanghai, China qiyuxin98@sjtu.edu.cn
@@ -52,7 +49,7 @@ Jianhua Li Shanghai Jiao Tong University Shanghai, China lijh888@sjtu.edu.cn
 
 Recent studies have introduced privacy-preserving graph neural networks to safeguard the privacy of sensitive link information in graphs. However, existing link protection mechanisms in GNNs, particularly over decentralized nodes, struggle to strike an optimal balance between privacy and utility. We argue that a pivotal issue is the separation of noisy topology denoising and GNN private learning into distinct phases at the server side, leading to an under-denoising problem in the noisy topology. To address this, we propose a dynamic, adaptive Link LDP framework that performs noisy topology denoising on the server side in a dynamic manner. This approach aims to mitigate the impact of local noise on the GNN training process, reducing the uncertainty introduced by local noise. Furthermore, we integrate the noise generation and private training processes across all existing Link LDP GNNs into a unified framework. Experimental results demonstrate that our method surpasses existing approaches, obtaining around a 7% performance improvement under strong privacy strength and achieving a better trade-off between utility and privacy.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Security and privacy → Privacy-preserving protocols; Social network security and privacy; Privacy protections.
 
@@ -70,7 +67,7 @@ WWW '24 Companion, May 13–17, 2024, Singapore, Singapore
 
 Singapore, Singapore. ACM, New York, NY, USA, [4](#page-3-0) pages. [https://doi.org/10.](https://doi.org/10.1145/3589335.3651533) [1145/3589335.3651533](https://doi.org/10.1145/3589335.3651533)
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 In recent years, Graph Neural Networks (GNNs) have shown impressive potential in a variety of fields, including social network analysis, recommendation systems, and anomaly detection. However, training on graph data can lead to the exposure of private information, making it vulnerable to privacy attacks like membership inference [\[10,](#page-3-1) [13\]](#page-3-2), attribute inference [\[7\]](#page-3-3), and edge stealing [\[3,](#page-3-4) [11\]](#page-3-5). This conflicts with the privacy protections required by the General Data Protection Regulation (GDPR). As a result, the study of privacy-preserving techniques for GNNs has gained attention, with several methods being proposed to safeguard sensitive information.
 
@@ -87,9 +84,9 @@ To overcome the under-denoising challenge stemming from separating denoising and
 <span id="page-1-0"></span>![](_page_1_Figure_3.jpeg)
 <!-- Image Description: This figure illustrates two data processing workflows (a) and (b). Both involve a client employing a differential privacy (DP) mechanism to permute data 'A', then uploading it to a server. The server performs denoising before GNN (Graph Neural Network) training. The difference lies in the server-side architecture: (a) shows separate denoising and GNN training stages, while (b) integrates them. The figure compares alternative architectures for privacy-preserving GNN training. -->
 
-Figure 1: Difference between existing Link LDP methods and proposed schema. (a) Overflow of existing Link LDP GNN methods. (b) Overflow of the proposed framework.
+**Figure 1:** Difference between existing Link LDP methods and proposed schema. (a) Overflow of existing Link LDP GNN methods. (b) Overflow of the proposed framework.
 
-#### 2 RELATED WORKS
+### 2 RELATED WORKS
 
 Recent advancements have explored employing DP techniques to ensure privacy at both the node and link levels within GNNs.
 
@@ -101,9 +98,9 @@ effects on GNN training. LinkTeller [\[11\]](#page-3-5) employs the Laplace mech
 
 However, existing link-level LDP methods on GNN separate the denoise process and GNN optimization into two steps on the server slide, which leads to the under-denoise problem and decreases the balance between privacy and utility.
 
-#### 3 METHOD
+### 3 METHOD
 
-#### 1 Problem Formulation
+### 1 Problem Formulation
 
 Consider an undirected, unweighted graph G, defined by a set of nodes V, a set of edges E, a feature matrix , and a label matrix . The adjacency matrix ∈ 0, 1 <sup>×</sup> , where = |V | indicates the number of nodes, encodes the link between nodes: = 1 if an edge connects node to node . The feature matrix ∈ R × compiles the feature vectors for all nodes ∈ V , denoting the feature dimension. The label matrix ∈ R <sup>×</sup> contains the ground truth labels for the nodes , where is the total class number.
 
@@ -119,18 +116,18 @@ $$
 Pr[\mathcal{A}(\mathcal{G}) \in S] \le e^{\epsilon} Pr[\mathcal{A}(\mathcal{G}') \in S]. \tag{1}
 $$
 
-#### 2 Overall Framework
+### 2 Overall Framework
 
 We first show the overall framework of the server side in Figure [2](#page-2-0) as follows. We unify the denoise and computation processes of existing works into three main steps: Noisy Topology Estimation, GNN Private Propagation Unit, and GNN Private Output. Note that we deeper exploit the existing noisy topology estimation methods in the following GNN training process. We mainly focus on the GNN Private Propagation Unit.
 
-#### 3 GNN Private Propagation Unit
+### 3 GNN Private Propagation Unit
 
 To address the issue of under-denoising caused by the separation of the denoising process and GNN training on the server side, we introduce the GNN Private Propagation Unit. This unit integrates LinkGuard: Link Locally Privacy-Preserving Graph Neural
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a graph neural network (GNN) architecture for handling noisy data. It shows a series of processing steps: noisy topology estimation feeds into multiple GNN private propagation units. Internally, a GNN propagation layer uses an estimated noisy adjacency matrix to compute a noisy intermediate embedding. Node similarity is calculated, feeding into a fusion-based edge weight update, iteratively refining the edge weights and ultimately producing a GNN private output. The diagram details the data flow and transformations within the GNN model. -->
 
-Figure 2: The framework of the proposed method.
+**Figure 2:** The framework of the proposed method.
 
 GNN training with topology denoising, offering a dynamic and training-adaptive denoising method on the server side. This approach not only mitigates the under-denoising problem without compromising privacy protection but also enhances the utility of privacy-preserving GNN models.
 
@@ -144,12 +141,12 @@ $$
 
 where ℎ () is the -th layer private embedding of node . Up to now, the computation is similar to that of Blink [\[14\]](#page-3-13). However, given that a small privacy budget (indicating a high degree of privacy protection) can significantly perturb , relying solely on as the edge weight introduces excessive uncertainty into subsequent rounds of GNN learning. To mitigate the impact of perturbation noise and consider the homogeneous properties in graphs, we incorporate node similarity into the update of . For instance, in social graphs, adjacent nodes (i.e., users with social connections) exhibit similarities, such as liking the same celebrity. To unearth such similarities, we exploit the weighted propagation to obtain the Noisy Intermediate Embedding , analyzing distances between embeddings to calculate node similarity values , employing various similarity computation methods. In this work, we use cosine similarity. Based on obtained, we fuse it with the Estimated Noisy Adjacency Matrix to derive the updated Fused edge weight , which then serves as the weight for the next GNN propagation layer. To eliminate the impact of degree on weights, we normalized
 
- along the degree dimension. Subsequent layers alternate between using and as the edge weight. Note that multiple fusion methods can be applied; in this paper, we opt for linear aggregation due to its low additional computational cost, high explainable capability, and effectiveness in preserving the fusion's impact. The fusion process can be represented as
+along the degree dimension. Subsequent layers alternate between using and as the edge weight. Note that multiple fusion methods can be applied; in this paper, we opt for linear aggregation due to its low additional computational cost, high explainable capability, and effectiveness in preserving the fusion's impact. The fusion process can be represented as
 
 $$
 \overline{E}_{W,i} = \beta \overline{A}_{ij} + (1 - \beta) s_{ij} / \overline{deg}_i,
 $$
- (3)
+(3)
 
 where , is the updated weight of node , is a learnable parameter, is the degree of on noisy graph. Note that our framework did not introduce extra pre-defined parameters.
 
@@ -157,14 +154,14 @@ This weighted private GNN update and fusion method not only delves deeper into t
 
 Note: The server side only has access to the noisy topology in the denoise and GNN phase. According to the DP post-processing theorem, the whole algorithm still satisfies DP constraints.
 
-#### 4 EXPERIMENT
+### 4 EXPERIMENT
 
 In this section, we evaluate the proposed method in privacy strength and model utility. We seek to answer the following two questions:
 
 - R1. How is the proposed framework performance compared with Link LDP guaranteed GNNs?
 - R2. How does the proposed framework balance privacy and utility across different GNNs?
 
-#### 1 Datasets and Experimental Setup
+### 1 Datasets and Experimental Setup
 
 Two publicly available datasets are tested, including citation networks Cora and Citeseer [\[12\]](#page-3-14). Following [\[9\]](#page-3-9), the datasets are divided into the training, validation, and test set in the ratio of 75%, 10%, and 15%, and all the graphs are bounded by limiting the maximum degree to 100. The backbone GNNs include two convolutional layers with hidden dimension 16, RELU activation function, and a dropout layer with a probability of 0.5. The model performance is measured by training 10 consecutive rounds on the test set and taking the average value and standard deviation. All experiments are implemented on a Linux machine by using PyTorch and PyTorch-Geometric (PyG) with NVIDIA GeForce RTX 3090 and 64 GB RAM.
 
@@ -174,23 +171,23 @@ Utility-privacy Trade-off Compared with SOTA Link LDP GNNs (R1). In Table [1,](#
 
 <span id="page-3-15"></span><span id="page-3-0"></span>WWW '24 Companion, May 13–17, 2024, Singapore, Singapore Yuxin Qi et al.
 
-| Dataset             | Cora       |            |            |            | Citeseer   |            |            |            |
+| Dataset | Cora | | | | Citeseer | | | |
 |---------------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|                     | 𝜖=4        | 𝜖=3        | 𝜖=2        | 𝜖=1        | 𝜖=4        | 𝜖=3        | 𝜖=2        | 𝜖=1        |
-| LDPGen              | 27.61±0.04 | 26.08±0.06 | 28.10±0.02 | 28.57±0.02 | 31.37±0.01 | 23.39±0.03 | 25.61±0.02 | 28.36±0.02 |
-| LDPGen (with Ours)  | 30.88±0.05 | 28.99±0.04 | 31.57±0.03 | 30.44±0.04 | 36.36±0.01 | 30.92±0.03 | 29.47±0.04 | 36.00±0.02 |
-|                     | + 0.75     | + 2.81     | + 0.3      | + 1.51     | + 4.99     | + 7.53     | + 3.86     | +7.64      |
-| DPRR                | 31.10±0.01 | 29.85±0.01 | 30.04±0.00 | 29.19±0.00 | 19.61±0.01 | 20.04±0.01 | 20.20±0.01 | 20.08±0.00 |
-| DPRR (with Ours)    | 35.73±0.35 | 30.49±0.01 | 30.93±0.01 | 29.82±0.00 | 24.26±0.02 | 21.51±0.02 | 21.79±0.02 | 20.72±0.00 |
-|                     | + 4.63     | + 2.91     | + 3.47     | + 1.87     | + 4.65     | + 1.47     | + 1.59     | + 0.64     |
-| L-DPGCN             | 73.32±0.02 | 73.91±0.00 | 74.95±0.00 | 74.48±0.01 | 66.50±0.02 | 68.14±0.01 | 73.43±0.00 | 73.49±0.01 |
+| | 𝜖=4 | 𝜖=3 | 𝜖=2 | 𝜖=1 | 𝜖=4 | 𝜖=3 | 𝜖=2 | 𝜖=1 |
+| LDPGen | 27.61±0.04 | 26.08±0.06 | 28.10±0.02 | 28.57±0.02 | 31.37±0.01 | 23.39±0.03 | 25.61±0.02 | 28.36±0.02 |
+| LDPGen (with Ours) | 30.88±0.05 | 28.99±0.04 | 31.57±0.03 | 30.44±0.04 | 36.36±0.01 | 30.92±0.03 | 29.47±0.04 | 36.00±0.02 |
+| | + 0.75 | + 2.81 | + 0.3 | + 1.51 | + 4.99 | + 7.53 | + 3.86 | +7.64 |
+| DPRR | 31.10±0.01 | 29.85±0.01 | 30.04±0.00 | 29.19±0.00 | 19.61±0.01 | 20.04±0.01 | 20.20±0.01 | 20.08±0.00 |
+| DPRR (with Ours) | 35.73±0.35 | 30.49±0.01 | 30.93±0.01 | 29.82±0.00 | 24.26±0.02 | 21.51±0.02 | 21.79±0.02 | 20.72±0.00 |
+| | + 4.63 | + 2.91 | + 3.47 | + 1.87 | + 4.65 | + 1.47 | + 1.59 | + 0.64 |
+| L-DPGCN | 73.32±0.02 | 73.91±0.00 | 74.95±0.00 | 74.48±0.01 | 66.50±0.02 | 68.14±0.01 | 73.43±0.00 | 73.49±0.01 |
 | L-DPGCN (with Ours) | 73.65±0.01 | 74.48±0.00 | 75.19±0.00 | 74.53±0.01 | 67.81±0.01 | 68.94±0.01 | 73.51±0.00 | 73.74±0.00 |
-|                     | + 0.33     | + 0.57     | + 0.24     | + 0.05     | + 1.31     | + 0.80     | + 0.08     | + 1.27     |
-| BLink               | 81.13±0.02 | 52.56±0.08 | 41.87±0.07 | 37.09±0.11 | 64.80±0.03 | 47.25±0.09 | 27.03±0.07 | 26.69±0.07 |
-| BLink (with Ours)   | 81.23±0.01 | 54.67±0.14 | 47.61±0.08 | 40.27±0.09 | 65.55±0.03 | 50.06±0.09 | 27.33±0.06 | 28.20±0.07 |
-|                     | + 0.1      | + 2.11     | + 5.74     | + 3.18     | + 0.75     | + 2.81     | + 0.3      | + 1.51     |
+| | + 0.33 | + 0.57 | + 0.24 | + 0.05 | + 1.31 | + 0.80 | + 0.08 | + 1.27 |
+| BLink | 81.13±0.02 | 52.56±0.08 | 41.87±0.07 | 37.09±0.11 | 64.80±0.03 | 47.25±0.09 | 27.03±0.07 | 26.69±0.07 |
+| BLink (with Ours) | 81.23±0.01 | 54.67±0.14 | 47.61±0.08 | 40.27±0.09 | 65.55±0.03 | 50.06±0.09 | 27.33±0.06 | 28.20±0.07 |
+| | + 0.1 | + 2.11 | + 5.74 | + 3.18 | + 0.75 | + 2.81 | + 0.3 | + 1.51 |
 
-Table 1: Quantitative comparison on two datasets to evaluate our framework under the Link LDP guarantee.
+**Table 1:** Quantitative comparison on two datasets to evaluate our framework under the Link LDP guarantee.
 
 privacy strengths (i.e., lower values). For instance, on the Citeseer dataset, at = 3 and = 1, compared to the original LDPGen, our framework achieved improvements of 7.53% and 7.64%, respectively. This indicates that dynamic denoising during the GNN training process effectively reduces the impact of uncertainty introduced by permuted topology during propagation.
 
@@ -199,17 +196,17 @@ Utility-privacy Trade-off over Different GNNs (R2). To demonstrate the generaliz
 <span id="page-3-16"></span>![](_page_3_Figure_6.jpeg)
 <!-- Image Description: The image presents two bar charts comparing utility improvements (in percent) achieved using Graph Convolutional Networks (GCN) and Graph Attention Networks (GAT) as backbones for two datasets: Cora (a) and Citeseer (b). Each chart shows improvement levels across four categories (1-4, not explicitly defined). The charts visually represent the comparative performance of GCN and GAT backbones in terms of utility gains on the specified datasets. -->
 
-Figure 3: Utility improvements over different backbones.
+**Figure 3:** Utility improvements over different backbones.
 
-#### 5 CONCLUSION
+### 5 CONCLUSION
 
 In this paper, we focus on the under-denoising issue on the server side within Link LDP GNNs, attributing it to the division of noisy topology denoising and GNN private learning into separate stages. The field of DP GNN remains nascent, presenting numerous unresolved challenges. Our work introduces a novel paradigm that dynamically and adaptively integrates permuted topology denoising with GNN private learning, aiming for an improved trade-off between privacy and utility.
 
-#### 6 ACKNOWLEDGEMENT
+### 6 ACKNOWLEDGEMENT
 
 This work was supported in part by the National Natural Science Foundation of China under Grant 62202302 and U20B2048.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-3-8"></span>[1] Eli Chien, Wei-Ning Chen, Chao Pan, Pan Li, Ayfer Ozgur, and Olgica Milenkovic. 2023. Differentially Private Decoupled Graph Convolutions for Multigranular Topology Protection. In Thirty-seventh Conference on Neural Information Processing Systems.
 - <span id="page-3-6"></span>[2] Ameya Daigavane, Gagan Madan, Aditya Sinha, Abhradeep Guha Thakurta, Gaurav Aggarwal, and Prateek Jain. 2021. Node-level differentially private graph neural networks. arXiv preprint arXiv:2111.15521 (2021).

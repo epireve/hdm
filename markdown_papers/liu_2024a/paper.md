@@ -63,7 +63,7 @@ CITATION Liu Y, Li H and Hao M (2024), Personalized and privacy-preserving feder
 
 © 2024 Liu, Li and Hao. This is an open-access article distributed under the terms of the [Creative Commons Attribution License \(CC BY\)](https://creativecommons.org/licenses/by/4.0/). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
 
-# [Personalized and](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [privacy-preserving federated](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [graph neural network](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full)
+## [Personalized and](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [privacy-preserving federated](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [graph neural network](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full)
 
 ## Yanjun Liu\*, Hongwei Li and Meng Hao
 
@@ -93,7 +93,7 @@ Motivated by this challenge, this work proposes a novel framework named Personal
 - Improved the accuracy of the global model. In order to accurately handle model parameters and replace the average mechanism, this work introduces the attention mechanism to design a federated aggregation weighting scheme to build a global model on the server. This global model can alleviate the difficulty of global model generalization caused by the heterogeneity of different client data.
 - Realized personalized privacy protection. In order to hide the model parameters during the model training process and prevent malicious adversaries from stealing the model parameters, the privacy enhancement technology is implemented by introducing an optimized Function hiding multi-input function encryption scheme to ensure the privacy security of the model data and users.
 
-# 2 Preliminaries
+## 2 Preliminaries
 
 ## 1 Federated learning
 
@@ -107,7 +107,6 @@ In this work, PFGNN is modeled with the message passing neural network framework
 
 Phase 1: Message Passing. The function of this phase is to aggregate the node's neighborhood sampling information and update the embedding information of the node itself, as follows:
 
-<span id="page-2-0"></span>
 $$
 m_i^{(k,l+1)} = AGG\Big(\Big\{M_t\big(h_i^{(k,l)}, h_j^{(k,l)}, e_{ij}\big)\Big\}j \in N(i)\Big) \tag{1}
 $$
@@ -126,11 +125,11 @@ $$
 
 where Q is the readout function, which represents the features of the entire graph neural network, and p represents different downstream tasks.
 
-#### 3 Functional encryption
+### 3 Functional encryption
 
 Function encryption is a lightweight public key encryption algorithm designed to protect data security. However, function encryption cannot be applied in real distributed scenarios, such as federated learning. Therefore, multi-input function encryption (MIFE) is an enhanced version of function encryption that emerged for application in distributed scenarios Abdalla et al. [[19\]](#page-9-18). In MIFE, n participants are allowed to encrypt their own private data and generate ciphertext CT - (c1, c<sup>2</sup> ... cn), generate the private key skf through the key generation algorithm and jointly perform function operations in the ciphertext state. That is to say, holding the ciphertext CT - (c1, c<sup>2</sup> ... cn) and the private key skf can produce the calculation result y f(x1, x<sup>2</sup> ... xn) without revealing any information about the plaintext. This shows that sensitive data can be protected during the computing process while effectively preventing data leakage and privacy violations.
 
-# 3 Proposed framework
+## 3 Proposed framework
 
 ## 1 High-level overview
 
@@ -171,50 +170,50 @@ the server classifies clients whose similarity is higher than a threshold (such 
 
 ```text
 • Public Parameters: N is the total number of clients, C
-   is the fraction of client, U is a set of all clients, B is
-   the local mini-batch size, E is the number of
-   local epochs.
-   • Input: the GNN model M(i) on the client G(i)
-                                               , the GNN model
-   M on the server side
-    • Output: C clusters.
-   /*Runs on Server*/
-     Ensure Server executes:
-       for each round t = 1, 2, ... do
-         m ← max (C · N, 1)
-         Sn ← { } ui | ui ∈ U m
-                         1
-         Initialize random graph G^
-         With G^ on model M, compute ^
-                                      h0
-         Send G^ to client i
-      end for
-   /*Runs on Client k*/
-     Ensure Client k executes:
-       for each local epoch i from 1 to E do do
-         for for batch b ∈ B do do
-           With G^ on model M(k)
-                               , compute ^
-                                          hk
-         end for
-         Send ^
-               hk to the server
-       end for
-   /*Runs on Server*/
-     Ensure Server executes:
-         Similarity S(i) calculation with ^
-                                              h0 and ^
-                                                     hk based
-        on Eq. 2
-         Group into C clusters with S(i)
+is the fraction of client, U is a set of all clients, B is
+the local mini-batch size, E is the number of
+local epochs.
+• Input: the GNN model M(i) on the client G(i)
+, the GNN model
+M on the server side
+• Output: C clusters.
+/*Runs on Server*/
+Ensure Server executes:
+for each round t = 1, 2, ... do
+m ← max (C · N, 1)
+Sn ← { } ui | ui ∈ U m
+1
+Initialize random graph G^
+With G^ on model M, compute ^
+h0
+Send G^ to client i
+end for
+/*Runs on Client k*/
+Ensure Client k executes:
+for each local epoch i from 1 to E do do
+for for batch b ∈ B do do
+With G^ on model M(k)
+, compute ^
+hk
+end for
+Send ^
+hk to the server
+end for
+/*Runs on Server*/
+Ensure Server executes:
+Similarity S(i) calculation with ^
+h0 and ^
+hk based
+on Eq. 2
+Group into C clusters with S(i)
 Algorithm 1. Graph similarity calculation strategy.
 ```text
 
-#### <span id="page-4-0"></span>3.3 A function encryption optimization algorithm with attentive aggregation
+### <span id="page-4-0"></span>3.3 A function encryption optimization algorithm with attentive aggregation
 
 During the training process of the personalized federated graph neural network, the client trains the GNN model locally, generates local node embeddings, and directly uploads the model parameters or gradients to the server through federated aggregation, malicious adversaries can steal user data through model reconstruction attacks. At the same time, since each client's graph data has differences in graph structure and node features, this heterogeneity causes the traditional federated averaging algorithm to be seriously divergent, so this work needs to train an effective global model. To solve these problems, this work proposes a function encryption optimization algorithm based on attention aggregation, which not only considers the contribution of the client model to the global model, but also encrypts the aggregated model parameters and fusion weights.
 
-#### 3.1 A federated graph neural network algorithm with attentive aggregation
+### 3.1 A federated graph neural network algorithm with attentive aggregation
 
 The most important part of the federated graph neural network is the server-side federated aggregation. In the traditional federated averaging algorithm, each client is given the same weight. This averaging processing method is rough and cannot well evaluate the advantages and disadvantages of the local model, which will have an adverse impact on the performance of the model. In order to train efficient global models and focus on the importance of client models, this work proposes a federated graph neural network algorithm with attentive aggregation, focusing on using FL with a central server to train GNN models.
 
@@ -243,7 +242,7 @@ $$
 
 where q(k,l) <sup>t</sup> is the proportion of the kth client at time t, and represents the global model parameters at time t + 1.
 
-#### 3.2 Optimized function encryption algorithm
+### 3.2 Optimized function encryption algorithm
 
 In the process of federated aggregation, in order to defend against potential adversarial attacks, it is essential to encrypt the model parameters during transmission. This work has adopted the enhanced version of the MIFE algorithm, known as the Function-Hiding Multi-Input Function Encryption (FH-MIFE) scheme Abdalla et al. [[19](#page-9-18)]. Specifically, in addition to safeguarding the uploaded model parameters, this work places particular emphasis on protecting the weights proportion by each client. The traditional single-layer MIFE falls short in adequately securing functions that may contain sensitive information. The FH-MIFE scheme employs a doublelayer encryption process on both plaintext and keys, thereby enhancing the overall security of the model.
 
@@ -253,48 +252,48 @@ Furthermore, to more effectively apply the function hiding multiple-input functi
 
 ```text
 • Public Parameters: N is the total number of clients, B
- is the local mini-batch size, E is the number of local
- epochs, t represents the number of layers of the neural
- network, ht
-             (k) represents the model parameters of the
- client k.
+is the local mini-batch size, E is the number of local
+epochs, t represents the number of layers of the neural
+network, ht
+(k) represents the model parameters of the
+client k.
 ```text
 
 ```text
 /*Run on TA*/
- Ensure TA executes:
- Initialized with mpk, msk
- function query − key(yk,εFH−MFH)
-    if sum(Y) > n
-                2 then
-      return sky1y2...yk
-    end if
+Ensure TA executes:
+Initialized with mpk, msk
+function query − key(yk,εFH−MFH)
+if sum(Y) > n
+2 then
+return sky1y2...yk
+end if
 /*Runs on Client k*/
- Ensure Client k executes:
-    for each local epoch i from 1 to E do do
-      for for batch b ∈ B do do
-      obtain exclusive public key based on ID
-      function collect-client (ht(k), b)
-      ck ← EncFH−MIFH pkk (ht(k))
-    end for
-    Send ck to the server
-  end for
+Ensure Client k executes:
+for each local epoch i from 1 to E do do
+for for batch b ∈ B do do
+obtain exclusive public key based on ID
+function collect-client (ht(k), b)
+ck ← EncFH−MIFH pkk (ht(k))
+end for
+Send ck to the server
+end for
 /*Runs on Server*/
- Ensure Server executes:
- generate batch indices {1, 2, ... , B}
-    for b ∈ B do
-    for k ∈ K do
-      Ck ← collect-client (ht(k), b)
-      sky1y2...yk ← query − key(yk,εFH−MIFH)
-      ht(k) ← DecFH−MIFH sky1y2...yk
-                          ({ } Ck kϵK)
-    end for
+Ensure Server executes:
+generate batch indices {1, 2, ... , B}
+for b ∈ B do
+for k ∈ K do
+Ck ← collect-client (ht(k), b)
+sky1y2...yk ← query − key(yk,εFH−MIFH)
+ht(k) ← DecFH−MIFH sky1y2...yk
+({ } Ck kϵK)
+end for
 end for
 ```text
 
 <span id="page-5-0"></span>Algorithm 2. Optimized function encryption algorithm.
 
-# 4 Security and privacy analysi
+## 4 Security and privacy analysi
 
 The goal of the PFGNN framework is to train a secure and efficient personalized federated graph neural network. This work analyzes the security and privacy of the PFGNN framework in detail.
 
@@ -312,53 +311,53 @@ Function hiding MIFE provides computational privacy guarantees for secure aggreg
 
 In this section, this work evaluates the performance of the PFGNN scheme. This solution is a federated learning framework based on graph neural network, including n clients and a central server. This work mainly studies protocol performance evaluation in the semi-honest condition. In order to verify the effect of the proposed scheme, this work implements a federated learning prototype system based on graph similarity strategy, attentive aggregation scheme and function encryption, and conducts accuracy and efficiency experiments on it.
 
-#### 1 Experimental settings
+### 1 Experimental settings
 
 In order to evaluate the performance of this scheme, PFGNN chose to perform the node classification task on three graph structure datasets, namely, Cora, Pubmed and Citeseer. The statistical summary of the datasets is shown in [Table 1.](#page-6-0) And compare it with traditional graph neural network, thus proving <span id="page-6-0"></span>TABLE 1 Dataset statistic.
 
-| Dataset  | Node  | Edge  | Feature | Classes |
+| Dataset | Node | Edge | Feature | Classes |
 |----------|-------|-------|---------|---------|
-| Cora     | 2708  | 5429  | 1433    | 7       |
-| Pubmed   | 19717 | 44338 | 500     | 3       |
-| Citeseer | 3327  | 4732  | 3703    | 6       |
+| Cora | 2708 | 5429 | 1433 | 7 |
+| Pubmed | 19717 | 44338 | 500 | 3 |
+| Citeseer | 3327 | 4732 | 3703 | 6 |
 
 the accuracy and versatility of PFGNN in processing non-Euclidean data.
 
-During the process of model training, the client trains the graph neural network locally, taking GraphSAGE as an example, the propagation depth is L ∈ {1, 2, 3, 4, 5}, the number of iterations of the client's local model training is set as 10, the training batch size is 60. In this work, the maximum layer of the fully connected neural network is set as 2, and hyperbolic tangent (TanH) is adopted as the activation function of the hidden layer. Parameter drop rate is d ∈ {0.0, 0.5}, learning rate lr ∈ 5e−<sup>4</sup>, 5e−<sup>3</sup>, 1e−<sup>3</sup>, 1e−<sup>2</sup> . Since the task of the graph neural network in this work is node classification, the loss function adopts cross entropy. In order to prevent the model from overfitting, an additional regular term L2 is added L2 ∈ 5e−<sup>4</sup>, 5e−<sup>3</sup>, 1e−<sup>3</sup>, 1e−<sup>2</sup>  , 0.0 . All experiments in this work are conducted on a single machine without the Internet to simulate communication in federated learning. The training set of the model is used to train the model, the verification set is used to adjust parameters, and the test set is used to measure the quality of model training. When adjusting parameters, the grid search method is selected to seek the highest accuracy under appropriate parameter settings.
+During the process of model training, the client trains the graph neural network locally, taking GraphSAGE as an example, the propagation depth is L ∈ {1, 2, 3, 4, 5}, the number of iterations of the client's local model training is set as 10, the training batch size is 60. In this work, the maximum layer of the fully connected neural network is set as 2, and hyperbolic tangent (TanH) is adopted as the activation function of the hidden layer. Parameter drop rate is d ∈ {0.0, 0.5}, learning rate lr ∈ 5e−<sup>4</sup>, 5e−<sup>3</sup>, 1e−<sup>3</sup>, 1e−<sup>2</sup> . Since the task of the graph neural network in this work is node classification, the loss function adopts cross entropy. In order to prevent the model from overfitting, an additional regular term L2 is added L2 ∈ 5e−<sup>4</sup>, 5e−<sup>3</sup>, 1e−<sup>3</sup>, 1e−<sup>2</sup> , 0.0 . All experiments in this work are conducted on a single machine without the Internet to simulate communication in federated learning. The training set of the model is used to train the model, the verification set is used to adjust parameters, and the test set is used to measure the quality of model training. When adjusting parameters, the grid search method is selected to seek the highest accuracy under appropriate parameter settings.
 
 This work implements PFGNN in python. Like the function encryption algorithm in MIFE Abdalla et al. [\[19\]](#page-9-18), this work employs gmpy2 to implement the Paillier function encryption system.
 
-#### 2 Accuracy analysis
+### 2 Accuracy analysis
 
-#### <span id="page-6-1"></span>5.2.1 Comparison of model accuracy under different labels
+### <span id="page-6-1"></span>5.2.1 Comparison of model accuracy under different labels
 
 To test the accuracy of the model, PFGNN chose to perform the node classification task on three graph-structured datasets, namely, Cora, Pubmed and Citeseer. In order to test the accuracy of models under different labels, this work divides the Cora data set into C1, C<sup>2</sup> and C3, according to the types of labels, where C<sup>1</sup> has three label categories with 1,296 nodes, C<sup>2</sup> has two label categories, and finally C<sup>3</sup> has two label categories. Similarly, this paper also divides the Pubmed and Citeseer data sets into three parts.
 
 In order to study the accuracy of model aggregation under different labels, this paper assumes that there are three clients (A, B and C), the data of client A is composed of C1, the data of client B is composed of C2, and the data of client C is composed of C3. In other words, the labels for the three clients are different. Next, comparative experiments were conducted between PFGNN, traditional Centralized machine learning (Centralized ML), and the classic FedAvg algorithm on three data sets. The local model training of the three algorithms is the graph neural network GraphSAGE. PFGNN is trained in the same way as
 
-| Dataset  | Centralized ML | FedAvg | PFGNN  |
+| Dataset | Centralized ML | FedAvg | PFGNN |
 |----------|----------------|--------|--------|
-| Cora     | 0.8345         | 0.8924 | 0.9213 |
-| Pubmed   | 0.8134         | 0.8812 | 0.9315 |
-| Citeseer | 0.7237         | 0.7723 | 0.8145 |
-| Average  | 0.7905         | 0.8486 | 0.8891 |
+| Cora | 0.8345 | 0.8924 | 0.9213 |
+| Pubmed | 0.8134 | 0.8812 | 0.9315 |
+| Citeseer | 0.7237 | 0.7723 | 0.8145 |
+| Average | 0.7905 | 0.8486 | 0.8891 |
 
 <span id="page-7-0"></span>TABLE 2 Performance comparison on three datasets in terms of accuracy.
 
 <span id="page-7-1"></span>TABLE 3 Performance comparison on different labels and different graphs.
 
-| Dataset  | FedAvg | PFGNN  | Improvement (%) |
+| Dataset | FedAvg | PFGNN | Improvement (%) |
 |----------|--------|--------|-----------------|
-| Cora     | 0.7546 | 0.8085 | 7.14            |
-| Pubmed   | 0.7435 | 0.7734 | 6.03            |
-| Citeseer | 0.7137 | 0.7623 | 9.04            |
-| Average  | 0.7078 | 0.7814 | 7.38            |
+| Cora | 0.7546 | 0.8085 | 7.14 |
+| Pubmed | 0.7435 | 0.7734 | 6.03 |
+| Citeseer | 0.7137 | 0.7623 | 9.04 |
+| Average | 0.7078 | 0.7814 | 7.38 |
 
 FedAvg to verify the advantages of PFGNN with attentive aggregation.
 
 To evaluate the performance of PFGNN in classification tasks, this paper examines its average accuracy on three different data sets. As shown in [Table 2,](#page-7-0) PFGNN performs best in average accuracy on these datasets, significantly outperforming the other two models. In particular, compared with the classical FedAvg model, the average accuracy of PFGNN is improved by 5.4%. This result emphasizes the superiority of PFGNN in classification tasks and shows that after the introduction of the attentive aggregation mechanism, it has achieved satisfactory results in handling data aggregation and model updating in distributed learning scenarios.
 
-#### 2.2 Comparison of model accuracy under different labels and different graphs
+### 2.2 Comparison of model accuracy under different labels and different graphs
 
 The framework of message passing neural network in this paper is GraphSAGE, which mainly includes two steps: Sample and Aggregate. Sampling is to sample the number of neighbors through fixed-length sampling with replacement, thereby ensuring that each node after sampling has the same number of neighbors. GraphSAGE model training benefits from the transfer of adjacent information. Therefore, in order to study the accuracy of the model under different labels and graphs, this section divides the data set Cora according to the average edges, the samples with edges less than or equal to 3 in Cora are recorded as Ca, and the samples with edges greater than 3 are recorded as Cb. Then, similar to [Section](#page-6-1) [5.2.1](#page-6-1), the data of client A comes from the sample number Ca1 of three label categories in sample Ca, and the data of client B consists of the sample number Ca2 of two label categories in sample Ca, the data of client C comes from the Cb3 samples of the two label categories in sample Cb. In the same way, the two data sets of Pubmed and Citeseer can be divided.
 
@@ -380,53 +379,53 @@ As shown in [Figure 4](#page-7-3), in order to test whether PFGNN is versatility
 
 | Clients | Enc (Hybrid) | Dec (Hybrid) | Enc (PFGNN) | Dec (PFGNN) |
 |---------|--------------|--------------|-------------|-------------|
-| 3       | 4.145        | 11.654       | 1.883       | 2.034       |
-| 6       | 4.121        | 20.234       | 2.054       | 2.956       |
-| 9       | 4.077        | 30.345       | 2.076       | 4.956       |
+| 3 | 4.145 | 11.654 | 1.883 | 2.034 |
+| 6 | 4.121 | 20.234 | 2.054 | 2.956 |
+| 9 | 4.077 | 30.345 | 2.076 | 4.956 |
 
 <span id="page-8-0"></span>TABLE 4 The time overhead of the function encryption scheme.
 
 <span id="page-8-1"></span>TABLE 5 Communication per iteration for n clients.
 
-| Phase            | Communication                 | VFGNN      | PFGNN) |
+| Phase | Communication | VFGNN | PFGNN) |
 |------------------|-------------------------------|------------|--------|
-| Training Process | Secure SGD: clients ↔ CSP     | n          | n      |
-|                  | Secure SGD: clients ↔ clients | (n2 − n)/2 | 0      |
-|                  | Secure SGD: TOTAL             | (n2 + n)/2 | n      |
+| Training Process | Secure SGD: clients ↔ CSP | n | n |
+| | Secure SGD: clients ↔ clients | (n2 − n)/2 | 0 |
+| | Secure SGD: TOTAL | (n2 + n)/2 | n |
 
 GraphSAGE. The accuracy of PFGNN after 100 rounds of communication in the figure is higher than 100 epochs iterative of GraphSAGE, which shows that PFGNN is effective for federated graph neural networks and can processes various non-Euclidean structured data and can be easily embedded into other models.
 
-#### 3 Computational overhead analysis
+### 3 Computational overhead analysis
 
 The PFGNN runs all encryption schemes under LAPTOP-OSDQQEMN equipped with lntel(R) Core (TM) i7-8565U CPU. In order to evaluate the computational overhead of function hiding MIFE in PFGNN, this work can set different numbers of clients and compare the encryption time of different schemes.
 
 [Table 4](#page-8-0) clearly shows that as the number of clients increases, the time required for function encryption and decryption shows completely different trends. Specifically, as the number of clients increases, the encryption time on the client side remains almost constant, while on the server side, the decryption time grows linearly. However, the secure aggregation scheme of federated learning has a computational overhead of O(N<sup>2</sup>). In comparison, PFGNN only need O(N). Compared with the scheme proposed in Yin et al. [\[25\]](#page-9-24), the scheme adopted is not only more efficient, but also keeps the encryption and decryption time within an acceptable range even when the number of parameters reaches millions.
 
-#### 4 Communication overhead analysis
+### 4 Communication overhead analysis
 
 This work performs a detailed comparison between the PFGNN framework and VFGNN, especially in terms of communication overhead within one iteration. This solution is a federated learning framework based on graph neural network, including n clients and a central server. The detailed communication overhead is shown in [Table 5](#page-8-1). During model training, there is no direct communication between clients in the PFGNN scheme. This improvement reduces the total communication overhead from (n<sup>2</sup> + n)/2 to n. This means that the communication overhead is linearly related to the number of clients throughout the model training process.
 
-# 6 Conclusion
+## 6 Conclusion
 
 This work proposes the Personalized and Privacy-Preserving Federated Graph Neural Network (PFGNN). The PFGNN framework is built on a set of state-of-the-art training paradigms, including graph similarity strategies, attention mechanism-based model aggregation schemes, and optimized function hiding encryption scheme to protect the upload of sensitive model parameters. Experiments on real datasets show that our scheme outperforms FedAvg in accuracy, and the communication overhead is linearly related to the number of clients. Through this framework, PFGNN can handle all kinds of non-Euclidean structured data, multiple clients collaborate to train high-quality and highly secure global models. This work provides the foundation for designing efficient and privacy-preserving personalized federated graph neural networks.
 
-# Data availability statement
+## Data availability statement
 
 The original contributions presented in the study are included in the article/supplementary material, further inquiries can be directed to the corresponding author.
 
-# Author contributions
+## Author contributions
 
 YL: Conceptualization, Formal Analysis, Investigation, Methodology, Software, Writing–original draft, Writing–review and editing. HL: Writing–review and editing. MH: Writing–review and editing.
 
-# Funding
+## Funding
 
 The author(s) declare that financial support was received for the research, authorship, and/or publication of this article. This work is supported by the National Key RD Program of China under Grant 2022YFB3103500, the Key-Area Research and Development Program of Guangdong Province under Grant 2020B0101360001, the National Natural Science Foundation of China under Grants 62020106013 and 61972454, the Fundamental Research Funds for Chinese Central Universities under Grant ZYGX2020ZB027.
 
-# Conflict of interest
+## Conflict of interest
 
 The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
 
-# Publisher's note
+## Publisher's note
 
 All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated
 

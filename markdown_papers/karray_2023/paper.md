@@ -53,9 +53,9 @@ keywords:
 
 Neveen Mohammad Hijaz[i](https://orcid.org/0000-0001-5338-7091) , Moay[ad](https://orcid.org/0000-0001-6534-9295) [A](https://orcid.org/0000-0001-6534-9295)loqail[y](https://orcid.org/0000-0003-2443-7234) , *Senior Member, IEEE*, Mohse[n](https://orcid.org/0000-0002-4217-1372) [G](https://orcid.org/0000-0002-4217-1372)uizan[i](https://orcid.org/0000-0002-8972-8094) , *Fellow, IEEE*, Bassem Ouni , *Senior Member, IEEE*, and Fakhri Karray
 
-*Abstract***—The emergence of the Internet of Things (IoT) has revolutionized people's daily lives, providing superior quality services in cognitive cities, healthcare, and smart buildings. However, smart buildings use heterogeneous networks. The massive number of interconnected IoT devices increases the possibility of IoT attacks, emphasizing the necessity of secure and privacy-preserving solutions. Federated learning (FL) has recently emerged as a promising machine learning (ML) paradigm for IoT networks to address these concerns. In FL, multiple devices collaborate to learn a global model without sharing their raw data. However, FL still faces privacy and security concerns due to the transmission of sensitive data (i.e., model parameters) over insecure communication channels. These concerns can be addressed using fully homomorphic encryption (FHE), a powerful cryptographic technique that enables computations on encrypted data without requiring them to be decrypted first. In this study, we propose a secure FL approach in IoT-enabled smart cities that combines FHE and FL to provide secure data and maintain privacy in distributed environments. We present four different FL-based FHE approaches in which data are encrypted and transmitted over a secure medium. The proposed approaches achieved high accuracy, recall, precision, and F-scores, in addition to providing strong privacy and security safeguards. Furthermore, the proposed approaches effectively reduced communication overhead and latency compared to the baseline approach. These approaches yielded improvements ranging from 80***.***15% to 89***.***98% in minimizing communication overhead. Additionally, one of the approaches achieved a remarkable latency reduction of 70***.***38%. The implementation of these security models is nontrivial, and the code is publicly available at https://github.com/Artifitialleap-MBZUAI/Secure-Federated-Learning-with-Fully-Homomorphic-Encryption-for-IoT-Communications.**
+**Abstract:** **—The emergence of the Internet of Things (IoT) has revolutionized people's daily lives, providing superior quality services in cognitive cities, healthcare, and smart buildings. However, smart buildings use heterogeneous networks. The massive number of interconnected IoT devices increases the possibility of IoT attacks, emphasizing the necessity of secure and privacy-preserving solutions. Federated learning (FL) has recently emerged as a promising machine learning (ML) paradigm for IoT networks to address these concerns. In FL, multiple devices collaborate to learn a global model without sharing their raw data. However, FL still faces privacy and security concerns due to the transmission of sensitive data (i.e., model parameters) over insecure communication channels. These concerns can be addressed using fully homomorphic encryption (FHE), a powerful cryptographic technique that enables computations on encrypted data without requiring them to be decrypted first. In this study, we propose a secure FL approach in IoT-enabled smart cities that combines FHE and FL to provide secure data and maintain privacy in distributed environments. We present four different FL-based FHE approaches in which data are encrypted and transmitted over a secure medium. The proposed approaches achieved high accuracy, recall, precision, and F-scores, in addition to providing strong privacy and security safeguards. Furthermore, the proposed approaches effectively reduced communication overhead and latency compared to the baseline approach. These approaches yielded improvements ranging from 80***.***15% to 89***.***98% in minimizing communication overhead. Additionally, one of the approaches achieved a remarkable latency reduction of 70***.***38%. The implementation of these security models is nontrivial, and the code is publicly available at https://github.com/Artifitialleap-MBZUAI/Secure-Federated-Learning-with-Fully-Homomorphic-Encryption-for-IoT-Communications.**
 
-*Index Terms***—Cognitive cities, federated learning (FL), homomorphic encryption (HE), Internet of Things (IoT), security.**Manuscript received 11 May 2023; revised 5 July 2023; accepted 20 July 2023. Date of publication 4 August 2023; date of current version 24 January 2024. This work was supported by the Technology Innovation Institute (TII), Abu Dhabi, UAE, through the CyberAI Project under Grant TII/DSRC/2022/3036.*(Corresponding author: Moayad Aloqaily.)*Neveen Mohammad Hijazi, Moayad Aloqaily, and Mohsen Guizani are with the Machine learning Department, Mohamed Bin Zayed University of Artificial Intelligence, Abu Dhabi, UAE (e-mail: neveen.hijazi@mbzuai.ac.ae; moayad.aloqaily@mbzuai.ac.ae; mohsen.guizani@mbzuai.ac.ae).
+**Index Terms:** **—Cognitive cities, federated learning (FL), homomorphic encryption (HE), Internet of Things (IoT), security.**Manuscript received 11 May 2023; revised 5 July 2023; accepted 20 July 2023. Date of publication 4 August 2023; date of current version 24 January 2024. This work was supported by the Technology Innovation Institute (TII), Abu Dhabi, UAE, through the CyberAI Project under Grant TII/DSRC/2022/3036.*(Corresponding author: Moayad Aloqaily.)*Neveen Mohammad Hijazi, Moayad Aloqaily, and Mohsen Guizani are with the Machine learning Department, Mohamed Bin Zayed University of Artificial Intelligence, Abu Dhabi, UAE (e-mail: neveen.hijazi@mbzuai.ac.ae; moayad.aloqaily@mbzuai.ac.ae; mohsen.guizani@mbzuai.ac.ae).
 
 Bassem Ouni is with Technology Innovation Institute, Abu Dhabi, UAE (e-mail: bassem.ouni@tii.ae).
 
@@ -64,6 +64,7 @@ Fakhri Karray is with the Mohamed Bin Zayed University of Artificial Intelligenc
 Digital Object Identifier 10.1109/JIOT.2023.3302065
 
 ## I. INTRODUCTION
+
 **T**HE Internet of Things (IoT) is a rapidly growing field that is revolutionizing how people interact with technology. The IoT is a network of interconnected devices, sensors, and other objects that are embedded with software and sensors that enable them to communicate and exchange data with each other and with other systems over the Internet. This technology could revolutionize various industries and applications, ranging from healthcare and transportation to agriculture and manufacturing [\[1\]](#page-10-0).
 
 <span id="page-0-0"></span>One of the most promising areas for the IoT is in the development of smart cities. Smart cities are urban areas that leverage IoT technologies to improve the quality of life of their citizens by optimizing city services and infrastructure. By integrating IoT devices and systems into city infrastructure, smart cities can improve traffic flow, reduce energy consumption, enhance public safety, and provide a connected and efficient urban environment [\[2\]](#page-10-1).
@@ -95,7 +96,7 @@ Digital Object Identifier 10.1109/JIOT.2023.3302065
 
 <span id="page-1-8"></span>The remainder of this article is organized as follows. Section [II](#page-1-0) presents a review of related works. The methodology and proposed approach, consisting of four different scenarios, are described in detail in Section [III.](#page-2-0) In Section [IV,](#page-6-0) we present the experimental results conducted to evaluate the security and efficiency of the proposed scenarios in IoT environments using a benchmark IoT data set. Furthermore, we discuss a case study in Section [V](#page-9-0) to demonstrate the practical applicability of the proposed approach. Finally, we conclude our work and suggest future research directions in Section [VI.](#page-10-10)
 
-# <span id="page-1-16"></span>II. RELATED WORK
+## <span id="page-1-16"></span>II. RELATED WORK
 
 <span id="page-1-10"></span><span id="page-1-0"></span>FL and FHE are two techniques that can help improve the privacy and security of ML. In this section, we overview various approaches that have been proposed for using FL and FHE. McMahan et al. [\[5\]](#page-10-4) proposed a communication-efficient learning technique for deep networks from decentralized data, which uses a form of FL called federated averaging (FedAvg). The authors also provided empirical results showing the effectiveness of their approach on real-world data sets. In another study, Rey et al. [\[23\]](#page-11-12) suggested a privacy-preserving framework for detecting IoT malware. It utilizes FL to train and evaluate supervised and unsupervised models while avoiding sharing sensitive data. This framework is intended to be implemented in network nodes that provide access to IoT devices on various networks like WiFi, 5G, or B5G. This will help offload the computation from IoT devices.
 
@@ -120,7 +121,7 @@ evaluations show that the proposed scheme meets security requirements and improv
 ![](_page_3_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a federated learning system for IoT devices. Multiple IoT devices (e.g., cameras, routers) locally train models on their data, producing encrypted weight matrices. These encrypted matrices are aggregated using a formula (shown) to create a global encrypted model, preserving data privacy. The illustration shows the process within a city setting, with devices located in various locations like malls, hospitals, and banks. -->
 
-Fig. 1. Overview of the general approach.
+Figure 1. Overview of the general approach.
 
 The server utilizes the FedAvg algorithm, which computes the average of the received weights, to update the global model parameters. The updated global model parameters are then transmitted back to the users. Upon receiving the updated global model parameters, users decrypt the weights to restore their original values. These decrypted weights are then used to update the parameters of their local models for the subsequent iteration of the training process. This ensures that each user's local model aligns with the most recent global model representation.
 
@@ -132,32 +133,31 @@ In the third approach, we initially group the users into clusters. Every user in
 
 TABLE I NOTATIONS AND DESCRIPTIONS
 
-<span id="page-3-1"></span>
 
-| Notation    | Descriptions                               |
+| Notation | Descriptions |
 |-------------|--------------------------------------------|
-| Ν           | Number of users                            |
-| K           | Number of clusters                         |
-| D           | Dataset, $D = \{D_1, D_2, , D_N\}$         |
-| U           | Set of users, $U = \{U_1, U_2, , U_N\}$    |
-| C           | Set of clusters, $C = \{C_1, C_2, , C_K\}$ |
-| T           | Number of iteration                        |
-| р           | Number of users in each cluster, $p = N/K$ |
-| GM          | Global model                               |
-| LМ          | Local model                                |
-| $\theta(0)$ | Random initial values of model parameters  |
-| GCM         | Global cluster matrix                      |
-| $Fed\_Avg$  | Federated average                          |
-| Enc FHE     | FHE encryption function                    |
-| Dec FHE     | FHE decryption function                    |
-| $Enc\_GCM$  | Encrypted global cluster matrix            |
-| Dec~GM      | Decrypted global model parameters          |
+| Ν | Number of users |
+| K | Number of clusters |
+| D | Dataset, $D = \{D_1, D_2, , D_N\}$ |
+| U | Set of users, $U = \{U_1, U_2, , U_N\}$ |
+| C | Set of clusters, $C = \{C_1, C_2, , C_K\}$ |
+| T | Number of iteration |
+| р | Number of users in each cluster, $p = N/K$ |
+| GM | Global model |
+| LМ | Local model |
+| $\theta(0)$ | Random initial values of model parameters |
+| GCM | Global cluster matrix |
+| $Fed\_Avg$ | Federated average |
+| Enc FHE | FHE encryption function |
+| Dec FHE | FHE decryption function |
+| $Enc\_GCM$ | Encrypted global cluster matrix |
+| Dec~GM | Decrypted global model parameters |
 
 <span id="page-3-0"></span>the corresponding cluster matrix without applying encryption. The cluster matrices are encrypted before being sent to the server. Then, the server aggregates the weight updates from the cluster matrices and computes the federated average to modify the global model. Subsequently, the users receive the distributed updated global model from the server and update their local models accordingly.
 
 In the last approach, the users are initially clustered into groups. Each user then trains on their local data, encrypts their updated weights, and transmits them to the cluster matrix to which they belong. After this, all cluster matrices are encrypted and sent to the server for aggregation, computing the federated average, and updating the global model. The server subsequently returns the updated global model to all users. Finally, each user decrypts the updated weights and adjusts its local model accordingly.
 
-#*A. Proposed Approaches*This section outlines the four approaches, each of which involves five main stages: 1) definitions and initialization; 2) local training; 3) encryption; 4) global aggregation; and 5) local update. While the definitions and initialization and local update stages are consistent across all four approaches, there are differences in the local training, encryption, and global aggregation stages. Table [I](#page-3-1) summarizes the notation and a description of how it is used in the four proposed approaches. The four approaches are described in detail in the following paragraphs.
+## *A. Proposed Approaches*This section outlines the four approaches, each of which involves five main stages: 1) definitions and initialization; 2) local training; 3) encryption; 4) global aggregation; and 5) local update. While the definitions and initialization and local update stages are consistent across all four approaches, there are differences in the local training, encryption, and global aggregation stages. Table [I](#page-3-1) summarizes the notation and a description of how it is used in the four proposed approaches. The four approaches are described in detail in the following paragraphs.
 
 1)*First Approach:*The one unencrypted cluster matrix (OUCM) approach starts with definitions and the initialization phase, where*U*is a set of users, and*C*is a set of clusters. Each user*Ui*has its own data set of size*Di*, which is not shared with other users, where *Di*∩*Dj* = φ, ∀*i*=*j*, where *i*, *j*∈*N*. The global model parameters *GM*\_θ (0) are randomly initialized, the users are randomly distributed into clusters using a function *f*, and each cluster contains*p*users.
 *f*(*U*,*K*) = {*C*1,*C*2,...,*CK*}, *Ci* = {*U*1, *U*2,..., *Up*}. In the local training phase, each user uses the current global model parameters *GM*\_θ (0) as the starting point to train their current local model *LM*\_θ*i*(*t*) on *Di*using
@@ -165,12 +165,12 @@ In the last approach, the users are initially clustered into groups. Each user t
 ![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning system with encrypted model aggregation. Multiple IoT devices in clusters train local models on their data. These local models' encrypted weight matrices are aggregated into a global encrypted model. This encrypted model is then decrypted to produce an unencrypted global weight matrix, which is used to update the local models. The equation (1/n)Σ shows the averaging of local models. The diagram's purpose is to visually depict the secure aggregation process in the context of the paper. -->
 
-Fig. 2. Overview of the OUCM approach.
+Figure 2. Overview of the OUCM approach.
 
 a convolutional neural network (CNN) algorithm. The updated local model parameters*LM*\_θ*i*(*t*+ 1) are then computed as:
-*LM*\_θ*i*(*t*+1) = *LM*\_θ*i*(*t*+1)−*LM*\_θ*i*(*t*), and the local model update is sent to the global cluster matrix *GCM*, where *GCM*=*LM*\_θ*i*(*t*+ 1), for*i* = 1, 2,...,*N*. The entire matrix *GCM*is then encrypted using the FHE algorithm to obtain the encrypted weight update*Enc*\_*GCM*as follows:
-*Enc*\_*GCM*=*Enc*\_*FHE*(*GCM*). In the global aggregation phase, the server aggregates and computes the FedAvg for *Enc*\_*GCM*and updates the global model parameters*GM*\_θ (*t*+ 1) as follows:
-*GM*\_θ (*t*+1) = (1/*N*) -*Enc*\_*GCM*, which are returned to all users. Once the users receive the updated global model parameters *GM*\_θ (*t*+1), they decrypt the updated weights and update their local model for the next iteration as: *LM*\_θ*i*(*t*+ 1) =*Dec*\_*FHE*(*GM*\_θ (*t*+ 1)). This approach is demonstrated in Fig. [2.](#page-4-0)
+**LM:** \_θ*i*(*t*+1) = *LM*\_θ*i*(*t*+1)−*LM*\_θ*i*(*t*), and the local model update is sent to the global cluster matrix *GCM*, where *GCM*=*LM*\_θ*i*(*t*+ 1), for*i* = 1, 2,...,*N*. The entire matrix *GCM*is then encrypted using the FHE algorithm to obtain the encrypted weight update*Enc*\_*GCM*as follows:
+**Enc:** \_*GCM*=*Enc*\_*FHE*(*GCM*). In the global aggregation phase, the server aggregates and computes the FedAvg for *Enc*\_*GCM*and updates the global model parameters*GM*\_θ (*t*+ 1) as follows:
+**GM:** \_θ (*t*+1) = (1/*N*) -*Enc*\_*GCM*, which are returned to all users. Once the users receive the updated global model parameters *GM*\_θ (*t*+1), they decrypt the updated weights and update their local model for the next iteration as: *LM*\_θ*i*(*t*+ 1) =*Dec*\_*FHE*(*GM*\_θ (*t*+ 1)). This approach is demonstrated in Fig. [2.](#page-4-0)
 
 2)*Second Approach:*The process of the one encrypted cluster matrix (OECM) approach is similar to that of the OUCM approach but contains a slight difference. After the definitions and initialization phase are applied, each user trains its local data and updates the local model parameters as in the first approach. Then, each user encrypts their local model using the FHE algorithm to obtain the encrypted weight update and send it to the global cluster matrix*GCM*as follows:
 
@@ -193,12 +193,12 @@ After receiving the updated global model parameters*GM*\_θ (*t*+ 1), the user d
 ![](_page_4_Figure_12.jpeg)
 <!-- Image Description: The image is a system diagram illustrating a federated learning framework for IoT devices. It shows multiple clusters of IoT devices (e.g., smartphone, camera, router) each training local encrypted models. These encrypted local models are aggregated using the formula `1/m Σ`, where 'm' is the number of clusters, to create a global encrypted model. The diagram uses icons representing encrypted data and models, showcasing the secure nature of the proposed system. The encrypted weight matrix is a central element, highlighting the aggregation process for privacy-preserving model training. -->
 
-<span id="page-4-1"></span><span id="page-4-0"></span>Fig. 3. Overview of the OECM approach.
+<span id="page-4-1"></span><span id="page-4-0"></span>Figure 3. Overview of the OECM approach.
 
 ![](_page_4_Figure_14.jpeg)
 <!-- Image Description: The image is a flowchart depicting a federated learning system with encrypted model aggregation. Multiple IoT device clusters (e.g., cluster 1, m) train local models on their data. These local models' encrypted weight matrices are aggregated using a formula (1/n * Σ), resulting in a global encrypted model. The process involves encrypting and decrypting weight matrices within each cluster before final aggregation. The diagram illustrates the workflow and data flow of this secure federated learning approach. -->
 
-Fig. 4. Overview of the MUCM approach.
+Figure 4. Overview of the MUCM approach.
 
 <span id="page-4-2"></span>subsequent iteration, as in the first approach. This approach is shown in Fig. [3.](#page-4-1)
 
@@ -209,18 +209,18 @@ CM_r = \Delta LM_{-}\theta_i(t+1), r = 1, 2, ..., K.
 $$
 
 The cluster matrices*CMr*are first encrypted using the FHE algorithm before being sent to the server, thus updating the encrypted weight*Enc*\_*CMr*=*Enc*\_*FHE*(*CMr*), *r* = 1, 2,...,*K*. These encrypted cluster matrices *Enc*\_*CMr*are then sent to the server, which aggregates and computes the FedAvg of the encrypted weights from all clusters. The server updates the global model parameters*GM*as follows:
-*GM*\_θ (*t* + 1) = (1/*N*) -*Enc*\_*CMr*, which are returned to all users. Finally, after receiving the updated global model parameters from the server, each user decrypts the weights and updates their local model accordingly,
+**GM:** \_θ (*t* + 1) = (1/*N*) -*Enc*\_*CMr*, which are returned to all users. Finally, after receiving the updated global model parameters from the server, each user decrypts the weights and updates their local model accordingly,
 
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: The image is a flowchart illustrating a federated learning system with encrypted model aggregation. Multiple IoT devices in clusters (1 and m) train local models on their data. Encrypted weight matrices from each cluster are aggregated using a formula (1/l * Σ), resulting in a global encrypted model. The diagram visually represents the process of secure distributed model training, highlighting data and model encryption at each stage. -->
 
-Fig. 5. Overview of the MECM approach.
+Figure 5. Overview of the MECM approach.
 
 as in the previous approaches. This approach is depicted in Fig. [4.](#page-4-2)
 
 4) *Fourth Approach:*The many encrypted cluster matrices (MECMs) approach follows a process similar to the third approach, with a slight difference. The definitions and initialization phase are the same as the previous approaches. After the users train their local models and update the weights, they encrypt the updated weights using the FHE algorithm to obtain the encrypted weight, they send it to the cluster matrix to which the user belongs,*CMr*:
 
-*CMr*=*Enc*\_*FHE*(*LM*\_θ*i*(*t* + 1)),*r* = 1, 2,...,*K*.
+**CMr:** =*Enc*\_*FHE*(*LM*\_θ*i*(*t* + 1)),*r* = 1, 2,...,*K*.
 
 The cluster matrices *CMr*are then sent to the server for aggregation and the computation of the FedAvg to update the global model parameters, which are then returned to all users. Once the users receive the updated weights from the server, they decrypt the weights and update their local models for the next iteration following the same process as in the aforementioned approaches. This approach is illustrated in Fig. [5.](#page-5-0)
 
@@ -228,10 +228,10 @@ One of the main advantages of FHE is that it allows computations to be performed
 
 <span id="page-5-2"></span>Overall, each approach has tradeoffs and is better suited than the other approaches for specific scenarios depending on the privacy, security, and computational constraints. The most appropriate approach depends on the application requirements and data characteristics. Furthermore, research on FL is ongoing, and new methods and techniques are continually being developed to improve performance and privacy preservation. The pseudocode of the proposed approaches is given in Algorithms [1–](#page-5-1)[4.](#page-6-1) The code is available in the GitHub [\[29\]](#page-11-18).
 
-# <span id="page-5-1"></span>Algorithm 1 OUCM
+## <span id="page-5-1"></span>Algorithm 1 OUCM
 
 - 1:**Input**: *D*=*x*1, *x*2, ..., *xn*, *y*,*U*=*U*1, *U*2,..., *UN*,
-  -*C*=*C*1,*C*2, ..., *CK*,*T*.
+-*C*=*C*1,*C*2, ..., *CK*,*T*.
 - 2: **Output**: Secure approach by utilizing FL with FHE.
 - 3: Split *D* into (*Dtrain*) and (*Dtest*)
 - 4: **for**z from 1 to T**do**5: Distribute the users into clusters:
@@ -280,27 +280,26 @@ LMi = Dec_GM
 A loss function is used to evaluate the performance of ML models and optimize them during training. The lower the loss function value, the better the model's predictions. The CrossEntropyLoss function is commonly used for classification problems and measures the difference between predicted probabilities and actual labels. We used the CrossEntropyLoss HIJAZI et al.: SECURE FEDERATED LEARNING WITH FULLY HOMOMORPHIC ENCRYPTION 4295
 **Algorithm 4**MECM
 
-<span id="page-6-1"></span>
 
 | 1: Input: D =<br><br>, U =<br><br>,<br>x1, x2, , xn, y<br>U1, U2,, UN |
 |-----------------------------------------------------------------------|
-| C =<br>C1, C2, , CK<br><br>, T                                        |
-| 2: Output: Secure approach by utilizing FL with FHE                   |
-| 3: Split D into (Dtrain) and (Dtest)                                  |
-| 4: for z from 1 to T do                                               |
-| 5:<br>Distribute the users into clusters:                             |
-| Ci =<br>Ui, Ui+1, , Ui+p−1<br>                                        |
-| 6:<br>∀Ui trains Dtraini<br>on LM_θi(t)                               |
-| 7:<br>LM_θi(t + 1) = LM_θi(t + 1) − LM_θi(t)                          |
-| 8:<br>Enc_LM_θi(t + 1) = Enc_FHE(LM_θi(t + 1))                        |
-| 9:<br>Send Enc_LM_θi(t + 1) to the CMK:                               |
-| 10:<br>CMK = {Enc_LM_θi(t + 1)}                                       |
-| 11:<br>Send CMK ⇒ server                                              |
-| 12:<br>At server: GM = Fed_Avg(CMK)                                   |
-| 13:<br>Send GM ⇒ Ui                                                   |
-| 14:<br>∀Ui: Dec_GM = Dec_FHE(GM)                                      |
-| LMi = Dec_GM                                                          |
-|                                                                       |
+| C =<br>C1, C2, , CK<br><br>, T |
+| 2: Output: Secure approach by utilizing FL with FHE |
+| 3: Split D into (Dtrain) and (Dtest) |
+| 4: for z from 1 to T do |
+| 5:<br>Distribute the users into clusters: |
+| Ci =<br>Ui, Ui+1, , Ui+p−1<br> |
+| 6:<br>∀Ui trains Dtraini<br>on LM_θi(t) |
+| 7:<br>LM_θi(t + 1) = LM_θi(t + 1) − LM_θi(t) |
+| 8:<br>Enc_LM_θi(t + 1) = Enc_FHE(LM_θi(t + 1)) |
+| 9:<br>Send Enc_LM_θi(t + 1) to the CMK: |
+| 10:<br>CMK = {Enc_LM_θi(t + 1)} |
+| 11:<br>Send CMK ⇒ server |
+| 12:<br>At server: GM = Fed_Avg(CMK) |
+| 13:<br>Send GM ⇒ Ui |
+| 14:<br>∀Ui: Dec_GM = Dec_FHE(GM) |
+| LMi = Dec_GM |
+| |
 
 15:**end for**
 
@@ -308,14 +307,14 @@ function.
 
 <span id="page-6-3"></span>TABLE II DESCRIPTION OF INSTANCES IN N-BAIOT DATA SET BY IOT DEVICE
 
-| Device type            | No.of benign | No.of Bashlite |           | No.of Attacks | Attacks + benign |
+| Device type | No.of benign | No.of Bashlite | | No.of Attacks | Attacks + benign |
 |------------------------|--------------|----------------|-----------|---------------|------------------|
-| $I$ <sub>o</sub> $T1$  | 175,240      | 312,723        | 610,714   | 923.437       | 1,098,677        |
-| IoT $2$                | 88.648       | 633.050        | 652.100   | 1.285.150     | 1,373,798        |
-| $I$ <sub>o</sub> $T3$  | 13,113       | 310.630        | 512.133   | 822.763       | 835,876          |
-| $I$ <sub>o</sub> $T$ 4 | 226,781      | 1.258.797      | 1.893.455 | 3.152.252     | 3.379.033        |
-| IoT 5                  | 52.150       | 323.072        | $\Omega$  | 323.072       | 375.222          |
-| Total                  | 555,932      | 2,838,272      | 3,668,402 | 6,506,674     | 7,062,606        |
+| $I$ <sub>o</sub> $T1$ | 175,240 | 312,723 | 610,714 | 923.437 | 1,098,677 |
+| IoT $2$ | 88.648 | 633.050 | 652.100 | 1.285.150 | 1,373,798 |
+| $I$ <sub>o</sub> $T3$ | 13,113 | 310.630 | 512.133 | 822.763 | 835,876 |
+| $I$ <sub>o</sub> $T$ 4 | 226,781 | 1.258.797 | 1.893.455 | 3.152.252 | 3.379.033 |
+| IoT 5 | 52.150 | 323.072 | $\Omega$ | 323.072 | 375.222 |
+| Total | 555,932 | 2,838,272 | 3,668,402 | 6,506,674 | 7,062,606 |
 
 False Negatives (ζ*FN*) cost \$100 million. We utilize these cost values in our sample data set to calculate the security cost, as shown in the following formula:
 
@@ -335,7 +334,7 @@ function from the torch package to measure the loss
 $$
 comm\_overhead = [(SELM *K) + (SEGM* N)] * T.
 $$
- (1)
+(1)
 
 Latency is the time it takes for data to travel from the source (e.g., a sensor or device) to the destination (e.g., a cloud or server) and back. In other words, it is the time between the moment data are generated by a device and the moment they are processed, including encryption and decryption. Reducing the latency in IoT applications often involves optimizing the network infrastructure and communication protocols, as well as using edge computing and distributed processing. FL can also reduce latency by performing ML tasks on distributed devices. Latency is a crucial factor in many real-time and mission-critical applications. Therefore, reducing latency is essential for ensuring the reliability, responsiveness, and efficiency of these systems.
 
@@ -343,28 +342,27 @@ Latency is the time it takes for data to travel from the source (e.g., a sensor 
 
 <span id="page-6-5"></span><span id="page-6-4"></span>rity cost of each classification outcome by multiplying the TPs, TNs, FPs, and FNs with the actual positives or actual negatives. This cost-based approach enables us to evaluate the performance of a classification model beyond accuracy, considering the specific costs associated with each type of classification outcome. When misclassifying an attack is much costlier than correctly identifying it, accuracy alone may not be a suitable evaluation metric. By computing the total cost based on specific cost values assigned to each classification outcome, we can evaluate the overall performance of a classification model in a more nuanced and context-specific way. This can help make informed decisions about deploying a model in a real-world setting, where misclassification errors can have significant consequences.
 
-# <span id="page-6-9"></span><span id="page-6-8"></span>IV. EXPERIMENTS AND RESULTS
+## <span id="page-6-9"></span><span id="page-6-8"></span>IV. EXPERIMENTS AND RESULTS
 
 <span id="page-6-0"></span>This section presents the results of the experiments performed on the N-BaIoT data set to evaluate the effectiveness of the proposed approaches. The N-BaIoT data set [\[34\]](#page-11-23) is a benchmark data set obtained from the University of California at Irvine ML repository [\[35\]](#page-11-24). It represents a real IoT network comprising various IoT devices. For convenience, we assigned symbols to these devices: the baby monitor is represented by IoT\_1, doorbells by IoT\_2, the thermostat by IoT\_3, security cameras by IoT\_4, and webcam by IoT\_5. Furthermore, we conducted a case study to analyze and compare the performances of the four proposed approaches and determine the most effective one. A detailed description of the data sets used in the experiments is provided in Table [II.](#page-6-3)
 
-# <span id="page-6-7"></span>*A. Experiments*The evaluations and experiments were carried out under consistent settings to ensure fair comparisons. A computer with 2 x AMD EPYC 7742 CPUs (128 cores in total with 256 threads) and 256-GB RAM was used for the experiments. The Anaconda Python framework version 3.9.12 was employed
+## <span id="page-6-7"></span>*A. Experiments*The evaluations and experiments were carried out under consistent settings to ensure fair comparisons. A computer with 2 x AMD EPYC 7742 CPUs (128 cores in total with 256 threads) and 256-GB RAM was used for the experiments. The Anaconda Python framework version 3.9.12 was employed
 
 TABLE III BASELINE PERFORMANCE RESULTS
 
-<span id="page-7-0"></span>
 
-| Devices                | Accuracy | Recall | Precision | F1 score | Loss  | Latency (Sec) |
+| Devices | Accuracy | Recall | Precision | F1 score | Loss | Latency (Sec) |
 |------------------------|----------|--------|-----------|----------|-------|---------------|
-| $I$ <sub>o</sub> $T1$  | 0.998    | 0.998  | 1.000     | 0.999    | 0.009 | 180.398       |
-| $I$ <sub>o</sub> $T2$  | 0.997    | 0.997  | 1.000     | 0.998    | 0.011 | 185.703       |
-| IoT <sub>3</sub>       | 0.998    | 0.998  | 1.000     | 0.999    | 0.008 | 176.426       |
-| $I$ <sub>o</sub> $T$ 4 | 0.996    | 0.996  | 1.000     | 0.998    | 0.027 | 219.404       |
-| $I$ <sub>o</sub> $T5$  | 0.998    | 0.998  | 1.000     | 0.999    | 0.010 | 168.522       |
+| $I$ <sub>o</sub> $T1$ | 0.998 | 0.998 | 1.000 | 0.999 | 0.009 | 180.398 |
+| $I$ <sub>o</sub> $T2$ | 0.997 | 0.997 | 1.000 | 0.998 | 0.011 | 185.703 |
+| IoT <sub>3</sub> | 0.998 | 0.998 | 1.000 | 0.999 | 0.008 | 176.426 |
+| $I$ <sub>o</sub> $T$ 4 | 0.996 | 0.996 | 1.000 | 0.998 | 0.027 | 219.404 |
+| $I$ <sub>o</sub> $T5$ | 0.998 | 0.998 | 1.000 | 0.999 | 0.010 | 168.522 |
 
 ![](_page_7_Figure_3.jpeg)
 <!-- Image Description: The image displays a line graph comparing latency (in seconds) across five IoT devices (IoT_1 to IoT_5) for five different cloud computing models: BL, OUC, OECM, MUCM, and MECM. Each line represents a model, showing its latency performance across the different IoT devices. The graph's purpose is to illustrate and compare the latency characteristics of the various cloud models within the context of IoT device deployment. -->
 
-Fig. 6. Average latency of IoT devices.
+Figure 6. Average latency of IoT devices.
 
 to implement all approaches. The reliability of the results was ensured by repeating each experiment 30 independent times and reporting the average results. Furthermore, the experiments were performed with a fixed number of epochs of 30, a learning rate of 0.01, a momentum of 0.9, 100 users, and five clusters.
 
@@ -375,19 +373,18 @@ We evaluated the effectiveness of the four proposed approaches by measuring vari
 ![](_page_7_Figure_9.jpeg)
 <!-- Image Description: The bar chart displays memory overhead (MB) for five communication approaches: BL, OUCM, OECM, MUCM, and MECM. BL shows significantly higher overhead (104.027 MB) than the others, which have overheads under 3 MB. The chart likely compares communication efficiency among different methods within the paper. -->
 
-<span id="page-7-3"></span>Fig. 7. Average overhead of IoT devices.
+<span id="page-7-3"></span>Figure 7. Average overhead of IoT devices.
 
 <span id="page-7-2"></span>TABLE IV OUCM PERFORMANCE RESULTS
 
-<span id="page-7-1"></span>
 
-| Devices               | Accuracy | Recall | Precision | F1 score | Loss  | Latency(Sec) |
+| Devices | Accuracy | Recall | Precision | F1 score | Loss | Latency(Sec) |
 |-----------------------|----------|--------|-----------|----------|-------|--------------|
-| $I$ <sub>o</sub> $T1$ | 0.840    | 1.000  | 0.840     | 0.912    | 0.693 | 155.852      |
-| IoT <sub>2</sub>      | 0.936    | 1.000  | 0.936     | 0.967    | 0.692 | 161.156      |
-| $I$ <sub>o</sub> $T3$ | 0.985    | 1.000  | 0.985     | 0.992    | 0.693 | 151.261      |
-| IoT <sub>4</sub>      | 0.933    | 1.000  | 0.933     | 0.965    | 0.693 | 196.186      |
-| IoT 5                 | 0.860    | 1.000  | 0.860     | 0.924    | 0.693 | 143.873      |
+| $I$ <sub>o</sub> $T1$ | 0.840 | 1.000 | 0.840 | 0.912 | 0.693 | 155.852 |
+| IoT <sub>2</sub> | 0.936 | 1.000 | 0.936 | 0.967 | 0.692 | 161.156 |
+| $I$ <sub>o</sub> $T3$ | 0.985 | 1.000 | 0.985 | 0.992 | 0.693 | 151.261 |
+| IoT <sub>4</sub> | 0.933 | 1.000 | 0.933 | 0.965 | 0.693 | 196.186 |
+| IoT 5 | 0.860 | 1.000 | 0.860 | 0.924 | 0.693 | 143.873 |
 
 168 to 220 s per epoch, which is quite high and could impact the real-time performance of the system.
 
@@ -398,15 +395,14 @@ TABLE V OECM PERFORMANCE RESULTS
 
 <span id="page-8-1"></span>TABLE VI MUCM PERFORMANCE RESULTS
 
-<span id="page-8-0"></span>
 
-| Devices    | Accuracv | Recall | Precision | F1 score | Loss  | Latency (Sec) | Devices          | Accuracy | Recall | Precision | F1<br>score | Loss  | Latency(Sec) |
+| Devices | Accuracv | Recall | Precision | F1 score | Loss | Latency (Sec) | Devices | Accuracy | Recall | Precision | F1<br>score | Loss | Latency(Sec) |
 |------------|----------|--------|-----------|----------|-------|---------------|------------------|----------|--------|-----------|-------------|-------|--------------|
-| $IoT_{-1}$ | 0.997    | 0.997  | 1.000     | 0.998    | 0.028 | 181.592       | IoT              | 0.997    | 0.997  | .000      | 0.998       | 0.013 | 49.646       |
-| $IoT_2$    | 0.997    | 0.997  | 1.000     | 0.998    | 0.011 | 186.546       | IoT <sub>2</sub> | 0.997    | 0.997  | .000      | 0.998       | 0.025 | 54.258       |
-| $IoT_3$    | 0.998    | 0.998  | .000      | 0.999    | 0.008 | 176.571       | $IoT_3$          | 0.998    | 0.998  | .000      | 0.999       | 0.008 | 44.932       |
-| $IoT_4$    | 0.997    | 0.997  | 1.000     | 0.998    | 0.011 | 220.580       | $IoT_4$          | 0.997    | 0.997  | .000      | 0.998       | 0.011 | 90.173       |
-| $IoT_5$    | 0.998    | 0.998  | .000      | 0.999    | 0.010 | 169.553       | IoT 5            | 0.998    | 0.998  | l.000     | 0.999       | 0.011 | 36.644       |
+| $IoT_{-1}$ | 0.997 | 0.997 | 1.000 | 0.998 | 0.028 | 181.592 | IoT | 0.997 | 0.997 | .000 | 0.998 | 0.013 | 49.646 |
+| $IoT_2$ | 0.997 | 0.997 | 1.000 | 0.998 | 0.011 | 186.546 | IoT <sub>2</sub> | 0.997 | 0.997 | .000 | 0.998 | 0.025 | 54.258 |
+| $IoT_3$ | 0.998 | 0.998 | .000 | 0.999 | 0.008 | 176.571 | $IoT_3$ | 0.998 | 0.998 | .000 | 0.999 | 0.008 | 44.932 |
+| $IoT_4$ | 0.997 | 0.997 | 1.000 | 0.998 | 0.011 | 220.580 | $IoT_4$ | 0.997 | 0.997 | .000 | 0.998 | 0.011 | 90.173 |
+| $IoT_5$ | 0.998 | 0.998 | .000 | 0.999 | 0.010 | 169.553 | IoT 5 | 0.998 | 0.998 | l.000 | 0.999 | 0.011 | 36.644 |
 
 before being sent to the global matrix. This encrypted global matrix is then sent to the server for aggregation and updating, and the updated global model parameters are returned to the users.
 
@@ -418,20 +414,19 @@ The performance results of the MUCM approach, as shown in Table [VI,](#page-8-1)
 
 TABLE VII MECM PERFORMANCE RESULTS
 
-<span id="page-8-2"></span>
 
-| Devices               | Accuracy | Recall | Precision | F1_score | Loss  | Latency(Sec) |
+| Devices | Accuracy | Recall | Precision | F1_score | Loss | Latency(Sec) |
 |-----------------------|----------|--------|-----------|----------|-------|--------------|
-| $I$ <sub>o</sub> $T1$ | 0.998    | 0.998  | 1.000     | 0.999    | 0.008 | 182.911      |
-| IoT <sub>2</sub>      | 0.997    | 0.998  | 1.000     | 0.999    | 0.011 | 187.720      |
-| IoT <sub>3</sub>      | 0.998    | 0.998  | 1.000     | 0.999    | 0.019 | 178.524      |
-| IoT 4                 | 0.995    | 0.995  | 1.000     | 0.997    | 0.015 | 223.719      |
-| IoT 5                 | 0.998    | 0.998  | 1.000     | 0.999    | 0.010 | 169.296      |
+| $I$ <sub>o</sub> $T1$ | 0.998 | 0.998 | 1.000 | 0.999 | 0.008 | 182.911 |
+| IoT <sub>2</sub> | 0.997 | 0.998 | 1.000 | 0.999 | 0.011 | 187.720 |
+| IoT <sub>3</sub> | 0.998 | 0.998 | 1.000 | 0.999 | 0.019 | 178.524 |
+| IoT 4 | 0.995 | 0.995 | 1.000 | 0.997 | 0.015 | 223.719 |
+| IoT 5 | 0.998 | 0.998 | 1.000 | 0.999 | 0.010 | 169.296 |
 
 ![](_page_8_Figure_10.jpeg)
 <!-- Image Description: This bar chart compares security costs (y-axis) across five IoT devices (x-axis) using five different security mechanisms: BL, OUCM, OECM, MUCM, and MECM. Each bar represents the security cost for a specific mechanism on a given IoT device. The chart illustrates the varying security costs associated with different mechanisms and their performance across different IoT devices. The purpose is to demonstrate the relative cost-effectiveness of the various security methods. -->
 
-Fig. 8. Security cost.
+Figure 8. Security cost.
 
 <span id="page-8-3"></span>significantly reducing the communication overhead and improving the latency compared to the previous approaches.
 
@@ -439,20 +434,20 @@ Fig. 8. Security cost.
 
 <span id="page-9-1"></span>TABLE VIII COMPARISON BETWEEN PROPOSED APPROACH AND PREVIOUS WORKS
 
-| Approach        | Accuracy | Recall | Precision      | F1-score | FL  | Encryption<br>technique |
+| Approach | Accuracy | Recall | Precision | F1-score | FL | Encryption<br>technique |
 |-----------------|----------|--------|----------------|----------|-----|-------------------------|
-| <b>Baseline</b> | 0.997    | 0.997  | 1.000          | 0.998    | Yes | Yes                     |
-| <b>OUCM</b>     | 0.911    | 1.000  | 0.911          | 0.952    | Yes | Yes                     |
-| OECM            | 0.998    | 0.998  | 1.000          | 0.999    | Yes | Yes                     |
-| <b>MUCM</b>     | 0.997    | 0.997  | 1.000          | 0.999    | Yes | Yes                     |
-| <b>MECM</b>     | 0.997    | 0.997  | 1.000          | 0.998    | Yes | Yes                     |
-| [36]            | 0.760    | 0.834  | 0.834          | 0.789    | No  | No                      |
-| [38]            | 1.000    | 0.999  | 0.999          | 0.999    | Yes | N <sub>0</sub>          |
-| [37] RNN        | 0.644    |        | $\blacksquare$ |          | No  | N <sub>0</sub>          |
-| [37] LSTM       | 0.683    |        | ۰              |          | No  | No                      |
-| [39] MEDNN      | 0.904    |        |                |          | Yes | N <sub>0</sub>          |
-| [39] FCNN       | 0.904    | -      | $\blacksquare$ |          | Yes | No                      |
-| [40]            | 0.751    | 0.751  | 0.751          |          | Yes | No                      |
+| <b>Baseline</b> | 0.997 | 0.997 | 1.000 | 0.998 | Yes | Yes |
+| <b>OUCM</b> | 0.911 | 1.000 | 0.911 | 0.952 | Yes | Yes |
+| OECM | 0.998 | 0.998 | 1.000 | 0.999 | Yes | Yes |
+| <b>MUCM</b> | 0.997 | 0.997 | 1.000 | 0.999 | Yes | Yes |
+| <b>MECM</b> | 0.997 | 0.997 | 1.000 | 0.998 | Yes | Yes |
+| [36] | 0.760 | 0.834 | 0.834 | 0.789 | No | No |
+| [38] | 1.000 | 0.999 | 0.999 | 0.999 | Yes | N <sub>0</sub> |
+| [37] RNN | 0.644 | | $\blacksquare$ | | No | N <sub>0</sub> |
+| [37] LSTM | 0.683 | | ۰ | | No | No |
+| [39] MEDNN | 0.904 | | | | Yes | N <sub>0</sub> |
+| [39] FCNN | 0.904 | - | $\blacksquare$ | | Yes | No |
+| [40] | 0.751 | 0.751 | 0.751 | | Yes | No |
 
 Overall, the proposed approaches have demonstrated high accuracy, precision, recall, and F1-score in detecting anomalies in IoT-enabled smart cities while also providing better privacy and security protection. The results indicate that these approaches can effectively maintain data privacy and security while also achieving high performance in detecting anomalies. Additionally, compared to the baseline approach, the proposed approaches exhibit significant improvements in communication overhead and latency. Therefore, the proposed approaches offer a practical solution to the challenges associated with securing data in IoT-enabled smart cities.
 
@@ -460,11 +455,11 @@ Fig. [8](#page-8-3) shows the security scores of five different IoT devices eval
 
 Of note, the security score should not be the sole determining factor when selecting an approach to secure IoT devices. Other factors, such as communication overhead and latency, should also be considered. Therefore, a comprehensive evaluation of different approaches based on multiple criteria is essential to determine the most suitable approach for a specific use case. Overall, the results show that the four proposed approaches effectively address security concerns in IoT devices and outperform the baseline approach.
 
-#*B. Comparison Between the Proposed Approach and the Literature*This section compares the proposed approaches (OUCM, OECM, MUCM, and MECM) with previous work in the literature in terms of accuracy, recall, precision, and F1-score. Table [VIII](#page-9-1) shows that the proposed approaches outperform most previous methods in terms of all four considered measures. Specifically, OECM, MUCM, and MECM achieved high accuracy, recall, precision, and F1-score (all above 0.997%), while OUCM achieved an accuracy of 0.911%.
+## *B. Comparison Between the Proposed Approach and the Literature*This section compares the proposed approaches (OUCM, OECM, MUCM, and MECM) with previous work in the literature in terms of accuracy, recall, precision, and F1-score. Table [VIII](#page-9-1) shows that the proposed approaches outperform most previous methods in terms of all four considered measures. Specifically, OECM, MUCM, and MECM achieved high accuracy, recall, precision, and F1-score (all above 0.997%), while OUCM achieved an accuracy of 0.911%.
 
 <span id="page-9-5"></span><span id="page-9-4"></span><span id="page-9-3"></span>Additionally, all the proposed approaches utilize FL and encryption techniques, which can enhance the privacy and security of an IoT system. Meanwhile, some previous works do not use these techniques [\[36\]](#page-11-25) and [\[37\]](#page-11-26) achieve lower performance scores, especially in terms of accuracy and F1-score. The technique in [\[38\]](#page-11-27) achieved high accuracy, recall, precision, and F1-score. However, they do not use encryption techniques, which may compromise the privacy and security of the data. Overall, the proposed approaches (OUCM, OECM, MUCM, and MECM) perform well in IoT-based systems, with MECM being the best performing approach. Additionally, FL and encryption techniques can further enhance performance, while ensuring the privacy and security of the data. Therefore, these approaches offer practical solutions for addressing security concerns in IoT-based systems.
 
-# V. CASE STUDY
+## V. CASE STUDY
 
 <span id="page-9-0"></span>This case study aims to assess the effectiveness of four scenarios of the proposed approach in detecting general intrusions and injection attacks within the context of the Internet of Medical Things. The study uses various metrics, which were mentioned earlier (e.g., in the evaluation and assessment section), to measure the performance of the approach.
 
@@ -476,20 +471,19 @@ Of note, the security score should not be the sole determining factor when selec
 
 TABLE IX STATISTICS OF WUSTL-EHMS-2020 DATA SET
 
-<span id="page-10-11"></span>
 
-|                                    | <b>Baseline</b> | <b>OUCM</b> | <b>OECM</b> | <b>MUCM</b>                              | <b>MECM</b> |
+| | <b>Baseline</b> | <b>OUCM</b> | <b>OECM</b> | <b>MUCM</b> | <b>MECM</b> |
 |------------------------------------|-----------------|-------------|-------------|------------------------------------------|-------------|
-| TP                                 | 352             | 359         | 361         | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 370         |
-| <b>TN</b>                          | 3772            | 3780        | 3778        | 3786                                     | 3787        |
-| FP                                 | 36              | 31          | 32          | 25                                       | 22          |
-| <b>FN</b>                          | 31              | 21          | 20          | 14                                       | 12          |
-| Accuracy                           | 0.984           | 0.988       | 0.988       | 0.991                                    | 0.992       |
-| F1-score                           | 0.913           | 0.932       | 0.933       | 0.949                                    | 0.956       |
-| Attack error rate (FNR)            | 0.081           | 0.055       | 0.052       | 0.037                                    | 0.031       |
-| Benign error rate (FPR)            | 0.009           | 0.008       | 0.008       | 0.007                                    | 0.006       |
-| Security cost (general intrusions) | 0.851           | 0.881       | 0.881       | 0.908                                    | 0.919       |
-| Security cost (injection attacks)  | 0.493           | 0.535       | 0.529       | 0.591                                    | 0.622       |
+| TP | 352 | 359 | 361 | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 370 |
+| <b>TN</b> | 3772 | 3780 | 3778 | 3786 | 3787 |
+| FP | 36 | 31 | 32 | 25 | 22 |
+| <b>FN</b> | 31 | 21 | 20 | 14 | 12 |
+| Accuracy | 0.984 | 0.988 | 0.988 | 0.991 | 0.992 |
+| F1-score | 0.913 | 0.932 | 0.933 | 0.949 | 0.956 |
+| Attack error rate (FNR) | 0.081 | 0.055 | 0.052 | 0.037 | 0.031 |
+| Benign error rate (FPR) | 0.009 | 0.008 | 0.008 | 0.007 | 0.006 |
+| Security cost (general intrusions) | 0.851 | 0.881 | 0.881 | 0.908 | 0.919 |
+| Security cost (injection attacks) | 0.493 | 0.535 | 0.529 | 0.591 | 0.622 |
 
 metric can be extended by considering the probability of each sample belonging to a particular outcome. For instance, if a sample has a prediction of 40% attack and 60% benign with the ground truth benign, then the sample's outcome probabilities would be TN = 0.6, FP = 0.4, FN = 0, and TP = 0. These probabilities would then be multiplied by outcome weights to calculate the sample's cost, considering the actual positive and negative values in CM.
 
@@ -497,7 +491,7 @@ The performance of the four approaches in detecting the general intrusion was ev
 
 The results in Table [IX](#page-10-11) show how well the proposed approaches detected general intrusions and injection attacks on the WUSTL-EHMS-2020 data set. The results show that all approaches performed well in terms of accuracy and F1-score, with MECM achieving the highest scores for both metrics. FNR and FPR were also relatively low for all systems, indicating a good detection performance for both intrusion and benign traffic. Similarly, the MECM achieved the lowest security cost for both general intrusions and injection attacks, indicating that it is the most cost-effective system in terms of security. Overall, the results suggest that the MECM is the best performing system among the five evaluated systems for the WUSTL-EHMS-2020 data set in terms of accuracy, F1-score, attack error rate, benign error rate, and security cost.
 
-# VI. CONCLUSION AND FUTURE WORKS
+## VI. CONCLUSION AND FUTURE WORKS
 
 <span id="page-10-10"></span>In this article, we introduced four novel approaches, namely—OUCM, OECM, MUCM, and MECM—for implementing federated learning (FL) using FHE. FHE offers the ability to perform secure computations on encrypted data without requiring decryption, thus presenting a promising solution for preserving data privacy in distributed learning scenarios. We evaluated the effectiveness of these approaches by considering various factors, such as security cost, communication overhead, and latency. Then, we compared the outcomes of the proposed approaches to those of a baseline approach. The experimental results demonstrate that the four proposed approaches exhibited significant advancements. Specifically, we observed remarkable reductions in communication overhead of 89.98%, 80.15%, 87.71%, and 80.15% for the four approaches, compared to the baseline. These reductions highlight the efficiency of the proposed methods. Importantly, throughout our experimentation, we ensured that the key ML performance measures, including—accuracy, recall, precision, and F-score—remained uncompromised. Future work will optimize the proposed approaches by reducing communication overhead related to encryption and decryption. Additionally, the exploration of other privacy-preserving techniques, such as secure multiparty computation and differential privacy, in FL scenarios is planned. Furthermore, the proposed approaches will be evaluated using larger and more diverse data sets to ascertain their scalability and effectiveness in real-world applications.
 

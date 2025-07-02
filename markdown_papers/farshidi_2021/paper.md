@@ -43,7 +43,6 @@ keywords:
 - well-established
 ---
 
-
 # SOFTWARE TOOL ARTICLE
 
 ## [Knowledge sharing and discovery across heterogeneous](https://open-research-europe.ec.europa.eu/articles/1-68/v1)
@@ -66,19 +65,19 @@ Siamak Farshidi <sup>1</sup>, Xiaofeng Liao <sup>1</sup>, Na Li<sup>1</sup>, Dor
 
 **First published:**14 Jun 2021,**1**:68 <https://doi.org/10.12688/openreseurope.13677.1> **Second version:**22 Nov 2021,**1**:68 <https://doi.org/10.12688/openreseurope.13677.2> **Latest published:**06 Jun 2023,**1**:68 <https://doi.org/10.12688/openreseurope.13677.3> **v1**### Open Peer Review
 
-#### Abstract
+### Abstract
 
 Research infrastructures play an increasingly essential role in scientific research. They provide rich data sources for scientists, such as services and software packages, via catalog and virtual research environments. However, such research infrastructures are typically domain-specific and often not connected. Accordingly, researchers and practitioners face fundamental challenges introduced by fragmented knowledge from heterogeneous, autonomous sources with complicated and uncertain relations in particular research domains. Additionally, the exponential growth rate of knowledge in a specific domain surpasses human experts' ability to formalize and capture tacit and explicit knowledge efficiently. Thus, a knowledge management system is required to discover knowledge effectively, automate the knowledge acquisition based on artificial intelligence approaches, integrate the captured knowledge, and deliver consistent knowledge to agents, research communities, and end-users. In this study, we present the development process of a knowledge management system for ENVironmental Research Infrastructures, which are crucial pillars for environmental scientists in their quest for understanding and interpreting the complex Earth System. Furthermore, we report the challenges we have faced and discuss the lessons learned during the development process.
 
-| Approval Status           |      |      |      |
+| Approval Status | | | |
 |---------------------------|------|------|------|
-|                           | 1    | 2    | 3    |
-| version 3                 |      |      |      |
-| (revision)<br>06 Jun 2023 |      |      |      |
-| version 2                 |      |      |      |
-| (revision)<br>22 Nov 2021 | view |      | view |
-| version 1                 |      |      |      |
-| 14 Jun 2021               | view | view |      |
+| | 1 | 2 | 3 |
+| version 3 | | | |
+| (revision)<br>06 Jun 2023 | | | |
+| version 2 | | | |
+| (revision)<br>22 Nov 2021 | view | | view |
+| version 1 | | | |
+| 14 Jun 2021 | view | view | |
 
 -**Robert Huber**, Swiss Federal Institutes of Technology Zurich ETHZ, Zürich, Switzerland 1.
 -**Rebecca Koskela**, University of New Mexico, Albuquerque, USA Ronin Institute, Montclair, USA 2.
@@ -86,7 +85,7 @@ Research infrastructures play an increasingly essential role in scientific resea
 
 <sup>5</sup>MARiene Informatie Service, Nootdorp, The Netherlands
 
-#### Keywords
+### Keywords
 
 Knowledge base, knowledge management, search engine, research infrastructure, software development lifecycle
 
@@ -114,7 +113,7 @@ This article is included in the [Cloud-based](https://open-research-europe.ec.eu
 
 **First published:**14 Jun 2021,**1**:68 <https://doi.org/10.12688/openreseurope.13677.1>
 
-#### 1 Introduction
+### 1 Introduction
 
 Due to population growth and economic development, human impacts on natural resources are continuing to grow. Nonetheless, given the increasing complexity and capital intensity of our society and economies, natural processes in the solid Earth, atmosphere, ecosphere, terrestrial, and marine realms have an intensifying impact on humanity and society. Understanding and quantifying these pressures and resulting changes is a requirement for our societies' sustainable development using fact-based decision-making[1](#page-20-0) .
 
@@ -142,7 +141,7 @@ Knowledge management systems employ problem-solving techniques, and knowledge di
 
 In this paper, we present a novel knowledge management system, called ENVRI-KMS, to meet the ENVRI research community requirements and make the research assets Findable, Accessible, Interoperable, and Reusable (FAIR[9](#page-20-0) ) for the community. The ENVRI-KMS is a Knowledge-as-a-Service for the RI development communities to document RI services' development and operation and address engineering problems. More specifically, the knowledge management system should (1) ingest technical results from ENVRIplus, FAIR assessment1 , the key sub-domains, and other tasks using a formal language for knowledge representation and proven semantic technologies; (2) provide services and tools to enable RI developers and data managers to browse, search, retrieve and compare RI technical statuses and technical solutions to development problems via available content; (3) provide content management tools for specialists in the ENVRI community to ingest new knowledge and control the quality of content; (4) also provide interfaces to other existing semantic resources, e.g., the service catalog of a future ENVRI-HU[B2](#page-20-0) , to enhance knowledge discovery and cross-RI search, between knowledge services and the online presence of ENVRI resources.
 
-#### 3 Related work
+### 3 Related work
 
 We realized that researchers in the literature have introduced a variety of tools and techniques to address knowledge management challenges. A subset of selected studies is presented as follows. Note, we categorized the selected studies into "*Knowledge management development*" approaches (research papers) and "*Knowledge management systems*" (tool papers). [Table 1](#page-4-0) shows the key factors of the selected studies and
 
@@ -152,32 +151,32 @@ We realized that researchers in the literature have introduced a variety of tool
 
 <span id="page-4-0"></span>**Table 1. The results of the systematic literature review based on Snowballing (citation tracking) are presented here.**The table shows the comparison of the selected studies and this study against a set of key factors, including research methods, publication types, research types, emphasized lifecycle phases, and contexts.
 
-| Study         | Year | Research<br>Method                                                   | Publication<br>Type | Research<br>Type          | Lifecycle Phase                                                              | Context                                                                                                                      |  |  |  |
+| Study | Year | Research<br>Method | Publication<br>Type | Research<br>Type | Lifecycle Phase | Context | | | |
 |---------------|------|----------------------------------------------------------------------|---------------------|---------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-| This<br>study | 2021 | Literature Study<br>Document<br>Analysis<br>Survey<br>Design Science | Research Paper      | Conceptual<br>Operational | Planning<br>Requirement Elicitation<br>Architecture Design<br>Implementation | Knowledge Engineering<br>Knowledge Management<br>Knowledge Discovery<br>Knowledge Acquisition<br>Knowledge<br>Representation |  |  |  |
-| 18            | 1992 | Literature Study                                                     | Research Paper      | Conceptual                | Architecture Design                                                          | Knowledge Engineering<br>Knowledge Acquisition                                                                               |  |  |  |
-| 19            | 2001 | Literature Study                                                     | Research Paper      | Conceptual                | Architecture Design                                                          | Decision-Making Process                                                                                                      |  |  |  |
-| 20            | 2019 | Literature Study                                                     | Research Paper      | Conceptual                | Planning                                                                     | Knowledge Management                                                                                                         |  |  |  |
-| 21            | 2018 | Survey                                                               | Research Paper      | Conceptual                | Planning<br>Requirement Elicitation                                          | Knowledge Management                                                                                                         |  |  |  |
-| 22            | 2002 | Literature Study                                                     | Research Paper      | Conceptual                | Planning                                                                     | Knowledge Management                                                                                                         |  |  |  |
-| 23            | 2005 | Literature Study                                                     | Research Paper      | Conceptual                | Maintenance                                                                  | Knowledge Management                                                                                                         |  |  |  |
-| 54            | 2020 | Literature Study<br>Experiment                                       | Research Paper      | Conceptual<br>Operational | Architecture Design<br>Implementation                                        | Knowledge Discovery<br>Knowledge<br>Representation                                                                           |  |  |  |
-| 25            | 2017 | Literature Study                                                     | Research Paper      | Conceptual                | Planning                                                                     | Knowledge Management                                                                                                         |  |  |  |
-| 26            | 2019 | Case Study                                                           | Research Paper      | Conceptual                | Planning                                                                     | Knowledge Management                                                                                                         |  |  |  |
-| 27            | 2019 | Case Study                                                           | Research Paper      | Conceptual                | Planning                                                                     | Knowledge Engineering<br>Knowledge Management<br>Knowledge Discovery                                                         |  |  |  |
-| 28            | 2018 | Literature Study                                                     | Research Paper      | Conceptual                | Planning                                                                     | Knowledge Management<br>Decision-Making Process                                                                              |  |  |  |
-| 29            | 2019 | N/A                                                                  | Tool Paper          | Operational               | Implementation                                                               | Knowledge Discovery                                                                                                          |  |  |  |
-| 30            | 2017 | Literature Study                                                     | Tool Paper          | Conceptual<br>Operational | Architecture Design<br>mplementation                                         | Knowledge Discovery<br>Knowledge Acquisition                                                                                 |  |  |  |
-| 16            | 2020 | Literature Study<br>Document<br>Analysis<br>Design Science           | Tool Paper          | Conceptual<br>Operational | Architecture Design<br>Implementation                                        | Decision-Making Process<br>Knowledge Management                                                                              |  |  |  |
-| 31            | 2018 | Literature Study                                                     | Tool Paper          | Conceptual<br>Operational | Architecture Design<br>Implementation                                        | Knowledge Discovery<br>Knowledge Acquisition                                                                                 |  |  |  |
-| 32            | 2002 | N/A                                                                  | Tool Paper          | Conceptual<br>Operational | Architecture Design<br>Implementation                                        | Knowledge Management                                                                                                         |  |  |  |
-| 33            | 2006 | Literature Study                                                     | Tool Paper          | Conceptual<br>Operational | Architecture Design<br>Implementation                                        | Knowledge Management                                                                                                         |  |  |  |
+| This<br>study | 2021 | Literature Study<br>Document<br>Analysis<br>Survey<br>Design Science | Research Paper | Conceptual<br>Operational | Planning<br>Requirement Elicitation<br>Architecture Design<br>Implementation | Knowledge Engineering<br>Knowledge Management<br>Knowledge Discovery<br>Knowledge Acquisition<br>Knowledge<br>Representation | | | |
+| 18 | 1992 | Literature Study | Research Paper | Conceptual | Architecture Design | Knowledge Engineering<br>Knowledge Acquisition | | | |
+| 19 | 2001 | Literature Study | Research Paper | Conceptual | Architecture Design | Decision-Making Process | | | |
+| 20 | 2019 | Literature Study | Research Paper | Conceptual | Planning | Knowledge Management | | | |
+| 21 | 2018 | Survey | Research Paper | Conceptual | Planning<br>Requirement Elicitation | Knowledge Management | | | |
+| 22 | 2002 | Literature Study | Research Paper | Conceptual | Planning | Knowledge Management | | | |
+| 23 | 2005 | Literature Study | Research Paper | Conceptual | Maintenance | Knowledge Management | | | |
+| 54 | 2020 | Literature Study<br>Experiment | Research Paper | Conceptual<br>Operational | Architecture Design<br>Implementation | Knowledge Discovery<br>Knowledge<br>Representation | | | |
+| 25 | 2017 | Literature Study | Research Paper | Conceptual | Planning | Knowledge Management | | | |
+| 26 | 2019 | Case Study | Research Paper | Conceptual | Planning | Knowledge Management | | | |
+| 27 | 2019 | Case Study | Research Paper | Conceptual | Planning | Knowledge Engineering<br>Knowledge Management<br>Knowledge Discovery | | | |
+| 28 | 2018 | Literature Study | Research Paper | Conceptual | Planning | Knowledge Management<br>Decision-Making Process | | | |
+| 29 | 2019 | N/A | Tool Paper | Operational | Implementation | Knowledge Discovery | | | |
+| 30 | 2017 | Literature Study | Tool Paper | Conceptual<br>Operational | Architecture Design<br>mplementation | Knowledge Discovery<br>Knowledge Acquisition | | | |
+| 16 | 2020 | Literature Study<br>Document<br>Analysis<br>Design Science | Tool Paper | Conceptual<br>Operational | Architecture Design<br>Implementation | Decision-Making Process<br>Knowledge Management | | | |
+| 31 | 2018 | Literature Study | Tool Paper | Conceptual<br>Operational | Architecture Design<br>Implementation | Knowledge Discovery<br>Knowledge Acquisition | | | |
+| 32 | 2002 | N/A | Tool Paper | Conceptual<br>Operational | Architecture Design<br>Implementation | Knowledge Management | | | |
+| 33 | 2006 | Literature Study | Tool Paper | Conceptual<br>Operational | Architecture Design<br>Implementation | Knowledge Management | | | |
 
 compares them against this study. The table shows that our research methods in this study are literature study, document analysis, survey, and design science.
 
 Additionally, this research paper's scope is mainly on the conceptual design and implementation of a knowledge management system called ENVRI-KMS. Moreover, we reported the planning, requirement elicitation, architecture design, and implementation phases of the ENVRI-KMS. The paper's main contexts are Knowledge Engineering, Knowledge Management, Knowledge Discovery, Knowledge Acquisition, and Knowledge Representation.
 
-#### 1 Knowledge management approaches
+### 1 Knowledge management approaches
 
 Wielinga*et al*. [18](#page-20-0) explained knowledge-based systems' development as a modeling activity. They introduced five fundamental principles underlying their approach, including (1) the introduction of partial models as a means to cope with the complexity of the knowledge engineering process, (2) a framework for modeling the required expertise, (3) the reusability of generic model components as templates supporting top-down knowledge acquisition, (4) the process of converting simplistic models into more complicated ones, and (5) the impact of the structure-preserving transformation of models of expertise on design and implementation.
 
@@ -201,7 +200,7 @@ Orenga and Chalmet[a27](#page-20-0) introduced a methodology that can help compa
 
 Hellebrandt *et al*. [28](#page-20-0) introduced a methodological framework based on the analytical network process (ANP) approach for selecting knowledge management solutions for complaint knowledge transfer to product development. Their framework is based on extensive literature review, competing objectives, various criteria, and various organization-specific factors.
 
-#### 2 Knowledge management systems
+### 2 Knowledge management systems
 
 VarSome[29](#page-20-0) is both an annotation tool and search engine for human genomic variants and a platform enabling the sharing of knowledge on specific variants.
 
@@ -215,11 +214,11 @@ Chau and Chuntia[n32](#page-21-0) proposed a knowledge management system on flow
 
 Park and Kim[33](#page-21-0) proposed a framework for designing and implementing a knowledge management system for the fourth generation of Research and Development (R&D). They defined the evolutionary classification of the R&D generations and the corresponding characteristics of the respective generations.
 
-#### 4 ENVRI knowledge management system
+### 4 ENVRI knowledge management system
 
 The ENVRI-KMS is a cluster-level knowledge base that allows different ENVRI users, such as RI developers and data managers, to effectively share their technical practices, identify common data and service requirements and design patterns, and facilitate the search and analysis of existing RI solutions for environmental RI interoperability challenge[s41.](#page-21-0)
 
-#### 1 Requirements elicitation
+### 1 Requirements elicitation
 
 We organized an event for conducting an online survey in the context of 26 research infrastructures to collect their functional requirements and quality concern[s42.](#page-21-0) In total, 35 domain experts participated in the research to assist us with the ENVRI-KMS development life cycle and the requirements elicitation phase. The domain experts were selected according to their expertise and years of experience. On average, the participants had more than ten years of experience within their expertise. They were totally aware of potential challenges that researchers in their community and field might face while performing their daily tasks. Firstly, we introduced the potential functionality of the ENVRI-KMS and presented some of its applications. Then, we used an online survey tool, called Mentimeter[43,](#page-21-0) to distribute a virtual questionnaire including the following questions: (Q1) What information will you typically search from the ENVRI community? (Q2) What will be the typical queries you would ask the ENVRI-KMS? (Q3) How do you currently search for information from the ENVRI community? (Q4) Which knowledge management system functionality do you feel most beneficial for you? (Q5) What function do you expect from the next version of the ENVRI-KMS?
 
@@ -241,7 +240,7 @@ The initial user stories for the ENVRI-KMS mainly focus on the data manager, RI 
 
 Among such technical requirements, the ENVRI-KMS should play a key role in the ENVRI communities to develop FAIR data services and share their best practices.
 
-#### 2 Use case scenarios
+### 2 Use case scenarios
 
 Based on the survey we conducted (see [Section 4.1](#page-6-0)), we identified the following four types of users (see Figure 1) of the ENVRI-KMS:
 
@@ -259,7 +258,7 @@ Based on the survey we conducted (see [Section 4.1](#page-6-0)), we identified t
 
 (4)**Knowledge curator and knowledge base operators**may use the KB to ingest content from new sources and respond to the possible errors that occurred during the ingestion or the operation.
 
-#### 3 Conceptual architecture
+### 3 Conceptual architecture
 
 Based on the use case scenarios (see [Figure 1](#page-7-0)), we design the key components of the ENVRI-KMS from the conceptual point of view. Note, the architecture is designed based on the Open Distributed Processing (ODP) framewor[k48–51](#page-21-0). Figure 2 shows the key components via three layers:
 
@@ -293,7 +292,7 @@ The versions of the structure data currently can be managed via version control 
 
 (3) Information from the available catalogs of data and services. It should be clear that the indexes generated from those sources will not aim to replicate the entire catalogs but provide a quick searching capability for community users. For some RI, such information will be already managed in RDF format and accessible from triplestores.
 
-#### 4 Technical choices
+### 4 Technical choices
 
 This section reviews the relevant technologies that can be employed to develop the ENVRI-KMS according to the requirements (See [Section 4.1\)](#page-6-0).
 *4.4.1 Data storage***.** RDF or similar triple-graph-like data structures are widely used in knowledge representation; a range of existing approaches can be used for knowledge storage, from traditional relational database management systems to dedicated graph databases.
@@ -313,28 +312,28 @@ We compared five potential solutions to presenting/managing RDF-based content ac
 
 <sup>4</sup> PHP (Hypertext Preprocessor) is an open source general-purpose scripting language that is especially suited for web development and can be embedded into HyperText Markup Language (HTML).
 
-|                                                      | Semantic Mediawiki                                                                                                                                                | Wikibase (Wikidata)                                                                                                          | OntoWiki                                       |
+| | Semantic Mediawiki | Wikibase (Wikidata) | OntoWiki |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| Editor                                               | Yes                                                                                                                                                               | Yes                                                                                                                          | Yes                                            |
-| Triple Viewer                                        | Yes                                                                                                                                                               | Yes                                                                                                                          | Yes                                            |
-| Visualization                                        | Optional (e.g., graph extension)                                                                                                                                  | Several built-in features                                                                                                    | Optional (Cubeviz)                             |
-| Original Purpose                                     | Semantic Annotation of Wiki pages                                                                                                                                 | Knowledge Base + Fact Editor for<br>populating Wikipedia Infoboxes                                                           | Knowledge Base Editor                          |
-| Full source on Github                                | Yes                                                                                                                                                               | Yes                                                                                                                          | Yes                                            |
-| Last Edit on Github                                  | 17.06.2019 / Active                                                                                                                                               | 14.06.2019 / Active                                                                                                          | 11.07.2017/Currently no<br>further development |
-| Frontend Technology                                  | Browser                                                                                                                                                           | Browser                                                                                                                      | Browser                                        |
-| Server Technology                                    | PHP                                                                                                                                                               | PHP                                                                                                                          | PHP                                            |
-| Storage Technology                                   | Relational (can optionally be<br>complemented with Triplestore running<br>in parallel                                                                             | Relational with mirror Triplestore<br>for Queries                                                                            | Triplestore or Relational                      |
-| Native RDF                                           | When using complementary Triplestore                                                                                                                              | No                                                                                                                           | Yes                                            |
-| RDF Export (Only for<br>editor)                      | Yes                                                                                                                                                               | Yes                                                                                                                          | Yes                                            |
-| RDF Import                                           | Via tools, e.g. RDFIO Tool for RDF import,<br>convertion to internal format                                                                                       | Needs longer conversion<br>workflow, would need creation of<br>or mapping to existing Wikibase<br>classes/properties         | Yes                                            |
-| Builtin OWL import                                   | No<br>(Could be done via script, converting owl<br>features having counterparts in internal<br>class/property structure)                                          | No<br>(Could be done via script,<br>converting owl features having<br>counterparts in internal class/<br>property structure) | Yes (With limitation)                          |
-| SPARQL Support                                       | When using complementary Triplestore                                                                                                                              | Sparql queries against parallel<br>Triplestore                                                                               | Yes                                            |
-| Class/Category System<br>available for instantiation | yes; proprietary; subclass/subproperty<br>relationships possible                                                                                                  | yes; proprietary; subclass/<br>subproperty relationships<br>possible                                                         | Yes; based on OWL                              |
-| Constraints (Only for<br>Editor)                     | uniqueness (Property can only be used<br>once per instance) Permitted Values<br>(Controlled list of values to be entered<br>for property) datatype check (One of) | Custom,                                                                                                                      | No                                             |
-| Provenance                                           | Statement Level Provenance<br>(references)                                                                                                                        | Statement Level Provenance<br>(references)                                                                                   | Statement Level<br>Provenance<br>(references)  |
-| Revision Tracking                                    | Yes                                                                                                                                                               | Yes                                                                                                                          | Yes                                            |
+| Editor | Yes | Yes | Yes |
+| Triple Viewer | Yes | Yes | Yes |
+| Visualization | Optional (e.g., graph extension) | Several built-in features | Optional (Cubeviz) |
+| Original Purpose | Semantic Annotation of Wiki pages | Knowledge Base + Fact Editor for<br>populating Wikipedia Infoboxes | Knowledge Base Editor |
+| Full source on Github | Yes | Yes | Yes |
+| Last Edit on Github | 17.06.2019 / Active | 14.06.2019 / Active | 11.07.2017/Currently no<br>further development |
+| Frontend Technology | Browser | Browser | Browser |
+| Server Technology | PHP | PHP | PHP |
+| Storage Technology | Relational (can optionally be<br>complemented with Triplestore running<br>in parallel | Relational with mirror Triplestore<br>for Queries | Triplestore or Relational |
+| Native RDF | When using complementary Triplestore | No | Yes |
+| RDF Export (Only for<br>editor) | Yes | Yes | Yes |
+| RDF Import | Via tools, e.g. RDFIO Tool for RDF import,<br>convertion to internal format | Needs longer conversion<br>workflow, would need creation of<br>or mapping to existing Wikibase<br>classes/properties | Yes |
+| Builtin OWL import | No<br>(Could be done via script, converting owl<br>features having counterparts in internal<br>class/property structure) | No<br>(Could be done via script,<br>converting owl features having<br>counterparts in internal class/<br>property structure) | Yes (With limitation) |
+| SPARQL Support | When using complementary Triplestore | Sparql queries against parallel<br>Triplestore | Yes |
+| Class/Category System<br>available for instantiation | yes; proprietary; subclass/subproperty<br>relationships possible | yes; proprietary; subclass/<br>subproperty relationships<br>possible | Yes; based on OWL |
+| Constraints (Only for<br>Editor) | uniqueness (Property can only be used<br>once per instance) Permitted Values<br>(Controlled list of values to be entered<br>for property) datatype check (One of) | Custom, | No |
+| Provenance | Statement Level Provenance<br>(references) | Statement Level Provenance<br>(references) | Statement Level<br>Provenance<br>(references) |
+| Revision Tracking | Yes | Yes | Yes |
 
-#### <span id="page-11-0"></span>Table 2. Comparison of existing platforms/products.
+### <span id="page-11-0"></span>Table 2. Comparison of existing platforms/products.
 
 RDF: Resource Description Framework | OWL: Web Ontology Language | SPARQL: Protocol and RDF Query Language
 
@@ -356,27 +355,27 @@ Converting the graph data into the intended map format for export is the most di
 
 **WebVOwl**[61](#page-21-0) is a web framework for interactive ontology visualization. It implements the Visual Notation for OWL Ontologies (VOWL)[62](#page-21-0) by displaying graphical representations of Web Ontology Language (OWL) elements in a force-directed graph layout that represents the ontology. Exploration of the ontology and customization of the visualization are possible thanks to interaction techniques. The VOWL visualizations are created automatically from JSON files that the ontologies must be translated into. Along with WebVOWL, a Java-based OWL2VOWL converter is included. A comparison of these
 
-#### Table 3. Comparison between Open Semantic Search and ElasticSearch.
+### Table 3. Comparison between Open Semantic Search and ElasticSearch.
 
-|                              | Open Semantic Search                                                                                                                                                                                                                                                                | ElasticSearch                                                                                            |  |  |  |
+| | Open Semantic Search | ElasticSearch | | | |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--|--|--|
-| Visualization                | 1. Visualizing like trend charts, word clouds, interactive maps<br>2. graph/network analysis view<br>3. Alternatively, enable the Open Source ETL plugin for<br>integration with the Neo4J database and present visualization<br>with Neo4j browser by Cypher graph query language. | via Kibana(Pie, Bar, Map, etc)                                                                           |  |  |  |
-| Builtin UI Features          | Solr-PHP-UI                                                                                                                                                                                                                                                                         | Search UI                                                                                                |  |  |  |
-| Full source on Github        | Yes                                                                                                                                                                                                                                                                                 | Yes                                                                                                      |  |  |  |
-| Frontend Technology          | Browser                                                                                                                                                                                                                                                                             | HTTP web interface                                                                                       |  |  |  |
-| Storage Technology           | Inverted Index                                                                                                                                                                                                                                                                      | Inverted Index                                                                                           |  |  |  |
-| Native RDF                   | native graph storage for graphs including RDF triple stores                                                                                                                                                                                                                         | index RDF data in JSON format                                                                            |  |  |  |
-| RDF Export (Only for editor) | Yes<br>Yes                                                                                                                                                                                                                                                                          | No                                                                                                       |  |  |  |
-| Builtin OWL import           | Yes                                                                                                                                                                                                                                                                                 | No                                                                                                       |  |  |  |
-| SPARQL Support               | Neo4j has Cypher that covers the need for a structured graph<br>query language                                                                                                                                                                                                      | Elasticsearch provides a full Query DSL<br>(Domain Specific Language) based on<br>JSON to define queries |  |  |  |
+| Visualization | 1. Visualizing like trend charts, word clouds, interactive maps<br>2. graph/network analysis view<br>3. Alternatively, enable the Open Source ETL plugin for<br>integration with the Neo4J database and present visualization<br>with Neo4j browser by Cypher graph query language. | via Kibana(Pie, Bar, Map, etc) | | | |
+| Builtin UI Features | Solr-PHP-UI | Search UI | | | |
+| Full source on Github | Yes | Yes | | | |
+| Frontend Technology | Browser | HTTP web interface | | | |
+| Storage Technology | Inverted Index | Inverted Index | | | |
+| Native RDF | native graph storage for graphs including RDF triple stores | index RDF data in JSON format | | | |
+| RDF Export (Only for editor) | Yes<br>Yes | No | | | |
+| Builtin OWL import | Yes | No | | | |
+| SPARQL Support | Neo4j has Cypher that covers the need for a structured graph<br>query language | Elasticsearch provides a full Query DSL<br>(Domain Specific Language) based on<br>JSON to define queries | | | |
 
 <span id="page-13-0"></span>tools in terms of the several practical issues is presented in Table 4.
 
-#### 5 Prototype
+### 5 Prototype
 
 The ENVRI-KMS development follows an interactive approach, in which prioritized user stories have been analyzed, and technical choices were selected based on the state-of-the-art review done in [section 4.4](#page-9-0). We use Ontowiki to manage the RDF triples and Open Semantic Search to develop the ENVRI-KMS's search tool in the current prototype. Several tools were developed for ingesting specific knowledge, e.g., a technology description form for describing the service portfolio, interactive graph visualizer for the search results, and dynamic online data ingestion pipeline. These tools will be described in the following sections.
 
-#### 1 Knowledge storage
+### 1 Knowledge storage
 
 The comparison of existing RDF content management platforms is summarized in [Table 2](#page-11-0). It was suggested to consider OntoWiki for managing RDF content. The main reasons for this decision were as follows:
 
@@ -390,41 +389,41 @@ The comparison of existing RDF content management platforms is summarized in [Ta
 
 The choice of Ontowiki directly affected the selection of the underlying Triplestore since Ontowiki provides a pre-configured connector to the Openlink Virtuoso data management system, which members of the KB team already had experience with from previous projects. The open-source edition of Openlink Virtuoso[63](#page-21-0) (Version 7.2.5.1) was therefore deployed for that purpose and configured for Ontowiki (and vice-versa).
 
-#### 2 Tools for ingesting knowledge
+### 2 Tools for ingesting knowledge
 
 The population of knowledge bases can take different routes. On the one hand, existing collections of information can sometimes be transformed so that they can be "bulk" imported into the ENVRI-KMS, which includes rearrangements and mappings of existing collections of structured information but potentially also the extraction of structured content from unstructured sources such as free text, which is by no means an easy task considering the complexity in the natural language processing/understanding. On the other hand, it is usually possible to manually add ENVRI-KMS's contents, "fact by fact". However, manual input can be slow, tedious, and error-prone if not supported by dedicated tools. In the context of the ENVRI-KMS, it should be possible to provide content in both ways.
 
 As far as manual data entry is concerned, the system supports the creation of valid RDF data via custom HTML Web forms. They are dynamically created using the RDForm[s64](#page-21-0) Javascript library based on formal JSON descriptions of the underlying data model. This also includes the specification of constrained SPARQL queries for the dynamic retrieval of menu options to maintain consistent RDF relationships between the described entity and related terminology and other entities already stored in the KB.
 
-|                                                     | Open source                                                      | RDF support                                                                                                     | SPARQL Support                                                                                                                          |
+| | Open source | RDF support | SPARQL Support |
 |-----------------------------------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| Popoto.js                                           | Open source licensed<br>under GNU General Public<br>License v3.0 | NA                                                                                                              | JavaScript naturally fits for querying a<br>SPARQL endpoint which provides a REST<br>service returning the result in the JSON<br>format |
-| D3.js                                               | open source licensed<br>under BSD license.                       | NA`                                                                                                             | JavaScript naturally fits for querying a<br>SPARQL endpoint which provides a REST<br>service returning the result in the JSON<br>format |
-| open source licensed<br>Neo4j Bloom<br>under GPLv3. |                                                                  | Yes, via the neosemantics (n10s) plugin.                                                                        | No, Neo4j has Cypher that covers the<br>need for a structured graph query<br>language.                                                  |
-| Grafo                                               | No. offers a Free/Student<br>tier with basic functionality.      | supports importing OWL (RDF/XML)<br>and Turtle file formats.                                                    | No                                                                                                                                      |
-| WebVOwl                                             | Open source released<br>under the MIT license                    | visualizations are automatically<br>generated from JSON files into which<br>the ontologies need to be converted | Yes                                                                                                                                     |
+| Popoto.js | Open source licensed<br>under GNU General Public<br>License v3.0 | NA | JavaScript naturally fits for querying a<br>SPARQL endpoint which provides a REST<br>service returning the result in the JSON<br>format |
+| D3.js | open source licensed<br>under BSD license. | NA` | JavaScript naturally fits for querying a<br>SPARQL endpoint which provides a REST<br>service returning the result in the JSON<br>format |
+| open source licensed<br>Neo4j Bloom<br>under GPLv3. | | Yes, via the neosemantics (n10s) plugin. | No, Neo4j has Cypher that covers the<br>need for a structured graph query<br>language. |
+| Grafo | No. offers a Free/Student<br>tier with basic functionality. | supports importing OWL (RDF/XML)<br>and Turtle file formats. | No |
+| WebVOwl | Open source released<br>under the MIT license | visualizations are automatically<br>generated from JSON files into which<br>the ontologies need to be converted | Yes |
 
-#### Table 4. Comparison between knowledge graph visualization options.
+### Table 4. Comparison between knowledge graph visualization options.
 
 <span id="page-14-0"></span>A prototype is developed5 to support the discovery of gaps in FAIR principle implementation at the granularity of RI repositories and the discovery of possible technology solutions to address such gaps. By modifying the FAIRness Assessment of a repository of a particular RI—which is functionality natively supported by OntoWiki—for instance, the information on whether or not the repository has machine-readable provenance information, the interface automatically adapts to either include or exclude the corresponding repository under the relevant FAIR principle. By selecting an RI, the user interface presents a summary view for the RI.
 
-#### 4 Ontowiki as a knowledge management platform
+### 4 Ontowiki as a knowledge management platform
 
 Ontowiki is a suitable RDF data management platform. A test instance is configure[d65](#page-21-0) and slightly customized to use the ENVRI logo and display the ENVRI RSS news feed on the front page. It currently serves as a data gateway for the facts added via forms based on the FAIRness analysis. Ontowiki was found to perform well as RDF "middleware" used to ingest data from the RDF forms. Some issues were discovered regarding the cross-referencing of statements between knowledge bases (named graphs). A workaround published in a newsgroup provided a potential fix for static data but would have to be extended for a continuously growing data collection. A possible solution would be to store information that is expected to change/grow, e.g., the entity descriptions and the user terminology collected from the RDF forms, in a typical named graph and to configure Ontowiki filters for its efficient navigation while storing more static content, such as external ontologies, in separate graphs. While Ontowiki supports flexible navigation and data editing at the RDF statement level, the interface is arguably not appropriate for the vast majority of RI managers or developers. We conducted some experiments with the atmospheric domain, but RIs did not engage with the user interface. This is to be expected since Ontowiki relies on a good understanding of the RDF data model. Moreover, presenting information at the RDF statement's granularity is typically inadequate for high-level information needs, e.g., discovering FAIR gaps in the data centers of an RI. We thus suggest that Ontowiki can act as an RDF-based middleware that powers high-level user applications and services. A critical aspect of using Ontowiki to manage the generated RDF data will be the question of versioning. While built-in features such as the statement-level provenance in principle allow detailed tracking of changes/revisions of the provided data, a backup strategy using external means should be considered as well. One straightforward step would be to export complete RDF dumps of the provided content in regular intervals and to track their versions in source code repositories such as Github.
 
-#### 5 Search engine
+### 5 Search engine
 
 Though Ontowiki provides navigation functionality over the ENVRI-KMS, it mainly operates at the RDF triple-level, which poses essential technical requirements on users' expertise. To facilitate the general users to explore the ENVRIKMS easily, we build the ENVRI-KMS Search Engine based on the Open Semantic Search's fundamental concepts and components. [Figure 5](#page-15-0) below illustrates the search interface6 .
 
-#### 6 Operational workflow
+### 6 Operational workflow
 
 This section elaborates on the operational workflow of the ENVRI-KMS7 and presents its constituent components (See [Figure 6\)](#page-16-0). **Research Infrastructures**, such as ACTRIS and ANAEE, are the primary sources of knowledge that contain knowledge assets, including webpages, datasets, APIs, service catalogs, publications, design decisions, best practices, devices, and data provenance. The **Sitemap Extractor**explores and extracts the site structure (the list of URLs) of the RIs. Then, the**Web Crawler**browses the extracted URLs and by employing**NLP & ETL**(Natural Language Processing and Extract/Transform/Load) techniques, such as Named-Entity Recognition (NER) and Relation Extraction (RE), tries to index documents and classify the extracted knowledge. For instance, in the knowledge extraction process, the NER and RE approaches are used to identify the entities represented in documents and their relations as fundamental knowledge extraction processes. The extracted knowledge is used to build the knowledge graph in the knowledge base of the ENVRI-KMS.**Data Storage**technologies, including Apache Solr and MySQL, are used to store the acquired knowledge systematically. The**Knowledge Base**of the ENVRI-KMS integrates user profiles, user search histories, decision models (e.g., meta-models), and infers solutions (results) based on searchers' queries. the**User Interface**receives user queries, such as keywords and user stories, and demonstrated the results (e.g., publications, graph visualizations, and recommendations) to the**Searchers the process of extracting useful and hidden informatio[n14](#page-20-0)**(See [Section 4.2](#page-7-0)).
 
-#### 6 Analysis
+### 6 Analysis
 
 In this subsection, we reflect on each of the proposed research questions based on our observations during the development process, the online survey, and documentation analysis.
 
-#### 1 Requirements analysis
+### 1 Requirements analysis
 
 We revisit the requirements and analyze the gap for the tools or platforms we investigated in terms of the requirements identified in [Section 4.1.](#page-6-0)
 **Compatible with Semantic Web technologies.**As the most common type for knowledge storage, representation, reasoning, the support of RDF is the core requirement in designing and developing the ENVRI-KMS. This requirement can include the following specific options, such as RDF import/export, RDF storage, owl import, SPARQL support, etc. The two storage
@@ -435,7 +434,6 @@ We revisit the requirements and analyze the gap for the tools or platforms we in
 
 <sup>7</sup> In order to implement the ENVRI-KMS, we have employed the proposed design decisions and solutions that Open Semantic Searc[h66](#page-21-0) and WebVOW[L62](#page-21-0) as two open source projects have been offered.
 
-<span id="page-15-0"></span>
 **Figure 5. The interface of the ENVRI-KMS.**solutions (Apache Jena and Virtuoso) are triplestores dedicated to storing RDF data, thus fully meeting semantic web technology compatibility requirements. Regarding the knowledge management solutions, as the comparison in [Table 3](#page-12-0) indicates, both Semantic Mediawiki and Ontowiki are RDF compatible.
 **Semantic search and query functionality.**An interface for search and discovery of the knowledge base contents should be provided, and this could be the conventional keyword-based search or faceted search. Rather than strict adherence to a single controlled vocabulary or keyword set, a semantic search function is further expected to permit search based on 'similar' or 'related' terms.
 
@@ -457,7 +455,7 @@ As already analyzed, although the Knowledge management systems provide a GUI for
 
 Apache Jena Fuseki does not currently support horizontal scaleup, but there are workaround solutions like coordinating the updates from a staging server and publishing (read-only) to external clients. Based on the comparison, it is clear that no one single solution satisfies all the requirements. The optimal <span id="page-17-0"></span>solution should be combining existing options, and other software such as Blazegraph could be a candidate.
 
-#### 2 Research questions
+### 2 Research questions
 
 To answer the first two research questions (*RQ*1 and *RQ*<sup>2</sup> ), we have conducted an extensive literature review to build the search space (including RIs, Datasets, etc.) of the ENVRI-KMS and capture knowledge systematically. The current search space8 of the ENVRI-KMS includes all research infrastructures which are mentioned on the ENVRI community knowledge base9 . It is essential to highlight the search space is not limited to the initial sets and is growing automatically.
 
@@ -473,11 +471,11 @@ The FAIR principles highlight the necessity for extensive metadata and documenta
 
 [Table 5](#page-18-0) represents the mapping among the extracted requirements (R01 to R25) based on the responses of the participants to the survey questions (Q1 to Q5) and the research question (*RQ*1 to *RQ*<sup>5</sup> ). Additionally, the table shows that more than half of the identified requirements (62% ) are at least partially addressed so that the main components of the ENVRI-KMS are functional.
 
-#### 7 Discussion
+### 7 Discussion
 
 This section summarizes our observations and highlights several lessons learned during the development process of the ENVRI-KMS.
 
-#### 1 Architecture design
+### 1 Architecture design
 
 Software architecture deals with the base structure, subsystems, and interactions among these subsystems, so it is critical to the success or failure of any software system[67](#page-21-0). Software architecting can be thought of as a decision-making process in which software architects consider a collection of possible solutions for solving a system design problem and choose the one that is evaluated as the optimal[68](#page-21-0). Software architecture decisions are design decisions that meet both functional and quality requirements in a system.
 
@@ -491,34 +489,34 @@ Each architectural design decision is made with a design rational[e71](#page-21-
 
 <span id="page-18-0"></span>**Table 5. The mapping among the extracted requirements (R01 to R25) based on the responses of the participants to the survey questions (Q1 to Q5) and the research question (***RQ***1 to** *RQ***5).**Additionally, the last column shows how far we have addressed the requirements up to now.
 
-| Requirements |                                                   | Survey Questions |    |    |    | Research Questions |     |     |     |     |     |            |
+| Requirements | | Survey Questions | | | | Research Questions | | | | | | |
 |--------------|---------------------------------------------------|------------------|----|----|----|--------------------|-----|-----|-----|-----|-----|------------|
-|              |                                                   | Q1               | Q2 | Q3 | Q4 | Q5                 | RQ1 | RQ2 | RQ3 | RQ4 | RQ5 | Addressed? |
-| R01          | Completeness of the ENVRI-KMS search space        | X                |    |    |    | X                  | X   |     |     |     |     | Partially  |
-| R02          | List of the contact persons                       | X                |    | X  |    |                    | X   |     |     |     |     | Not yet    |
-| R03          | FAIRness criteria                                 | X                | X  |    | X  |                    |     |     |     |     | X   | Yes        |
-| R04          | Entitiy types (private, open-source, etc.)        |                  | X  |    |    |                    | X   |     |     |     |     | Not yet    |
-| R05          | Recommendations                                   | X                | X  |    | X  | X                  |     |     |     | X   |     | Partially  |
-| R06          | Q&A forums for technical discussions              |                  | X  |    | X  |                    |     |     |     |     | X   | Not yet    |
-| R07          | Ontologies and semantic search                    |                  | X  |    |    | X                  |     |     |     | X   |     | Partially  |
-| R08          | Multilingual queries                              |                  | X  |    |    |                    |     |     | X   | X   |     | Not yet    |
-| R09          | Source code and API search                        |                  | X  |    |    |                    |     |     |     | X   |     | Not yet    |
-| R10          | Search RI website's contents                      |                  | X  | X  |    |                    |     |     |     | X   |     | Yes        |
-| R11          | Standard user interface                           |                  |    | X  |    | X                  |     |     |     | X   |     | Yes        |
-| R12          | SPARQL queries                                    |                  |    |    | X  |                    |     |     |     | X   |     | Not yet    |
-| R13          | High performance and availability                 |                  |    |    | X  |                    |     |     |     | X   |     | Partially  |
-| R14          | APIs to be connected to VREs                      |                  |    |    | X  |                    |     |     |     | X   |     | Partially  |
-| R15          | Automatic knowledge ingestion                     |                  |    |    | X  | X                  |     | X   |     |     |     | Yes        |
-| R16          | Visualization                                     |                  |    |    | X  |                    |     |     |     | X   |     | Partially  |
-| R17          | Image search                                      |                  |    |    | X  | X                  |     |     |     | X   |     | Partially  |
-| R18          | Assessment tools                                  |                  | X  |    | X  | X                  |     |     |     |     | X   | Not yet    |
-| R19          | Manual knowledge ingestion                        |                  |    |    | X  |                    |     | X   |     |     |     | Yes        |
-| R20          | Updatable knowledge base                          |                  |    |    |    | X                  |     |     | X   |     |     | Yes        |
-| R21          | Geolocation of the search space entities          |                  | X  |    |    | X                  | X   |     |     |     |     | Not yet    |
-| R22          | Metadata of the search space entities             |                  |    | X  |    | X                  | X   |     |     |     |     | Not yet    |
-| R23          | Continuous integration and continuous<br>delivery |                  |    |    |    | X                  |     |     | X   |     |     | Yes        |
-| R24          | Different user categories                         |                  |    |    |    | X                  |     |     |     |     | X   | Partially  |
-| R25          | Categories & classifications                      |                  |    | X  | X  |                    | X   |     |     |     |     | Yes        |
+| | | Q1 | Q2 | Q3 | Q4 | Q5 | RQ1 | RQ2 | RQ3 | RQ4 | RQ5 | Addressed? |
+| R01 | Completeness of the ENVRI-KMS search space | X | | | | X | X | | | | | Partially |
+| R02 | List of the contact persons | X | | X | | | X | | | | | Not yet |
+| R03 | FAIRness criteria | X | X | | X | | | | | | X | Yes |
+| R04 | Entitiy types (private, open-source, etc.) | | X | | | | X | | | | | Not yet |
+| R05 | Recommendations | X | X | | X | X | | | | X | | Partially |
+| R06 | Q&A forums for technical discussions | | X | | X | | | | | | X | Not yet |
+| R07 | Ontologies and semantic search | | X | | | X | | | | X | | Partially |
+| R08 | Multilingual queries | | X | | | | | | X | X | | Not yet |
+| R09 | Source code and API search | | X | | | | | | | X | | Not yet |
+| R10 | Search RI website's contents | | X | X | | | | | | X | | Yes |
+| R11 | Standard user interface | | | X | | X | | | | X | | Yes |
+| R12 | SPARQL queries | | | | X | | | | | X | | Not yet |
+| R13 | High performance and availability | | | | X | | | | | X | | Partially |
+| R14 | APIs to be connected to VREs | | | | X | | | | | X | | Partially |
+| R15 | Automatic knowledge ingestion | | | | X | X | | X | | | | Yes |
+| R16 | Visualization | | | | X | | | | | X | | Partially |
+| R17 | Image search | | | | X | X | | | | X | | Partially |
+| R18 | Assessment tools | | X | | X | X | | | | | X | Not yet |
+| R19 | Manual knowledge ingestion | | | | X | | | X | | | | Yes |
+| R20 | Updatable knowledge base | | | | | X | | | X | | | Yes |
+| R21 | Geolocation of the search space entities | | X | | | X | X | | | | | Not yet |
+| R22 | Metadata of the search space entities | | | X | | X | X | | | | | Not yet |
+| R23 | Continuous integration and continuous<br>delivery | | | | | X | | | X | | | Yes |
+| R24 | Different user categories | | | | | X | | | | | X | Partially |
+| R25 | Categories & classifications | | | X | X | | X | | | | | Yes |
 
 decisions underpinning the original architecture. Design rationale is an essential part of an architecture description according to the IEEE 1471 recommended practice[s73.](#page-21-0)
 
@@ -574,9 +572,9 @@ This project contains the following extended data:
 
 • Knowledgebase-discussion.pdf (Visualized survey outcomes)
 
-Data are available under the terms of the [Creative Commons](https://creativecommons.org/licenses/by/4.0/)  [Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/) (CC-BY 4.0).
+Data are available under the terms of the [Creative Commons](https://creativecommons.org/licenses/by/4.0/) [Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/) (CC-BY 4.0).
 
-#### Software availability
+### Software availability
 
 Software available from: [SciCrunch:](https://scicrunch.org/) ENVRI-KMS,RRID:SCR\_ 021235
 
@@ -586,7 +584,7 @@ Archived source code at time of publication: [http://doi.org/](http://doi.org/10
 
 License:<https://opensource.org/licenses/Apache-2.0>
 
-#### References
+### References
 
 - 1. Vermeulen A, Glaves H, Pouliquen S,*et al.*: **Supporting cross-domain systemlevel environmental and earth science**. In *Towards Interoperable Research Infrastructures for Environmental and Earth Sciences.*Springer, 2020; 3–16.**[Publisher Full Text](http://dx.doi.org/10.1007/978-3-030-52829-4_1)**- 2. Tanhua T, Pouliquen S, Hausman J,*et al.*: **Ocean fair data services.** *Front Mar Sci.*2019;**6**: 440. **[Publisher Full Text](http://dx.doi.org/10.3389/fmars.2019.00440)**- 3.**The international oceanographic data and information exchange**. 2021. **[Reference Source](https://www.iode.org/)**- 4. Zhao Z, Liao X, Martin P,*et al.*: **Knowledge-as-a-service: A community knowledge base for research infrastructures in environmental and earth sciences**. In *2019 IEEE World Congress on Services (SERVICES).*IEEE, 2019;**2642**: 127–132. **[Publisher Full Text](http://dx.doi.org/10.1109/SERVICES.2019.00041)**- 5. ENVRIplus:**Research infrastructures.**2021.**[Reference Source](https://www.envriplus.eu/)**- 6. ICOS:**Integrated carbon observation system.**2021.**[Reference Source](https://icos-uk.org/)**- 7. IAGOS:**In-service aircraft for a global observing system.**2021.**[Reference Source](https://www.iagos.org/)**- 8. ACTRIS:**European research infrastructure for the observation of aerosol, clouds and trace gases.**2021.**[Reference Source](https://www.actris.eu)**- 9. Wilkinson MD, Dumontier M, Aalbersberg IJ,*et al.*: **Addendum: The fair guiding principles for scientific data management and stewardship.** *Sci Data.*2019;**6**(1): 6.
 - **[PubMed Abstract](http://www.ncbi.nlm.nih.gov/pubmed/30890711)**|**[Publisher Full Text](http://dx.doi.org/10.1038/s41597-019-0009-6)**|**[Free Full Text](http://www.ncbi.nlm.nih.gov/pmc/articles/6427092)**10. Hevner AR, March ST, Park J,*et al.*: **Design science in information systems research.** *MIS quarterly.*2004;**28**(1): 75–105.
@@ -595,27 +593,29 @@ License:<https://opensource.org/licenses/Apache-2.0>
 
 <span id="page-21-0"></span>**research articles by solr-based faceted search.**In*International Conference on Computing and Information Technology.*2018; 337–346.**[Publisher Full Text](http://dx.doi.org/10.1007/978-3-319-93692-5_33)**- 32. Chau KW, Chuntian C, Li CW:**Knowledge management system on flow and water quality modeling.** *Expert Systems with Applications.*2002;**22**(4): 321–330. **[Publisher Full Text](http://dx.doi.org/10.1016/S0957-4174(02)00020-9)**- 33. Park Y, Kim S:**Knowledge management system for fourth generation r&d: Knowvation.** *Technovation.*2006;**26**(5–6): 595–602. **[Publisher Full Text](http://dx.doi.org/10.1016/j.technovation.2004.10.008)**- 34. Layer RM, Pedersen BS, DiSera T,*et al.*: **Giggle: a search engine for large-scale integrated genome analysis.** *Nat Methods.*2018;**15**(2): 123–126. **[PubMed Abstract](http://www.ncbi.nlm.nih.gov/pubmed/29309061)**|**[Publisher Full Text](http://dx.doi.org/10.1038/nmeth.4556)**|**[Free Full Text](http://www.ncbi.nlm.nih.gov/pmc/articles/5872823)**- 35. Farshidi S, Jansen S, de Jong R,*et al.*: **A decision support system for software technology selection.** *Journal of Decision Systems.*2018.**[Reference Source](https://slingerjansen.files.wordpress.com/2018/05/a-decision-support-system-for-software-technology-selection.pdf)**- 36. Farshidi S, Jansen S, de Jong R, ,*et al.*: **A decision support system for cloud service provider selection problems in software producing organizations.**In*IEEE 20th Conference on Business Informatics (CBI).*2018;**1**: 139–148. **[Publisher Full Text](http://dx.doi.org/10.1109/CBI.2018.00024)**- 37. Farshidi S, Jansen S, Martijn J,*et al.*: **Capturing software architecture knowledge for pattern-driven design.** *Journal of Systems and Software.*2020;**169**: 110714. **[Publisher Full Text](http://dx.doi.org/10.1016/j.jss.2020.110714)**- 38. Farshidi S, Jansen S, Fortuin S:**Model-driven development platform selection: four industry case studies.** *Software and Systems Modeling.*2021; 1–27.
 
-#### [Publisher Full Text](http://dx.doi.org/10.1007/s10270-020-00855-w)
+### [Publisher Full Text](http://dx.doi.org/10.1007/s10270-020-00855-w)
 
 - 39. Farshidi S, Jansen S, Deldar M:**A decision model for programming language ecosystem selection: Seven industry case studies.** *Information and Software Technology.*2021;**139**: 106640. **[Publisher Full Text](http://dx.doi.org/10.1016/j.infsof.2021.106640)**- 40. Farshidi S, Jansen S, España S,*et al.*: **Decision support for blockchain platform selection: Three industry case studies.** *IEEE Transactions on Engineering Management.*2020;**67**(4): 1109–1128. **[Publisher Full Text](http://dx.doi.org/10.1109/TEM.2019.2956897)**- 41. Farshidi S:**SiamakFarshidi/solr-php-ui: ENVRI-KMS (Version 1.0).** *Zenodo.*2021.
 -**<http://www.doi.org/10.5281/zenodo.4882766>**42. Farshidi S, Zhao Z:**"ENVRI-KMS".**Mendeley Data, V1. 2021.
 -**<http://www.doi.org/10.17632/ntxypfsvds.1>**- 43. Mentimeter:**An application for creating interactive presentations & meetings.**2021.**[Reference Source](https://www.mentimeter.com/)**- 44. Martin P, Remy L, Theodoridou M,*et al.*: **Mapping heterogeneous research infrastructure metadata into a unified catalogue for use in a generic virtual research environment.** *Future Generation Computer Systems.*2019;**101**: 1–13.
 
-#### [Publisher Full Text](http://dx.doi.org/10.1016/j.future.2019.05.076)
+### [Publisher Full Text](http://dx.doi.org/10.1016/j.future.2019.05.076)
 
 - 45. Calyam P, Wilkins-Diehr N, Miller M, *et al.*: **Measuring success for a future vision: Defining impact in science gateways/virtual research environments.** *Concurrency and Computation: Practice and Experience.*2020.**[Publisher Full Text](http://dx.doi.org/10.1002/cpe.6099)**- 46. Farshidi S, Zhao Z:**Envri-kms.**2021.
 -**[Reference Source](https://data.mendeley.com/datasets/ntxypfsvds/1)**- 47. Liao X, Bottelier J, Zhao Z:**A column styled composable schema matcher for semantic data-types.** *Data Science Journal.*2019;**18**(1): 25. **[Publisher Full Text](http://dx.doi.org/10.5334/dsj-2019-025)**- 48. ISO:**Iec 10746-1 information technology–open distributed processing– reference model: Overview.**1998.**[Reference Source](https://www.iso.org/standard/20696.html)**- 49. ISO:**Iec 10746-2 information technology–open distributed processing– reference model: Foundations.**2009.**[Reference Source](https://www.iso.org/standard/55723.html)**- 50. ISO:**Iec 10746-3 information technology–open distributed processing– reference model: Architecture.**2009.**[Reference Source](https://www.iso.org/standard/55724.html)**- 51. ISO:**Iec 10746-4 information technology–open distributed processing– reference model: Architecture semantics.**1998.**[Reference Source](https://www.iso.org/standard/20698.html)**- 52. Auer S, Dietzold S, Riechert T:**Ontowiki–a tool for social, semantic collaboration.**In*International Semantic Web Conference.*2006; 736–749.**[Publisher Full Text](http://dx.doi.org/10.1007/11926078_53)**- 53. MySQL:**A database management service.**2021.**[Reference Source](https://www.mysql.com/)**- 54. Jena A:**A free and open source java framework for building semantic web and linked data applications.**2021.**[Reference Source](https://jena.apache.org/)**- 55. Virtuoso:**Virtuoso universal server.**2021.**[Reference Source](https://virtuoso.openlinksw.com/)**- 56. Neo4j:**A native graph database platform.**2021.**[Reference Source](https://neo4j.com/)**- 57. D3.js:**A javascript library for visualising and manipulating documents.**2021.**[Reference Source](https://d3js.org/)**- 58. Popoto.js:**A javascript library for creating interactive and customizable visual query builder for neo4j graph databases.**2021.**[Reference Source](https://github.com/Nhogs/popoto/wiki)**- 59. Neo4j Bloom:**Friendly graph database visualization, exploration and collaboration tool.**2021.
 -**[Reference Source](https://neo4j.com/product/ bloom/)**60. gra.fo:**Design knowledge graphs.**2021.**[Reference Source](https://gra.fo/)**- 61. WebVOWL:**Visual notation for owl ontologies.**2021.**[Reference Source](https://github.com/VisualDataWeb/WebVOWL)**- 62. VOWL:**Visual notation for owl ontologies.**2021.**[Reference Source](http://vowl.visualdataweb.org/)**- 63. Openlink Virtuoso:**Open-source edition.**2021.**[Reference Source](http://vos.openlinksw.com/owiki/wiki/VOS)**- 64. RDForms:**Rdf in html-forms.**2021.**[Reference Source](https://rdforms.org)**- 65. ontowiki:**A knowledge management platform.**2021.**[Reference Source](http://ontowiki.envri.eu)**- 66. Open Semantic Search:**Integrated research tools for searching and text mining.**2021.**[Reference Source](https://opensemanticsearch.org/)**- 67. Clements P, Kazman R, Klein M,*et al.*: **Evaluating software architectures.**Tsinghua University Press Beijing. 2003.
 - 68. Lago P, Avgeriou P:**First workshop on sharing and reusing architectural knowledge.** *ACM SIGSOFT Software Engineering Notes.*2006;**31**(5): 32–36. **[Publisher Full Text](http://dx.doi.org/10.1145/1163514.1163526)**- 69. Bosch J:**Software architecture: The next step.**In*European Workshop on Software Architecture.*2004; 194–199.**[Publisher Full Text](http://dx.doi.org/10.1007/978-3-540-24769-2_14)**- 70. Avgeriou P, Kruchten P, Lago P,*et al.*: **Sharing and reusing architectural knowledge–architecture, rationale, and design intent.**In*29th International Conference on Software Engineering (ICSE' 07 Companion).*2007; 109–110.**[Publisher Full Text](http://dx.doi.org/10.1109/ICSECOMPANION.2007.65)**- 71. Dutoit AH, McCall R, Mistrík I,*et al.*: **Rationale management in software engineering.**Springer Science & Business Media. 2007.**[Publisher Full Text](http://dx.doi.org/10.1007/978-3-540-30998-7)**- 72. Ali Babar M, Lago P:**Design decisions and design rationale in software architecture.** *Journal of Systems and Software.*2009;**82**(8): 1195–1197. **[Publisher Full Text](http://dx.doi.org/10.1016/j.jss.2009.05.053)**- 73. IEEE-SA:**1471-2000-ieee recommended practice for architectural description for software-intensive systems.**2000.**[Publisher Full Text](http://dx.doi.org/10.1109/IEEESTD.2000.91944)**- 74. Tang A, de Boer T, van Vliet H:**Building roadmaps: a knowledge sharing perspective.** *Proceedings of the 6th International Workshop on SHAring and Reusing Architectural Knowledge.*2011; 13–20.**[Publisher Full Text](http://dx.doi.org/10.1145/1988676.1988681)**- 75. Buschmann F, Meunier R, Rohnert H,*et al.*: **Pattern-oriented software architecture-a system of patterns.** *Advances in software engineering and knowledge engineering.*1996;**1**: 1–487. **[Reference Source](https://daneshjavaji.files.wordpress.com/2018/02/sznikak_jegyzet_pattern-oriented-sa_vol1.pdf)**- 76. De Boer RC, Van Vliet H:**Quont: an ontology for the reuse of quality criteria.** *2009 ICSE Workshop on Sharing and Reusing Architectural Knowledge.*IEEE, 2009; 57–64.
 
-#### [Publisher Full Text](http://dx.doi.org/10.1109/SHARK.2009.5069116)
+### [Publisher Full Text](http://dx.doi.org/10.1109/SHARK.2009.5069116)
 
 - 77. Razavian M, Tang A, Capilla R,*et al.*: **Reflective approach for software design decision making.** *2016 Qualitative Reasoning about Software Architectures (QRASA).*IEEE, 2016; 19–26.**[Publisher Full Text](http://dx.doi.org/10.1109/QRASA.2016.8)**- 78. Bhattacharya P, Neamtiu I:**Assessing programming language impact on development and maintenance: A study on c and c++.** *Proceedings of the 33rd Int. Conference on Software Engineering.*ACM, 2011; 171–180.**[Publisher Full Text](http://dx.doi.org/10.1145/1985793.1985817)**- 79. Olariu C, Gogan M, Rennung F:**Switching the center of software development from it to business experts using intelligent business process management suites.** *Soft Computing Applications.*Springer, 2016; 993–1001.**[Publisher Full Text](http://dx.doi.org/10.1007/978-3-319-18416-6_79)**- 80. Brambilla M, Cabot J, Wimmer M:**Model-driven software engineering in practice.** *Synthesis lectures on software engineering.*2017;**3**(1): 1–207. **[Publisher Full Text](http://dx.doi.org/10.2200/S00751ED2V01Y201701SWE004)**- 81. Jones SP, Leshchinskiy R, Keller G,*et al.*: **Harnessing the multicores: Nested data parallelism in haskell.** *IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science.*Schloss Dagstuhl-Leibniz-Zentrum für Informatik, 2008.**[Publisher Full Text](http://dx.doi.org/10.4230/LIPIcs.FSTTCS.2008.1769)**- 82. Holtz NM, Rasdorf WJ:**An evaluation of programming languages and language features for engineering software development.** *Engineering with Computers.*1988;**3**(4): 183–199. **[Publisher Full Text](http://dx.doi.org/10.1007/BF01202140)**# Open Peer Review
 
 ## Current Peer Review Status:
+
 **Version 1**Reviewer Report 12 July 2021
 
 ## <https://doi.org/10.21956/openreseurope.14751.r27110>
+
 **© 2021 Koskela R.**This is an open access peer review report distributed under the terms of the [Creative](https://creativecommons.org/licenses/by/4.0/) [Commons Attribution License](https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
 
 ![](_page_22_Picture_8.jpeg)
@@ -659,6 +659,7 @@ Partly
 **I confirm that I have read this submission and believe that I have an appropriate level of expertise to state that I do not consider it to be of an acceptable scientific standard, for reasons outlined above.**Reviewer Report 24 June 2021
 
 ### <https://doi.org/10.21956/openreseurope.14751.r27111>
+
 **© 2021 Huber R.**This is an open access peer review report distributed under the terms of the [Creative Commons](https://creativecommons.org/licenses/by/4.0/) [Attribution License](https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
 
 ![](_page_23_Picture_12.jpeg)
@@ -717,7 +718,7 @@ Para 5:
 
 ## Section 3
 
-- Table 1: explain terms used in the table to classify
+- **Table 1:** explain terms used in the table to classify
 - Section lacks an overview on existing commercial knowledge management systems.
 
 ## Section 3.1 and 3.2
@@ -767,7 +768,7 @@ Move section up and explain use cases in more detail e.g. explain the focus on d
 - Check which technologies? Implemented in RI or existing outside?
 - Please rewrite this section what e.g. means 'prepared for FAIRness gaps'?
 
-Figure 2: figure caption missing,
+**Figure 2:** figure caption missing,
 
 ## Section 4.4
 
@@ -778,7 +779,7 @@ Figure 2: figure caption missing,
 
 Instead of 'prioritized user stories' you should mention the use case you considered (data management etc.)
 
-#### Section 5.1
+### Section 5.1
 
 'It was suggested to consider OntoWiki' -> Did you choose this tool or another one?
 
@@ -787,19 +788,19 @@ Instead of 'prioritized user stories' you should mention the use case you consid
 - This section is hard to understand and needs to be rewritten. It is not clear if this functionality is already in place or still planned.
 - Links given as footnotes lead to binder linked notebooks which are not very useful to demonstrate how FAIR assessments are performed.
 
-#### Section 5.4
+### Section 5.4
 
 - 'via forms based on the FAIRness analysis' -> This is not explained before.
 - 'Some issues were discovered' which ones, is this important to describe the tool in this paper? Sections dealing with bug fixing are not necessary.
 - Would suggest to move the section dealing with user engagement to the discussion.
 
-#### Section 5.5
+### Section 5.5
 
 - This very short section suddenly jumps into document management issues.
 - Please explain a bit how this was done, I assume here Elasticsearch was used?
 - It is hard to understand the connection with Ontowiki is there any?
 
-#### Section 5.6
+### Section 5.6
 
 - Web Crawler and Sitemap extractor are mentioned but not explained. In comparison to the lengthy description of OntoWiki this is not sufficient.
 - Also sections on NLP etc. this would be more interesting in comparison to the tool selection parts above.
@@ -814,7 +815,7 @@ Many of the arguments listed here are already mentioned in the previous sections
 - Literature: is this what has been selected to feed the system? Content is not very clear to me.
 - Overall this section is much too long and a bit hard to follow, maybe this can be merged with some other section. The FAIR principles are not helpful in this context to describe how research questions have been addressed.
 
-#### Section 7
+### Section 7
 
 Please do not discuss 'Software architecture' and Implementation in general, instead discuss the architecture and implementation of the ENVRI-KMS. The whole section needs to be rewritten in way that it focuses on the ENVRI KMS.
 
@@ -839,6 +840,7 @@ Partly
 **I confirm that I have read this submission and believe that I have an appropriate level of expertise to state that I do not consider it to be of an acceptable scientific standard, for reasons outlined above.**Page 28 of 29
 
 ## Comments on this article
+
 **Version 1**Reader Comment 05 Jul 2021
 **Daniel Spichtinger**, self-employed, Vienna, Austria
 

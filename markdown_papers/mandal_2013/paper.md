@@ -30,7 +30,6 @@ keywords:
 - natural language understanding
 ---
 
-
 # LLMasMMKG: LLM Assisted Synthetic Multi-Modal Knowledge Graph Creation For Smart City Cognitive Digital Twins
 
 Sukanya Mandal<sup>1</sup> , Noel E. O'Connor<sup>2</sup>
@@ -118,7 +117,7 @@ Module 1 - Heterogeneous Data Sources and Data Processing: This module is respon
 ![](_page_3_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge graph construction pipeline. It depicts four stages: heterogeneous data preprocessing, multimodal representation learning (combining data from multiple sources), LLM-guided knowledge extraction (entity recognition and relationship extraction), and knowledge graph construction and population (ontology design and data incorporation). The final output is a populated knowledge graph. -->
 
-Figure 1: System Architecture
+**Figure 1:** System Architecture
 
 - Smart Healthcare Data: Electronic health records (EHRs), anonymized patient data, hospital occupancy rates, and public health alerts.
 - Smart Transportation Data: Real-time traffc data from sensors, GPS devices, and traffc cameras, as well as public transportation schedules and incident reports.
@@ -163,7 +162,7 @@ This section describes a practical implementation of our proposed methodology. F
 ![](_page_4_Figure_4.jpeg)
 <!-- Image Description: The flowchart depicts a knowledge graph construction process. It begins with synthetic data generation from various smart sources (home, healthcare, transport, grid) using LLMs. This data, combined with sensor data and text data, undergoes entity recognition, relationship extraction, and semantic schema mapping. Finally, synthetic data is incorporated to populate the knowledge graph via ontology design and LLM-guided knowledge extraction. -->
 
-Figure 2: System Architecture adopted for this implementation
+**Figure 2:** System Architecture adopted for this implementation
 
 ### 1 Module 1 – Synthetic Data Generation
 
@@ -220,7 +219,7 @@ Data Volume and Time Range: We aimed to generate approximately 10,000 data point
 
 Data Pre-processing: Before KE, all data generated undergoes data cleaning, data normalisation and textual data pre-processing as outlined previously.
 
-#### 2 Module 2 – MMRL
+### 2 Module 2 – MMRL
 
 This module transforms the preprocessed data from diverse sources and modalities into a unifed representation that captures semantic relationships across different data types, preparing it for effective KE by the LLM.
 
@@ -229,26 +228,26 @@ In this implementation, we employ sentence embedding models, specifcally Sentenc
 ![](_page_6_Figure_3.jpeg)
 <!-- Image Description: The image displays a hierarchical list, likely an ontology, defining data types. It shows "owl:Thing" as the root, branching into various data categories such as "Device," "SensorReading," "SocialMediaPost," and others related to smart city applications. The purpose is to illustrate the data model's structure and the types of data considered within the scope of the paper. -->
 
-Figure 3: Classes and Subclasses of the Ontology
+**Figure 3:** Classes and Subclasses of the Ontology
 
 ![](_page_6_Picture_5.jpeg)
 <!-- Image Description: The image displays a table listing annotation properties within a broader ontology framework. Specifically, it shows a list of `owl:` and `rdfs:` prefixes representing object properties relevant to versioning and metadata (e.g., `owl:backwardCompatibleWith`, `owl:deprecated`, `rdfs:comment`). The table likely illustrates the metadata schema used in the paper, clarifying the properties used to describe ontology versions and relationships. -->
 
-Figure 4: Annotation Properties of the Ontology
+**Figure 4:** Annotation Properties of the Ontology
 
-#### 3 Module 3 – LLM Guided KE
+### 3 Module 3 – LLM Guided KE
 
 This module leverages the capabilities of LLMs to extract meaningful knowledge from the preprocessed synthetic data. In this context, "knowledge" refers to structured information about entities and their relationships within the SC domain. This knowledge is represented as facts, or triples, consisting of a subject (an entity), a predicate (the relationship), and
 
 ![](_page_6_Figure_9.jpeg)
 <!-- Image Description: The image displays a screenshot of a data properties list, likely from a software interface for managing ontologies or knowledge graphs. It shows a hierarchical structure, with "owl:topDataProperty" as the parent node, followed by a list of child nodes representing various data properties such as `doorStatus`, `energyConsumption`, `heartRate`, and others. This illustrates the data properties defined within the system, likely for use in data modeling or knowledge representation within the academic paper. -->
 
-Figure 5: Data Properties of the Ontology
+**Figure 5:** Data Properties of the Ontology
 
 ![](_page_6_Figure_11.jpeg)
 <!-- Image Description: The image displays a table showing object properties within an ontology. Under the "Object Properties" tab, three properties are listed: `owl:topObjectProperty`, `hasSensorReading`, and `relatedTo`. This screenshot likely illustrates the ontology's structure and the defined relationships between entities, serving as an example of the data model used in the paper. -->
 
-Figure 6: Object Properties of the Ontology
+**Figure 6:** Object Properties of the Ontology
 
 an object (another entity or a value). For example, the fact ("EcoTemp Thermostat", "controls", "Room Temperature") represents the knowledge that a specifc thermostat device controls the temperature of a room. The ability to extract and represent such knowledge in a structured format is crucial for building a comprehensive and queryable KG that can support reasoning and decision-making in a SC context.
 
@@ -261,16 +260,16 @@ Semantic Schema Mapping: This task, as part of the LLMguided KE process, focuses
 ![](_page_7_Figure_0.jpeg)
 <!-- Image Description: The image displays RDF/XML code representing sensor data from a smart city. It shows multiple `<rdf:Description>` blocks, each detailing observations from Smart Transportation, Smart Grid, and Smart Home systems. Data includes timestamps, latitude/longitude, speed (transportation), energy consumption, solar/wind generation (grid), and temperature/humidity/door status (home). The image's purpose is to illustrate the data structure used within the paper, likely for representing and exchanging smart city sensor information. -->
 
-Figure 7: A snapshot of the fnal RDF
+**Figure 7:** A snapshot of the fnal RDF
 
 ![](_page_7_Figure_2.jpeg)
 <!-- Image Description: The image shows a screenshot of a software interface for managing ontologies. The left panel lists individuals (sensor_1 to sensor_5) belonging to a class. The right panel displays details for "sensor_1", including its IRI, annotations (e.g., hasDoorStatus, hasEnergyConsumption, hasHumidity, hasTemperature, hasTimestamp with associated values), type (Sensor), and sections for relationships and "Same As" entries. The figure illustrates the structure and content of an ontology representation within the software. -->
 
-Figure 8: A snapshot of the KG containing data
+**Figure 8:** A snapshot of the KG containing data
 
 the sentence embeddings generated in section 5.2. For each pair of text data points, their corresponding sentence embeddings are compared using cosine similarity. If the similarity score exceeds a predefned threshold (0.6 in this implementation), a relatedTo relationship is established between them in the KG - while this value has not been rigorously optimized for our specifc dataset, it represents a balance between capturing meaningful semantic connections and avoiding an excessive number of spurious links, based on general practice in semantic similarity tasks. Future work will focus on empirically determining the optimal threshold through a systematic evaluation of precision and recall across different threshold values, tailored to the characteristics of our smart city data (Resnik 1999). This approach allows the system to identify connections between text data points based on the underlying concepts they express, even if they don't share explicit keywords or phrases. For example, given "Room Temperature" (from smart thermostat data) and "Ambient Temperature" (from energy consumption data) as input, the high similarity score between their sentence embeddings would lead to the establishment of a relatedTo relationship between these two concepts in the KG.
 
-#### 4 Module 4 – KG Construction and Population
+### 4 Module 4 – KG Construction and Population
 
 KR: The extracted knowledge is formally represented as a KG using the RDF. RDF triples (subject, predicate, object) are used to express entities and relationships within the graph. In the codebase we have defned custom namespaces (e.g., ONTOLOGY, SMART CITY, SMART HOME etc,; see fgure 9) to organize and distinguish concepts within the KG. A snapshot of the fnal RDF representation of the KG is shown in fgure 7.
 
@@ -280,14 +279,14 @@ Synthetic Data Incorporation: After pre-processing, multimodal representation le
 
 KG Population: The extracted entities, relationships, and attributes are populated into the KG. Each data point is represented as a node (entity) or edge (relationship) in the graph, adhering to the defned ontology. See fgure 8 (as viewed on Webprotege).
 
-#### 5 Key Contribution in This Implementation
+### 5 Key Contribution in This Implementation
 
 This implementation showcases a practical approach for leveraging LLMs to construct MMKGs for representing SCs. It directly addresses how LLMs can be utilized to build MMKGs that effectively capture the intricate interplay within a SC CDT framework. This work focuses specifcally on the creation of synthetic MMKGs focusing on the SC domains of smart homes, smart healthcare, smart transportation, and smart grids. The key contributions are aligned as follows:
 
 ![](_page_8_Figure_0.jpeg)
 <!-- Image Description: The image displays a code snippet defining namespaces for an ontology and knowledge graph. Seven lines of code, using the `Namespace()` function, assign unique URIs (Uniform Resource Identifiers) to 'ONTOLOGY', 'SMART_CITY', 'SMART_HOME', 'SMART_HEALTHCARE', 'SMART_TRANSPORTATION', and 'SMART_GRID'. These namespaces are likely used for organizing and referencing data within the ontology and knowledge graph described in the paper. -->
 
-Figure 9: Namespaces for Ontology and Knowledge Graph
+**Figure 9:** Namespaces for Ontology and Knowledge Graph
 
 Fusion of Heterogeneous Data Sources: The implementation successfully integrates data from diverse sources, including synthetically generated text, simulated sensor readings, and predefned ontologies (see Figure 9). This fusion of heterogeneous data into a unifed KG enables cross-modal analysis and reasoning, providing a more holistic view of the SC.
 
@@ -329,7 +328,7 @@ Explainability and Trustworthiness: Investigate methods for making the LLM-based
 
 Evaluating KG Quality: Future work will prioritize a comprehensive evaluation of the generated MMKG's quality. This will encompass quantitative assessments of its structural properties, semantic coherence, and utility for downstream tasks like question answering and inference, alongside qualitative assessments through expert evaluation and case studies. Additionally, we will benchmark our LLM-driven pipeline against existing KG construction methods to demonstrate its effectiveness and effciency.
 
-#### 2 Expanding Data Modalities and Applications
+### 2 Expanding Data Modalities and Applications
 
 Incorporating Additional Data Modalities: Expanding the KG to encompass a wider range of data sources beyond text is crucial for capturing a holistic view of the SC. This includes incorporating image data, video data, voice data, biometric data, facial and gesture data, geospatial data, realtime weather information, demographic data, and economic indicators.
 
@@ -339,7 +338,7 @@ Evaluating Performance in Diverse Applications: A crucial next step is to assess
 
 Enhancing Reasoning and Inference: Investigating the use of KG embedding techniques and reasoning mechanisms, such as graph neural networks (GNN) and rule-based inference engines, can unlock the full potential of the generated KG. This would enable more sophisticated querying, facilitate complex what-if analyses, and support advanced analytics and data-driven decision-making within the DT.
 
-#### 4 Synthetic Data and Real World Data
+### 4 Synthetic Data and Real World Data
 
 Refning Synthetic Data Generation: While the current techniques generate synthetic data with plausible characteristics, further refnement is crucial. This involves developing more sophisticated generative models that capture the subtle nuances, correlations, and potential anomalies present in real-world sensor data and rigorously evaluating the synthetic data against corresponding real-world datasets to identify and rectify any discrepancies or biases.
 

@@ -31,25 +31,25 @@ keywords:
 
 | Ulrich Schmitt* | University of Stellenbosch,<br>Business School, Bellville,<br>South Africa | schmitt@knowcations.org |
 |-----------------|----------------------------------------------------------------------------|-------------------------|
-| T. Grandon Gill | University of South Florida,<br>Tampa, Florida, USA                        | grandon@usf.edu         |
+| T. Grandon Gill | University of South Florida,<br>Tampa, Florida, USA | grandon@usf.edu |
 
 \*Corresponding author
 
 ## ABSTRACT
 
-| Aim/Purpose     | As<br>traditional Knowledge Management (KM) struggles to support the per<br>sonal needs of knowledge workers in a new era of accelerating<br>information<br>abundance, we<br>examine the shortcomings<br>and put forward<br>alternative scenar<br>ios and architectures<br>for developing a<br>novel<br>Personal<br>KM System<br>(PKMS). |
+| Aim/Purpose | As<br>traditional Knowledge Management (KM) struggles to support the per<br>sonal needs of knowledge workers in a new era of accelerating<br>information<br>abundance, we<br>examine the shortcomings<br>and put forward<br>alternative scenar<br>ios and architectures<br>for developing a<br>novel<br>Personal<br>KM System<br>(PKMS). |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Background      | While prior publications focused on the complementing features compared<br>to conventional dynamic KM models, our emphasis shifts to instantiating a<br>flourishing PKMS community<br>supported by a Digital Platform Ecosystem.                                                                                                         |
-| Methodology     | Design science research focusing on conceptual analysis and prototyping.                                                                                                                                                                                                                                                                 |
-| Contribution    | The PKMS concept<br>advances the understanding of how digital platform<br>communities may serve members with highly diverse skills and ambitions<br>better to gainfully utilize the platform's resources and generative potential in<br>their personal and local settings.                                                               |
-| Findings        | We demonstrate how the needs to tackle attention-consuming rising entropy<br>and<br>to benefit from generative innovation potentials<br>can be addressed.                                                                                                                                                                                |
-| Future Research | As this article<br>has iteratively co-evolved with the preparing of a PKMS imple<br>mentation, business, and roll-out plan, the prototype's testing, completion,<br>and subsequent migration to a viable system is of primary concern.                                                                                                   |
+| Background | While prior publications focused on the complementing features compared<br>to conventional dynamic KM models, our emphasis shifts to instantiating a<br>flourishing PKMS community<br>supported by a Digital Platform Ecosystem. |
+| Methodology | Design science research focusing on conceptual analysis and prototyping. |
+| Contribution | The PKMS concept<br>advances the understanding of how digital platform<br>communities may serve members with highly diverse skills and ambitions<br>better to gainfully utilize the platform's resources and generative potential in<br>their personal and local settings. |
+| Findings | We demonstrate how the needs to tackle attention-consuming rising entropy<br>and<br>to benefit from generative innovation potentials<br>can be addressed. |
+| Future Research | As this article<br>has iteratively co-evolved with the preparing of a PKMS imple<br>mentation, business, and roll-out plan, the prototype's testing, completion,<br>and subsequent migration to a viable system is of primary concern. |
 
 Accepting Editor Robert W. Hammond │Received: June 3, 2020│Revised: September 6, November 11, 2020│ Accepted: November 14, 2020.
 
 Cite as: Schmitt, U., & Gill, T. G. (2020). Gifts, contexts, means, and ends differing: Informing task scenarios to serve knowledge workers' needs in dynamic complex settings.*Informing Science: The International Journal of an Emerging Transdiscipline, 23,*119-145.<https://doi.org/10.28945/4667>
 
-(CC BY-NC 4.0) This article is licensed to you under a Creative Commons Attribution-[NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)  [License.](https://creativecommons.org/licenses/by-nc/4.0/) When you copy and redistribute this paper in full or in part, you need to provide proper attribution to it to ensure that others can later locate this work (and to ensure that others do not accuse you of plagiarism). You may (and we encourage you to) adapt, remix, transform, and build upon the material for any non-commercial purposes. This license does not permit you to use this material for commercial purposes.
+(CC BY-NC 4.0) This article is licensed to you under a Creative Commons Attribution-[NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) [License.](https://creativecommons.org/licenses/by-nc/4.0/) When you copy and redistribute this paper in full or in part, you need to provide proper attribution to it to ensure that others can later locate this work (and to ensure that others do not accuse you of plagiarism). You may (and we encourage you to) adapt, remix, transform, and build upon the material for any non-commercial purposes. This license does not permit you to use this material for commercial purposes.
 
 Keywords knowledge management, personal knowledge management, design science research, social digital curation, informing system, digital platform ecosystem, generativity, entropy
 
@@ -87,22 +87,22 @@ Entropic considerations form one of the fresh approaches adopted in this DSR pro
 
 Table 1 summarizes and relates key impediments affecting KM effectiveness under the umbrella of entropy in a public/private-discoverable/undiscoverable matrix (the causes - as cited in the table were identified in isolation of each other). Although current KMSs are able of locating vast amounts of digital information, they are ill-equipped to address the respective interdependent negative impacts. Accordingly, adequate tools for selecting, structuring, personalizing, and making sense of the ever-increasing digital resources available are still sadly missed (Kahle, 2008). As today's underlying monolithic technologies require large investments and costly maintenance, Organizational KMSs are not affordable for individual knowledge workers, entrepreneurs, and SMEs (small and medium-sized enterprises). However, entropic analogies have also been entertained in a different interpretation and warrant further clarification.
 
-|                | Public Knowledge-related Entropies      | Private Knowledge-related Entropies       |
+| | Public Knowledge-related Entropies | Private Knowledge-related Entropies |
 |----------------|-----------------------------------------|-------------------------------------------|
-| Discoverable   | Information Redundancy                  | Publishing Realities; Online Realities    |
-| Knowledge      | (Bush, 1945; Simon, 1971)               | (Bush, 1945; Nielsen, 2012)               |
-|                | Information Overload                    | Inadequate rapid iterative Improvement    |
-|                | Attention Poverty, Compromised Mobility | Wanting Innovation and Reputation Systems |
-| Undiscoverable | Structural Holes                        | Invisible Work; Unreported 'Scaffolding'  |
-| Knowledge      | (Brix, 2017; Burt, 2004, 2015)          | (Bush, 1945; Star, 2010)                  |
-|                | Knowledge Islands and Siloes            | Non-Linear Relationships                  |
-|                | (Levy, 2011; Szostak et al., 2016)      | (Mintzberg, 2005)                         |
-|                | Ineffective Utilization of Extelligence | Unproductive Rework                       |
-|                | (Stewart & Cohen, 1999)                 | Undisclosed Holistic Understandings       |
-|                | Deficient Awareness/Education           |                                           |
-|                | Digital and Innovation Divides          |                                           |
+| Discoverable | Information Redundancy | Publishing Realities; Online Realities |
+| Knowledge | (Bush, 1945; Simon, 1971) | (Bush, 1945; Nielsen, 2012) |
+| | Information Overload | Inadequate rapid iterative Improvement |
+| | Attention Poverty, Compromised Mobility | Wanting Innovation and Reputation Systems |
+| Undiscoverable | Structural Holes | Invisible Work; Unreported 'Scaffolding' |
+| Knowledge | (Brix, 2017; Burt, 2004, 2015) | (Bush, 1945; Star, 2010) |
+| | Knowledge Islands and Siloes | Non-Linear Relationships |
+| | (Levy, 2011; Szostak et al., 2016) | (Mintzberg, 2005) |
+| | Ineffective Utilization of Extelligence | Unproductive Rework |
+| | (Stewart & Cohen, 1999) | Undisclosed Holistic Understandings |
+| | Deficient Awareness/Education | |
+| | Digital and Innovation Divides | |
 
-| Table 1: Causes and Effects<br>of Undesired Entropy Clusters, based on (Schmitt, 2020a). |  |  |  |
+| **Table 1:** Causes and Effects<br>of Undesired Entropy Clusters, based on (Schmitt, 2020a). | | | |
 |------------------------------------------------------------------------------------------|--|--|--|
 |------------------------------------------------------------------------------------------|--|--|--|
 
@@ -126,9 +126,9 @@ The role and needs of an individual within a PKMS community and its DPE are, ins
 
 From an informing perspective, generativity applies more to an individual's dual role as informee and informer and to the diversity of GCME-states faced in reciprocal collaborative relationships; entropy as referred to in Table 1 concerns more the message and the information/knowledge availabilities and needs. Figure 2 attempts to differentiate this interconnectedness accordingly.
 
-A PKMS community member (Informer) operating in his/her particular personal environment (context) and driven by his/her needs or tasks (Ends) commands private and public knowledge, parts of which he/she may voluntarily share (Informing; Figure 2: in10) with the PKMS community members (Informee). The PKMS cloud-based central curation services (WHOMER) synthesizes this shared content from its members and stores it for record-keeping and internal purposes (Figure 2: pro01/02). The processed content to be disseminated includes material accessible by all member (Figure 2: pro10), via special subscriptions (Figure 2: pro11), and exclusive notifications (e.g., personal confidential messages, subscribable alerts (Figure 2: pro12)). Whatever an individual PKMS community member (Informee) gains access to (Figure 2: out10) or receives (Figure 2: out11/12) to populate his/her PKMS device's knowledge clusters (top left circle) may trigger or inspire authorship
+A PKMS community member (Informer) operating in his/her particular personal environment (context) and driven by his/her needs or tasks (Ends) commands private and public knowledge, parts of which he/she may voluntarily share (Informing; **Figure 2:** in10) with the PKMS community members (Informee). The PKMS cloud-based central curation services (WHOMER) synthesizes this shared content from its members and stores it for record-keeping and internal purposes (**Figure 2:** pro01/02). The processed content to be disseminated includes material accessible by all member (**Figure 2:** pro10), via special subscriptions (**Figure 2:** pro11), and exclusive notifications (e.g., personal confidential messages, subscribable alerts (**Figure 2:** pro12)). Whatever an individual PKMS community member (Informee) gains access to (**Figure 2:** out10) or receives (**Figure 2:** out11/12) to populate his/her PKMS device's knowledge clusters (top left circle) may trigger or inspire authorship
 
-activities, including the annotating, redeploying, reclassifying, revising, or recombining his/her existent/actualized knowledge stocks. Newly created or repurposed content may subsequently be again voluntarily shared (Figure 2: in10), and any related modifications or added associative links by other PKMS community members will feed back after being curated to the original author/modifier (Figure 2: pro10/out10).
+activities, including the annotating, redeploying, reclassifying, revising, or recombining his/her existent/actualized knowledge stocks. Newly created or repurposed content may subsequently be again voluntarily shared (**Figure 2:** in10), and any related modifications or added associative links by other PKMS community members will feed back after being curated to the original author/modifier (**Figure 2:** pro10/out10).
 
 ![](_page_5_Figure_2.jpeg)
 <!-- Image Description: This diagram depicts a PKMS (Personal Knowledge Management System) information flow model. It illustrates the communication channels between personal, collaborative, and PKMS-DPE (Data Processing Environment) contexts. Different colored lines represent varying levels of access (public, private, shared) and communication roles (informer/informee). The central "Informing" box describes the message transformation process, while the surrounding circles detail the specific environments and their interactions, including curated content and service access levels. The diagram visualizes information sharing and curation within a PKMS system. -->
@@ -136,9 +136,9 @@ activities, including the annotating, redeploying, reclassifying, revising, or r
 ![](_page_5_Figure_3.jpeg)
 <!-- Image Description: Figure 2 is a caption describing an illustration (not shown) of an extended informing system. The system is based on the work of E.B. Cohen (2009). The caption lacks a visual component; the figure itself is presumably a diagram, possibly a flowchart or network model, depicting the system's structure and components. -->
 
-This interplay between decentralized networked devices and cloud-based storage and curation services sets the stage for the GCME-states to be detailed in the remainder of this section. The implications of the private (exclusively shared) knowledge cluster (Figure 2: in/pro/out20-cycle) will be addressed later as an extension of PKMS-affordance-based curation towards Collaborative Social Curation.
+This interplay between decentralized networked devices and cloud-based storage and curation services sets the stage for the GCME-states to be detailed in the remainder of this section. The implications of the private (exclusively shared) knowledge cluster (**Figure 2:** in/pro/out20-cycle) will be addressed later as an extension of PKMS-affordance-based curation towards Collaborative Social Curation.
 
-#### ADVANCING PRIOR WORK TOWARDS INFORMING SCENARIOS
+### ADVANCING PRIOR WORK TOWARDS INFORMING SCENARIOS
 
 The ancestry of this article includes a four-paper-lineage which commenced with an exploratory case research study to understand the informing-related complexities of events affecting diverse parties by interpreting them as rugged fitness landscapes (Murphy et al., 2015). This approach expanded towards generalizable fitness principles for guiding individual path discovery for differing clients in dynamic informing settings (Gill & Mullarkey, 2017). It was then applied to Personal KM (Schmitt & Gill, 2019) and broadened by adding contextual and methodological aspects (Schmitt & Gill, 2020).
 
@@ -151,7 +151,7 @@ environments or 'contexts' (problem & content spaces); and while S3 further allo
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: This image from an academic paper presents a framework for understanding knowledge management systems (PKMS). It uses five scenarios (S0-S4) depicted as graphs showing increasing complexity, progressing from clear objectives to ambiguous targets. The scenarios are further analyzed through different "schools of organizational knowledge management" (KMO, KMOG, KMOC, KMOM, KMOE), visualized as interconnected nodes and flows, illustrating knowledge processes and the roles of "customers" and "seekers". Twelve attributes of general purpose technologies are listed, relating them to the PKMS scenarios. The image aims to provide a comprehensive model for analyzing PKMS in various contexts. -->
 
-#### Figure 3. Binary gifts-contexts-means-and-ends states defining informing scenarios from a PKMS-related DPE as well as from a 'Schools of KM' and GPT perspective (based on Cantner & Vannuccini, 2012; Earl, 2001; Schmitt, 2016c, 2018c; Schmitt & Gill, 2020)
+### Figure 3. Binary gifts-contexts-means-and-ends states defining informing scenarios from a PKMS-related DPE as well as from a 'Schools of KM' and GPT perspective (based on Cantner & Vannuccini, 2012; Earl, 2001; Schmitt, 2016c, 2018c; Schmitt & Gill, 2020)
 
 These successive binary changes amplify the increasingly challenging PKMS-DPE spaces facing informing system designers to serve informer-informee-relations. The five-scenario-progression provides a preliminary commonsense heuristic (in need of being empirically confirmed with the PKMS's future application testing) in form of an integrative segmentation tool for anatomizing the user community the PKMS intends to attract. It adds transparency to the assessment of interventions and affordances in the individual, organizational, and societal capacity development contexts of opportunity divides and knowledge societies. A similar progression governs Bloom's Taxonomy where remembering and understanding (level 1 & 2: gifts) precedes applying (3: contexts), analyzing and evaluating (4 &5: means), and creating (6: ends) (Forehand, 2001). The individual scenarios are further explored in the subsections below.
 
@@ -171,7 +171,7 @@ A reference to a team management model best typifies the organizational-related 
 
 From an educational angle, a more diverse client base with varying expertise and skills may present a problem. If a rigorous pre-selection of participants (as in 0000) is not an option, generativity-reducing paths to meet non-negotiable entry requirements and outcomes (set contexts, means, and ends) need to accommodate unequal capabilities (differing client abilities). Options may involve prior selfpaced or face-to-face tutorials, bridging coursework, or individual or group coaching approaches.
 
-#### SCENARIO S2 – RESPONDING TO CONTINGENCIES AND DISRUPTIONS
+### SCENARIO S2 – RESPONDING TO CONTINGENCIES AND DISRUPTIONS
 
 Potential disruptive developments (differing contexts) affecting established routines or plans (clear means and ends) may require pro-actively creating awareness among collectives (diverse clients) in order to consider and/or appropriately react to unfamiliar situations once they occur. Suitable interventions require assisting facilitators, role playing, or collective contingency planning in order to foster outside-the-box-thinking or shift preconceived opinions and paradigms.
 
@@ -183,7 +183,7 @@ author in his prior management consultant career) involved a diversity of organi
 
 This generative rationale also drives the educational agenda of, for example, business schools and their desire to select diverse participants with different backgrounds (differing skills and contexts) to foster mutually beneficial learning between them while the curricula, workload, and learning outcomes form part of the academically approved programs (set means and ends).
 
-#### SCENARIO S3 – KNOWLEDGE AND ARTEFACTS FOR RESOURCEFULNESS
+### SCENARIO S3 – KNOWLEDGE AND ARTEFACTS FOR RESOURCEFULNESS
 
 "To write a personal career script that can bring fulfilment and meaning," Gratton (2011) recommends building depth and putting in the time and resources to create a body of knowledge and skills in multiple areas (interdisciplinary know-how). It demands abandoning 'set ways', adopting alternative life and work models, and to continually craft, nurture, and grow personal resources (including intellectual, social, and emotional capitals) in conscious ways (Gratton, 2011). As artefacts and tools increasingly matter, "resourcefulness is about more than human skills", capitals, and resilience; it entails the ability to "adopt and adapt technologies, incorporating them into (working) practices", systems, and routines (aligning unaccustomed contexts and means) which allow "for emergent properties to arise" (novel outcomes and ends) (Kuijer et al., 2017). Resourcefulness and generativity are, hence, closely allied.
 
@@ -193,7 +193,7 @@ This scenario represents the maximal potential intervention space and the highes
 
 ### UTILITY OF CONVENTIONAL KM SYSTEMS AND STRATEGIES
 
-#### RELEVANCE AND LIMITATIONS OF KM SCHOOLS AND SYSTEMS
+### RELEVANCE AND LIMITATIONS OF KM SCHOOLS AND SYSTEMS
 
 One of the defining features of Taylorism (Taylor, 1911) or Scientific Management is the division of labor with its hierarchical model of leadership. As the scaling of manufacturing operations demanded more sophisticated data processing and accounting, the priorities of emerging information technologies were the predecessors of today's enterprise resource, supply chain, and customer relationship management systems. In this tradition, first-generation KM initiatives (*scenario KM0* in Figure 3) were "about viewing knowledge as the foremost strategic asset, measuring it, capturing it, storing it, and protecting it" (Pasher & Ronen, 2011). With better storage capabilities, the explication of tacit knowledge further aided these organizational aims and, moreover, ensured knowledge accessibility independent of the initial knowers' availability. The mid-section of Figure 3 visually summarizes the respective informing processes of this OKMS-related scenario as well as the following 'Schools of KM' scenarios which all have been previously detailed in the PKMS context (Schmitt, 2016c, 2018c). Although the KMS serving these seven KM schools may prioritize certain gifts-context-means-endsaspects (see their alignment in Figure 3), the GCME-states of their users remain homogenous; their respective scenarios are, thus, labelled KM0G, KM0C, KM0M, and KM0E.
 
@@ -221,7 +221,7 @@ If specializations or less familiar topics are pursued (diverse contexts), or if
 
 Wicked problem spaces represent the most challenging informing tasks, especially in *scenario-S4*-type settings. While web and social media technologies allow for interlinking knowledge across disciplines for facilitating resolutions, they are also a source of accelerating unwanted entropy causing detrimental effects (Table 1) and hampering sustainable generative progress (e.g., traceability, validation, integrity, tailorability, portability, mobility, ease of mastery, openness, or innovativeness) (Schmitt, 2017c, 2019b). Potential solution spaces are further hampered by current bibliographic classification systems and practices; instead of being grounded in the phenomena studied, they are "organized on a disciplinary basis [serving] interdisciplinary research and teaching poorly" (Szostak et al., 2016).
 
-#### THE GROWING IMPORTANCE AND STRUGGLES OF CURATION
+### THE GROWING IMPORTANCE AND STRUGGLES OF CURATION
 
 Curation traditionally "refers to the methods or systems that add value to and preserve resources" (Glushko, 2013) but has evolved together with the digital social, personal, educational, and commercial spaces "to encompass multitudinous and increasing forms of data-managing behavior" (Khan & Bhatt, 2019). But, as traditional filters and authorities (e.g., peers, editors, publishers, and librarians) have lost their grip, a rising share of content is diffused before verified and free of theory, quoted sources, and cited evidence (Weinberger, 2011). Current technological development priorities (Big Data, Internet of Things) can be expected to cause further snowballing entropic consequences.
 
@@ -249,7 +249,7 @@ The previous section has highlighted a range of shortcomings of current conventi
 
 The remaining sections are advancing these functionalities which allow for more rapid iterative improvement among peers and institutional sub-formations within the PKMS community network and complement the concept termed "creative conversations" (Levy, 2011).
 
-#### THE NEED FOR ADDRESSING CURRENT SHORTCOMINGS SYSTEMICALLY
+### THE NEED FOR ADDRESSING CURRENT SHORTCOMINGS SYSTEMICALLY
 
 Bush's 'Memex' is a hypothetical device acting as a supplement to one's memory, enabling an individual to store, recall, study, and share the "inherited knowledge of the ages," to add personal records, communications, annotations, and contributions, and to record non-fading trails of one's individual interests through the maze of materials available - all easily accessible and sharable with the 'Memexes' of acquaintances (Bush, 1945, 1991b, 1991a). As an inspiring idea, the 'Memex' represents the as-close-as-it-gets ancestor of the PKMS-DPE concept and its constructivist agenda.
 
@@ -259,7 +259,7 @@ Utilizing the forward/backward tracking of the relations and trails captured, PK
 
 Centrally consolidating the digital content and links shared by a growing PKMS-DPE community allows for continuous iterative vetting and curation services (Figure 2) to (1) identify and eliminate duplicates (in such case, identical objects from different sources are merged while their linkages with object sets and usage histories are consolidated to retain all information) (pro10/20), (2) to keep a reference record of every object shared, even if it might be blocked from dissemination due to, for example, legal, ethical, or falsification reasons (any identical object uploaded in the future is, hence, identifiable to trigger appropriate actions) (pro01), (3) to incorporate other value-adding content and services to be referred to later (pro11/12), and (4) to feed back a negentropic knowledge base to the user community (out10-20).
 
-#### THE NEED FOR ADHERING TO AN EMERGENT INNOVATION APPROACH
+### THE NEED FOR ADHERING TO AN EMERGENT INNOVATION APPROACH
 
 Unfortunately, the 'book-age' document-centric paradigm is deeply entrenched in business and academia. To promote the faster acceptance and adoption of computer technologies, its familiar logic and logistics (e.g., desktop, file, document, and folder metaphors) were not abandoned but repurposed for the 'digital age'. Consequently, "some of the superior features that digital media offers in comparison to traditional paper documents" have, hence, not materialized (Signer, 2010).
 
@@ -296,7 +296,7 @@ Although its features and affordability will make the PKMS-DPE attractive for en
 
 PKMS's cumulative synthesis closely relates to Wiig's (2011) 'nano' notion that calls for strengthening individuals' potentials. As the quantity and quality of their contributions transform into innumerable "nano-actions", they determine, if productively combined, any organizational (knowledge economy) and societal (knowledge society) performance, advancement, and viability. In terms of managing resources, this observation is by no means trivial as the carrying capacities (of tacit knowhow and explicable knowledge) at individual and aggregated institutional or network level governs organizational structures as well as transactional interventions and expenditures (configuration of personbytes vs. firm-bytes vs. network-bytes) (Hidalgo, 2015; Schmitt, 2020a)
 
-To support personal and organizational learning within these nested structures, the 4I/5I-Framework (Crossan et al., 1999; Jones & Macpherson, 2006) offers a psycho-social perspective consisting of five dynamic feed-forward and feed-back processes which point to some of the potential synergies between PKMSs and OKMSs as implied in Figure 1:
+To support personal and organizational learning within these nested structures, the 4I/5I-Framework (Crossan et al., 1999; Jones & Macpherson, 2006) offers a psycho-social perspective consisting of five dynamic feed-forward and feed-back processes which point to some of the potential synergies between PKMSs and OKMSs as implied in **Figure 1:**
 
 - 1)'*Intuition*' takes place at the individual level by pre-consciously recognizing a pattern or opportunity.
 - 2)The resulting intuitive insights may be consciously shared, refined, and further developed within an interactive team setting marking the collaborative stage of '*Interpretation*'.
@@ -318,36 +318,36 @@ Memes were originally introduced as a unit of cultural transmission driving huma
 
 Thus, the term 'meme' is synonymous to the 'basic information structure' used earlier. Memes allow for accommodating details of a variety of knowledge objects (Table 2) by capturing and storing their low-granular instantiation in a common standardized memetic format. Associatively interlinking them creates virtual memeplexes and knowledge assets (defined as "nonphysical claims to future value or benefits;" Dalkir, 2011) and ensures the retention of a user's personal meme-pool for further development. The consolidated content of the users' meme-pools is saved in form of self-referential record sets in a scalable repository termed WHOMER (World Heritage of Memes Repository) in accordance with the PKMS vision (Schmitt, 2020d). Its continuously expanding stored heritage knowledge has an infinite transdisciplinary employment potential without the unmaintainable practices of the book-age-copy-and-paste-paradigm and in pursuit of more sustainable practices (Schmitt, 2018b).
 
-| Structural Detail of Memes populating the PKMS Repository                             |                                                                    |                                                     |                                  |  |  |  |
+| Structural Detail of Memes populating the PKMS Repository | | | | | | |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------|----------------------------------|--|--|--|
-| Type                                                                                  | Examples                                                           |                                                     |                                  |  |  |  |
-| Content                                                                               | Parts of a paragraph, citations, visuals, or this table.           |                                                     |                                  |  |  |  |
-| Aboutness                                                                             | Article review, wordcount, or author profiles.                     |                                                     |                                  |  |  |  |
-| Structural Connections                                                                | Associative links between authors, papers, publishers, references. |                                                     |                                  |  |  |  |
-| Intent                                                                                | Project tasks or gaps to fill.                                     |                                                     |                                  |  |  |  |
-| Monitoring                                                                            | Schedules, to-do-lists, or progress made.                          |                                                     |                                  |  |  |  |
-| PKMS Meta-Meme-Framework with Categories, Types, and Sub-Types (Schmitt, 2016b)       |                                                                    |                                                     |                                  |  |  |  |
-| Hosts                                                                                 | Sources (sub-sources)                                              |                                                     | Uses (sub-uses)                  |  |  |  |
-| Actors, Agents, Users                                                                 | Testimonials (Proof Evidence)                                      |                                                     | Memes (Information Units)        |  |  |  |
-| Communities, Networks                                                                 | Yardsticks (Rules Standards)                                       |                                                     | Authorship (Drafts Notions)      |  |  |  |
-| Teams, Groups                                                                         | Periodicals (Articles Papers)                                      |                                                     | New Memes or Nemes (Takes Ideas) |  |  |  |
-| Organizations, Institutions                                                           | Events (Reports Papers)                                            |                                                     | Intentions (Tasks Diaries)       |  |  |  |
-| Research Areas (Classifications)                                                      | Books (Chapters Papers)                                            |                                                     | Forethoughts (Plans)             |  |  |  |
-| Industry Sectors (Classifications)                                                    | Artefacts (Assets Components)                                      |                                                     | Evaluations (Reflections)        |  |  |  |
-| Spaces (Location Classifications)                                                     | Repositories (Sites Files Items)                                   |                                                     | Scripts (Themes Frames)          |  |  |  |
-| Meta-Topics (e.g., RFCD, TOA)                                                         | Shoe Boxes (Records Notes)                                         |                                                     | Topics (Context Category)        |  |  |  |
-| Examples of Meme-Sub-Sets currently populating the PKMS repository for testing        |                                                                    |                                                     |                                  |  |  |  |
-| Datasets used for Classifications                                                     |                                                                    | Compound Meme-Sets or Knowledge Assets              |                                  |  |  |  |
-| Directories of journals, universities, and authors                                    |                                                                    | PKMS publications with their references             |                                  |  |  |  |
-| Cities, zones, regions, countries, and languages                                      |                                                                    | Personal contact bases and libraries                |                                  |  |  |  |
-| SIC - Standard Industrial Classification (ANZ)                                        |                                                                    | Personal chronological biographies and family trees |                                  |  |  |  |
-| Standards & criteria for MBA accreditation                                            |                                                                    | Self-assessment for MBA program accreditation       |                                  |  |  |  |
-| ERA*: FOR - Field of Research (ANZ)                                                   |                                                                    | Cocktail database                                   |                                  |  |  |  |
-| ERA*: SEO - Socio-Economic Objective (ANZ)                                            |                                                                    | Business plan                                       |                                  |  |  |  |
-| ERA*: TOA - Type of Activity (ANZ)                                                    |                                                                    |                                                     |                                  |  |  |  |
-| ERA*: RFCD - Research Fields, Courses and Disci<br>plines Classification (RFCD) Codes |                                                                    |                                                     |                                  |  |  |  |
+| Type | Examples | | | | | |
+| Content | Parts of a paragraph, citations, visuals, or this table. | | | | | |
+| Aboutness | Article review, wordcount, or author profiles. | | | | | |
+| Structural Connections | Associative links between authors, papers, publishers, references. | | | | | |
+| Intent | Project tasks or gaps to fill. | | | | | |
+| Monitoring | Schedules, to-do-lists, or progress made. | | | | | |
+| PKMS Meta-Meme-Framework with Categories, Types, and Sub-Types (Schmitt, 2016b) | | | | | | |
+| Hosts | Sources (sub-sources) | | Uses (sub-uses) | | | |
+| Actors, Agents, Users | Testimonials (Proof Evidence) | | Memes (Information Units) | | | |
+| Communities, Networks | Yardsticks (Rules Standards) | | Authorship (Drafts Notions) | | | |
+| Teams, Groups | Periodicals (Articles Papers) | | New Memes or Nemes (Takes Ideas) | | | |
+| Organizations, Institutions | Events (Reports Papers) | | Intentions (Tasks Diaries) | | | |
+| Research Areas (Classifications) | Books (Chapters Papers) | | Forethoughts (Plans) | | | |
+| Industry Sectors (Classifications) | Artefacts (Assets Components) | | Evaluations (Reflections) | | | |
+| Spaces (Location Classifications) | Repositories (Sites Files Items) | | Scripts (Themes Frames) | | | |
+| Meta-Topics (e.g., RFCD, TOA) | Shoe Boxes (Records Notes) | | Topics (Context Category) | | | |
+| Examples of Meme-Sub-Sets currently populating the PKMS repository for testing | | | | | | |
+| Datasets used for Classifications | | Compound Meme-Sets or Knowledge Assets | | | | |
+| Directories of journals, universities, and authors | | PKMS publications with their references | | | | |
+| Cities, zones, regions, countries, and languages | | Personal contact bases and libraries | | | | |
+| SIC - Standard Industrial Classification (ANZ) | | Personal chronological biographies and family trees | | | | |
+| Standards & criteria for MBA accreditation | | Self-assessment for MBA program accreditation | | | | |
+| ERA*: FOR - Field of Research (ANZ) | | Cocktail database | | | | |
+| ERA*: SEO - Socio-Economic Objective (ANZ) | | Business plan | | | | |
+| ERA*: TOA - Type of Activity (ANZ) | | | | | | |
+| ERA*: RFCD - Research Fields, Courses and Disci<br>plines Classification (RFCD) Codes | | | | | | |
 
-**Table 2: PKMS Meme Structure and Meta-Meme-Framework**
+****Table 2:** PKMS Meme Structure and Meta-Meme-Framework**
 
 *ERA\* = Excellence in Research for Australia*
 

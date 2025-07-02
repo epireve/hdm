@@ -23,7 +23,6 @@ keywords:
 - question answering
 ---
 
-
 # Research Trends for the Interplay between Large Language Models and Knowledge Graphs
 
 Hanieh Khorashadizadeh University of Lübeck Lübeck, Germany hanieh.khorashadizadeh@uniluebeck.de
@@ -56,7 +55,7 @@ Hanieh Khorashadizadeh, Fatima Zahra Amara, Morteza Ezzabady, Frédéric Ieng, S
 
 Proceedings of the VLDB Endowment. ISSN 2150-8097.
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 In the era of artificial intelligence, Large Language Models (LLMs) and Knowledge Graphs (KGs) stand out as two pivotal technologies driving advancements in machine understanding, reasoning, and natural language processing. LLMs, such as OpenAI's GPT series [\[7\]](#page-8-0), have demonstrated remarkable capabilities in generating human-like text, answering questions, and even creating content across various domains [\[46\]](#page-8-1). On the other hand, KGs organize and integrate information in a structured format, enabling machines to understand and infer relationships between entities in the real world [\[88\]](#page-9-0). The synergy between LLMs and KGs opens new frontiers for AI applications, enhancing machines' ability to process, interpret, and generate information with context and accuracy. Our intention with this survey is to fill the gaps left by previous survey papers [\[41,](#page-8-2) [67,](#page-9-1) [68,](#page-9-2) [90\]](#page-9-3), offering fresh perspectives and uncovering new frontiers in the interaction between LLMs and KGs. For instance, our analysis delves deeper into KG Question Answering, encompassing multi-hop question answering, multi-hop question generation, and KG-powered chatbots. Additionally, our study extends to KG validation, an area not extensively discussed in previous survey papers. Table [1](#page-3-0) outlines the categories discussed in previous research papers and this survey paper. Given the transformative potential and challenges of integrating LLMs with KGs, this paper seeks to explore the following research questions:
 
@@ -72,9 +71,9 @@ This work is licensed under the Creative Commons BY-NC-ND 4.0 International Lice
 
 The interplay between LLMs and KGs can be categorized into three distinct types. The first, LLMs for KGs, demonstrates how LLMs are utilized to bolster and refine the functionality of KGs. The second, KG-enhanced LLMs, shows the inverse, where KGs are leveraged to enhance and inform the capabilities of LLMs. Lastly, LLM-KG Cooperation is depicted, representing a collaborative and synergistic relationship where LLMs and KGs work together to achieve more advanced and complex outcomes. Figure [1](#page-2-0) illustrates the categorization of the interaction between LLMs and KGs. The remainder of this paper is structured to include an in-depth exploration of the three distinct types along with their respective sub-categories. The primary focus of this research is to address our formulated research questions. These specific areas of inquiry are highlighted in Figure [1,](#page-2-0) distinctly marked in pink, mentioned as Tasks Considered in our Research Questions. Those sections highlighted with stars represent topics that were not addressed in previous survey papers. The paper is organized as follows: Section [2](#page-1-0) explores the role of LLMs within the context of KGs and Section [3](#page-5-0) investigates how KGs can enhance LLMs. In Section [4,](#page-5-1) we examine the collaborative utilization of LLMs and KGs. Section [5](#page-7-0) entails a statistics analysis and the identification of open challenges. Finally, we conclude in Section [6.](#page-7-1)
 
-#### <span id="page-1-0"></span>2 LLM FOR KG
+### <span id="page-1-0"></span>2 LLM FOR KG
 
-#### 1 KG Construction
+### 1 KG Construction
 
 2.1.1 Ontology Creation. This section of the paper explicitly addresses Research Question 2, delving into the application of LLMs in ontology generation for KGs. LLMs exhibit significant promise in constructing ontologies [\[64\]](#page-9-4), where the organized representation of knowledge is essential for facilitating intelligent information retrieval and reasoning. LLMs contribute to creating and enriching comprehensive ontologies, with domain-specific fine-tuning enhancing their integration into specialized areas. While constructing a KG, [\[28\]](#page-8-3) built an ontology for COVID-19 and demonstrated the effectiveness of LLMs. LLMs are promising for ontology generation but face computational intensity and bias challenges. They require broader evaluation yet remain valuable in ontology creation and intelligent systems.
 
@@ -97,34 +96,33 @@ Ontology Learning: Ontology learning automates the construction of ontologies by
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates the relationship between Knowledge Graph (KG) tasks and Large Language Model (LLM) tasks. It shows how various KG operations (construction, reasoning, question answering) connect to different LLM applications (information extraction, text generation). The chart highlights tasks considered in the research and those not previously surveyed, using color-coding to differentiate KG-focused, LLM-focused, and cooperative approaches. Asterisks denote tasks not covered in prior research. -->
 
-Figure 1: Categorization of the interplay between LLMs and KGs
+**Figure 1:** Categorization of the interplay between LLMs and KGs
 
-<span id="page-3-0"></span>
 
-| Main Category         | Subcategory                                | Survey: | Survey: | Survey: | Survey: | Our    |
+| Main Category | Subcategory | Survey: | Survey: | Survey: | Survey: | Our |
 |-----------------------|--------------------------------------------|---------|---------|---------|---------|--------|
-|                       |                                            | [68]    | [67]    | [41]    | [90]    | Survey |
-| KG Construction       | Relation and Attribute Extraction          | ✓       | ✓       | ✗       | ✗       | ✓      |
-|                       | Entity Extraction and Alignment            | ✓       | ✓       | ✗       | ✗       | ✓      |
-|                       | Event Detection or Extraction              | ✗       | ✗       | ✗       | ✗       | ✗      |
-|                       | Ontology Creation                          | ✗       | ✓       | ✗       | ✗       | ✓      |
-| KG-to-Text Generation | KG-to-Text Generation                      | ✓       | ✗       | ✗       | ✗       | ✓      |
-| KG Reasoning          | KG Reasoning                               | ✓       | ✓       | ✗       | ✗       | ✓      |
-| KG Completion         | Entity, Relation and Triple Classification | ✓       | ✓       | ✗       | ✗       | ✓      |
-|                       | Entity Prediction                          | ✓       | ✓       | ✗       | ✗       | ✓      |
-|                       | Relation Prediction                        | ✗       | ✓       | ✗       | ✗       | ✓      |
-| KG Embedding          | KG Embedding                               | ✓       | ✗       | ✗       | ✗       | ✓      |
-| KG-enhanced LLM       | KG-enhanced LLM                            | ✓       | ✓       | ✓       | ✓       | ✓      |
-| KG Validation         | Fact Checking                              | ✗       | ✗       | ✗       | ✗       | ✓      |
-|                       | Inconsistency Detection                    | ✗       | ✗       | ✗       | ✗       | ✓      |
-| KG Question Answering | Complex Question Answering                 | ✗       | ✗       | ✗       | ✗       | ✓      |
-|                       | Multi-Hop Question Generation              | ✗       | ✗       | ✗       | ✗       | ✓      |
-|                       | Knowledge Graph Chatbots                   | ✗       | ✗       | ✗       | ✗       | ✓      |
-|                       | Query Generation from natural text         | ✗       | ✗       | ✗       | ✗       | ✓      |
-|                       | Querying Large Language Models with        | ✗       | ✗       | ✗       | ✗       | ✓      |
-|                       | SPARQL                                     |         |         |         |         |        |
+| | | [68] | [67] | [41] | [90] | Survey |
+| KG Construction | Relation and Attribute Extraction | ✓ | ✓ | ✗ | ✗ | ✓ |
+| | Entity Extraction and Alignment | ✓ | ✓ | ✗ | ✗ | ✓ |
+| | Event Detection or Extraction | ✗ | ✗ | ✗ | ✗ | ✗ |
+| | Ontology Creation | ✗ | ✓ | ✗ | ✗ | ✓ |
+| KG-to-Text Generation | KG-to-Text Generation | ✓ | ✗ | ✗ | ✗ | ✓ |
+| KG Reasoning | KG Reasoning | ✓ | ✓ | ✗ | ✗ | ✓ |
+| KG Completion | Entity, Relation and Triple Classification | ✓ | ✓ | ✗ | ✗ | ✓ |
+| | Entity Prediction | ✓ | ✓ | ✗ | ✗ | ✓ |
+| | Relation Prediction | ✗ | ✓ | ✗ | ✗ | ✓ |
+| KG Embedding | KG Embedding | ✓ | ✗ | ✗ | ✗ | ✓ |
+| KG-enhanced LLM | KG-enhanced LLM | ✓ | ✓ | ✓ | ✓ | ✓ |
+| KG Validation | Fact Checking | ✗ | ✗ | ✗ | ✗ | ✓ |
+| | Inconsistency Detection | ✗ | ✗ | ✗ | ✗ | ✓ |
+| KG Question Answering | Complex Question Answering | ✗ | ✗ | ✗ | ✗ | ✓ |
+| | Multi-Hop Question Generation | ✗ | ✗ | ✗ | ✗ | ✓ |
+| | Knowledge Graph Chatbots | ✗ | ✗ | ✗ | ✗ | ✓ |
+| | Query Generation from natural text | ✗ | ✗ | ✗ | ✗ | ✓ |
+| | Querying Large Language Models with | ✗ | ✗ | ✗ | ✗ | ✓ |
+| | SPARQL | | | | | |
 
-#### Table 1: Categorizations addressed by previous survey papers
+### Table 1: Categorizations addressed by previous survey papers
 
 explaining input-label correlations. Furthermore, considering the vast array of predefined relation types and the challenges posed by uncontrolled LLMs, the study [\[55\]](#page-9-10) suggests incorporating a natural language inference module within LLMs. This integration focuses on generating relation triples to greatly improve the usefulness and precision of document-level relation datasets. These advancements in relation extraction demonstrate LLMs' capability to improve semantic analysis in text, and we have organized these methods by their distinct learning approaches. This classification comprises:
 
@@ -134,15 +132,15 @@ Few-shot learning: Few-shot learning, which relies on a limited number of labele
 
 Zero-shot learning: Zero-shot learning aims to empower models to generalize to new tasks and domains beyond their training by adapting the pre-training of LLMs to unfamiliar situations. The extensive knowledge embedded in LLMs demonstrates their remarkable capability for zero-shot tasks in various fields. Key studies such as those by [\[49,](#page-8-11) [85\]](#page-9-15), and recent advancements [\[54\]](#page-9-16), exemplify the potential of LLMs in adapting to tasks they were not explicitly trained for. Adding to this discourse, [\[94\]](#page-9-17) critically assessed Chat-GPT's zero-shot learning capability in temporal relation extraction. The study emphasized ChatGPT's skill in grasping complex temporal relations but also noted its limitations in consistency and handling long-dependency relations.
 
-#### 2 KG-to-Text Generation:
+### 2 KG-to-Text Generation:
 
 This segment of the paper is dedicated to addressing Research Question 1, which investigates the effective use of LLMs in generating descriptive textual information for entities within KGs. KG-to-Text generation encompasses the procedure of transforming structured data held within a KG into human-readable, natural-language text [\[22\]](#page-8-12). [Colas et al.](#page-8-12) combined a pre-trained LM with graph attention information by modifying the encoder layer. Initially, they convert the KG into a textual string by linearizing its structure. Then, the vector representation becomes contextualized through the incorporation of graph attention data. Several methods involve the fine-tuning of pre-trained language models(PLM), specifically on KG-to-text datasets, to address this particular task [\[70\]](#page-9-18). [Chen](#page-8-13) [et al.](#page-8-13) gathered a corpus named KGTEXT, which involves matching linked sentences sourced from Wikipedia with knowledge subgraphs obtained from WikiData and then conducting pre-training and subsequently fine-tuning on KG-to-Text datasets. [Ke et al.](#page-8-14) developed a basic yet effective structure-aware semantic aggregation module that integrates into every Transformer layer within the encoder. The purpose of this module is to maintain the structural details present in the input graphs. Then followed by three pretraining tasks aimed at explicitly acquiring graph-text alignments. [Li et al.](#page-9-19) investigated few-shot KG-to-text generation, which generates the output with the help of around several hundred instances. Initially, their model aligns KG representations, encoded by graph neural networks, PLM-based entity representations, aiming to close the semantic gap. It then proposes a specialized strategy, called relation-biased breadth-first search (RBFS), to arrange the KG into a well-structured entity sequence for integration into PLMs. Lastly, the model employs multi-task learning, simultaneously training the main text generation and an auxiliary KG reconstruction task. This approach significantly improves the semantic alignment between the input KG and the resulting text, allowing the model to generate accurate descriptions of the KG.
 
-#### 3 KG Reasoning
+### 3 KG Reasoning
 
 KG Reasoning involves deriving new facts from existing ones using logical inference. Recently, there has been a growing emphasis on exploring KG reasoning due to its potential to derive new knowledge and conclusions from existing data[\[18\]](#page-8-15). It has applications for KG completion and KG question answering [\[18\]](#page-8-15). [Choudhary](#page-8-16) [and Reddy](#page-8-16) developed Language-guided Abstract Reasoning over Knowledge graphs (LARK) model that is designed to harness the reasoning power of LLMs for efficiently answering first-order logic (FOL) queries on knowledge graphs. LARK identifies relevant subgraph contexts within abstract KGs by utilizing the entities and relationships in the queries. It then conducts chain reasoning over these contexts using prompts from LLMs to break down and process logical queries. [Luo et al.](#page-9-20) introduced Reasoning on Graphs (RoG), which combines LLMs and KGs to perform reliable and easily understandable reasoning. They proposed a framework for planningretrieval-reasoning to tackle challenges such as hallucinations and knowledge deficiencies. Initially, the planning module produces relation paths in the form of faithful plans using KGs, forming the basis for the RoG approach. Subsequently, these devised plans are employed to extract legitimate paths of reasoning from KGs to carry out reliable reasoning through the retrieval-reasoning module. [Kim](#page-8-17) [et al.](#page-8-17) introduced KG-GPT, a versatile framework for reasoning on KG that operates in three stages: Sentence Segmentation, Graph Retrieval, and Inference. These stages are designed to break down sentences, extract relevant components from the graph, and draw logical conclusions.
 
-#### 4 KG Completion
+### 4 KG Completion
 
 In KG completion, the main tasks are (i) triple classification, validating the accuracy of a given triple; (ii) link prediction for predicting missing components like the head, tail, or relation in a triple. And (iii) entity classification for categorizing entities, also known as determining the entity's type [\[2\]](#page-7-5). The triple-based methods relying on structural information are widely used for KG completion, mostly the embedding methods [\[9,](#page-8-18) [58,](#page-9-21) [77\]](#page-9-22). Several works have attempted to prove more effectiveness than triple-based completion by extracting factual knowledge from LMs embedding spaces instead of simple structures. Examples of these text-based methods are KG-BERT [\[92\]](#page-9-23) and the fine-tuning of GPT-2 [\[8\]](#page-8-19). KG-BERT [\[92\]](#page-9-23) is a leading example of applying LLMs to KG completion. It finetunes for this task by treating triples as textual sequences. The model uses KG-BERT to score sequences of entity-relation-entity, representing these elements through their names or descriptions. These sequences of words are then used as input for fine-tuning the BERT model. KG-BERT was identified with two shortcomings: 1) the model's struggle to learn relational data in KGs, and 2) difficulty in identifying the correct answers among similar candidates. To improve this, multi-task learning methods combining relation prediction and relevance ranking with link prediction were proposed, as in [\[47\]](#page-8-20). This enhanced model better grasps KG relationships and effectively handles lexical similarities. In another study, [\[80\]](#page-9-24) introduced the Structure-augmented Text Representation (StAR) model aimed at improving link prediction in KG completion. The model begins with a Siamese-style textual encoder applied to triples, generating two contextualized representations. A distinctive scoring module using dual strategies captures both contextualized and structured knowledge, enhanced by a self-adaptive ensemble scheme with graph embedding techniques to boost performance. [Wang et al.](#page-9-25) presented SimKGC, a straightforward approach to enhance textbased KG completion. It recognizes the crucial aspect of conducting efficient contrastive learning. Building on recent advancements in contrastive learning. SimKGC utilizes a bi-encoder architecture and incorporates three types of negative examples to achieve its objectives. Sequence-to-sequence PLM methods have also shown state-of-the-art performance by redefining the KG completion challenge as a sequence-to-sequence generation task as demonstrated in KG-S2S [\[15\]](#page-8-21) and GenKGC [\[87\]](#page-9-26). GenKGC incorporates innovative techniques, such as relation-guided demonstration and entityaware hierarchical decoding, aimed at improving the quality of representation learning and accelerating the inference process. Most of these recent text-based methods require specific fine-tuning for KGs, which limits their efficiency. New training-free methods with no fine-tuning were recently proposed to address this limitation, as in KICGPT [\[86\]](#page-9-27).
 
@@ -150,17 +148,17 @@ In KG completion, the main tasks are (i) triple classification, validating the a
 
 KG Embedding involves mapping elements of a KG into vectors in a continuous vector space. Unlike Graph Neural Networks, which learn KG embeddings from data explicitly represented by nodes and edges, LM learns KG embeddings from natural language. Given a piece of text, LMs learn representations of entities, which capture context information containing relations of entities. The entity relations are found by an attention mechanism, which can create an association between two entities independent of their location. The more text an LM sees the more entities and their relationships the LM can learn; the larger an LM, the more contextual information the representation contains. LLMs contain billions of parameters and are trained over a huge amount of textual data (e.g. 45 TB for GPT-3). LLMs perfectly meet these requirements, and so are a powerful tool for learning KG embeddings. LLMs' ability to KG embedding attracts researchers to use them directly to conduct KG tasks, like entity alignment [\[59\]](#page-9-28). We can also use the representation of entities learned by LLMs in the small-sized models, and this should significantly reduce the amount of training data needed and the time of training and, meanwhile, create well-generalized models. An extensive experiment is needed to investigate the efficiency of applying embeddings of LLMs into small-sized models for KG analysis tasks.
 
-#### 6 KG Validation
+### 6 KG Validation
 
 2.6.1 Fact Checking. In this section, we address Research Question 4, which is centered on how LLMs can enhance the accuracy, consistency, and completeness of KGs through the process of factchecking. The advent of LLMs has the potential to significantly impact the fight against misinformation, presenting both opportunities and challenges. LLMs, with their extensive world knowledge and strong reasoning abilities, offer promise in combating misinformation. However, the flip side is that these models can also be easily manipulated to generate deceptive misinformation at scale [\[14\]](#page-8-22). An approach to address misinformation in a KG involves verbalizing each triple within the KG and prompting LLMs to identify instances of misinformation [\[7,](#page-8-0) [13\]](#page-8-23). To address the limitations of potentially outdated or insufficient knowledge in LLMs for detecting factual errors, some research has explored augmenting LLMs with external knowledge [\[20\]](#page-8-24) or utilizing tools [\[19\]](#page-8-25) for misinformation detection. The methodologies developed for factual checking in LLMs can be applied to KG fact-checking by converting KG triples into textual representations.
 
 2.6.2 Inconsistency Detection. This section delves into Research Question 3, examining the role of LLMs in identifying and fixing inconsistencies in KGs. KG consistency is about ensuring that the information in a KG is not self-contradictory [\[95\]](#page-9-29). KG consistency differs from KG accuracy in that it prioritizes the logical soundness of the KG rather than the factual correctness of individual triples. A KG might contain outdated yet logically coherent information, maintaining high consistency even with low accuracy. Conversely, high accuracy usually implies good consistency, as factual data tends to be logically harmonious [\[83\]](#page-9-30). Current rule-based techniques for KG completion and inconsistency detection primarily utilize structural information, overlooking the semantics of relations. Using LLMs can harness both the semantic and structural information from KGs to generate meaningful rules. Among recent works leveraging LLMs for rule-based methods, there is ChatRule [\[61\]](#page-9-31), a framework that uses both the semantic and structural information of KGs to prompt LLMs to generate logical rules.
 
-#### <span id="page-5-0"></span>3 KG-ENHANCED LLM
+### <span id="page-5-0"></span>3 KG-ENHANCED LLM
 
 K-BERT [\[60\]](#page-9-32) proposed to inject relevant domain knowledge from a KG into a sentence using a knowledge layer before the embeddings are calculated. The authors show that it improves performance in many NLP tasks. Sem-K-BERT [\[88\]](#page-9-0) further extended this by integrating semantic role labeling (SRL) and by introducing semantic correlation calculation to reduce the noise. KCF-NET [\[31\]](#page-8-26) demonstrated that incorporating KG representations with context helped to improve the LM performance in machine reading comprehension. [Ji et al.](#page-8-27) proposes a concept-enhanced pertaining approach by adding concept semantics to sentences from external sources such as KGs. Dict-BERT [\[93\]](#page-9-33) leverages definitions of rare words from dictionaries to improve the performance of various NLP tasks. Retrieval Augmented Generation (RAG) was developed to address issues such as hallucination, insufficient domain-specific knowledge, and outdated information by incorporating relevant external knowledge into the LLM prompt [\[30\]](#page-8-28). RAG has three steps: Retrieval, Generation, and Augmentation. Over time, RAG has developed into three distinct models: Naive RAG, Advanced RAG, and Modular RAG. Naive RAG operates through a three-step process: indexing, retrieval, and generation. During the indexing step, text data is divided into small segments, each of which is encoded into vector form using embedding models. In the retrieval phase, the user's query is similarly converted into a vector. The system then computes the similarity between the query vector and the vectors of the text segments, selecting the top k segments as the context for the response. Finally, in the generation step, both the query and the chosen contexts are input into an LLM as a prompt to generate a response. The Modular RAG has the ability to retrieve pertinent information from knowledge graphs[\[30\]](#page-8-28). [\[84\]](#page-9-34) introduced KnowledgeGPT, a system that enhances LLMs with data from knowledge bases. To respond to a user query, their method generates a search code and executes it to retrieve information from the knowledge base. The output is then given to the LLM to respond to the user query. While RAG is effective in responding to queries directly related to specific excerpts from the source data where the retrieval is explicit, it may struggle with more general queries. For example, it might not perform well when asked, "What are the main points of the dataset?" To overcome this limitation, Graph RAG was introduced [\[26\]](#page-8-29). This approach generates a summary over a knowledge graph that has been constructed by the LLM from the source data.
 
-#### <span id="page-5-1"></span>4 LLM-KG COOPERATION
+### <span id="page-5-1"></span>4 LLM-KG COOPERATION
 
 ### 1 KG Question Answering
 
@@ -171,7 +169,7 @@ This section covers research questions 5 and 6.
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: This stacked bar chart displays the number of appearances of various Knowledge Graphs (KGs) and Large Language Models (LLMs) across different categories of tasks in a research paper. The x-axis categorizes KGs and LLMs, while the y-axis represents the frequency of appearance. Each colored segment within a bar corresponds to a specific task category, such as KG question answering, entity extraction, or ontology creation. The chart visualizes the prevalence of specific KGs and LLMs used within different application areas related to knowledge graph and language model integration. -->
 
-Figure 2: Statistics of the usage of LLMs and KGs in cited papers per category
+**Figure 2:** Statistics of the usage of LLMs and KGs in cited papers per category
 
 research primary emphasis revolved around formulating inquiries by employing KGs in conjunction with the T5 language model. They harnessed the language model's capabilities to generate questions while also applying a technique to obstruct self-attention in the encoder, all to train the model with a deliberate emphasis on maintaining the inherent structure of the graph. They harnessed the language model's capabilities to generate questions while also applying a technique to obstruct self-attention in the encoder, all to train the model with a deliberate emphasis on maintaining the inherent structure of the graph. Their research didn't target multi-hop question generation.
 
@@ -187,9 +185,9 @@ method suggests a couple of enhancements to the SPARQLGEN approach.
 
 4.1.5 KG Chatbots: [Omar et al.](#page-9-43) conducted a detailed examination and comparison between conversational AI models like ChatGPT and traditional Question-Answering Systems (QASs) designed for KGs and suggested merging the attributes of both with the goal of creating KG Chatbots.
 
-# <span id="page-7-0"></span>5 STATISTICS ANALYSIS AND OPEN CHALLENGES
+## <span id="page-7-0"></span>5 STATISTICS ANALYSIS AND OPEN CHALLENGES
 
-# 1 Statistics about used LLMs and KGs in Approaches
+## 1 Statistics about used LLMs and KGs in Approaches
 
 Our analysis categorizes research papers based on the use of LLMs and KGs. Figure [2](#page-6-0) illustrates this, with the y-axis representing the frequency of appearances and the x-axis listing the specific KGs and LLMs. The data reveal that Freebase is the most commonly utilized KG in the reviewed literature. Regarding LLMs, Bert and GPT-3 emerge as the most frequently employed models.
 

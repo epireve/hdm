@@ -25,7 +25,8 @@ images_removed: "0"
 
 <span id="page-0-1"></span>**2**School of Teacher Education, Shaoxing University, Shaoxing, China
 
-# <span id="page-0-5"></span>ABSTRACT
+## <span id="page-0-5"></span>ABSTRACT
+
 **Introduction**. The impacts of fragmented reading have been felt on a huge scale during the new media age. An increasingly fast-paced society and a corresponding drop in theoretical reading have affected reading literacy and cognitive development across communities—and among university students in particular. This study sought to identify the components of fragmented reading and cognitive development and investigate the former's effects on the latter among university students in the new media age.
 
 **Methods**. Paper-based and electronic surveys were used to gather demographic and related-reading data from undergraduates at six Chinese universities in early 2021. After testing the data from 916 samples for reliability and validity, descriptive statistics were obtained and path analysis was undertaken using structural equation modeling. **Results**. The students reported relatively high levels of fragmented reading, particularly in its temporal form. Significant associations were found between the constructs of fragmented reading and cognitive development. Specifically, the fragmentation of content, time, and attention in reading behavior had significant, positive effects on cognitive breadth. However, each of these components was somewhat negatively associated with cognitive depth.
@@ -34,7 +35,7 @@ images_removed: "0"
 
 **Subjects**Cognitive Disorders, Psychiatry and Psychology, Science and Medical Education**Keywords**Cognitive development, Fragmented reading, University students, Media learning, Chinese higher education
 
-# INTRODUCTION
+## INTRODUCTION
 
 Reading is an essential human activity that enables people to know the world and learn their inherited culture. Its importance is recognized by UNESCO (United Nations Educational, Scientific, and Cultural Organization), which has promoted the activity since 1995 by
 
@@ -85,7 +86,7 @@ Most research on this area has focused on students' cognitive development in ear
 
 The literature (*[Berry, Gruys & Sackett, 2006](#page-13-4)*; *[Ko-Woon, Young & Hoy-Yong, 2019](#page-15-9)*) tends to focus either on the development of cognitive breadth or its depth. Cognitive breadth refers to the breadth of university students' vision, the frequency with which they update information, and their agility in searching for knowledge. Cognitive depth refers to the degree of mastery, memory, and integrity of knowledge that students can demonstrate.
 
-#### Fragmented reading and cognitive development
+### Fragmented reading and cognitive development
 
 The particular significance of reading for students is its role in developing critical thinking and comprehension skills that are foundational to learning in any subject area (*[Rutherford-](#page-16-6)[Becker & Vanderwood,](#page-16-6) [2009](#page-16-6)*). Similarly, reading and writing are hugely important in supporting and reflecting the development of an individual's cognitive system (*[Kravchenko,](#page-15-10) [2021](#page-15-10)*). It is thus highly likely that reading style will directly or indirectly affect the cognitive development of students.
 
@@ -97,7 +98,7 @@ Moreover, the limited consensus on how fragmented reading impacts cognitive deve
 
 All these factors prompted this empirical study of the effects of fragmented reading on cognitive development. The research primarily aimed to help students clarify the complex role of fragmented reading and its relevance to their cognitive development, with the hope this might ultimately improve its breadth and depth.
 
-#### Research model and hypotheses
+### Research model and hypotheses
 
 The present study sought to extend previous efforts by conducting an SEM analysis of the prevalence of fragmented reading among Chinese university students and its effects on their cognitive development. Based on the findings of previous research, we proposed the following six hypotheses:
 
@@ -108,9 +109,9 @@ The present study sought to extend previous efforts by conducting an SEM analysi
 - H5: Temporal fragmentation negatively affects cognitive depth.
 - H6: Attentional fragmentation negatively affects cognitive depth.
 
-Based on the above hypotheses, the following model [\(Fig. 1\)](#page-5-0) was constructed:
+Based on the above hypotheses, the following model [\(Figure 1\)](#page-5-0) was constructed:
 
-# MATERIALS & METHODS
+## MATERIALS & METHODS
 
 ## Sample and procedure
 
@@ -125,15 +126,15 @@ The above hypotheses were tested by randomly sampling participants from six Chin
 
 The cognitive development questionnaire (CDQ) was used in preference to the Cognitive Ability Scale, which has been widely adopted to measure people's logical thinking, graphical integration, etc. However, we declined to use this instrument as it focuses on specific cognitive abilities. The CDQ, based on the earlier work of*[Jing & Cheng \(2005\)](#page-15-7)*, was used because it measures cognitive development from the macro perspective. In line with our research interests, we divided the CDQ into two dimensions: cognitive breadth (five items) and cognitive depth (six items). The Fragmented Reading Questionnaire (FRQ) is developed based on the work of *[Wang \(2018\)](#page-17-6)*; this instrument consisted of 22 items classified into three dimensions: content fragmentation (seven items), temporal fragmentation (five items), and attentional fragmentation (ten items) (see Supplementary, questionnaire). Unless otherwise stated, all responses were recorded on a five-point Likert scale (1 = Strongly disagree; 5 = Strongly agree). Of note, further evidence of the validity of these questionnaires is provided in the confirmatory factor analyses (CFA) described below, and it evidenced the valid use of the measures.
 
-#### Statistical analytic procedures
+### Statistical analytic procedures
 
 The mean values, standard deviations, and Pearson correlations of all variables were first calculated, followed by path analysis using SEM to examine the magnitude and significance of associations between different variables. To ensure the internal consistency of the constructs, Harman's single factor test and confirmatory factor analysis were first performed for each question. Maximum likelihood estimation was used to check the model fit. The Chi-square statistic (X2/df), comparative fit index (CFI), normed fit index (NFI), Tucker–Lewis index (TLI), and root mean square error of approximation (RMSEA) were used to evaluate the fit of the research models. The recommended thresholds for each index were X2/df < 3; CFI, NFI, T *L* > 0.90; RMSEA < 0.08 (*[Hair et al., 2010](#page-15-13)*; *[Hu &](#page-15-14) [Bentler, 1999](#page-15-14)*). SPSS v.26 and Amos v.26 were used to conduct the statistical analysis.
 
-#### Ethical concerns
+### Ethical concerns
 
 Ethics committee approval was obtained from Zhejiang Normal University's institutional review board. The ethical principle of informed consent was upheld: each participant in the questionnaire was informed in advance of what was to be studied, and its possible benefits and impacts. All were informed of their right to withdraw their agreement to participate at any stage before the study was published. Finally, we upheld the right to privacy by preserving the participants' anonymity at all points in the research process, ensuring that the publication of the research would not result in any conflicts of interest.
 
-# RESULTS
+## RESULTS
 
 ## Construct reliability and validity
 
@@ -145,26 +146,25 @@ AMOS software was then used to perform CFA to investigate the reliability and va
 
 ### <span id="page-7-0"></span>Table 1 Item validity analyses.
 
-| Dimension                    | Item   | FL        | AVE  | CR   | Cronbach's |
+| Dimension | Item | FL | AVE | CR | Cronbach's |
 |------------------------------|--------|-----------|------|------|------------|
-| 1. Content fragmentation     | A1–A6  | 0.62–0.73 | 0.67 | 0.75 | 0.70       |
-| 2. Temporal fragmentation    | B1–B4  | 0.68–0.80 | 0.62 | 0.71 | 0.72       |
-| 3. Attentional fragmentation | C1–C10 | 0.70–0.83 | 0.64 | 0.73 | 0.78       |
-| 4. Cognitive breadth         | D1–D4  | 0.66–0.81 | 0.68 | 0.79 | 0.73       |
-| 5. Cognitive depth           | E1–E4  | 0.69–0.78 | 0.65 | 0.76 | 0.79       |
+| 1. Content fragmentation | A1–A6 | 0.62–0.73 | 0.67 | 0.75 | 0.70 |
+| 2. Temporal fragmentation | B1–B4 | 0.68–0.80 | 0.62 | 0.71 | 0.72 |
+| 3. Attentional fragmentation | C1–C10 | 0.70–0.83 | 0.64 | 0.73 | 0.78 |
+| 4. Cognitive breadth | D1–D4 | 0.66–0.81 | 0.68 | 0.79 | 0.73 |
+| 5. Cognitive depth | E1–E4 | 0.69–0.78 | 0.65 | 0.76 | 0.79 |
 
-<span id="page-7-3"></span>
 
-| Table 2<br>Descriptive statistics and correlation matrix. |         |         |         |        |      |  |  |  |
+| Table 2<br>Descriptive statistics and correlation matrix. | | | | | | | | |
 |-----------------------------------------------------------|---------|---------|---------|--------|------|--|--|--|
-| Variable                                                  | 1       | 2       | 3       | 4      | 5    |  |  |  |
-| 1. Content fragmentation                                  | —       |         |         |        |      |  |  |  |
-| 2. Temporal fragmentation                                 | 0.63*   | —       |         |        |      |  |  |  |
-| 3. Attentional fragmentation                              | 0.60**  | 0.61**  | —       |        |      |  |  |  |
-| 4. Cognitive breadth                                      | 0.41*   | 0.50**  | 0.46**  | —      |      |  |  |  |
-| 5. Cognitive depth                                        | –0.46** | –0.38** | –0.78** | –0.38* | —    |  |  |  |
-| M                                                         | 3.20    | 3.39    | 3.09    | 3.37   | 3.01 |  |  |  |
-| SD                                                        | 0.26    | 0.50    | 0.18    | 0.29   | 0.35 |  |  |  |
+| Variable | 1 | 2 | 3 | 4 | 5 | | | |
+| 1. Content fragmentation | — | | | | | | | |
+| 2. Temporal fragmentation | 0.63* | — | | | | | | |
+| 3. Attentional fragmentation | 0.60** | 0.61** | — | | | | | |
+| 4. Cognitive breadth | 0.41* | 0.50** | 0.46** | — | | | | |
+| 5. Cognitive depth | –0.46** | –0.38** | –0.78** | –0.38* | — | | | |
+| M | 3.20 | 3.39 | 3.09 | 3.37 | 3.01 | | | |
+| SD | 0.26 | 0.50 | 0.18 | 0.29 | 0.35 | | | |
 
 <span id="page-7-1"></span>**Notes.**
 
@@ -174,13 +174,13 @@ AMOS software was then used to perform CFA to investigate the reliability and va
 
 M, arithmetic mean; SD, standard deviation.
 
-#### Descriptive statistics and correlations
+### Descriptive statistics and correlations
 
 The mean values, standard deviations, and Pearson correlations for all indicators are presented in [Table 2.](#page-7-3) Among the three dimensions of fragmented reading, temporal fragmentation recorded the highest mean value (*M* = 3.39, SD = 0.50), followed by content fragmentation (*M* = 3.20, SD = 0.26) and then attentional fragmentation (*M* = 3.09, SD = 0.18). Overall, the mean values of each dimension of fragmented reading all exceeded the threshold, M ≥ 3 (*[Saleem et al., 2020](#page-16-8)*). These results are consistent with previous studies and indicated that fragmented reading is widespread among Chinese university students.
 
 In addition, all correlations were found to be statistically significant (see [Table 2\)](#page-7-3). Cognitive breadth was positively correlated with the fragmentation of content, time, and attention, with coefficients of 0.41, 0.50, and 0.46, respectively, but cognitive depth had a negative association with each; the strongest correlation was between fragmented attention and cognitive depth (r = 0.78, *p* < 0.01). These results indicated a trend of covariation between the various dimensions of fragmented reading and cognitive development. Structural equation modeling was then used to further explore the relationship between the variables. The correlative relationship was not strong (above 0.85), indicating no obvious multicollinearity (*[Kline, 2015](#page-15-16)*).
 
-#### SEM results
+### SEM results
 
 [Figure 2](#page-8-0) displays the final SEM model, which indicated that the structural model was a good fit to the data (X<sup>2</sup> /*df*= 2.51, CFI = 0.92, NFI = 0.91, TLI = 0.94, and RMSEA = 0.07). As expected, parameter estimates showed that each component of fragmented reading exerted
 
@@ -192,7 +192,7 @@ Full-size [DOI: 10.7717/peerj.13861/fig-2](https://doi.org/10.7717/peerj.13861/f
 
 a statistically significant effect on cognitive breadth and depth. Fragmentation of content (β = 0.43,*p*< 0.001), time (β = 0.47,*p*< 0.01) and attention (β = 0.39,*p*< 0.001) had positive associations with cognitive breadth; temporal fragmentation exerted the strongest effect of the three on the scale. This indicates that higher levels of (particularly) temporal fragmentation in students' reading behaviors predicted greater cognitive breadth. In contrast, cognitive depth was negatively associated with all three factors of fragmented reading: content (β = −0.56,*p*< 0.01), time (β = −0.35,*p*< 0.01), and attention (β = −0.50,*p* < 0.001). In other words, students tended to achieve lower levels of cognitive depth when their reading behaviors were more fragmented.
 
-# DISCUSSION
+## DISCUSSION
 
 This paper describes one of the first empirical, quantitative investigations into the effect of fragmented reading on students' cognitive development in Chinese institutions of higher education. As such, it makes a significant contribution to elucidating the relationship between fragmented reading and cognitive development.
 
@@ -218,7 +218,7 @@ The Organization for Economic Cooperation and Development (OECD)'s 2013 Skills O
 
 Thus, the findings of this study contribute evidence to the debate on fragmented reading. Moreover, they provide empirical evidence for several hitherto arcane links between the constructs of fragmented reading and the cognitive development of students. Given these results and to optimize the development of students' cognitive breadth and depth, the dual effects of fragmented reading need to be acknowledged and strategies to deal with these should be proposed.
 
-# CONCLUSIONS
+## CONCLUSIONS
 
 The present study has identified the three-dimensional structure of fragmentary reading which consists of fragmentation in the dimensions of content, time, and attention. It has rigorously investigated how these areas affected the cognitive development of Chinese university students.
 
@@ -236,7 +236,7 @@ First and foremost, the results are of limited generalizability since they were 
 
 Secondarily, the current investigation only investigated five variables: the three constructs of fragmented reading and the two dimensions of cognitive development. Examining additional variables such as reading motivation and levels of reading engagement could yield interesting results, as could the inclusion of potential mediators such as personality traits and socioeconomic status. Previous research has already demonstrated that students with lower socioeconomic status are particularly prone to the negative effects of e-reading, whereas more privileged groups may be able to access advanced technologies to develop their cognitive levels (*[Zheng & Zheng, 2021](#page-17-9)*), pointing to the possible presence of the Matthew effect on reading styles in the new media era: this remains an area for further empirical investigation.
 
-# <span id="page-12-0"></span>ADDITIONAL INFORMATION AND DECLARATIONS
+## <span id="page-12-0"></span>ADDITIONAL INFORMATION AND DECLARATIONS
 
 ## Funding
 
@@ -248,11 +248,11 @@ The following grant information was disclosed by the authors:
 
 The Open Research Fund of College of Teacher Education, Zhejiang Normal University (jykf21011).
 
-#### Competing Interests
+### Competing Interests
 
 The authors declare there are no competing interests.
 
-#### Author Contributions
+### Author Contributions
 
 - [Wei Liu](#page-0-2) conceived and designed the experiments, performed the experiments, authored or reviewed drafts of the article, and approved the final draft.
 - [Heng Huang](#page-0-3) conceived and designed the experiments, performed the experiments, analyzed the data, prepared figures and/or tables, authored or reviewed drafts of the article, and approved the final draft.
@@ -266,15 +266,15 @@ The following information was supplied relating to ethical approvals (i.e., appr
 
 This study was approved by Zhejiang Normal University.
 
-#### Data Availability
+### Data Availability
 
 The following information was supplied regarding data availability: Raw data is available in the [Supplemental Files.](http://dx.doi.org/10.7717/peerj.13861#supplemental-information)
 
-#### Supplemental Information
+### Supplemental Information
 
 Supplemental information for this article can be found online at [http://dx.doi.org/10.7717/](http://dx.doi.org/10.7717/peerj.13861#supplemental-information) [peerj.13861#supplemental-information.](http://dx.doi.org/10.7717/peerj.13861#supplemental-information)
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-13-0"></span>**Adams MJ. 1990.** *Beginning to read: thinking and learning about print*. Washington, D.C: The MIT Press Cambridge Inc.
 - <span id="page-13-6"></span>**Anobile G, Stievano P, Burr DC. 2013.**Visual sustained attention and numerosity sensitivity correlate with math achievement in children.*Journal of Experimental Child Psychology* **116(2)**:380–391 [DOI 10.1016/j.jecp.2013.06.006.](http://dx.doi.org/10.1016/j.jecp.2013.06.006)

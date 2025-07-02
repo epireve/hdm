@@ -65,7 +65,7 @@ Abstract. Most available data is unstructured, making it challenging to access v
 
 Keywords: Knowledge Graph Construction · Large Language Models · Natural Language Processing.
 
-# 1 Introduction
+## 1 Introduction
 
 In the contemporary era, most data is unstructured, leading to substantial information loss if not effectively harnessed [\[3\]](#page-14-0). This unstructured data lacks a predefined format, posing significant challenges for traditional data processing methodologies. Consequently, organizations must employ advanced text understanding and information extraction techniques to analyze and extract meaningful insights from this data effectively.
 
@@ -81,7 +81,7 @@ Consequently, recent research has started utilizing advancements in LLMs, especi
 
 In this paper, we propose iText2KG, a zero-shot method to construct consistent KGs from raw documents incrementally, using an LLM. It comprises four modules: 1) Document Distiller reformulates the raw documents, by taking a schema or a blueprint, into predefined and semantic blocks using LLMs. The schema operates like a predefined JSON structure, directing the language model to extract specific textual information associated with particular keys from each document, 2) iEntities Extractor takes the semantic blocks and not only identifies unique semantic entities within the semantic blocks but also resolves any ambiguities, ensuring that each entity is clearly defined and distinguished from others, 3) iRelation Extractor processes the resolved entities along with the semantic blocks to detect the semantically unique relationships. Further details are in the next sections. The final module employs Neo4j [4](#page-2-0) to represent these relationships and entities in a graph format visually.
 
-# 2 Related works
+## 2 Related works
 
 LLM-based solutions for building KGs can be categorized according to three paradigms: ontology-guided, fine-tuning, and zero- or few-shot learning.
 
@@ -97,7 +97,7 @@ An iterative LLM prompting-based pipeline for automatically generating knowledge
 
 A comprehensive quantitative and qualitative evaluation of LLMs for KG construction and reasoning was provided [\[14\]](#page-14-6), using eight diverse datasets across four representative tasks: entity and relation extraction, event extraction, link prediction, and question-answering. Key findings reveal that while GPT-4 performs well in KG construction tasks, it excels even more in reasoning tasks, sometimes surpassing fine-tuned models. The paper also proposes AutoKG, a multi-agent-based approach that utilizes LLMs and external sources for KG construction and reasoning.
 
-# 3 Incremental Text2KG
+## 3 Incremental Text2KG
 
 This work aims to develop a plug-and-play solution for constructing KGs from documents with resolved entities and relations as output. Adopting a 'zero-shot' approach is essential to ensure the solution's applicability across various KG construction scenarios. This approach means that the prompts used to generate the KG do not require prior examples or predefined ontologies.
 
@@ -126,7 +126,7 @@ We propose the iText2KG approach composed of four modules (see Figure [1\)](#pag
 ![](_page_4_Figure_7.jpeg)
 <!-- Image Description: The image displays four diagrams illustrating a four-module system for knowledge graph construction. Module 1 ("Document Distiller") uses LLM-GPT to process documents into JSON semantic blocks. Modules 2 ("Incremental Entities Extractor") and 3 ("Incremental Relations Extractor") incrementally identify and match entities and relations from these blocks, storing them in databases. Finally, Module 4 ("Neo4j Graph Integrator") integrates the extracted entities and relations into a Neo4j graph database. Each module's diagram shows data flow and processing steps. -->
 
-<span id="page-4-0"></span>Fig. 1. The overall workflow of the iText2KG modules. Module 3, the Incremental Relations Extractor, operates differently depending on whether global or local document entities are provided as context.
+<span id="page-4-0"></span>Figure 1. The overall workflow of the iText2KG modules. Module 3, the Incremental Relations Extractor, operates differently depending on whether global or local document entities are provided as context.
 
 Module 1 - Document Distiller: This module uses LLMs to rewrite input documents into semantic blocks, considering a predefined schema or blueprint. It is important to note that the schema is not an ontology but a blueprint that biases the LLM towards specific classes while maintaining flexibility in others. Practically, the schema functions like a predefined JSON, instructing the LLM to extract particular values (textual information) for specific keys from each document. Some examples of blueprints are available in the iText2KG Github repository. For each document, we will obtain a JSON semi-filled with the desired information if it exists in the document. Then, we aggregate all these semi-filled JSONs to form the semantic blocks of the documents. We have used Langchain's JSON Parser[5](#page-5-0) to define the schema along with the documents as context. The main goals of this module are: (a) To improve the signal-to-noise ratio by reducing noise that may pollute the graph with redundant information. (b) To guide the graph construction process using the schema, especially for concept keys. For example, for a scientific article, we could extract the "title" and the "authors" and add relations like "HAS TITLE" and "HAS AUTHORS" in addition to the semantic information. To ensure the applicability of our solution across various use cases, the schema is an input that depends on user preferences and the particularity of the use case. The idea of reformulating raw documents to enhance the graph construction process has been proven by the following papers [\[13](#page-14-7)[,11\]](#page-14-12). The two papers as mentioned earlier introduced a rewriter module, but it depends on the article's specific use case. However, our module is adaptable to many use cases.
 
@@ -136,15 +136,15 @@ For subsequent documents d in D, the algorithm extracts local entities Ed. It th
 
 <span id="page-5-0"></span><sup>5</sup> [https://python.langchain.com/v0.1/docs/modules/model\\_io/output\\_parsers/](https://python.langchain.com/v0.1/docs/modules/model_io/output_parsers/types/json/) [types/json/](https://python.langchain.com/v0.1/docs/modules/model_io/output_parsers/types/json/)
 
-<span id="page-6-0"></span>Fig. 2. The algorithm of iEntities Matcher
+<span id="page-6-0"></span>Figure 2. The algorithm of iEntities Matcher
 
 Module 3 – Incremental Relations Extractor: The Global Document Entities E are provided as context along with each Semantic Block to the Incremental Relations Matcher (iRelations Matcher) to extract the Global Document Relations. The same approach used for iEntities Matcher applies here. We have observed different behaviors in relation extraction depending on whether global or local entities are used as context with the Semantic Block for the LLM. When global entities are provided as context, the LLM extracts both the relations directly stated and implied by the Semantic Block, especially for entities not explicitly present in the Semantic Block. This enriches the graph with potential information but increases the likelihood of irrelevant relations. Conversely, when locally matched entities are provided as context, the LLM only extracts the relations directly stated by the context. This approach reduces the richness of the graph but also lowers the probability of irrelevant relations. The two versions of iRelations Matcher are presented in Figure [3.](#page-7-0) This result will be further discussed in Section [4.](#page-7-1)
 
-<span id="page-7-0"></span>Fig. 3. The two versions of iRelations Matcher
+<span id="page-7-0"></span>Figure 3. The two versions of iRelations Matcher
 
 Module 4 – Graph Integrator: The Global Document Entities and the Global Document Relations are fed into Neo4j to construct the knowledge graph.
 
-# <span id="page-7-1"></span>4 Experiments
+## <span id="page-7-1"></span>4 Experiments
 
 We chose GPT-4 in all our experiments due to its performance in KG construction and reasoning capabilities, as demonstrated by [\[14\]](#page-14-6). Notably, GPT-4 achieves near fine-tuned state-of-the-art performance, even in zero-shot scenarios. To validate our method, it is essential first to evaluate Module 1 to ensure the concordance of the extracted information with the schema and the semantics of the input documents. Moreover, evaluating modules 1 and 2 regarding the extracted triplets and the quality of entity/relation resolution is also important. To ensure the applicability of our method across different KG construction scenarios, we have adopted three use cases: website to KG, scientific article to KG, and Curriculum Vitae to KG.
 
@@ -190,9 +190,9 @@ Schema Consistency Table [1](#page-9-3) demonstrates that Document Distiller ach
 
 <span id="page-9-3"></span>Table 1. The Schema Consistency Score for the different types of documents.
 
-| Documents                            | CVs | Scientific Articles Websites |             |
+| Documents | CVs | Scientific Articles Websites | |
 |--------------------------------------|-----|------------------------------|-------------|
-| Schema Consistency Score 0.97 ± 0.09 |     | 0.98 ± 0.04                  | 0.94 ± 0.13 |
+| Schema Consistency Score 0.97 ± 0.09 | | 0.98 ± 0.04 | 0.94 ± 0.13 |
 
 Information Consistency Figure [4](#page-10-0) illustrates the information consistency across different types of documents: CVs, scientific articles, and websites. For CVs, the majority of the information (74.5%) is fully consistent, with 25.5% being largely consistent and no medium consistency. This indicates that the rewritten text closely matches the semantics of the original content for CVs. This is because CVs are primarily written in clear and concise phrases, making it easier for the LLM to capture the semantics. In the case of scientific articles, 57.1% of the information is fully consistent, and 42.9% is largely consistent, showing a high degree of accuracy in preserving the original semantics, though slightly less than CVs. This is predictable, especially since scientific articles are written in scientific English with more complex phrases. Websites have 56.0% of information fully consistent, 24.0% largely consistent, and 20.0% medium consistency. This may be due to the unstructured nature of web content, which poses a greater challenge for accurate semantic rewriting.
 
@@ -205,7 +205,7 @@ Information Consistency Figure [4](#page-10-0) illustrates the information consi
 ![](_page_10_Figure_0.jpeg)
 <!-- Image Description: This bar chart displays the information consistency across different document types (CVs, scientific articles, websites). It shows the percentage of documents categorized as "Fully Consistent," "Largely Consistent," and "Medium" consistency. CVs exhibit the highest percentage of fully consistent information, while websites show the lowest and a noticeable proportion of medium consistency. The chart quantifies the consistency levels, aiding analysis of information reliability across various sources within the paper's scope. -->
 
-<span id="page-10-0"></span>Fig. 4. Bar Plot of the Information Consistency Scores for the different types of Documents
+<span id="page-10-0"></span>Figure 4. Bar Plot of the Information Consistency Scores for the different types of Documents
 
 ### 3 Second and Third Modules Evaluation Results
 
@@ -213,10 +213,10 @@ Triplet Extraction Table [2](#page-10-1) shows different behaviors in relation e
 
 <span id="page-10-1"></span>Table 2. Precision scores for relevant triplets across two datasets: music and computer science. The scores are presented for Global Entities as Context and Local Entities as Context.
 
-|                          | Global Entities Local Entities |             |
+| | Global Entities Local Entities | |
 |--------------------------|--------------------------------|-------------|
-| Computer Science Dataset | 0.83 ± 0.06                    | 0.94 ± 0.06 |
-| Music Dataset            | 0.81 ± 0.05                    | 0.9 ± 0.07  |
+| Computer Science Dataset | 0.83 ± 0.06 | 0.94 ± 0.06 |
+| Music Dataset | 0.81 ± 0.05 | 0.9 ± 0.07 |
 
 This presents a trade-off that depends on the use case. We leave it to the user to decide whether to accept a 10% decrease in precision in exchange for an enriched graph or to gain 10% precision with a less enriched graph.
 
@@ -224,19 +224,19 @@ Entity/Relation Resolution To the best of our knowledge, LlamaIndex constructs u
 
 <span id="page-11-0"></span>Table 3. False Discovery Rates of unresolved entities for entity resolution process across three KG construction scenarios.
 
-|                     | OpenAI Function Langchain LlamaIndex Our Method |             |   |             |
+| | OpenAI Function Langchain LlamaIndex Our Method | | | |
 |---------------------|-------------------------------------------------|-------------|---|-------------|
-| Scientific Articles | 0.11 ± 0.04                                     | 0.14 ± 0.08 | - | 0.01 ± 0.01 |
-| CVs                 | 0                                               | 0           | - | 0           |
-| Websites            | 0.31 ± 0.05                                     | 0.29 ± 0.06 | - | 0           |
+| Scientific Articles | 0.11 ± 0.04 | 0.14 ± 0.08 | - | 0.01 ± 0.01 |
+| CVs | 0 | 0 | - | 0 |
+| Websites | 0.31 ± 0.05 | 0.29 ± 0.06 | - | 0 |
 
 <span id="page-11-1"></span>Table 4. False Discovery Rates of unresolved relations for relation resolution process across three KG construction scenarios.
 
-|                     | OpenAI Function Langchain LlamaIndex Our Method |             |   |             |
+| | OpenAI Function Langchain LlamaIndex Our Method | | | |
 |---------------------|-------------------------------------------------|-------------|---|-------------|
-| Scientific Articles | 0.07 ± 0.01                                     | 0.06 ± 0.01 | - | 0.01 ± 0.01 |
-| CVs                 | 0                                               | 0           | - | 0           |
-| Websites            | 0.15 ± 0.01                                     | 0.14 ± 0.02 | - | 0           |
+| Scientific Articles | 0.07 ± 0.01 | 0.06 ± 0.01 | - | 0.01 ± 0.01 |
+| CVs | 0 | 0 | - | 0 |
+| Websites | 0.15 ± 0.01 | 0.14 ± 0.02 | - | 0 |
 
 Moreover, the False Discovery Rates of unresolved entities and relations for websites to KG are higher than in the other KG construction scenarios. This is due to the larger number of documents (chunks) and the unstructured nature of website textual information. Consequently, without an effective resolution process, the LLM struggles to map similar entities or relations. Therefore, as long as the number of documents (chunks) is large and the text is unstructured with complex language, the entity/relation resolution process becomes crucial for building consistent KGs.
 
@@ -244,9 +244,9 @@ Threshold Estimation To estimate the threshold for merging entities and relation
 
 <span id="page-12-1"></span>Table 5. Cosine Similarities of the Two Datasets for Entity and Relationship Resolution.
 
-|            | Entities Dataset Relationships Dataset |
+| | Entities Dataset Relationships Dataset |
 |------------|----------------------------------------|
-| 0.6 ± 0.12 | 0.56 ± 0.1                             |
+| 0.6 ± 0.12 | 0.56 ± 0.1 |
 
 To illustrate the results of KG construction, Figure [5](#page-13-0) presents a comparison between baseline methods and iText2KG across three distinct scenarios. The observations are as follows:
 
@@ -256,7 +256,7 @@ To illustrate the results of KG construction, Figure [5](#page-13-0) presents a 
 
 Moreover, it is important to highlight the effect of the chunking size of the input document and the threshold on KG construction. Input documents to the Document Distiller can be independent documents or chunks. If the chunk size is smaller, the semantic blocks will capture more specific details from the documents, and vice versa.
 
-# 5 Conclusion
+## 5 Conclusion
 
 In this paper, we introduced iText2KG, an approach for incremental KG construction leveraging the zero-shot capabilities of LLMs. Our methodology ad-
 
@@ -265,7 +265,7 @@ In this paper, we introduced iText2KG, an approach for incremental KG constructi
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This image displays nine knowledge graph (KG) visualizations, comparing three methods (OpenAI Function Method, Langchain, iText2KG) for extracting information from scientific articles, CVs, and websites. Each method is represented by three sub-figures showing KG construction for each data type. Nodes represent entities and edges represent relations. Highlighted regions indicate unresolved or resolved entities and relations, illustrating the success of each method in linking entities and establishing relationships within the knowledge graphs. The figure demonstrates the differences in KG construction resulting from different knowledge extraction techniques. -->
 
-<span id="page-13-0"></span>Fig. 5. Comparison of KG construction across three scenarios between baseline methods and our method, iText2KG.
+<span id="page-13-0"></span>Figure 5. Comparison of KG construction across three scenarios between baseline methods and our method, iText2KG.
 
 dressed limitations inherent in traditional KG construction processes, which typically depend on predefined ontologies and extensive supervised training.
 
@@ -275,7 +275,7 @@ Empirical evaluations across diverse contexts, such as scientific documents, web
 
 Future research will focus on enhancing metrics such as cosine similarity for advanced entity and relation matching, eliminating the necessity to define a threshold as a hyperparameter, and integrating the entity type as a parameter of the matching process.
 
-# References
+## References
 
 - <span id="page-14-4"></span>1. Carta, S., Giuliani, A., Piano, L., Podda, A.S., Pompianu, L., Tiddia, S.G.: Iterative zero-shot LLM prompting for knowledge graph construction. arXiv preprint arXiv:2307.01128 (2023)
 - <span id="page-14-8"></span>2. Ding, L., Zhou, S., Xiao, J., Han, J.: Automated construction of theme-specific knowledge graphs. arXiv preprint arXiv:2404.19146 (2024)

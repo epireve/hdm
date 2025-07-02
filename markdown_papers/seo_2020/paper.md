@@ -23,8 +23,6 @@ keywords:
 - scale-related
 ---
 
-
-
 # <span id="page-0-0"></span>Structural Quality Metrics to Evaluate Knowledge Graph Quality
 
 Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun
@@ -77,18 +75,17 @@ Wikidata, DBpedia, Freebase, YAGO, and Google Knowledge Graph, which are knowled
 
 Wikidata Wikidata was launched in 2012 by Wikimedia Deutschland, which provides informa-
 
-<span id="page-2-0"></span>
 
-|           | subject                                                                                                                                          | predicate                                                                                     | object                                     |  |
+| | subject | predicate | object | |
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------|--|
-| class     | <http: rdf.freebase.com<="" th=""><th><http: th="" www.w3.org<=""><th colspan="2"><http: th="" www.w3.org<=""></http:></th></http:></th></http:> | <http: th="" www.w3.org<=""><th colspan="2"><http: th="" www.w3.org<=""></http:></th></http:> | <http: th="" www.w3.org<=""></http:>       |  |
-|           | /ns/base.                                                                                                                                        | /1999/02/22 -rdf                                                                              | /2000/01/ rdf                              |  |
-|           | birdinfo.parasitism>                                                                                                                             | syntax-n#type>                                                                                | schema#Class>                              |  |
-| predicate | <http: rdf.freebase.com<="" th=""><th><http: th="" www.w3.org<=""><th><http: rdf.freebase.com<="" th=""></http:></th></http:></th></http:>       | <http: th="" www.w3.org<=""><th><http: rdf.freebase.com<="" th=""></http:></th></http:>       | <http: rdf.freebase.com<="" th=""></http:> |  |
-|           | /ns/film.                                                                                                                                        | /2000/01/ rdf                                                                                 | /ns/film.film>                             |  |
-|           | film.directed_by>                                                                                                                                | schema#domain>                                                                                |                                            |  |
+| class | <http: rdf.freebase.com<="" th=""><th><http: th="" www.w3.org<=""><th colspan="2"><http: th="" www.w3.org<=""></http:></th></http:></th></http:> | <http: th="" www.w3.org<=""><th colspan="2"><http: th="" www.w3.org<=""></http:></th></http:> | <http: th="" www.w3.org<=""></http:> | |
+| | /ns/base. | /1999/02/22 -rdf | /2000/01/ rdf | |
+| | birdinfo.parasitism> | syntax-n#type> | schema#Class> | |
+| predicate | <http: rdf.freebase.com<="" th=""><th><http: th="" www.w3.org<=""><th><http: rdf.freebase.com<="" th=""></http:></th></http:></th></http:> | <http: th="" www.w3.org<=""><th><http: rdf.freebase.com<="" th=""></http:></th></http:> | <http: rdf.freebase.com<="" th=""></http:> | |
+| | /ns/film. | /2000/01/ rdf | /ns/film.film> | |
+| | film.directed_by> | schema#domain> | | |
 
-Table 1: Example of Freebase Ontology data extraction
+**Table 1:** Example of Freebase Ontology data extraction
 
 tion associated with Wikipedia and allows users to participate directly in creating and editing data. Although ontology information is not provided as a separate file, the hierarchical structure between entities can be known through*subclass of*property for each entity.
 
@@ -107,18 +104,17 @@ Ontology data were refined differently depending on whether or not ontology data
 
 <sup>1</sup> https://developers.google.com/knowledge-graph
 
-<span id="page-3-0"></span>
 
-|                       | Raftel      | Wikidata        | DBpedia       | YAGO            | Google KG  | Freebase      |
+| | Raftel | Wikidata | DBpedia | YAGO | Google KG | Freebase |
 |-----------------------|-------------|-----------------|---------------|-----------------|------------|---------------|
-| number of classes     | 273         | 59,662          | 804           | 266             | 910        | 53,091        |
-| number of properties  | 607         | 7,476           | 21,607        | 141             | 1,447      | 23,446        |
-| number of RDF triples | 253,566,996 | 27,258,977      | 11,137,852    | 348,094,663     |            | 48,292,483    |
-|                       |             | (4,655,416,683) | (119,684,431) | (2,489,856,093) | 48,348,838 | (267,990,918) |
-| number of instances   | 17,653,785  | 1,323,452       | 287,752       | 19,707,176      |            | 33,535,913    |
-|                       |             | (95,312,952)    | (7,362,499)   | (73,260,077)    | 1,390,438  | (115,880,746) |
+| number of classes | 273 | 59,662 | 804 | 266 | 910 | 53,091 |
+| number of properties | 607 | 7,476 | 21,607 | 141 | 1,447 | 23,446 |
+| number of RDF triples | 253,566,996 | 27,258,977 | 11,137,852 | 348,094,663 | | 48,292,483 |
+| | | (4,655,416,683) | (119,684,431) | (2,489,856,093) | 48,348,838 | (267,990,918) |
+| number of instances | 17,653,785 | 1,323,452 | 287,752 | 19,707,176 | | 33,535,913 |
+| | | (95,312,952) | (7,362,499) | (73,260,077) | 1,390,438 | (115,880,746) |
 
-Table 2: basic statistics(target language:korean, figures in parentheses are statistics for all language data)
+**Table 2:** basic statistics(target language:korean, figures in parentheses are statistics for all language data)
 
 a property of*'<http://www.w3.org/1999/02/22 rdf-syntax-ns#type>'*and an object of*'<http://www.w3.org/2000/01/rdf-schema#Class>*. In addition, Freebase does not specify a hierarchy between classes, so there is no root class [\(Chah](#page-8-7) [\(2018\)](#page-8-7)). To calculate metrics, we created a root class and connected all classes as subclasses of the root class. The property was targeted at RDF triple's subject whose object ends with 'Property>' among objects with a property of *'<http://www.w3.org/1999/02/22 rdf-syntax-ns#type>'*, and only those with a property of *'<http://www.w3.org/2000/01/rdfschema#domain>'*were explicitly provided. (Table [1\)](#page-2-0)
 
@@ -146,66 +142,65 @@ Third, classes and properties defined in the ontology must be used sufficiently 
 
 Fourth, though the quality increases as the class is subdivided, it is negative if the complexity increases in this process. Multiple inheritance is an example of a factor that describes ontology complexity. Multiple inheritance means that one class has several superclasses. For example, the*Hospital*class is a subclass of*'Facility'*, a space that provides a specific function, and a subclass of *'Organization'*, a group of employees including doctors and nurses. Avoiding multiple inheritance is preferable, unless it is necessary, like in the case of the *Hospital*where both location information, which is a facility characteristic, and member information, which is an organization characteristic, are crucial. This is because when subclass and superclass are connected in a many-to-many relationship, the complexity of understanding and utilization of ontology increases.
 
-#### 2 Structural Quality Metrics
+### 2 Structural Quality Metrics
 
 We present a structural quality metric that can measure the quality of good knowledge graphs presented by [4.1.](#page-3-1) [4.2.1,](#page-4-0) [4.2.2](#page-4-1) have been examined in previous studies, and [4.2.3,](#page-4-2) [4.2.4,](#page-5-0) [4.2.5,](#page-6-0) [4.2.6,](#page-6-1) are newly introduced in this work.
 
-#### <span id="page-4-0"></span>4.2.1 Instantiated Class Ratio
-*Instantiated Class Ratio*refers to the ratio of classes with instances among classes defined in the ontology. It is an indicator of how well the class of ontology is actually being used. In obtaining*Instantiated Class Ratio*for ontology ( [1\)](#page-4-3), N(C) means the total number of classes in the Ontology, and N(IC) means the number of classes in which instances exist.
+### <span id="page-4-0"></span>4.2.1 Instantiated Class Ratio
 
-<span id="page-4-3"></span>
+**Instantiated Class Ratio:** refers to the ratio of classes with instances among classes defined in the ontology. It is an indicator of how well the class of ontology is actually being used. In obtaining*Instantiated Class Ratio*for ontology ( [1\)](#page-4-3), N(C) means the total number of classes in the Ontology, and N(IC) means the number of classes in which instances exist.
+
 $$
 ICR(Ontology) = \frac{N(IC)}{N(C)} \tag{1}
 $$
 
-#### <span id="page-4-1"></span>4.2.2 Instantiated Property Ratio
-*Instantiated Property Ratio*refers to the ratio of properties actually used in RDF triple among the properties defined in the ontology. It is an indicator of how well the properties of the ontology are actually being used. In obtaining*Instantiated Property Ratio*for ontology ( [2\)](#page-4-4), N(P) denotes the total number of properties of the Ontology, and N(IP) denotes the number of properties used in RDF triples.
+### <span id="page-4-1"></span>4.2.2 Instantiated Property Ratio
 
-<span id="page-4-4"></span>
+**Instantiated Property Ratio:** refers to the ratio of properties actually used in RDF triple among the properties defined in the ontology. It is an indicator of how well the properties of the ontology are actually being used. In obtaining*Instantiated Property Ratio*for ontology ( [2\)](#page-4-4), N(P) denotes the total number of properties of the Ontology, and N(IP) denotes the number of properties used in RDF triples.
+
 $$
 IPR(Ontology) = \frac{N(IP)}{N(P)}\tag{2}
 $$
 
-#### <span id="page-4-2"></span>4.2.3 Class Instantiation
-*Class Instantiation*is a metric that assesses how much in detail classes are defined in the ontology and how much they are actually instantiated. For each class included in the knowledge graph, the class instantiation is calculated and summed to be used as an indicator representing the knowledge graph. In a formula ( [3\)](#page-5-1) to obtain*Class Instantiation*for a particular*Class*, n<sup>c</sup> means the number of subclasses that the *Class*has, ir(c) means instantiated ratio, which is*'number of instances of the Class / number of all instances in knolwedge*<span id="page-5-2"></span>![](_page_5_Figure_0.jpeg)
+### <span id="page-4-2"></span>4.2.3 Class Instantiation
+
+**Class Instantiation:** is a metric that assesses how much in detail classes are defined in the ontology and how much they are actually instantiated. For each class included in the knowledge graph, the class instantiation is calculated and summed to be used as an indicator representing the knowledge graph. In a formula ( [3\)](#page-5-1) to obtain*Class Instantiation*for a particular*Class*, n<sup>c</sup> means the number of subclasses that the *Class*has, ir(c) means instantiated ratio, which is*'number of instances of the Class / number of all instances in knolwedge*<span id="page-5-2"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: The image displays a hierarchical knowledge graph with 500 instances. The top node, "Person," branches into "Athlete," "Artist," and "Politician," each with associated instance counts and probabilities. These nodes further branch into "Actor," "Musician," and "Author," respectively, with similar instance/probability pairs. The graph illustrates a probabilistic relationship between the concepts, with branching factors indicated by fractions (1/2¹, 1/2²). It likely demonstrates a data structure or sampling method within the paper. -->
 
-Figure 1: Class Instantiation Example
+**Figure 1:** Class Instantiation Example
 *graph'*, c<sup>i</sup> is the i-th subclass the *Class*has, d means the distance between the*Class*and c<sup>i</sup> .
 
-<span id="page-5-1"></span>
 $$
 CI(Class) = \sum_{i=1}^{n_c} \frac{ir(c_i)}{2^{d(c_i)}} \tag{3}
 $$
 
 The process of calculating*Class Instantiation*for*'Person'*class in a knowledge graph such as Figure [1](#page-5-2) is as follows. The total number of instances of the knowledge graph is 500, of which the number of instances of*'Person'*and*Person*'s subclass is 200. For all subclasses under the *'Person'*class, the proportion of the class's instance to the total instance is calculated. Let's say this is a "weight". For example, to calculate the weight for*'Artist'*, use the number of direct instances of the *Artist*, not the instances of *'Actor'*, *'Musician'*, or *'Author'*. *'Ariana Grande'*instance is not a direct instance of the*'Artist'*because the singer is an instance of the*Artist*'s subclass, *'Musician'*. Since *'Pablo Picasso'*instance does not belong to the*'Artist'*'s subclasses , it becomes a direct instance of the *'Artist'*. In the figure, the class is represented with rectangle box, and in the box, *(number of instances*→*weights)*is denoted.
-*Person*'s *Class Instantiation*accumulates weights from the subclass farthest from*'Person'*. Weights are not added as they are, but divided by 2 DepthF romP ersonClass. The farther away from the *'Person'*class, the more penalty the class's weight
+**Person:** 's *Class Instantiation*accumulates weights from the subclass farthest from*'Person'*. Weights are not added as they are, but divided by 2 DepthF romP ersonClass. The farther away from the *'Person'*class, the more penalty the class's weight
 
 has. As a result,*Class Instantiation*of*'Person'*is calculated as 0.1 + (0.02 + 0.01 + 0.06) × 1 2 <sup>1</sup> + (0.06 + 0.1 + 0.04) × 1 2 2 .
-*Class Instantiation*is obtained in the same way as above for all the classes including*'Artist'*, *'Musician'*, and *'Creative Work'*that exist in the ontology.
+**Class Instantiation:** is obtained in the same way as above for all the classes including*'Artist'*, *'Musician'*, and *'Creative Work'*that exist in the ontology.
 
 For*Class Instantiation*, the more classes are divided, the more each class is fully utilized, and the higher the weight, the greater the value of *Class Instantiation*. In addition, the penalty according to depth was applied to prevent the side effects of increasing the score as the class is subdivided into verticals unconditionally.
 
-#### <span id="page-5-0"></span>4.2.4 Subclass Property Acquisition
+### <span id="page-5-0"></span>4.2.4 Subclass Property Acquisition
 
-*Subclass Property Acquisition*is a metric that measures how many properties are defined in the subclass that is not in the superclass in the ontology. For example, if the*'Person'*class is a subclass of the*'Entity'*class, properties that are not defined in the*'Entity'* class such as '*children*', '*academic degree*', and '*spouse*', can be added. Furthermore, if the *'Actor'*class is a subclass of the*'Person'* class, properties like '*character role*', '*cast member of*' can be added. The *Subclass Property Acquisition*is the average value obtained by number of newly added properties that are not in the superclass for all classes of the ontology, except for the root class
+**Subclass Property Acquisition:** is a metric that measures how many properties are defined in the subclass that is not in the superclass in the ontology. For example, if the*'Person'*class is a subclass of the*'Entity'*class, properties that are not defined in the*'Entity'* class such as '*children*', '*academic degree*', and '*spouse*', can be added. Furthermore, if the *'Actor'*class is a subclass of the*'Person'* class, properties like '*character role*', '*cast member of*' can be added. The *Subclass Property Acquisition*is the average value obtained by number of newly added properties that are not in the superclass for all classes of the ontology, except for the root class
 
 (e.g.,*Entity*class).
 
 In the formula for obtaining*Subclass Property Acquisition*for Ontology ( [4\)](#page-6-2), P denotes property set and N(P) is a function for the number of elements in the property set. For all 'superclass-subclass' relationships present in Ontology, N(Psubclass − Psuperclass) is calculated, and the number of properties present in the subclass is obtained and summed. For all classes in Ontology,*Subclass Property Acquisition*is calculated and averaged by N(C), the number of classes.
 
-<span id="page-6-2"></span>
 $$
 SPA(Ontology) = \frac{\sum (N_i(P_{sublass} - P_{superclass}))}{N(C)}
 $$
 \n(4)
 
-#### <span id="page-6-0"></span>4.2.5 Subclass Property Instantiation
-*Subclass Property Instantiation*quantifies how much the properties are used in the RDF triples when the properties of the subclass that are not in the superclass are defined in the ontology. For example, if an*'Actor'* class adds '*cast member of*' and '*character role*' property that are not in the superclass *'Person'*class, the more unique properties of the actor are used in RDF triples, such as*"Tom Cruise - cast member of - Mission Impossible"*and*"Tom Cruise - character role - Ethan Hunt"*, the better structure knowledge graph has. Knowledge graph's *Subclass Property Instantiation*is average of*Subclass Property Instantiation*of all the classes.
+### <span id="page-6-0"></span>4.2.5 Subclass Property Instantiation
+
+**Subclass Property Instantiation:** quantifies how much the properties are used in the RDF triples when the properties of the subclass that are not in the superclass are defined in the ontology. For example, if an*'Actor'* class adds '*cast member of*' and '*character role*' property that are not in the superclass *'Person'*class, the more unique properties of the actor are used in RDF triples, such as*"Tom Cruise - cast member of - Mission Impossible"*and*"Tom Cruise - character role - Ethan Hunt"*, the better structure knowledge graph has. Knowledge graph's *Subclass Property Instantiation*is average of*Subclass Property Instantiation*of all the classes.
 
 In the formula for obtaining*Subclass Property Instantiation*for a particular*Class*( [5\)](#page-6-3), T is a set of RDF triples, and N(T) is a function of obtaining the number of RDF triples. N(Tclass − Tclass\_superclass) is the number of RDF triples of*Class*excluding RDF tripels which uses predicates defined for superclass.
 
-<span id="page-6-3"></span>
 $$
 SPI(Class) = \frac{N(T_{Class} - T_{class\_superclass})}{N(T_{Class})}
 $$
@@ -215,15 +210,14 @@ To compute a*Subclass Property Instantiation*for an*'Actor'*class, first, count 
 
 in which the properties added in the*'Actor'*class are used. Except for*"Tom Cruise - Birth Place - Syracuse"*, *"Tom Cruise - Nationality - United States"*, and *"Tom Cruise - Name - Tom Cruise"*, only RDF triples such as *"Tom Cruise - cast member of - Mission Impossible"*and*"Tom Cruise character role - Ethan Hunt"*are considered. This is the numerator of*Subclass Property Instantiation*. By dividing the number of RDF triples used by the property added in the *'Actor'*by the total number of triples in the*'Actor'*, we can see how the unique property increases in RDF triple as the *'Actor'*was subdivided from*'Person'*. For example, if the *Actor*'s *Subclass Property Instantiation*is 0.05, it means that the RDF triple of*'Actor'*with new properties has increased by 5% compared to the superclass*'Person'*.
 
-#### <span id="page-6-1"></span>4.2.6 Inverse Multiple Inheritance
+### <span id="page-6-1"></span>4.2.6 Inverse Multiple Inheritance
 
-*Inverse Multiple Inheritance*evaluates the simplicity of the knowledge graph. If multiple inheritance occurs frequently in which a single class has numerous superclasses, might make it challenging to use the knowledge graph because of the complexity of the class relationship. Inverse multiple inheritance was devised to measure how little multiple inheritance appears. The average number of superclasses per class is computed to obtain the average multiple inheritance, and take the reciprocal of it. Therefore, the higher the*Inverse Multiple Inheritance*, the simpler the knowledge graph is. In ( [6\)](#page-6-4), N<sup>c</sup> represents the total number of classes in the ontology, and C<sup>i</sup> represents each class in the ontology, nsup(C) represents the number of direct superclasses in the class.
+**Inverse Multiple Inheritance:** evaluates the simplicity of the knowledge graph. If multiple inheritance occurs frequently in which a single class has numerous superclasses, might make it challenging to use the knowledge graph because of the complexity of the class relationship. Inverse multiple inheritance was devised to measure how little multiple inheritance appears. The average number of superclasses per class is computed to obtain the average multiple inheritance, and take the reciprocal of it. Therefore, the higher the*Inverse Multiple Inheritance*, the simpler the knowledge graph is. In ( [6\)](#page-6-4), N<sup>c</sup> represents the total number of classes in the ontology, and C<sup>i</sup> represents each class in the ontology, nsup(C) represents the number of direct superclasses in the class.
 
-<span id="page-6-4"></span>
 $$
 IMI(Ontology) = \frac{1}{\frac{\sum_{i=1}^{N_c} nsup(C_i)}{N_c}}
 $$
- (6)
+(6)
 
 The six structural quality metrics determine whether knowledge graph can express knowledge abundantly through a detailed ontology. Among them, *Class Instantiation*and*Subclass Property Instantiation*have the characteristics of a comprehensive indicator that can reflect classes or attribute's degree of subdivision and actual utilization.
 
@@ -231,22 +225,21 @@ The six structural quality metrics determine whether knowledge graph can express
 
 Table [3](#page-7-0) is the analysis of structural quality metric with five knowledge graphs on the web and
 
-<span id="page-7-0"></span>
 
-|                                 | Raftel | Wikidata  | DBpedia  | YAGO      | Google KG | Freebase |
+| | Raftel | Wikidata | DBpedia | YAGO | Google KG | Freebase |
 |---------------------------------|--------|-----------|----------|-----------|-----------|----------|
-|                                 | 0.941  | 0.004     | 0.470    | 0.820     |           | 0.046    |
-| Instantiated Class Ratio        |        | (0.334)   | (0.540)  | (0.966)   | 0.099     | (0.314)  |
-| Instantiated Property Ratio     | 1      | 1         | 0.99     | 0.90      |           | 0.002    |
-|                                 |        | (1)       | (1)      | (0.96)    | 1         | (0.003)  |
-|                                 | 0.941  | 0.716     | 0.900    | 0.886     |           | 0.874    |
-| Class Instantiation             |        | (0.743)   | (0.949)  | (0.616)   | 0.660     | (0.749)  |
-| Inverse Multiple Inheritance    | 0.975  | 0.962     | 0.971    | 0.942     | 0.952     | 1        |
-| Subclass Property Acquisition   | 6.54   | 40.94     | 63.57    | 2.23      | 0.0       | 1        |
-|                                 | 0.0857 | 0.0133    | 0.0841   | 0.0003    |           | 0.0      |
-| Subclass Property Instantiation |        | (0.00001) | (0.0668) | (0.00001) | 0.0       | (0.0)    |
+| | 0.941 | 0.004 | 0.470 | 0.820 | | 0.046 |
+| Instantiated Class Ratio | | (0.334) | (0.540) | (0.966) | 0.099 | (0.314) |
+| Instantiated Property Ratio | 1 | 1 | 0.99 | 0.90 | | 0.002 |
+| | | (1) | (1) | (0.96) | 1 | (0.003) |
+| | 0.941 | 0.716 | 0.900 | 0.886 | | 0.874 |
+| Class Instantiation | | (0.743) | (0.949) | (0.616) | 0.660 | (0.749) |
+| Inverse Multiple Inheritance | 0.975 | 0.962 | 0.971 | 0.942 | 0.952 | 1 |
+| Subclass Property Acquisition | 6.54 | 40.94 | 63.57 | 2.23 | 0.0 | 1 |
+| | 0.0857 | 0.0133 | 0.0841 | 0.0003 | | 0.0 |
+| Subclass Property Instantiation | | (0.00001) | (0.0668) | (0.00001) | 0.0 | (0.0) |
 
-Table 3: structural quality metric evaluation (figures in parentheses are statistics for all language data)
+**Table 3:** structural quality metric evaluation (figures in parentheses are statistics for all language data)
 
 Raftel. First, looking at the metric related to the degree of segmentation and usage of classes, YAGO and Raftel have the smallest number of classes in Table [2,](#page-3-0) but more than 80% of classes were instantiated. On the other hand, Wikidata, Freebase, and Google KG instantiated less than 10% compared to the large number of classes defined in Ontology. According to the results of the*Class Instantiation*analysis, DBpedia and Raftel fully utilize fine-grained ontology in the knowledge graph. When comparing DBpedia and YAGO, even though YAGO has higher*Instantiated Class Ratio*, DBpedia's *Class Instantiation*shows that it is divided into vertical and horizontal classes, and the classes are actively used in the knowledge graph. In the case of Google KG, the low number of classes that could be imported through the API was reflected in the low*Instantiated Class Ratio*and*Class Instantiation*. Freebase does not define the hierarchy between classes, so it seems to affect the low value of *Class Instantiation*. When it comes to *Inverse Multiple Inheritance*, Freebase is calculated as 1 because classes do not have parent classes, and has the most concise ontology structure. Schema.org(Google KG's ontology) and YAGO have a high complexity due to its relatively frequent multiple inheritance.
 
@@ -260,17 +253,16 @@ Table [4](#page-8-8) shows comprehensive analysis of structural quality metric b
 
 Each metric of the structural quality metric was normalized to have a minimum value of 1 and a maximum value of 10, and then metrics belonging to*Class Metric*and metrics belonging to*Property Metric*were averaged to obtain a representative value. After that, the characteristics of the knowledge graph were examined by varying the weights of CM and PM. When the proportion of PM is large, DBpedia showed the highest score, and when the weighted average was the same or the proportion of CM was larger, Raftel showed the highest score. Through this, if the degree of segmentation of the property is important, the quality of DBpedia can be judged to be high, and if the degree of segmenta-
 
-<span id="page-8-8"></span>
 
-|                       | Raftel | Wikidata | DBpedia | YAGO | Google KG | Freebase |
+| | Raftel | Wikidata | DBpedia | YAGO | Google KG | Freebase |
 |-----------------------|--------|----------|---------|------|-----------|----------|
-| 0.0 × CM + 1.0 × PM   | 7.31   | 6.40     | 9.91    | 3.81 | 4.00      | 1.04     |
-| 0.25 × CM + 0.75 × PM | 7.66   | 5.47     | 9.07    | 4.37 | 3.45      | 2.39     |
-| 0.5 × CM + 0.5 × PM   | 8.01   | 4.51     | 8.23    | 4.92 | 2.90      | 3.72     |
-| 0.75 × CM + 0.25 × PM | 8.36   | 3.57     | 7.40    | 5.47 | 2.34      | 5.06     |
-| 1.0 × CM + 0.0 × PM   | 8.71   | 2.63     | 6.56    | 6.03 | 1.79      | 6.4      |
+| 0.0 × CM + 1.0 × PM | 7.31 | 6.40 | 9.91 | 3.81 | 4.00 | 1.04 |
+| 0.25 × CM + 0.75 × PM | 7.66 | 5.47 | 9.07 | 4.37 | 3.45 | 2.39 |
+| 0.5 × CM + 0.5 × PM | 8.01 | 4.51 | 8.23 | 4.92 | 2.90 | 3.72 |
+| 0.75 × CM + 0.25 × PM | 8.36 | 3.57 | 7.40 | 5.47 | 2.34 | 5.06 |
+| 1.0 × CM + 0.0 × PM | 8.71 | 2.63 | 6.56 | 6.03 | 1.79 | 6.4 |
 
-Table 4: normalization of structural quality metric (target language:korean), CM = Class Metrics, PM = Property Metrics
+**Table 4:** normalization of structural quality metric (target language:korean), CM = Class Metrics, PM = Property Metrics
 
 tion of the class is important, the quality of Raftel can be judged to be high.
 
@@ -318,7 +310,7 @@ Structural quality metric sees 'structure' as an important factor in determining
 - <span id="page-9-8"></span>Amrapali Zaveri, Dimitris Kontokostas, Sebastian Hellmann, Jürgen Umbrich, Michael Färber, Frederic Bartscherer, Carsten Menne, Achim Rettinger, Amrapali Zaveri, Dimitris Kontokostas, Sebastian Hellmann, and Jürgen Umbrich. 2018. [Linked data](https://doi.org/10.3233/SW-170275) [quality of dbpedia, freebase, opencyc, wikidata, and](https://doi.org/10.3233/SW-170275) [yago.](https://doi.org/10.3233/SW-170275) *Semant. Web*, 9(1):77–129.
 - <span id="page-9-0"></span>Xiaohan Zou. 2020. [A survey on application of knowl](https://doi.org/10.1088/1742-6596/1487/1/012016)[edge graph.](https://doi.org/10.1088/1742-6596/1487/1/012016) *Journal of Physics: Conference Series*, 1487(1):012016.
 
-# A Appendix
+## A Appendix
 
 ## A.1 Basic Statistics
 
@@ -327,69 +319,69 @@ Structural quality metric sees 'structure' as an important factor in determining
 ![](_page_10_Figure_3.jpeg)
 <!-- Image Description: The image is a bar chart comparing the number of classes in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Wikidata (59,662 classes) and Freebase (53,091 classes) have significantly more classes than the others, while DBpedia, YAGO, and GoogleKG have considerably fewer. The chart's purpose is to illustrate the relative scale of these knowledge graphs in terms of class quantity. -->
 
-Figure 2: Number of Classes (target language: Korean)
+**Figure 2:** Number of Classes (target language: Korean)
 
 ![](_page_10_Figure_5.jpeg)
 <!-- Image Description: The image is a bar chart comparing the number of properties in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Freebase has the most properties (23446), while Raftel has the fewest (607). The chart visually represents the relative sizes of the knowledge graphs, illustrating a significant difference in scale between them. The x-axis labels the knowledge graph, and the y-axis represents the number of properties. -->
 
 ## A.1.2 Number of Properties
 
-Figure 3: Number of Properties (target language: Korean)
+**Figure 3:** Number of Properties (target language: Korean)
 
-# A.1.3 Number of RDF Triples
+## A.1.3 Number of RDF Triples
 
 ![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image is a bar chart comparing the number of RDF triples in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. YAGO has the largest number of triples (348,094,663), while DBpedia has the smallest (11,137,852). The chart visually represents the relative sizes of these knowledge graphs based on their RDF triple count, providing a quantitative comparison for the paper's analysis. -->
 
-Figure 4: Number of RDF Triples (target language: Korean)
+**Figure 4:** Number of RDF Triples (target language: Korean)
 
 ![](_page_11_Figure_3.jpeg)
 <!-- Image Description: The bar chart displays the number of instances in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Freebase has the most instances (~33.5 million), while DBpedia has the fewest (~287 thousand). The chart visually compares the scale of each knowledge graph's data, relevant to the paper's analysis of knowledge graph size and scope. -->
 
-# A.1.4 Number of Instances
+## A.1.4 Number of Instances
 
-Figure 5: Number of Instances (target language: Korean)
+**Figure 5:** Number of Instances (target language: Korean)
 
-# A.2 Structural Quality Metrics
+## A.2 Structural Quality Metrics
 
 ## A.2.1 Instantiated Class Ratio
 
 ![](_page_12_Figure_2.jpeg)
 <!-- Image Description: The image is a bar chart showing the "Instantiated Class Ratio" for six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Raftel exhibits the highest ratio (0.941), while Freebase shows the lowest (0.046). The chart visually compares the proportion of classes in each knowledge graph that have instances, providing a quantitative measure of data completeness and richness. -->
 
-Figure 6: Instantiated Class Ratio (target language: Korean)
+**Figure 6:** Instantiated Class Ratio (target language: Korean)
 
 ![](_page_12_Figure_4.jpeg)
 <!-- Image Description: The image presents a bar chart comparing the "Instantiated Property Ratio" across six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. The chart shows that Raftel, Wikidata, and GoogleKG have ratios near 1.0, indicating high instantiation rates, while DBpedia and YAGO show slightly lower ratios, and Freebase's ratio is considerably lower (0.002). The chart's purpose is to visually compare the completeness of property instantiation in these knowledge graphs. -->
 
 ## A.2.2 Instantiated Property Ratio
 
-Figure 7: Instantiated Property Ratio (target language: Korean)
+**Figure 7:** Instantiated Property Ratio (target language: Korean)
 
 ## A.2.3 Class Instantiation
 
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This bar chart displays the performance of six knowledge graphs (Raftel, Wikidata, DBpedia, YAGO, GoogleKG, Freebase) on a class instantiation task. The y-axis represents a performance metric (likely accuracy or precision), ranging from 0 to 1. Raftel achieves the highest score (0.941), while GoogleKG shows the lowest (0.660). The chart's purpose is to compare the quality of class instantiation across different knowledge graphs within the paper. -->
 
-Figure 8: Class Instantiation (target language: Korean)
+**Figure 8:** Class Instantiation (target language: Korean)
 
 ![](_page_13_Figure_3.jpeg)
 <!-- Image Description: The bar chart displays the performance of different knowledge graphs (Raftel, Wikidata, DBpedia, YAGO, GoogleKG, Freebase) on an "Inverse Multiple Inheritance" task. The y-axis represents a performance metric (likely accuracy or F1-score), ranging from 0 to 1. Freebase achieves the highest score (1.000), while Raftel shows the second-highest (0.975). The chart's purpose is to compare the datasets' effectiveness in handling inverse multiple inheritance relationships. -->
 
-# A.2.4 Inverse Multiple Inheritance
+## A.2.4 Inverse Multiple Inheritance
 
-Figure 9: Inverse Multiple Inheritance (target language: Korean)
+**Figure 9:** Inverse Multiple Inheritance (target language: Korean)
 
 ## A.2.5 Subclass Property Acquisition
 
 ![](_page_14_Figure_1.jpeg)
 <!-- Image Description: The bar chart displays the subclass property acquisition for six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. DBpedia shows the highest acquisition (63.570), while Freebase shows the lowest (1.000). The chart quantifies the relative richness of subclass properties within each knowledge graph, illustrating a significant disparity in their completeness. -->
 
-Figure 10: Subclass Property Acquisition (target language: Korean)
+**Figure 10:** Subclass Property Acquisition (target language: Korean)
 
 ![](_page_14_Figure_3.jpeg)
 <!-- Image Description: The image is a bar chart comparing the "Subclass Property Instantiation" across six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. The y-axis represents the proportion, with Raftel showing the highest value (0.0857) and Freebase the lowest (0.0000). The chart illustrates the relative prevalence of subclass property instantiation within each knowledge graph, providing a quantitative comparison of their data structure. -->
 
-# A.2.6 Subclass Property Instantiation
+## A.2.6 Subclass Property Instantiation
 
-Figure 11: Subclass Property Instantiation (target language: Korean)
+**Figure 11:** Subclass Property Instantiation (target language: Korean)

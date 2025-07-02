@@ -44,7 +44,6 @@ images_kept: 4
 images_removed: 0
 ---
 
-
 # Temporal Knowledge Graph Question Answering: A Survey
 
 Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin[\\*](#page-0-0), Jiafeng Guo\*
@@ -71,16 +70,15 @@ To address the above challenges, this paper provides a thorough survey from two 
 
 <sup>0</sup>This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible.
 
-<span id="page-1-0"></span>
 
-| Dataset           | KG/TKG     | Representation<br>Form         | Question<br>Types                                                                |
+| Dataset | KG/TKG | Representation<br>Form | Question<br>Types |
 |-------------------|------------|--------------------------------|----------------------------------------------------------------------------------|
-| Temp<br>Questions | Freebase   | CVT                            | Explicit<br>Implicit<br>Ordinal<br>Temp.Answer                                   |
-| Time<br>Questions | Wikidata   | triples<br>n-array tuple (n>3) | Explicit<br>Implicit<br>Ordinal<br>Temp.Answer                                   |
-| Crom<br>Questions | Wikidata   | quintuple                      | SimpleTime<br>SimpleEntity<br>Before/After<br>First/Last<br>TimeJoin             |
-| MultiTQ           | ICEWS05-15 | quadruple                      | Equal<br>Before/After<br>First/Last<br>Equal Multi<br>Before Last<br>After First |
+| Temp<br>Questions | Freebase | CVT | Explicit<br>Implicit<br>Ordinal<br>Temp.Answer |
+| Time<br>Questions | Wikidata | triples<br>n-array tuple (n>3) | Explicit<br>Implicit<br>Ordinal<br>Temp.Answer |
+| Crom<br>Questions | Wikidata | quintuple | SimpleTime<br>SimpleEntity<br>Before/After<br>First/Last<br>TimeJoin |
+| MultiTQ | ICEWS05-15 | quadruple | Equal<br>Before/After<br>First/Last<br>Equal Multi<br>Before Last<br>After First |
 
-Table 1: TKGQA datasets, as well as their background temporal knowledge graphs, the representation form of temporal fact therein, and question types.
+**Table 1:** TKGQA datasets, as well as their background temporal knowledge graphs, the representation form of temporal fact therein, and question types.
 
 the temporal questions. We identify the temporal question types that each method can solve and summarize them in a table to analyze the focus of existing methods and the question types that lack attention. Building on this review, we further analyzed the future research directions. To the best of our knowledge, this is the first comprehensive survey on the TKGQA task. This work aims to stimulate further research and foster innovation in the field by serving as a comprehensive reference for TKGQA.
 
@@ -107,7 +105,7 @@ Temporal Granularity. Questions can be categorized by the temporal granularity o
 <span id="page-2-2"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: The image presents three hierarchical diagrams illustrating aspects of temporal question answering. Diagram (a) details "Question Content," branching into temporal constraints (composition, granularity, expression) and their types. Diagram (b) shows "Answer Type," categorizing answers as entity or time-based (day, month, year). Diagram (c) depicts "Complexity," classifying questions as simple or complex. The diagrams visually represent a classification scheme for analyzing the structure and characteristics of temporal questions. -->
 
-Figure 1: Taxonomy of temporal questions from three aspects, including (a) Question Content; (b) Answer Type and (c) Complexity.
+**Figure 1:** Taxonomy of temporal questions from three aspects, including (a) Question Content; (b) Answer Type and (c) Complexity.
 
 expressions, with "year" being the most common, followed by "day" and "month".
 
@@ -124,20 +122,19 @@ The *Ordinal*type requires facts to be arranged in chronological order.
 
 Temporal Constraints Composition. Temporal constraints composition occurs when multiple temporal constraints are in one question. For instance,
 
-<span id="page-2-3"></span>
 
-| Constraint Type | Formalization                                                   |
+| Constraint Type | Formalization |
 |-----------------|-----------------------------------------------------------------|
-| Before          | endans ≤ begincons                                              |
-| After           | beginans ≥ endcons                                              |
-| Equal           | beginans = begincons, endans<br>= endcons                       |
-| Overlap         | beginans ≤ endcons ≤ endans or<br>beginans ≤ begincons ≤ endans |
-| During          | begincons ≤ beginans ≤ endans ≤ endcons                         |
-| Include         | beginans ≤ begincons ≤ endcons ≤ endans                         |
-| End             | begincons ≤ beginans ≤ endcons = endans                         |
-| Start           | benginans = begincons ≤ endans ≤ endcons                        |
+| Before | endans ≤ begincons |
+| After | beginans ≥ endcons |
+| Equal | beginans = begincons, endans<br>= endcons |
+| Overlap | beginans ≤ endcons ≤ endans or<br>beginans ≤ begincons ≤ endans |
+| During | begincons ≤ beginans ≤ endans ≤ endcons |
+| Include | beginans ≤ begincons ≤ endcons ≤ endans |
+| End | begincons ≤ beginans ≤ endcons = endans |
+| Start | benginans = begincons ≤ endans ≤ endcons |
 
-Table 2: Formalization of constraint types.
+**Table 2:** Formalization of constraint types.
 
 "Who was the first to request a meeting with Togo in 2005?" combines an*Equal*type constraint "in 2005" with an*Ordinal*type constraint "first". The answer must satisfy both. This combination represents a more complex and challenging type of question.
 
@@ -153,24 +150,24 @@ Simple questions. Simple questions rely on a single fact for resolution. For ins
 
 Complex questions. Complex questions require the integration of multiple facts. For example, the question "Who was the US President before Obama?" first establishes the time constraint "before 2009" based on the fact <Obama, President of, USA, 2009, 2017>. The system then identifies the individual who served immediately prior, confirmed by the fact <George W. Bush, President of, USA, 2001, 2009>, thus identifying George W. Bush. This multi-step reasoning process illustrates the complexity of such questions.
 
-# <span id="page-3-0"></span>4 Two Categories of TKGQA Methods
+## <span id="page-3-0"></span>4 Two Categories of TKGQA Methods
 
 Since TKGQA is a crucial subtask within KBQA, many TKGQA methods have been developed to enrich and improve upon KBQA approaches. KBQA methods are categorized into Semantic Parsingbased (SP-based) and Information Retrieval-based (IR-based) methods by existing surveys [\(Fu et al.,](#page-9-5) [2020;](#page-9-5) [Lan et al.,](#page-10-1) [2021,](#page-10-1) [2022\)](#page-10-3). Building on this categorization, we classify TKGQA methods into Semantic Parsing-based (SP-based) and TKG Embedding-based (TKGE-based) methods. Slightly different from IR-based methods in KBQA, TKGE-based methods view TKGQA as a TKG completion task [\(Cai et al.,](#page-8-6) [2023;](#page-8-6) [Leblay and](#page-10-4) [Chekol,](#page-10-4) [2018b;](#page-10-4) [Han et al.,](#page-9-11) [2021\)](#page-9-11) and do not always retrieve a question subgraph as in IR-based methods. The following sections delve into the details of these two categorizations of TKGQA methods.
 
-# <span id="page-3-1"></span>4.1 Semantic Parsing-based Methods
+## <span id="page-3-1"></span>4.1 Semantic Parsing-based Methods
 
 As illustrated in Figure [2,](#page-3-2) SP-based methods usually have four steps: question understanding, logical parsing, TKG grounding, and query execution. The question understanding module converts unstructured text into encoded questions, facilitating downstream parsing. Next, the logical parsing module transforms the encoded question into uninstantiated logical forms, which are then grounded with the TKG elements through TKG grounding to get executable queries. Finally, the executable queries are processed and executed against the TKG to obtain the final answers during the query execution phase.
 
 <span id="page-3-2"></span>![](_page_3_Figure_6.jpeg)
 <!-- Image Description: This flowchart depicts a temporal question answering system. A temporal question undergoes question understanding, then logical parsing to produce an ungrounded logical form (shown as `Before(A1...An, t)`). This form is then grounded using TKG, generating an executable query which is finally executed to produce answers. The diagram illustrates the processing pipeline from input question to final answer. -->
 
-Figure 2: Overall procedure of SP-based methods.
+**Figure 2:** Overall procedure of SP-based methods.
 
-# 1.1 Question Understanding
+## 1.1 Question Understanding
 
 The question understanding module analyzes the input question to generate an encoded representation. This module is sometimes simplified to tag or extract logical candidates like temporal words, entities, and timestamps. Abstract Meaning Representation (AMR) [\(Kapanipathi et al.,](#page-10-5) [2020\)](#page-10-5) is one of the most widely used representations for KBQA questions, SYGMA [\(Neelam et al.,](#page-11-3) [2021\)](#page-11-3) uses AMR to capture temporal words as part of the*:time*relation and handling implicit temporal constraints. [Kannen et al.](#page-10-6) [\(2023\)](#page-10-6) and [Long et al.](#page-10-7) [\(2022\)](#page-10-7) also employ AMR to identify question constituents. SF-TQA [\(Ding et al.,](#page-9-12) [2023\)](#page-9-12) fine-tunes BERT [\(Devlin et al.,](#page-8-7) [2019\)](#page-8-7) to annotate elements determined by TimeML [\(Pustejovsky et al.\)](#page-11-2) relations. With its impressive performance on text generation and induction, Large Language Model (LLM) have been applied to generate a simplified version of logical forms directly [\(Chen et al.,](#page-8-2) [2024\)](#page-8-2) and induce step-wise abstract methodological guidance to the present question [\(Chen et al.,](#page-8-8) [2023a\)](#page-8-8).
 
-# 1.2 Logical Parsing
+## 1.2 Logical Parsing
 
 Logical parsing transforms the encoded question into an uninstantiated logical form. TEQUILA uses the existing KBQA engines AQQU [\(Bast and](#page-8-0) [Haussmann,](#page-8-0) [2015\)](#page-8-0) and QUINT [\(Abujabal et al.,](#page-8-1) [2017\)](#page-8-1) to answer the sub-questions; these engines primarily rely on predefined rules or templates to parse questions and derive logical forms [\(Fu et al.,](#page-9-5) [2020\)](#page-9-5). Early TKGQA approaches also employed rule-based translation, further incorporating timerelated rules. SYGMA introduces KB-agnostic rules into λ-expressions [\(Cai and Yates,](#page-8-9) [2013\)](#page-8-9) to match temporal constraints indicated by the*:time*relation in AMR. Built on SYGMA, [Kannen et al.](#page-10-6) [\(2023\)](#page-10-6) decompose the λ-expression into main-λ and aux-λ, with the former containing the primary event questioned and the latter containing the temporal constraint.
 
@@ -187,7 +184,7 @@ The query execution module runs the grounded logical form against the TKG to ret
 <span id="page-4-1"></span>![](_page_4_Figure_6.jpeg)
 <!-- Image Description: The image presents a semantic framework for processing temporal constraints in natural language. It uses a directed graph to illustrate the steps. Nodes represent entities (Alfred Hitchcock, Psycho, "1960", "1960-10-7") and relationships (director, in_time, INCLUDES). Edges show how these are connected to answer the question "Which movie did Alfred Hitchcock direct in 1960?". The graph demonstrates how temporal and factual information are combined to infer the answer (Psycho). -->
 
-Figure 3: Semantic framework of temporal constraints.
+**Figure 3:** Semantic framework of temporal constraints.
 
 ducts temporal reasoning using semantic information structures (SISs). One that contains the temporal information computes a temporal constraint, which is then used to filter the candidate answers retrieved by another SIS. ARI performs knowledgebased interaction for multi-step inference [\(Gu and](#page-9-13) [Su,](#page-9-13) [2022\)](#page-9-13). The LLM generates and executes actions on the TKG iteratively until the final state provides the answer. Other methods try to enhance model robustness by generating multiple queries: SF-TQA generates multiple candidate queries and scores the pairs of input questions and serialized queries with BERT. Prog-TQA identifies potential errors in KoPL programs and generates corrected versions. Correct programs are collected and used to fine-tune the LLM for self-improvement [\(Huang](#page-9-14) [et al.,](#page-9-14) [2022\)](#page-9-14) iteratively.
 
@@ -204,7 +201,7 @@ The TKG Embedding module generates embeddings of TKG elements. The entity and ti
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a temporal question answering system. A temporal question is processed through a question embedding module, then combined with a TKG (Temporal Knowledge Graph) embedding. These embeddings are used in an answer ranking module, which considers both entities and timestamps from the TKG to produce answers. The diagram depicts the flow of information and the key components of the system's architecture. -->
 
-Figure 4: Overall procedure of TKGE-based methods.
+**Figure 4:** Overall procedure of TKGE-based methods.
 
 ing relational graph convolutional networks (R-GCNs) to update and derive the candidates' embeddings. The entity embeddings are initialised with Wikipedia2Vec [\(Yamada et al.,](#page-12-4) [2020\)](#page-12-4) and argumented with timestamp encodings [\(Zhang et al.,](#page-12-5) [2020a\)](#page-12-5), time-aware entity embeddings, temporal signals [\(Setzer,](#page-11-6) [2001a\)](#page-11-6), temporal question categories [\(Jia et al.,](#page-9-1) [2018b\)](#page-9-1) and attention over temporal relations.
 
@@ -214,7 +211,7 @@ To reduce the search space, EXAQT generates compact question subgraphs using Gro
 
 To address the inconsistency between a question's granularity and the TKG's temporal granularity, MultiQA [\(Chen et al.,](#page-8-12) [2023b\)](#page-8-12) employs multigranularity temporal aggregation. It splices days within each month or year interval, adds position vectors, and then fuses the information using the transformer.
 
-#### 2.2 Question Embedding
+### 2.2 Question Embedding
 
 The question embedding module embeds the temporal question, analyzing its semantics and incorporating time-relevant information. EXAQT embeds the question words with Wikipedia2Vec [\(Yamada](#page-12-4)
 
@@ -228,45 +225,44 @@ To enhance the model's sensitivity to temporal words, TSQA and TSIQA alter tempo
 
 Various approaches extract implicit temporal fea-
 
-<span id="page-6-2"></span>
 
-| Category                           | Question Content |                     |     |          |                    |         |              | Answer Type |                        |                |           | Complexity |                                        |        |      |       |     |        |         |
+| Category | Question Content | | | | | | | Answer Type | | | | Complexity | | | | | | | |
 |------------------------------------|------------------|---------------------|-----|----------|--------------------|---------|--------------|-------------|------------------------|----------------|-----------|------------|----------------------------------------|--------|------|-------|-----|--------|---------|
-|                                    |                  | Time<br>Granularity |     |          | Time<br>Expression |         |              |             | Temporal<br>Constraint |                |           |            | Temporal<br>Constraints<br>Composition | Entity |      | Time  |     | Simple | Complex |
-| Method                             | Year             | Month               | Day | Explicit | Implicit           | Overlap | Before/After | Ordinal     | Equal                  | During/Include | Start/End | w/ Comp.   | w/o Comp.                              |        | Year | Month | Day |        |         |
-| Semantic Parsing-based             |                  |                     |     |          |                    |         |              |             |                        |                |           |            |                                        |        |      |       |     |        |         |
-| TEQUILA (Jia et al., 2018b)        | ◦                | ◦                   | ◦   | ◦        | ◦                  | ◦       | ◦            | ◦           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    | ◦     | ◦   | ◦      | ◦       |
-| SYGMA (Neelam et al., 2021)        | ◦                | ◦                   | ◦   | ◦        | ◦                  | •       | •            | ◦           | ◦                      | •              | ◦         |            | ◦                                      | ◦      | ◦    | ◦     | ◦   | ◦      | ◦       |
-| AE-TQ (Long et al., 2022)          | ◦                |                     |     | ◦        | ◦                  | •       | •            | •           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | •       |
-| SF-TQA (Ding et al., 2023)         | ◦                | ◦                   | ◦   | •        | •                  | •       | •            | •           | •                      | •              | ◦         | ◦          | ◦                                      | ◦      | ◦    | ◦     | ◦   | ◦      | •       |
-| ARI (Chen et al., 2023a)           | ◦                | ◦                   | ◦   | ◦        | ◦                  | ◦       | ◦            | ◦           | ◦                      | •              | ◦         | ◦          | ◦                                      |        | ◦    | ◦     | ◦   | ◦      | •       |
-| Best of Both (Kannen et al., 2023) | ◦                | ◦                   | ◦   | ◦        | •                  | ◦       | ◦            | ◦           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    | ◦     | ◦   | ◦      | ◦       |
-| Prog-TQA (Chen et al., 2024)       | •                | •                   | •   | ◦        | ◦                  | •       | •            | •           | •                      | •              | •         | ◦          | ◦                                      | ◦      | •    | •     | •   | ◦      | •       |
-|                                    |                  |                     |     |          |                    |         |              |             | TKG Embedding-based    |                |           |            |                                        |        |      |       |     |        |         |
-| CronKGQA (Saxena et al., 2021)     | ◦                |                     |     | ◦        | ◦                  | ◦       | ◦            | ◦           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | •      | ◦       |
-| EXAQT (Jia et al., 2021)           | ◦                |                     |     | •        | ◦                  | ◦       | ◦            | ◦           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | •    |       |     | ◦      | ◦       |
-| TempoQR (Mavromatis et al., 2021)  | ◦                |                     |     | ◦        | ◦                  | •       | •            | •           | ◦                      | •              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | ◦       |
-| TSQA (Shang et al., 2022b)         | ◦                |                     |     | ◦        | ◦                  | ◦       | •            | •           | •                      | •              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | •       |
-| CTRN (Jiao et al., 2023)           | ◦                |                     |     | ◦        | ◦                  | •       | •            | •           | ◦                      | •              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | •       |
-| SubGTR (Chen et al., 2022)         | ◦                |                     |     | ◦        | •                  | •       | •            | •           | ◦                      | •              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | •       |
-| TwiRGCN (Sharma et al., 2022)      | ◦                |                     |     | ◦        | •                  | ◦       | ◦            | •           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | ◦       |
-| TSIQA (Xiao et al., 2022)          | ◦                |                     |     | ◦        | ◦                  | ◦       | •            | •           | •                      | •              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | •       |
-| TMA (Liu et al., 2023a)            | ◦                |                     |     | ◦        | ◦                  | •       | •            | •           | ◦                      | •              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | ◦       |
-| MultiQA (Chen et al., 2023b)       | •                | •                   | •   | ◦        | ◦                  | ◦       | ◦            | ◦           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | •    | •     | •   | ◦      | ◦       |
-| LGQA (Liu et al., 2023b)           | ◦                | ◦                   | ◦   | ◦        | ◦                  | ◦       | •            | ◦           | ◦                      | •              | ◦         |            | ◦                                      | ◦      | ◦    | ◦     | ◦   | ◦      | •       |
-| JMFRN (Huang et al., 2024)         | ◦                |                     |     | ◦        | •                  | ◦       | ◦            | •           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    |       |     | ◦      | •       |
-| SERQA (Du et al., 2024)            | ◦                | ◦                   | ◦   | ◦        | ◦                  | ◦       | •            | •           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | ◦    | ◦     | ◦   | ◦      | •       |
-| QC-MHM (Xue et al., 2024)          | ◦                |                     |     | •        | •                  | •       | •            | •           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | •    |       |     | ◦      | ◦       |
-| GenTKGQA (Gao et al., 2024)        | ◦                |                     |     | ◦        | ◦                  | •       | •            | •           | ◦                      | ◦              | ◦         |            | ◦                                      | ◦      | •    |       |     | •      | •       |
-| M3TQA (Zha et al., 2024)           | ◦                | ◦                   | ◦   | •        | •                  | ◦       | ◦            | ◦           | ◦                      | ◦              | ◦         | ◦          | ◦                                      | ◦      | •    | •     | •   | ◦      | •       |
+| | | Time<br>Granularity | | | Time<br>Expression | | | | Temporal<br>Constraint | | | | Temporal<br>Constraints<br>Composition | Entity | | Time | | Simple | Complex |
+| Method | Year | Month | Day | Explicit | Implicit | Overlap | Before/After | Ordinal | Equal | During/Include | Start/End | w/ Comp. | w/o Comp. | | Year | Month | Day | | |
+| Semantic Parsing-based | | | | | | | | | | | | | | | | | | | |
+| TEQUILA (Jia et al., 2018b) | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ |
+| SYGMA (Neelam et al., 2021) | ◦ | ◦ | ◦ | ◦ | ◦ | • | • | ◦ | ◦ | • | ◦ | | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ |
+| AE-TQ (Long et al., 2022) | ◦ | | | ◦ | ◦ | • | • | • | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | | | ◦ | • |
+| SF-TQA (Ding et al., 2023) | ◦ | ◦ | ◦ | • | • | • | • | • | • | • | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • |
+| ARI (Chen et al., 2023a) | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | ◦ | • |
+| Best of Both (Kannen et al., 2023) | ◦ | ◦ | ◦ | ◦ | • | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ |
+| Prog-TQA (Chen et al., 2024) | • | • | • | ◦ | ◦ | • | • | • | • | • | • | ◦ | ◦ | ◦ | • | • | • | ◦ | • |
+| | | | | | | | | | TKG Embedding-based | | | | | | | | | | |
+| CronKGQA (Saxena et al., 2021) | ◦ | | | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | | | • | ◦ |
+| EXAQT (Jia et al., 2021) | ◦ | | | • | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | | ◦ | ◦ | • | | | ◦ | ◦ |
+| TempoQR (Mavromatis et al., 2021) | ◦ | | | ◦ | ◦ | • | • | • | ◦ | • | ◦ | | ◦ | ◦ | ◦ | | | ◦ | ◦ |
+| TSQA (Shang et al., 2022b) | ◦ | | | ◦ | ◦ | ◦ | • | • | • | • | ◦ | | ◦ | ◦ | ◦ | | | ◦ | • |
+| CTRN (Jiao et al., 2023) | ◦ | | | ◦ | ◦ | • | • | • | ◦ | • | ◦ | | ◦ | ◦ | ◦ | | | ◦ | • |
+| SubGTR (Chen et al., 2022) | ◦ | | | ◦ | • | • | • | • | ◦ | • | ◦ | | ◦ | ◦ | ◦ | | | ◦ | • |
+| TwiRGCN (Sharma et al., 2022) | ◦ | | | ◦ | • | ◦ | ◦ | • | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | | | ◦ | ◦ |
+| TSIQA (Xiao et al., 2022) | ◦ | | | ◦ | ◦ | ◦ | • | • | • | • | ◦ | | ◦ | ◦ | ◦ | | | ◦ | • |
+| TMA (Liu et al., 2023a) | ◦ | | | ◦ | ◦ | • | • | • | ◦ | • | ◦ | | ◦ | ◦ | ◦ | | | ◦ | ◦ |
+| MultiQA (Chen et al., 2023b) | • | • | • | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | | ◦ | ◦ | • | • | • | ◦ | ◦ |
+| LGQA (Liu et al., 2023b) | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • | ◦ | ◦ | • | ◦ | | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • |
+| JMFRN (Huang et al., 2024) | ◦ | | | ◦ | • | ◦ | ◦ | • | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | | | ◦ | • |
+| SERQA (Du et al., 2024) | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • | • | ◦ | ◦ | ◦ | | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • |
+| QC-MHM (Xue et al., 2024) | ◦ | | | • | • | • | • | • | ◦ | ◦ | ◦ | | ◦ | ◦ | • | | | ◦ | ◦ |
+| GenTKGQA (Gao et al., 2024) | ◦ | | | ◦ | ◦ | • | • | • | ◦ | ◦ | ◦ | | ◦ | ◦ | • | | | • | • |
+| M3TQA (Zha et al., 2024) | ◦ | ◦ | ◦ | • | • | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | ◦ | • | • | • | ◦ | • |
 
-Table 3: Question category coverage comparison across TKGQA methods. The ◦ indicates that this method can solve the corresponding question category. The • indicates that this method focuses on or specializes in solving this question category.
+**Table 3:** Question category coverage comparison across TKGQA methods. The ◦ indicates that this method can solve the corresponding question category. The • indicates that this method focuses on or specializes in solving this question category.
 
 tures from questions: CTRN [\(Jiao et al.,](#page-10-13) [2023\)](#page-10-13) uses multi-head self-attention, GCN [\(Sun et al.,](#page-11-12) [2018b\)](#page-11-12), and CNN [\(Pota et al.,](#page-11-13) [2020\)](#page-11-13) to capture these features and fuse them with augmented BERT representations, while SERQA [\(Du et al.,](#page-9-3) [2024\)](#page-9-3) integrates temporal constraint features computed from syntactic information in constituent and dependency trees [\(Sun et al.,](#page-12-11) [2022;](#page-12-11) [Zhang et al.,](#page-12-12) [2020b;](#page-12-12) [Wang et al.,](#page-12-13) [2023;](#page-12-13) [Liang et al.,](#page-10-14) [2022\)](#page-10-14) combined with Masked Self-Attention (MSA).
 
 To enhance the interpretability of reasoning on implicit temporal questions, SubGTR designs an implicit expression parsing module to rewrite their temporal constraints explicitly.
 
-#### 2.3 Answer Ranking
+### 2.3 Answer Ranking
 
 The answer ranking module ranks candidate answers based on the question and candidate answer embeddings. TKG models employ various techniques: leveraging TComplEx scoring functions [\(Saxena et al.,](#page-11-7) [2021;](#page-11-7) [Mavromatis et al.,](#page-11-9) [2021\)](#page-11-9), applying temporal activation functions to satisfy time constraints [\(Chen et al.,](#page-8-11) [2022\)](#page-8-11), introducing gating mechanisms [\(Sharma et al.,](#page-11-10) [2022\)](#page-11-10) or type discrimination losses [\(Huang et al.,](#page-9-4) [2024\)](#page-9-4) to distinguish among answer types, and fine-tuning a LLM to list the most relevant answers [\(Ye et al.,](#page-12-14) [2023\)](#page-12-14).
 
@@ -282,15 +278,15 @@ This section will discuss emerging frontiers for TKGQA, aiming to stimulate furt
 
 While existing datasets already cover some of the temporal questions, there are still more questions to be explored in the real world. 1) More combination of existing question types: "Who was the first person to win a medal during the 2024 Olympic Games?" 2) More time granularity: Some questions demand more fine-grained granularities, such as "When was the Long March 1 launched?" 3) Questions must consider the posed time: "Where are the seneca indians now?" [\(Jia et al.,](#page-9-15) [2021;](#page-9-15) [Liška et al.,](#page-10-15) [2022\)](#page-10-15) 3) Predicting the future questions: "Will the Palestinian-Israeli conflict end next year?" [\(Jin et al.,](#page-10-16) [2021;](#page-10-16) [Ding et al.,](#page-9-17) [2022b](#page-9-17)[,a\)](#page-9-18) 4) Common sense temporal questions: "How often are the Olympics held?"
 
-# 2 Enhance Model Robustness
+## 2 Enhance Model Robustness
 
 Most existing TKGQA datasets provide entity and temporal annotations [\(Saxena et al.,](#page-11-7) [2021;](#page-11-7) [Jia et al.,](#page-9-15) [2021;](#page-9-15) [Neelam et al.,](#page-11-14) [2022\)](#page-11-14), greatly reducing the task's difficulty. Results on unlabeled datasets rely on the effects of NEL or temporal annotators [\(Chen](#page-8-12) [et al.,](#page-8-12) [2023b\)](#page-8-12), corrupting the model's robustness. Robust models should be able to perform well on datasets with no additional annotations and be able to generalize to unseen entities and relationships [\(Chen et al.,](#page-8-11) [2022\)](#page-8-11). In addition, most existing datasets rely on template generation and lack diversity; there are very few event types, and they are still single-domain. These can be improved in future work.
 
-# 3 Multi-modal TKGQA
+## 3 Multi-modal TKGQA
 
 Current TKGQA systems mainly handle plain text input. However, we experience the world with multiple modalities (e.g., language and image). Therefore, building a multi-modal TKGQA system that can handle multiple modalities is an important direction to investigate [\(Yu et al.,](#page-12-15) [2023\)](#page-12-15). A nontrivial challenge is how to effectively make a multimodal feature alignment and complementary to understand the temporal part better.
 
-# 4 LLM for TKGQA
+## 4 LLM for TKGQA
 
 Recently, Large Language Models (LLMs) have gained significant attention for their remarkable performance across a wide range of Natural Language Processing (NLP) tasks [\(Touvron et al.;](#page-12-16) [Ope](#page-11-15)[nAI,](#page-11-15) [2024;](#page-11-15) [Team and Googlba,](#page-12-17) [2024\)](#page-12-17). Existing research has also explored applying LLMs in KBQA scenarios, employing both few-shot and zero-shot learning paradigms [\(Nie et al.,](#page-11-16) [2024;](#page-11-16) [Sun et al.,](#page-11-17) [2024;](#page-11-17) [Jiang et al.,](#page-9-19) [2023;](#page-9-19) [Baek et al.,](#page-8-13) [2023;](#page-8-13) [Li et al.,](#page-10-17) [2023a,](#page-10-17)[b\)](#page-10-18)
 
@@ -302,7 +298,7 @@ Several emerging opportunities could further enhance the capabilities of LLMs in
 - Diverse Data Generation. Numerous studies have demonstrated the effectiveness of large models in data generation [\(Chung et al.,](#page-8-15) [2023\)](#page-8-15), which can be used to enhance the diversity of the TKGQA dataset.
 - Supplementing Knowledge. The language model itself can serve as a TKG as demonstrated by [Dhingra et al.](#page-9-20) [\(2022\)](#page-9-20). Additionally, LLMs possess temporal commonsense [\(Chu](#page-8-14) [et al.,](#page-8-14) [2023\)](#page-8-14), which is often absent in traditional temporal knowledge graphs. This temporal knowledge can complement existing TKGs for TKGQA.
 
-# <span id="page-7-0"></span>6 Conclusion
+## <span id="page-7-0"></span>6 Conclusion
 
 In this paper, we provided an in-depth analysis of the emerging field of TKGQA with a new taxonomy of temporal questions and a systematic categorization of existing methods. We demonstrated the focus and neglect of existing methods for temporal questions, indicating future research directions. We have discussed some new trends in this research field, hoping to attract more breakthroughs in future research.
 
@@ -428,9 +424,9 @@ Extension. In *Proceedings of the 51st Annual Meeting of the Association for Com
 - <span id="page-12-12"></span>Yu Zhang, Houquan Zhou, and Zhenghua Li. 2020b. [Fast and Accurate Neural CRF Constituency Parsing.](https://doi.org/10.24963/ijcai.2020/560) In *Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence*, pages 4046–4053.
 - <span id="page-12-0"></span>Hao Zhou, Tom Young, Minlie Huang, Haizhou Zhao, Jingfang Xu, and Xiaoyan Zhu. 2018. [Common](https://doi.org/10.24963/ijcai.2018/643)[sense Knowledge Aware Conversation Generation](https://doi.org/10.24963/ijcai.2018/643) [with Graph Attention.](https://doi.org/10.24963/ijcai.2018/643) In *Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence*, pages 4623–4629, Stockholm, Sweden. International Joint Conferences on Artificial Intelligence Organization.
 
-# <span id="page-13-0"></span>A Appendix
+## <span id="page-13-0"></span>A Appendix
 
-# <span id="page-13-1"></span>A.1 Datasets
+## <span id="page-13-1"></span>A.1 Datasets
 
 This section introduces the datasets, including their background TKG, size, etc. We provide a question category coverage comparison across TKGQA datasets in Table. [4.](#page-14-0)
 
@@ -453,61 +449,59 @@ Complex-CronQuestions [Chen et al.](#page-8-11) [\(2022\)](#page-8-11) observe t
 
 MultiTQ [\(Chen et al.,](#page-8-12) [2023b\)](#page-8-12) is a dataset derived from ICEWS05-15 [\(García-Durán et al.,](#page-9-21) [2018\)](#page-9-21), where all facts are standardized as quadruple (s, r, o, t). ICEWS05-15 is notable for its rich semantic information, with a higher average number of relation types per entity than other TKGs. The MultiTQ dataset features several advantages, including its large scale, ample relations, and multiple temporal granularity. ICEWS provides time information at a day granularity, while the authors generate higher granularities, such as year and month, for the questions. MultiTQ contains 500,000 questions, making it a significant resource for temporal question-answering research.
 
-# <span id="page-13-2"></span>A.2 Evaluation Metrics
+## <span id="page-13-2"></span>A.2 Evaluation Metrics
 
 Hits@k: This is the most used metric of the TKGQA task. TKGQA method use Hits@1 (accuracy), Hits@3, Hits@5, Hits@10 for evaluation. This metric is set to one if a correct answer appears in the first k positions and zero otherwise.
 
 Precision, Recall and F1 score: This metric is widely used for KBQA task. Precision indicates the ratio of the correct predictions over all the predicted answers. Recall is the ratio of the correct predictions over all the ground truth. F1 score computes the average of precision and recall.
 
-<span id="page-14-0"></span>
 
-| Category         |                           |                 | Temp<br>Questions | TempQA<br>WD | Time<br>Questions | Cron<br>Questions | Complex<br>CronQuestions | MultiQA |
+| Category | | | Temp<br>Questions | TempQA<br>WD | Time<br>Questions | Cron<br>Questions | Complex<br>CronQuestions | MultiQA |
 |------------------|---------------------------|-----------------|-------------------|--------------|-------------------|-------------------|--------------------------|---------|
-|                  |                           | Year            | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  | Time<br>Granularity       | Month           | ✓                 | ✓            |                   |                   |                          | ✓       |
-|                  |                           | Day             | ✓                 | ✓            | ✓                 |                   |                          | ✓       |
-| Question Content | Time                      | Explicit        | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  | Expression                | Implicit        | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  |                           | Overlap         | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  | Temporal<br>Constraint    | Equal           | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  |                           | Start/End       | ✓                 | ✓            | ✓                 | ✓                 | ✓                        |         |
-|                  |                           | During/Include  | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  |                           | Before/After    | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  |                           | Ordinal         | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  | Temporal                  | w/ Composition  |                   |              |                   |                   |                          | ✓       |
-|                  | Constraint<br>Composition | w/o Composition | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  | Entity                    |                 | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
-|                  |                           | Year            | ✓                 | ✓            |                   | ✓                 | ✓                        | ✓       |
-| Answer Type      | Time                      | Month           | ✓                 | ✓            |                   |                   |                          | ✓       |
-|                  |                           | Day             | ✓                 | ✓            | ✓                 |                   |                          | ✓       |
-|                  | Simple                    |                 | ✓                 | ✓            | ✓                 | ✓                 |                          | ✓       |
-| Complexity       | Complex                   |                 | ✓                 | ✓            | ✓                 | ✓                 | ✓                        | ✓       |
+| | | Year | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | Time<br>Granularity | Month | ✓ | ✓ | | | | ✓ |
+| | | Day | ✓ | ✓ | ✓ | | | ✓ |
+| Question Content | Time | Explicit | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | Expression | Implicit | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | | Overlap | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | Temporal<br>Constraint | Equal | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | | Start/End | ✓ | ✓ | ✓ | ✓ | ✓ | |
+| | | During/Include | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | | Before/After | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | | Ordinal | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | Temporal | w/ Composition | | | | | | ✓ |
+| | Constraint<br>Composition | w/o Composition | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | Entity | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| | | Year | ✓ | ✓ | | ✓ | ✓ | ✓ |
+| Answer Type | Time | Month | ✓ | ✓ | | | | ✓ |
+| | | Day | ✓ | ✓ | ✓ | | | ✓ |
+| | Simple | | ✓ | ✓ | ✓ | ✓ | | ✓ |
+| Complexity | Complex | | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
-Table 4: Question category coverage comparison across TKGQA datasets
+**Table 4:** Question category coverage comparison across TKGQA datasets
 
-<span id="page-14-1"></span>
 
-|                                                                                                          | SP-based                                                 |                                                                                    |                                                           |                                                                                      |  |  |  |  |  |  |
+| | SP-based | | | | | | | | | |
 |----------------------------------------------------------------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------|--|--|--|--|--|--|
-| Datasets                                                                                                 |                                                          | Top-1                                                                              | Top-2                                                     |                                                                                      |  |  |  |  |  |  |
-| Metrics                                                                                                  | Hits@1                                                   | F1                                                                                 | Hits@1                                                    | F1                                                                                   |  |  |  |  |  |  |
-| Tempquestions (Jia et al., 2018a)<br>TempQA-WD (Neelam et al., 2021)<br>TimeQuestions (Jia et al., 2021) | 41.2 (Ding et al., 2023)<br>-<br>56.5 (Jia et al., 2021) | 41.1 (Ding et al., 2023)<br>41.6 (Kannen et al., 2023)<br>52.7 (Ding et al., 2023) | 36.2 (Jia et al., 2018b)<br>-<br>53.9 (Ding et al., 2023) | 37.5 (Jia et al., 2018b)<br>32.0 (Neelam et al., 2021)<br>49.9 (Kannen et al., 2023) |  |  |  |  |  |  |
-| CronQuestions (Saxena et al., 2021)<br>Complex-CronQuestions (Chen et al., 2022)                         | 93.7 (Chen et al., 2024)<br>-                            | 97.3 (Chen et al., 2024)<br>-                                                      | 70.0 (Chen et al., 2023a)<br>-                            | -<br>-                                                                               |  |  |  |  |  |  |
-| MultiTQ (Chen et al., 2023b)                                                                             | 79.7 (Chen et al., 2024)                                 | 91.0 (Chen et al., 2024)                                                           | 38.0 (Chen et al., 2023a)                                 | -                                                                                    |  |  |  |  |  |  |
+| Datasets | | Top-1 | Top-2 | | | | | | | |
+| Metrics | Hits@1 | F1 | Hits@1 | F1 | | | | | | |
+| Tempquestions (Jia et al., 2018a)<br>TempQA-WD (Neelam et al., 2021)<br>TimeQuestions (Jia et al., 2021) | 41.2 (Ding et al., 2023)<br>-<br>56.5 (Jia et al., 2021) | 41.1 (Ding et al., 2023)<br>41.6 (Kannen et al., 2023)<br>52.7 (Ding et al., 2023) | 36.2 (Jia et al., 2018b)<br>-<br>53.9 (Ding et al., 2023) | 37.5 (Jia et al., 2018b)<br>32.0 (Neelam et al., 2021)<br>49.9 (Kannen et al., 2023) | | | | | | |
+| CronQuestions (Saxena et al., 2021)<br>Complex-CronQuestions (Chen et al., 2022) | 93.7 (Chen et al., 2024)<br>- | 97.3 (Chen et al., 2024)<br>- | 70.0 (Chen et al., 2023a)<br>- | -<br>- | | | | | | |
+| MultiTQ (Chen et al., 2023b) | 79.7 (Chen et al., 2024) | 91.0 (Chen et al., 2024) | 38.0 (Chen et al., 2023a) | - | | | | | | |
 
 (a) Leaderboard for TKGQA datasets (SP-based).
 
-| Datasets                                                                                                 | TKGE-based                                          |                                                      |                                                           |                                                              |  |  |  |  |  |
+| Datasets | TKGE-based | | | | | | | | |
 |----------------------------------------------------------------------------------------------------------|-----------------------------------------------------|------------------------------------------------------|-----------------------------------------------------------|--------------------------------------------------------------|--|--|--|--|--|
-|                                                                                                          | Top-1                                               |                                                      | Top-2                                                     |                                                              |  |  |  |  |  |
-| Metrics                                                                                                  | Hits@1                                              | Hits@10                                              | Hits@1                                                    | Hits@10                                                      |  |  |  |  |  |
-| Tempquestions (Jia et al., 2018a)<br>TempQA-WD (Neelam et al., 2021)<br>TimeQuestions (Jia et al., 2021) | -<br>-<br>62.8 (Huang et al., 2024)                 | -<br>-<br>-                                          | -<br>-<br>60.5 (Sharma et al., 2022)                      | -<br>-<br>-                                                  |  |  |  |  |  |
-| CronQuestions (Saxena et al., 2021)<br>Complex-CronQuestions (Chen et al., 2022)                         | 97.8 (Gao et al., 2024)<br>92.0 (Chen et al., 2022) | 99.3 (Chen et al., 2022)<br>98.6 (Chen et al., 2022) | 97.1 (Xue et al., 2024)<br>79.2 (Mavromatis et al., 2021) | 99.2 (Xue et al., 2024; ?)<br>95.9 (Mavromatis et al., 2021) |  |  |  |  |  |
-| MultiTQ (Chen et al., 2023b)                                                                             | 29.3 (Chen et al., 2023b)                           | 63.5 (Chen et al., 2023b)                            | -                                                         | -                                                            |  |  |  |  |  |
+| | Top-1 | | Top-2 | | | | | | |
+| Metrics | Hits@1 | Hits@10 | Hits@1 | Hits@10 | | | | | |
+| Tempquestions (Jia et al., 2018a)<br>TempQA-WD (Neelam et al., 2021)<br>TimeQuestions (Jia et al., 2021) | -<br>-<br>62.8 (Huang et al., 2024) | -<br>-<br>- | -<br>-<br>60.5 (Sharma et al., 2022) | -<br>-<br>- | | | | | |
+| CronQuestions (Saxena et al., 2021)<br>Complex-CronQuestions (Chen et al., 2022) | 97.8 (Gao et al., 2024)<br>92.0 (Chen et al., 2022) | 99.3 (Chen et al., 2022)<br>98.6 (Chen et al., 2022) | 97.1 (Xue et al., 2024)<br>79.2 (Mavromatis et al., 2021) | 99.2 (Xue et al., 2024; ?)<br>95.9 (Mavromatis et al., 2021) | | | | | |
+| MultiTQ (Chen et al., 2023b) | 29.3 (Chen et al., 2023b) | 63.5 (Chen et al., 2023b) | - | - | | | | | |
 
 (b) Leaderboard for TKGQA datasets (TKGE-based).
 
-Table 5: Leaderboard for TKGQA datasets.
+**Table 5:** Leaderboard for TKGQA datasets.
 
 P@1: Precision at the top rank is one if the highest ranked answer is correct and zero otherwise.
 
@@ -515,7 +509,7 @@ MRR: This is the reciprocal of the first rank where we have a correct answer. If
 
 Average number of reasoning steps: ARI uses this metric to measure the reasoning steps for each question. The average number of reasoning steps across all tested questions represents this metric.
 
-# <span id="page-15-0"></span>A.3 Leaderboard
+## <span id="page-15-0"></span>A.3 Leaderboard
 
 Table [5](#page-14-1) presents a leaderboard featuring the top-2 TKGQA models across all mentioned datasets. For semantic parsing-based methods, the widely used metrics are Hits@1 and F1. For TKG embeddingbased methods, the commonly used metrics are Hits@1 and Hits@10.
 

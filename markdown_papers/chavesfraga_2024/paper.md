@@ -23,7 +23,6 @@ images_kept: 6
 images_removed: 1
 ---
 
-
 <span id="page-0-0"></span>**David Chaves-Fraga**<sup>∗</sup>**<sup>1</sup> , Oscar Corcho**[∗](#page-0-0)**<sup>2</sup> , Anastasia Dimou**[∗](#page-0-0)**<sup>3</sup> , Maria-Esther Vidal**[∗](#page-0-0)**<sup>4</sup> , Ana Iglesias-Molina**†**<sup>5</sup> , and Dylan Van Assche**[†](#page-0-0)**<sup>6</sup>**-**1 Universidade de Santiago de Compostela, ES. [david.chaves@usc.es](mailto:david.chaves@usc.es)**-**2 Universidad Politécnica de Madrid, ES. [ocorcho@fi.upm.es](mailto:ocorcho@fi.upm.es)**-**3 KU Leuven, BE. [anastasia.dimou@kuleuven.be](mailto:anastasia.dimou@kuleuven.be)**-**4 TIB Hannover, DE. [vidal@l3s.de](mailto:vidal@l3s.de)**-**5 Universidad Politécnica de Madrid, ES. [ana.iglesiasm@upm.es](mailto:ana.iglesiasm@upm.es)**-**6 IDLab Ghent University imec, BE. [Dylan.VanAssche@ugent.be](mailto:Dylan.VanAssche@ugent.be)**-**Abstract**This report documents the program and results of the Dagstuhl Seminar 24061 "Are Knowledge Graphs Ready for the Real World? Challenges and Perspectives". The seminar focused on gaining a better understanding of the open challenges required for the development of Knowledge Graph ecosystems. The seminar focused on four different topics: access control and privacy in decentralized knowledge graphs, knowledge graph construction lifecycle, software methods for improving KG implementation, and a new wave of knowledge engineers and their expected skills. By focusing on these relevant research topics, the seminar aimed to reflect on KGs from a more fundamental computer science perspective. It brought together interdisciplinary researchers from academia and industry to discuss foundations, concepts, and implementations that will pave the way for the next generation of KGs ready for real-world use.
 **Seminar**February 4–9, 2024 –<https://www.dagstuhl.de/24061>
 
@@ -57,78 +56,79 @@ Graphs and knowledge bases have been around for many decades, and research resul
 **Access Control in Decentralized Knowledge Graphs.**Exploring access control in decentralized Knowledge Graphs has been a relatively underexplored area. Specifically, mechanisms for restricting access to knowledge to safeguard confidential information and personal data, as well as establishing consent models for the processing of personal data, have not received substantial attention within the realm of Knowledge Graph management. Additionally, ensuring compliance with usage policies has been inadequately addressed, particularly in the context of decentralized Knowledge Graphs. During the seminar, a dedicated group convened to deliberate on approaches for managing Knowledge Graphs across a federation of decentralized instances.
 **A New Generation of Knowledge Engineers.**Improving the utilization and management of knowledge graphs requires educating a diverse audience about both the social and technical aspects of knowledge work. To address this need, a dedicated working group was established. This group conducted an analysis to identify existing educational resources and gaps in knowledge, exploring how consensus could be fostered among various stakeholders in the field. Moreover, the group investigated the specific educational requirements tailored to different audiences, including professional students, undergraduates, and postgraduates. By thoroughly examining these aspects, the working group aimed to formulate strategies for enhancing education and understanding in the domain of knowledge graph utilization and management.
 
-| 2 |  |  | Table of Contents |
+| 2 | | | Table of Contents |
 |---|--|--|-------------------|
 |---|--|--|-------------------|
 
-| Executive Summary<br>David Chaves-Fraga, Oscar Corcho, Anastasia Dimou and Maria-Esther Vidal                            | 2        |
+| Executive Summary<br>David Chaves-Fraga, Oscar Corcho, Anastasia Dimou and Maria-Esther Vidal | 2 |
 |--------------------------------------------------------------------------------------------------------------------------|----------|
-| Invited Talks                                                                                                            |          |
-| Semantic Data Integration<br>Maurizio Lenzerini<br>.                                                                     | 7        |
-| Access Control, Policies and Constraints<br>Sabrina Kirrane                                                              | 9        |
-| Programming Languages<br>Martin Giese<br>.                                                                               | 10       |
-| Industry Perspectives<br>Souripriya Das<br>.                                                                             | 12       |
-| Lightning Talks                                                                                                          |          |
-| From linked data for regulatory reporting towards an interoperable data layer for<br>the rail sector: The ERA KG         |          |
-| Marina Aguado<br>Knowledge Graphs for the Circular Economy<br>Eva Blomqvist                                              | 15<br>16 |
-| Personal Data Protection in Knowledge Graphs (and KR in general)<br>Piero Andrea Bonatti                                 | 17       |
-| Private Knowledge Graph Construction<br>Carlos Buil-Aranda                                                               | 18       |
-| Challenges in Procedural Knowledge governance in Industry 5.0<br>Irene Celino                                            | 18       |
-| Are Knowledge Graphs ready for the World Wide Web?<br>Pierre-Antoine Champin                                             | 19       |
-| On the Need for Project Management for Knowledge Graph Construction and<br>Usage Projects                                |          |
-| Oscar Corcho and David Chaves-Fraga<br>Grounding KGs in Natural Language                                                 | 20       |
-| Christophe Debruyne<br>KG4SE & SE4KG: Exploring the Intersection of Knowledge Graph and Software<br>Engineering Research | 20       |
-| Coen De Roover<br>Challenges on Knowledge Graph Data Management Quality                                                  | 21       |
-| Anastasia Dimou<br>.<br>Semantic Knowledge Graphs as a Foundation for Advanced AI Applications                           | 22       |
-| Michel Dumontier<br>.<br>"Real World" Considered Harmful<br>George Fletcher                                              | 24<br>25 |
-|                                                                                                                          |          |
+| Invited Talks | |
+| Semantic Data Integration<br>Maurizio Lenzerini<br>. | 7 |
+| Access Control, Policies and Constraints<br>Sabrina Kirrane | 9 |
+| Programming Languages<br>Martin Giese<br>. | 10 |
+| Industry Perspectives<br>Souripriya Das<br>. | 12 |
+| Lightning Talks | |
+| From linked data for regulatory reporting towards an interoperable data layer for<br>the rail sector: The ERA KG | |
+| Marina Aguado<br>Knowledge Graphs for the Circular Economy<br>Eva Blomqvist | 15<br>16 |
+| Personal Data Protection in Knowledge Graphs (and KR in general)<br>Piero Andrea Bonatti | 17 |
+| Private Knowledge Graph Construction<br>Carlos Buil-Aranda | 18 |
+| Challenges in Procedural Knowledge governance in Industry 5.0<br>Irene Celino | 18 |
+| Are Knowledge Graphs ready for the World Wide Web?<br>Pierre-Antoine Champin | 19 |
+| On the Need for Project Management for Knowledge Graph Construction and<br>Usage Projects | |
+| Oscar Corcho and David Chaves-Fraga<br>Grounding KGs in Natural Language | 20 |
+| Christophe Debruyne<br>KG4SE & SE4KG: Exploring the Intersection of Knowledge Graph and Software<br>Engineering Research | 20 |
+| Coen De Roover<br>Challenges on Knowledge Graph Data Management Quality | 21 |
+| Anastasia Dimou<br>.<br>Semantic Knowledge Graphs as a Foundation for Advanced AI Applications | 22 |
+| Michel Dumontier<br>.<br>"Real World" Considered Harmful<br>George Fletcher | 24<br>25 |
+| | |
 
 ## David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, and Maria-Esther Vidal 5
 
-| Reliable Knowledge Graphs Need Reliable Processes<br>Paul Groth<br>.                                    | 25 |
+| Reliable Knowledge Graphs Need Reliable Processes<br>Paul Groth<br>. | 25 |
 |---------------------------------------------------------------------------------------------------------|----|
-| Challenges for Knowledge Graphs (KGs) in an Era of Machines that Learn<br>Claudio Gutierrez             | 26 |
-| Knowledge Graphs in the Real World with metaphactory<br>Peter Haase                                     | 27 |
-| Improving UX/DX in Querying Federations of KGs<br>Olaf Hartig<br>.                                      | 28 |
-| Can Large Language Models improve the Usability of Knowledge Graphs?<br>Aidan Hogan<br>.                | 28 |
-| No Intelligence without Knowledge<br>Katja Hose<br>.                                                    | 29 |
+| Challenges for Knowledge Graphs (KGs) in an Era of Machines that Learn<br>Claudio Gutierrez | 26 |
+| Knowledge Graphs in the Real World with metaphactory<br>Peter Haase | 27 |
+| Improving UX/DX in Querying Federations of KGs<br>Olaf Hartig<br>. | 28 |
+| Can Large Language Models improve the Usability of Knowledge Graphs?<br>Aidan Hogan<br>. | 28 |
+| No Intelligence without Knowledge<br>Katja Hose<br>. | 29 |
 | Lowering the Barriers for Declarative Knowledge Graph Construction Adoption<br>Ana Iglesias-Molina<br>. | 29 |
-| Knowledge Graph Adoption: Unveiling User Perspective and Challenges<br>Samaneh Jozashoori<br>.          | 30 |
-| Semantic Reflection<br>Eduard Kamburjan<br>.                                                            | 30 |
-| Exploiting Semantics for Integrating Data on Critical Minerals<br>Craig A. Knoblock<br>.                | 31 |
-| Knowledge-enhanced Representation Learning to Accelerate Scientific Discovery<br>Vanessa López          | 31 |
-| Using LLMs to Augment KG Construction<br>Paco Nathan<br>.                                               | 32 |
-| Queries over Evolving Knowledge Graphs<br>Edelmira Pasarella<br>.                                       | 33 |
-| From Traditional Data Quality to Knowledge Graph Quality<br>Anisa Rula<br>.                             | 33 |
-| The Future of Knowledge is Social<br>Juan F. Sequeda<br>.                                               | 34 |
-| Towards Resource-efficient and Hybrid KG Construction Approaches<br>Dylan Van Assche<br>.               | 35 |
-| MisLED: Linked Enterprise Data Left without Research Attention<br>Ivo Velitchkov                        | 35 |
-| Data and Knowledge Management in Knowledge Graphs<br>Maria-Esther Vidal                                 | 36 |
-| Breakout Groups                                                                                         |    |
-| Access and Usage Control for Federations of Knowledge Graphs                                            |    |
+| Knowledge Graph Adoption: Unveiling User Perspective and Challenges<br>Samaneh Jozashoori<br>. | 30 |
+| Semantic Reflection<br>Eduard Kamburjan<br>. | 30 |
+| Exploiting Semantics for Integrating Data on Critical Minerals<br>Craig A. Knoblock<br>. | 31 |
+| Knowledge-enhanced Representation Learning to Accelerate Scientific Discovery<br>Vanessa López | 31 |
+| Using LLMs to Augment KG Construction<br>Paco Nathan<br>. | 32 |
+| Queries over Evolving Knowledge Graphs<br>Edelmira Pasarella<br>. | 33 |
+| From Traditional Data Quality to Knowledge Graph Quality<br>Anisa Rula<br>. | 33 |
+| The Future of Knowledge is Social<br>Juan F. Sequeda<br>. | 34 |
+| Towards Resource-efficient and Hybrid KG Construction Approaches<br>Dylan Van Assche<br>. | 35 |
+| MisLED: Linked Enterprise Data Left without Research Attention<br>Ivo Velitchkov | 35 |
+| Data and Knowledge Management in Knowledge Graphs<br>Maria-Esther Vidal | 36 |
+| Breakout Groups | |
+| Access and Usage Control for Federations of Knowledge Graphs | |
 
-| Quality-aware Knowledge Graph Construction                                            |    |
+| Quality-aware Knowledge Graph Construction | |
 |---------------------------------------------------------------------------------------|----|
-| Cinzia Cappiello, Maria-Esther Vidal, Sandra Geisler, Ana Iglesias-Molina, Dylan      |    |
-| Van Assche, David Chaves-Fraga, Anastasia Dimou, Irene Celino, Anisa Rula,            |    |
-| Maurizio Lenzerini<br>.                                                               | 47 |
-| Knowledge Engineering and Education                                                   |    |
-| Juan F. Sequeda, Aidan Hogan, Axel Polleres, Christophe Debruyne, Eva Blomqvist,      |    |
-| Samaneh Jozashoori, Paul Groth, Claudio Gutiérrez, George Fletcher, Ivo Velitchkov 59 |    |
-| Project Management for Knowledge Graph Construction and Usage                         |    |
-| Oscar Corcho, Coen De Roover, Paco Nathan, Souripriya Das, Eduard Kamburjan,          |    |
-| Martin Giese, Marina Aguado, David Chaves-Fraga, Carlos Buil-Aranda, Wouter           |    |
-| Beek<br>.                                                                             | 65 |
-| Emerging Discussions                                                                  |    |
-| Knowledge Management and Knowledge Graphs                                             |    |
-| Axel Polleres, Irene Celino<br>.                                                      | 68 |
-| Conclusions                                                                           | 69 |
-| Participants                                                                          | 70 |
-|                                                                                       |    |
+| Cinzia Cappiello, Maria-Esther Vidal, Sandra Geisler, Ana Iglesias-Molina, Dylan | |
+| Van Assche, David Chaves-Fraga, Anastasia Dimou, Irene Celino, Anisa Rula, | |
+| Maurizio Lenzerini<br>. | 47 |
+| Knowledge Engineering and Education | |
+| Juan F. Sequeda, Aidan Hogan, Axel Polleres, Christophe Debruyne, Eva Blomqvist, | |
+| Samaneh Jozashoori, Paul Groth, Claudio Gutiérrez, George Fletcher, Ivo Velitchkov 59 | |
+| Project Management for Knowledge Graph Construction and Usage | |
+| Oscar Corcho, Coen De Roover, Paco Nathan, Souripriya Das, Eduard Kamburjan, | |
+| Martin Giese, Marina Aguado, David Chaves-Fraga, Carlos Buil-Aranda, Wouter | |
+| Beek<br>. | 65 |
+| Emerging Discussions | |
+| Knowledge Management and Knowledge Graphs | |
+| Axel Polleres, Irene Celino<br>. | 68 |
+| Conclusions | 69 |
+| Participants | 70 |
+| | |
 
 ## <span id="page-6-0"></span>3 Invited Talks
 
 ## <span id="page-6-1"></span>3.1 Semantic Data Integration
+
 *Maurizio Lenzerini (Sapienza University of Rome, IT)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Maurizio Lenzerini](#page-6-1)
@@ -150,6 +150,7 @@ The second difference is the attention to the cost of reasoning. In order to tra
 Finally the third difference is that the architecture of OBDI suggests considering new types of reasoning problems that may be useful in real world scenarios and are addressed in recent papers. In the talk, three of them were discussed in more detail. One is the need for reasoning about metamodeling features, one is the challenge of semantically characterizing in terms of the Knowledge Graphs the services expressed over the data source, and the third is the problem of assessing the quality of data by using the domain model expressed in the Knowledge Graph. The first issue arises from the fact that Knowledge Graphs naturally mix intensional and extensional knowledge while the great majority of research works on ontology (e.g., the ones based on OWL and Description Logics) keep them separated. The second issue calls for new types of reasoning tasks in the context of OBDI. A recent proposal in this direction defines the notion of abstraction: given a process P expressed at the level of the sources, the goal is to compute the query over the Knowledge Graphs, called abstraction, that captures P for every configuration of the data layer. The third issue refers to the possibility of using the domain model represented in the Knowledge Graph as a yardstick for measuring the quality of data at the sources along various dimensions, such as, for example, consistency, accuracy, and completeness.
 
 ## <span id="page-8-0"></span>3.2 Access Control, Policies and Constraints
+
 *Sabrina Kirrane (Wirtschaftsuniversität Wien, AT)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Sabrina Kirrane](#page-8-0)
@@ -169,6 +170,7 @@ Since the GDPR, the legal landscape in Europe has evolved considerably with seve
 Additionally there are a number of open challenges and opportunities when it comes to privacy, policies, and quality. We need to put more emphasis on tech transfer and develop best practices for software engineers and architects. Performance, scalability, and usability need to be assessed in practical real world settings. There is no standard general purpose policy language capable of representing various policies, norms, and preferences. Machine-readable policies must faithfully represent human policies and norms. Technical usage control is difficult, which means we often need to rely on legal agreements. We need to get into the practice of defining attacker models for privacy and security use case scenarios.
 
 ## <span id="page-9-0"></span>3.3 Programming Languages
+
 *Martin Giese (University of Oslo, NO)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Martin Giese](#page-9-0)
@@ -212,6 +214,7 @@ Finally, we gave an overview of our own work on the SMOL language (smolang.org),
 To summarize, one should avoid putting domain knowledge into programs if possible. If it is necessary, the choice of language will depend on what one wants to achieve – Execution? Modeling? Reasoning? – and how much actual programming will be needed. If "real" programming is required, then a proper, e.g. object oriented language may be required, but the semantic gap between the OO and semantic perspectives must be kept in mind.
 
 ## <span id="page-11-0"></span>3.4 Industry Perspectives
+
 *Souripriya Das (Oracle Corp. – Nashua, US)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Souripriya Das](#page-11-0)
@@ -243,12 +246,12 @@ Example: Consider an RDF graph where each vertex has (single) values for propert
 ```text
 SELECT ?nameList ?maxWorth
 { ?x :name "A" . ?y :name "D" .
-  ( ?x :knows+ ?y PATH (
-     FILTER ($x.color != $y.color)
-     AGGREGATE ( (GROUP_CONCAT($y.name) as ?nameList) (MAX(?worth) as ?maxWorth) )
-     HAVING (?maxWorth < 100)
-     TOP 1 (ORDER BY desc(?maxWorth))
-  ))
+( ?x :knows+ ?y PATH (
+FILTER ($x.color != $y.color)
+AGGREGATE ( (GROUP_CONCAT($y.name) as ?nameList) (MAX(?worth) as ?maxWorth) )
+HAVING (?maxWorth < 100)
+TOP 1 (ORDER BY desc(?maxWorth))
+))
 }
 }
 ```text
@@ -258,6 +261,7 @@ We argued that support for neighborhood-aware path traversal in SPARQL and in pr
 ## <span id="page-14-0"></span>4 Lightning Talks
 
 ## <span id="page-14-1"></span>4.1 From linked data for regulatory reporting towards an interoperable data layer for the rail sector: The ERA KG
+
 *Marina Aguado (European Union Agency for Railways, FR)*
 
 **License** [Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Marina Aguado](#page-14-1)
@@ -300,6 +304,7 @@ Knowledge Graphs (KG) are already used for many applications, and increasingly s
 Ongoing projects are pushing the limits, and testing current technologies, to explore to what extent they can meet these challenges. For instance, ontologies as a means of facilitating semantic interoperability in the CE are being explored, but there are many challenges in terms of modularity and flexibility of CE ontology networks that need further research. Similarly on the data sharing, and distributed KGs side, attempts are made to explore the use of Solid pods for CE data sharing, but limitations also of these technologies need to be overcome. We have a lot of research ahead of us, to really overcome the barriers for data sharing in the CE!
 
 ## <span id="page-16-0"></span>4.3 Personal Data Protection in Knowledge Graphs (and KR in general)
+
 *Piero Andrea Bonatti (University of Naples, IT)*
 
 **License** [Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Piero Andrea Bonatti](#page-16-0)
@@ -323,6 +328,7 @@ Future work includes the investigation of: more kinds of suppressors (capable of
 <span id="page-17-2"></span>**1**Bonatti, P. A false sense of security.*Artificial Intelligence*. **310**pp. 103741 (2022)
 
 ## <span id="page-17-0"></span>4.4 Private Knowledge Graph Construction
+
 *Carlos Buil-Aranda (TU Federico Santa María – Valparaíso, CL)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Carlos Buil-Aranda](#page-17-0)
@@ -330,6 +336,7 @@ Future work includes the investigation of: more kinds of suppressors (capable of
 Knowledge Graph construction faces a challenge for providing private access to the data. Data stored in these graphs may come from private sources in which data is sensitive to certain groups of consumers but not to others. How to define what data can be shared with others, and provide means to do so is a challenge. It is a challenge since it is difficult to define what data can be shared when data is incomplete, and guaranteeing privacy constraints over unknown data is hard. I believe that we need means for defining what data can be shared privately, which is part of building knowledge graphs.
 
 ## <span id="page-17-1"></span>4.5 Challenges in Procedural Knowledge governance in Industry 5.0
+
 *Irene Celino (CEFRIEL – Milan, IT)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Irene Celino](#page-17-1)
@@ -356,6 +363,7 @@ What can we do to make these technologies ready for the real world – or to mak
 <span id="page-18-1"></span><sup>13</sup> <http://www.perks-project.eu/>
 
 ## <span id="page-19-0"></span>4.7 On the Need for Project Management for Knowledge Graph Construction and Usage Projects
+
 *Oscar Corcho (Universidad Politécnica de Madrid, ES) and David Chaves-Fraga (Universidade de Santiago de Compostela, ES)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Oscar Corcho and David Chaves-Fraga](#page-19-0)
@@ -363,6 +371,7 @@ What can we do to make these technologies ready for the real world – or to mak
 Knowledge graph construction projects today require creating a diverse set of artefacts (OWL ontologies, SHACL shapes, declarative mappings, SPARQL queries, etc.). Most of these projects may look now like an art. However, they should become a proper engineering activity, where all artefacts are well controlled and maintained, all processes are well understood and systematised, and, in general, we can be sure that they can be easily maintained and replicated. Let's work on this and normalise how these projects are done in the future.
 
 ## <span id="page-19-1"></span>4.8 Grounding KGs in Natural Language
+
 *Christophe Debruyne (University of Liège, BE)*
 
 **License** [Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Christophe Debruyne](#page-19-1)
@@ -379,6 +388,7 @@ Knowledge graphs are designed for machines, not for humans. Humans engage with e
 <span id="page-20-1"></span>**3**Leenheer, P., Moor, A. & Meersman, R. Context Dependency Management in Ontology Engineering: A Formal Approach.*J. Data Semant.*. **8**pp. 26-56 (2007), [https://doi.org/](https://doi.org/10.1007/978-3-540-70664-9%5C_2) [10.1007/978-3-540-70664-9%5C\\_2](https://doi.org/10.1007/978-3-540-70664-9%5C_2)
 
 ## <span id="page-20-0"></span>4.9 KG4SE & SE4KG: Exploring the Intersection of Knowledge Graph and Software Engineering Research
+
 *Coen De Roover (VU – Brussels, BE)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Coen De Roover](#page-20-0)
@@ -458,6 +468,7 @@ Knowledge Graphs (KGs) offer a foundational knowledge representation for truth m
 Neurosymbolic methods offer the tantalising possibility to advance the state of the art by seamlessly integrating language understanding with zero-shot prediction and logical reasoning capabilities. Hybrid question-answering systems, leveraging LLMs, FAIR (Findable, Accessible, Interoperable, Reusable) KGs, and web services, represent the frontier in creating more intelligent, reliable, and accessible information systems. The convergence of major systems is part of an evolving landscape of data management that will shape the future of knowledge management and (AI-based) knowledge discovery.
 
 ## <span id="page-24-0"></span>4.12 "Real World" Considered Harmful
+
 *George Fletcher (TU Eindhoven, NL)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [George Fletcher](#page-24-0)
@@ -465,6 +476,7 @@ Neurosymbolic methods offer the tantalising possibility to advance the state of 
 I study data and knowledge systems. Traditionally, this means working out formal foundations and, in tandem, designing and engineering systems, i.e., theory building and empirical investigation. In recent years there has been an increasing interest in the human context of data and knowledge systems, what can be called a humanistic turn in the discipline. This centering of people in our work calls for us to revisit the language we use when we talk about data and knowledge. I highlight two examples. First, we must deprecate the concept of "the user" as the catch-all stand-in for people. Instead we should talk first of "people" or "humans", and only after this talk about particular roles which people can play, e.g., citizens, customers, refugees, business analysts,. . . There is much more to the world (and of equal, if not greater, importance for effective data and knowledge systems) than just users. Second, we must deprecate the concept of "the real world". It is clear that one person's or community's interests are not necessarily always those of another person or community. And, much of the work of data and knowledge is about bridging (and sometimes integrating) these heterogeneous interests. To speak of "the real world" implies the privilege of one perspective over another, and obscures or even effaces these practical difficulties, hindering our work. Furthermore, the language of "real world" is pejorative, i.e., is actually a negative term. After all, the opposite of "real" is "fake", and naming the interests of others as fake only inhibits collaboration, thriving, and success. We should instead be using positive unifying language. We should be speaking instead of perspectives of interest: practices, communities, applications, application domains, and so forth. In other words, moving from talking of "the real world" to talking of "something someone or some community is interested in". We can capture this in a slogan: Real World Considered Harmful. The future of data and knowledge work is people and our always complicated and conflicting and converging and diverging and evolving interests. Our scientific terminology must evolve to keep up with this reality.
 
 ## <span id="page-24-1"></span>4.13 Reliable Knowledge Graphs Need Reliable Processes
+
 *Paul Groth (University of Amsterdam, NL)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Paul Groth](#page-24-1)
@@ -474,6 +486,7 @@ In 1929, Frank Ramsey defined knowledge as a "set of beliefs that are true, cert
 This is particularly important as the complexity of the systems that are used to construct and maintain knowledge graphs only increases. Moreover, the integration of large language models into knowledge graph systems means that they can evolve even more rapidly from both a content as well as functional perspective. Given that knowledge graphs are complex socio-technical systems, to obtain reliable knowledge graphs, we need a renewed focus on updating and codifying the principles and practices of their engineering. This includes aligning software engineering and knowledge engineering practice with a focus on developer user experience; improved knowledge engineering with a focus on better support for manual curation by a range of people and support for multiple modalities; and improved engineering with large language models that fully embraces the capabilities of these models. Lastly, we need to improve our engineering approaches to effectively support the social processes that undergird knowledge graphs, for example by supporting "getting people on the same page" and embracing lessons learned from community curated knowledge graphs such as Wikidata and Wikipathways. By focusing on the processes we can make sure that the term knowledge in "knowledge graphs" is not a misnomer.
 
 ## <span id="page-25-0"></span>4.14 Challenges for Knowledge Graphs (KGs) in an Era of Machines that Learn
+
 *Claudio Gutierrez (University of Chile – Santiago de Chile, CL)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Claudio Gutierrez](#page-25-0)
@@ -514,6 +527,7 @@ I concluded with stating open challenges:
 - Enterprise knowledge graphs are the way to go to move from an application-centric to a data-centric enterprise, but more work needs to be done to support a multitude of diverse applications and to properly consider security and access control.
 
 ## <span id="page-27-0"></span>4.16 Improving UX/DX in Querying Federations of KGs
+
 *Olaf Hartig (Linköping University, SE)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Olaf Hartig](#page-27-0)
@@ -521,6 +535,7 @@ I concluded with stating open challenges:
 One of my areas of research is on the virtual integration of knowledge graphs (KGs), with a focus on querying federations of KGs. While there has been research on this topic in the past, a question to ask in the spirit of the theme of this Dagstuhl Seminar is whether the approaches and systems developed in this context are ready for the real world? My answer to this question is: no! In the context of a COST Action on Distributed KGs, we recently organized a three-days hackathon on query federation over KGs to which we invited i) people who had published on the topic and had built some query federation engine and ii) use case providers who prepared use cases in which they thought these engines can be applied. This event was great fun, but the outcomes were quite sobering. For most of the use case providers, a major challenge was how to even write the queries that make sense, and this was not because of a lack of understanding of the query language but because of a lack of visibility into how the data in the federation members is shaped and how exactly it is connected across the federation. Once they had some queries, and they had managed to set up an engine that they wanted to play with, the next major issue was to understand what was going on when something went wrong with the queries. So, overall the user experience was quite disappointing for the use case providers in this hackathon. A challenge that I want to work on is to improve the user experience of developers who are considering to employ query federation in practice.
 
 ## <span id="page-27-1"></span>4.17 Can Large Language Models improve the Usability of Knowledge Graphs?
+
 *Aidan Hogan (University of Chile – Santiago de Chile, CL)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Aidan Hogan](#page-27-1)
@@ -532,6 +547,7 @@ Large Language Models have left many wondering what the future is for Knowledge 
 Models can be used to potentially address one of the fundamental issues of Knowledge Graphs: a lack of usability. To illustrate this idea, I will show examples of questions that ChatGPT currently fails to answer, and show how such questions can be answered on the Wikidata Knowledge Graph. However, answering questions on Wikidata requires expert knowledge of languages such as SPARQL, where, in the creation of such SPARQL queries, Large Language Models can certainly be of use. This provides a concrete but simple idea of how Large Language Models and Knowledge Graphs could complement each other in future.
 
 ## <span id="page-28-0"></span>4.18 No Intelligence without Knowledge
+
 *Katja Hose (TU Wien, AT)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Katja Hose](#page-28-0)
@@ -539,6 +555,7 @@ Models can be used to potentially address one of the fundamental issues of Knowl
 While large amounts of data are being generated and collected, we are still struggling to efficiently exploit, interpret, and extract meaningful insights from such heterogeneous data. Because of their ability to capture factual knowledge, knowledge graphs are applied in versatile settings to organize, integrate, share, and access information. In this sense, also Machine Learning approaches, such as LLMs, benefit from the access to factual knowledge provided by knowledge graphs. In doing so, they can help mitigate hallucinations by providing access to verifiable knowledge, reliable facts, patterns, and enable a deeper understanding of the underlying domains. However, any approach can only be as good as the data it is built (or trained) upon ("garbage in, garbage out"). Hence, the quality of knowledge graphs needs to be ensured, e.g., by using SHACL constraints, access to a knowledge graphs needs to be efficient, evolving knowledge needs to be captured and made accessible, provenance needs to be available, etc. It will be exciting to witness the advances in this exciting field in the next years.
 
 ## <span id="page-28-1"></span>4.19 Lowering the Barriers for Declarative Knowledge Graph Construction Adoption
+
 *Ana Iglesias-Molina (Universidad Politécnica de Madrid, ES)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Ana Iglesias-Molina](#page-28-1)
@@ -546,6 +563,7 @@ While large amounts of data are being generated and collected, we are still stru
 Declarative KG construction has undergone a great process of improvement and optimization in the last decade. Currently, a wide ecosystem of resources, languages and compliant tools, is available with an active community around maintaining and enhancing them. Despite this progress, there is still room for improvement, not only to make them as versatile as ad-hoc approaches, but especially in boosting their usability, since there is still some resistance to their adoption. One of the main reasons behind it is that these technologies pose a learning curve for users to use them, as it is not a familiar environment. Hence, there is room for improving the user involvement, providing understandable outputs and keeping the process seamless without adding any overhead. The rise of LLMs and their success when interacting with users opens the door to multiple possibilities for addressing this issue, since traditional approaches (user friendly interfaces and serializations) have had limited success. Not only can we help facilitate the process for KG construction, but also in several additional tasks and steps involved in the knowledge graph life cycle.
 
 ## <span id="page-29-0"></span>4.20 Knowledge Graph Adoption: Unveiling User Perspective and Challenges
+
 *Samaneh Jozashoori (Metaphacts GmbH – Walldorf, DE)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Samaneh Jozashoori](#page-29-0)
@@ -557,6 +575,7 @@ Knowledge graphs are already part of the "reality" of several enterprises. One o
 - 3. Insufficient confidence: One of the main concerns knowledge stewards express is the quality of their models. For many new knowledge stewards, especially the majority who are just starting out, grasping the fundamentals of modeling doesn't always conduct confidence. The question remains, how can the scientific community contribute to overcoming these obstacles.
 
 ## <span id="page-29-1"></span>4.21 Semantic Reflection
+
 *Eduard Kamburjan (University of Oslo, NO)*
 
 **License** [Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Eduard Kamburjan](#page-29-1)
@@ -569,6 +588,7 @@ While knowledge graphs and ontologies are eminently useful to represent formal k
 - <span id="page-30-3"></span>**2**Qu, Y., Kamburjan, E., Torabi, A. & Giese, M. Semantically triggered qualitative simulation of a geological process.*Applied Computing And Geosciences*. **21**pp. 100152 (2024)
 
 ## <span id="page-30-0"></span>4.22 Exploiting Semantics for Integrating Data on Critical Minerals
+
 *Craig A. Knoblock (USC – Marina del Rey, US)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Craig A. Knoblock](#page-30-0)
@@ -576,6 +596,7 @@ While knowledge graphs and ontologies are eminently useful to represent formal k
 Critical minerals like lithium, cobalt, and nickel are essential for transitioning to a green economy but are in short supply, necessitating a search for more domestic sources. We are working on building a knowledge graph to create grade and tonnage models of various commodities, leveraging artificial intelligence and machine learning to automate the laborious manual process of assembling data from diverse sources. The technical challenges in this endeavor are substantial, including locating source information, accurately extracting information from text documents using Large Language Models (LLMs), automatically modeling tables, precisely linking entities, and performing efficient spatial/temporal queries. These challenges stem from the need to handle diverse data types and formats, ensure data accuracy and consistency, and integrate information from disparate sources to build comprehensive and accurate models. The project aims to rapidly build and maintain high-quality models, enabling timely updates as new information becomes available and supporting the identification of critical mineral resources.
 
 ## <span id="page-30-1"></span>4.23 Knowledge-enhanced Representation Learning to Accelerate Scientific Discovery
+
 *Vanessa López (IBM Research – Dublin, IE)*
 
 **License** [Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Vanessa López](#page-30-1)
@@ -599,6 +620,7 @@ There are many opportunities and challenges to advance life science discovery by
 The goal of this project is to improve semi-automated KG construction from large collections of unstructured text sources, while leveraging feedback from domain experts and maintaining quality checks for the aggregated results. We explore hybrid applications which leverage LLMs to improve natural language processing (NLP) pipeline components, which are also complemented by other deep learning models, graph queries, semantic inference, and related APIs. In contrast to "black-box" methods of using chat agents to generate KG data, we focus on how LLMs can be used to augment specific, well-defined tasks, while maintaining quality checks? To this end, we consider where can the data (training datasets, benchmarks, evals) be reworked to improve performance on tasks, among the research projects evaluated here? Also, it would be intractable in terms of time and funding to rewrite code and then re-evaluate models for the many research projects which are within the scope of this work. Therefore reproducibility of published results – based on open source code, models, evals, etc. – becomes crucial for determining whether other projects may be adapted for production use. We propose a rubric used for this evaluation process.
 
 ## <span id="page-32-0"></span>4.25 Queries over Evolving Knowledge Graphs
+
 *Edelmira Pasarella (UPC Barcelona Tech, ES)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Edelmira Pasarella](#page-32-0)
@@ -610,6 +632,7 @@ Our approach for querying evolving knowledge graphs is twofold. First, we use a 
 Stream based applications are direct beneficiaries of our proposal because they can query knowledge graphs and get answers from "fresh" data as they are produced and avoid the computational overhead of discarding non-valid data.
 
 ## <span id="page-32-1"></span>4.26 From Traditional Data Quality to Knowledge Graph Quality
+
 *Anisa Rula (University of Brescia, IT)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Anisa Rula](#page-32-1)
@@ -623,6 +646,7 @@ Third, most of these approaches are focused on the quality assessment of dataset
 Last but not less important, is the challenge of quality interpretation. In this context, leveraging advanced technologies such as Large Language Models becomes crucial for interpreting quality results and extracting meaningful insights from complex knowledge graph structures.
 
 ## <span id="page-33-0"></span>4.27 The Future of Knowledge is Social
+
 *Juan F. Sequeda (data.world – Austin, US)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Juan F. Sequeda](#page-33-0)
@@ -650,6 +674,7 @@ Please ask yourself the following questions:
 Knowledge Graph construction approaches integrate heterogeneous data sources from files, databases, Web APIs, and many more. Either by materializing the Knowledge Graph or providing virtualized access to it. Each of these approaches have their set of trade-offs regarding resource consumption and execution time. However, there is no combined hybrid approach which leverages the best of both materialization and virtualization. In this talk, we open the discussion of combining materialization and virtualization approaches for Knowledge Graph construction. How can we combine materialization and virtualization in a hybrid fashion to make Knowledge Graph construction more efficient in terms of resources e.g. CPU time, memory usage, storage usage, and execution time? This way, we open the path towards a more resource-efficient Knowledge Graph construction approach which may also be suitable for smaller embedded devices e.g., smartphones, laptops, and many more.
 
 ## <span id="page-34-1"></span>4.29 MisLED: Linked Enterprise Data Left without Research Attention
+
 *Ivo Velitchkov (Brussels, BE)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Ivo Velitchkov](#page-34-1)
@@ -665,6 +690,7 @@ The momentum currently created by the data-centric movement presents one more op
 <span id="page-34-4"></span><sup>16</sup> <http://datacentricmanifesto.org>
 
 ## <span id="page-35-0"></span>4.30 Data and Knowledge Management in Knowledge Graphs
+
 *Maria-Esther Vidal (Leibniz University of Hannover*&*TIB-Leibniz Information Centre for Science and Technology, DE)*
 
 **License** [Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Maria-Esther Vidal](#page-35-0)
@@ -734,7 +760,7 @@ In this vision of a digital economy, the value of data increases when data from 
 
 <span id="page-37-3"></span><sup>28</sup> <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52021PC0206>
 
-#### 5.1.2 State of the Art
+### 5.1.2 State of the Art
 
 Access control for RDF-based KGs has been extensively studied and consequently there have been many different proposals. A comprehensive survey by Kirrane et al. [\[1\]](#page-44-0) categorizes existing proposals for access control specification, enforcement, and administration. The predominant specification approaches define access control policies based on triple patterns or views. Enforcement is facilitated either by rewriting SPARQL queries such that access to certain patterns or views is permitted / prohibited or alternatively by creating a filtered dataset according to the policies that only contains permitted data. Although there has been less emphasis on access control policy administration, researchers have considered the delegation of access rights, the consistency and safety of access policies, as well as usability and understandability. Many of the existing works have been inspired by traditional access control approaches that were originally applied to relational databases. For instance, the authorization framework proposed by Jajodia et al. [\[3\]](#page-44-1) has been adapted to demonstrate how graph patterns, propagation rules, conflict resolution policies, and integrity constraints together can be used as a blueprint for access control specification and enforcement [\[4\]](#page-44-2). Additionally, there has been some work that extends static access control with dynamic context awareness [\[2\]](#page-44-3).
 
@@ -746,7 +772,7 @@ Existing work focusing on safeguarding intellectual property rights promotes reu
 
 In terms of research on queries over federations of KGs, the main focus of existing work has been on developing efficient query processing techniques [\[20,](#page-45-13) [21,](#page-45-14) [22,](#page-45-15) [19\]](#page-45-16). The majority of the state-of-the-art approaches in this context assume that the data of the federation members can be accessed and used without any restrictions. Yet, a few approaches to enforce policies during the execution of queries over a federation of KGs exist: The SAFE approach by Khan et al. [\[23\]](#page-46-1) takes into account access control policies during the source selection phase of query planning, where these access control policies focus on authorizing specific users to access and retrieve designated subgraphs of the knowledge graph of a federation member. In contrast, the BOUNCER approach by Endris et al. [\[24\]](#page-46-2) generates query execution plans by taking into account general (not user-specific) policies that permit or prohibit particular types of operations for designated attributes in the data of a federation member, where these operations are the retrieval of the respective attribute value and joins on the attribute values. Hence, the BOUNCER approach is more fine-grained in terms of the operations considered in the policies, but it does not distinguish between different users as done by the SAFE approach. Moreover, none of these approaches considers policies as described by standard policy languages for usage control such as ODRL.
 
-#### 5.1.3 Current Challenges
+### 5.1.3 Current Challenges
 
 The challenges and the open research questions in this area can be roughly divided into four groups:
 
@@ -773,15 +799,15 @@ federation itself. For example, let us assume for query evaluation purposes, the
 
 - To prevent possible information leaks. In the context of trust management systems, this problem can take place by means of a probing attack [\[26\]](#page-46-4). A probing attack consists in (systematically) sending authorization requests and registering the system's response, the attacker – who may be someone with low-ranking authorization permission for some type of information – gains knowledge about access control policies. In the scenario of a federation of KGs, there is a risk of vulnerability to some kind of probing attack that jeopardizes the privacy and security of the entities in the protection state of one of the KGs. Information leakage could occur because there could be sensitive information inferred from a local ontology. Then, through the grant/deny decision of the corresponding local access control application mechanism, it could be made accessible to the federation and thus, possibly, also to the querying user. That is, the result of query evaluation could provide users with some insights or full details about the inferred sensitive information. To integrate the global access control policy and the local policies of the members of a federation of KGs in such a way that the accomplishment of both, semantic and data
 - conformance of the whole federation are guaranteed. In this regard there are two main challenges:
-  -**(a)**To prevent inconsistency. Inconsistency arises in a trust management system when it contains contradictory authorization rules and thus, there are authorization requests that can be both granted and denied by different rules. In the case of a federation of KGs, inconsistency could be caused by the different ways in which the ontologies link to KGs members and the federation itself to formalize concepts and their relationships.
-  -**(b)**To deal with the incompleteness of knowledge. This is, to establish a proper semantic approach for the global access control enforcement mechanism, the closed world assumption, the open world assumption, or some specific adaptation as, for instance, Local Closed-World Assumption [\[27\]](#page-46-5). This is necessary because if, to grant/deny an authorization request, the global access control enforcement mechanism depends on inferred knowledge of some of the KG members and one or more of these KG are not able to deduce that knowledge, there must be a logical support to justify the response of the global access control enforcement mechanism.
+-**(a)**To prevent inconsistency. Inconsistency arises in a trust management system when it contains contradictory authorization rules and thus, there are authorization requests that can be both granted and denied by different rules. In the case of a federation of KGs, inconsistency could be caused by the different ways in which the ontologies link to KGs members and the federation itself to formalize concepts and their relationships.
+-**(b)**To deal with the incompleteness of knowledge. This is, to establish a proper semantic approach for the global access control enforcement mechanism, the closed world assumption, the open world assumption, or some specific adaptation as, for instance, Local Closed-World Assumption [\[27\]](#page-46-5). This is necessary because if, to grant/deny an authorization request, the global access control enforcement mechanism depends on inferred knowledge of some of the KG members and one or more of these KG are not able to deduce that knowledge, there must be a logical support to justify the response of the global access control enforcement mechanism.
 - To define a mechanism capable of creating a global explanation of the answer to a query by combining local explanations without revealing sensitive information obtained from (locally) inferred knowledge.
 
-#### 5.1.4 Requirements to Move Forward
+### 5.1.4 Requirements to Move Forward
 
 As a first step to address the aforementioned challenges and to develop access control approaches that work in a federated setting, we need to specify the requirements to be satisfied by such approaches. During our discussions in the seminar, we observed that such requirements cannot be defined in a general manner but, instead, are use case specific. In particular, we identified the following three classes of use cases for creating and querying federations of knowledge graphs, and discussed the requirements for each of these classes.
 
-#### Class 1 – Single Organization:
+### Class 1 – Single Organization:
 
 This class covers use cases in which all federation members are under the control of a single organization with a desire to decentralize management and maintenance of different portions of their organization-wide knowledge graph. Such federated architectures become increasingly important in enterprise architectures where knowledge graphs are used as an instrument for data integration following a virtualization approach. The Enterprise Knowledge Graph (EKG) acts as a central means for unified and integrated access across distributed sources, i.e. the EKG can be queried transparently through the federation layer, while the data resides and is managed autonomously in multiple separate databases. These federation architectures are advantageous where, for reasons of data security, data privacy, enterprise governance or scalability, a centralized approach to data integration is not feasible or desirable. Still, in an enterprise, a federation approach will naturally compete and be compared with centralized approaches, which raises a number of requirements:
 
@@ -799,7 +825,7 @@ While the above mentioned requirements pose special challenges, there are also a
 
 In summary, there are special requirements in enterprise environments that make the problem of federation data access both more challenging and more manageable.
 
-#### Class 2 – Collaborating Organizations:
+### Class 2 – Collaborating Organizations:
 
 The use cases in this class are characterized by the need for different organizations (or perhaps also different units within the same organization) to share and integrate some of their respective data within a collaboration or consortium that has been created to achieve a common goal (e.g., in a Data Space). Typical examples of such federations are federations that consist of several*private*SPARQL endpoints where each of them provides access to an*enterprise*knowledge graph of one of the involved organizations. This would require the query engine for the federation to authenticate itself at such a federation member on behalf of its user or application.
 
@@ -809,11 +835,11 @@ Once a federation member becomes part of a federation, the federation member may
 
 Thus, there may be cases in which a federation engine has the option to optimize its query execution plans based on information about data access and usage policies of the federation members, but there may also be cases in which such an option does not exist, or perhaps only for some of the federation members.
 
-#### 5.1.5 Class 3 – Autonomous Existing Sources:
+### 5.1.5 Class 3 – Autonomous Existing Sources:
 
 These use cases require the execution of queries over a combination of several existing data sources that independent parties have put up for general use. Hence, any federation that emerges by such a combination of data sources consists of federation members that have not been created explicitly for participating in that particular federation, and that may not even be aware of their participation. Typical examples of such federations are federations that consist of several public SPARQL endpoints that provide access to knowledge graphs on the Web. So far, such public SPARQL endpoints have been made available without explicit access control restrictions. Yet, as is customary for many public REST APIs, we foresee cases in which providers of public data sources for a federation of knowledge graphs enforce access quota (e.g., a specific number of requests per day), potentially combined with subscription plans for increased quota. Or there may be offers for prioritized (faster) processing for paying users. Such a practice would require the query engine for the federation to authenticate itself at such a federation member on behalf of its user or application, and to take potential access limitations into account when creating query execution plans. Given that the data sources in this class of use cases are provided without any coordination, the access control mechanisms employed by any one of the federation members can be assumed to be completely separate from potential access control at other members of the federation, and there may be a high heterogeneity in terms of such mechanisms across the federation. Hence, a query engine for such use cases may be required to be able to interact with a large variety of access control mechanisms. Besides access control, data sources that are publicly accessible may have usage control policies for their data, which must be enforced by the federation engine. As an example, if the data obtained from some of the federation members is associated with a license, then the engine has to be able to determine whether these licenses allow the engine to combine the data and, if so, to determine what the license for the query result produced from the combined data should be.
 
-#### Our Vision
+### Our Vision
 
 During the seminar we discussed several options on how to enable general access control for federated data management. Our vision to study this question in a systematic manner is to develop an abstract framework that can be instantiated with respect to different use cases as well as the diverse technical setups we are encountering in federated setups. In particular, we discussed potential instantiations for the classes of use cases discussed above.
 
@@ -823,7 +849,7 @@ During the discussion we identified several challenges for designing such an arc
 
 Another challenge is that users – sending requests via the clients – would require some kind of explanation for their executed queries, i.e., what policies have been enforced and maybe also some quantification about additional query results (if allowed by the respective policies) that might have potentially been missed due to policy restrictions.
 
-#### <span id="page-44-0"></span>References
+### <span id="page-44-0"></span>References
 
 -**1**Kirrane, S., Mileo, A. & Decker, S. Access control and the resource description framework: A survey.*Semantic Web*. **8**, 311-352 (2017)
 - <span id="page-44-3"></span>**2**Costabello, L. & Gandon, F. Context-Aware Presentation of Linked Data on Mobile.*Information Retrieval And Management: Concepts, Methodologies, Tools, And Applications*. pp. 1940-1971 (2018)
@@ -873,7 +899,7 @@ Often, relevant knowledge is not documented or digitized because it comes from e
 
 However, constructing a Knowledge Graph (KG) involves various challenges and issues, including data extraction, data quality, data integration, and data security issues as well as architectural aspects such as scalability and interoperability [\[19,](#page-57-2) [22,](#page-57-0) [20\]](#page-57-3). The Dagstuhl Seminar allowed us to discuss and focus on two main topics: the definition of a general pipeline for the KG construction and data quality. The following sections will summarize discussions and findings.
 
-#### 5.2.2 State of the Art
+### 5.2.2 State of the Art
 
 Knowledge is usually distributed among several heterogeneous sources. The paper by Lenzerini [\[5\]](#page-56-0) provides the theoretical background to solve this problem from a data perspective. Ontologies play an important role in this process [\[6\]](#page-56-1), as they provide a unified view of a specific domain that is used to integrate the input data [\[26\]](#page-57-4). Therefore, the construction of a knowledge graph is defined as a data integration system [\[7,](#page-56-2) [18\]](#page-57-5).
 
@@ -882,14 +908,15 @@ The construction can be performed in either a materialized or a virtual way. In 
 Concerning previous approaches, data quality for a KG life cycle does not necessarily cover the broader spectrum of the quality of the KG ecosystem. The quality of the KG ecosystem includes the quality of the data feeding into the KG, the quality of the data transformation process for constructing the KG, and the quality of the KG data itself. Managing data quality in a knowledge graph involves various processes, including quality assessment in terms of error detection and quality improvement in knowledge graph completion. The following discusses the different aspects.
 **Quality of data feeding the KG:** *Quality of data sources*refers to the quality of the raw data obtained from various sources before it is integrated into the KG. It involves aspects such as accuracy, completeness, consistency, timeliness, and relevancy of the raw data.*Data cleaning*involves identifying and correcting errors, inconsistencies, and inaccuracies in the raw data before transforming it into KG format. Data cleaning techniques such as deduplication, outlier detection, and data validation are employed in this phase [\[8,](#page-56-3) [9\]](#page-56-4).
 
-#### Quality of the data transformation for the KG Construction:
-*Quality of data transformation*assesses how accurately data from the source is mapped to entities and relationships in the KG with respect to the applied ontologies [\[11,](#page-56-5) [12,](#page-56-6) [13,](#page-56-7) [10\]](#page-56-8) or how complete the mappings are if all the relevant source data is properly mapped into the KG. Only a few approaches are proposed to assess the quality of mappings [\[11,](#page-56-5) [13,](#page-56-7) [10\]](#page-56-8).
+### Quality of the data transformation for the KG Construction:
+
+**Quality of data transformation:** assesses how accurately data from the source is mapped to entities and relationships in the KG with respect to the applied ontologies [\[11,](#page-56-5) [12,](#page-56-6) [13,](#page-56-7) [10\]](#page-56-8) or how complete the mappings are if all the relevant source data is properly mapped into the KG. Only a few approaches are proposed to assess the quality of mappings [\[11,](#page-56-5) [13,](#page-56-7) [10\]](#page-56-8).
 **Quality of the Knowledge Graph Data:**Quality assessment of the final Knowledge Graphs may include: (i)*Semantic Consistency*refers to the coherence and logical consistency of the relationships and entities represented within the KG; (ii)*Accuracy and Completeness*, the KG should accurately reflect the real-world domain it represents, and it should contain comprehensive coverage of relevant entities and relationships within that domain; (iii) *Timeliness*, the KG should be regularly updated to reflect changes and updates in the underlying data sources. Timeliness ensures that the KG remains relevant and up-to-date over time [\[17\]](#page-56-9)
 
 RDF validators assess whether RDF data complies with specified restrictions, typically using standards like SHACL [\[14\]](#page-56-10). These tools analyze excerpts of RDF data along with given restrictions to generate validation reports. On the other hand, RDF quality tools focus on evaluating and quantifying the quality of a KG and the factors affecting it [\[15\]](#page-56-11). *KG improvement*is crucial for constructing a Knowledge Graph (KG). It involves identifying and rectifying errors, inconsistencies, and inaccuracies. In particular, the contributions are focused on improving RDF links, which aims to connect local RDF resources with those in different Knowledge Graphs (KGs) [\[16\]](#page-56-12).
 **Quality of Ontologies**The quality of ontologies is a prerequisite to organize the knowledge in a knowledge graph in a sensible way. There exist a multitude of quality metrics for ontologies, which refer to the different structural components of the ontology, such as the hierarchy of the concepts, data and object properties, or instances [\[25\]](#page-57-8). The metrics can be (semi-)automatically be checked using acknowledged tools, such as the OOPS! pitfall scanner [\[24\]](#page-57-9). Such tools can be employed as services to be integrated into a life cycle step of validation.
 
-#### 5.2.3 Current Challenges and Open Research Questions
+### 5.2.3 Current Challenges and Open Research Questions
 
 The construction of a knowledge graph requires to:
 
@@ -921,7 +948,7 @@ For the data quality improvement, the Pay as you go approach by [\[23\]](#page-5
 - How can we design systems that make iterative improvements?
 - How do we account for the quality of the maintenance processes over time?
 
-#### 5.2.4 Vision and Possible Approaches
+### 5.2.4 Vision and Possible Approaches
 
 The discussion leads to possible approaches. Figure [1](#page-49-0) shows the result of the first discussions to represent a general workflow.
 
@@ -945,24 +972,24 @@ We argue that the abstraction of a knowledge graph ecosystem allows for capturin
 
 During the seminar, such an abstraction was formalized also considering the people involved. The next subsection shows the achieved results.
 
-#### <span id="page-50-1"></span>5.2.4.1 Roles in the KGE lifecycle
+### <span id="page-50-1"></span>5.2.4.1 Roles in the KGE lifecycle
 
 Different actors are involved in this process. A previous contribution [\[4\]](#page-56-16), identifies three major stakeholders: KG Builders, KG Analysts, and KG Consumers. We adapt these stakeholders to the KGEs so they are not restricted only to KGs (i.e., Knowledge Builders instead of KG Builders) and identify two additional stakeholders: Knowledge Providers and Knowledge Auditors (see Figure [2\)](#page-50-0). We describe how these stakeholders intervene in KGEs, defining the roles (s) they can play, tasks, and needs. Each stakeholder may play more than one role in the different KG lifecycle steps.
-*Knowledge Providers*bring expertise into the KGE. They do not only provide input on the KGE subject matter (i.e. as domain-knowledge experts), but also on the data, required regulations, and knowledge engineering aspects. Together, they define the needs and tasks of
+**Knowledge Providers:** bring expertise into the KGE. They do not only provide input on the KGE subject matter (i.e. as domain-knowledge experts), but also on the data, required regulations, and knowledge engineering aspects. Together, they define the needs and tasks of
 
 what the KGE must serve, to (i) specify the requirements for the Knowledge Builders; (ii) comply with the Knowledge Auditors requirements; and (iii) ensure that the needs of the Knowledge Consumers and Knowledge Analysts are met. Knowledge Providers then require the means for seamless communication with the rest of the stakeholders, e.g., communication and visualization tools, and for collecting and sharing their knowledge as input for the KGE.
-*Knowledge Builders*are responsible for integrating the knowledge from the Knowledge Providers and building the KGE resources. This stakeholder group comprises experts in KGErelated technologies, such as knowledge engineers, application developers, and KnowledgeOps. Their output must be up to the coverage and quality standards of the Knowledge Auditor, and be appropriate for its use by Knowledge Consumers and Knowledge Analysts. Therefore, Knowledge Builders must report, document, and provide provenance traces for all the resources produced and knowledge processing performed.
-*Knowledge Auditors*review and evaluate the KGE in terms of quality and compliance with the requirements. This task is mainly performed by domain-knowledge, domain-data, domain-regulation experts, and the KnowledgeOps. They define the metrics for evaluation depending on the use case, regulations, and corresponding requirements. Their efforts serve to check and improve the KGE's quality, comply with regulations, and ensure that it is valid for consumption to perform the tasks that it is built for.
-*Knowledge Analysts*directly interact with the KGE to generate insights. These stakeholders are usually data scientists, ML/AI experts, or even app developers. They are not necessarily knowledge engineering experts as the Knowledge Builders, but possess the skills to interact, extract information and support discovery with them in the KGE. Their work output is then shared and reported for Knowledge Consumers to use and Knowledge Auditors to verify that their needs are fulfilled.
-*Knowledge Consumers*are the end-users of the KGE. They do not usually interact directly with the KGE, so they do not require technical skills and tend to use user-friendly interfaces. They need the documentation, reports, and interfaces to consume the KGE and communicate whether the KGE meets their requirements.
+**Knowledge Builders:** are responsible for integrating the knowledge from the Knowledge Providers and building the KGE resources. This stakeholder group comprises experts in KGErelated technologies, such as knowledge engineers, application developers, and KnowledgeOps. Their output must be up to the coverage and quality standards of the Knowledge Auditor, and be appropriate for its use by Knowledge Consumers and Knowledge Analysts. Therefore, Knowledge Builders must report, document, and provide provenance traces for all the resources produced and knowledge processing performed.
+**Knowledge Auditors:** review and evaluate the KGE in terms of quality and compliance with the requirements. This task is mainly performed by domain-knowledge, domain-data, domain-regulation experts, and the KnowledgeOps. They define the metrics for evaluation depending on the use case, regulations, and corresponding requirements. Their efforts serve to check and improve the KGE's quality, comply with regulations, and ensure that it is valid for consumption to perform the tasks that it is built for.
+**Knowledge Analysts:** directly interact with the KGE to generate insights. These stakeholders are usually data scientists, ML/AI experts, or even app developers. They are not necessarily knowledge engineering experts as the Knowledge Builders, but possess the skills to interact, extract information and support discovery with them in the KGE. Their work output is then shared and reported for Knowledge Consumers to use and Knowledge Auditors to verify that their needs are fulfilled.
+**Knowledge Consumers:** are the end-users of the KGE. They do not usually interact directly with the KGE, so they do not require technical skills and tend to use user-friendly interfaces. They need the documentation, reports, and interfaces to consume the KGE and communicate whether the KGE meets their requirements.
 
-#### 5.2.4.2 A formal definition of the KGE
+### 5.2.4.2 A formal definition of the KGE
 
 Such a section formalizes the KGE and the related lifecycle.
 
 A*life cycle step*serves as the fundamental unit of operations executed within a knowledge graph ecosystem. It encompasses a service responsible for implementing operations over the ecosystem. Additionally, contextual information of the knowledge graph ecosystem defines the actors and their roles, as detailed in Section [5.2.4.1.](#page-50-1) These roles include requirements to be satisfied, constraints to be validated, and the needs of actors expressed as both, requirements and constraints, during their involvement in executing the life cycle over a knowledge graph ecosystem. The life cycle steps are combined to form life cycles; the steps can be executed concurrently or sequentially based on execution dependencies between life cycle steps specified in the life cycle. In the following, we formally define the sketched concepts of Knowledge Graph Ecosystems, life cycles, and the steps.
 
-#### Knowledge Graph Ecosystems
+### Knowledge Graph Ecosystems
 
 A*knowledge graph ecosystem (KGE)*is defined by a tuple*KGE* = (*D, O, M, DC, KG, L*) where:
 
@@ -982,7 +1009,7 @@ A*knowledge graph ecosystem (KGE)*is defined by a tuple*KGE* = (*D, O, M, DC, KG
 - **Knowledge Graph (***KG***)**: Represents the integrated view of healthcare data structured according to the ontology (*O*).
 - **Log Entries (***L***)**: Maintain a record of lifecycle events, including data integration, ontology updates, and analysis results.
 
-#### KG Life Cycles
+### KG Life Cycles
 
 A knowledge graph ecosystem *KGE*is subject of*life cycles*, consisting of a series of ordered *life cycle steps*and potential sub-life cycles. These life cycles orchestrate the manipulation and evolution of*KGE*components, guiding their creation, validation, curation, maintenance,
 
@@ -999,39 +1026,39 @@ A life cycle *LC* is a partial order (*LCS*,*R*), where *LCS*is a set of life cy
 **Base Case:** *LC*=({*lcs*},{(*lcs, lcs*)}) for a is life cycle step *lcs*.
 
 - **Inductive Case:**Consider a life cycle*LC*′=(*LCS*′ ,*R*′ ) and *lcs*denotes a life cycle step which does not belong to*LCS*′ . In this case, a new life cycle *LC*=(*LCS*,*R*) can be defined as follows:
-  - *LCS*corresponds to the union of*LCS*′ and {*lcs*}.
-  - The precedence relation *R*is defined by extending*R*′ with pairs (*lcs, lcs*′ ) or (*lcs*′ *, lcs*) for each *lcs*′ ∈ *R*′ such that *lcs*′ precedes *lcs*or*lcs*precedes*lcs*′ , respectively.
+- *LCS*corresponds to the union of*LCS*′ and {*lcs*}.
+- The precedence relation *R*is defined by extending*R*′ with pairs (*lcs, lcs*′ ) or (*lcs*′ *, lcs*) for each *lcs*′ ∈ *R*′ such that *lcs*′ precedes *lcs*or*lcs*precedes*lcs*′ , respectively.
 
 ▶ **Example 2.** A life cycle over HKGE involves a series of steps, each contributing to the overall management and evolution of the ecosystem. These steps are interrelated and follow a partial order, ensuring systematic progression throughout the lifecycle of HKGE.
 
-#### Data Collection and Integration:
+### Data Collection and Integration:
 
 - Extract data from diverse healthcare sources (*D*), including Electronic Health Records (EHRs), Medical Literature Databases, Clinical Trial Repositories, and medical images.
 - Integrate the collected data into the knowledge graph (*KG*) based on mapping assertions (*M*).
 - 2. **Ontology Evolution and Maintenance**:
-  - Update the healthcare ontology (*O*) to accommodate new concepts, terminology, and domain-specific knowledge.
-  - Ensure consistency between the ontology (*O*) and the integrated data in *KG*.
+- Update the healthcare ontology (*O*) to accommodate new concepts, terminology, and domain-specific knowledge.
+- Ensure consistency between the ontology (*O*) and the integrated data in *KG*.
 
-#### Quality Assurance:
+### Quality Assurance:
 
 - Validate healthcare data against domain-specific constraints (*DC*) to ensure data quality, accuracy, and compliance with standards.
 - Perform data cleaning, deduplication, and normalization to improve data quality and consistency.
 
-#### Analysis and Decision Support:
+### Analysis and Decision Support:
 
 Perform healthcare analytics using the knowledge graph (*KG*) to identify patient cohorts, predict outcomes, and recommend treatments.
 
 - Support clinical decision-making by providing insights derived from integrated healthcare data and knowledge.
 - 5. **Monitoring and Feedback**:
-  - Monitor performance and usage of the HKGE components.
-  - Collect feedback from healthcare professionals and researchers to improve HKGE effectiveness and usability.
+- Monitor performance and usage of the HKGE components.
+- Collect feedback from healthcare professionals and researchers to improve HKGE effectiveness and usability.
 - 6. **Optimization and Scaling**:
-  - Optimize the performance of the HKGE components to handle large-scale data and complex analytics tasks.
-  - Scale the system to integrate growing data volumes and user demands while maintaining efficiency and reliability.
+- Optimize the performance of the HKGE components to handle large-scale data and complex analytics tasks.
+- Scale the system to integrate growing data volumes and user demands while maintaining efficiency and reliability.
 
 Figure [3](#page-53-0) summarizes the life cycle and the dependencies between the six life cycle steps. As indicated in the figure, 1 and 2 should be executed before steps 3, 4, 5, and 6. Thus, the partial order between the life cycle steps enables the management and evolving of the different components of HKGE.
 
-#### Life Cycle Steps
+### Life Cycle Steps
 
 A *life cycle step*is defined as*lcs* = (*S,*⟨*P, Ro, C, Re, N*⟩), where *< Ro, P, C, Re, N >*comprises the contextual information that guides the execution of*lcs*over a knowledge graph ecosystem*KGE*.
 
@@ -1112,11 +1139,11 @@ The success of Knowledge Graphs in the real world is dependent on educating a wi
 
 In order to define what we mean by knowledge work, the group started by sharing the themes of what we consider to be part of knowledge work through our experience. Afterwards, we brainstormed themes that we believe should be part of knowledge work but for which we lack expertise. Furthermore, the knowledge work is independent of any specific technology such as knowledge graphs.
 
-#### 5.3.2 State of the Art
+### 5.3.2 State of the Art
 
 We present the known themes of knowledge work categorized as social and technical.
 
-#### Social
+### Social
 
 The common social themes for knowledge work are the following:
 **Building Consensus.**Strive to build consensus towards shared goals by bridging and integrating how different stakeholders think about a domain by embracing differences.
@@ -1124,7 +1151,7 @@ The common social themes for knowledge work are the following:
 **Methodologies.**Leverage methodologies and frameworks in order to acquire knowledge and create ontologies in a systematic manner using competency questions, etc.
 **People Skills.**Communicate with stakeholders of different profiles and backgrounds, which may involve interviews, storytelling, etc.
 
-#### Technical
+### Technical
 
 The common technical themes for knowledge work are the following:
 **Metadata Management.**Create and manage metadata about data assets to search and find relevant assets; define provenance in order to support upstream and downstream applications.
@@ -1133,11 +1160,12 @@ The common technical themes for knowledge work are the following:
 **Computational modalities.**Understand the expressive power of knowledge representation languages.
 **Knowledge Construction.**Build knowledge graphs from unstructured (text), semi-structured (csv, json) and structured data (SQL) following different methodologies.
 
-#### 5.3.3 Current Challenges/Open Research Questions
+### 5.3.3 Current Challenges/Open Research Questions
 
 The current challenges are the unknown themes of knowledge work, which we also categorized by social and technical.
 
-#### Social
+### Social
+
 **Motivation.**Even though knowledge engineering has been a field for many decades, it is still not prominent in enterprises and academic curricula. One can argue that the field has not been able to convince a broad audience of the value. There is a need to understand how to explain the value and what are the consequences of not doing the knowledge work appropriately. Another argument can focus on the maturity and adaptability of the field, prompting the demand for a practical guideline for knowledge engineering. Another aspect to consider is what is the right metaphor for knowledge to help motivate? For example, in data the common metaphors are pipeline and architecture.
 **Politics of Knowledge.**Knowledge of an organization exists within tools and the people who use them. Knowledge may be used as a means to retain power and its value as an organizational asset/capital is often underestimated. Governing and managing knowledge dynamics and sharing becomes of utmost importance: including knowledge as a "first class citizen" in organizational processes means taking care of personal and group behavior, people motivation, change management, continuous stakeholder engagement. If we are to make knowledge a first class citizen, this means that a paradigm shift is required, thus change is imminent. Thus the areas of change management and stakeholder management become a core, especially in organizations where roles are cross-functional and dynamic. Within this core, understanding behaviors and incentives (personal, professional, etc.) becomes key.
 **Emerging Methodologies.**Traditional knowledge engineering methodologies have been designed for a world where there is small data, less complex organizations and technology. We must learn how to adapt and extend methodologies to the scenarios of today. For example, how do we key an eye on blind spots, how do we incorporate concepts of product management, how to deal with our own view vs authoritative, how do we acquire knowledge in a cross-cultural/multilingual environment.
@@ -1146,6 +1174,7 @@ The current challenges are the unknown themes of knowledge work, which we also c
 **Bridge Across Different Disciplines**Knowledge work has been well-studied outside of Computer Science in disciplines such as Library and Information Science, Management Information Systems (MIS) among others. It is critical to bridge these disciplines and define a common nomenclature.
 
 ## Technical
+
 **Advances in Computational Linguistics**Advances such as Large Language Models (LLMs) and Generative, AI have the potential to impact knowledge engineering. This is an open area of research where we need to understand where and how an LLM can be used, and even if it is the right thing to do? Where do they fit? Where do they not fit? Are there special types of LLMs that need to be trained? How should knowledge engineering tools be designed with LLMs?
 **Migration from legacy to modern**Legacy tools that contain and manage knowledge, such as wikis, may be prevalent in an organization. How do we bridge and migrate legacy tools to modern tools? When is it necessary, beneficial or redundant to do so?
 **Nuances in Technology**Knowledge work involves people, process and technology. Therefore there may be a lot of nuances on what technology should be used for certain people and processes.
@@ -1160,7 +1189,7 @@ The key requirement we focused on to move forward is the need for educational ma
 - Upper bachelors (elective)
 - Graduate (advanced)
 
-#### Enterprise
+### Enterprise
 
 - People with IT/CS background
 - Decision makers / middle management
@@ -1222,6 +1251,7 @@ This core content is the following, centered around the concept of Knowledge in 
 As an exercise, our group came up with several book pitches that resemble the opportunities for context on knowledge work. We believe that this will inspire not only ourselves but a wider community to join forces in order to make knowledge work a first class citizen and work jointly on respective, modern textbooks and educational materials.
 
 ### Book Pitch 1
+
 *By Aidan Hogan, Axel Polleres, Christophe Debruyne, and Eva Blomqvist*How do we make data and knowledge easier to use and process, both for humans and technology? Recognizing that most of the required expertise to answer this question is scattered across many disciplines and seminal works, this book aims at providing a holistic perspective for unleashing knowledge through data. While on the one hand, in organizations we collect and maintain digital traces of various aspects of what we "know", on the other hand many aspects of knowledge are inherently hard to capture. Along these lines, the present book covers the whole spectrum from data to knowledge:
 
 - Details a novel conceptual framework for data-centric knowledge management along with the principles and processes for putting it into practice
@@ -1230,9 +1260,9 @@ As an exercise, our group came up with several book pitches that resemble the op
 - Addresses the contemporary challenges faced by decision makers, engineers, and knowledge workers.
 - Illustrates aspects of data-centric knowledge management in practical scenarios.
 
-#### Book Pitch 2
+### Book Pitch 2
 
-####*By Samaneh Jozashoori and Juan Sequeda*## Embracing the Unknown: Igniting business transformation through Knowledge Engineering
+### *By Samaneh Jozashoori and Juan Sequeda*## Embracing the Unknown: Igniting business transformation through Knowledge Engineering
 
 In an age where organizations are drenched in data and seeking to embrace A.I., there may seem to be little to no concern about managing this wealth of information. "Embracing the Unknown" aims to shift your perspective, emphasizing the monumental potential and value that lies not just in data, but more importantly, in knowledge.
 
@@ -1250,19 +1280,20 @@ We invite you to navigate this enlightening journey with us to transform your or
 
 ### Book Pitch 3
 
-####*By Eva Blomqvist*In today's fast-changing society managing our knowledge is a challenge. But what is knowledge and how does it relate to data? And what is the connection to technology, tools and systems for managing knowledge? This book is the reference for both decision makers and engineers to understand knowledge and data, in the context of modeling and engineering knowledge. We start from the "why?" and end in concrete techniques and methods for putting knowledge into action. The book contains useful examples and concrete guidelines for knowledge practices. After reading the book you will have a cross-disciplinary understanding of knowledge and data, as well as concrete understanding of modern tools to start your own knowledge engineering processes.
+### *By Eva Blomqvist*In today's fast-changing society managing our knowledge is a challenge. But what is knowledge and how does it relate to data? And what is the connection to technology, tools and systems for managing knowledge? This book is the reference for both decision makers and engineers to understand knowledge and data, in the context of modeling and engineering knowledge. We start from the "why?" and end in concrete techniques and methods for putting knowledge into action. The book contains useful examples and concrete guidelines for knowledge practices. After reading the book you will have a cross-disciplinary understanding of knowledge and data, as well as concrete understanding of modern tools to start your own knowledge engineering processes.
 
-#### Book Pitch 4
+### Book Pitch 4
 
-####*By Paul Groth, Claudio Gutierrez, George Fletcher*This book provides a new foundational text for knowledge work, designed for all Computer Science and Data Science students. Just as statistics is a cornerstone of the field, the book situates knowledge work as an indispensable component of all forward-looking curricula. The textbook offers a unified view of knowledge work that is currently lacking in the discipline.
+### *By Paul Groth, Claudio Gutierrez, George Fletcher*This book provides a new foundational text for knowledge work, designed for all Computer Science and Data Science students. Just as statistics is a cornerstone of the field, the book situates knowledge work as an indispensable component of all forward-looking curricula. The textbook offers a unified view of knowledge work that is currently lacking in the discipline.
 
 What sets the book apart is the integration of both the social and technical aspects of knowledge into a single framework. Topics are cohesively integrated, drawing from the variety of disciplines and traditions which have studied knowledge work in isolation. The book puts forward a fresh perspective on knowledge work, one that sees it as a collaborative effort between humans and machines, focusing on consensus-making. It embraces the full potential of modern and emerging AI systems, and embodies a contemporary, multi-disciplinary approach to knowledge work with a focus on action and practice. Unlike traditional approaches, we prioritize empirical and qualitative methodologies, ensuring that students are equipped with the perspectives, tools, and insights needed to tackle real-world data and knowledge challenges head-on.
 
-#### Book Pitch 5
+### Book Pitch 5
 
-####*By Ivo Velitchkov*How do we deal with data and knowledge in a data-dominated world populated with knowledge workers? Can we rely on mainstream data management? Or do we expect that AI will take care of it? There is a need for a new kind of knowledge literacy to reduce data waste, bring knowledge center-stage and put it into action. That is what this book does. It goes below and beyond trends and technologies to bring a fundamental understanding of how knowledge needs to be managed within and between organizations. In a world where technologies and applications capture all the attention, this book reverts the focus. Now, knowledge is what matters, and technologies and applications are there to serve it.
+### *By Ivo Velitchkov*How do we deal with data and knowledge in a data-dominated world populated with knowledge workers? Can we rely on mainstream data management? Or do we expect that AI will take care of it? There is a need for a new kind of knowledge literacy to reduce data waste, bring knowledge center-stage and put it into action. That is what this book does. It goes below and beyond trends and technologies to bring a fundamental understanding of how knowledge needs to be managed within and between organizations. In a world where technologies and applications capture all the attention, this book reverts the focus. Now, knowledge is what matters, and technologies and applications are there to serve it.
 
 ## <span id="page-64-0"></span>5.4 Project Management for Knowledge Graph Construction and Usage
+
 *Oscar Corcho (Universidad Politécnica de Madrid – Madrid, ES)) Coen De Roover (VU – Brussels, BE) Paco Nathan (Derwen – Sebastopol, US) Souripriya Das (Oracle Corp. – Nashua, US) Eduard Kamburjan (University of Oslo, NO) Martin Giese (University of Oslo, NO) Marina Aguado (European Union Agency for Railways, FR) David Chaves-Fraga (Universidade de Santiago de Compostela, ES) Carlos Buil-Aranda (TU Federico Santa María – Valparaíso, CL) Wouter Beek (Triply BV, NL)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Oscar Corcho, Coen De Roover, Paco Nathan, Souripriya Das, Eduard Kamburjan, Martin Giese,](#page-64-0) [Marina Aguado, David Chaves-Fraga, Carlos Buil-Aranda, Wouter Beek](#page-64-0)
@@ -1284,7 +1315,7 @@ The following requirements/needs and pportunities served as a starting point for
 - Opportunity to provide continuous integration support, including the generation of tests.
 - Opportunity to ensure the separation of concerns across the different actors (subjectmatter experts, ontology engineers, KG engineers, software engineers)
 
-#### 5.4.2 Activities performed during the seminar
+### 5.4.2 Activities performed during the seminar
 
 During the reserved slots for this working group in the seminar, several activities were done, which led into the discussion items, conclusions and action points that are presented in the following sections. This section provides a summary of those activities:
 
@@ -1294,11 +1325,11 @@ The analysis allowed generating an initial set of dependencies among artefacts. 
 
 Additional work was done in relation to identifying some key differences between traditional application development and KG-based application development. For instance, one of the conclusions that was clear was that in KG-based applications there is much business logic that is done in the SPARQL queries that are evaluated against the knowledge graph instead of in the code itself, as it happens with traditional software engineering.
 
-#### 5.4.3 Next steps
+### 5.4.3 Next steps
 
 Several action points were identified as next steps for the members of the group, and are currently ongoing at the time of writing this report.
 
-#### Creation of template project specification files for KG-based application projects
+### Creation of template project specification files for KG-based application projects
 
 One of the needs that was identified was related to the fact that there are no template project specification files for typical KG-based application projects. These types of files are common in other software engineering projects, and useful to establish a template of all the artefacts used in the project and the structure of the project itsefl.
 
@@ -1306,11 +1337,11 @@ These files can be made available using Gradle, Conda or giter8, among others.
 
 One of the actions identified for this group was the creation of such template specification files for these types of project, covering at least the coarse-grained dependencies among artefacts used. This project specification file may be used later by those tools that will calculate fine-grained dependencies
 
-#### Identification of fine-grained dependencies
+### Identification of fine-grained dependencies
 
 Based on the literature available on ontology changes, it was proposed to have an action point related to the identification of the types of changes in the different artefacts used during knowledge graph creation and knowledge-graph application development which may have a cascading impact into other artefacts.
 
-#### David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, and Maria-Esther Vidal 67
+### David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, and Maria-Esther Vidal 67
 
 As a result of this activity, a map of dependencies among artefacts used in these projects can be proposed. Normally, this may normally start with the change in an ontology (e.g., add/delete/rename class C, add/delete subclass C1, add/delete subproperty P1, add/delete/remove P, add deprecated class C), although it may be also derived from changes in other artefacts.
 
@@ -1327,7 +1358,7 @@ GRAPH ?g {
 
 The OPTIONAL clause may be used for detecting coverage problems (classes defined in the ontology that are not covered in mappings, or viceversa).
 
-#### Organising a workshop
+### Organising a workshop
 
 One of the action points derived from the working group was the organisation of a workshop for the following International Semantic Web Conference (ISWC2024), with the objective of bringing together practitioners in knowledge graph creation, and collecting experiences from them. The workshop has been accepted for ISWC2024, with the title Software Lifecycle Management for Knowledge Graphs Workshop (SofLiM4KG). Next we provide the current text for the call for contributions:
 
@@ -1352,6 +1383,7 @@ The topics of the workshop can be summarised as:
 ## <span id="page-67-0"></span>6 Emerging Discussions
 
 ## <span id="page-67-1"></span>6.1 Knowledge Management and Knowledge Graphs
+
 *Axel Polleres (WU Vienna, Austria, axel.polleres@wu.ac.at) Irene Celino (Cefriel, Italy, irene.celino@cefriel.com)*
 
 **License**[Creative Commons BY 4.0 International](https://creativecommons.org/licenses/by/4.0/) license © [Axel Polleres, Irene Celino](#page-67-1)
@@ -1380,7 +1412,6 @@ In conclusion, this seminar stands as a pivotal gathering that convened research
 
 Given the advent of generative AI and its demonstrated benefits when integrated with intricate data structures such as knowledge graphs, ensuring readiness across all facets of knowledge graph implementation is paramount. The convergence of knowledge graphs with emerging technologies presents novel avenues for advancing knowledge representation, reasoning, and applications. Our discussions underscored the significance of robust quality assessment mechanisms and stressed the importance of integrating human expertise and feedback loops throughout the knowledge graph lifecycle. From an educational standpoint, it is imperative for experts to disseminate their knowledge through educational programs tailored to different levels of learning and professional training. However, standardizing competencies across all levels is essential to ensure a uniform understanding of fundamental concepts among potential knowledge graph practitioners.
 
-<span id="page-69-0"></span>
 
 Marina Aguado European Union Agency for Railways – Valenciennes, FR Wouter Beek Triply B.V. – Bussum, NL Eva Blomqvist Linköping University, SE Piero Andrea Bonatti University of Naples, IT Carlos Buil-Aranda Thuban Technology Services – Madrid, ES Cinzia Cappiello Polytechnic University of Milan, IT Irene Celino CEFRIEL – Milan, IT Pierre-Antoine Champin INRIA – Sophia Antipolis, FR David Chaves-Fraga Universidade de Santiago de Compostela, ES Oscar Corcho Universidad Politécnica de Madrid, ES Souripriya Das Oracle Corp. – Nashua, US Coen De Roover VU – Brussels, BE Christophe Debruyne University of Liège, BE
 

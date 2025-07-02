@@ -72,7 +72,7 @@ Starting from the second trimester, the formation of neural tube (neurulation) a
 
 1 Inserm, U1077, EPHE, UNICAEN, Normandie Université, PSL Université Paris, CHU de Caen, GIP Cyceron, Neuropsychologie et Imagerie de la Mémoire Humaine (NIMH), Caen, France. <sup>2</sup> Université Clermont Auvergne, LAPSCO, CNRS, UMR 6024, Clermont-Ferrand, France. <sup>3</sup> Service de Psychiatrie de l'enfant et de l'adolescent, CHU de Caen, Caen, France. e-mail: [thomas.hinault@inserm.fr](mailto:thomas.hinault@inserm.fr)
 
-# <span id="page-1-0"></span>Box 1 | Different measures for different temporal aspects
+## <span id="page-1-0"></span>Box 1 | Different measures for different temporal aspects
 
 A wide array of tasks and questionnaires assessing different aspects of the subjective experience of time passing have been accumulated over the last 50 years. Overall, it could be measured in laboratory settings through retrospective (in which the participant is unaware that a temporal estimation must be made) or prospective paradigms (in which the participant knows that a temporal estimation is required[\)299,300](#page-15-0). These two types of paradigms are respectively implemented in implicit (in which a temporal estimation is made, but the participant does not track the time unintentionally) or explicit timing tasks (in which the participant is consciously involved in the temporal estimation)[28](#page-8-0). However, a precise taxonomy of these paradigms is lacking. We will provide here some examples of the most used ones (for an extensive review, see)[301.](#page-15-0)
 
@@ -88,7 +88,7 @@ ThePassage of Time Judgments(POTJ)[309](#page-15-0) are based on the subjective 
 
 Mental Time Travel is the ability to mentally reexperience past events (episodic autobiographical memory) and to imagine the future ones (episodic future thinking) of the order of weeks, months, and years[184](#page-12-0) and it is often assessed by autobiographical interviews (i.e., Autobiographical Recollection Test[310](#page-15-0)).
 
-# Box 2 | Neural Bases of temporal processing: a ground of debate
+## Box 2 | Neural Bases of temporal processing: a ground of debate
 
 The processing of temporal information in the brain elicits a core of regions which vary according to the task paradigm, the duration intervals, and the sensory modalit[y311](#page-15-0).
 
@@ -107,7 +107,7 @@ The setting up of the cortico-striatal pathways at this stage, as a result of th
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
 <!-- Image Description: The figure is a line graph illustrating the developmental trajectory of several brain metrics across the lifespan. It plots the percentage of maximum value for mean cortical thickness, fractional anisotropy, grey matter volume, white matter volume, subcortical volume, and network integration/segregation against age, from mid-fetal life to aging. The graph shows distinct developmental patterns for each metric, highlighting different periods of growth and decline. The x-axis represents passage of time, categorized into developmental stages, while the y-axis represents the percentage of maximum value for each brain metric. The purpose is to visually represent the dynamic changes in brain structure and connectivity throughout life. -->
 
-Fig. 1 | Lifetime lines. Life-span trajectories of structural and functional development of the human brain paralleling the emergence of each of the four aspects of temporal processing. Created with Biorender.com.
+Figure 1 | Lifetime lines. Life-span trajectories of structural and functional development of the human brain paralleling the emergence of each of the four aspects of temporal processing. Created with Biorender.com.
 
 ![](_page_2_Figure_4.jpeg)
 <!-- Image Description: This image shows a series of lateral brain illustrations depicting age-related changes in cortical brain regions. Each illustration, labeled with an age range (15PCW-0 years, 0-3 years, etc.), displays different brain areas (e.g., prefrontal cortex, sensorimotor cortices) highlighted in color, illustrating their developmental progression and relative size changes across the lifespan. The purpose is to visually represent the structural brain development throughout life. -->
@@ -117,7 +117,7 @@ Fig. 1 | Lifetime lines. Life-span trajectories of structural and functional dev
 
 Created with Biorender.com. Brain templates have been reconstructed with Brainstorm software by Tadel et al. (2011)[294](#page-15-0) leveraging on Li et al. (2015)[295;](#page-15-0) Shi et al. (2011)[296](#page-15-0); Fonov et al. (2009[\)297;](#page-15-0) Dong et al. (2020)[298](#page-15-0).
 
-# <span id="page-3-0"></span>Box 3 | Deviations from the neurotypical development
+## <span id="page-3-0"></span>Box 3 | Deviations from the neurotypical development
 
 The evidence that temporal processing is an emerging function of the brain, is reflected by the presence of abnormal temporal performances in neurodevelopmental disorders. Among the different neurodevelopmental conditions, we can present as examples the autism spectrum disorder(ASD), dyslexia, and the Attention Deficit/Hyperactivity Disorder (ADHD).
 
@@ -129,7 +129,7 @@ Time processing disruptions have also demonstrated to be the earliest and specif
 
 Abnormal temporal estimations have also been reported in dyslexia: children with specific troubles in reading and learning indeed demonstrated to segregate spatiotemporal perceptual units of information at a slower rate than the control grou[p350,](#page-16-0) likely due to an inefficient phaselocking at one or more temporal rates in processing speech strea[m351](#page-16-0), (but see ref. [352](#page-16-0) for a review). Nevertheless, a greater variability of performances in children with dyslexia could even be observed both in explicit and implicit temporal bisection task with non-speech stimul[i353.](#page-16-0)
 
-# Box 4 | Deviations from healthy aging
+## Box 4 | Deviations from healthy aging
 
 Neuropathological aging is marked by degeneration processes of the large-scale brain networks and the underlying structure affecting cognition, behavior, and motion. Among these symptoms, alterations of the subjective experience of time have been observed in several neurodegenerative syndromes (for a revie[w354,355](#page-16-0)).
 
@@ -173,7 +173,7 @@ The development of the ability to infer other people's internal states (Theory o
 
 Furthermore, the specialization of the motor pathways, led children to further improve their motor rhythm (e.g., dance, walk and run smoothly). Despite the varying results across studies, the overall of results is that the spontaneous motor tempo is faster (at about 300–400 ms)[123](#page-11-0) and especially more variable at this ag[e124,125](#page-11-0). Also, the ability to synchronize movements to external rhythms (e.g., group dance, singing[\)126,127](#page-11-0) is reflected by a better control in slowing down their pace and a greater tapping regularity from eight years ol[d86](#page-10-0). The perception of rhythms and short intervals is fundamental for children at this stage for the beginning of sport activities, as they involve waiting, movements coordination and manipulating moving objects. (e.g., football, baseball, or tennis). Furthermore, time discrimination and number processing is proved to underpin advanced numerical and temporal concepts, as well as aspects of higher order cognitio[n128.](#page-11-0)
 
-#### Middle and Late Childhood (6–10 years old) – school years
+### Middle and Late Childhood (6–10 years old) – school years
 
 From a morphological point of view, cortical gray matter volume increase until ten years old, and it is then followed by a linear cortical thinning increasing with age, primarily in parieto-temporal area[s129](#page-11-0) likely reflecting the synaptic pruning[130.](#page-11-0) At the same time, frontal gray matter was observed to grow with increasing ag[e131](#page-11-0). These changes are mirrored at a microstructural level, both by global and regional white matter volume expansion[132,133,](#page-11-0) and increased myelination rate. This augmented speed in axonal conductivity supports an improved information transmission between structurally connected and jointly activated regions, resulting in an enhanced communication betweenfunctional network[s71,](#page-9-0)[134](#page-11-0). At afunctional level, EEG studies in healthy five to eight years old children showed that RSNs, such as the DMN, dorso-attentional, cingulo-opercular, ventral and FPN are well formed, but still show an indistinct pattern of activity compared to adolescents[135](#page-11-0). In late childhood (that is, from six years old to the onset of puberty), the network topology of the brain is reshaped to be more efficient and stronger, with an increase in both local and global efficiency with a specific decrease of connections between adjacent regions (segregation[\)136.](#page-11-0) Indeed, although still not completely efficient, there is an improved working memor[y137,](#page-11-0) executive control of attention[138](#page-11-0)–[140](#page-11-0) and processing spee[d141.](#page-11-0)
 
@@ -183,7 +183,7 @@ These dynamic maturational changes on the structural and functional substrates o
 
 In addition, the higher precision in timing abilities reached at this stage is not only crucial for mastering many gross and fine motor skills, but also for estimating the time elapsed since the last event, and the time ahead until the next event. The development of a temporal organization of the events is pivotal to establish connections between past, present and future, therefore structuring our temporal reasoning and logic links, for instance, the concept that physical causes precede effects[8](#page-8-0) . Moreover, the acquisition of calendar's landmarks, which requires a good representation of the sequence of months over the whole year and a constant update in memor[y157](#page-11-0) contribute to orientate in time and to project themselves into the future, therefore helping the construction of a coherent narration of the self [158.](#page-11-0)
 
-#### Adolescence (10–19 years old) – high school - college
+### Adolescence (10–19 years old) – high school - college
 
 Adolescent's brain structure shows higher white matter and lower gray matter volume in the frontal and parietal cortices compared to younger children (i.e., nine years old)[159](#page-11-0). In prefrontal and parietal cortices, gray matter volume peaks around at age 1[2160](#page-11-0) whereas the one of the temporal lobes continue to expand until 17 years old[161.](#page-12-0) Of note, a steep acceleration in gray matter loss and a considerable white matter increase have been observed in the dorsal prefrontal and orbitofrontal cortex, back over to the posterior parietal region[s162.](#page-12-0) In parallel, the increase of myelinatio[n163](#page-12-0) is considered to support the improvement of speed of processing documented throughout adolescenc[e164](#page-12-0).
 
@@ -197,7 +197,7 @@ Findings of passage of time in adolescent are scarce too[31,](#page-8-0)[182](#p
 
 The adolescence could be considered as a sensitive period during which endogenous (i.e., the brain development) and exogenous factors interact dynamically. Indeed, alcohol and drugs abuse, the exposure to negative life experiences, substance abuse and/or low parental education, increase the vulnerability from adolescents aged 11 to 16 years old onward, to unfold neuropsychiatric conditions, like moo[d194,195](#page-12-0), personality and/or psychotic disorder[s143,](#page-11-0)[196](#page-12-0) which are known to alter the subjective experience of time (for a revie[w2](#page-8-0) ).
 
-#### Adulthood (19–60 years old)
+### Adulthood (19–60 years old)
 
 The maturation during adult age is characterized by a significant acceleration of frontal and striatal gray matter los[s188,197](#page-12-0)–[199](#page-12-0). The caudate and putamen reach 90% of their development after 25 years of age[200](#page-13-0). The pallidum and the cerebellum instead show an inverted U-shape, starting their gray matter volume shrinking after 25 years ol[d201](#page-13-0). On the contrary, myelination of most prefrontal-striatal pathway[s202,203,](#page-13-0) notably cortico-spinal tracts, continue later throughout adulthood (i.e., 28 years old)[204](#page-13-0). Although less markedly, the myelination of thalamus nuclei, caudate and putamen, has been ascertained to increase between 18 and 41 years old[205](#page-13-0), and to remain stable until sixty years ol[d206.](#page-13-0)
 
@@ -209,7 +209,7 @@ Furthermore, improved processing speed, a larger working memory storage and enha
 
 Further longitudinal studies on every aspect of temporal processing from late childhood throughout adulthood remain necessary to outline the characteristics of knowledge about time and metacognition of time, and their impact at different levels of temporal information processing (e.g., attention, memory, decision[\)114,](#page-10-0)[219](#page-13-0), and the interweaving with several timescales (i.e., minutes and days).
 
-#### Towards aging (>60 years old)
+### Towards aging (>60 years old)
 
 After the fifth decade of life, the earliest macrostructural changes consist in gray matter atrophy of prefrontal[220](#page-13-0) superior frontal and insular cortice[s221](#page-13-0)–[224.](#page-13-0) Although non-linearly, gray matter volume changes also occur in subcortical structures, such as hippocampu[s225](#page-13-0) cerebellu[m226](#page-13-0) and striatu[m227.](#page-13-0) On the other hand, white matter total volume declines steadily after 60 years ol[d228](#page-13-0) and alterations of white matter microstructure follow a posterior to anterior gradient in tracts traversing motor and sensory cortice[s229](#page-13-0) mirroring the rate of demyelinatio[n230,231](#page-13-0). This has been associated with the slow-down of processing speed of information usually observed in healthy agin[g232,233.](#page-13-0) The degradation of structural pathways is deemed to involve a reorganization of the functional connectivit[y234,235](#page-13-0), which becomes more random and less complex[236](#page-13-0). Indeed, brain networks in aging shows more functional integration and less segregatio[n237](#page-13-0), notably between FPN and DMN, leading to less efficiency[238](#page-13-0). Altogether, these structural and functional changes occurring in healthy agin[g239](#page-13-0),[240,](#page-13-0) notably affecting the fronto-striatal pathways[241](#page-13-0)[,242,](#page-14-0) lead to the impairment of executive control function[s243,](#page-14-0) although differently across individual[s244,245.](#page-14-0)
 

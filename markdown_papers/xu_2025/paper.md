@@ -105,7 +105,7 @@ Multi-modal data fusion techniques have a wide-range of applications, and existi
 
 Besides the data fusion methods mentioned above, some existing studies have made use of knowledge graph in the data fusion. And there is no review of this work, so this paper provides a systematic review of knowledge graph-based data fusion.
 
-#### 2.2 Knowledge graph
+### 2.2 Knowledge graph
 
 KG is a collection of multiple fact triples, each of which consists of a head entity, a relation and a tail entity. Each fact triple denotes an objective fact, e.g.-*Battle of Chosin Reservior, genre, war film*describes the fact that the genre of the movie "Battle of Chosin Reservior" is a war film. Because of KG's efficient feedback capability, extreme expressiveness and reuse flexibility, it has been successfully applied to many fields, such as urban traffic analysis [\[69,](#page-21-4) [143\]](#page-24-7), natural language understanding [\[88](#page-22-8), [136](#page-23-5)], RS [\[94](#page-22-9), [98\]](#page-22-10) and Q&A [\[118](#page-23-6), [129](#page-23-7)].
 
@@ -163,11 +163,11 @@ Besides textual data and numerical data, image data, audio data and video data a
 ![](_page_5_Figure_8.jpeg)
 <!-- Image Description: This flowchart depicts a multi-layered data fusion architecture. The bottom layer processes temporal, POI, spatial transfer, and spatial location data using LSTM and 2D-CNN autoencoders. The middle layer integrates these using a POITrans module. The top layer fuses the results with knowledge graph (KG) data via attention and average fusion mechanisms, finally employing linear transformations and concatenation. The diagram illustrates the data flow and processing steps within the model. -->
 
-<span id="page-5-1"></span>**Fig. 4**Example of numerical data fusion based on knowledge graph [\[69\]](#page-21-4)
+<span id="page-5-1"></span>**Figure 4**Example of numerical data fusion based on knowledge graph [\[69\]](#page-21-4)
 
 is oriented to the fusion of hybrid data. The main approach of this category of methods is to represent or structure each type of data first, and then the processed multiple data are formed into a reasonable knowledge triplet and learned.
 
-##*Example 3*Multi-modal knowledge graph extraction [\[55](#page-21-17)].
+## *Example 3*Multi-modal knowledge graph extraction [\[55](#page-21-17)].
 
 For representing and querying an increasing number of publications, Kannan et al. demonstrated a method capable of extracting knowledge graph from data of different modalities (i.e., text, model image and source code), as shown in Fig. [5.](#page-6-0) The method is able to represent multi-modal information using knowledge graph and can query this information. We summarize the framework into three layers: data layer, data analysis layer and data fusion layer. The data layer involves the summary and introduction of the publication (text), the model architecture diagram (image), and the reference code implementation (code). In the data analysis layer, knowledge is mined from the text, graph and code, and the corresponding knowledge graphs are constructed, respectively. Specifically, knowledge is mined from the text using named entity recognition and relation extraction techniques. For model architecture graph, graph representation is constructed by text/symbol segmentation, recognition and structure analysis. For code, the architectural information of the model (e.g., layer type, activation function and optimizer, etc.) is extracted and a static call graph of the code is constructed by using ontology and vocabulary. At the data fusion layer, local alignment is first achieved by finding similar entities across modalities and later concatenating them together, and then global alignment is achieved by using additional knowledge graph (i.e., computer science ontology) to enhance the entity alignment. This approach enables the fusion of hybrid data through knowledge mining and entity alignment techniques.
 
@@ -178,30 +178,29 @@ For data type, most of the studies analyze hybrid data and the rest analyze text
 ![](_page_6_Figure_8.jpeg)
 <!-- Image Description: This flowchart illustrates a multimodal knowledge graph construction process. It shows three data sources (text, image, code) processed via individual modules (TextToGraph, ImageToGraph, CodeToGraph) to create respective knowledge graphs. These are then locally and globally aligned to produce a final multimodal knowledge graph, integrating information from all three input types. The diagram depicts data flow and processing stages, clarifying the system's architecture. -->
 
-<span id="page-6-0"></span>**Fig. 5**Example of hybrid data fusion based on knowledge graph [\[55](#page-21-17)]
+<span id="page-6-0"></span>**Figure 5**Example of hybrid data fusion based on knowledge graph [\[55](#page-21-17)]
 
-<span id="page-7-0"></span>
 
-| Summary of<br>Table 1  | Data+Data fusion works      |                                       |                                               |                                    |
+| Summary of<br>Table 1 | Data+Data fusion works | | | |
 |------------------------|-----------------------------|---------------------------------------|-----------------------------------------------|------------------------------------|
-| Model                  | Data type                   | Data analysis                         | Data fusion                                   | Verification/Application           |
-| DKN [109]              | Textual data                | Knowledge distillation<br>CNN and     | Attention and Concat                          | News recommendation                |
-| NPA [122]              | Textual data                | Word embedding<br>CNN and             | Attention and Dot                             | News recommendation                |
-| NAML [121]             | Textual data                | Word embedding<br>CNN and             | Attention and Dot                             | News recommendation                |
-| NRMS [123]             | Textual data                | Word embedding<br>CNN and             | Attention and Dot                             | News recommendation                |
-| Hierarchical KG [154]  | Textual data                | Knowledge distillation                | Knowledge fusion<br>[116]                     | Socioeconomic indicator prediction |
-| RFP-KMN [69]           | Numeric data                | LSTM and CNN                          | Attention, Concat<br>and Average              | Traffic flow prediction            |
-| KG-Trans [21]          | Numeric data                | feature engineering<br>GCN and        | KG Construction<br>and Embeadding             | Travel destination prediction      |
-| Multi-modal KG [55]    | Textual, Image and Code     | DL, NER and RE                        | Graph alignment                               | Paper2Graph                        |
-| Multi-modal KG [149]   | Textual and Image           | VGG-16 [100]<br>and Bert [25]         | MLP                                           | COVID-19 diagnosis                 |
-| Seeing is knowing [92] | Textual and Image           | KGE and LSTM                          | Attention and MLP                             | Visual Q&A                         |
-| KB system [156]        | Textual, Image and Metadata | Structural                            | Rule-based                                    | Visual query                       |
-| CUImage [89]           | Textual, Image and URL      | GCN and CNN                           | Label propagation                             | Image recognition                  |
-| Multi-modal KG [128]   | Textual and Image           | NER and Component analysis            | Entity alignment                              | Oracle bone study                  |
-| KDTCN [23]             | Textual and Numeric         | KGE and Mapping                       | Concat and TCN                                | Stock trend prediction             |
-| MKRLN [106]            | Textual and Image           | Metapath2Vec<br>VGG [100]<br>[29] and | single-layer neural network<br>and a softmax  | Explainable recommendation         |
-| MultiJAF [20]          | Textual and Image           | Neural network                        | Attention-based multi-modal<br>fusion network | Entity alignment                   |
-| HRGAT [65]             | Textual, Image and Numeric  | Bert [25] and<br>VGG [100]            | Low-rank multi-modal<br>fusion [73]           | KGC                                |
+| Model | Data type | Data analysis | Data fusion | Verification/Application |
+| DKN [109] | Textual data | Knowledge distillation<br>CNN and | Attention and Concat | News recommendation |
+| NPA [122] | Textual data | Word embedding<br>CNN and | Attention and Dot | News recommendation |
+| NAML [121] | Textual data | Word embedding<br>CNN and | Attention and Dot | News recommendation |
+| NRMS [123] | Textual data | Word embedding<br>CNN and | Attention and Dot | News recommendation |
+| Hierarchical KG [154] | Textual data | Knowledge distillation | Knowledge fusion<br>[116] | Socioeconomic indicator prediction |
+| RFP-KMN [69] | Numeric data | LSTM and CNN | Attention, Concat<br>and Average | Traffic flow prediction |
+| KG-Trans [21] | Numeric data | feature engineering<br>GCN and | KG Construction<br>and Embeadding | Travel destination prediction |
+| Multi-modal KG [55] | Textual, Image and Code | DL, NER and RE | Graph alignment | Paper2Graph |
+| Multi-modal KG [149] | Textual and Image | VGG-16 [100]<br>and Bert [25] | MLP | COVID-19 diagnosis |
+| Seeing is knowing [92] | Textual and Image | KGE and LSTM | Attention and MLP | Visual Q&A |
+| KB system [156] | Textual, Image and Metadata | Structural | Rule-based | Visual query |
+| CUImage [89] | Textual, Image and URL | GCN and CNN | Label propagation | Image recognition |
+| Multi-modal KG [128] | Textual and Image | NER and Component analysis | Entity alignment | Oracle bone study |
+| KDTCN [23] | Textual and Numeric | KGE and Mapping | Concat and TCN | Stock trend prediction |
+| MKRLN [106] | Textual and Image | Metapath2Vec<br>VGG [100]<br>[29] and | single-layer neural network<br>and a softmax | Explainable recommendation |
+| MultiJAF [20] | Textual and Image | Neural network | Attention-based multi-modal<br>fusion network | Entity alignment |
+| HRGAT [65] | Textual, Image and Numeric | Bert [25] and<br>VGG [100] | Low-rank multi-modal<br>fusion [73] | KGC |
 
 the works use dot product or Concat fusion combined with attention mechanism to accomplish, and some works build neural network as fusion network to achieve data fusion, and some works adopt common approaches such as rule-based, entity alignment and label propagation. From the applications of existing works, it is clear that the fusion of*Data*+*Data*plays a very critical role in RS, urban computing, COVID-19 diagnosis and Q&A system.
 
@@ -215,7 +214,7 @@ Lots of recommendation algorithms rely on knowledge graph to more accurately ana
 ![](_page_8_Figure_9.jpeg)
 <!-- Image Description: This flowchart illustrates a multi-layered approach to data fusion and analysis. The bottom layer integrates user-item interaction data with an item-related knowledge graph. The middle layer processes this combined data using collaborative filtering, matrix factorization, path reasoning, and regularization methods. The top layer employs data fusion techniques (concatenation, averaging, attention mechanisms, and collaborative joint learning) to integrate heterogeneous knowledge. The final output is a unified representation incorporating various data sources and analysis methods. -->
 
-<span id="page-8-0"></span>**Fig. 6**The general framework of*Data*+*K G*fusion
+<span id="page-8-0"></span>**Figure 6**The general framework of*Data*+*K G*fusion
 
 improve the quality of recommendation system and proposed collaborative knowledge base embedding (CKBE) approach to jointly learn the potential representations of users and potential representations of items in collaborative filtering. As shown in Fig. [7,](#page-9-0) the approach is summarized in three layers: data layer, data analysis layer and data fusion layer.
 
@@ -227,12 +226,12 @@ The data layer contains two types of data, i.e., raw data and knowledge graph. T
 ![](_page_9_Figure_7.jpeg)
 <!-- Image Description: This diagram illustrates a collaborative filtering system architecture. It depicts three layers: a data layer showing user-item interactions and knowledge graphs (structural, textual, visual); a data analysis layer generating item offset, structural, textual, and visual vectors; and a data fusion layer combining these vectors via collaborative joint learning to produce user and item latent vectors. The system leverages multi-modal data (structural, textual, visual) for improved recommendation accuracy. -->
 
-<span id="page-9-0"></span>**Fig. 7** Example 1 of raw data and knowledge graph fusion method [\[138](#page-24-11)]
+<span id="page-9-0"></span>**Figure 7** Example 1 of raw data and knowledge graph fusion method [\[138](#page-24-11)]
 
 ![](_page_10_Figure_2.jpeg)
 <!-- Image Description: This image depicts a system architecture for recommendation. The bottom layer shows a heterogeneous knowledge graph representing user-item interactions. The middle layer illustrates a TransR model, visualizing entity and relation spaces and their interactions. The top layer details a data fusion process using attentive embedding propagation for user and item vectors, culminating in a concatenation and inner product. The diagram's purpose is to illustrate the technical flow and components of the proposed recommendation model. -->
 
-<span id="page-10-0"></span>**Fig. 8**Example 2 of raw data and knowledge graph fusion method [\[115](#page-23-18)]
+<span id="page-10-0"></span>**Figure 8**Example 2 of raw data and knowledge graph fusion method [\[115](#page-23-18)]
 
 method achieves the fusion of raw data and knowledge graph by analyzing the paths of heterogeneous knowledge graph.
 
@@ -242,23 +241,23 @@ For data analysis, knowledge graph embedding techniques such as the classical Tr
 
 ## 3.3 The fusion of*KG+KG*The fusion of*K G*+*K G*is essentially the fusion of multiple knowledge graphs, i.e., different knowledge graphs are fused into a unified form [\[146](#page-24-12)]. The typical tasks are entity alignment and knowledge graph complement. It achieves knowledge graph complement by fusing other knowledge into the existing knowledge graph through techniques such as knowledge graph embedding. This process enables the fusion of knowledge. Figure [9](#page-12-0) shows the general framework of the*K G*+*K G*fusion method, including data layer, data analysis layer and data fusion layer.
 
-| Data type                              | Data analysis                                  | Data fusion                                | Verification/Application      |
+| Data type | Data analysis | Data fusion | Verification/Application |
 |----------------------------------------|------------------------------------------------|--------------------------------------------|-------------------------------|
-| Interaction data and<br>Multiple KGs   | Auto-encoder<br>TransR and                     | Collaborative filtering<br>Concat and      | Recommender system            |
-| Heterogeneous KG                       | TransR                                         | Inner product<br>Concat and                | Recommender system            |
-| Heterogeneous KG                       | Hyperplane-based Translation                   | Joint learning via TransH                  | Recommender system            |
-| Heterogeneous KG                       | Path-based and RNN                             | Max pooling and<br>Dense layer             | Recommender system            |
-| Heterogeneous KG<br>Textual, Image and | ResNet50 [42],<br>Word2Vec [76]<br>and SIF [4] | Attention and Propagation                  | Recommender system            |
-| Textual, Image<br>and KG               | Auto-encoder and TransE                        | Concat and CNN                             | Knowledge representation      |
-| Textual, Image<br>and KG               | Bidirectional GRUs and<br>VGG [100]            | Tense layer                                | KGC                           |
-| Interaction data<br>and KG             | GCN                                            | Concat and Pooling                         | Recommender system            |
-| Textual, Image<br>and KG               | Path-based and DNN                             | Concat and CNN                             | Sequential recommendation     |
-| Textual, Image<br>and KG               | Path-based and DNN                             | Feature propagation<br>and Concat          | recommendation<br>Trust-aware |
-| Textual and KG                         | NER and RE                                     | Entity linking<br>and Concat               | Q&A system                    |
-| Image and KG                           | GCN and ResNet                                 | Knowledge infusion                         | Socioeconomic prediction      |
-| Textual and KG                         | Bert and Multi-attention                       | Adaptive fusion based<br>on gate mechanism | Temporal Q&A system           |
-| Textual and KG                         | GCN                                            | Temporal convolution                       | Equipment fault diagnosis     |
-|                                        |                                                |                                            |                               |
+| Interaction data and<br>Multiple KGs | Auto-encoder<br>TransR and | Collaborative filtering<br>Concat and | Recommender system |
+| Heterogeneous KG | TransR | Inner product<br>Concat and | Recommender system |
+| Heterogeneous KG | Hyperplane-based Translation | Joint learning via TransH | Recommender system |
+| Heterogeneous KG | Path-based and RNN | Max pooling and<br>Dense layer | Recommender system |
+| Heterogeneous KG<br>Textual, Image and | ResNet50 [42],<br>Word2Vec [76]<br>and SIF [4] | Attention and Propagation | Recommender system |
+| Textual, Image<br>and KG | Auto-encoder and TransE | Concat and CNN | Knowledge representation |
+| Textual, Image<br>and KG | Bidirectional GRUs and<br>VGG [100] | Tense layer | KGC |
+| Interaction data<br>and KG | GCN | Concat and Pooling | Recommender system |
+| Textual, Image<br>and KG | Path-based and DNN | Concat and CNN | Sequential recommendation |
+| Textual, Image<br>and KG | Path-based and DNN | Feature propagation<br>and Concat | recommendation<br>Trust-aware |
+| Textual and KG | NER and RE | Entity linking<br>and Concat | Q&A system |
+| Image and KG | GCN and ResNet | Knowledge infusion | Socioeconomic prediction |
+| Textual and KG | Bert and Multi-attention | Adaptive fusion based<br>on gate mechanism | Temporal Q&A system |
+| Textual and KG | GCN | Temporal convolution | Equipment fault diagnosis |
+| | | | |
 
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image shows a poorly rendered equation fragment: "2 Sum of Data KG + KG fusio". It's unclear without more context, but it likely represents a summation involving data values in kilograms (KG) related to a fusion process. The illegibility hinders a precise interpretation of the equation's purpose within the paper. It may represent a calculation of total mass, energy, or some other relevant fusion parameter. -->
@@ -277,12 +276,12 @@ The data layer contains three diverse knowledge graphs, which are music knowledg
 ![](_page_12_Figure_7.jpeg)
 <!-- Image Description: The figure presents a multi-layered architecture for knowledge graph fusion. The bottom layer shows multiple input knowledge graphs. The "Data Analysis" layer employs rule-based and path reasoning methods, along with knowledge graph embedding and graph neural networks. The "Data Fusion" layer integrates these using entity and relation alignment, ontology matching, and information chiasma. The final output is a unified knowledge graph, depicted as a combined network. The diagram illustrates the process of integrating multiple knowledge sources. -->
 
-<span id="page-12-0"></span>**Fig. 9**The general framework of*K G*+*K G* fusion
+<span id="page-12-0"></span>**Figure 9**The general framework of*K G*+*K G* fusion
 
 ![](_page_13_Figure_2.jpeg)
 <!-- Image Description: This image depicts a cross-domain knowledge graph fusion framework. The bottom layer shows three cross-domain knowledge graphs (Music, Movie, Fiction). The middle layer illustrates TransE, a knowledge graph embedding model, visualizing head (h), relation (r), and tail (t) entities. The top layer shows data fusion using a convolutional neural network, incorporating homo- and hetero-domain chiasmas to achieve entity/relation alignment via average fusion. The diagram illustrates the architecture's data flow and processing steps. -->
 
-<span id="page-13-0"></span>**Fig. 10**Example 1 of knowledge graph fusion method [\[68](#page-21-23)]
+<span id="page-13-0"></span>**Figure 10**Example 1 of knowledge graph fusion method [\[68](#page-21-23)]
 
 embedding method, it is used to learn the initial embedding of each of the three knowledge graphs in the data analysis layer. This not only speeds up the convergence of the proposed method, but also improves the performance of the embedding. In the data fusion layer, the average fusion method is first applied to fuse the multiple initialized embeddings of entities/relations. The reason for this is because entities/relations existing in multiple knowledge graphs at the same time generate multiple embeddings after initializing the embedding, while only one embedding representation is actually needed for the same entity/relation. Then, the knowledge triples in the same domain and the knowledge triples in different domains are cross-interacted by embedding cut and embedding interaction, respectively. Finally, a CNN is constructed to learn these interacted knowledge triples to achieve the purpose of collaborative learning of multiple knowledge graphs. The multiple knowledge graphs learned by this method can then be reasonably fused. This method achieves the fusion of multiple knowledge graphs based on the knowledge graph embedding method.
 *Example 2* **Relation-aware alignment** [\[157](#page-24-13)]. Entity alignment is an important step to achieve knowledge fusion by associating entities with the same meaning in different knowledge graphs. Entity alignment and relation alignment are two related tasks of knowledge fusion. Zhu et al. designed a relational-aware neighborhood matching model for entity alignment to achieve knowledge fusion in two knowledge graphs. The model considers the connection relationship between adjacent entities, and it contains important information for both neighborhood matching and entity alignment. The model is summarized into three layers: data layer, data analysis layer and data fusion layer, as shown in Fig. [11.](#page-14-0)
@@ -292,7 +291,7 @@ The data layer contains two generic knowledge graphs and some auxiliary informat
 ![](_page_14_Figure_2.jpeg)
 <!-- Image Description: The image depicts a multi-layer framework for knowledge graph alignment. The bottom layer shows two knowledge graphs (KG1, KG2) and auxiliary data. A graph convolutional network (GCN) with TransE-like regularization generates entity and relation embeddings. These embeddings feed into entity and relation alignment processes, followed by entity-aware and relation-aware matching. The overall process aims to fuse data from multiple knowledge graphs. -->
 
-<span id="page-14-0"></span>**Fig. 11**Example 2 of knowledge graph fusion method [\[157](#page-24-13)]
+<span id="page-14-0"></span>**Figure 11**Example 2 of knowledge graph fusion method [\[157](#page-24-13)]
 
 In the data analysis layer, a GCN with a TransE-like regularizer is used to jointly learn the embeddings of entities and relations. The aim is to embed two knowledge graphs into a shared latent space. Further, augmented embeddings of entities and relations are performed using seed entity pairs. For entity embedding, seed alignments are used as training data and a margin-based loss function is defined for learning. For relations, embedding is performed by connecting the embedding of head and tail entities as the embedding of relations and using TransE for learning. In the data fusion layer, the distance matrix is utilized for the association and fusion of two knowledge graphs.*D<sup>e</sup>*and*D<sup>r</sup>*denote the distance matrices of entities and relations from the knowledge graph*G*<sup>1</sup> to *G*2, respectively. First, the distance matrices *D<sup>e</sup>*and*D<sup>r</sup>*are learned using relation-aware neighbor matching and entityaware matching, respectively. Then, the alignment ranking or generation of alignment sets of entities and relations are learned by*D<sup>e</sup>*and*Dr*.
 
@@ -300,18 +299,17 @@ Table [3](#page-15-0) summarizes the recent part of the existing *K G*+*K G*fusi
 
 However, the existing*K G*+*K G* fusion techniques are more than only as shown in Table [3.](#page-15-0) Although knowledge graph fusion has not yet formed a unified theoretical system, the key techniques for knowledge fusion, such as entity alignment, entity disambiguation, and knowledge representation, have been extensively studied in both industry and academia [\[146\]](#page-24-12). Nguyen et al. summarized techniques that can be applied to fuse multiple knowledge graphs, including tensor factorization-based methods, embeddingbased methods, entity disambigation-based methods and probabilistic-based methods [\[81](#page-22-26)]. Tensor factorization-based
 
-<span id="page-15-0"></span>
 
-| Summary of<br>Table 3                | K G+K G fusion works            |                                    |                                    |                            |
+| Summary of<br>Table 3 | K G+K G fusion works | | | |
 |--------------------------------------|---------------------------------|------------------------------------|------------------------------------|----------------------------|
-| Model                                | Data type                       | Data analysis                      | Data fusion                        | Verification/Application   |
-| CDKG-CE [68]                         | Multiple KGs                    | TransE and<br>CNN                  | Embedding cut<br>and chiasm        | Cross-domain recommender   |
-| RNM [157]                            | Seed entity and<br>Multiple KGs | GCN and<br>TransE                  | Entity and relation alignment      | Entity alignment           |
-| Knowledge vault [28]                 | Multiple KGs                    | RE                                 | Binary classifier                  | KG construction            |
-| [152]<br>semantic fusion<br>KG-based | Multiple KGs                    | GCN                                | Mutual Information<br>Maximization | Conversational recommender |
-| KAGNN [47]                           | Multiple KGs                    | TransE and GCN                     | Manhattan distance<br>Concat and   | Entity alignment           |
-| MR-GAT [131]                         | Multiple KGs                    | Graph attention                    | Manhattan distance<br>Concat and   | Enterprise system          |
-| DFMKE [155]                          | Multiple KGs                    | and graph embedding<br>GCN, ResNet | Multi-linear computing             | Entity alignment           |
+| Model | Data type | Data analysis | Data fusion | Verification/Application |
+| CDKG-CE [68] | Multiple KGs | TransE and<br>CNN | Embedding cut<br>and chiasm | Cross-domain recommender |
+| RNM [157] | Seed entity and<br>Multiple KGs | GCN and<br>TransE | Entity and relation alignment | Entity alignment |
+| Knowledge vault [28] | Multiple KGs | RE | Binary classifier | KG construction |
+| [152]<br>semantic fusion<br>KG-based | Multiple KGs | GCN | Mutual Information<br>Maximization | Conversational recommender |
+| KAGNN [47] | Multiple KGs | TransE and GCN | Manhattan distance<br>Concat and | Entity alignment |
+| MR-GAT [131] | Multiple KGs | Graph attention | Manhattan distance<br>Concat and | Enterprise system |
+| DFMKE [155] | Multiple KGs | and graph embedding<br>GCN, ResNet | Multi-linear computing | Entity alignment |
 
 method represents the knowledge graph as a binary tensor model and learns the correlation between two entities in the knowledge graph by tensor factorization. Kazemi et al. proposed a simple enhancement of a typical multivariate decomposition in the first tensor factorization method that allows to learn independently the two embeddings of each entity [\[56\]](#page-21-25). The embedding-based approach learns the semantic representation of entities and relations by building a fractional function to measure the plausibility of triples in the embedding space and analyzes the associative relations between entities. Nickel et al. designed holographic embedding to learn the combinatorial vector space representation of the entire knowledge graph, which captures rich interactions by using correlation as a combinatorial operator [\[83](#page-22-27)]. The entity disambigation-based approach achieves knowledge fusion by identifying two entities that correspond to the same real-world entity in multiple knowledge graphs to remove duplicate information. Zhou et al. used multimodal graph convolution to aggregate visual and contextual linguistic information for accurate entity disambiguation of short texts [\[153](#page-24-16)]. Probabilistic-based approach analyzes the plausibility and accuracy of knowledge triples or entities by probabilistic models such as path ranking [\[61\]](#page-21-12) and multilayer perceptron (MLP). This category of methods replaces neural inference with a probabilistic framework, i.e., probabilistic models are built to infer answer, where logical rule is designed as feature in the probabilistic model, called symboldriven probabilistic inference. In symbol-driven probabilistic reasoning for knowledge graph, probabilistic model was built and the rationality of entities was recommended by analyzing the logical rule [\[141](#page-24-17)]. The details of knowledge graph fusion techniques can be read in the paper [\[81](#page-22-26)].
 
@@ -386,6 +384,7 @@ In future research, several key directions are first explored in depth, includin
 **Availability of Data**My manuscript has no associated data.
 
 ## Declarations
+
 **Conflicts of Interest**The authors declare that they have no conflict of interest.
 
 ## References

@@ -28,11 +28,11 @@ tags:
 
 Yuhang Xu [,](https://orcid.org/0000-0003-3253-2493) Yan Lyu, Guangwei Xiong, Shuyu Wang, Weiwei Wu [,](https://orcid.org/0000-0001-9172-6955) *Member, IEEE*, Helei Cui, *Member, IEEE*, and Junzhou Luo, *Member, IEEE*
 
-*Abstract*- Accurately predicting Origin-Destination (OD) passenger flow can help metro service quality and efficiency. Existing works have focused on predicting incoming and outgoing flows for individual stations, while little attention was paid to OD prediction in metro systems. The challenges are that OD flows 1) have high temporal dynamics and complex spatial correlations, 2) are affected by external factors, and 3) have sparse and incomplete data slices. In this paper, we propose an Adaptive Feature Fusion Network (AFFN) to a) adaptively fuse spatial dependencies from multiple knowledge-based graphs and even hidden correlations between stations and b) accurately capture the periodic patterns of passenger flows based on the auto-learned impact from external factors. To deal with the incompleteness and sparsity of OD matrices, we extend AFFN to multi-task AFFN to predict the inflow and outflow of each station as a side-task to further improve OD prediction accuracy. We conducted extensive experiments on two real-world metro trip datasets collected in Nanjing and Xi'an, China. Evaluation results show that our AFFN and multi-task AFFN outperform the state-of-theart baseline techniques and AFFN variants in various accuracy metrics, demonstrating the effectiveness of AFFN and each of its key components in OD prediction.
+**Abstract:**  Accurately predicting Origin-Destination (OD) passenger flow can help metro service quality and efficiency. Existing works have focused on predicting incoming and outgoing flows for individual stations, while little attention was paid to OD prediction in metro systems. The challenges are that OD flows 1) have high temporal dynamics and complex spatial correlations, 2) are affected by external factors, and 3) have sparse and incomplete data slices. In this paper, we propose an Adaptive Feature Fusion Network (AFFN) to a) adaptively fuse spatial dependencies from multiple knowledge-based graphs and even hidden correlations between stations and b) accurately capture the periodic patterns of passenger flows based on the auto-learned impact from external factors. To deal with the incompleteness and sparsity of OD matrices, we extend AFFN to multi-task AFFN to predict the inflow and outflow of each station as a side-task to further improve OD prediction accuracy. We conducted extensive experiments on two real-world metro trip datasets collected in Nanjing and Xi'an, China. Evaluation results show that our AFFN and multi-task AFFN outperform the state-of-theart baseline techniques and AFFN variants in various accuracy metrics, demonstrating the effectiveness of AFFN and each of its key components in OD prediction.
 
-*Index Terms*- Metro system, origin-destination flow prediction, adaptive feature fusion, multi-task.
+**Index Terms:**  Metro system, origin-destination flow prediction, adaptive feature fusion, multi-task.
 
-#### I. INTRODUCTION
+### I. INTRODUCTION
 
 METRO is one of the most popular and efficient transportation in metropolitan cities. More than 50% commuters chose metro as their daily transportation in most cities. In Tokyo, New York, and Hong Kong, the proportion
 
@@ -61,11 +61,11 @@ In summary, our contributions are:
 
 The rest of this paper is organized as follows: Section [II](#page-1-0) discusses related work, Section [III](#page-3-0) introduces key concepts and formally defines prediction problems. Section [IV](#page-4-0) proposes our adaptive feature fusion network, and we extend it to multi-task AFFN in Section [V.](#page-7-0) We present evaluation in Section [VI](#page-8-0) and conclude this paper in Section [VII.](#page-13-16)
 
-#### II. RELATED WORK
+### II. RELATED WORK
 
 In this section, we discuss related works and techniques in travel demand estimation and passenger flow prediction.
 
-#### *A. Demand Estimation*
+### *A. Demand Estimation*
 
 Passenger flow or travel demand is the aggregation of individual trips made during a reference period [\[22\], w](#page-14-5)hich is an essential task in public transportation planning and operation [\[23\], \[](#page-14-6)[24\]. I](#page-14-7)n the early stage of demand estimation, the travel data is usually collected through survey campaigns, and therefore the data collection cost is relatively high. The primary objective of researchers is to accurately determine the demand for passengers for a particular mode of transport. As summarized in [\[25\],](#page-14-8) passenger demand estimation can be achieved through direct, dis-aggregated, and aggregate estimation approaches.
 
@@ -77,7 +77,7 @@ Passenger flow or travel demand is the aggregation of individual trips made duri
 
 Generally, the more data the survey collects, the more accurate the passenger demand estimation will be. However, in most real cases, we cannot obtain a large amount of data effectively with a limited survey budget. Due to the limited data volume and model representational capability, demand estimation methods can hardly meet the requirement for accurate realtime prediction of passenger flows in large-scale metro systems.
 
-#### *B. Passenger Flow Prediction*
+### *B. Passenger Flow Prediction*
 
 With the generalization of the Automatic Fare Collection (AFC) systems and electronic sensors (such as loop detectors and video surveillance), passenger travel data can be obtained automatically and efficiently in real time [\[41\]. W](#page-14-24)ith the availability of vast amounts of historical and realtime travel data, researchers tend to pay more attention to discovering hidden patterns in the observed data and predicting future passenger demand. Predicting the OD flow in metro systems is a typical spatial-temporal prediction problem. In this section, we will discuss existing prediction techniques for modeling temporal and spatial-temporal dependencies in predicting traffic states or human movements, and how these techniques integrate periodic patterns, external factors, and other correlated tasks.
 
@@ -93,22 +93,22 @@ External factors such as weather conditions [\[67\], a](#page-15-2)ir quality [\
 
 TABLE I
 
-| KEY MATHEMATICAL NOTATIONS |  |
+| KEY MATHEMATICAL NOTATIONS | |
 |----------------------------|--|
 |----------------------------|--|
 
-| Notation                             | Description                                    |
+| Notation | Description |
 |--------------------------------------|------------------------------------------------|
-| i, j                                 | Index of station.                              |
-| $\boldsymbol{n}$                     | Number of total stations.                      |
-| t                                    | Index of time step.                            |
-| $S_t$                                | IO matrix at time step $t$ .                   |
-| $T_t$                                | OD matrix at time step $t$ .                   |
-| $E_t$                                | External factors at time step $t$ .            |
-| q                                    | Number of time steps in a realtime OD/IO flow. |
-| $\boldsymbol{p}$                     | Number of days in a periodic OD/IO sequence.   |
-| $\mathcal{S} = \{S_1, \cdots, S_t\}$ | IO flow from time step 1 to $t$ .              |
-| $\mathcal{T} = \{T_1, \cdots, T_t\}$ | OD flow from time step 1 to $t$ .              |
+| i, j | Index of station. |
+| $\boldsymbol{n}$ | Number of total stations. |
+| t | Index of time step. |
+| $S_t$ | IO matrix at time step $t$ . |
+| $T_t$ | OD matrix at time step $t$ . |
+| $E_t$ | External factors at time step $t$ . |
+| q | Number of time steps in a realtime OD/IO flow. |
+| $\boldsymbol{p}$ | Number of days in a periodic OD/IO sequence. |
+| $\mathcal{S} = \{S_1, \cdots, S_t\}$ | IO flow from time step 1 to $t$ . |
+| $\mathcal{T} = \{T_1, \cdots, T_t\}$ | OD flow from time step 1 to $t$ . |
 
 also have an impact on human flows. A naive way is to concatenate those factors directly with input data flows [\[8\], \[](#page-13-7)[18\],](#page-14-1) [\[70\],](#page-15-5) [\[71\] f](#page-15-6)or further spatial-temporal representation learning, which would introduce more noises in modeling spatial or temporal dependencies. Another common way is to concatenate the embedded factors with the encoded spatial-temporal features at the last step to make a prediction [\[9\], \[](#page-13-8)[17\],](#page-14-0) [\[21\], \[](#page-14-4)[55\],](#page-14-38) [\[68\]. T](#page-15-3)his way does not explicitly model the implicit correlations between historical data flow and its corresponding external factors.
 
@@ -116,16 +116,16 @@ Unlike existing methods that consider periodic and external factors separately, 
 
 *4) Integrating Other Tasks:* Multi-task learning has been proven effective in improving the performance of all tasks as long as the tasks are strongly correlated [\[72\]. T](#page-15-7)here have been works that apply multi-task learning to mutually predict the inflow and outflow of passengers [\[73\], \[](#page-15-8)[74\], t](#page-15-9)ravel demands of multiple transportation modes [\[75\], t](#page-15-10)axi demands of multiple city zones [\[76\],](#page-15-11) as well as bus arrivals and the passenger getting on and off flows [\[77\]. T](#page-15-12)o predict the citywide OD flow, inflow and outflow predictions have been used as side tasks in [\[17\] a](#page-14-0)nd [\[78\] f](#page-15-13)or taxi systems, as the inflow is actually a sum of the OD flows to all destinations, and the outflow equals the sum of OD flows from all origins. These two multi-task networks are symmetric in that both the OD prediction task and IO prediction task share the same input and network architecture. Instead, we adopt an asymmetric multitask architecture, considering different prediction difficulties and a focused objective-OD prediction. We use a shared encoder that takes IO flow as input and learns supplementary features across the two tasks to support OD flow prediction.
 
-#### III. PROBLEM FORMULATION
+### III. PROBLEM FORMULATION
 
 This section presents the key concepts and formally defines Origin-Destination flow prediction problems. Essential mathematical notations used in this paper are listed in Table [I.](#page-3-1)
 
 ![](_page_3_Figure_10.jpeg)
 <!-- Image Description: Figure 10 from page 3 of the paper, showing content related to the research topic. -->
 
-Fig. 1. Example of OD flow, IO matrix, and OD matrix. (a) illustrates an example of origin-destination flow between 5 metro stations at time step *t*. Blue dotted arrows indicate the number of OD trips starting at their origins and arriving at their destinations within one time step. (b) shows the corresponding IO matrix (left) and OD matrix (right). In OD matrix, the first 5 columns record passenger counts traveling to each of the 5 destination stations (in red). The last 5 columns record passenger counts traveling from each of the 5 origin stations (in blue). IO matrix sums up the first 5 columns of OD matrix along each row as the inflow in its first column, and sums up the last 5 columns of OD matrix along each row as the outflow in its second column.
+Figure 1. Example of OD flow, IO matrix, and OD matrix. (a) illustrates an example of origin-destination flow between 5 metro stations at time step *t*. Blue dotted arrows indicate the number of OD trips starting at their origins and arriving at their destinations within one time step. (b) shows the corresponding IO matrix (left) and OD matrix (right). In OD matrix, the first 5 columns record passenger counts traveling to each of the 5 destination stations (in red). The last 5 columns record passenger counts traveling from each of the 5 origin stations (in blue). IO matrix sums up the first 5 columns of OD matrix along each row as the inflow in its first column, and sums up the last 5 columns of OD matrix along each row as the outflow in its second column.
 
-#### *A. Key Concepts*
+### *A. Key Concepts*
 
 *1) Trip:* A trip records a passenger starts at an origin metro station *o* within *t o* -th time step and arrives at a destination station *d* within *t d* -th time step. We denote a trip by a quadruple ⟨*o*, *d*, *t o* , *t d* ⟩.
 
@@ -135,7 +135,7 @@ Fig. 1. Example of OD flow, IO matrix, and OD matrix. (a) illustrates an example
 
 *4) External Factors:* Environmental factors, including weather conditions and air quality, affect commuters' choices of transportation modes and thus affect both IO flow and OD flow of metro systems [\[45\], \[](#page-14-28)[61\],](#page-14-44) [\[68\]. A](#page-15-3) pouring rain may lead commuters to change or cancel their travel plans, thus affecting the distribution of metro ridership [\[79\]. M](#page-15-14)eanwhile, cold weather and heavily polluted air impede passengers' occasional travels [\[68\]. I](#page-15-3)n addition, both IO flow and OD flow show different spatial and temporal patterns for holidays, weekends, and working days [\[6\], \[](#page-13-5)[80\]. T](#page-15-15)herefore, we consider the four external factors - weather conditions, air quality, holidays, and days of the week - in predicting OD flows.
 
-#### *B. Problem Definition*
+### *B. Problem Definition*
 
 Given the historical OD flow, IO flow, and external factors, we aim to predict the OD matrix in the next time step. Formally,
 
@@ -152,13 +152,13 @@ Since IO flow equals the sum of OD flows from all destination stations (inflow) 
 $$
 [\hat{T}_t, \hat{S}_t] = f(\mathcal{T}_{t-1}, \mathcal{S}_{t-1}, \mathcal{E}_{t-1}).
 $$
- (2)
+(2)
 
 ## IV. ADAPTIVE FEATURE FUSION NETWORK FOR OD PREDICTION
 
 In this section, we propose an Adaptive Feature Fusion Network (AFFN) (see Fig. [2\(a\)\)](#page-5-0) to predict Origin-Destination passenger flow between metro stations. AFFN firstly takes a realtime OD flow from time step *t* − *q* to *t* − 1, i.e., {*Tt*−*<sup>q</sup>* , *Tt*−*q*+1, · · · , *Tt*−1}, as input and predicts an OD matrix estimation *T* ′ *t* at time step *t* with enhanced multi-graph convolution gated recurrent units (Section [IV-A\)](#page-4-1). Then a sequence of periodic OD matrices at the same time step *t* in the past days are integrated with external factors such as weather conditions and day of the week to calibrate the estimation *T* ′ *<sup>t</sup>* with an attention-based module (Section [IV-B\)](#page-6-0). Finally, a gating unit is used to output the final prediction *T*ˆ *t* . In the following, we will describe the details of predicting realtime OD flow and integrating periodic and external factors.
 
-#### *A. OD Prediction With Realtime Data Flow*
+### *A. OD Prediction With Realtime Data Flow*
 
 We first introduce our basic model to predict the OD matrix at time step *t* only with the observed OD flow from time step *t*−*q* to *t*−1. Given a sequence of past OD matrices, predicting the OD matrix is a typical spatial-temporal prediction problem, in which each entry of the OD matrix (namely, passenger count from a specific origin station to a specific destination station) does not only depends on past passenger counts but also neighboring stations. While we can use sequence models such as GRU [\[52\] to](#page-14-35) capture temporal dependencies, we still need to model the complex spatial correlations between stations.
 
@@ -177,7 +177,7 @@ Functional Similarity Graph *G <sup>f</sup>* models the similarities between sta
 ![](_page_5_Figure_2.jpeg)
 <!-- Image Description: Figure 2 from page 5 of the paper, showing content related to the research topic. -->
 
-Fig. 2. Adaptive Feature Fusion Network (AFFN) Architecture for OD Prediction. (a) AFFN takes the realtime OD flow {*Tt*−*<sup>q</sup>* , *Tt*−*q*+1, · · · , *Tt*−1} as input, encodes it with multiple knowledge-based graphs and attention-based graph within EMGC-GRU, and outputs an estimation *T* ′ *t* at time step *t* with a decoder called OD Predictor. *T* ′ *t* is then concatenated with periodic OD matrices {*Tt*−*p*∗η, · · · , *Tt*−2η, *Tt*−η} and weighted by attentions learned from corresponding external factors {*Et*−*p*∗η, · · · , *<sup>E</sup>t*−η, *<sup>E</sup>t*}. A gating unit is used to output the final prediction *<sup>T</sup>*<sup>ˆ</sup> *t* . (b) Enhanced Multi-Graph Convolution GRU (EMGC-GRU) integrates the five knowledge-based graphs with a relation graph convolution (RGCN) and graph attention module (GAT) within two GRU units, respectively. The two hidden states *H* R *k* and *H* A *k* at time step *k*, (*t* −*q* <= *k* <= *t* −1), are fused by a fully connected (FC) network and output an enhanced representation *Hk* .
+Figure 2. Adaptive Feature Fusion Network (AFFN) Architecture for OD Prediction. (a) AFFN takes the realtime OD flow {*Tt*−*<sup>q</sup>* , *Tt*−*q*+1, · · · , *Tt*−1} as input, encodes it with multiple knowledge-based graphs and attention-based graph within EMGC-GRU, and outputs an estimation *T* ′ *t* at time step *t* with a decoder called OD Predictor. *T* ′ *t* is then concatenated with periodic OD matrices {*Tt*−*p*∗η, · · · , *Tt*−2η, *Tt*−η} and weighted by attentions learned from corresponding external factors {*Et*−*p*∗η, · · · , *<sup>E</sup>t*−η, *<sup>E</sup>t*}. A gating unit is used to output the final prediction *<sup>T</sup>*<sup>ˆ</sup> *t* . (b) Enhanced Multi-Graph Convolution GRU (EMGC-GRU) integrates the five knowledge-based graphs with a relation graph convolution (RGCN) and graph attention module (GAT) within two GRU units, respectively. The two hidden states *H* R *k* and *H* A *k* at time step *k*, (*t* −*q* <= *k* <= *t* −1), are fused by a fully connected (FC) network and output an enhanced representation *Hk* .
 
 with a radius of 2 km [\[81\]. T](#page-15-16)he function similarity between stations *i* and *j*, denoted by *W <sup>f</sup>* (*i*, *j*), is calculated by cosine similarity [\[82\] o](#page-15-17)f the two POI count vectors *P*(*i*) and *P*(*j*). Namely, *W <sup>f</sup>* (*i*, *j*) = *P*(*i*)·*P*(*j*)/||*P*(*i*)||||*P*(*j*)||. We calculate function similarity for each pair of stations as the weight on each edge of the graph *G <sup>f</sup>* .
 
@@ -220,7 +220,7 @@ where *T<sup>k</sup>* is the input OD matrix at time step *k*, *U<sup>r</sup>* ,
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 6 of the paper, showing content related to the research topic. -->
 
-Fig. 3. The number of OD trips per hour between two popular metro stations from April 1 to May 10, 2014, in Nanjing. (a) visualizes the number of trips for all 40 days, and we can see obvious periodic patterns in days and weeks. (b) plots the number of trips in each hour of eight days, and we can see that the day-to-day OD flows are almost repetitive. (c) plots the number of trips in every morning hour (8:00 - 9:00), we can see the periodic data flow fluctuates randomly, and external factors *Weekends* (green) and *Holidays* (red), have a significant impact on the number of trips.
+Figure 3. The number of OD trips per hour between two popular metro stations from April 1 to May 10, 2014, in Nanjing. (a) visualizes the number of trips for all 40 days, and we can see obvious periodic patterns in days and weeks. (b) plots the number of trips in each hour of eight days, and we can see that the day-to-day OD flows are almost repetitive. (c) plots the number of trips in every morning hour (8:00 - 9:00), we can see the periodic data flow fluctuates randomly, and external factors *Weekends* (green) and *Holidays* (red), have a significant impact on the number of trips.
 
 an enhanced hidden feature representation calculated by Eq. [5](#page-6-1) at previous time step *k* − 1.
 
@@ -238,14 +238,14 @@ Fig. [2 \(b\)](#page-5-0) demonstrates how the features from knowledgebased grap
 
 *4) Prediction Network Architecture:* We construct two layers of EMGC-GRU units as the encoder (see Fig. [2\(a\),](#page-5-0) bottom) and employ a GCN as the decoder to output the initial prediction *T* ′ *t* (see OD Predictor in Fig. [2\(a\)\)](#page-5-0). The first layer sequentially takes OD matrix *T<sup>k</sup>* at each time step *k*, *t* − *q* <= *k* <= *t* − 1, as input, and its output hidden state is then fed into the second layer for a higher level feature learning. We stacked only two layers of EMGC-GRU to avoid over-smoothing and keep a low computational complexity. The decoder GCN decodes the hidden feature *Ht*−<sup>1</sup> of time step *t* − 1 into an initial prediction *T* ′ *t* , which will be further calibrated with periodic OD flow and external factors in the next section.
 
-#### *B. Integrating Periodic OD Flow and External Factors*
+### *B. Integrating Periodic OD Flow and External Factors*
 
 OD flows usually have very obvious periodic patterns, such as morning or evening peak hours(see Fig. [3\(a\)\)](#page-6-2). Fig. [3\(b\)](#page-6-2) further plots the number of OD trips per hour over eight days, and we can see OD flows are almost repetitive each day. Such a periodic pattern can help improve prediction accuracy. Existing works [\[17\], \[](#page-14-0)[20\], \[](#page-14-3)[21\], \[](#page-14-4)[61\] u](#page-14-44)sually explicitly extract periodic data flows such as OD matrices at the same time of past days and directly feed them into a sub-network to predict the OD matrix of the same time in the next day. However, the network for processing realtime OD flow may not work well for periodic data as it may not have clear monotonic trends or patterns. For example, we can see the number of OD trips fluctuates a lot randomly every morning in Fig. [3\(c\).](#page-6-2)
 
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 7 of the paper, showing content related to the research topic. -->
 
-Fig. 4. External Factor-based Attention Module. Periodic external factors *Et*−*p*∗η, · · · , *Et*−η, *E<sup>t</sup>* are firstly embedded for a more dense representation, then similarities between each external factor in past *p* days to the current external factor are calculated by a fully connected layer *U*(·, ·). The SoftMaxnormalized similarities are then applied to corresponding OD matrix in the same day. Finally, the weighted periodic OD matrices are aggregated with a 1 x 1 convolution layer into a single OD matrix prediction *T* ′′ *t* .
+Figure 4. External Factor-based Attention Module. Periodic external factors *Et*−*p*∗η, · · · , *Et*−η, *E<sup>t</sup>* are firstly embedded for a more dense representation, then similarities between each external factor in past *p* days to the current external factor are calculated by a fully connected layer *U*(·, ·). The SoftMaxnormalized similarities are then applied to corresponding OD matrix in the same day. Finally, the weighted periodic OD matrices are aggregated with a 1 x 1 convolution layer into a single OD matrix prediction *T* ′′ *t* .
 
 Such irregular fluctuations impede the prediction accuracy. Fortunately, we also observe that those fluctuations are usually affected by external factors, such as weekends, holidays, and weather conditions. For example, in Fig. [3\(c\),](#page-6-2) we found that the numbers of OD trips at the same time are close to each other on weekends and are slightly smaller on holidays. This motivates us to integrate external factors with periodic OD matrices to improve the prediction accuracy.
 
@@ -266,9 +266,9 @@ where *U<sup>e</sup>* are shared embedding parameters, mapping raw external fact
 $$
 \hat{T}_t = \beta * T'_t + (1 - \beta) * T''_t.
 $$
- (7)
+(7)
 
-#### *C. Loss Function*
+### *C. Loss Function*
 
 We define a loss function to minimize the error between the predicted OD matrix *T*ˆ *<sup>t</sup>* at time step *t* and the ground truth *T<sup>t</sup>* . Metro operators usually need to pay more attention to the OD pairs with high traffic volume. To train a network focusing on those OD pairs, we add a mask, denoted by 2od, with a threshold of θod to the loss function, i.e.,
 
@@ -278,16 +278,16 @@ $$
 
 where φ is a set of all the trainable parameters, 2od is a 0-1 matrix that masks on each entry in *T<sup>t</sup>* that is smaller than threshold θod. When *j* ∈ [1, *n*], *i* and *j* denote the indices of origin and destination stations in the OD matrix, respectively, and when *j* ∈ [*n*+1, 2*n*], *j* −*n* and *i* denote the indices of the origin and destination stations, respectively (see Fig. [1\(b\)\)](#page-3-2).
 
-#### V. MULTI-TASK NETWORK FOR MUTUAL PREDICTION
+### V. MULTI-TASK NETWORK FOR MUTUAL PREDICTION
 
 After integrating the periodic pattern and external factors with realtime OD prediction, it is still challenging to achieve a high prediction accuracy for two main reasons: 1) Sparse OD matrix. The OD matrix of the Xi'an metro system with a total of 160 stations only has a density of 13.27%, namely, only 13.27% of OD pairs have non-zero passenger flow. 2) Incomplete data. Passengers usually have long trips that may span multiple time steps. We can only get the full origin-destination information when passengers swipe cards at their destination station, but we cannot know the destinations of the passengers yet on their journey. Hence, the realtime OD matrix lacks unfinished trips. In contrast, IO flow is much more dense and complete and has been proven easy to predict with relatively high accuracy [\[17\]. G](#page-14-0)iven that IO matrix is actually a summation of OD matrix over each origin station and destination station, respectively, (see Fig. [1\(b\)\)](#page-3-2), we hypothesize that a network that can accurately predict IO flow can also help OD prediction. Therefore, we propose a multi-task network to predict IO and OD flow mutually.
 
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 8 of the paper, showing content related to the research topic. -->
 
-Fig. 5. Multi-Task Adaptive Feature Fusion Network. The network consists of two AFFNs for IO prediction (Left) and OD prediction (Right) tasks. The task-shared Co-IO Encoder takes the realtime IO flow as input but outputs task-shared features for both IO Predictor and OD Predictor. The two tasks also share the attention weights learned from the same external factors.
+Figure 5. Multi-Task Adaptive Feature Fusion Network. The network consists of two AFFNs for IO prediction (Left) and OD prediction (Right) tasks. The task-shared Co-IO Encoder takes the realtime IO flow as input but outputs task-shared features for both IO Predictor and OD Predictor. The two tasks also share the attention weights learned from the same external factors.
 
-#### *A. Multi-Task Network Architecture*
+### *A. Multi-Task Network Architecture*
 
 Fig. [5](#page-8-1) depicts the architecture of our multi-task network. The network consists of two Adaptive Feature Fusion networks (AFFNs) for IO prediction (Left) and OD prediction (Right) tasks, respectively. Similar to single task OD prediction in Fig. [2\(a\),](#page-5-0) each AFFN component firstly takes realtime IO (or OD) matrix sequence as input and learns a task-independent feature representation with our Enhanced multi-graph convolution GRU layers (EMGC-GRU), denoted by IO Encoder or OD Encoder. IO Predictor (or OD Predictor) with a single GCN layer decodes the representations to a prediction estimation *S* ′ *t* or *T* ′ *t* . Then the prediction estimation is calibrated with a sequence of periodic IO (or OD) matrices and external factors by an attention-based model and a gating unit. The network finally outputs the IO prediction *S*ˆ *<sup>t</sup>* and OD prediction *T*ˆ *t* .
 
@@ -304,12 +304,12 @@ $$
 $$
 \mathcal{L}_2 = \sum_{i=1}^n \sum_{j=1}^{2n} \Theta_{\text{od}}(i, j) \cdot |T_t(i, j) - \hat{T}_t(i, j)|,
 $$
- (9)
+(9)
 
 ![](_page_8_Figure_9.jpeg)
 <!-- Image Description: Figure 9 from page 8 of the paper, showing content related to the research topic. -->
 
-Fig. 6. The structures of metro systems in our experiments. (a) and (b) are full system in Xi'an and Nanjing, respectively, (c) and (d) are simple metro systems extracted from Nanjing.
+Figure 6. The structures of metro systems in our experiments. (a) and (b) are full system in Xi'an and Nanjing, respectively, (c) and (d) are simple metro systems extracted from Nanjing.
 
 where 2io and 2od are 0-1 matrices that mask on each entry in *S<sup>t</sup>* and *T<sup>t</sup>* that are smaller than thresholds θio and θod, respectively.
 
@@ -322,7 +322,7 @@ $$
 $$
 \mathcal{L}_4 = \sum_{i=1}^n |S_t(i, 2) - \sum_{j=n+1}^{2n} \hat{T}_t(i, j)|,
 $$
- (10)
+(10)
 
 The final loss function of our multi-task AFFN is to minimize the weighted sum of all the loss items, i.e.,
 
@@ -332,29 +332,29 @@ $$
 
 where λ1, λ<sup>2</sup> are weights of two task-independent losses, respectively, and λ<sup>3</sup> is a weight for cross-task losses.
 
-#### VI. EXPERIMENTS
+### VI. EXPERIMENTS
 
 We conducted experiments on two real-world metro datasets and compared our proposed prediction network with a set of baseline algorithms as well as our network variants with different components. In the following, we first present datasets, baseline algorithms, evaluation metrics, and implementation settings and then discuss experimental results.
 
-#### *A. Experiment Settings*
+### *A. Experiment Settings*
 
 *1) Datasets: Trip datasets*. We evaluated the performance of our model on two real-world metro trip datasets collected from two city-scale metro systems in Nanjing and Xi'an, China, respectively. Table [II](#page-9-0) summarizes the basic statistics of these two datasets. Passenger trips in each dataset are recorded by their tap-in and tap-out activities from the automated fare collection (AFC) system. Each full trip record contains the passenger's origin station ID, destination station ID, arrival time, and departure time. We count the number of passengers entering and exiting each station every 15 minutes as IO flow, and the number of passengers traveling between two stations every 15 minutes as OD flow.
 
 TABLE II STATISTICS OF METRO TRIP DATASETS IN NANJING AND XI'AN
 
-|                   | Nanjing                 | Xi'an                   |
+| | Nanjing | Xi'an |
 |-------------------|-------------------------|-------------------------|
-| # stations        | 55                      | 160                     |
-| $#$ lines         | 3                       | 7                       |
-| # physical tracks | 64                      | 164                     |
-| # daily trips     | 744,000                 | 1,186,450               |
-| # passengers      | 3,550,675               | 7,157,958               |
-| # days            | 100                     | 42                      |
-| time period       | 2014/04/01 - 2014/07/17 | 2020/12/01 - 2021/01/11 |
+| # stations | 55 | 160 |
+| $#$ lines | 3 | 7 |
+| # physical tracks | 64 | 164 |
+| # daily trips | 744,000 | 1,186,450 |
+| # passengers | 3,550,675 | 7,157,958 |
+| # days | 100 | 42 |
+| time period | 2014/04/01 - 2014/07/17 | 2020/12/01 - 2021/01/11 |
 
 We chose Nanjing and Xi'an metro systems to evaluate the effectiveness of our model on metro systems at different scales. Nanjing Metro (2014) contains 55 stations, which is a small-scale metro network with a single loop (as shown in Fig. [6\(b\)\)](#page-8-2), and Xi'an Metro (2020) contains 160 stations which is a complex, large-scale metro network with multiple loops (as shown in Fig. [6\(a\)\)](#page-8-2). Namely, there will be more OD pairs connected by multiple paths in *Xi'an* dataset. It is worth noting that multiple paths connecting the same OD pair may have different travel time, which may affect the temporal propagation for the OD flows and hence further affect the prediction accuracy. To study how our model performs with or without loops, we extracted two simpler metro systems, i.e., *Unique Path* and *Isolated Line* from Nanjing Metro (see Fig. [6\(c\)](#page-8-2) and [6\(d\)\)](#page-8-2), in which every OD station pair only has one path. We model and predict the subset of trips along the selected metro lines.
 
-*External factor datasets*. We consider weather conditions, air quality, holidays, and weekdays as external factors in the experiments. The weather condition dataset is collected from China Meteorological Data Service Centre [\[84\]. I](#page-15-19)t contains weather conditions every hour, including barometric pressure, wind speed, temperature, precipitation, visibility, weather, etc. The air quality dataset is collected from the Air Quality Online Monitoring and Analysis Platform [\[85\]. I](#page-15-20)t contains daily air quality including AQI, quality level, and indicators of *P M*2.5, *P M*10, *C O*2, *SO*2, *N O*<sup>2</sup> and *O*3. We use one-hot coding to transform the non-numeric features into binary vectors and Min-Max normalization to scale all the values into the range [0, 1]. We concatenate the feature vectors of the four factors every 15 minutes to formulate a sequence of external factor vectors as the other input of prediction networks.
+**External factor datasets:** . We consider weather conditions, air quality, holidays, and weekdays as external factors in the experiments. The weather condition dataset is collected from China Meteorological Data Service Centre [\[84\]. I](#page-15-19)t contains weather conditions every hour, including barometric pressure, wind speed, temperature, precipitation, visibility, weather, etc. The air quality dataset is collected from the Air Quality Online Monitoring and Analysis Platform [\[85\]. I](#page-15-20)t contains daily air quality including AQI, quality level, and indicators of *P M*2.5, *P M*10, *C O*2, *SO*2, *N O*<sup>2</sup> and *O*3. We use one-hot coding to transform the non-numeric features into binary vectors and Min-Max normalization to scale all the values into the range [0, 1]. We concatenate the feature vectors of the four factors every 15 minutes to formulate a sequence of external factor vectors as the other input of prediction networks.
 
 *2) Baseline Methods:* We first compare AFFN with basic statistical models (HA & ARIMA) to demonstrate the difficulty in capturing high temporal dynamics of input OD and IO flows. Then, we compare AFFN with basic deep learning models (MLP & GRU) to verify how spatial-temporal networks are superior to classic models. Finally, AFFN is compared with the state-of-the-art deep models (TGCN, DCRNN, GWN, STGCN, ASTGCN, and PVCGN) to demonstrate the advantages of our models in spatial-temporal representation learning and integrating external factors.
 
@@ -401,31 +401,31 @@ The input realtime OD (or IO) flow has a sequence length *q* = 6, i.e., consists
 
 TABLE III HYPER-PARAMETER SETTINGS IN EMGC-GRU
 
-|               | # hidden units<br>in RGCN | # hidden units<br>in GAT | # attention heads<br>in GAT |
+| | # hidden units<br>in RGCN | # hidden units<br>in GAT | # attention heads<br>in GAT |
 |---------------|---------------------------|--------------------------|-----------------------------|
-| IO Encoder    | 128                       | 128                      |                             |
-| Co-IO Encoder | 128                       | 128                      |                             |
-| OD Encoder    | 256                       | 256                      | 8 (16 in Xi'an)             |
+| IO Encoder | 128 | 128 | |
+| Co-IO Encoder | 128 | 128 | |
+| OD Encoder | 256 | 256 | 8 (16 in Xi'an) |
 
 TABLE IV OD PREDICTION PERFORMANCE COMPARISON ON BOTH DATASETS
 
-|               | Nanjing |       |             | Xi'an |       |             |
+| | Nanjing | | | Xi'an | | |
 |---------------|---------|-------|-------------|-------|-------|-------------|
-|               | MAE     | MAPE  | <b>RMSE</b> | MAE   | MAPE  | <b>RMSE</b> |
-| HA            | 17.16   | 47.76 | 28.88       | 12.97 | 49.57 | 16.29       |
-| <b>MLP</b>    | 8.30    | 24.90 | 12.96       | 9.35  | 35.21 | 12.83       |
-| GRU           | 8.15    | 24.40 | 13.13       | 8.91  | 34.28 | 12.19       |
-| <b>ASTGCN</b> | 8.65    | 25.91 | 13.13       | 9.34  | 36.60 | 12.84       |
-| <b>DCRNN</b>  | 8.03    | 24.40 | 12.50       | 8.79  | 33.51 | 11.94       |
-| GWN           | 7.98    | 24.80 | 11.57       | 8.74  | 33.80 | 11.87       |
-| <b>STGCN</b>  | 7.91    | 24.27 | 11.59       | 8.03  | 31.40 | 10.99       |
-| TGCN          | 7.76    | 24.09 | 11.27       | 8.30  | 31.99 | 11.27       |
-| <b>PVCGN</b>  | 7.57    | 23.47 | 10.78       | 7.92  | 30.78 | 10.66       |
-| <b>AFFN</b>   | 7.21    | 22.68 | 10.21       | 7.19  | 28.57 | 10.04       |
+| | MAE | MAPE | <b>RMSE</b> | MAE | MAPE | <b>RMSE</b> |
+| HA | 17.16 | 47.76 | 28.88 | 12.97 | 49.57 | 16.29 |
+| <b>MLP</b> | 8.30 | 24.90 | 12.96 | 9.35 | 35.21 | 12.83 |
+| GRU | 8.15 | 24.40 | 13.13 | 8.91 | 34.28 | 12.19 |
+| <b>ASTGCN</b> | 8.65 | 25.91 | 13.13 | 9.34 | 36.60 | 12.84 |
+| <b>DCRNN</b> | 8.03 | 24.40 | 12.50 | 8.79 | 33.51 | 11.94 |
+| GWN | 7.98 | 24.80 | 11.57 | 8.74 | 33.80 | 11.87 |
+| <b>STGCN</b> | 7.91 | 24.27 | 11.59 | 8.03 | 31.40 | 10.99 |
+| TGCN | 7.76 | 24.09 | 11.27 | 8.30 | 31.99 | 11.27 |
+| <b>PVCGN</b> | 7.57 | 23.47 | 10.78 | 7.92 | 30.78 | 10.66 |
+| <b>AFFN</b> | 7.21 | 22.68 | 10.21 | 7.19 | 28.57 | 10.04 |
 
 per 15-minute time step and popular stations with at least 150 passengers in or out per time step. We also set weights for each loss component in Eq. [11](#page-8-3) as λ<sup>1</sup> = 1, λ<sup>2</sup> = 1, λ<sup>3</sup> = 0.5 to assign higher weight on task-independent prediction loss to achieve higher prediction accuracy, but less weight on the cross-task loss to avoid a local optimum solution.
 
-#### *B. Experiment Results*
+### *B. Experiment Results*
 
 In this section, we compare performance of our proposed network AFFN (Fig. [2\(a\)\)](#page-5-0) versus 1) the baseline methods to evaluate effectiveness in modeling spatial-temporal dependencies of OD flows as well as IO flows, 2) the multi-task AFFN to verify how IO prediction helps with OD prediction, and 3) the variants of AFFN to evaluate the effectiveness of GAT in EMGC-GRU units and the external factor-based attention module. In the rest of this section, we also validate the effectiveness of AFFN in different structural metro systems, give a visual analysis of the prediction results, and demonstrate the runtime efficiency of our proposed models.
 
@@ -435,28 +435,28 @@ In this section, we compare performance of our proposed network AFFN (Fig. [2\(a
 
 TABLE V IO PREDICTION PERFORMANCE COMPARISON ON BOTH DATASETS
 
-|               | Nanjing    |             |             | Xi'an      |       |             |
+| | Nanjing | | | Xi'an | | |
 |---------------|------------|-------------|-------------|------------|-------|-------------|
-|               | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> | <b>MAE</b> | MAPE  | <b>RMSE</b> |
-| HA            | 146.03     | 37.44       | 271.25      | 108.28     | 35.18 | 163.63      |
-| ARIMA         | 46.15      | 17.67       | 111.69      | 48.03      | 17.76 | 78.16       |
-| MLP           | 42.20      | 12.43       | 66.33       | 45.47      | 16.04 | 72.58       |
-| GRU           | 41.21      | 11.80       | 69.20       | 44.84      | 15.78 | 69.63       |
-| <b>ASTGCN</b> | 42.88      | 12.52       | 68.23       | 44.39      | 15.73 | 70.92       |
-| <b>DCRNN</b>  | 39.52      | 11.63       | 60.92       | 34.97      | 11.96 | 54.07       |
-| GWN           | 38.98      | 11.60       | 59.41       | 34.72      | 11.91 | 53.73       |
-| <b>STGCN</b>  | 38.37      | 11.38       | 62.63       | 34.50      | 11.95 | 53.02       |
-| <b>TGCN</b>   | 37.22      | 11.13       | 60.57       | 34.06      | 11.73 | 51.77       |
-| <b>PVCGN</b>  | 35.74      | 10.55       | 55.21       | 32.08      | 11.24 | 48.95       |
-| <b>AFFN</b>   | 35.07      | 10.38       | 53.31       | 31.57      | 10.95 | 48.25       |
+| | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> | <b>MAE</b> | MAPE | <b>RMSE</b> |
+| HA | 146.03 | 37.44 | 271.25 | 108.28 | 35.18 | 163.63 |
+| ARIMA | 46.15 | 17.67 | 111.69 | 48.03 | 17.76 | 78.16 |
+| MLP | 42.20 | 12.43 | 66.33 | 45.47 | 16.04 | 72.58 |
+| GRU | 41.21 | 11.80 | 69.20 | 44.84 | 15.78 | 69.63 |
+| <b>ASTGCN</b> | 42.88 | 12.52 | 68.23 | 44.39 | 15.73 | 70.92 |
+| <b>DCRNN</b> | 39.52 | 11.63 | 60.92 | 34.97 | 11.96 | 54.07 |
+| GWN | 38.98 | 11.60 | 59.41 | 34.72 | 11.91 | 53.73 |
+| <b>STGCN</b> | 38.37 | 11.38 | 62.63 | 34.50 | 11.95 | 53.02 |
+| <b>TGCN</b> | 37.22 | 11.13 | 60.57 | 34.06 | 11.73 | 51.77 |
+| <b>PVCGN</b> | 35.74 | 10.55 | 55.21 | 32.08 | 11.24 | 48.95 |
+| <b>AFFN</b> | 35.07 | 10.38 | 53.31 | 31.57 | 10.95 | 48.25 |
 
 TABLE VI AFFN VERSUS MULTI-TASK AFFN ON NANJING DATASET
 
-|                 | OD prediction |             |             | IO prediction |            |             |             |
+| | OD prediction | | | IO prediction | | | |
 |-----------------|---------------|-------------|-------------|---------------|------------|-------------|-------------|
-|                 | <b>MAE</b>    | <b>MAPE</b> | <b>RMSE</b> |               | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> |
-| <b>AFFN</b>     | 7.21          | 22.68       | 10.21       |               | 35.07      | 10.38       | 53.31       |
-| Multi-Task AFFN | 7.07          | 22.30       | 10.04       |               | 34.59      | 10.33       | 52.38       |
+| | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> | | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> |
+| <b>AFFN</b> | 7.21 | 22.68 | 10.21 | | 35.07 | 10.38 | 53.31 |
+| Multi-Task AFFN | 7.07 | 22.30 | 10.04 | | 34.59 | 10.33 | 52.38 |
 
 tional networks generally outperform simple recurrent networks. DCRNN, GWN, STGCN, TGCN, PVGCN, and our single-task AFFN have more than 0.31% lower MAPE than that of GRU on both datasets. However, ASTGCN fails to capture spatial and temporal dependencies with its attention mechanism and thus performs worse than MLP. iv) Compared with DCRNN, GWN shows a slight improvement in MAE on both datasets, which can be attributed to the use of an adaptive adjacency matrix. v) With multiple knowledge-based graphs to model non-spatial correlations between stations, PVCGN performs the best among all the baseline methods. vi) Our proposed model AFFN outperforms PVCGN by further integrating the periodic OD flow and external factors.
 
@@ -466,43 +466,43 @@ To further evaluate the effectiveness of our AFFN network, we compare the perfor
 
 TABLE VII AFFN VERSUS MULTI-TASK AFFN ON XI'AN DATASET
 
-|                 | OD prediction |             |             | IO prediction |             |             |
+| | OD prediction | | | IO prediction | | |
 |-----------------|---------------|-------------|-------------|---------------|-------------|-------------|
-|                 | MAE           | <b>MAPE</b> | <b>RMSE</b> | MAE           | <b>MAPE</b> | <b>RMSE</b> |
-| <b>AFFN</b>     | 7.19          | 28.57       | 10.04       | 31.57         | 10.95       | 48.25       |
-| Multi-Task AFFN | 7.08          | 28.05       | 9.90        | 31.51         | 10.98       | 48.41       |
+| | MAE | <b>MAPE</b> | <b>RMSE</b> | MAE | <b>MAPE</b> | <b>RMSE</b> |
+| <b>AFFN</b> | 7.19 | 28.57 | 10.04 | 31.57 | 10.95 | 48.25 |
+| Multi-Task AFFN | 7.08 | 28.05 | 9.90 | 31.51 | 10.98 | 48.41 |
 
-#### TABLE VIII COMPARISON BETWEEN AFFN AND ITS VARIANTS FOR OD PREDICTION. P, E DENOTE PERIODIC FLOWS AND EXTERNAL FACTORS, RESPECTIVELY
+### TABLE VIII COMPARISON BETWEEN AFFN AND ITS VARIANTS FOR OD PREDICTION. P, E DENOTE PERIODIC FLOWS AND EXTERNAL FACTORS, RESPECTIVELY
 
-|             | Nanjing    |             |             | Xi'an |                                                    |       |
+| | Nanjing | | | Xi'an | | |
 |-------------|------------|-------------|-------------|-------|----------------------------------------------------|-------|
-| Extra Input | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> |       | MAPE                                               | RMSE  |
-| P. E        | 7.37       | 23.15       | 10.56       |       | 30.01                                              | 10.65 |
-| ۰           | 7.30       | 22.95       | 10.41       |       | 29.52                                              | 10.24 |
-| P           | 7.41       | 23.32       | 10.44       |       | 30.06                                              | 10.47 |
-| P           | 7.24       | 22.94       | 10.20       |       | 28.74                                              | 9.91  |
-| P. E        | 7.21       | 22.68       | 10.21       |       | 28.57                                              | 10.04 |
-|             |            |             |             |       | <b>MAE</b><br>7.71<br>7.42<br>7.60<br>7.27<br>7.19 |       |
+| Extra Input | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> | | MAPE | RMSE |
+| P. E | 7.37 | 23.15 | 10.56 | | 30.01 | 10.65 |
+| ۰ | 7.30 | 22.95 | 10.41 | | 29.52 | 10.24 |
+| P | 7.41 | 23.32 | 10.44 | | 30.06 | 10.47 |
+| P | 7.24 | 22.94 | 10.20 | | 28.74 | 9.91 |
+| P. E | 7.21 | 22.68 | 10.21 | | 28.57 | 10.04 |
+| | | | | | <b>MAE</b><br>7.71<br>7.42<br>7.60<br>7.27<br>7.19 | |
 
 TABLE IX COMPARISON BETWEEN AFFN AND ITS VARIANTS FOR IO PREDICTION
 
-|                |             | Nanjing |             |             |       | Xi'an |             |  |
+| | | Nanjing | | | | Xi'an | | |
 |----------------|-------------|---------|-------------|-------------|-------|-------|-------------|--|
-|                | Extra Input | MAE     | <b>MAPE</b> | <b>RMSE</b> | MAE   | MAPE  | <b>RMSE</b> |  |
-| AFFN-NG        | P. E        | 35.84   | 10.70       | 55.14       | 32.30 | 11.14 | 50.07       |  |
-| <b>AFFN-NP</b> | ٠           | 35.34   | 10.46       | 54.17       | 31.89 | 11.05 | 48.41       |  |
-| AFFN-AC        | P           | 35.46   | 10.52       | 54.42       | 34.35 | 11.68 | 53.88       |  |
-| <b>AFFN-SA</b> | P           | 35.18   | 10.43       | 53.68       | 31.73 | 11.01 | 48.84       |  |
-| <b>AFFN</b>    | P. E        | 35.07   | 10.38       | 53.31       | 31.57 | 10.95 | 48.25       |  |
+| | Extra Input | MAE | <b>MAPE</b> | <b>RMSE</b> | MAE | MAPE | <b>RMSE</b> | |
+| AFFN-NG | P. E | 35.84 | 10.70 | 55.14 | 32.30 | 11.14 | 50.07 | |
+| <b>AFFN-NP</b> | ٠ | 35.34 | 10.46 | 54.17 | 31.89 | 11.05 | 48.41 | |
+| AFFN-AC | P | 35.46 | 10.52 | 54.42 | 34.35 | 11.68 | 53.88 | |
+| <b>AFFN-SA</b> | P | 35.18 | 10.43 | 53.68 | 31.73 | 11.01 | 48.84 | |
+| <b>AFFN</b> | P. E | 35.07 | 10.38 | 53.31 | 31.57 | 10.95 | 48.25 | |
 
 TABLE X PERFORMANCE OF AFFN ON DIFFERENT METRO NETWORKS
 
-|               | OD prediction |             |             | IO prediction |       |             |             |
+| | OD prediction | | | IO prediction | | | |
 |---------------|---------------|-------------|-------------|---------------|-------|-------------|-------------|
-|               | <b>MAE</b>    | <b>MAPE</b> | <b>RMSE</b> |               | MAE   | <b>MAPE</b> | <b>RMSE</b> |
-| Isolated Line | 713           | 23.05       | 10.31       |               | 31.45 | 10.28       | 46.92       |
-| Unique Path   | 7.17          | 22.50       | 10.39       |               | 34.42 | 10.22       | 52.80       |
-| Nanjing       | 7.21          | 22.68       | 10.21       |               | 35.07 | 10.38       | 53.31       |
+| | <b>MAE</b> | <b>MAPE</b> | <b>RMSE</b> | | MAE | <b>MAPE</b> | <b>RMSE</b> |
+| Isolated Line | 713 | 23.05 | 10.31 | | 31.45 | 10.28 | 46.92 |
+| Unique Path | 7.17 | 22.50 | 10.39 | | 34.42 | 10.22 | 52.80 |
+| Nanjing | 7.21 | 22.68 | 10.21 | | 35.07 | 10.38 | 53.31 |
 
 accuracy. Our network AFFN achieves the best prediction performance among all the methods on both datasets.
 
@@ -513,7 +513,7 @@ accuracy. Our network AFFN achieves the best prediction performance among all th
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 12 of the paper, showing content related to the research topic. -->
 
-Fig. 7. Visualization of attention weights on external factors. The darker red, the higher weights have been learned.
+Figure 7. Visualization of attention weights on external factors. The darker red, the higher weights have been learned.
 
 We can conclude that, in both datasets, i) GAT module is effective in capturing hidden correlations between stations as AFFN performs much better than AFFN-NG without the GAT module. ii) Integrating both periodic flows and external factors improves the prediction accuracy, as AFFN performs much better than AFFN-NP, which makes predictions solely based on the realtime input flows. iii) By integrating periodic flows with static weights, AFFN-AC performs the worst in terms of MAE. iv) By integrating periodic flows with self-attention weights, AFFN-SA performs much better than AFFN-NP, demonstrating the effectiveness of the attention weights in integrating periodic flows. We also observe that AFFN-SA achieves the lowest RMSE in OD prediction tasks on both datasets, further demonstrating the effectiveness of self-attention on periodic flows. v) However, AFFN-SA still performs worse than AFFN in general, demonstrating the necessity of integrating external factors.
 
@@ -524,7 +524,7 @@ To further understand how the external factor-based attention mechanism works in
 ![](_page_12_Figure_6.jpeg)
 <!-- Image Description: Figure 6 from page 12 of the paper, showing content related to the research topic. -->
 
-Fig. 8. Visualizations of ground truth OD matrix (Left) versus predicted OD matrix by Multi-Task AFFN (Right) on two datasets.
+Figure 8. Visualizations of ground truth OD matrix (Left) versus predicted OD matrix by Multi-Task AFFN (Right) on two datasets.
 
 to that from *Nanjing*. Table [X](#page-11-5) summarizes the performance on both OD and IO prediction tasks. We observe that AFFN performs the best on the simplest metro network with a single line. With more lines, the prediction accuracy becomes worse. It is even more challenging to predict the flows in systems where some OD station pairs are connected by multiple paths. However, the performance differences are relatively small, e.g., less than 0.05 and 3.62 in MAE in OD and IO prediction tasks, respectively. This demonstrates that our AFFN is scalable and can be applied to more complex metro systems.
 
@@ -533,27 +533,27 @@ to that from *Nanjing*. Table [X](#page-11-5) summarizes the performance on both
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: Figure 1 from page 13 of the paper, showing content related to the research topic. -->
 
-Fig. 9. Visualizations of ground truth IO flow (blue) and predicted IO flow (red) by Multi-Task AFFN in Nanjing South Station, Nanjing and Dayanta Station, Xi'an, respectively.
+Figure 9. Visualizations of ground truth IO flow (blue) and predicted IO flow (red) by Multi-Task AFFN in Nanjing South Station, Nanjing and Dayanta Station, Xi'an, respectively.
 
 TABLE XI COMPARISON OF RUNNING TIMES OF DEEP MODELS ON TWO TASKS AND TWO DATASETS
 
-|                 | Running Time for Each Prediction (ms) |                     |      |          |  |  |  |  |
+| | Running Time for Each Prediction (ms) | | | | | | | |
 |-----------------|---------------------------------------|---------------------|------|----------|--|--|--|--|
-|                 | Nanjing OD                            | Nanjing IO Xi'an OD |      | Xi'an IO |  |  |  |  |
-| <b>PVCGN</b>    | 3.8                                   | 3.1                 | 5.5  | 4.3      |  |  |  |  |
-| <b>DCRNN</b>    | 8.9                                   | 5.3                 | 49.8 | 12.5     |  |  |  |  |
-| <b>AFFN</b>     | 15.4                                  | 11.0                | 52.4 | 21.3     |  |  |  |  |
-| Multi-Task AFFN | 29.8                                  |                     | 65.9 |          |  |  |  |  |
+| | Nanjing OD | Nanjing IO Xi'an OD | | Xi'an IO | | | | |
+| <b>PVCGN</b> | 3.8 | 3.1 | 5.5 | 4.3 | | | | |
+| <b>DCRNN</b> | 8.9 | 5.3 | 49.8 | 12.5 | | | | |
+| <b>AFFN</b> | 15.4 | 11.0 | 52.4 | 21.3 | | | | |
+| Multi-Task AFFN | 29.8 | | 65.9 | | | | | |
 
 *6) Runtime Efficiency:* We compare the running time of different deep learning models for OD and IO prediction on two datasets in Table [XI.](#page-13-18) We observe that the running time of all models for each OD flow prediction is higher than that of the IO flow prediction. *Xi'an* dataset takes longer time to predict than *Nanjing*. PVCGN is the most time efficient with small scale neural networks among the compared models. Our models (both AFFN and multi-task AFFN) take longer time to predict because of the larger scale neural networks, but are still in acceptable milliseconds, supporting realtime prediction.
 
-#### VII. CONCLUSION
+### VII. CONCLUSION
 
 We proposed an Adaptive Feature Fusion Network (AFFN) to predict origin-destination passenger flow in a citywide metro system. To exhaustively capture the complex spatial and temporal dependencies in OD flows, we first developed an enhanced multi-graph convolution-gated recurrent unit (EMGC-GRU) that fuses the predefined correlations modeled by multiple knowledge-based graphs and the autolearned attention-based hidden correlations between stations within GRUs. An external factor-based attention module is then developed to accurately capture the periodic pattern by integrating the periodic data flow and external factors. To further improve prediction accuracy, we also proposed an asymmetric multi-task framework to predict OD flow and IO flow mutually. Evaluation results show that our proposed
 
 Future works include 1) extending the one-step prediction model to a multi-step prediction model, 2) predicting more fine-grained passenger flow by fusing more detailed local trip information [\[51\], s](#page-14-34)uch as passenger movements and waiting time within the stations, collected from surveillance cameras or other sensors, 3) studying how our proposed model performs in more complex metro systems, such as those containing circular lines and multi-line shared track structures, and 4) improving the prediction accuracy by fusing other non-metro trips such as bus and taxi trips.
 
-#### REFERENCES
+### REFERENCES
 
 - [\[1\] X](#page-0-0). Bao, "Urban rail transit present situation and future development trends in China: Overall analysis based on national policies and strategic plans in 2016-2020," *Urban Rail Transit*, vol. 4, no. 1, pp. 1-12, Mar. 2018.
 - [\[2\] H](#page-0-1). Sun, J. Wu, H. Ma, X. Yang, and Z. Gao, "A bi-objective timetable optimization model for urban rail transit based on the time-dependent passenger volume," *IEEE Trans. Intell. Transp. Syst.*, vol. 20, no. 2, pp. 604-615, Feb. 2018.

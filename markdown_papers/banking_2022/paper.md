@@ -31,7 +31,7 @@ Amith Singhee Atul Kumar Shivali Agarwal asinghee@in.ibm.com kumar.atul@in.ibm.c
 
 Keerthi Narayan Raghunath David Wenk keerag09@in.ibm.com dwenk@us.ibm.com IBM ConsulBng
 
-# ABSTRACT
+## ABSTRACT
 
 Industries such as banking, telecom, and airlines - o6en have large so6ware systems that are several decades old. Many of these systems are wri=en in old programming languages such as COBOL, PL/1, Assembler, etc. In many cases, the documentaGon is not updated, and those who developed/designed these systems are no longer around. Understanding these systems for either modernizaGon or even regular maintenance has been a challenge. An extensive applicaGon may have *natural*boundaries based on its code dependencies and architecture. There are also other*logical*boundaries in an enterprise seLng driven by business funcGons, data domains, etc. Due to these complicaGons, the system architects generally plan their modernizaGon across these logical boundaries in*parts*, thereby adopGng an *incremental*approach for the modernizaGon journey of the enGre system.
 
@@ -41,11 +41,11 @@ In this work, we present a so6ware system analysis tool that allows a subject ma
 
 ACM ISBN 978-1-4503-8582-4/22/01[. hSps://doi.org/10.1145/3493700.3493735](https://doi.org/10.1145/3493700.3493735)
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • CompuGng methodologies → Ontology engineering; • InformaGon systems →*Informa2on retrieval query processing*; • So6ware and its engineering → So6ware design engineering.
 
-# KEYWORDS
+## KEYWORDS
 
 knowledge graph, so6ware engineering, legacy applicaGon modernizaGon
 
@@ -53,7 +53,7 @@ knowledge graph, so6ware engineering, legacy applicaGon modernizaGon
 
 Saravanan Krishnan, Alex Mathai, Amith Singhee, Atul Kumar, Shivali Agarwal, Keerthi Narayan Raghunath, and David Wenk. 2022. Incremental Analysis of Legacy ApplicaIons Using Knowledge Graphs for ApplicaIon ModernizaIon. In *5th Joint Interna-onal Conference on Data Science and Management of Data (9th ACM IKDD CODS and 27th COMAD) (CODSCOMAD 2022), January 8–10, 2022, Bangalore, India.*ACM, New York, NY, USA, 5 page[s. hOps://doi.org/10.1145/3493700.3493735](https://doi.org/10.1145/3493700.3493735)
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 While analyzing legacy applicaGons, some common modernizaGon pa=erns include: 1.*Por7olio assessment*- to create a roadmap for modernizaGon. 2.*Decomposing monoliths*- to systemically pull out microservices using the strangler pa=ern [2]. 3.*Business func2on isola2on*- to scope the funcGonality of an enGre business process or a sub-process.
 
@@ -73,18 +73,18 @@ To realise the benefits of incremental analysis, we create a system that enables
 
 Language agnosGc ontology. ii) Allowing SME input/feedback through extensions to the ontology like business funcGon and data domain mapping. iii) Traversing the KG to compute increments and performing incremental analysis to highlight the dependencies that need to be resolved between the modernized increment and the remaining legacy arGfacts. iv) Providing the KG as a base input to analysts for data science tasks like graph clustering or anomaly detecGon. As the KG handles the language-specific requirements, the analysts need not learn program analysis skills and can instead use that Gme to focus on their tasks.
 
-# 2 SYSTEM OVERVIEW
+## 2 SYSTEM OVERVIEW
 
 Our deployed system has three major components that interact with each other in an end-to-end pipeline. These components are 1)*Code Discovery and Knowledge Graph Construc2on*, 2) *Increment Crea2on via Neighbourhood DetecCon*and 3)*Incremental Analysis*. We now proceed to explain the end-to-end flow of our tool. We begin with the input to our system i.e. legacy source code that needs to be modernized. We then run our staGc analyzer tool on this source code and save our analysis into an MS-SQL database. We can construct a graph representaGon for the input source code by combining this staGc analysis and a custom-made knowledge graph ontology. A6er saving this representaGon into a Neo4j [4] graph database, we run inference algorithms to create increments and subsequently complete incremental analysis to generate the corresponding insights. This enGre process is detailed in Figure 1.
 
 ![](_page_1_Figure_7.jpeg)
 <!-- Image Description: The image is a flowchart depicting a code discovery and knowledge graph construction process. Source code is analyzed using a static analyzer (ADDI), producing entities and relations. These are then mapped to an ontology and ingested into a Neo4j database. A user interface (UI) allows for incremental analysis, generating insights. The process involves code discovery, ontology mapping, database population, and iterative analysis for knowledge graph construction. -->
 
-Figure 1: System Overview.
+**Figure 1:** System Overview.
 
 We briefly describe the three major components of our system in the following secGons.
 
-# 1 Code Discovery and Knowledge Graph ConstrucJon
+## 1 Code Discovery and Knowledge Graph ConstrucJon
 
 The first step in our pipeline is to perform code discovery using staGc analysis. We leverage ADDI [3] as our staGc analyzer tool. ADDI supports numerous mainframe languages including Cobol, PL1, Assembler, and others. Using ADDI's staGc analysis as a foundaGon, we partnered with mulGple SMEs to create a knowledge graph rich in semanGcs pertaining to legacy applicaGons. With their domain knowledge, we developed a welldefined enGty-relaGonship model that opens up the scope for new insights.
 
@@ -93,11 +93,11 @@ While defining this ontology, we pay special a=enGon to making sure that it is l
 ![](_page_1_Figure_13.jpeg)
 <!-- Image Description: This diagram depicts a system's architecture using a directed graph. Nodes represent software components (e.g., Transaction, Application, Program1, File), while edges represent relationships ("CALLS" or "USES"). Dashed lines indicate relations derived from subject matter experts (SME), while solid lines are from code analysis. The graph illustrates the interactions and dependencies between different parts of the system, aiding in understanding its structure and functionality. -->
 
-Figure 2: Sample Ontology
+**Figure 2:** Sample Ontology
 
 Saravanan et al.
 
-# 2 Increment CreaJon via Neighbourhood DetecJon
+## 2 Increment CreaJon via Neighbourhood DetecJon
 
 The discovery phase of the applicaGon modernizaGon journey is a very Gme-consuming and slow process. This phase o6en involves a team of SMEs struggling to understand a large codebase (developed over decades) within a short sGpulated Gme frame (few months to a year). In these situaGons, an SME needs to focus only on porGons of the codebase relevant to the final agenda. In other words, for an SME to uGlize Gme effecGvely, he/she must be able to create a boundary around *important ar2facts*and successfully*ignore*the noise that lies outside this boundary.
 
@@ -117,7 +117,7 @@ arGfacts and their*neighbourhood*dependencies. As shown in Figure 3, an SME star
 ![](_page_2_Figure_9.jpeg)
 <!-- Image Description: The image is a directed graph illustrating data flow between processes (P1-P7) and data stores (File, Table). Two applications (App-A, App-B) are shown. Arrows depict data transfer, labeled as "inside-out" or "outside-in," indicating data origin/destination relative to the applications' data scopes. The graph shows how data, initiated by "Seed," is processed and stored, highlighting different data access patterns. The "Increment" label suggests a counter or similar mechanism is used in the data flow. -->
 
-# Figure 4: Incremental Analysis.
+## Figure 4: Incremental Analysis.
 
 A6er analysing these edges, the SME may be interested in adding or removing arGfacts from the increment. As shown in Figure 4, the SME can pull program *P4*from*App-A* and add it to the increment. This move will reduce the number of dependency links. The SME will then re-analyze all the inside-out and outside-in edges and conGnue many iteraGons unGl the result is saGsfactory. This process is also depicted in Figure 3, from steps (*Is good ?*) through (*Edit/redefine the increment*). Once the increment is finalised, the SME can begin modernizing the legacy code within the increment.
 
@@ -127,9 +127,9 @@ It is important to differenGate the benefits of incremental analysis over and ab
 
 CODS-COMAD 2022, January 8–10, 2022, Bangalore, India whole interacts with the rest of the codebase. Our analysis uses various logical boundaries (applicaGons and increments) that help the user focus on the criGcal relaGons/dependencies that *cross*the logical boundary.
 
-Figure 5: ApplicaGon Mapping and Increment CreaGon
+**Figure 5:** ApplicaGon Mapping and Increment CreaGon
 
-# 3 SYSTEM DEMONSTRATION
+## 3 SYSTEM DEMONSTRATION
 
 We demonstrate our system using a publicly available standard mainframe applicaGon -*General insurance applica2on (GENAPP)*[1]. Even though we demonstrate our system on a mainframe applicaGon, it is*not* limited to mainframes. As the approach and the ontology are extensible, our system is agnosGc. To focus the demonstraGon on the actual incremental analysis, let us assume the following - GENAPP source code is analysed by the staGc analyser (ADDI), EnGGes and their relaGonships are mapped with the ontology, and the data is available in the Neo4j database. At the ingesGon stage, all the arGfacts of GENAPP are grouped under five applicaGons - Customer Management, Policy Management, Random Customer, Storage Queue Management, and Miscellaneous. They appear in the tool (Figure 5a) under the secGon 'ApplicaGons'.
 
@@ -148,14 +148,14 @@ Demo scenario 2: If we just know the specific table 'House' associated to 'House
 
 3*.*5 arGfacts. A video of our system demonstraGon is available at: github.com/IBM/AppModDemos/CAdemos.
 
-|         | Programs Jobs |      | Transactions Files                       |     | Tables <sup>1</sup> | w | Total |
+| | Programs Jobs | | Transactions Files | | Tables <sup>1</sup> | w | Total |
 |---------|---------------|------|------------------------------------------|-----|---------------------|---|-------|
-| ClientA | 3.5k          | 12k  | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 95K | 1.1K                |   | 513k  |
-| ClientB | 5k            | 1.5k | 2.3k                                     | 48k | 339                 |   | 1000k |
+| ClientA | 3.5k | 12k | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | 95K | 1.1K | | 513k |
+| ClientB | 5k | 1.5k | 2.3k | 48k | 339 | | 1000k |
 
-Figure 8: Details of two client applicaGons
+**Figure 8:** Details of two client applicaGons
 
-# 4 CONCLUSIONS AND FUTURE WORK
+## 4 CONCLUSIONS AND FUTURE WORK
 
 In this work, we introduced the concept of incremental analysis and explained its benefits when modernizing applicaGons. We showcased our knowledge graph and emphasized that it is language agnosGc and allows addiGons beyond staGc analysis - like business funcGons and data domains. Finally, we demonstrated our system on GENAPP and highlighted our insights. While our current tool leverages staGc analysis, our future works include -
 
@@ -168,11 +168,11 @@ In both the above scenarios, we see that the programs are common to interact wit
 ![](_page_4_Figure_2.jpeg)
 <!-- Image Description: The image displays a screenshot of a software interface, likely for managing application components. Two tables detail program calls to a dataset and a queue, showing the calling program, called resource (dataset or queue), access type, and role. A sidebar lists various applications and increments, with checkboxes indicating selection status. The screenshot illustrates the program's data access and role management functionality. -->
 
-Figure 7: Increment with seed transacGon: 'LGCF'
+**Figure 7:** Increment with seed transacGon: 'LGCF'
 
 System performance : An iniGal study of applying the above demo scenarios on GenApp results in an increase in producGvity of 20%. In Figure 8, we show the number of key arGfacts present in the two client applicaGons that we are currently analysing. Our system takes roughly 20 seconds to process an increment having
 
-# REFERENCES
+## REFERENCES
 
 [1] IBM CICS. 2020. *General insurance applicaAon (GENAPP) for IBM CICS TS*. Retrieved August 12, 2021 from
 

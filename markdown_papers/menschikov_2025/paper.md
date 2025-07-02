@@ -64,7 +64,7 @@ keywords:
 
 The challenge of personalizing language models, specifically the ability to account for a user's history during interactions, is of significant interest. Despite recent advancements in large language models (LLMs) and Retrieval Augmented Generation that have enhanced the factual base of LLMs, the task of retaining extensive personal information and using it to generate personalized responses remains pertinent. To address this, we propose utilizing external memory in the form of knowledge graphs, which are constructed and updated by the LLM itself. We have expanded upon ideas of AriGraph architecture and for the first time introduced a combined graph featuring both standard edges and two types of hyperedges. Experiments conducted on the TriviaQA, HotpotQA and DiaASQ benchmarks indicates that this approach aids in making the process of graph construction and knowledge extraction unified and robust. Furthermore, we augmented the DiaASQ benchmark by incorporating parameters such as time into dialogues and introducing contradictory statements made by the same speaker at different times. Despite these modifications, the performance of the question-answering system remained robust, demonstrating the proposed architecture's ability to maintain and utilize temporal dependencies.
 
-# 1 Introduction
+## 1 Introduction
 
 The rapid advancements in large language models (LLMs) have catalyzed interest in personalizing these models to tailor responses based on a user's interaction history. This task of personalization hinges on the model's ability to retain extensive personal information and use it effectively for generating customized responses. A pivotal development in this realm has been the Retrieval-Augmented Generation (RAG) approach, which enhances the factual basis of LLMs by integrating an external memory layer. RAG utilizes vector retrieval from a database, supplementing the model's prompt with pertinent details based on the user's query. Despite its utility, RAG is often constrained by its unstructured nature, which hampers the efficient retrieval of related information dispersed across the agent's memory.
 
@@ -80,7 +80,7 @@ In summary, our main contributions are threefold:
 
 This work establishes a robust framework for personalized response generation in LLMs through sophisticated graph-based memory architectures.
 
-# 2 Related Work
+## 2 Related Work
 
 In recent years, there has been significant progress in the domain of open-domain question answering (QA) and personalization of language models. Methods like using Wikipedia as a comprehensive knowledge source (Chen et al. 2017) have integrated machine reading at scale to combine document retrieval with machine comprehension of text. Approaches such as using dense representations for passage retrieval (Karpukhin et al. 2020) have challenged traditional sparse methods like TF-IDF and BM25, proving effective when ample training data exists.
 
@@ -94,7 +94,7 @@ Additionally, ReadAgent (Lee et al. 2024) has addressed the constraint of handli
 
 These advancements underscore a consistent focus on enhancing the comprehension, retrieval, and personalization capabilities of language models, paving the way for more refined systems such as PersonalAI, which utilizes knowledge graphs to offer personalized and contextually rich interactions.
 
-# 3 Methods
+## 3 Methods
 
 ## Graph Construction
 
@@ -118,7 +118,7 @@ The search for outdated information in the graph is carried out as follows. Firs
 ![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This image is a knowledge graph representing facts about the Mona Lisa. Rectangles represent entities (e.g., "Leonardo da Vinci," "Mona Lisa," "poplar wood") and edges represent relationships (e.g., "creator," "painted on," "is a"). The graph visually organizes information about the painting's creator, creation date (1503-1519), materials (poplar wood, oil paint), and classification as an oil painting. It serves to illustrate the interconnected data points concerning the Mona Lisa. -->
 
-Figure 1: Example of graph, built from text using our method, with simple (green), hyper (yellow) and episodic (blue) nodes
+**Figure 1:** Example of graph, built from text using our method, with simple (green), hyper (yellow) and episodic (blue) nodes
 
 a breadth-first search, which retrieves all connections and hyperconnections starting or ending at these nodes. Then, using a specialized prompt, the LLM attempts to replace the found knowledge with the newly extracted data: corresponding LLM-prompts can be observed in Appendix B. If any triplets or thesis statements are successfully replaced, they are removed from the graph.
 
@@ -130,14 +130,14 @@ From Figure 2 it can be seen that the pipeline is divided into four stages, with
 
 This pipeline architecture is motivated by the following considerations: (1) To obtain a good initial approximation to the subgraph with the required information, it is necessary to match the key entities from the question with similar entities from the existing knowledge set. The information required to generate the correct answer is contained in the same subgraph as the key entities from the question. (2) The triplets extracted from the knowledge graph are weakly conditioned on the original question. (3) Also, LLMs have a limit on the maximum length of a text sequence that they can process in one inference-step.
 
-#### Retrieve Algorithms
+### Retrieve Algorithms
 
 The principal function of the constructed knowledge graph within our proposed system is to facilitate the precise extraction of information necessary for addressing specific queries. This task involves a delicate balance between relevance and completeness. Relevance ensures that all retrieved information directly pertains to the query, while completeness guarantees the inclusion of all necessary data, potentially accompanied by some extraneous information. Thus, optimizing this balance is crucial for efficient knowledge extraction.
 
 ![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image is a flowchart illustrating a question-answering system. A question is input, parsed by a Query LLM Parser, compared to knowledge using a Knowledge Comparator, and fed to a Graph Triplets Retriever. Retrieved triplets are filtered, then used by a QA LLM Generator to produce an answer. The numbered boxes represent processing steps, while arrows indicate data flow. -->
 
-Figure 2: searching pipeline for generating answers to the questions based on constructed knowledge graph
+**Figure 2:** searching pipeline for generating answers to the questions based on constructed knowledge graph
 
 To achieve this, we have developed and implemented sophisticated retrieval algorithms capable of modulating the trade-off between completeness and relevance based on customizable parameter settings. These algorithms are an integral part of the question-answering pipeline, traversing the graph to collate information imperative for generating accurate responses.
 
@@ -172,7 +172,7 @@ Mixed algorithm. The mixed algorithm amalgamates the A\*, WaterCircles and BeamS
 
 Through these diverse algorithms, this study underscores the advances in extracting relevant data from knowledge graphs, underpinning the robust architecture necessary for personalizing responses within language model frameworks.
 
-# 4 Experiment Set-Up
+## 4 Experiment Set-Up
 
 ## Datasets
 
@@ -206,7 +206,7 @@ More details about preprocessing methods and numerical characteristics of result
 
 For graph construction (Memorize–pipeline) and information search (QA–pipeline) a series of 7B/8B and largesize (≫ 14B) models is selected to compare its performance capabilities in solving such tasks: Qwen2.5 7B, DeepSeek R1 7B, Llama3.1 8B, GPT4o–min and DeepSeek V3. To produce vector representations (embeddings) of processing text–data (in natural language) multilingual E5large–model (Wang et al. 2024) from the Hugging Face repository <sup>1</sup> is used.
 
-#### Retrieval Algorithms
+### Retrieval Algorithms
 
 As retrieval algorithms evaluation is conducted for A\*, WaterCIrcles (WC) and BeamSeach (BS) as well as their combinations: "WC + BS", "A\* + BS", "A\* + WC". The values of hyperparameters for base algorithms were fixed:
 
@@ -214,21 +214,21 @@ As retrieval algorithms evaluation is conducted for A\*, WaterCIrcles (WC) and B
 - WaterCircles: strict filter True; hyper num 15; episodic num – 15; chain triplets num – 25; other triplets num – 6; do text pruning – False.
 - BeamSearch: max depth 5; max paths 10; same path intersection by node – False; diff paths intersection by node – False; diff paths intersection by rel – False; mean alpha – 0.75; final sorting mode – mixed.
 
-#### Graph search restrictions
+### Graph search restrictions
 
 In addition, the values of the hyperparameter, responsible for the type of restrictions imposed on the knowledge graph during its traversing with one of the available algorithms were iterated over. The restrictions are related to the types of nodes that are prohibited from visiting: "E" – it is prohibited to visit episodic nodes; "T" – it is prohibited to visit thesis nodes; "O" – it is prohibited to visit object nodes; "All" – no restrictions are imposed on the graph nodes.
 
-#### Configurations summary
+### Configurations summary
 
 Each QA–configuration was evaluated on 100 question/answer pairs from the DiaASQ, HotpotQA, and TriviaQA datasets correspondingly. The LLM, specified within a specific QA–configuration, and LLM, used to construct corresponding knowledge graph for running QA–pipeline, are the same. Thus, in the case of a fixed dataset/model, 22 QA–configurations were obtained. In total, 308 QA– configurations were evaluated (the QA–pipeline was not run on TriviaQA/GPT4omini configurations due to limited time resources).
 
-# 5 Evaluation
+## 5 Evaluation
 
 Traditional statistical evaluation metrics such as *BLEU*(Papineni et al. 2002),*ROUGE*(Lin 2004), and*Meteor Universal*(Denkowski and Lavie 2014) struggle to distinguish syntactically similar but semantically distinct texts. While semantic methods like*BERTScore*(Zhang et al. 2019) were introduced to address these limitations, our experiments reveal that BERTScore lacks sufficient differentiability, often failing to capture nuanced distinctions between correct and incorrect answers. Therefore, we adopt the*LLM as a judge*(Zheng et al. 2023) framework and choose Qwen2.5 7B. The judge evaluates QA pairs using a structured prompt containing the question, ground truth and model answer. It labels 1 for correct answers and 0 for incorrect ones, and we use accuracy as our main metric. Corresponding LLM-prompts and details are provided in Appendix D.
 
 Also, for comparison of proposed QA–pipeline with existing RAG– and GrapRAG–methods the*ExactMatch* metric is calculated with ignore case and ignore punctuation hyperparameters set to True.
 
-# 6 Experiments and Results
+## 6 Experiments and Results
 
 ## Characteristics of constructed knowledge graphs
 
@@ -240,54 +240,54 @@ Based on the obtained values, it is possible to model/estimate the characteristi
 
 From the Table 3 it can be seen that the lowest percentage of LLM response parsing errors is observed when using Qwen2.5 7B and Llama3.1 8B, and the highest percentage is observed with DeepSeek V3: DeepSeekR1 7B —- 0.29%; Qwen2.5 7B —- 0.02%; Llama3.1 8B —- 0.02%; GPT4o mini —- 9.87%; DeepSeekV3 —- 31.21%. At the same time, the highest number of thesis/object memories and corresponding hyper/simple relations extracted/stored in the graph with using of DeepSeekR1 7B and Qwen2.5 7B. In case of estimating the number of added thesis/object nodes while preserving one context (text–fragment of information) in the graph, the highest value is obtained when using Qwen2.5 7B: see Figure 1.
 
-| LLM            |        | Node   | Relation |        |  |  |
+| LLM | | Node | Relation | | | |
 |----------------|--------|--------|----------|--------|--|--|
-|                | thesis | object | hyper    | simple |  |  |
-| DeepSeek R1 7B | 9      | 15     | 36       | 10     |  |  |
-| Qwen2.5 7B     | 10     | 16     | 33       | 11     |  |  |
-| Llama3.1 8B    | 8      | 11     | 23       | 8      |  |  |
-| GPT4o mini     | 8      | 10     | 26       | 11     |  |  |
-| DeepSeek V3    | 9      | 14     | 30       | 15     |  |  |
+| | thesis | object | hyper | simple | | |
+| DeepSeek R1 7B | 9 | 15 | 36 | 10 | | |
+| Qwen2.5 7B | 10 | 16 | 33 | 11 | | |
+| Llama3.1 8B | 8 | 11 | 23 | 8 | | |
+| GPT4o mini | 8 | 10 | 26 | 11 | | |
+| DeepSeek V3 | 9 | 14 | 30 | 15 | | |
 
-Table 1: The number of unique nodes/relations that are added to the knowledge graph when processing (using a given LLM model) and storing one episodic memory (episodic node)
+**Table 1:** The number of unique nodes/relations that are added to the knowledge graph when processing (using a given LLM model) and storing one episodic memory (episodic node)
 
 <sup>1</sup> https://huggingface.co/intfloat/multilingual-e5-small
 
-|                | Number of contexts | Nubmer of nodes |        |        |          | Number of relations |        | Average number of matching vertices (by type) |                     |                   |                   |
+| | Number of contexts | Nubmer of nodes | | | | Number of relations | | Average number of matching vertices (by type) | | | |
 |----------------|--------------------|-----------------|--------|--------|----------|---------------------|--------|-----------------------------------------------|---------------------|-------------------|-------------------|
-| LLM            | to store in graph  |                 |        |        |          |                     |        | object–neighbours                             | thesis–neighbours   | object–neighbours | object–neighbours |
-|                |                    | episodic        | thesis | object | episodic | hyper               | simple | (to episodic–nodes)                           | (to episodic–nodes) | (to thesis–nodes) | (to object–nodes) |
-|                | DiaASQ             |                 |        |        |          |                     |        |                                               |                     |                   |                   |
-| DeepSeek R1 7B |                    | 3477            | 34039  | 30097  | 138584   | 133301              | 34049  | 30,06                                         | 10,01               | 3,91              | 1,99              |
-| Qwen2.5 7B     |                    | 3482            | 32512  | 28420  | 129974   | 111618              | 31290  | 27,98                                         | 9,48                | 3,43              | 2,04              |
-| Llama3,1 8B    | 3483               | 3482            | 29655  | 20014  | 100045   | 77467               | 28063  | 20,21                                         | 8,52                | 2,61              | 2,25              |
-| GPT4o mini     |                    | 3482            | 31361  | 28172  | 125403   | 96667               | 39477  | 27,00                                         | 9,00                | 3,08              | 1,89              |
-| DeepSeek V3    | 2270               |                 | 21482  | 18416  | 80118    | 64349               | 28877  | 25,83                                         | 9,46                | 2,99              | 2,11              |
-|                | HotpotQA           |                 |        |        |          |                     |        |                                               |                     |                   |                   |
-| DeepSeek R1 7B | 3933               | 3921            | 27137  | 55254  | 121359   | 111174              | 33714  | 24,00                                         | 7,34                | 4,09              | 1,55              |
-| Qwen2.5 7B     |                    | 3933            | 31795  | 56078  | 119387   | 106037              | 38460  | 22,26                                         | 8,15                | 3,33              | 1,36              |
-| Llama3.1 8B    |                    | 3933            | 26364  | 40601  | 89506    | 75332               | 29021  | 16,04                                         | 6,79                | 2,85              | 1,47              |
-| GPT4o mini     |                    | 3933            | 30777  | 48771  | 105524   | 93791               | 42599  | 18,99                                         | 7,94                | 3,04              | 1,36              |
-| DeepSeek V3    |                    | 2713            | 20164  | 35291  | 73242    | 63921               | 34621  | 19,55                                         | 7,53                | 3,17              | 1,41              |
-|                |                    | TriviaQA        |        |        |          |                     |        |                                               |                     |                   |                   |
-| DeepSeek R1 7B |                    | 4905            | 48855  | 96132  | 213481   | 201861              | 52019  | 33,50                                         | 10,56               | 4,13              | 1,53              |
-| Qwen2.5 7B     | 4925               | 4923            | 52835  | 109900 | 220991   | 188780              | 62043  | 34,15                                         | 10,87               | 3,57              | 1,27              |
-| Llama3.1 8B    |                    | 4922            | 45241  | 72285  | 158202   | 127389              | 46757  | 22,83                                         | 9,35                | 2,81              | 1,54              |
-| DeepSeek V3    |                    | 3506            | 37496  | 68602  | 143933   | 122480              | 61821  | 30,32                                         | 10,75               | 3,26              | 1,42              |
+| LLM | to store in graph | | | | | | | object–neighbours | thesis–neighbours | object–neighbours | object–neighbours |
+| | | episodic | thesis | object | episodic | hyper | simple | (to episodic–nodes) | (to episodic–nodes) | (to thesis–nodes) | (to object–nodes) |
+| | DiaASQ | | | | | | | | | | |
+| DeepSeek R1 7B | | 3477 | 34039 | 30097 | 138584 | 133301 | 34049 | 30,06 | 10,01 | 3,91 | 1,99 |
+| Qwen2.5 7B | | 3482 | 32512 | 28420 | 129974 | 111618 | 31290 | 27,98 | 9,48 | 3,43 | 2,04 |
+| Llama3,1 8B | 3483 | 3482 | 29655 | 20014 | 100045 | 77467 | 28063 | 20,21 | 8,52 | 2,61 | 2,25 |
+| GPT4o mini | | 3482 | 31361 | 28172 | 125403 | 96667 | 39477 | 27,00 | 9,00 | 3,08 | 1,89 |
+| DeepSeek V3 | 2270 | | 21482 | 18416 | 80118 | 64349 | 28877 | 25,83 | 9,46 | 2,99 | 2,11 |
+| | HotpotQA | | | | | | | | | | |
+| DeepSeek R1 7B | 3933 | 3921 | 27137 | 55254 | 121359 | 111174 | 33714 | 24,00 | 7,34 | 4,09 | 1,55 |
+| Qwen2.5 7B | | 3933 | 31795 | 56078 | 119387 | 106037 | 38460 | 22,26 | 8,15 | 3,33 | 1,36 |
+| Llama3.1 8B | | 3933 | 26364 | 40601 | 89506 | 75332 | 29021 | 16,04 | 6,79 | 2,85 | 1,47 |
+| GPT4o mini | | 3933 | 30777 | 48771 | 105524 | 93791 | 42599 | 18,99 | 7,94 | 3,04 | 1,36 |
+| DeepSeek V3 | | 2713 | 20164 | 35291 | 73242 | 63921 | 34621 | 19,55 | 7,53 | 3,17 | 1,41 |
+| | | TriviaQA | | | | | | | | | |
+| DeepSeek R1 7B | | 4905 | 48855 | 96132 | 213481 | 201861 | 52019 | 33,50 | 10,56 | 4,13 | 1,53 |
+| Qwen2.5 7B | 4925 | 4923 | 52835 | 109900 | 220991 | 188780 | 62043 | 34,15 | 10,87 | 3,57 | 1,27 |
+| Llama3.1 8B | | 4922 | 45241 | 72285 | 158202 | 127389 | 46757 | 22,83 | 9,35 | 2,81 | 1,54 |
+| DeepSeek V3 | | 3506 | 37496 | 68602 | 143933 | 122480 | 61821 | 30,32 | 10,75 | 3,26 | 1,42 |
 
-Table 2: Characteristics of the constructed knowledge graphs within conducted experiments
+**Table 2:** Characteristics of the constructed knowledge graphs within conducted experiments
 
-| Number of contexts<br>LLM<br>to store in graph |      | Number of nodes |        | Number or relations |                   | Average number of adjacent vertices (by type) |                     |                     |                   |                   |                   |
+| Number of contexts<br>LLM<br>to store in graph | | Number of nodes | | Number or relations | | Average number of adjacent vertices (by type) | | | | | |
 |------------------------------------------------|------|-----------------|--------|---------------------|-------------------|-----------------------------------------------|---------------------|---------------------|-------------------|-------------------|-------------------|
-|                                                |      | episodic        |        |                     | episodic<br>hyper |                                               | simple              | object–neighbours   | thesis–neighbours | object–neighbours | object–neighbours |
-|                                                |      |                 | thesis | object              |                   |                                               | (to episodic–nodes) | (to episodic–nodes) | (to thesis–nodes) | (to object–nodes) |                   |
-| DeepSeek R1 7B                                 |      | 4101            | 36677  | 60494               | 157808            | 148778                                        | 39927               | 29,18               | 9,30              | 4,04              | 1,69              |
-| Qwen2.5 7B                                     |      | 4112            | 39047  | 64799               | 156784            | 135478                                        | 43931               | 28,13               | 9,5               | 3,44              | 1,55              |
-| Llama3.1 8B                                    | 4113 | 4112            | 33753  | 44300               | 115917            | 93396                                         | 34613               | 19,69               | 8,22              | 2,75              | 1,75              |
-| GPT4o mini                                     |      | 3707            | 31069  | 38471               | 115463            | 95229                                         | 41038               | 22,99               | 8,47              | 3,06              | 1,625             |
-| DeepSeek V3                                    |      | 2829            | 26380  | 40769               | 99097             | 83583                                         | 41773               | 25,23               | 9,24              | 3,14              | 1,64              |
+| | | episodic | | | episodic<br>hyper | | simple | object–neighbours | thesis–neighbours | object–neighbours | object–neighbours |
+| | | | thesis | object | | | (to episodic–nodes) | (to episodic–nodes) | (to thesis–nodes) | (to object–nodes) | |
+| DeepSeek R1 7B | | 4101 | 36677 | 60494 | 157808 | 148778 | 39927 | 29,18 | 9,30 | 4,04 | 1,69 |
+| Qwen2.5 7B | | 4112 | 39047 | 64799 | 156784 | 135478 | 43931 | 28,13 | 9,5 | 3,44 | 1,55 |
+| Llama3.1 8B | 4113 | 4112 | 33753 | 44300 | 115917 | 93396 | 34613 | 19,69 | 8,22 | 2,75 | 1,75 |
+| GPT4o mini | | 3707 | 31069 | 38471 | 115463 | 95229 | 41038 | 22,99 | 8,47 | 3,06 | 1,625 |
+| DeepSeek V3 | | 2829 | 26380 | 40769 | 99097 | 83583 | 41773 | 25,23 | 9,24 | 3,14 | 1,64 |
 
-Table 3: Average/expected characteristics of knowledge graphs in case of using given LLM models for their construction
+**Table 3:** Average/expected characteristics of knowledge graphs in case of using given LLM models for their construction
 
 ### Comparison of QA–configurations
 
@@ -305,36 +305,36 @@ Additionally, a comparative Table 6 was prepared to determine stable graph trave
 
 From Table 6 it is evident that in case of configurations with 8B–models and combined search (with A\*– and WaterCircles–algorithms) turned out to be more stable: there is no significant degradation of performance (maximum by
 
-| LLM /<br>Dataset | Qwen2,5 7B      | DeepSeek R1 7B | Llama3.1 8B        | GPT4o–mini           | DeepSeek V3          |  |
+| LLM /<br>Dataset | Qwen2,5 7B | DeepSeek R1 7B | Llama3.1 8B | GPT4o–mini | DeepSeek V3 | |
 |------------------|-----------------|----------------|--------------------|----------------------|----------------------|--|
-| DiaASQ           | 0,22 / BS / all | 0,12 / AS / E  | 0,19 / BS / E      | 0.5 / BS + WC / E    | 0,47 / BS + WC / O   |  |
-| HotpotQA         | 0,24 / BS / O   | 0,19 / BS / O  | 0,47 / BS / O      | 0,77 / BS + WC / all | 0,76 / BS + WC / T   |  |
-| TriviaQA         | 0,34 / BS / E   | 0,27 / AS / E  | 0,66 / BS + AS / E | –                    | 0,87 / BS + WC / all |  |
-| Mean:            | 0,27            | 0,19           | 0,44               | 0,77                 | 0,70                 |  |
+| DiaASQ | 0,22 / BS / all | 0,12 / AS / E | 0,19 / BS / E | 0.5 / BS + WC / E | 0,47 / BS + WC / O | |
+| HotpotQA | 0,24 / BS / O | 0,19 / BS / O | 0,47 / BS / O | 0,77 / BS + WC / all | 0,76 / BS + WC / T | |
+| TriviaQA | 0,34 / BS / E | 0,27 / AS / E | 0,66 / BS + AS / E | – | 0,87 / BS + WC / all | |
+| Mean: | 0,27 | 0,19 | 0,44 | 0,77 | 0,70 | |
 
-Table 4: Best QA configurations by JudgeScore within conducted experiments
+**Table 4:** Best QA configurations by JudgeScore within conducted experiments
 
-| Restrictions   | 7B            |              | 8B            |              | Largesize     |              |  |
+| Restrictions | 7B | | 8B | | Largesize | | |
 |----------------|---------------|--------------|---------------|--------------|---------------|--------------|--|
-| on nodes–types | worse–configs | best–configs | worse–configs | best–configs | worse–configs | best–configs |  |
-| E              | 0,03          | 0,44         | 0,09          | 0,45         | 0,27          | 0,07         |  |
-| T              | 0,84          | 0,12         | 0,64          | 0,31         | 0,20          | 0,73         |  |
-| O              | 0,13          | 0,44         | 0,27          | 0,25         | 0,53          | 0,20         |  |
+| on nodes–types | worse–configs | best–configs | worse–configs | best–configs | worse–configs | best–configs | |
+| E | 0,03 | 0,44 | 0,09 | 0,45 | 0,27 | 0,07 | |
+| T | 0,84 | 0,12 | 0,64 | 0,31 | 0,20 | 0,73 | |
+| O | 0,13 | 0,44 | 0,27 | 0,25 | 0,53 | 0,20 | |
 
-Table 5: Impact of various constraints imposed during knowledge graph traversal on the quality of QA pipeline: "worse–configs" —- distribution for low–quality configurations; "best–configs" —- distribution for high–quality configurations
+**Table 5:** Impact of various constraints imposed during knowledge graph traversal on the quality of QA pipeline: "worse–configs" —- distribution for low–quality configurations; "best–configs" —- distribution for high–quality configurations
 
-| Retrieval algorithm |               | 7B           |               |               | 8B           |               | Largesize     |              |               |
+| Retrieval algorithm | | 7B | | | 8B | | Largesize | | |
 |---------------------|---------------|--------------|---------------|---------------|--------------|---------------|---------------|--------------|---------------|
-|                     | worse–configs | best–configs | other–configs | worse–configs | best–configs | other–configs | worse–configs | best–configs | other–configs |
-|                     | (w restr)     | (w restr)    | (w/o restr)   | (w restr)     | (w restr)    | (w/o restr)   | (w restr)     | (w restr)    | (w/o restr)   |
-| WC                  | –             | –            | 0,09          | –             | –            | 0,34          | –             | –            | 0,55          |
-| AS                  | 0,1           | 0,175        | 0,14          | 0,29          | 0,36         | 0,41          | 0,23          | 0,36         | 0,33          |
-| BS                  | 0,025         | 0,18         | 0,06          | 0,26          | 0,5          | 0,36          | 0,48          | 0,6          | 0,65          |
-| WC+BS               | 0,033         | 0,095        | 0,02          | 0,30          | 0,39         | 0,32          | 0,62          | 0,7          | 0,68          |
-| BS+AS               | 0,02          | 0,175        | 0,01          | 0,25          | 0,48         | 0,36          | 0,48          | 0,64         | 0,66          |
-| AS+WC               | 0,055         | 0,115        | 0,07          | 0,33          | 0,37         | 0,42          | 0,57          | 0,6          | 0,6           |
+| | worse–configs | best–configs | other–configs | worse–configs | best–configs | other–configs | worse–configs | best–configs | other–configs |
+| | (w restr) | (w restr) | (w/o restr) | (w restr) | (w restr) | (w/o restr) | (w restr) | (w restr) | (w/o restr) |
+| WC | – | – | 0,09 | – | – | 0,34 | – | – | 0,55 |
+| AS | 0,1 | 0,175 | 0,14 | 0,29 | 0,36 | 0,41 | 0,23 | 0,36 | 0,33 |
+| BS | 0,025 | 0,18 | 0,06 | 0,26 | 0,5 | 0,36 | 0,48 | 0,6 | 0,65 |
+| WC+BS | 0,033 | 0,095 | 0,02 | 0,30 | 0,39 | 0,32 | 0,62 | 0,7 | 0,68 |
+| BS+AS | 0,02 | 0,175 | 0,01 | 0,25 | 0,48 | 0,36 | 0,48 | 0,64 | 0,66 |
+| AS+WC | 0,055 | 0,115 | 0,07 | 0,33 | 0,37 | 0,42 | 0,57 | 0,6 | 0,6 |
 
-Table 6: Stability of the implemented graph traversal algorithms when various restrictions are imposed: "worse–configs (w restr)" —- low–quality configurations and imposed restrictions; "best–configs (w restr)" —- high–quality configurations and imposed restrictions; "other–configs (w/o restr)" —- configurations without restrictions on graph traversal
+**Table 6:** Stability of the implemented graph traversal algorithms when various restrictions are imposed: "worse–configs (w restr)" —- low–quality configurations and imposed restrictions; "best–configs (w restr)" —- high–quality configurations and imposed restrictions; "other–configs (w/o restr)" —- configurations without restrictions on graph traversal
 
 4%) when changing the imposed constraints on traversal. In case of using BeamSeach–algorithm the imposed constraints on the graph are important, and when specifying incorrect values the degradation will be observed: the difference in JudgeScore–metric between the best and worst configurations is 24%. In turn, for largesize–models the combination of BeamSearch– and WaterCircles–algorithms turned out to be more stable.
 
@@ -346,38 +346,38 @@ tions with 7B–models the least "NoAnswer"–stubs are observed when using a co
 
 Comparison of existing RAG– and GraphRAG–methods with our proposed method on TriviaQA and HotpotQA datasets correspondingly can be observed in Table 8.
 
-| Retrieval Algorithm / |    | AS | BS | WC + | BS + | AS + | Restrictions    | all | E  | T  | O  |
+| Retrieval Algorithm / | | AS | BS | WC + | BS + | AS + | Restrictions | all | E | T | O |
 |-----------------------|----|----|----|------|------|------|-----------------|-----|----|----|----|
-| LLM-class             | WC |    |    | BS   | AS   | WC   | on graph search |     |    |    |    |
-| 7B                    | 31 | 44 | 26 | 29   | 31   | 25   |                 | 33  | 27 | 26 | 36 |
-| 8B                    | 51 | 49 | 43 | 51   | 73   | 49   |                 | 51  | 40 | 51 | 46 |
-| Largesize             | 25 | 62 | 27 | 16   | 26   | 21   |                 | 26  | 32 | 27 | 35 |
+| LLM-class | WC | | | BS | AS | WC | on graph search | | | | |
+| 7B | 31 | 44 | 26 | 29 | 31 | 25 | | 33 | 27 | 26 | 36 |
+| 8B | 51 | 49 | 43 | 51 | 73 | 49 | | 51 | 40 | 51 | 46 |
+| Largesize | 25 | 62 | 27 | 16 | 26 | 21 | | 26 | 32 | 27 | 35 |
 
-Table 7: The influence of the selected graph traversal algorithm and the imposed search restrictions on the percentage of generated NoAnswer stubs
+**Table 7:** The influence of the selected graph traversal algorithm and the imposed search restrictions on the percentage of generated NoAnswer stubs
 
-| Dataset  | RAG–method      |      |       |            |         |        |       |       |        |            |  |
+| Dataset | RAG–method | | | | | | | | | | |
 |----------|-----------------|------|-------|------------|---------|--------|-------|-------|--------|------------|--|
-|          | REALM           | DPR  | RAG   | ColBERT–QA | FiD     | EMDR2  | RETRO | Atlas | RePLUG | Our method |  |
-| TriviaQA | 53,9            | 56,8 | 55,8  | 70,1       | 67,6    | 71,4   | 62,1  | 79,8  | 77,3   | 62,0       |  |
-|          | GraphRAG–method |      |       |            |         |        |       |       |        |            |  |
-|          | ToG             | RoG  | PMKGE | GRAG       | GNN–RAG | ToG2.0 | DoG   | GCR   | PDA    |            |  |
-| HotpotQA | 41,0            | 43,0 | 42,6  | 36,1       | 43,0    | 40,9   | 45,3  | 45,9  | 36,5   | 60,0       |  |
+| | REALM | DPR | RAG | ColBERT–QA | FiD | EMDR2 | RETRO | Atlas | RePLUG | Our method | |
+| TriviaQA | 53,9 | 56,8 | 55,8 | 70,1 | 67,6 | 71,4 | 62,1 | 79,8 | 77,3 | 62,0 | |
+| | GraphRAG–method | | | | | | | | | | |
+| | ToG | RoG | PMKGE | GRAG | GNN–RAG | ToG2.0 | DoG | GCR | PDA | | |
+| HotpotQA | 41,0 | 43,0 | 42,6 | 36,1 | 43,0 | 40,9 | 45,3 | 45,9 | 36,5 | 60,0 | |
 
-Table 8: Comparison of existing RAG– and GraphRAG–methods with our proposed method on ExactMatch–metric
+**Table 8:** Comparison of existing RAG– and GraphRAG–methods with our proposed method on ExactMatch–metric
 
-# 7 Conclusion
+## 7 Conclusion
 
 In conclusion, this study introduces a novel approach to personalizing language models by leveraging knowledge graphs as external memory, offering a structured alternative to traditional Retrieval-Augmented Generation techniques. Our experiments demonstrate that the AriGraphbased question answering system, tailored to construct and utilize knowledge graphs, significantly enhances the model's ability to generate personalized responses by efficiently managing and employing temporal dependencies. The model's robustness is particularly evident in handling complex dialogue scenarios, including contradictions and temporal variations, as reflected in the improved performance on the enhanced DiaASQ benchmark. Notably, the proposed architecture exhibits superior accuracy over comparable GraphRAG–methods on HotpotQA benchmark by effectively filtering irrelevant data and targeting relevant information within dialogues. Furthermore, our findings suggest that structured knowledge graphs facilitate rapid and precise retrieval of information, which is pivotal for the advancement of personalization in large language models. The adaptability and universality of the constructed graph underscore the potential for further optimization through refined triplet extraction techniques. Overall, this work paves the way for future developments in personalized artificial intelligence, providing a robust framework for integrating structured memory architectures into language modeling.
 
-# 8 Limitations
+## 8 Limitations
 
 The following points can be emphasized as a disadvantages of the proposed/implemented QA–pipeline: (1) The search for information in the knowledge graph is performed based on the initial user–question, which may contain noise, due to which the generated set of relevant information will be less concentrated. (2) At the second stage of the pipeline, a fixed number of nodes from the knowledge graph are matched with the extracted key entities from the user–question; the granularity of the entities is not taken into account. (3) Collection/formation of the relevant set of information for generating the final answer to the user–question is performed in one iteration of the QA–pipeline, which may be insufficient in the case of complex (composite) questions.
 
-# 9 Future work
+## 9 Future work
 
 In future work, we aim to enhance the temporal dynamics of the knowledge graph by integrating a "memory time" parameter, allowing for more nuanced filtering of triplets based on temporal proximity and relationship types through advanced algorithms like BFS and A\*. This will enable the system to selectively emphasize certain relationship types or prioritize temporal closeness, thereby refining the precision of personalized responses. Additionally, exploring optimized triplet extraction techniques could further improve the efficiency and accuracy of information retrieval within the graph, extending the adaptability and universality of our approach. These enhancements promise to elevate the personalization capabilities of language models, fostering more sophisticated and contextually aware interactions.
 
-# References
+## References
 
 Anokhin, P.; Semenov, N.; Sorokin, A.; Evseev, D.; Burtsev, M.; and Burnaev, E. 2024. AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents. arXiv:2407.04363.
 
@@ -419,120 +419,120 @@ Zhang, T.; Kishore, V.; Wu, F.; Weinberger, K. Q.; and Artzi, Y. 2019. BERTScore
 
 Zheng, L.; Chiang, W.-L.; Sheng, Y.; Zhuang, S.; Wu, Z.; Zhuang, Y.; Lin, Z.; Li, Z.; Li, D.; Xing, E.; et al. 2023. Judging llm-as-a-judge with mt-bench and chatbot arena. *Advances in Neural Information Processing Systems*, 36: 46595–46623.
 
-# A LLM–prompts used to build a knowledge graph within the Memorize–pipeline
+## A LLM–prompts used to build a knowledge graph within the Memorize–pipeline
 
 Tables 9 and 10 present the LLM–prompts used within the Memorize–pipeline to extract thesis and simple memories, respectively, from unstructured natural language text for storing in a knowledge graph.
 
-| Type      | LLM–prompt |
+| Type | LLM–prompt |
 |-----------|------------|
-|           |            |
-| System    |            |
-| User      |            |
-| Assistant |            |
+| | |
+| System | |
+| User | |
+| Assistant | |
 
-Table 9: LLM–prompts for extracting thesis memories (in the form of triplets) from natural language text
+**Table 9:** LLM–prompts for extracting thesis memories (in the form of triplets) from natural language text
 
-| Type      | LLM–prompt |
+| Type | LLM–prompt |
 |-----------|------------|
-| System    |            |
-| User      |            |
-| Assistant |            |
+| System | |
+| User | |
+| Assistant | |
 
-Table 10: LLM–prompts for extracting simple–memories (in the form of triplets) from natural language text
+**Table 10:** LLM–prompts for extracting simple–memories (in the form of triplets) from natural language text
 
-# B LLM–prompts used to find outdated information in the constructed knowledge graph
+## B LLM–prompts used to find outdated information in the constructed knowledge graph
 
 Tables 11 and 12 present the LLM–prompts used by Memorize–pipeline to identify stale thesis and simple memories, respectively, in the knowledge graph.
 
-| Type      | LLM–prompt |
+| Type | LLM–prompt |
 |-----------|------------|
-|           |            |
-|           |            |
-|           |            |
-| System    |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-| User      |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-|           |            |
-| Assistant | -          |
+| | |
+| | |
+| | |
+| System | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| User | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| Assistant | - |
 
-| Type              | LLM–prompt |
+| Type | LLM–prompt |
 |-------------------|------------|
-| System            |            |
-| User<br>Assistant | -          |
-|                   |            |
+| System | |
+| User<br>Assistant | - |
+| | |
 
-# C LLM–prompts used within proposed QA–pipeline
+## C LLM–prompts used within proposed QA–pipeline
 
 Table 13 presents LLM–prompts used in QA–pipeline at the second stage ("Query LLM Parser"–module) to extract key entities from the original user question. Table 14 presents the LLM–prompts used in QA–pipeline at the fourth stage ("QA LLM Generator"-module) to conditionally generate an answer to a user–question.
 
-| Type      | LLM–prompt |
+| Type | LLM–prompt |
 |-----------|------------|
-| System    |            |
-| User      |            |
-| Assistant |            |
+| System | |
+| User | |
+| Assistant | |
 
-Table 13: LLM–prompts for extracting key entities from natural language text
+**Table 13:** LLM–prompts for extracting key entities from natural language text
 
-| Type      | LLM–prompt |  |  |  |  |  |  |  |
+| Type | LLM–prompt | | | | | | | |
 |-----------|------------|--|--|--|--|--|--|--|
-|           |            |  |  |  |  |  |  |  |
-| System    |            |  |  |  |  |  |  |  |
-| User      |            |  |  |  |  |  |  |  |
-| Assistant |            |  |  |  |  |  |  |  |
+| | | | | | | | | |
+| System | | | | | | | | |
+| User | | | | | | | | |
+| Assistant | | | | | | | | |
 
-# D LLM–as–a–Judge instructions
+## D LLM–as–a–Judge instructions
 
 To achieve reproducibility of the obtained results, the LLM-inference was performed using a deterministic generation strategy. The following hyperparameter were used/set: num predict – 2048; seed – 42; temperature – 0,0; top k – 1. We prompt Qwen2.5 7B from Ollama–repository to judge whether the proposed QA–pipeline outputs are correctly answering given questions. Used LLM–prompts can be observed in Table 15.
 
-| Type      | LLM–prompt |
+| Type | LLM–prompt |
 |-----------|------------|
-| System    |            |
-| User      |            |
-| Assistant |            |
+| System | |
+| User | |
+| Assistant | |
 
-Table 15: LLM–prompts used in LLM–as–a–Judge framework
+**Table 15:** LLM–prompts used in LLM–as–a–Judge framework
 
-# E Used preprocessing methods for evaluation–datasets
+## E Used preprocessing methods for evaluation–datasets
 
 In the case of the original HotpotQA set, its distractor/validation–part was selected, which contains 7405 qa–pairs and 13781 unique contexts. Then, qa-pairs were discarded, the relevant contexts to which are outside the specified range in length (in symbols): the contexts in length must be at least 64 and not more than 1024 characters. As a result of this operation, 13291 contexts remained. Finally, the first 2000 qa–pairs and the relevant contexts, corresponding to them, were taken: 3933 unique contexts remained.
 
@@ -540,13 +540,13 @@ In the case of the original TriviaQA–set, its rc.wikipedia/validation–part w
 
 Thus, evaluation sets for quality assessment of the proposed/implemented Memorize– and QA–pipelines were obtained. The characteristics of the obtained subsets of HotpotQA–, TriviaQA– and DiaASQ–datasets can be found in Table 16.
 
-| Dataset  | QA–pairs |                  |        |       |                 |       | Relevant contexts |        |                 |        |        |
+| Dataset | QA–pairs | | | | | | Relevant contexts | | | | |
 |----------|----------|------------------|--------|-------|-----------------|-------|-------------------|--------|-----------------|--------|--------|
-|          | Amount   | Questions length |        |       | Answers length  |       |                   | Amount | Length          |        |        |
-|          |          | (in characters)  |        |       | (in characters) |       |                   |        | (in characters) |        |        |
-|          |          | median           | mean   | std   | median          | mean  | std               |        | median          | mean   | std    |
-| DiaASQ   | 5698     | 114              | 109.44 | 18.66 | 8               | 7.57  | 2.30              | 3483   | 556             | 613.00 | 324.35 |
-| HotpotQA | 2000     | 87               | 92.98  | 32.62 | 13              | 15.29 | 11.87             | 3933   | 384             | 413.72 | 201.05 |
-| TriviaQA | 500      | 66               | 76.37  | 39.46 | 9               | 10.17 | 5.76              | 4925   | 807             | 765.11 | 196.32 |
+| | Amount | Questions length | | | Answers length | | | Amount | Length | | |
+| | | (in characters) | | | (in characters) | | | | (in characters) | | |
+| | | median | mean | std | median | mean | std | | median | mean | std |
+| DiaASQ | 5698 | 114 | 109.44 | 18.66 | 8 | 7.57 | 2.30 | 3483 | 556 | 613.00 | 324.35 |
+| HotpotQA | 2000 | 87 | 92.98 | 32.62 | 13 | 15.29 | 11.87 | 3933 | 384 | 413.72 | 201.05 |
+| TriviaQA | 500 | 66 | 76.37 | 39.46 | 9 | 10.17 | 5.76 | 4925 | 807 | 765.11 | 196.32 |
 
-Table 16: Characteristics of the datasets used to evaluate the quality of the proposed Memorize– and QA–pipelines
+**Table 16:** Characteristics of the datasets used to evaluate the quality of the proposed Memorize– and QA–pipelines

@@ -54,7 +54,7 @@ keywords:
 ![](_page_0_Picture_3.jpeg)
 <!-- Image Description: The image is a simple button with the text "Check for updates". It likely appears in software or a digital document, indicating a functionality to search for and install newer versions. The button features a circular icon, possibly indicating software updates, with a red bookmark-like shape in the center. The image's purpose is to direct the user to check for software updates to ensure they have the latest version. -->
 
-# Learning temporal granularity with quadruplet networks for temporal knowledge graph completion
+## Learning temporal granularity with quadruplet networks for temporal knowledge graph completion
 
 **RushanGeng<sup>1</sup> & Cuicui Luo<sup>2</sup>**
 
@@ -74,7 +74,7 @@ Temporal information is inherently structured, and it is essential to leverage i
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image is a diagram showing President Barack Obama's visits to four countries during his presidency. A central photograph of Obama is connected by arrows to flags representing the US, China, Japan, and the UK. Each arrow is labeled with the date of the visit and indicates the direction of travel. The diagram visually summarizes Obama's foreign trips, likely to illustrate a point about his foreign policy or international relations. -->
-**Fig. 1**. Some simple facts exist in TKGs.
+**Figure 1**. Some simple facts exist in TKGs.
 
 Moreover, existing models often integrate entities, relations and timestamps information in a staged manner, leading to potential biases that accumulate over time, resulting in diminished accuracy when predicting missing entities. To address these limitations, we propose a dynamic timestamps mapping (DTM) module that integrates heterogeneous elements within TKGs by utilizing dynamic Convolutional Neural Networks (CNNs) to process fine-grained temporal details. This modules ensures that timestamps representations are more precise, enabling the model to better capture the temporal context of facts. Additionally, a quadruplet fuse module (QFM) is introduced to map entities, relations, and timestamps into different spaces. These separate spaces are then combined into a unified representation. Finally, the weight information produced by the quadruplet fuse module is used to adjust the temporal granularity and make predictions. The main contributions of this work are as follows:
 
@@ -96,11 +96,11 @@ ConMask[17](#page-9-6) is an open-world knowledge graph completion method that f
 
 A temporal knowledge graph*G* consists of quadruples represented as (*s*, *r*, *o*, *t*), where *s, o ∈ E*denote subject (head) and object (tail) entities, respectively, and*r ∈ R*represents a relation connecting the subject to the object. The timestamp*t ∈ T*specifies the temporal context of the interaction between*s*and*o*under relation*r*. Here, *E*, *R*, and *T*represent the finite sets of entities, relation types, and timestamps, correspondingly. Temporal knowledge graph embedding techniques aim to map each entity, relation, and timestamp into a continuous vector space. These methods define a time-aware scoring function*f*(*s*, *r*, *o*, *t*) to evaluate the likelihood of observing the quadruple (*s*, *r*, *o*, *t*) in the graph. In response to queries like (*s*, *r*, ?, *t*) or (?, *r*, *o*, *t*), the goal of Temporal Knowledge Graph Completion is to infer the missing subject or object entity by leveraging known temporal facts. Ideally, the scoring function assigns higher scores to genuine facts over incorrect ones, reflecting their relative plausibility within the TKG framework.
 
-#### Model overview
+### Model overview
 
 In this section, we introduce the Learning Temporal Granularity with Quadruplet Networks. The overall framework of LTGQ is depicted in Fig. [2](#page-3-0) and comprises two primary components: Quadruplet Fusion Module and Dynamic Timestamps Mapping Module.
 
-#### Embedding module
+### Embedding module
 
 The architecture of the embedding module is designed to encode entities (*es*), relations (*r*), and temporal information (*ti*, where *i ∈ {*1*,* 2*,* 3*}*). Subsequently, convolutional neural networks (CNNs) are utilized to extract features from these embeddings. The overall representation can be formalized as follows:
 
@@ -138,13 +138,13 @@ $$
 
 where *σ*(*·*) denotes the LeakyReLU activation function, W*t* and W*r* are linear transformations, and b*t* and b*<sup>r</sup>*represent bias terms for temporal and relational embeddings, respectively.
 
-#### Quadruplet fusion module
+### Quadruplet fusion module
 
 Inspired by the gating mechanism introduced in the QDN model proposed by Wang et al.[33,](#page-9-22) we incorporate a gating mechanism to selectively filter out irrelevant features while preserving significant ones. This module
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a neural network architecture for quadruplet fusion. The upper section ("Quadruplet Fusion") processes entity and relation inputs through linear and triaffine layers, followed by CNNs, culminating in a combined representation *q*. The lower section ("Dynamic Timestamps Mapping") incorporates temporal data (year, month, day) via an RNN and CNN, interacting with *q* through a multiply layer and softmax to produce a final output *X₀*. The model uses CNNs for feature extraction and RNNs for temporal information processing. -->
-**Fig. 2**. The framework of Learning Temporal Granularity with Quadruplet Networks.
+**Figure 2**. The framework of Learning Temporal Granularity with Quadruplet Networks.
 
 combines triaffine operations[34](#page-9-23) and CNNs to enable effective information exchange and interaction among entities, relations, and timestamps, even when they reside in different vector spaces. Specifically, the module comprises two key processes: aggregation and dissemination.
 
@@ -241,7 +241,7 @@ $$
 
 where W*e*, W*r*, and W*<sup>t</sup> <sup>∈</sup>* <sup>R</sup><sup>1</sup>*×<sup>d</sup>*denote the linear transformations for different granularities, and*σ* denotes the softmax activation function.
 
-#### Dynamic timestamp mapping
+### Dynamic timestamp mapping
 
 To effectively capture the temporal characteristics inherent in timestamps, we decompose the timestamp into three separate dimensions (year, month, day) and apply a recurrent neural network (RNN) to model sequential dependencies:
 
@@ -278,7 +278,7 @@ $$
 
 where x*o*is the fused representation that integrates adaptive granularity-specific information.
 
-#### Training objective
+### Training objective
 
 The main objective during training is to minimize the negative log-likelihood loss function:
 
@@ -288,93 +288,90 @@ $$
 
 where*y*= 1 for positive samples and*y*= 0 for negative samples.*N*represents the number of training samples, and*p*is computed using a logistic sigmoid function, indicating the probability that the target entity is a correct response to the given query.
 
-#### Experiment
+### Experiment
 
 In this section, we demonstrate the effectiveness of Learning Temporal Granularity with Quadruplet Networks (LTGQ) on five TKGC benchmark datasets by conducting a series of experiments, including link prediction and ablation studies, among others. The experimental setup is explained first, followed by a comparison of LTGQ with other baselines. Ablation studies are also performed to evaluate the importance of different components in LTGQ.
 
-#### Datasets
+### Datasets
 
 To validate the effectiveness of our proposed approach, we employ five publicly available Temporal Knowledge Graph (TKG) datasets: GDELT[35](#page-9-24), YAGO11[k20](#page-9-9), Wikidata12[k20](#page-9-9), and the ICEWS05-15 and ICEWS14[5](#page-8-4) . Notably, the ICEWS datasets stem from the Integrated Crisis Early Warning System[36.](#page-9-25) Meanwhile, both the YAGO11k and Wikidata12k datasets have been enriched with temporal annotations, derived from their static KG counterparts, YAGO and Wikipedia respectively. For a comprehensive overview of the characteristics and specifications of these datasets, readers are directed to Table [1.](#page-5-0)
 
-#### Baselines
+### Baselines
 
 We compare our proposed method with a set of TKGC methods.**TKGC models** include TTransE[21,](#page-9-10) HyT[E20](#page-9-9), DE-SimplE[37,](#page-9-26) ATiS[E30](#page-9-19), TeR[o26](#page-9-15), ChronoR[25,](#page-9-14) TComplE[x27](#page-9-16), TeLM[31](#page-9-20) and BoxTE[23,](#page-9-12) TA-DistMul[t5](#page-8-4) , TNTComplE[x28](#page-9-17), RotateQVS[29](#page-9-18), TeAST[32,](#page-9-21) TimePle[x38](#page-9-27), TuckERTN[T39](#page-9-28), BDM[E40](#page-9-29).
 
-#### Evaluation protocols
+### Evaluation protocols
 
 For each quadruple (*s*, *r*, *o*, *t*) from the test set, we generate two queries: (*s*, *r*, ?, *t*) and (?, *r*, *o*, *t*). Both queries are utilized concurrently for model optimization. It's important to emphasize that, conventionally, every quadruple (*s*, *r*, *o*, *t*) is supplemented with its reciprocal relation, denoted as (*o, r−*<sup>1</sup>*, s, t*). Consequently, the query (?, *r*, *o*, *t*) gets transformed to (*o, r−*<sup>1</sup>*, s, t*). This alteration maintains the generality of the evaluation process. For performance evaluation, we resort to the Mean Reciprocal Rank (MRR) - which calculates the average of the inverse ranks across all cases - and Hits@N. The latter metric gauges the frequency with which the true entity candidate is positioned within the top N ranked candidates, specifically for *N* values of 1, 3, and 10. The formula for MRR is given by:
 
 $$
 MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{\text{rank}_i}.
 $$
- (15)
+(15)
 
 In the formula above, |*Q*| denotes the total count of predicted results, while rank*i*signifies the rank of the anticipated output in the realized outcomes. A higher value for both MRR and Hits@N suggests superior model efficacy. Importantly, all evaluations are conducted under the time-wise filtering paradigm, a setting that has been prevalently employed in prior research.
 
-#### Experimental setup
+### Experimental setup
 
 We have implemented our proposed model using PyTorch. All experiments are conducted on a single NVIDIA A100 GPU with 40GB of memory, complemented by 128GB of RAM. For optimization, we employ the Adam optimizer and undertake a grid search to determine the optimal hyperparameters, based on performance on the validation set. Across all experiments, we fix the learning rate at 0.1 and the embedding dimension at 400. We omit the variance in our reports since it's generally negligible. To mitigate overfitting, we incorporate techniques such as label smoothing, batch normalizatio[n41](#page-9-30), and dropou[t42](#page-9-31). The batch size is selected from the set*{*256*,* 500*,* 1000*,* 1200*}*, and label smoothing is set to 0.1. We adopt a negative sampling ratio of 1000.
 
-<span id="page-5-0"></span>
 
-| Datasets    | #Entities | #Relations | #Timestamps | Time Span         | #Granularity | #Training | #Validation | #Test   |
+| Datasets | #Entities | #Relations | #Timestamps | Time Span | #Granularity | #Training | #Validation | #Test |
 |-------------|-----------|------------|-------------|-------------------|--------------|-----------|-------------|---------|
-| ICEWS14     | 6,869     | 230        | 365         | A.D.2014          | 1 day        | 72,826    | 8,941       | 8,963   |
-| ICEWS05-15  | 10,094    | 251        | 4,017       | A.D.2005-A.D.2015 | 1 day        | 368,962   | 46,275      | 46,092  |
-| GDELT       | 500       | 20         | 366         | A.D.2015-A.D.2016 | 1 day        | 2,735,685 | 341,961     | 341,961 |
-| Wikidata12k | 12,554    | 24         | 232         | A.D.1709-A.D.2018 | 1 year       | 539,286   | 67,538      | 63,110  |
-| YAGO11k     | 10,623    | 10         | 118         | 453 B.C.-A.D.2844 | 100 years    | 16,406    | 2,050       | 2,051   |
+| ICEWS14 | 6,869 | 230 | 365 | A.D.2014 | 1 day | 72,826 | 8,941 | 8,963 |
+| ICEWS05-15 | 10,094 | 251 | 4,017 | A.D.2005-A.D.2015 | 1 day | 368,962 | 46,275 | 46,092 |
+| GDELT | 500 | 20 | 366 | A.D.2015-A.D.2016 | 1 day | 2,735,685 | 341,961 | 341,961 |
+| Wikidata12k | 12,554 | 24 | 232 | A.D.1709-A.D.2018 | 1 year | 539,286 | 67,538 | 63,110 |
+| YAGO11k | 10,623 | 10 | 118 | 453 B.C.-A.D.2844 | 100 years | 16,406 | 2,050 | 2,051 |
 
 **Table 1**. Statistics of TKGE datasets in the experiment.
 
-<span id="page-6-0"></span>
 
-|             | ICEWS05-15 |        |        |         | GDELT |        |        |         | ICEWS14 |        |        |         |
+| | ICEWS05-15 | | | | GDELT | | | | ICEWS14 | | | |
 |-------------|------------|--------|--------|---------|-------|--------|--------|---------|---------|--------|--------|---------|
-| Method      | MRR        | Hits@1 | Hits@3 | Hits@10 | MRR   | Hits@1 | Hits@3 | Hits@10 | MRR     | Hits@1 | Hits@3 | Hits@10 |
-| TTansE      | 27.1       | 8.4    | -      | 61.6    | 11.5  | 0.0    | 16.0   | 31.8    | 25.5    | 7.4    | -      | 60.1    |
-| TA-DistMult | 47.4       | 34.6   | -      | 72.8    | 20.6  | 12.4   | 21.9   | 36.5    | 47.7    | 36.3   | -      | 68.6    |
-| HyTe        | 31.6       | 11.6   | 44.5   | 68.1    | 11.8  | 0.0    | 16.5   | 32.6    | 29.7    | 10.8   | 41.6   | 65.5    |
-| DE-SimplE   | 51.3       | 39.2   | 57.8   | 74.8    | 23.0  | 14.1   | 24.8   | 40.3    | 52.6    | 41.8   | 59.2   | 72.5    |
-| TComplEx    | 66.0       | 59.0   | 71.0   | 80.0    | 34.0  | 24.9   | 36.1   | 49.8    | 61.0    | 53.0   | 66.0   | 76.0    |
-| TNTComplEx  | 67.0       | 59.0   | 71.0   | 81.0    | 34.9  | 25.8   | 37.3   | 50.2    | 62.0    | 52.0   | 66.0   | 76.0    |
-| ATiSE       | 51.9       | 37.8   | 60.6   | 79.4    | -     | -      | -      | -       | 55.0    | 43.6   | 62.9   | 75.0    |
-| TimePlex    | 64.0       | 54.5   | -      | 81.8    | -     | -      | -      | -       | 60.4    | 51.5   | -      | 77.1    |
-| TeRo        | 58.6       | 46.9   | 66.8   | 79.5    | 24.5  | 15.4   | 26.4   | 42.0    | 56.2    | 46.8   | 62.1   | 73.2    |
-| ChronoR     | 67.5       | 59.6   | 72.3   | 82.0    | -     | -      | -      | -       | 62.5    | 54.7   | 66.9   | 77.3    |
-| TeLM        | 67.8       | 59.9   | 72.8   | 82.3    | 35.0  | 26.1   | 37.5   | 50.4    | 62.5    | 54.5   | 67.3   | 77.4    |
-| BoxTE       | 66.7       | 58.2   | 71.9   | 82.0    | 35.3  | 26.9   | 37.7   | 51.1    | 61.3    | 52.8   | 66.4   | 76.3    |
-| RotateQVS   | 63.3       | 52.9   | 70.9   | 81.3    | 27.0  | 17.5   | 29.3   | 45.8    | 59.1    | 50.7   | 64.2   | 75.4    |
-| TuckERTNT   | 63.8       | 55.9   | 68.6   | 78.3    | 38.1  | 28.3   | 41.8   | 57.6    | 60.4    | 52.1   | 65.5   | 75.3    |
-| BDME        | -          | -      | -      | -       | 27.8  | 19.1   | 29.9   | 44.8    | 63.5    | 55.5   | 68.3   | 77.8    |
-| TeAST       | 68.3       | 60.4   | 73.2   | 82.9    | 37.1  | 28.3   | 40.1   | 54.4    | 63.7    | 56.0   | 68.2   | 78.2    |
-| LTGQ        | 69.4       | 61.4   | 74.6   | 83.7    | 44.9  | 35.2   | 49.1   | 63.7    | 64.1    | 56.4   | 68.9   | 77.9    |
+| Method | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 |
+| TTansE | 27.1 | 8.4 | - | 61.6 | 11.5 | 0.0 | 16.0 | 31.8 | 25.5 | 7.4 | - | 60.1 |
+| TA-DistMult | 47.4 | 34.6 | - | 72.8 | 20.6 | 12.4 | 21.9 | 36.5 | 47.7 | 36.3 | - | 68.6 |
+| HyTe | 31.6 | 11.6 | 44.5 | 68.1 | 11.8 | 0.0 | 16.5 | 32.6 | 29.7 | 10.8 | 41.6 | 65.5 |
+| DE-SimplE | 51.3 | 39.2 | 57.8 | 74.8 | 23.0 | 14.1 | 24.8 | 40.3 | 52.6 | 41.8 | 59.2 | 72.5 |
+| TComplEx | 66.0 | 59.0 | 71.0 | 80.0 | 34.0 | 24.9 | 36.1 | 49.8 | 61.0 | 53.0 | 66.0 | 76.0 |
+| TNTComplEx | 67.0 | 59.0 | 71.0 | 81.0 | 34.9 | 25.8 | 37.3 | 50.2 | 62.0 | 52.0 | 66.0 | 76.0 |
+| ATiSE | 51.9 | 37.8 | 60.6 | 79.4 | - | - | - | - | 55.0 | 43.6 | 62.9 | 75.0 |
+| TimePlex | 64.0 | 54.5 | - | 81.8 | - | - | - | - | 60.4 | 51.5 | - | 77.1 |
+| TeRo | 58.6 | 46.9 | 66.8 | 79.5 | 24.5 | 15.4 | 26.4 | 42.0 | 56.2 | 46.8 | 62.1 | 73.2 |
+| ChronoR | 67.5 | 59.6 | 72.3 | 82.0 | - | - | - | - | 62.5 | 54.7 | 66.9 | 77.3 |
+| TeLM | 67.8 | 59.9 | 72.8 | 82.3 | 35.0 | 26.1 | 37.5 | 50.4 | 62.5 | 54.5 | 67.3 | 77.4 |
+| BoxTE | 66.7 | 58.2 | 71.9 | 82.0 | 35.3 | 26.9 | 37.7 | 51.1 | 61.3 | 52.8 | 66.4 | 76.3 |
+| RotateQVS | 63.3 | 52.9 | 70.9 | 81.3 | 27.0 | 17.5 | 29.3 | 45.8 | 59.1 | 50.7 | 64.2 | 75.4 |
+| TuckERTNT | 63.8 | 55.9 | 68.6 | 78.3 | 38.1 | 28.3 | 41.8 | 57.6 | 60.4 | 52.1 | 65.5 | 75.3 |
+| BDME | - | - | - | - | 27.8 | 19.1 | 29.9 | 44.8 | 63.5 | 55.5 | 68.3 | 77.8 |
+| TeAST | 68.3 | 60.4 | 73.2 | 82.9 | 37.1 | 28.3 | 40.1 | 54.4 | 63.7 | 56.0 | 68.2 | 78.2 |
+| LTGQ | 69.4 | 61.4 | 74.6 | 83.7 | 44.9 | 35.2 | 49.1 | 63.7 | 64.1 | 56.4 | 68.9 | 77.9 |
 
 **Table 2**. Performance comparison on temporal link prediction (metrics in %) on three event-based TKG datasets (ICEWS05-15, GDELT, and ICEWS14). The best results are marked in **bold**, and underline represents the second-best score.
 
-<span id="page-6-1"></span>
 
-|             | Wikidata12k |        |        |         | YAGO11k |        |        |         |  |
+| | Wikidata12k | | | | YAGO11k | | | | |
 |-------------|-------------|--------|--------|---------|---------|--------|--------|---------|--|
-| Method      | MRR         | Hits@1 | Hits@3 | Hits@10 | MRR     | Hits@1 | Hits@3 | Hits@10 |  |
-| TTansE      | 17.2        | 9.6    | 18.4   | 32.9    | 10.8    | 2.0    | 15.0   | 25.1    |  |
-| TA-DistMult | 21.8        | 12.2   | 23.2   | 44.7    | 15.5    | 9.8    | -      | 26.7    |  |
-| HyTe        | 18.0        | 9.8    | 19.7   | 33.3    | 13.6    | 3.3    | -      | 29.8    |  |
-| DE-SimplE   | -           | -      | -      | -       | 15.1    | 8.8    | -      | 26.7    |  |
-| TComplEx    | 33.1        | 23.3   | 35.7   | 53.9    | 18.5    | 12.7   | 18.3   | 30.7    |  |
-| TNTComplEx  | -           | -      | -      | -       | -       | -      | -      | -       |  |
-| ATiSE       | 25.2        | 14.8   | 28.8   | 46.2    | 18.5    | 12.6   | 18.9   | 30.1    |  |
-| TimePlex    | 33.4        | 22.8   | -      | 53.2    | 23.6    | 16.9   | -      | 36.7    |  |
-| TeRo        | 29.9        | 19.8   | 32.9   | 50.7    | 18.7    | 12.1   | 19.7   | 31.9    |  |
-| ChronoR     | -           | -      | -      | -       | -       | -      | -      | -       |  |
-| TeLM        | 33.2        | 23.1   | 36.0   | 54.2    | 19.1    | 12.9   | 19.4   | 32.1    |  |
-| LTGQ        | 41.3        | 30.9   | 46.5   | 62.2    | 25.1    | 18.5   | 26.3   | 39.3    |  |
+| Method | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | |
+| TTansE | 17.2 | 9.6 | 18.4 | 32.9 | 10.8 | 2.0 | 15.0 | 25.1 | |
+| TA-DistMult | 21.8 | 12.2 | 23.2 | 44.7 | 15.5 | 9.8 | - | 26.7 | |
+| HyTe | 18.0 | 9.8 | 19.7 | 33.3 | 13.6 | 3.3 | - | 29.8 | |
+| DE-SimplE | - | - | - | - | 15.1 | 8.8 | - | 26.7 | |
+| TComplEx | 33.1 | 23.3 | 35.7 | 53.9 | 18.5 | 12.7 | 18.3 | 30.7 | |
+| TNTComplEx | - | - | - | - | - | - | - | - | |
+| ATiSE | 25.2 | 14.8 | 28.8 | 46.2 | 18.5 | 12.6 | 18.9 | 30.1 | |
+| TimePlex | 33.4 | 22.8 | - | 53.2 | 23.6 | 16.9 | - | 36.7 | |
+| TeRo | 29.9 | 19.8 | 32.9 | 50.7 | 18.7 | 12.1 | 19.7 | 31.9 | |
+| ChronoR | - | - | - | - | - | - | - | - | |
+| TeLM | 33.2 | 23.1 | 36.0 | 54.2 | 19.1 | 12.9 | 19.4 | 32.1 | |
+| LTGQ | 41.3 | 30.9 | 46.5 | 62.2 | 25.1 | 18.5 | 26.3 | 39.3 | |
 
 **Table 3**. Performance comparison on temporal link prediction (metrics in %) on two public knowledge graphs (Wikidata12k and YAGO11k). The best results are marked in **bold**, and underline represents the second-best score.
 
 Additionally, the number of convolution filters remains consistent at 64, and the kernel size is chosen from the set *k ∈ {*3*,* 5*,* 7*}*.
 
-#### Result analysis
+### Result analysis
 
 We conducted experiments on five datasets: ICEWS05-15, GDELT, ICEWS14, Wikidata12k, and YAGO11k. The results, shown in Table [2](#page-6-0) and Table [3](#page-6-1), demonstrate that our proposed model outperforms the baseline models.
 
@@ -382,15 +379,14 @@ The ICEWS datasets (ICEWS14 and ICEWS05-15) contain rich temporal features and a
 
 On the ICEWS05-15 dataset, compared with TeAST, our model achieves a 1.1% improvement in MRR and a 1.0% increase in Hits@1. The large number of timestamps and rich temporal granularity in ICEWS05-15 contribute to its superior performance. In contrast, on the ICEWS14 dataset, where fewer timestamps are available, the Hits@10 performance is slightly lower than that of TeAST, although both MRR and Hits@1 are higher.
 
-<span id="page-7-0"></span>
 
-|           | ICEWS14 |        |        |         | YAGO11k |        |        |         |  |
+| | ICEWS14 | | | | YAGO11k | | | | |
 |-----------|---------|--------|--------|---------|---------|--------|--------|---------|--|
-| Method    | MRR     | Hits@1 | Hits@3 | Hits@10 | MRR     | Hits@1 | Hits@3 | Hits@10 |  |
-| LTGQ      | 64.1    | 56.4   | 68.9   | 77.9    | 25.1    | 18.5   | 26.3   | 39.3    |  |
-| -w/o DTM. | 63.4    | 55.5   | 68.3   | 77.5    | 22.5    | 16.2   | 23.3   | 35.6    |  |
-| -w/o QFM. | 63.1    | 55.5   | 68.0   | 76.9    | 23.8    | 17.2   | 24.8   | 38.1    |  |
-| -w/o DM.  | 63.2    | 55.6   | 68.0   | 77.3    | 24.6    | 18.1   | 25.6   | 38.8    |  |
+| Method | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | |
+| LTGQ | 64.1 | 56.4 | 68.9 | 77.9 | 25.1 | 18.5 | 26.3 | 39.3 | |
+| -w/o DTM. | 63.4 | 55.5 | 68.3 | 77.5 | 22.5 | 16.2 | 23.3 | 35.6 | |
+| -w/o QFM. | 63.1 | 55.5 | 68.0 | 76.9 | 23.8 | 17.2 | 24.8 | 38.1 | |
+| -w/o DM. | 63.2 | 55.6 | 68.0 | 77.3 | 24.6 | 18.1 | 25.6 | 38.8 | |
 
 ![](_page_7_Figure_2.jpeg)
 <!-- Image Description: Table 4 presents an ablation study on the ICEWS14 and YAGO11k datasets. It describes the impact of removing different components: Dynamic Timestamps Mapping (DTM), Quadruplet Fusion Module (QFM), and Dissemination Module (DM). All other hyperparameters remained constant, allowing for isolated analysis of each module's contribution. -->
@@ -405,18 +401,18 @@ On the GDELT dataset, TuckERTNT attains very high performance by employing a dec
 
 Furthermore, on the YAGO11k and Wikidata12k datasets, our model exhibits marked performance enhancements. Unlike the ICEWS datasets, Wikidata12k and YAGO11k span a considerably longer temporal range. Specifically, on Wikidata12k, our model outperforms TimePlex with a 7.9% improvement in MRR, and on YAGO11k, it achieves a 1.5% increase in MRR relative to TimePlex. Overall, these results confirm the effectiveness and reliability of our proposed approach.
 
-#### Ablation experiments
+### Ablation experiments
 
 We conducted a series of ablation studies to explore the influence of key components within our proposed method, with the results presented in Table [4](#page-7-0). Here, "w/o" denotes the removal of a specific module. Four modules were removed in total, namely the dynamic timestamps mapping module, the QFM module, DM within QFM. On the ICEWS14 dataset, compared to the model "w/o DTM",DTM means dyanmic timestamps mapping, the full model exhibited significant improvements in MRR and Hits@1, with respective increases of 2.39% and 3.38%. This indicates that the timestamps mapping module effectively captures temporal information and applies it to the knowledge graph completion task. Additionally, the performance decline after removing the QFM module was more pronounced than merely removing DM. This underscores that both HAM and DM in the QFM module play vital roles in the performance. The YAGO11k dataset has a broad temporal span, making the model's performance more susceptible to temporal factors; hence, the impact of the dyanmic timestamps mapping component is more pronounced. The ICEWS14 dataset contains a vast number of timestamps and a greater variety of relations, amplifying the effect of QFM's ability to integrate heterogeneous factors on model performance.
 
-#### Effetive of different layers of quadruplet fusion module
+### Effetive of different layers of quadruplet fusion module
 
 To validate the efficacy of the Quadruplet Fusion Module (QFM), we conducted experiments with varying numbers of QFM layers. The performance outcomes are depicted in Fig. [3](#page-7-1). The data suggest that as the number of layers increases, the model's performance generally improves. However, when the layer count exceeds three, there is a noticeable decline in the MRR of the model, which might be attributed to increased model complexity. This complexity potentially hampers the training data's ability to fully adapt to the current configuration of QFM. Despite this decline in MRR, the performance measured by Hits@10 consistently shows an upward trend, indicating that the model becomes capable of identifying a broader array of relevant items among the top ten predictions, even if the top-ranked result may not always be the most pertinent. In general, the inclusion of QFM has been found to significantly enhance the model's performance.
 
 <span id="page-8-10"></span>![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The image contains two scatter plots (a) and (b), each showing a 2D representation of data points colored by month (January to December). The plots likely visualize a dimensionality reduction technique applied to data with a temporal aspect. Differences between (a) and (b) suggest different dimensionality reduction methods were used, illustrating their comparative performance in separating data by month within the context of the paper. -->
 
-**Fig. 4**. Visualizations of the timestamps embeddings learned from the ICEWS14 dataset. (a) With timestamps mapping, and (b) Without timestamps mapping. The same color represents the same month.
+**Figure 4**. Visualizations of the timestamps embeddings learned from the ICEWS14 dataset. (a) With timestamps mapping, and (b) Without timestamps mapping. The same color represents the same month.
 
 ## Visualization of temporal embeddings We visualized the outputs from the time mapping, as presented in Fig. [4.](#page-8-10) Each dot represents an instance, with
 
@@ -428,13 +424,12 @@ In this paper, we propose Learning Temporal Granularity with Quadruplet Networks
 
 LTGQ cannot handle or reason about entities and relations that have never appeared. Therefore, our study will focus on inferring unseen entities, while also extending LTGQ to knowledge graph reasoning and integrating it with large language models for open-domain knowledge graph completion.
 
-#### Data availability
+### Data availability
 
 Some or all data, models, or code generated or used during the study are available from the corresponding author by request.
 
-Received: 10 October 2024; Accepted: 28 April 2025
 
-#### References
+### References
 
 - <span id="page-8-0"></span>1. Wang, X., He, X., Cao, Y., Liu, M. & Chua, T.-S. Kgat: Knowledge graph attention network for recommendation. In *Proceedings of the 25th ACM SIGKDD international conference on knowledge discovery & data mining*, 950–958 (2019).
 - <span id="page-8-1"></span>2. Zeb, A., Haq, A. U., Zhang, D., Chen, J. & Gong, Z. Kgel: A novel end-to-end embedding learning framework for knowledge graph completion. *Expert. Syst. with Appl.* **167**, 114164 (2021).
@@ -480,21 +475,21 @@ Received: 10 October 2024; Accepted: 28 April 2025
 - <span id="page-9-30"></span>41. Ioffe, S. & Szegedy, C. Batch normalization: Accelerating deep network training by reducing internal covariate shift. In *International conference on machine learning*, 448–456 (pmlr, 2015).
 - <span id="page-9-31"></span>42. Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I. & Salakhutdinov, R. Dropout: a simple way to prevent neural networks from overfitting. *The journal of machine learning research* **15**, 1929–1958 (2014).
 
-#### Acknowledgements
+### Acknowledgements
 
 This work was supported by the National Natural Science Foundation of China under Grant No. 72210107001, the Beijing Natural Science Foundation under Grant No. IS23128, the Fundamental Research Funds for the Central Universities, and the CAS PIFI International Outstanding Team Project (Grant No. 2024PG0013).
 
-#### Author contributions
+### Author contributions
 
- Conceptualization, formal analysis, methodology, investigation, writing-review and editing: R.G. R.G. collected the data, wrote the code, and drafted the manuscript. C.L. supervised and revised the manuscript. All authors reviewed the manuscript.
+Conceptualization, formal analysis, methodology, investigation, writing-review and editing: R.G. R.G. collected the data, wrote the code, and drafted the manuscript. C.L. supervised and revised the manuscript. All authors reviewed the manuscript.
 
 ### Declarations
 
-#### Competing interests
+### Competing interests
 
 The authors declare no competing interests.
 
-#### Additional information
+### Additional information
 
 **Correspondence**and requests for materials should be addressed to C.L.
 **Reprints and permissions information**is available at www.nature.com/reprints.

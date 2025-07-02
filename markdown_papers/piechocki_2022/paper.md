@@ -50,17 +50,17 @@ keywords:
 ---
 
 **OPEN**# Multimodal sensor fusion in the latent representation space
-**Robert J. Piechocki**\***, XiaoyangWang  & Mohammud J. Bocus**
+**Robert J. Piechocki**\***, XiaoyangWang & Mohammud J. Bocus**
 
 **A new method for multimodal sensor fusion is introduced. The technique relies on a two-stage process. In the frst stage, a multimodal generative model is constructed from unlabelled training data. In the second stage, the generative model serves as a reconstruction prior and the search manifold for the sensor fusion tasks. The method also handles cases where observations are accessed only via subsampling i.e. compressed sensing. We demonstrate the efectiveness and excellent performance on a range of multimodal fusion experiments such as multisensory classifcation, denoising, and recovery from subsampled observations.**
 
-*Controlled hallucination*[1](#page-8-0) is an evocative term referring to the Bayesian brain hypothesi[s2](#page-8-1) . It posits that perception is not merely a function of sensory information processing capturing the world as is. Instead, the brain is a predictive machine - it attempts to infer the causes of sensory inputs. To achieve this, the brain builds and continually refnes its world model. Te world model serves as a prior and when combined with the sensory signals will produce the best guess for its causes. Hallucination (uncontrolled) occurs when the sensory inputs cannot be reconciled with, or contradict the prior world model. Tis might occur in our model, and when it does, it manifests itself at the fusion stage with the stochastic gradient descent procedure getting trapped in a local minimum. Te method presented in this paper is somewhat inspired by the Bayesian brain hypothesis, but it also builds upon multimodal generative modelling and deep compressed sensing.
+**Controlled hallucination:** [1](#page-8-0) is an evocative term referring to the Bayesian brain hypothesi[s2](#page-8-1) . It posits that perception is not merely a function of sensory information processing capturing the world as is. Instead, the brain is a predictive machine - it attempts to infer the causes of sensory inputs. To achieve this, the brain builds and continually refnes its world model. Te world model serves as a prior and when combined with the sensory signals will produce the best guess for its causes. Hallucination (uncontrolled) occurs when the sensory inputs cannot be reconciled with, or contradict the prior world model. Tis might occur in our model, and when it does, it manifests itself at the fusion stage with the stochastic gradient descent procedure getting trapped in a local minimum. Te method presented in this paper is somewhat inspired by the Bayesian brain hypothesis, but it also builds upon multimodal generative modelling and deep compressed sensing.
 
 Multimodal data fusion attracts academic and industrial interests alike[3](#page-8-2) and plays a vital role in several applications. Automated driving is arguably the most challenging industrial domai[n4](#page-8-3) . Automated vehicles use a plethora of sensors: Lidar, mmWave radar, video and ultrasonic, and attempt to perform some form of sensor fusion for environmental perception and precise localization. A high-quality of fnal fusion estimate is a prerequisite for safe driving. Amongst other application areas, a notable mention deserves eHealth and Ambient Assisted Living (AAL). Tese new paradigms are contingent on gathering information from various sensors around the home to monitor and track the movement signatures of people. Te aim is to build long-term behavioral sensing machine which also afords privacy. Such platforms rely on an array of environmental and wearable sensors, with sensor fusion being one of the key challenges.
 
 In this contribution, we focus on a one-time snapshot problem (i.e. we are not building temporal structures). However, we try to explore the problem of multimodal sensor fusion from a new perspective, essentially, from a Bayesian viewpoint. Te concept is depicted in Fig. [1,](#page-1-0) alongside two main groups of approaches to sensor fusion. Traditionally, sensor fusion for classifcation tasks has been performed at the decision level as in Fig. [1\(](#page-1-0)a). Assuming that conditional independence holds, a pointwise product of fnal pmf (probability mass function) across all modalities is taken. Feature fusion, as depicted in Fig. [1](#page-1-0)(b), has become very popular with the advent of deep neural networks[3](#page-8-2) , and can produce very good results. Figure [1](#page-1-0)(c) shows our technique during the fusion stage (Stage 2). Blue arrows indicate the direction of backpropagation gradient fow during fusion.
 
-## Contributions.
+# Contributions.
 
 - A novel method for multimodal sensor fusion is presented. Te method attempts to fnd the best estimate (*maximum a posteriori*) for the causes of observed data. Te estimate is then used to perform specifc downstream fusion tasks.
 - Te method can fuse the modalities under lossy data conditions i.e. when the data is subsampled, lost and/ or noisy. Such phenomena occur in real-world situations such as the transmission of information wirelessly, or intentional subsampling to expedite the measurement (rapid MRI imaging and radar) etc.
@@ -85,19 +85,17 @@ Compared to the aforementioned works[12–](#page-9-2)[16](#page-9-6) which cons
 
 Te presented method is related to and builds upon Deep Compressed Sensing (DCS) technique[s17](#page-9-7)[,18.](#page-9-8) DCS, in turn, is inspired by Compressed Sensing (CS)[19](#page-9-9),[20](#page-9-10). In CS, we attempt to solve what appears to be an underdetermined linear system, yet the solution is possible with the additional prior sparsity constraint on the signal: min L0. Since *L*0 is non-convex, *L*1 is used instead to provide a convex relaxation, which also promotes sparsity and allows for computationally efcient solvers. DCS, in essence, replaces the *L*0 prior with a low dimensional manifold, which is learnable from the data using generative models. Concurrently to DCS, Deep Image Prior[21](#page-9-11) was proposed. It used un-trained CNNs to solve a range of inverse problems in computer vision (image inpainting, super-resolution, denoising).
 
-#### Methods
+### Methods
 
 Assume the data generative process so that latent and common cause *Z*gives rise to Xm, which in turn produces observed Ym, i.e. Z → Xm → Ym forms a Markov chain. Here, Xm is the full data pertaining to mth modality, m ∈ {1, ... , M}. Crucially, the modalities collect data simultaneously "observing" the same scene. As an example, in this work, we consider the diferent views (obtained via multiple receivers) from the opportunistic CSI WiFi radar as diferent modalities. Te variable*Z*encodes the semantic content of the scene and is typically of central interest. Furthermore, Xm is not accessed directly, but is observed via a*subsampled*Ym. Tis is a compressed sensing setup: Ym = χm(Xm): χm is a deterministic and known (typically many-to-one) function. Te only condition we impose on χm is to be Lipschitz continuous. With the above, the conditional independence between modalities holds (conditioned on*Z*). Terefore, the joint density factors as:
 
-<span id="page-2-0"></span>
 $$
 p(z, x_{1:M}, y_{1:M}) = p(z) \prod_{m=1}^{M} p(y_m | x_m) p(x_m | z).
 $$
- (1)
+(1)
 
 Te main task in this context is to produce the best guess for latent *Z*, and possibly, to recover the full signal(s) Xm, given subsampled data Y1:M. We approach the problem in two stages. First we build a joint model which approximates Eq. [\(1\)](#page-2-0), and will be instantiated as a Multimodal Variatational Autoencoer (M-VAE). More specifcally, the M-VAE will provide an approximation to pφ1:<sup>M</sup> ,ψ1:<sup>M</sup> (z, x1:M), parameterized by deep neural networks {φ1, ... , φM}, {ψ1, ... , ψM}, referred to as *encoders*and*decoders*, respectively. Te trained M-VAE will then be appended with pχ<sup>m</sup> (ym|xm) for each modality *m*: {χ1, ... , χM} referred to as *samplers*. In the second stage, we use the trained M-VAE and χ1:M to facilitate the fusion and reconstruction tasks. Specifcally, our sensor fusion problem amounts to fnding the maximum a posteriori (MAP) zˆMAP estimate of the latent cause for a given (i th) data point Y1:<sup>M</sup> = y (i) <sup>1</sup>:M:
 
-<span id="page-2-2"></span>
 $$
 \hat{z}_{MAP} = \arg \max_{z} p(z|Y_{1:M} = y_{1:M}^{(i)}),
 $$
@@ -108,13 +106,12 @@ where,
 $$
 p(z|Y_{1:M} = y_{1:M}^{(i)}) \propto p(z) \prod_{m=1}^{M} \int_{X_m} p(Y_m = y_m^{(i)} | x_m) p(x_m | z) dx_m.
 $$
- (3)
+(3)
 
 Te above MAP estimation problem is hard, and we will resort to approximations detailed in the sections below.
 
 **Multimodal VAE.**Te frst task is to build a model of Eq. [\(1](#page-2-0)). As aforementioned, this will be accomplished in two steps. Firstly, during the training stage we assume access to full data X1:M, therefore training an approximation to pφ1:<sup>M</sup> ,ψ1:<sup>M</sup> (z, x1:M) is a feasible task. Te marginal data log-likelihood for the multimodal case is:
 
-<span id="page-2-1"></span>
 $$
 \log p(x_{1:M}) = D_{KL}(q(z|x_{1:M}||p(z|x_{1:M})) \tag{4}
 $$
@@ -125,11 +122,10 @@ $$
 
 where DKL is the Kullback-Leibler (KL) divergence. Te frst summand in Eq. [\(4](#page-2-1)), i.e. the sum over modalities follows directly from the conditional independence. And since KL is non-negative, Eq. [\(4\)](#page-2-1) represents the lower bound (also known as Evidence Lower Bound - ELBO) on the log probability of the data (and its negative is used as the loss for the M-VAE). Tere exist a body of work on M-VAEs, the interested reader is referred t[o5](#page-8-4)[,7](#page-8-6)[–9](#page-8-7) for details and derivation. Te key challenge in training M-VAEs is the construction of variational posterior q(z|x1:M). We dedicate a section in the Supplementary Information document to the discussion on choices and implications for the approximation of variational posterior. Briefy, we consider two main cases: a missing data case - i.e. where particular modality data might be missing (Xm <sup>=</sup> <sup>x</sup>(i) <sup>m</sup> = ∅); and the full data case. Te latter is straightforward and is tackled by enforcing a particular structure of the encoders. For the former case variational Product-of-Experts (PoE) is used:
 
-<span id="page-3-0"></span>
 $$
 q_{\Phi}(z|x_{1:M}) = p(z) \prod_{m=1}^{M} q_{\phi_m}(z|x_m).
 $$
- (6)
+(6)
 
 Should the data be missing for any particular modality, qφ<sup>m</sup> (z|xm) = 1 is assumed. Derivation of Eq. [\(6\)](#page-3-0) can be found in the Supplementary Information document.
 **Fusion on the M‑VAE prior.**Recall the sensor fusion problem as stated in Eq. ([2](#page-2-2)). Te*p*(*z*) is forced to be isotropic Gaussian by M-VAE, and the remaining densities are assumed to be Gaussian. Furthermore, we assume that p(xm|z) = δ(xm − ψm(z)). Terefore Eq. [\(2\)](#page-2-2) becomes:
@@ -140,26 +136,25 @@ $$
 
 Hence, the objective to minimize becomes:
 
-<span id="page-3-1"></span>
 $$
 \mathcal{L}(z) = \lambda_0 \|z\|^2 + \sum_{m=1}^{M} \lambda_m \|y_m^{(i)} - \chi_m(\psi_m(z))\|^2.
 $$
- (8)
+(8)
 
 Recall that the output of the frst stage is *p*(*z*) and the decoders <sup>m</sup> <sup>p</sup>ψ<sup>n</sup> (x|z) are parameterized by {ψ1:M}, {<sup>0</sup>:M} are constants. Te MAP estimation procedure consists of backpropagating through the sampler χm and decoder ψm using Stochastic Gradient Descent (SGD). In this step {ψ1:M} are non-learnable, i.e. jointly with χm are some non-linear known (but diferentiable) functions.
 
 $$
 z \leftarrow z - \eta_0 \nabla_z (\|z\|^2) - \sum_{m=1}^M \eta_m \nabla_z (\|y_m^{(i)} - \chi_m(\psi_m(z))\|^2).
 $$
- (9)
+(9)
 
 Te iterative fusion procedure is initialized by taking a sample from the prior z<sup>0</sup> ∼ p(z), {η0:M} are learning rates. One or several SGD steps are taken for each modality in turn. Te procedure terminates with convergence - see Algorithm 1. In general, the optimization problem as set out in Eq. ([8](#page-3-1)) is non-convex. Terefore, there are no guarantees of convergence to the optimal point (zˆMAP). We deploy several strategies to minimize the risk of getting stuck in a local minimum. We consider multiple initialization points (a number of points sampled from the prior with Stage 2 replicated for all points). In some cases it might be possible to sample from: z<sup>0</sup> ∼ p(z) p z X = ˇx (j) m . Depending on modality, this might be possible with data imputation (xˇm are imputed data). Te fnal stage will depend on a particular task (multisensory classifcation/reconstruction), but in all cases it will take zˆMAP as an input. In our experiments, we observe that the success of Stage 2 is crucially dependent on the quality of M-VAE.
 
-| <b>Algorithm 1</b> Multimodal Sensor Fusion in the Latent Representation Space (SFLR) |  |  |  |
+| <b>Algorithm 1</b> Multimodal Sensor Fusion in the Latent Representation Space (SFLR) | | | |
 |---------------------------------------------------------------------------------------|--|--|--|
 |---------------------------------------------------------------------------------------|--|--|--|
 
-#### Experiments
+### Experiments
 
 In this work, we investigate the performance of the proposed method on two datasets for multimodal sensor fusion and recovery tasks: i) a synthetic "toy protein" dataset and ii) a passive WiFi radar dataset intended for Human Activity Recognition (HAR).
 
@@ -172,19 +167,20 @@ In this work, we investigate the performance of the proposed method on two datas
 
 <span id="page-4-0"></span>**Figure 2.** (**a**) Generated toy proteins examples (N = 64) and (**b**) reconstruction from compressed sensing observations. With 2 out of 64 measurements (3.125%), near perfect reconstruction is possible even though the modalities are individually subsampled.
 
-| Model                             | 1 example | 5 examples | 10 examples |
+| Model | 1 example | 5 examples | 10 examples |
 |-----------------------------------|-----------|------------|-------------|
-| 2-channel CNN                     | 0.427272  | 0.570888   | 0.618501    |
-| 1-channel CNN (Modality 1)        | 0.349084  | 0.451328   | 0.504462    |
-| 1-channel CNN (Modality 2)        | 0.446554  | 0.600084   | 0.605678    |
-| Probability fusion (product rule) | 0.440414  | 0.584726   | 0.641922    |
-| Dual-branch CNN                   | 0.508243  | 0.568795   | 0.575914    |
-| SFLR (ours)                       | 0.652699  | 0.718180   | 0.737507    |
+| 2-channel CNN | 0.427272 | 0.570888 | 0.618501 |
+| 1-channel CNN (Modality 1) | 0.349084 | 0.451328 | 0.504462 |
+| 1-channel CNN (Modality 2) | 0.446554 | 0.600084 | 0.605678 |
+| Probability fusion (product rule) | 0.440414 | 0.584726 | 0.641922 |
+| Dual-branch CNN | 0.508243 | 0.568795 | 0.575914 |
+| SFLR (ours) | 0.652699 | 0.718180 | 0.737507 |
 
 <span id="page-4-1"></span>**Table 1.**Few-shot learning sensor fusion classifcation results (F1 macro) for Human Activity Recognition. Best results are shown in bold.
 **Passive WiFi radar dataset.**We use the OPERAnet[22](#page-9-12) dataset which was collected with the aim to evaluate Human Activity Recognition (HAR) and localization techniques with measurements obtained from synchronized Radio-Frequency (RF) devices and vision-based sensors. Te RF sensors captured the changes in the wireless signals while six daily activities were being performed by six participants, namely, sitting down on a chair ("sit"), standing from the chair ("stand"), laying down on the foor ("laydown"), standing from the foor ("standf "), upper body rotation ("bodyrotate"), and walking ("walk"). It should be noted that the six activities were performed in two diferent ofce rooms and in each room the participants performed the activities at diferent locations. Te distribution of the six activities performed by the six participants in the two rooms is reported i[n22.](#page-9-12) We convert the raw time-series CSI data from the WiFi sensors into the image-like format, namely, spectrograms using signal processing techniques. More details are available in Sect. S2 of the Supplementary Information document. Te interested reader is kindly referred to our previous work[s23–](#page-9-13)[25](#page-9-14) for more details on the signal processing pipelines for WiFi CSI. In this paper, we focus mainly on the design of a model that can fuse data from multiple modalities/sensors in the latent representation space efectively for several downstream tasks such as multisensory classifcation, denoising, and recovery from subsampled observations and missing pixels. 2,906 spectrogram samples (each of 4s duration window) were generated for the 6 human activities and 80% of these were used as training data while the remaining 20% as testing data (random train-test split).
 
-#### Results and discussion
+### Results and discussion
+
 **Classifcation results of WiFi CSI spectrograms for HAR.**In this section, we evaluate the HAR sensor fusion classifcation performance under a few-shot learning scenario, with 1, 5 and 10 labelled examples per class. Tese correspond to 0.05%, 0.26% and 0.51% of labelled training samples, respectively. We randomly select 80% of the samples in the dataset as the training set and the remaining 20% is used for validation. Te average F<sup>1</sup> -macro scores for the HAR performance are shown in Table [1](#page-4-1) for diferent models. To allow for a fair comparison, the same random seed was used in all experiments with only two modalities (processed spectrograms data obtained from two diferent receivers).
 
 Prior to training our model (see Supplementary Fig. S1, the spectrograms were reshaped to typical image dimensions of size (1 × 224 × 224). Our model was trained for 1,000 epochs using the training data with a fxed KL scaling factor of β = 0.02. Te encoders comprised of the ResNet-18 backbone with the last fully-connected layer dimension having a value of 512. For the decoders, corresponding CNN deconvolutional layers were used to reconstruct the spectrograms from each modality with the same input dimension. Te latent dimension, batch size, and learning rate are set at 64, 64, and 0.001, respectively. Our model was implemented in PyTorch. We
@@ -211,26 +207,26 @@ It can be observed from Table [1](#page-4-1) that our method signifcantly outper
 
 | No. of measurements | Modality 1 | Modality 2 |
 |---------------------|------------|------------|
-| 1 (0.002%)          | 0.03118854 | 0.15024841 |
-| 10 (0.02%)          | 0.00938917 | 0.02824161 |
-| 196 (0.39%)         | 0.00348606 | 0.00613665 |
-| 784 (1.56%)         | 0.00305005 | 0.00505758 |
-| 1,568 (3.125%)      | 0.00284343 | 0.00489433 |
+| 1 (0.002%) | 0.03118854 | 0.15024841 |
+| 10 (0.02%) | 0.00938917 | 0.02824161 |
+| 196 (0.39%) | 0.00348606 | 0.00613665 |
+| 784 (1.56%) | 0.00305005 | 0.00505758 |
+| 1,568 (3.125%) | 0.00284343 | 0.00489433 |
 
 <span id="page-6-0"></span>**Table 2.** Compressed sensing mean reconstruction error over a batch of 50 WiFi spectrogram data samples (No additive Gaussian noise). An illustration is shown in Fig. [4](#page-6-1).
 
-|                                    | No. of Measurements | Modality 1 | Modality 2 |
+| | No. of Measurements | Modality 1 | Modality 2 |
 |------------------------------------|---------------------|------------|------------|
-| Modality 1 with compressed sensing | 1 (0.002%)          | 0.0246185  | –          |
-|                                    | 10 (0.02%)          | 0.01075371 | –          |
-|                                    | 196 (0.39%)         | 0.00258467 | –          |
-|                                    | 784 (1.56%)         | 0.00195997 | –          |
-|                                    | 1,568 (3.125%)      | 0.00184247 | –          |
-| Modality 1 with compressed sensing | 1 (0.002%)          | 0.00892453 | 0.00380795 |
-|                                    | 10 (0.02%)          | 0.00798366 | 0.00420512 |
-|                                    | 196 (0.39%)         | 0.0034269  | 0.00460956 |
-| Modality 2 with full information   | 784 (1.56%)         | 0.0030373  | 0.00466936 |
-|                                    | 1,568 (3.125%)      | 0.0028537  | 0.00469946 |
+| Modality 1 with compressed sensing | 1 (0.002%) | 0.0246185 | – |
+| | 10 (0.02%) | 0.01075371 | – |
+| | 196 (0.39%) | 0.00258467 | – |
+| | 784 (1.56%) | 0.00195997 | – |
+| | 1,568 (3.125%) | 0.00184247 | – |
+| Modality 1 with compressed sensing | 1 (0.002%) | 0.00892453 | 0.00380795 |
+| | 10 (0.02%) | 0.00798366 | 0.00420512 |
+| | 196 (0.39%) | 0.0034269 | 0.00460956 |
+| Modality 2 with full information | 784 (1.56%) | 0.0030373 | 0.00466936 |
+| | 1,568 (3.125%) | 0.0028537 | 0.00469946 |
 
 <span id="page-6-2"></span>**Table 3.** Asymmetric compressed sensing. Mean reconstruction error over 50 WiFi spectrogram data samples. Noise standard deviation: 0.1.
 
@@ -253,22 +249,22 @@ We compare the SFLR method with 4 baseline models. Te single modality model only
 
 **Sensor fusion from subsampled toy proteins.**Another advantage of the proposed SFLR model is that it can fuse modalities in subsampled cases. We use a set of*samplers* χ1:M to simulate the subsampled observations. Te measurement function χm is a matrix initialized randomly. Here we use 10 initialization points to reduce the risk of getting trapped in a local minimum (points sampled from the prior with Stage 2 replicated for all of them). Figure [2\(](#page-4-0)b) shows the recovered protein from subsampled observations, with only 2 measurements for each modality. Both modalities are successfully recovered from the latent representation space, even though the initial guess z<sup>0</sup> is far from the true modality. Note that the proteins in Fig. [2](#page-4-0) have a higher dimension than in the dataset, showing the robustness of the SFLR method. Table [5](#page-8-10) shows the average reconstruction error of the synthetic protein dataset using diferent subsamplers. Te reconstruction error reduced signifcantly when having 2 measurements for each modality, showing superior sensor fusion abilities.
 
-| Model                             | 1 example | 5 examples | 10 examples |
+| Model | 1 example | 5 examples | 10 examples |
 |-----------------------------------|-----------|------------|-------------|
-| Single modality (Modality 1)      | 0.3188    | 0.4342     | 0.5843      |
-| Single modality (Modality 2)      | 0.3221    | 0.4849     | 0.5555      |
-| Probability fusion (product rule) | 0.2256    | 0.3736     | 0.3836      |
-| Dual-branch feature fusion        | 0.3769    | 0.4973     | 0.5953      |
-| SFLR (ours)                       | 0.4183    | 0.5501     | 0.6120      |
+| Single modality (Modality 1) | 0.3188 | 0.4342 | 0.5843 |
+| Single modality (Modality 2) | 0.3221 | 0.4849 | 0.5555 |
+| Probability fusion (product rule) | 0.2256 | 0.3736 | 0.3836 |
+| Dual-branch feature fusion | 0.3769 | 0.4973 | 0.5953 |
+| SFLR (ours) | 0.4183 | 0.5501 | 0.6120 |
 
 <span id="page-8-9"></span>**Table 4.** Few-shot learning sensor fusion classifcation results (F1 macro) for synthetic proteins. Best results are shown in bold.
 
 | No. of measurements | Modality 1 (10−5<br>) | Modality 2 (10−5<br>) |
 |---------------------|-----------------------|-----------------------|
-| 1 (3.125%)          | 4,622.4               | 4,923.5               |
-| 2 (6.250%)          | 22.5                  | 27.9                  |
-| 4 (12.500%)         | 7.1                   | 7.4                   |
-| 8 (25.000%)         | 2.3                   | 2.7                   |
+| 1 (3.125%) | 4,622.4 | 4,923.5 |
+| 2 (6.250%) | 22.5 | 27.9 |
+| 4 (12.500%) | 7.1 | 7.4 |
+| 8 (25.000%) | 2.3 | 2.7 |
 
 <span id="page-8-10"></span>**Table 5.**Compressed sensing mean reconstruction error over a batch of 100 protein samples.
 
@@ -276,7 +272,7 @@ Te Supplementary Information document (see Sect. S6) contains additional experim
 
 Despite the fact that the SFLR method achieves superior performance in the HAR problem, it has its weaknesses and limitations. Te performance of sensor fusion heavily relies on the success of the frst stage, which requires high-quality training data. Learning the manifold of*p*(*z*) is the key to the estimation of zˆMAP. In stage 2, *z*might fall into local minima which leads to sub-optimal solutions. Tis is a common issue when using gradient descent in optimization problems, with existing solutions to mitigate it.
 
-# Conclusions and broader impacts
+## Conclusions and broader impacts
 
 Te paper presents a new method for sensor fusion. Specifcally, we demonstrate the efectiveness of classifcation and reconstruction tasks from radar signals. Te intended application area is human activity recognition, which serves a vital role in the E-Health paradigm. New healthcare technologies are the key ingredient to battling spiralling costs of provisioning health services that beset a vast majority of countries. Such technologies in a residential setting are seen as a key requirement in empowering patients and imbuing a greater responsibility for own health outcomes. However, we acknowledge that radar and sensor technologies also fnd applications in a military context. Modern warfare technologies (principally defensive) could potentially become more apt if they were to beneft from much-improved sensor fusion. We frmly believe that, on balance, it is of beneft to the society to continue the research in this area in the public eye.
 
@@ -284,7 +280,6 @@ Te paper presents a new method for sensor fusion. Specifcally, we demonstrate th
 
 Te data that support the fndings of this study are openly available in fgshare at [https://doi.org/10.6084/m9.](https://doi.org/10.6084/m9.figshare.c.5551209.v1) [fgshare.c.5551209.v1](https://doi.org/10.6084/m9.figshare.c.5551209.v1)[26](#page-9-15). Te toy protein dataset is not publicly available at this time but can be made available from the authors upon request.
 
-Received: 2 August 2022; Accepted: 21 November 2022
 
 ### References
 
@@ -317,15 +312,16 @@ Received: 2 August 2022; Accepted: 21 November 2022
 
 Tis work was performed as a part of the OPERA Project, funded by the UK Engineering and Physical Sciences Research Council (EPSRC), Grant EP/R018677/1. Tis work has also been funded in part by the Next-Generation Converged Digital Infrastructure (NG-CDI) Project, supported by BT and Engineering and Physical Sciences Research Council (EPSRC), Grant ref. EP/R004935/1.
 
-# Author contributions
+## Author contributions
 
 All authors, R.P, X.W and M.B, contributed equally to this work. Te main tasks involved conceiving and conducting the experiments, algorithm implementation, analysis, validation and interpretation of results, and fnally preparing and reviewing the manuscript.
 
-# Competing interests
+## Competing interests
 
 Te authors declare no competing interests.
 
-# Additional information
+## Additional information
+
 **Supplementary Information**Te online version contains supplementary material available at [https://doi.org/](https://doi.org/10.1038/s41598-022-24754-w) [10.1038/s41598-022-24754-w](https://doi.org/10.1038/s41598-022-24754-w).
 **Correspondence**and requests for materials should be addressed to R.J.P.
 **Reprints and permissions information**is available at [www.nature.com/reprints.](www.nature.com/reprints)

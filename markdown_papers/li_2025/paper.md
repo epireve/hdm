@@ -21,7 +21,6 @@ keywords:
 - llm
 ---
 
-
 # KnowCoder-V2: Deep Knowledge Analysis
 
 Zixuan Li1,2<sup>∗</sup> † , Wenxuan Liu1,2,3<sup>∗</sup> , Long Bai1,2<sup>∗</sup> , Chunmao Zhang1,2<sup>∗</sup> , Wei Li, Fenghui Zhang1,2 , Quanxin Jin1,2, Ruoyun He1,2, Zhuo Chen2,3, Zhilei Hu1,2,3, Fei Wang<sup>2</sup> , Bingbing Xu<sup>2</sup> , Xuhui Jiang4,5, Xiaolong Jin1,2,3†, Jiafeng Guo1,2,3†, Xueqi Cheng1,2,3 <sup>1</sup>Key Laboratory of Network Data Science and Technology, Institute of Computing Technology, Chinese Academy of Sciences <sup>2</sup>State Key Laboratory of AI Safety <sup>3</sup>School of Computer Science, University of Chinese Academy of Sciences
@@ -49,7 +48,7 @@ Preprint. Work in progress.
 ![](_page_1_Figure_1.jpeg)
 <!-- Image Description: The image presents a bar graph comparing the performance of five large language models (KnowCoder-V2, WebThinker, Qwen3, Grok3, OpenAI) across six assessment categories: Comprehensiveness, Thoroughness, Factuality, Coherence, Insight, and an average score. Each bar represents a model's score (0-10) in each category, allowing for a direct comparison of their strengths and weaknesses in different aspects of performance. The graph visually summarizes the quantitative results of the paper's evaluation. -->
 
-Figure 1: Report generation performance of the Knowledgeable Deep Research framework empowered by KnowCoder-V2 and its counterparts. Scores are averaged from DeepSeek-R1 and DeepSeek-V3 evaluations.
+**Figure 1:** Report generation performance of the Knowledgeable Deep Research framework empowered by KnowCoder-V2 and its counterparts. Scores are averaged from DeepSeek-R1 and DeepSeek-V3 evaluations.
 
 Although deep research framework shows considerable capability to handle several kinds of complex tasks, it falls short when dealing with one particular kind of tasks, which we refer to as deep knowledge analysis task. These tasks involve the systematic extraction, organization, and association of knowledge from large-scale and heterogeneous data sources, followed by multi-step logical reasoning over the such structured knowledge. For instance, the problem "What were the most influential research contributions to quantum computing between 2020 and 2024?" cannot be addressed through simple web search and text generation, especially when the analyses about the problem are not publicly available. Specifically, the limitations of the exising deep research framework can be categorized into three key dimensions:
 
@@ -87,7 +86,7 @@ The techniques related to the knowledge reasoning phase include Retrieval-Augmen
 <span id="page-3-1"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This image displays a flowchart detailing a knowledge management system. It's divided into "Knowledge Organization" and "Knowledge Reasoning" sections, each showing subtasks and processes. "Knowledge Organization" illustrates ontology expansion, knowledge extraction, and updates using diagrams of knowledge structures. "Knowledge Reasoning" depicts knowledge computation and text generation cycles, including charts and graphs showing query results and a sample report. The image visually represents the workflow and data transformations within the system. -->
 
-Figure 2: Demonstration of the proposed knowledgeable deep research framework. The mustard yellow blocks indicate tasks related to deep knowledge analysis, which includes knowledge organization and computation tasks.
+**Figure 2:** Demonstration of the proposed knowledgeable deep research framework. The mustard yellow blocks indicate tasks related to deep knowledge analysis, which includes knowledge organization and computation tasks.
 
 and constructing community hierarchies, thereby improving the LLM's comprehension of complex datasets [\(Edge et al.,](#page-14-3) [2024;](#page-14-3) [Ma et al.,](#page-16-3) [2024\)](#page-16-3).
 
@@ -109,7 +108,7 @@ Knowledge Extraction. With the ontology as input, the extraction step processes 
 
 Knowledge Update. Since knowledge is often dispersed across multiple documents, extracting information from a single document or text snippet usually provides only partial details about an entity or event. For example, assembling comprehensive data on a specific author's publications requires extracting relevant information from multiple sources, such as all their published papers. Additionally, knowledge can evolve over time. For instance, a person's residence might change. This step continuously updates the new extracted knowledge to previously extracted ones to ensure ongoing accuracy and consistency.
 
-#### 2 Knowledge Reasoning Phase
+### 2 Knowledge Reasoning Phase
 
 Given a specific research task, the knowledge reasoning phase generates a comprehensive report based on previously organized knowledge. As illustrated on the right side of Figure [2,](#page-3-1) this phase begins by decomposing the overall research task into multiple subtasks, each corresponding to a specific part of the final report. Each subtask is addressed through two types of reasoning steps, i.e., knowledge computation and text generation. Using the outputs from these reasoning steps, the complete and coherent research report is ultimately obtained.
 
@@ -134,11 +133,11 @@ The knowledge organization phase aims to systematically induce, extract, and upd
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: The image presents a research poster summarizing Geoffrey Hinton's publications from 2015-2025. It uses diagrams to decompose knowledge organization and reasoning tasks into sub-processes. Code snippets illustrate ontology expansion and object instantiation for knowledge extraction. Charts and graphs visualize citation trends and research interests over time. The poster aims to systematically analyze Hinton's research achievements through a structured computational approach. -->
 
-Figure 3: Illustration of the Knowledgeable Deep Research Framework implemented by KNOWCODER-V2. We use DeepSeek-R1 to handle the parts of the KDR framework that are not related to knowledge analysis tasks.
+**Figure 3:** Illustration of the Knowledgeable Deep Research Framework implemented by KNOWCODER-V2. We use DeepSeek-R1 to handle the parts of the KDR framework that are not related to knowledge analysis tasks.
 
-####*4.1.2 Ontology Alignment: Class Relation Identification*The same concept may have different definitions across various knowledge organization tasks, and hierarchical relationships may exist between distinct concepts. This misalignment poses significant challenges for subsequent knowledge organization and reasoning. To address this, the ontology expansion step aims to identify semantic relations, including parent-child and equivalent relations, by analyzing the definitions of the corresponding concepts. To achieve this, we design a twostage alignment process that combines pre-trianed and large language models. In the first stage, following [Zeng et al.](#page-19-1) [\(2024\)](#page-19-1), SimCSE [Gao et al.](#page-14-7) [\(2021\)](#page-14-7) is adopted to encode the concept names and descriptions into*m*-dimensional vectors. Based on the cosine similarity among these vectors, we retrieve the top-*k*most similar candidate concepts. In the second stage, we refine the alignment results by prompting LLM with the code definitions of the candidate classes to determine whether they exhibit parent-child or equivalent relations.
+### *4.1.2 Ontology Alignment: Class Relation Identification*The same concept may have different definitions across various knowledge organization tasks, and hierarchical relationships may exist between distinct concepts. This misalignment poses significant challenges for subsequent knowledge organization and reasoning. To address this, the ontology expansion step aims to identify semantic relations, including parent-child and equivalent relations, by analyzing the definitions of the corresponding concepts. To achieve this, we design a twostage alignment process that combines pre-trianed and large language models. In the first stage, following [Zeng et al.](#page-19-1) [\(2024\)](#page-19-1), SimCSE [Gao et al.](#page-14-7) [\(2021\)](#page-14-7) is adopted to encode the concept names and descriptions into*m*-dimensional vectors. Based on the cosine similarity among these vectors, we retrieve the top-*k*most similar candidate concepts. In the second stage, we refine the alignment results by prompting LLM with the code definitions of the candidate classes to determine whether they exhibit parent-child or equivalent relations.
 
-####*4.1.3 Knowledge Extraction: Object Instantiation*
+### *4.1.3 Knowledge Extraction: Object Instantiation*
 
 In this step, KNOWCODER-V2 extracts the corresponding structured knowledge by instantiating the classes based on the given text. Previous work [\(Li et al.,](#page-16-2) [2024;](#page-16-2) [Wang et al.,](#page-18-4) [2023b\)](#page-18-4) requires including all class definition code within the prompt. This presents a significant challenge: when a large number of concepts need to be extracted, the total class definition code can become excessively long and may even exceed the prompt length limit. As a result, both the effectiveness and efficiency of the extraction process can degrade due to the excessive length of prompts.
 
@@ -154,15 +153,15 @@ In the open domain setting, we remove the given schema and only instruct LLM to 
 
 • Object Instantiation Data. After obtaining the potential knowledge types in the text, we aim to instantiate a concrete knowledge object by task description: *Some {task} Types are imported above. Please instantiate all the possible {task} Objects in the following sentence.*. The output is a list of instantiated objects same with direct extraction data.
 
-####*4.1.4 Knowledge Update: Code Merge*In this step, KNOWCODER-V2 merges entities and events that share the same name. For these entities or events, their relations, properties, or arguments are combined into a single unified entity or event. Additionally, if previously stored knowledge conflicts with newly extracted knowledge, the system updates it with the latest knowledge. This heuristic strategy proves effective in most cases. Developing more precise and robust knowledge update mechanisms is left as future work.
+### *4.1.4 Knowledge Update: Code Merge*In this step, KNOWCODER-V2 merges entities and events that share the same name. For these entities or events, their relations, properties, or arguments are combined into a single unified entity or event. Additionally, if previously stored knowledge conflicts with newly extracted knowledge, the system updates it with the latest knowledge. This heuristic strategy proves effective in most cases. Developing more precise and robust knowledge update mechanisms is left as future work.
 
-#### 2 Knowledge Reasoning Phase
+### 2 Knowledge Reasoning Phase
 
 In this section, we introduce the implementation details of the knowledge reasoning phase with KNOWCODER-V2.
 
-###*4.2.1 Task Decomposition*As illustrated on the right side of Figure [3,](#page-6-0) the knowledge reasoning phase begins by decomposing the given research task into several subtasks. Each subtask addresses a research topic closely related to the research task. For each subtask, an LLM further decomposes it into two distinct reasoning steps, i.e., the knowledge computation cycle and the text generation cycle. Specifically, we use the tags <begin\_data\_analysis> and <end\_data\_analysis> to indicate the queries of the knowledge computation cycle and the tags <begin\_web\_search> and <end\_web\_search> to indicate the queries of the text generation cycle.
+### *4.2.1 Task Decomposition*As illustrated on the right side of Figure [3,](#page-6-0) the knowledge reasoning phase begins by decomposing the given research task into several subtasks. Each subtask addresses a research topic closely related to the research task. For each subtask, an LLM further decomposes it into two distinct reasoning steps, i.e., the knowledge computation cycle and the text generation cycle. Specifically, we use the tags <begin\_data\_analysis> and <end\_data\_analysis> to indicate the queries of the knowledge computation cycle and the tags <begin\_web\_search> and <end\_web\_search> to indicate the queries of the text generation cycle.
 
-###*4.2.2 Knowledge Computation Cycle*Since various types of knowledge have already been encapsulated as distinct Python objects during the knowledge organization phase, KNOWCODER-V2 implements the knowledge computation cycle to generate executable code based on the queries derived from task decomposition. Specifically, this cycle produces three types of code: class definition code, knowledge declaration code, and knowledge computation code. By integrating and executing these components, KNOWCODER-V2 is able to perform deep and precise computations over the structured knowledge.
+### *4.2.2 Knowledge Computation Cycle*Since various types of knowledge have already been encapsulated as distinct Python objects during the knowledge organization phase, KNOWCODER-V2 implements the knowledge computation cycle to generate executable code based on the queries derived from task decomposition. Specifically, this cycle produces three types of code: class definition code, knowledge declaration code, and knowledge computation code. By integrating and executing these components, KNOWCODER-V2 is able to perform deep and precise computations over the structured knowledge.
 
 Ontology Search. Given a research subtask, the ontology search step aims to identify relevant concepts from the ontology. With the queries as input, we leverage Elasticsearch to retrieve codebased concepts that are most pertinent. Once identified, these concepts are then transformed into their corresponding class definition code, enabling seamless integration into subsequent knowledge computation processes.
 
@@ -172,9 +171,9 @@ Instance Query. In this step, we instantiate the corresponding entity objects an
 
 Code Execution. In this step, we integrate the class definition code, the filed search\_results variables, and the analysis code to create the final executable script. By running this combined code in the Python execution environment, we obtain the corresponding analysis results. However, there could be situations where the code execution fails or produces incorrect results (e.g., generating empty charts). To address this, we incorporate an analysis evaluation agent that reviews the obtained analysis results and determines whether they satisfy the task requirements. If the results do not meet the specified criteria, the process loops back to the first step for corrections.
 
-###*4.2.3 Text Generation Cycle*With the search query input, the model iteratively conduct web search until the query can be answered. Specifically, it contains three steps, i.e., web search, context understanding, and text writing. As these steps are broadly implemented in the existing deep research frameworks, we will not detail them in this paper.
+### *4.2.3 Text Generation Cycle*With the search query input, the model iteratively conduct web search until the query can be answered. Specifically, it contains three steps, i.e., web search, context understanding, and text writing. As these steps are broadly implemented in the existing deep research frameworks, we will not detail them in this paper.
 
-####*4.2.4 Merge and Revise*A significant challenge is ensuring consistency between the results generated by the knowledge computation and text generation cycles. Inconsistencies often arise due to incomplete search results, quality issues in web content, or inadequacies in the structured knowledge. To address this, we designed an additional agent to merge results from both cycles and revise them. This agent autonomously evaluates the analysis results from the knowledge computation cycle alongside the generated results from the text generation cycle, identifies conflicting content, and resolves these discrepancies to achieve consistency.
+### *4.2.4 Merge and Revise*A significant challenge is ensuring consistency between the results generated by the knowledge computation and text generation cycles. Inconsistencies often arise due to incomplete search results, quality issues in web content, or inadequacies in the structured knowledge. To address this, we designed an additional agent to merge results from both cycles and revise them. This agent autonomously evaluates the analysis results from the knowledge computation cycle alongside the generated results from the text generation cycle, identifies conflicting content, and resolves these discrepancies to achieve consistency.
 
 ### 3 Training of KnowCoder-V2
 
@@ -196,32 +195,31 @@ KNOWCODER-V2 is fine-tuned based on the Qwen-2.5-Coder-14B-Instruct model [\(Hui
 
 We evaluate KNOWCODER-V2 on two kinds of tasks, i.e., knowledge organization and knowledge reasoning tasks. For the knowledge organization task, We further evaluate the ontology expansion and knowledge extraction abilities on the corresponding datasets. For the ontology expansion datasets, we evaluate the performance on WordNet Sub-taxonomies from [Bansal et al.](#page-14-9) [\(2014\)](#page-14-9), Graphine taxonomies from [Liu et al.](#page-16-6) [\(2021a\)](#page-16-6), and three large-scale taxonomies from SemEval-2016 [Bordea](#page-14-10) [et al.](#page-14-10) [\(2016\)](#page-14-10) across science, environment, and food domains. Table ?? presents the statistics of these taxonomies, all of which contain entities and definitions curated by human experts. For all benchmarks, we split the training and tesing dataset following [Zeng et al.](#page-19-1) [\(2024\)](#page-19-1). For knowledge extraction, we choose 26 information extraction benchmarks under the supervised setting. For English IE, we evaluate performance across 10 benchmarks for NER, 6 benchmarks for RE, 3 benchmarks for ED, and 2 benchmarks for EAE. For Chinese IE, we evaluate performance on 2 benchmarks for NER, 1 benchmark for RE, 1 benchmark for ED, and 1 benchmark for EAE. Besides, we also evaluate KNOWCODER-V2 under the event extraction benchmark with massive types EEMT [Liu](#page-16-5)
 
-<span id="page-10-0"></span>
 
-| Model                   |      | SemEval-Sci |      | SemEval-Env |      | SemEval-Food |      | WordNet | Graphine |      |  |
+| Model | | SemEval-Sci | | SemEval-Env | | SemEval-Food | | WordNet | Graphine | | |
 |-------------------------|------|-------------|------|-------------|------|--------------|------|---------|----------|------|--|
-|                         | Acc  | Wu&P        | Acc  | Wu&P        | Acc  | Wu&P         | Acc  | Wu&P    | Acc      | Wu&P |  |
-| Self-supervised Setting |      |             |      |             |      |              |      |         |          |      |  |
-| TaxoExpan               | 27.8 | 57.6        | 11.1 | 54.8        | 27.6 | 54.2         | 19.8 | 64.8    | 24.5     | 65.9 |  |
-| STEAM                   | 36.5 | 68.2        | 36.1 | 69.6        | 34.2 | 67.0         | 23.2 | 62.4    | 20.3     | 63.1 |  |
-| HEF                     | 53.6 | 75.6        | 55.3 | 71.4        | 47.9 | 73.5         | 16.4 | 60.3    | 25.5     | 66.5 |  |
-| Musubu                  | 44.9 | 76.2        | 45.3 | 65.4        | 42.3 | 72.4         | 28.5 | 64.0    | 35.4     | 75.2 |  |
-| TEMP                    | 57.8 | 85.3        | 49.2 | 77.7        | 47.6 | 81.0         | 29.4 | 65.7    | 35.9     | 73.8 |  |
-| BoxTaxo                 | 31.8 | 64.7        | 38.1 | 75.4        | 31.4 | 66.8         | 26.4 | 63.9    | 29.2     | 68.2 |  |
-| TaxoPrompt              | 61.4 | 85.6        | 57.4 | 83.6        | 53.2 | 83.1         | 40.3 | 71.5    | 33.9     | 74.4 |  |
-| TaxoInstruct            | 45.9 | 76.2        | 48.8 | 77.2        | 34.3 | 70.2         | 43.3 | 71.8    | 31.8     | 69.0 |  |
-| 1-shot Setting          |      |             |      |             |      |              |      |         |          |      |  |
-| NL (GPT-4o)             | 54.8 | 88.3        | 52.5 | 81.3        | 55.5 | 85.6         | 72.2 | 90.7    | 69.8     | 89.1 |  |
-| CodeTaxo (GPT-4o)       | 67.7 | 89.2        | 62.5 | 86.1        | 58.1 | 85.3         | 74.5 | 91.3    | 72.9     | 91.0 |  |
-| NL (GPT-4o-mini)        | 50.0 | 83.0        | 35.0 | 76.1        | 55.1 | 87.2         | 60.1 | 86.0    | 58.3     | 85.2 |  |
-| CodeTaxo (GPT-4o-mini)  | 58.1 | 85.6        | 42.5 | 76.0        | 55.9 | 85.3         | 68.8 | 89.2    | 61.5     | 85.1 |  |
-| KnowCoder-V2            | 59.7 | 80.8        | 62.5 | 88.2        | 60.2 | 87.6         | 76.9 | 91.4    | 83.3     | 95.9 |  |
+| | Acc | Wu&P | Acc | Wu&P | Acc | Wu&P | Acc | Wu&P | Acc | Wu&P | |
+| Self-supervised Setting | | | | | | | | | | | |
+| TaxoExpan | 27.8 | 57.6 | 11.1 | 54.8 | 27.6 | 54.2 | 19.8 | 64.8 | 24.5 | 65.9 | |
+| STEAM | 36.5 | 68.2 | 36.1 | 69.6 | 34.2 | 67.0 | 23.2 | 62.4 | 20.3 | 63.1 | |
+| HEF | 53.6 | 75.6 | 55.3 | 71.4 | 47.9 | 73.5 | 16.4 | 60.3 | 25.5 | 66.5 | |
+| Musubu | 44.9 | 76.2 | 45.3 | 65.4 | 42.3 | 72.4 | 28.5 | 64.0 | 35.4 | 75.2 | |
+| TEMP | 57.8 | 85.3 | 49.2 | 77.7 | 47.6 | 81.0 | 29.4 | 65.7 | 35.9 | 73.8 | |
+| BoxTaxo | 31.8 | 64.7 | 38.1 | 75.4 | 31.4 | 66.8 | 26.4 | 63.9 | 29.2 | 68.2 | |
+| TaxoPrompt | 61.4 | 85.6 | 57.4 | 83.6 | 53.2 | 83.1 | 40.3 | 71.5 | 33.9 | 74.4 | |
+| TaxoInstruct | 45.9 | 76.2 | 48.8 | 77.2 | 34.3 | 70.2 | 43.3 | 71.8 | 31.8 | 69.0 | |
+| 1-shot Setting | | | | | | | | | | | |
+| NL (GPT-4o) | 54.8 | 88.3 | 52.5 | 81.3 | 55.5 | 85.6 | 72.2 | 90.7 | 69.8 | 89.1 | |
+| CodeTaxo (GPT-4o) | 67.7 | 89.2 | 62.5 | 86.1 | 58.1 | 85.3 | 74.5 | 91.3 | 72.9 | 91.0 | |
+| NL (GPT-4o-mini) | 50.0 | 83.0 | 35.0 | 76.1 | 55.1 | 87.2 | 60.1 | 86.0 | 58.3 | 85.2 | |
+| CodeTaxo (GPT-4o-mini) | 58.1 | 85.6 | 42.5 | 76.0 | 55.9 | 85.3 | 68.8 | 89.2 | 61.5 | 85.1 | |
+| KnowCoder-V2 | 59.7 | 80.8 | 62.5 | 88.2 | 60.2 | 87.6 | 76.9 | 91.4 | 83.3 | 95.9 | |
 
-Table 1: Performance on taxonomy expansion across five datasets. Metrics include Accuracy (Acc) and Wu&Palmer Similarity (Wu&P).
+**Table 1:** Performance on taxonomy expansion across five datasets. Metrics include Accuracy (Acc) and Wu&Palmer Similarity (Wu&P).
 
 [et al.](#page-16-5) [\(2025\)](#page-16-5) and robustness benchmark RUIE [Zhu et al.](#page-19-4) [\(2025\)](#page-19-4). We use abbreviations from P1 to P14 for 14 kinds of perturbations defined in the RUIE. The detailed benchmark statistics are listed in Tables [2,](#page-11-0) [3.](#page-11-1) For the knowledge reasoning task, we further evalute the Knowledge Base Question Answer (KBQA) and the report generation abilities. For the KBQA task, we adopt the most common dataset, WebQSP [\(Yu et al.,](#page-18-5) [2023\)](#page-18-5), as the dataset. For the report generation task, there are no suitable datasets. Thus we evaluate this abilities on the self-construct dataset about the scientific report.
 
-#### 2 Baselines
+### 2 Baselines
 
 Knowledge Organization. For the knowledge organization task, we evaluate the performance of KNOWCODER-V2 on several kinds of tasks, including ontology expansion and knowledge extraction including entity extraction, relation extraction, and event extraction. For the ontology expansion task, we evaluated the performance of KNOWCODER-V2 against several baseline methods, including TaxoExpan [\(Shen et al.,](#page-17-5) [2020\)](#page-17-5), STEAM [\(Yu et al.,](#page-18-6) [2020\)](#page-18-6), HEF [\(Wang et al.,](#page-18-7) [2022\)](#page-18-7), Musubu [\(Takeoka](#page-18-0) [et al.,](#page-18-0) [2021\)](#page-18-0), TEMP [\(Liu et al.,](#page-16-7) [2021b\)](#page-16-7), BoxTaxo [\(Jiang et al.,](#page-15-4) [2023b\)](#page-15-4), TaxoPrompt [\(Xu et al.,](#page-18-8) [2022\)](#page-18-8), TaxoInstruct [\(Shen et al.,](#page-17-1) [2024\)](#page-17-1), and CodeTaxo [\(Zeng et al.,](#page-19-1) [2024\)](#page-19-1).
 
@@ -231,139 +229,134 @@ Knowledge Reasoning. For the knowledge reasoning phase, we first evaluate the pe
 
 ### 3 Results
 
-####*5.3.1 Knowledge Organization*Results on Ontology Expansion. The results for ontology expansion are presented in Table [1.](#page-10-0) Compared to self-supervised methods, KNOWCODER-V2 outperforms all baselines on three benchmarks in terms of both accuracy and Wu&Palmer similarity. These results highlight the effectiveness of KNOWCODER-V2's two-stage alignment phase, and show that its code-based definitions significantly enhance the model's ability to analyze the corresponding concepts.
+### *5.3.1 Knowledge Organization*Results on Ontology Expansion. The results for ontology expansion are presented in Table [1.](#page-10-0) Compared to self-supervised methods, KNOWCODER-V2 outperforms all baselines on three benchmarks in terms of both accuracy and Wu&Palmer similarity. These results highlight the effectiveness of KNOWCODER-V2's two-stage alignment phase, and show that its code-based definitions significantly enhance the model's ability to analyze the corresponding concepts.
 
-<span id="page-11-0"></span>
 
-|              |      | NER                                                                                                                     |      |      |      |      |      |      |      |      |      |         |      |  |  |
+| | | NER | | | | | | | | | | | | | |
 |--------------|------|-------------------------------------------------------------------------------------------------------------------------|------|------|------|------|------|------|------|------|------|---------|------|--|--|
-| Model        |      | English<br>ACE2005 AnatEM Conll2003 BC2GM BC5CDR FindVehicle MultiNerd MIT Movie MIT Restaurant WikiAnn MSRA ResumenNER |      |      |      |      |      |      |      |      |      | Chinese |      |  |  |
-|              |      |                                                                                                                         |      |      |      |      |      |      |      |      |      |         | Avg  |  |  |
-| Bert         | 87.3 | 85.8                                                                                                                    | 92.4 | 80.9 | 85.3 | 87.1 | 91.3 | 88.8 | 81.0 | 70.6 | 95.0 | 95.9    | 87.1 |  |  |
-| InstructUIE  | 79.9 | 85.8                                                                                                                    | 91.5 | 80.7 | 89.0 | 87.6 | 90.3 | 89.6 | 82.6 | 64.5 | -    | -       | -    |  |  |
-| UniversalNER | 86.7 | 88.7                                                                                                                    | 93.3 | 82.4 | 88.7 | 98.3 | 93.7 | 90.2 | 82.4 | 84.9 | -    | -       | -    |  |  |
-| YAYIUIE      | 81.8 | 76.5                                                                                                                    | 96.7 | 82.1 | 83.7 | 98.5 | 88.4 | 70.1 | 79.4 |      | 96.0 | -       | -    |  |  |
-| IEPILE       | 81.9 | 81.9                                                                                                                    | 92.5 | 80.7 | 88.1 | 98.5 | 94.6 | 88.2 | 79.9 | 72.6 | 88.0 | 93.9    | 87.0 |  |  |
-| B2NER        | 83.0 | 89.2                                                                                                                    | 92.6 | 82.0 | 88.5 | 97.9 | 94.0 | 90.8 | 83.7 | 85.1 | 92.2 | 95.9    | 89.0 |  |  |
-| KnowCoder-V1 | 86.1 | 86.4                                                                                                                    | 94.1 | 82.0 | 89.3 | 99.4 | 96.0 | 90.6 | 81.3 | 87.7 | 40.6 | 16.3    | -    |  |  |
-| KnowCoder-X  | 87.5 | 89.2                                                                                                                    | 94.7 | 84.5 | 88.5 | 99.5 | 95.9 | 89.5 | 82.0 | 84.5 | 96.0 | 96.1    | 90.1 |  |  |
-| KnowCoder-V2 | 87.8 | 90.0                                                                                                                    | 95.0 | 85.9 | 90.8 | 99.5 | 96.0 | 93.3 | 82.1 | 86.1 | 94.0 | 96.2    | 91.1 |  |  |
+| Model | | English<br>ACE2005 AnatEM Conll2003 BC2GM BC5CDR FindVehicle MultiNerd MIT Movie MIT Restaurant WikiAnn MSRA ResumenNER | | | | | | | | | | Chinese | | | |
+| | | | | | | | | | | | | | Avg | | |
+| Bert | 87.3 | 85.8 | 92.4 | 80.9 | 85.3 | 87.1 | 91.3 | 88.8 | 81.0 | 70.6 | 95.0 | 95.9 | 87.1 | | |
+| InstructUIE | 79.9 | 85.8 | 91.5 | 80.7 | 89.0 | 87.6 | 90.3 | 89.6 | 82.6 | 64.5 | - | - | - | | |
+| UniversalNER | 86.7 | 88.7 | 93.3 | 82.4 | 88.7 | 98.3 | 93.7 | 90.2 | 82.4 | 84.9 | - | - | - | | |
+| YAYIUIE | 81.8 | 76.5 | 96.7 | 82.1 | 83.7 | 98.5 | 88.4 | 70.1 | 79.4 | | 96.0 | - | - | | |
+| IEPILE | 81.9 | 81.9 | 92.5 | 80.7 | 88.1 | 98.5 | 94.6 | 88.2 | 79.9 | 72.6 | 88.0 | 93.9 | 87.0 | | |
+| B2NER | 83.0 | 89.2 | 92.6 | 82.0 | 88.5 | 97.9 | 94.0 | 90.8 | 83.7 | 85.1 | 92.2 | 95.9 | 89.0 | | |
+| KnowCoder-V1 | 86.1 | 86.4 | 94.1 | 82.0 | 89.3 | 99.4 | 96.0 | 90.6 | 81.3 | 87.7 | 40.6 | 16.3 | - | | |
+| KnowCoder-X | 87.5 | 89.2 | 94.7 | 84.5 | 88.5 | 99.5 | 95.9 | 89.5 | 82.0 | 84.5 | 96.0 | 96.1 | 90.1 | | |
+| KnowCoder-V2 | 87.8 | 90.0 | 95.0 | 85.9 | 90.8 | 99.5 | 96.0 | 93.3 | 82.1 | 86.1 | 94.0 | 96.2 | 91.1 | | |
 
-|  | Table 2: The performance of all baselines and our models on NER. |  |  |  |
+| | **Table 2:** The performance of all baselines and our models on NER. | | | |
 |--|------------------------------------------------------------------|--|--|--|
-|  |                                                                  |  |  |  |
+| | | | | |
 
-<span id="page-11-1"></span>
 
-|              | RE   |                                                                                                                            |         |      |      |      |                 |      |      | ED      |      |                 |      |         | EAE  |      |                 |  |
+| | RE | | | | | | | | | ED | | | | | EAE | | | |
 |--------------|------|----------------------------------------------------------------------------------------------------------------------------|---------|------|------|------|-----------------|------|------|---------|------|-----------------|------|---------|------|------|-----------------|--|
-| Model        |      |                                                                                                                            | English |      |      |      | Chinese Overall |      |      | English |      | Chinese Overall |      | English |      |      | Chinese Overall |  |
-|              |      | ACE 2005 ADE corpus Conll 2004 NYT SciERC Semeval RE DUIE 2.0 Avg ACE2005 CASIE EEMT DUEE1.0 Avg ACE2005 CASIE DUEE1.0 Avg |         |      |      |      |                 |      |      |         |      |                 |      |         |      |      |                 |  |
-| InstructUIE  | -    | 82.3                                                                                                                       | 78.5    | 93.0 | 43.5 | 58.5 | -               | -    | 43.2 | 67.8    | -    | -               | -    | 56.8    | 63.5 | -    | -               |  |
-| YAYIUIE      | -    | 84.1                                                                                                                       | 79.7    | 90.0 | 40.9 | 61.0 | 81.2            | 72.8 | 65.0 | 63.0    | -    | 85.0            | -    | 62.7    | 64.2 | 78.1 | 68.3            |  |
-| IEPILE       | -    | 83.7                                                                                                                       | 72.9    | 93.0 | 43.5 | 58.5 | 75.6            | 71.2 | 62.7 | 64.2    | -    | 78.1            | -    | 63.9    | 56.1 | 75.6 | 65.2            |  |
-| KnowCoder-V1 | 64.5 | 84.3                                                                                                                       | 73.3    | 93.7 | 37.4 | 58.5 | 20.4            | 61.7 | 74.2 | 58.2    | 9.1  | 15.9            | 39.4 | 70.3    | 20.8 | 7.9  | 33.0            |  |
-| KnowCoder-X  | -    | 84.5                                                                                                                       | 73.1    | 96.1 | 44.9 | 64.8 | 82.9            | -    | 73.6 | 63.9    | -    | 87.2            | -    | 70.0    | 65.0 | 82.1 | 72.3            |  |
-| KnowCoder-V2 | 66.3 | 85.0                                                                                                                       | 73.3    | 96.1 | 47.3 | 67.2 | 83.1            | 74.0 | 75.3 | 67.1    | 53.5 | 87.1            | 70.7 | 71.2    | 65.2 | 81.4 | 72.6            |  |
+| Model | | | English | | | | Chinese Overall | | | English | | Chinese Overall | | English | | | Chinese Overall | |
+| | | ACE 2005 ADE corpus Conll 2004 NYT SciERC Semeval RE DUIE 2.0 Avg ACE2005 CASIE EEMT DUEE1.0 Avg ACE2005 CASIE DUEE1.0 Avg | | | | | | | | | | | | | | | | |
+| InstructUIE | - | 82.3 | 78.5 | 93.0 | 43.5 | 58.5 | - | - | 43.2 | 67.8 | - | - | - | 56.8 | 63.5 | - | - | |
+| YAYIUIE | - | 84.1 | 79.7 | 90.0 | 40.9 | 61.0 | 81.2 | 72.8 | 65.0 | 63.0 | - | 85.0 | - | 62.7 | 64.2 | 78.1 | 68.3 | |
+| IEPILE | - | 83.7 | 72.9 | 93.0 | 43.5 | 58.5 | 75.6 | 71.2 | 62.7 | 64.2 | - | 78.1 | - | 63.9 | 56.1 | 75.6 | 65.2 | |
+| KnowCoder-V1 | 64.5 | 84.3 | 73.3 | 93.7 | 37.4 | 58.5 | 20.4 | 61.7 | 74.2 | 58.2 | 9.1 | 15.9 | 39.4 | 70.3 | 20.8 | 7.9 | 33.0 | |
+| KnowCoder-X | - | 84.5 | 73.1 | 96.1 | 44.9 | 64.8 | 82.9 | - | 73.6 | 63.9 | - | 87.2 | - | 70.0 | 65.0 | 82.1 | 72.3 | |
+| KnowCoder-V2 | 66.3 | 85.0 | 73.3 | 96.1 | 47.3 | 67.2 | 83.1 | 74.0 | 75.3 | 67.1 | 53.5 | 87.1 | 70.7 | 71.2 | 65.2 | 81.4 | 72.6 | |
 
-Table 3: The performance of all baselines and our models on the RE, ED and EAE tasks.
+**Table 3:** The performance of all baselines and our models on the RE, ED and EAE tasks.
 
 Results on Knowledge Extraction. The results for NER, RE, ED, and EAE tasks are shown in Tables [2,](#page-11-0) [3,](#page-11-1) respectively. Compared to KNOWCODER-V1, KNOWCODER-V2 significantly enhances extraction performance across all tasks and demonstrates strong adaptability to multilingual and multi-event scenarios. Besides, KNOWCODER-V2 outperforms the most advanced information extraction models on most benchmarks. In English IE, KNOWCODER-V2 has achieved a significant average improvement of 3.03% and 2.92% F1 on the NER, RE, ED, and EAE compared to all baselines. In Chinese IE, KNOWCODER-V2 surpasses the bilingual UIE baselines. Especially in domain-specific benchmarks such as BC2GM, BC5CDR, and SCIERC, KNOWCODER-V2 surpasses the current state-of-the-art by margins of 1.4%, 1.5%, and 4.3% points, respectively. This highlights KNOWCODER-V2's capability in processing specialized knowledge, thereby offering compelling support for subsequent tasks. In the EEMT benchmark, where the type-recalling and partitioned extraction strategies are removed, KNOWCODER-V2 still demonstrates competitive extraction performance relative to LLM-PEE introduced by [\(Liu et al.,](#page-16-5) [2025\)](#page-16-5). Furthermore, compared to KNOWCODER-V1, KnowCoder-X [\(Zuo et al.,](#page-19-2) [2024\)](#page-19-2), and LLM-PEE, our method maintains comparable performance while significantly reducing the prompt length, thereby enhancing the overall extraction efficiency of the model. The results for NER, RE, and ED tasks under robustness settings are presented in Table [4.](#page-12-0) Compared to KNOWCODER-V1 and KnowCoder-7B-Robust, KNOWCODER-V2 demonstrates strong robustness across various perturbations and ranks 1st among all baselines with average of 78.6%, surpass the KnowCoder-7B-Robust by 1.4%. Notably, under more complex robustness setting such as Extended Sentence perturbation, KNOWCODER-V2 consistently maintains and or even improves its performance than None setting across all tasks (87.3% in P7 v.s 84.6% in None). This indicates that KNOWCODER-V2 is capable of handling longer and more complex texts while still delivering accurate knowledge organization.
 
-###*5.3.2 Knowledge Reasoning.*<span id="page-11-2"></span><sup>2</sup>https://chat.qwen.ai/?inputFeature=deep\_research
+### *5.3.2 Knowledge Reasoning.*<span id="page-11-2"></span><sup>2</sup>https://chat.qwen.ai/?inputFeature=deep\_research
 
 <span id="page-11-3"></span><sup>3</sup>https://grok.com/
 
 <span id="page-11-4"></span><sup>4</sup>https://chatgpt.com/
 
-<span id="page-12-0"></span>
 
-| Model                                                                                                                              | NER  |    |    |    |    |   |                                                                                                              |   | RE |    |    |   |                                   |   |   |   | ED |   |   |                                                                     | Overall |    |
+| Model | NER | | | | | | | | RE | | | | | | | | ED | | | | Overall | |
 |------------------------------------------------------------------------------------------------------------------------------------|------|----|----|----|----|---|--------------------------------------------------------------------------------------------------------------|---|----|----|----|---|-----------------------------------|---|---|---|----|---|---|---------------------------------------------------------------------|---------|----|
-|                                                                                                                                    | None | P1 | P2 | P3 | P4 |   | P5 Dropavg None                                                                                              |   | P6 | P7 | P8 |   |                                   |   |   |   |    |   |   | P9 Dropavg None P10 P11 P12 P13 P14 Dropavg Avg Rank                |         |    |
-| Open-source LLMs                                                                                                                   |      |    |    |    |    |   |                                                                                                              |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         |    |
-| Qwen2.5-14B-Instruct                                                                                                               |      |    |    |    |    |   | 58.6 53.6 57.7 55.0 56.9 46.6 7.9%↓ 22.6 19.2 21.3 17.1 8.8 26.5%↓ 32.0 29.8 30.4 30.9 31.4 32.0 3.4%↓ 35.5  |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 12 |
-| Qwen2.5-7B-Instruct                                                                                                                |      |    |    |    |    |   | 53.3 49.8 51.2 50.5 51.2 41.3 8.4%↓ 15.6 13.4 14.0 13.8 3.8 27.9%↓ 19.0 18.8 17.6 17.9 18.8 19.2 2.8%↓ 27.6  |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 14 |
-| Qwen2.5-3B-Instruct                                                                                                                |      |    |    |    |    |   | 49.5 47.5 46.7 45.3 45.5 40.2 9.0%↓                                                                          |   |    |    |    |   |                                   |   |   |   |    |   |   | 8.9 7.6 8.6 7.4 2.0 28.1%↓ 13.3 13.8 12.3 12.6 12.7 13.6 2.3%↓ 22.8 |         | 16 |
-| Llama3-8B-Instruct                                                                                                                 |      |    |    |    |    |   | 55.4 52.6 52.9 51.1 53.5 25.7 14.9%↓ 17.3 15.0 15.7 13.6 2.5 32.4%↓ 12.8 13.1 13.1 10.9 12.5 12.2 3.4%↓ 25.3 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 15 |
-| Glm-4-9B-Chat                                                                                                                      |      |    |    |    |    |   | 57.4 54.0 55.8 51.4 56.6 43.2 9.0%↓                                                                          |   |    |    |    |   | 8.8 7.5 7.5 7.4 1.8 31.2%↓        |   |   |   |    |   |   | 5.6 6.6 4.7 4.1 5.1 5.9 5.7%↓ 22.6                                  |         | 17 |
-| Internlm2.5-7B-Chat                                                                                                                |      |    |    |    |    |   | 51.6 48.0 48.8 46.9 45.3 31.0 14.7%↓ 12.0 11.3 10.1 9.0 1.7 33.1%↓ 11.0 10.3 10.6 8.2 9.6 11.3 9.1%↓ 22.2    |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 18 |
-| CodeLlama-7B-Instruct                                                                                                              |      |    |    |    |    |   | 46.3 45.0 45.0 38.9 42.4 14.5 19.7%↓ 13.7 11.6 12.2 11.3 2.8 30.8%↓                                          |   |    |    |    |   |                                   |   |   |   |    |   |   | 8.6 9.3 8.8 6.1 8.2 9.2 3.3%↓ 19.6                                  |         | 19 |
-| Vicuna-7B-v1.5                                                                                                                     |      |    |    |    |    |   | 39.0 38.2 37.4 35.0 38.0 16.7 15.2%↓ 11.2 11.0 10.1 7.6 0.8 34.1%↓                                           |   |    |    |    |   |                                   |   |   |   |    |   |   | 6.9 7.5 7.2 4.5 6.1 6.3 8.4%↓ 16.7                                  |         | 20 |
-| Closed-source LLMs                                                                                                                 |      |    |    |    |    |   |                                                                                                              |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         |    |
-| GLM4-Plus                                                                                                                          |      |    |    |    |    |   | 63.2 59.8 63.0 61.6 60.9 49.7 6.6%↓ 32.2 29.2 31.3 26.1 5.3 28.6%↓ 43.5 39.9 43.3 34.6 40.8 43.9 6.9%↓ 42.8  |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 9  |
-| DeepSeek-V3                                                                                                                        |      |    |    |    |    |   | 62.3 59.8 61.5 61.3 58.7 55.0 4.9%↓ 31.3 29.0 29.6 26.2 10.0 24.3%↓ 38.8 37.8 38.3 34.5 35.6 38.9 4.6%↓ 41.7 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 10 |
-| GPT-4-turbo                                                                                                                        |      |    |    |    |    |   | 60.6 57.5 59.8 58.2 56.2 33.4 12.5%↓ 33.0 30.0 31.6 26.8 4.5 29.6%↓ 40.0 38.0 39.6 34.5 37.3 39.8 5.4%↓ 40.0 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 11 |
-| GPT-3.5-turbo                                                                                                                      |      |    |    |    |    |   | 51.8 47.9 48.9 50.5 39.0 33.1 15.3%↓ 23.8 20.6 21.3 16.7 2.4 35.9%↓ 38.0 29.5 36.1 36.7 33.9 36.9 8.9%↓ 33.3 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 13 |
-| Traditional IE Models                                                                                                              |      |    |    |    |    |   |                                                                                                              |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         |    |
-| Stanza                                                                                                                             |      |    |    |    |    |   | 80.7 70.1 77.1 71.5 78.1 51.1 13.8%↓                                                                         | - | -  | -  | -  | - | -                                 | - | - | - | -  | - | - | -                                                                   | -       | -  |
-| TNER                                                                                                                               |      |    |    |    |    |   | 83.0 73.3 78.0 73.9 81.0 73.2 8.6%↓                                                                          | - | -  | -  | -  | - | -                                 | - | - | - | -  | - | - | -                                                                   | -       | -  |
-| PFN                                                                                                                                | -    | -  | -  | -  | -  | - |                                                                                                              |   |    |    |    |   | - 76.3 58.6 73.8 68.4 20.4 27.5%↓ | - | - | - | -  | - | - | -                                                                   | -       | -  |
-| EEQA                                                                                                                               | -    | -  | -  | -  | -  | - | -                                                                                                            | - | -  | -  | -  | - |                                   |   |   |   |    |   |   | - 68.3 53.2 64.0 63.4 59.7 66.5 10.1%↓                              | -       | -  |
-| UIE Models                                                                                                                         |      |    |    |    |    |   |                                                                                                              |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         |    |
-| UIE                                                                                                                                |      |    |    |    |    |   | 83.9 74.3 81.1 75.6 81.7 70.3 8.7%↓ 84.1 63.3 81.1 77.0 35.9 23.5%↓ 71.3 52.6 65.2 67.7 67.6 68.8 9.9%↓ 70.7 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 6  |
-| InstructUIE-11B                                                                                                                    |      |    |    |    |    |   | 73.9 65.7 69.5 64.3 72.0 70.3 7.5%↓ 68.4 48.3 66.3 61.6 56.1 15.1%↓ 60.6 50.8 56.8 59.5 59.3 59.6 5.6%↓ 62.5 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 7  |
-| YAYI-UIE-13B                                                                                                                       |      |    |    |    |    |   | 80.7 69.3 75.3 72.6 79.2 75.6 7.8%↓ 66.4 47.3 65.0 59.9 38.4 20.7%↓ 42.7 37.5 41.3 41.4 40.8 41.6 5.2%↓ 57.4 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 8  |
-| KnowCoder-7B                                                                                                                       |      |    |    |    |    |   | 87.4 76.4 81.3 79.6 84.7 81.5 7.7%↓ 84.0 57.3 80.5 76.4 73.3 14.4%↓ 74.2 53.8 69.6 70.5 70.3 72.4 9.3%↓ 74.9 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 3  |
-| KnowCoder-7Bpartial                                                                                                                |      |    |    |    |    |   | 84.4 73.8 80.1 81.1 82.1 79.0 6.1%↓ 81.4 60.6 79.1 74.5 52.8 18.0%↓ 69.1 55.5 66.1 65.8 66.8 67.8 6.8%↓ 71.8 |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 5  |
-| KnowCoder-7B-Robust                                                                                                                |      |    |    |    |    |   | 85.9 81.3 83.5 86.4 86.1 84.6 1.7%↓ 83.1 66.0 82.9 81.1 79.8 6.8%↓ 70.2 65.7 67.1 70.5 68.3 69.6 2.8%↓ 77.2  |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 2  |
-| KnowCoder-7B-RobustLDA 86.1 81.2 84.9 86.5 85.6 83.8 1.9%↓ 82.2 66.5 82.5 81.3 81.3 5.2%↓ 69.4 66.0 68.1 70.0 68.8 68.9 1.5%↓ 77.2 |      |    |    |    |    |   |                                                                                                              |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 2  |
-| KNOWCODER-V2                                                                                                                       |      |    |    |    |    |   | 87.4 81.7 83.9 87.9 84.9 84.0 2.4%↓ 84.6 65.8 87.3 81.9 78.8 5.6%↓ 74.7 74.6 70.8 72.9 72.9 69.5 3.7%↓ 78.6  |   |    |    |    |   |                                   |   |   |   |    |   |   |                                                                     |         | 1  |
+| | None | P1 | P2 | P3 | P4 | | P5 Dropavg None | | P6 | P7 | P8 | | | | | | | | | P9 Dropavg None P10 P11 P12 P13 P14 Dropavg Avg Rank | | |
+| Open-source LLMs | | | | | | | | | | | | | | | | | | | | | | |
+| Qwen2.5-14B-Instruct | | | | | | | 58.6 53.6 57.7 55.0 56.9 46.6 7.9%↓ 22.6 19.2 21.3 17.1 8.8 26.5%↓ 32.0 29.8 30.4 30.9 31.4 32.0 3.4%↓ 35.5 | | | | | | | | | | | | | | | 12 |
+| Qwen2.5-7B-Instruct | | | | | | | 53.3 49.8 51.2 50.5 51.2 41.3 8.4%↓ 15.6 13.4 14.0 13.8 3.8 27.9%↓ 19.0 18.8 17.6 17.9 18.8 19.2 2.8%↓ 27.6 | | | | | | | | | | | | | | | 14 |
+| Qwen2.5-3B-Instruct | | | | | | | 49.5 47.5 46.7 45.3 45.5 40.2 9.0%↓ | | | | | | | | | | | | | 8.9 7.6 8.6 7.4 2.0 28.1%↓ 13.3 13.8 12.3 12.6 12.7 13.6 2.3%↓ 22.8 | | 16 |
+| Llama3-8B-Instruct | | | | | | | 55.4 52.6 52.9 51.1 53.5 25.7 14.9%↓ 17.3 15.0 15.7 13.6 2.5 32.4%↓ 12.8 13.1 13.1 10.9 12.5 12.2 3.4%↓ 25.3 | | | | | | | | | | | | | | | 15 |
+| Glm-4-9B-Chat | | | | | | | 57.4 54.0 55.8 51.4 56.6 43.2 9.0%↓ | | | | | | 8.8 7.5 7.5 7.4 1.8 31.2%↓ | | | | | | | 5.6 6.6 4.7 4.1 5.1 5.9 5.7%↓ 22.6 | | 17 |
+| Internlm2.5-7B-Chat | | | | | | | 51.6 48.0 48.8 46.9 45.3 31.0 14.7%↓ 12.0 11.3 10.1 9.0 1.7 33.1%↓ 11.0 10.3 10.6 8.2 9.6 11.3 9.1%↓ 22.2 | | | | | | | | | | | | | | | 18 |
+| CodeLlama-7B-Instruct | | | | | | | 46.3 45.0 45.0 38.9 42.4 14.5 19.7%↓ 13.7 11.6 12.2 11.3 2.8 30.8%↓ | | | | | | | | | | | | | 8.6 9.3 8.8 6.1 8.2 9.2 3.3%↓ 19.6 | | 19 |
+| Vicuna-7B-v1.5 | | | | | | | 39.0 38.2 37.4 35.0 38.0 16.7 15.2%↓ 11.2 11.0 10.1 7.6 0.8 34.1%↓ | | | | | | | | | | | | | 6.9 7.5 7.2 4.5 6.1 6.3 8.4%↓ 16.7 | | 20 |
+| Closed-source LLMs | | | | | | | | | | | | | | | | | | | | | | |
+| GLM4-Plus | | | | | | | 63.2 59.8 63.0 61.6 60.9 49.7 6.6%↓ 32.2 29.2 31.3 26.1 5.3 28.6%↓ 43.5 39.9 43.3 34.6 40.8 43.9 6.9%↓ 42.8 | | | | | | | | | | | | | | | 9 |
+| DeepSeek-V3 | | | | | | | 62.3 59.8 61.5 61.3 58.7 55.0 4.9%↓ 31.3 29.0 29.6 26.2 10.0 24.3%↓ 38.8 37.8 38.3 34.5 35.6 38.9 4.6%↓ 41.7 | | | | | | | | | | | | | | | 10 |
+| GPT-4-turbo | | | | | | | 60.6 57.5 59.8 58.2 56.2 33.4 12.5%↓ 33.0 30.0 31.6 26.8 4.5 29.6%↓ 40.0 38.0 39.6 34.5 37.3 39.8 5.4%↓ 40.0 | | | | | | | | | | | | | | | 11 |
+| GPT-3.5-turbo | | | | | | | 51.8 47.9 48.9 50.5 39.0 33.1 15.3%↓ 23.8 20.6 21.3 16.7 2.4 35.9%↓ 38.0 29.5 36.1 36.7 33.9 36.9 8.9%↓ 33.3 | | | | | | | | | | | | | | | 13 |
+| Traditional IE Models | | | | | | | | | | | | | | | | | | | | | | |
+| Stanza | | | | | | | 80.7 70.1 77.1 71.5 78.1 51.1 13.8%↓ | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+| TNER | | | | | | | 83.0 73.3 78.0 73.9 81.0 73.2 8.6%↓ | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+| PFN | - | - | - | - | - | - | | | | | | | - 76.3 58.6 73.8 68.4 20.4 27.5%↓ | - | - | - | - | - | - | - | - | - |
+| EEQA | - | - | - | - | - | - | - | - | - | - | - | - | | | | | | | | - 68.3 53.2 64.0 63.4 59.7 66.5 10.1%↓ | - | - |
+| UIE Models | | | | | | | | | | | | | | | | | | | | | | |
+| UIE | | | | | | | 83.9 74.3 81.1 75.6 81.7 70.3 8.7%↓ 84.1 63.3 81.1 77.0 35.9 23.5%↓ 71.3 52.6 65.2 67.7 67.6 68.8 9.9%↓ 70.7 | | | | | | | | | | | | | | | 6 |
+| InstructUIE-11B | | | | | | | 73.9 65.7 69.5 64.3 72.0 70.3 7.5%↓ 68.4 48.3 66.3 61.6 56.1 15.1%↓ 60.6 50.8 56.8 59.5 59.3 59.6 5.6%↓ 62.5 | | | | | | | | | | | | | | | 7 |
+| YAYI-UIE-13B | | | | | | | 80.7 69.3 75.3 72.6 79.2 75.6 7.8%↓ 66.4 47.3 65.0 59.9 38.4 20.7%↓ 42.7 37.5 41.3 41.4 40.8 41.6 5.2%↓ 57.4 | | | | | | | | | | | | | | | 8 |
+| KnowCoder-7B | | | | | | | 87.4 76.4 81.3 79.6 84.7 81.5 7.7%↓ 84.0 57.3 80.5 76.4 73.3 14.4%↓ 74.2 53.8 69.6 70.5 70.3 72.4 9.3%↓ 74.9 | | | | | | | | | | | | | | | 3 |
+| KnowCoder-7Bpartial | | | | | | | 84.4 73.8 80.1 81.1 82.1 79.0 6.1%↓ 81.4 60.6 79.1 74.5 52.8 18.0%↓ 69.1 55.5 66.1 65.8 66.8 67.8 6.8%↓ 71.8 | | | | | | | | | | | | | | | 5 |
+| KnowCoder-7B-Robust | | | | | | | 85.9 81.3 83.5 86.4 86.1 84.6 1.7%↓ 83.1 66.0 82.9 81.1 79.8 6.8%↓ 70.2 65.7 67.1 70.5 68.3 69.6 2.8%↓ 77.2 | | | | | | | | | | | | | | | 2 |
+| KnowCoder-7B-RobustLDA 86.1 81.2 84.9 86.5 85.6 83.8 1.9%↓ 82.2 66.5 82.5 81.3 81.3 5.2%↓ 69.4 66.0 68.1 70.0 68.8 68.9 1.5%↓ 77.2 | | | | | | | | | | | | | | | | | | | | | | 2 |
+| KNOWCODER-V2 | | | | | | | 87.4 81.7 83.9 87.9 84.9 84.0 2.4%↓ 84.6 65.8 87.3 81.9 78.8 5.6%↓ 74.7 74.6 70.8 72.9 72.9 69.5 3.7%↓ 78.6 | | | | | | | | | | | | | | | 1 |
 
-Table 4: The performance of all baselines and our models on RUIE-bench.
+**Table 4:** The performance of all baselines and our models on RUIE-bench.
 
-<span id="page-12-2"></span>
 
-| Report Generation Task |       |           |       |           |         |      |  |  |  |  |  |
+| Report Generation Task | | | | | | | | | | | |
 |------------------------|-------|-----------|-------|-----------|---------|------|--|--|--|--|--|
-| Method                 | Comp. | Thorough. | Fact. | Coherence | Insight | Avg. |  |  |  |  |  |
-| Closed-source System   |       |           |       |           |         |      |  |  |  |  |  |
-| Qwen3 DeepResearch     | 6.9   | 6.4       | 6.7   | 6.7       | 4.3     | 6.2  |  |  |  |  |  |
-| Grok3 DeeperSearch     | 6.8   | 6.4       | 7.8   | 7.8       | 5.3     | 6.8  |  |  |  |  |  |
-| Openai DeepResearch    | 8.3   | 8.5       | 8.3   | 8.7       | 4.8     | 7.7  |  |  |  |  |  |
-| Open-source System     |       |           |       |           |         |      |  |  |  |  |  |
-| WebThinker             | 7.3   | 6.4       | 6.9   | 7.4       | 4.1     | 6.4  |  |  |  |  |  |
-| KnowCoder-V2           | 9.3   | 9.2       | 8.5   | 8.8       | 8.7     | 8.9  |  |  |  |  |  |
+| Method | Comp. | Thorough. | Fact. | Coherence | Insight | Avg. | | | | | |
+| Closed-source System | | | | | | | | | | | |
+| Qwen3 DeepResearch | 6.9 | 6.4 | 6.7 | 6.7 | 4.3 | 6.2 | | | | | |
+| Grok3 DeeperSearch | 6.8 | 6.4 | 7.8 | 7.8 | 5.3 | 6.8 | | | | | |
+| Openai DeepResearch | 8.3 | 8.5 | 8.3 | 8.7 | 4.8 | 7.7 | | | | | |
+| Open-source System | | | | | | | | | | | |
+| WebThinker | 7.3 | 6.4 | 6.9 | 7.4 | 4.1 | 6.4 | | | | | |
+| KnowCoder-V2 | 9.3 | 9.2 | 8.5 | 8.8 | 8.7 | 8.9 | | | | | |
 
-Table 6: Performance on the report generation task.
+**Table 6:** Performance on the report generation task.
 
 Results on Knowledge Base Question Answering. Following ToG [\(Sun et al.,](#page-18-13) [2023\)](#page-18-13), we utilize the ground truth topic entity for each question. By centering on this topic entity, we extract the corresponding subgraph for each question. After converting the subgraph into class definition and instance code, KNOWCODER-V2 generates the analysis code based on the given questions. The Hits@1 scores for the KBQA task on WebQSP [\(Yu et al.,](#page-18-5) [2023\)](#page-18-5) are shown in Table [5.](#page-12-1) Compared to the fine-tuned baseline, KNOWCODER-V2 achieves a 2.6% improvement, even without any fine-tuning on the corresponding dataset. Additionally, when compared to promptingbased methods, KNOWCODER-V2 shows a 2.2% improvement. These results suggest that KNOWCODER-V2 is capable of generating accurate analysis code for the KBQA task.
 
 Results on Report Generation. To evaluate the report generation ability of the proposed knowledgeable deep research framework empowered by KNOWCODER-V2, we construct a self-constructed dataset about the scientific report. The dataset focuses on researching the academic achievements about sci-
 
-<span id="page-12-1"></span>
 
-| Method                          | WebQSP |  |  |  |  |  |
+| Method | WebQSP | | | | | |
 |---------------------------------|--------|--|--|--|--|--|
-| Fine-tuned                      |        |  |  |  |  |  |
-| NSM (He et al., 2021)           | 74.3   |  |  |  |  |  |
-| TIARA (Shu et al., 2022)        | 75.2   |  |  |  |  |  |
-| DeCAF (Yu et al., 2023)         | 82.1   |  |  |  |  |  |
-| Prompting                       |        |  |  |  |  |  |
-| KD-CoT (Wang et al., 2023a)     | 73.7   |  |  |  |  |  |
-| StructGPT (Jiang et al., 2023a) | 72.6   |  |  |  |  |  |
-| KB-BINDER (Li et al., 2023b)    | 74.4   |  |  |  |  |  |
-| CoT w. LLama2-70B-Chat          | 57.4   |  |  |  |  |  |
-| ToG-R w. LLama2-70B-Chat        | 68.9   |  |  |  |  |  |
-| ToG w. LLama2-70B-Chat          | 63.7   |  |  |  |  |  |
-| CoT w. GPT-4                    | 67.3   |  |  |  |  |  |
-| ToG-R w. GPT-4                  | 81.9   |  |  |  |  |  |
-| ToG w. GPT-4                    | 82.6   |  |  |  |  |  |
-| G-Retriever                     | 70.1   |  |  |  |  |  |
-| EtD w. ChatGPT                  | 82.5   |  |  |  |  |  |
-| KNOWCODER-V2                    | 84.7   |  |  |  |  |  |
+| Fine-tuned | | | | | | |
+| NSM (He et al., 2021) | 74.3 | | | | | |
+| TIARA (Shu et al., 2022) | 75.2 | | | | | |
+| DeCAF (Yu et al., 2023) | 82.1 | | | | | |
+| Prompting | | | | | | |
+| KD-CoT (Wang et al., 2023a) | 73.7 | | | | | |
+| StructGPT (Jiang et al., 2023a) | 72.6 | | | | | |
+| KB-BINDER (Li et al., 2023b) | 74.4 | | | | | |
+| CoT w. LLama2-70B-Chat | 57.4 | | | | | |
+| ToG-R w. LLama2-70B-Chat | 68.9 | | | | | |
+| ToG w. LLama2-70B-Chat | 63.7 | | | | | |
+| CoT w. GPT-4 | 67.3 | | | | | |
+| ToG-R w. GPT-4 | 81.9 | | | | | |
+| ToG w. GPT-4 | 82.6 | | | | | |
+| G-Retriever | 70.1 | | | | | |
+| EtD w. ChatGPT | 82.5 | | | | | |
+| KNOWCODER-V2 | 84.7 | | | | | |
 
-| Table | 5: |                          | Performances | of |
+| Table | 5: | | Performances | of |
 |-------|----|--------------------------|--------------|----|
-|       |    | KNOWCODER-V2 on the KBQA |              |    |
-| task. |    |                          |              |    |
+| | | KNOWCODER-V2 on the KBQA | | |
+| task. | | | | |
 
 entists and generate their corresponding reports. Following the setting in [Li et al.](#page-16-0) [\(2025b\)](#page-16-0), we use LLMs to give scores to reports generated by different methods from several aspects, including the completeness, thoroughness, factuality, coherence and an additional score called "insight". The scores are averaged from two LLMs, including DeepSeek-V3 and DeepSeek-R1. The results are shown in Table [6.](#page-12-2) KNOWCODER-V2 achieves the highest score among all baselines on all metrics.
 
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: The image contains two figures. (a) shows a bar chart illustrating the top 12 publications by Yoshua Bengio (2015-2025), ranked by citation count, revealing a heavily skewed distribution with "Deep Learning" significantly outpacing others. (b) displays a pie chart showing the distribution of Geoffrey Hinton's publications across various academic publishers. ICLR and NIPS dominate, highlighting his focus on top-tier machine learning conferences and the importance of rapid dissemination via arXiv. -->
 
-Figure 4: Two cases of reports generated by the KDR framework.
+**Figure 4:** Two cases of reports generated by the KDR framework.
 
 Due the knowledge computation steps, KNOWCODER-V2 is able to generate more comprehensive and insightful experimental results and more deep analysis, leading to the significant improvement on "Insigt" score.
 

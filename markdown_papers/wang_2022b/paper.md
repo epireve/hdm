@@ -28,7 +28,6 @@ keywords:
 - sub-tasks
 ---
 
-
 # Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus
 
 Yue Wang<sup>1</sup> , Yao Wan<sup>2</sup> , Lu Bai<sup>3</sup> , Lixin Cui<sup>1</sup> , Zhuo Xu<sup>1</sup> , Ming Li<sup>4</sup> Philip S. Yu<sup>5</sup> , *Fellow, IEEE*and Edwin R Hancock<sup>6</sup> ,*Fellow, IEEE*
@@ -51,7 +50,7 @@ Although much existing work discusses the potential triple evaluation problem fo
 *Yue Wang, Lu Bai (*∗*Corresponding Author: bailucs@cufe.edu.cn), Lixin Cui, and Zhuo Xu are with* <sup>1</sup>*Central University of Finance and Economics, Beijing, China. Yao Wan is with* <sup>2</sup>*College of Computer Science and Technology at Huazhong University of Science and Technology (HUST), Wuhan, China. Lu Bai is with* <sup>3</sup>*School of Artificial Intelligence, Beijing Normal University, Beijing, China. Ming Li is with*<sup>4</sup>*the Key Laboratory of Intelligent Education Technology and Application of Zhejiang Province, Zhejiang Normal University, Jinhua, China. Philip S. Yu is with* <sup>5</sup>*Department of Computer Science, University of Illinois at Chicago, US. Edwin R. Hancock is with* <sup>6</sup>*Department of Computer Science, University of York, UK. This work is supported by the National Natural Science Foundation of China under Grants T2122020, 61976235, and 61602535. This work is also supported in part by NSF under grants III-1526499, III-1763325, III-1909323, and CNS-1930941.*![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a knowledge graph construction process. Open text is processed by an "Explorer" and "Extractor," identifying entities and relations. A "Matching" stage links these to predefined relation types with associated confidence scores (e.g., 0.6 for "/people/deceased_person/place_of_death"). Positive and negative entity pairs guide this process. Finally, the information is translated into RDF triples and added to a Knowledge Graph. -->
 
-<span id="page-1-0"></span>Fig. 1. In a collaborative knowledge graph fusion process, an explorer and a supervisor collaborate to create an enriched knowledge graph by extending a prior knowledge graph with RDF triples extracted from open text sources. Since the extracted RDF triples contain entities or relations that are not aligned to the prior knowledge graph, this process requires interaction mechanisms (translate the extracted results to the knowledge graph RDF triples and guide the explorer with meaningful entity pairs) between the explorer and the supervisor. To simplify the problem, we suppose both the explorer and supervisor share the same entity types (Geographical/Social/Political Entities (GPE), Persons (PER), Weapons (WEA), Organizations (ORG), Vehicles (VEH), etc.) and the extracted trigger mentions (killed, rained down, etc.) by the explorer belong to the trigger types (Life, Conflict, etc.) by following the definitions in the ACE 2005 corpus [\[31\]](#page-12-4). Then the core problem becomes to align the trigger mentions obtained by the explorer to the relations in the knowledge graph of the supervisor.
+<span id="page-1-0"></span>Figure 1. In a collaborative knowledge graph fusion process, an explorer and a supervisor collaborate to create an enriched knowledge graph by extending a prior knowledge graph with RDF triples extracted from open text sources. Since the extracted RDF triples contain entities or relations that are not aligned to the prior knowledge graph, this process requires interaction mechanisms (translate the extracted results to the knowledge graph RDF triples and guide the explorer with meaningful entity pairs) between the explorer and the supervisor. To simplify the problem, we suppose both the explorer and supervisor share the same entity types (Geographical/Social/Political Entities (GPE), Persons (PER), Weapons (WEA), Organizations (ORG), Vehicles (VEH), etc.) and the extracted trigger mentions (killed, rained down, etc.) by the explorer belong to the trigger types (Life, Conflict, etc.) by following the definitions in the ACE 2005 corpus [\[31\]](#page-12-4). Then the core problem becomes to align the trigger mentions obtained by the explorer to the relations in the knowledge graph of the supervisor.
 
 open text sources and linking candidate generation with the evaluation process to automatically. fuse the obtained triples to a prior knowledge graph. The main challenges that hinder progress in this direction are routed in the following shortcomings in the knowledge extraction and a knowledge graph fusion tasks. (1)*Difficulties in aligning RDF triples*. Since open text sources may contain relations outside the scope of a prior knowledge graph, it is a challenge to align the relations from the open texts to those in the knowledge graph. Although current work discusses the entity alignment [\[32\]](#page-12-5) between sources, little focusses on relation alignment. This leads to the difficulty of aligning the extracted RDF triples from the text sources to a prior knowledge graph. (2) *Difficulties maintaining knowledge graph quality*. Merging the unaligned RDF triples from the open text sources to a knowledge graph can mislead the knowledge graph embedding model and may result in unreliable plausible scores for potential triples. Moreover, a misleading knowledge graph can result in the the extractor relying on low-quality triples. This may further lower the quality of the knowledge graph. (3) *Difficulties sharing knowledge between sub-tasks.*Without a reliable way of aligning the RDF triples, it becomes difficult to share knowledge between the subtasks (e.g. event extraction and knowledge fusion). This leads to error propagation [\[33\]](#page-12-6) between sub-tasks and thus degrade the performance for each sub-task.
 
@@ -90,15 +89,14 @@ To this end, we use a universal sequence-to-sequence (Seq2Seq) framework [\[16\]
 
 In this form, our JEE process transforms a sentence into a tag sequence with the tags in the combined tag set A. The loss function for the Seq2Seq JEE is computed as a crossentropy function, as follows:
 
-<span id="page-3-1"></span>
 $$
 \mathcal{L}_{jee} = \sum_{i=0}^{M} \sum_{y_i \in \mathcal{A}} -Pr(y_i|w_i) \log \hat{Pr}(y_i|w_i).
 $$
- (1)
+(1)
 
 With the mapped tag sequence optimized by the loss function in Equation [1,](#page-3-1) we obtain the annotated tag sequences for the sentences in a corpus. In this manner, the entity and relation mentions for a sentence are extracted together. Consequently, we generate RDF triples based on their extracted mentions and use these triples as the candidate triples for KG enrichment. In order to simplify the discussion, we use the term Y<sup>Θ</sup><sup>1</sup> as a joint operation that combines both the mapping from sentences to label sequences and the RDF generation process. Therefore, YΘ<sup>1</sup> (D) refers to a set of RDF triples and we refer to it as the*extractor map*in the following sections.
 
-#### <span id="page-3-3"></span>2.3 Knowledge Graph Fusion with an Open Corpus
+### <span id="page-3-3"></span>2.3 Knowledge Graph Fusion with an Open Corpus
 
 Knowledge Graph Fusion [\[18\]](#page-11-17) is the task of constructing a unified knowledge graph from different data sources. Traditional knowledge graph fusion aims to integrate several knowledge graphs into one knowledge graph, and we formalize this task as follows:
 **Knowledge Graph Fusion (KGF).** Given two prior knowledge graphs G<sup>1</sup> = hE1, R1, T1i and G<sup>2</sup> = hE2, R2, T2i, suppose both G<sup>1</sup> and G<sup>2</sup> are used under the same RDF schema to build a new knowledge graph G<sup>0</sup> = hE<sup>0</sup> , R<sup>0</sup> , T<sup>0</sup> i, where T <sup>0</sup> = T<sup>1</sup> S ∆T and ∆T is the set of triples of G<sup>2</sup> with the top-K plausible scores fG<sup>1</sup> (i, r, t) (∀(i, r, t) ∈ G2). This score is computed as
@@ -111,7 +109,6 @@ where the function Sim gives the similarity between two triples. The plausibilit
 
 **Knowledge Graph Embedding (KGE).**Given a KB G = hE, R, Ti, suppose (i, r, j) is a triple from T, then the loss is
 
-<span id="page-3-2"></span>
 $$
 \mathcal{L}_{kge} = -\sum_{\substack{(i,r,j) \in T, \\ (i',r,j') \in N}} ||\gamma + f_G(i,r,j)) - f_G(i',r,j')|| \quad (3)
 $$
@@ -148,14 +145,13 @@ In this section, we introduce the Collaborative Knowledge Graph Fusion framework
 
 To emulate a human-like collaborative process for our task, we propose a system with two processes, namely 1) an explorer process and 2) a supervisor process. In the explorer process, the system uses the proposed Benchmark-based Supervision Mechanism to assist the JEE task to extract the triples while guided by a supervisor (the benchmarks discovered by the supervisor from a prior KG). In the supervisor process, the system applies the proposed Relation Alignment-based Knowledge Graph Fusion module to selectively accept the extracted triples to be added to the prior KG. These two processes alternate to simultaneously extract knowledge triples and enrich a prior KG with highquality. Figure [2](#page-5-0) illustrates the architecture of our system. The details for the proposed processes are given in the following subsections.
 
-#### <span id="page-4-5"></span>3.2 The Explorer: Benchmark-based Supervision JEE
+### <span id="page-4-5"></span>3.2 The Explorer: Benchmark-based Supervision JEE
 
 In Figure [2,](#page-5-0) our explorer process implements the JEE task. To ensure the explorer is guided by the supervisor we introduce a Benchmark-based Supervision Layer. In this work, we apply the Seq2Seq JEE as the basic extraction process and use BERT [\[36\]](#page-12-9) as the sequence-to-sequence encoder. This JEE module can be substituted by any alternative JEE model if necessary.
 
 Intuitively, during the exploratory period, an explorer receives examples from a supervisor and attempts to leverage the knowledge in these examples to facilitate better exploration. In our work, the explorer process extracts the triples from an open corpus based on a prior KG maintained by a supervisor. Since the open corpus may contain unaligned relations and extra entities that are not contained in the prior KG, it requires a relatively flexible method rather than strict supervision to guide the explorer. To this end, we introduce the Benchmark-based Supervision Mechanism.
 **Benchmark-based Supervision Mechanism.**Given a prior KG, G = hE, R, Ti, let the benchmarks be a positive set of entity pairs P <sup>+</sup> and a negative set of entity pairs P <sup>−</sup>, where P <sup>+</sup> = {(i, j)|(i, ∗, j) ∈ T, ∀i, j ∈ E}, and P <sup>−</sup> = {(i, j)|(i, ∗, j) ∈/ T, ∀i, j ∈ E}. Then the Benchmarkbased Supervision Mechanism can be described as the task to minimize a loss function extended from the BPR loss [\[37\]](#page-12-10)
 
-<span id="page-4-0"></span>
 $$
 \mathcal{L}_b = -\log\left(\delta(f(P^+) - f(P^-)\right),\tag{6}
 $$
@@ -172,7 +168,6 @@ Optimizing L<sup>b</sup> results in the training of a scoring function f(P) to m
 
 Further, since an entity is a sequence of tokens with arbitrary lengths, we apply the weighted average method [\[38\]](#page-12-11) to represent an entity by its corresponding embedding vector. Formally, the embedding vector for an entity is computed as follows
 
-<span id="page-4-2"></span>
 $$
 e_i = \sum_{\forall w \in i} e_w,\tag{8}
 $$
@@ -181,7 +176,6 @@ where i is an entity in E and w is any token in the entity i. The embedding vect
 
 With the proposed Benchmark-based Supervision Mechanism, the loss function of our explorer process is a weighted sum of Equations [1](#page-3-1) and [6,](#page-4-0) i.e.
 
-<span id="page-4-4"></span>
 $$
 \mathcal{L}_e = (1 - \alpha)\mathcal{L}_{jee} + \alpha \mathcal{L}_b,\tag{9}
 $$
@@ -189,19 +183,17 @@ $$
 where α is the weight for the benchmark-based supervision.
 **Candidate Triple Set.**With the aforementioned explorer process, our system simultaneously extracts the entity and relation mentions (or triggers). Then, we generate all RDF triples exhaustively based on the extracted mentions. The results are treated as the candidate triple set T 0 for subsequent processing steps.
 
-#### <span id="page-4-6"></span>3.3 The Supervisor: Relation Alignment-based OKGF
+### <span id="page-4-6"></span>3.3 The Supervisor: Relation Alignment-based OKGF
 
 Our supervisor process enriches the prior KG with the optimal subset of the candidate triples from the explorer process. This requires a scoring function to measure the plausibilities for triples trained by the prior KG. The process for a supervisor to evaluate the quality of the discovery is similar to that adopted by the explorer. As is discussed in Section [2.3,](#page-3-3) one of the challenges to implementing this task is that the relation mentions from the candidate triples may not be unaligned to the relations in the prior KG. In order to address this issue, we propose the Translated Relation Alignment Score (TRAS). This score facilitates the alignment of the relations between the candidate triples and the existing relations in the prior KG. After aligning the relations, our system translates the candidate triples to the aligned candidate triples. It then ranks the aligned candidate triples by considering the semantic information residing in the prior KG. The highly-ranked triples are integrated into the prior KG to generate an enriched KG. We expand the details of this process in the remainder of this section.
 **Translated Relation Alignment Score (TRAS).**Given two KGs G<sup>1</sup> = hE1, R1, T1i and G<sup>2</sup> = hE2, R2, T2i sets (T<sup>1</sup> T T2 = φ). Then the TRAS score s(r1, r2) between two relation r<sup>1</sup> and r<sup>2</sup> (∀r<sup>1</sup> ∈ R1, ∀r<sup>2</sup> ∈ R2) is computed as follows
 
-<span id="page-4-3"></span>
 $$
 s(r_1, r_2) = \gamma s_m(r_1, r_2) + (1 - \gamma) s_e(r_1, r_2), \qquad (10)
 $$
 
 where sm(r1, r2) is the text mention similarity between r<sup>1</sup> and r2, γ is the weight of the text mention similarity. The quantity se(r1, r2) is the**translated relation similarity**between two relations (r<sup>1</sup> and r2) which can be computed as follows
 
-<span id="page-4-1"></span>
 $$
 s_e(r_1, r_2) = Sim(\sum_{\forall (i, r_1, j) \in T_1} e_i - e_j, \sum_{\forall (i, r_2, j) \in T_2} e_i - e_j),
 $$
@@ -210,13 +202,12 @@ $$
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image presents a system architecture diagram illustrating a knowledge graph embedding (KGE) model integrated with a joint embedding framework. The diagram depicts two main processes: a "Supervisor Process" that uses a KGE module for knowledge graph construction and a "Explore Process" employing a joint embedding evaluation (JEE) module. Both processes leverage a general embedding framework and interact via a benchmark-based supervision mechanism to refine embeddings. The diagram shows data flow, processing steps (e.g., convolution, fully connected layers, sigmoid activation), and loss functions (Ls, Lb, Ljee) used for model training and evaluation. -->
 
-<span id="page-5-0"></span>Fig. 2. The "Collaborative Knowledge Graph Fusion" framework for the Knowledge Graph Fusion with Open Corpus task. Our framework consists of two alternative running processes: 1) an explorer process carries on the Joint-Event-Extraction (JEE) task and 2) a supervisor process aligns and merges the extracted triples to a prior knowledge graph. Our system first embeds the texts to the latent vectors of tokens and then optimizes the forward scores for the explorer process. After training the JEE model, our system extracts the triples T 0 from the open texts. Then, our system treats them as candidate triples and enriches them to the prior KG by referring the proposed Translate Relation Alignment Score (TRAS). The enriched KG and the trained KGE likelihood scoring function helps to sample the top positive and negative entity pairs for the explorer process in return.
+<span id="page-5-0"></span>Figure 2. The "Collaborative Knowledge Graph Fusion" framework for the Knowledge Graph Fusion with Open Corpus task. Our framework consists of two alternative running processes: 1) an explorer process carries on the Joint-Event-Extraction (JEE) task and 2) a supervisor process aligns and merges the extracted triples to a prior knowledge graph. Our system first embeds the texts to the latent vectors of tokens and then optimizes the forward scores for the explorer process. After training the JEE model, our system extracts the triples T 0 from the open texts. Then, our system treats them as candidate triples and enriches them to the prior KG by referring the proposed Translate Relation Alignment Score (TRAS). The enriched KG and the trained KGE likelihood scoring function helps to sample the top positive and negative entity pairs for the explorer process in return.
 
 where Sim(∗, ∗) can be any similarity function between two vectors. In this paper, we use the Cosine similarity for this task. Generally, the summed entity embedding difference in Equation [11](#page-4-1) represents the embedding vector for a given relation. As a result, Equation [11](#page-4-1) computes the proximity between two relations in different KGs by considering the entities adjacent to them.
 **Aligned Triple Set.**Our system ranks the relation pairs between the candidate triples from T 0 and the triples in the prior KG using their TRAS scores. As a result, our system translates the candidate triples from the JEE process to an aligned triple set with the same relation set in the prior KG. The aligned triple set is denoted by ∆T.
 **Knowledge Graph Embedding (KGE) Triple Likelihood.** After generating the aligned candidate triple set from the extracted triples, the supervisor ranks the candidate triples and merges the top-ranked triples to the current prior KG. To this end, we use a Knowledge Graph Embedding (KGE) Triple likelihood to perform the ranking task for triples. This function represents the action of the supervisor and it is implemented using a Convolutional Neural Network (CNN) [\[39\]](#page-12-12) based model to map the triples to an R 1 score. Formally, given a KG G = hE, R, Ti. The KGE triple likelihood fG(i, r, j) (∀(i, j) ∈ E, ∀r ∈ R) is computed as follows
 
-<span id="page-5-2"></span>
 $$
 f_G(i, r, j) = \delta(F([C_1, C_2, C_3, \dots, C_m])),\tag{12}
 $$
@@ -231,7 +222,6 @@ where W<sup>n</sup> is the n-th (n=1, 2, . . . , m) convolutional kernel and B<s
 
 The KGE triple likelihood is trained by optimizing a BPR loss function
 
-<span id="page-5-3"></span>
 $$
 \mathcal{L}_s = -\sum_{\substack{\forall (i,r,j) \in \mathcal{T} \cup \Delta \mathcal{T}, \\ \forall (i',r,j') \in N}} \log \left( \delta(f_G(i,r,j) - f_G(i',r,j')) \right). \tag{14}
 $$
@@ -240,65 +230,65 @@ Optimizing this loss function maximizes the difference between the positive and 
 
 <span id="page-5-1"></span>**Benchmark Entity Pairs Sampling**. With the KGE triple likelihood to hand, we propose an algorithm (cf. in Algorithm [1\)](#page-5-1) to obtain the top positive and negative set pairs based on the current KG and embedding.
 
-| Algorithm 1: Benchmark Entity Pairs Sampling                      |  |  |  |  |  |
+| Algorithm 1: Benchmark Entity Pairs Sampling | | | | | |
 |-------------------------------------------------------------------|--|--|--|--|--|
-| Data: a KG G = hE, R, Ti, the embedding mapper E                  |  |  |  |  |  |
-| from the JEE process, a threshold k.                              |  |  |  |  |  |
-| +, the negative<br>Result: the positive entity pair set P         |  |  |  |  |  |
-| −.<br>entity pair set P                                           |  |  |  |  |  |
-| 1 begin                                                           |  |  |  |  |  |
-| Compute all fG(i, r, j)s (∀(i, r, j) ∈ T) with Eq. (12).<br>2     |  |  |  |  |  |
-| Sort the triples in T in ascending order and select<br>3          |  |  |  |  |  |
-| +.<br>the top-k ranked entity pairs P                             |  |  |  |  |  |
-| Enumerate all the negative triples N<br>4                         |  |  |  |  |  |
-| (∀(i, r, j) ∈/ T, ∀i, j ∈ E, ∀r ∈ R).                             |  |  |  |  |  |
-| Compute all fG(i, r, j)s (∀(i, r, j) ∈ N) with Eq. (12).<br>5     |  |  |  |  |  |
-| 0<br>Sort the triples in T<br>in descending order and select<br>6 |  |  |  |  |  |
-| +.<br>the top-k ranked entity pairs P                             |  |  |  |  |  |
-| + and<br>−.<br>Output P<br>P<br>7                                 |  |  |  |  |  |
-| 8 end                                                             |  |  |  |  |  |
+| Data: a KG G = hE, R, Ti, the embedding mapper E | | | | | |
+| from the JEE process, a threshold k. | | | | | |
+| +, the negative<br>Result: the positive entity pair set P | | | | | |
+| −.<br>entity pair set P | | | | | |
+| 1 begin | | | | | |
+| Compute all fG(i, r, j)s (∀(i, r, j) ∈ T) with Eq. (12).<br>2 | | | | | |
+| Sort the triples in T in ascending order and select<br>3 | | | | | |
+| +.<br>the top-k ranked entity pairs P | | | | | |
+| Enumerate all the negative triples N<br>4 | | | | | |
+| (∀(i, r, j) ∈/ T, ∀i, j ∈ E, ∀r ∈ R). | | | | | |
+| Compute all fG(i, r, j)s (∀(i, r, j) ∈ N) with Eq. (12).<br>5 | | | | | |
+| 0<br>Sort the triples in T<br>in descending order and select<br>6 | | | | | |
+| +.<br>the top-k ranked entity pairs P | | | | | |
+| + and<br>−.<br>Output P<br>P<br>7 | | | | | |
+| 8 end | | | | | |
 
 The sampled positive and negative entity pairs are used directly as the benchmarks to supervise the explorer process (cf. Equation [6\)](#page-4-0). This simulates the way in which the supervisor provides the key examples to the explorer for the exploration task.
 
-#### 3.4 The Complete Process and Discussion
+### 3.4 The Complete Process and Discussion
 
 The complete Collaborative Knowledge Graph Fusion process is described in the Algorithm [2.](#page-6-1) We initialize the
 
 **Algorithm 2:**Collaborative Knowledge Graph Fusion Algorithm
 
-|    | Data: A prior KG G = hE, R, Ti, a corpus D and a     |
+| | Data: A prior KG G = hE, R, Ti, a corpus D and a |
 |----|------------------------------------------------------|
-|    | threshold k for the polarity triple sampling and a   |
-|    | threshold ε for the KG enrichment.                   |
-|    | 0<br>Result: An enriched KG G                        |
-|    | 1 begin                                              |
-| 2  | Initialize the embedding mapper E for all the        |
-|    | tokens using the pre-trained features.               |
-| 3  | 0 ←<br>0 ←<br>let G<br>G, T<br>φ.                    |
-| 4  | while Round in [0, K) do                             |
-| 5  | Supervisor-step:                                     |
-| 6  | 0<br>if T<br>6= φ then                               |
-| 7  | 0<br>Align the relations in T<br>to R with Eq. (10). |
-| 8  | ∆T ←Find the top-K triples in the aligned            |
-|    | 0 with the trained<br>T<br>fG0 (∗).                  |
-| 9  | 0 ←<br>0<br>S<br>T<br>∆T<br>T                        |
-| 10 | end                                                  |
-| 11 | 0<br>Sample the negative triple set N based on T     |
-| 12 | Train the KGE triple likelihood fG0 (∗) by           |
-|    | 0<br>minimizing Eq. (14). with T<br>and N.           |
-| 13 | Sample the top-k positive and negative entity        |
-|    | + and<br>− based on Algorithm 1 with<br>pairs P<br>P |
-|    | 0<br>T<br>and the embedding map E.                   |
-| 14 | Explorer-step:                                       |
-| 15 | Train the benchmark-based supervision JEE by         |
-|    | minimizing the function in Eq. (9) with JEE          |
-|    | training data.                                       |
-| 16 | 0<br>Exhaustive generate the candidate triples T     |
-|    | based on the mention results from the JEE            |
-|    | testing data with the trained JEE.                   |
-| 17 | end                                                  |
-| 18 | 0<br>Output G                                        |
-|    | 19 end                                               |
+| | threshold k for the polarity triple sampling and a |
+| | threshold ε for the KG enrichment. |
+| | 0<br>Result: An enriched KG G |
+| | 1 begin |
+| 2 | Initialize the embedding mapper E for all the |
+| | tokens using the pre-trained features. |
+| 3 | 0 ←<br>0 ←<br>let G<br>G, T<br>φ. |
+| 4 | while Round in [0, K) do |
+| 5 | Supervisor-step: |
+| 6 | 0<br>if T<br>6= φ then |
+| 7 | 0<br>Align the relations in T<br>to R with Eq. (10). |
+| 8 | ∆T ←Find the top-K triples in the aligned |
+| | 0 with the trained<br>T<br>fG0 (∗). |
+| 9 | 0 ←<br>0<br>S<br>T<br>∆T<br>T |
+| 10 | end |
+| 11 | 0<br>Sample the negative triple set N based on T |
+| 12 | Train the KGE triple likelihood fG0 (∗) by |
+| | 0<br>minimizing Eq. (14). with T<br>and N. |
+| 13 | Sample the top-k positive and negative entity |
+| | + and<br>− based on Algorithm 1 with<br>pairs P<br>P |
+| | 0<br>T<br>and the embedding map E. |
+| 14 | Explorer-step: |
+| 15 | Train the benchmark-based supervision JEE by |
+| | minimizing the function in Eq. (9) with JEE |
+| | training data. |
+| 16 | 0<br>Exhaustive generate the candidate triples T |
+| | based on the mention results from the JEE |
+| | testing data with the trained JEE. |
+| 17 | end |
+| 18 | 0<br>Output G |
+| | 19 end |
 
 embeddings for all tokens in the corpus with pre-trained features (BERT [\[36\]](#page-12-9) in this paper, but alternative methods could potentially be used if necessary). These embeddings are then used in the supervisor process to infer the positive or negative entity pair sets using a prior knowledge graph. Next, the obtained positive and negative entity pair sets are used to supervise the explorer process. Then the JEE model in the explorer process extracts improved entities and relations to enrich the prior knowledge graph. The supervisor adds the top-K ranked aligned candidate triples in using beam search.
 **Discussion and Analysis.**Our model links event extraction and knowledge graph fusion together as a single process. This alternative process enhance the performance of both of the aforementioned tasks and also results a high quality enriched KG. The main reasons for these improvements are twofold. First, with more useful knowledge implications (evaluated extracted triples from the corpus) for a given knowledge graph, the semantic relationships between its entities are improved. As a result, the performance of the knowledge graph embedding with the enriched knowledge graph is also improved. Second, the accuracies for the entity and relation extraction tasks are also improved with
@@ -328,22 +318,22 @@ Since our system consists of the optimization processes of a JEE task and a KGF 
 
 TABLE 1 Summary of the Corpora for the Explorer (JEE) Process
 
-|                | ACE2005 | NYT   | CoNLL | WebNLG |
+| | ACE2005 | NYT | CoNLL | WebNLG |
 |----------------|---------|-------|-------|--------|
-| Sentences      | 17,606  | 6,355 | 3,903 | 3,973  |
-| Training sent. | 16,765  | 5,500 | 3,000 | 2,649  |
-| Testing sent.  | 841     | 855   | 903   | 1,324  |
+| Sentences | 17,606 | 6,355 | 3,903 | 3,973 |
+| Training sent. | 16,765 | 5,500 | 3,000 | 2,649 |
+| Testing sent. | 841 | 855 | 903 | 1,324 |
 
 TABLE 2 Summary of the KGs for the Supervisor (KGF) Process
 
-|       |                 | ACE2005 | CoNLL | NYT   | WebNLG |
+| | | ACE2005 | CoNLL | NYT | WebNLG |
 |-------|-----------------|---------|-------|-------|--------|
-| FB15K | Seed triples    | 20,00   | 3,440 | 3,000 | 3,973  |
-|       | Testing triples | 969     | 698   | 1,129 | 1,786  |
-| WN18  | Seed triples    | 526     | 68    | 2,042 | 311    |
-|       | Testing triples | 129     | 68    | 730   | 113    |
+| FB15K | Seed triples | 20,00 | 3,440 | 3,000 | 3,973 |
+| | Testing triples | 969 | 698 | 1,129 | 1,786 |
+| WN18 | Seed triples | 526 | 68 | 2,042 | 311 |
+| | Testing triples | 129 | 68 | 730 | 113 |
 
-#### 4.2 Comparison Baselines
+### 4.2 Comparison Baselines
 
 We provide the baselines on both the JEE and the KGF tasks. The performance of KGF is evaluated by the link prediction performance of the trained knowledge graph embedding.
 **JEE baselines.**- StagedMaxEnt [\[35\]](#page-12-8) and TwoStageBeam [\[44\]](#page-12-17) are classic pipe-lined framework methods to extract the event factors jointly.
@@ -358,13 +348,13 @@ We provide the baselines on both the JEE and the KGF tasks. The performance of K
 - Joint3EE [\[47\]](#page-12-20) is an embedding-based method to extract the entities, event triggers and arguments together.
 - Benchmark-based Supervision JEE (BJEE) is the joint model proposed in our paper. Our model supervised by the benchmark entity pairs sampled from a given knowledge graph. It is the explorer process in Sec [3.2.](#page-4-5) The subscripts in the experimental results are the names of the given knowledge graphs.
 
-#### KGF baselines.
+### KGF baselines.
 
 - TransE [\[28\]](#page-12-1) is a classic statistical KGF model. It assumes that a relation of a triple can be represented as the difference between the head and tail entity vectors of that triples. It trains the latent vectors for all the triples based on the aforementioned assumption.
 - ConvE [\[29\]](#page-12-2) is a KGF method to concatenate the vectors for entities to create a matrix to represent the triples. It applies the convolutional neural network to capture the proximity between entities in a triple.
 - Supervisor is the method proposed in our paper. It is the supervisor process in Sec [3.3](#page-4-6) that iteratively enriches its training knowledge triples with the extracted result from the explorer process.
 
-#### 4.3 Evaluation Metrics
+### 4.3 Evaluation Metrics
 
 To compare the JEE and KGF tasks, we provide two families of metrics for them respectively.
 **Supervisor process (KGF task).**In the KGF task, we apply the MRR, Hit@10, Hit@20 and Hit@30 as the metrics to measure the performance of a model to predict or judge the possibility of a triple.
@@ -382,7 +372,7 @@ Hit@n is the ratio of the positive triples that contains in the top-n ranked tri
 Since our system requires to run on the JEE and KGF tasks alternatively, in order to improve the efficiency we presampled the positive and negative triples from the testing triples and wrote them to files. Our evaluation on the performances of the KGF tasks are based on these pre-sampled triples.
 **Explorer process (JEE task).**The performance of JEE is measured by the Precision, Recall, and the F1-scores for the triggers, the entities, and the arguments. The Precision is measured by the ratio of the correct tags output by a model from all the tokens in a corpus and the Recall is the ratio of the predefined tags contains in the output tags of a model.
 
-#### 4.4 Prototype System and Implementation Details
+### 4.4 Prototype System and Implementation Details
 
 We implement a prototype system with the proposed Collaborative Knowledge Graph Fusion framework with Pytorch. This system consists of an explorer process that
 
@@ -392,35 +382,34 @@ We implement a prototype system with the proposed Collaborative Knowledge Graph 
 
 TABLE 3 Detailed comparison on ACE 2005 testing set.
 
-<span id="page-8-0"></span>
 
-|              | Event Trigger Identification |        |      | Event Trigger Classification |        | Event Argument Identification |           | Event Argument Classification |      |           |        |      |
+| | Event Trigger Identification | | | Event Trigger Classification | | Event Argument Identification | | Event Argument Classification | | | | |
 |--------------|------------------------------|--------|------|------------------------------|--------|-------------------------------|-----------|-------------------------------|------|-----------|--------|------|
-| Model        | Precision                    | Recall | F1   | Precision                    | Recall | F1                            | Precision | Recall                        | F1   | Precision | Recall | F1   |
-| StagedMaxEnt | 73.9                         | 66.5   | 70.0 | 70.4                         | 63.3   | 66.7                          | 75.7      | 20.2                          | 31.9 | 71.2      | 19.0   | 30.0 |
-| TwoStageBeam | 76.6                         | 58.7   | 66.5 | 74.0                         | 56.7   | 64.2                          | 74.6      | 25.5                          | 38.0 | 68.8      | 23.5   | 35.0 |
-| Reranking    | 77.6                         | 65.4   | 71.0 | 75.1                         | 63.3   | 68.7                          | 73.7      | 38.5                          | 50.6 | 70.6      | 36.9   | 48.4 |
-| Joint3EE     | 70.5                         | 74.5   | 72.5 | 68.0                         | 71.8   | 69.8                          | 59.9      | 59.8                          | 59.9 | 52.1      | 52.1   | 52.1 |
-| Seq2Seq      | 66.7                         | 62.4   | 64.5 | 57.3                         | 53.7   | 55.5                          | 62.8      | 72.8                          | 67.5 | 46.3      | 56.6   | 50.9 |
-| Seq2Seq∗     | 72.4                         | 67.5   | 69.9 | 69.7                         | 65.0   | 67.2                          | 72.7      | 75.0                          | 73.8 | 58.7      | 67.0   | 62.6 |
-| CRF∗         | 71.9                         | 73.6   | 72.7 | 68.2                         | 68.2   | 68.2                          | 70.7      | 79.6                          | 74.9 | 58.7      | 66.0   | 62.1 |
-| BERT         | 75.0                         | 75.0   | 75.0 | 75.0                         | 75.0   | 75.0                          | 82.8      | 72.6                          | 77.4 | 71.4      | 69.0   | 70.2 |
-| BJEEwn18     | 88.9                         | 66.7   | 76.2 | 85.7                         | 60.0   | 70.6                          | 88.2      | 77.8                          | 82.7 | 80.4      | 72.6   | 76.3 |
-| BJEEf b15k   | 88.9                         | 72.7   | 80.0 | 88.9                         | 72.7   | 80.0                          | 89.0      | 77.7                          | 83.0 | 86.5      | 69.8   | 77.2 |
+| Model | Precision | Recall | F1 | Precision | Recall | F1 | Precision | Recall | F1 | Precision | Recall | F1 |
+| StagedMaxEnt | 73.9 | 66.5 | 70.0 | 70.4 | 63.3 | 66.7 | 75.7 | 20.2 | 31.9 | 71.2 | 19.0 | 30.0 |
+| TwoStageBeam | 76.6 | 58.7 | 66.5 | 74.0 | 56.7 | 64.2 | 74.6 | 25.5 | 38.0 | 68.8 | 23.5 | 35.0 |
+| Reranking | 77.6 | 65.4 | 71.0 | 75.1 | 63.3 | 68.7 | 73.7 | 38.5 | 50.6 | 70.6 | 36.9 | 48.4 |
+| Joint3EE | 70.5 | 74.5 | 72.5 | 68.0 | 71.8 | 69.8 | 59.9 | 59.8 | 59.9 | 52.1 | 52.1 | 52.1 |
+| Seq2Seq | 66.7 | 62.4 | 64.5 | 57.3 | 53.7 | 55.5 | 62.8 | 72.8 | 67.5 | 46.3 | 56.6 | 50.9 |
+| Seq2Seq∗ | 72.4 | 67.5 | 69.9 | 69.7 | 65.0 | 67.2 | 72.7 | 75.0 | 73.8 | 58.7 | 67.0 | 62.6 |
+| CRF∗ | 71.9 | 73.6 | 72.7 | 68.2 | 68.2 | 68.2 | 70.7 | 79.6 | 74.9 | 58.7 | 66.0 | 62.1 |
+| BERT | 75.0 | 75.0 | 75.0 | 75.0 | 75.0 | 75.0 | 82.8 | 72.6 | 77.4 | 71.4 | 69.0 | 70.2 |
+| BJEEwn18 | 88.9 | 66.7 | 76.2 | 85.7 | 60.0 | 70.6 | 88.2 | 77.8 | 82.7 | 80.4 | 72.6 | 76.3 |
+| BJEEf b15k | 88.9 | 72.7 | 80.0 | 88.9 | 72.7 | 80.0 | 89.0 | 77.7 | 83.0 | 86.5 | 69.8 | 77.2 |
 
 <span id="page-8-1"></span>TABLE 4 Comparison on the entity extraction on the ACE2005 testing set.
 
-| Model       | Precision | Recall | F1   |
+| Model | Precision | Recall | F1 |
 |-------------|-----------|--------|------|
-| Seq2Seq     | 67.5      | 83.2   | 74.6 |
-| Seq2Seq∗    | 74.4      | 85.1   | 79.4 |
-| CRF∗        | 75.2      | 84.6   | 79.6 |
-| Reranking   | 82.4      | 79.2   | 80.7 |
-| PipelineGRU | 80.6      | 80.3   | 80.4 |
-| Joint3EE    | 82.0      | 80.4   | 81.2 |
-| BERT        | 89.2      | 78.3   | 83.4 |
-| BJEEwn18    | 92.4      | 81.5   | 86.6 |
-| BJEEf b15k  | 95.1      | 83.0   | 88.6 |
+| Seq2Seq | 67.5 | 83.2 | 74.6 |
+| Seq2Seq∗ | 74.4 | 85.1 | 79.4 |
+| CRF∗ | 75.2 | 84.6 | 79.6 |
+| Reranking | 82.4 | 79.2 | 80.7 |
+| PipelineGRU | 80.6 | 80.3 | 80.4 |
+| Joint3EE | 82.0 | 80.4 | 81.2 |
+| BERT | 89.2 | 78.3 | 83.4 |
+| BJEEwn18 | 92.4 | 81.5 | 86.6 |
+| BJEEf b15k | 95.1 | 83.0 | 88.6 |
 
 performs the Joint-Event-Extraction (JEE) task to extract the triples from a corpus and a supervisor process that conduct the Knowledge Graph Fusion (KGF) process to train the KGE triple likelihood based on the prior Knowledge Graph (KG). As is introduced in Section [3,](#page-3-0) our system enriches a prior KG as follows. In the beginning, the explorer process extracts the triples from a given corpus under the guidance (the Benchmark-based Supervision Mechanism) of the supervisor. After the explorer submits the triples to the supervisor, the supervisor translates the triples to suit the form of its prior KG. With the translated triples the supervisor assesses the quality of the triples based on the KGE triple likelihood (represents its own understanding of the prior KG). In the end, the supervisor merges highquality triples found in the last step to its prior KG and it also updates the benchmarks to the explorer.
 
@@ -432,55 +421,52 @@ We compare our model with the others on the standard event extraction dataset AC
 
 To validate the universality of our method, we compare the overall extraction performances for the proposed JEE models guided by FB15K and WN18 knowledge graphs on all mentioned real-world datasets in the Table [5.](#page-9-0) Since many methods do not consider these datasets, we only report the results of our implemented methods in this experiment. We can observe that the proposed method extracts better mentiones (both the event argument and trigger mentions) than the other non-knowledge-base-guided methods. Further, an interesting thing is that, although the CONLL is a Spanish corpus, the performances of the event extraction tasks on it can still be boosted by the proposed framework with the English-written knowledge graphs (FB15K and WN18). The reason is that many proper nouns are shared by both Spanish and English, and the semantic structure of them might also help the event extraction in Spanish. All the results in this experiment verify that the proposed Collaborative Knowledge Graph Fusion framework effectively boosts the performance of the JEE processes.
 
-#### 4.6 Comparison on the KGF task
+### 4.6 Comparison on the KGF task
 
 We compare the performance of our method with the other KGF models on the triple prediction task in this experiment. This experiment conducts in the following way. The classic models TransE and ConvE are directly trained on the training set of the knowledge graph FB15K. The supervisor of our model is trained with an enriched training set that is obtained through the proposed Supervisorexplorer Collaborative Learning process. All models are tested with the same testing set of FB15K. The results of the supervisor model are obtained by alternatively run the
 
-| TABLE 5                                                              |  |  |  |  |  |  |
+| TABLE 5 | | | | | | |
 |----------------------------------------------------------------------|--|--|--|--|--|--|
-| Comparison on all the real-world datasets with overall performances. |  |  |  |  |  |  |
+| Comparison on all the real-world datasets with overall performances. | | | | | | |
 
-<span id="page-9-0"></span>
 
-| Model      | ACE 2005  |        |      | NYT       |        | CoNLL |           |        | WebNLG |           |        |      |
+| Model | ACE 2005 | | | NYT | | CoNLL | | | WebNLG | | | |
 |------------|-----------|--------|------|-----------|--------|-------|-----------|--------|--------|-----------|--------|------|
-|            | Precision | Recall | F1   | Precision | Recall | F1    | Precision | Recall | F1     | Precision | Recall | F1   |
-| Seq2Seq∗   | 71.2      | 73.9   | 72.5 | 91.0      | 88.2   | 89.5  | 86.6      | 88.7   | 87.6   | 91.2      | 90.9   | 91.1 |
-| CRF∗       | 71.3      | 76.5   | 73.8 | 89.9      | 89.8   | 89.9  | 87.3      | 88.6   | 88.0   | 92.2      | 89.6   | 90.9 |
-| BERT       | 87.1      | 86.9   | 87.0 | 97.8      | 97.8   | 97.8  | 94.2      | 94.2   | 94.2   | 90.1      | 90.0   | 90.1 |
-| BJEEf b15k | 92.1      | 92.1   | 92.1 | 99.2      | 99.2   | 99.2  | 96.3      | 96.3   | 96.3   | 96.3      | 96.3   | 96.3 |
-| BJEEwn18   | 96.0      | 94.9   | 95.5 | 99.0      | 99.0   | 99.0  | 95.8      | 95.6   | 95.7   | 98.2      | 98.2   | 98.2 |
+| | Precision | Recall | F1 | Precision | Recall | F1 | Precision | Recall | F1 | Precision | Recall | F1 |
+| Seq2Seq∗ | 71.2 | 73.9 | 72.5 | 91.0 | 88.2 | 89.5 | 86.6 | 88.7 | 87.6 | 91.2 | 90.9 | 91.1 |
+| CRF∗ | 71.3 | 76.5 | 73.8 | 89.9 | 89.8 | 89.9 | 87.3 | 88.6 | 88.0 | 92.2 | 89.6 | 90.9 |
+| BERT | 87.1 | 86.9 | 87.0 | 97.8 | 97.8 | 97.8 | 94.2 | 94.2 | 94.2 | 90.1 | 90.0 | 90.1 |
+| BJEEf b15k | 92.1 | 92.1 | 92.1 | 99.2 | 99.2 | 99.2 | 96.3 | 96.3 | 96.3 | 96.3 | 96.3 | 96.3 |
+| BJEEwn18 | 96.0 | 94.9 | 95.5 | 99.0 | 99.0 | 99.0 | 95.8 | 95.6 | 95.7 | 98.2 | 98.2 | 98.2 |
 
 TABLE 6
 
 Top extracted and aligned results from ACE 2005 corpus to knowledge graph FB15k by our system.
 
-<span id="page-9-4"></span>
 
-| Rank |                            | FB15K           |                             |                                                            |                                        |
+| Rank | | FB15K | | | |
 |------|----------------------------|-----------------|-----------------------------|------------------------------------------------------------|----------------------------------------|
-|      | Head Entity                | Trigger mention | Trigger type                | Tail Entity<br>1<br>93.9                                   | Relation<br>wn18_webnlg                |
-| 1    | the Persian Gulf           | killed          | Life                        | 2<br>95.3<br>all six British crew members                  | /people/deceased person/place of death |
-| 2    | two Royal Navy helicopters | killed          | Life                        | all six British crew members and one American<br>3<br>93.7 | /people/cause of death/people          |
-| 3    | the capital                | rained down     | Conflict                    | aerial more than 300 Tomahawk cruise missiles<br>4<br>92.6 | /people/deceased person/place of death |
-| 4    | the United States          | summit          | Contact                     | the president Putin<br>5<br>96.9                           | /business/business operation/industry  |
-| 5    | the capital                | took control    | Baghdad the police stations | Movement<br>6<br>95.1                                      | /location/country/form of government   |
+| | Head Entity | Trigger mention | Trigger type | Tail Entity<br>1<br>93.9 | Relation<br>wn18_webnlg |
+| 1 | the Persian Gulf | killed | Life | 2<br>95.3<br>all six British crew members | /people/deceased person/place of death |
+| 2 | two Royal Navy helicopters | killed | Life | all six British crew members and one American<br>3<br>93.7 | /people/cause of death/people |
+| 3 | the capital | rained down | Conflict | aerial more than 300 Tomahawk cruise missiles<br>4<br>92.6 | /people/deceased person/place of death |
+| 4 | the United States | summit | Contact | the president Putin<br>5<br>96.9 | /business/business operation/industry |
+| 5 | the capital | took control | Baghdad the police stations | Movement<br>6<br>95.1 | /location/country/form of government |
 
 supervisor and explorer processes to 8 rounds. Furthermore, since to enumerate all the negative triples requires weeks from our hardware platform, we only used 200 sampled negative triples with their corresponding positive triples as the testing set to compute the metrics. The result of this experiment is shown in Table [7.](#page-9-1) From Table [7,](#page-9-1) we
 
 TABLE 7 Comparison on the KGF task on the FB15K.
 
-<span id="page-9-1"></span>
 
-| Model      | Hit@10 | Hit@20 | Hit@30 | MRR    |
+| Model | Hit@10 | Hit@20 | Hit@30 | MRR |
 |------------|--------|--------|--------|--------|
-| TransE     | 100.0  | 70.0   | 60.0   | 0.0219 |
-| ConvE      | 100.0  | 100.0  | 93.3   | 0.0281 |
-| Supervisor | 100.0  | 100.0  | 100.0  | 0.0294 |
+| TransE | 100.0 | 70.0 | 60.0 | 0.0219 |
+| ConvE | 100.0 | 100.0 | 93.3 | 0.0281 |
+| Supervisor | 100.0 | 100.0 | 100.0 | 0.0294 |
 
 observe that with the enriched triples, the performance of our KGF model is improved. This verifies that the obtained triples from our Collaborative Knowledge Graph Fusion framework bring useful information to predict the potential knowledge triples in a knowledge graph and the quality of the seed knowledge graph is enhanced.
 
-#### 4.7 Ablation Analysis
+### 4.7 Ablation Analysis
 
 Since we use BERT [\[36\]](#page-12-9) as the sequence-to-sequence encoder for our model, we compare the experimental results of our models (BJEEwn18 and BJEEf b15k) with the pure BERT [\[36\]](#page-12-9) model (with the same hidden dimensions) in Table [3,](#page-8-0) Table [4](#page-8-1) and Table [5.](#page-9-0) We observe that, with the proposed benchmarkbased supervision mechanism, our results significantly outperform the pure BERT after the iterative learning process between the supervisor and explorer. To further discuss the influence of the iterative process, we also provide an experiment to compare the overall JEE performances with different iterative rounds in Figure [3.](#page-9-2) From this figure, the overall JEE performance is improving with the iterative round increasing. This shows that the iterative process between the explorer and supervisor of our model indeed helps the overall performance of the JEE tasks.
 
@@ -490,7 +476,7 @@ Since we use BERT [\[36\]](#page-12-9) as the sequence-to-sequence encoder for o
 <span id="page-9-2"></span>![](_page_9_Figure_13.jpeg)
 <!-- Image Description: Figure 3 is a caption describing the results of an experiment. It lacks a visual representation; the caption states that the figure shows the extraction performance of a process across multiple rounds. The process utilizes the WebNLG corpus and is supervised by the WN18 knowledge base. The caption indicates that the figure presents quantitative data on the performance of the extraction process. -->
 
-#### 4.8 Sensitivity Analysis
+### 4.8 Sensitivity Analysis
 
 In order to further analyze the details of the proposed Collaborative Knowledge Graph Fusion framework, we provide several experiments to study the performance of our system with different forms of the teacher or explorer processes.
 
@@ -499,18 +485,18 @@ Figure [4](#page-9-3) shows the performances of our system with a fixed teacher 
 ![](_page_9_Figure_17.jpeg)
 <!-- Image Description: The image displays a line graph comparing the performance of an "explorer" and a "supervisor" model. The x-axis represents the "explorer hidden dimension," and the y-axis shows percentage. The blue triangles plot the entity extraction F1 score (a metric of model accuracy) for the explorer, while the red circles represent the Mean Reciprocal Rank (MRR) for the supervisor. The graph shows that entity extraction F1 remains relatively stable across different hidden dimensions for the explorer, while the MRR for the supervisor shows minimal changes. The graph illustrates the performance comparison of the two models in relation to a hyperparameter. -->
 
-<span id="page-9-3"></span>Fig. 4. The performances of our system under different explorers.
+<span id="page-9-3"></span>Figure 4. The performances of our system under different explorers.
 
 Figure [5](#page-10-1) gives the performances of our system with a fixed explorer (with 150 hidden dimensions) under supervisors in different numbers of CNN kernels. From this figure, we observe that, with the same explorer, the performance of our system peaks with the supervisor having a certain number (32 in this expeiment) of CNN kernels.
 
 ![](_page_10_Figure_2.jpeg)
 <!-- Image Description: The image displays a line graph comparing the performance of an "explorer" and a "supervisor" model across varying CNN kernel numbers. The blue triangles represent entity extraction F1-scores (a measure of accuracy) for the explorer, showing a slight increase with kernel number. The red circles represent Mean Reciprocal Rank (MRR) for the supervisor, remaining relatively constant. The graph illustrates the relationship between kernel number and model performance, suggesting that increasing kernel number improves explorer performance but has little effect on supervisor MRR. -->
 
-<span id="page-10-1"></span>Fig. 5. The performances of our system under different supervisors.
+<span id="page-10-1"></span>Figure 5. The performances of our system under different supervisors.
 
 The two aforementioned experiments indicates that, the overall performance of a system with the SSL framework might be boosted by improving the explorer process, and the improvement of this overall performance is limit with the same explorer under different supervisors.
 
-#### 4.9 Case study: Translate and Align the Triples
+### 4.9 Case study: Translate and Align the Triples
 
 As is introduced in Algorithm [2,](#page-6-1) the explorer process of our system extracts new triples from the given corpus (ACE 2005) and generates a mapper to align the relations of these extracted triples to the relations in the knowledge graph (FB15K). Then, with the aligned relation mapper, our prototype system translates all the extracted triples in the forms of the target knowledge graph. In the last step, the explorer process ranks these translated triples with the trained KGE likelihood function from the supervisor and submits the top triples to the supervisor.
 
@@ -530,11 +516,11 @@ Joint event extraction (JEE) aims to obtain the named entities, trigger mentions
 
 Most neural network models apply the embedding method to capture the latent semantic relationships between sentence tokens and try to train different classifiers for different sub-tasks. Joint3EE [\[47\]](#page-12-20) is a such model with the multitask learning framework. However, since the separate training for different classifiers increases the sparsity of the efficient samples to each single classifier, the performance improvement of these methods are limited. The sequenceto-sequence methods [\[16\]](#page-11-15) train a neural network model to match a sentence in forms of a token sequence to a tag sequence. This kind of method focuses all sub-tasks to a single classifier and thus further improves the performance with the limited training data.
 
-#### 5.2 Knowledge Graph Fusion
+### 5.2 Knowledge Graph Fusion
 
 Knowledge graph fusion [\[18\]](#page-11-17) is a task to fuse a knowledge graph with other data sources. Many KGF systems apply an "enumerate-and-rank" framework [\[26\]](#page-11-25) to complete a knowledge graph. That is, to train a classifier based on a given knowledge graph and identify the possible triples from a series of candidate triples. Usually, such classifer is based on the knowledge graph embedding (KGE) [\[50\]](#page-12-23) method. The TransE [\[28\]](#page-12-1) is a classic KGE method to learn the embedding vectors to represent the triples in a knowledge graph. Recently, many works apply the neural network method to improve the performance of the KGE task. ConvE [\[29\]](#page-12-2) is a neural network KGE model with the convolutional neural network modules. As far as we know, none of the existing methods considers to link the JEE task to the KGE to create an automatically Knowledge Graph Fusion with Open Corpus.
 
-#### 5.3 Open Information Extraction (Open IE)
+### 5.3 Open Information Extraction (Open IE)
 
 Open Information Extraction (Open IE) [\[51\]](#page-12-24) is another way to generate structural information from text sources. The traditional methods [\[52\]](#page-12-25), [\[53\]](#page-12-26) get the new relation facts to form a KG based on the hand-crafted patterns. Recent works [\[54\]](#page-12-27), [\[55\]](#page-12-28) apply the neural relation extraction methods to directly generate relational facts from a given corpus and integrate them to an existing KG. During the integration process, these works trained a classifier to judge the correctness of the obtained relations according to the given KG. However, although the current Open IE works extract relational facts (triples) directly from text sources, few of them discuss that how to automatically merge the obtained facts to create a uniform and high-quality KG.
 

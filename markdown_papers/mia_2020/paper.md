@@ -52,9 +52,9 @@ keywords:
 
 Md Jueal Mia and M. Hadi Amini, *Senior Member, IEEE*
 
-*Abstract***—Federated Learning has emerged as a leading approach for decentralized machine learning, enabling multiple clients to collaboratively train a shared model without exchanging private data. While FL enhances data privacy, it remains vulnerable to inference attacks, such as gradient inversion and membership inference, during both training and inference phases. Homomorphic Encryption provides a promising solution by encrypting model updates to protect against such attacks, but it introduces substantial communication overhead, slowing down training and increasing computational costs. To address these challenges, we propose QuanCrypt-FL, a novel algorithm that combines low-bit quantization and pruning techniques to enhance protection against attacks while significantly reducing computational costs during training. Further, we propose and implement mean-based clipping to mitigate quantization overflow or errors. By integrating these methods, QuanCrypt-FL creates a communication-efficient FL framework that ensures privacy protection with minimal impact on model accuracy, thereby improving both computational efficiency and attack resilience. We validate our approach on MNIST, CIFAR-10, and CIFAR-100 datasets, demonstrating superior performance compared to stateof-the-art methods. QuanCrypt-FL consistently outperforms existing method and matches Vanilla-FL in terms of accuracy across varying client. Further, QuanCrypt-FL achieves up to 9x faster encryption, 16x faster decryption, and 1.5x faster inference compared to BatchCrypt, with training time reduced by up to 3x.**
+**Abstract:** **—Federated Learning has emerged as a leading approach for decentralized machine learning, enabling multiple clients to collaboratively train a shared model without exchanging private data. While FL enhances data privacy, it remains vulnerable to inference attacks, such as gradient inversion and membership inference, during both training and inference phases. Homomorphic Encryption provides a promising solution by encrypting model updates to protect against such attacks, but it introduces substantial communication overhead, slowing down training and increasing computational costs. To address these challenges, we propose QuanCrypt-FL, a novel algorithm that combines low-bit quantization and pruning techniques to enhance protection against attacks while significantly reducing computational costs during training. Further, we propose and implement mean-based clipping to mitigate quantization overflow or errors. By integrating these methods, QuanCrypt-FL creates a communication-efficient FL framework that ensures privacy protection with minimal impact on model accuracy, thereby improving both computational efficiency and attack resilience. We validate our approach on MNIST, CIFAR-10, and CIFAR-100 datasets, demonstrating superior performance compared to stateof-the-art methods. QuanCrypt-FL consistently outperforms existing method and matches Vanilla-FL in terms of accuracy across varying client. Further, QuanCrypt-FL achieves up to 9x faster encryption, 16x faster decryption, and 1.5x faster inference compared to BatchCrypt, with training time reduced by up to 3x.**
 
-*Index Terms***—Federated Learning, Homomorphic Encryption, Quantization, Pruning, Gradient Inversion, Security.**## I. Introduction
+**Index Terms:** **—Federated Learning, Homomorphic Encryption, Quantization, Pruning, Gradient Inversion, Security.**## I. Introduction
 **D**Ata is essential for research, driving innovation and discoveries. However, privacy laws like the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA) impose strict regulations that complicate how data is collected, used, and shared [\[1\]](#page-12-0) [\[2\]](#page-12-1). Although these laws provide exceptions for research, compliance with requirements such as consent, anonymization, and data minimization is mandatory, thereby making large-scale data collection both challenging and time-consuming [\[3\]](#page-12-2). This creates significant hurdles for deep learning model training, which relies heavily
 
 This work was supported by the National Center for Transportation Cybersecurity and Resiliency (TraCR), a U.S. Department of Transportation National University Transportation Center, headquartered at Clemson University, Clemson, South Carolina, USA.
@@ -107,13 +107,12 @@ In our mechanism, we assess the security of our method under two distinct advers
 
 ### *A. Overview of Threat Model*FL has gained significant attention in both industry and academia due to its ability to train a global model across localized training data from multiple participants. However, this collaborative approach to machine learning is not without its vulnerabilities. MIA has been identified as a serious privacy concern in FL [\[6\]](#page-12-5). These attacks involve adversaries training classification models to determine if a data record is part of the model's training dataset, potentially leading to privacy breaches [\[6\]](#page-12-5). Unlike MIA, which aim to infer whether a specific data point was included in the training set, GIA [\[62\]](#page-13-29) go a step further by reconstructing the actual training data from the gradients exchanged during model updates. While MIA threatens privacy by revealing membership information, GIA poses a more direct risk by recovering sensitive input data, such as images or personal information. One specific type of inference attack is the user-level inference attack, which targets individual users participating in FL [\[63\]](#page-13-30). Additionally, local model reconstruction attacks have been studied, where adversaries eavesdrop on messages exchanged between clients and servers to reconstruct personalized models [\[10\]](#page-12-22), [\[64\]](#page-13-31).
 
-#*B. Mathematical Formulation*
+## *B. Mathematical Formulation*
 
 In this section, we focus on the security threats to FL, particularly on GIA [\[10\]](#page-12-22). In a GIA, an adversary intercepts the gradients shared by clients with the central server and attempts to reconstruct the original input data by optimizing the difference in gradient directions. This optimization helps the adversary because the direction of the gradients provides information on how the model's parameters need to change to minimize the loss for specific input data. By iteratively adjusting a guessed input to align its gradient with that of the actual input, the adversary can gradually reconstruct the original data.
 
 The adversary's goal can be formulated as an optimization problem. The equation below represents the objective for reconstructing client data by minimizing the cosine similarity between gradients. Cosine similarity is used because it measures the alignment of gradient directions, making it an ideal metric for determining how closely the reconstructed gradients match the actual ones, which helps refine the reconstruction process.
 
-<span id="page-3-0"></span>
 $$
 \arg\min_{x\in[0,1]^n} \left(1 - \frac{\langle \nabla_{\theta} L_{\theta}(x,y), \nabla_{\theta} L_{\theta}(x^*,y) \rangle}{\|\nabla_{\theta} L_{\theta}(x,y)\| \|\nabla_{\theta} L_{\theta}(x^*,y)\|}\right) + \alpha \cdot \text{TV}(x) \tag{1}
 $$
@@ -134,11 +133,10 @@ The process begins by sharing the initial global model parameters **w**<sup>0</s
 
 For each communication round , the server first sends the current global model parameters**w**to each client . The clients then perform local training using their respective datasets . During local training, each client computes the model update by minimizing the loss on its local dataset. The model update is calculated using the equation [2.](#page-4-0)
 
-<span id="page-4-0"></span>
 $$
 \Delta \mathbf{w}_{i}^{t+1} = \mathbf{w}^{t} - \eta \nabla L(\mathbf{w}^{t}, D_{i})
 $$
- (2)
+(2)
 
 where**w** are the global model parameters shared by the server at round , Δ**w** +1 represents the model update for client after local training, is the learning rate used by the optimizer, and (**w** , ) is the loss function evaluated on the local dataset .
 
@@ -147,7 +145,7 @@ During local model training, we employed a pruning technique to iteratively remo
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning system with privacy-preserving model aggregation and pruning. Local clients perform encryption, quantization, clipping, and pruning on their model parameters before transmitting them to a central server. The server aggregates the encrypted parameters using FedAvg and performs server-side pruning. The process includes diagrams representing data transformation steps (encryption, quantization, clipping, pruning) and a flow depicting communication between clients and the server. The purpose is to detail the system's architecture for secure and efficient federated learning. -->
 
-Fig. 1: Overview of the proposed QuanCrypt-FL framework.
+**Figure 1:** Overview of the proposed QuanCrypt-FL framework.
 
 which aggregates them using FedAvg to generate the global model. This pruning technique not only reduces the model size and computational costs but also makes the training process more resistant to inference attacks.
 
@@ -155,7 +153,6 @@ By progressively increasing the pruning rate, the communication efficiency impro
 
 The pruning rate is updated iteratively using the equation [3.](#page-5-2)
 
-<span id="page-5-2"></span>
 $$
 p_t = \max\left(0, \frac{t - t_{\text{eff}}}{t_{\text{target}} - t_{\text{eff}}}\right) \times \left(p_{\text{target}} - p_0\right) + p_0 \tag{3}
 $$
@@ -164,7 +161,6 @@ where is the pruning rate at round , eff is the effective round when pruning sta
 
 Once pruning is applied to the model updates at each client, the pruned local model update Δ**w** +1 , is computed as in equation [4.](#page-5-3)
 
-<span id="page-5-3"></span>
 $$
 \Delta \mathbf{w}_{p,i}^{t+1} = \Delta \mathbf{w}_i^{t+1} \odot m_i^t \tag{4}
 $$
@@ -174,41 +170,39 @@ where ⊙ represents the element-wise product, and is the local pruning mask gen
 <span id="page-5-1"></span>![](_page_5_Figure_10.jpeg)
 <!-- Image Description: The image displays a weight matrix pruning process. Three 3x3 matrices are shown: an "Original Weight" matrix with floating-point values; a "Mask" matrix containing 0s and 1s; and a "Pruned Weight" matrix. The process involves applying the binary mask to the original weights, setting weights corresponding to 0s in the mask to near-zero, effectively pruning less important connections. The color-coding highlights the magnitude of the weights, with orange indicating the largest absolute value. -->
 
-Fig. 2: Model sparsification using unstructured pruning based on L1 norm.
+**Figure 2:** Model sparsification using unstructured pruning based on L1 norm.
 
 prune at communication round . This pruned update Δ**w**+1 , is then quantized and sent to the server for aggregation.
 **Algorithm 1:** Dynamic Mean-Based Clipping Technique
 
-| 𝑡+1<br>Input: model update Δ𝑤<br>, clip factor 𝛼<br>𝑖<br>𝑡+1<br>Output: Clipped model update Δ𝑤 |  |  |  |  |  |  |
+| 𝑡+1<br>Input: model update Δ𝑤<br>, clip factor 𝛼<br>𝑖<br>𝑡+1<br>Output: Clipped model update Δ𝑤 | | | | | | |
 |-------------------------------------------------------------------------------------------------|--|--|--|--|--|--|
-| C,𝑖                                                                                             |  |  |  |  |  |  |
-| 𝑡+1<br>1 foreach parameter Δ𝑤<br>in the model update do<br>𝑖                                    |  |  |  |  |  |  |
-| 𝑡+1<br>if Δ𝑤<br>is not floating-point then<br>2<br>𝑖                                            |  |  |  |  |  |  |
-| 𝑡+1<br>Convert Δ𝑤<br>to floating-point<br>3<br>𝑖                                                |  |  |  |  |  |  |
-| end<br>4                                                                                        |  |  |  |  |  |  |
-| 𝑡+1<br>Compute 𝜇𝑖<br>= mean( Δ𝑤<br> )<br>5<br>𝑖                                                 |  |  |  |  |  |  |
-| 𝑡+1<br>𝑡+1<br>Δ𝑤<br>clip(Δ𝑤<br>,−𝛼<br>𝜇𝑖<br>, 𝛼<br>𝜇𝑖)<br>C,𝑖 ←<br>·<br>·<br>6<br>𝑖             |  |  |  |  |  |  |
-| 7 end                                                                                           |  |  |  |  |  |  |
-| 𝑡+1<br>8 return Δ𝑤<br>C,𝑖                                                                       |  |  |  |  |  |  |
+| C,𝑖 | | | | | | |
+| 𝑡+1<br>1 foreach parameter Δ𝑤<br>in the model update do<br>𝑖 | | | | | | |
+| 𝑡+1<br>if Δ𝑤<br>is not floating-point then<br>2<br>𝑖 | | | | | | |
+| 𝑡+1<br>Convert Δ𝑤<br>to floating-point<br>3<br>𝑖 | | | | | | |
+| end<br>4 | | | | | | |
+| 𝑡+1<br>Compute 𝜇𝑖<br>= mean( Δ𝑤<br> )<br>5<br>𝑖 | | | | | | |
+| 𝑡+1<br>𝑡+1<br>Δ𝑤<br>clip(Δ𝑤<br>,−𝛼<br>𝜇𝑖<br>, 𝛼<br>𝜇𝑖)<br>C,𝑖 ←<br>·<br>·<br>6<br>𝑖 | | | | | | |
+| 7 end | | | | | | |
+| 𝑡+1<br>8 return Δ𝑤<br>C,𝑖 | | | | | | |
 
 <span id="page-5-4"></span>We also employed a dynamic mean-based layer-wise clipping technique in Algorithm [1](#page-5-4) to help reduce inconsistencies during the training process. The clipping factor controls the clipping parameter, dynamically adjusting the clipping based on layer-wise updates, rather than using a static clipping method. This approach ensures that each layer's updates are clipped according to their specific dynamics, leading to more
 
 <span id="page-6-4"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: The image is a flowchart depicting a federated learning algorithm. It illustrates a 15-step process, starting with sharing an initial global model and ending with saving the updated global model. Steps include local client training, pruning, parameter clipping and quantization, encryption, aggregation of encrypted parameters, and decryption for performance assessment. The flowchart visually represents the data flow and operations in each stage of the algorithm. -->
 
-Fig. 3: High Level Overview of the proposed QuanCrypt-FL mechanism.
+**Figure 3:** High Level Overview of the proposed QuanCrypt-FL mechanism.
 
 stable and efficient training. After the local model updates are computed, each client clips its own model update Δ**w**+1 to avoid instability before sending it to the server. The clipping for client 's model update is applied using the following equation [5.](#page-6-0)
 
-<span id="page-6-0"></span>
 $$
 \Delta \mathbf{w}_{\mathrm{C},i}^{t+1} = clip\left(\Delta \mathbf{w}_{i}^{t+1}, -\alpha \cdot \mu_{i}, \alpha \cdot \mu_{i}\right)
 $$
- (5)
+(5)
 
 where is the mean of the absolute values of the elements of client 's model update, calculated as in equation [6](#page-6-1) .
 
-<span id="page-6-1"></span>
 $$
 \mu_{i} = \frac{1}{n} \sum_{j=1}^{n} \left| \Delta \mathbf{w}_{i,j}^{t+1} \right| \tag{6}
 $$
@@ -217,14 +211,12 @@ The clipping function*clip*(Δ**w** +1 , , ) ensures that the values of Δ**w**+
 
 Next, each client performs quantization on the pruned and clipped model updates to reduce communication costs. The quantization process involves calculating the scaling factor and determining the quantized values to ensure the updates are compressed before transmission. The scaling factor is calculated using equation [7.](#page-6-2)
 
-<span id="page-6-2"></span>
 $$
 s = \begin{cases} \frac{1.0}{q_{\text{max}} - q_{\text{min}}}, & \text{if } x_{\text{max}} = x_{\text{min}} = 0\\ \frac{x_{\text{min}}}{q_{\text{max}} - q_{\text{min}}}, & \text{if } x_{\text{max}} = x_{\text{min}} \neq 0\\ \frac{x_{\text{max}} - x_{\text{min}}}{q_{\text{max}} - q_{\text{min}}}, & \text{otherwise} \end{cases} \tag{7}
 $$
 
 Using this scaling factor , the quantized values are then computed as in equation [8.](#page-6-3)
 
-<span id="page-6-3"></span>
 $$
 q_x = round\left(\frac{x - x_{\text{min}}}{s} + z_0\right) \tag{8}
 $$
@@ -260,54 +252,54 @@ where ⊙ represents the element-wise (Hadamard) product, and is the pruning mas
 **<sup>2</sup> for** *each round*= 1, . . . ,**do**3**Server sends**$$
 w^t
 $$
- to all clients
-\n4**for**each client  $i = 1,..., N$ **do**\n5  $\Delta w_i^{t+1} \leftarrow w^t - \eta \nabla L(w^t, D_i)$
-\n6  $p_t \leftarrow \max\left(0, \frac{t - t_{\text{eff}}}{t_{\text{target}} - t_{\text{eff}}}\right) \times \left(p_{\text{target}} - p_0\right) + p_0$
-\n7  $m_i^t \leftarrow \text{pruning\_mask}(\Delta w_i^{t+1}, p_t, L1\_norm)$
-\n8  $\Delta w_{p,i}^{t+1} \leftarrow \Delta w_i^{t+1} \odot m_i^t$
-\n9  $\Delta w_{C,i}^{t+1} \leftarrow \text{clip}(\Delta w_{p,i}^{t+1}, -\alpha \cdot \mu_i, \alpha \cdot \mu_i)$
-\n10  $s \leftarrow \begin{cases} \frac{1.0}{q_{\text{max}} - q_{\text{min}}}, & x_{\text{max}} = x_{\text{min}} = 0\\ \frac{1}{q_{\text{max}} - q_{\text{min}}}, & x_{\text{max}} = x_{\text{min}} \neq 0\\ \frac{x_{\text{max}} - x_{\text{min}}}{q_{\text{max}}}, & \text{otherwise} \end{cases}$
-\n11  $q_x \leftarrow \text{round}\left(\frac{\Delta w_{C,i}^{t+1} - x_{\text{min}}}{s} + z_0\right)$
-\n12  $q_x \leftarrow \text{clip}(q_x, q_{\text{min}}, q_{\text{max}})$
-\n13  $\Delta w_{q,i}^{t+1} \leftarrow \text{Enc}(q_x, \mathcal{H})$
-\n14**end**\n15  $w_{q,g}^{t+1} \leftarrow \frac{1}{N} \sum_{i=1}^{N} \Delta w_{q,i}^{t+1}$
-\n16  $w_{q,g}^{t+1} \leftarrow \frac{1}{N} \sum_{i=1}^{N} \Delta w_{i,i}^{t+1}$
-\n17  $w_{q,i}^{t+1} \leftarrow \text{Dec}(w_{agg}^t, \mathcal{H})$
-\n18  $m_t \leftarrow \text{pruning\_mask}(w_{dq}^{t+1}, p_t, L1\_norm)$
+to all clients
+\n4**for**each client $i = 1,..., N$ **do**\n5 $\Delta w_i^{t+1} \leftarrow w^t - \eta \nabla L(w^t, D_i)$
+\n6 $p_t \leftarrow \max\left(0, \frac{t - t_{\text{eff}}}{t_{\text{target}} - t_{\text{eff}}}\right) \times \left(p_{\text{target}} - p_0\right) + p_0$
+\n7 $m_i^t \leftarrow \text{pruning\_mask}(\Delta w_i^{t+1}, p_t, L1\_norm)$
+\n8 $\Delta w_{p,i}^{t+1} \leftarrow \Delta w_i^{t+1} \odot m_i^t$
+\n9 $\Delta w_{C,i}^{t+1} \leftarrow \text{clip}(\Delta w_{p,i}^{t+1}, -\alpha \cdot \mu_i, \alpha \cdot \mu_i)$
+\n10 $s \leftarrow \begin{cases} \frac{1.0}{q_{\text{max}} - q_{\text{min}}}, & x_{\text{max}} = x_{\text{min}} = 0\\ \frac{1}{q_{\text{max}} - q_{\text{min}}}, & x_{\text{max}} = x_{\text{min}} \neq 0\\ \frac{x_{\text{max}} - x_{\text{min}}}{q_{\text{max}}}, & \text{otherwise} \end{cases}$
+\n11 $q_x \leftarrow \text{round}\left(\frac{\Delta w_{C,i}^{t+1} - x_{\text{min}}}{s} + z_0\right)$
+\n12 $q_x \leftarrow \text{clip}(q_x, q_{\text{min}}, q_{\text{max}})$
+\n13 $\Delta w_{q,i}^{t+1} \leftarrow \text{Enc}(q_x, \mathcal{H})$
+\n14**end**\n15 $w_{q,g}^{t+1} \leftarrow \frac{1}{N} \sum_{i=1}^{N} \Delta w_{q,i}^{t+1}$
+\n16 $w_{q,g}^{t+1} \leftarrow \frac{1}{N} \sum_{i=1}^{N} \Delta w_{i,i}^{t+1}$
+\n17 $w_{q,i}^{t+1} \leftarrow \text{Dec}(w_{agg}^t, \mathcal{H})$
+\n18 $m_t \leftarrow \text{pruning\_mask}(w_{dq}^{t+1}, p_t, L1\_norm)$
 
 ### <span id="page-7-0"></span>V. Experiments and Result Analysis
 
-#*A. Experimental Setup*Our experiments were conducted on an Ubuntu server equipped with two NVIDIA RTX A6000 GPUs, an Intel Core i9 processor, and 128 GB of RAM. We explored FL across 10 to 50 clients using both IID and non-IID data distribution strategies. Each client independently trained their local models on a subset of data, using the Adam optimizer with a learning rate of 0.001 and a weight decay of 0.0001. Batch sizes were set at 64, or 128 depending on the number of clients, and each client trained for one local epoch per communication round. To ensure data privacy and security, we implemented HE with TenSEAL [\[69\]](#page-13-36), based on Microsoft SEAL, adopting the CKKS scheme with a polynomial modulus degree of 16384 and coefficient modulus sizes [60, 40, 40, 40, 60]. The encryption context contained a public and private key pair shared among all clients, with the server using only the public key to securely aggregate model updates without revealing individual client data. For evaluation, model weights were decrypted with the
+## *A. Experimental Setup*Our experiments were conducted on an Ubuntu server equipped with two NVIDIA RTX A6000 GPUs, an Intel Core i9 processor, and 128 GB of RAM. We explored FL across 10 to 50 clients using both IID and non-IID data distribution strategies. Each client independently trained their local models on a subset of data, using the Adam optimizer with a learning rate of 0.001 and a weight decay of 0.0001. Batch sizes were set at 64, or 128 depending on the number of clients, and each client trained for one local epoch per communication round. To ensure data privacy and security, we implemented HE with TenSEAL [\[69\]](#page-13-36), based on Microsoft SEAL, adopting the CKKS scheme with a polynomial modulus degree of 16384 and coefficient modulus sizes [60, 40, 40, 40, 60]. The encryption context contained a public and private key pair shared among all clients, with the server using only the public key to securely aggregate model updates without revealing individual client data. For evaluation, model weights were decrypted with the
 
-##*B. Datasets and Models*In our FL experiments, we used three datasets: CIFAR10 [\[70\]](#page-13-37), CIFAR100 [\[70\]](#page-13-37), and MNIST [\[71\]](#page-13-38). These datasets were partitioned among clients using both IID and non-IID strategies to simulate different real-world data distribution scenarios. In the IID setting, data was evenly and randomly distributed among clients, whereas in the non-IID setting, each client received data containing only a subset of classes. CIFAR10 and CIFAR100 images were normalized using their respective mean and standard deviation values, while MNIST's grayscale images were normalized accordingly. The training datasets were split into 80% for training and 20% for validation, with each client receiving a portion for local training. For evaluation purposes, the full test dataset from each respective dataset (CIFAR10, CIFAR100, and MNIST) was used, ensuring that the model performance was assessed on a standardized and unchanged test set after each communication round.
+## *B. Datasets and Models*In our FL experiments, we used three datasets: CIFAR10 [\[70\]](#page-13-37), CIFAR100 [\[70\]](#page-13-37), and MNIST [\[71\]](#page-13-38). These datasets were partitioned among clients using both IID and non-IID strategies to simulate different real-world data distribution scenarios. In the IID setting, data was evenly and randomly distributed among clients, whereas in the non-IID setting, each client received data containing only a subset of classes. CIFAR10 and CIFAR100 images were normalized using their respective mean and standard deviation values, while MNIST's grayscale images were normalized accordingly. The training datasets were split into 80% for training and 20% for validation, with each client receiving a portion for local training. For evaluation purposes, the full test dataset from each respective dataset (CIFAR10, CIFAR100, and MNIST) was used, ensuring that the model performance was assessed on a standardized and unchanged test set after each communication round.
 
 Several models were utilized in the experiments, including CNN, AlexNet, and ResNet18, with each model trained locally on client data to evaluate performance under IID data distribution. The is a CNN designed for MNIST dataset, consisting of two convolutional layers with ReLU activation, max-pooling, a fully connected layer, dropout, and an output layer. We modified AlexNet, adapted from the original AlexNet, includes four convolutional layers with 3x3 kernels, ReLU activations, maxpooling, dropout, two fully connected layers, and a softmax activation for classification. The ResNet18 model follows the standard ResNet-18 architecture, using BasicBlock to create four stages with increasing feature map sizes and downsampling, ending with average pooling and a fully connected output layer.
 
-###*C. Quantization and Pruning*In our FL experiments, we employed quantization to compress model updates, with the option to use 8-bit, 16-bit, or 32 bit quantization, controlled by the quantization bit-length bit, to reduce communication overhead. A clipping factor = 3.0 was applied to manage extreme values in the model updates, ensuring stable training. For pruning, the initial pruning rate <sup>0</sup> was set to 20%, and pruning began at the effective round eff = 40. The pruning rate increased progressively until it reached the target pruning rate target = 50% by round target = 300. A pruning mask was applied to generate pruned weights , reducing the model size and computational cost while maintaining accuracy.
+### *C. Quantization and Pruning*In our FL experiments, we employed quantization to compress model updates, with the option to use 8-bit, 16-bit, or 32 bit quantization, controlled by the quantization bit-length bit, to reduce communication overhead. A clipping factor = 3.0 was applied to manage extreme values in the model updates, ensuring stable training. For pruning, the initial pruning rate <sup>0</sup> was set to 20%, and pruning began at the effective round eff = 40. The pruning rate increased progressively until it reached the target pruning rate target = 50% by round target = 300. A pruning mask was applied to generate pruned weights , reducing the model size and computational cost while maintaining accuracy.
 
-###*D. Clipping, Smoothing, and Checkpoints*To control the magnitude of model updates, we applied a clipping mechanism with a clip factor , set by default to 3.0 after conducting a grid search within the range [1.0,5.0]. This ensured that extreme values in model updates were controlled, ensuring stability during training and preventing large deviations.
+### *D. Clipping, Smoothing, and Checkpoints*To control the magnitude of model updates, we applied a clipping mechanism with a clip factor , set by default to 3.0 after conducting a grid search within the range [1.0,5.0]. This ensured that extreme values in model updates were controlled, ensuring stability during training and preventing large deviations.
 
 <span id="page-8-0"></span>![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The image displays two line graphs comparing the test accuracy of three Federated Learning (FL) methods: BatchCrypt, QuanCrypt-FL, and Vanilla-FL, across epochs. The main graph shows the overall accuracy trend, while an inset graph zooms in on a section (epochs 200-300) to highlight finer details. The purpose is to visually demonstrate the comparative performance and stability of the different FL algorithms in terms of achieving high test accuracy. -->
 
-Fig. 4: Comparison of methods considering 10 clients, Model: CNN, Dataset: MNIST, =3.0, =1.0.
+**Figure 4:** Comparison of methods considering 10 clients, Model: CNN, Dataset: MNIST, =3.0, =1.0.
 
 In our FL model, we also incorporated a global learning rate hyperparameter to adjust the influence of new model updates. At each communication round, the initial global parameter vector**w**,init and the updated parameter vector **w**,final were combined according to the following update rule [\[72\]](#page-13-39):
 
-# w = (1−)w,init +w,final
+## w = (1−)w,init +w,final
 
 When = 1, the equation reverts to the standard update without smoothing. A grid search over ∈ {0.1,0.2, . . . ,1} was performed to select the best value for optimizing the model's convergence.
 
 To further enhance model performance, we implemented a checkpointing mechanism with a patience of five epochs. If the validation accuracy did not improve after five consecutive epochs, the model was reloaded from the last checkpoint, ensuring that the model did not overfit or degrade in performance during training.
 
-# *E. Result Analysis*We will provide a comparative analysis of our proposed method with BatchCrypt and Vanilla FL. The results will be evaluated across multiple metrics, including model accuracy, training time, encryption time, decryption time, inference time, and storage efficiency. This analysis will demonstrate the effectiveness of our approach in enhancing both computational performance and security in FL.
+## *E. Result Analysis*We will provide a comparative analysis of our proposed method with BatchCrypt and Vanilla FL. The results will be evaluated across multiple metrics, including model accuracy, training time, encryption time, decryption time, inference time, and storage efficiency. This analysis will demonstrate the effectiveness of our approach in enhancing both computational performance and security in FL.
 
 Figure [4](#page-8-0) shows the test accuracy comparison of BatchCrypt, QuanCrypt-FL, and Vanilla-FL on the MNIST dataset using a CNN model with 10 clients over 300 communication rounds. The results indicate that BatchCrypt starts with reasonably high accuracy but quickly stabilizes at around 99.04%, consistently underperforming compared to both QuanCrypt-FL and Vanilla-FL. QuanCrypt-FL, however, closely tracks Vanilla-FL throughout the training, reaching an accuracy of 99.40% by the final round, while Vanilla-FL achieves a similar result of 99.32%. This minimal difference between QuanCrypt-FL and Vanilla-FL demonstrates that QuanCrypt-FL achieves nearly identical performance to Vanilla-FL, while offering additional privacy-preserving features. BatchCrypt, although competitive, lags behind both methods across all 300 rounds, showing the trade-offs involved in using a heavier encryption mechanism. Ultimately, QuanCrypt-FL maintains strong accuracy
 
 ![](_page_8_Figure_10.jpeg)
 <!-- Image Description: The bar chart displays the maximum accuracy achieved by three Federated Learning (FL) methods (BatchCrypt, QuanCrypt-FL, Vanilla FL) across varying numbers of clients (10, 20, 30, 40, 50). Each bar represents the maximum accuracy for a given method and client count. The chart illustrates the performance comparison of these methods, showing how accuracy changes with the number of participating clients. Accuracy values are close to 99% in all cases. -->
 
-Fig. 5: Comparison of Methods for several clients, Model: CNN, Dataset: MNIST, =3.0, =1.0.
+**Figure 5:** Comparison of Methods for several clients, Model: CNN, Dataset: MNIST, =3.0, =1.0.
 
 comparable to Vanilla-FL and clearly outperforms BatchCrypt, making it a more effective choice when both privacy and accuracy are essential.
 
@@ -344,80 +336,79 @@ This demonstrates that, even if the server or adversary has access to the shared
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
 <!-- Image Description: The image displays a line graph comparing the test accuracy of three Federated Learning (FL) methods: BatchCrypt, QuanCrypt-FL, and Vanilla-FL, over 300 epochs. The main graph shows overall accuracy trends. A zoomed-in inset graph details accuracy fluctuations between epochs 150 and 300 for QuanCrypt-FL and Vanilla-FL, highlighting performance variations during later training stages. The purpose is to visually compare the convergence and stability of the different FL algorithms. -->
 
-Fig. 6: Comparison of accuracy considering 10 clients, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
+**Figure 6:** Comparison of accuracy considering 10 clients, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
 ![](_page_10_Figure_3.jpeg)
 <!-- Image Description: The image displays a line graph comparing the test accuracy of three Federated Learning (FL) methods: BatchCrypt, QuanCrypt-FL, and Vanilla-FL, across 300 epochs. The x-axis represents the number of epochs, and the y-axis shows the test accuracy. The graph illustrates the performance of each method over time, allowing for a comparison of their convergence and final accuracy. The purpose is to demonstrate the relative effectiveness of the different FL approaches in achieving high accuracy. -->
 
-Fig. 7: Comparison of accuracy considering 50 clients, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
+**Figure 7:** Comparison of accuracy considering 50 clients, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
 <span id="page-10-1"></span>![](_page_10_Figure_5.jpeg)
 <!-- Image Description: The image displays a bar chart comparing the maximum accuracy of three federated learning methods (BatchCrypt, QuanCrypt-FL, Vanilla FL) across varying numbers of clients (10, 20, 30, 40, 50). Each bar represents a method's accuracy for a given client count. The chart's purpose is to visually demonstrate and compare the performance of these methods under different client-participation scenarios. Numerical accuracy values are shown atop each bar. -->
 
-Fig. 8: Comparison of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
+**Figure 8:** Comparison of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
 <span id="page-10-2"></span>![](_page_10_Figure_7.jpeg)
 <!-- Image Description: This image presents four line graphs comparing the performance of BatchCrypt and QuanCrypt-FL methods across varying numbers of clients (10-50). The graphs display encryption time (hours), decryption time (minutes), average inference time (seconds), and training time (hours) for each method. The purpose is to illustrate the scalability and efficiency differences between the two cryptographic approaches in a federated learning context. BatchCrypt shows generally lower latency except for training time which is significantly higher than QuanCrypt-FL. -->
 
-Fig. 9: Comparison of time of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
+**Figure 9:** Comparison of time of HE mechanism, Model: AlexNet, Dataset: CIFAR10, =3.0, =1.0.
 
-<span id="page-11-0"></span>
 
-| Method       | Model    | Dataset   | Number of Clients | Maximum Test Acc |
+| Method | Model | Dataset | Number of Clients | Maximum Test Acc |
 |--------------|----------|-----------|-------------------|------------------|
-| BatchCrypt   | AlexNet  | CIFAR-10  | 10                | 70.84%           |
-|              |          |           | 20                | 69.54%           |
-|              |          |           | 30                | 67.21%           |
-|              |          |           | 40                | 70.15%           |
-|              |          |           | 50                | 68.18%           |
-| QuanCrypt-FL | AlexNet  | CIFAR-10  | 10                | 81.45%           |
-|              |          |           | 20                | 79.62%           |
-|              |          |           | 30                | 78.96%           |
-|              |          |           | 40                | 77.10%           |
-|              |          |           | 50                | 75.62%           |
-| Vanilla-FL   | AlexNet  | CIFAR-10  | 10                | 81.64%           |
-|              |          |           | 20                | 80.39%           |
-|              |          |           | 30                | 80.29%           |
-|              |          |           | 40                | 78.92%           |
-|              |          |           | 50                | 78.05%           |
-| BatchCrypt   | AlexNet  | CIFAR-100 | 10                | 34.58%           |
-|              |          |           | 20                | 33.14%           |
-|              |          |           | 30                | 33.56%           |
-|              |          |           | 40                | 32.87%           |
-|              |          |           | 50                | 33.73%           |
-| QuanCrypt-FL | AlexNet  | CIFAR-100 | 10                | 47.90%           |
-|              |          |           | 20                | 43.70%           |
-|              |          |           | 30                | 48.81%           |
-|              |          |           | 40                | 48.62%           |
-|              |          |           | 50                | 45.40%           |
-| Vanilla-FL   | AlexNet  | CIFAR-100 | 10                | 48.59%           |
-|              |          |           | 20                | 49.54%           |
-|              |          |           | 30                | 49.14%           |
-|              |          |           | 40                | 48.93%           |
-|              |          |           | 50                | 49.68%           |
-| BatchCrypt   | ResNet18 | CIFAR-100 | 10                | 34.05%           |
-|              |          |           | 20                | 33.14%           |
-|              |          |           | 30                | 35.74%           |
-|              |          |           | 40                | 36.56%           |
-|              |          |           | 50                | 33.73%           |
-| QuanCrypt-FL | ResNet18 | CIFAR-100 | 10                | 48.21%           |
-|              |          |           | 20                | 48.89%           |
-|              |          |           | 30                | 48.66%           |
-|              |          |           | 40                | 49.26%           |
-|              |          |           | 50                | 48.70%           |
-| Vanilla-FL   | ResNet18 | CIFAR-100 | 10                | 52.62%           |
-|              |          |           | 20                | 53.48%           |
-|              |          |           | 30                | 54.08%           |
-|              |          |           | 40                | 53.90%           |
-|              |          |           | 50                | 54.20%           |
-|              |          |           |                   |                  |
+| BatchCrypt | AlexNet | CIFAR-10 | 10 | 70.84% |
+| | | | 20 | 69.54% |
+| | | | 30 | 67.21% |
+| | | | 40 | 70.15% |
+| | | | 50 | 68.18% |
+| QuanCrypt-FL | AlexNet | CIFAR-10 | 10 | 81.45% |
+| | | | 20 | 79.62% |
+| | | | 30 | 78.96% |
+| | | | 40 | 77.10% |
+| | | | 50 | 75.62% |
+| Vanilla-FL | AlexNet | CIFAR-10 | 10 | 81.64% |
+| | | | 20 | 80.39% |
+| | | | 30 | 80.29% |
+| | | | 40 | 78.92% |
+| | | | 50 | 78.05% |
+| BatchCrypt | AlexNet | CIFAR-100 | 10 | 34.58% |
+| | | | 20 | 33.14% |
+| | | | 30 | 33.56% |
+| | | | 40 | 32.87% |
+| | | | 50 | 33.73% |
+| QuanCrypt-FL | AlexNet | CIFAR-100 | 10 | 47.90% |
+| | | | 20 | 43.70% |
+| | | | 30 | 48.81% |
+| | | | 40 | 48.62% |
+| | | | 50 | 45.40% |
+| Vanilla-FL | AlexNet | CIFAR-100 | 10 | 48.59% |
+| | | | 20 | 49.54% |
+| | | | 30 | 49.14% |
+| | | | 40 | 48.93% |
+| | | | 50 | 49.68% |
+| BatchCrypt | ResNet18 | CIFAR-100 | 10 | 34.05% |
+| | | | 20 | 33.14% |
+| | | | 30 | 35.74% |
+| | | | 40 | 36.56% |
+| | | | 50 | 33.73% |
+| QuanCrypt-FL | ResNet18 | CIFAR-100 | 10 | 48.21% |
+| | | | 20 | 48.89% |
+| | | | 30 | 48.66% |
+| | | | 40 | 49.26% |
+| | | | 50 | 48.70% |
+| Vanilla-FL | ResNet18 | CIFAR-100 | 10 | 52.62% |
+| | | | 20 | 53.48% |
+| | | | 30 | 54.08% |
+| | | | 40 | 53.90% |
+| | | | 50 | 54.20% |
+| | | | | |
 
 TABLE I: Comparative performance analysis.
 
 <span id="page-11-1"></span>![](_page_11_Figure_2.jpeg)
 <!-- Image Description: This bar chart compares the upload costs (in GB) of three Convolutional Neural Networks (CNNs): CNN, AlexNet, and ResNet18. Two costs are shown for each model: the original upload cost and a quantized upload cost (presumably after model compression). The chart demonstrates a significant reduction in upload cost after quantization, especially for ResNet18, highlighting the effectiveness of the quantization technique. -->
 
-Fig. 10: Comparison of upload cost for different models, Dataset: CIFAR10, =3.0, =1.0.
+**Figure 10:** Comparison of upload cost for different models, Dataset: CIFAR10, =3.0, =1.0.
 
 evaluation.
 
@@ -428,7 +419,7 @@ Our proposed mechanism, QuanCrypt-FL, achieves state-ofthe-art performance compa
 <span id="page-11-2"></span>![](_page_11_Figure_7.jpeg)
 <!-- Image Description: The image displays three low-resolution images (a, b, c) of an emu-like bird in a grassy field. Each image represents a different level of image degradation or compression, progressively losing detail from (a) to (c). The purpose is likely to illustrate the impact of image processing techniques or data loss on image quality within the context of the paper. -->
 
-Fig. 11: Comparison of image reconstruction using GIA, Model: ResNet18, Dataset: CIFAR10, =3.0, =1.0. (a) Original image, (b) Gradient inversion attack on the global model in Vanilla FL, (c) Gradient inversion attack on global model in QuanCrypt-FL
+**Figure 11:** Comparison of image reconstruction using GIA, Model: ResNet18, Dataset: CIFAR10, =3.0, =1.0. (a) Original image, (b) Gradient inversion attack on the global model in Vanilla FL, (c) Gradient inversion attack on global model in QuanCrypt-FL
 
 both speed and data privacy. We present a detailed comparative analysis with the BatchCrypt. While BatchCrypt can achieve similar accuracy to our method on simpler datasets like MNIST, it shows significant limitations with larger and more complex datasets such as CIFAR-100. For example, in our experiments using CIFAR-100 with the AlexNet model, BatchCrypt achieved very low accuracy, whereas our method reached accuracy levels close to Vanilla FL. In this setup, we used an IID data distribution and allocated 5000 data samples per client.
 

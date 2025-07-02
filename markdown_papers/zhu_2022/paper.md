@@ -53,7 +53,8 @@ Gongxi Zhu<sup>1</sup> Donghao Li<sup>2</sup> Hanlin Gu<sup>2</sup>,<sup>3</sup>
 
 gx.zhu@foxmail.com, dlibf@connect.ust.hk, ghltsl123@gmail.com
 
-# Abstract
+## Abstract
+
 *Federated Learning (FL) is a promising approach for training machine learning models on decentralized data while preserving privacy. However, privacy risks, particularly Membership Inference Attacks (MIAs), which aim to determine whether a specific data point belongs to a target client's training set, remain a significant concern. Existing methods for implementing MIAs in FL primarily analyze updates from the target client, focusing on metrics such as loss, gradient norm, and gradient difference. However, these methods fail to leverage updates from non-target clients, potentially underutilizing available information. In this paper, we first formulate a one-tailed likelihood-ratio hypothesis test based on the likelihood of updates from nontarget clients. Building upon this formulation, we introduce a three-step Membership Inference Attack (MIA) method, called FedMIA, which follows the "all for one"—leveraging updates from all clients across multiple communication rounds to enhance MIA effectiveness. Both theoretical analysis and extensive experimental results demonstrate that FedMIA outperforms existing MIAs in both classification and generative tasks. Additionally, it can be integrated as an extension to existing methods and is robust against various defense strategies, Non-IID data, and different federated structures. Our code is available in* [https://](https://github.com/Liar-Mask/FedMIA) [github.com/Liar-Mask/FedMIA](https://github.com/Liar-Mask/FedMIA)*.*# Introduction
 
 Federated learning (FL) [\[19,](#page-8-0) [26,](#page-9-0) [27\]](#page-9-1) has emerged as a promising approach for training machine learning models on decentralized data sources while ensuring data privacy. Despite its advantages, the privacy risks associated with the information exchanged during FL have attracted significant research attention. Membership Inference Attacks (MIAs) in FL aim to determine whether a specific data point was part of a particular client's training dataset, typically per-
@@ -61,7 +62,7 @@ Federated learning (FL) [\[19,](#page-8-0) [26,](#page-9-0) [27\]](#page-9-1) ha
 ![](_page_0_Figure_8.jpeg)
 <!-- Image Description: The image displays four histograms comparing the distributions of a metric ("Samples") for "Member" and "Non-member" groups across different methods. Two histograms show results for "Other MIAs," and two for "FedMIA (Ours)," a proposed method. Each histogram pair is annotated with the difference in means (µ<sub>mem</sub> - µ<sub>non</sub>) for members and non-members. The histograms visually demonstrate the separation between member and non-member distributions, highlighting the improved performance of FedMIA in distinguishing between the two groups. -->
 
-<span id="page-0-0"></span>Figure 1: The distributions of member and non-member samples of FedMIA (the second row: FedMIA-I (ours) and FedMIA-II (ours)) and other MIAs (the first row: Grad-Cosine [\[24\]](#page-9-2), Loss-Series [\[10\]](#page-8-1)) on ResNet-CIFAR100. It shows the obvious gap between the mean of the member and non-member (µmem − µnon) for the proposed FedMIA compared to other methods.
+<span id="page-0-0"></span>**Figure 1:** The distributions of member and non-member samples of FedMIA (the second row: FedMIA-I (ours) and FedMIA-II (ours)) and other MIAs (the first row: Grad-Cosine [\[24\]](#page-9-2), Loss-Series [\[10\]](#page-8-1)) on ResNet-CIFAR100. It shows the obvious gap between the mean of the member and non-member (µmem − µnon) for the proposed FedMIA compared to other methods.
 
 formed by adversaries positioned on the server side. In contrast to Gradient Inversion Attacks (GIAs) [\[7,](#page-8-2) [50\]](#page-10-0), MIAs [\[28\]](#page-9-3) do not rely on strong assumptions, such as small batch sizes or local training epochs, and thus remain significantly underexplored within the FL context.
 
@@ -81,7 +82,7 @@ Building on this one-tailed likelihood-ratio hypothesis test, we introduce a thr
 
 achieves superior performance compared to other MIAs in both classification and generative tasks (see Fig. [1\)](#page-0-0); 2) can be integrated into existing methods as a plug-in; and 3) is robust against six defense methods, two federated structures, varying degrees of Non-IID data, and different client counts, communication rounds, and local epochs.
 
-# Related work
+## Related work
 
 ## 1. Federated Learning
 
@@ -93,7 +94,7 @@ MIA is a widely studied privacy attack in centralized learning scenarios. Depend
 
 In the context of federated learning, Nasr et al. [\[29\]](#page-9-4) first analyzed membership inference attacks in federated learning and proposed both passive and active attacks. In a passive attack, the attacker solely focuses on obtaining membership leaks based on accessible information without disrupting or compromising the normal training process. Conversely, an active attack involves the ability to modify the updates of federated learning, thereby increasing the vulnerability of the trained models to attacks. Zari et al. [\[45\]](#page-9-6) proposed a membership inference attack for federated learning that utilizes the probabilities of correct labels under local models at different epochs for inference. However, this approach requires member samples for auxiliary attacks. Li et al. [\[24\]](#page-9-2) proposed a passive membership inference attack that does not require training on member samples. They designed two metric features based on the orthogonality of gradients to distinguish whether a sample is a member. Hu et al.[\[16\]](#page-8-7) designed an inference attack to facilitate an honest-but-curious server to identify the training record's source client, which bases on but extends MIAs to source inference. Moreover, inspired by work on worst-case privacy auditing, Aerni et al. [\[2\]](#page-8-8) introduced an efficient assessment method that accurately reflects the privacy of defenders at their most vulnerable data points.
 
-# <span id="page-2-6"></span>3. An Effective MIA in FL
+## <span id="page-2-6"></span>3. An Effective MIA in FL
 
 In this section, we first present the setting of federated learning (FL) in Sect. [3.1.](#page-2-1) Subsequently, we formulate the Membership Inference Attacks (MIAs) in FL as a one-tailed likelihood ratio test in Sect. [3.2.](#page-2-2) Building upon this formulation, we introduce an effective MIA in Sect. [3.3.](#page-2-3)
 
@@ -108,7 +109,7 @@ Specifically, the server implement the attack A determine whether a specific sam
 $$
 \mathcal{A}(x, y, \mathcal{I}) = \begin{cases} 1, & \text{if } (x, y) \in D_{tar} \\ 0, & \text{otherwise} \end{cases}
 $$
- (1)
+(1)
 
 ### <span id="page-2-2"></span>3.2. One-tailed Likelihood-Ratio Test in FL
 
@@ -137,7 +138,6 @@ $$
 
 Remark 1.*It is noted that, given the data sample* (x, y)*, and considering that clients' training datasets are disjoint, at least*K −2*updates (except the target updates) are guaranteed not to be trained on* (x, y)*. This enables the estimation of* Qout(x, y)*.*Remark 2.*Eq.*[\(4\)](#page-2-4)*assumes that the member corresponds to a large value of* I*. If the member corresponds to a smaller value of* I*, Eq.*[\(4\)](#page-2-4)*is the probability of observing a confidence as high as the target updates.*Furthermore, when the server observes the I = {I t k |t ∈ [T], k ∈ [K]} during T communication rounds, we can extend Eq. [\(4\)](#page-2-4) as the following by utilizing the temporal information:
 
-<span id="page-2-5"></span>
 $$
 \tilde{\Lambda}(\{I_{tar}^t\}_{t=1}^T, x, y) = \frac{1}{T} \sum_{t=1}^T \hat{\Lambda}(I_{tar}^t, x, y)
 $$
@@ -152,20 +152,19 @@ where Q<sup>t</sup> out(I|x, y) are the distribution of updates trained on datas
 \tilde{\mathbb{V}} \subset (\mathbb{V}_1 \cup \dots \cup \mathbb{V}_T). \tag{6}
 $$
 
-#### <span id="page-2-3"></span>3.3. The Proposed Method: FedMIA
+### <span id="page-2-3"></span>3.3. The Proposed Method: FedMIA
 
 Based on the one-tailed likelihood-ration test illustrated in Sect. [3.2,](#page-2-2) we propose a three-step Membership inference attacks by leveraging the spatial and temporal information.
 
 <span id="page-3-3"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: This figure illustrates a three-step process for detecting membership inference attacks in federated learning. The top section shows a timeline of model training, with multiple clients sending updates to a server (also an attacker). The right side details the attack: Step 1 low-dimensionally represents client updates; Step 2 estimates the distribution of non-target client updates; Step 3 infers membership based on confidence scores, comparing against a threshold (δ). The diagram uses boxes for processes, arrows for data flow, and a graph to represent probability distributions. -->
 
-Figure 2: Overview of FedMIA including three steps: 1) Computing the low-dimensional measurement; 2) Estimating the distribution of updates without being trained on target data; 3) Building the one-tailed LRT test and Inferring the membership.
+**Figure 2:** Overview of FedMIA including three steps: 1) Computing the low-dimensional measurement; 2) Estimating the distribution of updates without being trained on target data; 3) Building the one-tailed LRT test and Inferring the membership.
 
-#### Step 1: Computing the low-dimensional measurement M(I|(x, y)).
+### Step 1: Computing the low-dimensional measurement M(I|(x, y)).
 
 Since the updates are high-dimensional, directly estimating Qout(I|x, y) is challenging. To address this, we utilize gradient similarity [\[24\]](#page-9-2) to map the updates I(x, y) to a lowdimensional variable M(I|(x, y)), which allows for an estimation of the distribution as follows:
 
-<span id="page-3-0"></span>
 $$
 M(I|(x,y)) = \frac{\langle I, \frac{\partial \ell(\omega, x, y)}{\partial \omega} \rangle}{\|I\| \|\frac{\partial \ell(\omega, x, y)}{\partial \omega}\|},\tag{7}
 $$
@@ -178,7 +177,6 @@ We first leverage the non-target clients' updates {I t k |k ∈ [K], k ̸= tar} 
 
 If (x, y) is trained on I t k , then M(I t k |x, y) becomes large. Therefore, if M(Ik|(x, y)) is exceptionally high for all non-target clients' measurements, the updates from the non-target client k are likely trained on (x, y) with high probability. Consequently, we remove the extreme large values of M(I t k |x, y), where k ̸= tar, to better estimate Q˜ out(M(I|(x, y))). To filter the updates sets, we apply the 3-σ rule to the updates trained on (x, y). Specifically, we remove the k-th update if the following condition holds:
 
-<span id="page-3-1"></span>
 $$
 M(I_k^t|x, y) > \mu^t + 3\sigma^t,\tag{8}
 $$
@@ -201,7 +199,6 @@ $$
 
 According the µ t out, and v t out estimated in step 2, we can calculate the Λˆ<sup>t</sup> (Itar, x, y) of Eq. [\(4\)](#page-2-4) as:
 
-<span id="page-3-2"></span>
 $$
 \hat{\Lambda}(I_{tar}^t, x, y) = \int_{-\infty}^{M(I_{tar}^t | x, y)} \frac{1}{\sqrt{2\pi v_{out}^t}} e^{-\frac{(x - \mu_{out}^t)^2}{2v_{out}^t}} dx,
 $$
@@ -211,7 +208,6 @@ which is the probability of observing a confidence as low as the target updates 
 
 <span id="page-4-3"></span>Moreover, we utilize the updates of all communication rounds to obtain the Λ( ˜ Itar, x, y) of Eq. [\(5\)](#page-2-5) as:
 
-<span id="page-4-2"></span>
 $$
 \tilde{\Lambda}(\{I_{tar}^t\}_{t=1}^T, x, y) = \frac{1}{T} \sum_{t=1}^T \hat{\Lambda}(I_{tar}^t, x, y)
 $$
@@ -241,7 +237,7 @@ Algorithm 1 FedMIA
 - 15: return 0
 - 16: end if
 
-# <span id="page-4-0"></span>4. Experimental Result
+## <span id="page-4-0"></span>4. Experimental Result
 
 This section presents the empirical analysis of the proposed FedMIA framework in terms of experimental setting, attack effectiveness, robustness.
 
@@ -266,22 +262,22 @@ The comparison results of all attacks are presented in the Tab. [1.](#page-5-0) 
 - FedMIA generally outperforms other MIA methods across all experiments, as indicated by higher TPR@FPR=0.1% and AUC metrics. For example, FedMIA-II achieves a TPR@FPR=0.1% of (66.98 ± 1.74)%, which is significantly higher than the next best method with (54.66 ± 1.22)% on AlexNet-CIFAR100.
 - Blackbox-Loss [\[44\]](#page-9-13) and Grad-Cosine [\[24\]](#page-9-2) show relatively low TPR and AUC values, significantly lagging
 
-| MIA Methods     |     | Blackbox-Loss<br>[44] | Grad-Cosine<br>[24] | Grad-Norm<br>[28] | Loss-Series<br>[10] | Avg-Cosine<br>[24] | Grad-Diff<br>[24] | FedMIA-I<br>(Ours) | FedMIA-II<br>(Ours) |
+| MIA Methods | | Blackbox-Loss<br>[44] | Grad-Cosine<br>[24] | Grad-Norm<br>[28] | Loss-Series<br>[10] | Avg-Cosine<br>[24] | Grad-Diff<br>[24] | FedMIA-I<br>(Ours) | FedMIA-II<br>(Ours) |
 |-----------------|-----|-----------------------|---------------------|-------------------|---------------------|--------------------|-------------------|--------------------|---------------------|
-| AlexNet         | TPR | 0.18±0.05             | 7.26±0.25           | 0.14±0.03         | 25.3±0.88           | 54.66±1.22         | 20.52±0.45        | 53.78±1.24         | 66.98±1.74          |
-| CIFAR100        | AUC | 0.58±0.01             | 0.78±0.02           | 0.51±0.01         | 0.82±0.01           | 0.85±0.01          | 0.61±0.02         | 0.90±0.01          | 0.89±0.02           |
-| AlexNet         | TPR | 0.27±0.12             | 9.53±0.54           | 0.13±0.03         | 22.8±1.13           | 41±0.48            | 5.6±0.05          | 48.23±0.87         | 62.27±0.23          |
-| DermNet         | AUC | 0.68±0.01             | 0.74±0.01           | 0.50±0.01         | 0.94±0.01           | 0.85±0.01          | 0.89±0.01         | 0.91±0.02          | 0.87±0.02           |
-| ResNet18        | TPR | 0.36±0.11             | 5.48±0.27           | 0.26±0.06         | 16.82±2.12          | 44.02±1.58         | 15.06±1.78        | 57.36±2.12         | 68.74±1.84          |
-| CIFAR100        | AUC | 0.67±0.01             | 0.80±0.02           | 0.55±0.01         | 0.73±0.01           | 0.85±0.02          | 0.65±0.01         | 0.84±0.01          | 0.89±0.01           |
-| ResNet18        | TPR | 0.27±0.11             | 0.73±0.21           | 0.06±0.01         | 32.2±0.89           | 19.93±1.23         | 17.93±2.12        | 35.6±0.96          | 31.8±0.88           |
-| DermNet         | AUC | 0.51±0.01             | 0.59±0.01           | 0.48±0.01         | 0.52±0.01           | 0.63±0.02          | 0.66±0.01         | 0.64±0.01          | 0.62±0.01           |
-| Diffusion Model | TPR | 1.10±0.50             | 2.40±0.60           | 0.25±0.02         | 1.5±0.20            | 1.80±0.30          | 1.20±0.40         | 3.20±0.30          | 4.50±0.20           |
-| Tiny-ImageNet   | AUC | 0.51±0.02             | 0.54±0.01           | 0.49±0.01         | 0.54±0.01           | 0.53±0.01          | 0.51±0.01         | 0.58±0.01          | 0.59±0.01           |
-| Diffusion Model | TPR | 0.80±0.10             | 1.20±0.20           | 0.11±0.01         | 1.30±0.10           | 1.80±0.10          | 1.7±0.20          | 2.1±0.20           | 3.0±0.20            |
-| CIFAR100        | AUC | 0.48±0.01             | 0.61±0.01           | 0.49±0.01         | 0.47±0.01           | 0.59±0.01          | 0.52±0.01         | 0.59±0.01          | 0.62±0.01           |
+| AlexNet | TPR | 0.18±0.05 | 7.26±0.25 | 0.14±0.03 | 25.3±0.88 | 54.66±1.22 | 20.52±0.45 | 53.78±1.24 | 66.98±1.74 |
+| CIFAR100 | AUC | 0.58±0.01 | 0.78±0.02 | 0.51±0.01 | 0.82±0.01 | 0.85±0.01 | 0.61±0.02 | 0.90±0.01 | 0.89±0.02 |
+| AlexNet | TPR | 0.27±0.12 | 9.53±0.54 | 0.13±0.03 | 22.8±1.13 | 41±0.48 | 5.6±0.05 | 48.23±0.87 | 62.27±0.23 |
+| DermNet | AUC | 0.68±0.01 | 0.74±0.01 | 0.50±0.01 | 0.94±0.01 | 0.85±0.01 | 0.89±0.01 | 0.91±0.02 | 0.87±0.02 |
+| ResNet18 | TPR | 0.36±0.11 | 5.48±0.27 | 0.26±0.06 | 16.82±2.12 | 44.02±1.58 | 15.06±1.78 | 57.36±2.12 | 68.74±1.84 |
+| CIFAR100 | AUC | 0.67±0.01 | 0.80±0.02 | 0.55±0.01 | 0.73±0.01 | 0.85±0.02 | 0.65±0.01 | 0.84±0.01 | 0.89±0.01 |
+| ResNet18 | TPR | 0.27±0.11 | 0.73±0.21 | 0.06±0.01 | 32.2±0.89 | 19.93±1.23 | 17.93±2.12 | 35.6±0.96 | 31.8±0.88 |
+| DermNet | AUC | 0.51±0.01 | 0.59±0.01 | 0.48±0.01 | 0.52±0.01 | 0.63±0.02 | 0.66±0.01 | 0.64±0.01 | 0.62±0.01 |
+| Diffusion Model | TPR | 1.10±0.50 | 2.40±0.60 | 0.25±0.02 | 1.5±0.20 | 1.80±0.30 | 1.20±0.40 | 3.20±0.30 | 4.50±0.20 |
+| Tiny-ImageNet | AUC | 0.51±0.02 | 0.54±0.01 | 0.49±0.01 | 0.54±0.01 | 0.53±0.01 | 0.51±0.01 | 0.58±0.01 | 0.59±0.01 |
+| Diffusion Model | TPR | 0.80±0.10 | 1.20±0.20 | 0.11±0.01 | 1.30±0.10 | 1.80±0.10 | 1.7±0.20 | 2.1±0.20 | 3.0±0.20 |
+| CIFAR100 | AUC | 0.48±0.01 | 0.61±0.01 | 0.49±0.01 | 0.47±0.01 | 0.59±0.01 | 0.52±0.01 | 0.59±0.01 | 0.62±0.01 |
 
-<span id="page-5-2"></span><span id="page-5-0"></span>Table 1: Comparison of our attack with various MIAs methods on classification tasks and generative tasks. The larger TPR(%)@FPR=0.1% and AUC indicates the better attack effectiveness.
+<span id="page-5-2"></span><span id="page-5-0"></span>**Table 1:** Comparison of our attack with various MIAs methods on classification tasks and generative tasks. The larger TPR(%)@FPR=0.1% and AUC indicates the better attack effectiveness.
 
 behind FedMIA. For example, in the AlexNet DermNet task, Blackbox-Loss and Grad-Cosine both result in low TPRs (around 0.27%), while FedMIA achieves a much higher TPR of (62.27 ± 0.23)%.
 
@@ -292,11 +288,11 @@ behind FedMIA. For example, in the AlexNet DermNet task, Blackbox-Loss and Grad-
 
 <span id="page-5-1"></span>(b) Generated images
 
-Figure 3: Original training images and generated images based on uploaded embeddings via latent diffusion model.
+**Figure 3:** Original training images and generated images based on uploaded embeddings via latent diffusion model.
 
 Furthermore, we present the generated images based on the embeddings alongside the original images, which are considered as members by the proposed FedMIA-II, as shown in Fig. [3.](#page-5-1) The results indicate that the two types of images are highly similar, demonstrating that the target data identified by FedMIA as a member is effectively trained on the corresponding embedding. This observation highlights the effectiveness of the FedMIA attack.
 
-#### 3. Robustness
+### 3. Robustness
 
 This section illustrates the robustness of FedMIA against six defense methods, varying degrees of Non-IID, different client counts, communication rounds, and local epochs.
 
@@ -304,29 +300,28 @@ FedMIA against different defense methods. Tab. [2](#page-6-0) and Appendix B pre
 
 1 1 Non-IID extent. We investigate the impact of non-IID on MIA attacks. Following [\[15\]](#page-8-19), the basic assumption of noniid simulation in this part is that the labels of each client's training data follow the Dirichlet distribution. β is the core parameter controlling the distribution difference and the smaller the β, the greater the degree of non-iid. We report the performance of the FedMIA-II attack on the CIFAR-100 dataset in a table. We control the degree of non-IID by adjusting the parameter alpha, where a smaller β indicates a
 
-<span id="page-6-0"></span>
 
-|                     |                    | Perturb<br>[49] | Sparse<br>[11] | Mixup<br>[47] | Sampling<br>[23] | Data Aug<br>[37] | Data Aug<br>+ Sampling |
+| | | Perturb<br>[49] | Sparse<br>[11] | Mixup<br>[47] | Sampling<br>[23] | Data Aug<br>[37] | Data Aug<br>+ Sampling |
 |---------------------|--------------------|-----------------|----------------|---------------|------------------|------------------|------------------------|
-|                     | Blackbox-Loss [44] | 0.3543          | 0.3533         | 0.3328        | 0.3491           | 0.3395           | 0.3422                 |
-| AlexNet<br>CIFAR100 | Loss-Series [10]   | 0.3252          | 0.3377         | 0.3554        | 0.3464           | 0.3375           | 0.3427                 |
-|                     | Grad-Cosine [24]   | 0.304           | 0.3287         | 0.2845        | 0.3365           | 0.3247           | 0.3379                 |
-|                     | Avg-Cosine [24]    | 0.3421          | 0.3421         | 0.3334        | 0.3407           | 0.3248           | 0.3376                 |
-|                     | FedMIA-I (ours)    | 0.3611          | 0.3593         | 0.3609        | 0.3373           | 0.3202           | 0.3359                 |
-|                     | FedMIA-II (ours)   | 0.2702          | 0.3085         | 0.2588        | 0.3325           | 0.3175           | 0.3361                 |
-|                     | Blackbox-Loss [44] | 0.4338          | 0.4307         | 0.4538        | 0.4568           | 0.5833           | 0.5815                 |
-| ResNet<br>CIFAR100  | Loss-Series [10]   | 0.4126          | 0.4092         | 0.458         | 0.4555           | 0.5823           | 0.5821                 |
-|                     | Grad-Cosine [24]   | 0.3261          | 0.3545         | 0.3905        | 0.4407           | 0.5751           | 0.5779                 |
-|                     | Avg-Cosine [24]    | 0.4064          | 0.4059         | 0.4533        | 0.4537           | 0.571            | 0.5745                 |
-|                     | FedMIA-I (ours)    | 0.4438          | 0.4392         | 0.4736        | 0.4446           | 0.5665           | 0.574                  |
-|                     | FedMIA-II (ours)   | 0.2969          | 0.3004         | 0.4302        | 0.4425           | 0.5693           | 0.5739                 |
+| | Blackbox-Loss [44] | 0.3543 | 0.3533 | 0.3328 | 0.3491 | 0.3395 | 0.3422 |
+| AlexNet<br>CIFAR100 | Loss-Series [10] | 0.3252 | 0.3377 | 0.3554 | 0.3464 | 0.3375 | 0.3427 |
+| | Grad-Cosine [24] | 0.304 | 0.3287 | 0.2845 | 0.3365 | 0.3247 | 0.3379 |
+| | Avg-Cosine [24] | 0.3421 | 0.3421 | 0.3334 | 0.3407 | 0.3248 | 0.3376 |
+| | FedMIA-I (ours) | 0.3611 | 0.3593 | 0.3609 | 0.3373 | 0.3202 | 0.3359 |
+| | FedMIA-II (ours) | 0.2702 | 0.3085 | 0.2588 | 0.3325 | 0.3175 | 0.3361 |
+| | Blackbox-Loss [44] | 0.4338 | 0.4307 | 0.4538 | 0.4568 | 0.5833 | 0.5815 |
+| ResNet<br>CIFAR100 | Loss-Series [10] | 0.4126 | 0.4092 | 0.458 | 0.4555 | 0.5823 | 0.5821 |
+| | Grad-Cosine [24] | 0.3261 | 0.3545 | 0.3905 | 0.4407 | 0.5751 | 0.5779 |
+| | Avg-Cosine [24] | 0.4064 | 0.4059 | 0.4533 | 0.4537 | 0.571 | 0.5745 |
+| | FedMIA-I (ours) | 0.4438 | 0.4392 | 0.4736 | 0.4446 | 0.5665 | 0.574 |
+| | FedMIA-II (ours) | 0.2969 | 0.3004 | 0.4302 | 0.4425 | 0.5693 | 0.5739 |
 
-<span id="page-6-2"></span>Table 2: The hypervolume of various attack methods under defense strategies with AlexNet and ResNet on CIFAR100. The smaller Hypervolume indicates the better attack effectiveness.
+<span id="page-6-2"></span>**Table 2:** The hypervolume of various attack methods under defense strategies with AlexNet and ResNet on CIFAR100. The smaller Hypervolume indicates the better attack effectiveness.
 
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image presents eight bar charts comparing the True Positive Rate (TPR) at a False Positive Rate (FPR) of 0.1% for different federated learning methods (Blackbox-Loss, Grad-Cosine, Loss-Series, Avg-Cosine, FedMIA-I, FedMIA-II). Each chart represents a different combination of data distribution (IID or non-IID, indicated by β values of 10, 1, or 0.1). The charts illustrate the performance of these methods under varying data heterogeneity levels, showing TPR for each method under different scenarios. The purpose is to visually compare the effectiveness of these methods in a federated learning setting. -->
 
-<span id="page-6-1"></span>Figure 4: This set of figures shows the attack effects (TPR@FPR=0.1%) of various attacks (Blackbox-Loss[\[44\]](#page-9-13), Grad-Cosine[\[24\]](#page-9-2), Loss-Series[\[10\]](#page-8-1), Avg-Cosine[\[24\]](#page-9-2), FedMIA-I and FedMIA-II) on AlexNet and ResNet18 (the first and second row respectively) under IID and three Non-IID settings.
+<span id="page-6-1"></span>**Figure 4:** This set of figures shows the attack effects (TPR@FPR=0.1%) of various attacks (Blackbox-Loss[\[44\]](#page-9-13), Grad-Cosine[\[24\]](#page-9-2), Loss-Series[\[10\]](#page-8-1), Avg-Cosine[\[24\]](#page-9-2), FedMIA-I and FedMIA-II) on AlexNet and ResNet18 (the first and second row respectively) under IID and three Non-IID settings.
 
 more severe Non-IID condition.
 
@@ -337,7 +332,7 @@ Communication round. As for the benefits of synchronous rounds to our scheme, it
 <span id="page-7-1"></span>![](_page_7_Figure_0.jpeg)
 <!-- Image Description: The image displays eight plots comparing the performance of three Federated Learning (FL) algorithms (Loss-Series, Avg-Cosine, FedMIA-II) on two network architectures (AlexNet and ResNet18) using the CIFAR100 dataset. Each row shows results for one network architecture. The plots illustrate TPR@FPR=0.1% against communication epochs, client number, sample number, and local epochs, respectively. The purpose is to showcase the relative performance of the three FL algorithms under varying experimental conditions. -->
 
-<span id="page-7-0"></span>Figure 5: This set of figures shows the attack effects (TPR@FPR=0.1%) of various attacks (blue line: Loss-series [\[10\]](#page-8-1), green line: Avg-Cosine [\[24\]](#page-9-2) and red line: FedMIA-II) on AlexNet and ResNet18 (the first and second row respectively) under four settings. The four columns of the graph group show the results of different communication rounds, client numbers, data volumes and local epochs settings respectively.
+<span id="page-7-0"></span>**Figure 5:** This set of figures shows the attack effects (TPR@FPR=0.1%) of various attacks (blue line: Loss-series [\[10\]](#page-8-1), green line: Avg-Cosine [\[24\]](#page-9-2) and red line: FedMIA-II) on AlexNet and ResNet18 (the first and second row respectively) under four settings. The four columns of the graph group show the results of different communication rounds, client numbers, data volumes and local epochs settings respectively.
 
 as helpful for the membership leakage attack as the information acquired in the previous epochs.
 
@@ -347,13 +342,13 @@ Number of Samples. Figure [5\(](#page-7-0)c) and (g) demonstrate the impact of v
 
 Local Epoch. Figure [5\(](#page-7-0)d) and (h) illustrate the effects of MIAs on AlexNet and ResNet18 as the number of local epochs varies from 1 to 9. As the number of local epochs increases, the effectiveness of our attack method and the fed loss attack significantly improve while the enhancement effect of the Avg-Cosine attack is not evident. This demonstrates that an increase in the number of local epochs may render the model more susceptible to MIA.
 
-# Discussion and Conclusion
+## Discussion and Conclusion
 
 While advantages brought by FL can be ascribed to, by and large, the principle of "one for all and all for one", this paper shows that information shared by all clients through a semi-honest server can actually be adversely exploited to launch very effective membership inference attacks. Specifically, this paper introduce FedMIA, a novel Membership Inference Attack (MIA) method by leveraging updates from non-target clients and applies a one-tailed likelihood-ratio hypothesis test. This enables the inference of target data membership without requiring access to auxiliary datasets or making strong assumptions about the training process. Through extensive experiments, we demonstrated that Fed-MIA is highly effective across various federated learning configurations, including both classification and generative tasks, and remains robust against common defense methods, Non-IID data, and different client setups.
 
 Conventional FL privacy defenses (perturbation, sparsification, mixup) prove ineffective against FedMIA due to attackers' exploitation of cross-client information patterns as shown in Sect. 4.3. While secure aggregation via MPC [\[5\]](#page-8-20)[\[6\]](#page-8-21)/HE [\[42\]](#page-9-18)[\[46\]](#page-10-5) blocks FedMIA by encrypting individual updates, their computational/communication costs hinder practical deployment. This exposes an urgent need for MIA defenses specifically to resist attackers from obtaining valuable information from non-target updates.
 
-# References
+## References
 
 - <span id="page-8-11"></span>[1] Amina Aboulmira, Hamid Hrimech, and Mohamed Lachgar. Comparative study of multiple cnn models for classification of 23 skin diseases.*International Journal of Online & Biomedical Engineering*, 18(11), 2022. [5,](#page-4-3) [12](#page-11-0)
 - <span id="page-8-8"></span>[2] Michael Aerni, Jie Zhang, and Florian Tramer. Eval- ` uations of machine learning privacy defenses are misleading. *arXiv preprint arXiv:2404.17399*, 2024. [2](#page-1-0)
@@ -411,7 +406,7 @@ Conventional FL privacy defenses (perturbation, sparsification, mixup) prove ine
 - <span id="page-10-0"></span>[50] Ligeng Zhu, Zhijian Liu, and Song Han. Deep leakage from gradients. *Advances in neural information processing systems*, 32, 2019. [1](#page-0-1)
 - <span id="page-10-4"></span>[51] Eckart Zitzler and Simon Kunzli. Indicator-based se- ¨ lection in multiobjective search. In *International conference on parallel problem solving from nature*, pages 832–842. Springer, 2004. [5,](#page-4-3) [13,](#page-12-0) [14](#page-13-0)
 
-# <span id="page-11-0"></span>A. Appendix
+## <span id="page-11-0"></span>A. Appendix
 
 ## A.1. Dataset and Training Details
 
@@ -419,7 +414,7 @@ The CIFAR-100 dataset [\[20\]](#page-8-10) consists of 100 categories with 60,00
 
 ### A.2. Defense Methods
 
-#### A.2.1. Gradient Perturbation
+### A.2.1. Gradient Perturbation
 
 Client-level Differential Privacy. Differential Privacy (DP) [\[8,](#page-8-15) [49\]](#page-10-2) hides the membership of individual data by clipping the gradients at the client level and adding Gaussian noise. The magnitude of the noise controls the strength of privacy protection: the larger the noise, the better the privacy protection, but the worse the model's performance. In the experiment, we set the DP noise standard deviation from 0.01 to 0.5 to achieve different levels of defense.
 
@@ -427,7 +422,7 @@ Gradient Quantization. Gradient quantization [\[12,](#page-8-22) [30\]](#page-9-
 
 Gradient Sparsification. The gradient sparsification algorithm [\[11,](#page-8-16) [35,](#page-9-20) [40\]](#page-9-21) reduces the risk of information leakage by setting smaller absolute value elements in the gradient to zero. The fewer non-zero elements in the gradient, the less privacy leakage occurs. In the experiment, we set the rate of gradient elements sparsified from 0.1 to 0.99 to achieve different levels of defense.
 
-#### A.2.2. Data Replacement
+### A.2.2. Data Replacement
 
 MixUp. MixUp method [\[9,](#page-8-17) [47\]](#page-10-3) trains neural networks on composite images created via linear combination of image pairs. It has been shown to improve the generalization of the neural network and stabilizes the training. The coefficient of the linear combination is sampled from a Beta Distribution. We set the Beta Distribution parameter from 1e-5 to 1e5 to achieve different levels of defense.
 
@@ -435,7 +430,7 @@ Data Augmentation. Data Augmentation [\[37\]](#page-9-17) includes cropping, shi
 
 Data Sampling. In each local training epoch, clients may choose to sample a portion of the training data instead of using the entire dataset [\[23\]](#page-8-18). We set the portion from 0.1 to 1.0 to achieve different levels of defense.
 
-#### A.3. Evaluation Metrics
+### A.3. Evaluation Metrics
 
 Utility loss (Test error rate). In this paper, we quantify the utility loss by using the test error as a metric. The test error measures the accuracy of the model on a separate test dataset, where a lower test error indicates better model utility. The worst possible test error rate is 1, which means that the model makes incorrect predictions for all instances in the test dataset.
 
@@ -455,22 +450,22 @@ where: TP (True Positives) represents the number of positive instances correctly
 
 <span id="page-12-1"></span><span id="page-12-0"></span>
 
-| Table 3: Training parameters for federated learning in this paper |                    |                    |                       |  |  |  |  |
+| **Table 3:** Training parameters for federated learning in this paper | | | | | | | |
 |-------------------------------------------------------------------|--------------------|--------------------|-----------------------|--|--|--|--|
-| Dataset                                                           | CIFAR100           | Dermnet            | Tiny ImageNet         |  |  |  |  |
-| Models                                                            | AlexNet, ResNet18  | AlexNet, ResNet18  | Laten Diffusion Model |  |  |  |  |
-| Communication epoch                                               | 300                | 300                | 20                    |  |  |  |  |
-| Optimizer                                                         | SGD                | SGD                | Adam                  |  |  |  |  |
-| Initial learning rate                                             | 0.1                | 0.1                | 0.001                 |  |  |  |  |
-| Learning rate decay                                               | 0.99 at each epoch | 0.99 at each epoch | Adaptive              |  |  |  |  |
-| Number of clients                                                 | 10                 | 10                 | 10                    |  |  |  |  |
-| Training set size for one client                                  | 5000               | 1500               | 1000                  |  |  |  |  |
-| Testing set size                                                  | 10000              | 4500               | 1000                  |  |  |  |  |
+| Dataset | CIFAR100 | Dermnet | Tiny ImageNet | | | | |
+| Models | AlexNet, ResNet18 | AlexNet, ResNet18 | Laten Diffusion Model | | | | |
+| Communication epoch | 300 | 300 | 20 | | | | |
+| Optimizer | SGD | SGD | Adam | | | | |
+| Initial learning rate | 0.1 | 0.1 | 0.001 | | | | |
+| Learning rate decay | 0.99 at each epoch | 0.99 at each epoch | Adaptive | | | | |
+| Number of clients | 10 | 10 | 10 | | | | |
+| Training set size for one client | 5000 | 1500 | 1000 | | | | |
+| Testing set size | 10000 | 4500 | 1000 | | | | |
 
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: This image presents eight ROC-like curves, each comparing different defense mechanisms against adversarial attacks on two model architectures (AlexNet and ResNet18) using two datasets (CIFAR100). Each curve plots test error rate against attack success rate (TPR@FPR=0.001). The defenses include DP, Sparse, Mixup, Sampling, Data Augmentation, and a combination defense. The purpose is to compare the effectiveness of these defenses under varying attack scenarios and model/dataset combinations. The HV values likely represent the highest vulnerability levels. -->
 
-<span id="page-12-2"></span>Figure 6: Figure (a)-(f) demonstrate the TPR@FPR=0.001 of various defence (including client-level differential privacy (green line) [\[8\]](#page-8-15), sparsification (blue line) [\[35\]](#page-9-20), mixup (purple line) [\[47\]](#page-10-3), data sampling (red line) [\[23\]](#page-8-18), data augmentation (deep blue line) and gradient, combination of data augmentation and sampling (yellow line)) under three attacks (Blackbox-Loss [\[44\]](#page-9-13), Loss-Series [\[10\]](#page-8-1), FedMIA-I, Grad-Cosine, Avg-Cosine [\[24\]](#page-9-2) and FedMIA-II are first, second and third row respectively). A larger hypervolume (HV) [\[51\]](#page-10-4) indicates a better Pareto front of privacy and utility.
+<span id="page-12-2"></span>**Figure 6:** Figure (a)-(f) demonstrate the TPR@FPR=0.001 of various defence (including client-level differential privacy (green line) [\[8\]](#page-8-15), sparsification (blue line) [\[35\]](#page-9-20), mixup (purple line) [\[47\]](#page-10-3), data sampling (red line) [\[23\]](#page-8-18), data augmentation (deep blue line) and gradient, combination of data augmentation and sampling (yellow line)) under three attacks (Blackbox-Loss [\[44\]](#page-9-13), Loss-Series [\[10\]](#page-8-1), FedMIA-I, Grad-Cosine, Avg-Cosine [\[24\]](#page-9-2) and FedMIA-II are first, second and third row respectively). A larger hypervolume (HV) [\[51\]](#page-10-4) indicates a better Pareto front of privacy and utility.
 
 as positive. TN (True Negatives) represents the number of negative instances correctly classified as negative.
 
@@ -481,11 +476,11 @@ HV_z(Y) = \Lambda\left(\left\{q \in \mathbb{R}^m \middle| q \in \prod_{i=1}^m [y
 $$
 *where*Λ(·)*refers to the Lebesgue measure.*We set the reference point z of privacy leakage and utility loss to be 1 and 100% respectively.
 
-# B. More experiment
+## B. More experiment
 
 Figure [6](#page-12-2) demonstrates the privacy-utility tradeoff against different attacks under various defense methods.
 
-# C. Proof of Theorem 1
+## C. Proof of Theorem 1
 
 Theorem 2.*Given the threshold* δ*, let*V<sup>t</sup>*be the member sets estimated by*Λˆ<sup>t</sup>*and*δ*in communication round* t*. Let*V˜*be the member sets estimated by*Λ˜*and* δ*. Then we have*$$
 \tilde{\mathbb{V}} \subset (\mathbb{V}_1 \cup \dots \cup \mathbb{V}_T). \tag{14}

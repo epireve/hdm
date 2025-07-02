@@ -18,7 +18,6 @@ keywords:
 - trade-off
 ---
 
-
 # Consistency Rationing in the Cloud: Pay only when it matters
 
 Tim Kraska Martin Hentschel Gustavo Alonso Donald Kossmann
@@ -57,7 +56,7 @@ goal of these strategies is to minimize the overall cost of operating over the c
 
 The remainder of this paper is organized as follows: Section 2 describes several use cases for Consistency Rationing in the cloud. Section 3 discusses related work. Section 4 describes Consistency Rationing, the ABC analysis and how guarantees mix. Section 5 presents a set of alternative strategies to handle B data. Section 6 covers the implementation of Consistency Rationing in the cloud. Section 7 summarizes the results of our experiments using the TPC-W benchmark. Section 8 concludes this paper.
 
-# USE CASES
+## USE CASES
 
 The need for different consistency levels is easily identifiable in a variety of applications and was already studied in different contexts (e.g., in [11, 12]). In the following we present potential use cases in which Consistency Rationing could be applied.
 
@@ -121,7 +120,7 @@ The A category provides*serializability*in the traditional transactional sense. 
 
 Data should be put in the A category if consistency as well as an up-to-date view is a must. We provide serializability using a pessimistic concurrency protocol (two phase locking, 2PL). We chose serializability over, for example, snapshot isolation to ensure transactions always see the up-to-date state of the database.
 
-# 3 Category B - Adaptive
+## 3 Category B - Adaptive
 
 Between the data with session consistency (C) and data with serializability (A), there exists a wide spectrum of data types and applications for which the required level of consistency depends on the concrete situation. Sometimes strong consistency is needed, sometimes it can be relaxed. Given the double impact of transactional consistency in cloud database settings (cost and performance), we introduce the B category to capture all the data with adaptive consistency requirements.
 
@@ -145,7 +144,7 @@ Consistency Rationing introduces additional complexity into the development proc
 
 We envision that the development process of an application and Consistency Rationing can be split into different processes. During the development process, strong consistency guarantees are assumed. The programmer will follow the usual database programming model of explicitly stating transactions. Independent of the categorization, the programmer will always issue a*start transaction*command at the beginning of a transaction and a*commit transaction*command at the end of a transaction. When the application gets deployed, the data is rationed according to cost. The rationing may be done by a person not from the development department. Of course, the assumption is that this split of development and rationing does not effect the correctness of the system. Which properties an application has to fulfill in order to split the development process is out of the scope of the paper and part of future work.
 
-# ADAPTIVE POLICIES
+## ADAPTIVE POLICIES
 
 In this section, we present five different policies to adapt the consistency guarantees provided for individual data items in category B. The adaptation consists in all cases of switching between serializability (category A) and session consistency (category C). The policies differ on how they determine that a switch is necessary. Thus, the*General policy*looks into the probability of conflict on a given data item and switches to serializability if this probability is high enough. The*Time policy*switches between guarantee levels based on time, typically running at session consistency until a given point in time and then switching to serializability. These two first policies can be applied to any data item, regardless of its type. For the very common case of numeric values (e.g., prices, inventories, supply reserves), we consider three additional policies. The*Fixed threshold policy*switches guarantee levels depending the absolute value of the data item. Since this policy depends on a threshold that might be difficult to define, the remaining two policies use more flexible thresholds. The*Demarcation policy*considers relative values with respect to a global threshold while the*Dynamic policy*combines the idea of the*General policy*for numerical data by both analyzing the update frequency and the actual values of items.
 
@@ -153,7 +152,7 @@ In this section, we present five different policies to adapt the consistency gua
 
 The General policy works on the basis of a conflict probability. By observing the access frequency to data items, it is possible to calculate the probability that conflicting accesses will occur. Higher consistency levels need to be provided only when the probability of conflict is high enough.
 
-###*5.1.1 Model*We assume a distributed setup with n servers (i.e., threads are considered to be separate servers) implementing the different levels of consistency described in Section 3. Servers cache data with a cache interval (i.e., time-to-live) CI. Within that interval, C data is read from the cache without synchronizing. Furthermore, two updates to the same data item are always considered as a conflict (we use no semantic information on the operations). If we further assume that all servers behave similarly (i.e., updates are equally distributed among the servers and independent from each other), the probability of a conflicting update on a record is given by:
+### *5.1.1 Model*We assume a distributed setup with n servers (i.e., threads are considered to be separate servers) implementing the different levels of consistency described in Section 3. Servers cache data with a cache interval (i.e., time-to-live) CI. Within that interval, C data is read from the cache without synchronizing. Furthermore, two updates to the same data item are always considered as a conflict (we use no semantic information on the operations). If we further assume that all servers behave similarly (i.e., updates are equally distributed among the servers and independent from each other), the probability of a conflicting update on a record is given by:
 
 $$
 P_c(X) = \underbrace{P(X > 1)}_{(i)} - \underbrace{\sum_{k=2}^{\infty} \left( P(X = k) \left( \frac{1}{n} \right)^{k-1} \right)}_{(ii)} \quad (1)
@@ -181,7 +180,7 @@ $$
 
 If more precision is needed the first one or two summands of (iv) can also be taken into account.
 
-####*5.1.2 Temporal statistics*To calculate the likelihood of a conflict at runtime without requiring a centralized service, every server gathers temporal statistics about the requests. We use a sliding window with size w and sliding factor δ. The window size defines how many intervals a window contains. The sliding factor specifies the granularity at which the window moves. For every time window, the number of updates to each B data is collected. All complete intervals of a window build a histogram of the updates. Hence, the window size acts as a smoothing factor. The larger the window size, the better are the statistics and the longer the time to adapt to changes in arrival rates. The sliding factor affects the granularity of the histogram. For simplicity, the sliding factor δ is assumed to be a multiple of the cache interval CI. To derive the arrival rate λ for the whole system from the local statistics, it is sufficient to calculate the arithmetic mean x¯ of the number of updates to a record and multiply it by the number of servers n (which is assumed to be globally known) divided by the sliding factor δ:
+### *5.1.2 Temporal statistics*To calculate the likelihood of a conflict at runtime without requiring a centralized service, every server gathers temporal statistics about the requests. We use a sliding window with size w and sliding factor δ. The window size defines how many intervals a window contains. The sliding factor specifies the granularity at which the window moves. For every time window, the number of updates to each B data is collected. All complete intervals of a window build a histogram of the updates. Hence, the window size acts as a smoothing factor. The larger the window size, the better are the statistics and the longer the time to adapt to changes in arrival rates. The sliding factor affects the granularity of the histogram. For simplicity, the sliding factor δ is assumed to be a multiple of the cache interval CI. To derive the arrival rate λ for the whole system from the local statistics, it is sufficient to calculate the arithmetic mean x¯ of the number of updates to a record and multiply it by the number of servers n (which is assumed to be globally known) divided by the sliding factor δ:
 
 $$
 \lambda = \frac{\bar{x}n}{\delta} \tag{5}
@@ -191,7 +190,7 @@ As the statistics are gathered using a sliding window, the system is able to dyn
 
 As the update rate of an item has to be small for handling it as a category C item, local statistics can easily mislead the statistics for small window sizes. To overcome the problem, the local statistics can be combined into a centralized view. The simplest way to achieve this would be to broadcast the statistics from time to time to all other servers. Furthermore, if the record itself carries its statistical information (see Section 6), even the broadcast is for free. Thus, by attaching the information to the record, the statistical information can be collected when a data item is cached.
 
-####*5.1.3 Setting the adaptive threshold*When to switch between consistency levels is a critical aspect of the approach as it affects both costs and correctness.
+### *5.1.3 Setting the adaptive threshold*When to switch between consistency levels is a critical aspect of the approach as it affects both costs and correctness.
 
 Let C<sup>x</sup> be the cost of an update to a record in category x. This cost reflects only the additional cost per record in a running transaction without the setup cost of a transaction. Let C<sup>O</sup> be the cost of consistency violations. A record should be handled with weak consistency only if the expected savings of using weak consistency is higher than the expected cost of inconsistency EO(X):
 
@@ -223,7 +222,7 @@ In this context, it is often not meaningful to gather statistics for a record. F
 
 In many use cases, most of the conflicting updates cluster around numerical values. For example, the stock of items in a store, the available tickets in a reservation system, or the account balance in a banking system. These scenarios are often characterized by an integrity constraint defined as a limit (e.g., the stock has to be equal or above 0) and commutative updates to the data (e.g., add, subtract). These characteristics allow us to further optimize the General policy by considering the actual update values to decide on which consistency level to enforce. This can be done with one of the following three policies. The*Fixed threshold policy*looks at the actual value of an item and compares it to a threshold. The*Demarcation policy*applies the idea of the Demarcation protocol [3] and considers a wider range of values to make a decision. Finally, the*Dynamic policy*extends the conflict model of the general policy to numeric types.
 
-###*5.3.1 Fixed threshold policy*The Fixed threshold policy defines that if the value of a record is below a certain threshold, the record is handled under strong consistency guarantees. Thus, a transaction that wants to subtract an amount ∆ from a record, applies strong consistency if the current value v minus ∆ is less than or equal to the threshold T:
+### *5.3.1 Fixed threshold policy*The Fixed threshold policy defines that if the value of a record is below a certain threshold, the record is handled under strong consistency guarantees. Thus, a transaction that wants to subtract an amount ∆ from a record, applies strong consistency if the current value v minus ∆ is less than or equal to the threshold T:
 
 $$
 v - \Delta \le T \tag{8}
@@ -235,7 +234,7 @@ Similar to finding the optimal probability in the General policy, the threshold 
 
 The biggest drawback of the Fixed threshold policy is the static threshold. If the demand for a product changes or if*hot spot*products are present, the Fixed threshold policy behaves sub-optimally (see Experiment 2 in Section 7).
 
-####*5.3.2 Demarcation policy*The Demarcation protocol [3] was originally proposed for replicated systems. The idea of the protocol is to assign a certain amount of the value (e.g., the stock) to every server with the overall amount being distributed across the servers. Every server is allowed to change its local value as long as it does not exceed a local bound. The bound ensures global consistency without requiring the servers to communicate with each other. If the bound is to be violated, a server must request additional shares from other servers or synchronize with others to adjust the bound. This protocol ensures that the overall value never drops below a threshold and that coordination occurs only when needed.
+### *5.3.2 Demarcation policy*The Demarcation protocol [3] was originally proposed for replicated systems. The idea of the protocol is to assign a certain amount of the value (e.g., the stock) to every server with the overall amount being distributed across the servers. Every server is allowed to change its local value as long as it does not exceed a local bound. The bound ensures global consistency without requiring the servers to communicate with each other. If the bound is to be violated, a server must request additional shares from other servers or synchronize with others to adjust the bound. This protocol ensures that the overall value never drops below a threshold and that coordination occurs only when needed.
 
 We can adopt the basic idea behind the Demarcation protocol as follows. Every server gets a certain share of the value to use without locking. In the following we assume, without loss of generality, that the value of the limit for every record is zero. If n is the number of servers and v the value (e.g., the stock of a product), we define the share a server can use without strong consistency as ¨ v n ˝ . Hence, the threshold T is defined as:
 
@@ -247,7 +246,8 @@ All servers are forced to use strong consistency only if they want to use more t
 
 An additional drawback of the Demarcation policy is, that for a large number of servers n, the threshold tends towards v and the Demarcation policy will treat all B data as A data. Thus, almost all transactions will require locking. Skewed distribution of data accesses is also a problem: if an item is rarely or unevenly used, the threshold could be lowered without increasing the penalty cost.
 
-####*5.3.3 Dynamic policy*The Dynamic policy implements probabilistic consistency guarantees by adjusting the threshold.
+### *5.3.3 Dynamic policy*The Dynamic policy implements probabilistic consistency guarantees by adjusting the threshold.
+
 *Model.*As for the General policy we assume a cache interval CI and that updates are equally distributed among severs. Hence, the probability of the value of a record dropping below zero can be written as:
 
 $$
@@ -270,7 +270,7 @@ To reason about the updates in the whole system, the number of servers n has to 
 $$
 f_{CI*n} = \underbrace{f_{CI} *f_{CI}* \cdots * f_{CI}}_{n \text{ times}}
 $$
- (12)
+(12)
 
 Given fCI∗n, the cumulative distribution function (CDF) FCI∗<sup>n</sup> can be built, which finally can be used to determine the threshold for P(T − X < 0) by looking up the probability that:
 
@@ -302,7 +302,7 @@ $$
 ![](_page_6_Figure_18.jpeg)
 <!-- Image Description: The diagram illustrates a cloud computing architecture. Multiple client machines (browsers) access applications via the internet. These applications are served by multiple application servers, all connected to a central storage unit labeled "S3". The cloud represents the servers of the utility provider. The diagram visually depicts the client-server relationship and the role of S3 as a shared storage component within the cloud infrastructure. -->
 
-Figure 1: Architecture
+**Figure 1:** Architecture
 
 We use statistics gathered at runtime to set the threshold for each individual record depending on the update frequency of the item. As we show in Experiment 2 in Section 7, this Dynamic policy outperforms all other policies in terms of overall performance *and*cost. As the statistics are gathered at runtime, the system is also able to react to changes on the update rate of records.
 
@@ -323,15 +323,15 @@ The basic idea to achieve higher consistency on top of S3 is to temporarily buff
 ![](_page_7_Figure_0.jpeg)
 <!-- Image Description: This diagram illustrates a distributed system architecture. Three clients commit data (Step 1) to two separate Persistent Unit (PU) queues residing on an SQS (Simple Queue Service). Each queue has a lock. Clients then checkpoint (Step 2) their data to cloud storage. The diagram depicts the data flow and synchronization mechanism, showcasing a two-phase commit protocol with checkpointing for fault tolerance. -->
 
-Figure 2: Basic Protocol
+**Figure 2:** Basic Protocol
 
-###*6.2.1 Session consistency*[7] already discusses a protocol for read-your-writes monotonicity. The idea is, to keep the highest commit timestamp for each page a server has cached in the past. If a server receives an old version of a page from S3 (older than a version the server has seen before), the server can detect this and re-reads the page from S3.
+### *6.2.1 Session consistency*[7] already discusses a protocol for read-your-writes monotonicity. The idea is, to keep the highest commit timestamp for each page a server has cached in the past. If a server receives an old version of a page from S3 (older than a version the server has seen before), the server can detect this and re-reads the page from S3.
 
 Redirecting all requests from the same client to the same server inside a session ensures session consistency. The routing in our implementation is done by using a session ID and forwarding the request accordingly.
 
 Additional assigned vector clocks to messages before sending them to the queues and checking those together with integrity constraints during checkpointing allows to detect and, if needed, to resolve conflicts.
 
-####*6.2.2 Serializbility*To provide the serializability needed by A data, we implemented a two-phase locking protocol (2PL). 2PL is especially robust against heavy conflict rates [14] and therefore well-suited if conflicts are expected. In order to achieve the exclusive access rights required by 2PL, we have implemented a locking service. To always see the most up-to-date view of a record, we had to implement an advanced queue service that provides higher guarantees than Amazon's Simple Queue Service. In particular, all messages are returned at all times and message identifiers (ID) are monotonically increasing.
+### *6.2.2 Serializbility*To provide the serializability needed by A data, we implemented a two-phase locking protocol (2PL). 2PL is especially robust against heavy conflict rates [14] and therefore well-suited if conflicts are expected. In order to achieve the exclusive access rights required by 2PL, we have implemented a locking service. To always see the most up-to-date view of a record, we had to implement an advanced queue service that provides higher guarantees than Amazon's Simple Queue Service. In particular, all messages are returned at all times and message identifiers (ID) are monotonically increasing.
 
 Based on the increasing message identifiers in our advanced queue service, we were able to simplify the monotonicity protocol presented in [7]. Storing only the latest applied message ID in a page is sufficient to ensure monotonicity. If the system re-reads a page with an older message ID, we know that this page needs an update. To bring a page up-to-date, we rely on retrieving all messages from the queue and applying only messages with a higher ID than the page's ID.
 
@@ -392,18 +392,18 @@ The Ordering Mix defines that 10% of all actions are purchase actions. One purch
 
 (1) First, we categorize all data types as A data. That is, all database transactions are isolated and preserve consistency. Cate-
 
-| Data      | Category                         |
+| Data | Category |
 |-----------|----------------------------------|
-| XACTS     | A<br>(very valuable)             |
-| Item      | B<br>(dependent on item's stock) |
-| Customer  | C<br>(few parallel updates)      |
-| Address   | C<br>(few parallel updates)      |
-| Country   | C<br>(few parallel updates)      |
-| Author    | C<br>(few parallel updates)      |
-| Orders    | C<br>(append-only, no updates)   |
-| OrderLine | C<br>(append-only, no updates)   |
+| XACTS | A<br>(very valuable) |
+| Item | B<br>(dependent on item's stock) |
+| Customer | C<br>(few parallel updates) |
+| Address | C<br>(few parallel updates) |
+| Country | C<br>(few parallel updates) |
+| Author | C<br>(few parallel updates) |
+| Orders | C<br>(append-only, no updates) |
+| OrderLine | C<br>(append-only, no updates) |
 
-Table 1: Data categorization
+**Table 1:** Data categorization
 
 gorizing all data types as A data complies with the requirements of the TPC-W benchmark.
 
@@ -420,12 +420,12 @@ To clearly reveal the individual characteristics of the different consistency ca
 ![](_page_9_Figure_9.jpeg)
 <!-- Image Description: The bar chart compares the cost per transaction (in $/1000) under different data distribution scenarios (uniform and 80-20) across three consistency policies: A data, C data, and Dynamic. It shows significantly higher costs for the 80-20 distribution, particularly with C data. The chart illustrates the impact of data distribution and consistency policy choices on transaction costs, likely to support a cost-optimization analysis within the paper. -->
 
-Figure 3: Cost per trx [\$/1000], Vary guarantees
+**Figure 3:** Cost per trx [\$/1000], Vary guarantees
 
 ![](_page_9_Figure_11.jpeg)
 <!-- Image Description: The image displays a line graph comparing transaction costs under varying penalty costs and data distributions. Two data distributions (80-20 and uniform) are shown for both static ("A data") and dynamic data scenarios. The graph illustrates how transaction cost increases with penalty cost, and how different data distributions affect the cost, with static data consistently having higher cost than dynamic data. The x-axis represents penalty cost, and the y-axis represents cost per transaction. -->
 
-Figure 4: Cost per trx [\$/1000], Vary penalty cost
+**Figure 4:** Cost per trx [\$/1000], Vary penalty cost
 
 available products. This stress of the system allowed us to produce stable and repeatable results. Of course, real world scenarios have much less load but also a higher penalty cost for oversells. Producing stable results for such workloads requires extremely long running times making an extensive performance study nearly impossible, which is why we report only on the numbers for our stressed system. However, by running some experiments in more realistic scenarios we observed comparable behavior.
 

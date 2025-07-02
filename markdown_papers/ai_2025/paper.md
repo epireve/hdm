@@ -28,7 +28,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY
 
 Preston Rasmussen Zep AI preston@getzep.com
@@ -41,11 +40,11 @@ Jack Ryan Zep AI jack@getzep.com
 
 Daniel Chalef Zep AI daniel@getzep.com
 
-# ABSTRACT
+## ABSTRACT
 
 We introduce Zep, a novel memory layer service for AI agents that outperforms the current stateof-the-art system, MemGPT, in the Deep Memory Retrieval (DMR) benchmark. Additionally, Zep excels in more comprehensive and challenging evaluations than DMR that better reflect real-world enterprise use cases. While existing retrieval-augmented generation (RAG) frameworks for large language model (LLM)-based agents are limited to static document retrieval, enterprise applications demand dynamic knowledge integration from diverse sources including ongoing conversations and business data. Zep addresses this fundamental limitation through its core component Graphiti—a temporally-aware knowledge graph engine that dynamically synthesizes both unstructured conversational data and structured business data while maintaining historical relationships. In the DMR benchmark, which the MemGPT team established as their primary evaluation metric, Zep demonstrates superior performance (94.8% vs 93.4%). Beyond DMR, Zep's capabilities are further validated through the more challenging LongMemEval benchmark, which better reflects enterprise use cases through complex temporal reasoning tasks. In this evaluation, Zep achieves substantial results with accuracy improvements of up to 18.5% while simultaneously reducing response latency by 90% compared to baseline implementations. These results are particularly pronounced in enterprisecritical tasks such as cross-session information synthesis and long-term context maintenance, demonstrating Zep's effectiveness for deployment in real-world applications.
 
-# 1 Introduction
+## 1 Introduction
 
 The impact of transformer-based large language models (LLMs) on industry and research communities has garnered significant attention in recent years [\[1\]](#page-9-0). A major application of LLMs has been the development of chat-based agents. However, these agents' capabilities are limited by the LLMs' context windows, effective context utilization, and knowledge gained during pre-training. Consequently, additional context is required to provide out-of-domain (OOD) knowledge and reduce hallucinations.
 
@@ -59,7 +58,7 @@ Recently, Knowledge Graphs (KGs) have been employed to enhance RAG architectures
 
 As Zep is a production system, we've focused heavily on the accuracy, latency, and scalability of its memory retrieval mechanisms. We evaluate these mechanisms' efficacy using two existing benchmarks: a Deep Memory Retrieval task (DMR) from MemGPT[\[3\]](#page-10-0), as well as the LongMemEval benchmark[\[7\]](#page-10-4).
 
-# 2 Knowledge Graph Construction
+## 2 Knowledge Graph Construction
 
 In Zep, memory is powered by a temporally-aware dynamic knowledge graph G = (N , E, φ), where N represents nodes, E represents edges, and φ : E → N × N represents a formal incidence function. This graph comprises three hierarchical tiers of subgraphs: an episode subgraph, a semantic entity subgraph, and a community subgraph.
 
@@ -71,7 +70,7 @@ The dual storage of both raw episodic data and derived semantic entity informati
 
 Our use of community nodes to represent high-level structures and domain concepts builds upon work from GraphRAG [\[4\]](#page-10-1), enabling a more comprehensive global understanding of the domain. The resulting hierarchical organization—from episodes to facts to entities to communities—extends existing hierarchical RAG strategies [\[10\]](#page-10-7)[\[11\]](#page-10-8).
 
-# 1 Episodes
+## 1 Episodes
 
 Zep's graph construction begins with the ingestion of raw data units called Episodes. Episodes can be one of three core types: message, text, or JSON. While each type requires specific handling during graph construction, this paper focuses on the message type, as our experiments center on conversation memory. In our context, a message consists of relatively short text (several messages can fit within an LLM context window) along with the associated actor who produced the utterance.
 
@@ -79,7 +78,7 @@ Each message includes a reference timestamp tref indicating when the message was
 
 The episodic edges, Ee, connect episodes to their extracted entity nodes. Episodes and their derived semantic edges maintain bidirectional indices that track the relationships between edges and their source episodes. This design reinforces the non-lossy nature of Graphiti's episodic subgraph by enabling both forward and backward traversal: semantic artifacts can be traced to their sources for citation or quotation, while episodes can quickly retrieve their relevant entities and facts. While these connections are not directly examined in this paper's experiments, they will be explored in future work.
 
-# 2 Semantic Entities and Facts
+## 2 Semantic Entities and Facts
 
 ## 2.1 Entities
 
@@ -91,13 +90,13 @@ Following entity extraction and resolution, the system incorporates the data int
 
 Selected prompts for graph construction are provided in the appendix.
 
-# 2.2 Facts
+## 2.2 Facts
 
 or each fact containing its key predicate. Importantly, the same fact can be extracted multiple times between different entities, enabling Graphiti to model complex multi-entity facts through an implementation of hyper-edges.
 
 Following extraction, the system generates embeddings for facts in preparation for graph integration. The system performs edge deduplication through a process similar to entity resolution. The hybrid search for relevant edges is constrained to edges existing between the same entity pairs as the proposed new edge. This constraint not only prevents erroneous combinations of similar edges between different entities but also significantly reduces the computational complexity of the deduplication process by limiting the search space to a subset of edges relevant to the specific entity pair.
 
-# 2.3 Temporal Extraction and Edge Invalidation
+## 2.3 Temporal Extraction and Edge Invalidation
 
 A key differentiating feature of Graphiti compared to other knowledge graph engines is its capacity to manage dynamic information updates through temporal extraction and edge invalidation processes.
 
@@ -107,7 +106,7 @@ The introduction of new edges can invalidate existing edges in the database. The
 
 This comprehensive approach enables the dynamic addition of data to Graphiti as conversations evolve, while maintaining both current relationship states and historical records of relationship evolution over time.
 
-# 3 Communities
+## 3 Communities
 
 After establishing the episodic and semantic subgraphs, the system constructs the community subgraph through community detection. While our community detection approach builds upon the technique described in GraphRAG[\[4\]](#page-10-1), we employ a label propagation algorithm [\[13\]](#page-10-10) rather than the Leiden algorithm [\[14\]](#page-10-11). This choice was influenced by label propagation's straightforward dynamic extension, which enables the system to maintain accurate community representations for longer periods as new data enters the graph, delaying the need for complete community refreshes.
 
@@ -115,7 +114,7 @@ The dynamic extension implements the logic of a single recursive step in label p
 
 Following [\[4\]](#page-10-1), our community nodes contain summaries derived through an iterative map-reduce-style summarization of member nodes. However, our retrieval methods differ substantially from GraphRAG's map-reduce approach [\[4\]](#page-10-1). To support our retrieval methodology, we generate community names containing key terms and relevant subjects from the community summaries. These names are embedded and stored to enable cosine similarity searches.
 
-# 3 Memory Retrieval
+## 3 Memory Retrieval
 
 The memory retrieval system in Zep provides powerful, complex, and highly configurable functionality. At a high level, the Zep graph search API implements a function f : S → S that accepts a text-string query α ∈ S as input and returns a text-string context β ∈ S as output. The output β contains formatted data from nodes and edges required for an LLM agent to generate an accurate response to query α. The process f(α) → β comprises three distinct steps:
 
@@ -129,7 +128,7 @@ Sample context string template:
 
 FACTS and ENTITIES represent relevant context to the current conversation. These are the most relevant facts and their valid date ranges. If the fact is about an event, the event takes place during this time. format: FACT (Date range: from - to) <FACTS> {facts} </FACTS> These are the most relevant entities ENTITY\_NAME: entity summary <ENTITIES> {entities} </ENTITIES>
 
-# 1 Search
+## 1 Search
 
 Zep implements three search functions: cosine semantic similarity search (ϕcos), Okapi BM25 full-text search (ϕbm25), and breadth-first search (ϕbfs). The first two functions utilize Neo4j's implementation of Lucene [\[15\]](#page-10-12)[\[16\]](#page-10-13). Each
 
@@ -139,11 +138,11 @@ While cosine similarity and full-text search methodologies are well-established 
 
 The three search methods each target different aspects of similarity: full-text search identifies word similarities, cosine similarity captures semantic similarities, and breadth-first search reveals contextual similarities—where nodes and edges closer in the graph appear in more similar conversational contexts. This multi-faceted approach to candidate result identification maximizes the likelihood of discovering optimal context.
 
-# 2 Reranker
+## 2 Reranker
 
 While the initial search methods aim to achieve high recall, rerankers serve to increase precision by prioritizing the most relevant results. Zep supports existing reranking approaches such as Reciprocal Rank Fusion (RRF) [\[20\]](#page-10-17) and Maximal Marginal Relevance (MMR) [\[21\]](#page-10-18). Additionally, Zep implements a graph-based episode-mentions reranker that prioritizes results based on the frequency of entity or fact mentions within a conversation, enabling a system where frequently referenced information becomes more readily accessible. The system also includes a node distance reranker that reorders results based on their graph distance from a designated centroid node, providing context localized to specific areas of the knowledge graph. The system's most sophisticated reranking capability employs crossencoders—LLMs that generate relevance scores by evaluating nodes and edges against queries using cross-attention, though this approach incurs the highest computational cost.
 
-# 4 Experiments
+## 4 Experiments
 
 This section analyzes two experiments conducted using LLM-memory based benchmarks. The first evaluation employs the Deep Memory Retrieval (DMR) task developed in [\[3\]](#page-10-0), which uses a 500-conversation subset of the Multi-Session Chat dataset introduced in "Beyond Goldfish Memory: Long-Term Open-Domain Conversation" [\[22\]](#page-10-19). The second evaluation utilizes the LongMemEval benchmark from "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory" [\[7\]](#page-10-4). Specifically, we use the LongMemEvals dataset, which provides an extensive conversation context of on average 115,000 tokens.
 
@@ -151,7 +150,7 @@ For both experiments, we integrate the conversation history into a Zep knowledge
 
 While these experiments demonstrate key retrieval capabilities of Graphiti, they represent a subset of the system's full search functionality. This focused scope enables clear comparison with existing benchmarks while reserving the exploration of additional knowledge graph capabilities for future work.
 
-# 1 Choice of models
+## 1 Choice of models
 
 Our experimental implementation employs the BGE-m3 models from BAAI for both reranking and embedding tasks [\[23\]](#page-10-20) [\[24\]](#page-10-21). For graph construction and response generation, we utilize gpt-4o-mini-2024-07-18 for graph construction, and both gpt-4o-mini-2024-07-18 and gpt-4o-2024-11-20 for the chat agent generating responses to provided context.
 
@@ -159,18 +158,18 @@ To ensure direct comparability with MemGPT's DMR results, we also conducted the 
 
 The experimental notebooks will be made publicly available through our GitHub repository, and relevant experimental prompts are included in the Appendix.
 
-| Memory                   | Model       | Score |
+| Memory | Model | Score |
 |--------------------------|-------------|-------|
 | Recursive Summarization† | gpt-4-turbo | 35.3% |
-| Conversation Summaries   | gpt-4-turbo | 78.6% |
-| MemGPT†                  | gpt-4-turbo | 93.4% |
-| Full-conversation        | gpt-4-turbo | 94.4% |
-| Zep                      | gpt-4-turbo | 94.8% |
-| Conversation Summaries   | gpt-4o-mini | 88.0% |
-| Full-conversation        | gpt-4o-mini | 98.0% |
-| Zep                      | gpt-4o-mini | 98.2% |
+| Conversation Summaries | gpt-4-turbo | 78.6% |
+| MemGPT† | gpt-4-turbo | 93.4% |
+| Full-conversation | gpt-4-turbo | 94.4% |
+| Zep | gpt-4-turbo | 94.8% |
+| Conversation Summaries | gpt-4o-mini | 88.0% |
+| Full-conversation | gpt-4o-mini | 98.0% |
+| Zep | gpt-4o-mini | 98.2% |
 
-|  |  |  |  | Table 1: Deep Memory Retrieval |
+| | | | | **Table 1:** Deep Memory Retrieval |
 |--|--|--|--|--------------------------------|
 |--|--|--|--|--------------------------------|
 
@@ -198,47 +197,47 @@ We conducted all experiments between December 2024 and January 2025. We performe
 
 For answer evaluation, we employed GPT-4o with the question-specific prompts provided in [\[7\]](#page-10-4), which have demonstrated high correlation with human evaluators.
 
-#### 3.1 LongMemEval and MemGPT
+### 3.1 LongMemEval and MemGPT
 
 To establish a comparative benchmark between Zep and the current state-of-the-art MemGPT system [\[3\]](#page-10-0), we attempted to evaluate MemGPT using the LongMemEval dataset. Given that the current MemGPT framework does not support direct ingestion of existing message histories, we implemented a workaround by adding conversation messages to the archival history. However, we were unable to achieve successful question responses using this approach. We look forward to seeing evaluations of this benchmark by other research teams, as comparative performance data would benefit the broader development of LLM memory systems.
 
-#### 3.2 LongMemEval results
+### 3.2 LongMemEval results
 
 Zep demonstrates substantial improvements in both accuracy and latency compared to the baseline across both model variants. Using gpt-4o-mini, Zep achieved a 15.2% accuracy improvement over the baseline, while gpt-4o showed an 18.5% improvement. The reduced prompt size also led to significant latency cost reductions compared to the baseline implementations.
 
-| Memory       | Model       | Score | Latency | Latency IQR | Avg Context Tokens |
+| Memory | Model | Score | Latency | Latency IQR | Avg Context Tokens |
 |--------------|-------------|-------|---------|-------------|--------------------|
-| Full-context | gpt-4o-mini | 55.4% | 31.3 s  | 8.76 s      | 115k               |
-| Zep          | gpt-4o-mini | 63.8% | 3.20 s  | 1.31 s      | 1.6k               |
-| Full-context | gpt-4o      | 60.2% | 28.9 s  | 6.01 s      | 115k               |
-| Zep          | gpt-4o      | 71.2% | 2.58 s  | 0.684 s     | 1.6k               |
+| Full-context | gpt-4o-mini | 55.4% | 31.3 s | 8.76 s | 115k |
+| Zep | gpt-4o-mini | 63.8% | 3.20 s | 1.31 s | 1.6k |
+| Full-context | gpt-4o | 60.2% | 28.9 s | 6.01 s | 115k |
+| Zep | gpt-4o | 71.2% | 2.58 s | 0.684 s | 1.6k |
 
-Table 2: LongMemEvals
+**Table 2:** LongMemEvals
 
 Analysis by question type reveals that gpt-4o-mini with Zep showed improvements in four of the six categories, with the most substantial gains in complex question types: single-session-preference, multi-session, and temporalreasoning. When using gpt-4o, Zep further demonstrated improved performance in the knowledge-update category, highlighting its effectiveness with more capable models. However, additional development may be needed to improve less capable models' understanding of Zep's temporal data.
 
-| Question Type             | Model       | Full-context | Zep   | Delta  |
+| Question Type | Model | Full-context | Zep | Delta |
 |---------------------------|-------------|--------------|-------|--------|
-| single-session-preference | gpt-4o-mini | 30.0%        | 53.3% | 77.7%↑ |
-| single-session-assistant  | gpt-4o-mini | 81.8%        | 75.0% | 9.06%↓ |
-| temporal-reasoning        | gpt-4o-mini | 36.5%        | 54.1% | 48.2%↑ |
-| multi-session             | gpt-4o-mini | 40.6%        | 47.4% | 16.7%↑ |
-| knowledge-update          | gpt-4o-mini | 76.9%        | 74.4% | 3.36%↓ |
-| single-session-user       | gpt-4o-mini | 81.4%        | 92.9% | 14.1%↑ |
-| single-session-preference | gpt-4o      | 20.0%        | 56.7% | 184%↑  |
-| single-session-assistant  | gpt-4o      | 94.6%        | 80.4% | 17.7%↓ |
-| temporal-reasoning        | gpt-4o      | 45.1%        | 62.4% | 38.4%↑ |
-| multi-session             | gpt-4o      | 44.3%        | 57.9% | 30.7%↑ |
-| knowledge-update          | gpt-4o      | 78.2%        | 83.3% | 6.52%↑ |
-| single-session-user       | gpt-4o      | 81.4%        | 92.9% | 14.1%↑ |
+| single-session-preference | gpt-4o-mini | 30.0% | 53.3% | 77.7%↑ |
+| single-session-assistant | gpt-4o-mini | 81.8% | 75.0% | 9.06%↓ |
+| temporal-reasoning | gpt-4o-mini | 36.5% | 54.1% | 48.2%↑ |
+| multi-session | gpt-4o-mini | 40.6% | 47.4% | 16.7%↑ |
+| knowledge-update | gpt-4o-mini | 76.9% | 74.4% | 3.36%↓ |
+| single-session-user | gpt-4o-mini | 81.4% | 92.9% | 14.1%↑ |
+| single-session-preference | gpt-4o | 20.0% | 56.7% | 184%↑ |
+| single-session-assistant | gpt-4o | 94.6% | 80.4% | 17.7%↓ |
+| temporal-reasoning | gpt-4o | 45.1% | 62.4% | 38.4%↑ |
+| multi-session | gpt-4o | 44.3% | 57.9% | 30.7%↑ |
+| knowledge-update | gpt-4o | 78.2% | 83.3% | 6.52%↑ |
+| single-session-user | gpt-4o | 81.4% | 92.9% | 14.1%↑ |
 
-Table 3: LongMemEvals Question Type Breakdown
+**Table 3:** LongMemEvals Question Type Breakdown
 
 These results demonstrate Zep's ability to enhance performance across model scales, with the most pronounced improvements observed in complex and nuanced question types when paired with more capable models. The latency improvements are particularly noteworthy, with Zep reducing response times by approximately 90% while maintaining higher accuracy.
 
 The decrease in performance for single-session-assistant questions—17.7% for gpt-4o and 9.06% for gpt-4omini—represents a notable exception to Zep's otherwise consistent improvements, and suggest further research and engineering work is needed.
 
-# 5 Conclusion
+## 5 Conclusion
 
 We have introduced Zep, a graph-based approach to LLM memory that incorporates semantic and episodic memory alongside entity and community summaries. Our evaluations demonstrate that Zep achieves state-of-the-art performance on existing memory benchmarks while reducing token costs and operating at significantly lower latencies.
 
@@ -250,56 +249,56 @@ Our search for suitable memory benchmarks revealed limited options, with existin
 
 Current literature on LLM memory and RAG systems insufficiently addresses production system scalability in terms of cost and latency. We have included latency benchmarks for our retrieval mechanisms to begin addressing this gap, following the example set by LightRAG's authors in prioritizing these metrics.
 
-# 6 Appendix
+## 6 Appendix
 
-# 1 Graph Construction Prompts
+## 1 Graph Construction Prompts
 
 ## 1.1 Entity Extraction
 
-| <previous messages=""></previous>                                                                                         |
+| <previous messages=""></previous> |
 |---------------------------------------------------------------------------------------------------------------------------|
-| {previous_messages}                                                                                                       |
-|                                                                                                                           |
-| <current message=""></current>                                                                                            |
-| {current_message}                                                                                                         |
-|                                                                                                                           |
-| Given the above conversation, extract entity nodes from the CURRENT MESSAGE that are explicitly or implicitly             |
-| mentioned:                                                                                                                |
-| Guidelines:                                                                                                               |
+| {previous_messages} |
+| |
+| <current message=""></current> |
+| {current_message} |
+| |
+| Given the above conversation, extract entity nodes from the CURRENT MESSAGE that are explicitly or implicitly |
+| mentioned: |
+| Guidelines: |
 | 1. ALWAYS extract the speaker/actor as the first node. The speaker is the part before the colon in each line of dialogue. |
-| 2. Extract other significant entities, concepts, or actors mentioned in the CURRENT MESSAGE.                              |
-| 3. DO NOT create nodes for relationships or actions.                                                                      |
-| 4. DO NOT create nodes for temporal information like dates, times or years (these will be added to edges later).          |
-| 5. Be as explicit as possible in your node names, using full names.                                                       |
-| 6. DO NOT extract entities mentioned only                                                                                 |
+| 2. Extract other significant entities, concepts, or actors mentioned in the CURRENT MESSAGE. |
+| 3. DO NOT create nodes for relationships or actions. |
+| 4. DO NOT create nodes for temporal information like dates, times or years (these will be added to edges later). |
+| 5. Be as explicit as possible in your node names, using full names. |
+| 6. DO NOT extract entities mentioned only |
 
-# 1.2 Entity Resolution
+## 1.2 Entity Resolution
 
 <PREVIOUS MESSAGES> {previous\_messages} </PREVIOUS MESSAGES> <CURRENT MESSAGE> {current\_message} </CURRENT MESSAGE> <EXISTING NODES> {existing\_nodes} </EXISTING NODES> Given the above EXISTING NODES, MESSAGE, and PREVIOUS MESSAGES. Determine if the NEW NODE extracted from the conversation is a duplicate entity of one of the EXISTING NODES. <NEW NODE> {new\_node} </NEW NODE> Task: 1. If the New Node represents the same entity as any node in Existing Nodes, return 'is\_duplicate: true' in the response. Otherwise, return 'is\_duplicate: false' 2. If is\_duplicate is true, also return the uuid of the existing node in the response 3. If is\_duplicate is true, return a name for the node that is the most complete full name. Guidelines: 1. Use both the name and summary of nodes to determine if the entities are duplicates, duplicate nodes may have different names
 
-# 1.3 Fact Extraction
+## 1.3 Fact Extraction
 
-| <previous messages=""></previous>                                                                            |
+| <previous messages=""></previous> |
 |--------------------------------------------------------------------------------------------------------------|
-| {previous_messages}                                                                                          |
-|                                                                                                              |
-| <current message=""></current>                                                                               |
-| {current_message}                                                                                            |
-|                                                                                                              |
-| <entities></entities>                                                                                        |
-| {entities}                                                                                                   |
-|                                                                                                              |
-| Given the above MESSAGES and ENTITIES, extract all facts pertaining to the listed ENTITIES from the CURRENT  |
-| MESSAGE.                                                                                                     |
-| Guidelines:                                                                                                  |
-| 1. Extract facts only between the provided entities.                                                         |
-| 2. Each fact should represent a clear relationship between two DISTINCT nodes.                               |
+| {previous_messages} |
+| |
+| <current message=""></current> |
+| {current_message} |
+| |
+| <entities></entities> |
+| {entities} |
+| |
+| Given the above MESSAGES and ENTITIES, extract all facts pertaining to the listed ENTITIES from the CURRENT |
+| MESSAGE. |
+| Guidelines: |
+| 1. Extract facts only between the provided entities. |
+| 2. Each fact should represent a clear relationship between two DISTINCT nodes. |
 | 3.<br>The relation_type should be a concise, all-caps description of the fact (e.g., LOVES, IS_FRIENDS_WITH, |
-| WORKS_FOR).                                                                                                  |
-| 4. Provide a more detailed fact containing all relevant information.                                         |
-| 5. Consider temporal aspects of relationships when relevant.                                                 |
+| WORKS_FOR). |
+| 4. Provide a more detailed fact containing all relevant information. |
+| 5. Consider temporal aspects of relationships when relevant. |
 
-# 1.4 Fact Resolution
+## 1.4 Fact Resolution
 
 Given the following context, determine whether the New Edge represents any of the edges in the list of Existing Edges. <EXISTING EDGES> {existing\_edges} </EXISTING EDGES> <NEW EDGE> {new\_edge} </NEW EDGE> Task: 1. If the New Edges represents the same factual information as any edge in Existing Edges, return 'is\_duplicate: true' in the response. Otherwise, return 'is\_duplicate: false' 2. If is\_duplicate is true, also return the uuid of the existing edge in the response Guidelines: 1. The facts do not need to be completely identical to be duplicates, they just need to express the same information.
 
@@ -307,7 +306,7 @@ Given the following context, determine whether the New Edge represents any of th
 
 <PREVIOUS MESSAGES> {previous\_messages} </PREVIOUS MESSAGES> <CURRENT MESSAGE> {current\_message} </CURRENT MESSAGE> <REFERENCE TIMESTAMP> {reference\_timestamp} </REFERENCE TIMESTAMP> <FACT> {fact} </FACT> IMPORTANT: Only extract time information if it is part of the provided fact. Otherwise ignore the time mentioned. Make sure to do your best to determine the dates if only the relative time is mentioned. (eg 10 years ago, 2 mins ago) based on the provided reference timestamp If the relationship is not of spanning nature, but you are still able to determine the dates, set the valid\_at only. Definitions: - valid\_at: The date and time when the relationship described by the edge fact became true or was established. - invalid\_at: The date and time when the relationship described by the edge fact stopped being true or ended. Task: Analyze the conversation and determine if there are dates that are part of the edge fact. Only set dates if they explicitly relate to the formation or alteration of the relationship itself. Guidelines: 1. Use ISO 8601 format (YYYY-MM-DDTHH:MM:SS.SSSSSSZ) for datetimes. 2. Use the reference timestamp as the current time when determining the valid\_at and invalid\_at dates. 3. If the fact is written in the present tense, use the Reference Timestamp for the valid\_at date 4. If no temporal information is found that establishes or changes the relationship, leave the fields as null. 5. Do not infer dates from related events. Only use dates that are directly stated to establish or change the relationship. 6. For relative time mentions directly related to the relationship, calculate the actual datetime based on the reference timestamp. 7. If only a date is mentioned without a specific time, use 00:00:00 (midnight) for that date. 8. If only year is mentioned, use January 1st of that year at 00:00:00. 9. Always include the time zone offset (use Z for UTC if no specific time zone is mentioned).
 
-# References
+## References
 
 - <span id="page-9-0"></span>[1] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. Attention is all you need, 2023.
 - <span id="page-9-1"></span>[2] K. Sparck Jones. A statistical interpretation of term specificity and its application in retrieval. *Journal of Documentation*, 28(1):11–21, 1972.

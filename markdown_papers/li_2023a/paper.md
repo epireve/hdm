@@ -62,7 +62,7 @@ Juan Li *Department of Computer Science North Dakota State University*Fargo, USA
 Vikram Pandey*Department of Computer Science North Dakota State University*Fargo, USA vikram.pandey@ndsu.edu
 
 Rasha Hendawi*Department of Computer Science North Dakota State University*Fargo, USA rasha.hendawi@ndsu.edu
-*Abstract***— The increasing use of electronic health records (EHRs) and wearable devices has led to the creation of massive amounts of personal health data (PHD) that can be utilized for research and patient care. However, managing and integrating various types of PHD from different sources poses significant challenges, including data interoperability, data privacy, and data security. To address these challenges, this paper proposes a blockchain-based personal health knowledge graph for integrated health data management. The proposed approach utilizes knowledge graphs to structure and integrate various types of PHD, such as EHR, sensing, and insurance data, to provide a comprehensive view of an individual's health. The proposed approach utilizes blockchain to ensure data privacy and security. By storing PHD on a decentralized blockchain platform, patients have full control over their data and can grant access to specific entities as needed providing enhanced privacy and security.**
+**Abstract:** **— The increasing use of electronic health records (EHRs) and wearable devices has led to the creation of massive amounts of personal health data (PHD) that can be utilized for research and patient care. However, managing and integrating various types of PHD from different sources poses significant challenges, including data interoperability, data privacy, and data security. To address these challenges, this paper proposes a blockchain-based personal health knowledge graph for integrated health data management. The proposed approach utilizes knowledge graphs to structure and integrate various types of PHD, such as EHR, sensing, and insurance data, to provide a comprehensive view of an individual's health. The proposed approach utilizes blockchain to ensure data privacy and security. By storing PHD on a decentralized blockchain platform, patients have full control over their data and can grant access to specific entities as needed providing enhanced privacy and security.**
 
 **Keywords— Blockchain, Personal Health Data, Knowledge Graphs, Data Interoperability, Privacy, Security, Wearable Devices, Electronic Health Records.**## I. INTRODUCTION
 
@@ -93,64 +93,64 @@ These studies demonstrate the potential of knowledge graphs for managing and int
 ![](_page_1_Figure_7.jpeg)
 <!-- Image Description: This diagram illustrates a blockchain-based system for secure healthcare data management. It shows a peer-to-peer (P2P) network of blockchain nodes storing patient health data (PHKG). Data is uploaded from various sources (hospital, lab, wearable device, mobile app) and accessed by patients and doctors after authentication. A magnified section details a smart contract's role within a blockchain block, managing data access and transactions. The purpose is to depict the architecture and workflow of a secure, decentralized system for healthcare data. -->
 
-#### III. SYSTEM DESIGN
+### III. SYSTEM DESIGN
 
-The system architecture, illustrated in Fig. 1, involves various users, such as patients, doctors, health devices, and insurance agencies, who have different roles in terms of data ownership, production, and consumption. The proposed system utilizes a decentralized peer-to-peer (P2P) network that has a dual purpose: it provides a secure blockchain for system security, including authentication, authorization, and access control, and it also implements a P2P-based distributed storage to store users' personal health knowledge graph. To access the system, users must register through the blockchain's smart contract, and data access is also through the blockchain. Personal health knowledge graph data is divided into smaller parts and distributed across the P2P network. It is important to note that the personal health knowledge graph data is not stored in the blockchain itself.
+The system architecture, illustrated in Figure 1, involves various users, such as patients, doctors, health devices, and insurance agencies, who have different roles in terms of data ownership, production, and consumption. The proposed system utilizes a decentralized peer-to-peer (P2P) network that has a dual purpose: it provides a secure blockchain for system security, including authentication, authorization, and access control, and it also implements a P2P-based distributed storage to store users' personal health knowledge graph. To access the system, users must register through the blockchain's smart contract, and data access is also through the blockchain. Personal health knowledge graph data is divided into smaller parts and distributed across the P2P network. It is important to note that the personal health knowledge graph data is not stored in the blockchain itself.
 
-####*A. Personal Health Knowledge Graph*
+### *A. Personal Health Knowledge Graph*
 
 The first step is to construct a high-level personal health ontology as the schema for the personal health knowledge graph. An ontology can provide a formalized and standardized way of representing and organizing the concepts and relationships within a particular domain, in this case, personal health. Constructing a high-level personal health ontology would involve defining the key concepts and relationships relevant to personal health, such as medical conditions, symptoms, treatments, medications, and healthcare providers [17][18]. This ontology could be used as a schema for the personal health knowledge graph, providing a standardized structure for organizing and representing personal health data. For example, the ontology might include a concept of "diabetes," which would have relationships to other concepts such as "blood glucose levels," "insulin therapy," and "complications." Each of these concepts could then be represented as nodes in the personal health knowledge graph, with edges connecting them to other related concepts.
 
-We follow and adopt the HL7 FHIR [19] standard to design the ontology. Having a standardized ontology can help to ensure consistency and interoperability across different sources of personal health data. It can also provide a framework for developing intelligent applications that can reason over personal health data and provide personalized insights and recommendations. We extended an HL7 FHIR-based ontology proposed in [20]. It represents the domain entities of a personal health record. To improve semantic interoperability and knowledge sharing, ontology's entities were linked with classes from ontologies available on BioPortal. The connection was based on BioPortal's PURL (Persistent Uniform Resource Locators) identifiers to establish a semantic link to existing medical vocabularies, such as SNOMED CT or LOINC. We expanded the ontology to include other aspects of a user, including profiles, lifestyle interventions, healthcare providers, and data generated by health-related wearable devices. For example, additional classes PhysicalActivity, Diet, SmokingStatus, and AlcoholConsumption, as well as their subclasses and properties, were added to reflect an individual's lifestyle. These classes and properties can provide additional information about an individual's lifestyle. Fig. 2. shows part of the ontology.
+We follow and adopt the HL7 FHIR [19] standard to design the ontology. Having a standardized ontology can help to ensure consistency and interoperability across different sources of personal health data. It can also provide a framework for developing intelligent applications that can reason over personal health data and provide personalized insights and recommendations. We extended an HL7 FHIR-based ontology proposed in [20]. It represents the domain entities of a personal health record. To improve semantic interoperability and knowledge sharing, ontology's entities were linked with classes from ontologies available on BioPortal. The connection was based on BioPortal's PURL (Persistent Uniform Resource Locators) identifiers to establish a semantic link to existing medical vocabularies, such as SNOMED CT or LOINC. We expanded the ontology to include other aspects of a user, including profiles, lifestyle interventions, healthcare providers, and data generated by health-related wearable devices. For example, additional classes PhysicalActivity, Diet, SmokingStatus, and AlcoholConsumption, as well as their subclasses and properties, were added to reflect an individual's lifestyle. These classes and properties can provide additional information about an individual's lifestyle. Figure 2. shows part of the ontology.
 
-|                                         | <b>ETER CONCULPROPERTY FREEDING</b> . VOIDCOCLOYSICITE |
+| | <b>ETER CONCULPROPERTY FREEDING</b> . VOIDCOCLOYSICITE |
 |-----------------------------------------|--------------------------------------------------------|
-| $\frac{1}{2}$ . $\frac{1}{2}$           | Asserted - T. C. bo                                    |
-| r- owl: Thing (owl: Thing)              | dentifier use                                          |
-| ▼ <b>Element</b>                        | Identifier value                                       |
-| ComplexType                             | Immunization.encounter                                 |
-| PrimitiveType                           | mmunization.occurence                                  |
-| LifeStyle                               | Immunization.patient                                   |
-| PatientProfile                          | Immunization.performer.actor                           |
-| dis:Resource                            | Immunization vaccineCode                               |
-| <b>Resource</b>                         | minsertPattern                                         |
-| <b>V</b> Base                           | $=$ into                                               |
-| EiosignalRecordingSession               | inverseBody                                            |
-| $\blacktriangleright$ <b>C</b> Entities | Location.accuracy                                      |
-| $\overline{\mathbf{v}}$ Individuals     | Location address                                       |
-| Person                                  | Location issued                                        |
-| Management                              | Location name                                          |
-| ▼ Clinical                              | Location.position.altitude                             |
-| <b>▼</b> CareProvision                  | - Location.position.latitude                           |
-| RiskAssessment                          | Location.position.longtitude                           |
-| ServiceRequest                          | Location.telecom                                       |
-| ▼ Diagnostics                           | medication                                             |
-| <b>v</b> -Observation                   | Medication amount                                      |
-| ClinicalHistoryOrExaminationObservable  | Medication.code                                        |
-| DeviceAssertable                        | Medication form                                        |
-| DeviceObservable                        | MedicationAdministration device                        |
-| <b>CLaboratoryObservation</b>           | MedicationAdministration.effective                     |
-| ► VitalSign                             | MedicationAdministration.request                       |
-| <b>▼</b> Medications                    | MedicationAdministration.status                        |
-| - Immunization                          | MedicationPrescription.dateWritten                     |
-| · Medication                            | MedicationPrescription.dosageInstruction.asNeed        |
-| - MedicationAdministration              | MedicationPrescription.dosageInstruction.dose          |
-| <b>MedicationRequest</b>                | MedicationPrescription.dosageInstruction.schedule      |
-| <b>CuestionAnswer</b>                   | MedicationPrescription.note                            |
-| <b>QuestionsGroupAnswers</b>            | MedicationPrescription.status                          |
-| RequestResponse                         | MedicationRequest.authoredOn                           |
-| ▼ Summary                               | MedicationRequest.dosageInstruction                    |
-| - AllergyIntolerance                    | MedicationRequest.medication                           |
-| <b>v</b> -Condition                     | MedicationRequest.note                                 |
-| ClinicalFinding                         | MedicationRequest.requester                            |
-| <b>Diagnosis</b>                        | MedicationRequest.status                               |
-| <b>V-C</b> Specialized                  | MedicationRequest.subject                              |
-| DefinitionalArtifacts                   | Money.currency                                         |
-| <b>Terminology</b>                      | Money.value                                            |
-| SensingDevice                           | Observation.basedOn                                    |
-| $\blacktriangleright$ SensorData        | Observation.component                                  |
+| $\frac{1}{2}$ . $\frac{1}{2}$ | Asserted - T. C. bo |
+| r- owl: Thing (owl: Thing) | dentifier use |
+| ▼ <b>Element</b> | Identifier value |
+| ComplexType | Immunization.encounter |
+| PrimitiveType | mmunization.occurence |
+| LifeStyle | Immunization.patient |
+| PatientProfile | Immunization.performer.actor |
+| dis:Resource | Immunization vaccineCode |
+| <b>Resource</b> | minsertPattern |
+| <b>V</b> Base | $=$ into |
+| EiosignalRecordingSession | inverseBody |
+| $\blacktriangleright$ <b>C</b> Entities | Location.accuracy |
+| $\overline{\mathbf{v}}$ Individuals | Location address |
+| Person | Location issued |
+| Management | Location name |
+| ▼ Clinical | Location.position.altitude |
+| <b>▼</b> CareProvision | - Location.position.latitude |
+| RiskAssessment | Location.position.longtitude |
+| ServiceRequest | Location.telecom |
+| ▼ Diagnostics | medication |
+| <b>v</b> -Observation | Medication amount |
+| ClinicalHistoryOrExaminationObservable | Medication.code |
+| DeviceAssertable | Medication form |
+| DeviceObservable | MedicationAdministration device |
+| <b>CLaboratoryObservation</b> | MedicationAdministration.effective |
+| ► VitalSign | MedicationAdministration.request |
+| <b>▼</b> Medications | MedicationAdministration.status |
+| - Immunization | MedicationPrescription.dateWritten |
+| · Medication | MedicationPrescription.dosageInstruction.asNeed |
+| - MedicationAdministration | MedicationPrescription.dosageInstruction.dose |
+| <b>MedicationRequest</b> | MedicationPrescription.dosageInstruction.schedule |
+| <b>CuestionAnswer</b> | MedicationPrescription.note |
+| <b>QuestionsGroupAnswers</b> | MedicationPrescription.status |
+| RequestResponse | MedicationRequest.authoredOn |
+| ▼ Summary | MedicationRequest.dosageInstruction |
+| - AllergyIntolerance | MedicationRequest.medication |
+| <b>v</b> -Condition | MedicationRequest.note |
+| ClinicalFinding | MedicationRequest.requester |
+| <b>Diagnosis</b> | MedicationRequest.status |
+| <b>V-C</b> Specialized | MedicationRequest.subject |
+| DefinitionalArtifacts | Money.currency |
+| <b>Terminology</b> | Money.value |
+| SensingDevice | Observation.basedOn |
+| $\blacktriangleright$ SensorData | Observation.component |
 
-Fig. 2 A snapshot the ontology. (Partically adopted from [20])
+Figure 2 A snapshot the ontology. (Partically adopted from [20])
 
 The following step is to locate all available health data about an individual, including EHRs, medical test results, medication history, and personal health data such as symptoms, lifestyle choices, and family history, and wearable device data. These data can reside in healthcare providers, health tracking apps, and other sources. Once the data is collected, they need to be mapped with the ontology to link to their schema, which enables interoperability across different systems and applications.
 
@@ -200,16 +200,16 @@ Once a user or sensing device is authenticated, access control policies can be e
 
 For example, a doctor who is treating a patient with diabetes can query the personal health knowledge graph to retrieve the patient's blood sugar levels, medication history, and other relevant data. This information can help the doctor to make informed decisions about the patient's treatment plan and monitor their progress over time. To do that, the doctor initiates a request to access a patient's health data by creating a transaction on the blockchain network that invokes the authorization request function on the smart contract. The authorization request function takes in the Ethereum address of the doctor and the Ethereum address of the patient. The function checks if the doctor is authorized to access the patient's data by looking up the patient's permissions on the personal health data. If the doctor is authorized, the function creates an approve event and sends it to all the nodes on the blockchain network. The event contains a token which is hashed using the Ethereum address of the doctor and a nonce, the event also contains an expiration time for the token. The doctor then uses this token to send a signed message containing the token using the doctor's private Ethereum key to the resource system. The system can query the smart contract and get the details such as assigned token, role, and the doctor's Ethereum address. The signed message helps the system verifies the doctor's identity and to allow access to the system based on the role. The doctor can then query the personal health knowledge graph to retrieve the patient's health data that is relevant to their treatment.
 
-Fig. 3 shows the sequence diagram of this communication process.
+Figure 3 shows the sequence diagram of this communication process.
 
-###*C. Smart Contract*In our blockchain-based PHKG network, smart contracts are used to automate the process of registration, authentication, and access control of individual users, health data producers, and data consumers. A smart contract is a self-executing code that runs on the blockchain network.
+### *C. Smart Contract*In our blockchain-based PHKG network, smart contracts are used to automate the process of registration, authentication, and access control of individual users, health data producers, and data consumers. A smart contract is a self-executing code that runs on the blockchain network.
 
 To register individual users, health data producers, and data consumers, we can create a smart contract that stores the necessary information, such as user identification, contact information, and access permissions. To authenticate people and institutes, we can use the Ethereum network's public-key infrastructure to verify user identities. The smart contract can include a function that verifies a user's identity by checking their public key against a stored list of authorized public keys. To control access to health data, we can use the smart contract to manage access permissions for users and data producers. The smart contract can include functions that allow authorized users to grant or revoke access permissions for specific data. For example, a function could be created to grant a data consumer access to a specific health data record.
 
 ![](_page_3_Figure_9.jpeg)
 <!-- Image Description: This sequence diagram illustrates data access control using a smart contract. It shows the interactions between a data owner, data producer, data consumer, and a resource system. The smart contract mediates access requests, verifying producer and consumer identities before granting write and read access to the data, respectively. The diagram details message exchanges, including token generation and access information exchange, to manage permissions. -->
 
-Fig. 3 A sequence diagram of the data access communication process
+Figure 3 A sequence diagram of the data access communication process
 
 In our system, we use the Ethereum blockchain platform to deploy smart contract. Our smart contract is written and tested with Solidity and Remix. It implemented the following functions:
 
@@ -220,126 +220,127 @@ In our system, we use the Ethereum blockchain platform to deploy smart contract.
 - getAccess\_Consumer(): data consumers execute the authorize function to obtain the authorization token from the smart contract.
 - verifyAccess(): used by the resource system to get token, role, and access rules from the smart contract to verify a producer or consumer's identity.
 
-Fig. 4 shows the smart contract written in Solidity language. The function getAccess\_Consumer allows a data consumer to request authorization to access a patient's data. The function checks if the requesting data consumer is authorized by the patient to access their data by verifying if the requesting data consumer's address is present in the patientToDataUserMapping array for the patient's address. If the data consumer is authorized, a token is generated and associated with the data consumer's address and role, and emitted as an event using the tokenEvent function.
+Figure 4 shows the smart contract written in Solidity language. The function getAccess\_Consumer allows a data consumer to request authorization to access a patient's data. The function checks if the requesting data consumer is authorized by the patient to access their data by verifying if the requesting data consumer's address is present in the patientToDataUserMapping array for the patient's address. If the data consumer is authorized, a token is generated and associated with the data consumer's address and role, and emitted as an event using the tokenEvent function.
 
- Smart contracts play a critical role in our system as they eliminate the need for intermediaries and provide a secure and transparent platform for data sharing. They automate the process of verifying and executing the contract terms, reducing the risk of fraud and ensuring that the terms are enforced as intended. Smart contracts also ensure that the personal health data is only accessible to authorized entities, which enhances data privacy and security. Overall, smart contracts provide a reliable and secure platform for the sharing of personal health data in a transparent and auditable manner.
+Smart contracts play a critical role in our system as they eliminate the need for intermediaries and provide a secure and transparent platform for data sharing. They automate the process of verifying and executing the contract terms, reducing the risk of fraud and ensuring that the terms are enforced as intended. Smart contracts also ensure that the personal health data is only accessible to authorized entities, which enhances data privacy and security. Overall, smart contracts provide a reliable and secure platform for the sharing of personal health data in a transparent and auditable manner.
 
 ![](_page_4_Figure_2.jpeg)
 <!-- Image Description: The image displays a code snippet, specifically a Solidity function (`getAccess_Consumer`) within a smart contract. It checks if a data consumer is authorized, using a mapping to verify the sender's address. If authorized, it generates a token using Keccak-256 hashing and emits a `tokenEvent`. Otherwise, it reverts with an error message. The code utilizes mappings for authorization and storage of data consumer details. -->
 
-Fig. 4. A snippet of the proposed smart contract.
+Figure 4. A snippet of the proposed smart contract.
 
-####*D. Distributed Graph Storage*![](_page_4_Figure_5.jpeg)
+### *D. Distributed Graph Storage*![](_page_4_Figure_5.jpeg)
+
 <!-- Image Description: The diagram illustrates a system architecture for a knowledge graph (KG) stored in a peer-to-peer (P2P) network. A client interacts with a Name Node via a smart contract. The Name Node manages the distribution of KG chunks across multiple chunk servers within the P2P network. The diagram shows data chunks distributed among servers, highlighting the decentralized storage approach and the role of the smart contract in managing data access. -->
 
-Fig. 5. P2P-based distributed PHKG storage
+Figure 5. P2P-based distributed PHKG storage
 
-The PHKG is broken down into smaller chunks of data, such as triples, and each chunk can be assigned a unique identifier. As shown in Fig. 5, the chunks of data are then stored across multiple chunk servers, i.e., P2P nodes, to ensure fault tolerance and availability. The metadata for the PHKG is stored in the name node. This includes information such as the name of the graph, the size of the graph, and the location of the chunk servers. To facilitate faster retrieval of data, a DHT-based indexing is put in place to allow for fast lookup of data based on the unique identifiers assigned to each chunk. To ensure data durability, the data is replicated across multiple chunk servers, and backup mechanisms are used to recover from failures. Access control is implemented using the aforementioned smart contract implemented in the blockchain. P2P-based distributed storage can provide an efficient and scalable way to store a knowledge graph by distributing the data across multiple nodes in the network. This can improve fault tolerance, data availability, and data access speeds while ensuring data security and integrity.
+The PHKG is broken down into smaller chunks of data, such as triples, and each chunk can be assigned a unique identifier. As shown in Figure 5, the chunks of data are then stored across multiple chunk servers, i.e., P2P nodes, to ensure fault tolerance and availability. The metadata for the PHKG is stored in the name node. This includes information such as the name of the graph, the size of the graph, and the location of the chunk servers. To facilitate faster retrieval of data, a DHT-based indexing is put in place to allow for fast lookup of data based on the unique identifiers assigned to each chunk. To ensure data durability, the data is replicated across multiple chunk servers, and backup mechanisms are used to recover from failures. Access control is implemented using the aforementioned smart contract implemented in the blockchain. P2P-based distributed storage can provide an efficient and scalable way to store a knowledge graph by distributing the data across multiple nodes in the network. This can improve fault tolerance, data availability, and data access speeds while ensuring data security and integrity.
 
-#### IV. EVALUATION
+### IV. EVALUATION
 
 We deployed the proposed mechanism over an Ethereum blockchain network. In the first set of experiments, we see how blockchain and smart contracts protect the privacy of users' data and improve the system's security. Then we evaluate the performance of the decentralized access control, query, and storage system in terms of scalability, load balancing, and fault tolerance.
 
-####*A. Access Control Verification*####*1) Smart contract use case testing*In this case, John is a patient at John Hopkins Hospital. He has opted to use a proposed blockchain-based personal health knowledge graph to securely and decentrally store and share all of his health data. As shown in Fig. 6, John has registered with the application using his Ethereum address (0xAb8…35cb2), and all his data generated during his hospital visits is safely stored and accessible through the application.
+### *A. Access Control Verification*####*1) Smart contract use case testing*In this case, John is a patient at John Hopkins Hospital. He has opted to use a proposed blockchain-based personal health knowledge graph to securely and decentrally store and share all of his health data. As shown in Fig. 6, John has registered with the application using his Ethereum address (0xAb8…35cb2), and all his data generated during his hospital visits is safely stored and accessible through the application.
 
 ![](_page_4_Figure_14.jpeg)
 <!-- Image Description: The image displays a code snippet showing the successful execution of a smart contract function, `PatientData.registerDataOwner()`. The output includes transaction details like `from`, `to`, `value`, `data`, and logs. The logs section, formatted as a JSON object, confirms the event `registeredPatientEvent` with associated parameters indicating a new patient was registered and their address. The image illustrates a successful blockchain transaction within the context of patient data registration. -->
 
-Fig. 6. John was successuflly registered as the data owner.
+Figure 6. John was successuflly registered as the data owner.
 
-John has a new health provider Dr. Johnson with an Ethereum Address (0x4B2…C02db). John registers Dr. Johnson and provides him a doctor's role (Fig. 7).
+John has a new health provider Dr. Johnson with an Ethereum Address (0x4B2…C02db). John registers Dr. Johnson and provides him a doctor's role (Figure 7).
 
 ![](_page_4_Figure_17.jpeg)
 <!-- Image Description: This image displays a debugging output, likely from a blockchain transaction. It shows the transaction details including the sender (`from`), receiver (`to`), function called (`registerDataConsumer`), status (`true`), input parameters (address and role), and various hexadecimal values (hash, data). The successful execution is indicated by "Transaction mined and execution succeed". The output's purpose is to verify the successful execution of a smart contract function within a decentralized application. -->
 
-Fig. 7. Dr. Johnson was successuflly registered as the data consumer.
+Figure 7. Dr. Johnson was successuflly registered as the data consumer.
 
-Dr. Johnson can access John's health data by interacting with the smart contract and receives a token, as shown in Fig. 8. The token obtained through the authorization process can be used by the doctor (authorized data consumer) to access the resource system where John's (patient) data is stored securely.
+Dr. Johnson can access John's health data by interacting with the smart contract and receives a token, as shown in Figure 8. The token obtained through the authorization process can be used by the doctor (authorized data consumer) to access the resource system where John's (patient) data is stored securely.
 
-|        | $\lceil \text{vm} \rceil$ from: $0x4B2C02db$<br>to: PatientData.getAccess Consumer(address) 0xd8b33fa8<br>value: 0 wei data: 0x9b535cb2 logs: 1 hash: 0xa441e44; |
+| | $\lceil \text{vm} \rceil$ from: $0x4B2C02db$<br>to: PatientData.getAccess Consumer(address) 0xd8b33fa8<br>value: 0 wei data: 0x9b535cb2 logs: 1 hash: 0xa441e44; |
 |--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| status | true Transaction mined and execution succeed                                                                                                                     |
-| logs   | €                                                                                                                                                                |
-|        | "from":                                                                                                                                                          |
-|        | "0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8",                                                                                                                    |
-|        | "topic":                                                                                                                                                         |
-|        | "exb99a@c5bdbd9f6eddf42f@b4e4df4fbbf7179a27ee2aec998                                                                                                             |
-|        | 917f32f1bef8692",                                                                                                                                                |
-|        | "event": "tokenEvent",                                                                                                                                           |
-|        | "args": $\{$                                                                                                                                                     |
-|        | "0": "Data Consumer",                                                                                                                                            |
-|        | $n_1 n_2$                                                                                                                                                        |
-|        | "0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db",                                                                                                                    |
-|        | $"2"$ :                                                                                                                                                          |
-|        | "0x0c2e2c50909a4fe7a3682aaa7b85df9d205095bd3636190b0                                                                                                             |
-|        | 6d474b1c328ab45",                                                                                                                                                |
-|        | "3": "doctor",                                                                                                                                                   |
-|        | "roleType": "Data Consumer",                                                                                                                                     |
-|        | "dataConsumer":                                                                                                                                                  |
-|        | "0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db",                                                                                                                    |
-|        | "token":                                                                                                                                                         |
-|        | "exec2e2c58989a4fe7a3682aaa7b85df9d2e5e95bd363619ebe                                                                                                             |
-|        | 6d474b1c328ab45",                                                                                                                                                |
-|        | "role": "doctor"                                                                                                                                                 |
-|        |                                                                                                                                                                  |
+| status | true Transaction mined and execution succeed |
+| logs | € |
+| | "from": |
+| | "0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8", |
+| | "topic": |
+| | "exb99a@c5bdbd9f6eddf42f@b4e4df4fbbf7179a27ee2aec998 |
+| | 917f32f1bef8692", |
+| | "event": "tokenEvent", |
+| | "args": $\{$ |
+| | "0": "Data Consumer", |
+| | $n_1 n_2$ |
+| | "0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db", |
+| | $"2"$ : |
+| | "0x0c2e2c50909a4fe7a3682aaa7b85df9d205095bd3636190b0 |
+| | 6d474b1c328ab45", |
+| | "3": "doctor", |
+| | "roleType": "Data Consumer", |
+| | "dataConsumer": |
+| | "0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db", |
+| | "token": |
+| | "exec2e2c58989a4fe7a3682aaa7b85df9d2e5e95bd363619ebe |
+| | 6d474b1c328ab45", |
+| | "role": "doctor" |
+| | |
 
-Fig. 8. Dr. Johnson was successuflly authrorized to accesss John's data.
+Figure 8. Dr. Johnson was successuflly authrorized to accesss John's data.
 
-An unauthorized party with Ethereum address (0x5c6…21678) tries to access John's data will be denied by the smart contract as shown in Fig. 9.
+An unauthorized party with Ethereum address (0x5c6…21678) tries to access John's data will be denied by the smart contract as shown in Figure 9.
 
 ![](_page_5_Picture_5.jpeg)
 <!-- Image Description: The image displays a debugging log from a smart contract transaction. It shows a transaction to `PatientData.getAccess_Consumer` that reverted due to an "Unauthorized Data Consumer" error. The log includes the transaction hash, addresses, values, and data, indicating a failed attempt to access patient data. The error message and debugging information aid in identifying and resolving the access control issue within the smart contract. -->
 
-Fig. 9. Unauthorized party was denied with accesss of John's data.
+Figure 9. Unauthorized party was denied with accesss of John's data.
 
-####*2) Cost anlaysis*To understand the cost of smart contract operations, a prototype contract was created and deployed using Remix on the Ethereum test network. The cost of deploying the contract and executing the functions on the contract were analyzed. As shown in Table 1, transactions record the cost in gas in the Ethereum ecosystem. Gas is the fee required to execute a transaction on the Ethereum platform. The transaction cost varies depending on the complexity of the function being executed. The highest cost was associated with the contract creation transaction, while the function "verifyAccess" is a view function and does not cost anything if called externally. It is important to consider the cost of smart contract operations to ensure that the system is efficient and cost-effective to use for all users.
+### *2) Cost anlaysis*To understand the cost of smart contract operations, a prototype contract was created and deployed using Remix on the Ethereum test network. The cost of deploying the contract and executing the functions on the contract were analyzed. As shown in Table 1, transactions record the cost in gas in the Ethereum ecosystem. Gas is the fee required to execute a transaction on the Ethereum platform. The transaction cost varies depending on the complexity of the function being executed. The highest cost was associated with the contract creation transaction, while the function "verifyAccess" is a view function and does not cost anything if called externally. It is important to consider the cost of smart contract operations to ensure that the system is efficient and cost-effective to use for all users.
 
-| Table I. Transaction cost |          |  |
+| Table I. Transaction cost | | |
 |---------------------------|----------|--|
-| Functions                 | Gas Used |  |
-| Contract Creation         | 2445488  |  |
-| registerDataOwner         | 67837    |  |
+| Functions | Gas Used | |
+| Contract Creation | 2445488 | |
+| registerDataOwner | 67837 | |
 
-| registerDataConsumer | 67837 |  |
+| registerDataConsumer | 67837 | |
 |----------------------|-------|--|
-| getAccess_Consumer   | 62723 |  |
-| verifyAccess         | 0.0   |  |
+| getAccess_Consumer | 62723 | |
+| verifyAccess | 0.0 | |
 
-###*B. Security Analysis*This section explains how our framework utilizes the blockchain to ensure the security of the entire system and prevent attacks.
+### *B. Security Analysis*This section explains how our framework utilizes the blockchain to ensure the security of the entire system and prevent attacks.
 
 -*Denial of Service attack:*All devices interacting with the smart contract in the Ethereum ecosystem require payments in the form of gas. This helps in restricting the flooding of requests to the smart contract and hence secures the platform from Denial-of-Service attack.
 -*MITM and Replay Attack :*User sends token signed with private key to the resource system during interaction. Resource system deciphers token using user's public key to ensure authenticity. Public-private key ensures elimination of MITM and replay attacks in the system.
 -*Integrity:*The smart contract on the Ethereum blockchain ensures data received from the contract is tamper-proof, providing evidence of integrity.
 -*Authorization:*The smart contract on the Ethereum platform is also responsible for authorizing users in any off-chain communications to use any service. Users are given tokens that they use during off-chain communications. Additionally, solidity modifiers and logic have been added to restrict access and allow only valid devices to execute a particular function, guarding against the reentrancy attack.
 
-####*C. Network Performance*We also deployed graph-based data over the P2P storage network. We measured the system's performance in terms of scalability, load balancing, and fault tolerance.
+### *C. Network Performance*We also deployed graph-based data over the P2P storage network. We measured the system's performance in terms of scalability, load balancing, and fault tolerance.
 
-We compared the P2P distributed PHKG system's network communication overhead (bytes per node) with a centralized storage system. As illustrated in Fig. 10, as the number of users of the system increases, the system's overhead increases. This increase is dramatical for the centralized system. While the P2P nodes' overhead is much lower for P2P system with 50 nodes and 1000 nodes. For the P2P system with 1000 nodes the overhead is so small that its performance line almost touches the x-axis. These experiments demonstrate the scalability of the P2P system.
+We compared the P2P distributed PHKG system's network communication overhead (bytes per node) with a centralized storage system. As illustrated in Figure 10, as the number of users of the system increases, the system's overhead increases. This increase is dramatical for the centralized system. While the P2P nodes' overhead is much lower for P2P system with 50 nodes and 1000 nodes. For the P2P system with 1000 nodes the overhead is so small that its performance line almost touches the x-axis. These experiments demonstrate the scalability of the P2P system.
 
 ![](_page_5_Figure_20.jpeg)
 <!-- Image Description: The image displays a line graph comparing the byte usage of centralized and distributed systems (with 1000 and 50 nodes) as the number of users increases from 0 to 900. The graph shows that byte usage increases linearly with the number of users for the centralized system and the distributed system with 1000 nodes, while remaining relatively constant for the distributed system with 50 nodes. The purpose is to illustrate the scalability and performance differences between the three system architectures. -->
 
-Fig. 10. Number of users (patients) vs. avg message overhead per server (node).
+Figure 10. Number of users (patients) vs. avg message overhead per server (node).
 
- Fig. 11 shows the distribution of communication load of a P2P network with 500 nodes. We randomly generated data access requests. For simplicity, we only generate "read" requests. As shown in the figure, communication overhead is basically balanced among the P2P nodes mainly ranging from 10000 to 30000 bytes. These experiments illustrate the load balancing properties of the system.
+Figure 11 shows the distribution of communication load of a P2P network with 500 nodes. We randomly generated data access requests. For simplicity, we only generate "read" requests. As shown in the figure, communication overhead is basically balanced among the P2P nodes mainly ranging from 10000 to 30000 bytes. These experiments illustrate the load balancing properties of the system.
 
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image displays a scatter plot illustrating the relationship between node ID and data size (in bytes). Approximately 400 data points are shown, revealing a generally negative correlation: as Node ID increases, the corresponding data size tends to decrease, although with considerable variation. The plot likely demonstrates the data distribution across nodes in a network, possibly related to load balancing or data partitioning within the system described in the paper. -->
 
-Fig. 11. Nodes' communication overhead distribution
+Figure 11. Nodes' communication overhead distribution
 
- As presented in the previous section, to ensure data availability, in the P2P-based distributed PHKG storage, data is replicated across multiple chunk servers. We tested the data availability of the system. In this experiment, each data has three replicas, i.e., each data chunk is replicated in three P2P nodes. The network size is 500. Fig. 12 shows the success rate of the access requests with respect to the node drop rate. The data availability keeps being 100% when the node's drop rate is below 30%. For the network of 500 nodes, even 150 nodes die or leave the system, the network still can provide 100% data availability. These experiments show the fault tolerance of the system.
+As presented in the previous section, to ensure data availability, in the P2P-based distributed PHKG storage, data is replicated across multiple chunk servers. We tested the data availability of the system. In this experiment, each data has three replicas, i.e., each data chunk is replicated in three P2P nodes. The network size is 500. Figure 12 shows the success rate of the access requests with respect to the node drop rate. The data availability keeps being 100% when the node's drop rate is below 30%. For the network of 500 nodes, even 150 nodes die or leave the system, the network still can provide 100% data availability. These experiments show the fault tolerance of the system.
 
 ![](_page_6_Figure_5.jpeg)
 <!-- Image Description: The line graph displays the relationship between node drop rate and data availability. The x-axis represents the percentage of nodes dropped, while the y-axis shows the percentage of data availability. The graph demonstrates high data availability (around 95-100%) is maintained until a node drop rate of approximately 30%, after which availability decreases sharply. This suggests a high resilience to node failures until a critical threshold is reached. -->
 
-Fig. 12. Data availability of the PHKG storage vs the network's node drop rate
+Figure 12. Data availability of the PHKG storage vs the network's node drop rate
 
-#### V. CONCLUSIONS
+### V. CONCLUSIONS
 
- The amount of health-related data generated from various sources continues to increase, providing valuable insights into an individual's health. However, managing and integrating this data poses significant challenges, including data interoperability, privacy, and security. To address these challenges, we propose a personal health knowledge graph that organizes PHD in a graph format, enabling the integration and analysis of various types of data for a comprehensive view of an individual's health. Furthermore, we suggest a blockchain architecture to provide a secure and tamper-proof way of storing and sharing PHKG, allowing patients to have full control over their data and to share it with trusted entities as needed. The use of smart contracts also enables the automation of access control and data sharing policies, providing enhanced privacy and security. The proposed system has been evaluated using use cases and simulation, and it has been shown to be secure, scalable, and enables effective data sharing and integration.
+The amount of health-related data generated from various sources continues to increase, providing valuable insights into an individual's health. However, managing and integrating this data poses significant challenges, including data interoperability, privacy, and security. To address these challenges, we propose a personal health knowledge graph that organizes PHD in a graph format, enabling the integration and analysis of various types of data for a comprehensive view of an individual's health. Furthermore, we suggest a blockchain architecture to provide a secure and tamper-proof way of storing and sharing PHKG, allowing patients to have full control over their data and to share it with trusted entities as needed. The use of smart contracts also enables the automation of access control and data sharing policies, providing enhanced privacy and security. The proposed system has been evaluated using use cases and simulation, and it has been shown to be secure, scalable, and enables effective data sharing and integration.
 
-#### REFERENCES
+### REFERENCES
 
 - [1] T. Justinia, "Blockchain Technologies: Opportunities for Solving Real-World Problems in Healthcare and Biomedical Sciences,"*Acta Informatica Medica*, vol. 27, no. 4, p. 284, 2019
 - [2] A. Haleem, M. Javaid, R. P. Singh, R. Suman, and S. Rab, "Blockchain technology applications in healthcare: An overview," International Journal of Intelligent Networks, vol. 2, pp. 130–139, Jan. 2021.

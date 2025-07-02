@@ -25,7 +25,6 @@ keywords:
 - visual-text
 ---
 
-
 # Blind Multimodal Quality Assessment of Low-Light Images
 
 **Miaohui Wang[1](http://orcid.org/0000-0003-1125-9299) · Zhuowei Xu[1](http://orcid.org/0000-0002-2222-158X) · Mai Xu[2](http://orcid.org/0000-0002-0277-3301) · Weisi Lin[3](http://orcid.org/0000-0001-9866-1947)**Received: 21 December 2023 / Accepted: 2 September 2024 / Published online: 16 October 2024 © The Author(s), under exclusive licence to Springer Science+Business Media, LLC, part of Springer Nature 2024
@@ -49,7 +48,7 @@ Weisi Lin wslin@ntu.edu.sg
 - <sup>2</sup> Electronic and Information Engineering, Beihang University, Beijing, China
 - <sup>3</sup> College of Computing and Data Science, Nanyang Technological University, Singapore, Singapore
 
-# 1 Introduction
+## 1 Introduction
 
 Storage, transmission, and processing of low-light images are unavoidable (Li et al[.,](#page-21-0) [2022\)](#page-21-0), especially in smartphone photography, video surveillance, autonomous driving,*etc*. However, imaging in weak-illumination environments can lead to uneven brightness, poor visibility, impaired color, and increased hybrid noise, which degrade user experience and product value (Wang et al[.](#page-22-0), [2022\)](#page-22-0). Further, low-light images also pose various challenges to the performance of mainstream vision algorithms, including object detection (Boži´c-Štuli´c et al[.,](#page-21-1) [2019](#page-21-1)), recognition (Xu et al[.,](#page-22-1) [2024](#page-22-1)), classification (Loh and Cha[n](#page-22-2), [2019\)](#page-22-2), tracking (Zhang et al[.,](#page-22-3) [2024](#page-22-3)), segmentation (Chen et al[.,](#page-21-2) [2024\)](#page-21-2), enhancement (Liu et al[.](#page-21-3), [2021](#page-21-3)), and, assessment (Ding et al[.](#page-21-4), [2021](#page-21-4)). Therefore, it is essential to develop a reliable objective quality indicator for low-light images, which helps to meet the quality measurement and inspection needs in various industrial products and computer vision tasks.
 
@@ -74,7 +73,7 @@ The main contributions are four-folds:
 
 (4) To demonstrate the applicability of our BMQA, we also establish a new low-light image quality database, namely Dark-4K, which contains only a single image modality. Dark-4K is used to verify the applicability and generalization performance under the unimodal assessment scenarios. Experiments show that this hybrid learning paradigm ensures that BMQA achieves state-of-the-art performance on both the MLIQ and Dark-4K databases.
 
-# 2 Related Work
+## 2 Related Work
 
 In this section, we provide a brief review of recent BIQA methods in various aspects, covering hand-crafted BIQAs (e.g., distortion-specific and general-purpose), and deeplearned BIQAs (e.g., supervised learning-based and unsupervised learning-based). In addition, we also review the exploration of multimodality-based quality assessment in user-perceived quality of experience (QoE).
 
@@ -91,7 +90,7 @@ Hand-crafted BIQAs (Wang et al[.](#page-22-8), [2021](#page-22-8)) are typically
 Additionally, there are other promising distortion-specific BIQAs, including screen content (Wang et al[.,](#page-22-8) [2021\)](#page-22-8), aesthetic (Deng et al[.,](#page-21-7) [2017\)](#page-21-7), light-field (Tian et al[.](#page-22-12), [2021](#page-22-12)), and underwater (Zheng et al[.,](#page-23-0) [2022\)](#page-23-0). Due to the length of the article, we will not discuss other types of distortion-specific BIQAs in this article.
 *General-Purpose BIQAs*General-purpose methods (Kong and Yan[g](#page-21-8), [2018\)](#page-21-8), on the other hand, utilize common qualityaware features to quantify image distortion. For example, natural scene statistics (NSS)-based BIQAs are based on the assumption that high-fidelity images obey some kind of prior statistical characteristics (Zhang et al[.](#page-22-13), [2015](#page-22-13)), which are altered by quality degradation in frequency and spatial domains (Mittal et al[.](#page-22-14), [2012\)](#page-22-14). HVS-guided BIQAs are based on the understanding that the ultimate recipients of visual signals are humans, and it is significant to exploit perception characteristics, such as free-energy principle (Zhai et al[.,](#page-22-15) [2012\)](#page-22-15) and visual sensitivity (Liu and Li[u](#page-22-16), [2018](#page-22-16)).
 
-#### 2.1.2 Deep-Learned BIQA Methods
+### 2.1.2 Deep-Learned BIQA Methods
 
 Deep-learned BIQAs (Wang et al[.](#page-22-11), [2022](#page-22-11)) directly learn quality features from distorted images in an end-to-end manner. Unlike hand-crafted BIQAs, these methods automatically optimize quality forecasting models which have shown promising performance. Deep-learned BIQAs can be usually divided into (1) supervised learning-based and (2) unsupervised learning-based BIQA methods. It is worth noting that there are other learning types (e.g., reinforcement learning (Gu et al[.](#page-21-9), [2019\)](#page-21-9)), which are somewhat less commonly used in the deep-learned BIQA task.
 *Supervised Learning-Based*Supervised learning-BIQAs (Ying et al[.,](#page-22-17) [2020\)](#page-22-17) focus on solving the problem of insufficient training samples. For example, sample-based BIQAs (Bosse et al[.,](#page-21-10) [2018](#page-21-10); Kang et al[.](#page-21-11), [2014](#page-21-11); Ke et al[.,](#page-21-12) [2021\)](#page-21-12) are mainly based on expanding the capacity of training samples by utilizing patch-level quality features to predict an imagelevel score. Constraint-based BIQAs (Kim et al[.,](#page-21-13) [2019;](#page-21-13) Zhang et al[.](#page-23-1), [2020\)](#page-23-1) optimize multiple loss functions simultaneously in supervised learning, such as employing multiple losses for multi-scale supervision (Wu et al[.](#page-22-18), [2020](#page-22-18)), introducing new normalization embeddings into the objective function (Li et al[.,](#page-21-14) [2020](#page-21-14)), leveraging hierarchical curriculum learning (Wang et al[.](#page-22-19), [2023](#page-22-19)), using additional constraints to adjust initialization parameters (Zhu et al[.,](#page-23-2) [2020](#page-23-2)), and incorporating constraints learned from other databases (Ma et al[.](#page-22-20), [2021](#page-22-20); Zhang et al[.](#page-23-3), [2021](#page-23-3), [2023\)](#page-23-4).
@@ -100,7 +99,7 @@ Deep-learned BIQAs (Wang et al[.](#page-22-11), [2022](#page-22-11)) directly le
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a multimodal image quality assessment (BIQA) system. It processes image and text modalities separately (unimodal BIQA) using local distortion, regional degradation, and global perception features for images, and then combines these with text features (multimodal BIQA) through alignment and fusion. The final output is an objective image quality score displayed as a speedometer-like gauge, representing a combined assessment from both modalities. -->
 
-<span id="page-3-0"></span>**Fig. 2**Relationship between unimodal and multimodal BIQAs. Humans are better at perceiving image quality through semantic descriptions rather than quantitative values, which reveals that text description is a very useful modality for BIQA modeling. Please zoom in the electronic version for better details
+<span id="page-3-0"></span>**Figure 2**Relationship between unimodal and multimodal BIQAs. Humans are better at perceiving image quality through semantic descriptions rather than quantitative values, which reveals that text description is a very useful modality for BIQA modeling. Please zoom in the electronic version for better details
 
 ## 2.2 Multimodal Quality Assessment
 
@@ -123,7 +122,7 @@ Furthermore, our investigation focuses on how additional modality information, i
 
 Finally, our BMQA provides a new and promising research perspective. On one hand, the homogeneity of multimodal data suggests that training information can be supplementary or shared, which facilitates the learning of highly descriptive quality features. On the other, the heterogeneity of multimodal data can expand the breadth and depth of training information, which potentially improves the forecasting performance. To this end, it is highly desirable to develop a specialized multimodal quality indicator for lowlight images.
 
-# <span id="page-4-0"></span>3 Multimodal Low-Light Image Quality (MLIQ) Database Construction
+## <span id="page-4-0"></span>3 Multimodal Low-Light Image Quality (MLIQ) Database Construction
 
 In this section, we describe how to construct our MLIQ database. The established database contains RGB images with the subjective quality scores and QSD-based texts.
 
@@ -139,7 +138,7 @@ To obtain the MOS label for each low-light image on MLIQ, we have conducted a su
 
 A statistical analysis of our MLIQ is illustrated in Fig. [3.](#page-5-0) Figure [3a](#page-5-0)–c provide the overall statistical data of shooting device, image resolution, and content application scenario, respectively. Figure [3d](#page-5-0) reports the histogram distribution of MOS values. As seen, MOS values span the entire quantified range of visual quality with sufficient and fairly uniform samples at each level. This shows that our MLIQ database covers the entire range of visual quality (from poor to excellent), and also exhibits a good separation of the perceptual quality. In addition, Fig. [3e](#page-5-0) reports the 95% confidence intervals obtained from the mean and standard deviation of the rating score for each image as the consistency evaluation, where the confidence interval is mainly distributed between 0.11 and 0.17. It indicates that all observers have reached a high agreement on the perceptual quality of low-light images. Therefore, the proposed MLIQ database is used as a groundtruth for the performance evaluation of objective quality indicators.
 
-#### <span id="page-4-2"></span>3.1.2 QSD-Based Text Modality
+### <span id="page-4-2"></span>3.1.2 QSD-Based Text Modality
 
 A simple and effective way to represent human visual perception is to ask subjects to describe and record their semantic visual understanding (Wade and Swansto[n,](#page-22-27) [2013](#page-22-27)). The text description can provide additional quality assessment clues: On one hand, free verbal descriptions of visual understanding provide potentially the richest QSD source, since language is the most flexible means of human communication. On the other, verbal descriptions help to avoid personal information bias, as verbal descriptions are far less likely to be inconsistent than consistent (Hanjalic and X[u](#page-21-16), [2005](#page-21-16)).
 
@@ -150,7 +149,7 @@ By synthesizing some previous work, we design two text description principles ba
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image presents a data analysis of images used in a study. (a), (b), and (c) are donut charts showing image source device, resolution, and application, respectively. (d) is a histogram depicting the distribution of Mean Opinion Scores (MOS) values. (e) is a histogram showing the distribution of confidence interval lengths. The charts illustrate the dataset's characteristics, crucial for understanding the study's scope and results. -->
 
-<span id="page-5-0"></span>**Fig. 3**A statistical analysis of the proposed multimodal MLIQ database:**a**shooting device,**b**image resolution,**c**application scenario,**d**MOS distribution, and**e**confidence interval
+<span id="page-5-0"></span>**Figure 3**A statistical analysis of the proposed multimodal MLIQ database:**a**shooting device,**b**image resolution,**c**application scenario,**d**MOS distribution, and**e**confidence interval
 *Empirical Visual Perception.* This principle is inspired by modern theoretical studies in visual theory that embraces empiricism as the dominant paradigm of human perception construction, such as Gregory's theory (Gregor[y,](#page-21-17) [1980](#page-21-17)). These studies demonstrate that while part of what we perceive comes from objects in front of us, another part (and possibly a larger part) always comes from our brains. The empiricism principle is closely related to late vision and focuses on exploring how the viewpoints of observers are involved in quality cognition. Empirical vision mainly involves some common real-world knowledge as well as empirical visual understanding, and highlights the possible real-life scenarios of low-light observations (Gordo[n](#page-21-18), [2004](#page-21-18)). For instance, subjects use '*driving*' rather than '*sitting*' for '*ship*' as shown in Fig. [4e](#page-6-0).
 
 However, there are several challenges associated with verbal description. In this article, we will consider three of them in obtaining the text labels:
@@ -169,12 +168,12 @@ To address the above three challenges, we attempt to develop a tractable verbal 
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image displays six sets of paired images, illustrating variations in luminance, content, color, blur, noise, and saturation. Each pair shows a scene under different conditions of the specified image quality factor. Descriptive captions accompany each image, highlighting the visual differences. The purpose is to visually demonstrate these image quality factors in the context of the paper, likely related to image processing or computer vision. -->
 
-<span id="page-6-0"></span>**Fig. 4** Examples of some Image-Text-MOS pairs on our MLIQ database. We provide some representative examples for analysis and discussion of the text attributes, including luminance, content, color, blurry, noise, and saturation. Please zoom in the electronic version for better details
+<span id="page-6-0"></span>**Figure 4** Examples of some Image-Text-MOS pairs on our MLIQ database. We provide some representative examples for analysis and discussion of the text attributes, including luminance, content, color, blurry, noise, and saturation. Please zoom in the electronic version for better details
 
 ![](_page_6_Figure_4.jpeg)
 <!-- Image Description: The image displays a matrix of 24 images categorized into four sections: Luminance, Content, Color, and Other Factors. Each image is annotated with a Mean Opinion Score (MOS) value and a brief description. The purpose is to illustrate the image quality assessment and its relation to luminance, scene content, color characteristics, and other contributing factors, likely in the context of image or video quality research. -->
 
-<span id="page-6-1"></span>**Fig. 5**Visual examples for different quality semantic description (QSD)-based texts.:**a** *Luminance* covers illumination conditions including '*bright*', '*light*', '*dim*', and '*dark*'; **b** *Content*covers the number of
+<span id="page-6-1"></span>**Figure 5**Visual examples for different quality semantic description (QSD)-based texts.:**a** *Luminance* covers illumination conditions including '*bright*', '*light*', '*dim*', and '*dark*'; **b** *Content*covers the number of
 
 observed objects ranging from 1 to 5;**c** *Color*covers the number of color words ranging from 0 to 4;**d** *Other factors* cover QSD-based keywords including '*noisy*', '*blur*', '*dull*', and '*vivid*'
 
@@ -193,7 +192,7 @@ In this section, we analyze correlations between images, texts, and quality scor
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image displays three graphs analyzing dictation data categorized by luminance (dark, dim, light, bright). (a) shows Gaussian fits to histograms of Mean Opinion Score (MOS) values for each luminance level. (b) presents a stacked bar chart illustrating the distribution of dictation lengths (number of keywords) across luminance categories. (c) is a scatter plot showing the relationship between MOS and luminance, colored by luminance level. The purpose is to demonstrate the correlation between subjective quality (MOS), luminance, and dictation characteristics. -->
 
-<span id="page-7-0"></span>**Fig. 6**Statistics of text quality feature based on luminance:**a**histogram of the luminance keywords and Gaussian fitting,**b**histogram of the length and number of luminance keywords, and**c** scatter distribution of the luminance keywords and MOS values
+<span id="page-7-0"></span>**Figure 6**Statistics of text quality feature based on luminance:**a**histogram of the luminance keywords and Gaussian fitting,**b**histogram of the length and number of luminance keywords, and**c** scatter distribution of the luminance keywords and MOS values
 
 mation. Based on the statistical analysis of MLIQ, we attempt to capture the underlying connection between visual signals and verbal descriptions. We conduct the statistical analysis based on brightness, content and color, and then discuss other factors affecting quality perception on low-light images.
 
@@ -207,7 +206,7 @@ Next, we analyze the relationship between images, texts, and quality scores base
 
 In addition, we calculate the average luminance value for each image as the objective luminance level and report the scatter plot of the corresponding quality score as shown in Fig. [6c](#page-7-0). We further mark colors for each plot based on the luminance keyword contained in the corresponding text. It can be observed that as the luminance level increases, the quality score generally increases as shown in different scatter colors. It suggests that the luminance feature is an efficient representation of visual quality perception.
 
-#### 3.2.2 Content
+### 3.2.2 Content
 
 Due to insufficient exposure, low-light distortions usually result in incomplete or unclear visual quality, further leading to an annoying visual experience. The text modality contains verbal descriptions of observed objects, which can effectively provide auxiliary information on which objects the visual attention is focused. Therefore, we explore the relationship between image quality and content.
 
@@ -218,11 +217,11 @@ Based on the statistical data of image content and some visual examples provided
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: The figure presents three bar graphs showing the number of text sequences categorized by visual features (content, color, distortion keywords) and their corresponding Mean Opinion Scores (MOS). (a) plots object count vs. MOS; (b) plots color count vs. MOS; (c) plots distortion keywords vs. MOS. Each graph shows the distribution of text sequences across different levels of each visual feature and how MOS correlates with these features. The purpose is to demonstrate the relationship between visual content and perceived quality (MOS). -->
 
-<span id="page-8-0"></span>**Fig. 7**Statistics of other text quality features:**a**content,**b**color, and**c** keyword. The number of related images is measured by the main ordinate (placed on the left-hand side), while the average MOS result (dots connected by a solid line) is measured by the secondary ordinate (placed on the right-hand side)
+<span id="page-8-0"></span>**Figure 7**Statistics of other text quality features:**a**content,**b**color, and**c** keyword. The number of related images is measured by the main ordinate (placed on the left-hand side), while the average MOS result (dots connected by a solid line) is measured by the secondary ordinate (placed on the right-hand side)
 
 ter visual quality usually contain more identifiable observed objects. (2) The stacked histogram in Fig. [7a](#page-8-0) shows that when the luminance levels get lower, the number of observed objects decreases. (3) The quality score increase caused by the quantity increase of observed objects is small (0.0657 from 1 to 5), which indicates that it is difficult to sensitively reflect visual experience via the quantity of observed objects. One possible reason may be that low-light distortion tends to lose detail rather than salient objects, while the quality score depends more on the salient content itself. For example, although the leftmost image in Fig. [5b](#page-6-1) is in '*dark*', the observed object '*building*' is clear.
 
-#### 3.2.3 Color
+### 3.2.3 Color
 
 Low-light distortion tends to exhibit low color contrast and low saturation. The observed colors may effectively provide useful text information on visual perception responses. Therefore, we investigate the relationship between image quality and observed colors.
 
@@ -230,7 +229,7 @@ The impairment of observed colors is reflected as the reduction of color descrip
 
 Based on the statistical data of image color and some visual examples provided in Fig. [5c](#page-6-1), we can also draw some interesting conclusions: (1) The curve in Fig. [7b](#page-8-0) shows that the quality score tends to be higher as the number of color features increases. This may indicate that images with a better visual perception experience usually contain more recognizable colors, as shown in Fig. [4c](#page-6-0). (2) The stacked histogram in Fig. [7b](#page-8-0) shows that when the visual perceptual luminance gets lower, the number of observed colors tends to be lower. (3) The quality score increases caused by the number increase of observed color is large (0.2747 from 0 to 4). This may indicate that the quantity of observed color can sensitively represent the quality experience of low-light distortion. For example, the rightmost image in Fig. [5c](#page-6-1) contains four vibrant colors, and its corresponding MOS is high.
 
-#### 3.2.4 Other Factors
+### 3.2.4 Other Factors
 
 Low-light photography is also often affected by many other factors, including blurring, heavy noise and low saturation (Chen et al[.](#page-21-19), [2021](#page-21-19)). A low-light image may get blurred by the camera shake if it is set to a long exposure time, as shown in Fig. [4d](#page-6-0). The increase in light sensibility reduces the signalto-noise ratio while increasing the exposure, as shown in Fig. [4e](#page-6-0). In addition, both underexposure and overexposure significantly affect color saturation, which further affects the visual experience.
 
@@ -238,7 +237,7 @@ Considering that the text label may contain some keywords that directly describe
 
 Based on the above statistical data and some visual examples provided in Fig. [5d](#page-6-1), we can draw some interesting conclusions: (1) text features such as '*blur*', '*noisy*', and '*dull*' represent poor visual experience, while '*vivid*' represents good visual experience. (2) The proportion of '*noisy*' is large in the '*bright*' luminance level, which indicates that noises in low-light images are more easily perceptible. 3) The proportion of '*blur*' is similar under different luminance levels, which indicates that blur is not closely related to lumination. (4) The proportion of '*dull*' is large in the '*dark*' and '*dim*' luminance levels, while the proportion of '*vivid*' is large in the '*light*' and '*bright*' luminance levels. These observations are consistent with the fact that human eyes prefer highly saturated colors, as shown in Fig. [4f](#page-6-0).
 
-# 4 Proposed Blind Multimodal Quality Assessment (BMQA) Framework
+## 4 Proposed Blind Multimodal Quality Assessment (BMQA) Framework
 
 Based on the proposed MLIQ database, we design a unique deep-learned BMQA as shown in Fig. [8.](#page-10-0) We address the main challenges of multimodal learning in the BIQA task, including feature representation, alignment, and fusion. Finally, we will describe our learning mechanism.
 
@@ -258,7 +257,6 @@ where*Ftxt*represents a text feature extractor,*Xtxt*denotes an input quality de
 
 a word*xk*∈<*x*1,..., *xN*>, we adopt*Ftxt*to extract the semantic quality feature for each word. In BMQA,*Ftxt*can be formulated as follows:
 
-<span id="page-9-0"></span>
 $$
 \mathcal{F}_{txt}(x_k) = \sigma \left[ \mathcal{F}^1_{txt,lp} \left( x_n, < x_1, \dots, x_n, 0, \dots >; \quad \theta^1_{txt,lp} \right) \right] \\
 \quad \oplus \mathcal{F}^2_{txt,lp} \left( x_n, < x_1, \dots, x_n, 0, \dots >; \quad \theta^2_{txt,lp} \right),\n\tag{2}
@@ -268,18 +266,16 @@ where*<sup>F</sup>*<sup>1</sup> *txt*,*lp*and*<sup>F</sup>*<sup>2</sup> *txt*,*l
 
 Finally, the association of all words in a dictation will contribute to the feature representation of **F***txt*. In BMQA, it is generated by a linear combination of all word features:
 
-<span id="page-9-1"></span>
 $$
 \mathbf{F}_{txt} = \mathcal{F}_{lc} \left[ \mathcal{F}_{txt}(x_1), \dots, \mathcal{F}_{txt}(x_N); \quad \theta_{lc} \right], \tag{3}
 $$
 
 where*Flc*represents a fully-connected layer and*θlc*denotes the weights of*Flc*. In the experiments, we select 3 representative networks as the backbone of *Ftxt* , including Bag-of-Word (*denoted as* BoW), recurrent neural network (*denoted as* RNN), and Transformer (*denoted as*TransF).
 
-#### 4.1.2 Image Quality Feature Representation
+### 4.1.2 Image Quality Feature Representation
 
 Recent work has demonstrated the feasibility and superiority of deep neural network (DNN) in many vision tasks. Inspired by this, we obtain the image quality representation**F***img*by a deep-learned mapping:
 
-<span id="page-9-2"></span>
 $$
 \mathbf{F}_{img} = \mathcal{F}_{img} \left( X_{img}; \quad \boldsymbol{\theta}_{img} \right), \tag{4}
 $$
@@ -288,7 +284,6 @@ where*Fimg*denotes an image feature encoder,*Ximg*denotes an input image, and*θ
 
 Existing deep-learned image quality representation (Fang et al[.](#page-21-20), [2022](#page-21-20)) mainly relies on the extraction and integration of features in the spatial domain.*Fimg*is usually designed as a stack of multiple layers of DNN blocks. Specifically, let*Fl img*denote a basic DNN block in the*l*-th layer of *Fimg*. *Fl img*usually consists of sequential linear computations and nonlinear activation functions in BMQA, which can be formulated as:
 
-<span id="page-9-3"></span>
 $$
 \mathcal{F}^{l}{}_{img}\left(X^{l}{}_{img}\right) = \sigma_{l}\left[\mathcal{F}^{1}{}_{img,lp}\left(X^{l}{}_{img};\quad\theta^{1}{}_{img,lp}\right)\right]
 $$
@@ -304,7 +299,7 @@ Recent studies demonstrate that different backbones of deep models result in dif
 ![](_page_10_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a multimodal image and text quality assessment system. Image and text inputs are encoded into feature vectors. A multimodal alignment stage uses a graph-based approach, where nodes represent features and edges show relationships (attraction/repulsion), aligning visual and textual features. A fusion module combines these aligned features, and a linear probe generates four quality scores. The diagram visually depicts the data flow and processing steps of the system. -->
 
-<span id="page-10-0"></span>**Fig. 8** Overall learning framework of the proposed BMQA. It consists of three key modules, including multimodal feature representation, latent feature alignment, and fusion prediction
+<span id="page-10-0"></span>**Figure 8** Overall learning framework of the proposed BMQA. It consists of three key modules, including multimodal feature representation, latent feature alignment, and fusion prediction
 
 Vision-in-Transformer (*denoted as* ViT), and ConvNeXT (*denoted as*CNXT).
 
@@ -316,7 +311,6 @@ Existing methods build the multimodal alignment by designing constraints across 
 
 The image and text are heterogeneous modalities. Therefore, we adopt the cosine similarity to measure the relative difference, and design an attentive pooling for multimodal quality alignment. Specifically, we find the shared quality information by learning the attentive distribution, and the aligned visual feature**F***img*is formulated by:
 
-<span id="page-10-1"></span>
 $$
 \begin{cases}\n\widehat{\mathbf{F}}_{img} = \mathcal{N}_{ln} \left( \mathcal{F}_{fw} \left( \ddot{\mathbf{F}}_{img}; \quad \boldsymbol{\theta}_{fw} \right) + \ddot{\mathbf{F}}_{img} \right); \\
 \ddot{\mathbf{F}}_{img} = \mathcal{N}_{ln} \left( \mathcal{F}_{ms} \left( \mathbf{F}_{img}; \quad \boldsymbol{\theta}_{k}, \boldsymbol{\theta}_{q}, \boldsymbol{\theta}_{v}, \sigma_{s} \right) + \mathbf{F}_{img} \right)\n\end{cases}, \quad (6)
@@ -326,7 +320,6 @@ where*F <sup>f</sup>*<sup>w</sup> denotes a feed-forward layer with the paramete
 
 The aligned text feature **F***txt*can be formulated as:
 
-<span id="page-10-2"></span>
 $$
 \begin{cases}\n\widehat{\mathbf{F}}_{txt} = \mathcal{N}_{ln} \left( \mathcal{F}_{fw} \left( \ddot{\mathbf{F}}_{txt}; \quad \boldsymbol{\theta}'_{fw} \right) + \ddot{\mathbf{F}}_{txt} \right); \\
 \ddot{\mathbf{F}}_{txt} = \mathcal{N}_{ln} \left( \mathcal{F}_{ms} \left( \mathbf{F}_{txt}; \quad \boldsymbol{\theta}'_k, \boldsymbol{\theta}'_q, \boldsymbol{\theta}'_v, \sigma_s \right) + \mathbf{F}_{txt} \right)\n\end{cases}, \tag{7}
@@ -349,7 +342,6 @@ In BMQA, the main benefit of using two modalities is that the image quality can 
 
 To preserve quality information as much as possible, we integrate two heterogenous modality features via a concatenation operation. Next, we employ a 2048-wide linear probe (Radford et al[.](#page-22-30), [2021\)](#page-22-30),*F f use*, to fuse and forecast a final quality score *spred*, which can be formulated as:
 
-<span id="page-11-1"></span>
 $$
 s_{pred} = \mathcal{F}_{fuse} \left[ \text{concat} \left( \widehat{\mathbf{F}}_{img}, \widehat{\mathbf{F}}_{txt} \right); \quad \theta_{fuse} \right], \tag{9}
 $$
@@ -400,7 +392,7 @@ $$
 $$
 \n(12)
 
-#### 4.4.2 Multimodal Quality Supervision
+### 4.4.2 Multimodal Quality Supervision
 
 To obtain a better fusion model *F f use*in Eq. [\(9\)](#page-11-1), we adopt the mean square error ·<sup>2</sup> <sup>2</sup> to measure the difference between the predicted score*spred*and the ground-truth subjective score*sgt*. Our goal is to predict a score as close as possible to the subjective MOS, and the optimization problem can be formulated as:
 
@@ -414,7 +406,7 @@ Given a pair of image data*Ximg*and text data*Xtxt*, we obtain the image feature
 
 The detailed algorithm of our BMQA is summarized in Algorithm [1.](#page-11-2)
 
-# 5 Validations and Discussions
+## 5 Validations and Discussions
 
 In this section, extensive experiments are conducted on two latest benchmark low-light image databases. Specifically, we verify the effectiveness of our BMQA on the image-text database MLIQ (i.e., BMQA*image*−*text*) and the image-only database Dark-4K (i.e., BMQA*image*−*only*), respectively. Besides, we demonstrate the comparison results with 25 competitive methods, including 8 hand-crafted BIQAs and 17 deep-learned BIQAs. We provide the detailed descriptions of the experimental validation, analysis, and discussion as follows.
 
@@ -430,44 +422,44 @@ In the experiments, three databases are used including a pre-training database M
 ![](_page_12_Figure_11.jpeg)
 <!-- Image Description: The image contains two histograms. (a) shows the distribution of Mean Opinion Scores (MOS) values, indicating the frequency of different MOS values across a set of images. (b) displays the distribution of confidence interval lengths associated with those MOS values, showing the variability in the accuracy of the MOS estimations. Both histograms illustrate the statistical properties of the subjective image quality assessments. -->
 
-<span id="page-12-0"></span>**Fig. 9**A statistical analysis of the proposed unimodal Dark-4K database:**a**histogram of MOS values and**b**distribution of confidence interval
+<span id="page-12-0"></span>**Figure 9**A statistical analysis of the proposed unimodal Dark-4K database:**a**histogram of MOS values and**b**distribution of confidence interval
 
 The subjective experiments on Dark-4K maintain the same settings as described in Sec. [3.1.1.](#page-4-1) The histogram of labeled MOS results and the 95% confidence intervals for the subjective ratings are shown in Fig. [9a](#page-12-0) and b, respectively.
 
-#### 5.1.2 Evaluation Metric
+### 5.1.2 Evaluation Metric
 
 In visual quality assessment, Pearson Linear Correlation (PLCC), Spearman Rank Correlation Coefficient (SRCC), and Root Mean Square Prediction Error (RMSE) are three commonly-used evaluation metrics (Zhang et al[.](#page-23-4), [2023](#page-23-4)). PLCC is used to measure the linear relationship between objective predictions and subjective scores, SRCC reflects the monotonicity of predictions, and RMSE measures the accuracy of predictions. For a promising method, PLCC and SRCC are close to 1, while RMSE is close to 0.
 
-#### <span id="page-12-2"></span>5.1.3 Training Detail
+### <span id="page-12-2"></span>5.1.3 Training Detail
 
 All experiments have been carried out on a computing server with*Intel(R) Xeon(R) Gold 6226R*CPU*@2.90GHz*, 38GB RAM, and *NVIDIA A100-PCIE*GPU*@40GB*×6.
 
 Next, we report the setting of each training stage, such as (1) pre-training, (2) self-supervised training, and (3) super-
 
-| Fimg    | Ftxt   | PLCC ↑ | SRCC ↑ | RMSE ↓ |
+| Fimg | Ftxt | PLCC ↑ | SRCC ↑ | RMSE ↓ |
 |---------|--------|--------|--------|--------|
-| VGG-19  | BoW    | 0.8538 | 0.8532 | 0.0885 |
-|         | RNN    | 0.8670 | 0.8636 | 0.0869 |
-|         | TransF | 0.8731 | 0.8685 | 0.0847 |
-| RN-50   | BoW    | 0.8743 | 0.8750 | 0.0845 |
-|         | RNN    | 0.8859 | 0.8851 | 0.0824 |
-|         | TransF | 0.8989 | 0.8877 | 0.0830 |
-| EN-B4   | BoW    | 0.8760 | 0.8719 | 0.0834 |
-|         | RNN    | 0.8898 | 0.8886 | 0.0810 |
-|         | TransF | 0.8987 | 0.8922 | 0.0825 |
-| ViT-B32 | BoW    | 0.8802 | 0.8774 | 0.0827 |
-|         | RNN    | 0.8879 | 0.8871 | 0.0822 |
-|         | TransF | 0.9089 | 0.9040 | 0.0816 |
-| CNXT-B  | BoW    | 0.8822 | 0.8844 | 0.0832 |
-|         | RNN    | 0.8970 | 0.8984 | 0.0817 |
-|         | TransF | 0.9121 | 0.9065 | 0.0802 |
+| VGG-19 | BoW | 0.8538 | 0.8532 | 0.0885 |
+| | RNN | 0.8670 | 0.8636 | 0.0869 |
+| | TransF | 0.8731 | 0.8685 | 0.0847 |
+| RN-50 | BoW | 0.8743 | 0.8750 | 0.0845 |
+| | RNN | 0.8859 | 0.8851 | 0.0824 |
+| | TransF | 0.8989 | 0.8877 | 0.0830 |
+| EN-B4 | BoW | 0.8760 | 0.8719 | 0.0834 |
+| | RNN | 0.8898 | 0.8886 | 0.0810 |
+| | TransF | 0.8987 | 0.8922 | 0.0825 |
+| ViT-B32 | BoW | 0.8802 | 0.8774 | 0.0827 |
+| | RNN | 0.8879 | 0.8871 | 0.0822 |
+| | TransF | 0.9089 | 0.9040 | 0.0816 |
+| CNXT-B | BoW | 0.8822 | 0.8844 | 0.0832 |
+| | RNN | 0.8970 | 0.8984 | 0.0817 |
+| | TransF | 0.9121 | 0.9065 | 0.0802 |
 
 <span id="page-13-0"></span>**Table 1**Overall performance comparison between 15*Fimg and Ftxt combinations on the MLIQ database*vised training. Note that*Adam*is used as our optimization solver in*Python Toolbox PyTorch*.
 
 *Self-supervised pre-training*(StagePT ). We first pre-train the image feature extractor*Fimg*as well as the text feature extractor*Ftxt* on the MS-COCO database. We take 768 samples as a batch (i.e., 128×6) and pre-train our models for 50 epochs. We set the initial learning rate to 1*e*-3 and decay it by a *cosine*schedule. StagePT takes about 6.5 days for training.
 *Self-supervised training* (StageSS ). We train our BMQA model using the pairs of low-light image and the corresponding QSD-based text from the proposed MLIQ database. At this time, we reduce the batch size to 256 and set the total training epochs to 20, where the initial learning rate is fixed at 4*e*-5. In the experiments, we find that neither undertrained (e.g., a loss greater than 1.0) nor overtrained (e.g., a loss less than 0.6) models can achieve better performance. Empirically, we randomly pick the final model with the loss around 0.8. StageSS takes about 7 h for training.
 
-*Supervised training* (StageST ). For VGG, ResNet and EfficientNet, we set the initial learning rate to 8*e*-5 and reduce the learning rate by a factor of 0.95 at the *150*-th and *250* th epochs. For ViT and ConvNeXT, we set a smaller initial learning rate to 6.4*e*-5 and also reduce the learning rate by a factor of 0.95 at the *150*-th and *250*-th epochs. Finally, we keep the batch size as 16 and train the quality score predictor for 300 epochs. StageST takes about 2.5 h for training.
+**Supervised training:** (StageST ). For VGG, ResNet and EfficientNet, we set the initial learning rate to 8*e*-5 and reduce the learning rate by a factor of 0.95 at the *150*-th and *250* th epochs. For ViT and ConvNeXT, we set a smaller initial learning rate to 6.4*e*-5 and also reduce the learning rate by a factor of 0.95 at the *150*-th and *250*-th epochs. Finally, we keep the batch size as 16 and train the quality score predictor for 300 epochs. StageST takes about 2.5 h for training.
 
 ## <span id="page-13-2"></span>5.2 Feature Representation Validation
 
@@ -476,7 +468,7 @@ To verify the effectiveness of two heterogenous modality feature extractors, we 
 ![](_page_13_Figure_11.jpeg)
 <!-- Image Description: The image contains two scatter plots. Plot (a) shows the Pearson Linear Correlation Coefficient (PLCC) against forward-pass GFLOPs/image for various models (e.g., EN-B0, VGG11, RN-18, CNXT-B). Plot (b) similarly shows the Spearman Rank Correlation Coefficient (SRCC) for the same models. Both plots illustrate the trade-off between model computational cost (GFLOPs) and prediction accuracy (PLCC and SRCC) across different architectures. Each point represents a different model. -->
 
-<span id="page-13-1"></span>**Fig. 10**Performance comparison of different image feature extractors*Fimg*: **a**PLCC-GFLOPs curves of different network variants and**b**SRCC-GFLOPs curves of different network variants
+<span id="page-13-1"></span>**Figure 10**Performance comparison of different image feature extractors*Fimg*: **a**PLCC-GFLOPs curves of different network variants and**b**SRCC-GFLOPs curves of different network variants
 
 several representative*Ftxt*and*Fimg* models. Specifically, we take VGG-19, ResNet-50 (*denoted as* RN-50), EfficientNet (*denoted as* EN-B4), Vision-in-Transformer (*denoted as* ViT-B32), and ConvNeXT (*denoted as* CNXT-B) as the image feature encoders, respectively. In addition, we take Bag-of-Word (*denoted as* BoW), recurrent neural network (*denoted as* RNN), and Transformer (*denoted as*TransF) as the text feature encoders, respectively.
 
@@ -508,17 +500,17 @@ It is noted that the implementation of*Xiang2020TMM* (Xiang et al[.,](#page-22-9
 
 <span id="page-15-0"></span>**Table 2**Ablation study of the contribution of each training stage: self-supervised pre-training StagePT , self-supervised training StageSS , and supervised training StageST
 
-| Method | StagePT | StageSS |        | StageST |        | PLCC↑  | SRCC↑  | RMSE↓  |
+| Method | StagePT | StageSS | | StageST | | PLCC↑ | SRCC↑ | RMSE↓ |
 |--------|---------|---------|--------|---------|--------|--------|--------|--------|
-|        |         | Fimg    | Ftxt   | Fimg    | Ftxt   |        |        |        |
-| (a)    | –       | –       | –      | RN-50   | –      | 0.7964 | 0.7934 | 0.1082 |
-| (b)    | –       | –       | –      | –       | TransF | 0.7504 | 0.7466 | 0.1130 |
-| (c)    | –       | RN-50   | TransF | RN-50   | –      | 0.8567 | 0.8556 | 0.0902 |
-| (d)    | –       | RN-50   | TransF | –       | TransF | 0.8209 | 0.8183 | 0.0932 |
-| (e)    | –       | RN-50   | TransF | RN-50   | TransF | 0.8614 | 0.8610 | 0.0896 |
-| (f)    | CL      | RN-50   | TransF | RN-50   | TransF | 0.8707 | 0.8709 | 0.0868 |
-| (g)    | RE      | RN-50   | TransF | RN-50   | TransF | 0.8753 | 0.8721 | 0.0871 |
-| (h)    | FM      | RN-50   | TransF | RN-50   | TransF | 0.8989 | 0.8877 | 0.0830 |
+| | | Fimg | Ftxt | Fimg | Ftxt | | | |
+| (a) | – | – | – | RN-50 | – | 0.7964 | 0.7934 | 0.1082 |
+| (b) | – | – | – | – | TransF | 0.7504 | 0.7466 | 0.1130 |
+| (c) | – | RN-50 | TransF | RN-50 | – | 0.8567 | 0.8556 | 0.0902 |
+| (d) | – | RN-50 | TransF | – | TransF | 0.8209 | 0.8183 | 0.0932 |
+| (e) | – | RN-50 | TransF | RN-50 | TransF | 0.8614 | 0.8610 | 0.0896 |
+| (f) | CL | RN-50 | TransF | RN-50 | TransF | 0.8707 | 0.8709 | 0.0868 |
+| (g) | RE | RN-50 | TransF | RN-50 | TransF | 0.8753 | 0.8721 | 0.0871 |
+| (h) | FM | RN-50 | TransF | RN-50 | TransF | 0.8989 | 0.8877 | 0.0830 |
 *Deep-learned BIQAs.*Considering that low-light images on MLIQ are characterized by some specific distortions, the comparison methods based on deep-learned features can be divided into four categories:
 
 -*AS*: allocation-based supervised BIQAs, including *Kang2014CVPR*(Kang et al[.](#page-21-11), [2014](#page-21-11)),*Bosse2018TIP*(Bosse et al[.](#page-21-10), [2018](#page-21-10)), and*Ke2021 ICCV*(Ke et al[.,](#page-21-12) [2021](#page-21-12)).
@@ -542,51 +534,50 @@ In this section, we mainly discuss the applicability and generalization of our B
 
 From Sects. [5.2](#page-13-2) to [5.4,](#page-14-0) we have validated the effectiveness of our BMQA*image*−*text* in terms of feature representation, ablation study, and overall performance. Nevertheless, the proposed BMQA has to face the challenge due to the absence of text description. In other words, the question is how to use our BMQA when the QSD-based text modality is absent. To address this challenge, we further propose a feasible scheme and validate it on another independent low-light database, Dark-4K, which contains only image samples and their MOS labels.
 
-<span id="page-16-0"></span>
 
-| Table 3                                    |    | Performance comparison of the proposed B |                        |        |        |                          | MQA method and 25 state-of-the-art BIQAs on the MLIQ database |        |                         |        |                       |        |        |                        |        |        |                 |        |        |
+| Table 3 | | Performance comparison of the proposed B | | | | | MQA method and 25 state-of-the-art BIQAs on the MLIQ database | | | | | | | | | | | | |
 |--------------------------------------------|----|------------------------------------------|------------------------|--------|--------|--------------------------|---------------------------------------------------------------|--------|-------------------------|--------|-----------------------|--------|--------|------------------------|--------|--------|-----------------|--------|--------|
-| Method Type                                |    |                                          | Device-I (Nikon D5300) |        |        | Device-II (iPhone 8plus) |                                                               |        | Device-III (iPad mini2) |        | Device-IV (Canon EOS) |        |        | Device-V (Huawei Mate) |        |        | Entire Database |        |        |
-| Hand-crafted<br>BIQAs                      |    | Type PLCC↑                               | SRCC↑                  | RMSE↓  | PLCC↑  | SRCC↑                    | RMSE↓                                                         | PLCC↑  | SRCC↑                   | RMSE↓  | PLCC↑                 | SRCC↑  | RMSE↓  | PLCC↑                  | SRCC↑  | RMSE↓  | PLCC↑           | SRCC↑  | RMSE↓  |
-| Mittal2012TIP<br>(Mittal et al.,<br>2012)  | GP | 0.7833                                   | 0.7657                 | 0.1073 | 0.7865 | 0.7695                   | 0.0906                                                        | 0.8005 | 0.7706                  | 0.0802 | 0.7273                | 0.7136 | 0.1247 | 0.7709                 | 0.7500 | 0.1100 | 0.7797          | 0.7716 | 0.1095 |
-| Liu2014SPIC<br>(Liu et al.,<br>2014)       | GP | 0.7848                                   | 0.7666                 | 0.1072 | 0.7894 | 0.7710                   | 0.0904                                                        | 0.7777 | 0.7593                  | 0.0904 | 0.7301                | 0.7178 | 0.1265 | 0.7678                 | 0.7454 | 0.1109 | 0.7779          | 0.7689 | 0.1101 |
-| Zhang2015TIP<br>(Zhang et al.,<br>2015)    | GP | 0.6537                                   | 0.6704                 | 0.1303 | 0.6888 | 0.6747                   | 0.1069                                                        | 0.7883 | 0.8328                  | 0.0837 | 0.5836                | 0.5832 | 0.1496 | 0.6736                 | 0.6560 | 0.1286 | 0.6186          | 0.6346 | 0.1379 |
-| Li2016SPL (Li et<br>al., 2016)             | MD | 0.8267                                   | 0.8242                 | 0.0961 | 0.7626 | 0.7335                   | 0.0936                                                        | 0.7935 | 0.7651                  | 0.0821 | 0.8442                | 0.8338 | 0.0986 | 0.8767                 | 0.8676 | 0.0824 | 0.8317          | 0.8273 | 0.0972 |
-| Gu2017TCB (Gu<br>et al., 2017)             | CD | 0.8486                                   | 0.8446                 | 0.0911 | 0.7957 | 0.7918                   | 0.0893                                                        | 0.7845 | 0.7878                  | 0.0844 | 0.7721                | 0.7764 | 0.1171 | 0.7726                 | 0.7658 | 0.1105 | 0.7726          | 0.7658 | 0.1105 |
-| Xiang2020TMM<br>(Xiang et al.,<br>2019)    | LL | 0.8265                                   | 0.8221                 | 0.1003 | 0.8642 | 0.8530                   | 0.0885                                                        | 0.8105 | 0.8004                  | 0.0871 | 0.8323                | 0.8146 | 0.0730 | 0.8789                 | 0.8642 | 0.0881 | 0.8063          | 0.7950 | 0.1011 |
-| Wang2021ICME<br>Wang et al.,<br>2021)<br>( | LL | 0.8619                                   | 0.8539                 | 0.0868 | 0.8304 | 0.8179                   | 0.0798                                                        | 0.8002 | 0.7759                  | 0.0805 | 0.8584                | 0.8538 | 0.0942 | 0.8386                 | 0.8234 | 0.0954 | 0.8365          | 0.8350 | 0.0969 |
-| Wang et al.,<br>Wang2022TII<br>2022)<br>(  | LL | 0.8647                                   | 0.8571                 | 0.0845 | 0.8401 | 0.8373                   | 0.0815                                                        | 0.8336 | 0.8459                  | 0.0713 | 0.9085                | 0.8892 | 0.0789 | 0.8577                 | 0.8484 | 0.0936 | 0.8578          | 0.8488 | 0.0904 |
-| Deep-learned<br>BIQAs                      |    | Type PLCC↑                               | SRCC↑                  | RMSE↓  | PLCC↑  | SRCC↑                    | RMSE↓                                                         | PLCC↑  | SRCC↑                   | RMSE↓  | PLCC↑                 | SRCC↑  | RMSE↓  | PLCC↑                  | SRCC↑  | RMSE↓  | PLCC↑           | SRCC↑  | RMSE↓  |
-| Kang2014CVPR<br>(Kang et al.,<br>2014)     | AS | 0.8103                                   | 0.8197                 | 0.1580 | 0.7954 | 0.7987                   | 0.1537                                                        | 0.6822 | 0.6992                  | 0.1792 | 0.8301                | 0.8629 | 0.1681 | 0.8783                 | 0.8874 | 0.1575 | 0.8095          | 0.8167 | 0.1604 |
-| Bosse2018TIP<br>(Bosse et al.,<br>2018)    | AS | 0.9077                                   | 0.9154                 | 0.0918 | 0.7395 | 0.7198                   | 0.0979                                                        | 0.6824 | 0.6305                  | 0.1281 | 0.8695                | 0.8596 | 0.1198 | 0.8516                 | 0.8615 | 0.1164 | 0.8182          | 0.8198 | 0.1070 |
-| Ke2021ICCV<br>(Ke et al.,<br>2021)         | AS | 0.8614                                   | 0.8464                 | 0.0884 | 0.8343 | 0.8254                   | 0.0822                                                        | 0.8297 | 0.8208                  | 0.0738 | 0.8956                | 0.8835 | 0.0800 | 0.8362                 | 0.8312 | 0.0944 | 0.8504          | 0.8487 | 0.0923 |
-| Ying2020CVPR<br>(Ying et al.,<br>2020)     | GS | 0.8458                                   | 0.8427                 | 0.0926 | 0.8561 | 0.8468                   | 0.0893                                                        | 0.8117 | 0.7953                  | 0.0854 | 0.8628                | 0.8138 | 0.0700 | 0.8842                 | 0.8616 | 0.0846 | 0.8450          | 0.8455 | 0.0921 |
-| Kim2019TNNLS<br>(Kim et al.,<br>2019)      | MT | 0.9096                                   | 0.9166                 | 0.0863 | 0.7424 | 0.7213                   | 0.0963                                                        | 0.6828 | 0.6305                  | 0.1333 | 0.8713                | 0.8609 | 0.1213 | 0.8515                 | 0.8633 | 0.1180 | 0.8217          | 0.8234 | 0.1063 |
+| Method Type | | | Device-I (Nikon D5300) | | | Device-II (iPhone 8plus) | | | Device-III (iPad mini2) | | Device-IV (Canon EOS) | | | Device-V (Huawei Mate) | | | Entire Database | | |
+| Hand-crafted<br>BIQAs | | Type PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ |
+| Mittal2012TIP<br>(Mittal et al.,<br>2012) | GP | 0.7833 | 0.7657 | 0.1073 | 0.7865 | 0.7695 | 0.0906 | 0.8005 | 0.7706 | 0.0802 | 0.7273 | 0.7136 | 0.1247 | 0.7709 | 0.7500 | 0.1100 | 0.7797 | 0.7716 | 0.1095 |
+| Liu2014SPIC<br>(Liu et al.,<br>2014) | GP | 0.7848 | 0.7666 | 0.1072 | 0.7894 | 0.7710 | 0.0904 | 0.7777 | 0.7593 | 0.0904 | 0.7301 | 0.7178 | 0.1265 | 0.7678 | 0.7454 | 0.1109 | 0.7779 | 0.7689 | 0.1101 |
+| Zhang2015TIP<br>(Zhang et al.,<br>2015) | GP | 0.6537 | 0.6704 | 0.1303 | 0.6888 | 0.6747 | 0.1069 | 0.7883 | 0.8328 | 0.0837 | 0.5836 | 0.5832 | 0.1496 | 0.6736 | 0.6560 | 0.1286 | 0.6186 | 0.6346 | 0.1379 |
+| Li2016SPL (Li et<br>al., 2016) | MD | 0.8267 | 0.8242 | 0.0961 | 0.7626 | 0.7335 | 0.0936 | 0.7935 | 0.7651 | 0.0821 | 0.8442 | 0.8338 | 0.0986 | 0.8767 | 0.8676 | 0.0824 | 0.8317 | 0.8273 | 0.0972 |
+| Gu2017TCB (Gu<br>et al., 2017) | CD | 0.8486 | 0.8446 | 0.0911 | 0.7957 | 0.7918 | 0.0893 | 0.7845 | 0.7878 | 0.0844 | 0.7721 | 0.7764 | 0.1171 | 0.7726 | 0.7658 | 0.1105 | 0.7726 | 0.7658 | 0.1105 |
+| Xiang2020TMM<br>(Xiang et al.,<br>2019) | LL | 0.8265 | 0.8221 | 0.1003 | 0.8642 | 0.8530 | 0.0885 | 0.8105 | 0.8004 | 0.0871 | 0.8323 | 0.8146 | 0.0730 | 0.8789 | 0.8642 | 0.0881 | 0.8063 | 0.7950 | 0.1011 |
+| Wang2021ICME<br>Wang et al.,<br>2021)<br>( | LL | 0.8619 | 0.8539 | 0.0868 | 0.8304 | 0.8179 | 0.0798 | 0.8002 | 0.7759 | 0.0805 | 0.8584 | 0.8538 | 0.0942 | 0.8386 | 0.8234 | 0.0954 | 0.8365 | 0.8350 | 0.0969 |
+| Wang et al.,<br>Wang2022TII<br>2022)<br>( | LL | 0.8647 | 0.8571 | 0.0845 | 0.8401 | 0.8373 | 0.0815 | 0.8336 | 0.8459 | 0.0713 | 0.9085 | 0.8892 | 0.0789 | 0.8577 | 0.8484 | 0.0936 | 0.8578 | 0.8488 | 0.0904 |
+| Deep-learned<br>BIQAs | | Type PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ |
+| Kang2014CVPR<br>(Kang et al.,<br>2014) | AS | 0.8103 | 0.8197 | 0.1580 | 0.7954 | 0.7987 | 0.1537 | 0.6822 | 0.6992 | 0.1792 | 0.8301 | 0.8629 | 0.1681 | 0.8783 | 0.8874 | 0.1575 | 0.8095 | 0.8167 | 0.1604 |
+| Bosse2018TIP<br>(Bosse et al.,<br>2018) | AS | 0.9077 | 0.9154 | 0.0918 | 0.7395 | 0.7198 | 0.0979 | 0.6824 | 0.6305 | 0.1281 | 0.8695 | 0.8596 | 0.1198 | 0.8516 | 0.8615 | 0.1164 | 0.8182 | 0.8198 | 0.1070 |
+| Ke2021ICCV<br>(Ke et al.,<br>2021) | AS | 0.8614 | 0.8464 | 0.0884 | 0.8343 | 0.8254 | 0.0822 | 0.8297 | 0.8208 | 0.0738 | 0.8956 | 0.8835 | 0.0800 | 0.8362 | 0.8312 | 0.0944 | 0.8504 | 0.8487 | 0.0923 |
+| Ying2020CVPR<br>(Ying et al.,<br>2020) | GS | 0.8458 | 0.8427 | 0.0926 | 0.8561 | 0.8468 | 0.0893 | 0.8117 | 0.7953 | 0.0854 | 0.8628 | 0.8138 | 0.0700 | 0.8842 | 0.8616 | 0.0846 | 0.8450 | 0.8455 | 0.0921 |
+| Kim2019TNNLS<br>(Kim et al.,<br>2019) | MT | 0.9096 | 0.9166 | 0.0863 | 0.7424 | 0.7213 | 0.0963 | 0.6828 | 0.6305 | 0.1333 | 0.8713 | 0.8609 | 0.1213 | 0.8515 | 0.8633 | 0.1180 | 0.8217 | 0.8234 | 0.1063 |
 
-| Davice $1/N_{max}$ D5306                            |
+| Davice $1/N_{max}$ D5306 |
 |-----------------------------------------------------|
 | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>od Tyme |
 
-| continued<br>Table 3                                                                                                                     |              |                        |        |        |                          |        |        |                         |        |        |                       |        |        |                        |                                  |                 |        |        |
+| continued<br>Table 3 | | | | | | | | | | | | | | | | | | |
 |------------------------------------------------------------------------------------------------------------------------------------------|--------------|------------------------|--------|--------|--------------------------|--------|--------|-------------------------|--------|--------|-----------------------|--------|--------|------------------------|----------------------------------|-----------------|--------|--------|
-| Method Type                                                                                                                              |              | Device-I (Nikon D5300) |        |        | Device-II (iPhone 8plus) |        |        | Device-III (iPad mini2) |        |        | Device-IV (Canon EOS) |        |        | Device-V (Huawei Mate) |                                  | Entire Database |        |        |
-| Hand-crafted<br>BIQAs                                                                                                                    | Type PLCC↑   | SRCC↑                  | RMSE↓  | PLCC↑  | SRCC↑                    | RMSE↓  | PLCC↑  | SRCC↑                   | RMSE↓  | PLCC↑  | SRCC↑                 | RMSE↓  | PLCC↑  | SRCC↑                  | RMSE↓                            | PLCC↑           | SRCC↑  | RMSE↓  |
-| Yan2019TMM<br>(Yan et al.,<br>2019)                                                                                                      | 0.8244<br>MT | 0.8276                 | 0.1631 | 0.8030 | 0.8105                   | 0.1575 | 0.7156 | 0.6992                  | 0.1755 | 0.8690 | 0.8775                | 0.1700 | 0.8398 | 0.8535                 | 0.1624                           | 0.8256          | 0.8370 | 0.1639 |
-| Zhang2020TCSVT<br>(Zhang et al.,<br>2020)                                                                                                | 0.8720<br>MT | 0.8845                 | 0.1075 | 0.7118 | 0.7141                   | 0.1035 | 0.6681 | 0.5929                  | 0.1250 | 0.8423 | 0.8340                | 0.1163 | 0.7631 | 0.7558                 | 0.1213                           | 0.8241          | 0.8261 | 0.1035 |
-| Wu<br>et al., 2020)<br>Wu2020TIP (                                                                                                       | 0.8713<br>MO | 0.8786                 | 0.1249 | 0.7132 | 0.7188                   | 0.1163 | 0.8516 | 0.8277                  | 0.0721 | 0.9265 | 0.9356                | 0.0976 | 0.8537 | 0.8498                 | 0.0989                           | 0.8299          | 0.8371 | 0.1099 |
-| (Li et al., 2020)<br>Li2020ACMMM                                                                                                         | 0.8561<br>MO | 0.8514                 | 0.0877 | 0.7981 | 0.7894                   | 0.0882 | 0.8074 | 0.8275                  | 0.0706 | 0.8866 | 0.8740                | 0.0869 | 0.8174 | 0.8028                 | 0.0995                           | 0.8236          | 0.8223 | 0.0988 |
-| (Su et al., 2020)<br>Su2020CVPR                                                                                                          | 0.8645<br>MO | 0.8581                 | 0.0843 | 0.7933 | 0.7898                   | 0.0791 | 0.8171 | 0.8226                  | 0.0664 | 0.9303 | 0.9250                | 0.0677 | 0.8401 | 0.8427                 | 0.0893                           | 0.8520          | 0.8510 | 0.0882 |
-| Zhu2020CVPR<br>(Zhu et al.,<br>2020)                                                                                                     | 0.9248<br>MO | 0.9311                 | 0.0721 | 0.7709 | 0.7626                   | 0.0922 | 0.6819 | 0.6283                  | 0.1211 | 0.8890 | 0.8814                | 0.1096 | 0.8513 | 0.8603                 | 0.1031                           | 0.8519          | 0.8547 | 0.0948 |
-| Ma2021ACMMM<br>(Ma et al.,<br>2021)                                                                                                      | 0.8594<br>MC | 0.8623                 | 0.0871 | 0.7971 | 0.7927                   | 0.0877 | 0.8049 | 0.8017                  | 0.0771 | 0.8631 | 0.8592                | 0.0903 | 0.8092 | 0.7997                 | 0.0987                           | 0.8271          | 0.8275 | 0.0982 |
-| Zhang2021TIP<br>(Zhang et al.,<br>2021)                                                                                                  | 0.8848<br>MC | 0.8838                 | 0.0880 | 0.8487 | 0.8466                   | 0.0832 | 0.8479 | 0.8051                  | 0.0708 | 0.8476 | 0.8482                | 0.1052 | 0.8147 | 0.8135                 | 0.1008                           | 0.8485          | 0.8605 | 0.0929 |
-| Zhang2023TPAMI<br>(Zhang et al.,<br>2023)                                                                                                | 0.9277<br>MC | 0.9320                 | 0.0713 | 0.7808 | 0.7712                   | 0.0911 | 0.6811 | 0.6403                  | 0.1117 | 0.8938 | 0.8870                | 0.1037 | 0.8908 | 0.8977                 | 0.0975                           | 0.8596          | 0.8615 | 0.0910 |
-| Liu2019PTPAMI<br>(Liu et al.,<br>2019)                                                                                                   | 0.8507<br>DU | 0.8451                 | 0.1105 | 0.8185 | 0.8100                   | 0.0979 | 0.8096 | 0.8269                  | 0.0644 | 0.8300 | 0.8121                | 0.1095 | 0.7593 | 0.7346                 | 0.1206                           | 0.8103          | 0.8140 | 0.1081 |
-| Wang2022ACMMM<br>Wang et al.,<br>2022)<br>(                                                                                              | 0.8657<br>MU | 0.8608                 | 0.0870 | 0.8210 | 0.8206                   | 0.0854 | 0.8265 | 0.8122                  | 0.0747 | 0.8764 | 0.8665                | 0.0862 | 0.8311 | 0.8215                 | 0.0994                           | 0.8383          | 0.8373 | 0.0973 |
-| Madhusudana2022TIP<br>(Madhusudana<br>et al., 2022)                                                                                      | 0.9179<br>MU | 0.9254                 | 0.0784 | 0.7708 | 0.7656                   | 0.0935 | 0.7152 | 0.6569                  | 0.1099 | 0.8908 | 0.8842                | 0.1042 | 0.8474 | 0.8579                 | 0.1017                           | 0.8495          | 0.8531 | 0.0943 |
-| MQAimage−text<br>RN50+TransF<br>B                                                                                                        | 0.9348<br>MU | 0.9187                 | 0.0695 | 0.9064 | 0.8813                   | 0.0686 | 0.9075 | 0.8712                  | 0.0638 | 0.9364 | 0.9140                | 0.0726 | 0.9011 | 0.8860                 | 0.0816                           | 0.8989          | 0.8877 | 0.0830 |
-| ViT−B32+TransFMU<br>MQAimage−text<br>B                                                                                                   | 0.9320       | 0.9264                 | 0.0715 | 0.9131 | 0.9042                   | 0.0664 | 0.9108 | 0.9067                  | 0.0598 | 0.9488 | 0.9282                | 0.0737 | 0.9041 | 0.8913                 | 0.0828                           | 0.9089          | 0.9040 | 0.0816 |
-| CNXT−B+TransFMU<br>MQAimage−text<br>B                                                                                                    | 0.9404       | 0.9310                 | 0.0692 | 0.9128 | 0.9022                   | 0.0653 | 0.8920 | 0.8744                  | 0.0607 | 0.9464 | 0.9358                | 0.0717 | 0.8959 | 0.8850                 | 0.0808                           | 0.9121          | 0.9065 | 0.0802 |
-| The best results of the hand-crafted and deep-learned BIQAs are highlighted in bold for different devices, and the best results of our B |              |                        |        |        |                          |        |        |                         |        |        |                       |        |        |                        | MQA are highlighted in underline |                 |        |        |
+| Method Type | | Device-I (Nikon D5300) | | | Device-II (iPhone 8plus) | | | Device-III (iPad mini2) | | | Device-IV (Canon EOS) | | | Device-V (Huawei Mate) | | Entire Database | | |
+| Hand-crafted<br>BIQAs | Type PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ |
+| Yan2019TMM<br>(Yan et al.,<br>2019) | 0.8244<br>MT | 0.8276 | 0.1631 | 0.8030 | 0.8105 | 0.1575 | 0.7156 | 0.6992 | 0.1755 | 0.8690 | 0.8775 | 0.1700 | 0.8398 | 0.8535 | 0.1624 | 0.8256 | 0.8370 | 0.1639 |
+| Zhang2020TCSVT<br>(Zhang et al.,<br>2020) | 0.8720<br>MT | 0.8845 | 0.1075 | 0.7118 | 0.7141 | 0.1035 | 0.6681 | 0.5929 | 0.1250 | 0.8423 | 0.8340 | 0.1163 | 0.7631 | 0.7558 | 0.1213 | 0.8241 | 0.8261 | 0.1035 |
+| Wu<br>et al., 2020)<br>Wu2020TIP ( | 0.8713<br>MO | 0.8786 | 0.1249 | 0.7132 | 0.7188 | 0.1163 | 0.8516 | 0.8277 | 0.0721 | 0.9265 | 0.9356 | 0.0976 | 0.8537 | 0.8498 | 0.0989 | 0.8299 | 0.8371 | 0.1099 |
+| (Li et al., 2020)<br>Li2020ACMMM | 0.8561<br>MO | 0.8514 | 0.0877 | 0.7981 | 0.7894 | 0.0882 | 0.8074 | 0.8275 | 0.0706 | 0.8866 | 0.8740 | 0.0869 | 0.8174 | 0.8028 | 0.0995 | 0.8236 | 0.8223 | 0.0988 |
+| (Su et al., 2020)<br>Su2020CVPR | 0.8645<br>MO | 0.8581 | 0.0843 | 0.7933 | 0.7898 | 0.0791 | 0.8171 | 0.8226 | 0.0664 | 0.9303 | 0.9250 | 0.0677 | 0.8401 | 0.8427 | 0.0893 | 0.8520 | 0.8510 | 0.0882 |
+| Zhu2020CVPR<br>(Zhu et al.,<br>2020) | 0.9248<br>MO | 0.9311 | 0.0721 | 0.7709 | 0.7626 | 0.0922 | 0.6819 | 0.6283 | 0.1211 | 0.8890 | 0.8814 | 0.1096 | 0.8513 | 0.8603 | 0.1031 | 0.8519 | 0.8547 | 0.0948 |
+| Ma2021ACMMM<br>(Ma et al.,<br>2021) | 0.8594<br>MC | 0.8623 | 0.0871 | 0.7971 | 0.7927 | 0.0877 | 0.8049 | 0.8017 | 0.0771 | 0.8631 | 0.8592 | 0.0903 | 0.8092 | 0.7997 | 0.0987 | 0.8271 | 0.8275 | 0.0982 |
+| Zhang2021TIP<br>(Zhang et al.,<br>2021) | 0.8848<br>MC | 0.8838 | 0.0880 | 0.8487 | 0.8466 | 0.0832 | 0.8479 | 0.8051 | 0.0708 | 0.8476 | 0.8482 | 0.1052 | 0.8147 | 0.8135 | 0.1008 | 0.8485 | 0.8605 | 0.0929 |
+| Zhang2023TPAMI<br>(Zhang et al.,<br>2023) | 0.9277<br>MC | 0.9320 | 0.0713 | 0.7808 | 0.7712 | 0.0911 | 0.6811 | 0.6403 | 0.1117 | 0.8938 | 0.8870 | 0.1037 | 0.8908 | 0.8977 | 0.0975 | 0.8596 | 0.8615 | 0.0910 |
+| Liu2019PTPAMI<br>(Liu et al.,<br>2019) | 0.8507<br>DU | 0.8451 | 0.1105 | 0.8185 | 0.8100 | 0.0979 | 0.8096 | 0.8269 | 0.0644 | 0.8300 | 0.8121 | 0.1095 | 0.7593 | 0.7346 | 0.1206 | 0.8103 | 0.8140 | 0.1081 |
+| Wang2022ACMMM<br>Wang et al.,<br>2022)<br>( | 0.8657<br>MU | 0.8608 | 0.0870 | 0.8210 | 0.8206 | 0.0854 | 0.8265 | 0.8122 | 0.0747 | 0.8764 | 0.8665 | 0.0862 | 0.8311 | 0.8215 | 0.0994 | 0.8383 | 0.8373 | 0.0973 |
+| Madhusudana2022TIP<br>(Madhusudana<br>et al., 2022) | 0.9179<br>MU | 0.9254 | 0.0784 | 0.7708 | 0.7656 | 0.0935 | 0.7152 | 0.6569 | 0.1099 | 0.8908 | 0.8842 | 0.1042 | 0.8474 | 0.8579 | 0.1017 | 0.8495 | 0.8531 | 0.0943 |
+| MQAimage−text<br>RN50+TransF<br>B | 0.9348<br>MU | 0.9187 | 0.0695 | 0.9064 | 0.8813 | 0.0686 | 0.9075 | 0.8712 | 0.0638 | 0.9364 | 0.9140 | 0.0726 | 0.9011 | 0.8860 | 0.0816 | 0.8989 | 0.8877 | 0.0830 |
+| ViT−B32+TransFMU<br>MQAimage−text<br>B | 0.9320 | 0.9264 | 0.0715 | 0.9131 | 0.9042 | 0.0664 | 0.9108 | 0.9067 | 0.0598 | 0.9488 | 0.9282 | 0.0737 | 0.9041 | 0.8913 | 0.0828 | 0.9089 | 0.9040 | 0.0816 |
+| CNXT−B+TransFMU<br>MQAimage−text<br>B | 0.9404 | 0.9310 | 0.0692 | 0.9128 | 0.9022 | 0.0653 | 0.8920 | 0.8744 | 0.0607 | 0.9464 | 0.9358 | 0.0717 | 0.8959 | 0.8850 | 0.0808 | 0.9121 | 0.9065 | 0.0802 |
+| The best results of the hand-crafted and deep-learned BIQAs are highlighted in bold for different devices, and the best results of our B | | | | | | | | | | | | | | | MQA are highlighted in underline | | | |
 
 ![](_page_18_Picture_2.jpeg)
 <!-- Image Description: The image is a comparative illustration showing a nighttime road scene. The left panel depicts a clearly lit road at night, with streetlights illuminating the surroundings. The right panel shows the same scene but with significant visual degradation, simulating reduced visibility due to factors like fog or poor weather conditions. This comparison likely illustrates the impact of adverse weather on visibility for autonomous driving systems or similar applications within the paper. -->
@@ -594,7 +585,7 @@ From Sects. [5.2](#page-13-2) to [5.4,](#page-14-0) we have validated the effect
 ![](_page_18_Picture_4.jpeg)
 <!-- Image Description: The image is a comparative pair of photographs showing a nighttime scene with a bicycle in the foreground. The left image displays the scene as captured by a standard camera, showing good visibility. The right image shows the same scene but with significantly reduced visibility, blurring and obscuring details, likely simulating the effect of adverse weather conditions or a vision impairment. The purpose is to illustrate the impact of a particular phenomenon (e.g., fog, glare, or image processing) on visual clarity. -->
 
-<span id="page-18-0"></span>**Fig. 11** Examples of the generated text modality on our Dark-4K database. Each example contains an original image sample (*left*), an attention map of the quality cognition (*right*), a predicted caption
+<span id="page-18-0"></span>**Figure 11** Examples of the generated text modality on our Dark-4K database. Each example contains an original image sample (*left*), an attention map of the quality cognition (*right*), a predicted caption
 
 ![](_page_18_Picture_7.jpeg)
 <!-- Image Description: The image is a comparative pair of photographs showing the effect of a low-light imaging technique. The left panel displays a well-lit nighttime scene of a building facade with a clock and entrance. The right panel shows the same scene, but with significantly reduced visibility and increased blurriness, simulating low-light conditions or the effect of a particular image processing technique. The purpose is to illustrate the difference between a clear image and a degraded low-light image before and after processing. -->
@@ -610,7 +601,7 @@ From Sects. [5.2](#page-13-2) to [5.4,](#page-14-0) we have validated the effect
 
 result obtained by a pre-trained SAT caption model (**SATMS**−**COCO**) on the MS-COCO database, and a low-light QSD-based caption result of **SATMLIQ**trained on the MLIQ database
 
-#### 5.5.2 Additional Modality Generation
+### 5.5.2 Additional Modality Generation
 
 Considering that image quality can be mainly represented by the related language information in the BIQA task, we believe that*Xtxt*can also be replaced by a recent image caption model: 'show and tell' (SAT) (Xu et al[.,](#page-22-26) [2015](#page-22-26)). Therefore, when the text modality is unavailable, BMQA employs an image captioning model to generate the feature representation of*Xtxt*.
 
@@ -626,7 +617,6 @@ where *θ cap*represents the model weights of*Fcap*.
 
 Therefore, given an image *Ximg*, the text modality is generated by
 
-<span id="page-18-1"></span>
 $$
 \langle x_1', \dots, x_N' \rangle = \mathcal{F}_{cap} \left( X_{img}; \quad \theta_{cap} \right), \tag{15}
 $$
@@ -637,17 +627,17 @@ To verify the feasibility of*Fcap*, we directly adopt the SAT model as the backb
 
 Figure [11](#page-18-0) shows some QSD-based captioning results of SAT*MLIQ* and SAT*M S*−*COCO* on the Dark-4K database. As seen, SAT*MLIQ*contains more quality words related to the visual experience, such as brightness status, salient objects, and color status. To further explore the relationship between these keywords and the original images, we provide the attention maps corresponding to these keywords. As seen, the region of interest (ROI) is consistent with the quality keywords. Therefore, we believe that a well-trained QSD-based captioning model is competent to generate the text modality provided in MLIQ.
 
-#### <span id="page-18-2"></span>5.5.3 Cross-Dataset Validation on Image-Only Case
+### <span id="page-18-2"></span>5.5.3 Cross-Dataset Validation on Image-Only Case
 
 To verify the effect of*Fcap*in Eq. [\(15\)](#page-18-1), we conduct the cross-database validation on the Dark-4K database. For a fair comparison, all BIQAs including our BMQA models have not been fine-tuned or retrained. In other words, all trained models are kept exactly the same as in Sect. [5.4.](#page-14-0) It is worth noting that since*Fcap*does not exist on the Dark-4K database, a specially-learned model*Fcap*is used to replace*Ftxt* in our BMQA model. Apart from this, other settings are the same as in Sect. [5.1.3.](#page-12-2) The detailed workflow is summarized in Algorithm [2.](#page-19-0)
 
 Table [4](#page-19-1) provides the overall comparison results of all 17 deep-learned BIQAs in terms of PLCC, SRCC, and <span id="page-19-0"></span>**Algorithm 2** Proposed BMQA scheme on the image-only case BMQA*image*−*only*.
 
-#### Input:
+### Input:
 
 Image sample*Ximg*.
 
-#### Output:
+### Output:
 
 - Quality score *spred*.
 - 1: Generate the latent text feature by*Fcap* in Eq. [\(15\)](#page-18-1);
@@ -669,48 +659,48 @@ To further validate the absence of high-quality texts, we have conducted additio
 
 The experimental results are reported in Table [5.](#page-20-0) As seen, the performance of BMQA∗*image*−*only* RN−50+TransF is not as good as that of BMQA*image*−*only* RN−50+TransF , which indicates the positive effect of high-quality textual information on quality score predictions. In addition, the performance comparison between BMQA*image*−*text* RN−50+TransF in Table [3](#page-16-0) and BMQA*image*−*only*RN−50+TransF in Table [4](#page-19-1) has already demonstrated that a finetuned caption model*Fcap*on our MLIQ database is a promising alternative to highquality text modalities.
 
-#### 5.5.5 Overall Runtime Analysis
+### 5.5.5 Overall Runtime Analysis
 
 In practical scenarios, a quality indicator with low complexity is preferred for a variety of applications. For simplicity, we assess complexity based on the inference time cost, which
 
-| Method type                                   | Entire database |        |        |        |  |
+| Method type | Entire database | | | | |
 |-----------------------------------------------|-----------------|--------|--------|--------|--|
-| Deep-learned BIQAs                            | Type            | PLCC ↑ | SRCC ↑ | RMSE ↓ |  |
-| Kang2014CVPR (Kang et al., 2014)              | AS              | 0.5434 | 0.5605 | 0.1307 |  |
-| Bosse2018TIP (Bosse et al., 2018)             | AS              | 0.6552 | 0.6442 | 0.1028 |  |
-| Ke2021ICCV (Ke et al., 2021)                  | AS              | 0.8630 | 0.8382 | 0.1195 |  |
-| Ying2020CVPR (Ying et al., 2020)              | GS              | 0.6453 | 0.5802 | 0.0631 |  |
-| Kim2019TNNLS (Kim et al., 2019)               | MT              | 0.5968 | 0.6030 | 0.1205 |  |
-| Yan2019TMM (Yan et al., 2019)                 | MT              | 0.5588 | 0.5610 | 0.1322 |  |
-| Zhang2020TCSVT (Zhang et al., 2020)           | MT              | 0.5187 | 0.5581 | 0.1346 |  |
-| Wu2020TIP (Wu et al., 2020)                   | MO              | 0.6216 | 0.5877 | 0.1248 |  |
-| Li2020ACMMM (Li et al., 2020)                 | MO              | 0.6138 | 0.6358 | 0.1107 |  |
-| Su2020CVPR (Su et al., 2020)                  | MO              | 0.7914 | 0.7829 | 0.0755 |  |
-| Zhu2020CVPR (Zhu et al., 2020)                | MO              | 0.7791 | 0.7616 | 0.0931 |  |
-| Ma2021ACMMM (Ma et al., 2021)                 | MC              | 0.7713 | 0.7419 | 0.0810 |  |
-| Zhang2021TIP (Zhang et al., 2021)             | MC              | 0.8079 | 0.8131 | 0.0697 |  |
-| Zhang2023TPAMI (Zhang et al., 2023)           | MC              | 0.8538 | 0.8358 | 0.0593 |  |
-| Liu2019TPAMI (Liu et al., 2019)               | DU              | 0.6319 | 0.6352 | 0.1002 |  |
-| Wang2022ACMMM (Wang et al., 2022)             | MU              | 0.8526 | 0.8357 | 0.0687 |  |
-| Madhusudana2022TIP (Madhusudana et al., 2022) | MU              | 0.8293 | 0.8240 | 0.0669 |  |
-| BMQAimage−only RN                             | MU              | 0.9026 | 0.8874 | 0.0624 |  |
-| +TransF<br>BMQAimage−only ViT<br>−B32+TransF  | MU              | 0.9117 | 0.8989 | 0.0593 |  |
-| BMQAimage−only CNXT<br>−B+TransF              | MU              | 0.9156 | 0.9085 | 0.0605 |  |
+| Deep-learned BIQAs | Type | PLCC ↑ | SRCC ↑ | RMSE ↓ | |
+| Kang2014CVPR (Kang et al., 2014) | AS | 0.5434 | 0.5605 | 0.1307 | |
+| Bosse2018TIP (Bosse et al., 2018) | AS | 0.6552 | 0.6442 | 0.1028 | |
+| Ke2021ICCV (Ke et al., 2021) | AS | 0.8630 | 0.8382 | 0.1195 | |
+| Ying2020CVPR (Ying et al., 2020) | GS | 0.6453 | 0.5802 | 0.0631 | |
+| Kim2019TNNLS (Kim et al., 2019) | MT | 0.5968 | 0.6030 | 0.1205 | |
+| Yan2019TMM (Yan et al., 2019) | MT | 0.5588 | 0.5610 | 0.1322 | |
+| Zhang2020TCSVT (Zhang et al., 2020) | MT | 0.5187 | 0.5581 | 0.1346 | |
+| Wu2020TIP (Wu et al., 2020) | MO | 0.6216 | 0.5877 | 0.1248 | |
+| Li2020ACMMM (Li et al., 2020) | MO | 0.6138 | 0.6358 | 0.1107 | |
+| Su2020CVPR (Su et al., 2020) | MO | 0.7914 | 0.7829 | 0.0755 | |
+| Zhu2020CVPR (Zhu et al., 2020) | MO | 0.7791 | 0.7616 | 0.0931 | |
+| Ma2021ACMMM (Ma et al., 2021) | MC | 0.7713 | 0.7419 | 0.0810 | |
+| Zhang2021TIP (Zhang et al., 2021) | MC | 0.8079 | 0.8131 | 0.0697 | |
+| Zhang2023TPAMI (Zhang et al., 2023) | MC | 0.8538 | 0.8358 | 0.0593 | |
+| Liu2019TPAMI (Liu et al., 2019) | DU | 0.6319 | 0.6352 | 0.1002 | |
+| Wang2022ACMMM (Wang et al., 2022) | MU | 0.8526 | 0.8357 | 0.0687 | |
+| Madhusudana2022TIP (Madhusudana et al., 2022) | MU | 0.8293 | 0.8240 | 0.0669 | |
+| BMQAimage−only RN | MU | 0.9026 | 0.8874 | 0.0624 | |
+| +TransF<br>BMQAimage−only ViT<br>−B32+TransF | MU | 0.9117 | 0.8989 | 0.0593 | |
+| BMQAimage−only CNXT<br>−B+TransF | MU | 0.9156 | 0.9085 | 0.0605 | |
 
 The best results of the deep-learned BIQAs are highlighted in bold, and the best results of our BMQA are highlighted in underline
 
 <span id="page-20-1"></span><span id="page-20-0"></span>
 
-| Table 5 Ablation study of                                                                      |                                                          |         | Model<br>BMQA∗image−only<br>RN−50+TransF |         | Fcap           | MLIQ           |                |                | Dark-4K                        |                |              |
+| Table 5 Ablation study of | | | Model<br>BMQA∗image−only<br>RN−50+TransF | | Fcap | MLIQ | | | Dark-4K | | |
 |------------------------------------------------------------------------------------------------|----------------------------------------------------------|---------|------------------------------------------|---------|----------------|----------------|----------------|----------------|--------------------------------|----------------|--------------|
-| alternative text modalities                                                                    |                                                          | MS-COCO |                                          |         | PLCC<br>0.8627 | SRCC<br>0.8550 | RMSE<br>0.0846 | PLCC<br>0.8616 | SRCC<br>0.8553                 | RMSE<br>0.0674 |              |
-|                                                                                                |                                                          |         |                                          |         |                |                |                |                |                                |                |              |
-|                                                                                                | Table 6 Inference time (sec.) of each module in our BMQA |         |                                          |         |                |                |                |                |                                |                |              |
-| Module                                                                                         | Fimg                                                     | Ftxt    | Fimg,align                               |         | Ftxt,align     | F f use        | Fcap           | BMQAimage−text | BMQAimage−only<br>RN−50+TransF |                | RN−50+TransF |
-| Time                                                                                           | 0.17                                                     | 0.11    | 0.02                                     |         | 0.03           | <1e-4          | 0.25           | 0.34           |                                | 0.60           |              |
-| Table 7 Performance of the<br>proposed BMQA on the<br>CID2013, KonIQ-10k, and<br>SPAQ datasets |                                                          | CID2013 |                                          |         | KonIQ-10k      |                |                | SPAQ           |                                |                |              |
-|                                                                                                |                                                          | PLCC↑   | SRCC↑                                    | RMSE↓   | PLCC↑          | SRCC↑          | RMSE↓          | PLCC↑          | SRCC↑                          | RMSE↓          |              |
-|                                                                                                |                                                          | 0.8396  | 0.7763                                   | 14.1982 | 0.9155         | 0.8965         | 0.2027         | 0.9191         | 0.9183                         | 8.2315         |              |
+| alternative text modalities | | MS-COCO | | | PLCC<br>0.8627 | SRCC<br>0.8550 | RMSE<br>0.0846 | PLCC<br>0.8616 | SRCC<br>0.8553 | RMSE<br>0.0674 | |
+| | | | | | | | | | | | |
+| | Table 6 Inference time (sec.) of each module in our BMQA | | | | | | | | | | |
+| Module | Fimg | Ftxt | Fimg,align | | Ftxt,align | F f use | Fcap | BMQAimage−text | BMQAimage−only<br>RN−50+TransF | | RN−50+TransF |
+| Time | 0.17 | 0.11 | 0.02 | | 0.03 | <1e-4 | 0.25 | 0.34 | | 0.60 | |
+| Table 7 Performance of the<br>proposed BMQA on the<br>CID2013, KonIQ-10k, and<br>SPAQ datasets | | CID2013 | | | KonIQ-10k | | | SPAQ | | | |
+| | | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | PLCC↑ | SRCC↑ | RMSE↓ | |
+| | | 0.8396 | 0.7763 | 14.1982 | 0.9155 | 0.8965 | 0.2027 | 0.9191 | 0.9183 | 8.2315 | |
 
 <span id="page-20-2"></span>provides insight into the feasibility of practical implementation.
 
@@ -718,13 +708,13 @@ To ensure a fair time complexity comparison, we have followed the rule in Xiang 
 
 It should be noted that, all test images have been resized into 224×224 in our BMQA during inference, and texts have been tokenized to a length of 77. Therefore, there is only a small difference in runtime for different image sizes (e.g., 512×512, 1024×1024, and 2048×2048).
 
-#### 5.5.6 Generalization Ability Study
+### 5.5.6 Generalization Ability Study
 
 Although the BMQA framework is tailored for low-light images, the multimodal paradigm is expected to be applicable to a broader spectrum of image distortions beyond low-light scenarios. In view of this, we study its generalization capability by assessing the performance on other types of image distortions.
 
 We have conducted additional experiments with our BMQA on three normal-light image assessment datasets, including CID2013 (Virtanen et al[.](#page-22-34), [2014](#page-22-34)), KonIQ-10k (Hosu et al[.](#page-21-28), [2020](#page-21-28)), and SPAQ (Fang et al[.,](#page-21-29) [2020](#page-21-29)). In the experiments, we directly adopt our BMQA*image*−*only*RN−50+TransF in Sect. [5.5.3](#page-18-2) as the test model. Table [7](#page-20-2) demonstrates that our method still achieves promising performance across these datasets beyond low-light scenarios.
 
-# 6 Conclusion and Future Work
+## 6 Conclusion and Future Work
 
 In this article, we have presented a new study on blind multimodal quality assessment (BMQA) of low-light images from both subjective and objective perspectives. Specifically, we establish the first multimodal quality assessment database for low-light images, where two quality-aware principles are designed for multimodal benchmark construction. Moreover, we investigate the BMQA framework by exploring quality feature representation, alignment and fusion, and multimodal learning. Experimental results verify the effectiveness of our BMQA compared with state-of-the-art methods on two different low-light benchmark databases. We believe that this work can bring a new research perspective to image and video quality assessment.
 
@@ -739,9 +729,10 @@ Last but not least, we construct a multimodal low-light image database and prese
 **Data Availability**The datasets that support the findings of this work are available from the reasonable request, and also available at [https://](https://charwill.github.io/bmqa.html) [charwill.github.io/bmqa.html.](https://charwill.github.io/bmqa.html)
 
 ## Declarations
+
 **Conflict of interest**The authors declare that they have no Conflict of interest.
 
-# References
+## References
 
 - <span id="page-21-6"></span>Baltrušaitis, T., Ahuja, C., & Morency, L. P. (2018). Multimodal machine learning: A survey and taxonomy.*IEEE Transactions on Pattern Analysis and Machine Intelligence, 41*(2), 423–443.
 - <span id="page-21-10"></span>Bosse, S., Maniry, D., Müller, K. R., Wiegand, T., & Samek, W. (2018). Deep neural networks for no-reference and full-reference image quality assessment. *IEEE Transactions on Image Processing, 27*(1), 206–219.

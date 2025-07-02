@@ -39,11 +39,11 @@ Maintaining research-related information in an organized manner can be challengi
 
 • Information systems → Entity relationship models; Data mining.
 
-#### KEYWORDS
+### KEYWORDS
 
 Personal research knowledge graphs, personal knowledge graphs, scholarly data, entities and relations, knowledge representation
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Research is a complex activity; it requires not only a thorough understanding of the problem under consideration, familiarity with the prior art, and innovation of new ideas to tackle the problem but often, also managing a research lab or collaboration. To help researchers in their daily chores and their long term quest, advanced tools like academic search engines and recommendation systems are available. These tools may be standalone applications or tied to scholarly digital libraries like ACM Digital Library[1](#page-0-0) or even online social networks like ResearchGate[2](#page-0-1) . Although many of these tools can provide personalized recommendations, their model of a specific researcher is heavily dependent on how the researcher interacts with the tool, and it is often not transparent to the end-user. It is natural to expect that the greater the access to the personal information of the researcher, the better the tools perform. For example, consider the following imagined scenario where Sunita, a computer scientist specialized in natural language processing (NLP), chats with her smart personal virtual assistant, SciJeeves. The researcher had used an uncommon visualization tool to analyze a temporal data series. Sometime later, she is again required to visualize a time series but she cannot recollect the name of the visualization tool. She asks SciJeeves: 'What visualization tool did I use earlier to analyze time series?' and it immediately responds with the correct name. The visualization tool, though uncommon or only privately available to the researcher, is frequently useful to her. Consider another query from the researcher: 'How many machines
 
@@ -67,7 +67,7 @@ In this vision paper, we define a PKG specifically for researchers. We call such
 
 In the rest of the article, we develop the novel idea of PRKGs in detail. In Section [2,](#page-1-0) we mention related works available in the literature. In Section [3,](#page-1-1) we identify potential content for a PRKG. In Section [4,](#page-3-0) we discuss methods to populate it, and in Section [5,](#page-3-1) we briefly discuss how to share PRKGs within a research group. Section [6](#page-3-2) concludes the paper.
 
-#### <span id="page-1-0"></span>2 RELATED WORK
+### <span id="page-1-0"></span>2 RELATED WORK
 
 Existing literature related to this paper cuts across knowledge graphs, personal knowledge graphs, and the extraction of entities and relations from scientific documents. Each of these areas is vast; so we will be brief and restrict the section to the research that is most closely connected with the present work.
 
@@ -79,7 +79,7 @@ entities and relations in a PKG may not be of importance to other users. Open qu
 
 Extracting entities and relations from scientific documents. The PRKG we propose incorporates scientific entities and relations extracted from various sources. Entity and relation extraction from natural language text is an active area of research [\[24,](#page-4-19) [27\]](#page-4-20). Many recent works have focused on the scholarly domain. For example, given the abstract of an article, joint entity and relation extraction frameworks have successfully used LSTMs [\[25\]](#page-4-21), dynamic span graphs [\[26\]](#page-4-22), and pre-trained transformers [\[10,](#page-4-23) [29,](#page-4-24) [36\]](#page-4-25). Entity and relation extraction from full text of an article has also been considered [\[17–](#page-4-26)[19,](#page-4-27) [35\]](#page-4-28) where the focus has been to extract tasks, methods, metrics, and datasets, using deep neural networks. However, extraction of scholarly entities and relations from private sources like emails, conversations, or social media posts remains less explored.
 
-#### <span id="page-1-1"></span>3 WHAT'S IN A PRKG?
+### <span id="page-1-1"></span>3 WHAT'S IN A PRKG?
 
 Broad types of entities. A PRKG belonging to a researcher contains information in the form of entities and their relationships that are of importance to the researcher. Entities in a PRKG may focus on the following aspects of the researcher: (1) Professional activities, (2) Personal as well as shared lab resources, (3) Fine-grained knowledge items related to her research. Entities that identify her professional activities are her own current and past affiliations; her research interests; her publications including papers, books and patents she authored; the talks she has given; the projects in which she participated / participates as principal investigator / co-principal investigator or in any other capacity; the conferences she plans to attend; the books or journals she is reading; the openings in her lab; and the courses she is currently offering. A researcher is likely to manage various equipment in her lab, and along with her personal resources, they may be included in the PRKG. Most importantly, the knowledge graph contains fine-grained knowledge entities relevant to the researcher and relations between them. For example, for an NLP researcher, it may include (,ℎ, , ,) describing her current research task. Similarly, these related entities may be extracted from research papers authored or read by the researcher. Note that despite many recent initiatives like ORKG[5](#page-1-2) ,
 
@@ -88,7 +88,7 @@ Broad types of entities. A PRKG belonging to a researcher contains information i
 <span id="page-2-4"></span>![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This image is a knowledge graph visualizing the research activities and resources of Sunita. Nodes represent entities (e.g., Sunita, Twitter, A100 GPU, LDA method) and edges denote relationships (e.g., "worksFor," "uses," "supervises"). The graph illustrates Sunita's involvement in NLP, using various tools, datasets (like 20NG), and methods (LDA, CTM) for topic modelling, within the context of her affiliations (IISER-K, NLPLab) and resources used. The purpose is to provide a contextual overview of her research workflow and dependencies. -->
 
-Figure 1: PRKG for a computer scientist Sunita
+**Figure 1:** PRKG for a computer scientist Sunita
 
 OpenAlex[6](#page-2-0) and the now-retired Microsoft Academic Graph [\[12,](#page-4-29) [15\]](#page-4-30), we are not aware of any free open scholarly KG that contains finegrained knowledge entities and relations (not just metadata) from a sufficiently large scholarly corpus that is very likely to include every paper being read by any researcher. However, there are many tools to parse scholarly papers. So, we may use them to extract entities and relations from the papers relevant to the researcher and add them to her PRKG.
 
@@ -108,7 +108,7 @@ An example: Consider the PRKG shown in Fig. [1](#page-2-4) for a researcher Suni
 
 [www.wikidata.org/wiki/Q3347871\)](www.wikidata.org/wiki/Q3347871), social networks like Twitter[10](#page-3-4) , and scholarly KGs like ORKG (e.g., LDA corresponds to [https://](https://www.orkg.org/orkg/resource/R111035) [www.orkg.org/orkg/resource/R111035\)](https://www.orkg.org/orkg/resource/R111035). External knowledge bases and reasoners can be used to connect more entities like 'pyLDAvis' (tool for topic visualization) to the task 'topic modeling'. However, unless Sunita has used them, they will not be connected to her in the PRKG. Appendix [A.2](#page-4-31) details the implementation of a PRKG.
 
-#### <span id="page-3-0"></span>4 POPULATING A PRKG
+### <span id="page-3-0"></span>4 POPULATING A PRKG
 
 The entities and the relations in the PRKG may be either curated manually by the researcher or extracted automatically using NLP techniques from structured or unstructured sources through a software agent. While the former is less prone to errors, it requires more human intervention and is, therefore, less scalable than the latter. Information regarding her professional work including her affiliation, research interests, and publications may be primarily extracted from her curriculum vitae. Configuration of computers may be collected by installing an application in the respective devices. Extracting knowledge entities (like tasks and methods), and collecting the details of other equipment and ongoing professional activities (like planned talks) are trickier. We discuss below some mechanisms to extract these entities and relations.
 
@@ -124,11 +124,11 @@ Finally, symbolic and neural algorithms may be used to generate more relations a
 
 In many cases, especially in experimental sciences, research is a group activity. So a natural question is, can a researcher share her PRKG with other members of her group, while preferring to keep some of the information in it hidden from them? One way is to incorporate role-based access control into the KG, where each group member will be assigned a role which determines how they can access (read/write/append/control[11](#page-3-5)) the graph and its individual components (relations, node types, nodes, properties, etc.). For example, a researcher may share most of her PRKG with a collaborator but may not want the latter to know the papers she is reviewing. Following role-based access control (RBAC) model [\[13\]](#page-4-33), a role 'collaborator' may be created and assigned 'read' access on the whole PRKG except the node denoting the paper to be reviewed. Support for fine-grained access control is limited in off-the-shelf graph databases; e.g., commercial versions of Neo4j support RBAC on the graph schema but not at the node instance level [\[33\]](#page-4-34).
 
-#### <span id="page-3-2"></span>6 CONCLUSION
+### <span id="page-3-2"></span>6 CONCLUSION
 
 We have presented personal research knowledge graphs as a structured organization of machine-actionable knowledge about a researcher. We have discussed the potential content of such a knowledge graph, how to populate it, and how to share it to a research group. We believe a PRKG will be extremely useful in designing personalized forms of knowledge-aware applications like scholarly search engines, conversational AI agents, and recommendation systems, that in turn can greatly assist a researcher in her everyday chores. However, accurate and timely collection of personally relevant entities and relations from diverse sources is a non-trivial challenge. Since a PRKG stores personal data, security and privacy must be given utmost priority when implementing, deploying, and sharing it. In the near future, we plan to design a framework with which researchers can create PRKGs easily. We also aim to implement an AI chat-bot powered by the knowledge in a PRKG. We hope this paper will spark further discussions on PRKGs and inform research on personalized virtual assistants for researchers.
 
-#### REFERENCES
+### REFERENCES
 
 <span id="page-3-3"></span>[1] Nariman Ammar, James E Bailey, Robert L Davis, and Arash Shaban-Nejad. 2021. Using a Personal Health Library–Enabled mHealth Recommender System for Self-Management of Diabetes Among Underserved Populations: Use Case for Knowledge Graphs and Linked Data. Journal of Medical Internet Research (JMIR) Formative Research 5, 3 (2021), e24738.
 
@@ -175,17 +175,17 @@ in Natural Language Processing. 3219–3232.
 - <span id="page-4-28"></span>[35] Vijay Viswanathan, Graham Neubig, and Pengfei Liu. 2021. CitationIE: Leveraging the Citation Graph for Scientific Information Extraction. In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing.
 - <span id="page-4-25"></span>[36] David Wadden, Ulme Wennberg, Yi Luan, and Hannaneh Hajishirzi. 2019. Entity, Relation, and Event Extraction with Contextualized Span Representations. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP). 5788–5793.
 
-#### A APPENDIX
+### A APPENDIX
 
-#### <span id="page-4-0"></span>A.1 Conversations with AI Chat-bot
+### <span id="page-4-0"></span>A.1 Conversations with AI Chat-bot
 
 We present sample conversations between the computer scientist Sunita and her conversational AI assistant SciJeeves in Figures [2a](#page-5-0) and [2b.](#page-5-0) It shows how the knowledge in the PRKG maintained by Sunita is harnessed by SciJeeves to answer her queries and provide helpful suggestions. Note that these are imagined dialogues mentioned to illustrate how an agent can help a researcher.
 
-#### <span id="page-4-31"></span>A.2 Implementation of a PRKG
+### <span id="page-4-31"></span>A.2 Implementation of a PRKG
 
 We present the prototype of a PRKG in Fig. [3](#page-5-1) that we have implemented in the Enterprise edition of Neo4j Browser 4.4.0 included in Neo4j Desktop 1.4.10. The user of this PRKG is Sunita, a computer scientist working in NLP. In order to populate this PRKG, we have taken a subset of the PRKG as described in Sec. [3,](#page-1-1) which includes the facts ('Sunita', 'interest', 'NLP') and ('Sunita', 'manages', 'NLPLab'). We have employed SpERT [\[10\]](#page-4-23) for entity and relation extraction from scholarly papers. We trained SpERT on the SciERC [\[25\]](#page-4-21) dataset and used it on the papers read by Sunita. For example, we extracted the entities task and method from the statement "High quality translation via word sense disambiguation and accurate word order generation of the target language." that appears in the abstract of the paper [\[23\]](#page-4-35) They are included in the PRKG as facts ('CCLINC', 'task', 'translation') and ('translation', 'method', 'word sense disambiguation'), where CCLINC[\[23\]](#page-4-35) denotes the above paper. Fig. [3](#page-5-1) shows that Sunita is the writer of a paper labeled as 'SpERT.PL' as
 
-#### Chakraborty, Dutta, Sanyal
+### Chakraborty, Dutta, Sanyal
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image presents a dialogue between a user and a chatbot. The conversation focuses on natural language processing tasks. The user requests information on time series visualization tools (TempoViz), topic modeling methods (LDA, CTM), and available GPUs (NVIDIA A100) within a specific lab (NLPLab) for running neural topic models. The chatbot provides relevant answers based on the user’s past actions and system information. The image visually depicts the information exchange, using speech bubbles to represent the interaction. -->
@@ -197,7 +197,7 @@ We present the prototype of a PRKG in Fig. [3](#page-5-1) that we have implement
 
 (b) Conversation 2: Sunita chats with SciJeeves about the upcoming conferences in her field and her new project.
 
-Figure 2: Example conversations between Sunita , a computer scientist, and SciJeeves , a personalised virtual assistant for researchers.
+**Figure 2:** Example conversations between Sunita , a computer scientist, and SciJeeves , a personalised virtual assistant for researchers.
 
 shown by the triple ('Sunita', 'writes', 'SpERT.PL'), and reviewer of a paper 'ScienceKG' as shown by ('Sunita', 'reviewerOf', 'ScienceKG'). She is also a member of a PhD selection committee as shown by ('Sunita', 'memberOf', 'PhDSel').
 
@@ -210,7 +210,7 @@ Here admin is an in-built role in Neo4j who is given complete access to the curr
 <span id="page-5-1"></span>![](_page_5_Figure_10.jpeg)
 <!-- Image Description: This image is a knowledge graph illustrating the relationships between Sunita and various entities. Nodes represent entities like projects (SpERT.PL, ScienceKG, CCLINC, NLPLab), research areas (NLP), and activities (translation, word sense disambiguation). Edges, labeled with relationship types (writes, manages, memberOf, etc.), connect the nodes, showing Sunita's involvement in these areas and projects. The graph visualizes Sunita's research network and contributions. -->
 
-Figure 3: PRKG for a computer scientist Sunita, as implemented in Neo4j.
+**Figure 3:** PRKG for a computer scientist Sunita, as implemented in Neo4j.
 
 DENY MATCH {\*} ON GRAPH prkg NODE selComm TO collaborator;
 
@@ -220,6 +220,6 @@ We have denied viewership of the papers that are being reviewed by Sunita, to th
 
 We have further made sure that the collaborator is unable to make any kind of modification, update or deletion to Sunita's PRKG:
 
-#### DENY WRITE {\*} ON GRAPH prkg TO collaborator
+### DENY WRITE {\*} ON GRAPH prkg TO collaborator
 
 One restriction for the collaborator that we will like to bring into effect as part of the RBAC implemented here, is the prevention of 'read' access of the papers that are currently being written by Sunita but have not been accepted or published yet. This can be distinguished using the node level property status that each paper node will be assigned. This property can take the value of 'published', 'accepted', 'underReview' or 'inProgress'. Presently Neo4j does not allow the implementation of property level RBAC on nodes and relationships, and so we will be trying to implement it as a future work.

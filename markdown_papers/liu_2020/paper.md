@@ -22,7 +22,6 @@ keywords:
 - state-of-the-art
 ---
 
-
 # Web of Scholars: A Scholar Knowledge Graph
 
 Jiaying Liu, Jing Ren, Wenqing Zheng School of Software
@@ -37,7 +36,7 @@ UniSA STEM University of South Australia, Australia Ivan.Lee@unisa.edu.au
 
 In this work, we demonstrate a novel system, namely Web of Scholars, which integrates state-of-the-art mining techniques to search, mine, and visualize complex networks behind scholars in the field of Computer Science. Relying on the knowledge graph, it provides services for fast, accurate, and intelligent semantic querying as well as powerful recommendations. In addition, in order to realize information sharing, it provides open API to be served as the underlying architecture for advanced functions. Web of Scholars takes advantage of knowledge graph, which means that it will be able to access more knowledge if more search exist. It can be served as a useful and interoperable tool for scholars to conduct in-depth analysis within Science of Science.
 
-# CCS CONCEPTS
+## CCS CONCEPTS
 
 • Information systems → World Wide Web; Web searching and information discovery.
 
@@ -72,7 +71,7 @@ Feng Xia School of Science, Engineering and IT Federation University Australia, 
 <span id="page-0-0"></span>![](_page_0_Figure_23.jpeg)
 <!-- Image Description: This flowchart depicts a system architecture for scholar relationship analysis. It shows data flowing from data access (Microsoft and crowdsourced datasets) through data extraction, fusion, and processing stages, populating a relationship graph database and scholar profiling database. Business logic components analyze relationships (collaboration, advisor-advisee, citation, co-citation), geographic distribution, and scholar statistics. The application layer then performs deep mining, path analysis, and visualized analysis to support intelligent querying and outputting scholar profiles, relationship analyses, potential predictions, and impact evaluations. -->
 
-Figure 1: System Architecture of Web of Scholars.
+**Figure 1:** System Architecture of Web of Scholars.
 
 difficult to obtain information fast and accurately in large-scale networks. Meanwhile, redundant information on the Web also makes users be overwhelmed by the information, while many unstructured or semi-structured data are not put to great use. Due to the network complexity, how to efficiently mine implicit relationships among scholars is also a critical issue. Therefore, it is urgent to concentrate on managing the large amount of data and mining the implicit relationships among scholars to facilitate the comprehension of scholars.
 
@@ -91,11 +90,11 @@ Wealthy Information. The system collects more than 1.7 million scholars, 1.5 mil
 <span id="page-1-0"></span>![](_page_1_Figure_5.jpeg)
 <!-- Image Description: This image from an academic paper displays visualizations of a scholarly knowledge graph. It shows screenshots of an "Intelligent Search" interface and "Scholar Ranking" results. Further, it presents various network diagrams: a collaboration network (showing global connections), an advisor-advisee network (hierarchical structure), and a citation network (with nodes representing publications and their relationships). A bar chart depicts collaboration trends over time. The purpose is to illustrate the system's data representation and analysis capabilities. -->
 
-Figure 2: System Overview of Web of Scholars.
+**Figure 2:** System Overview of Web of Scholars.
 
 Tectonic Inheritance. Web of Scholars is not only a search engine but also a bridge that can be served as the underlying architecture for other advanced functions such as reviewer recommendation, advisor choosing, team members recommendation, and funding allocation. It provides open API and allows integration into other environments for information sharing.
 
-#### 2 SYSTEM OVERVIEW
+### 2 SYSTEM OVERVIEW
 
 Figure [2](#page-1-0) presents some of the main components of Web of Scholars: 1) The Profile Search formulates queries of scholars including simple queries and intelligent queries. 2) The Academic Rank is responsible for retrieving scholars in a descending order from the database under different categories. 3) Finally, the Relationship Knowledge Graph is used to present scholars' various ego-networks, which aims to profile the scholar from the perspective of different relationships.
 
@@ -115,13 +114,13 @@ Furthermore, this part provides advisor recommendation service for students. It 
 
 Citation Relationship. For each scholar, we describe the citation network and the co-citation network which are different from traditional citation networks for papers. It is used to unveil scientific collaboration patterns and mine the implicit relationships among scholars. For example, in the citation network, we distinguish the identity (e.g., advisors, advisees, co-authors, or collaborators) of the referee with color. We also use different colors and sizes to represent the importance of nodes in scholars' co-citation networks.
 
-#### 2 Academic Rank
+### 2 Academic Rank
 
 In the ranking model, we define different measures to evaluate scholars' achievement, including "Number of Collaborators", "Number of Advisees", "Number of Team Members", "Advisor Influence", "Times of Citations", and "Potential Index". For each measure, the system outputs a descending ranking list in the domain of Computer Science. We store the ranking in the Redis cluster. This cached approach can prevent needless round trips to the database, thus ensuring the quickness and timeliness when visiting rankings.
 
-#### 3 DEMONSTRATION
+### 3 DEMONSTRATION
 
-#### 1 Implementation
+### 1 Implementation
 
 As mentioned above, the system consists of three layers:
 
@@ -133,11 +132,11 @@ Application layer is located at outermost, which is closest to users and could b
 
 Moreover, to ensure the system can normally run with the server temporarily breakdown, a distributed environment, Hadoop + Hbase + Zookeeper with three server machines on Linux operating system is designed.
 
-#### 2 Data
+### 2 Data
 
 For implementing Web of Scholars, we rely on the popular digital library, Microsoft Academic Graph (MAG), which contains 171,233,592 publications, 209,508,429 authors, and 196,025 research fields. Based on the research field, we extract all publications in the field of Computer Science, and identify all scholars in this field to generate relationships mentioned above in Section [2.1.](#page-1-1) Finally, by processing the publication metadata, Web of Scholars collects more than 1.7 million researchers, 1.5 million papers, 20 million collaboration relationships, 1.4 million collaborative teamworks, 1 million advisor-advisee relationships, 14 million citation relationships, and 300 million co-citation relationships. All of them are stored in the graphic database in terms of knowledge graph.
 
-# 3 Interface
+## 3 Interface
 
 Web of Scholars provides two kinds of interfaces: User Search Interface and Open Interface. User Search Interface aims to fulfill user expectations of interacting with the system. The query input panel implements a fuzzy matching technique provided by HBase, FuzzyRowFilter, where any token of searching names (synonyms) could be auto-completed. It can also achieve the goal of intelligent query. For example, typing "Bob's advisor" retrieves his advisor as a suggestion. We also provide most of Web of Scholars' API to users freely. Users can share copies and redistribute the data in any format for free to build advanced functions.
 
@@ -149,7 +148,7 @@ Figure [3](#page-3-1) shows some screen shots of the system. The URL[1](#page-2-
 
 This work is partially supported by National Natural Science Foundation of China under Grant No. 61872054 and the Fundamental Research Funds for the Central Universities (DUT19LAB23). The authors would like to thank Huijie Zhang and Wenjie Kang for help with system design.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-2-0"></span>[1] Yankai Lin, Zhiyuan Liu, Maosong Sun, Yang Liu, and Xuan Zhu. 2015. Learning entity and relation embeddings for knowledge graph completion. In AAAI, Vol. 15. 2181–2187.
 - <span id="page-2-1"></span>[2] Jiaying Liu, Feng Xia, Lei Wang, Bo Xu, Xiangjie Kong, Hanghang Tong, and Irwin King. 2019. Shifu2: A Network Representation Learning Based Model for Advisor-advisee Relationship Mining. IEEE Transactions on Knowledge and Data Engineering (2019), 1–1.
@@ -158,4 +157,4 @@ This work is partially supported by National Natural Science Foundation of China
 
 <span id="page-3-1"></span><span id="page-3-0"></span>
 
-Figure 3: Some Screen Shots of Web of Scholars.
+**Figure 3:** Some Screen Shots of Web of Scholars.

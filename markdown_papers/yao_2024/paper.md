@@ -42,16 +42,15 @@ keywords:
 - user-item
 ---
 
-
 # FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement
 
 Dezhong Yao<sup>1</sup> Tongtong Liu<sup>1</sup> Qi Cao<sup>2</sup> Hai Jin<sup>1</sup> <sup>1</sup>Huazhong University of Science and Technology <sup>2</sup>University of Glasgow {dyao,tliu,hjin}@hust.edu.cn qi.cao@glasgow.ac.uk
 
-# Abstract
+## Abstract
 
-*Federated Learning*(FL) has emerged as a promising approach for preserving data privacy in recommendation systems by training models locally. Recently,*Graph Neural Networks*(GNN) have gained popularity in recommendation tasks due to their ability to capture high-order interactions between users and items. However, privacy concerns prevent the global sharing of the entire user-item graph. To address this limitation, some methods create pseudo-interacted items or users in the graph to compensate for missing information for each client. Unfortunately, these methods introduce random noise and raise privacy concerns. In this paper, we propose FEDRKG, a novel federated recommendation system, where a global*knowledge graph*(KG) is constructed and maintained on the server using publicly available item information, enabling higher-order user-item interactions. On the client side, a relation-aware GNN model leverages diverse KG relationships. To protect local interaction items and obscure gradients, we employ pseudo-labeling and*Local Differential Privacy*(LDP). Extensive experiments conducted on three real-world datasets demonstrate the competitive performance of our approach compared to centralized algorithms while ensuring privacy preservation. Moreover, FEDRKG achieves an average accuracy improvement of 4% compared to existing federated learning baselines.
+**Federated Learning:** (FL) has emerged as a promising approach for preserving data privacy in recommendation systems by training models locally. Recently,*Graph Neural Networks*(GNN) have gained popularity in recommendation tasks due to their ability to capture high-order interactions between users and items. However, privacy concerns prevent the global sharing of the entire user-item graph. To address this limitation, some methods create pseudo-interacted items or users in the graph to compensate for missing information for each client. Unfortunately, these methods introduce random noise and raise privacy concerns. In this paper, we propose FEDRKG, a novel federated recommendation system, where a global*knowledge graph*(KG) is constructed and maintained on the server using publicly available item information, enabling higher-order user-item interactions. On the client side, a relation-aware GNN model leverages diverse KG relationships. To protect local interaction items and obscure gradients, we employ pseudo-labeling and*Local Differential Privacy*(LDP). Extensive experiments conducted on three real-world datasets demonstrate the competitive performance of our approach compared to centralized algorithms while ensuring privacy preservation. Moreover, FEDRKG achieves an average accuracy improvement of 4% compared to existing federated learning baselines.
 
-# 1 Introduction
+## 1 Introduction
 
 Recommendation systems are widely used in various domains, such as e-commerce and social recommendation, by alleviating users from the burden of sifting through vast amounts of data to discover suitable options [\[1\]](#page-10-0). These systems utilize user preferences and relevant information to provide personalized recommendations, making the process of finding relevant items more efficient and convenient [\[2\]](#page-10-1). However, the effectiveness of most recommendation methods heavily relies on centralized storage of user data [\[3\]](#page-10-2). User data generated from software usage has the potential to enhance user experiences, deliver personalized services, and provide insights into user behavior [\[4\]](#page-10-3). Nevertheless, user data inherently includes user preferences and involves personal privacy. With the increasing awareness of privacy and the implementation of relevant regulations such as the*General Data Protection Regulation*(GDPR) [\[5\]](#page-11-0), service providers may face growing challenges in centrally storing and processing user data, as shown in Fig. [1\(](#page-1-0)a).
 
@@ -60,7 +59,7 @@ The exclusive client access to local data leads to two challenges. Firstly, limi
 ![](_page_1_Figure_0.jpeg)
 <!-- Image Description: The image compares three machine learning approaches: centralized learning, federated learning based on user relevance, and federated learning based on item relevance. It uses diagrams showing users (represented by icons) interacting with items (shopping bags). (a) shows a centralized server collecting all data. (b) and (c) illustrate federated learning, where data remains decentralized, with (b) focusing on user-based interactions and (c) on item-based interactions, ultimately contributing to a knowledge graph. -->
 
-<span id="page-1-0"></span>Figure 1: Comparison of centralized learning, federated learning with enhanced user connections, and federated learning with enhanced project connections.
+<span id="page-1-0"></span>**Figure 1:** Comparison of centralized learning, federated learning with enhanced user connections, and federated learning with enhanced project connections.
 
 users. For example, FedMF [\[6\]](#page-11-1) and FedGNN [\[7\]](#page-11-2) use only the local user-item interaction graph to find links between different users by*collaborative filtering*(CF). However, incorporating various types of information in the conventional graph recommendation task can significantly improve the recommendation accuracy while changing the graph structure [\[4\]](#page-10-3). Additionally, FeSoG [\[8\]](#page-11-3) utilizes social networks as side information, adding direct connections between different users. Nevertheless, this method requires the server to possess the complete social network, which is a type of private data that is difficult to obtain for most recommendation systems. Furthermore, methods like FedGNN employ homomorphic encryption, which incurs substantial computational overhead and is not suitable as the primary encryption algorithm on edge devices with performance constraints.
 
@@ -74,7 +73,7 @@ The server firstly constructs and maintains*knowledge graphs*(KGs) by utilizing 
 
 <span id="page-1-1"></span><sup>1</sup>The source code is available at: <https://github.com/ttliu98/FedRKG>
 
-# 2 Related Work
+## 2 Related Work
 
 ## 1 Knowledge Graph Based Recommendation
 
@@ -84,9 +83,9 @@ In recent years, significant research has focused on recommendation systems that
 
 Federated learning is extensively utilized in privacy-preserving scenarios, as it ensures that the original data remains on local devices while allowing multiple clients to train a model together [\[13\]](#page-11-8). Considering the information required for recommendations, which includes users' preferences for items, the introduction of federated learning can help us prevent privacy breaches. FedSage [\[14\]](#page-11-9) and FKGE [\[15\]](#page-11-10) focus on cross-silo federation learning, they are not suitable for protecting the privacy of individual users on client devices. FCF [\[16\]](#page-11-11) and FedMF [\[6\]](#page-11-1) decompose the scoring matrix, retain user embeddings locally, and aggregate item embeddings on the server. FedGNN [\[7\]](#page-11-2) utilizes homomorphic encryption for CF and protects the original gradients using pseudo-labeling and LDP. However, the computational requirements for homomorphic encryption pose challenges, particularly on performance-constrained devices. In contrast to methods that do not leverage any side information, FeSoG [\[8\]](#page-11-3) introduces social networks to establish connections between users. Unfortunately, in many recommendation scenarios such as e-commerce, service providers do not offer social services, and social network information is considered private. Therefore, the lack of user connection on the server in Fig. [1\(](#page-1-0)b), like a social network, restricts the method's ability to generalize [\[17\]](#page-11-12). Currently, there is a scarcity of federated learning algorithms that effectively utilize side information for cross-device scenarios.
 
-# 3 Federated Recommendation with Knowledge Graph Enhancement
+## 3 Federated Recommendation with Knowledge Graph Enhancement
 
-# 1 Problem Definition
+## 1 Problem Definition
 
 User-item interactions can be represented by a typical bipartite graph G = (U, T , E), where U = {u1, u2, . . . , u<sup>N</sup> } and T = {t1, t2, . . . , tM} represent a set of users and items of size N and M, respectively. To describe the set of edges E, an interaction matrix Y ∈ RM×<sup>N</sup> is employed. In particular, yut takes on the value 1 if an interaction exists in the user's history, and 0 otherwise.
 
@@ -99,7 +98,7 @@ Our goal is to train a generalized GNN model using the local bipartite graphs G<
 ![](_page_3_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning framework using graph neural networks (GNNs). Two clients (i and j) independently process their local data (uᵢ, uⱼ) through local differential privacy (LDP) mechanisms and GNNs, generating model and embedding gradients. These gradients are uploaded to an aggregator, which updates the global GNN model based on a knowledge graph. The updated model is then distributed back to the clients. The diagram depicts the data flow and processing steps for distributed GNN training with privacy preservation. -->
 
-<span id="page-3-0"></span>Figure 2: The framework of FEDRKG.
+<span id="page-3-0"></span>**Figure 2:** The framework of FEDRKG.
 
 ## 2 Framework Overview
 
@@ -118,11 +117,11 @@ Once the aggregated global model is received, the client proceeds to update its 
 $$
 x_i^{(t+1)} = \phi\left(x_i^{(t)}, \rho\left(\left\{m_{r_{i,j}}^{(t+1)} : (u, e_j, r_{u,v}) \in \mathcal{E}\right\}\right)\right)
 $$
- (1)
+(1)
 
 where x t <sup>i</sup> ∈ R d is embedding of entity e<sup>i</sup> in step t. We utilize a simple summation operation as the reduce function ρ and directly replace the original embeddings with the aggregated results as the
 
-#### Algorithm 1: FEDRKG
+### Algorithm 1: FEDRKG
 
 Input: Neighbor sampling size K; embedding size d; depth of receptive field H; learning rate η; client number N; item number M; pseudo items p; (0, 1) flipping q;LDP parameter δ, λ; knowledge graph K; clients local graph n Gn| N n=1<sup>o</sup>
 
@@ -147,38 +146,36 @@ $$
 
 We calculate an attention score using a score function (e.g. inner product) and then normalize it. After obtaining the final embedding x<sup>t</sup> of item t, we calculate the prediction yˆ by a readout function and then train this GNN model using BCE as the loss function. Finally, client uploads encrypted gradient to server.
 
-#### 4 Server Design
+### 4 Server Design
 
 Similar to clients, the server performs distinct tasks that are mainly distributed across two phases. Firstly, the server's primary responsibility is to respond to the client's requests. Based on the requested items, the server utilizes the knowledge graph to sample a subgraph that corresponds to a specific client. The subgraph comprises two key components, namely the structural information in the form of triples, and the feature information, represented by the embedding of entities and relations. Subsequently, the server shares the subgraph, together with the global model, with the client. Secondly, the server needs to receive all gradients of local models and embeddings uploaded by clients. These gradients are then aggregated and used to update the global model and knowledge graph.
 
 ![](_page_5_Figure_0.jpeg)
 <!-- Image Description: The image is a diagram illustrating a knowledge graph-based recommendation system. It shows user-item interactions represented as embeddings (e<sub>u</sub>, e<sub>t</sub>, e<sub>k</sub>) which are processed through attention mechanisms (Att) and combined via dot products and summation. Different colored blocks represent user, item, relation, and entity embeddings. The diagram visually explains the model's architecture and the flow of information from user-item interactions to the final recommendation. -->
 
-<span id="page-5-0"></span>Figure 3: Relation-aware aggregation in client.
+<span id="page-5-0"></span>**Figure 3:** Relation-aware aggregation in client.
 
 In each communication round, the server activates N clients. After receiving request items from those clients, server randomly samples a set of neighbors, denoted as S(t) ≜ {e|e ∼ N(t)}, for the request item t. Here, |S(v)| = K represents the fixed size when sampling, and N(t) represents immediate neighbors for item t. In our framework, S(v) is also referred to as the (single-layer) receptive field of item t. Repeat the above sampling several times to obtain G<sup>i</sup> containing n iterations and then distribute it to the client along with the parameters θ, consisting of the model parameters θ <sup>m</sup> and all embeddings of entities and relations in G<sup>i</sup> denoted by θ e . Finally, it receives the local gradients g˜<sup>i</sup> of these clients and aggregates them as follow:
 
-<span id="page-5-1"></span>
 $$
 \overline{\mathbf{g}} = \frac{\sum_{n \in \mathcal{N}} |\mathcal{T}'_n| \cdot \tilde{\mathbf{g}}^n}{\sum_{n \in \mathcal{N}} |\mathcal{T}'_n|} \tag{5}
 $$
 
 After aggregation, the server updates all parameters θ with gradient descent as:
 
-<span id="page-5-2"></span>
 $$
 \theta^*= \theta - \eta \cdot \bar{g} \tag{6}
 $$
 
 where η is the learning rate.
 
-#### 5 Privacy-Preserving Communication
+### 5 Privacy-Preserving Communication
 
-#### 5.1 User privacy
+### 5.1 User privacy
 
 Within our proposed framework, user-related privacy pertains primarily to user embedding. Traditional embedding-based recommendation algorithms can derive both user and item embeddings and generate user-specific recommendations through a straightforward readout operation. However, user embeddings comprise the user's preference characteristics, which can lead to a compromise of their privacy. In the federated learning scenario where the server does not have access to the raw data, to avoid exposing user preferences directly to the server, it is obvious that we need to keep the user embeddings on the client side and isolate them from the server. Clients can simply protect user-related privacy by refraining from uploading user embeddings after the training phase.
 
-#### 5.2 Interaction privacy
+### 5.2 Interaction privacy
 
 The interaction between users and items is considered highly sensitive information, susceptible to potential leaks during two stages. Firstly, due to the large size of the knowledge graph for items and limited transmission bandwidth, it is not practical to distribute all embeddings to client similar to FedGNN and FedSoG. Instead, we aim to complete the entire training process through the limited distribution of embeddings. However, this presents a challenge in determining which embeddings should be distributed by the server. Server can not explicitly obtain the required embeddings, as this would mean that it has access to the client's real interaction item. Therefore, we need to obfuscate
 
@@ -188,7 +185,7 @@ We have designed a*local differential privacy*(LDP) mechanism to generate reques
 
 A potential privacy concern with the widely used pseudo-labeling method in previous work is that the interacted item will always generate gradients, even if pseudo-labeling is used. Additionally, the pseudo-labeling method applied during the training phase does not effectively reduce the communication overhead associated with distributing embeddings. To address this issue, we first sample several non-interactive samples, mix them with real interaction items, and further obfuscate them by the above LDP method to achieve privacy protection.
 
-#### 5.3 Gradients privacy
+### 5.3 Gradients privacy
 
 Ensuring the privacy of users' sensitive information is a critical concern when maintaining a knowledge graph and updating the global model in a federated recommendation system. In each communication round, the server needs to aggregate gradients of entity embeddings, relational embeddings, and GNN models from different clients. However, it has been demonstrated, as exemplified by FedMF, that uploading users' gradients in consecutive steps can lead to the inadvertent exposure of sensitive data, such as users' ratings. Therefore, we need to obfuscate gradients to protect user privacy. However clients of recommendation systems, such as mobile devices, often have limited computational capabilities [\[19\]](#page-11-14), and computationally intensive methods like homomorphic encryption may not be practical to implement on such devices. To tackle this, we employ LDP by injecting random noise into the local gradients before uploading them to the server. This approach effectively protects row gradients without compromising the accuracy of the model. Moreover, it helps ensure that the computational overhead remains manageable and within acceptable limits.
 
@@ -200,7 +197,7 @@ $$
 
 where g˜<sup>n</sup> is the encrypted gradient, clip(x, δ) denotes the gradient clipping operation with a threshold δ to limit x and prevent the gradient from being too large, after which we add to the gradient a mean value of 0 and an intensity of λ of Laplacian noise, denoted by Laplacian (0, λ). This results in a ϵ-LDP, where the privacy budget ϵ is <sup>2</sup><sup>δ</sup> λ .
 
-# 4 Experiment
+## 4 Experiment
 
 ## 1 Datasets
 
@@ -209,22 +206,22 @@ In order to ensure the robustness of the algorithm, we aim to test the overall p
 - MovieLens-20M [\[20\]](#page-11-15) contains five-star ratings from MovieLens, a movie recommendation service, as of 2019. Each user in the dataset has provided a minimum of 20 ratings (ranging from 1 to 5) on the MovieLens website.
 - Book-Crossing [\[21\]](#page-11-16) contains user ratings (ranging from 0 to 10) of books extracted from the Book-Crossing community in 2004. In this dataset, a rating of 0 indicates an implicit interaction between the user and the book.
 
-|              | MovieLens-20M | Book-Crossing | Last.FM  |  |
+| | MovieLens-20M | Book-Crossing | Last.FM | |
 |--------------|---------------|---------------|----------|--|
-| users        | 138,159       | 19,676        | 1,872    |  |
-| items        | 16,954        | 20,003        | 3,846    |  |
-| interactions | 13,501,622    | 172,576       | 42,346   |  |
-| entities     | 102,569       | 25,787        | 9,366    |  |
-| relations    | 32            | 18            | 60       |  |
-| KG triples   | 499,474       | 60,787        | 15,518   |  |
-| K            | 4             | 8             | 8        |  |
-| d            | 32            | 64            | 16       |  |
-| H            | 2             | 1             | 1        |  |
-| λ            | 10−7          | 2 × 10−5      | 10−4     |  |
-| η            | 2 × 10−2      | 2 × 10−4      | 5 × 10−4 |  |
-| N            | 32768         | 64            | 32       |  |
+| users | 138,159 | 19,676 | 1,872 | |
+| items | 16,954 | 20,003 | 3,846 | |
+| interactions | 13,501,622 | 172,576 | 42,346 | |
+| entities | 102,569 | 25,787 | 9,366 | |
+| relations | 32 | 18 | 60 | |
+| KG triples | 499,474 | 60,787 | 15,518 | |
+| K | 4 | 8 | 8 | |
+| d | 32 | 64 | 16 | |
+| H | 2 | 1 | 1 | |
+| λ | 10−7 | 2 × 10−5 | 10−4 | |
+| η | 2 × 10−2 | 2 × 10−4 | 5 × 10−4 | |
+| N | 32768 | 64 | 32 | |
 
-<span id="page-7-0"></span>Table 1: Dataset basic information and hyperparameters, notation is consistent with Algorithm [1.](#page-3-1)
+<span id="page-7-0"></span>**Table 1:** Dataset basic information and hyperparameters, notation is consistent with Algorithm [1.](#page-3-1)
 
 • Last.FM [\[22\]](#page-11-17) contains musician listening recodes from the Last.FM music streaming service. We consider artists as items and the number of listens as ratings. In particular, we utilize the HetRec 2011 version in our study.
 
@@ -243,20 +240,20 @@ We compare the proposed FEDRKG with the following baselines, in which the first 
 - FedMF [\[6\]](#page-11-1) is a recommendation algorithm based on matrix decomposition while protecting privacy through an encryption mechanism.
 - FedGNN [\[7\]](#page-11-2) is a GNN-based recommendation algorithm that uses homomorphic encryption for aggregation and protects the original gradient by differential privacy and pseudo-labeling.
 
-<span id="page-8-0"></span>Table 2: Results for CRT prediction. KGCN achieves the best AUC among the first five centralized learning methods. Our method performs best in the next three federal learning methods, while the gap with KGCN is acceptable.
+<span id="page-8-0"></span>**Table 2:** Results for CRT prediction. KGCN achieves the best AUC among the first five centralized learning methods. Our method performs best in the next three federal learning methods, while the gap with KGCN is acceptable.
 
-| Model     | MovieLens-20M |               | Book-Crossing |               | Last.FM       |               |
+| Model | MovieLens-20M | | Book-Crossing | | Last.FM | |
 |-----------|---------------|---------------|---------------|---------------|---------------|---------------|
-|           | AUC           | F1            | AUC           | F1            | AUC           | F1            |
-| SVD       | 0.952(±0.013) | 0.909(±0.014) | 0.665(±0.058) | 0.628(±0.051) | 0.760(±0.026) | 0.688(±0.022) |
-| LibFM     | 0.960(±0.018) | 0.907(±0.024) | 0.692(±0.046) | 0.619(±0.063) | 0.779(±0.019) | 0.711(±0.011) |
-| PER       | 0.824(±0.119) | 0.780(±0.121) | 0.611(±0.101) | 0.557(±0.100) | 0.627(±0.125) | 0.593(±0.107) |
-| CKE       | 0.918(±0.050) | 0.866(±0.056) | 0.673(±0.057) | 0.607(±0.055) | 0.739(±0.044) | 0.669(±0.046) |
+| | AUC | F1 | AUC | F1 | AUC | F1 |
+| SVD | 0.952(±0.013) | 0.909(±0.014) | 0.665(±0.058) | 0.628(±0.051) | 0.760(±0.026) | 0.688(±0.022) |
+| LibFM | 0.960(±0.018) | 0.907(±0.024) | 0.692(±0.046) | 0.619(±0.063) | 0.779(±0.019) | 0.711(±0.011) |
+| PER | 0.824(±0.119) | 0.780(±0.121) | 0.611(±0.101) | 0.557(±0.100) | 0.627(±0.125) | 0.593(±0.107) |
+| CKE | 0.918(±0.050) | 0.866(±0.056) | 0.673(±0.057) | 0.607(±0.055) | 0.739(±0.044) | 0.669(±0.046) |
 | RippleNet | 0.964(±0.010) | 0.909(±0.020) | 0.712(±0.023) | 0.648(±0.032) | 0.777(±0.016) | 0.699(±0.015) |
-| KGCN      | 0.978(±0.002) | 0.932(±0.001) | 0.738(±0.003) | 0.688(±0.006) | 0.794(±0.002) | 0.719(±0.003) |
-| FedMF     | 0.865(±0.012) | 0.852(±0.015) | 0.657(±0.039) | 0.605(±0.060) | 0.720(±0.018) | 0.660(±0.013) |
-| FedGNN    | 0.939(±0.011) | 0.891(±0.021) | 0.671(±0.024) | 0.620(±0.037) | 0.753(±0.014) | 0.681(±0.028) |
-| FEDRKG    | 0.970(±0.002) | 0.919(±0.002) | 0.724(±0.004) | 0.667(±0.006) | 0.785(±0.004) | 0.708(±0.002) |
+| KGCN | 0.978(±0.002) | 0.932(±0.001) | 0.738(±0.003) | 0.688(±0.006) | 0.794(±0.002) | 0.719(±0.003) |
+| FedMF | 0.865(±0.012) | 0.852(±0.015) | 0.657(±0.039) | 0.605(±0.060) | 0.720(±0.018) | 0.660(±0.013) |
+| FedGNN | 0.939(±0.011) | 0.891(±0.021) | 0.671(±0.024) | 0.620(±0.037) | 0.753(±0.014) | 0.681(±0.028) |
+| FEDRKG | 0.970(±0.002) | 0.919(±0.002) | 0.724(±0.004) | 0.667(±0.006) | 0.785(±0.004) | 0.708(±0.002) |
 
 ### 3 Experimental Settings
 
@@ -277,35 +274,35 @@ Overall, our framework outperforms existing federated learning algorithms and ac
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image contains three line graphs comparing the Recall@K performance of several recommendation algorithms (PER, CKE, LibFM, RippleNet, KGCN, FedMF, FedGNN, FedRKG) across different datasets: MovieLens 20M, Book Crossing, and LastFM. Each graph shows Recall@K plotted against varying values of K, illustrating how recall changes with the number of recommendations. The purpose is to compare the effectiveness of these algorithms in terms of recommendation accuracy. -->
 
-<span id="page-9-0"></span>(a) MovieLens-20M (b) Book-Crossing (c) Last.FM Figure 4: Results for top-K recommendation. The dashed line represents centralized learning, while the solid line represents federated learning. Our method surpasses all federated baselines and, furthermore, achieves competitive results compared to centralized learning.
+<span id="page-9-0"></span>(a) MovieLens-20M (b) Book-Crossing (c) Last.FM **Figure 4:** Results for top-K recommendation. The dashed line represents centralized learning, while the solid line represents federated learning. Our method surpasses all federated baselines and, furthermore, achieves competitive results compared to centralized learning.
 
 ### 5 Sensitivity Analysis
 
-#### 5.1 Activated client number
+### 5.1 Activated client number
 
 In general, a smaller number of activated clients in each training round will speed up the model convergence and conversely better capture the global user data distribution. We test the algorithm on three datasets with three different numbers of activation clients, and the results are shown in the figure above. Probably due to the sparse data and a large number of clients, a small adjustment has a limited impact on the final results and the Last.FM and Book-Crossing datasets both show a small decrease in AUC when 64 clients are activated.
 
-#### 5.2 Receptive field depth
+### 5.2 Receptive field depth
 
 By testing different receptive field depths, we note that an excessive receptive field reduces model prediction accuracy. As data sparsity decreases, better performance needs a larger receptive field, while a one-layer perceptual region is sufficient to achieve better performance on those sparse data sets.
 
 ![](_page_9_Figure_8.jpeg)
 <!-- Image Description: The image presents two bar charts comparing the Area Under the Curve (AUC) performance metric across three datasets (Movielens-20M, Book-Crossing, Last.FM) for a machine learning model. The left chart shows AUC variation with the number of activated clients (1x, 2x, 4x), while the right chart displays AUC changes based on receptive field depth (1-4). The charts illustrate the model's performance sensitivity to these hyperparameters across different datasets. -->
 
-Figure 5: Sensitivity analysis of activated clients and receptive field depth.
+**Figure 5:** Sensitivity analysis of activated clients and receptive field depth.
 
-#### 5.3 Interaction item protection
+### 5.3 Interaction item protection
 
 We introduce new interaction record protection and assess diverse flipping rates, with corresponding results depicted in Fig. [6.](#page-10-4) Generally, integrating privacy-preserving mechanisms often diminishes recommendation accuracy. However given limited client-side graph data, our scenario tends to induce model overfitting. Hence, proper regularization effectively enhances recommendation accuracy
 
 ![](_page_10_Figure_0.jpeg)
 <!-- Image Description: The image contains three line graphs displaying Area Under the Curve (AUC) values against "flipping rate" for three different datasets: MovieLens-20M, Book-Crossing, and Last.FM. Each graph shows how AUC, a measure of model performance, varies with the flipping rate, likely representing a parameter influencing data augmentation or model training. The purpose is to illustrate the effect of this parameter on model performance across different datasets. -->
 
-<span id="page-10-4"></span>Figure 6: Effect of flipping rate on AUC.
+<span id="page-10-4"></span>**Figure 6:** Effect of flipping rate on AUC.
 
 and privacy protection. Notably, excessive flip rates can compromise system performance despite heightened privacy. Our experiments indicate a balance between accuracy and privacy at a flipping rate of 0.1.
 
-# 5 Conclusion
+## 5 Conclusion
 
 This paper introduces a novel federated learning framework, FEDRKG, which employs GNN for recommendation tasks. Our approach integrates KG information while upholding user privacy. The limitation here is the absence of user connections, and our forthcoming focus is on improving the efficiency and interpretability of utilizing existing user connections without introducing new private data. Specifically, a server-side KG is created from public item data, maintaining relevant embeddings. The client conceals local interaction items and requests server training data. The server samples a KG subgraph and distributes it with the GNN model to the client. The client then expands its user-item graph with the KG subgraph for training, uploading the gradient for server aggregation. Our framework creates higher-order interactions without extra privacy data, relying solely on public information for KG. Sampled KG subgraphs enhance local training by capturing interactions between users and items without direct links. We employ LDP and pseudo-labeling to protect privacy and reduce overhead by requesting partial data. Gradients are encrypted using LDP for user preference protection and local user embedding storage. Experimental results on three datasets demonstrate our framework's superiority over SOTA federated learning recommendation methods. It also performs competitively against centralized algorithms while preserving privacy.
 
@@ -313,7 +310,7 @@ This paper introduces a novel federated learning framework, FEDRKG, which employ
 
 This work is supported by the National Key Research and Development Program of China under Grant No.2021YFB1714600 and the National Natural Science Foundation of China under Grant No.62072204 and No.62032008. The computation is completed in the HPC Platform of Huazhong University of Science and Technology and supported by the National Supercomputing Center in Zhengzhou.
 
-# References
+## References
 
 - <span id="page-10-0"></span>[1] Xiang Wang, Xiangnan He, Yixin Cao, Meng Liu, and Tat-Seng Chua. Kgat: Knowledge graph attention network for recommendation. In*Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD*, pages 950–958, 2019.
 - <span id="page-10-1"></span>[2] Qingyu Guo, Fuzhen Zhuang, Chuan Qin, Hengshu Zhu, Xing Xie, Hui Xiong, and Qing He. A survey on knowledge graph-based recommender systems. *IEEE Transactions on Knowledge and Data Engineering*, 34(8):3549–3568, 2020.

@@ -45,13 +45,11 @@ keywords:
 - performance
 ---
 
-
-
 # Preliminary Systemic Model of (Human) Digital Twin
 
 Yannick Naudet<sup>∗</sup> Christoph Stahl Marie Gallais yannick.naudet@list.lu Luxembourg Institute of Science and Technology (LIST) Esch/Alzette, Luxembourg
 
-# ABSTRACT
+## ABSTRACT
 
 This paper is an ongoing work seeking to establish a generic definition and model of the Human Digital Twin (HDT) concept, independently from the application sector. The goal is to help researchers knowing more precisely what is or could be a HDT and an initial step step towards a unifying and generic definition and model grounded in the systemics theory. We propose a systemic model of Digital Twin (DT), where HDT is a specific class of DT. The last years of literature on HDT are reviewed, to build a generic definition, extract the main components and integrate them in a generic systemic model centred on the DT and HDT concepts as systems. Doing this, we make explicit the link between DT and the systems they twin, including the special system that is the human-being, when a DT becomes a HDT.
 
@@ -59,7 +57,7 @@ This paper is an ongoing work seeking to establish a generic definition and mode
 
 • Human-centered computing → User models;
 
-# KEYWORDS
+## KEYWORDS
 
 Digital Twin, Human Model, Industry4.0
 
@@ -145,7 +143,7 @@ Definition 3.2 (Human Digital Twin). A Human Digital Twin (HDT) is a personal di
 <span id="page-3-1"></span>![](_page_3_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates a Human-Digital Twin (HDT) system architecture. It shows data flow between a physical world environment (characterized by behavior and data sources like sensors) and a digital world environment (containing various models—cognitive, physical, etc.—and functions such as monitoring and personal assistance). A central human figure represents the interaction through an HMI (Human-Machine Interface), highlighting data feedback and continuous adaptation. Key aspects like privacy, security, and ethics are also emphasized. -->
 
-Figure 1: HDT overview
+**Figure 1:** HDT overview
 
 the HDT updates from the twinned human's states and behaviour, and the latter can in turn react to HDT inputs, in a continuous feedback loop.
 
@@ -164,7 +162,7 @@ In an effort to provide a generic formalisation of a Human Digital Twin (HDT), w
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
 <!-- Image Description: This image is a system architecture diagram illustrating a digital twin system. It uses a block diagram style showing interconnected components, including the physical system, digital system, digital twin, human, human digital twin, data store, data source, and associated functions. Arrows indicate data flow and relationships (e.g., "emulates," "interacts with"). The diagram's purpose is to visually represent the complex interactions within a holistic digital twin framework, clarifying the relationships between its various parts. -->
 
-Figure 2: Preliminary Systemic model of DT and HDT
+**Figure 2:** Preliminary Systemic model of DT and HDT
 
 without a specific semantic. This preliminary version of the metamodel will be extended and finalised in a follow-up article.
 
@@ -174,7 +172,6 @@ the IT structure. According to the definitions in previous section, a DT emulate
 
 Once a DT is formalised, it becomes easy to do it for a HDT, as it is simply a specific kind of DT that emulates a Human. As such, it inherits from all properties of a DT. Then, a HDT relies on a Human Model, which is composed of Aspect Models formalising Human Aspects or dimensions such as physical, physiological, cognition, behaviour, personality, emotion [\[7,](#page-5-3) [9\]](#page-5-2); mood, motivation, ability, biographical [\[9\]](#page-5-2); perception, ethics [\[7\]](#page-5-3), not represented here for the sake of clarity. It has also the specific HDT Functions as described in previous section, which are specialised functions of the HDT-asa-system.
 
-<span id="page-5-0"></span>
 
 ### 5 CONCLUSION
 

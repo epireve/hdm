@@ -12,10 +12,9 @@ images_kept: 7
 images_removed: 0
 ---
 
-
 # OPEN
 
-# Neural spatio‑temporal patterns of information processing related to cognitive conflict and correct or false recognitions
+## Neural spatio‑temporal patterns of information processing related to cognitive conflict and correct or false recognitions
 
 **RomualdA. Janik1 , IgorT. Podolak2 , Łukasz Struski2 , Anna Ceglarek3**\***, Koryna Lewandowska3 , Barbara Sikora‑Wachowicz3 , Tadeusz Marek3 & Magdalena Fafrowicz3**\*
 
@@ -36,6 +35,7 @@ In this study, we employed the classical fMRI analysis method and two non-standa
 Te main goal of this paper is to investigate the neural mechanism of changing cognitive demand in shortterm memory. It is the frst attempt of using surface-based data with short-term false memory research. We investigate the spatio-temporal features of information processing related to erroneous and correct responses and varying intensity of cognitive confict with the use of new methods of fMRI data analysis.
 
 ## Results
+
 **Behavioural results.**Te general linear model (GLM) with accuracy and reaction times as dependent variables and probe types as fxed factor was performed (for description of probe types, see ["Methods"](#page-9-0) section). In case of accuracy, the probe type was signifcant (F(1, 4) = 445, p < 0.0001, η<sup>2</sup> <sup>p</sup> = 0.848). Te HSD Tukey's post-hoc tests revealed diferences between all probe types (p < 0.0001). For the reaction times (RTs), the probe type was also signifcant (F(1, 4) = 59.29, p < 0.0001, η<sup>2</sup> <sup>p</sup> = 0.426). Te HSD Tukey's post-hoc tests revealed diferences between all probe types (p < 0.0001) except pairs: POScorr–LURcorr and LURcorr–LURfalse. Te descriptive statistics on accuracy and RTs are presented in Fig. A3 (see*Supplementary Information*). Post-error slowing (PES) was not confrmed. Te t tests between reaction times for all trials and trials afer erroneous responses for positive probes (T(128) = 0.634, p = 0.527) and for lure probes (T(128) = 0.450, p = 0.653) were not signifcant.
 
 **GLM results.**Te GLM analysis with elongated duration of events (see ["Methods](#page-9-0)" for details) was performed to validate the results on surface-based data. Te group analysis revealed signifcant clusters only for the contrasts POScorr>LURfalse and LURfalse>POScorr. For other contrasts, no signifcant results were observed.
@@ -84,29 +84,29 @@ First, for the region shown in Fig. [3](#page-4-1) (lef), we observe a very clea
 
 
 
-| MMP     | CA                                | AAL             | size | x      | y      | z      | leading<br>t |  |  |  |  |
+| MMP | CA | AAL | size | x | y | z | leading<br>t | | | | |
 |---------|-----------------------------------|-----------------|------|--------|--------|--------|--------------|--|--|--|--|
-| (a)     |                                   |                 |      |        |        |        |              |  |  |  |  |
-| L_LIPd  | Dorsal-Attention-15_R-Cerebellum  | CB lobule 8 R   | 794  | 28.8   | − 46.8 | − 47.4 | 3.38 ± 1.06  |  |  |  |  |
-|         | Visual2-15_R-Cerebellum           | CB Crus2 R      | 347  | 7.1    | − 70.8 | − 29.7 | 2.37 ± 0.58  |  |  |  |  |
-|         | Visual1-34_R-Cerebellum           | CB Vermis R     | 324  | 2.7    | − 63.0 | − 32.5 | 1.77 ± 0.36  |  |  |  |  |
-|         | Cingulo-Opercular-21_R-Cerebellum | CB lobule 6 R   | 763  | 28.2   | − 53.6 | − 24.0 | 1.47 ± 0.27  |  |  |  |  |
-|         | Dorsal-Attention-15_L-Ctx         | IPG L           | 99   | − 29.8 | − 55.0 | 45.5   | 1.26 ± 0.32  |  |  |  |  |
-|         | Dorsal-Attention-17_R-Cerebellum  | CB lobule 6 R   | 22   | 33.3   | − 46.5 | − 25.5 | 1.07 ± 0.22  |  |  |  |  |
-|         | Somatomotor-13_R-Cerebellum       | CB 4,5 lobule R | 707  | 19.6   | − 49.3 | − 22.1 | 1.03 ± 0.19  |  |  |  |  |
-| L_SCEF  | Cingulo-Opercular-33_L-Ctx        | SMA L           | 203  | − 5.9  | 1.4    | 54.8   | 0.60 ± 0.18  |  |  |  |  |
-| L_AVI   | Frontoparietal-44_L-Ctx           | INS L           | 126  | − 31.5 | 23.0   | − 4.3  | 0.50 ± 0.14  |  |  |  |  |
-| (b)     |                                   |                 |      |        |        |        |              |  |  |  |  |
-| R_a32pr | Cingulo-Opercular-28_R-Ctx        | MCC R           | 127  | 8.7    | 26.5   | 30.5   | 1.26 ± 0.18  |  |  |  |  |
-| L_8BM   | Frontoparietal-32_L-Ctx           | SFG L           | 174  | − 4.8  | 27.2   | 44.5   | 1.25 ± 0.22  |  |  |  |  |
-| R_8BM   | Frontoparietal-06_R-Ctx           | SFGmed R        | 175  | 5.9    | 26.3   | 44.4   | 1.14 ± 0.17  |  |  |  |  |
-| L_a32pr | Cingulo-Opercular-55_L-Ctx        | ACC L           | 128  | − 7.7  | 28.1   | 29.6   | 1.09 ± 0.18  |  |  |  |  |
-| R_FOP5  | Cingulo-Opercular-26_R-Ctx        | INS R           | 156  | 39.1   | 26.4   | 4.2    | 0.88 ± 0.13  |  |  |  |  |
-| R_AVI   | Frontoparietal-20_R-Ctx           | INS R           | 150  | 33.8   | 23.7   | − 4.4  | 0.84 ± 0.13  |  |  |  |  |
-| L_AVI   | Frontoparietal-44_L-Ctx           | INS L           | 126  | − 31.5 | 23.0   | − 4.3  | 0.82 ± 0.13  |  |  |  |  |
-| R_FOP4  | Cingulo-Opercular-19_R-Ctx        | INS R           | 156  | 38.4   | 15.6   | 6.6    | 0.78 ± 0.17  |  |  |  |  |
-| L_FOP5  | Cingulo-Opercular-53_L-Ctx        | INS L           | 138  | − 35.9 | 25.4   | 4.3    | 0.76 ± 0.13  |  |  |  |  |
-| L_SCEF  | Cingulo-Opercular-33_L-Ctx        | SMA L           | 203  | − 5.9  | 1.4    | 54.8   | 0.47 ± 0.12  |  |  |  |  |
+| (a) | | | | | | | | | | | |
+| L_LIPd | Dorsal-Attention-15_R-Cerebellum | CB lobule 8 R | 794 | 28.8 | − 46.8 | − 47.4 | 3.38 ± 1.06 | | | | |
+| | Visual2-15_R-Cerebellum | CB Crus2 R | 347 | 7.1 | − 70.8 | − 29.7 | 2.37 ± 0.58 | | | | |
+| | Visual1-34_R-Cerebellum | CB Vermis R | 324 | 2.7 | − 63.0 | − 32.5 | 1.77 ± 0.36 | | | | |
+| | Cingulo-Opercular-21_R-Cerebellum | CB lobule 6 R | 763 | 28.2 | − 53.6 | − 24.0 | 1.47 ± 0.27 | | | | |
+| | Dorsal-Attention-15_L-Ctx | IPG L | 99 | − 29.8 | − 55.0 | 45.5 | 1.26 ± 0.32 | | | | |
+| | Dorsal-Attention-17_R-Cerebellum | CB lobule 6 R | 22 | 33.3 | − 46.5 | − 25.5 | 1.07 ± 0.22 | | | | |
+| | Somatomotor-13_R-Cerebellum | CB 4,5 lobule R | 707 | 19.6 | − 49.3 | − 22.1 | 1.03 ± 0.19 | | | | |
+| L_SCEF | Cingulo-Opercular-33_L-Ctx | SMA L | 203 | − 5.9 | 1.4 | 54.8 | 0.60 ± 0.18 | | | | |
+| L_AVI | Frontoparietal-44_L-Ctx | INS L | 126 | − 31.5 | 23.0 | − 4.3 | 0.50 ± 0.14 | | | | |
+| (b) | | | | | | | | | | | |
+| R_a32pr | Cingulo-Opercular-28_R-Ctx | MCC R | 127 | 8.7 | 26.5 | 30.5 | 1.26 ± 0.18 | | | | |
+| L_8BM | Frontoparietal-32_L-Ctx | SFG L | 174 | − 4.8 | 27.2 | 44.5 | 1.25 ± 0.22 | | | | |
+| R_8BM | Frontoparietal-06_R-Ctx | SFGmed R | 175 | 5.9 | 26.3 | 44.4 | 1.14 ± 0.17 | | | | |
+| L_a32pr | Cingulo-Opercular-55_L-Ctx | ACC L | 128 | − 7.7 | 28.1 | 29.6 | 1.09 ± 0.18 | | | | |
+| R_FOP5 | Cingulo-Opercular-26_R-Ctx | INS R | 156 | 39.1 | 26.4 | 4.2 | 0.88 ± 0.13 | | | | |
+| R_AVI | Frontoparietal-20_R-Ctx | INS R | 150 | 33.8 | 23.7 | − 4.4 | 0.84 ± 0.13 | | | | |
+| L_AVI | Frontoparietal-44_L-Ctx | INS L | 126 | − 31.5 | 23.0 | − 4.3 | 0.82 ± 0.13 | | | | |
+| R_FOP4 | Cingulo-Opercular-19_R-Ctx | INS R | 156 | 38.4 | 15.6 | 6.6 | 0.78 ± 0.17 | | | | |
+| L_FOP5 | Cingulo-Opercular-53_L-Ctx | INS L | 138 | − 35.9 | 25.4 | 4.3 | 0.76 ± 0.13 | | | | |
+| L_SCEF | Cingulo-Opercular-33_L-Ctx | SMA L | 203 | − 5.9 | 1.4 | 54.8 | 0.47 ± 0.12 | | | | |
 
 <span id="page-4-0"></span>**Table 1.** (**a**) Regions in the MMP/CA parcellation with signifcant leading delayed responses between POScorr and LURfalse. AAL indicates the AAL region where the centre of mass of the MMP/CA region is located. Te MNI coordinates *x*, *y*, *z*of the centre of mass of each region are evaluated as an average over the region coordinates for each subject, as the surface-based cortical data is sensitive to the individual cortical folding patterns.*size*is the number of grayordinates for each region, i.e., voxels for subcortical and vertices for the cortical ones. leading t is the average leading time delay (see ["Methods](#page-9-0)" for the defnition) between POScorr and LURfalse activations, expressed in units of TR. Te errors are estimated by bootstrap.*CB*cerebellum,*INS*insula,*IPG*inferior parietal gyrus,*SMA*supplementary motor area,*L*lef hemisphere,*R* right hemisphere. (**b**) Regions in the MMP/CA parcellation with signifcant trailing delayed responses between POScorr and LURfalse. Te columns are as in Table (a) apart from trailing t , which is the average trailing time delay (see "[Methods](#page-9-0)" for the defnition) between POScorr and LURfalse activations, expressed in units of TR. Te errors are estimated by bootstrap. *ACC*anterior cingulate cortex,*INS*insula,*MCC*middle cingulate cortex,*SFGmed*superior frontal gyrus medial part,*SMA*supplementary motor area,*L*lef hemisphere,*R*right hemisphere.
 
@@ -168,38 +168,38 @@ Neural structures such as prefrontal cortex, insula, anterior cingulate, sensory
 
 Te other regions which show the signifcantly delayed response for false recognition of the lure probe in the trailing part of the neural response are mostly located in the prefrontal cortex and in the insula (see Table [1](#page-4-0)b). Te prefrontal cortex is involved in cognitive control through storing and manipulating information for actions in the future, and its work is managed by the dopamine neuromodulator. Dopamine infuences cognitive control in three distinct ways: gating sensory signals, maintaining stimuli in working memory and sending motor
 
-| MMP     | CA                         | AAL             | Sh(RTR)<br>TR∈[0,4] | AreaTR∈[0,4] | Sh(RTR)<br>TR∈[5,9] | AreaTR∈[5,9] |
+| MMP | CA | AAL | Sh(RTR)<br>TR∈[0,4] | AreaTR∈[0,4] | Sh(RTR)<br>TR∈[5,9] | AreaTR∈[5,9] |
 |---------|----------------------------|-----------------|---------------------|--------------|---------------------|--------------|
-| R_a32pr | Cingulo-Opercular-28_R-Ctx | MCC R           | 0.0649              | 0.8525       | 0.0415              | 0.5966       |
-|         | Somatomotor-13_R-CB        | CB 4,5 lobule R | 0.0491              | 0.7478       |                     |              |
-|         | Somatomotor-12_R-CB        | CB 4,5 lobule R | 0.0475              | 0.7275       |                     |              |
-|         | Dorsal-Attention-18_R-CB   | CB lobule 8 R   | 0.0438              | 0.6811       |                     |              |
-| R_AVI   | Frontoparietal-20_R-Ctx    | INS R           | 0.0360              | 0.8335       | 0.0601              | 0.5519       |
-| R_PGp   | Dorsal-Attention-10_R-Ctx  | ANG R           | 0.0358              | 0.3022       |                     |              |
-| L_a32pr | Cingulo-Opercular-55_L-Ctx | ACC L           | 0.0334              | 0.6867       | 0.0180              | 0.5021       |
-| L_p10p  | Frontoparietal-49_L-Ctx    | OFC L           | 0.0322              | 0.4954       |                     |              |
-| L_OP1   | Somatomotor-36_L-Ctx       | OIFC L          | 0.0304              | 0.4593       |                     |              |
-| L_FOP5  | Cingulo-Opercular-53_L-Ctx | INS L           | 0.0303              | 0.6829       |                     |              |
-| R_31a   | Frontoparietal-25_R-Ctx    | MCC R           | 0.0285              | 0.1220       | 0.0335              | 0.3635       |
-|         | Frontoparietal-41_L-HIPP   | HIPP L          | 0.0269              | 0.1643       |                     |              |
-|         | Auditory-30_R-Talamus      | THA R           | 0.0268              | 0.3687       |                     |              |
-| L_PGp   | Dorsal-Attention-22_L-Ctx  | ANG L           | 0.0257              | 0.3983       |                     |              |
-|         | Frontoparietal-38_R-CB     | CB Vermis R     | 0.0241              | 0.6168       |                     |              |
-| L_8Av   | Default-49_L-Ctx           | SFG L           | 0.0225              | 0.0542       |                     |              |
-| R_Pir   | Orbito-Afective-01_R-Ctx   | INS R           | 0.0224              | 0.2933       |                     |              |
-|         | Visual1-32_R-CB            | CB Vermis R     | 0.0215              | 0.3263       |                     |              |
-| L_PH    | Visual2-45_L-Ctx           | FFG L           |                     |              | 0.0682              | 0.6434       |
-|         | Default-05_L-CAU           | CAU L           |                     |              | 0.0574              | 0.4147       |
-| L_POS1  | Default-39_L-Ctx           | CAL L           |                     |              | 0.0474              | 0.8192       |
-| L_a24   | Default-44_L-Ctx           | ACC L           |                     |              | 0.0463              | 0.5909       |
-| R_8BM   | Frontoparietal-06_R-Ctx    | SFG R           |                     |              | 0.0411              | 0.6318       |
-| R_7AL   | Somatomotor-07_R-Ctx       | SPG R           |                     |              | 0.0369              | 0.3196       |
-|         | Visual1-24_L-CB            | CB Vermis L     |                     |              | 0.0341              | 0.5912       |
-| L_AVI   | Frontoparietal-44_L-Ctx    | INS L           |                     |              | 0.0288              | 0.5893       |
-|         | Orbito-Afective-03_L-CAU   | CAU L           |                     |              | 0.0233              | 0.3581       |
-| L_TGv   | Language-23_L-Ctx          | MTG L           |                     |              | 0.0233              | 0.1134       |
-| L_STSda | Language-20_L-Ctx          | STG L           |                     |              | 0.0219              | 0.2740       |
-| R_POS1  | Default-02_R-Ctx           | CAL R           |                     |              | 0.0210              | 0.7036       |
+| R_a32pr | Cingulo-Opercular-28_R-Ctx | MCC R | 0.0649 | 0.8525 | 0.0415 | 0.5966 |
+| | Somatomotor-13_R-CB | CB 4,5 lobule R | 0.0491 | 0.7478 | | |
+| | Somatomotor-12_R-CB | CB 4,5 lobule R | 0.0475 | 0.7275 | | |
+| | Dorsal-Attention-18_R-CB | CB lobule 8 R | 0.0438 | 0.6811 | | |
+| R_AVI | Frontoparietal-20_R-Ctx | INS R | 0.0360 | 0.8335 | 0.0601 | 0.5519 |
+| R_PGp | Dorsal-Attention-10_R-Ctx | ANG R | 0.0358 | 0.3022 | | |
+| L_a32pr | Cingulo-Opercular-55_L-Ctx | ACC L | 0.0334 | 0.6867 | 0.0180 | 0.5021 |
+| L_p10p | Frontoparietal-49_L-Ctx | OFC L | 0.0322 | 0.4954 | | |
+| L_OP1 | Somatomotor-36_L-Ctx | OIFC L | 0.0304 | 0.4593 | | |
+| L_FOP5 | Cingulo-Opercular-53_L-Ctx | INS L | 0.0303 | 0.6829 | | |
+| R_31a | Frontoparietal-25_R-Ctx | MCC R | 0.0285 | 0.1220 | 0.0335 | 0.3635 |
+| | Frontoparietal-41_L-HIPP | HIPP L | 0.0269 | 0.1643 | | |
+| | Auditory-30_R-Talamus | THA R | 0.0268 | 0.3687 | | |
+| L_PGp | Dorsal-Attention-22_L-Ctx | ANG L | 0.0257 | 0.3983 | | |
+| | Frontoparietal-38_R-CB | CB Vermis R | 0.0241 | 0.6168 | | |
+| L_8Av | Default-49_L-Ctx | SFG L | 0.0225 | 0.0542 | | |
+| R_Pir | Orbito-Afective-01_R-Ctx | INS R | 0.0224 | 0.2933 | | |
+| | Visual1-32_R-CB | CB Vermis R | 0.0215 | 0.3263 | | |
+| L_PH | Visual2-45_L-Ctx | FFG L | | | 0.0682 | 0.6434 |
+| | Default-05_L-CAU | CAU L | | | 0.0574 | 0.4147 |
+| L_POS1 | Default-39_L-Ctx | CAL L | | | 0.0474 | 0.8192 |
+| L_a24 | Default-44_L-Ctx | ACC L | | | 0.0463 | 0.5909 |
+| R_8BM | Frontoparietal-06_R-Ctx | SFG R | | | 0.0411 | 0.6318 |
+| R_7AL | Somatomotor-07_R-Ctx | SPG R | | | 0.0369 | 0.3196 |
+| | Visual1-24_L-CB | CB Vermis L | | | 0.0341 | 0.5912 |
+| L_AVI | Frontoparietal-44_L-Ctx | INS L | | | 0.0288 | 0.5893 |
+| | Orbito-Afective-03_L-CAU | CAU L | | | 0.0233 | 0.3581 |
+| L_TGv | Language-23_L-Ctx | MTG L | | | 0.0233 | 0.1134 |
+| L_STSda | Language-20_L-Ctx | STG L | | | 0.0219 | 0.2740 |
+| R_POS1 | Default-02_R-Ctx | CAL R | | | 0.0210 | 0.7036 |
 
 <span id="page-8-0"></span>**Table 2.**Te most relevant regions for MMP/CA parcellation POScorr-LURfalse problem with Shapley value*Sh*sums for the regions RTR found to be most important in the 0–4 TR and 5–9 TR time windows. Te mean AreaTR area values are given accordingly for TR regions.*ACC*anterior cingulate cortex,*ANG*angular gyrus,*CAL*calcarine gyrus,*CAU*caudate,*CB*cerebellum,*FFG*fusiform gyrus,*HIPP*hippocampus,*INS*insula,*MCC*middle cingulate gyrus,*MTG*middle temporal gyrus,*OFC*orbitofrontal cortex,*OIFC*opercular part of inferior frontal gyrus,*SFG*superior frontal gyrus,*SPG*superior parietal gyrus,*STG*superior temporal gyrus,*THA*thalamus,*L*lef hemisphere,*R*right hemisphere.
 
@@ -219,7 +219,8 @@ In conclusion, the use of a new methodological approach allows us to determine h
 
 To the best of our knowledge, this is the frst study showing spatio-temporal patterns of information processing related to erroneous and correct responses aimed at preparing to the adaptive behaviour occurred during retrieval phase, in contrast to previous research which dealt with post-error adjustments related to the encoding process of stimuli presented in the next trial. Te brain focusing on the previously-encoded information, provides the evidence that cognition is guided by memory rather than information occurring later in the task. Our results showed that new methods of analysis allow drawing more specifc conclusions about neural activity related to cognitive confict and erroneous and correct responses than the classical methods.
 
-#### <span id="page-9-0"></span>Methods
+### <span id="page-9-0"></span>Methods
+
 **Participants.**5354 young and healthy volunteers participated in the frst stage of selection via online advertisements on the university website and Facebook. It includes diurnal preference assessment measured by the Chronotype Questionnaire[56,](#page-17-11) night sleep quality measured by the Pittsburgh Sleep Quality Index (PSQI)[57](#page-17-12), and daytime sleepiness measured by the Epworth Sleepiness Scale (ESS)[58](#page-17-13). From this step, 451 individuals were selected and identifed as morning and evening chronotypes and went through the next stage of selection. Te exclusion criteria were sleep problems or excessive daytime sleepiness (as determined by the cut-of points from the PSQI (≤ 5 points) and ESS (≤ 10 points) questionnaires), drug, alcohol or nicotine dependence, shif work, and travel comprising passing more than two time zones within the past 2 months. Te fnal sample consisted of sixty-fve (32 women; mean age: 24.54 ± 3.43 years old) participants, who completed the selection criteria: age between 20 and 35 years, right-handedness according to the Edinburgh Handedness Inventory (EHI)[59](#page-17-14), normal or corrected-to-normal vision, no neurological or psychiatric disorders, and no MRI contraindications. Informed, written consent was provided by all participants prior to completion of the study procedures. Te individuals were remunerated for participation in the experiment. Te study was conducted in accordance with the Declaration of Helsinki and approved by the Research Ethics Committee at the Institute of Applied Psychology at the Jagiellonian University.
 **Task.** Te modifed short-term memory DRM paradig[m14](#page-16-9) was employed in the study. Te task was performed twice—during morning and evening functional magnetic resonance imaging sessions in two versions (A and B). Te versions as well as order of sessions were counterbalanced between participants. Tey were asked to memorize a set consisting of two abstract objects, followed by a mask. Tereafer, a probe was displayed in three conditions: positive (when the probe was in the previously presented set), negative (when the probe was not presented at all) and lure (when the probe was similar on the holistic level to the stimuli in the preceding set). Te participants' goal was to determine whether the stimulus occurred in the previously presented set (righthand key for "yes", lef-hand key for "no"). Te procedure for one trial looks as follows: a fxation point presented for 450 ms, blank screen presented for 100 ms, then the memory set presented for 1800 ms followed by a blank screen (1000 ms) and mask (1200 ms). Aferwards, the probe was displayed for 2000 ms. Duration of the frst fxed inter-stimulus interval (ISI) was 1000 ms, the second ISI ranged from 2000 to 16,000 ms (avg. 6097 ms). Mean duration of the inter-trial interval was 8403 ms and ranged from 6000 to 15000 ms. Tere were 60 memory sets followed by 25 positive, 25 lures and 10 negative probes. Te dark gray (RGB 72, 72, 72) stimuli were presented on a light-gray background (RGB 176, 176, 176). Te abstract objects (5° wide and 4° high) in memory sets were displayed 3° from the centre of the screen to the lef and right, while masks and the objects in memory probes in the centre of the screen. Te task was prepared using E-Prime 2.0 (Psychology Sofware Tools) and presented via a mirror (located on the head coil) on an MR-compatible LCD screen (NordicNeuroLab, Bergen, Norway) with a refresh rate of 60 Hz and a resolution of 800 × 600 pixels. Te detailed task and procedure description is presented in Ceglarek et al[.60](#page-17-15), however for the convenience of the reader the task procedure is depicted in Fig. A2 (*Supplementary Information*).
 
@@ -227,7 +228,7 @@ To the best of our knowledge, this is the frst study showing spatio-temporal pat
 **Imaging data acquisition.** MRI data were acquired using a 3T Siemens Skyra MR System with a 64-channel coil. For anatomical reference, a T1-weighted MPRAGE sequence was performed (TR = 2.3 s, TE = 2.98 ms, FA = 9°, 176 sagittal slices, slice thickness = 1.1 mm, FOV = 256 × 256 mm). For the BOLD imaging, a T2\*weighted EPI sequence was used (TR = 1.8 s, TE = 27 ms, FA = 75°, 34 slices with interleaved acquisition, voxel size = 4 × 4 × 4 mm, slice thickness = 4 mm, inter-slice gap = 0 mm, FOV = 256 × 256 mm). Te 709 volumes were acquired during task performance. Participants' eye movements were monitored using an eye tracking system (Eyelink 1000, SR research, Mississauga, ON, Canada).
 **Volumetric MR data preprocessing.**Data preprocessing was performed using the Statistical Parametric Mapping sofware package (SPM12, Welcome Department of Imaging Neuroscience, UCL, London, UK; [www.](http://www.fil.ion.ucl.ac.uk/spm/) [fl.ion.ucl.ac.uk/spm/](http://www.fil.ion.ucl.ac.uk/spm/)) and DPABI (V4.2)[61](#page-17-16) implemented on MATLAB (Mathworks, Inc., MA, USA). Scans were slice-timed corrected and realigned by inclusion of feld maps. Following motion correction, each individual's structural T1-weighted image was co-registered and spatially normalized to Montreal Neurological Institute (MNI) space. Te normalized volumes were smoothed using a 4 mm FWHM Gaussian kernel to increase the signal-to-noise ratio of the data. Ten the band-pass fltering (0.01-0.08 Hz) was applied. Additionally, the time series for structures from Automated Anatomical Atlas (AAL[\)62](#page-17-17) were extracted.
 **Surface‑based MR data preprocessing.**Te raw fMRI BIDS data were converted to the HCP style surface-based data using the ciftify[63](#page-17-18) tool (we used the tigrlab/fmriprep\_ciftify:v1.3.2-2.3.3 Docker image), which incorporated preprocessing using*fMRIPrep*1.3.2[64](#page-17-19), as well as parts of the HCP minimal preprocessing pipeline[65.](#page-17-20) Te description of the anatomical and functional preprocessing steps is adapted from the boilerplate output of fMRIPrep.
-*Anatomical and functional data preprocessing*Two T1-weighted (T1w) images for each subject were corrected for intensity non-uniformity (INU). Brain surfaces were reconstructed using recon-all FreeSurfer 6.0.1[66](#page-17-21), spatial normalization to the ICBM 152 Nonlinear Asymmetrical template version 2009c was performed through nonlinear registration with antsRegistration (ANTs 2.2.0). Brain tissue segmentation of cerebrospinal fuid (CSF), white-matter (WM) and gray-matter (GM) was performed on the brain-extracted T1w using fast FSL 5.0.[967.](#page-17-22)
+**Anatomical and functional data preprocessing:** Two T1-weighted (T1w) images for each subject were corrected for intensity non-uniformity (INU). Brain surfaces were reconstructed using recon-all FreeSurfer 6.0.1[66](#page-17-21), spatial normalization to the ICBM 152 Nonlinear Asymmetrical template version 2009c was performed through nonlinear registration with antsRegistration (ANTs 2.2.0). Brain tissue segmentation of cerebrospinal fuid (CSF), white-matter (WM) and gray-matter (GM) was performed on the brain-extracted T1w using fast FSL 5.0.[967.](#page-17-22)
 
 For each BOLD run, a reference volume and its skull-stripped version were generated using a custom methodology of*fMRIPrep*. A deformation feld to correct for susceptibility distortions was estimated based on a feld map that was co-registered to the BOLD reference, using a custom workfow of *fMRIPrep*derived from D. Greve's epidewarp.fsl[http://www.nmr.mgh.harvard.edu/%7egreve/firn/b0/epidewarp.fsl](http://www.nmr.mgh.harvard.edu/%7egreve/fbirn/b0/epidewarp.fsl) and further improvements of HCP Pipelines[65.](#page-17-20) An unwarped BOLD reference was calculated for a more accurate co-registration with the anatomical reference, and then co-registered to the T1w reference. BOLD runs were slice-time corrected using 3dTshift from AFNI 20160207, then were subsequently resampled to MNI152NLin2009cAsym standard space, generating a preprocessed BOLD run in MNI152NLin2009cAsym space. Global signals within the CSF and WM were extracted.
 *Surface-based data preprocessing*Te data obtained above were transformed to the composite surfacebased cortical and volume based subcortical cifi format by the ciftify tool using MSMSulc surface realignmen[t68.](#page-17-23) Te resulting BOLD signal was smoothed using a 4-mm FWHM kernel (taking into account cortical surface distances and boundaries of subcortical structures), detrended, band-pass fltered (0.01– 0.1 Hz) and the CSF and WM signals were regressed out.
@@ -291,7 +292,7 @@ We can now defne the average leading time delay as
 $$
 \left\langle \Delta_{leading} t \right\rangle = \frac{1}{y_{+} - y_{-}} \int_{y_{-}}^{y_{+}} \left( t_{B}^{lin}(y) - t_{A}^{lin}(y) \right) dy.
 $$
- (4)
+(4)
 
 Note that the mean activations shown in Fig. [2a](#page-3-0) (lef, centre) rise almost exactly in*parallel*. In order to quantify this behaviour, we defne in addition
 
@@ -304,7 +305,7 @@ and measure
 $$
 \sigma_{leading} = \sqrt{\left\langle \Delta_{leading}^2 t \right\rangle - \left\langle \Delta_{leading} t \right\rangle^2}.
 $$
- (6)
+(6)
 
 Small σleading should now pick out the parallel rise in Fig. [2](#page-3-0)a (lef, centre). For the precise criterion, see the following subsection. Finally, in order to avoid unreliable results, we will restrict the computations to regions for which the common domain [y−, y+] is large enough. Tis can be quantifed using the ratio
 
@@ -367,7 +368,7 @@ In this paper, we have used the SHAP framewor[k24](#page-16-18) to achieve a two
 $$
 g(v') = \sum_{j=1}^{M} \phi_j v'_j,
 $$
- (12)
+(12)
 
 where*M*is the maximum coalition (subset) size, and φj is the appropriate Shapley value. Te v′ <sup>j</sup> ∈ {0, 1} corresponds to feature presence in the current coalition; thus an input example*x*corresponds to a coalition with all 1's.
 
@@ -384,9 +385,8 @@ One should also note that the mean signals are computed for individual regions, 
 
 Te Shapley analysis using decision tree forests as base models may sometimes be limited by the models' susceptibility to building the most simple one that explains the data at hand. Tis may be coped with by obtaining a large enough number of examples, which is a limitation. On the other hand, the presented methodology for reducing the number of input features used is a tool for counterbalancing it (see Supplementary Materials).
 
-Received: 13 August 2021; Accepted: 18 March 2022
 
-#### References
+### References
 
 - <span id="page-15-0"></span>1. Dignath, D., Eder, A. B., Steinhauser, M. & Kiesel, A. Confict monitoring and the afective-signaling hypothesis: An integrative review.*Psychon. Bull. Rev.* **27**, 193–216.<https://doi.org/10.3758/s13423-019-01668-9> (2020).
 - <span id="page-15-1"></span>2. Forster, S. E., Carter, C. S., Cohen, J. D. & Cho, R. Y. Parametric manipulation of the confict signal and control-state adaptation. *J. Cogn. Neurosci.* **23**, 923–935. <https://doi.org/10.1162/jocn.2010.21458> (2011).
@@ -467,7 +467,7 @@ Received: 13 August 2021; Accepted: 18 March 2022
 - <span id="page-17-31"></span>76. Shapley, L. S. *A Value for N-Person Games*(RAND Corporation, 1952).
 - <span id="page-17-32"></span>77. Molnar, C.*Interpretable Machine Learning*(LuLu.com, 2019).<https://christophm.github.io/interpretable-ml-book/>.
 
-#### Acknowledgements
+### Acknowledgements
 
 Tis study was funded by the Polish National Science Centre through grant Harmonia 2013/08/M/HS6/00042, supported by the Foundation for Polish Science (FNP) project "Bio-inspired Artifcial Neural Networks" (POIR.04.04.00-00-14DE/18-00) and supported by a grant from the Priority Research Area DigiWorld (project title:*Using machine learning to the analysis of fMRI data*) under the program Excellence Initiative—Research University at the Jagiellonian University in Kraków. We thank Prof. Patricia Reuter-Lorenz for her constructive suggestions during the planning and development of the Harmonia project and her valuable support. We also thank Anna Beres and Monika Ostrogorska for their assistance with the fMRI data collection, Magdalena Hubalewska-Mazgaj for gene expression analysis, Piotr Faba for his technical support on this project and help in data acquisition, Aleksandra Zyrkowska for help with the process of participant selection, Magdalena Debowska for help in collecting actigraphy data, and Halszka Oginska for help in actigraphy data analysis.
 
@@ -475,11 +475,11 @@ Tis study was funded by the Polish National Science Centre through grant Harmoni
 
 M.F., K.L., B.S.-W., and T.M. conceptualized the overall project and established the fMRI experimental paradigm, M.F., K.L., and B.S.-W. collected the behavioural and fMRI data. R.A.J., I.T.P. and Ł.S. proposed methods, analysed data with them, and prepared fgures, A.C. performed behavioural data and GLM analysis. R.A.J., I.T.P., Ł.S., A.C., T.M., and M.F. interpreted the results and edited the manuscript. All authors reviewed the manuscript.
 
-#### Competing interests
+### Competing interests
 
 Te authors declare no competing interests.
 
-#### Additional information
+### Additional information
 
 **Supplementary Information**Te online version contains supplementary material available at [https://doi.org/](https://doi.org/10.1038/s41598-022-09141-9) [10.1038/s41598-022-09141-9](https://doi.org/10.1038/s41598-022-09141-9).
 **Correspondence**and requests for materials should be addressed to A.C. or M.F.

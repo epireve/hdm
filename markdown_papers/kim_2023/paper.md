@@ -46,9 +46,6 @@ keywords:
 - performance
 ---
 
-
-
-
 # Guidelines for designing an automated multimodal textual annotation system
 
 Australia Australia
@@ -63,15 +60,15 @@ Automatic multimodal textual annotation systems have the potential to advance re
 
 • Human-centered computing → Collaborative and social computing systems and tools.
 
-#### KEYWORDS
+### KEYWORDS
 
 multimodal annotation, guidelines
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Joshua Y. Kim and Kalina Yacef. 2023. Guidelines for designing an automated multimodal textual annotation system. In INTERNATIONAL CONFERENCE ON MULTIMODAL INTERACTION (ICMI '23 Companion), October 09–13, 2023, Paris, France. ACM, New York, NY, USA, [7](#page-6-0) pages. [https://doi.org/10.](https://doi.org/10.1145/3610661.3616182) [1145/3610661.3616182](https://doi.org/10.1145/3610661.3616182)
 
-#### 1 INTRODUCTION
+### 1 INTRODUCTION
 
 Multimodal textual annotations are a distinctive and innovative way to describe the nonverbal cues in a conversation in tandem with what is being said. In this paper, we use the term transcription to mean the conversion of what is being said from voice to text, and annotation to mean the creation of textual descriptions of multimodal information. These defnitions are crucial as they provide a clear understanding of the terms used in the context of multimodal annotation systems. Such annotations not only enhance the user's understanding of the conversation but also, in certain cases, make a conversation accessible to individuals with disabilities. This accessibility aspect is particularly crucial in the
 
@@ -85,7 +82,7 @@ Although automatic multimodal annotation systems ofer effciency and reduced bias
 
 In this paper, we frame the guidelines into four sequential questions: (1) What is the purpose of designing and building the automated multimodal annotation system? (2) How to gather data? (3) How to extract multimodal features from the recordings? (4) What information to present, and what is the appropriate method of presentation? These questions aim to guide researchers in the development of automated multimodal annotation systems, considering various aspects from the purpose and data collection to feature extraction and presentation of information.
 
-#### 2 RELATED WORKS
+### 2 RELATED WORKS
 
 Several computer vision tools, including gestures [\[28,](#page-4-5) [34\]](#page-4-6), gaze [\[28,](#page-4-5) [34\]](#page-4-6), and laughter detection [\[33\]](#page-4-7), have been explored but not yet fully applied to multimodal annotation systems. In the face of this gap and inspired by the rapid development of these separate tools, researchers have begun attempting to integrate them into cohesive multimodal annotation systems. Screenshots of these systems are available in the appendix.
 
@@ -97,23 +94,22 @@ The key diferences between these three systems' outputs are summarized in Table 
 
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for proft or commercial advantage and that copies bear this notice and the full citation on the frst page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specifc permission and/or a fee. Request permissions from [permissions@acm.org](mailto:permissions@acm.org).
 
-<span id="page-1-0"></span>
 
-| Aspect                                       | Moore<br>[32] | Kim et al.<br>[19] | Umair<br>et al. [48] |
+| Aspect | Moore<br>[32] | Kim et al.<br>[19] | Umair<br>et al. [48] |
 |----------------------------------------------|---------------|--------------------|----------------------|
-| Speech-to-text<br>conversion                 | Yes           | Yes                | Yes                  |
-| Speaker identifcation                        | None          | Yes                | Yes                  |
-| Presenting overlapping<br>talk in parallel   | None          | None<br>Yes        |                      |
-| Phonetic<br>representation (e.g.,<br>uhhhhh) | None          | None               | None                 |
-| Prosody (Pitch +<br>volume + tempo)          | None          | Tempo              | Tempo                |
-| Silence (within +<br>between talkturns)      | Both          | Between            | Both                 |
-| Audible breath                               | None          | None               | None                 |
-| Laughter                                     | None          | Yes                | Yes                  |
-| Facial expression                            | None          | Yes                | None                 |
-| Body forward leaning                         | None          | Yes                | None                 |
-| Head nodding                                 | None          | Yes                | None                 |
+| Speech-to-text<br>conversion | Yes | Yes | Yes |
+| Speaker identifcation | None | Yes | Yes |
+| Presenting overlapping<br>talk in parallel | None | None<br>Yes | |
+| Phonetic<br>representation (e.g.,<br>uhhhhh) | None | None | None |
+| Prosody (Pitch +<br>volume + tempo) | None | Tempo | Tempo |
+| Silence (within +<br>between talkturns) | Both | Between | Both |
+| Audible breath | None | None | None |
+| Laughter | None | Yes | Yes |
+| Facial expression | None | Yes | None |
+| Body forward leaning | None | Yes | None |
+| Head nodding | None | Yes | None |
 
-Table 1: Comparison of outputs from the existing automated multimodal annotation systems.
+**Table 1:** Comparison of outputs from the existing automated multimodal annotation systems.
 
 ## 3 WHAT IS THE PURPOSE OF DESIGNING AND BUILDING THE AUTOMATED MULTI-MODAL ANNOTATION SYSTEM?
 
@@ -135,7 +131,7 @@ Use Case 4: Two-pass approach to reduce individual biases. Manual annotation, be
 
 First Pass (Automated): The initial annotation is done automatically [\[3\]](#page-4-20). This may introduce system biases but is devoid of individual cultural biases. Second Pass (Manual): The manual second pass allows a human annotator to review and correct the automated annotations. This helps to minimize both the system bias introduced in the frst pass and any potential individual confrmation bias that might arise if the annotation were solely manual. This approach is a variant of the human-in-the-loop approach [\[4\]](#page-4-21).
 
-#### 4 HOW TO GATHER DATA?
+### 4 HOW TO GATHER DATA?
 
 The task of detecting and annotating multimodal features in human interactions is highly demanding in both time and labor. For each hour of recorded data, it typically requires four to fve hours of meticulous human efort to produce the multimodal annotations. This extensive process encompasses various aspects such as identifying speakers, handling overlapping talk, providing phonetic
 
@@ -181,7 +177,7 @@ Guideline 9: Support supervised learning augmentation with user study. After the
 
 From the intersection of conversational analysis, advances in deep learning models, and system usability research, we proposed a set of guidelines to help researchers design and build an automated multimodal annotation system. The frst limitation is that we made these proposals from the experience in building multi-modal narrative systems. The second limitation is that we had limited knowledge of the process of how the other systems were built as such knowledge is not available in the literature. The third limitation is that the guidelines assume a certain level of technological capability, particularly in terms of computer vision and 3-D modelling tools. However, these technologies are still evolving, and they could impact the efectiveness of the proposed guidelines. We believe that these guidelines provide a valuable starting point that can help guide the design and development of efective and user-friendly automated multimodal annotation systems.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-3-1"></span>[1] Tadas Baltrusaitis, Amir Zadeh, Yao Chong Lim, and Louis-Philippe Morency. 2018. Openface 2.0: Facial behavior analysistoolkit. In 2018 13th IEEE international conference on automatic face & gesture recognition (FG 2018). IEEE, 59–66.
 - <span id="page-3-0"></span>[2] Michael Billig. 1999. Whose terms? Whose ordinariness? Rhetoric and ideology in conversation analysis. Discourse & Society 10, 4 (1999), 543–558.
@@ -245,64 +241,64 @@ ICMI '23 Companion, October 09–13, 2023, Paris, France Kim et al.
 
 ## <span id="page-5-0"></span>A.1 Moore Example
 
-Figure 1: Example output from Moore [\[32\]](#page-4-3). Errors in word recognition and silence length are in boldface.
+**Figure 1:** Example output from Moore [\[32\]](#page-4-3). Errors in word recognition and silence length are in boldface.
 
 ## <span id="page-5-1"></span>A.2 MONAH Example
 
 ![](_page_5_Figure_6.jpeg)
 <!-- Image Description: The image presents three speech bubbles, each labeled with "L" or "N," likely representing different speaker roles (e.g., "Librarian" and "Non-librarian"). The bubbles contain transcribed dialogue excerpts highlighting a user's frustration with a complex system ("out of control") for accessing a file. The highlighted words "file," "control," and "this" emphasize key aspects of the user experience and the system's perceived complexity. The image likely illustrates a qualitative data point within a larger study on user interaction with a specific system. -->
 
-Figure 2: Kim and Yacef [\[18\]](#page-4-9) intended that the larger font size to indicate higher weight from the machine attention layer (i.e., the classifer made the decision due to these contributions). However, they found that the human users were confusing larger font size to indicate a louder volume.
+**Figure 2:** Kim and Yacef [\[18\]](#page-4-9) intended that the larger font size to indicate higher weight from the machine attention layer (i.e., the classifer made the decision due to these contributions). However, they found that the human users were confusing larger font size to indicate a louder volume.
 
 ## <span id="page-5-2"></span>A.3 Gailbot Example
 
 ![](_page_5_Figure_9.jpeg)
 <!-- Image Description: The image displays a transcription of a dialogue between two speakers (SP1 and SP2). Numerical values in parentheses (e.g., (0.8), (0.2)) are likely quantitative data, possibly representing ratings or scores associated with the speakers' statements. Bracketed terms suggest additional contextual information or annotations. The excerpt's purpose is to illustrate qualitative data from an interview or conversation within the paper, possibly related to club membership and commitment levels. -->
 
-Figure 3: Example output from Umair et al. [\[48\]](#page-4-4), demonstrating the system's ability to present overlapping speech in parallel lines.
+**Figure 3:** Example output from Umair et al. [\[48\]](#page-4-4), demonstrating the system's ability to present overlapping speech in parallel lines.
 
-# <span id="page-5-3"></span>A.4 Courtroom Example
+## <span id="page-5-3"></span>A.4 Courtroom Example
 
-Figure 4: The following conversational analysis extract [\[21\]](#page-4-13), marked up with Jeferson annotations, detailed a snippet from a rape trial where the alleged victim (V) was asked a series of questions by the defense attorney (DA). The snippet annotated the 25.5 seconds pause after V confrmed the DA's suggestion that both her friend and she herself were "partying", allowing time for the jury to internalize what is being said.
+**Figure 4:** The following conversational analysis extract [\[21\]](#page-4-13), marked up with Jeferson annotations, detailed a snippet from a rape trial where the alleged victim (V) was asked a series of questions by the defense attorney (DA). The snippet annotated the 25.5 seconds pause after V confrmed the DA's suggestion that both her friend and she herself were "partying", allowing time for the jury to internalize what is being said.
 
 ## <span id="page-5-4"></span>A.5 Police Interrogation Example
 
-| 1  | P:               | What about Jane.=what about abuse towards Jane:            |
+| 1 | P: | What about Jane.=what about abuse towards Jane: |
 |----|------------------|------------------------------------------------------------|
-| 2  |                  | (0.8)                                                      |
-| 3  | S:               | (Well-) when she started abusing m:e I believe I           |
-| 4  |                  | said some things ba:ck.=Yet when she says he's got         |
-| 5  |                  | a right to go where he wants, he's with me: well,          |
-| 6  |                  | (.) I believe I said some things back yeh.                 |
-| 7  |                  | (0.2)                                                      |
-| 8  | S:               | D'you know warramean.                                      |
-| 9  |                  | (0.3)                                                      |
-| 10 | P:               | You threaten 'er at all.                                   |
-| 11 |                  | (0.4)                                                      |
-| 12 | S:               | No I didn't threaten 'er.                                  |
-| 13 |                  | (0.8)                                                      |
-| 14 | 2:               | .hhhhh                                                     |
-| 15 | $S: \rightarrow$ | I've got no reason to threaten 'ezr, I've never 'it a      |
-| 16 |                  | woman in my life.=an' I never will 'it a woman in my life. |
-| 17 |                  | (0.8)                                                      |
-| 18 |                  | (a) heard the front door ((reading from statement))        |
+| 2 | | (0.8) |
+| 3 | S: | (Well-) when she started abusing m:e I believe I |
+| 4 | | said some things ba:ck.=Yet when she says he's got |
+| 5 | | a right to go where he wants, he's with me: well, |
+| 6 | | (.) I believe I said some things back yeh. |
+| 7 | | (0.2) |
+| 8 | S: | D'you know warramean. |
+| 9 | | (0.3) |
+| 10 | P: | You threaten 'er at all. |
+| 11 | | (0.4) |
+| 12 | S: | No I didn't threaten 'er. |
+| 13 | | (0.8) |
+| 14 | 2: | .hhhhh |
+| 15 | $S: \rightarrow$ | I've got no reason to threaten 'ezr, I've never 'it a |
+| 16 | | woman in my life.=an' I never will 'it a woman in my life. |
+| 17 | | (0.8) |
+| 18 | | (a) heard the front door ((reading from statement)) |
 
-Figure 5: The following conversational analysis extract [\[46\]](#page-4-12), marked up with Jeferson annotations, details a snippet from a police interrogation where the suspect (S) was asked a series of questions by the police ofcer (P).
+**Figure 5:** The following conversational analysis extract [\[46\]](#page-4-12), marked up with Jeferson annotations, details a snippet from a police interrogation where the suspect (S) was asked a series of questions by the police ofcer (P).
 
 ## <span id="page-6-1"></span><span id="page-6-0"></span>A.6 IEMOCAP Example
 
 ![](_page_6_Picture_3.jpeg)
 <!-- Image Description: The image displays two split screen video stills. The left shows a woman wearing a sensor array on her head, seated in a room with red lighting. The right shows a man in a plain room, also possibly wearing sensors, though less visible. The image likely illustrates the experimental setup for a study involving human subjects and sensor-based data acquisition, showing participants in distinct recording environments. The purpose is to visually represent the methodology of data collection in the paper. -->
 
-Figure 6: Camera angle at a 45 degrees angle makes it difcult to discern between head nodding and shaking.
+**Figure 6:** Camera angle at a 45 degrees angle makes it difcult to discern between head nodding and shaking.
 
 ### <span id="page-6-2"></span>A.7 OpenFace Example
 
 ![](_page_6_Picture_6.jpeg)
 <!-- Image Description: The image displays a 4x3 grid of twelve photographs. Each shows the same person's face, captured from slightly different angles and displaying various expressions. Key facial landmarks are marked with magenta dots. This illustrates a dataset of facial images with detected feature points, used likely to train or evaluate a facial landmark detection algorithm in the accompanying paper. -->
 
-Figure 7: The OpenFace algorithm [\[1\]](#page-3-1) frst exports each frame into a folder of image fles, then run the landmark detection on the static image fle to identify the coordinates of each landmark at that specifc point in time.
+**Figure 7:** The OpenFace algorithm [\[1\]](#page-3-1) frst exports each frame into a folder of image fles, then run the landmark detection on the static image fle to identify the coordinates of each landmark at that specifc point in time.
 
-#### <span id="page-6-3"></span>A.8 Mondada Example
+### <span id="page-6-3"></span>A.8 Mondada Example
 
-Figure 8: Example of a Mondada [\[31\]](#page-4-34) transcript, where temporal gestures and gaze are aligned with the verbal transcript.
+**Figure 8:** Example of a Mondada [\[31\]](#page-4-34) transcript, where temporal gestures and gaze are aligned with the verbal transcript.

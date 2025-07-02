@@ -49,11 +49,9 @@ keywords:
 - performance
 ---
 
-
-
 # PAPER • OPEN ACCESS
 
-# A SysML-centric integration framework for helicopter fuel system development
+## A SysML-centric integration framework for helicopter fuel system development
 
 To cite this article: H Zhao et al 2023 J. Phys.: Conf. Ser. 2472 012040
 
@@ -68,7 +66,7 @@ View the [article online](https://doi.org/10.1088/1742-6596/2472/1/012040) for u
 
 This content was downloaded from IP address 202.184.125.66 on 30/06/2025 at 17:29
 
-# A SysML-centric integration framework for helicopter fuel system development
+## A SysML-centric integration framework for helicopter fuel system development
 
 H Zhao1\*, W K Wu<sup>1</sup> , X M Hu<sup>1</sup> , Y Q Guo<sup>1</sup> , C Zhang<sup>1</sup> and G X Hao<sup>2</sup>
 
@@ -90,9 +88,9 @@ This paper introduces a SysML-centric integration framework for helicopter fuel 
 
 Content from this work may be used under the terms of theCreative Commons Attribution 3.0 licence. Any further distribution of this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI. Published under licence by IOP Publishing Ltd 1
 
-| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) |                    | IOP Publishing                      |
+| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
 |-------------------------------------------------------------------------------|--------------------|-------------------------------------|
-| Journal of Physics: Conference Series                                         | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
+| Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 integrate the simulation model into the SysML modeling software in order to verify the MoPs (Measures of performance). Finally, we will give a brief conclusion and weigh up the relative merits of the model/data exchange approaches.
 
@@ -175,15 +173,15 @@ MoP 4:
 $$
 CoGY = \frac{\sum_{i=1}^{n} (Q_i \times CoGY_i)}{\sum_{i=1}^{n} Q_i} (i = 1, 2, \cdots, n)
 $$
- (5)
+(5)
 
 In which,
 
- Q<sup>i</sup> represents the fuel quantity inside each fuel tank. The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) Journal of Physics: Conference Series **2472** (2023) 012040 IOP Publishing doi:10.1088/1742-6596/2472/1/012040
+Q<sup>i</sup> represents the fuel quantity inside each fuel tank. The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) Journal of Physics: Conference Series **2472** (2023) 012040 IOP Publishing doi:10.1088/1742-6596/2472/1/012040
 
 n represents the total number of fuel tanks.
 
-#### 2. Solution
+### 2. Solution
 
 3.2.1. Black box modeling. Fuel system inherits requirements from aircraft level requirements and captures requirements from airworthiness regulations and other stakeholders' needs.
 
@@ -223,9 +221,9 @@ panel.
 
 Control orders of booster pumps and electric valves are defined as the inputs of the FMU (Functional Mock-Up), and the signals such as fuel supply pressure and flow, fuel quantity, and CoGs are considered as the output. AMESim software generates and wraps fuel system simulation models into an FMU (zipped file \*.fmu). It contains an XML description file and an implementation in source
 
-| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) |                    | IOP Publishing                      |
+| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
 |-------------------------------------------------------------------------------|--------------------|-------------------------------------|
-| Journal of Physics: Conference Series                                         | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
+| Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 codes or binary form, which executes the equations representing the fuel system behavior and performance. The FMU, as black-box blocks, is then imported into CATIAMagic software and connects to the corresponding parameters in IBD. A State Machine (STM) diagram is built to execute the co-simulation model and achieve the state switch through the control orders.
 
@@ -241,15 +239,15 @@ Referring to the MoPs holder in the problem domain regarding engine fuel pressur
 ![](_page_7_Figure_6.jpeg)
 <!-- Image Description: The image displays a state machine diagram alongside simulation results. The state machine depicts a system's workflow, showing transitions between states (e.g., "CFO_Connected," "LED"). The simulation results section presents multiple time-series graphs showing fuel levels, engine flow/pressure, and control orders over time. This visualization likely demonstrates the system's behavior under various control inputs as simulated by the model represented in the state machine diagram. -->
 
-#### Figure 8. State machine diagram. Figure 9. Monitoring panel.
+### Figure 8. State machine diagram. Figure 9. Monitoring panel.
 
 Traditionally, the functions and performance of fuel system shall be traded off and optimized among different architecture solutions, especially during the conceptual design phase. As we can see from the whole process above, the FMU generated from AMESim software can be regarded as differential algebraic equations representing the physical characteristics of fuel system. It provides a virtual verification approach for helicopter fuel system by simulating real operation scenarios.
 
 FMI has built a bridge between SysML modeling tools and simulation tools, which allows building an executable system model with higher fidelity and less time cost. Besides, FMI-based co-simulation
 
-| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) |                    | IOP Publishing                      |
+| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
 |-------------------------------------------------------------------------------|--------------------|-------------------------------------|
-| Journal of Physics: Conference Series                                         | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
+| Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 enables engineers to reuse various physical simulation models established by commercial simulation software to the maximum.
 
@@ -259,7 +257,7 @@ Model/data exchange is a critical aspect of the SysML-centric integration framew
 
 Other integrating approaches may also support model/data exchange in the SysML-centric integration framework. Compared with other model/data exchange approaches, FMI is a toolindependent standard for the exchange of dynamic models and for co-simulation. This approach also has its drawbacks. Data visualization of simulation results can only rely on SysML tools because FMU executes numerical analysis as a black box. In addition, it's not easy to debug simulation in case of error occurs. The engineer will have to turn to AMESim software for root causes and regenerate the FMU for new integration.
 
-#### References
+### References
 
 - [1] Bassim C, Mahmoud N and Adil A 2019 SimulML: A DSML for simulating SysML models Journal of Computing Science and Engineering 13 17-31
 - [2] Holt J and Perry S 2008 SysML for Systems Engineering (London: IET)
@@ -276,8 +274,8 @@ Other integrating approaches may also support model/data exchange in the SysML-c
 - [13] Wang B B and Baras J S 2013 Hybridsim: A modeling and co-simulation toolchain for cyberphysical systems Conference Proc.: 2013 IEEE/ACM 17th Int. Symposium on Distributed Simulation and Real Time Applications pp 33-40
 - [14] González C A, Varmazyar M, Nejati S, Briand L C and Isasi Y 2018 Enabling model testing of cyber-physical systems Proc. of the 21th ACM/IEEE Int. Conf. on Model Driven Engineering Languages and Systems pp176-186
 
-| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) |                    | IOP Publishing                      |
+| The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
 |-------------------------------------------------------------------------------|--------------------|-------------------------------------|
-| Journal of Physics: Conference Series                                         | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
+| Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 [15] Feldman Y, Greenberg L, Palachi E 2014 Simulating rhapsody SysML blocks in hybrid models with FMI Proc. of the 10th Int. Modelica Conf. (Lund) (Linköping University Electronic Press) 096 pp 43-52

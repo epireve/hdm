@@ -66,7 +66,7 @@ CITATION Vallée A (2023) Digital twin for healthcare systems. Front. Digit. Hea
 
 © 2023 Vallée. This is an open-access article distributed under the terms of the [Creative](http://creativecommons.org/licenses/by/4.0/) [Commons Attribution License \(CC BY\).](http://creativecommons.org/licenses/by/4.0/) The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
 
-# [Digital twin for healthcare systems](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1253050/full)
+## [Digital twin for healthcare systems](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1253050/full)
 
 ## Alexandre Vallée\*
 
@@ -86,11 +86,11 @@ In terms of enhanced patient care, digital twins enable healthcare providers to 
 
 Predictive analytics and preventive interventions are facilitated through digital twin technology by analyzing patient data and employing machine learning algorithms. Digital twins can predict disease progression, identify high-risk individuals, and recommend preventive measures. This proactive approach improves patient safety, long-term outcomes, and resource allocation within healthcare systems [\(5](#page-4-0)). Thus, digital twin technology may have the potential to transform healthcare systems by leveraging real-time data integration, advanced analytics, and virtual simulations. It can enhance patient care, enables predictive analytics, optimizes clinical operations, and supports training and simulation. This review focused on the potential of digital twins in healthcare systems to improve patient outcomes, operational efficiency, and overall healthcare excellence.
 
-#### Search strategy
+### Search strategy
 
 PubMed Medline Web of Science, Google Scholar, Scopus databases were used for the research, with only articles in English language, using the following terms: "Digital twin", "Digital health" and "Healthcare". Articles included in this review were both, original research, reviews, viewpoints, and opinions articles. Literature was searched from inception to 2023.
 
-#### Digital twin
+### Digital twin
 
 In recent times, the notion of digital twin has garnered escalating attention from both researchers and engineers. As research in the field of digital twin advances, conducted by both industry and academia, the distinctions between digital twin and other related concepts have begun to fade. Initially, the scope of digital twin encompassed physical and virtual products along with their interconnections [\(6\)](#page-4-0). This concept has evolved due to the rapid advancements in communication technology, sensor technology, big data analysis, the Internet of Things (IoT), and simulation technology ([7](#page-4-0)). This growth has fueled substantial research into digital twins.
 
@@ -102,7 +102,7 @@ The impact of digital twin is profoundly reshaping industries and has been embra
 
 Within the realm of healthcare, a digital twin embodies a virtual replica of a tangible entity or process, such as a patient, their anatomical structure, or the setting of a hospital. At present, digital twins in healthcare are designed to dynamically mirror various data sources, including EHRs, disease registries, "-omics" data (such as genomics, biomics, proteomics, or metabolomics data), as well as physical indicators, demographic information, and lifestyle data pertaining to an individual's progression over time ([6,](#page-4-0) [13](#page-4-0)). The evolution of foundational technologies like the IoT and AI, coupled with the availability of a growing array of accurate and accessible data types (ranging from biometric and behavioral data to emotional, cognitive, and psychological insights), has sparked heightened interest and exploration in the research and potential applications of digital twins within the healthcare domain ([13](#page-4-0)).
 
-#### Enhanced patient care through digital twin technology
+### Enhanced patient care through digital twin technology
 
 Digital twin technology has the potential to significantly enhance patient care by leveraging real-time data integration, advanced analytics, and personalized insights [\(1\)](#page-4-0). These tools can enable healthcare providers to gather and analyze a wealth of patient data from various sources, such as electronic health records (EHRs), medical devices, wearables, and genetic information [\(2](#page-4-0), [14](#page-4-0)). By integrating and analyzing this data, digital twins create a holistic view of the patient, allowing healthcare professionals to develop personalized treatment plans ([6](#page-4-0), [9,](#page-4-0) [15](#page-4-0)). This approach considers individual patient characteristics, medical history, genetic factors, and real-time physiological data to tailor interventions and medications specifically to the patient's needs, resulting in improved treatment outcomes and patient satisfaction ([16](#page-4-0)–[18](#page-5-0)).
 
@@ -116,7 +116,7 @@ These tools can leverage predictive analytics and machine learning algorithms to
 
 Through secure sharing of patient data across diverse healthcare providers and settings, digital twins can streamline the continuity of care seamlessly [\(23\)](#page-5-0). This ensures that all involved healthcare professionals have access to the most up-to-date and comprehensive patient information, enabling coordinated care, minimizing duplication of tests, and reducing medical errors. Digital twins could promote efficient and effective communication and collaboration between healthcare teams, enhancing the overall patient care experience ([26](#page-5-0), [29\)](#page-5-0).
 
-#### Predictive analytics and preventive interventions through digital twin technology
+### Predictive analytics and preventive interventions through digital twin technology
 
 Digital twin technology, with its ability to integrate real-time data and advanced analytics, holds great potential for predictive analytics and preventive interventions in healthcare. By leveraging patient data, machine learning algorithms, and predictive modeling, digital twins can identify potential health risks, predict disease progression, and enable proactive interventions ([6](#page-4-0)).
 
@@ -130,7 +130,7 @@ Digital twins can enable proactive interventions and preventive care by alerting
 
 Population health management can be enhanced by digital twins, which analyze collective data from large populations. Employing predictive analytics on this data enables healthcare systems to recognize health trends, risk factors, and disease prevalence patterns at the population level. Digital twins enable healthcare providers to design targeted interventions and preventive strategies at a population level, such as public health campaigns, vaccination programs, or community-based interventions. This population health approach aims to prevent the onset of diseases, improve health outcomes, and reduce the overall burden on the healthcare system [\(35,](#page-5-0) [36\)](#page-5-0).
 
-#### Optimization of clinical operations through digital twin technology
+### Optimization of clinical operations through digital twin technology
 
 Digital twin technology offers significant potential for optimizing clinical operations within healthcare systems. By creating virtual replicas of physical systems and integrating realtime data, digital twins enable healthcare providers to analyze and streamline workflows, enhance resource allocation, and improve operational efficiency ([19](#page-5-0)).
 
@@ -148,7 +148,7 @@ Enabling collaboration and communication among various departments and healthcar
 
 Digital twins can support continuous monitoring and iterative improvement of clinical operations ([2\)](#page-4-0). By continuously collecting and analyzing data, digital twins provide insights into operational performance over time. Healthcare providers can identify trends, assess the impact of process changes, and iteratively refine operations based on real-time feedback. This iterative improvement process enables healthcare organizations to adapt to evolving needs, address inefficiencies, and continuously optimize clinical operations.
 
-#### Training and simulation through digital twin technology
+### Training and simulation through digital twin technology
 
 Digital twin technology can offer valuable opportunities for training and simulation in the healthcare sector [\(28\)](#page-5-0). By creating virtual replicas of physical systems, integrated with real-time data and advanced simulations, digital twins provide a safe and realistic environment for healthcare professionals to enhance their skills, practice complex procedures, and improve decisionmaking. This section explores how digital twins contribute to training and simulation in healthcare ([42](#page-5-0)).
 
@@ -168,11 +168,11 @@ simulation scenarios, digital twins enable healthcare professionals to stay upda
 
 Digital twins can also serve as a valuable tool for research and innovation in healthcare [\(47\)](#page-5-0). Researchers can use digital twins to conduct experiments, analyze data, and test hypotheses. Thus, these tools enable researchers to simulate different patient populations, treatment interventions, and disease scenarios, providing insights that can drive evidence-based practices and innovation in healthcare.
 
-#### Conclusion
+### Conclusion
 
 In conclusion, digital twin technology holds immense promise for revolutionizing healthcare systems and enhancing patient care. By integrating real-time data, advanced analytics, and virtual simulations, digital twins offer personalized treatment plans, predictive analytics, optimized clinical operations, and immersive training opportunities. The use of digital twins empowers healthcare professionals to make accurate diagnoses, monitor patients in real-time, and intervene proactively to prevent adverse events. It also enables patients to actively participate in their own care and promotes collaborative decision-making between patients and healthcare providers. Moreover, digital twins optimize resource allocation, streamline workflows, and improve operational efficiency within healthcare systems. The potential of digital twin technology in healthcare is vast, and its implementation has the potential to significantly improve patient outcomes, enhance patient safety, and drive innovation in the
 
-#### References
+### References
 
 1. Attaran M, Celik BG. Digital twin: benefits, use cases, challenges, and opportunities. Decis Anal J. (2023) 6:100165. [doi: 10.1016/j.dajour.2023.100165](https://doi.org/10.1016/j.dajour.2023.100165)
 

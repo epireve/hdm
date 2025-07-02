@@ -28,13 +28,12 @@ keywords:
 - within-subject
 ---
 
-
 # HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models
 
 <span id="page-0-0"></span>![](_page_0_Figure_1.jpeg)
 <!-- Image Description: The image presents two workflow diagrams comparing linear and circular interactive approaches for a food recommendation system. (a) shows a linear workflow where user queries and LLM responses proceed sequentially. (b) depicts a circular workflow incorporating information visualization and matching stages, allowing for iterative refinement based on visual data representation (a knowledge graph) and user feedback. Both diagrams illustrate user interactions with an LLM and a visualized knowledge base to provide personalized dietary recommendations. -->
 
-Figure 1: Unlike the traditional linear workflow (a) of LLMs, HealthGenie offers dietary guidance through interactive knowledge graph visualizations within a circular, interactive workflow (b), allowing users to quickly gain an overview of desired information.
+**Figure 1:** Unlike the traditional linear workflow (a) of LLMs, HealthGenie offers dietary guidance through interactive knowledge graph visualizations within a circular, interactive workflow (b), allowing users to quickly gain an overview of desired information.
 
 ## Abstract
 
@@ -44,11 +43,11 @@ Seeking dietary guidance often requires navigating complex professional knowledg
 
 • Do Not Use This Code → Generate the Correct Terms for Your Paper; Generate the Correct Terms for Your Paper; Generate the Correct Terms for Your Paper; Generate the Correct Terms for Your Paper.
 
-#### Keywords
+### Keywords
 
 Knowledge Graphs, Large Language Models, Nutrition, Health, Interactive Systems, Human-Computer Interaction
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, and Irene Li. 2025. HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models. In Proceedings of Make sure to enter the correct conference title from your rights confirmation email (Conference acronym 'XX). ACM, New York, NY, USA, [16](#page-15-0) pages.<https://doi.org/XXXXXXX.XXXXXXX>
 
@@ -56,7 +55,7 @@ Conference acronym 'XX, Woodstock, NY
 
 © 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN 978-1-4503-XXXX-X/18/06 <https://doi.org/XXXXXXX.XXXXXXX>
 
-#### 1 Introduction
+### 1 Introduction
 
 Making informed dietary choices plays a crucial role in managing personal health and preventing chronic diseases. To make dietary information accessible and interpretable, research has focused on structuring this complex knowledge in an organized form — Knowledge Graphs (KGs), which connect entities such as foods, nutrients, and health conditions through semantically meaningful relationships [\[1,](#page-14-0) [12,](#page-14-1) [19,](#page-14-2) [20\]](#page-14-3). At the same time, the emergence of Large Language Models (LLMs) has revolutionized information-seeking behavior by offering interactive, conversational interfaces [\[49,](#page-15-1) [50,](#page-15-2) [74\]](#page-15-3). The combination of LLMs with KGs enhances both the usability of structured dietary knowledge and enables more intuitive, intelligent exploration of complex nutritional relationships [\[23,](#page-14-4) [38\]](#page-15-4).
 
@@ -76,11 +75,11 @@ The main contributions of this work can be summarized as follows:
 - HealthGenie, an interactive system featuring visualized KG response and intuitive interaction, empowering users in personalized dietary exploration.
 - An empirical user study (N=12) on the usefulness and effectiveness of HealthGenie in providing recipe recommendations and a discussion of insights derived from the user study for future LLM-KG integrated interface design.
 
-#### 2 Background & Related Work
+### 2 Background & Related Work
 
 In this section, we review prior work on the role of Artificial Intelligence (AI) in healthcare support systems, the current state of LLM-based conversational interfaces, the design of knowledge graph visualization and interaction—particularly within the Human-Computer Interaction (HCI) research community—as well as the limitations and challenges of LLM-driven nutrition and dietary guidance.
 
-#### 1 AI-powered Healthcare Support Systems
+### 1 AI-powered Healthcare Support Systems
 
 Traditional healthcare support systems focus on designing and implementing interactive technologies that provide users with the information they need to make informed decisions and manage their well-being [\[75\]](#page-15-14). Early work shows that users commonly rely on search engines (e.g., Google and Yahoo) or social media platforms such as Quora and Reddit to obtain health information [\[25,](#page-14-8) [44\]](#page-15-15). To address the need for professional healthcare consultation, more advanced AI tools have been explored. For example, Joshi et al. [\[28\]](#page-14-9) developed an interactive voice response system to support individuals living with AIDS by providing healthcare tips. Similarly, Zhang [\[75\]](#page-15-14) focused on the design of AI-driven interfaces to assist users in accessing healthcare information and consultations.
 
@@ -118,7 +117,7 @@ By establishing a professional corpus as its knowledge base, HealthGenie retriev
 
 We conducted a formative study to better understand users' needs for acquiring and exploring healthcare information and to identify the challenges they face when interacting with current conversational LLM interfaces. The insights gained from this study inform the design goals of our system.
 
-#### 1 Setup
+### 1 Setup
 
 Participants. Seven participants (P1–P7) with diverse experiences in LLMs were recruited for the study. The group was comprised of two females and five males, aged between 25 and 34. Among them, three were casual users familiar with LLMs, and four were experienced users who employed LLMs daily to obtain information or make decisions. Additionally, concerning knowledge graphs, four participants had a strong understanding. In terms of health and diet management frequency:
 
@@ -128,7 +127,7 @@ Participants. Seven participants (P1–P7) with diverse experiences in LLMs were
 
 Procedure. To thoroughly understand users' challenges and demands in dietary recommendations, this formative study employs a two-stage procedure: a questionnaire and a co-design brainstorming session. First, participants completed a well-structured questionnaire about their experiences seeking nutrition information through search engines and LLMs, which took approximately 15 to 20 minutes. The aim was to identify the shortcomings of existing tools. Second, we presented our preliminary HealthGenie workflows and invited participants to co-design the system interface, encouraging them to share their opinions openly. In this phase, we sought to understand users' interaction requirements and expectations in real-world scenarios. All responses and discussions were recorded and transcribed for analysis.
 
-#### 2 Findings
+### 2 Findings
 
 Using the reflexive thematic analysis method [\[9\]](#page-14-24), we analyzed the recordings of each participant's viewpoints gathered from the questionnaire and co-design brainstorming session. All participants reported having experience using search engines (e.g., Google, Bing) to search for health information. Among them, six participants also used social media and conversational LLMs, with two participants occasionally consulting professionals such as doctors and nutritionists. Only one participant mentioned referring to books or academic papers. Here, we summarize three common types of information needs that emerged from the formative study.
 
@@ -140,11 +139,11 @@ Trust and Transparency. Given the critical importance of healthcare consulting, 
 
 Personalized guidance. All participants anticipated an LLMbased interface designed for specific health information exploration, particularly one that offers inquiry generation and supports continuous interaction based on individual preferences. Specifically, P1, P3, P4, and P6 preferred a system capable of organizing conversations, predicting their intentions and interests, and suggesting inquiries to foster deeper discussions, thus going beyond merely answering questions. Conversely, P2, P5, and P7 emphasized the importance of maintaining the user's initiative, suggesting that the system should allow users to type their own questions while also providing selected query recommendations. P4 further suggested that "the LLM agents should just deeply understand the user's context to address personal matters effectively."
 
-#### 3 Users' Preference on the Interface
+### 3 Users' Preference on the Interface
 
 During the co-design brainstorming session, all participants expressed satisfaction with our design, which integrates a KG visualization alongside an LLM interaction interface. The KG effectively visualizes retrieval results, while the LLM-generated text responses outline key findings. P6 suggested adding a chat history feature to record users' query contents, enhancing recall and usability. Meanwhile, P3 recommended providing direct and tailored instructions to help users quickly understand the functions of the interface. P5 proposed making interactions with the KG nodes more dynamic, such as allowing users to rearrange or group healthcare information of interest for better organization. These suggestions contribute to a more well-rounded design direction for HealthGenie.
 
-#### 4 Design Goals
+### 4 Design Goals
 
 Based on insights from the formative study and participant feedback on HealthGenie's design, we establish the following Design Goals (DG) to guide the development of our healthcare-focused, KG-enhanced conversational LLM with dynamic interaction capabilities.
 
@@ -156,22 +155,22 @@ DG2. Provide Detailed Explanations with Professional Reasons. To enhance trust, 
 
 DG3. Adapting Guidance to User Preferences. The development goal of our system is to assist users in navigating tailored recipes and dietary plans. To achieve this, guidance on personalized preference is critical, and prioritizing user preferences ensures the retrieval of highly relevant and personalized information. By deeply understanding user preferences (e.g., dietary restrictions, flavor preferences, or health goals), our system can refine search results, predict intentions more accurately, and deliver highly customized suggestions that align with individual needs [\[3,](#page-14-26) [17,](#page-14-27) [42\]](#page-15-36).. Furthermore, 5 out of 7 participants emphasized the importance of AI systems that dynamically adapt recommendations to sustain engaging interactions. Leveraging intention prediction modeling, our system can proactively suggest relevant content such as recipe variations, nutritional insights, or meal-plan adjustments to maintain user interest. This approach ensures conversations remain contextually relevant and exploratory, encouraging users to engage more deeply with their dietary choices and overall health.
 
-#### 4 Workflow and User Scenario
+### 4 Workflow and User Scenario
 
-#### 1 Workflow
+### 1 Workflow
 
 Informed by the formative study and design goals, we design a circular interaction workflow among the LLMs, KGs, and the user. In this workflow, the user initiates a query to the LLM, which retrieves relevant information from the KG, and the corresponding subgraphs are visualized. The user can then directly manipulate the visualized KG, such as by including or excluding specific entity nodes. This, in turn, affects the behavior of the LLMs, enabling a more adaptive and controllable interaction (see Figure [2\)](#page-5-0). This loop enables adaptive interactions by combining LLM reasoning with the visual, intuitive power of knowledge graphs. It allows users to explore AI
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image from an academic paper illustrates a knowledge graph (KG)-based question answering system. A user query about low-sugar meal ideas is processed. The system generates an answer based on a visualized KG, represented as a network of nodes and edges. A highlighted portion of the generated answer shows the system's ability to provide contextually relevant information beyond simple fact retrieval. The diagram also depicts an "Interaction Update," suggesting the KG is dynamically updated based on user interaction. -->
 
-Figure 2: Circular Interaction Workflow: Users query an LLM, which retrieves and visualizes relevant knowledge graph (subgraphs); users can then manipulate the graph to iteratively refine outputs. Demonstrated via HealthGenie, this cyclical loop enables adaptive, non-linear exploration of dietary recommendations.
+**Figure 2:** Circular Interaction Workflow: Users query an LLM, which retrieves and visualizes relevant knowledge graph (subgraphs); users can then manipulate the graph to iteratively refine outputs. Demonstrated via HealthGenie, this cyclical loop enables adaptive, non-linear exploration of dietary recommendations.
 
 suggestions while directly navigating and modifying structured information. The cyclical process supports dynamic, non-linear exploration, making it easier to access and refine details without a repetitive, linear approach. This circular interaction (i.e., query → visualization → manipulation → refined query) synergizes the intelligent reasoning capabilities of LLMs with the intuitive, visual interactivity of knowledge graphs. Users are empowered to explore AI-generated suggestions while directly examining and modifying the underlying structured information space. The cyclical nature of this workflow also supports adaptive and non-linear explorations. Instead of relying on repetitive linear queries, users can iteratively refine information based on immediate visual feedback.
 
 Based on this workflow, we designed our system interface. As illustrated in Figure [3,](#page-6-0) HealthGenie combines a chat panel (A) for conversational queries and responses with a query-generation panel (B) that helps users refine or rephrase their requests. The central area (C) displays a dynamic knowledge graph, highlighting entities such as recipes, ingredients, and nutritional benefits. Users can also control the granularity of the displayed subgraph via an adjustable slider (D), choosing whether to see "show more" or "show less" detail. Finally, the interaction record panel (E) keeps track of user actions (like including or excluding certain ingredients), which can be reviewed or undone at any time.
 
-#### 2 Usage Scenario
+### 2 Usage Scenario
 
 Below, we showcase how HealthGenie assists Caroline, an office worker who has been advised to reduce her protein and salt intake.
 
@@ -185,18 +184,18 @@ Conversational Queries and Query Generation. Besides explicit inclusion/exclusio
 
 Outcome. Through this circular interaction workflow—comprising initial queries, visualization, direct graph manipulation, and refined responses—Caroline arrives at a set of low-protein, low-salt recipes tailored to her preferences. She can dynamically expand or narrow down the recipe space, gaining a comprehensive understanding of each dish's key ingredients and potential health benefits. This intuitive, iterative process enables Caroline to make confident, wellinformed dietary decisions that align with her medical advice and personal taste.
 
-#### 5 Design and Implementation
+### 5 Design and Implementation
 
 In this section, we present the design and implementation of Health-Genie, a sophisticated health recipe recommendation system that features a responsive user interface with real-time chat capabilities and interactive visualization of recipe knowledge graphs. HealthGenie is designed as a web application, where the front end is implemented using React and Next.js while the back end is created with Python and Flask. Specifically, we equip HealthGenie with multiple LLM configurations to provide answers: GPT-4o mini-2024-07-18, DeepSeek-v3, Claude-3.5-Haiku, and LLaMA-3.2-90B. Additionally, HealthGenie supports both English and Chinese.
 
 <span id="page-6-0"></span>![](_page_6_Picture_2.jpeg)
 <!-- Image Description: The image displays a user interface illustrating an AI-powered recipe recommendation system. A node-link diagram (C) visually represents the relationships between various food ingredients, categorized by type (E). User interaction begins with a query (A) about low-protein, low-salt recipes. The AI's response (A) provides dietary advice. A query generation panel (B) shows the user's input and the AI's response. The overall purpose is to showcase the system's ability to generate personalized dietary recommendations based on user input and medical knowledge. -->
 
-Figure 3: The overview of HealthGenie interface, which integrates a visualized nutritional knowledge graph and a conversational dialogue system powered by an LLM. Users can initiate interactions by asking nutrition-related questions and requesting dietary guidance, then LLM retrieves relevant information and generates informative responses (A). Users can explore more relevant information using query generation (B). Simultaneously, the corresponding nutritional information is visualized within a dynamic knowledge graph (C), allowing users to explore with more and less information (D). HealthGenie provides interaction tracing visualization, supporting users to perceive and operate their deletion or addition intuitively (E).
+**Figure 3:** The overview of HealthGenie interface, which integrates a visualized nutritional knowledge graph and a conversational dialogue system powered by an LLM. Users can initiate interactions by asking nutrition-related questions and requesting dietary guidance, then LLM retrieves relevant information and generates informative responses (A). Users can explore more relevant information using query generation (B). Simultaneously, the corresponding nutritional information is visualized within a dynamic knowledge graph (C), allowing users to explore with more and less information (D). HealthGenie provides interaction tracing visualization, supporting users to perceive and operate their deletion or addition intuitively (E).
 
 The design of HealthGenie consists of four key components: Knowledge Graph Construction, User Query Processing, Knowledge Matching and Adaptive Output, and Interactive Feedback and Iteration. The system begins by constructing a recipe knowledge graph, which integrates a structured recipe database with ontologies covering ingredients, health benefits, and meal categories. When a user submits a query, the system analyzes the input, along with any available interaction history, to estimate the user's intent. Based on this intent, it retrieves a relevant subgraph and either generates a text-based response or simultaneously visualizes the subgraph while presenting personalized recipe recommendations. Users can interact with the visualized graph to refine their preferences, and these interactions are continuously fed back into the system to enhance future intent prediction and recommendation accuracy.
 
-#### 1 Knowledge Graph Construction
+### 1 Knowledge Graph Construction
 
 A meticulously developed knowledge graph underpins HealthGenie, ensuring that dietary recommendations remain transparent, explainable, and dynamically adaptable. We begin with a large-scale recipe repository containing approximately 12,500 unique recipes and 27,500 ingredient mentions. Each recipe, ingredient, nutrient, or dietary constraint is represented as a node, while edges capture semantic relations such as "contains," "belongsToCuisine," "recommendsFor," or "substitutableBy." In total, the KG now comprises over 100,000 nodes (up from the original 40,000) and at least 45 distinct relation types, enabling a comprehensive mapping of culinary and health-related concepts.
 
@@ -205,13 +204,13 @@ To enrich coverage, we apply a zero-shot LLM-based extraction approach that proc
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
 <!-- Image Description: This image displays a user interface for a recipe generation system. Two network graphs show ingredient relationships; one smaller graph (C) focuses on "Black Pepper," and a larger one (D) shows a wider range of ingredients. A pop-up box (X) prompts the user to include or exclude Black Pepper in a new recipe. A slider controls the level of detail shown in the graphs. The selection is reflected in a section (E) before final application. The purpose is to visually illustrate the impact of ingredient choices on recipe generation. -->
 
-Figure 4: Interaction with the Knowledge Graph: The visualized Knowledge Graph in HealthGenie enables users to explore a broader range of recipes (D). Users can interact directly with the visualized nodes, such as hovering to view detailed relationships or clicking to include or exclude ingredients (C) in the next recommendation. Any selection to include or exclude ingredients is recorded in the interaction history panel (E), ensuring all user actions are tracked.
+**Figure 4:** Interaction with the Knowledge Graph: The visualized Knowledge Graph in HealthGenie enables users to explore a broader range of recipes (D). Users can interact directly with the visualized nodes, such as hovering to view detailed relationships or clicking to include or exclude ingredients (C) in the next recommendation. Any selection to include or exclude ingredients is recorded in the interaction history panel (E), ensuring all user actions are tracked.
 
 domain-specific clustering. For example, if the LLM detects a statement such as "lemon juice alleviates fishy odor," it can propose a new relation, "neutralize Odor," which we then verify and integrate into the KG if deemed valid. By incorporating such inferred edges, the KG more accurately reflects nuanced dietary interactions that users may find relevant.
 
 We store the KG in a hybrid format. A CSV-based index encodes each triple (subject, relation, object), enabling large-scale ingestion, while an in-memory representation supports high-speed pathfinding and subgraph extraction during user interactions. Nodes carry both numerical attributes (e.g., calories=290, protein=12g) and categorical labels (e.g., allergenClass=shellfish). This dual-layer architecture balances scalability and efficiency, which is essential for real-time recommendations. Versioning and incremental updates further enhance reliability: if users flag new allergies or preferences, HealthGenie revises the relevant edges or attributes, preserving an auditable history. Through iterative refinement driven by actual usage, the KG remains aligned with evolving nutritional best practices and personalized constraints.
 
-#### 2 User Query Processing
+### 2 User Query Processing
 
 To interpret users' natural language requests and map them to relevant graph entities, HealthGenie employs a domain-specific processing pipeline. Its primary objective is to capture a user's dietary goals, whether simple or complex, and translate them into symbolic constraints that can be matched against the KG. This design
 
@@ -229,7 +228,7 @@ Keyword Extraction. In this phase, we rely on a domain-specific lexical resource
 
 Language Processing. After extracting tokens, a shallow syntactic analysis interprets how the keywords relate to one another. For instance, "I want more fiber" indicates a positive inclusion constraint, whereas "I dislike shrimp" implies an exclusion. Additional instructions, such as "cook them to retain nutrients," are translated into method-level flags (e.g., highRetainNutrients=true) that guide subsequent matching. The resulting constraint set supplies the system with a coherent, logically structured representation of user demands, ready for advanced filtering and recommendation steps in the knowledge graph pipeline.
 
-#### 3 Knowledge Matching and Adaptive Output
+### 3 Knowledge Matching and Adaptive Output
 
 Having identified user constraints and recognized the relevant parts of the graph, HealthGenie proceeds to match requests against the KG, rank the results, and generate an appropriate textual or graphical response. Crucially, this output is not static. If the user later refines or reverses a constraint, the system must adapt the underlying logic in real time.
 
@@ -243,7 +242,7 @@ both the overarching rationale and the specific interactions of food items.
 
 5.3.3 Adaptive Output. Even after the system offers an initial recommendation, users often refine their constraints (e.g., "remove soy sauce," "add more greens"). In response, HealthGenie automatically revisits the relevant portion of the KG, revalidates previous selections, and applies newly discovered matches. This "adaptive output" cycle leverages adjacency-list lookups to filter nodes that conflict with updated constraints and to expand the search when new preferences suggest additional viable options. The system's real-time recalculation ensures minimal friction. For instance, when a conflict arises, such as an incompatible allergen or an overly restrictive calorie limit, visual nodes fade or disappear, and alternative edges or nodes are suggested. This iterative, feedback-driven workflow balances the creative flexibility provided by LLM-based text generation with the symbolic precision of knowledge-graph reasoning, ensuring that each final recommendation remains logically traceable to the user's evolving preferences.
 
-#### 4 Interactive Feedback and Iteration
+### 4 Interactive Feedback and Iteration
 
 Because dietary choices are inherently personal and may shift as users explore various options, our system devotes special attention to fostering an iterative, user-centered feedback loop. This approach enriches the decision-making process by letting people constantly re-sculpt the set of recommendations according to taste, health conditions, or newly discovered constraints.
 
@@ -253,7 +252,7 @@ Because dietary choices are inherently personal and may shift as users explore v
 
 the knowledge graph and anchored in the constraints they have deliberately set.
 
-#### 6 User Study
+### 6 User Study
 
 We evaluated HealthGenie, deployed on a cloud server for participants to access, with 12 participants from various backgrounds. In this study, we focus on how effective and easy HealthGenie is to use in providing dietary recommendations under diverse health conditions and personal limitations. Specifically, we are interested in the following research questions.
 
@@ -261,31 +260,30 @@ We evaluated HealthGenie, deployed on a cloud server for participants to access,
 - (2) RQ2. Can the proposed circle interactive workflow effectively support user preferences on recipe exploration?
 - (3) RQ3. How do users perceive the usefulness and the experience of interacting with HealthGenie?
 
-#### 1 Participants
+### 1 Participants
 
 We recruited 12 participants (P1–P12) via social media, including 4 females and 8 males. Their ages ranged from 23 to 32 years (M = 27.4, SD = 3.02). Two participants held a bachelor's degree, four held a master's degree, and six held a doctorate. All participants had heard of knowledge graphs, and most reported understanding the general concept of combining LLMs with KGs (see Table [1\)](#page-9-0).
 
-<span id="page-9-0"></span>
 
-| ID  | Education | Freq. of LLM Us | Familiarity with KG | Familiarity<br>with |
+| ID | Education | Freq. of LLM Us | Familiarity with KG | Familiarity<br>with |
 |-----|-----------|-----------------|---------------------|---------------------|
-|     | Level     | age             |                     | LLM-KG Integration  |
-| P1  | PhD       | Always          | Familiar            | Familiar            |
-| P2  | PhD       | Always          | Unfamiliar          | Unfamiliar          |
-| P3  | Bachelor  | Often           | Know the concept    | Know general idea   |
-| P4  | Master    | Often           | Familiar            | Very Familiar       |
-| P5  | Master    | Always          | Familiar            | Very Familiar       |
-| P6  | Master    | Always          | Familiar            | Know general idea   |
-| P7  | Bachelor  | Often           | Know the concept    | Know general idea   |
-| P8  | PhD       | Often           | Familiar            | Very Familiar       |
-| P9  | PhD       | Always          | Familiar            | Very Familiar       |
-| P10 | PhD       | Often           | Know the concept    | Know general idea   |
-| P11 | Master    | Always          | Know the concept    | Know general idea   |
-| P12 | PhD       | Always          | Know the concept    | Know general idea   |
+| | Level | age | | LLM-KG Integration |
+| P1 | PhD | Always | Familiar | Familiar |
+| P2 | PhD | Always | Unfamiliar | Unfamiliar |
+| P3 | Bachelor | Often | Know the concept | Know general idea |
+| P4 | Master | Often | Familiar | Very Familiar |
+| P5 | Master | Always | Familiar | Very Familiar |
+| P6 | Master | Always | Familiar | Know general idea |
+| P7 | Bachelor | Often | Know the concept | Know general idea |
+| P8 | PhD | Often | Familiar | Very Familiar |
+| P9 | PhD | Always | Familiar | Very Familiar |
+| P10 | PhD | Often | Know the concept | Know general idea |
+| P11 | Master | Always | Know the concept | Know general idea |
+| P12 | PhD | Always | Know the concept | Know general idea |
 
-Table 1: Participant Information: We present participant ID, education level, LLM usage frequency and Familiarity with LLM-KG integration.
+**Table 1:** Participant Information: We present participant ID, education level, LLM usage frequency and Familiarity with LLM-KG integration.
 
-#### 2 Study Design
+### 2 Study Design
 
 We carefully designed the study task to evaluate HealthGenie's usability regarding personalized dietary recommendations. The study includes four tasks across two different goals in total.
 
@@ -309,7 +307,7 @@ Scenario Instruction. You follow a vegan diet and have been provided with a non-
 
 Scenario Instruction. The provided recipe is incomplete. Your goal is to identify and request appropriate ingredient substitutions or obtain a revised version of the recipe that fills in the missing components. You should explore recommendations and engage in dialogue and interaction until a complete and satisfactory recipe is constructed.
 
-#### 3 Conditions
+### 3 Conditions
 
 Baseline Condition. The baseline system consists of two components: a ChatGPT-based web application and a web interface with a knowledge graph identical to the one used in HealthGenie. For the conversational model, we employ GPT-4o. The knowledge graph interface offers basic retrieval functionality; for example, users can input an entity query and receive a subgraph related to the mentioned entity. In the baseline condition, participants are allowed to interact with both the ChatGPT application and the standalone knowledge graph interface to complete their tasks. They are free to decide when, whether, and how to use the provided tools.
 
@@ -317,11 +315,11 @@ HealthGenie Condition. In the HealthGenie condition, participants are limited to
 
 the assigned tasks. The conversational agent within HealthGenie is powered by the same GPT-4o model used in the baseline condition. Participants are required to engage with both the conversational agent and the interactive knowledge graph, which allows viewing and manipulating relevant subgraphs. As in the baseline condition, participants have the freedom to decide when and how to use the integrated system throughout the task.
 
-#### 4 Procedure
+### 4 Procedure
 
 We conducted a within-subjects study to understand HealthGenie's effectiveness and user experience compared to the baseline system. The study begins with an introduction to HealthGenie and a description of its core functionalities. Then, the participants were asked to work on Task A (personalized dietary recommendation) and Task B (recipe modification and completion). To evaluate system effectiveness in a counterbalanced manner, participants are divided into two groups. In the first group, participants complete the tasks using HealthGenie first, followed by the baseline condition. In the second group, the order is reversed: participants begin with the baseline condition, then proceed to HealthGenie. After completing each task with a given system, participants are asked to fill out a well-designed, task-specific survey to provide feedback. Each task within a given condition, along with the corresponding survey, takes approximately 3–5 minutes to complete. Upon finishing all tasks across the different systems, participants are then asked to complete a questionnaire. This post-task survey focuses on participants' overall preferences, satisfaction, and perceived effectiveness across HealthGenie, as well as on expressing their preferred features and challenges in using the system. Completion of this overall evaluation survey requires 35–45 minutes per participant.
 
-#### 5 Measurements
+### 5 Measurements
 
 In the study, we measured users' experience both quantitatively and qualitatively using the following approaches.
 
@@ -331,11 +329,11 @@ RQ2. User Preference Support. To evaluate the effectiveness of HealthGenie 's pe
 
 RQ3. User Experience. To address this question, we measured the task workload using the NASA Task Load Index [\[18\]](#page-14-29) regarding Mental Demand, Physical Demand, Temporal Demand, Performance, and Frustration. Additionally, we adopted the technology acceptance model [\[63\]](#page-15-37) to assess perceived usefulness, ease of use, ease of learning, and enjoyment of interacting with HealthGenie, as well as participants' intention to use it. Participants also rated the perceived helpfulness of HealthGenie regarding dietary recommendations and recipe revision.
 
-#### 7 Results and Analysis
+### 7 Results and Analysis
 
 In this section, we present both the quantitative and qualitative results corresponding to each research question (RQ). For each rating item, we first examine whether the order in which participants use the two interfaces influences the outcomes. To analyze RQ1 and RQ3, we employ a Wilcoxon signed-rank test [\[66\]](#page-15-38) to compare the results between the two conditions. For RQ2, we conduct a series of mixed ANOVA tests [\[58\]](#page-15-39), treating the order as a between-subjects variable and the interface type as a within-subjects variable.
 
-#### 1 RQ1. Information Perception
+### 1 RQ1. Information Perception
 
 Figure [5](#page-11-0) presents the characteristic results from the visualized KG and LLM outputs, highlighting the participants' responses to various evaluation dimensions. Overall, participants highly rated the output quality, especially in terms of Organization. Both the KG and LLM outputs received high ratings for Organization (KG: = 4.66, = 0.49, = 1.50, = 1.0 and LLM: = 4.67, = 0.49, = 2.5, = 0.625). This suggests that the presentation of information in a structured manner was highly effective across both systems.
 
@@ -346,28 +344,27 @@ Participants overwhelmingly agreed that the visual output substantially improved
 <span id="page-11-0"></span>![](_page_11_Figure_2.jpeg)
 <!-- Image Description: The image presents sixteen histograms displaying participant responses (1-5 scale, strongly disagree to strongly agree) to survey questions regarding text and visual output comprehensiveness, relevance, clarity, organization, accuracy, granularity, reliability, and interpretability. Each histogram shows the number of participants selecting each response level, with a vertical line indicating the mean response. The purpose is to quantitatively illustrate user feedback on the system's effectiveness. -->
 
-Figure 5: Participants' rating on output features of HealthGenie.
+**Figure 5:** Participants' rating on output features of HealthGenie.
 
 health condition and symptoms is remarkably thorough," suggesting participants valued both clarity and depth in the visual presentation.
 
-#### 2 RQ2. User Preference Support
+### 2 RQ2. User Preference Support
 
 Figure [6](#page-12-0) presents a comparative analysis of task completion ratings between HealthGenie and the baseline interface. HealthGenie performed better than the baseline system in most of the tasks across different perspectives (Group 1 - HealthGenie: = 4.51, = 0.71,, Baseline: = 3.89, = 0.76; Group 2 - HealthGenie: = 4.33, = 0.98, Baseline: = 3.38, = 1.29). However, both systems demonstrated limited effectiveness in recipe recommendation tasks with constrained ingredients (HealthGenie: = 2.58, = 1.24, Baseline: = 2.833, = 1.33, = −0.25, = 4.94, = 0.038), in which users experienced frustration due to repeated ingredient clarifications before obtaining viable recommendations. This limitation may stem from challenges in accurately retrieving relevant recipes from the extensive knowledge graph, particularly when processing constrained ingredient inputs.
 
-Notably, HealthGenie showed superior performance in accurately completing user tasks (Task Complete Accurately), particularly for Task 2 (HealthGenie: = 4.83, = 0.38; Baseline:  = 3.14, = 1.98; = 0.75, = 0.81). This enhanced capability appears to derive from the system's user-centered design, which consistently incorporates individual health conditions and dietary goals into its recommendation algorithm. By maintaining persistent focus on these critical factors throughout multi-turn interactions, HealthGenie ensures nutritional requirements are both met and remembered across conversational contexts.
+Notably, HealthGenie showed superior performance in accurately completing user tasks (Task Complete Accurately), particularly for Task 2 (HealthGenie: = 4.83, = 0.38; Baseline: = 3.14, = 1.98; = 0.75, = 0.81). This enhanced capability appears to derive from the system's user-centered design, which consistently incorporates individual health conditions and dietary goals into its recommendation algorithm. By maintaining persistent focus on these critical factors throughout multi-turn interactions, HealthGenie ensures nutritional requirements are both met and remembered across conversational contexts.
 
 In personalized recommendation tasks, HealthGenie consistently outperformed the baseline system, with particularly strong results in Tasks 3 and 4 (HealthGenie: = 4.67, Baseline: = 3.67; = 1.00). This performance advantage stems from HealthGenie 's cyclic workflow, which enables users to directly interact with and manipulate the recipe KG. This design not only fosters an engaging user experience but also allows the LLM to dynamically update and refine user preferences through iterative KG interactions, ensuring progressively better alignment with users' evolving needs. Moreover, participants further reinforced these findings through positive feedback. For instance, P1 remarked: "I found it helps me to visualize the relationships of entities in a clear way; I would love to interact with the graph and explore interesting recipes." Similarly, P2 highlighted the personalization of HealthGenie— "Personalizing
 
-<span id="page-12-0"></span>
 
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image displays three horizontal bar charts comparing user responses to three task completion methods ("Intuitively," "Accurately," "Personalized"). Each chart presents the frequency of responses (strongly disagree to strongly agree) for four tasks (Task 1-4). A color-coded legend indicates response levels. To the right of each chart, a vertical line plot shows the mean difference and 95% confidence interval between two groups (HealthGenie and Baseline). The charts illustrate the relative performance of each method across various tasks and highlight statistically significant differences between groups. -->
 
-Figure 6: Participants' responses regarding the task completion intuition, task completion accuracy and task completion satisfaction among four tasks, measured by the 5-point Likert scale questionnaire for both based and our system. Bars present the mean differences of our system compared to the Baseline. Dots indicated the 95% Confidence Interval.
+**Figure 6:** Participants' responses regarding the task completion intuition, task completion accuracy and task completion satisfaction among four tasks, measured by the 5-point Likert scale questionnaire for both based and our system. Bars present the mean differences of our system compared to the Baseline. Dots indicated the 95% Confidence Interval.
 
 desired or unwanted vegetables using knowledge graphs was really helpful to improve recipe." P8 also added that "I think the KG graph interaction feature is really impressive because it allows me to customize the content I want in a very straight way." These comments underscore the effectiveness of HealthGenie 's three-party interaction workflow (LLM-KG-User), which not only personalizes recommendations but also actively encourages user exploration and system engagement.
 
-#### 3 RQ3. User Experience
+### 3 RQ3. User Experience
 
 Figure [7](#page-12-1) presents an overview of users' perceptions regarding the workload and interaction experience with HealthGenie. Users generally perceived moderate but comparable levels of effort across all demand dimensions, with no statistically significant differences in mental workload ( = 4.58, = 2.02, = 10.00, = 1.00), physical demands ( = 4.50, = 1.88, = 5.0, = 0.62), or temporal demands ( = 4.08, = 1.24, = 0, = 1.00). In contrast, participants reported high satisfaction with HealthGenie's performance ( = 5.67, = 1.55, = 2.00, = 0.50) and unanimously agreed that the system was easy to use for completing the assigned tasks.
 
@@ -376,11 +373,11 @@ Additionally, users consistently rated HealthGenie highly across key interaction
 <span id="page-12-1"></span>![](_page_12_Figure_8.jpeg)
 <!-- Image Description: This image displays a series of stacked bar charts, each representing a user experience attribute (e.g., enjoyment, ease of use, frustration). The horizontal bars are segmented by color-coded numerical scores, likely reflecting user responses on a scale. The chart's purpose is to visually compare user feedback across various system aspects, providing insights into the system's usability and perceived effectiveness. -->
 
-Figure 7: Participants' self-reported rating on usefulness and experience, measured by 7-point Likert scale.
+**Figure 7:** Participants' self-reported rating on usefulness and experience, measured by 7-point Likert scale.
 
 intuitive design. Enjoyment scores ( = 6.08, = 0.90, = 3.00, = 0.18) were notably high, suggesting users found the experience genuinely engaging. Finally, strong ratings for Orientation to Use ( = 6.0, = 0.85, = 5.00, = 0.75) demonstrated users' willingness to continue using HealthGenie, reflecting overall satisfaction with the system's usability and design.
 
-#### 4 Challenges
+### 4 Challenges
 
 Despite the advanced usefulness and effectiveness of HealthGenie, from the open-ended experience sharing, we observed there exist three major challenges in using HealthGenie: (1) Insufficient data; (2) High latency; and (3) Limited KG structure.
 
@@ -392,11 +389,11 @@ system requires additional processing time to manage multiple prompts while stil
 
 Limited KG structure. Participants mentioned that they would prefer the KG to be organized by types or to suggest more related content. One participant even suggested, "It would be even better if you could provide Amazon links to the products or recipe videos" (P5). In our pre-built KG, recipes are currently organized by similar ingredients and health benefits, which we designed to simplify the information structure and facilitate quick retrieval. This approach was intended to ensure that users could easily find recipes based on their dietary needs or specific health goals.
 
-#### 8 Discussion
+### 8 Discussion
 
 In this work, we design and develop HealthGenie, an interactive system that provides personalized recipe recommendations and dietary guidance based on individual health conditions and goals, leveraging integrated KGs and LLMs. Our within-subjects study (N=12) compares HealthGenie with ChatGPT and a dummy KG retriever, thereby demonstrating its effectiveness in enhancing user support for meal planning decisions. Our user study reveals both the limitations and potential opportunities of HealthGenie, offering key design considerations for future interactive systems that integrate visualized KGs with intelligent LLMs.
 
-#### 1 Visualizing Knowledge
+### 1 Visualizing Knowledge
 
 Visualization techniques are essential for enhancing the usability and interpretability of LLM-KG interfaces. In our work, we employ node-link diagrams [\[21,](#page-14-30) [27\]](#page-14-7) to represent the structure and content of knowledge graphs, offering users an intuitive visual representation of entities and their relationships. However, effective KG visualization involves many additional considerations. Recent research has explored integrating KG and LLM reasoning [\[24,](#page-14-31) [26,](#page-14-32) [59,](#page-15-40) [61\]](#page-15-41), where visualization can play a key role in presenting reasoning paths or evidence derived from the KG. This not only improves transparency but also helps users understand the system's decision-making process.
 
@@ -422,11 +419,11 @@ We present HealthGenie, a novel interactive system that enhances dietary recomme
 
 LLMs. Our approach enables users to visually explore nutrient relationships, filter ingredient options by health constraints, and refine preferences through direct graph interactions, thereby eliminating the need for verbose text exchanges. Our user study demonstrates that HealthGenie provides more intuitive and organized recommendations compared to traditional text-based interfaces, with high user satisfaction and perceived usefulness. By bridging expert-level dietary knowledge with everyday decision-making through structured, interactive visualization, this work advances the design of human-AI interfaces for personalized health guidance.
 
-#### Acknowledgments
+### Acknowledgments
 
 Acknowledgements go here. Delete enclosing begin/end markers if there are no acknowledgements.
 
-#### References
+### References
 
 - <span id="page-14-0"></span>[1] Bilal Abu-Salih, Muhammad Al-Qurishi, Mohammed Alweshah, Mohammad Al-Smadi, Reem Alfayez, and Heba Saadeh. 2023. Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities. Journal of Big Data 10, 1 (2023), 81.
 - <span id="page-14-16"></span>[2] Oshin Agarwal, Heming Ge, Siamak Shakeri, and Rami Al-Rfou. 2021. Knowledge Graph Based Synthetic Corpus Generation for Knowledge-Enhanced Language Model Pre-training. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Kristina Toutanova, Anna Rumshisky, Luke Zettlemoyer, Dilek Hakkani-Tur, Iz Beltagy, Steven Bethard, Ryan Cotterell, Tanmoy Chakraborty, and Yichao Zhou (Eds.). Association for Computational Linguistics, Online, 3554– 3565.<https://doi.org/10.18653/v1/2021.naacl-main.278>

@@ -21,7 +21,6 @@ keywords:
 - note-taking
 ---
 
-
 # Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook
 
 Baihan Lin*<sup>1</sup>*,\*
@@ -69,7 +68,7 @@ Although we have seen successful system designs in commercial products such as M
 
 There are different application domains for knowledge management systems with relational databases and insight annotation enabled by machine learning, including but not limited to reference manager for academic researchers, education and research tool, consulting firm report generator with evidence-based decision making, inventory management for manufacture or research enterprises, organizational tool for industries with highvolume data, and internal auditing tool for customized employee metrics.
 
-#### 2.2. User scenarios
+### 2.2. User scenarios
 
 Other than the reference management example in our introduction, we also include two additional applications. The first one is managing inventories and changes for manufacture, chemistry or research enterprises. The inventories or measurements of factories usually involves dependency and hierarchical interactions. A knowledge management system that uses a relational database instead of disjoint databases with separate logging systems can enable useful curation function to offer very useful and concise report regarding key events or phenomon
 
@@ -77,20 +76,20 @@ Other than the reference management example in our introduction, we also include
 
 The second user scenario example is evidence-based decision making. In large business entities, critical decisions are usually made with a group of market researchers or consulting firms that come up with various analytic reports. A knowledge management system with AI-assisted insight annotation can provide a fast and evidence-based solution by generating a report (given the keyword or topic as input) which curates from hierarchical and interaconnected records. This hierarchical knowledge graph can serve as a useful primer in important decision making processes and guide the investigators to locate relevant resources.
 
-#### 2.3. Case studies
+### 2.3. Case studies
 
 In this section, we outline three case studies that recent real-world knowledge management systems are likely adopt to become more interconnected and intelligent.
 
 *The concept of Internet of Things (IoT)*: The IoT advancements consist of a series of disruptive digital technologies, semantic languages, and virtual identities that can increases efficiency and effectiveness in daily life operations through interconnected communications among devices and systems [\[4\]](#page-4-3). Other than these organizational benefit, IoT stimulates the innovation process in various aspects, through fast iterations of knowledge flow and information gathering [\[5\]](#page-4-4). In [\[6\]](#page-4-5), researchers employ structural equation modelling on a sample of 298 Italian firms from different sectors. Their study suggest that interconnected knowledge management systems facilitate the creation of a open and collaborative ecosystem by utilizing the internal and external flows of knowledge and increasing internal knowledge management capacity, which in turn increases innovation capacity.
 
-*Reference architecture*: In the era of Industry 4.0 [\[7\]](#page-4-6), smart warehouses are envisioned to host production that contains modular and efficient manufacturing systems and characterizes scenarios in which products control their own manufacturing process. As in our user scenario of warehouse inventory management, an optimal reference architecture would be the key to the warehouse knowledge management system. For instance, [\[8\]](#page-4-7) describes a pipeline to perform a series of systematic analyses to identify the key concerns and processes and eventually arrive at potential architecture of smart warehouses. They conduct a case study at a large warehouse in the food industry and illustrates that an introduction of a reference architecture can be effective and practical.
+**Reference architecture:**  In the era of Industry 4.0 [\[7\]](#page-4-6), smart warehouses are envisioned to host production that contains modular and efficient manufacturing systems and characterizes scenarios in which products control their own manufacturing process. As in our user scenario of warehouse inventory management, an optimal reference architecture would be the key to the warehouse knowledge management system. For instance, [\[8\]](#page-4-7) describes a pipeline to perform a series of systematic analyses to identify the key concerns and processes and eventually arrive at potential architecture of smart warehouses. They conduct a case study at a large warehouse in the food industry and illustrates that an introduction of a reference architecture can be effective and practical.
 
-*Conversational recommendation systems*: A conversational recommendation system (CRS) is a computer system that is able to have a conversation with a human user in order to make recommendations [\[9\]](#page-4-8). This is different from traditional recommendation systems, which
+**Conversational recommendation systems:**  A conversational recommendation system (CRS) is a computer system that is able to have a conversation with a human user in order to make recommendations [\[9\]](#page-4-8). This is different from traditional recommendation systems, which
 
 ![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This diagram illustrates a system architecture for knowledge management. User input (via two entry points) populates several relational databases (storage, analysis, NLP-powered annotations). Data is processed through semantic similarity analysis and topic modeling, generating "inventory scores" and "shared embeddings". These feed downstream analysis and symbolic reasoning components. The figure shows data flow between the user interface, databases, and analysis stages, emphasizing the integration of different data types and analytical methods. -->
 
-<span id="page-2-0"></span>**Figure 1:**A unified framework of a knowledge management system with relational databases and NLP-assisted annotation
+<span id="page-2-0"></span>****Figure 1:****A unified framework of a knowledge management system with relational databases and NLP-assisted annotation
 
 do not interact with users. Often used in e-commerce, social media, and entertainment applications, CRS are becoming increasingly popular as they can provide a more personalized and interactive experience for users, but can pose additional challenges in managing different layers of knowledge at different states: the intent of the conversation, the entities matched by the intents, the long-term preferences of the users and similar users, their state-dependent preferences related to the current contexts, and the relationships between different entities, intents and users. One practical examples is recommending discussion topic to therapist during psychotherapy in real-time given automatically speech-transcribed dialogue records [\[10\]](#page-4-9) and helpful visual analytics [\[11\]](#page-4-10).
 

@@ -29,20 +29,20 @@ tags:
 Hongxi Yan† , Dawei Weng† , Dongguo Li, Yu Gu, Wenji Ma and Qingjie Liu
 
 Corresponding authors: Yu Gu, School of Biomedical Engineering, Capital Medical University, 10 You An Men Wai, Xi Tou Tiao, Beijing 100069, China. Tel.: 18500087987, E-mail: [ygu@ccmu.edu.cn;](
- 6442 15898 a 6442 15898
+6442 15898 a 6442 15898
 a
- ) Wenji Ma, Center for Single-Cell Omics, School of Public Health, Shanghai Jiao Tong University School of Medicine, 227 South Chongqing Road, Shanghai 200025, China. Tel.: 18612370689, E-mail: [wenjimacs@sjtu.edu.cn](
- 24820 16950 a 24820
+) Wenji Ma, Center for Single-Cell Omics, School of Public Health, Shanghai Jiao Tong University School of Medicine, 227 South Chongqing Road, Shanghai 200025, China. Tel.: 18612370689, E-mail: [wenjimacs@sjtu.edu.cn](
+24820 16950 a 24820
 16950 a
- )
+)
 
 †Hongxi Yan and Dawei Weng contributed equally to this work and also joint first authors.
 
-#### **Abstract**
+### **Abstract**
 
 The interrelation and complementary nature of multi-omics data can provide valuable insights into the intricate molecular mechanisms underlying diseases. However, challenges such as limited sample size, high data dimensionality and differences in omics modalities pose significant obstacles to fully harnessing the potential of these data. The prior knowledge such as gene regulatory network and pathway information harbors useful gene–gene interaction and gene functional module information. To effectively integrate multiomics data and make full use of the prior knowledge, here, we propose a Multilevel-graph neural network (GNN): a hierarchically designed deep learning algorithm that sequentially leverages multi-omics data, gene regulatory networks and pathway information to extract features and enhance accuracy in predicting survival risk. Our method achieved better accuracy compared with existing methods. Furthermore, key factors nonlinearly associated with the tumor pathogenesis are prioritized by employing two interpretation algorithms (i.e. GNN-Explainer and IGscore) for neural networks, at gene and pathway level, respectively. The top genes and pathways exhibit strong associations with disease in survival analyses, many of which such as SEC61G and CYP27B1 are previously reported in the literature.
 
-*Keywords*: graph neural network; multi-omics; pathway; risk classification; interpretability
+**Keywords:**  graph neural network; multi-omics; pathway; risk classification; interpretability
 
 ## **INTRODUCTION**
 
@@ -66,7 +66,6 @@ To achieve a comprehensive and multidimensional understanding of complex and sys
 
 **Dongguo Li** is an associate professor at Capital Medical University.
 
-This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<https://creativecommons.org/licenses/by/4.0/>), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
 
 is subsequently fed into a Convolution Neural Network for risk prediction. This method employs Grad-CAM [[18](#page-9-14)] to explain the prediction results and identify differential pathways for long-term and non-long-term survival patients. However, these methods often rely solely on pathway information and use simple linear aggregation to combine omics data into pathway information, limiting their ability to provide comprehensive insights. Incorporating a regulatory network can supplement more detailed information for the neural network, enhancing its effectiveness.
 
@@ -76,15 +75,14 @@ is subsequently fed into a Convolution Neural Network for risk prediction. This 
 
 ## **METHOD**
 
-#### **Overview**
+### **Overview**
 
 <span id="page-1-9"></span><span id="page-1-7"></span><span id="page-1-5"></span><span id="page-1-3"></span>Our method takes in mRNA expression, copy number variation (CNV), DNA methylation profiling data and age as inputs, and outputs a two-dimensional (2D) vector that denotes the probabilities of low risk and high risk for each patient. For preprocessing of the data, given the low information density inherent in the omics data, mutual information on the training set was employed for gene selection for each omic data set separately. The overall framework of multilevel GNN is illustrated in [Figure](#page-2-0) 1. The multilevel GNN comprises three components: a gene-encoding graph neural network that leverages both gene regulatory network and multi-omics data, aiming to enrich gene-level features with information on gene interactions based on specific regulatory relationships; a pathway aggregation block that aggregates genes within a pathway with a learnable linear layer to generate pathway-level features; and a prediction module that generates the prediction results, i.e. the probability of high and low risk of mortality, respectively. To facilitate the model with the ability of result interpretation, a mask-based neural network explanation method is employed to extract key genes that provide insights into the risk prediction. The overall structure of the key gene interpretation method is shown [Figure](#page-2-1) 2. Specifically, this method utilizes gradient descent to adjust node-wise masks to minimize the conditional entropy between the output and ground truth, and the final node mask values represent the importance of the nodes. These pivotal genes are important for predicting the prognosis of patients. In addition, key pathways are identified using IGscore recognition. The IGscore, representing feature attributions, is calculated using the Integrated Gradients method, which integrates the gradients of a model's output with respect to pathway features along a path from a baseline to the actual pathway features.
 
-#### **Data preprocessing**
+### **Data preprocessing**
 
 When dealing with practical problems involving higher dimensional data, it is crucial to have a substantial amount of data for fitting in order to avoid the curse of dimensionality. Predicting gene-disease risk becomes particularly challenging due to the small number of patients for each cancer type, coupled with the high dimensionality of the genetic data. To tackle this challenge, mutual information was utilized to filter the multi-omics features. The K-nearest neighbors algorithm [\[32\]](#page-9-27) was employed to calculate mutual information for the three omics datasets. As gene expression and methylation data are continuous, the formula for calculating mutual information is as follows:
 
-<span id="page-1-13"></span>
 $$
 MI(x) = \psi(N) - \langle \psi(N_x) \rangle + \psi(k) - \langle \psi(m) \rangle, \tag{1}
 $$
@@ -94,16 +92,16 @@ where *ψ(*·*)* denotes the digamma function, -· denotes the average function.
 In each cross-validation iteration, we calculated the mutual information between all omics data and labels based on the training set. Data with mutual information greater than the mean mutual information were retained for training.
 
 ![](_page_2_Figure_1.jpeg)
-<!-- Image Description: This flowchart illustrates a multi-step machine learning model for risk prediction.  It begins with data preparation showing copy number variation, DNA methylation, and mRNA expression data. This is followed by a gene encoding GNN (graph neural network) step visualized as a graph.  A pathway aggregation block combines pathway information, represented as nodes and edges, using fully connected (FC) layers. Finally, a prediction head with FC layers outputs a high or low-risk classification. -->
+<!-- Image Description: This flowchart illustrates a multi-step machine learning model for risk prediction. It begins with data preparation showing copy number variation, DNA methylation, and mRNA expression data. This is followed by a gene encoding GNN (graph neural network) step visualized as a graph. A pathway aggregation block combines pathway information, represented as nodes and edges, using fully connected (FC) layers. Finally, a prediction head with FC layers outputs a high or low-risk classification. -->
 
 <span id="page-2-0"></span>**Figure 1.** The algorithm comprises three modules: the graph neural network utilizes a guidance graph to encode features at the gene level, the pathway aggregation block aggregates gene features into pathway features based on pathway information and, finally, the prediction module uses pooling, FC layers to predict the risk.
 
 ![](_page_2_Figure_3.jpeg)
-<!-- Image Description: This illustration depicts a graph neural network (GNN) training process.  It shows a "Guidance Graph" multiplied by a "Node-wise Mask" to create a "Masked Graph." This masked graph is then fed as input to a neural network.  The network's backpropagation updates the node-wise gradient, iteratively refining the mask and improving the GNN's performance.  The diagrams visually represent the data flow and the masking/updating steps within the training loop. -->
+<!-- Image Description: This illustration depicts a graph neural network (GNN) training process. It shows a "Guidance Graph" multiplied by a "Node-wise Mask" to create a "Masked Graph." This masked graph is then fed as input to a neural network. The network's backpropagation updates the node-wise gradient, iteratively refining the mask and improving the GNN's performance. The diagrams visually represent the data flow and the masking/updating steps within the training loop. -->
 
 <span id="page-2-1"></span>**Figure 2.** The gene interpretation algorithm assigns a mask to each node. The masked graph is obtained by multiplying the mask with the Guidance graph, and this masked graph is then input into the neural network. Through multiple iterations using gradient descent, the mask values are adjusted to minimize the error between the predicted result and the true value. In the end, critical nodes with high mask values and non-critical nodes with low mask values are obtained.
 
-#### **Guidance graph construction**
+### **Guidance graph construction**
 
 To capture the connections between genes, as well as between different omics data for the same gene, we employed the same guidance graph **G** = *(V*, *E)* as GLUE [[7](#page-9-4)].
 
@@ -125,7 +123,7 @@ $$
 
 Multilevel GNN consists of three parts: gene encoding graph neural network, pathway aggregation block and the prediction module. [Figure](#page-2-0) 1 illustrates the overall algorithm.
 
-#### *Gene encoding GNN*
+### *Gene encoding GNN*
 
 Defining *xi* as the expression value of the *i*th node. The gene encoding graph neural network initialize a random D-dimensional embedding **e***<sup>i</sup>* for each node. When a sample is fed into the neural network, the corresponding expression values are multiplied with the embeddings to obtain the input for the graph neural network *S* = {*sv* = *xv* · *ev*, ∀*v* ∈ *V*}.
 
@@ -150,13 +148,13 @@ Defining *xi* as the expression value of the *i*th node. The gene encoding graph
 
 1: *h*<sup>0</sup> *<sup>v</sup>* ← *xv* · *ev*, ∀*v* ∈ **V** 2: **for** *k* ← 1 to *K* **do** 3: **for** *v* ∈ **V do** 4: *h<sup>k</sup> <sup>N</sup>(v)* ← *AGGk(*{*h<sup>k</sup>*−<sup>1</sup> *<sup>u</sup>* , ∀*u* ∈ *N(v)*}*)* 5: *h<sup>k</sup> <sup>v</sup>* ← *σ (W<sup>k</sup>*·Concat*(h<sup>k</sup>*−<sup>1</sup> *<sup>v</sup>* , *h<sup>k</sup> <sup>N</sup>(v)))* 6: **end for** 7: **end for** 8: *zv* ← *hK <sup>v</sup>* , ∀*v* ∈ **V**
 
-#### **Algorithm 2** Pathway Aggregation Block
+### **Algorithm 2** Pathway Aggregation Block
 
-#### **Input:**
+### **Input:**
 
-*Xv* : Gene node features;
+**Xv:**  Gene node features;
 
-*Zv* : Node embeddings;
+**Zv:**  Node embeddings;
 
 **W***ijm <sup>p</sup>* : Pathway aggregation matrix;
 
@@ -181,11 +179,11 @@ To emphasize the impact of abnormal genes and highlight the inf luence of the or
 $$
 PF_{ijm} = \mathbf{W}_p^{ijm} X_v \cdot Z_v.
 $$
- (4)
+(4)
 
 The algorithm procedure is shown in Algorithm 2.
 
-#### *Prediction head*
+### *Prediction head*
 
 Lastly, a prediction module utilizes the pathway embeddings to predict the risk level of patients. Inspired by PathCNN, we performed sorting on the pathways before pooling. First, the pathway embeddings is arranged into a matrix *Mp* ∈ *RDNM*, where *N* represents the number of pathways, *M* represents the number of multi-omic features and *D* represents the dimension of each multi-omic feature.
 
@@ -204,36 +202,34 @@ For each pathway on each omics, PCA can be used to reduce N gene features to M d
 $$
 p_{ij}^{origin} = P_{ij} X_{ij}.
 $$
- (2)
+(2)
 
 The matrix **W***ij <sup>p</sup>* is initialized using the compression matrix *Pij* obtained from PCA. This initialization serves two purposes: firstly, PCA effectively compresses the features, and secondly, using a fixed initialization method improves training stability.
 
 In addition, to maintain the independence of pathway features in each dimension, a cosine loss is applied to constrain the aggregation matrix. This constraint aims to maintain orthogonality
 
-<span id="page-4-0"></span>
 
-|      | Table 1: Benchmark test results |              |                   |                |             |             |  |
+| | **Table 1:** Benchmark test results | | | | | | |
 |------|---------------------------------|--------------|-------------------|----------------|-------------|-------------|--|
-|      | Our                             | PathCNN [17] | Linear Regression | Neural Network | SVM         | MiNet [34]  |  |
-| GBM  | 0.772±0.006                     | 0.755±0.009  | 0.668±0.039       | 0.692±0.030    | 0.685±0.037 | 0.690±0.032 |  |
-| LGG  | 0.885±0.006                     | 0.877±0.007  | 0.816±0.036       | 0.791±0.031    | 0.884±0.017 | 0.854±0.027 |  |
-| KIRC | 0.723±0.009                     | 0.709±0.009  | 0.654±0.034       | 0.702±0.028    | 0.684±0.027 | 0.659±0.030 |  |
+| | Our | PathCNN [17] | Linear Regression | Neural Network | SVM | MiNet [34] | |
+| GBM | 0.772±0.006 | 0.755±0.009 | 0.668±0.039 | 0.692±0.030 | 0.685±0.037 | 0.690±0.032 | |
+| LGG | 0.885±0.006 | 0.877±0.007 | 0.816±0.036 | 0.791±0.031 | 0.884±0.017 | 0.854±0.027 | |
+| KIRC | 0.723±0.009 | 0.709±0.009 | 0.654±0.034 | 0.702±0.028 | 0.684±0.027 | 0.659±0.030 | |
 
 Note: The best results from each dataset are indicated in bold.
 
 of reordered pathway embeddings. At last, two linear layers are utilized to predict the final outcome.
 
-#### **Gene explanation**
+### **Gene explanation**
 
 We use a modified GNN-Explainer [[35\]](#page-10-0) to interpret the key genes. This demonstrates which genes are important in our prediction and, to some extent, also ref lects which genes are important for the disease condition of patients.
 
 The objective of GNN-Explainer is to select a subgraph that minimizes the conditional entropy H.
 
-<span id="page-4-2"></span>
 $$
 H(Y|G_S, X_S) = -\mathbb{E}[\log P_{\Phi}(Y|G = G_S, X = X_S)].
 $$
- (5)
+(5)
 
 Due to the lack of diversity in our graph among the samples and the relative sparsity of edges, we consider the nodes, which represent multiple omics datasets, as the primary target for explanation. Specifically, we constructed a mask matrix *M* ∈ *R<sup>n</sup>* for the nodes. The conditional entropy H can be optimized by adjusting the mask matrix M, *Vσ (M)*, where *σ (M)* is a node-wise continuous mask for the nodes V, *σ* is the sigmoid function that maps the mask matrix *M* to [0, 1]*<sup>n</sup>*. Therefore, the optimization objective can be rewritten as follows:
 
@@ -246,10 +242,10 @@ During the explaining process, the mask matrix *M* is optimized through gradient
 $$
 Loss_{exp} = \alpha * log(\hat{y}_n)
 $$
-  
-+  $\beta * ||\sigma(M)||_1$   
-+  $\gamma * \sum_{ij} (\sigma(M)_{ij} log(\sigma(M)_{ij})$   
-+  $\gamma * \sum_{ij} (1 - \sigma(M)_{ij}) log(1 - \sigma(M)_{ij})),$  (7)
+
++ $\beta * ||\sigma(M)||_1$
++ $\gamma * \sum_{ij} (\sigma(M)_{ij} log(\sigma(M)_{ij})$
++ $\gamma * \sum_{ij} (1 - \sigma(M)_{ij}) log(1 - \sigma(M)_{ij})),$ (7)
 
 where *α*, *β* and *γ* are three coefficients, *n* represents the sample belonging to class n, *y*ˆ *<sup>n</sup>* is the model's estimated value for the sample in class *n* and · <sup>1</sup> represents the L1 norm. The first term minimizes the error between the predicted results and the labels. The second term reduces the number of retained nodes, keeping only a small number of important nodes. The third and fourth terms are entropy losses that encourage discrete node feature masks.
 
@@ -259,17 +255,16 @@ Ultimately, the value corresponding to each node in the *σ (M)* matrix represen
 
 The Integrated Gradients method [[31](#page-9-26)] is used to identify key gene pathways. We calculated the IGscore for each feature of each pathway separately using the following formula:
 
-<span id="page-4-1"></span>
 $$
 IG_i = (S_i - S'_i) \int_0^1 \frac{\partial f(S'_i + \alpha(S_i - S'_i)))}{\partial S'_i} d\alpha.
 $$
- (8)
+(8)
 
 Here, *Si* represents the pathway features output from the compressed matrix and *S <sup>i</sup>* represents the baseline. The subscripts *i*, respectively, represent the indices of the *i*th feature.*f(*·*)* represents the neural network after the compression matrix. Since the features of each pathway are represented by multiple multidimensional features, we took the average of the absolute values of the IGscore for each feature as the IGscore of the pathway. We used the z-score of pathways as the importance scores.
 
 ## **RESULT**
 
-#### **Datasets**
+### **Datasets**
 
 <span id="page-4-3"></span>We utilized multi-omics data from The Cancer Genome Atlas (TCGA) database [[36\]](#page-10-1) to evaluate our model's generalizability across three cancer types: Glioblastoma Multiforme (GBM), Lower Grade Glioma (LGG) and Kidney Renal Clear Cell Carcinoma (KIRC). For these cancers, we obtained CNV, mRNA and methylation data from TCGA as model inputs. Additionally, age, a significant factor inf luencing patient survival time, was included as input for GBM and LGG samples.
 
@@ -280,12 +275,12 @@ Gene pathways, another important biological information, were utilized in our su
 Considering the higher fatality rate of GBM, patients with a survival time exceeding 2 years were classified as long-term survivors (LTSs), while those with a survival time less than 2 years were classified as non-LTSs. For LGG and KIRC, which have lower fatality rates compared with GBM, patients with a survival time exceeding 3 years were considered LTSs, while those with a survival time less than 3 years were considered non-LTSs. The LTS and non-LTS groups had 55 and 234 cases for GBM, 156 and 75 cases for LGG and 154 and 69 cases for KIRC, respectively.
 
 ![](_page_5_Figure_1.jpeg)
-<!-- Image Description: The figure displays three Kaplan-Meier plots (A, B, C) showing survival curves for two groups (Group1 and Group2) across three cancer types: GBM, LGG, and KIRC.  Each plot includes a log-rank test p-value indicating the statistical significance of survival differences between the groups.  Shaded areas represent 95% confidence intervals. The plots illustrate the survival time distributions for each group in the respective cancer types. -->
+<!-- Image Description: The figure displays three Kaplan-Meier plots (A, B, C) showing survival curves for two groups (Group1 and Group2) across three cancer types: GBM, LGG, and KIRC. Each plot includes a log-rank test p-value indicating the statistical significance of survival differences between the groups. Shaded areas represent 95% confidence intervals. The plots illustrate the survival time distributions for each group in the respective cancer types. -->
 
 <span id="page-5-0"></span>**Figure 3.** The patients were divided into high-risk and low-risk groups based on the predicted median, and there was a significant difference between the two groups in Kaplan–Meier analysis.
 
 ![](_page_5_Figure_3.jpeg)
-<!-- Image Description: The image displays four t-SNE visualizations, each plotting two t-SNE features.  The data points are colored blue (low risk) or red (high risk). The visualizations are for all omics, mRNA, CNV, and MT data, respectively.  The purpose is to illustrate the clustering of samples based on risk level for different omics datasets using dimensionality reduction. -->
+<!-- Image Description: The image displays four t-SNE visualizations, each plotting two t-SNE features. The data points are colored blue (low risk) or red (high risk). The visualizations are for all omics, mRNA, CNV, and MT data, respectively. The purpose is to illustrate the clustering of samples based on risk level for different omics datasets using dimensionality reduction. -->
 
 <span id="page-5-1"></span>**Figure 4.** t-SNE was used to visualize the features of pathways trained on the LGG model. It can be observed that in all three omics and overall, there is a clear distinction in pathway features between high-risk and low-risk patients.
 
@@ -297,12 +292,11 @@ Using the LGG dataset as an example, we initially conducted tests on this datase
 
 We compared our approach with two state-of-the-art models, PathCNN [[17](#page-9-13)] and MiNet [[34](#page-9-29)], as well as three classical methods, Linear Regression, Neural Network and Support Vector Machine (SVM), across four cancer datasets. We conducted 30 experiments using 5-fold cross-validation on each dataset, without a specifically partitioned test set. Similar to PathCNN, we combined all test sets from the 5-fold cross-validation, which encompasses the entire dataset, to calculate the Area Under Curve (AUC). The
 
-<span id="page-6-0"></span>
 
-|      | MRNA         | MRNA&CNV     | MRNA&MT      | MRNA&CNV&MT  |
+| | MRNA | MRNA&CNV | MRNA&MT | MRNA&CNV&MT |
 |------|--------------|--------------|--------------|--------------|
-| GBM  | 0.752±0.0122 | 0.765±0.0070 | 0.765±0.0059 | 0.772±0.0060 |
-| LGG  | 0.847±0.0156 | 0.871±0.0078 | 0.868±0.0064 | 0.885±0.0064 |
+| GBM | 0.752±0.0122 | 0.765±0.0070 | 0.765±0.0059 | 0.772±0.0060 |
+| LGG | 0.847±0.0156 | 0.871±0.0078 | 0.868±0.0064 | 0.885±0.0064 |
 | KIRC | 0.710±0.0118 | 0.720±0.0085 | 0.708±0.0080 | 0.723±0.0091 |
 
 evaluation metric used in each experiment was the AUC of the entire dataset. The average AUC from the 30 experiments served as a comparative measure to assess the performance of each model. [Table](#page-6-0) 2 presents the experimental results for all models on each dataset, demonstrating that our approach achieved superior AUC values compared with other methods across all three cancer datasets.
@@ -311,57 +305,57 @@ evaluation metric used in each experiment was the AUC of the entire dataset. The
 
 This section presents some ablation experiments for this study. First, we conducted ablation experiments on the main method using the LGG dataset ([Table](#page-6-1) 3). To evaluate the effectiveness of pathway aggregation, we used a Neural Network as the baseline for comparison. We then experimented with a network that only contains the pathway aggregation module and the prediction head. This network achieves better AUC and stability compared with neural networks without pathway aggregation. By comparing the results of using a linear layer and a graph neural network before the aggregation module, it is evident that the graph neural network module can further enhance performance. In addition, to demonstrate the superior capability of the aggregation module, we replaced it with other dimensionality reduction methods for comparison. Since our dimensionality reduction module is used in neural networks, we selected two of the most commonly used dimensionality reduction modules in neural networks: max pooling and average pooling. For traditional dimensionality reduction methods, we chose an unsupervised dimensionality reduction method, PCA, for comparison. The results are presented in [Table](#page-6-2) 4. As can be seen from the table, our method exhibits better performance. Although the 2/3-year division is the main division method in previous research [[17](#page-9-13), [37](#page-10-2)], we attempted experiments with different time divisions, and the results are shown in Supplementary [Table](https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/bbae184#supplementary-data) 1 (see Supplementary Data available online at http://bib.oxfordjournals.org/). Finally, we attempted to use other clinical information in the model, and the results are presented in Supplementary [Table](https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/bbae184#supplementary-data) 3 (see Supplementary Data available online at http://bib.oxfordjournals.org/). The results show that our method can achieve better results under most time divisions and other clinical data.
 
-#### **Multi-omics data improve model performance**
+### **Multi-omics data improve model performance**
 
 To demonstrate the model's enhanced performance using multiomics data and identify comparatively important omics, we conducted tests with different combinations of omics. Since mRNA data serve as a central bridge in the model, it was retained in all combinations. In two-omics combinations, edges between mRNA nodes in the guidance graph and between the two omics were preserved. Combinations having been tested separately include only mRNA, mRNA and CNV, and mRNA and MT, as illustrated in [Table](#page-6-3) 5.
 
-From the table, it can be observed that using only mRNA data gets the worst performance. The performance is similar <span id="page-6-1"></span>**Table 3:** Method ablation experiments
+From the table, it can be observed that using only mRNA data gets the worst performance. The performance is similar <span id="page-6-1"></span>****Table 3:**** Method ablation experiments
 
-| Pathway Aggergation | Linear | GNN | AUC                        |  |
+| Pathway Aggergation | Linear | GNN | AUC | |
 |---------------------|--------|-----|----------------------------|--|
-| ✓                   |        |     | 0.791±0.031<br>0.836±0.009 |  |
-| ✓<br>✓              | ✓      | ✓   | 0.879±0.006<br>0.885±0.006 |  |
-|                     |        |     |                            |  |
+| ✓ | | | 0.791±0.031<br>0.836±0.009 | |
+| ✓<br>✓ | ✓ | ✓ | 0.879±0.006<br>0.885±0.006 | |
+| | | | | |
 
-<span id="page-6-2"></span>**Table 4:** Ablation study for reduction methods
+<span id="page-6-2"></span>****Table 4:**** Ablation study for reduction methods
 
-|      | Our         | MaxPooling  | AvgPooling  | PCA         |
+| | Our | MaxPooling | AvgPooling | PCA |
 |------|-------------|-------------|-------------|-------------|
-| GBM  | 0.772±0.006 | 0.723±0.013 | 0.713±0.005 | 0.733±0.006 |
-| LGG  | 0.885±0.006 | 0.811±0.017 | 0.855±0.011 | 0.830±0.014 |
+| GBM | 0.772±0.006 | 0.723±0.013 | 0.713±0.005 | 0.733±0.006 |
+| LGG | 0.885±0.006 | 0.811±0.017 | 0.855±0.011 | 0.830±0.014 |
 | KIRC | 0.723±0.009 | 0.609±0.014 | 0.634±0.022 | 0.670±0.022 |
 
-#### <span id="page-6-3"></span>**Table 5:** The gene explain results
+### <span id="page-6-3"></span>**Table 5:** The gene explain results
 
-| Omics | Importance Score | P-value        | Adjusted P-value       |
+| Omics | Importance Score | P-value | Adjusted P-value |
 |-------|------------------|----------------|------------------------|
-|       |                  |                | 3.908e-27              |
-|       |                  |                | 1.315e-27              |
-| mRNA  | 8.311            | 2.074e-09      | 1.724e-07              |
-| CNV   | 8.560            | 2.437e-13      | 5.066e-11              |
-| CNV   | 8.308            | 3.156e-12      | 4.498e-10              |
-| CNV   | 8.302            | 1.723e-13      | 4.093e-11              |
-| MT    | 26.49            | 2.987e-04      | 0.01795                |
-| MT    | 14.67            | 6.243e-04      | 0.03244                |
-| MT    | 12.51            | 9.378e-11      | 9.357e-08              |
-|       | mRNA<br>mRNA     | 17.39<br>16.72 | 1.567e-30<br>2.638e-31 |
+| | | | 3.908e-27 |
+| | | | 1.315e-27 |
+| mRNA | 8.311 | 2.074e-09 | 1.724e-07 |
+| CNV | 8.560 | 2.437e-13 | 5.066e-11 |
+| CNV | 8.308 | 3.156e-12 | 4.498e-10 |
+| CNV | 8.302 | 1.723e-13 | 4.093e-11 |
+| MT | 26.49 | 2.987e-04 | 0.01795 |
+| MT | 14.67 | 6.243e-04 | 0.03244 |
+| MT | 12.51 | 9.378e-11 | 9.357e-08 |
+| | mRNA<br>mRNA | 17.39<br>16.72 | 1.567e-30<br>2.638e-31 |
 
-<span id="page-6-4"></span>**Table 6:** The number of genes included in each omics
+<span id="page-6-4"></span>****Table 6:**** The number of genes included in each omics
 
-| Cancer | mRNA | CNV  | MT   |
+| Cancer | mRNA | CNV | MT |
 |--------|------|------|------|
-| GBM    | 3914 | 4876 | 3416 |
-| LGG    | 4631 | 4842 | 3675 |
-| KIRC   | 4633 | 4835 | 3920 |
+| GBM | 3914 | 4876 | 3416 |
+| LGG | 4631 | 4842 | 3675 |
+| KIRC | 4633 | 4835 | 3920 |
 
 <span id="page-6-5"></span>when using two omics combinations, while it is best when utilizing data from all three omics simultaneously. This demonstrates that increasing the number of omics does improve the model's performance, highlighting each individual omic's importance. Furthermore, experiments using the combination of mRNA and CNV sometimes yield higher AUC means compared with those obtained with the combination of mRNA and MT. However, considering standard deviation values, results from combining mRNA and MT are more stable than those from combining mRNA and CNV. This suggests that, in survival prediction, CNV contains more potentially useful information than MT, but the model also finds it more challenging to effectively utilize the information from CNV.
 
-#### **Identification of key genes and pathways**
+### **Identification of key genes and pathways**
 
 We identified key genes using the GNN-Explainer-based interpretation method, and the results for LGG are shown in [Table](#page-6-4) 6. The mean of the gene's importance scores across all samples is taken as the gene's overall importance score. For each omics, we selected the top three important key genes with adjusted *P*-values less than 0.05 for display. We divided patients into two groups, a high-importance-score group and a low-importance-score group, based on the mean importance score of a specific gene. Using this
 
 ![](_page_7_Figure_1.jpeg)
-<!-- Image Description: This image displays three Kaplan-Meier survival curves (A, B, C), each showing the survival probability over time (in days) for two groups: "Low Importance" and "High Importance."  The shaded areas represent confidence intervals.  Each graph also provides a log-rank test p-value indicating the statistical significance of the difference in survival between the groups for a specific mRNA (A, B) or MT (C)  The figure illustrates the association between gene expression levels and survival outcomes. -->
+<!-- Image Description: This image displays three Kaplan-Meier survival curves (A, B, C), each showing the survival probability over time (in days) for two groups: "Low Importance" and "High Importance." The shaded areas represent confidence intervals. Each graph also provides a log-rank test p-value indicating the statistical significance of the difference in survival between the groups for a specific mRNA (A, B) or MT (C) The figure illustrates the association between gene expression levels and survival outcomes. -->
 
 <span id="page-7-0"></span>**Figure 5.** Kaplan–Meier curves for genes, dichotomized into two groups based on the median split of gene importance scores. The shaded area represents the 95% confidence interval.
 
@@ -371,39 +365,38 @@ We identified pathways with high importance scores in each omics using the Integ
 
 <span id="page-7-9"></span><span id="page-7-7"></span><span id="page-7-5"></span>Furthermore, we identified important pathways in GBM, and the results are presented in Supplementary [Table](https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/bbae184#supplementary-data) 4 (see Supplementary Data available online at http://bib.oxfordjournals. org/). It can be seen that we identified some common pathways, such as Cytokine cytokine receptor interaction in mRNA omics and Neuroactive ligand receptor interaction in CNV omics. We also explained some pathways that have been validated in previous studies, such as the JAK-STAT signaling pathway [\[44\]](#page-10-9) and Focal adhesion [\[45](#page-10-10)]. Experiments using different omics
 
-<span id="page-7-1"></span>
 
-|  | Table 7: The pathway explain results |  |  |
+| | **Table 7:** The pathway explain results | | |
 |--|--------------------------------------|--|--|
 |--|--------------------------------------|--|--|
 
 <span id="page-7-4"></span><span id="page-7-3"></span><span id="page-7-2"></span>
 
-| Pathway                                      | Omics | Importance<br>Score | P-value   |
+| Pathway | Omics | Importance<br>Score | P-value |
 |----------------------------------------------|-------|---------------------|-----------|
-| Tgf beta signaling pathway                   | mRNA  | 4.962               | 0.00142   |
-| Steroid biosynthesis                         | mRNA  | 3.774               | 0.0163    |
-| MAPK signaling pathway                       | mRNA  | 3.655               | 1.606e−11 |
-| Ribosome                                     | mRNA  | 2.8                 | 0.0153    |
-| Glutathione metabolism                       | mRNA  | 2.675               | 0.013     |
-| Endocytosis                                  | mRNA  | 2.337               | 1.823e−06 |
-| Erbb signaling pathway                       | mRNA  | 2.26                | 7.447e−06 |
-| Protein export                               | mRNA  | 1.983               | 0.00133   |
-| Cytosolic dna sensing                        | CNV   | 5.99                | 5.567e−08 |
-| pathway                                      |       |                     |           |
-| Cytokine cytokine receptor                   | CNV   | 4.654               | 2.614e−09 |
-| interaction                                  |       |                     |           |
-| Rig i like receptor signaling                | CNV   | 4.085               | 5.544e−07 |
-| pathway                                      |       |                     |           |
-| Natural killer cell mediated<br>cytotoxicity | CNV   | 3.569               | 6.175e−12 |
-| Regulation of actin                          | MT    | 4.609               | 4.019e−08 |
-| cytoskeleton                                 |       |                     |           |
-| Neuroactive ligand receptor                  | MT    | 4.026               | 3.977e−07 |
-| interaction                                  |       |                     |           |
-| MAPK signaling pathway                       | MT    | 3.838               | 2.204e−07 |
-| Endocytosis                                  | MT    | 3.601               | 8.831e−04 |
-| Lysosome                                     | MT    | 3.405               | 9.078e−07 |
-| ECM-receptor interaction                     | MT    | 2.931               | 4.368e−07 |
+| Tgf beta signaling pathway | mRNA | 4.962 | 0.00142 |
+| Steroid biosynthesis | mRNA | 3.774 | 0.0163 |
+| MAPK signaling pathway | mRNA | 3.655 | 1.606e−11 |
+| Ribosome | mRNA | 2.8 | 0.0153 |
+| Glutathione metabolism | mRNA | 2.675 | 0.013 |
+| Endocytosis | mRNA | 2.337 | 1.823e−06 |
+| Erbb signaling pathway | mRNA | 2.26 | 7.447e−06 |
+| Protein export | mRNA | 1.983 | 0.00133 |
+| Cytosolic dna sensing | CNV | 5.99 | 5.567e−08 |
+| pathway | | | |
+| Cytokine cytokine receptor | CNV | 4.654 | 2.614e−09 |
+| interaction | | | |
+| Rig i like receptor signaling | CNV | 4.085 | 5.544e−07 |
+| pathway | | | |
+| Natural killer cell mediated<br>cytotoxicity | CNV | 3.569 | 6.175e−12 |
+| Regulation of actin | MT | 4.609 | 4.019e−08 |
+| cytoskeleton | | | |
+| Neuroactive ligand receptor | MT | 4.026 | 3.977e−07 |
+| interaction | | | |
+| MAPK signaling pathway | MT | 3.838 | 2.204e−07 |
+| Endocytosis | MT | 3.601 | 8.831e−04 |
+| Lysosome | MT | 3.405 | 9.078e−07 |
+| ECM-receptor interaction | MT | 2.931 | 4.368e−07 |
 
 have shown that methylation omics is important for our model. Therefore, compared with PathCNN, which did not identify any methylation omics, we identified four important pathways in methylation omics: Neuroactive ligand receptor interaction, Cytokine cytokine receptor interaction, Focal adhesion and Ubiquitin mediated proteolysis.
 
@@ -412,13 +405,13 @@ have shown that methylation omics is important for our model. Therefore, compare
 <span id="page-7-8"></span>We have proposed a novel risk assessment algorithm, the multiomics-GNN, which effectively integrates multi-omics data, gene regulatory networks and pathway information to extract features and improve accuracy in predicting survival risk. Our model outperforms conventional methods when applied to diverse cancer datasets with multi-omics data. Moreover, we have demonstrated that our method based on multiple omics data achieves superior performance than on single omics data. Each additional omics contributes significantly and essentially to enhancing predictive performance, highlighting the effectiveness of the correlation-based multi-omics guidance
 
 ![](_page_8_Figure_1.jpeg)
-<!-- Image Description: The image contains four Kaplan-Meier survival curves (A-D). Each plot displays the survival probability over time (days) for "low importance" and "high importance" groups concerning different biological pathways (MAPK signaling, ECM-receptor interaction, steroid biosynthesis).  The log-rank test p-values indicate the statistical significance of survival differences between groups for each pathway. The shaded areas represent 95% confidence intervals.  The figure illustrates the association between gene expression levels and patient survival. -->
+<!-- Image Description: The image contains four Kaplan-Meier survival curves (A-D). Each plot displays the survival probability over time (days) for "low importance" and "high importance" groups concerning different biological pathways (MAPK signaling, ECM-receptor interaction, steroid biosynthesis). The log-rank test p-values indicate the statistical significance of survival differences between groups for each pathway. The shaded areas represent 95% confidence intervals. The figure illustrates the association between gene expression levels and patient survival. -->
 
 <span id="page-8-0"></span>**Figure 6.** Kaplan–Meier curves for pathway, dichotomized into two groups based on the median split of pathway importance scores. The shaded area represents the 95% confidence interval.
 
 graph we constructed. Furthermore, employing two interpretation methods at both the gene and pathway levels has revealed key factors that are strongly correlated with risk in survival analysis, and many of which have been corroborated by previous studies. In summary, this study showcases the potential of comprehensively and hierarchically incorporating multi-level information including multi-omics data, pathway information and gene regulatory information with graph neural network for accurate risk prediction while identifying nonlinear and risk-associated key factors. Moreover, graph neural networks demonstrate significant potential in processing multi-omics data and regulatory networks. Employing graph neural networks for handling and integrating data at various levels can enhance disease analysis, thereby facilitating the future integration of more omics data or the incorporation of MRI imaging data.
 
-#### **Key Points**
+### **Key Points**
 
 • We proposed a Multilevel Graph Neural Network (Multilevel-GNN) algorithm, which hierarchically combines multi-omics data, gene regulatory networks and pathway information and improved the prediction performance compared with the existing methods.
 

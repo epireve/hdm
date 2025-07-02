@@ -35,7 +35,6 @@ keywords:
 - zju-daily
 ---
 
-
 # AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation
 
 Fengyu Li† , Yilin Li† , Junhao Zhu† , Lu Chen† , Yanfei Zhang† , Jia Zhou† ,
@@ -81,7 +80,7 @@ Conference acronym 'XX, June 03–05, 2018, Woodstock, NY Li et al.
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This flowchart depicts a two-stage system for biography generation. The offline stage involves relation extraction from documents to build a knowledge graph (KG)-based index linking full names, styles, and nicknames. The online stage uses a prompt, retrieves relevant information from the KG, and generates a biography using an aligned model. A verifier and error-aware solvers handle unsupported or missing information, potentially regenerating the biography. The system employs a two-step training process including data synthesis and stylistic preference optimization. -->
 
-Figure 1: The architecture of AIstorian
+**Figure 1:** The architecture of AIstorian
 
 The varied length of text to describe a single person poses challenge for text chunking, introducing irrelevant noisy information into a text chunk. (2) Aliases and pronouns in sentences make semantics vague, so that semantic embeddings of text chunks become indistinguishable, leading to the problem of representation dilution [\[12\]](#page-4-12).
 
@@ -110,15 +109,15 @@ Training-free pattern-enhanced text chunking. Considering that most documents in
 
 AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation Conference acronym 'XX, June 03–05, 2018, Woodstock, NY
 
-<span id="page-2-0"></span>**Wang Runzhi, styled Yuyuan, nicknamed Tingfang, from Qiantang, Zhejiang. <official career path>.**| 汪润之, | 字雨元,         | 号听舫, | 浙江钱塘人。 |
+<span id="page-2-0"></span>**Wang Runzhi, styled Yuyuan, nicknamed Tingfang, from Qiantang, Zhejiang. <official career path>.**| 汪润之, | 字雨元, | 号听舫, | 浙江钱塘人。 |
 |------|--------------|------|--------|
-|      | 散馆授编修,官至少詹事。 |      |        |
+| | 散馆授编修,官至少詹事。 | | |
 **Hong Yao, styled Jingxin, nicknamed Shouyu, from Xin Cheng,**
 
-| Zhejiang. <official career="" path="">.</official> |      |      |        |  |
+| Zhejiang. <official career="" path="">.</official> | | | | |
 |----------------------------------------------------|------|------|--------|--|
-| 洪燿,                                                | 字镜心, | 号守愚, | 浙江新城人。 |  |
-| 散馆改吏部主事,官至广西左江道。                                   |      |      |        |  |
+| 洪燿, | 字镜心, | 号守愚, | 浙江新城人。 | |
+| 散馆改吏部主事,官至广西左江道。 | | | | |
 
 ### Figure 2: Examples of writing patterns (from the book Forest of Words: Compilation written in classical Chinese).
 
@@ -155,31 +154,30 @@ Solver. To fix various types of errors, a bunch of Solvers is used.
 
 <span id="page-3-0"></span>Conference acronym 'XX, June 03–05, 2018, Woodstock, NY Li et al.
 
-|               | Model                       | ROUGE-1↑ | ROUGE-2↑ | ROUGE-L↑ | Hallc-Rate↓ | Average Atomic Fact Error↓ |
+| | Model | ROUGE-1↑ | ROUGE-2↑ | ROUGE-L↑ | Hallc-Rate↓ | Average Atomic Fact Error↓ |
 |---------------|-----------------------------|----------|----------|----------|-------------|----------------------------|
-| Long Document | mLongT5_large               | 41.38    | 17.69    | 28.08    | 96.43       | 5.29                       |
-| Summary       | Qwen2.5-72B-Instruct-AWQ    | 39.43    | 21.37    | 33.76    | 96.43       | 3.41                       |
-| RAG+Summary   | TongGu                      | 69.64    | 56.48    | 65.90    | 89.29       | 1.96                       |
-|               | GraphRAG                    | 36.45    | 18.69    | 30.53    | 96.43       | 5.21                       |
-|               | CL-KL (NER)                 | 73.76    | 59.16    | 68.46    | 92.86       | 1.96                       |
-|               | BI-LSTM-CRF (NER)           | 75.12    | 60.96    | 70.45    | 75.0        | 1.64                       |
-| Ours          | AIstorian                   | 83.69    | 74.14    | 80.54    | 39.29       | 0.43                       |
-|               | w/o. Multi-agents           | 83.03    | 74.34    | 81.16    | 57.14       | 1.14                       |
-|               | w/o. StylePO & Multi-agents | 81.93    | 71.71    | 78.88    | 57.14       | 1.75                       |
+| Long Document | mLongT5_large | 41.38 | 17.69 | 28.08 | 96.43 | 5.29 |
+| Summary | Qwen2.5-72B-Instruct-AWQ | 39.43 | 21.37 | 33.76 | 96.43 | 3.41 |
+| RAG+Summary | TongGu | 69.64 | 56.48 | 65.90 | 89.29 | 1.96 |
+| | GraphRAG | 36.45 | 18.69 | 30.53 | 96.43 | 5.21 |
+| | CL-KL (NER) | 73.76 | 59.16 | 68.46 | 92.86 | 1.96 |
+| | BI-LSTM-CRF (NER) | 75.12 | 60.96 | 70.45 | 75.0 | 1.64 |
+| Ours | AIstorian | 83.69 | 74.14 | 80.54 | 39.29 | 0.43 |
+| | w/o. Multi-agents | 83.03 | 74.34 | 81.16 | 57.14 | 1.14 |
+| | w/o. StylePO & Multi-agents | 81.93 | 71.71 | 78.88 | 57.14 | 1.75 |
 
-Table 1: The biography generation performance
+**Table 1:** The biography generation performance
 
 ### Table 2: Retrieval performance
 
-<span id="page-3-1"></span>
 
-| Model             | Precision | Recall | F1 Score |
+| Model | Precision | Recall | F1 Score |
 |-------------------|-----------|--------|----------|
-| TongGu            | 0.341     | 0.78   | 0.456    |
-| GraphRAG          | 0.36      | 0.676  | 0.379    |
-| CL-KL (NER)       | 0.623     | 0.478  | 0.518    |
-| BI-LSTM-CRF (NER) | 0.584     | 0.303  | 0.359    |
-| Ours              | 0.936     | 0.944  | 0.923    |
+| TongGu | 0.341 | 0.78 | 0.456 |
+| GraphRAG | 0.36 | 0.676 | 0.379 |
+| CL-KL (NER) | 0.623 | 0.478 | 0.518 |
+| BI-LSTM-CRF (NER) | 0.584 | 0.303 | 0.359 |
+| Ours | 0.936 | 0.944 | 0.923 |
 
 - (4) Alias-conflict Solver. As a historical figure may have multiple aliases, the solver selectively presents all right aliases in the generated biography.
 - (5) Solver for others. For other errors, the Solver fixes the error by prompting the LLM with error messages.
@@ -258,13 +256,13 @@ Huawei is a global leader in information and communications technology (ICT) sol
 - <span id="page-4-3"></span>[27] Jingqing Zhang, Yao Zhao, Mohammad Saleh, and Peter J. Liu. 2019. PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization. CoRR abs/1912.08777 (2019). arXiv[:1912.08777](https://arxiv.org/abs/1912.08777)<http://arxiv.org/abs/1912.08777>
 - <span id="page-4-19"></span>[28] Tianjun Zhang, Shishir G Patil, Naman Jain, Sheng Shen, Matei Zaharia, Ion Stoica, and Joseph E Gonzalez. 2024. Raft: Adapting language model to domain specific rag. In First Conference on Language Modeling.
 
-# A Appendix
+## A Appendix
 
 ## A.1 Case study
 
 As shown in Table. [3,](#page-5-1) AIstorian demonstrates a higher degree of fidelity to the source material, accurately capturing key historical details with remarkable stylistic consistency to golden ones. Additionally, through StylePO, it successfully captures contextual details occasionally overlooked by experts (marked in cyan). In contrast, while the biography produced by Qwen2.5-72B-Instruct appears more fluent and readable, it frequently introduces inaccuracies, such as unsupported factual errors (marked in red) and fabricated content (marked in blue), which compromise the reliability of its outputs.
 
-<span id="page-5-1"></span><span id="page-5-0"></span>Table 3: Qualitative analysis of Biographies. Blue and red colors are used to indicate "Not included" errors and "Not supported" errors, respectively. Cyan is used to indicate the content that historians have overlooked.
+<span id="page-5-1"></span><span id="page-5-0"></span>**Table 3:** Qualitative analysis of Biographies. Blue and red colors are used to indicate "Not included" errors and "Not supported" errors, respectively. Cyan is used to indicate the content that historians have overlooked.
 
 Historian: <sup>胡</sup>鄂,字卓庵。明崇祯三年(1630)二月十三日生,浙江绍兴府余姚县人。治《尚书》。. . . . . . 殿试第二甲第七十<sup>九</sup> <sup>名</sup>,赐进士出身。顺治十八年(1661)任江苏松江府推官。
 
@@ -278,21 +276,20 @@ AIstorian: <sup>胡</sup>鄂,字卓庵。明崇祯三年(1630)二月十三日生
 
 Hu E, styled Zhuo'an. Born on the thirteenth day of the second month in the third year of Chongzhen (1630) of the Ming dynasty, a native of Yuyao County in Shaoxing Prefecture, Zhejiang Province. Studied the Book of Documents. ....... . . . . . He ranked seventy-ninth in the second class, in the palace examination, and was granted the title of Jinshi, and appointed as an observer in the Tongzhengsi. In the eighteenth year of Shunzhi (1661), appointed as the judicial officer of Songjiang Prefecture in Jiangsu Province.
 
-<span id="page-5-2"></span>
 
-| Offline           | Offline Training(s) | Index Construction(s) |
+| Offline | Offline Training(s) | Index Construction(s) |
 |-------------------|---------------------|-----------------------|
-| TongGu            | 480                 | 26.69                 |
-| GraphRAG          | -                   | 5279.65               |
-| CL-KL (NER)       | 532                 | 885.68                |
-| BI-LSTM-CRF (NER) | 532                 | 1037.31               |
-| Ours              | 3168                | 422.65                |
-| Online            | Online Retrieval(s) | Generate(s)           |
-| TongGu            | 169.101             | 114                   |
-| GraphRAG          | 1.68                | 386.16                |
-| CL-KL (NER)       | 0.00283             | 114                   |
-| BI-LSTM-CRF (NER) | 0.000869            | 114                   |
-| Ours              | 0.00146             | 1236                  |
+| TongGu | 480 | 26.69 |
+| GraphRAG | - | 5279.65 |
+| CL-KL (NER) | 532 | 885.68 |
+| BI-LSTM-CRF (NER) | 532 | 1037.31 |
+| Ours | 3168 | 422.65 |
+| Online | Online Retrieval(s) | Generate(s) |
+| TongGu | 169.101 | 114 |
+| GraphRAG | 1.68 | 386.16 |
+| CL-KL (NER) | 0.00283 | 114 |
+| BI-LSTM-CRF (NER) | 0.000869 | 114 |
+| Ours | 0.00146 | 1236 |
 
 ### Table 4: Time consumption in each stage
 

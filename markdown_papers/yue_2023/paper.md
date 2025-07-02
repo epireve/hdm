@@ -61,7 +61,7 @@ Xiang Yue\*† , Yuansheng Ni\*, Kai Zhang\*, Tianyu Zheng\*, Ruoqi Liu, <sup>2<
 
 ## Abstract
 
-*We introduce* MMMU*: a new benchmark designed to evaluate multimodal models on massive multi-discipline tasks demanding college-level subject knowledge and deliberate reasoning.*MMMU*includes 11.5K meticulously collected multimodal questions from college exams, quizzes, and textbooks, covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering. These questions span 30 subjects and 183 subfields, comprising 30 highly heterogeneous image types, such as charts, diagrams, maps, tables, music sheets, and chemical structures. Unlike existing benchmarks,*MMMU*focuses on advanced perception and reasoning with domain-specific knowledge, challenging models to perform tasks akin to those faced by experts. The evaluation of 28 open-source LMMs as well as the proprietary GPT-4V(ision) and Gemini highlights the substantial* *challenges posed by* MMMU*. Even the advanced GPT-4V and Gemini Ultra only achieve accuracies of 56% and 59% respectively, indicating significant room for improvement. We believe*MMMU*will stimulate the community to build nextgeneration multimodal foundation models towards expert artificial general intelligence.*### Introduction
+**We introduce:** MMMU*: a new benchmark designed to evaluate multimodal models on massive multi-discipline tasks demanding college-level subject knowledge and deliberate reasoning.*MMMU*includes 11.5K meticulously collected multimodal questions from college exams, quizzes, and textbooks, covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering. These questions span 30 subjects and 183 subfields, comprising 30 highly heterogeneous image types, such as charts, diagrams, maps, tables, music sheets, and chemical structures. Unlike existing benchmarks,*MMMU*focuses on advanced perception and reasoning with domain-specific knowledge, challenging models to perform tasks akin to those faced by experts. The evaluation of 28 open-source LMMs as well as the proprietary GPT-4V(ision) and Gemini highlights the substantial* *challenges posed by* MMMU*. Even the advanced GPT-4V and Gemini Ultra only achieve accuracies of 56% and 59% respectively, indicating significant room for improvement. We believe*MMMU*will stimulate the community to build nextgeneration multimodal foundation models towards expert artificial general intelligence.*### Introduction
 
 Rapid advances in large language models (LLMs) [\[13,](#page-8-0) [59,](#page-10-0) [74\]](#page-10-1) have sparked broad discussions on the controversial concept of artificial general intelligence (AGI), often used to describe AI systems that perform on par or surpass humans at most tasks [\[1,](#page-8-1) [7,](#page-8-2) [21,](#page-8-3) [32,](#page-9-0) [53,](#page-10-2) [57\]](#page-10-3). Candid and constructive discussions on AGI have been challenging due to a lack of shared operationalizable definitions. In an attempt to remedy this, Morris et al. [\[57\]](#page-10-3) propose a leveled taxonomy for AGI that centers around both*generality*(or breadth) and*performance*(or depth). In the suggested taxonomy, Level 3, or*Expert AGI*, marks a critical milestone. It denotes an
 
@@ -105,25 +105,25 @@ LMM Benchmarks. With the surge of multi-modal pretraining and instruction tuning
 
 We introduce the Massive Multi-discipline Multimodal Understanding and Reasoning (MMMU) benchmark, a novel benchmark meticulously curated to assess the expert-level multimodal understanding capability of foundation models across a broad scope of tasks. Covering 30 subjects across 6 disciplines, including Art, Business, Health & Medicine, Science, Humanities & Social Science, and Tech & Engineering, and over 183 subfields. The detailed subject coverage and statistics are detailed in [Figure 7.](#page-13-0) The questions in our benchmark were manually collected by a team of
 
-| Statistics                           | Number         |
+| Statistics | Number |
 |--------------------------------------|----------------|
-| Total Questions                      | 11550          |
-| Total Disciplines/Subjects/Subfields | 6/30/183       |
-| Image Types                          | 30             |
-| Dev:Validation:Test                  | 150:900:10500  |
-| Difficulties (Easy: Medium: Hard)    | 28%:45%:27%    |
-| Multiple-choice Questions            | 10861 (94.03%) |
-| Open Questions                       | 689 (5.97%)    |
-| Questions with an Explanation        | 2035 (17.62%)  |
-| Image in the Question                | 11264 (97.52%) |
-|* Images at the beginning            | 2006 (17.81%)  |
-| *Images in the middle               | 4159 (36.92%)  |
-|* Images at the end                  | 5679 (50.42%)  |
-| Image in Options                     | 389 (3.37%)    |
-| Example with Multiple Images         | 854 (7.39%)    |
-| Average question length              | 59.33          |
-| Average option length                | 9.17           |
-| Average explanation length           | 107.92         |
+| Total Questions | 11550 |
+| Total Disciplines/Subjects/Subfields | 6/30/183 |
+| Image Types | 30 |
+| Dev:Validation:Test | 150:900:10500 |
+| Difficulties (Easy: Medium: Hard) | 28%:45%:27% |
+| Multiple-choice Questions | 10861 (94.03%) |
+| Open Questions | 689 (5.97%) |
+| Questions with an Explanation | 2035 (17.62%) |
+| Image in the Question | 11264 (97.52%) |
+|* Images at the beginning | 2006 (17.81%) |
+| *Images in the middle | 4159 (36.92%) |
+|* Images at the end | 5679 (50.42%) |
+| Image in Options | 389 (3.37%) |
+| Example with Multiple Images | 854 (7.39%) |
+| Average question length | 59.33 |
+| Average option length | 9.17 |
+| Average explanation length | 107.92 |
 
 Table 1. Key statistics of the MMMU benchmark.
 
@@ -143,20 +143,20 @@ To further distinguish the difference between MMMU and other existing ones, we e
 
 <span id="page-4-2"></span><span id="page-4-0"></span>
 
-| Depth (Reasoning)            | Dataset   | Size  | Images   | Format      | Source      | Answer |
+| Depth (Reasoning) | Dataset | Size | Images | Format | Source | Answer |
 |------------------------------|-----------|-------|----------|-------------|-------------|--------|
-|                              | VQA       | > 1M  | V        | I+T         | Annotated   | Open   |
-|                              | GQA       | > 1M  | V        | I+T         | Synthesized | Open   |
-| MMMU                         | VisWiz    | 32K   | V        | I+T         | Annotated   | Open   |
-|                              | TextVQA   | 45K   | OC       | I+T         | Annotated   | MC     |
-|                              | OKVQA     | 14K   | V+OC     | I+T         | Annotated   | Open   |
-|                              | SEED      | 19K   | V+OC     | I+T         | Annotated   | MC     |
-| Breadth (Knowledge)          | MMBench   | 3K    | V+OC     | I+T         | Repurposed  | MC     |
-|                              | MM-Vet    | 0.2K  | V+OC     | I+T         | Annotated   | Open   |
-| VQA<br>GQA<br>VisWiz         | ScienceQA | 6K    | 5 Types  | I+T         | Textbooks   | MC     |
-| MMBench<br>TextVQA<br>SEED   |           |       |          |             | Textbooks,  |        |
-| OKVQA<br>MM-Vet<br>ScienceQA | MMMU      | 11.5K | 30 Types | Interleaved | Internet,   | MC     |
-|                              |           |       |          |             | Annotated   | Open / |
+| | VQA | > 1M | V | I+T | Annotated | Open |
+| | GQA | > 1M | V | I+T | Synthesized | Open |
+| MMMU | VisWiz | 32K | V | I+T | Annotated | Open |
+| | TextVQA | 45K | OC | I+T | Annotated | MC |
+| | OKVQA | 14K | V+OC | I+T | Annotated | Open |
+| | SEED | 19K | V+OC | I+T | Annotated | MC |
+| Breadth (Knowledge) | MMBench | 3K | V+OC | I+T | Repurposed | MC |
+| | MM-Vet | 0.2K | V+OC | I+T | Annotated | Open |
+| VQA<br>GQA<br>VisWiz | ScienceQA | 6K | 5 Types | I+T | Textbooks | MC |
+| MMBench<br>TextVQA<br>SEED | | | | | Textbooks, | |
+| OKVQA<br>MM-Vet<br>ScienceQA | MMMU | 11.5K | 30 Types | Interleaved | Internet, | MC |
+| | | | | | Annotated | Open / |
 
 Figure 3. The comparison between MMMU and other existing benchmarks. MMMU excels in both its breadth to cover a wide range of disciplines and its depth to test LMMs' reasoning abilities. In the image format, V means visual input, OC means optical characters, MC means multi-choice. Repurposed means the benchmark is a compilation of prior datasets.
 
@@ -174,44 +174,44 @@ Text-only LLMs. For text-only LLMs, we consider the most capable ones including 
 
 <span id="page-5-1"></span><span id="page-5-0"></span>
 
-|                                     | Validation<br>Overall                                 | Test<br>Overall<br>(10,500) | Art &<br>Design<br>(1,163) | Business<br>(1,428) | Science<br>(2,426) | Health &<br>Medicine<br>(1,752) | Human. &<br>Social Sci.<br>(947) | Tech &<br>Eng.<br>(2,784) |
+| | Validation<br>Overall | Test<br>Overall<br>(10,500) | Art &<br>Design<br>(1,163) | Business<br>(1,428) | Science<br>(2,426) | Health &<br>Medicine<br>(1,752) | Human. &<br>Social Sci.<br>(947) | Tech &<br>Eng.<br>(2,784) |
 |-------------------------------------|-------------------------------------------------------|-----------------------------|----------------------------|---------------------|--------------------|---------------------------------|----------------------------------|---------------------------|
-|                                     | (900)                                                 |                             |                            |                     |                    |                                 |                                  |                           |
-| Random Choice                       | 22.1                                                  | 23.9                        | 24.1                       | 24.9                | 21.6               | 25.3                            | 22.8                             | 24.8                      |
-| Frequent Choice                     | 26.8                                                  | 25.8                        | 26.7                       | 28.4                | 24.0               | 24.4                            | 25.2                             | 26.5                      |
-| Expert (Worst)                      | 76.2                                                  | -                           | -                          | -                   | -                  | -                               | -                                | -                         |
-| Expert (Medium)                     | 82.6                                                  | -                           | -                          | -                   | -                  | -                               | -                                | -                         |
-| Expert (Best)                       | 88.6                                                  | -                           | -                          | -                   | -                  | -                               | -                                | -                         |
-|                                     | Large Multimodal Models (LMMs): Text + Image as Input |                             |                            |                     |                    |                                 |                                  |                           |
-| OpenFlamingo2-9B [4]                | 28.7                                                  | 26.3                        | 31.7                       | 23.5                | 26.3               | 26.3                            | 27.9                             | 25.1                      |
-| Kosmos2 [63]                        | 24.4                                                  | 26.6                        | 28.8                       | 23.7                | 26.6               | 27.2                            | 26.3                             | 26.8                      |
-| Adept Fuyu-8B [6]                   | 27.9                                                  | 27.4                        | 29.9                       | 27.0                | 25.6               | 27.0                            | 32.5                             | 26.4                      |
-| MiniGPT4-Vicuna-13B [94]            | 26.8                                                  | 27.6                        | 30.2                       | 27.0                | 26.2               | 26.9                            | 30.9                             | 27.2                      |
-| LLaMA-Adapter2-7B [88]              | 29.8                                                  | 27.7                        | 35.2                       | 25.4                | 25.6               | 30.0                            | 29.1                             | 25.7                      |
-| CogVLM [77]                         | 32.1                                                  | 30.1                        | 38.0                       | 25.6                | 25.1               | 31.2                            | 41.5                             | 28.9                      |
-| Qwen-VL-7B-Chat [5]                 | 35.9                                                  | 32.9                        | 47.7                       | 29.8                | 25.6               | 33.6                            | 45.3                             | 30.2                      |
-| InstructBLIP-T5-XXL [16]            | 35.7                                                  | 33.8                        | 48.5                       | 30.6                | 27.6               | 33.6                            | 49.8                             | 29.4                      |
-| BLIP-2 FLAN-T5-XXL [35]             | 35.4                                                  | 34.0                        | 49.2                       | 28.6                | 27.3               | 33.7                            | 51.5                             | 30.4                      |
-| InternLM-XComposer2-VL* [17]        | 43.0                                                  | 38.2                        | 56.8                       | 32.8                | 30.1               | 39.8                            | 60.7                             | 31.8                      |
-| Yi-VL-34B* [84]                     | 45.9                                                  | 41.6                        | 56.1                       | 33.3                | 32.9               | 45.9                            | 66.5                             | 36.0                      |
-| LLaVA-1.6-34B* [46]                 | 51.1                                                  | 44.7                        | 58.6                       | 39.9                | 36.0               | 51.2                            | 70.2                             | 36.3                      |
-| InternVL-Chat-V1.2* [11]            | 51.6                                                  | 46.2                        | 62.5                       | 37.6                | 37.9               | 49.7                            | 70.1                             | 40.8                      |
-| VILA1.5* [39]                       | 51.9                                                  | 46.9                        | 62.1                       | 40.6                | 37.7               | 51.7                            | 74.0                             | 39.5                      |
-| Qwen-VL-MAX* [65]                   | 51.4                                                  | 46.8                        | 64.2                       | 39.8                | 36.3               | 52.5                            | 70.4                             | 40.7                      |
-| SenseChat-Vision-0423-Preview* [68] | 54.6                                                  | 50.3                        | 62.7                       | 44.1                | 42.3               | 55.7                            | 74.7                             | 43.5                      |
-| GPT-4V(ision) (Playground) [60]     | 56.8                                                  | 55.7                        | 65.3                       | 64.3                | 48.4               | 63.5                            | 76.3                             | 41.7                      |
-| Claude 3 Opus* [72]                 | 59.4                                                  | -                           | -                          | -                   | -                  | -                               | -                                | -                         |
-| Gemini 1.5 Pro* [23]                | 62.2                                                  | -                           | -                          | -                   | -                  | -                               | -                                | -                         |
-| GPT-4o* [61]                        | 69.1                                                  | -                           | -                          | -                   | -                  | -                               | -                                | -                         |
-|                                     | Large Language Models (LLMs): Only Text as Input      |                             |                            |                     |                    |                                 |                                  |                           |
-| Llama2 7B [75]                      | 30.1                                                  | 28.7                        | 30.7                       | 27.2                | 26.7               | 27.7                            | 32.6                             | 29.8                      |
-| FLAN-T5-XXL [14]                    | 32.1                                                  | 31.2                        | 36.8                       | 28.9                | 26.7               | 32.8                            | 44.8                             | 28.3                      |
-| + OCR                               | 34.7                                                  | 31.9                        | 36.2                       | 28.8                | 26.2               | 32.6                            | 50.5                             | 29.7                      |
-| + LLaVA Caption                     | 34.8                                                  | 31.9                        | 38.4                       | 27.8                | 27.0               | 33.2                            | 49.9                             | 28.7                      |
-| Vicuna-13B [12]                     | 33.3                                                  | 31.0                        | 35.1                       | 30.1                | 24.7               | 31.4                            | 44.8                             | 30.1                      |
-| + OCR                               | 35.4                                                  | 31.9                        | 37.1                       | 28.6                | 26.5               | 32.0                            | 49.3                             | 30.0                      |
-| + LLaVA Caption                     | 33.9                                                  | 32.7                        | 42.0                       | 26.8                | 26.2               | 33.4                            | 49.4                             | 31.4                      |
-| GPT-4 Text [59]                     | 34.9                                                  | 33.8                        | 32.9                       | 28.5                | 30.6               | 41.3                            | 53.0                             | 28.4                      |
+| | (900) | | | | | | | |
+| Random Choice | 22.1 | 23.9 | 24.1 | 24.9 | 21.6 | 25.3 | 22.8 | 24.8 |
+| Frequent Choice | 26.8 | 25.8 | 26.7 | 28.4 | 24.0 | 24.4 | 25.2 | 26.5 |
+| Expert (Worst) | 76.2 | - | - | - | - | - | - | - |
+| Expert (Medium) | 82.6 | - | - | - | - | - | - | - |
+| Expert (Best) | 88.6 | - | - | - | - | - | - | - |
+| | Large Multimodal Models (LMMs): Text + Image as Input | | | | | | | |
+| OpenFlamingo2-9B [4] | 28.7 | 26.3 | 31.7 | 23.5 | 26.3 | 26.3 | 27.9 | 25.1 |
+| Kosmos2 [63] | 24.4 | 26.6 | 28.8 | 23.7 | 26.6 | 27.2 | 26.3 | 26.8 |
+| Adept Fuyu-8B [6] | 27.9 | 27.4 | 29.9 | 27.0 | 25.6 | 27.0 | 32.5 | 26.4 |
+| MiniGPT4-Vicuna-13B [94] | 26.8 | 27.6 | 30.2 | 27.0 | 26.2 | 26.9 | 30.9 | 27.2 |
+| LLaMA-Adapter2-7B [88] | 29.8 | 27.7 | 35.2 | 25.4 | 25.6 | 30.0 | 29.1 | 25.7 |
+| CogVLM [77] | 32.1 | 30.1 | 38.0 | 25.6 | 25.1 | 31.2 | 41.5 | 28.9 |
+| Qwen-VL-7B-Chat [5] | 35.9 | 32.9 | 47.7 | 29.8 | 25.6 | 33.6 | 45.3 | 30.2 |
+| InstructBLIP-T5-XXL [16] | 35.7 | 33.8 | 48.5 | 30.6 | 27.6 | 33.6 | 49.8 | 29.4 |
+| BLIP-2 FLAN-T5-XXL [35] | 35.4 | 34.0 | 49.2 | 28.6 | 27.3 | 33.7 | 51.5 | 30.4 |
+| InternLM-XComposer2-VL* [17] | 43.0 | 38.2 | 56.8 | 32.8 | 30.1 | 39.8 | 60.7 | 31.8 |
+| Yi-VL-34B* [84] | 45.9 | 41.6 | 56.1 | 33.3 | 32.9 | 45.9 | 66.5 | 36.0 |
+| LLaVA-1.6-34B* [46] | 51.1 | 44.7 | 58.6 | 39.9 | 36.0 | 51.2 | 70.2 | 36.3 |
+| InternVL-Chat-V1.2* [11] | 51.6 | 46.2 | 62.5 | 37.6 | 37.9 | 49.7 | 70.1 | 40.8 |
+| VILA1.5* [39] | 51.9 | 46.9 | 62.1 | 40.6 | 37.7 | 51.7 | 74.0 | 39.5 |
+| Qwen-VL-MAX* [65] | 51.4 | 46.8 | 64.2 | 39.8 | 36.3 | 52.5 | 70.4 | 40.7 |
+| SenseChat-Vision-0423-Preview* [68] | 54.6 | 50.3 | 62.7 | 44.1 | 42.3 | 55.7 | 74.7 | 43.5 |
+| GPT-4V(ision) (Playground) [60] | 56.8 | 55.7 | 65.3 | 64.3 | 48.4 | 63.5 | 76.3 | 41.7 |
+| Claude 3 Opus* [72] | 59.4 | - | - | - | - | - | - | - |
+| Gemini 1.5 Pro* [23] | 62.2 | - | - | - | - | - | - | - |
+| GPT-4o* [61] | 69.1 | - | - | - | - | - | - | - |
+| | Large Language Models (LLMs): Only Text as Input | | | | | | | |
+| Llama2 7B [75] | 30.1 | 28.7 | 30.7 | 27.2 | 26.7 | 27.7 | 32.6 | 29.8 |
+| FLAN-T5-XXL [14] | 32.1 | 31.2 | 36.8 | 28.9 | 26.7 | 32.8 | 44.8 | 28.3 |
+| + OCR | 34.7 | 31.9 | 36.2 | 28.8 | 26.2 | 32.6 | 50.5 | 29.7 |
+| + LLaVA Caption | 34.8 | 31.9 | 38.4 | 27.8 | 27.0 | 33.2 | 49.9 | 28.7 |
+| Vicuna-13B [12] | 33.3 | 31.0 | 35.1 | 30.1 | 24.7 | 31.4 | 44.8 | 30.1 |
+| + OCR | 35.4 | 31.9 | 37.1 | 28.6 | 26.5 | 32.0 | 49.3 | 30.0 |
+| + LLaVA Caption | 33.9 | 32.7 | 42.0 | 26.8 | 26.2 | 33.4 | 49.4 | 31.4 |
+| GPT-4 Text [59] | 34.9 | 33.8 | 32.9 | 28.5 | 30.6 | 41.3 | 53.0 | 28.4 |
 
 Table 2. Selected results of different models on the MMMU validation and test set. Besides reporting the performance of LMMs, we additionally add text-only LLM baselines. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors. Due to the page limit, we show other models' results in Appendix [Table 4.](#page-14-0) The live-updating leaderboard is available at: <https://mmmu-benchmark.github.io/#leaderboard>
 
@@ -238,16 +238,15 @@ The MMMU benchmark underscores both the progress and the challenges in multimoda
 
 Different Image Types. We compare the performance of various models across top frequent image types in [Fig](#page-6-0)[ure 4.](#page-6-0) Across all types, GPT-4V consistently outperforms the other models by a huge margin. Open-source models demonstrate relatively strong performance in categories like Photos and Paintings, which are more frequently seen during training. However, for less common image categories like Geometric shapes, Music sheets and Chemical struc-
 
-<span id="page-6-1"></span>
 
-| Models                   | Easy<br>(2946) | Medium<br>(4917) | Hard<br>(2637) | Overall<br>(10500) |  |
+| Models | Easy<br>(2946) | Medium<br>(4917) | Hard<br>(2637) | Overall<br>(10500) | |
 |--------------------------|----------------|------------------|----------------|--------------------|--|
-| Fuyu-8B [6]              | 28.9           | 27.0             | 26.4           | 27.4               |  |
-| Qwen-VL-7B [5]           | 39.4           | 31.9             | 27.6           | 32.9               |  |
-| LLaVA-1.5-13B [44]       | 41.3           | 32.7             | 26.7           | 33.6               |  |
-| InstructBLIP-T5-XXL [16] | 40.3           | 32.3             | 29.4           | 33.8               |  |
-| BLIP-2 FLAN-T5-XXL [35]  | 41.0           | 32.7             | 28.5           | 34.0               |  |
-| GPT-4V [60]              | 76.1           | 55.6             | 31.2           | 55.7               |  |
+| Fuyu-8B [6] | 28.9 | 27.0 | 26.4 | 27.4 | |
+| Qwen-VL-7B [5] | 39.4 | 31.9 | 27.6 | 32.9 | |
+| LLaVA-1.5-13B [44] | 41.3 | 32.7 | 26.7 | 33.6 | |
+| InstructBLIP-T5-XXL [16] | 40.3 | 32.3 | 29.4 | 33.8 | |
+| BLIP-2 FLAN-T5-XXL [35] | 41.0 | 32.7 | 28.5 | 34.0 | |
+| GPT-4V [60] | 76.1 | 55.6 | 31.2 | 55.7 | |
 
 Table 3. Result decomposition across question difficulty levels.
 
@@ -397,42 +396,41 @@ models. *arXiv preprint arXiv:2311.03079*, 2023. [2,](#page-1-0) [5,](#page-4-2)
 - <span id="page-11-5"></span>[93] Luowei Zhou, Hamid Palangi, Lei Zhang, Houdong Hu, Jason Corso, and Jianfeng Gao. Unified vision-language pretraining for image captioning and vqa. In *Proceedings of the AAAI conference on artificial intelligence*, pages 13041– 13049, 2020. [3](#page-2-0)
 - <span id="page-11-8"></span>[94] Deyao Zhu, Jun Chen, Xiaoqian Shen, Xiang Li, and Mohamed Elhoseiny. Minigpt-4: Enhancing vision-language understanding with advanced large language models. *arXiv preprint arXiv:2304.10592*, 2023. [3,](#page-2-0) [5,](#page-4-2) [6,](#page-5-1) [15,](#page-14-1) [16,](#page-15-0) [17,](#page-16-0) [18,](#page-17-0) [19,](#page-18-0) [20,](#page-19-0) [21](#page-20-0)
 
-# MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI
+## MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI
 
 Supplementary Material
 
-# Table of Contents in Appendix
+## Table of Contents in Appendix
 
-| A. Subject Distribution                     | 14  |
+| A. Subject Distribution | 14 |
 |---------------------------------------------|-----|
-| B. Breakdown Results on Different Subjects  | 15  |
-| B.1. Main Results<br>.                      | 15  |
-| B.2. Art & Design                           | 16  |
-| B.3. Business<br>.                          | 17  |
-| B.4. Science                                | 18  |
-| B.5. Health & Medicine                      | 19  |
-| B.6. Humanities & Social Science<br>.       | 20  |
-| B.7. Tech & Engineering<br>.                | 21  |
-| C. Case Study                               | 22  |
-| D. Subfields of Different Subjects          | 112 |
-| E. Distributions of Image Types             | 112 |
-| F. Results on Different Image Types         | 112 |
-| G. Few-shot Results                         | 115 |
-| H. Data Annotation Protocol                 | 116 |
-| H.1. Data Collection                        | 116 |
-| H.2. General Guidelines                     | 116 |
-| H.3. Data Format and Structure              | 116 |
-| H.4. Quality Control and Validation         | 116 |
-| H.5. Handling Ambiguities<br>.              | 116 |
-| H.6. Ethical Considerations<br>.            | 116 |
+| B. Breakdown Results on Different Subjects | 15 |
+| B.1. Main Results<br>. | 15 |
+| B.2. Art & Design | 16 |
+| B.3. Business<br>. | 17 |
+| B.4. Science | 18 |
+| B.5. Health & Medicine | 19 |
+| B.6. Humanities & Social Science<br>. | 20 |
+| B.7. Tech & Engineering<br>. | 21 |
+| C. Case Study | 22 |
+| D. Subfields of Different Subjects | 112 |
+| E. Distributions of Image Types | 112 |
+| F. Results on Different Image Types | 112 |
+| G. Few-shot Results | 115 |
+| H. Data Annotation Protocol | 116 |
+| H.1. Data Collection | 116 |
+| H.2. General Guidelines | 116 |
+| H.3. Data Format and Structure | 116 |
+| H.4. Quality Control and Validation | 116 |
+| H.5. Handling Ambiguities<br>. | 116 |
+| H.6. Ethical Considerations<br>. | 116 |
 | H.7. Data Contamination Considerations<br>. | 117 |
-| H.8. Example Questions                      | 117 |
-| I. Author Contribution Statement            | 117 |
-| J. Version Change Log                       | 119 |
+| H.8. Example Questions | 117 |
+| I. Author Contribution Statement | 117 |
+| J. Version Change Log | 119 |
 
-# <span id="page-13-1"></span>A. Subject Distribution
+## <span id="page-13-1"></span>A. Subject Distribution
 
-<span id="page-13-0"></span>
 
 Figure 7. MMMU contains 11.5K multimodal questions covering six broad disciplines, 30 subjects, and 183 subfields.
 
@@ -442,454 +440,454 @@ In this appendix, we show the main results and breakdown results of different mo
 
 ### <span id="page-14-3"></span><span id="page-14-0"></span>B.1. Main Results
 
-|                                            | Validation<br>Overall<br>(900)                        | Test<br>Overall<br>(10,500) | Art &<br>(1,163) | Design Business<br>(1,428) | Science<br>(2,426) | Health &<br>Medicine<br>(1,752) | Human. &<br>Social Sci.<br>(947) | Tech &<br>Eng.<br>(2,784) |
+| | Validation<br>Overall<br>(900) | Test<br>Overall<br>(10,500) | Art &<br>(1,163) | Design Business<br>(1,428) | Science<br>(2,426) | Health &<br>Medicine<br>(1,752) | Human. &<br>Social Sci.<br>(947) | Tech &<br>Eng.<br>(2,784) |
 |--------------------------------------------|-------------------------------------------------------|-----------------------------|------------------|----------------------------|--------------------|---------------------------------|----------------------------------|---------------------------|
-| Random Choice                              | 22.1                                                  | 23.9                        | 24.1             | 24.9                       | 21.6               | 25.3                            | 22.8                             | 24.8                      |
-| Frequent Choice                            | 26.8                                                  | 25.8                        | 26.7             | 28.4                       | 24.0               | 24.4                            | 25.2                             | 26.5                      |
-| Expert (Worst)                             | 76.2                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Expert (Medium)                            | 82.6                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Expert (Best)                              | 88.6                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-|                                            | Large Multimodal Models (LMMs): Text + Image as Input |                             |                  |                            |                    |                                 |                                  |                           |
-| OpenFlamingo2-9B [4]                       | 28.7                                                  | 26.3                        | 31.7             | 23.5                       | 26.3               | 26.3                            | 27.9                             | 25.1                      |
-| Kosmos2 [63]                               | 24.4                                                  | 26.6                        | 28.8             | 23.7                       | 26.6               | 27.2                            | 26.3                             | 26.8                      |
-| Adept Fuyu-8B [6]                          | 27.9                                                  | 27.4                        | 29.9             | 27.0                       | 25.6               | 27.0                            | 32.5                             | 26.4                      |
-| MiniGPT4-Vicuna-13B [94]                   | 26.8                                                  | 27.6                        | 30.2             | 27.0                       | 26.2               | 26.9                            | 30.9                             | 27.2                      |
-| LLaMA-Adapter2-7B [88]                     | 29.8                                                  | 27.7                        | 35.2             | 25.4                       | 25.6               | 30.0                            | 29.1                             | 25.7                      |
-| Otter [34]                                 | 32.2                                                  | 29.1                        | 37.4             | 24.0                       | 24.1               | 29.6                            | 35.9                             | 30.2                      |
-| CogVLM [77]                                | 32.1                                                  | 30.1                        | 38.0             | 25.6                       | 25.1               | 31.2                            | 41.5                             | 28.9                      |
-| InstructBLIP-T5-XL [16]                    | 32.9                                                  | 30.6                        | 43.3             | 25.2                       | 25.2               | 29.3                            | 45.8                             | 28.6                      |
-| BLIP-2 FLAN-T5-XL [35]                     | 34.4                                                  | 31.0                        | 43.0             | 25.6                       | 25.1               | 31.8                            | 48.0                             | 27.8                      |
-| mPLUGw-OWL2* [82]                          | 32.7                                                  | 32.1                        | 48.5             | 25.6                       | 24.9               | 32.8                            | 46.7                             | 29.6                      |
-| SPHINX* [41]                               | 32.9                                                  | 32.9                        | 50.9             | 27.2                       | 25.3               | 34.1                            | 51.2                             | 27.8                      |
-| Qwen-VL-7B-Chat [5]                        | 35.9                                                  | 32.9                        | 47.7             | 29.8                       | 25.6               | 33.6                            | 45.3                             | 30.2                      |
-| Bunny-3B* [8]                              | 38.2                                                  | 33.0                        | 44.3             | 29.5                       | 26.8               | 34.5                            | 50.5                             | 28.7                      |
-| LLaVA-1.5-13B [44]                         | 36.4                                                  | 33.6                        | 49.8             | 28.2                       | 25.9               | 34.9                            | 54.7                             | 28.3                      |
-| InstructBLIP-T5-XXL [16]                   | 35.7                                                  | 33.8                        | 48.5             | 30.6                       | 27.6               | 33.6                            | 49.8                             | 29.4                      |
-| BLIP-2 FLAN-T5-XXL [35]<br>Emu2-Chat* [70] | 35.4<br>36.3                                          | 34.0<br>34.1                | 49.2<br>50.6     | 28.6<br>27.7               | 27.3<br>28.0       | 33.7<br>32.4                    | 51.5<br>50.3                     | 30.4<br>31.3              |
-| MiniCPM-V-2* [55]                          | 37.1                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| MiniCPM-V* [54]                            | 37.2                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| SVIT* [89]                                 | 38.0                                                  | 34.1                        | 48.9             | 28.0                       | 26.8               | 35.5                            | 50.9                             | 30.7                      |
-| InternVL-Chat-V1.1* [11]                   | 39.1                                                  | 35.3                        | 53.7             | 31.7                       | 28.2               | 36.5                            | 56.4                             | 28.0                      |
-| InfiMM-Zephyr-7B* [73]                     | 39.4                                                  | 35.5                        | 50.0             | 29.6                       | 28.2               | 37.5                            | 54.6                             | 31.1                      |
-| Yi-VL-6B* [84]                             | 39.1                                                  | 37.8                        | 53.4             | 30.3                       | 30.0               | 39.3                            | 58.5                             | 34.1                      |
-| OmniLMM-12B* [58]                          | 41.1                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| InternLM-XComposer2-VL* [17]               | 43.0                                                  | 38.2                        | 56.8             | 32.8                       | 30.1               | 39.8                            | 60.7                             | 31.8                      |
-| HPT Air* [28]                              | 44.0                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Yi-VL-34B* [84]                            | 45.9                                                  | 41.6                        | 56.1             | 33.3                       | 32.9               | 45.9                            | 66.5                             | 36.0                      |
-| LLaVA-1.6-34B* [46]                        | 51.1                                                  | 44.7                        | 58.6             | 39.9                       | 36.0               | 51.2                            | 70.2                             | 36.3                      |
-| InternVL-Chat-V1.2* [11]                   | 51.6                                                  | 46.2                        | 62.5             | 37.6                       | 37.9               | 49.7                            | 70.1                             | 40.8                      |
-| VILA1.5* [39]                              | 51.9                                                  | 46.9                        | 62.1             | 40.6                       | 37.7               | 51.7                            | 74.0                             | 39.5                      |
-| Gemini Nano2* [22]                         | 32.6                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Marco-VL*                                  | 41.2                                                  | 40.4                        | 56.5             | 31.0                       | 31.0               | 46.9                            | 66.5                             | 33.8                      |
-| Reka Edge* [62]                            | 42.8                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Qwen-VL-PLUS* [64]                         | 45.2                                                  | 40.8                        | 59.9             | 34.5                       | 32.8               | 43.7                            | 65.5                             | 32.9                      |
-| Marco-VL-Plus*                             | 46.2                                                  | 44.3                        | 57.4             | 34.7                       | 38.5               | 48.7                            | 72.2                             | 36.7                      |
-| Gemini 1.0 Pro* [22]                       | 47.9                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Adept Fuyu-Heavy* [19]                     | 48.3                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Claude 3 Haiku* [72]                       | 50.2                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Reka Flash* [62]                           | 53.3                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Skywork-VL* [31]                           | 51.4                                                  | 46.2                        | 61.4             | 39.6                       | 36.6               | 50.8                            | 71.6                             | 40.2                      |
-| Qwen-VL-MAX* [65]                          | 51.4                                                  | 46.8                        | 64.2             | 39.8                       | 36.3               | 52.5                            | 70.4                             | 40.7                      |
-| HPT Pro* [28]                              | 52.0                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Claude 3 Sonnet* [72]                      | 53.1                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| SenseChat-Vision-0423-Preview* [68]        | 54.6                                                  | 50.3                        | 62.7             | 44.1                       | 42.3               | 55.7                            | 74.7                             | 43.5                      |
-| Gemini 1.5 Flash* [23]                     | 56.1                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Reka Core* [62]                            | 56.3                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| GPT-4V(ision) (Playground) [60]            | 56.8                                                  | 55.7                        | 65.3             | 64.3                       | 48.4               | 63.5                            | 76.3                             | 41.7                      |
-| Claude 3 Opus* [72]                        | 59.4                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Gemini 1.0 Ultra* [22]                     | 59.4                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| Gemini 1.5 Pro* [23]                       | 62.2                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-| GPT-4o* [61]                               | 69.1                                                  | -                           | -                | -                          | -                  | -                               | -                                | -                         |
-|                                            | Large Language Models (LLMs): Only Text as Input      |                             |                  |                            |                    |                                 |                                  |                           |
-| Llama2 7B [75]                             | 30.1                                                  | 28.7                        | 30.7             | 27.2                       | 26.7               | 27.7                            | 32.6                             | 29.8                      |
-| FLAN-T5-XXL [14]                           | 32.1                                                  | 31.2                        | 36.8             | 28.9                       | 26.7               | 32.8                            | 44.8                             | 28.3                      |
-| + OCR                                      | 34.7                                                  | 31.9                        | 36.2             | 28.8                       | 26.2               | 32.6                            | 50.5                             | 29.7                      |
-| + LLaVA Caption                            | 34.8                                                  | 31.9                        | 38.4             | 27.8                       | 27.0               | 33.2                            | 49.9                             | 28.7                      |
-| Vicuna-13B [12]                            | 33.3                                                  | 31.0                        | 35.1             | 30.1                       | 24.7               | 31.4                            | 44.8                             | 30.1                      |
-| + OCR                                      | 35.4                                                  | 31.9                        | 37.1             | 28.6                       | 26.5               | 32.0                            | 49.3                             | 30.0                      |
-| + LLaVA Caption                            | 33.9                                                  | 32.7                        | 42.0             | 26.8                       | 26.2               | 33.4                            | 49.4                             | 31.4                      |
-| GPT-4 Text [59]                            | 34.9                                                  | 33.8                        | 32.9             | 28.5                       | 30.6               | 41.3                            | 53.0                             | 28.4                      |
+| Random Choice | 22.1 | 23.9 | 24.1 | 24.9 | 21.6 | 25.3 | 22.8 | 24.8 |
+| Frequent Choice | 26.8 | 25.8 | 26.7 | 28.4 | 24.0 | 24.4 | 25.2 | 26.5 |
+| Expert (Worst) | 76.2 | - | - | - | - | - | - | - |
+| Expert (Medium) | 82.6 | - | - | - | - | - | - | - |
+| Expert (Best) | 88.6 | - | - | - | - | - | - | - |
+| | Large Multimodal Models (LMMs): Text + Image as Input | | | | | | | |
+| OpenFlamingo2-9B [4] | 28.7 | 26.3 | 31.7 | 23.5 | 26.3 | 26.3 | 27.9 | 25.1 |
+| Kosmos2 [63] | 24.4 | 26.6 | 28.8 | 23.7 | 26.6 | 27.2 | 26.3 | 26.8 |
+| Adept Fuyu-8B [6] | 27.9 | 27.4 | 29.9 | 27.0 | 25.6 | 27.0 | 32.5 | 26.4 |
+| MiniGPT4-Vicuna-13B [94] | 26.8 | 27.6 | 30.2 | 27.0 | 26.2 | 26.9 | 30.9 | 27.2 |
+| LLaMA-Adapter2-7B [88] | 29.8 | 27.7 | 35.2 | 25.4 | 25.6 | 30.0 | 29.1 | 25.7 |
+| Otter [34] | 32.2 | 29.1 | 37.4 | 24.0 | 24.1 | 29.6 | 35.9 | 30.2 |
+| CogVLM [77] | 32.1 | 30.1 | 38.0 | 25.6 | 25.1 | 31.2 | 41.5 | 28.9 |
+| InstructBLIP-T5-XL [16] | 32.9 | 30.6 | 43.3 | 25.2 | 25.2 | 29.3 | 45.8 | 28.6 |
+| BLIP-2 FLAN-T5-XL [35] | 34.4 | 31.0 | 43.0 | 25.6 | 25.1 | 31.8 | 48.0 | 27.8 |
+| mPLUGw-OWL2* [82] | 32.7 | 32.1 | 48.5 | 25.6 | 24.9 | 32.8 | 46.7 | 29.6 |
+| SPHINX* [41] | 32.9 | 32.9 | 50.9 | 27.2 | 25.3 | 34.1 | 51.2 | 27.8 |
+| Qwen-VL-7B-Chat [5] | 35.9 | 32.9 | 47.7 | 29.8 | 25.6 | 33.6 | 45.3 | 30.2 |
+| Bunny-3B* [8] | 38.2 | 33.0 | 44.3 | 29.5 | 26.8 | 34.5 | 50.5 | 28.7 |
+| LLaVA-1.5-13B [44] | 36.4 | 33.6 | 49.8 | 28.2 | 25.9 | 34.9 | 54.7 | 28.3 |
+| InstructBLIP-T5-XXL [16] | 35.7 | 33.8 | 48.5 | 30.6 | 27.6 | 33.6 | 49.8 | 29.4 |
+| BLIP-2 FLAN-T5-XXL [35]<br>Emu2-Chat* [70] | 35.4<br>36.3 | 34.0<br>34.1 | 49.2<br>50.6 | 28.6<br>27.7 | 27.3<br>28.0 | 33.7<br>32.4 | 51.5<br>50.3 | 30.4<br>31.3 |
+| MiniCPM-V-2* [55] | 37.1 | - | - | - | - | - | - | - |
+| MiniCPM-V* [54] | 37.2 | - | - | - | - | - | - | - |
+| SVIT* [89] | 38.0 | 34.1 | 48.9 | 28.0 | 26.8 | 35.5 | 50.9 | 30.7 |
+| InternVL-Chat-V1.1* [11] | 39.1 | 35.3 | 53.7 | 31.7 | 28.2 | 36.5 | 56.4 | 28.0 |
+| InfiMM-Zephyr-7B* [73] | 39.4 | 35.5 | 50.0 | 29.6 | 28.2 | 37.5 | 54.6 | 31.1 |
+| Yi-VL-6B* [84] | 39.1 | 37.8 | 53.4 | 30.3 | 30.0 | 39.3 | 58.5 | 34.1 |
+| OmniLMM-12B* [58] | 41.1 | - | - | - | - | - | - | - |
+| InternLM-XComposer2-VL* [17] | 43.0 | 38.2 | 56.8 | 32.8 | 30.1 | 39.8 | 60.7 | 31.8 |
+| HPT Air* [28] | 44.0 | - | - | - | - | - | - | - |
+| Yi-VL-34B* [84] | 45.9 | 41.6 | 56.1 | 33.3 | 32.9 | 45.9 | 66.5 | 36.0 |
+| LLaVA-1.6-34B* [46] | 51.1 | 44.7 | 58.6 | 39.9 | 36.0 | 51.2 | 70.2 | 36.3 |
+| InternVL-Chat-V1.2* [11] | 51.6 | 46.2 | 62.5 | 37.6 | 37.9 | 49.7 | 70.1 | 40.8 |
+| VILA1.5* [39] | 51.9 | 46.9 | 62.1 | 40.6 | 37.7 | 51.7 | 74.0 | 39.5 |
+| Gemini Nano2* [22] | 32.6 | - | - | - | - | - | - | - |
+| Marco-VL* | 41.2 | 40.4 | 56.5 | 31.0 | 31.0 | 46.9 | 66.5 | 33.8 |
+| Reka Edge* [62] | 42.8 | - | - | - | - | - | - | - |
+| Qwen-VL-PLUS* [64] | 45.2 | 40.8 | 59.9 | 34.5 | 32.8 | 43.7 | 65.5 | 32.9 |
+| Marco-VL-Plus* | 46.2 | 44.3 | 57.4 | 34.7 | 38.5 | 48.7 | 72.2 | 36.7 |
+| Gemini 1.0 Pro* [22] | 47.9 | - | - | - | - | - | - | - |
+| Adept Fuyu-Heavy* [19] | 48.3 | - | - | - | - | - | - | - |
+| Claude 3 Haiku* [72] | 50.2 | - | - | - | - | - | - | - |
+| Reka Flash* [62] | 53.3 | - | - | - | - | - | - | - |
+| Skywork-VL* [31] | 51.4 | 46.2 | 61.4 | 39.6 | 36.6 | 50.8 | 71.6 | 40.2 |
+| Qwen-VL-MAX* [65] | 51.4 | 46.8 | 64.2 | 39.8 | 36.3 | 52.5 | 70.4 | 40.7 |
+| HPT Pro* [28] | 52.0 | - | - | - | - | - | - | - |
+| Claude 3 Sonnet* [72] | 53.1 | - | - | - | - | - | - | - |
+| SenseChat-Vision-0423-Preview* [68] | 54.6 | 50.3 | 62.7 | 44.1 | 42.3 | 55.7 | 74.7 | 43.5 |
+| Gemini 1.5 Flash* [23] | 56.1 | - | - | - | - | - | - | - |
+| Reka Core* [62] | 56.3 | - | - | - | - | - | - | - |
+| GPT-4V(ision) (Playground) [60] | 56.8 | 55.7 | 65.3 | 64.3 | 48.4 | 63.5 | 76.3 | 41.7 |
+| Claude 3 Opus* [72] | 59.4 | - | - | - | - | - | - | - |
+| Gemini 1.0 Ultra* [22] | 59.4 | - | - | - | - | - | - | - |
+| Gemini 1.5 Pro* [23] | 62.2 | - | - | - | - | - | - | - |
+| GPT-4o* [61] | 69.1 | - | - | - | - | - | - | - |
+| | Large Language Models (LLMs): Only Text as Input | | | | | | | |
+| Llama2 7B [75] | 30.1 | 28.7 | 30.7 | 27.2 | 26.7 | 27.7 | 32.6 | 29.8 |
+| FLAN-T5-XXL [14] | 32.1 | 31.2 | 36.8 | 28.9 | 26.7 | 32.8 | 44.8 | 28.3 |
+| + OCR | 34.7 | 31.9 | 36.2 | 28.8 | 26.2 | 32.6 | 50.5 | 29.7 |
+| + LLaVA Caption | 34.8 | 31.9 | 38.4 | 27.8 | 27.0 | 33.2 | 49.9 | 28.7 |
+| Vicuna-13B [12] | 33.3 | 31.0 | 35.1 | 30.1 | 24.7 | 31.4 | 44.8 | 30.1 |
+| + OCR | 35.4 | 31.9 | 37.1 | 28.6 | 26.5 | 32.0 | 49.3 | 30.0 |
+| + LLaVA Caption | 33.9 | 32.7 | 42.0 | 26.8 | 26.2 | 33.4 | 49.4 | 31.4 |
+| GPT-4 Text [59] | 34.9 | 33.8 | 32.9 | 28.5 | 30.6 | 41.3 | 53.0 | 28.4 |
 
 Table 4. Overall results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
 ### <span id="page-15-2"></span><span id="page-15-1"></span><span id="page-15-0"></span>B.2. Art & Design
 
-|                                            | Validation Overall                                    | Test Overall | Art          | Art Theory   | Design       | Music        |
+| | Validation Overall | Test Overall | Art | Art Theory | Design | Music |
 |--------------------------------------------|-------------------------------------------------------|--------------|--------------|--------------|--------------|--------------|
-|                                            | (120)                                                 | (1,163)      | (231)        | (429)        | (169)        | (334)        |
-| Random Choice                              | 29.2                                                  | 24.1         | 23.4         | 20.3         | 19.5         | 31.7         |
-| Frequent Choice                            | 23.3                                                  | 26.7         | 24.2         | 23.5         | 33.7         | 29.0         |
-| Expert (Worst)                             | 80.8                                                  | -            | -            | -            | -            | -            |
-| Expert (Medium)                            | 84.2                                                  | -            | -            | -            | -            | -            |
-| Expert (Best)                              | 89.2                                                  | -            | -            | -            | -            | -            |
-|                                            | Large Multimodal Models (LMMs): Text + Image as Input |              |              |              |              |              |
-| OpenFlamingo2-9B [4]                       | 40.0                                                  | 31.7         | 36.8         | 28.4         | 27.8         | 34.4         |
-| Kosmos2 [63]                               | 25.0                                                  | 28.8         | 30.7         | 24.9         | 28.4         | 32.6         |
-| Adept Fuyu-8B [6]                          | 36.7                                                  | 29.9         | 28.6         | 26.8         | 29.0         | 35.3         |
-| MiniGPT4-Vicuna-13B [94]                   | 29.2                                                  | 30.2         | 28.6         | 28.7         | 40.2         | 28.1         |
-| LLaMA-Adapter2-7B [88]                     | 29.2                                                  | 35.2         | 38.5         | 35.4         | 41.4         | 29.3         |
-| Otter [34]                                 | 37.5                                                  | 37.4         | 40.7         | 35.9         | 46.2         | 32.6         |
-| CogVLM [77]                                | 40.8                                                  | 38.0         | 43.3         | 39.2         | 44.4         | 29.6         |
-| InstructBLIP-T5-XL [16]                    | 40.0                                                  | 43.3         | 49.8         | 45.0         | 52.1         | 32.3         |
-| BLIP-2 FLAN-T5-XL [35]                     | 44.2                                                  | 43.0         | 50.2         | 45.0         | 47.3         | 33.2         |
-| mPLUG-OWL2* [82]                           | 45.8                                                  | 48.5         | 57.6         | 53.4         | 59.8         | 30.2         |
-| SPHINX* [41]                               | 48.3                                                  | 50.9         | 59.3         | 55.5         | 61.5         | 33.8         |
-| Qwen-VL-7B-Chat [5]                        | 51.7                                                  | 47.7         | 57.1         | 49.7         | 58.6         | 33.2         |
-| Bunny-3B* [8]                              | 49.2                                                  | 44.3         | 49.8         | 48.7         | 55.0         | 29.3         |
-| LLaVA-1.5-13B [44]                         | 51.7                                                  | 49.8         | 58.4         | 51.5         | 61.5         | 35.6         |
-| InstructBLIP-T5-XXL [16]                   | 44.2                                                  | 48.5         | 51.9         | 52.7         | 60.4         | 34.7         |
-| BLIP-2 FLAN-T5-XXL [35]<br>Emu2-Chat* [70] | 41.7<br>55.0                                          | 49.2<br>50.6 | 54.5<br>59.3 | 51.5<br>54.1 | 64.5<br>63.3 | 34.7<br>33.8 |
-| MiniCPM-V-2* [55]                          | 63.3                                                  | -            | -            | -            | -            | -            |
-| MiniCPM-V* [54]                            | 55.8                                                  | -            | -            | -            | -            | -            |
-| SVIT* [89]                                 | 52.5                                                  | 48.9         | 54.1         | 51.0         | 68.0         | 32.9         |
-| InternVL-Chat-V1.1* [11]                   | 56.7                                                  | 53.7         | 60.6         | 59.0         | 74.6         | 31.4         |
-| InfiMM-Zephyr-7B* [73]                     | 55.8                                                  | 50.0         | 57.1         | 57.3         | 62.1         | 29.3         |
-| Yi-VL-6B* [84]                             | 52.5                                                  | 53.4         | 57.6         | 61.8         | 74.0         | 29.3         |
-| OmniLMM-12B* [58]                          | 58.3                                                  | -            | -            | -            | -            | -            |
-| InternLM-XComposer2-VL* [17]               | 60.0                                                  | 56.8         | 68.0         | 63.6         | 69.2         | 34.1         |
-| HPT Air* [28]                              | 56.7                                                  | -            | -            | -            | -            | -            |
-| Yi-VL-34B* [84]                            | 59.2                                                  | 56.1         | 60.6         | 61.8         | 72.8         | 37.1         |
-| LLaVA-1.6-34B* [46]                        | 67.5                                                  | 58.6         | 67.5         | 65.3         | 80.5         | 32.6         |
-| InternVL-Chat-V1.2* [11]                   | 62.5                                                  | 62.5         | 68.8         | 69.5         | 82.2         | 39.2         |
-| VILA1.5* [39]                              | 60.8                                                  | 62.1         | 69.3         | 69.5         | 82.2         | 37.4         |
-| Marco-VL*                                  | 57.5                                                  | 56.5         | 64.5         | 61.8         | 75.1         | 34.7         |
-| Reka-Edge* [62]                            | 52.5                                                  | -            | -            | -            | -            | -            |
-| Qwen-VL-PLUS* [64]                         | 60.0                                                  | 59.9         | 67.5         | 68.1         | 78.7         | 34.7         |
-| Marco-VL-Plus*                             | 60.8                                                  | 57.4         | 65.4         | 62.5         | 75.1         | 36.5         |
-| Adept Fuyu-Heavy* [19]                     | 53.4                                                  | -            | -            | -            | -            | -            |
-| Reka-Flash* [62]                           | 61.7                                                  | -            | -            | -            | -            | -            |
-| Skywork-VL* [31]                           | 66.7                                                  | 61.4         | 70.1         | 69.5         | 83.4         | 33.8         |
-| Qwen-VL-MAX* [65]                          | 72.5                                                  | 64.2         | 72.3         | 74.8         | 84.0         | 35.0         |
-| HPT Pro* [28]                              | 70.0                                                  | -            | -            | -            | -            | -            |
-| SenseChat-Vision-0423-Preview* [68]        | 66.7                                                  | 62.7         | 67.5         | 70.4         | 85.8         | 37.7         |
-| Reka-Core* [62]                            | 75.9                                                  | -            | -            | -            | -            | -            |
-| GPT-4V(ision) (Playground) [60]            | 65.8                                                  | 65.3         | 74.0         | 75.5         | 80.5         | 38.6         |
-| Gemini 1.0 Ultra* [22]                     | 70.0                                                  | -            | -            | -            | -            | -            |
-|                                            | Large Language Models (LLMs): Only Text as Input      |              |              |              |              |              |
-| Llama2 7B [75]                             | 29.2                                                  | 30.7         | 30.3         | 27.5         | 37.9         | 31.4         |
-| FLAN-T5-XXL [14]                           | 38.3                                                  | 36.8         | 32.0         | 36.8         | 52.1         | 32.3         |
-| + OCR                                      | 37.5                                                  | 36.2         | 36.4         | 33.8         | 47.9         | 33.2         |
-| + LLaVA Caption                            | 43.3                                                  | 38.4         | 45.9         | 38.2         | 46.2         | 29.6         |
-| Vicuna-13B [12]                            | 41.7                                                  | 35.1         | 35.1         | 31.5         | 46.7         | 33.8         |
-| + OCR                                      | 39.2                                                  | 37.1         | 35.5         | 32.9         | 50.3         | 36.8         |
-| + LLaVA Caption                            | 38.3                                                  | 42.0         | 51.1         | 42.7         | 46.2         | 32.6         |
-| GPT-4 Text [59]                            | 35.0                                                  | 32.9         | 35.1         | 28.7         | 47.3         | 29.6         |
+| | (120) | (1,163) | (231) | (429) | (169) | (334) |
+| Random Choice | 29.2 | 24.1 | 23.4 | 20.3 | 19.5 | 31.7 |
+| Frequent Choice | 23.3 | 26.7 | 24.2 | 23.5 | 33.7 | 29.0 |
+| Expert (Worst) | 80.8 | - | - | - | - | - |
+| Expert (Medium) | 84.2 | - | - | - | - | - |
+| Expert (Best) | 89.2 | - | - | - | - | - |
+| | Large Multimodal Models (LMMs): Text + Image as Input | | | | | |
+| OpenFlamingo2-9B [4] | 40.0 | 31.7 | 36.8 | 28.4 | 27.8 | 34.4 |
+| Kosmos2 [63] | 25.0 | 28.8 | 30.7 | 24.9 | 28.4 | 32.6 |
+| Adept Fuyu-8B [6] | 36.7 | 29.9 | 28.6 | 26.8 | 29.0 | 35.3 |
+| MiniGPT4-Vicuna-13B [94] | 29.2 | 30.2 | 28.6 | 28.7 | 40.2 | 28.1 |
+| LLaMA-Adapter2-7B [88] | 29.2 | 35.2 | 38.5 | 35.4 | 41.4 | 29.3 |
+| Otter [34] | 37.5 | 37.4 | 40.7 | 35.9 | 46.2 | 32.6 |
+| CogVLM [77] | 40.8 | 38.0 | 43.3 | 39.2 | 44.4 | 29.6 |
+| InstructBLIP-T5-XL [16] | 40.0 | 43.3 | 49.8 | 45.0 | 52.1 | 32.3 |
+| BLIP-2 FLAN-T5-XL [35] | 44.2 | 43.0 | 50.2 | 45.0 | 47.3 | 33.2 |
+| mPLUG-OWL2* [82] | 45.8 | 48.5 | 57.6 | 53.4 | 59.8 | 30.2 |
+| SPHINX* [41] | 48.3 | 50.9 | 59.3 | 55.5 | 61.5 | 33.8 |
+| Qwen-VL-7B-Chat [5] | 51.7 | 47.7 | 57.1 | 49.7 | 58.6 | 33.2 |
+| Bunny-3B* [8] | 49.2 | 44.3 | 49.8 | 48.7 | 55.0 | 29.3 |
+| LLaVA-1.5-13B [44] | 51.7 | 49.8 | 58.4 | 51.5 | 61.5 | 35.6 |
+| InstructBLIP-T5-XXL [16] | 44.2 | 48.5 | 51.9 | 52.7 | 60.4 | 34.7 |
+| BLIP-2 FLAN-T5-XXL [35]<br>Emu2-Chat* [70] | 41.7<br>55.0 | 49.2<br>50.6 | 54.5<br>59.3 | 51.5<br>54.1 | 64.5<br>63.3 | 34.7<br>33.8 |
+| MiniCPM-V-2* [55] | 63.3 | - | - | - | - | - |
+| MiniCPM-V* [54] | 55.8 | - | - | - | - | - |
+| SVIT* [89] | 52.5 | 48.9 | 54.1 | 51.0 | 68.0 | 32.9 |
+| InternVL-Chat-V1.1* [11] | 56.7 | 53.7 | 60.6 | 59.0 | 74.6 | 31.4 |
+| InfiMM-Zephyr-7B* [73] | 55.8 | 50.0 | 57.1 | 57.3 | 62.1 | 29.3 |
+| Yi-VL-6B* [84] | 52.5 | 53.4 | 57.6 | 61.8 | 74.0 | 29.3 |
+| OmniLMM-12B* [58] | 58.3 | - | - | - | - | - |
+| InternLM-XComposer2-VL* [17] | 60.0 | 56.8 | 68.0 | 63.6 | 69.2 | 34.1 |
+| HPT Air* [28] | 56.7 | - | - | - | - | - |
+| Yi-VL-34B* [84] | 59.2 | 56.1 | 60.6 | 61.8 | 72.8 | 37.1 |
+| LLaVA-1.6-34B* [46] | 67.5 | 58.6 | 67.5 | 65.3 | 80.5 | 32.6 |
+| InternVL-Chat-V1.2* [11] | 62.5 | 62.5 | 68.8 | 69.5 | 82.2 | 39.2 |
+| VILA1.5* [39] | 60.8 | 62.1 | 69.3 | 69.5 | 82.2 | 37.4 |
+| Marco-VL* | 57.5 | 56.5 | 64.5 | 61.8 | 75.1 | 34.7 |
+| Reka-Edge* [62] | 52.5 | - | - | - | - | - |
+| Qwen-VL-PLUS* [64] | 60.0 | 59.9 | 67.5 | 68.1 | 78.7 | 34.7 |
+| Marco-VL-Plus* | 60.8 | 57.4 | 65.4 | 62.5 | 75.1 | 36.5 |
+| Adept Fuyu-Heavy* [19] | 53.4 | - | - | - | - | - |
+| Reka-Flash* [62] | 61.7 | - | - | - | - | - |
+| Skywork-VL* [31] | 66.7 | 61.4 | 70.1 | 69.5 | 83.4 | 33.8 |
+| Qwen-VL-MAX* [65] | 72.5 | 64.2 | 72.3 | 74.8 | 84.0 | 35.0 |
+| HPT Pro* [28] | 70.0 | - | - | - | - | - |
+| SenseChat-Vision-0423-Preview* [68] | 66.7 | 62.7 | 67.5 | 70.4 | 85.8 | 37.7 |
+| Reka-Core* [62] | 75.9 | - | - | - | - | - |
+| GPT-4V(ision) (Playground) [60] | 65.8 | 65.3 | 74.0 | 75.5 | 80.5 | 38.6 |
+| Gemini 1.0 Ultra* [22] | 70.0 | - | - | - | - | - |
+| | Large Language Models (LLMs): Only Text as Input | | | | | |
+| Llama2 7B [75] | 29.2 | 30.7 | 30.3 | 27.5 | 37.9 | 31.4 |
+| FLAN-T5-XXL [14] | 38.3 | 36.8 | 32.0 | 36.8 | 52.1 | 32.3 |
+| + OCR | 37.5 | 36.2 | 36.4 | 33.8 | 47.9 | 33.2 |
+| + LLaVA Caption | 43.3 | 38.4 | 45.9 | 38.2 | 46.2 | 29.6 |
+| Vicuna-13B [12] | 41.7 | 35.1 | 35.1 | 31.5 | 46.7 | 33.8 |
+| + OCR | 39.2 | 37.1 | 35.5 | 32.9 | 50.3 | 36.8 |
+| + LLaVA Caption | 38.3 | 42.0 | 51.1 | 42.7 | 46.2 | 32.6 |
+| GPT-4 Text [59] | 35.0 | 32.9 | 35.1 | 28.7 | 47.3 | 29.6 |
 
 Table 5. Art & Design results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
 ### <span id="page-16-2"></span><span id="page-16-1"></span><span id="page-16-0"></span>B.3. Business
 
-|                                           | Validation<br>Overall | Test<br>Overall | Accounting                                            | Economics    | Finance      | Manage       | Marketing    |
+| | Validation<br>Overall | Test<br>Overall | Accounting | Economics | Finance | Manage | Marketing |
 |-------------------------------------------|-----------------------|-----------------|-------------------------------------------------------|--------------|--------------|--------------|--------------|
-|                                           | (150)                 | (1,428)         | (380)                                                 | (267)        | (355)        | (245)        | (181)        |
-| Random Choice                             | 24.7                  | 24.9            | 30.0                                                  | 29.6         | 17.7         | 22.4         | 24.9         |
-| Frequent Choice                           | 29.3                  | 28.4            | 33.4                                                  | 36.3         | 22.0         | 15.9         | 35.9         |
-| Expert (Worst)                            | 78.0                  | -               | -                                                     | -            | -            | -            | -            |
-| Expert (Medium)                           | 86.0                  | -               | -                                                     | -            | -            | -            | -            |
-| Expert (Best)                             | 90.7                  | -               | -                                                     | -            | -            | -            | -            |
-|                                           |                       |                 | Large Multimodal Models (LMMs): Text + Image as Input |              |              |              |              |
-| OpenFlamingo2-9B [4]                      | 28.0                  | 23.5            | 24.7                                                  | 25.8         | 19.4         | 25.3         | 22.7         |
-| Kosmos2 [63]                              | 18.0                  | 23.7            | 29.7                                                  | 24.0         | 21.4         | 22.4         | 17.1         |
-| Fuyu-8B [6]                               | 32.0                  | 27.0            | 32.1                                                  | 30.3         | 22.5         | 20.0         | 29.3         |
-| MiniGPT4-Vicuna-13B [94]                  | 21.3                  | 27.0            | 29.7                                                  | 34.1         | 25.6         | 16.7         | 27.6         |
-| LLaMA-Adapter2-7B [88]<br>Otter [34]      | 25.3<br>24.0          | 25.4<br>24.0    | 30.8<br>30.8                                          | 24.7<br>29.6 | 20.6<br>17.5 | 24.9<br>16.3 | 25.4<br>24.9 |
-| CogVLM [77]                               | 25.3                  | 25.6            | 28.2                                                  | 29.6         | 19.2         | 21.2         | 32.6         |
-| InstructBLIP-T5-XL [16]                   | 28.0                  | 25.2            | 27.6                                                  | 31.8         | 18.0         | 22.0         | 28.7         |
-| BLIP-2 FLAN-T5-XL [35]                    | 26.7                  | 25.6            | 28.2                                                  | 31.1         | 17.5         | 24.1         | 29.8         |
-| mPLUG-OWL2* [82]                          | 24.7                  | 25.6            | 28.7                                                  | 29.2         | 20.3         | 22.4         | 28.7         |
-| SPHINX* [41]                              | 24.7                  | 27.2            | 25.8                                                  | 31.8         | 22.5         | 25.7         | 34.8         |
-| Qwen-VL-7B-Chat [5]                       | 29.3                  | 29.8            | 34.2                                                  | 29.6         | 18.9         | 32.2         | 38.7         |
-| Bunny-3B* [8]                             | 30.7                  | 29.5            | 30.5                                                  | 33.3         | 24.2         | 25.3         | 37.6         |
-| LLaVA-1.5-13B [44]                        | 22.7                  | 28.2            | 29.2                                                  | 33.3         | 23.7         | 23.3         | 34.3         |
-| InstructBLIP-T5-XXL [16]                  | 24.0                  | 30.6            | 34.2                                                  | 35.6         | 23.4         | 30.2         | 30.4         |
-| BLIP-2 FLAN-T5-XXL [35]                   | 30.0                  | 28.6            | 32.4                                                  | 33.3         | 22.5         | 26.1         | 28.7         |
-| Emu2-Chat* [70]                           | 30.0                  | 27.7            | 29.2                                                  | 34.1         | 20.0         | 27.3         | 30.4         |
-| MiniCPM-V-2* [55]<br>MiniCPM-V* [54]      | 28.7<br>33.3          | -<br>-          | -<br>-                                                | -<br>-       | -<br>-       | -<br>-       | -<br>-       |
-| SVIT* [89]                                | 27.3                  | 28.0            | 28.7                                                  | 35.6         | 22.3         | 22.9         | 33.7         |
-| InternVL-Chat-V1.1* [11]                  | 34.7                  | 31.7            | 34.5                                                  | 34.5         | 24.5         | 29.0         | 39.2         |
-| InfiMM-Zephyr-7B* [73]                    | 28.0                  | 29.6            | 31.8                                                  | 37.1         | 23.7         | 21.6         | 35.9         |
-| Yi-VL-6B* [84]                            | 30.7                  | 30.3            | 33.7                                                  | 36.3         | 19.4         | 26.9         | 39.8         |
-| OmniLMM-12B* [58]                         | 34.0                  | -               | -                                                     | -            | -            | -            | -            |
-| InternLM-XComposer2-VL* [17]              | 34.0                  | 32.8            | 35.3                                                  | 31.5         | 25.6         | 31.8         | 45.3         |
-| HPT Air* [28]                             | 31.3                  | -               | -                                                     | -            | -            | -            | -            |
-| Yi-VL-34B* [84]                           | 36.0                  | 33.3            | 33.2                                                  | 44.9         | 22.0         | 29.4         | 43.6         |
-| LLaVA-1.6-34B* [46]                       | 46.0                  | 39.9            | 41.3                                                  | 45.3         | 32.4         | 35.9         | 49.2         |
-| InternVL-Chat-V1.2* [11]<br>VILA1.5* [39] | 40.7                  | 37.6            | 38.2                                                  | 43.4<br>48.3 | 27.3<br>32.4 | 37.6         | 48.1         |
-|                                           | 43.3                  | 40.6            | 41.8                                                  |              |              | 35.9         | 49.2         |
-| Marco-VL*<br>Reka-Edge* [62]              | 30.0<br>36.0          | 31.0<br>-       | 28.2<br>-                                             | 37.1<br>-    | 22.8<br>-    | 31.4<br>-    | 43.1<br>-    |
-| Qwen-VL-PLUS* [64]                        | 35.3                  | 34.5            | 35.0                                                  | 41.6         | 26.2         | 34.7         | 39.2         |
-| Marco-VL-Plus*                            | 37.3                  | 34.7            | 36.6                                                  | 38.6         | 27.6         | 31.4         | 43.1         |
-| Adept Fuyu-Heavy* [19]                    | 46.3                  | -               | -                                                     | -            | -            | -            | -            |
-| Reka-Flash* [62]                          | 42.7                  | -               | -                                                     | -            | -            | -            | -            |
-| Skywork-VL* [31]                          | 41.3                  | 39.6            | 39.7                                                  | 47.2         | 31.0         | 36.7         | 48.6         |
-| Qwen-VL-MAX* [65]                         | 43.3                  | 39.8            | 37.9                                                  | 44.9         | 33.0         | 39.6         | 50.3         |
-| HPT Pro* [28]                             | 43.3                  | -               | -                                                     | -            | -            | -            | -            |
-| SenseChat-Vision-0423-Preview* [68]       | 54.0                  | 44.1            | 45.0                                                  | 51.7         | 38.3         | 37.6         | 51.4         |
-| Reka-Core* [62]                           | 47.3                  | -               | -                                                     | -            | -            | -            | -            |
-| GPT-4V(ision) (Playground) [60]           | 59.3                  | 64.3            | 69.7                                                  | 70.8         | 61.1         | 51.0         | 67.4         |
-| Gemini 1.0 Ultra* [22]                    | 56.7                  | -               | -                                                     | -            | -            | -            | -            |
-|                                           |                       |                 | Large Language Models (LLMs): Only Text as Input      |              |              |              |              |
-| Llama2 7B [75]                            | 22.7                  | 27.2            | 28.9                                                  | 34.1         | 23.7         | 21.6         | 27.6         |
-| FLAN-T5-XXL [14]                          | 28.0                  | 28.9            | 31.6                                                  | 31.5         | 23.1         | 29.0         | 30.4         |
-| + OCR                                     | 29.3                  | 28.8            | 32.4                                                  | 30.0         | 24.8         | 26.9         | 29.8         |
-| + LLaVA Caption                           | 31.3                  | 27.8            | 28.2                                                  | 30.7         | 24.2         | 27.8         | 29.8         |
-| Vicuna-13B [12]                           | 26.7                  | 30.1            | 29.5                                                  | 34.8         | 25.6         | 30.6         | 32.6         |
-| + OCR                                     | 31.3                  | 28.6            | 27.1                                                  | 34.1         | 23.9         | 30.6         | 30.4         |
-| + LLaVA Caption                           | 26.0                  | 26.8            | 27.1                                                  | 32.6         | 22.3         | 25.3         | 28.7         |
-| GPT-4 Text [59]                           | 36.7                  | 28.5            | 29.7                                                  | 35.2         | 21.1         | 32.2         | 25.4         |
+| | (150) | (1,428) | (380) | (267) | (355) | (245) | (181) |
+| Random Choice | 24.7 | 24.9 | 30.0 | 29.6 | 17.7 | 22.4 | 24.9 |
+| Frequent Choice | 29.3 | 28.4 | 33.4 | 36.3 | 22.0 | 15.9 | 35.9 |
+| Expert (Worst) | 78.0 | - | - | - | - | - | - |
+| Expert (Medium) | 86.0 | - | - | - | - | - | - |
+| Expert (Best) | 90.7 | - | - | - | - | - | - |
+| | | | Large Multimodal Models (LMMs): Text + Image as Input | | | | |
+| OpenFlamingo2-9B [4] | 28.0 | 23.5 | 24.7 | 25.8 | 19.4 | 25.3 | 22.7 |
+| Kosmos2 [63] | 18.0 | 23.7 | 29.7 | 24.0 | 21.4 | 22.4 | 17.1 |
+| Fuyu-8B [6] | 32.0 | 27.0 | 32.1 | 30.3 | 22.5 | 20.0 | 29.3 |
+| MiniGPT4-Vicuna-13B [94] | 21.3 | 27.0 | 29.7 | 34.1 | 25.6 | 16.7 | 27.6 |
+| LLaMA-Adapter2-7B [88]<br>Otter [34] | 25.3<br>24.0 | 25.4<br>24.0 | 30.8<br>30.8 | 24.7<br>29.6 | 20.6<br>17.5 | 24.9<br>16.3 | 25.4<br>24.9 |
+| CogVLM [77] | 25.3 | 25.6 | 28.2 | 29.6 | 19.2 | 21.2 | 32.6 |
+| InstructBLIP-T5-XL [16] | 28.0 | 25.2 | 27.6 | 31.8 | 18.0 | 22.0 | 28.7 |
+| BLIP-2 FLAN-T5-XL [35] | 26.7 | 25.6 | 28.2 | 31.1 | 17.5 | 24.1 | 29.8 |
+| mPLUG-OWL2* [82] | 24.7 | 25.6 | 28.7 | 29.2 | 20.3 | 22.4 | 28.7 |
+| SPHINX* [41] | 24.7 | 27.2 | 25.8 | 31.8 | 22.5 | 25.7 | 34.8 |
+| Qwen-VL-7B-Chat [5] | 29.3 | 29.8 | 34.2 | 29.6 | 18.9 | 32.2 | 38.7 |
+| Bunny-3B* [8] | 30.7 | 29.5 | 30.5 | 33.3 | 24.2 | 25.3 | 37.6 |
+| LLaVA-1.5-13B [44] | 22.7 | 28.2 | 29.2 | 33.3 | 23.7 | 23.3 | 34.3 |
+| InstructBLIP-T5-XXL [16] | 24.0 | 30.6 | 34.2 | 35.6 | 23.4 | 30.2 | 30.4 |
+| BLIP-2 FLAN-T5-XXL [35] | 30.0 | 28.6 | 32.4 | 33.3 | 22.5 | 26.1 | 28.7 |
+| Emu2-Chat* [70] | 30.0 | 27.7 | 29.2 | 34.1 | 20.0 | 27.3 | 30.4 |
+| MiniCPM-V-2* [55]<br>MiniCPM-V* [54] | 28.7<br>33.3 | -<br>- | -<br>- | -<br>- | -<br>- | -<br>- | -<br>- |
+| SVIT* [89] | 27.3 | 28.0 | 28.7 | 35.6 | 22.3 | 22.9 | 33.7 |
+| InternVL-Chat-V1.1* [11] | 34.7 | 31.7 | 34.5 | 34.5 | 24.5 | 29.0 | 39.2 |
+| InfiMM-Zephyr-7B* [73] | 28.0 | 29.6 | 31.8 | 37.1 | 23.7 | 21.6 | 35.9 |
+| Yi-VL-6B* [84] | 30.7 | 30.3 | 33.7 | 36.3 | 19.4 | 26.9 | 39.8 |
+| OmniLMM-12B* [58] | 34.0 | - | - | - | - | - | - |
+| InternLM-XComposer2-VL* [17] | 34.0 | 32.8 | 35.3 | 31.5 | 25.6 | 31.8 | 45.3 |
+| HPT Air* [28] | 31.3 | - | - | - | - | - | - |
+| Yi-VL-34B* [84] | 36.0 | 33.3 | 33.2 | 44.9 | 22.0 | 29.4 | 43.6 |
+| LLaVA-1.6-34B* [46] | 46.0 | 39.9 | 41.3 | 45.3 | 32.4 | 35.9 | 49.2 |
+| InternVL-Chat-V1.2* [11]<br>VILA1.5* [39] | 40.7 | 37.6 | 38.2 | 43.4<br>48.3 | 27.3<br>32.4 | 37.6 | 48.1 |
+| | 43.3 | 40.6 | 41.8 | | | 35.9 | 49.2 |
+| Marco-VL*<br>Reka-Edge* [62] | 30.0<br>36.0 | 31.0<br>- | 28.2<br>- | 37.1<br>- | 22.8<br>- | 31.4<br>- | 43.1<br>- |
+| Qwen-VL-PLUS* [64] | 35.3 | 34.5 | 35.0 | 41.6 | 26.2 | 34.7 | 39.2 |
+| Marco-VL-Plus* | 37.3 | 34.7 | 36.6 | 38.6 | 27.6 | 31.4 | 43.1 |
+| Adept Fuyu-Heavy* [19] | 46.3 | - | - | - | - | - | - |
+| Reka-Flash* [62] | 42.7 | - | - | - | - | - | - |
+| Skywork-VL* [31] | 41.3 | 39.6 | 39.7 | 47.2 | 31.0 | 36.7 | 48.6 |
+| Qwen-VL-MAX* [65] | 43.3 | 39.8 | 37.9 | 44.9 | 33.0 | 39.6 | 50.3 |
+| HPT Pro* [28] | 43.3 | - | - | - | - | - | - |
+| SenseChat-Vision-0423-Preview* [68] | 54.0 | 44.1 | 45.0 | 51.7 | 38.3 | 37.6 | 51.4 |
+| Reka-Core* [62] | 47.3 | - | - | - | - | - | - |
+| GPT-4V(ision) (Playground) [60] | 59.3 | 64.3 | 69.7 | 70.8 | 61.1 | 51.0 | 67.4 |
+| Gemini 1.0 Ultra* [22] | 56.7 | - | - | - | - | - | - |
+| | | | Large Language Models (LLMs): Only Text as Input | | | | |
+| Llama2 7B [75] | 22.7 | 27.2 | 28.9 | 34.1 | 23.7 | 21.6 | 27.6 |
+| FLAN-T5-XXL [14] | 28.0 | 28.9 | 31.6 | 31.5 | 23.1 | 29.0 | 30.4 |
+| + OCR | 29.3 | 28.8 | 32.4 | 30.0 | 24.8 | 26.9 | 29.8 |
+| + LLaVA Caption | 31.3 | 27.8 | 28.2 | 30.7 | 24.2 | 27.8 | 29.8 |
+| Vicuna-13B [12] | 26.7 | 30.1 | 29.5 | 34.8 | 25.6 | 30.6 | 32.6 |
+| + OCR | 31.3 | 28.6 | 27.1 | 34.1 | 23.9 | 30.6 | 30.4 |
+| + LLaVA Caption | 26.0 | 26.8 | 27.1 | 32.6 | 22.3 | 25.3 | 28.7 |
+| GPT-4 Text [59] | 36.7 | 28.5 | 29.7 | 35.2 | 21.1 | 32.2 | 25.4 |
 
 Table 6. Business results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
 ### <span id="page-17-2"></span><span id="page-17-1"></span><span id="page-17-0"></span>B.4. Science
 
-|                                                | Validation                                       | Test               | Biology      | Chemistry                                             | Geography    | Math         | Physics      |
+| | Validation | Test | Biology | Chemistry | Geography | Math | Physics |
 |------------------------------------------------|--------------------------------------------------|--------------------|--------------|-------------------------------------------------------|--------------|--------------|--------------|
-|                                                | Overall<br>(150)                                 | Overall<br>(2,426) | (345)        | (603)                                                 | (565)        | (505)        | (408)        |
-| Random Choice                                  | 18.0                                             | 21.6               | 18.3         | 18.6                                                  | 26.0         | 22.2         | 22.1         |
-| Frequent Choice                                | 27.3                                             | 24.0               | 25.8         | 19.9                                                  | 26.9         | 26.1         | 22.1         |
-| Expert (Worst)                                 | 78.0                                             | -                  | -            | -                                                     | -            | -            | -            |
-| Expert (Medium)                                | 84.7                                             | -                  | -            | -                                                     | -            | -            | -            |
-| Expert (Best)                                  | 90.0                                             | -                  | -            | -                                                     | -            | -            | -            |
-|                                                |                                                  |                    |              | Large Multimodal Models (LMMs): Text + Image as Input |              |              |              |
-| OpenFlamingo2-9B [4]                           | 23.3                                             | 26.3               | 27.8         | 22.9                                                  | 30.8         | 25.1         | 25.0         |
-| Kosmos2 [63]                                   | 19.3                                             | 26.6               | 28.4         | 21.7                                                  | 29.2         | 26.7         | 28.4         |
-| Fuyu-8B [6]                                    | 22.0                                             | 25.6               | 27.8         | 20.9                                                  | 30.1         | 24.8         | 25.7         |
-| MiniGPT4-Vicuna-13B [94]                       | 28.7                                             | 26.2               | 23.2         | 22.1                                                  | 29.4         | 30.1         | 25.5         |
-| LLaMA-Adapter2-7B [88]                         | 30.7                                             | 25.6               | 27.5         | 24.9                                                  | 30.4         | 23.0         | 21.3         |
-| Otter [34]                                     | 34.7                                             | 24.1               | 24.6         | 23.4                                                  | 27.1         | 23.0         | 21.8         |
-| CogVLM [77]                                    | 28.0                                             | 25.1               | 29.3         | 24.2                                                  | 28.0         | 23.4         | 21.1         |
-| InstructBLIP-T5-XL [16]                        | 32.7                                             | 25.2               | 27.0         | 22.1                                                  | 28.3         | 24.4         | 25.0         |
-| BLIP-2 FLAN-T5-XL [35]                         | 30.7                                             | 25.1               | 26.7         | 24.4                                                  | 25.7         | 24.0         | 25.2         |
-| mPLUG-OWL2* [82]                               | 22.7                                             | 24.9               | 27.2         | 23.9                                                  | 29.7         | 18.8         | 25.2         |
-| SPHINX* [41]                                   | 26.7                                             | 25.3               | 29.0         | 20.1                                                  | 32.6         | 23.8         | 21.8         |
-| Qwen-VL-7B-Chat [5]                            | 29.3                                             | 25.6               | 27.8         | 23.1                                                  | 28.8         | 24.6         | 24.3         |
-| Bunny-3B* [8]                                  | 30.7                                             | 26.8               | 32.8         | 25.2                                                  | 27.8         | 26.5         | 22.8         |
-| LLaVA-1.5-13B [44]<br>InstructBLIP-T5-XXL [16] | 29.3<br>30.7                                     | 25.9<br>27.6       | 27.2<br>29.0 | 25.0<br>26.5                                          | 28.8<br>31.0 | 24.0<br>25.5 | 24.5<br>26.0 |
-| BLIP-2 FLAN-T5-XXL [35]                        | 34.7                                             | 27.3               | 28.4         | 25.5                                                  | 29.4         | 27.5         | 26.0         |
-| Emu2-Chat* [70]                                | 28.7                                             | 28.0               | 28.7         | 23.5                                                  | 35.4         | 25.3         | 27.0         |
-| MiniCPM-V-2* [55]                              | 30.0                                             | -                  | -            | -                                                     | -            | -            | -            |
-| MiniCPM-V* [54]                                | 28.0                                             | -                  | -            | -                                                     | -            | -            | -            |
-| SVIT* [89]                                     | 28.0                                             | 26.8               | 27.0         | 27.2                                                  | 29.2         | 23.4         | 26.7         |
-| InternVL-Chat-V1.1* [11]                       | 31.3                                             | 28.2               | 35.7         | 24.4                                                  | 31.2         | 27.5         | 24.0         |
-| InfiMM-Zephyr-7B* [73]                         | 33.3                                             | 28.2               | 33.0         | 24.2                                                  | 31.7         | 27.3         | 26.0         |
-| Yi-VL-6B* [84]                                 | 31.3                                             | 30.0               | 32.2         | 25.0                                                  | 34.9         | 29.9         | 28.7         |
-| OmniLMM-12B* [58]                              | 27.3                                             | -                  | -            | -                                                     | -            | -            | -            |
-| InternLM-XComposer2-VL* [17]                   | 34.7                                             | 30.1               | 34.8         | 26.0                                                  | 34.7         | 29.7         | 26.2         |
-| HPT Air* [28]                                  | 34.7                                             | -                  | -            | -                                                     | -            | -            | -            |
-| Yi-VL-34B*                                     | 33.3                                             | 32.9               | 36.8         | 26.9                                                  | 37.0         | 31.7         | 34.3         |
-| LLaVA-1.6-34B* [46]                            | 39.3                                             | 36.0               | 41.4         | 29.5                                                  | 42.7         | 33.1         | 35.3         |
-| InternVL-Chat-V1.2* [11]                       | 39.3                                             | 37.9               | 40.3         | 32.0                                                  | 44.6         | 36.6         | 36.8         |
-| VILA1.5* [39]                                  | 36.0                                             | 37.7               | 44.6         | 32.5                                                  | 42.1         | 36.8         | 34.3         |
-| Marco-VL*                                      | 28.0                                             | 31.0               | 35.9         | 28.0                                                  | 35.8         | 26.3         | 30.6         |
-| Reka-Edge* [62]                                | 42.7                                             | -                  | -            | -                                                     | -            | -            | -            |
-| Skywork-VL* [31]                               | 38.7                                             | 36.6               | 41.4         | 29.0                                                  | 42.8         | 35.8         | 36.0         |
-| Qwen-VL-PLUS* [64]                             | 37.3                                             | 32.8               | 40.3         | 27.9                                                  | 34.7         | 31.3         | 33.1         |
-| Marco-VL-Plus*<br>Adept Fuyu-Heavy* [19]       | 35.3<br>33.7                                     | 38.5<br>-          | 40.3<br>-    | 32.5<br>-                                             | 46.0<br>-    | 36.8<br>-    | 37.5<br>-    |
-| Reka-Flash* [62]                               | 47.3                                             | -                  | -            | -                                                     | -            | -            | -            |
-| Qwen-VL-MAX* [65]                              | 40.0                                             | 36.3               | 38.0         | 33.3                                                  | 39.6         | 33.7         | 38.0         |
-| HPT Pro* [28]                                  | 42.7                                             | -                  | -            | -                                                     | -            | -            | -            |
-| SenseChat-Vision-0423-Preview* [68]            | 45.3                                             | 42.3               | 44.3         | 37.0                                                  | 47.4         | 41.8         | 41.7         |
-| Reka-Core* [62]                                | 49.3                                             | -                  | -            | -                                                     | -            | -            | -            |
-| GPT-4V(ision) (Playground) [60]                | 54.7                                             | 48.4               | 52.2         | 46.9                                                  | 44.8         | 45.0         | 56.4         |
-| Gemini 1.0 Ultra* [22]                         | 48.0                                             | -                  | -            | -                                                     | -            | -            | -            |
-|                                                | Large Language Models (LLMs): Only Text as Input |                    |              |                                                       |              |              |              |
-| Llama2 7B [75]                                 | 34.0                                             | 26.7               | 28.4         | 21.4                                                  | 29.7         | 28.5         | 26.7         |
-| FLAN-T5-XXL [14]                               | 28.0                                             | 26.7               | 27.8         | 24.4                                                  | 27.3         | 30.7         | 23.5         |
-| + OCR                                          | 30.0                                             | 26.2               | 24.6         | 24.5                                                  | 27.4         | 27.9         | 26.0         |
-| + LLaVA Caption                                | 32.7                                             | 27.0               | 25.8         | 23.9                                                  | 30.3         | 29.1         | 25.5         |
-| Vicuna-13B [12]                                | 23.3                                             | 24.7               | 24.6         | 22.7                                                  | 25.0         | 26.1         | 25.7         |
-| + OCR                                          | 30.0                                             | 26.5               | 26.4         | 24.7                                                  | 29.0         | 27.1         | 25.2         |
-| + LLaVA Caption                                | 28.7                                             | 26.2               | 31.3         | 21.7                                                  | 28.7         | 26.7         | 24.3         |
-| GPT-4 Text [59]                                | 34.7                                             | 30.6               | 29.3         | 28.0                                                  | 34.0         | 27.7         | 34.3         |
-|                                                |                                                  |                    |              |                                                       |              |              |              |
+| | Overall<br>(150) | Overall<br>(2,426) | (345) | (603) | (565) | (505) | (408) |
+| Random Choice | 18.0 | 21.6 | 18.3 | 18.6 | 26.0 | 22.2 | 22.1 |
+| Frequent Choice | 27.3 | 24.0 | 25.8 | 19.9 | 26.9 | 26.1 | 22.1 |
+| Expert (Worst) | 78.0 | - | - | - | - | - | - |
+| Expert (Medium) | 84.7 | - | - | - | - | - | - |
+| Expert (Best) | 90.0 | - | - | - | - | - | - |
+| | | | | Large Multimodal Models (LMMs): Text + Image as Input | | | |
+| OpenFlamingo2-9B [4] | 23.3 | 26.3 | 27.8 | 22.9 | 30.8 | 25.1 | 25.0 |
+| Kosmos2 [63] | 19.3 | 26.6 | 28.4 | 21.7 | 29.2 | 26.7 | 28.4 |
+| Fuyu-8B [6] | 22.0 | 25.6 | 27.8 | 20.9 | 30.1 | 24.8 | 25.7 |
+| MiniGPT4-Vicuna-13B [94] | 28.7 | 26.2 | 23.2 | 22.1 | 29.4 | 30.1 | 25.5 |
+| LLaMA-Adapter2-7B [88] | 30.7 | 25.6 | 27.5 | 24.9 | 30.4 | 23.0 | 21.3 |
+| Otter [34] | 34.7 | 24.1 | 24.6 | 23.4 | 27.1 | 23.0 | 21.8 |
+| CogVLM [77] | 28.0 | 25.1 | 29.3 | 24.2 | 28.0 | 23.4 | 21.1 |
+| InstructBLIP-T5-XL [16] | 32.7 | 25.2 | 27.0 | 22.1 | 28.3 | 24.4 | 25.0 |
+| BLIP-2 FLAN-T5-XL [35] | 30.7 | 25.1 | 26.7 | 24.4 | 25.7 | 24.0 | 25.2 |
+| mPLUG-OWL2* [82] | 22.7 | 24.9 | 27.2 | 23.9 | 29.7 | 18.8 | 25.2 |
+| SPHINX* [41] | 26.7 | 25.3 | 29.0 | 20.1 | 32.6 | 23.8 | 21.8 |
+| Qwen-VL-7B-Chat [5] | 29.3 | 25.6 | 27.8 | 23.1 | 28.8 | 24.6 | 24.3 |
+| Bunny-3B* [8] | 30.7 | 26.8 | 32.8 | 25.2 | 27.8 | 26.5 | 22.8 |
+| LLaVA-1.5-13B [44]<br>InstructBLIP-T5-XXL [16] | 29.3<br>30.7 | 25.9<br>27.6 | 27.2<br>29.0 | 25.0<br>26.5 | 28.8<br>31.0 | 24.0<br>25.5 | 24.5<br>26.0 |
+| BLIP-2 FLAN-T5-XXL [35] | 34.7 | 27.3 | 28.4 | 25.5 | 29.4 | 27.5 | 26.0 |
+| Emu2-Chat* [70] | 28.7 | 28.0 | 28.7 | 23.5 | 35.4 | 25.3 | 27.0 |
+| MiniCPM-V-2* [55] | 30.0 | - | - | - | - | - | - |
+| MiniCPM-V* [54] | 28.0 | - | - | - | - | - | - |
+| SVIT* [89] | 28.0 | 26.8 | 27.0 | 27.2 | 29.2 | 23.4 | 26.7 |
+| InternVL-Chat-V1.1* [11] | 31.3 | 28.2 | 35.7 | 24.4 | 31.2 | 27.5 | 24.0 |
+| InfiMM-Zephyr-7B* [73] | 33.3 | 28.2 | 33.0 | 24.2 | 31.7 | 27.3 | 26.0 |
+| Yi-VL-6B* [84] | 31.3 | 30.0 | 32.2 | 25.0 | 34.9 | 29.9 | 28.7 |
+| OmniLMM-12B* [58] | 27.3 | - | - | - | - | - | - |
+| InternLM-XComposer2-VL* [17] | 34.7 | 30.1 | 34.8 | 26.0 | 34.7 | 29.7 | 26.2 |
+| HPT Air* [28] | 34.7 | - | - | - | - | - | - |
+| Yi-VL-34B* | 33.3 | 32.9 | 36.8 | 26.9 | 37.0 | 31.7 | 34.3 |
+| LLaVA-1.6-34B* [46] | 39.3 | 36.0 | 41.4 | 29.5 | 42.7 | 33.1 | 35.3 |
+| InternVL-Chat-V1.2* [11] | 39.3 | 37.9 | 40.3 | 32.0 | 44.6 | 36.6 | 36.8 |
+| VILA1.5* [39] | 36.0 | 37.7 | 44.6 | 32.5 | 42.1 | 36.8 | 34.3 |
+| Marco-VL* | 28.0 | 31.0 | 35.9 | 28.0 | 35.8 | 26.3 | 30.6 |
+| Reka-Edge* [62] | 42.7 | - | - | - | - | - | - |
+| Skywork-VL* [31] | 38.7 | 36.6 | 41.4 | 29.0 | 42.8 | 35.8 | 36.0 |
+| Qwen-VL-PLUS* [64] | 37.3 | 32.8 | 40.3 | 27.9 | 34.7 | 31.3 | 33.1 |
+| Marco-VL-Plus*<br>Adept Fuyu-Heavy* [19] | 35.3<br>33.7 | 38.5<br>- | 40.3<br>- | 32.5<br>- | 46.0<br>- | 36.8<br>- | 37.5<br>- |
+| Reka-Flash* [62] | 47.3 | - | - | - | - | - | - |
+| Qwen-VL-MAX* [65] | 40.0 | 36.3 | 38.0 | 33.3 | 39.6 | 33.7 | 38.0 |
+| HPT Pro* [28] | 42.7 | - | - | - | - | - | - |
+| SenseChat-Vision-0423-Preview* [68] | 45.3 | 42.3 | 44.3 | 37.0 | 47.4 | 41.8 | 41.7 |
+| Reka-Core* [62] | 49.3 | - | - | - | - | - | - |
+| GPT-4V(ision) (Playground) [60] | 54.7 | 48.4 | 52.2 | 46.9 | 44.8 | 45.0 | 56.4 |
+| Gemini 1.0 Ultra* [22] | 48.0 | - | - | - | - | - | - |
+| | Large Language Models (LLMs): Only Text as Input | | | | | | |
+| Llama2 7B [75] | 34.0 | 26.7 | 28.4 | 21.4 | 29.7 | 28.5 | 26.7 |
+| FLAN-T5-XXL [14] | 28.0 | 26.7 | 27.8 | 24.4 | 27.3 | 30.7 | 23.5 |
+| + OCR | 30.0 | 26.2 | 24.6 | 24.5 | 27.4 | 27.9 | 26.0 |
+| + LLaVA Caption | 32.7 | 27.0 | 25.8 | 23.9 | 30.3 | 29.1 | 25.5 |
+| Vicuna-13B [12] | 23.3 | 24.7 | 24.6 | 22.7 | 25.0 | 26.1 | 25.7 |
+| + OCR | 30.0 | 26.5 | 26.4 | 24.7 | 29.0 | 27.1 | 25.2 |
+| + LLaVA Caption | 28.7 | 26.2 | 31.3 | 21.7 | 28.7 | 26.7 | 24.3 |
+| GPT-4 Text [59] | 34.7 | 30.6 | 29.3 | 28.0 | 34.0 | 27.7 | 34.3 |
+| | | | | | | | |
 
 Table 7. Science results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
 ### <span id="page-18-2"></span><span id="page-18-1"></span><span id="page-18-0"></span>B.5. Health & Medicine
 
-|                                                     | Validation<br>Overall<br>(150) | Test<br>Overall<br>(1,752) | Basic Medical<br>Science<br>(326)                     | Clinical<br>Meicine<br>(325) | Diagnostics &<br>Lab. Medicine<br>(162) | Pharmacy<br>(430) | Public<br>Health<br>(509) |
+| | Validation<br>Overall<br>(150) | Test<br>Overall<br>(1,752) | Basic Medical<br>Science<br>(326) | Clinical<br>Meicine<br>(325) | Diagnostics &<br>Lab. Medicine<br>(162) | Pharmacy<br>(430) | Public<br>Health<br>(509) |
 |-----------------------------------------------------|--------------------------------|----------------------------|-------------------------------------------------------|------------------------------|-----------------------------------------|-------------------|---------------------------|
-| Random Choice                                       | 20.7                           | 25.3                       | 24.8                                                  | 21.8                         | 25.9                                    | 28.6              | 24.8                      |
-| Frequent Choice                                     | 30.0                           | 24.4                       | 22.1                                                  | 24.3                         | 17.3                                    | 23.3              | 29.3                      |
-| Expert (Worst)                                      | 73.3                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| Expert (Medium)                                     | 78.8                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| Expert (Best)                                       | 87.3                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-|                                                     |                                |                            | Large Multimodal Models (LMMs): Text + Image as Input |                              |                                         |                   |                           |
-| OpenFlamingo2-9B [4]                                | 27.3                           | 26.3                       | 29.1                                                  | 21.8                         | 22.2                                    | 32.1              | 23.8                      |
-| Kosmos2 [63]                                        | 28.0                           | 27.2                       | 27.3                                                  | 24.0                         | 27.2                                    | 30.7              | 26.1                      |
-| Fuyu-8B [6]                                         | 28.0                           | 27.0                       | 28.8                                                  | 23.1                         | 24.1                                    | 27.0              | 29.3                      |
-| MiniGPT4-Vicuna-13B [94]                            | 30.7                           | 26.9                       | 27.0                                                  | 26.2                         | 21.6                                    | 27.7              | 28.5                      |
-| LLaMA-Adapter2-7B [88]                              | 30.7                           | 30.0                       | 31.0                                                  | 30.2                         | 26.5                                    | 36.5              | 25.0                      |
-| Otter [34]                                          | 30.7                           | 29.6                       | 34.4                                                  | 28.3                         | 28.4                                    | 28.6              | 28.5                      |
-| CogVLM [77]                                         | 32.0                           | 31.2                       | 33.4                                                  | 27.4                         | 27.2                                    | 33.7              | 31.4                      |
-| InstructBLIP-T5-XL [16]                             | 28.7                           | 29.3                       | 31.3                                                  | 28.9                         | 22.8                                    | 34.2              | 26.1                      |
-| BLIP-2 FLAN-T5-XL [35]                              | 35.3                           | 31.8                       | 35.9                                                  | 31.7                         | 24.1                                    | 35.8              | 28.5                      |
-| mPLUG-OWL2* [82]                                    | 32.0                           | 32.8                       | 29.9                                                  | 32.3                         | 34.0                                    | 31.2              | 29.7                      |
-| SPHINX* [41]                                        | 30.7                           | 34.1                       | 39.9                                                  | 36.0                         | 33.3                                    | 31.4              | 31.8                      |
-| Qwen-VL-7B-Chat [5]                                 | 33.3                           | 33.6                       | 38.0                                                  | 34.8                         | 32.1                                    | 29.5              | 33.8                      |
-| Bunny-3B* [8]                                       | 40.7                           | 34.5                       | 39.6                                                  | 38.5                         | 33.3                                    | 31.4              | 31.6                      |
-| LLaVA-1.5-13B [44]                                  | 38.7                           | 34.9                       | 42.6                                                  | 36.6                         | 34.6                                    | 32.1              | 31.4                      |
-| InstructBLIP-T5-XXL [16]<br>BLIP-2 FLAN-T5-XXL [35] | 35.3<br>32.0                   | 33.6<br>33.7               | 35.6<br>38.7                                          | 32.3<br>34.5                 | 29.6<br>27.2                            | 34.2<br>33.7      | 33.8<br>32.2              |
-| Emu2-Chat* [70]                                     | 28.7                           | 32.4                       | 39.3                                                  | 34.8                         | 29.6                                    | 33.0              | 26.9                      |
-| MiniCPM-V-2* [55]                                   | 30.0                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| MiniCPM-V* [54]                                     | 32.7                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| SVIT* [89]                                          | 42.0                           | 35.5                       | 43.3                                                  | 36.0                         | 36.4                                    | 34.4              | 30.8                      |
-| InternVL-Chat-V1.1* [11]                            | 39.3                           | 36.5                       | 43.6                                                  | 39.7                         | 36.4                                    | 30.9              | 34.6                      |
-| InfiMM-Zephyr-7B* [73]                              | 42.7                           | 37.5                       | 44.5                                                  | 43.1                         | 37.7                                    | 32.6              | 33.6                      |
-| Yi-VL-6B* [84]                                      | 38.0                           | 39.3                       | 43.6                                                  | 45.8                         | 37.7                                    | 38.6              | 33.4                      |
-| OmniLMM-12B* [58]                                   | 44.0                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| InternLM-XComposer2-VL* [17]                        | 46.0                           | 39.8                       | 45.1                                                  | 42.2                         | 34.0                                    | 42.1              | 34.8                      |
-| HPT Air* [28]                                       | 45.3                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| Yi-VL-34B* [84]                                     | 51.3                           | 45.9                       | 54.6                                                  | 48.9                         | 50.0                                    | 44.9              | 38.1                      |
-| LLaVA-1.6-34B* [46]                                 | 52.0                           | 51.2                       | 56.4                                                  | 58.8                         | 45.1                                    | 50.7              | 45.4                      |
-| InternVL-Chat-V1.2* [11]                            | 58.7                           | 49.7                       | 58.9                                                  | 54.5                         | 43.8                                    | 50.0              | 42.2                      |
-| VILA1.5* [39]                                       | 57.3                           | 51.7                       | 58.6                                                  | 55.4                         | 40.7                                    | 53.3              | 47.2                      |
-| Marco-VL*                                           | 45.3                           | 46.9                       | 51.2                                                  | 50.2                         | 42.0                                    | 50.7              | 40.5                      |
-| Reka-Edge* [62]                                     | 41.3                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| Qwen-VL-PLUS* [64]                                  | 46.7                           | 43.7                       | 49.7                                                  | 42.2                         | 34.0                                    | 46.5              | 41.5                      |
-| Marco-VL-Plus*                                      | 48.7                           | 48.7                       | 57.4                                                  | 53.5                         | 40.7                                    | 46.5              | 44.6                      |
-| Adept Fuyu-Heavy* [19]                              | 51.3                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| Reka-Flash* [62]<br>Skywork-VL* [31]                | 59.3<br>55.3                   | -<br>50.8                  | -<br>58.9                                             | -<br>55.1                    | -                                       | -<br>50.9         | -<br>43.4                 |
-| Qwen-VL-MAX* [65]                                   | 58.0                           | 52.5                       | 58.9                                                  | 51.1                         | 48.8<br>44.4                            | 57.4              | 47.7                      |
-| HPT Pro* [28]                                       | 50.7                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| SenseChat-Vision-0423-Preview* [68]                 | 53.3                           | 55.7                       | 62.6                                                  | 58.2                         | 50.0                                    | 55.6              | 51.5                      |
-| Reka-Core* [62]                                     | 58.0                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-| GPT-4V(ision) (Playground) [60]                     | 64.7                           | 63.5                       | 65.0                                                  | 62.5                         | 43.8                                    | 68.1              | 65.4                      |
-| Gemini 1.0 Ultra* [22]                              | 67.3                           | -                          | -                                                     | -                            | -                                       | -                 | -                         |
-|                                                     |                                |                            | Large Language Models (LLMs): Only Text as Input      |                              |                                         |                   |                           |
-| Llama2 7B [75]                                      | 26.7                           | 27.7                       | 26.1                                                  | 30.8                         | 25.3                                    | 27.7              | 27.7                      |
-| FLAN-T5-XXL [14]                                    | 32.0                           | 32.8                       | 33.7                                                  | 34.8                         | 30.2                                    | 34.4              | 30.5                      |
-| + OCR                                               | 32.7                           | 32.6                       | 33.7                                                  | 35.1                         | 27.8                                    | 32.3              | 32.2                      |
-| + LLaVA Caption                                     | 32.0                           | 33.2                       | 35.3                                                  | 34.2                         | 30.9                                    | 32.6              | 32.4                      |
-| Vicuna-13B [12]                                     | 31.3                           | 31.4                       | 37.7                                                  | 33.2                         | 36.4                                    | 27.7              | 27.9                      |
-| + OCR                                               | 31.3                           | 32.0                       | 38.3                                                  | 33.5                         | 37.0                                    | 28.4              | 28.5                      |
-| + LLaVA Caption                                     | 34.0                           | 33.4                       | 37.1                                                  | 35.4                         | 32.7                                    | 32.6              | 30.6                      |
-| GPT-4 Text [59]                                     | 40.7                           | 41.3                       | 52.5                                                  | 52.9                         | 27.8                                    | 39.1              | 33.0                      |
+| Random Choice | 20.7 | 25.3 | 24.8 | 21.8 | 25.9 | 28.6 | 24.8 |
+| Frequent Choice | 30.0 | 24.4 | 22.1 | 24.3 | 17.3 | 23.3 | 29.3 |
+| Expert (Worst) | 73.3 | - | - | - | - | - | - |
+| Expert (Medium) | 78.8 | - | - | - | - | - | - |
+| Expert (Best) | 87.3 | - | - | - | - | - | - |
+| | | | Large Multimodal Models (LMMs): Text + Image as Input | | | | |
+| OpenFlamingo2-9B [4] | 27.3 | 26.3 | 29.1 | 21.8 | 22.2 | 32.1 | 23.8 |
+| Kosmos2 [63] | 28.0 | 27.2 | 27.3 | 24.0 | 27.2 | 30.7 | 26.1 |
+| Fuyu-8B [6] | 28.0 | 27.0 | 28.8 | 23.1 | 24.1 | 27.0 | 29.3 |
+| MiniGPT4-Vicuna-13B [94] | 30.7 | 26.9 | 27.0 | 26.2 | 21.6 | 27.7 | 28.5 |
+| LLaMA-Adapter2-7B [88] | 30.7 | 30.0 | 31.0 | 30.2 | 26.5 | 36.5 | 25.0 |
+| Otter [34] | 30.7 | 29.6 | 34.4 | 28.3 | 28.4 | 28.6 | 28.5 |
+| CogVLM [77] | 32.0 | 31.2 | 33.4 | 27.4 | 27.2 | 33.7 | 31.4 |
+| InstructBLIP-T5-XL [16] | 28.7 | 29.3 | 31.3 | 28.9 | 22.8 | 34.2 | 26.1 |
+| BLIP-2 FLAN-T5-XL [35] | 35.3 | 31.8 | 35.9 | 31.7 | 24.1 | 35.8 | 28.5 |
+| mPLUG-OWL2* [82] | 32.0 | 32.8 | 29.9 | 32.3 | 34.0 | 31.2 | 29.7 |
+| SPHINX* [41] | 30.7 | 34.1 | 39.9 | 36.0 | 33.3 | 31.4 | 31.8 |
+| Qwen-VL-7B-Chat [5] | 33.3 | 33.6 | 38.0 | 34.8 | 32.1 | 29.5 | 33.8 |
+| Bunny-3B* [8] | 40.7 | 34.5 | 39.6 | 38.5 | 33.3 | 31.4 | 31.6 |
+| LLaVA-1.5-13B [44] | 38.7 | 34.9 | 42.6 | 36.6 | 34.6 | 32.1 | 31.4 |
+| InstructBLIP-T5-XXL [16]<br>BLIP-2 FLAN-T5-XXL [35] | 35.3<br>32.0 | 33.6<br>33.7 | 35.6<br>38.7 | 32.3<br>34.5 | 29.6<br>27.2 | 34.2<br>33.7 | 33.8<br>32.2 |
+| Emu2-Chat* [70] | 28.7 | 32.4 | 39.3 | 34.8 | 29.6 | 33.0 | 26.9 |
+| MiniCPM-V-2* [55] | 30.0 | - | - | - | - | - | - |
+| MiniCPM-V* [54] | 32.7 | - | - | - | - | - | - |
+| SVIT* [89] | 42.0 | 35.5 | 43.3 | 36.0 | 36.4 | 34.4 | 30.8 |
+| InternVL-Chat-V1.1* [11] | 39.3 | 36.5 | 43.6 | 39.7 | 36.4 | 30.9 | 34.6 |
+| InfiMM-Zephyr-7B* [73] | 42.7 | 37.5 | 44.5 | 43.1 | 37.7 | 32.6 | 33.6 |
+| Yi-VL-6B* [84] | 38.0 | 39.3 | 43.6 | 45.8 | 37.7 | 38.6 | 33.4 |
+| OmniLMM-12B* [58] | 44.0 | - | - | - | - | - | - |
+| InternLM-XComposer2-VL* [17] | 46.0 | 39.8 | 45.1 | 42.2 | 34.0 | 42.1 | 34.8 |
+| HPT Air* [28] | 45.3 | - | - | - | - | - | - |
+| Yi-VL-34B* [84] | 51.3 | 45.9 | 54.6 | 48.9 | 50.0 | 44.9 | 38.1 |
+| LLaVA-1.6-34B* [46] | 52.0 | 51.2 | 56.4 | 58.8 | 45.1 | 50.7 | 45.4 |
+| InternVL-Chat-V1.2* [11] | 58.7 | 49.7 | 58.9 | 54.5 | 43.8 | 50.0 | 42.2 |
+| VILA1.5* [39] | 57.3 | 51.7 | 58.6 | 55.4 | 40.7 | 53.3 | 47.2 |
+| Marco-VL* | 45.3 | 46.9 | 51.2 | 50.2 | 42.0 | 50.7 | 40.5 |
+| Reka-Edge* [62] | 41.3 | - | - | - | - | - | - |
+| Qwen-VL-PLUS* [64] | 46.7 | 43.7 | 49.7 | 42.2 | 34.0 | 46.5 | 41.5 |
+| Marco-VL-Plus* | 48.7 | 48.7 | 57.4 | 53.5 | 40.7 | 46.5 | 44.6 |
+| Adept Fuyu-Heavy* [19] | 51.3 | - | - | - | - | - | - |
+| Reka-Flash* [62]<br>Skywork-VL* [31] | 59.3<br>55.3 | -<br>50.8 | -<br>58.9 | -<br>55.1 | - | -<br>50.9 | -<br>43.4 |
+| Qwen-VL-MAX* [65] | 58.0 | 52.5 | 58.9 | 51.1 | 48.8<br>44.4 | 57.4 | 47.7 |
+| HPT Pro* [28] | 50.7 | - | - | - | - | - | - |
+| SenseChat-Vision-0423-Preview* [68] | 53.3 | 55.7 | 62.6 | 58.2 | 50.0 | 55.6 | 51.5 |
+| Reka-Core* [62] | 58.0 | - | - | - | - | - | - |
+| GPT-4V(ision) (Playground) [60] | 64.7 | 63.5 | 65.0 | 62.5 | 43.8 | 68.1 | 65.4 |
+| Gemini 1.0 Ultra* [22] | 67.3 | - | - | - | - | - | - |
+| | | | Large Language Models (LLMs): Only Text as Input | | | | |
+| Llama2 7B [75] | 26.7 | 27.7 | 26.1 | 30.8 | 25.3 | 27.7 | 27.7 |
+| FLAN-T5-XXL [14] | 32.0 | 32.8 | 33.7 | 34.8 | 30.2 | 34.4 | 30.5 |
+| + OCR | 32.7 | 32.6 | 33.7 | 35.1 | 27.8 | 32.3 | 32.2 |
+| + LLaVA Caption | 32.0 | 33.2 | 35.3 | 34.2 | 30.9 | 32.6 | 32.4 |
+| Vicuna-13B [12] | 31.3 | 31.4 | 37.7 | 33.2 | 36.4 | 27.7 | 27.9 |
+| + OCR | 31.3 | 32.0 | 38.3 | 33.5 | 37.0 | 28.4 | 28.5 |
+| + LLaVA Caption | 34.0 | 33.4 | 37.1 | 35.4 | 32.7 | 32.6 | 30.6 |
+| GPT-4 Text [59] | 40.7 | 41.3 | 52.5 | 52.9 | 27.8 | 39.1 | 33.0 |
 
 Table 8. Health & Medicine results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
 ### <span id="page-19-2"></span><span id="page-19-1"></span><span id="page-19-0"></span>B.6. Humanities & Social Science
 
-|                                                  | Validation                                            | Test<br>History<br>Overall<br>Overall |              | Literature   | Sociology    | Psychology   |  |  |  |
+| | Validation | Test<br>History<br>Overall<br>Overall | | Literature | Sociology | Psychology | | | |
 |--------------------------------------------------|-------------------------------------------------------|---------------------------------------|--------------|--------------|--------------|--------------|--|--|--|
-|                                                  | (120)                                                 | (947)                                 | (278)        | (112)        | (252)        | (305)        |  |  |  |
-| Random Choice                                    | 20.0                                                  | 22.8                                  | 22.3         | 24.1         | 27.0         | 19.3         |  |  |  |
-| Frequent Choice                                  | 25.8                                                  | 25.2                                  | 27.0         | 27.7         | 25.4         | 22.6         |  |  |  |
-| Expert (Worst)                                   | 74.2                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| Expert (Medium)                                  | 85.0                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| Expert (Best)                                    | 89.2                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-|                                                  | Large Multimodal Models (LMMs): Text + Image as Input |                                       |              |              |              |              |  |  |  |
-| OpenFlamingo2-9B [4]                             | 30.8                                                  | 27.9                                  | 24.5         | 42.0         | 29.0         | 24.9         |  |  |  |
-| Kosmos2 [63]                                     | 30.0                                                  | 26.3                                  | 24.5         | 24.1         | 34.1         | 22.3         |  |  |  |
-| Fuyu-8B [6]                                      | 32.5                                                  | 32.5                                  | 32.7         | 44.6         | 32.9         | 27.5         |  |  |  |
-| MiniGPT4-Vicuna-13B [94]                         | 29.2                                                  | 30.9                                  | 30.9         | 47.3         | 30.6         | 25.2         |  |  |  |
-| LLaMA-Adapter2-7B [88]<br>Otter [34]             | 33.3<br>41.7                                          | 29.1<br>35.9                          | 27.0<br>33.8 | 43.8<br>67.0 | 32.1<br>34.9 | 23.3<br>27.2 |  |  |  |
-| CogVLM [77]                                      | 45.0                                                  | 41.5                                  | 39.2         | 69.6         | 41.3         | 33.4         |  |  |  |
-| InstructBLIP-T5-XL [16]                          | 47.5                                                  | 45.8                                  | 45.0         | 71.4         | 44.8         | 38.0         |  |  |  |
-| BLIP-2 FLAN-T5-XL [35]                           | 50.0                                                  | 48.0                                  | 48.2         | 76.8         | 47.2         | 38.0         |  |  |  |
-| mPLUG-OWL2* [82]                                 | 45.8                                                  | 46.7                                  | 46.0         | 74.1         | 44.4         | 39.0         |  |  |  |
-| SPHINX* [41]                                     | 50.0                                                  | 51.2                                  | 56.5         | 81.2         | 48.0         | 38.0         |  |  |  |
-| Qwen-VL-7B-Chat [5]                              | 45.0                                                  | 45.3                                  | 47.8         | 64.3         | 46.4         | 35.1         |  |  |  |
-| Bunny-3B* [8]                                    | 45.0                                                  | 50.5                                  | 52.2         | 78.6         | 50.0         | 39.0         |  |  |  |
-| LLaVA-1.5-13B [44]                               | 53.3                                                  | 54.7                                  | 58.6         | 76.8         | 51.2         | 45.9         |  |  |  |
-| InstructBLIP-T5-XXL [16]                         | 49.2                                                  | 49.8                                  | 48.6         | 72.3         | 51.2         | 41.6         |  |  |  |
-| BLIP-2 FLAN-T5-XXL [35]                          | 50.8                                                  | 51.5                                  | 49.6         | 75.9         | 53.2         | 43.0         |  |  |  |
-| Emu2-Chat* [70]                                  | 46.7                                                  | 50.3                                  | 50.4         | 78.6         | 48.4         | 41.3         |  |  |  |
-| MiniCPM-V-2* [55]<br>MiniCPM-V* [54]             | 56.7<br>58.3                                          | -<br>-                                | -<br>-       | -<br>-       | -<br>-       | -<br>-       |  |  |  |
-| SVIT* [89]                                       | 51.7                                                  | 50.9                                  | 51.8         | 75.9         | 48.8         | 42.6         |  |  |  |
-| InternVL-Chat-V1.1* [11]                         | 57.5                                                  | 56.4                                  | 57.9         | 80.4         | 55.6         | 46.9         |  |  |  |
-| InfiMM-Zephyr-7B* [73]                           | 59.2                                                  | 54.6                                  | 55.4         | 75.9         | 54.4         | 46.2         |  |  |  |
-| Yi-VL-6B* [84]                                   | 53.3                                                  | 58.5                                  | 59.0         | 80.4         | 55.6         | 52.5         |  |  |  |
-| OmniLMM-12B* [58]                                | 62.5                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| InternLM-XComposer2-VL* [17]                     | 62.5                                                  | 60.7                                  | 66.5         | 87.5         | 56.3         | 49.2         |  |  |  |
-| HPT Air* [28]                                    | 59.2                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| Yi-VL-34B* [84]                                  | 62.5                                                  | 66.5                                  | 69.4         | 81.2         | 65.9         | 59.0         |  |  |  |
-| LLaVA-1.6-34B* [46]                              | 67.5                                                  | 70.2                                  | 74.8         | 91.1         | 65.9         | 62.0         |  |  |  |
-| InternVL-Chat-V1.2* [11]                         | 70.0                                                  | 70.1                                  | 73.0         | 88.4         | 70.6         | 60.3         |  |  |  |
-| VILA1.5* [39]                                    | 73.3                                                  | 74.0                                  | 79.1         | 90.2         | 73.0         | 64.3         |  |  |  |
-| Marco-VL*<br>Reka-Edge* [62]                     | 65.8<br>59.2                                          | 66.5<br>-                             | 69.1<br>-    | 85.7<br>-    | 64.7<br>-    | 58.7<br>-    |  |  |  |
-| Qwen-VL-PLUS* [64]                               | 65.8                                                  | 65.5                                  | 69.8         | 79.5         | 63.9         | 57.7         |  |  |  |
-| Marco-VL-Plus*                                   | 69.2                                                  | 72.2                                  | 78.1         | 87.5         | 68.7         | 64.3         |  |  |  |
-| Adept Fuyu-Heavy* [19]                           | 72.2                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| Reka-Flash* [62]                                 | 74.2                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| Skywork-VL* [31]                                 | 68.3                                                  | 71.6                                  | 77.7         | 90.2         | 69.8         | 60.7         |  |  |  |
-| Qwen-VL-MAX* [65]                                | 69.2                                                  | 70.4                                  | 75.9         | 89.3         | 62.7         | 64.9         |  |  |  |
-| HPT Pro* [28]                                    | 72.5                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| SenseChat-Vision-0423-Preview* [68]              | 75.0                                                  | 74.7                                  | 78.8         | 90.2         | 72.6         | 66.9         |  |  |  |
-| Reka-Core* [62]                                  | 75.0                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| GPT-4V(ision) (Playground) [60]                  | 72.5                                                  | 76.3                                  | 79.1         | 89.3         | 71.4         | 73.1         |  |  |  |
-| Gemini 1.0 Ultra* [22]                           | 78.3                                                  | -                                     | -            | -            | -            | -            |  |  |  |
-| Large Language Models (LLMs): Only Text as Input |                                                       |                                       |              |              |              |              |  |  |  |
-| Llama2 7B [75]                                   | 37.5                                                  | 32.6                                  | 32.4         | 46.4         | 32.9         | 27.5         |  |  |  |
-| FLAN-T5-XXL [14]                                 | 42.5                                                  | 44.8                                  | 46.8         | 56.2         | 39.7         | 43.0         |  |  |  |
-| + OCR                                            | 55.0                                                  | 50.5                                  | 53.6         | 75.0         | 46.4         | 42.0         |  |  |  |
-| + LLaVA Caption                                  | 49.2                                                  | 49.9                                  | 51.8         | 75.0         | 46.8         | 41.6         |  |  |  |
-| Vicuna-13B [12]                                  | 45.8                                                  | 44.8                                  | 51.1         | 59.8         | 39.3         | 38.0         |  |  |  |
-| + OCR                                            | 50.0                                                  | 49.3                                  | 58.3         | 66.1         | 48.0         | 36.1         |  |  |  |
-| + LLaVA Caption                                  | 48.3                                                  | 49.4                                  | 53.6         | 72.3         | 48.8         | 37.7         |  |  |  |
-| GPT-4 Text [59]                                  | 51.7                                                  | 53.0                                  | 52.9         | 82.1         | 34.5         | 57.7         |  |  |  |
+| | (120) | (947) | (278) | (112) | (252) | (305) | | | |
+| Random Choice | 20.0 | 22.8 | 22.3 | 24.1 | 27.0 | 19.3 | | | |
+| Frequent Choice | 25.8 | 25.2 | 27.0 | 27.7 | 25.4 | 22.6 | | | |
+| Expert (Worst) | 74.2 | - | - | - | - | - | | | |
+| Expert (Medium) | 85.0 | - | - | - | - | - | | | |
+| Expert (Best) | 89.2 | - | - | - | - | - | | | |
+| | Large Multimodal Models (LMMs): Text + Image as Input | | | | | | | | |
+| OpenFlamingo2-9B [4] | 30.8 | 27.9 | 24.5 | 42.0 | 29.0 | 24.9 | | | |
+| Kosmos2 [63] | 30.0 | 26.3 | 24.5 | 24.1 | 34.1 | 22.3 | | | |
+| Fuyu-8B [6] | 32.5 | 32.5 | 32.7 | 44.6 | 32.9 | 27.5 | | | |
+| MiniGPT4-Vicuna-13B [94] | 29.2 | 30.9 | 30.9 | 47.3 | 30.6 | 25.2 | | | |
+| LLaMA-Adapter2-7B [88]<br>Otter [34] | 33.3<br>41.7 | 29.1<br>35.9 | 27.0<br>33.8 | 43.8<br>67.0 | 32.1<br>34.9 | 23.3<br>27.2 | | | |
+| CogVLM [77] | 45.0 | 41.5 | 39.2 | 69.6 | 41.3 | 33.4 | | | |
+| InstructBLIP-T5-XL [16] | 47.5 | 45.8 | 45.0 | 71.4 | 44.8 | 38.0 | | | |
+| BLIP-2 FLAN-T5-XL [35] | 50.0 | 48.0 | 48.2 | 76.8 | 47.2 | 38.0 | | | |
+| mPLUG-OWL2* [82] | 45.8 | 46.7 | 46.0 | 74.1 | 44.4 | 39.0 | | | |
+| SPHINX* [41] | 50.0 | 51.2 | 56.5 | 81.2 | 48.0 | 38.0 | | | |
+| Qwen-VL-7B-Chat [5] | 45.0 | 45.3 | 47.8 | 64.3 | 46.4 | 35.1 | | | |
+| Bunny-3B* [8] | 45.0 | 50.5 | 52.2 | 78.6 | 50.0 | 39.0 | | | |
+| LLaVA-1.5-13B [44] | 53.3 | 54.7 | 58.6 | 76.8 | 51.2 | 45.9 | | | |
+| InstructBLIP-T5-XXL [16] | 49.2 | 49.8 | 48.6 | 72.3 | 51.2 | 41.6 | | | |
+| BLIP-2 FLAN-T5-XXL [35] | 50.8 | 51.5 | 49.6 | 75.9 | 53.2 | 43.0 | | | |
+| Emu2-Chat* [70] | 46.7 | 50.3 | 50.4 | 78.6 | 48.4 | 41.3 | | | |
+| MiniCPM-V-2* [55]<br>MiniCPM-V* [54] | 56.7<br>58.3 | -<br>- | -<br>- | -<br>- | -<br>- | -<br>- | | | |
+| SVIT* [89] | 51.7 | 50.9 | 51.8 | 75.9 | 48.8 | 42.6 | | | |
+| InternVL-Chat-V1.1* [11] | 57.5 | 56.4 | 57.9 | 80.4 | 55.6 | 46.9 | | | |
+| InfiMM-Zephyr-7B* [73] | 59.2 | 54.6 | 55.4 | 75.9 | 54.4 | 46.2 | | | |
+| Yi-VL-6B* [84] | 53.3 | 58.5 | 59.0 | 80.4 | 55.6 | 52.5 | | | |
+| OmniLMM-12B* [58] | 62.5 | - | - | - | - | - | | | |
+| InternLM-XComposer2-VL* [17] | 62.5 | 60.7 | 66.5 | 87.5 | 56.3 | 49.2 | | | |
+| HPT Air* [28] | 59.2 | - | - | - | - | - | | | |
+| Yi-VL-34B* [84] | 62.5 | 66.5 | 69.4 | 81.2 | 65.9 | 59.0 | | | |
+| LLaVA-1.6-34B* [46] | 67.5 | 70.2 | 74.8 | 91.1 | 65.9 | 62.0 | | | |
+| InternVL-Chat-V1.2* [11] | 70.0 | 70.1 | 73.0 | 88.4 | 70.6 | 60.3 | | | |
+| VILA1.5* [39] | 73.3 | 74.0 | 79.1 | 90.2 | 73.0 | 64.3 | | | |
+| Marco-VL*<br>Reka-Edge* [62] | 65.8<br>59.2 | 66.5<br>- | 69.1<br>- | 85.7<br>- | 64.7<br>- | 58.7<br>- | | | |
+| Qwen-VL-PLUS* [64] | 65.8 | 65.5 | 69.8 | 79.5 | 63.9 | 57.7 | | | |
+| Marco-VL-Plus* | 69.2 | 72.2 | 78.1 | 87.5 | 68.7 | 64.3 | | | |
+| Adept Fuyu-Heavy* [19] | 72.2 | - | - | - | - | - | | | |
+| Reka-Flash* [62] | 74.2 | - | - | - | - | - | | | |
+| Skywork-VL* [31] | 68.3 | 71.6 | 77.7 | 90.2 | 69.8 | 60.7 | | | |
+| Qwen-VL-MAX* [65] | 69.2 | 70.4 | 75.9 | 89.3 | 62.7 | 64.9 | | | |
+| HPT Pro* [28] | 72.5 | - | - | - | - | - | | | |
+| SenseChat-Vision-0423-Preview* [68] | 75.0 | 74.7 | 78.8 | 90.2 | 72.6 | 66.9 | | | |
+| Reka-Core* [62] | 75.0 | - | - | - | - | - | | | |
+| GPT-4V(ision) (Playground) [60] | 72.5 | 76.3 | 79.1 | 89.3 | 71.4 | 73.1 | | | |
+| Gemini 1.0 Ultra* [22] | 78.3 | - | - | - | - | - | | | |
+| Large Language Models (LLMs): Only Text as Input | | | | | | | | | |
+| Llama2 7B [75] | 37.5 | 32.6 | 32.4 | 46.4 | 32.9 | 27.5 | | | |
+| FLAN-T5-XXL [14] | 42.5 | 44.8 | 46.8 | 56.2 | 39.7 | 43.0 | | | |
+| + OCR | 55.0 | 50.5 | 53.6 | 75.0 | 46.4 | 42.0 | | | |
+| + LLaVA Caption | 49.2 | 49.9 | 51.8 | 75.0 | 46.8 | 41.6 | | | |
+| Vicuna-13B [12] | 45.8 | 44.8 | 51.1 | 59.8 | 39.3 | 38.0 | | | |
+| + OCR | 50.0 | 49.3 | 58.3 | 66.1 | 48.0 | 36.1 | | | |
+| + LLaVA Caption | 48.3 | 49.4 | 53.6 | 72.3 | 48.8 | 37.7 | | | |
+| GPT-4 Text [59] | 51.7 | 53.0 | 52.9 | 82.1 | 34.5 | 57.7 | | | |
 
 Table 9. Humanities & Social Science results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
 ### <span id="page-20-2"></span><span id="page-20-1"></span><span id="page-20-0"></span>B.7. Tech & Engineering
 
-|                                                       | Val<br>Overall<br>(210) | Test<br>Overall<br>(2,784) | Agri.<br>(287) | Arch. &<br>Eng.<br>(551) | Comp.<br>Sci.<br>(371) | Electr.<br>(256) | Energy<br>&Power<br>(432) | Materials<br>(458) | Mech.<br>Eng.<br>(429) |  |  |
+| | Val<br>Overall<br>(210) | Test<br>Overall<br>(2,784) | Agri.<br>(287) | Arch. &<br>Eng.<br>(551) | Comp.<br>Sci.<br>(371) | Electr.<br>(256) | Energy<br>&Power<br>(432) | Materials<br>(458) | Mech.<br>Eng.<br>(429) | | |
 |-------------------------------------------------------|-------------------------|----------------------------|----------------|--------------------------|------------------------|------------------|---------------------------|--------------------|------------------------|--|--|
-| Random Choice                                         | 21.4                    | 24.8                       | 21.3           | 27.0                     | 22.6                   | 10.5             | 31.5                      | 24.2               | 28.7                   |  |  |
-| Frequent Choice                                       | 24.8                    | 26.5                       | 24.7           | 24.1                     | 29.6                   | 12.9             | 30.3                      | 30.3               | 28.0                   |  |  |
-| Expert (Worst)                                        | 74.3                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Expert (Medium)                                       | 79.1                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Expert (Best)                                         | 86.2                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Large Multimodal Models (LMMs): Text + Image as Input |                         |                            |                |                          |                        |                  |                           |                    |                        |  |  |
-| OpenFlamingo2-9B [4]                                  | 26.2                    | 25.1                       | 20.6           | 29.6                     | 26.1                   | 13.7             | 24.1                      | 26.0               | 28.4                   |  |  |
-| Kosmos2 [63]                                          | 26.7                    | 26.8                       | 20.6           | 28.3                     | 32.1                   | 10.2             | 29.9                      | 27.3               | 30.5                   |  |  |
-| Fuyu-8B [6]                                           | 21.4                    | 26.4                       | 26.5           | 25.0                     | 26.1                   | 12.1             | 35.0                      | 25.1               | 29.8                   |  |  |
-| MiniGPT4-Vicuna-13B [94]                              | 23.8                    | 27.2                       | 29.6           | 23.8                     | 28.8                   | 13.7             | 36.1                      | 27.3               | 27.5                   |  |  |
-| LLaMA-Adapter2-7B [88]                                | 30.0                    | 25.7                       | 23.0           | 25.2                     | 25.6                   | 17.6             | 30.3                      | 25.8               | 28.4                   |  |  |
-| Otter [34]<br>CogVLM [77]                             | 29.0<br>27.6            | 30.2<br>28.9               | 30.7<br>26.8   | 26.3<br>27.0             | 32.1<br>31.8           | 19.1<br>14.1     | 35.2<br>33.1              | 30.1<br>28.4       | 34.7<br>35.4           |  |  |
-| InstructBLIP-T5-XL [16]                               | 27.1                    | 28.6                       | 26.1           | 33.6                     | 28.3                   | 23.8             | 29.9                      | 22.9               | 31.5                   |  |  |
-| BLIP-2 FLAN-T5-XL [35]                                | 27.6                    | 27.8                       | 17.8           | 32.5                     | 26.7                   | 20.7             | 33.6                      | 24.9               | 30.8                   |  |  |
-| mPLUG-OWL2* [82]                                      | 31.0                    | 29.6                       | 32.4           | 29.4                     | 31.8                   | 14.5             | 39.4                      | 26.6               | 28.2                   |  |  |
-| SPHINX* [41]                                          | 26.2                    | 27.8                       | 31.0           | 26.1                     | 33.7                   | 16.4             | 35.2                      | 23.1               | 26.8                   |  |  |
-| Qwen-VL-7B-Chat [5]                                   | 32.9                    | 30.2                       | 33.1           | 25.0                     | 33.4                   | 19.1             | 37.0                      | 28.8               | 33.1                   |  |  |
-| Bunny-3B* [8]                                         | 37.1                    | 28.7                       | 32.1           | 26.0                     | 34.0                   | 18.8             | 33.6                      | 27.5               | 27.7                   |  |  |
-| LLaVA-1.5-13B [44]                                    | 31.4                    | 28.3                       | 34.5           | 26.1                     | 29.6                   | 22.7             | 30.1                      | 26.9               | 28.9                   |  |  |
-| InstructBLIP-T5-XXL [16]                              | 35.2                    | 29.4                       | 24.7           | 30.3                     | 29.6                   | 20.7             | 37.3                      | 26.6               | 31.5                   |  |  |
-| BLIP-2 FLAN-T5-XXL [35]                               | 30.0                    | 30.4                       | 28.2           | 27.2                     | 29.6                   | 25.0             | 35.6                      | 26.9               | 38.0                   |  |  |
-| Emu2-Chat* [70]                                       | 35.2                    | 31.3                       | 35.9           | 26.9                     | 30.7                   | 16.0             | 41.9                      | 26.2               | 38.5                   |  |  |
-| MiniCPM-V-2* [55]                                     | 27.1                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| MiniCPM-V* [54]                                       | 27.1                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| SVIT* [89]<br>InternVL-Chat-V1.1* [11]                | 33.8<br>27.1            | 30.7<br>28.0               | 29.6<br>36.9   | 27.2<br>27.2             | 34.5<br>31.5           | 21.9<br>15.2     | 37.7<br>30.6              | 27.9<br>26.0       | 34.0<br>27.0           |  |  |
-| InfiMM-Zephyr-7B* [73]                                | 29.0                    | 31.1                       | 39.0           | 28.7                     | 34.5                   | 20.3             | 31.7                      | 31.0               | 31.9                   |  |  |
-| Yi-VL-6B* [84]                                        | 35.7                    | 34.1                       | 32.4           | 29.2                     | 33.4                   | 28.9             | 35.0                      | 35.8               | 42.4                   |  |  |
-| OmniLMM-12B* [58]                                     | 31.9                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| InternLM-XComposer2-VL* [17]                          | 32.4                    | 31.8                       | 41.8           | 29.6                     | 36.4                   | 22.3             | 33.3                      | 27.7               | 32.2                   |  |  |
-| HPT Air* [28]                                         | 42.9                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Yi-VL-34B* [84]                                       | 41.0                    | 36.0                       | 39.4           | 31.6                     | 40.2                   | 28.9             | 36.8                      | 34.1               | 41.5                   |  |  |
-| LLaVA-1.6-34B* [46]                                   | 43.8                    | 36.3                       | 40.1           | 31.9                     | 43.7                   | 27.0             | 34.0                      | 34.5               | 42.7                   |  |  |
-| InternVL-Chat-V1.2* [11]                              | 46.2                    | 40.8                       | 42.9           | 32.8                     | 42.6                   | 32.4             | 45.8                      | 40.8               | 48.0                   |  |  |
-| VILA1.5* [39]                                         | 48.1                    | 39.5                       | 45.3           | 31.0                     | 46.6                   | 32.8             | 43.3                      | 38.4               | 41.7                   |  |  |
-| Marco-VL*<br>Reka-Edge* [62]                          | 32.4<br>33.8            | 33.8<br>-                  | 35.5<br>-      | 31.2<br>-                | 36.7<br>-              | 24.2<br>-        | 34.7<br>-                 | 35.4<br>-          | 36.4<br>-              |  |  |
-| Qwen-VL-PLUS* [64]                                    | 36.7                    | 32.9                       | 40.4           | 25.6                     | 36.1                   | 24.6             | 33.6                      | 34.7               | 36.8                   |  |  |
-| Marco-VL-Plus*                                        | 37.1                    | 36.7                       | 43.9           | 27.6                     | 40.2                   | 34.8             | 37.7                      | 34.3               | 43.1                   |  |  |
-| Adept Fuyu-Heavy* [19]                                | 44.0                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Reka-Flash* [62]                                      | 44.3                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Skywork-VL* [31]                                      | 46.7                    | 40.2                       | 45.3           | 31.6                     | 44.5                   | 32.4             | 42.4                      | 38.9               | 48.3                   |  |  |
-| Qwen-VL-MAX* [65]                                     | 38.6                    | 40.7                       | 45.6           | 27.6                     | 42.6                   | 35.2             | 48.1                      | 37.8               | 51.5                   |  |  |
-| HPT Pro* [28]                                         | 43.8                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| SenseChat-Vision-0423-Preview [68]                    | 43.8                    | 43.5                       | 48.8           | 31.2                     | 47.2                   | 33.2             | 51.2                      | 41.9               | 52.7                   |  |  |
-| Reka-Core* [62]                                       | 44.2                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| GPT-4V(ision) (Playground) [60]                       | 36.7                    | 41.7                       | 43.9           | 37.2                     | 57.1                   | 27.0             | 47.5                      | 36.9               | 41.0                   |  |  |
-| Gemini 1.0 Ultra* [22]                                | 47.1                    | -                          | -              | -                        | -                      | -                | -                         | -                  | -                      |  |  |
-| Large Language Models (LLMs): Only Text as Input      |                         |                            |                |                          |                        |                  |                           |                    |                        |  |  |
-| Llama2 7B [75]                                        | 31.4                    | 29.8                       | 33.1           | 23.8                     | 32.6                   | 17.6             | 39.1                      | 27.9               | 32.6                   |  |  |
-| FLAN-T5-XXL [14]                                      | 28.6                    | 28.3                       | 21.3           | 30.3                     | 28.8                   | 25.4             | 26.6                      | 27.9               | 33.8                   |  |  |
-| + OCR                                                 | 30.0                    | 29.7                       | 20.2           | 30.7                     | 31.3                   | 27.0             | 29.9                      | 29.0               | 35.9                   |  |  |
-| + LLaVA Caption                                       | 27.6                    | 28.7                       | 17.8           | 31.4                     | 26.4                   | 24.2             | 32.4                      | 26.4               | 35.7                   |  |  |
-| Vicuna-13B [12]                                       | 34.8                    | 30.1                       | 31.7           | 26.3                     | 28.8                   | 25.4             | 39.4                      | 26.4               | 32.6                   |  |  |
-| + OCR                                                 | 34.8                    | 30.0                       | 31.7           | 25.6                     | 29.9                   | 18.8             | 40.3                      | 27.5               | 33.6                   |  |  |
-| + LLaVA Caption                                       | 32.4                    | 31.4                       | 32.4           | 26.9                     | 31.8                   | 20.3             | 39.8                      | 28.8               | 37.3                   |  |  |
-| GPT-4 Text [59]                                       | 20.0                    | 28.4                       | 28.9           | 25.6                     | 33.4                   | 17.2             | 38.4                      | 23.6               | 28.9                   |  |  |
+| Random Choice | 21.4 | 24.8 | 21.3 | 27.0 | 22.6 | 10.5 | 31.5 | 24.2 | 28.7 | | |
+| Frequent Choice | 24.8 | 26.5 | 24.7 | 24.1 | 29.6 | 12.9 | 30.3 | 30.3 | 28.0 | | |
+| Expert (Worst) | 74.3 | - | - | - | - | - | - | - | - | | |
+| Expert (Medium) | 79.1 | - | - | - | - | - | - | - | - | | |
+| Expert (Best) | 86.2 | - | - | - | - | - | - | - | - | | |
+| Large Multimodal Models (LMMs): Text + Image as Input | | | | | | | | | | | |
+| OpenFlamingo2-9B [4] | 26.2 | 25.1 | 20.6 | 29.6 | 26.1 | 13.7 | 24.1 | 26.0 | 28.4 | | |
+| Kosmos2 [63] | 26.7 | 26.8 | 20.6 | 28.3 | 32.1 | 10.2 | 29.9 | 27.3 | 30.5 | | |
+| Fuyu-8B [6] | 21.4 | 26.4 | 26.5 | 25.0 | 26.1 | 12.1 | 35.0 | 25.1 | 29.8 | | |
+| MiniGPT4-Vicuna-13B [94] | 23.8 | 27.2 | 29.6 | 23.8 | 28.8 | 13.7 | 36.1 | 27.3 | 27.5 | | |
+| LLaMA-Adapter2-7B [88] | 30.0 | 25.7 | 23.0 | 25.2 | 25.6 | 17.6 | 30.3 | 25.8 | 28.4 | | |
+| Otter [34]<br>CogVLM [77] | 29.0<br>27.6 | 30.2<br>28.9 | 30.7<br>26.8 | 26.3<br>27.0 | 32.1<br>31.8 | 19.1<br>14.1 | 35.2<br>33.1 | 30.1<br>28.4 | 34.7<br>35.4 | | |
+| InstructBLIP-T5-XL [16] | 27.1 | 28.6 | 26.1 | 33.6 | 28.3 | 23.8 | 29.9 | 22.9 | 31.5 | | |
+| BLIP-2 FLAN-T5-XL [35] | 27.6 | 27.8 | 17.8 | 32.5 | 26.7 | 20.7 | 33.6 | 24.9 | 30.8 | | |
+| mPLUG-OWL2* [82] | 31.0 | 29.6 | 32.4 | 29.4 | 31.8 | 14.5 | 39.4 | 26.6 | 28.2 | | |
+| SPHINX* [41] | 26.2 | 27.8 | 31.0 | 26.1 | 33.7 | 16.4 | 35.2 | 23.1 | 26.8 | | |
+| Qwen-VL-7B-Chat [5] | 32.9 | 30.2 | 33.1 | 25.0 | 33.4 | 19.1 | 37.0 | 28.8 | 33.1 | | |
+| Bunny-3B* [8] | 37.1 | 28.7 | 32.1 | 26.0 | 34.0 | 18.8 | 33.6 | 27.5 | 27.7 | | |
+| LLaVA-1.5-13B [44] | 31.4 | 28.3 | 34.5 | 26.1 | 29.6 | 22.7 | 30.1 | 26.9 | 28.9 | | |
+| InstructBLIP-T5-XXL [16] | 35.2 | 29.4 | 24.7 | 30.3 | 29.6 | 20.7 | 37.3 | 26.6 | 31.5 | | |
+| BLIP-2 FLAN-T5-XXL [35] | 30.0 | 30.4 | 28.2 | 27.2 | 29.6 | 25.0 | 35.6 | 26.9 | 38.0 | | |
+| Emu2-Chat* [70] | 35.2 | 31.3 | 35.9 | 26.9 | 30.7 | 16.0 | 41.9 | 26.2 | 38.5 | | |
+| MiniCPM-V-2* [55] | 27.1 | - | - | - | - | - | - | - | - | | |
+| MiniCPM-V* [54] | 27.1 | - | - | - | - | - | - | - | - | | |
+| SVIT* [89]<br>InternVL-Chat-V1.1* [11] | 33.8<br>27.1 | 30.7<br>28.0 | 29.6<br>36.9 | 27.2<br>27.2 | 34.5<br>31.5 | 21.9<br>15.2 | 37.7<br>30.6 | 27.9<br>26.0 | 34.0<br>27.0 | | |
+| InfiMM-Zephyr-7B* [73] | 29.0 | 31.1 | 39.0 | 28.7 | 34.5 | 20.3 | 31.7 | 31.0 | 31.9 | | |
+| Yi-VL-6B* [84] | 35.7 | 34.1 | 32.4 | 29.2 | 33.4 | 28.9 | 35.0 | 35.8 | 42.4 | | |
+| OmniLMM-12B* [58] | 31.9 | - | - | - | - | - | - | - | - | | |
+| InternLM-XComposer2-VL* [17] | 32.4 | 31.8 | 41.8 | 29.6 | 36.4 | 22.3 | 33.3 | 27.7 | 32.2 | | |
+| HPT Air* [28] | 42.9 | - | - | - | - | - | - | - | - | | |
+| Yi-VL-34B* [84] | 41.0 | 36.0 | 39.4 | 31.6 | 40.2 | 28.9 | 36.8 | 34.1 | 41.5 | | |
+| LLaVA-1.6-34B* [46] | 43.8 | 36.3 | 40.1 | 31.9 | 43.7 | 27.0 | 34.0 | 34.5 | 42.7 | | |
+| InternVL-Chat-V1.2* [11] | 46.2 | 40.8 | 42.9 | 32.8 | 42.6 | 32.4 | 45.8 | 40.8 | 48.0 | | |
+| VILA1.5* [39] | 48.1 | 39.5 | 45.3 | 31.0 | 46.6 | 32.8 | 43.3 | 38.4 | 41.7 | | |
+| Marco-VL*<br>Reka-Edge* [62] | 32.4<br>33.8 | 33.8<br>- | 35.5<br>- | 31.2<br>- | 36.7<br>- | 24.2<br>- | 34.7<br>- | 35.4<br>- | 36.4<br>- | | |
+| Qwen-VL-PLUS* [64] | 36.7 | 32.9 | 40.4 | 25.6 | 36.1 | 24.6 | 33.6 | 34.7 | 36.8 | | |
+| Marco-VL-Plus* | 37.1 | 36.7 | 43.9 | 27.6 | 40.2 | 34.8 | 37.7 | 34.3 | 43.1 | | |
+| Adept Fuyu-Heavy* [19] | 44.0 | - | - | - | - | - | - | - | - | | |
+| Reka-Flash* [62] | 44.3 | - | - | - | - | - | - | - | - | | |
+| Skywork-VL* [31] | 46.7 | 40.2 | 45.3 | 31.6 | 44.5 | 32.4 | 42.4 | 38.9 | 48.3 | | |
+| Qwen-VL-MAX* [65] | 38.6 | 40.7 | 45.6 | 27.6 | 42.6 | 35.2 | 48.1 | 37.8 | 51.5 | | |
+| HPT Pro* [28] | 43.8 | - | - | - | - | - | - | - | - | | |
+| SenseChat-Vision-0423-Preview [68] | 43.8 | 43.5 | 48.8 | 31.2 | 47.2 | 33.2 | 51.2 | 41.9 | 52.7 | | |
+| Reka-Core* [62] | 44.2 | - | - | - | - | - | - | - | - | | |
+| GPT-4V(ision) (Playground) [60] | 36.7 | 41.7 | 43.9 | 37.2 | 57.1 | 27.0 | 47.5 | 36.9 | 41.0 | | |
+| Gemini 1.0 Ultra* [22] | 47.1 | - | - | - | - | - | - | - | - | | |
+| Large Language Models (LLMs): Only Text as Input | | | | | | | | | | | |
+| Llama2 7B [75] | 31.4 | 29.8 | 33.1 | 23.8 | 32.6 | 17.6 | 39.1 | 27.9 | 32.6 | | |
+| FLAN-T5-XXL [14] | 28.6 | 28.3 | 21.3 | 30.3 | 28.8 | 25.4 | 26.6 | 27.9 | 33.8 | | |
+| + OCR | 30.0 | 29.7 | 20.2 | 30.7 | 31.3 | 27.0 | 29.9 | 29.0 | 35.9 | | |
+| + LLaVA Caption | 27.6 | 28.7 | 17.8 | 31.4 | 26.4 | 24.2 | 32.4 | 26.4 | 35.7 | | |
+| Vicuna-13B [12] | 34.8 | 30.1 | 31.7 | 26.3 | 28.8 | 25.4 | 39.4 | 26.4 | 32.6 | | |
+| + OCR | 34.8 | 30.0 | 31.7 | 25.6 | 29.9 | 18.8 | 40.3 | 27.5 | 33.6 | | |
+| + LLaVA Caption | 32.4 | 31.4 | 32.4 | 26.9 | 31.8 | 20.3 | 39.8 | 28.8 | 37.3 | | |
+| GPT-4 Text [59] | 20.0 | 28.4 | 28.9 | 25.6 | 33.4 | 17.2 | 38.4 | 23.6 | 28.9 | | |
 
 Table 10. Tech & Engineering results of different models on the MMMU validation and test set. The best-performing model in each category is in-bold, and the second best is underlined. \*: results provided by the authors.
 
@@ -897,138 +895,136 @@ Table 10. Tech & Engineering results of different models on the MMMU validation 
 
 ### <span id="page-21-1"></span>List of Case Study Figures
 
-| 8 | Art 1: Correct Case<br>.                               | 25 |
+| 8 | Art 1: Correct Case<br>. | 25 |
 |---|--------------------------------------------------------|----|
-| 9 | Art 2: Correct Case<br>.                               | 26 |
-|   | 10 Art 3: Perceptual Error<br>.                        | 27 |
-|   | 11 Art Theory 1: Correct Case                          | 28 |
-|   | 12 Art Theory 2: Correct Case                          | 29 |
-|   | 13 Art Theory 3: Lack of Knowledge<br>.                | 30 |
-|   | 14 Design 1: Correct Case<br>.                         | 31 |
-|   | 15 Design 2: Perceptual Error<br>.                     | 32 |
-|   | 16 Design 3: Lack of Knowledge<br>.                    | 33 |
-|   | 17 Music 1: Correct Case<br>.                          | 34 |
-|   | 18 Music 2: Perceptual Error, Lack of Knowledge<br>.   | 35 |
-|   | 19 Music 3: Perceptual Error                           | 36 |
-|   | 20 Accounting 1: Correct Case                          | 37 |
-|   | 21 Accounting 2: Perceptual Error                      | 38 |
-|   | 22 Economics 1: Correct Case                           | 39 |
-|   | 23 Economics 2: Perceptual Error<br>.                  | 40 |
-|   | 24 Economics 3: Perceptual Error<br>.                  | 41 |
-|   |                                                        |    |
-|   | 25 Finance 1: Correct Case                             | 42 |
-|   | 26 Finance 2: Reasoning Error                          | 43 |
-|   | 27 Manage 1: Correct Case<br>.                         | 44 |
-|   | 28 Manage 2: Perceptual Error                          | 45 |
-|   | 29 Marketing 1: Correct Case<br>.                      | 46 |
-|   | 30 Marketing 2: Perceptual Error<br>.                  | 47 |
-|   | 31 Biology 1: Correct Case<br>.                        | 48 |
-|   | 32 Biology 2: Reasoning Error                          | 49 |
-|   | 33 Biology 3: Reasoning Error                          | 50 |
-|   | 34 Biology 4: Reasoning Error                          | 51 |
-|   | 35 Chemistry 1: Correct Case<br>.                      | 52 |
-|   | 36 Chemistry 2: Correct Case<br>.                      | 53 |
-|   | 37 Chemistry 3: Perceptual Error, Reasoning Error<br>. | 54 |
-|   | 38 Chemistry 4: Lack of Knowledge                      | 55 |
-|   | 39 Geography 1: Correct Case                           | 56 |
-|   | 40 Geography 2: Reasoning Error<br>.                   | 57 |
-|   | 41 Geography 3: Perceptual Error, Reasoning Error      | 58 |
-|   | 42 Math 1: Correct Case                                | 59 |
-|   | 43 Math 2: Perceptual Error<br>.                       | 60 |
-|   | 44 Math 3: Textual Understanding Error                 | 61 |
-|   | 45 Math 4: Reasoning Error<br>.                        | 62 |
-|   | 46 Physics 1: Correct Case                             | 63 |
-|   | 47 Physics 2: Perceptual Error                         | 64 |
-|   | 48 Basic Medical Science 1: Correct Case               | 65 |
-|   | 49 Basic Medical Science 2: Perceptual Error           | 66 |
-|   | 50 Clinical Medicine 1: Correct Case<br>.              | 67 |
-|   | 51 Clinical Medicine 2: Correct Case<br>.              | 68 |
-|   | 52 Clinical Medicine 3: Correct Case<br>.              | 69 |
-|   | 53 Clinical Medicine 4: Perceptual Error<br>.          | 70 |
-|   | 54 Clinical Medicine 5: Lack of Knowledge              | 71 |
-|   | 55 Diagnostics and Lab Medicine 1: Correct Case<br>.   | 72 |
-|   | 56 Diagnostics and Lab Medicine 2: Perceptual Error    | 73 |
+| 9 | Art 2: Correct Case<br>. | 26 |
+| | 10 Art 3: Perceptual Error<br>. | 27 |
+| | 11 Art Theory 1: Correct Case | 28 |
+| | 12 Art Theory 2: Correct Case | 29 |
+| | 13 Art Theory 3: Lack of Knowledge<br>. | 30 |
+| | 14 Design 1: Correct Case<br>. | 31 |
+| | 15 Design 2: Perceptual Error<br>. | 32 |
+| | 16 Design 3: Lack of Knowledge<br>. | 33 |
+| | 17 Music 1: Correct Case<br>. | 34 |
+| | 18 Music 2: Perceptual Error, Lack of Knowledge<br>. | 35 |
+| | 19 Music 3: Perceptual Error | 36 |
+| | 20 Accounting 1: Correct Case | 37 |
+| | 21 Accounting 2: Perceptual Error | 38 |
+| | 22 Economics 1: Correct Case | 39 |
+| | 23 Economics 2: Perceptual Error<br>. | 40 |
+| | 24 Economics 3: Perceptual Error<br>. | 41 |
+| | | |
+| | 25 Finance 1: Correct Case | 42 |
+| | 26 Finance 2: Reasoning Error | 43 |
+| | 27 Manage 1: Correct Case<br>. | 44 |
+| | 28 Manage 2: Perceptual Error | 45 |
+| | 29 Marketing 1: Correct Case<br>. | 46 |
+| | 30 Marketing 2: Perceptual Error<br>. | 47 |
+| | 31 Biology 1: Correct Case<br>. | 48 |
+| | 32 Biology 2: Reasoning Error | 49 |
+| | 33 Biology 3: Reasoning Error | 50 |
+| | 34 Biology 4: Reasoning Error | 51 |
+| | 35 Chemistry 1: Correct Case<br>. | 52 |
+| | 36 Chemistry 2: Correct Case<br>. | 53 |
+| | 37 Chemistry 3: Perceptual Error, Reasoning Error<br>. | 54 |
+| | 38 Chemistry 4: Lack of Knowledge | 55 |
+| | 39 Geography 1: Correct Case | 56 |
+| | 40 Geography 2: Reasoning Error<br>. | 57 |
+| | 41 Geography 3: Perceptual Error, Reasoning Error | 58 |
+| | 42 Math 1: Correct Case | 59 |
+| | 43 Math 2: Perceptual Error<br>. | 60 |
+| | 44 Math 3: Textual Understanding Error | 61 |
+| | 45 Math 4: Reasoning Error<br>. | 62 |
+| | 46 Physics 1: Correct Case | 63 |
+| | 47 Physics 2: Perceptual Error | 64 |
+| | 48 Basic Medical Science 1: Correct Case | 65 |
+| | 49 Basic Medical Science 2: Perceptual Error | 66 |
+| | 50 Clinical Medicine 1: Correct Case<br>. | 67 |
+| | 51 Clinical Medicine 2: Correct Case<br>. | 68 |
+| | 52 Clinical Medicine 3: Correct Case<br>. | 69 |
+| | 53 Clinical Medicine 4: Perceptual Error<br>. | 70 |
+| | 54 Clinical Medicine 5: Lack of Knowledge | 71 |
+| | 55 Diagnostics and Lab Medicine 1: Correct Case<br>. | 72 |
+| | 56 Diagnostics and Lab Medicine 2: Perceptual Error | 73 |
 
-| 57 Diagnostics and Lab Medicine 3: Reject to Answer<br>.                    |  | 74 |
+| 57 Diagnostics and Lab Medicine 3: Reject to Answer<br>. | | 74 |
 |-----------------------------------------------------------------------------|--|----|
-| 58 Diagnostics and Lab Medicine 4: Perceptual Error, Lack of Knowledge<br>. |  | 75 |
-| 59 Pharmacy 1: Correct Case<br>.                                            |  | 76 |
-| 60 Pharmacy 2: Lack of Knowledge                                            |  | 77 |
-| 61 Pharmacy 3: Lack of Knowledge                                            |  | 78 |
-| 62 Public Health 1: Correct Case<br>.                                       |  | 79 |
-| 63 Public Health 2: Textual Understanding Error<br>.                        |  | 80 |
-| 64 Public Health 3: Lack of Knowledge                                       |  | 81 |
-| 65 History 1: Correct Case                                                  |  | 82 |
-| 66 History 2: Correct Case                                                  |  | 83 |
-| 67 History 3: Perceptual Error                                              |  | 84 |
-| 68 History 4: Lack of Knowledge<br>.                                        |  | 85 |
-| 69 Literature 1: Correct Case                                               |  | 86 |
-| 70 Literature 2: Perceptual Error                                           |  | 87 |
-| 71 Sociology 1: Correct Case<br>.                                           |  | 88 |
-| 72 Sociology 2: Reasoning Error                                             |  | 89 |
-| 73 Psychology 1: Correct Case                                               |  | 90 |
-| 74 Psychology 2: Perceptual Error                                           |  | 91 |
-| 75 Agriculture 1: Correct Case                                              |  | 92 |
-| 76 Agriculture 2: Perceptual Error                                          |  | 93 |
-| 77 Agriculture 3: Perceptual Error                                          |  | 94 |
-| 78 Agriculture 4: Perceptual Error                                          |  | 95 |
-| 79 Architecture and Engineering 1: Correct Case<br>.                        |  | 96 |
-| 80 Architecture and Engineering 2: Correct Case<br>.                        |  | 97 |
-| 81 Architecture and Engineering 3: Reasoning Error<br>.                     |  | 98 |
-| 82 Computer Science 1: Correct Case                                         |  | 99 |
-| 83 Computer Science 2: Perceptual Error, Lack of Knowledge 100              |  |    |
-| 84 Computer Science 3: Perceptual Error<br>. 101                            |  |    |
-| 85 Computer Science 4: Perceptual Error<br>. 102                            |  |    |
-| 86 Electronics 1: Correct Case 103                                          |  |    |
-| 87 Electronics 2: Reject to Answer<br>. 104                                 |  |    |
-| 88 Energy and Power 1: Correct Case<br>. 105                                |  |    |
-| 89 Energy and Power 2: Reasoning Error<br>. 106                             |  |    |
-| 90 Materials 1: Correct Case 107                                            |  |    |
-| 91 Materials 2: Lack of Knowledge<br>. 108                                  |  |    |
-| 92 Mechanical Engineering 1: Correct Case 109                               |  |    |
-| 93 Mechanical Engineering 2: Reasoning Error 110                            |  |    |
-| 94 Mechanical Engineering 3: Reasoning Error 111                            |  |    |
+| 58 Diagnostics and Lab Medicine 4: Perceptual Error, Lack of Knowledge<br>. | | 75 |
+| 59 Pharmacy 1: Correct Case<br>. | | 76 |
+| 60 Pharmacy 2: Lack of Knowledge | | 77 |
+| 61 Pharmacy 3: Lack of Knowledge | | 78 |
+| 62 Public Health 1: Correct Case<br>. | | 79 |
+| 63 Public Health 2: Textual Understanding Error<br>. | | 80 |
+| 64 Public Health 3: Lack of Knowledge | | 81 |
+| 65 History 1: Correct Case | | 82 |
+| 66 History 2: Correct Case | | 83 |
+| 67 History 3: Perceptual Error | | 84 |
+| 68 History 4: Lack of Knowledge<br>. | | 85 |
+| 69 Literature 1: Correct Case | | 86 |
+| 70 Literature 2: Perceptual Error | | 87 |
+| 71 Sociology 1: Correct Case<br>. | | 88 |
+| 72 Sociology 2: Reasoning Error | | 89 |
+| 73 Psychology 1: Correct Case | | 90 |
+| 74 Psychology 2: Perceptual Error | | 91 |
+| 75 Agriculture 1: Correct Case | | 92 |
+| 76 Agriculture 2: Perceptual Error | | 93 |
+| 77 Agriculture 3: Perceptual Error | | 94 |
+| 78 Agriculture 4: Perceptual Error | | 95 |
+| 79 Architecture and Engineering 1: Correct Case<br>. | | 96 |
+| 80 Architecture and Engineering 2: Correct Case<br>. | | 97 |
+| 81 Architecture and Engineering 3: Reasoning Error<br>. | | 98 |
+| 82 Computer Science 1: Correct Case | | 99 |
+| 83 Computer Science 2: Perceptual Error, Lack of Knowledge 100 | | |
+| 84 Computer Science 3: Perceptual Error<br>. 101 | | |
+| 85 Computer Science 4: Perceptual Error<br>. 102 | | |
+| 86 Electronics 1: Correct Case 103 | | |
+| 87 Electronics 2: Reject to Answer<br>. 104 | | |
+| 88 Energy and Power 1: Correct Case<br>. 105 | | |
+| 89 Energy and Power 2: Reasoning Error<br>. 106 | | |
+| 90 Materials 1: Correct Case 107 | | |
+| 91 Materials 2: Lack of Knowledge<br>. 108 | | |
+| 92 Mechanical Engineering 1: Correct Case 109 | | |
+| 93 Mechanical Engineering 2: Reasoning Error 110 | | |
+| 94 Mechanical Engineering 3: Reasoning Error 111 | | |
 
-<span id="page-23-0"></span>
 
-| Subject                             | Correct Case | Perception | Lack of Knowledge | Reasoning | Other |
+| Subject | Correct Case | Perception | Lack of Knowledge | Reasoning | Other |
 |-------------------------------------|--------------|------------|-------------------|-----------|-------|
-| Art                                 | 8, 9         | 10         |                   |           |       |
-| Art Theory                          | 11, 12       |            | 13                |           |       |
-| Design                              | 14           | 15         | 16                |           |       |
-| Music                               | 17           | 18, 19     | 18                |           |       |
-| Accounting                          | 20           | 21         |                   |           |       |
-| Economics                           | 22           | 23, 24     |                   |           |       |
-| Finance                             | 25           |            |                   | 26        |       |
-| Manage                              | 27           | 28         |                   |           |       |
-| Marketing                           | 29           | 30         |                   |           |       |
-| Biology                             | 31           |            |                   | 32, 33    |       |
-| Chemistry                           | 35, 36       | 37         | 38                | 37        |       |
-| Geography                           | 39           | 41         |                   | 40, 41    |       |
-| Math                                | 42           | 43         |                   | 45        | 44    |
-| Physics                             | 46           | 47         |                   |           |       |
-| Basic Medical Science               | 48           | 49         |                   |           |       |
-| Clinical Medicine                   | 50, 51, 52   | 53         | 54                |           |       |
-| Diagnostics and Laboratory Medicine | 55           | 56, 58     | 58                |           | 57    |
-| Pharmacy                            | 59           |            | 60, 61            |           |       |
-| Public Health                       | 62           |            | 64                |           | 63    |
-| History                             | 65, 66       | 67         | 68                |           |       |
-| Literature                          | 69           | 70         |                   |           |       |
-| Sociology                           | 71           |            |                   | 72        |       |
-| Psychology                          | 73           | 74         |                   |           |       |
-| Agriculture                         | 75           | 76, 77,78  |                   |           |       |
-| Architecture and Engineering        | 79           |            |                   | 80        |       |
-| Computer Science                    | 82           | 83, 84, 85 | 83                |           |       |
-| Electronics                         | 86           |            |                   |           | 87    |
-| Energy and Power                    | 88           |            |                   | 89        |       |
-| Materials                           | 90           |            | 91                |           |       |
-| Mechanical Engineering              | 92           |            |                   | 93, 94    |       |
+| Art | 8, 9 | 10 | | | |
+| Art Theory | 11, 12 | | 13 | | |
+| Design | 14 | 15 | 16 | | |
+| Music | 17 | 18, 19 | 18 | | |
+| Accounting | 20 | 21 | | | |
+| Economics | 22 | 23, 24 | | | |
+| Finance | 25 | | | 26 | |
+| Manage | 27 | 28 | | | |
+| Marketing | 29 | 30 | | | |
+| Biology | 31 | | | 32, 33 | |
+| Chemistry | 35, 36 | 37 | 38 | 37 | |
+| Geography | 39 | 41 | | 40, 41 | |
+| Math | 42 | 43 | | 45 | 44 |
+| Physics | 46 | 47 | | | |
+| Basic Medical Science | 48 | 49 | | | |
+| Clinical Medicine | 50, 51, 52 | 53 | 54 | | |
+| Diagnostics and Laboratory Medicine | 55 | 56, 58 | 58 | | 57 |
+| Pharmacy | 59 | | 60, 61 | | |
+| Public Health | 62 | | 64 | | 63 |
+| History | 65, 66 | 67 | 68 | | |
+| Literature | 69 | 70 | | | |
+| Sociology | 71 | | | 72 | |
+| Psychology | 73 | 74 | | | |
+| Agriculture | 75 | 76, 77,78 | | | |
+| Architecture and Engineering | 79 | | | 80 | |
+| Computer Science | 82 | 83, 84, 85 | 83 | | |
+| Electronics | 86 | | | | 87 |
+| Energy and Power | 88 | | | 89 | |
+| Materials | 90 | | 91 | | |
+| Mechanical Engineering | 92 | | | 93, 94 | |
 
 Table 11. Table index of case study figures by subjects with associated (error) categories.
 
-<span id="page-24-0"></span>
 
-# Art: Visual Arts
+## Art: Visual Arts
 
 **Question:**The artist's use of color and neutral tones helps convey primarily which of the following themes? <image 1>
 **Option:**(A) the inequities of societies
@@ -1046,16 +1042,16 @@ Table 11. Table index of case study figures by subjects with associated (error) 
 **GPT-4V:**The artist's use of color and neutral tones in this picture, along with the chosen imagery, helps convey the theme of "the inequities of societies" (A). The contrast between the small child laboring to pull the rickshaw and the larger, relaxed adults taking a selfie is a stark commentary on social and economic disparities. The neutral background emphasizes the subjects, drawing the viewer's attention to the inequality presented within the scene.
 
 ## Ground Truth: (A) the inequities of societies
+
 **Explanation:**The work depicts a small boy pulling a rickshaw in which two adults are seated. The boy, the rickshaw, and the background are all depicted with shades of gray and black. By contrast, the couple in the rickshaw is depicted in full color. Even without this use of color, the work would convey a theme of inequity because a little boy is pulling two adults, who seem to represent Western culture. The color contrast underscores the theme because one culture is depicted as bright, happy, and colorful, while the other is depicted as small and drab.
 
 > Figure 8. A sample correct case of Art (subfield: Visual Arts). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-25-0"></span>
 **Ground Truth: (C) Photo 3**Figure 9. A sample correct case of Art (subfield: Photography). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-26-0"></span>
 
-# Art: Fine Arts
+## Art: Fine Arts
+
 **Question:**A main function of castles was to provide a defense against invaders. This was achieved by several devices, including water-filled moats and barbicans, high stone walls surrounding the castle. Another such device was battlements (or crenellations). These were alternating sections of wall, called merlons, and openings, called embrasures. The embrasures were used for firing arrows. They also permitted boulders to be dropped on attackers attempting to scale the castle walls. If you were going to write an alternate caption for <image 1>, you might note that this castle was equipped with
 
 ## Option:
@@ -1072,9 +1068,11 @@ Table 11. Table index of case study figures by subjects with associated (error) 
 **GPT-4V:**The correct alternate caption for the image based on the provided information would be: (C) a moat and crenellations.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V fails to interpret the image. Based on the image and the explanation, the analysis should be 'we cannot actually see if there is a moat or not'. However, GPT-4V incorrectly thinks there's a moat and gives a wrong answer.
 
 ### Ground Truth: (D) a barbican and battlements.
+
 **Explanation:**We can see that the castle has outer walls with battlements on top, but we cannot actually see if there is a moat or not.
 
 Figure 10. A sample error case of Art (subfield: Fine Arts). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
@@ -1084,9 +1082,9 @@ Figure 10. A sample error case of Art (subfield: Fine Arts). Error category: Per
 
 Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-28-0"></span>
 
-# Art Theory: Art Criticism
+## Art Theory: Art Criticism
+
 **Question:**What is NOT exhibited in the painting? <image 1>**Option:**(A) hierarchical scale
 
 (B) graphic representation of horror and despair
@@ -1111,7 +1109,7 @@ Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to
 
 Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Art Theory: Art History
+## Art Theory: Art History
 
 <span id="page-29-0"></span>**Question:**The original placement of this painting was**Option:**- (A) in the Prado Museum in Madrid, showing a willingness to be compared to great Spanish painters of the past
 - (B) in the cathedral in Madrid, indicating a desire to find acceptance with the Catholic Church
@@ -1129,9 +1127,9 @@ Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back 
 **Error Reason:**GPT-4V successfully recognizes that the painting is Las Meninas (1656), painted by Velazquez, showcasing its perceptual ability. However, it does not know the fact that the work was placed in the study of King Philip IV. GPT-4V suggests that the painting was placed in Prado Museum in Madrid, and even provides a reason to support this answer, which is the willingness to be compared to great Spanish painters in the past. This shows some reasoning ability. However, the original placement is a piece of factual knowledge; the reasoning was based on incorrect knowledge and it led to a wrong answer. This behavior illustrates that GPT-4V lacks specific art knowledge.
 **Ground Truth: (C) in the study of King Philip IV, challenging him to consider the multitude of interpretations the painting represents**Figure 13. A sample error case of Art Theory (subfield: Art History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-30-0"></span>
 
-# Design : Industrial Design
+## Design : Industrial Design
+
 **Question:**In the Robie House Dining room, what design elements were used to create a 'room within a room' vibe? <image 1>
 **Option:**(A) Tall backs of chairs and lamps at the corners of dining tables
 
@@ -1150,7 +1148,7 @@ Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back 
 
 Figure 14. A sample correct case of Design (subfield: Industrial Design). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Design: Design History
+## Design: Design History
 
 <span id="page-31-0"></span>**Question:**The painting <image 1> reflects contemporary culture primarily through the mapping of**Option:**(A) consumerism and national identities
 
@@ -1167,16 +1165,17 @@ Figure 14. A sample correct case of Design (subfield: Industrial Design). [Back 
 **GPT-4V:**The painting (<image 1>) appears to be a complex and abstract representation with various lines, patterns, and colors. Based on the visual elements in the painting:(D) information systems on the Internetseems to be the most fitting description. The interconnected lines and vibrant, diverse patterns might suggest the vastness and complexity of information systems on the Internet. However, art interpretation can be subjective, and different viewers may see different meanings in the same piece.
 
 ## Error Category: Perceptual Error
+
 **Error Reason:**The model failed to recognize and interpret the symbolic elements of national flags present in the image, which are key indicators of 'consumerism and national identities', leading to an incorrect answer.
 
 ### Ground Truth: (D) information systems on the Internet
+
 **Explanation:**The painting reflects contemporary culture's consumerism and national identities through its visual elements that evoke the commercial marketplace and specific country symbols. Bright colors and recognizable patterns may suggest mass-produced goods and advertising, a common commentary on consumer culture in contemporary art. Additionally, abstract representations of flags, national colors, or iconic images could signify different countries' identities, illustrating the global interconnectedness of consumerism where products and brands cross borders and adapt to local cultures. The painting's complexity and layering mirror the saturated, interconnected nature of our globalized world, where the flow of consumer goods and cultural symbols creates a vibrant, dynamic map of modern life.
 
 Figure 15. A sample error case of Design (subfield: Design History). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Design: Design History
+## Design: Design History
 
-<span id="page-32-0"></span>
 **Question:**The double-tiered columns allowed for all of the following EXCEPT (<image 1>)**Option:**(A) barrel-vaulted roofing
 
 (B) decorative rhythm and repetition
@@ -1191,9 +1190,11 @@ Figure 15. A sample error case of Design (subfield: Design History). Error categ
 **GPT-4V:**The double-tiered columns in the image provided would allow for: (A) barrel-vaulted roofing (B) decorative rhythm and repetition (C) a higher roof to make up for the short columns. However, the double-tiered columns would not directly affect: (D) the entrance of light and air into the hall. So the correct answer is (D) the entrance of light and air into the hall.
 
 ## Error Category: Lack of Knowledge
+
 **Error Reason:**The error reason is a lack of specific subject knowledge: the incorrect response suggests that double-tiered columns would not affect the entrance of light and air, which is not necessarily true. Architecturally, double-tiered columns do not prevent light and air from entering; such features are more influenced by the building's windows and overall design rather than the column structure itself. The correct answer should be that double-tiered columns would not allow for barrel-vaulted roofing, as the Mezquita features flat ceilings above the arches.
 
 ### Ground Truth: (A) barrel-vaulted roofing
+
 **Explanation**: The double-tiered columns depicted in the image, characteristic of Islamic architecture like that found in the Mosque-Cathedral of Córdoba, are not designed to support a barrel-vaulted roof; instead, they serve other purposes. These arches create a visually striking pattern of rhythm and repetition, elevate the roofline by stacking arches, which compensates for the shorter columns, and contribute to the structure's stability. However, they are not related to the entrance of light and air, which is typically managed by windows, nor are they structurally supportive of a barrelvaulted roof, as their design and construction cater to a flat roofing system. Hence, the correct answer is "barrel-vaulted roofing," as it is the element not facilitated by the double-tiered columns.
 
 Figure 16. A sample error case of Design (subfield: Design History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
@@ -1204,38 +1205,39 @@ Figure 16. A sample error case of Design (subfield: Design History). Error categ
 **Ground Truth: (A) <image 1>**![](_page_33_Figure_2.jpeg)
 <!-- Image Description: Figure 17 is a caption describing a missing image, likely a diagram or illustration, showcasing a "sample correct case of Music" within a specific subfield. The caption lacks the visual itself but provides navigation links to a list of figures and a table index within the paper. The image's purpose is to exemplify a correct data entry or structure related to the topic of music. -->
 
-<span id="page-34-0"></span>
 
-| Music : Music                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |  |
+| Music : Music | |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| Question: Choose the name for the following interval. <image 1=""/><br>Option:<br>(A) Perfect 6th<br>(B) Compound perfect 4th<br>(C) Major 6th<br>(D) Minor 6th<br><image 1=""/><br>GPT-4V:<br>The interval shown in the image is a "major 6th." It spans from the first note, F, to the<br>second note, D. In a standard diatonic scale, the interval from F to D is a sixth, and since the key<br>signature does not indicate any flats or sharps that would alter the D, it remains a major sixth. The<br>options "perfect 6th" and "compound perfect 4th" do not exist in music theory as "perfect" is used<br>for unison, 4th, 5th, and octave intervals. A "minor 6th" would require the D to be flattened, which |  |
-| is not the case here.<br>Error Category: Perceptual Error, Lack of knowledge<br>Error Reason: The model immediately recognized it as a 6th interval, but got confused whether it's<br>a major 6th or a minor 6th. A closer look at the response reveals that the model failed to recognize<br>the starting and ending notes of the interval. The first note is actually G, but the model mistook it<br>for the adjacent not F. The second note is Eb, and the model might have simply deduced that it was<br>D based on the assumption of major 6th + F. Additionally, the model's mistaken identification of a<br>compound perfect 4th indicates a lack of subject knowledge.                                          |  |
+| Question: Choose the name for the following interval. <image 1=""/><br>Option:<br>(A) Perfect 6th<br>(B) Compound perfect 4th<br>(C) Major 6th<br>(D) Minor 6th<br><image 1=""/><br>GPT-4V:<br>The interval shown in the image is a "major 6th." It spans from the first note, F, to the<br>second note, D. In a standard diatonic scale, the interval from F to D is a sixth, and since the key<br>signature does not indicate any flats or sharps that would alter the D, it remains a major sixth. The<br>options "perfect 6th" and "compound perfect 4th" do not exist in music theory as "perfect" is used<br>for unison, 4th, 5th, and octave intervals. A "minor 6th" would require the D to be flattened, which | |
+| is not the case here.<br>Error Category: Perceptual Error, Lack of knowledge<br>Error Reason: The model immediately recognized it as a 6th interval, but got confused whether it's<br>a major 6th or a minor 6th. A closer look at the response reveals that the model failed to recognize<br>the starting and ending notes of the interval. The first note is actually G, but the model mistook it<br>for the adjacent not F. The second note is Eb, and the model might have simply deduced that it was<br>D based on the assumption of major 6th + F. Additionally, the model's mistaken identification of a<br>compound perfect 4th indicates a lack of subject knowledge. | |
 **Ground Truth: (D) Minor 6th**Figure 18. A sample error case of Music (subfield: Music). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-35-0"></span>![](_page_35_Figure_0.jpeg)
 <!-- Image Description: The image is a musical score excerpt, posing a question about identifying bars containing a compound minor 3rd melodic interval in the right-hand part from bar 13 onwards. The question's options provide bar numbers (14 & 15, 17, 18, 28 & 29) as possible answers. The score is presented to visually support the question, allowing identification of the correct answer through musical analysis. -->
 
-#### <image 1>
+### <image 1>
+
 **GPT-4V:**In response to your inquiry, I examined the provided image for the presence of a compound minor third interval in the right-hand part starting from bar 13. A compound minor third, or a tenth, combines an octave (twelve semitones) with a minor third (three semitones), totaling fifteen semitones. Upon inspection, I found that bar 17 doesn't have this interval in the right-hand part. Bars 14 and 15 do contain intervals, but I'm uncertain if any are a compound minor third. I can't confirm the presence of this interval in bars 28 and 29, as they're not visible in the image. Bar 18 also requires checking for this interval. Unfortunately, I can't process the image visually to provide the exact bar number of the specified interval.
 
-#### Error Category: Perceptual Error
+### Error Category: Perceptual Error
+
 **Error Reason:**Surprisingly, the model fails to find the corresponding bar number based on the relative location of labeled bars. This is a simple visual inference task for humans.
 **Ground Truth: (A) 28 and 29**Figure 19. A sample error case of Music (subfield: Music). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-36-0"></span>
 
-# Accounting : Investment
+## Accounting : Investment
+
 **Question:**Consider the three stocks in the following table. Pt represents price at time t, and Qt represents shares outstanding at time t. Stock C splits two for one in the last period. Calculate the rate of return on a price-weighted index of the three stocks for the first period ( t 0 to t 1).**Option:**## (A) 4.17%
 
 (B) 4.03%
 
 (C) 3.89%
 
-|   | $P_0$ | $Q_0$ |     | Q1  |    | $Q_{2}$ |
+| | $P_0$ | $Q_0$ | | Q1 | | $Q_{2}$ |
 |---|-------|-------|-----|-----|----|---------|
-| A | 90    | 100   | 95  | 100 | 95 | 100     |
-| B | 50    | 200   | 45  | 200 | 45 | 200     |
-|   | 100   | 200   | 110 | 200 | 55 | 400     |
+| A | 90 | 100 | 95 | 100 | 95 | 100 |
+| B | 50 | 200 | 45 | 200 | 45 | 200 |
+| | 100 | 200 | 110 | 200 | 55 | 400 |
 
 <image 1>
 **GPT-4V:**To calculate the rate of return on a price-weighted index of the three stocks for the first period (t0 to t1), follow these steps: Calculate the initial index value at t0. Calculate the index value at t1. Compute the rate of return using the two index values.
@@ -1246,28 +1248,28 @@ Initial Index Value at t0: Price-weighted index value at 0 = (0() + 0() + 0()) /
 
 > Figure 20. A sample correct case of Accounting (subfield: Investment). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Accounting: Financial Accounting
+## Accounting: Financial Accounting
 
 <span id="page-37-0"></span>**Question:**From the following Company Y adjusted trial balance, what is the retained earnings to be reported?<image 1>
 **Option:**(A) \$17,800 (B) \$16,800 (C) \$15,550 (D) \$12,280
 
-| <b>Adjusted Trial Balance</b> |              |          |  |  |
+| <b>Adjusted Trial Balance</b> | | | | |
 |-------------------------------|--------------|----------|--|--|
-|                               | <b>Debit</b> | Credit   |  |  |
-| Cash                          | \$32,000     |          |  |  |
-| Accounts receivable           | 17,300       |          |  |  |
-| Prepaid insurance             | 6.400        |          |  |  |
-| Land                          | 10,000       |          |  |  |
-| Accounts payable              |              | \$10,900 |  |  |
-| Salaries payable              |              | 6,000    |  |  |
-| Common stock                  |              | 31,000   |  |  |
-| Retained earnings             |              | 4.200    |  |  |
-| <b>Dividends</b>              | 8.000        |          |  |  |
-| Service revenue               |              | 74,000   |  |  |
-| Insurance expense             | 5,600        |          |  |  |
-| Salaries expense              | 24,000       |          |  |  |
-| Miscellaneous expense         | 22,800       |          |  |  |
-|                               | 126,100      | 126,100  |  |  |
+| | <b>Debit</b> | Credit | | |
+| Cash | \$32,000 | | | |
+| Accounts receivable | 17,300 | | | |
+| Prepaid insurance | 6.400 | | | |
+| Land | 10,000 | | | |
+| Accounts payable | | \$10,900 | | |
+| Salaries payable | | 6,000 | | |
+| Common stock | | 31,000 | | |
+| Retained earnings | | 4.200 | | |
+| <b>Dividends</b> | 8.000 | | | |
+| Service revenue | | 74,000 | | |
+| Insurance expense | 5,600 | | | |
+| Salaries expense | 24,000 | | | |
+| Miscellaneous expense | 22,800 | | | |
+| | 126,100 | 126,100 | | |
 
 <image 1>
 **GPT-4V:**To calculate the retained earnings to be reported for Company Y from the adjusted trial balance, we need to consider the following components:
@@ -1285,12 +1287,13 @@ Net Income: Service Revenue (\$74,000) - (Insurance Expense \$5,600 + Salaries E
 Less Dividends: \$8,000. Retained Earnings to be Reported = Beginning Retained Earnings (if not given, assumed to be included in the trial balance) + Net Income - Dividends. The trial balance shows Retained Earnings as \$6,000. Assuming this is the beginning balance and adding the net income less dividends: Retained Earnings to be Reported = \$6,000 + \$21,600 - \$8,000 = \$19,600. There is no answer matching the option.
 
 ## Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V understands the question and can know how to calculate the Retained Earnings to be Reported. Most of the calculation process is correct. However, in the final steps, GPT-4V wrongly extracts the number of Retained Earnings from the table image (should be \$4,200 instead of \$6,000).
 **Ground Truth: (A) \$17,800**Figure 21. A sample error case of Accounting (subfield: Financial Accounting). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-38-0"></span>
 
-# Economics : Econometrics
+## Economics : Econometrics
+
 **Question:**Figure 1 displays the number of cases of Melanoma (Mt) in the male population of a US State, from 1936 to 1972. Figure 2 shows the Spanish Industrial Production Index (IPIt), from January 1975 to March 2001. <image 1> <image 2> According to figures 1 and 2, which of the following statements is FALSE:
 
 ## Option:
@@ -1307,9 +1310,9 @@ Less Dividends: \$8,000. Retained Earnings to be Reported = Beginning Retained E
 
 Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-39-0"></span>
 
-# Economics: Macroeconomics
+## Economics: Macroeconomics
+
 **Question:**Question below is based on the production possibilities of two nations that can produce both crepes and paper. <image 1> Which of the following statements is true of these production possibilities?
 
 ## Option:
@@ -1324,7 +1327,7 @@ Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to
 
 (E) Nation Y has comparative advantage in crepe production and should trade paper to Nation X in exchange for crepes.
 
-| Industry                                                                           | <b>Economic Forecast</b>                                                                                                                                                                                                                                                                |
+| Industry | <b>Economic Forecast</b> |
 |------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | a. Housing construction<br>b. Health care<br>c. Gold mining<br>d. Steel production | (i) Deep recession: falling inflation, interest rates, and GDP<br>(ii) Superheated economy: rapidly rising GDP, increasing inflation<br>and interest rates<br>(iii) Healthy expansion: rising GDP, mild inflation, low<br>unemployment<br>(iv) Stagflation: falling GDP, high inflation |
 
@@ -1334,6 +1337,7 @@ Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to
 (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.is the correct answer.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**Although GPT-4V correctly identifies the numbers in the table, it fails to correctly attribute these numbers to the correct objects for production. For example, when calculating the opportunity cost of Nation X, GPT-4V makes the mistake that nation X can either produce 3 units of crepe or 9 units of piece. But in fact, according to the table, nation X can produce 3 units of paper or 9 units of crepe. This error leads to the incorrect calculation of opportunity cost and the incorrect answer.
 **Ground Truth: (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.**Figure 23. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1342,22 +1346,22 @@ Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to
 
 Figure 24. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-41-0"></span>
 
-# Finance: Corporate Finance
+## Finance: Corporate Finance
+
 **Question:**Spike Equino is the CEO of a private medical equipment company that is proposing to sell 100,000 shares of its stock in an open auction. Suppose the company receives the bids in the following table. <image 1> What will be the company's total receipts (\$) from the sale if the auction is a uniform price auction?
 
-| <b>Shares</b> | <b>Price</b>                             |
+| <b>Shares</b> | <b>Price</b> |
 |---------------|------------------------------------------|
-| 20,000        | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
-| 10,000        | 78                                       |
-| 15,000        | 73                                       |
-| 25,000        | 70                                       |
-| 10,000        | 69                                       |
-| 8,000         | 67                                       |
-| 14,000        | 66                                       |
-| 15,000        | 65                                       |
-| 30,000        | 61                                       |
+| 20,000 | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
+| 10,000 | 78 |
+| 15,000 | 73 |
+| 25,000 | 70 |
+| 10,000 | 69 |
+| 8,000 | 67 |
+| 14,000 | 66 |
+| 15,000 | 65 |
+| 30,000 | 61 |
 
 <image 1>
 **GPT-4V:** In a uniform price auction, all successful bidders pay the same price per share, which is the lowest price at which the entire quantity can be sold. To determine this price, we need to accumulate the bids starting from the highest price until the total number of shares reaches or exceeds the quantity being sold (100,000 shares in this case). Using the given table: 20,000 shares at \$8010,000 shares at \$7815,000 shares at \$7325,000 shares at \$7010,000 shares at \$698,000 shares at \$6714,000 shares at \$6615,000 shares at \$6530,000 shares at \$61. Accumulating the shares: 20,000 shares (total: 20,000) 10,000 shares (total: 30,000) 15,000 shares (total: 45,000) 25,000 shares (total: 70,000) 10,000 shares (total: 80,000) 8,000 shares (total: 88,000) 14,000 shares (total: 102,000). We can see that after accumulating the first 7 bids, we exceed the 100,000 shares being sold. Therefore, the price that every successful bidder will pay is \$66 per share (which is the lowest bid price that allows the company to sell all 100,000 shares). To calculate the company's total receipts from the sale: 100,000 shares × \$66/share = \$6,600,000.
@@ -1368,7 +1372,7 @@ The company's total receipts from the sale will be \$6,600,000.
 
 Figure 25. A sample correct case of Finance (subfield: Corporate Finance). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Finance : Financial Marketing
+## Finance : Financial Marketing
 
 <span id="page-42-0"></span>**Question:**<image 1> Which point designates the optimal portfolio of risky assets?**Option:**(A) Point E
 
@@ -1383,6 +1387,7 @@ Figure 25. A sample correct case of Finance (subfield: Corporate Finance). [Back
 **GPT-4V:**The optimal portfolio of risky assets is the one that provides the highest expected return for a given level of risk. On the Capital Market Line (CML) or Capital Allocation Line (CAL) depicted in the graph, this is represented by the tangent point where the CAL touches the efficient frontier (the curve of possible portfolios).From the graph provided, Point F is where the CAL is tangent to the efficient frontier, which means Point F designates the optimal portfolio of risky assets. The answer is: (B) Point F.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:**GPT-4V accurately identifies point F as the optimal portfolio of risky assets in the given problem and applies the correct theoretical framework in its reasoning. However, it overlooks an important aspect of point E, which also lies on the Capital Allocation Line (CAL) and is situated at the CAL's rightmost end. Given that point E offers a higher expected return while maintaining the same Sharpe ratio as point F, it should be considered more optimal than point F. This oversight in GPT-4V's analysis leads to an incorrect conclusion, as it fails to adequately assess the significance of point E in the context of portfolio optimization.
 **Ground Truth: (A) Point E**
 
@@ -1392,11 +1397,11 @@ Figure 26. A sample error case of Finance (subfield: Financial Marketing). Error
 
 <span id="page-43-0"></span>**Question:**Eastern Chemical Company produces three products. The operating results of the current year are: <image 1> The firm sets the target price of each product at 150% of the product's total manufacturing cost. It appears that the firm was able to sell Product C at a much higher price than the target price of the product and lost money on Product B. Tom Watson, CEO, wants to promote Product C much more aggressively and phase out Product B. He believes that the information suggests that Product C has the greatest potential among the firm's three products because the actual selling price of Product C was almost 50% higher than the target price, while the firm was forced to sell Product B at a price below the target price. Both the budgeted and actual factory overhead for the current year are \$510,000. The actual units sold for each product also are the same as the budgeted units. The firm uses direct labor dollars to assign manufacturing overhead costs. The direct materials and direct labor costs per unit for each product are: <image 2> The controller noticed that not all products consumed factory overhead similarly. Upon further investigation, she identified the following usage of factory overhead during the year: <image 3> Determine the manufacturing cost per unit for Product A using the volume-based method
 
-| <image 1=""/> |  |               |  |  |  | <image 2=""/> |  |  |
+| <image 1=""/> | | | | | | <image 2=""/> | | |
 |---------------|--|---------------|--|--|--|---------------|--|--|
-|               |  |               |  |  |  |               |  |  |
-|               |  |               |  |  |  |               |  |  |
-|               |  | <image 3=""/> |  |  |  |               |  |  |
+| | | | | | | | | |
+| | | | | | | | | |
+| | | <image 3=""/> | | | | | | |
 **GPT-4V:**To determine the manufacturing cost per unit for Product A using the volume-based method, we'll follow these steps: Calculate the total overhead rate. Calculate the total manufacturing cost for Product A. Calculate the manufacturing cost per unit for Product A.1. Calculate the total overhead rate: Overhead rate = Total Factory Overhead / Total Direct Labor Dollars. Using the information given: Total Factory Overhead = \$510,000, Direct labor cost for: Product A = \$20.00, Product B = \$12.00, Product C = \$10.00. Sales Quantity: Product A = 1,000 units, Product B = 5,000 units, Product C = 500 units. Total Direct Labor Dollars = (Product A direct labor cost per unit × Product A Sales Quantity) + (Product B direct labor cost per unit × Product B Sales Quantity) + (Product C direct labor cost per unit × Product C Sales Quantity) = (\$20.00 × 1,000) + (\$12.00 × 5,000) + (\$10.00 × 500)= \$20,000 + \$60,000 + \$5,000= \$85,000
 
 Overhead Rate:= Total Factory Overhead / Total Direct Labor Dollars= \$510,000 / \$85,000 = \$6 per direct labor dollar2. Calculate the total manufacturing cost for Product A:Manufacturing cost = Direct Materials + Direct Labor + Overhead. Using the information given for Product A:Direct Materials = \$50.00, Direct Labor = \$20.00, Overhead = Overhead Rate × Direct Labor= \$6 × \$20.00= \$120.00Total Manufacturing Cost for Product A:= Direct Materials + Direct Labor + Overhead= \$50.00 + \$20.00 + \$120.00= \$190.003. Calculate the manufacturing cost per unit for Product A:Since the actual units sold for each product are the same as the budgeted units, we can use the given sales quantity for Product A:Manufacturing Cost Per Unit for Product A:= Total Manufacturing Cost for Product A / Product A Sales Quantity= \$190,000 units= \$0.19 per unit (This seems too low, there might be an error in our calculations or in the given data.).
@@ -1421,12 +1426,13 @@ Figure 27. A sample correct case of Manage (subfield: Cost Management). [Back to
 **GPT-4V:**The image shows three situations on a plane when the oxygen mask falls: The adult puts on the mask first while the child watches (egoism).The adult puts the mask on the child first while struggling for breath. Both the adult and the child share the mask. The reconciliation of egoism and other-isms would be a situation where both the individual's needs and the needs of others are considered and addressed. Therefore, the correct answer is: (C) 3
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V recalled the right knowledge and made the right reasoning, but it failed to correctly map the IDs to the corresponding illustrations in the figure, which is not explicitly marked in the figure but is only described in text (the order is from left to right, top to bottom).
 **Ground Truth: (B) 2**Figure 28. A sample error case of Manage (subfield: Management Models). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-45-0"></span>
 
-# Marketing: Market Research
+## Marketing: Market Research
+
 **Question:**A golf instructor is interested in determining if her new technique for improving players' golf scores is effective. She takes four (4) new students. She records their 18-hole scores before learning the technique and then after having taken her class. She conducts a hypothesis test. The data are as Table 10.27. <image 1>
 
 ## Option:
@@ -1437,11 +1443,11 @@ Figure 27. A sample correct case of Manage (subfield: Cost Management). [Back to
 - (C) a test of a single mean
 - (D) a test of a single proportion
 
-|                         | Player 1                                 | Player 2                                 | Player 3                                 | Player 4                                 |
+| | Player 1 | Player 2 | Player 3 | Player 4 |
 |-------------------------|------------------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|
-| Mean score before class | 83                                       | 78                                       | 93                                       | 87                                       |
-| Mean score after class  | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
-| <b>Table 10.27</b>      |                                          |                                          |                                          |                                          |
+| Mean score before class | 83 | 78 | 93 | 87 |
+| Mean score after class | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |
+| <b>Table 10.27</b> | | | | |
 
 <image 1>
 **GPT-4V:**Based on the data provided in Table 10.27, the golf instructor is comparing the mean scores of her students before and after taking her class. She is interested in determining if there's a significant difference in the mean scores of the same students before and after learning her new technique. Given this, the most appropriate statistical test to use in this scenario would be:(A) a test of two independent means.
@@ -1449,7 +1455,7 @@ Figure 27. A sample correct case of Manage (subfield: Cost Management). [Back to
 
 Figure 29. A sample correct case of Marketing (subfield: Market Research). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Marketing: Market Research
+## Marketing: Market Research
 
 <span id="page-46-0"></span>**Question:**The graph in <image 1> displays the sample sizes and percentages of people in different age and gender groups who were polled concerning their approval of Mayor Ford's actions in office. The total number in the sample of all the age groups is 1,045. Out of the males and females, what percent are males?
 
@@ -1481,12 +1487,13 @@ Percentage of males = (Number of males / Total number of males and females) × 1
 = 45.22% The closest answer to 45.22% from the given options is:(B) 45.5%
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V misunderstands the percentage of male and female as the number of samples.
 **Ground Truth: (C) 45.7%**
 
 Figure 30. A sample error case of Marketing (subfield: Market Research). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Biology: Physiology
+## Biology: Physiology
 
 <span id="page-47-0"></span>**Question:**The patient is a post-mature newborn. What is the most likely diagnosis? <image 1>**Option:**- (A) Vision may be restored with concave lens and refractive surgery
 - (B) Vision may be restored with convex lens and refractive surgery
@@ -1502,9 +1509,9 @@ Figure 30. A sample error case of Marketing (subfield: Market Research). Error c
 (A) Vision may be restored with concave lens and refractive surgery.
 **Ground Truth: (A) Vision may be restored with concave lens and refractive surgery**Figure 31. A sample correct case of Biology (subfield: Physiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-48-0"></span>
 
-# Biology: Genetics
+## Biology: Genetics
+
 **Question:**Consider the figure <image 1> for ABC hypothesis. If wild type Arabidopsis were transformed with a chimeric gene consisting of an A class promoter fused to a B class coding sequence, which of the following arrangements (inner to outer) would be predicted?
 **Option:**(A) Ca, St, St, St.
 
@@ -1532,12 +1539,13 @@ Pe, Pe, St, Ca The closest match to the given options would be:
 (D) Ca, St, Pe, Se.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:**GPT-4V correctly interprets the image. However, it does not correctly reason about the relationship between a 'coding sequence' and a 'class promoter'. This prevents it from correctly predicting the answer for Whorl 1 and Whorl 2.
 **Ground Truth: (B) Ca, St, Se, Se.**Figure 32. A sample error case of Biology (subfield: Genetics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-49-0"></span>
 
-# Biology: Genetics
+## Biology: Genetics
+
 **Question:**Based on <image 1> if a Hox 13 gene in a mouse was replaced with a Hox 1 gene, which of the following will be the most likely outcome?
 
 -**Option:**(A) The mouse may develop one head and one tail
@@ -1565,9 +1573,9 @@ Therefore, the most likely outcome is:
 **Error Reason:**GPT-4V accurately interpreted the image and correctly recalled that "Hox 1 genes are typically expressed in anterior regions of the body, such as the head. Hox 13 genes are typically expressed in posterior regions, like the tail." The model also correctly processed most of the intermediate reasoning steps. However, the concluding statement "The mouse may develop no head and two tails" does not logically follow from the prior step: "the posterior region where the tail would normally develop would now be getting instructions to develop anterior structures."
 **Ground Truth: (B) The mouse may develop two heads and no tail**Figure 33. A sample error case of Biology (subfield: Genetics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-50-0"></span>
 
-# Biology: Evolution
+## Biology: Evolution
+
 **Question:**The diagram in <image 1> represents a section of undisturbed layers of sedimentary rock in New York State and shows the location of fossils of several closely related species. According to currently accepted evolutionary theory, which is the most probable assumption about species A, B and C?
 **Option:**- (A) Species B is more abundant than species C
 - (B) Species A and B are genetically identical
@@ -1575,14 +1583,15 @@ Therefore, the most likely outcome is:
 - (D) Species B descended from species A
 - (E) Species C existed before species B
 
-| Species A       | -Surface<br>of ground |
+| Species A | -Surface<br>of ground |
 |-----------------|-----------------------|
-| Species B and A |                       |
-| Species B       |                       |
-| <b>Species</b>  |                       |
+| Species B and A | |
+| Species B | |
+| <b>Species</b> | |
 **GPT-4V:**The diagram depicts layers of sedimentary rock with fossils of different species. In sedimentary rock layers, the oldest layers are at the bottom and the youngest layers are at the top. Based on this, the order of appearance of the species from oldest to youngest is: Species C → Species B → Species A (and then A continues to exist with B). Given this order and the choices provided, the most probable assumption according to currently accepted evolutionary theory is: (D) Species B descended from species A.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:**GPT-4V correctly understands the evolutionary order of A, B and C (C → B → A). But D is a contradiction of this timeline order.
 **Ground Truth: (E) Species C existed before species B**
 
@@ -1611,21 +1620,22 @@ Figure 35. A sample correct case of Chemistry (subfield: Organic Chemistry). [Ba
 
 Figure 36. A sample correct case of Chemistry (subfield: Organic Chemistry). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Chemistry: Inorganic Chemistry
+## Chemistry: Inorganic Chemistry
 
 <span id="page-53-0"></span>**Question:**Which of the following Lewis (electron-dot) structures is/are wrong? <image 1>**Option:**(A) (a) (B) (a) and (d) (C) (a) and (b) (D) (d) and (e)
 
-| $\circ = \circ = \circ$<br>$\blacksquare$<br>$\blacksquare$ | <br>н                 | ี :∘—่่ง—่อ<br>$\cdots$<br>J | <br>:a:<br>$H_{\text{max}}$ |                        |
+| $\circ = \circ = \circ$<br>$\blacksquare$<br>$\blacksquare$ | <br>н | ี :∘—่่ง—่อ<br>$\cdots$<br>J | <br>:a:<br>$H_{\text{max}}$ | |
 |-------------------------------------------------------------|-----------------------|------------------------------|-----------------------------|------------------------|
-| (a) $SO2$                                                   | $(b)$ NH <sub>3</sub> | (c) $NO2+$                   | $(d)$ NH <sub>4</sub> Cl    | (e) NH <sub>4</sub> Cl |
-|                                                             |                       |                              |                             |                        |
+| (a) $SO2$ | $(b)$ NH <sub>3</sub> | (c) $NO2+$ | $(d)$ NH <sub>4</sub> Cl | (e) NH <sub>4</sub> Cl |
+| | | | | |
 
-| <image 1=""/> |  |  |  |
+| <image 1=""/> | | | |
 |---------------|--|--|--|
 |---------------|--|--|--|
 **GPT-4V:**Let's analyze each of the Lewis structures:(a) SO₂: The structure shows sulfur with a double bond to each oxygen atom. Each oxygen atom has two lone pairs, and sulfur has no lone pairs. This is the correct Lewis structure for SO₂.(b) NH₃: The structure shows nitrogen with a single bond to each of the three hydrogen atoms and one lone pair on nitrogen. This is the correct Lewis structure for NH₃.(c) NO₂⁺: The structure shows nitrogen with a double bond to one oxygen and a single bond to the other oxygen. The single bonded oxygen has three lone pairs, while the double bonded oxygen has two lone pairs. This results in the nitrogen having a positive charge. This is the correct Lewis structure for NO₂⁺.(d) NH₄Cl: The structure shows the ammonium ion (NH₄⁺) with nitrogen having four single bonds to four hydrogen atoms, and there's no lone pair on nitrogen. However, chlorine is shown with a single bond to a hydrogen atom, which is incorrect. Chlorine should not be bonded to hydrogen in this structure. Instead, NH₄⁺ and Cl⁻ are present as ions, and they are attracted to each other through ionic bonding.(e) NH₄Cl: This structure shows the correct ionic representation with the ammonium ion (NH₄⁺) and the chloride ion (Cl⁻) as separate entities. Based on the analysis, the incorrect Lewis structure is: (d) NH₄Cl. The correct answer is: (D) (d) and (e)
 
 ## Error Category: Perceptual Error, Reasoning Error
+
 **Error Reason:**For choice (a), GPT-4V incorrectly recognizes the carbon atom as a sulfur atom, and even if it was a sulfur atom, there would be two electrons near the sulfur atom. Therefore, the Lewis structure in choice (a) is completely wrong and should be one of the final answers. For choice (e), even though the model correctly decides that it is correct, it still chooses a wrong option that contains (e).
 **Ground Truth: (B) (a) and (d)**
 
@@ -1648,12 +1658,13 @@ Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Err
 **GPT-4V:**The graph provided is a phase diagram, which illustrates the conditions (in terms of pressure and temperature) under which different phases of a substance coexist in equilibrium. In such a diagram: The line between the solid and gas regions represents the sublimation/deposition equilibrium, where a substance can transition directly between the solid and gaseous states. The line between the solid and liquid regions represents the melting/freezing equilibrium. The line between the liquid and gas regions represents the boiling/condensation equilibrium. From the image provided, point (B) 3 is on the line between the solid and gas regions, representing the sublimation/deposition equilibrium. So, the correct answer is: (B) 3.
 
 ### Error Category: Lack of Knowledge
+
 **Error Reason:**The model correctly describes the knowledge, but due to the lack of knowledge about the phase diagram, it thinks point 3 is the one on the line between the solid and gas regions, while the correct one is point 8.
 **Ground Truth: (B) 3**Figure 38. A sample error case of Chemistry (subfield: Inorganic Chemistry). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-55-0"></span>
 
-# Geography: Human Geography
+## Geography: Human Geography
+
 **Question:**The circled areas on <image 1> are all areas which**Option:**- (A) are under the control of al-Qaeda from 2001 to present
 - (B) were under the control of the U.S.-led military coalition as of 2003
 - (C) are home to the Kurdish peoples
@@ -1669,7 +1680,7 @@ Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Err
 
 Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Geography: Physical Geography
+## Geography: Physical Geography
 
 <span id="page-56-0"></span>**Question:**Which weather does 11 represent in <image 1>?**Option**:
 
@@ -1688,12 +1699,13 @@ Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back
 (D) Tundra climate.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:**GPT-4V correctly summarize that the zone labeled "11" corresponds to regions such as northern Canada and parts of Russia, which is a correct interpretation of the map. However, GPT-4V wrongly gets the conclusion that zone "11" would be Tundra climate based on the observation.
 **Ground Truth: (A) Boreal forest climate**Figure 40. A sample error case of Geography (subfield: Physical Geography). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-57-0"></span>
 
-# Geography: Physical Geography
+## Geography: Physical Geography
+
 **Question:**What are satellite 1, 2, 3 in <image 1>?**Option:**- (A) Terra, Aqua, Landsat 7
 - (B) Aqua, Terra, Landsat 7
 - (C) Landsat 7, Aqua, Terra
@@ -1706,6 +1718,7 @@ Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back
 **GPT-4V:**The satellites labeled in the image as:Landsat 7, Aqua, Terra So, the correct option is: (C) Landsat 7, Aqua, Terra
 
 ## Error Category: Perceptual Error, Reasoning Error
+
 **Error Reason:**GPT-4V fails to match the cartoon image with the real satellites. Additionally, Landsat 7 is in a different path while Terra and Aqua are both in the 705 path. So 3 definitely represents Landsat 7. GPT-4V ignores the hint provided in the diagram. Given the fact that GPT-4V doesn't provide a detailed explanation of its choice, it might be a perceptual error because of wrongly matching the cartoon image with the real satellites or a reasoning error due to ignorance of the path hint.
 **Ground Truth: (A) Terra, Aqua, Landsat 7**
 
@@ -1723,7 +1736,7 @@ Figure 41. A sample error case of Geography (subfield: Physical Geography). Erro
 
 > Figure 42. A sample correct case of Math (subfield: Calculus). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Math: Graph Theory
+## Math: Graph Theory
 
 <span id="page-59-0"></span>**Question:**Consider <image 1> on the torus, with its faces labeled A through H. Give a colouring of the faces of with four colours so that faces meeting along an edge have different colours. Is such colouring possible with only three colours?
 
@@ -1738,9 +1751,10 @@ Figure 41. A sample error case of Geography (subfield: Physical Geography). Erro
 **GPT-4V:**To solve the problem, we can start by attempting to color the diagram with three colors and see if it's possible to do so without having two adjacent faces of the same color. Let's label our three colors as Red, Green, and Blue (for the sake of this explanation).We can begin by coloring face A with Red. Adjacent to A are B and C, so let's color B with Green and C with Blue. D is adjacent to both B and C, so it must be Red. E is adjacent to A, D, and B. Since A and D are Red and B is Green, E should be Blue. F is adjacent to C, D, and E. D is Red, E is Blue, so F should be Green. G is adjacent to D, F, and A. D is Red, F is Green, so G should be Blue. Lastly, H is adjacent to B, E, and F. B is Green, E is Blue, and F is Green. So H can be colored Red. From this coloring, it seems that we can color the diagram with three colors such that no two adjacent faces have the same color. Hence, the answer is:(A) Yes.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:** GPT-4V encounters an issue in the third step of reasoning, when it concludes, "D is adjacent to both B and C, so it must be Red." The problem begins at this point because, according to the image, D is actually adjacent to A, B, and C. The error should be identified at this step, but the model recognizes incomplete information, believing that D is only adjacent to B and C, which leads to a series of subsequent incorrect deductions.
 
-#### Ground Truth: (B) No
+### Ground Truth: (B) No
 
 Figure 43. A sample error case of Math (subfield: Graph Theory). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1749,21 +1763,22 @@ Figure 43. A sample error case of Math (subfield: Graph Theory). Error category:
 
 AB and CD are parallel, m∠AOB = m∠COD, but we've just shown that m∠AOB is 52°, which means that our diagram or understanding has an inconsistency because m∠COD is given as 84°.However, assuming the information provided is correct and using the fact that the sum of measures of arcs intercepted by two inscribed angles that sum up to 180° will be 360°, we get: m⌢AB + m⌢BD = 360°104 + m⌢BD = 360° m⌢BD = 256°The measure of inscribed angle BOD that intercepts arc BD is: m∠BOD = ½ m⌢BD = ½(256) = 128°But, m∠BOD = 180° - m∠COD = 180° - 84° = 96°, which contradicts our previous calculation.Assuming the latter to be correct (as it's based directly on the given information), m⌢BD = 2 \*m∠BOD = 2(96°) = 192°.Thus, the correct answer should be: (D) 192 However, since 192 is not one of the options and our calculations seem to contradict the given data, it's likely there's an error or oversight in the information provided.
 
-#### Error Category: Textual Understanding Error
+### Error Category: Textual Understanding Error
+
 **Error Reason:**GPT-4V does not correctly understand the symbols and terminology in mathematics or geometry. In this question, it incorrectly interprets m ⌢ AB = 104 as the measure of an inscribed angle, when the correct interpretation should be the measure of an arc or a central angle. Therefore, the angle represented in the question, ∠AOB, is 104 degrees, and ∠COD is 168 degrees. Since the concept is confused right from the start, GPT4-V does not derive the correct answer in the subsequent calculations. The key to the question is to determine the angle of BOD, which is equal to the angle AOC by using the condition of parallel lines. Then, by subtracting the two given angles from 360 degrees and dividing by two, we can obtain the correct answer.
 **Ground Truth: (B) 44**Figure 44. A sample error case of Math (subfield: Geometry). Error category: Textual Understanding Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-61-0"></span>
 
 ### Math: Calculus
-**Question:**A thin-walled cone-shaped cup (Fig. 16-4) is to hold 36 ! of water when full. What dimensions will minimize the amount of material needed for the cup?
+
+**Question:**A thin-walled cone-shaped cup (Figure 16-4) is to hold 36 ! of water when full. What dimensions will minimize the amount of material needed for the cup?
 **Option:**(A) = 3 2 , ℎ = 6 (B) = 3 3 , ℎ = 4 (C) = 3 2 , ℎ = 4 (D) = 2 6 , ℎ = 6
 
 ![](_page_61_Figure_4.jpeg)
 <!-- Image Description: Figure 16-4 is a simple line drawing of a right circular cone. It depicts the cone's radius (r), height (h), and slant height (s). A dashed line indicates the height, which is perpendicular to the radius. The diagram likely serves to define geometrical parameters used in subsequent calculations or derivations within the paper, possibly related to volume, surface area, or other conical properties. -->
 **GPT-4V:**Given that the volume V of the cone-shaped cup is 36 ! when it's full, the formula for the volume of a cone is:
 
- = " ! #ℎ. From the given volume, we can set up the equation: " ! #ℎ = 36. From which, #ℎ = <sup>108</sup>. (1) <sup>ℎ</sup> <sup>=</sup> "\$% &! . Next, the surface area S of the cone (which does not include the base since it's a cup) is given by: S = . Where l is the slant height of the cone.
+= " ! #ℎ. From the given volume, we can set up the equation: " ! #ℎ = 36. From which, #ℎ = <sup>108</sup>. (1) <sup>ℎ</sup> <sup>=</sup> "\$% &! . Next, the surface area S of the cone (which does not include the base since it's a cup) is given by: S = . Where l is the slant height of the cone.
 
 Using the Pythagoras theorem for the right triangle formed by the radius, height, and slant height in the cone, we get: # = #+ ℎ#. From which, = #+ ℎ#. Now, substituting the value of h from equation (1) into the equation for , we get: = #+108#/'. Substituting this l value in S, we get: S = #+108#/' . To minimize the surface area, we differentiate S with respect to r and set it equal to zero.
 
@@ -1773,7 +1788,7 @@ The differentiation and solving for r would be complex. Instead, we can substitu
 $$
 r = 3\sqrt{2}
 $$
- and  $h = 6$ :  $V = \frac{1}{3}\pi (3\sqrt{2})^2$  (6) = 36 $\pi$
+and $h = 6$ : $V = \frac{1}{3}\pi (3\sqrt{2})^2$ (6) = 36 $\pi$
 
 (B) For <sup>=</sup> <sup>3</sup> <sup>3</sup> and <sup>ℎ</sup> <sup>=</sup> <sup>4</sup>: <sup>=</sup> " ! 3 3 # 4 ≠ 36 #
 
@@ -1783,7 +1798,7 @@ $$
 $$
 r = 2\sqrt{3}
 $$
- and  $h = 6$ :  $V = \frac{1}{3}\pi (2\sqrt{3})^2 (6) = 36\pi$
+and $h = 6$ : $V = \frac{1}{3}\pi (2\sqrt{3})^2 (6) = 36\pi$
 
 From options (A) and (D) which satisfy the volume, the surface area for each needs to be calculated: (A) = (3 2) (3 2)#+6#. (D) = 2 3 2 3 # + 6#.
 
@@ -1792,16 +1807,16 @@ Comparing the two surface areas, we can determine which one is minimal.
 However, without doing the calculations, it's hard to definitively say which one is the minimal surface area. For practical purposes, the answer could be either (A) or (D) based on the volume, and one would need to compute the surface areas to confirm.
 
 ### Error Category: Reasoning Error
+
 **Error Reason:**The volume formula seems to be correct. The errors are made during the symbol computation.
 **Ground Truth: (A)**=**,** =
 
 Figure 45. A sample error case of Math (subfield: Calculus). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-62-0"></span>
 
 Figure 46. A sample correct case of Physics (subfield: Classical Mechanics). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Physics: Optics
+## Physics: Optics
 
 <span id="page-63-0"></span>**Question:**A narrow beam of monochromatic light enters a lens parallel to the optic axis, as shown in the accompanying diagram. Which arrow best represents the direction of the light after leaving the lens?
 **Option:**(A) arrow A
@@ -1837,11 +1852,12 @@ The direction that best represents where the light will converge after leaving t
 **Error Reason:**GPT-4Vcorrectly identifies the theory behind the reflection of a converging lens. However, when choosing the correct arrows in the diagram, it chooses arrow C instead of arrow E that converging to the focal point. This is due the perceptual error of GPT-4V on the direction of arrows, demonstrating the lacking ability in the sense of direction in the image.
 
 ### Ground Truth: (E) arrow E
+
 **Explanation:** A horizontal beam approaching a converging lens bends and converges through the focal point
 
 Figure 47. A sample error case of Physics (subfield: Optics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Basic Medical Science: Pathophysiology
+## Basic Medical Science: Pathophysiology
 
 <span id="page-64-0"></span>**Question:**At which level, in the photograph, do the primary vestibular axons enter the brain stem? <image 1>
 
@@ -1865,7 +1881,8 @@ Figure 47. A sample error case of Physics (subfield: Optics). Error category: Pe
 <span id="page-65-0"></span>![](_page_65_Figure_0.jpeg)
 <!-- Image Description: The image is a simple graphic: a red circle with a white "X" inside, indicating an error or rejection. It lacks quantitative data or equations. Within the context of an academic paper, it likely serves as a visual placeholder, possibly representing a failed experiment, an invalid result, or a rejected hypothesis, or simply marking something as incorrect. The image's purpose is purely symbolic. -->
 
-# Basic Medical Science: Cardiovascular Physiology
+## Basic Medical Science: Cardiovascular Physiology
+
 **Question:**<image 1> The diagram shows the front view of a human heart. Letters P, Q, R and S indicate the different chambers of the heart. Which of the following shows the sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart?**Option:**(A) R-S-P-Q (B) Q-S-R-P (C) P-R-Q-S (D) S-R-P-Q
 
 ![](_page_65_Figure_4.jpeg)
@@ -1873,6 +1890,7 @@ Figure 47. A sample error case of Physics (subfield: Optics). Error category: Pe
 **GPT-4V:**The sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart is : Right atrium, Right ventricle, Left atrium, Left ventricle. Looking at the given options, the correct sequence is:(D) S-R-P-Q
 
 ## Error Category: Perceptual Error
+
 **Error Reason:** The model has the correct knowledge, but it failed to correctly understand the image and map the letters to the right structures (e.g., P is right atrium so it should be the first in the sequence).
 
 ### Ground Truth: (C) P-R-Q-S
@@ -1890,7 +1908,7 @@ Figure 49. A sample error case of Basic Medical Science (subfield: Cardiovascula
 <image 1>
 **GPT-4V:** Based on the image provided, which appears to be a chest X-ray, and the information that the patient is a post-mature newborn, the most suggestive diagnosis is: (D) Meconium aspiration syndrome. Post-mature newborns are at an increased risk of passing meconium (the baby's first stool) into the amniotic fluid before birth or during labor. If the baby breathes the meconiumstained amniotic fluid into their lungs, it can cause a blockage of the airways, leading to meconium aspiration syndrome. The chest X-ray of a newborn with meconium aspiration syndrome might show patchy or streaky areas on the lungs. However, it's important to consult with a pediatric radiologist or neonatologist for a definitive diagnosis based on clinical findings and the entire clinical picture.
 
-#### Ground Truth: (D) Meconium aspiration syndrome
+### Ground Truth: (D) Meconium aspiration syndrome
 
 Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1911,14 +1929,14 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 **GPT-4V:**The image provided appears to be a histological section of colonic mucosa. Given the clinical scenario of a 19-year-old man with over 100 lesions of the colonic mucosa and the histological findings provided, the most likely diagnosis is: (E) Familial polyposis coli. Familial adenomatous polyposis (FAP), also known as familial polyposis coli, is an autosomal dominant inherited condition characterized by the development of numerous adenomatous polyps in the colon and rectum. If left untreated, there's a nearly 100% chance of developing colon cancer by middle age.
 
 ### Ground Truth: (E) Familial polyposis coli
+
 **Explanation:**A. HNPCC has fewer polyps and the age of presentation is older. Mismatch repair genes are involved. B. Hyperplastic polyps are small and few. They are just focal exaggerations of the colonic mucosa. C. Ulcerative colitis leads to mucosal ulceration with residual islands of mucosa called "pseudopolyps". D. Peutz-Jehgers syndrome has the appearance of hamartomatous polyps in the bowel, and they are not so numerous. E. The small polypoid circumscribed tubular adenoma on a stalk seen here is benign, but persons with germline inheritance of the APC gene are at risk for development of colonic adenocarcinoma by their teens or 20's.
 
 > Figure 51. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-68-0"></span>
 **Question:**<image 1> This 79-year-old woman was driving her car when she had the sudden onset of a severe headache. She pulled in to a service station and stopped the car. Then she slumped over the wheel. She was taken to the emergency room, where she remained comatose and died hours later. This gross appearance is found at autopsy. Which of the following is the most likely diagnosis?
 
-#### Option:
+### Option:
 
 - (A) Subdural hematoma
 - (B) Thromboembolization with cerebral infarction
@@ -1933,7 +1951,6 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 **GPT-4V:**The image appears to show a brain with blood prominently spread around it. Given the clinical scenario provided - a sudden severe headache followed by rapid unconsciousness and death - the most consistent diagnosis with the presentation and gross appearance at autopsy is: (D) Ruptured berry aneurysm. A ruptured berry aneurysm (also called a saccular aneurysm) can cause a subarachnoid hemorrhage, which would present with sudden severe headache and can rapidly lead to death if not treated. The hemorrhage can be seen as the spread of blood over the surface of the brain in the image. The other options do not fit as closely with the clinical scenario and gross appearance.
 **Ground Truth: (D) Ruptured berry aneurysm**Figure 52. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-69-0"></span>
 **Question:**A 41-year-old woman has noted a vaginal discharge persisting for 3 weeks. On pelvic examination her ectocervix is erythematous. Cervical biopsies are taken and on microscopic examination reveal the appearance seen here <image 1>. Which of the following is the most likely diagnosis?
 
 ### Option:
@@ -1951,16 +1968,18 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 **GPT-4V:**The image provided appears to be a microscopic view of cervical tissue with a characteristic appearance. The histopathological features seen here are suggestive of koilocytes, which are squamous epithelial cells with a perinuclear clearing (halo) and irregular, raisin-like nuclei. Koilocytes are a hallmark of human papillomavirus (HPV) infection. Based on the provided image and clinical information, the most likely diagnosis is: (A) Human papillomavirus infection.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V incorrectly interprets the details of the image. The image contains "the inflammatory cell population of mononuclear cells, mainly small round lymphocytes" and "squamous metaplasia", while GPT-4V identifies them as "koilocytes".
 
 ### Ground Truth: (E) Chronic inflammation
+
 **Explanation:**A. HPV produces viral cytopathic effect such as koilocytotic change and atypical changes in the squamous epithelial cells. It can drive the process to dysplasia and to carcinoma. HPV by itself does not produce significant inflammation. B. The capsaicin in chili tends to irritate nerve endings to produce the hot burning sensation, as a local effect in oral cavity. It is not systemic. Capsaicin has been used to treat dyspareunia with vulvar vestibulitis, probably by affecting nerveending mediated sensation, and there is no significant degree of inflammation. C. Diabetes mellitus may increase the risk for infections, but by itself does not explain the inflammation seen here. D. Tuberculosis of the genital tract is rare; mycobacterial infections tend to produce granulomatous inflammation. E. This is a chronic inflammatory process, based upon the inflammatory cell population of mononuclear cells, mainly small round lymphocytes. There is also some hemorrhage. The squamous epithelium is normal, though if this were endocervix, it would represent squamous metaplasia.
 
 Figure 53. A sample error case of Clinical Medicine (subfield: Pathology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-70-0"></span>
 
-# Clinical Medicine: Heart Disease
+## Clinical Medicine: Heart Disease
+
 **Question:**A 38-year-old man comes to the physician because of recurrent palpitations over the past 2 months. He says that he was diagnosed with a minor heart defect during childhood but does not remember the details and has not had regular medical follow-up examinations since. Physical examination shows a heart murmur. Cardiac catheterization is performed, and hemodynamic results show <image 1>. Which of the following is the most likely diagnosis?
 
 ## Option:
@@ -1971,27 +1990,29 @@ Figure 53. A sample error case of Clinical Medicine (subfield: Pathology). Error
 - (C) Aortic value regurgitation
 - (D) Aortic stenosis
 
-|                        | Oxygen saturation (%) | Pressure (mm Hg) |
+| | Oxygen saturation (%) | Pressure (mm Hg) |
 |------------------------|-----------------------|------------------|
-| <b>Right atrium</b>    | 75                    |                  |
-| <b>Right ventricle</b> | 75                    | 25/4             |
-| <b>Pulmonary trunk</b> | 75                    | 22/10            |
-| <b>Left atrium</b>     | 99                    | 10               |
-| Left ventricle         | 99                    | 165/45           |
-| <b>Ascending Aorta</b> | 99                    | 155/70           |
+| <b>Right atrium</b> | 75 | |
+| <b>Right ventricle</b> | 75 | 25/4 |
+| <b>Pulmonary trunk</b> | 75 | 22/10 |
+| <b>Left atrium</b> | 99 | 10 |
+| Left ventricle | 99 | 165/45 |
+| <b>Ascending Aorta</b> | 99 | 155/70 |
 
 <image 1>
 **GPT-4V:**Based on the provided hemodynamic results: The oxygen saturation of 75% in the right atrium, right ventricle, and pulmonary trunk, followed by a jump to 99% in the left atrium, left ventricle, and ascending aorta, suggests the presence of a left-to-right shunt, where oxygenated blood is mixing with deoxygenated blood. The pressure readings are also indicative. The normal pressure in the left atrium is usually around 10 mm Hg, while the pressure in the left ventricle during systole (contraction) can go up to 120 mm Hg or more and during diastole (relaxation) drops significantly. The given pressure for the left ventricle is 165/45 mm Hg, which is significantly high during systole. Meanwhile, the pressure in the ascending aorta is 155/70 mm Hg, which is closer to normal systolic pressure but has an elevated diastolic pressure. These findings indicate that blood is flowing back from the left ventricle to the left atrium during ventricular systole, which is consistent with mitral regurgitation. During mitral regurgitation, the mitral valve doesn't close tightly, allowing blood to flow backward in the heart. This can cause symptoms like palpitations and can be associated with a heart murmur on physical examination. Thus, the most likely diagnosis based on the provided data is: (B) Mitral regurgitation.
 
 ### Error Category: Lack of Knowledge
+
 **Error Reason:**GPT4-V successfully understands the question and the given table. However, due to the lack of specific knowledge about "This backflow decreases diastolic pressure in the aorta (N = 60-90 mm Hg)" and "systolic pressure in both the ascending aorta...is increased", GPT4-V interprets "the pressure in the ascending aorta as 155/70 mm Hg, which is closer to normal systolic pressure but has an elevated diastolic pressure", and fails to identify the diagnosis of "aortic regurgitation".
 
-#### Ground Truth: (C) Aortic value regurgitation
+### Ground Truth: (C) Aortic value regurgitation
+
 **Explanation:** Aortic valve regurgitation causes a backward flow from the aorta during diastole. This backflow decreases diastolic pressure in the aorta (N = 60-90 mm Hg) and increases diastolic pressure in the left ventricle (N = 5-12 mm Hg). This regurgitant blood combines with blood from the left atrium to fill the left ventricle, which results in an increased preload and a subsequent increase in stroke volume. As a result, the systolic pressure in both the ascending aorta (N = 90-140 mm Hg) and in the left ventricle (N = 90-140 mm Hg) is increased. Oxygen saturation and right heart pressures are normal in aortic regurgitation.
 
 Figure 54. A sample error case of Clinical Medicine (subfield: Heart Disease). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Diagnostics and Laboratory Medicine : Radiology
+## Diagnostics and Laboratory Medicine : Radiology
 
 <span id="page-71-0"></span>**Question:**The 40-year-old man has been walking unsteadily for several years. CT performance is as shown in <image 1>. The possible diagnosis is?
 
@@ -2010,9 +2031,9 @@ Figure 54. A sample error case of Clinical Medicine (subfield: Heart Disease). E
 **GPT-4V:**I'm not a doctor, but based on the CT image provided and the description: The image seems to show a cerebellar anomaly with the absence of the vermis and an enlarged posterior fossa cyst communicating with the fourth ventricle. These findings are suggestive of (C) Dandy-Walker syndrome. However, it's crucial to consult with a medical professional for a definitive diagnosis and medical advice.
 **Ground Truth: (C) Dandy-Walker syndrome**Figure 55. A sample correct case of Diagnostics and Laboratory Medicine (subfield: Radiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-72-0"></span>
 
-# Diagnostics and Laboratory Medicine: Neuropathology
+## Diagnostics and Laboratory Medicine: Neuropathology
+
 **Question:**What is the anatomic space occupied by the lesion? <image 1>**Option:**- (A) Intraparenchymal
 - (B) Subdural space
 - (C) Subarachnoid space
@@ -2029,16 +2050,18 @@ Therefore, the most likely answer is:
 (C) Subarachnoid space.
 
 ## Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V fails to interpret the image correctly. The image shows "the dura can be seen in the top right of the image", but GPT-4V cannot correctly identify it.
 
 ### Ground Truth: (B) Subdural space
+
 **Explanation:**The dura can be seen in the top right of the image. Organization into thin subdural membranes containing thin-walled vessels often is associated with rebleeding of subdural hemorrhages as seen here.
 
 Figure 56. A sample error case of Diagnostics and Laboratory Medicine (subfield: Neuropathology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-73-0"></span>
 
-# Diagnostics and Laboratory Medicine: Ophthalmic Pathology
+## Diagnostics and Laboratory Medicine: Ophthalmic Pathology
+
 **Question:**This intraocular tumor is from a 55-year-old man. Which of the following statements BEST describes the lesion. <image 1>
 
 ## Option:
@@ -2066,6 +2089,7 @@ Figure 56. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 (D) Making a prognosis solely based on an image can be challenging. Even if the tumor appears to be completely excised with clear margins in the image, other factors, such as tumor size, type, location, and potential metastasis, would play a role in determining the prognosis. Based on the image and the details provided, I cannot make a definitive choice. However, it's crucial to collaborate with a pathologist or an ocular oncologist for a comprehensive evaluation and diagnosis.
 
 ### Error Category: Reject to Answer
+
 **Error Reason:**GPT-4V refuses to answer this question without further clinical or pathological tests.
 **Ground Truth: (C) This tumor may represent the most common type of intraocular neoplasm, and requires further work-up to distinguish it from melanoma.**
 
@@ -2080,7 +2104,7 @@ Figure 58. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 
 [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Pharmacy : Pharmaceutical Microbiology
+## Pharmacy : Pharmaceutical Microbiology
 
 <span id="page-75-0"></span>**Question:**The antibiotic efrotomycin is produced by Streptomyces lactamdurans. S. lactamdurans was grown in 40,000 liters of medium. The medium consisted of glucose, maltose, soybean oil, (NH4)2SO4, NaCl, KH2PO4, and Na2HPO4. The culture was aerated and maintained at 28°C. The following results were obtained from analyses of the culture medium during cell growth: <image 1>, <image 2> Is efrotomycin a primary or secondary metabolite?
 
@@ -2101,9 +2125,9 @@ In the second image, glucose (a primary nutrient) is consumed rapidly during the
 Given these observations, efrotomycin starts to be produced after the active growth phase of the organism, which is characteristic of secondary metabolites. So, the answer is: (B) secondary.
 **Ground Truth: (B) Secondary**Figure 59. A sample correct case of Pharmacy (subfield: Pharmaceutical Microbiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-76-0"></span>
 
-# Pharmacy: Pharmacology and Drug Synthesis
+## Pharmacy: Pharmacology and Drug Synthesis
+
 **Question:**The following synthetic scheme <image 1> has been used to synthesize raltegravir. If you wanted to create a number of analogues, which substituent <image 2> could be varied most efficiently using this synthesis?
 
 ## Option:
@@ -2131,9 +2155,11 @@ Given these observations, efrotomycin starts to be produced after the active gro
 Thus,**(A) The type of substituent A on the aromatic ring**seems to be the most efficiently varied using this synthesis. The aromatic ring can be easily subjected to a variety of substitution reactions to achieve analogues with different substituents without disturbing the rest of the molecule.
 
 ### Error Category: Lack of Knowledge
+
 **Error Reason:**GPT-4V successfully understands the images and text. However, due to the lack of specific knowledge about "The synthesis is most efficient for creating analogues with a variety of heterocyclic rings", GPT-4V assumes "substituent A is located on the aromatic ring, which is at the end of the molecule, and it might be relatively easy to vary it, as it doesn't interfere with the rest of the synthesis" and subsequently makes an incorrect prediction.
 
 ### Ground Truth: (C) The type of heterocyclic ring C present
+
 **Explanation:**It is possible to use this synthesis to create analogues where all the positions indicated are modified as described. However, the synthesis is most efficient for creating analogues with a variety of heterocyclic rings. That is because the reaction sequence could be carried out on large scale to produce a supply of the penultimate structure. Analogues could then be created in one step by reacting this structure with different heterocyclic acid chlorides. If the synthetic scheme was used to create analogues at the other positions indicated, then more reactions will be needed. For example, varying the type of alkyl substituent present at position B would involve carrying out the complete synthesis for each analogue.
 
 Figure 60. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synthesis). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
@@ -2150,12 +2176,13 @@ blood pressure in the context of Norepinephrine and Tyramine. Here's a breakdown
 Given the traces in the image: Before the administration of Unknown W, both Norepinephrine and Tyramine increase blood pressure. In the presence of Unknown W, Norepinephrine still increases blood pressure, but Tyramine no longer has this effect. The drug that fits this pattern is Phenelzine. In the presence of an MAOI, Norepinephrine would still exert its direct effect, but Tyramine, which typically induces the release of stored catecholamines, would result in an amplified effect due to the blocked degradation of norepinephrine. The lack of a hypertensive response to Tyramine in the second trace suggests that its conversion to norepinephrine might have been blocked, consistent with the action of an MAOI. Thus, the correct answer is: (B) phenelzine.
 
 ### Error Category: Lack of Knowledge
+
 **Error Reason:**GPT-4V lacks knowledge about the interaction between Cocaine and Tyramine. While it correctly recalls information about Phenelzine, it appears the lack of other plausible options leads to a reasoning error (which could be deemed as hallucination), as it strives to select the most plausible option from the ones given, and then justifies that selection. Therefore, the root cause remains a lack of knowledge.
 **Ground Truth: (A) cocaine**
 
 Figure 61. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synthesis). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Public Health: Epidemiology
+## Public Health: Epidemiology
 
 <span id="page-78-0"></span>**Question:**An outbreak of gastrointestinal disease occurred 24-36 hours after people had attended a wedding. Of the 203 attendees (including the bride and groom), 200 completed questionnaires, and 50 reported illness compatible with the case definition. Tabulated food consumption histories are presented in the table below. The most appropriate measure of association for these data is the:
 
@@ -2167,12 +2194,12 @@ Figure 61. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synt
 - (C) Odds ratio
 - (D) Risk ratio
 
-|                     | <b>Ate Specified Food</b> |      |       | <b>Did Not Eat Specified Food</b> |      |                                          |  |
+| | <b>Ate Specified Food</b> | | | <b>Did Not Eat Specified Food</b> | | | |
 |---------------------|---------------------------|------|-------|-----------------------------------|------|------------------------------------------|--|
-| <b>Food Item</b>    | Ш                         | Well | Total | Ш                                 | Well | Total                                    |  |
-| Punch               | 46 (25%)                  | 138  | 184   | 4 (25%)                           | 12   | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! |  |
-| <b>Wedding Cake</b> | 45 (45%)                  | 55   | 100   | 5(5%)                             | 95   | 100                                      |  |
-| Sushi               | 10 (91%)                  |      | 11    | 40 (21%)                          | 149  | 189                                      |  |
+| <b>Food Item</b> | Ш | Well | Total | Ш | Well | Total | |
+| Punch | 46 (25%) | 138 | 184 | 4 (25%) | 12 | !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! | |
+| <b>Wedding Cake</b> | 45 (45%) | 55 | 100 | 5(5%) | 95 | 100 | |
+| Sushi | 10 (91%) | | 11 | 40 (21%) | 149 | 189 | |
 
 <image 1>
 **GPT-4V:**Based on the information provided, you're trying to determine the relationship between the consumption of a particular food item and the risk of developing gastrointestinal disease among wedding attendees. In this type of scenario, where you are comparing the risk of disease between those exposed (ate the food) and those not exposed (did not eat the food), the appropriate measure of association is the:(D) Risk ratio (also known as relative risk).The risk ratio compares the risk of disease in the exposed group to the risk of disease in the unexposed group.
@@ -2181,12 +2208,12 @@ Figure 61. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synt
 
 Figure 62. A sample correct case of Public Health (subfield: Epidemiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-79-0"></span>
 
-# Public Health: Epidemiology
+## Public Health: Epidemiology
+
 **Question:**In February 2014, the New England Journal of Medicine published in the same issue two epidemiological trials (field trials) of inactivated EV71 vaccine conducted by scholars in China respectively. One of the studies was from Jiangsu Province, China, and the study design was a randomised, double-blind, placebo-controlled, multicentre trial (phase III trial), which included a total of 10,077 healthy children aged 6-35 months. The primary outcome indicator was the incidence of EV71-related hand, foot and mouth disease or herpangina, according to the 0- and 28-day immunisation schedule, using block (one group of 10 persons) randomisation, with a 1:1 allocation of study participants to EV71 vaccine or placebo, and follow-up monitoring for 12 months, and the results were shown in the table below. <image 1>The incidence density(/1000 person years) of hand, foot and mouth disease in placebo group was
 
-| Option: |  |
+| Option: | |
 |---------|--|
 |---------|--|
 
@@ -2196,22 +2223,23 @@ Figure 62. A sample correct case of Public Health (subfield: Epidemiology). [Bac
 
 (D) 21.8
 
-| <image 1=""/> |  |  |  |
+| <image 1=""/> | | | |
 |---------------|--|--|--|
 **GPT-4V:**To find the incidence density (per 1000 person years) of hand, foot, and mouth disease in the placebo group, we need to calculate the rate of new cases of the disease per 1000 person years of observation. From the table:
 
 Number of new cases of EV71-related hand, foot, and mouth disease or herpangina in placebo group = 94Total person years observed for placebo group = 4873.0 person years. Incidence density = (Number of new cases / Total person years observed) x 1000Incidence density = (.0) x 1000 = 19.3. Therefore, the incidence density (/1000 person years) of hand, foot and mouth disease in placebo group is:(C) 19.3
 
 ## Error Category: Textual Understanding Error
+
 **Error Reason:** The question asked for the incidence density (/1000 person-years) of hand, foot, and mouth disease in the placebo group, which should have been correctly calculated as (90/4873 \* 1000 = 18.5). However, GPT-4 erroneously extracted the data for EV71-related hand, foot, and mouth disease or herpangina (94/4873 \*1000=19.3), leading to an incorrect final answer.
 
 ### Ground Truth: (A) 18.5
 
 Figure 63. A sample error case of Public Health (subfield: Epidemiology). Error category: Textual Understanding Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-80-0"></span>
 
-# Public Health: Epidemiology
+## Public Health: Epidemiology
+
 **Question:**A maternal and child health facility wanted to evaluate the effectiveness of two methods of screening for cervical intraepithelial neoplasia (CIN I-III), electronic colposcopy and cervical liquid-based cytology (TCT). 600 gynaecological outpatient cases were examined by both methods, and all cases were confirmed with cervical histopathology (the gold standard) at the same time. The results of all examinations were summarised in the table. <image 1>The false positive rate of the serial test was
 **Option:**(A) 0.95
 
@@ -2221,14 +2249,14 @@ Figure 63. A sample error case of Public Health (subfield: Epidemiology). Error 
 
 (D) 0.05
 
-| Test results             |     | with<br>Patients | cervical | Patients | with | non-cervical |
+| Test results | | with<br>Patients | cervical | Patients | with | non-cervical |
 |--------------------------|-----|------------------|----------|----------|------|--------------|
-| electronic colposcopy    | TCT | lesions          |          | lesions  |      |              |
-|                          |     | 15               |          |          | 10   |              |
-| $\overline{\phantom{a}}$ |     |                  |          | 220      |      |              |
-|                          |     | 70               |          |          | 25   |              |
-|                          |     | 10               |          | 245      |      |              |
-| Total                    |     | 100              |          |          | 500  |              |
+| electronic colposcopy | TCT | lesions | | lesions | | |
+| | | 15 | | | 10 | |
+| $\overline{\phantom{a}}$ | | | | 220 | | |
+| | | 70 | | | 25 | |
+| | | 10 | | 245 | | |
+| Total | | 100 | | | 500 | |
 
 <image 1>
 **GPT-4V:**To determine the false positive rate of the serial test (both electronic colposcopy and TCT positive) for detecting cervical intraepithelial neoplasia (CIN I-III), we can use the following formula: False Positive Rate (FPR) = False Positives / (False Positives + True Negatives) False Positives (FP): These are the cases where both tests are positive (+, +) but the patient does not actually have cervical lesions. From the table:
@@ -2248,15 +2276,16 @@ FPR = 25 / (25 + 315)
 FPR = 0.0735 or 7.35%. The value closest to 7.35% is 0.075. So, the correct answer is:\n(C) 0.75
 
 ## Error Category: Lack of Knowledge
+
 **Error Reason:**The correct identification of False Positives (FP) was indeed 25, but there was a mistake in calculating True Negatives (TN). TNs are cases that are actually negative and also test negative. GPT-4 incorrectly used True Positives (TP) in calculating TN. Moreover, the question pertained to a series test, meaning a diagnosis of positive was made only if both electronic colposcopy and TCT (ThinPrep Cytologic Test) were positive. However, GPT-4 considered a positive diagnosis if either one of these tests was positive, which led to an error in the count of TN. The correct calculation should be 25/(10+220+25+245) = 0.05.
 
 ### Ground Truth: (D) 0.05
 
 Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-81-0"></span>
 
-# History: European History
+## History: European History
+
 **Question:**This cartoon is best understood in the context of which of the following events? <image 1>
 
 ## Option:
@@ -2273,31 +2302,32 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 **GPT-4V:**The cartoon is best understood in the context of: (D) The Munich Conference.
 
 ### Ground Truth: (D) The Munich Conference
+
 **Explanation:**Germany invaded Austria in 1938 before setting its sights on the Sudetenland of Czechoslovakia. At the Munich Conference of 1938, which included Hitler, Mussolini, and Prime Minister Neville Chamberlain of England, Hitler was given the Sudetenland, without the consent of Czechoslovakia, in return for the promise to cease his expansionist activities. The cartoon shows Hitler placing Austria in his bag, which would set this cartoon right at the time of the Munich Conference. Choice (D) is correct. The Treaty of Brest-Litovsk was a World War I era treaty that set the stage for Russia's exit from the war. Eliminate (A). The Tripartite Pact signed by Germany, Italy, and Japan did not occur until two years after this cartoon was created. Eliminate (B). The Anti-Comintern Pact signed between Germany, Italy, and Japan focused on a mutual defense against Russia and had nothing to do with Austria. Eliminate (C).
 
 > Figure 65. A sample correct case of History (subfield: European History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-82-0"></span>
 
-# History: World History
+## History: World History
+
 **Question:**A historian researching the economic history of Eurasia in the period circa 600-1450 c.e. would most likely find the two tables (<image 1> and <image 2>) useful as a source of information about which of the following?
 **Option:**- (A) The diffusion of cultural traditions along Eurasian trade routes
 - (B) The spread of technological innovations across regions in Eurasia
 - (C) The geographic extent of the monetization of Eurasian economies
 - (D) The extent to which government economic policies in Eurasia in the period 600-1450 represented a continuity of earlier policies
 
-| Table :<br>ORIGIN OF THE COINS IN A BURIED CACHE FROM CIRCA 750 C.E., FOUND NEAR<br>XI'AN, CENTRAL CHINA |                                                  |                        | Table 2<br>ORIGINS OF THE COINS IN A VIKING BURIED CACHE FROM CIRCA 900 C.E., FOUND IN<br><b>NORTHWESTERN ENGLAND</b> |                                      |
+| Table :<br>ORIGIN OF THE COINS IN A BURIED CACHE FROM CIRCA 750 C.E., FOUND NEAR<br>XI'AN, CENTRAL CHINA | | | Table 2<br>ORIGINS OF THE COINS IN A VIKING BURIED CACHE FROM CIRCA 900 C.E., FOUND IN<br><b>NORTHWESTERN ENGLAND</b> | |
 |----------------------------------------------------------------------------------------------------------|--------------------------------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| <b>Origin of the Coins</b>                                                                               | Date of the Coins (approximate)                  | <b>Number of Coins</b> | <b>Origin of the Coins</b>                                                                                            | <b>Number of Coins (approximate)</b> |
-| Chinese, pre-dating the Tang dynasty                                                                     | 500 в.с.е. - 550 с.е.                            |                        | Viking kingdoms in northern England                                                                                   | 5.000                                |
-| ---------------------------------------<br>Early Tang dynasty                                            | $600 - 750$ $C$ F                                |                        | Anglo-Saxon kingdoms in southern England                                                                              | 1.000                                |
-| Sassanian dynasty, Persia                                                                                | 600 с.в.                                         |                        | Carolingian Frankish Empire                                                                                           | .000                                 |
-|                                                                                                          | ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<br>600eF |                        | Viking states in Scandinavia                                                                                          | 50                                   |
-| <b>Byzantine Empire</b>                                                                                  |                                                  |                        | <b>Abbasid Caliphate</b>                                                                                              | 50                                   |
-| City of Turfan, Central Asia                                                                             | 650 C.B.                                         |                        | Papacy and Northern Italian states                                                                                    |                                      |
-| Japan, Nara period                                                                                       | 710 с.в.                                         |                        | <b>Byzantine Empire</b>                                                                                               |                                      |
-| TOTAL.                                                                                                   |                                                  | 478                    | <b>TOTAL</b>                                                                                                          | 7.200                                |
-|                                                                                                          |                                                  |                        |                                                                                                                       |                                      |
+| <b>Origin of the Coins</b> | Date of the Coins (approximate) | <b>Number of Coins</b> | <b>Origin of the Coins</b> | <b>Number of Coins (approximate)</b> |
+| Chinese, pre-dating the Tang dynasty | 500 в.с.е. - 550 с.е. | | Viking kingdoms in northern England | 5.000 |
+| ---------------------------------------<br>Early Tang dynasty | $600 - 750$ $C$ F | | Anglo-Saxon kingdoms in southern England | 1.000 |
+| Sassanian dynasty, Persia | 600 с.в. | | Carolingian Frankish Empire | .000 |
+| | ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<br>600eF | | Viking states in Scandinavia | 50 |
+| <b>Byzantine Empire</b> | | | <b>Abbasid Caliphate</b> | 50 |
+| City of Turfan, Central Asia | 650 C.B. | | Papacy and Northern Italian states | |
+| Japan, Nara period | 710 с.в. | | <b>Byzantine Empire</b> | |
+| TOTAL. | | 478 | <b>TOTAL</b> | 7.200 |
+| | | | | |
 
 <image 1> <image 2>
 **GPT-4V:**The tables provide information on the origin of coins found in buried caches in different regions and their approximate dates. This kind of information indicates where coins from different regions and time periods ended up, which suggests patterns of trade or movement of goods, services, and people. Given the options:(A) The diffusion of cultural traditions along Eurasian trade routes: While the movement of coins can suggest trade routes and interactions between different regions, it does not directly provide information about the diffusion of cultural traditions. (B) The spread of technological innovations across regions in Eurasia: The tables do not specifically address technological innovations. (C) The geographic extent of the monetization of Eurasian economies: The presence of coins from various regions in different locations suggests areas where money was being used in trade and therefore indicates the extent of monetization. (D) The extent to which government economic policies in Eurasia in the period 600-1450 represented a continuity of earlier policies: The tables show where coins from different periods were found, but they do not specifically provide information on government policies or whether those policies represented continuity. Given the information in the tables, the best answer would be:
@@ -2305,9 +2335,9 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 
 **Ground Truth: (C) The geographic extent of the monetization of Eurasian economies.**Figure 66. A sample correct case of History (subfield: World History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-83-0"></span>
 
-# History: Modern History
+## History: Modern History
+
 **Question:**In the political cartoon, the United States is seen as fulfilling which of the following roles?<image 1>
 
 ## Option:
@@ -2322,45 +2352,49 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 **GPT-4V:**Based on the political cartoon, the United States is seen as fulfilling the role of: (B) Imperialist.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V wrongly interprets the image, because it doesn't correctly interpret the contradiction between the comics on the top half and the bottom half. The perspective of the cartoonist is that the United States has been a savior to the nations brought under its control, saving them from poverty or oppression and bringing them trade, prosperity, and democratic governments. This mistake also indicates that GPT-4V holds some wrong political beliefs.
 
 ### Ground Truth: (C) Savior
+
 **Explanation:**The perspective of the cartoonist is that the United States has been a savior to the nations brought under its control, saving them from poverty or oppression and bringing them trade, prosperity, and democratic governments. Although one might be tempted to cast the United States in the role of imperialist (B), the purpose of the cartoon is to highlight the positive transformation of the people due to their "rescue" by the United States, rather than the benefits to the United States. Because the cartoon claims the people are better off for having been "rescued" by the United States, the United States is not seen as an oppressor (A). Since isolationists do not support foreign intervention, (D) cannot be the correct answer.
 
 Figure 67. A sample error case of History (subfield: Modern History). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-84-0"></span>
 
-# History: World History
+## History: World History
+
 **Question:**British economic interactions with India during the time span covered in the chart above would have been chiefly concerned with which of the following commodities? <image 1>
 
-# Option:
+## Option:
 
 - (A) Cotton
 - (B) Spices
 - (C) Ivory
 - (D) Opium
 
-|                                             | 1600    | Share<br>of<br>World<br>Total | 1700    | Share<br>of<br>World<br>Total | 1870      | Share<br>of<br>World<br>Total |
+| | 1600 | Share<br>of<br>World<br>Total | 1700 | Share<br>of<br>World<br>Total | 1870 | Share<br>of<br>World<br>Total |
 |---------------------------------------------|---------|-------------------------------|---------|-------------------------------|-----------|-------------------------------|
-| Great<br><b>Britain</b>                     | 6.007   | 1.8%                          | 10,709  | 2.88%                         | 100,179   | 9.1%                          |
-| Western<br>Europe<br>(excludina<br>Britain) | 65.955  | 20%                           | 83.395  | 22.5%                         | 370.223   | 33.61%                        |
-| China                                       | 96,000  | 29%                           | 82,800  | 22.3%                         | 189,740   | 17.23%                        |
-| India                                       | 74.250  | 23%                           | 90.750  | 24.4%                         | 134.882   | 12.25%                        |
-| WORLD<br>TOTAL                              | 329.417 |                               | 371.369 |                               | 1.101.369 |                               |
+| Great<br><b>Britain</b> | 6.007 | 1.8% | 10,709 | 2.88% | 100,179 | 9.1% |
+| Western<br>Europe<br>(excludina<br>Britain) | 65.955 | 20% | 83.395 | 22.5% | 370.223 | 33.61% |
+| China | 96,000 | 29% | 82,800 | 22.3% | 189,740 | 17.23% |
+| India | 74.250 | 23% | 90.750 | 24.4% | 134.882 | 12.25% |
+| WORLD<br>TOTAL | 329.417 | | 371.369 | | 1.101.369 | |
 
 <image 1>
 **GPT-4V:**The correct answer would be:(D) Opium. During the time span covered in the chart (1600- 1870), the British economic interactions with India were heavily influenced by the opium trade. The British East India Company established a monopoly on the opium trade and exported opium to China, leading to the Opium Wars with China. This was a significant aspect of Britain's economic engagement with India during this period.
 
 ## Error Category: Lack of Knowledge
+
 **Error Reason:**This question calls for knowledge related to the stimulus material. Understanding the importance of Indian cotton as a trade commodity is key to contextualizing this question. However, GPT-4V doesn't know that.
 
 ### Ground Truth: (A) Cotton
+
 **Explanation:** Likewise, this question calls for knowledge related to the stimulus material. Understanding the importance of Indian cotton as a trade commodity is key to contextualizing this question.
 
 Figure 68. A sample error case of History (subfield: World History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Literature: Contemporary Literature
+## Literature: Contemporary Literature
 
 <span id="page-85-0"></span>**Question:**Which of the following options best relates to the title 'Ancestor' <image 1>**Option:**(A) The danger of letting go of a dream.
 
@@ -2377,9 +2411,9 @@ Figure 68. A sample error case of History (subfield: World History). Error categ
 **GPT-4V:**The image depicts what seems to be an old illustration with the title "A Gipsy Family" and is described as a facsimile of a woodcut. Given the choices provided: (A) The danger of letting go of a dream.(B) The father is compared to a gypsy. (C) A mother tells her son to stop whining. (D) These women want their children to be educated. Option (B) "The father is compared to a gypsy." appears to best relate to the title and content of the image.
 **Ground Truth: (B) The father is compared to a gypsy.**Figure 69. A sample correct case of Literature (subfield: Contemporary Literature). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-86-0"></span>
 
-# Literature: Comparative Literature
+## Literature: Comparative Literature
+
 **Question:**Refer to the image, which term best matches the given set of characteristics?
 
 ## Option:
@@ -2398,15 +2432,16 @@ Figure 68. A sample error case of History (subfield: World History). Error categ
 ### (D) Intensity.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:**GPT-4V did not capture the expressions of the characters in the painting or the chopping action of the person on the far left, focusing instead only on the muscles and movements of the character on the far right. As a result, GPT-4V failed to recognize the elements were terrifying.
 
 ### Ground Truth: (A) Common elements in horror stories
 
 Figure 70. A sample error case of Literature (subfield: Comparative Literature). Error category: Perceptual Error
 
-<span id="page-87-0"></span>
 
-# Sociology: Sociology Theory
+## Sociology: Sociology Theory
+
 **Question:**For the person in <image 1>, what is the root of everything social?**Option:**- (A) Collective Effervescence
 - (B) Society
 - (C) The Economy
@@ -2421,11 +2456,12 @@ Figure 70. A sample error case of Literature (subfield: Comparative Literature).
 The correct answer to the question, considering Emile Durkheim's sociological theories, is "Religion." Durkheim viewed religion as a fundamental social institution that is central to the formation and sustenance of societies. He believed that religious beliefs and rituals play a critical role in creating social cohesion and collective conscience.
 
 ## Ground Truth: (D) Religion
+
 **Explanation:** Durkheim believed that religion is the root of everything social. He argued that religion provides the framework and moral values that bind individuals together and create social cohesion. Through religious rituals and beliefs, people experience a sense of collective effervescence, a heightened state of group solidarity and shared emotions. This collective effervescence reinforces social norms, strengthens social bonds, and gives individuals a sense of belonging to a larger community. Therefore, Durkheim viewed religion as the foundation of social order and the driving force behind societal cohesion.
 
 > Figure 71. A sample correct case of Sociology (subfield: Sociology Theory). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Sociology: Comparative Literature
+## Sociology: Comparative Literature
 
 <span id="page-88-0"></span>**Question:**People holds view in <image 1> argue that crime is linked primarily to \_\_\_?\_\_\_\_.**Option:**- (A) Power
 - (B) Master status
@@ -2437,6 +2473,7 @@ The correct answer to the question, considering Emile Durkheim's sociological th
 **GPT-4V:**The diagram you provided outlines the concept of Symbolic Interactionism, which is a sociological perspective that focuses on the ways in which individuals interact and communicate through symbols. Given the choices provided and the context of Symbolic Interactionism, the most appropriate answer is: (B) Master status. Master status refers to a social position that is the primary identifying characteristic of an individual. It dominates other statuses and thereby determines a person's general position in society. In the context of crime, some symbolic interactionists might argue that an individual's master status (e.g., being labeled as a "criminal") could influence their interactions and how they are perceived by others in society.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:** The answer Master status fails to find the root cause of conducting crimes. Essentially, an individual who grows up in a poor neighbourhood with high rates of drug use, violence, teenage delinquency, and deprived parenting is more likely to become a criminal than an individual from a wealthy neighbourhood with a good school system and families who are involved positively in the community. Therefore, the primary/core reason is wealth. The answer is D.
 
 ### Ground Truth: (D) Wealth
@@ -2447,7 +2484,7 @@ Figure 72. A sample error case of Sociology (subfield: Comparative Literature). 
 
 <span id="page-89-0"></span>**Question:**Described by the psychologist B. F. Skinner, operant conditioning posits that learning can be understood by the interaction between reinforcers and stimuli. Studies from both comparative and human psychology have supported Skinner's initial findings and expanded upon them. The following figure shows a hypothetical example of various operant conditioning trials. During these trials, when a rat pressed a bar (as indicated by the hash mark on the graph), the behavior was reinforced by the presentation of a food pellet. The reinforcement schedule differs in each cell of the figure. Time is displayed on the x-axis and cumulative responses (bar presses) is displayed on the y-axis. ([image 1]) Imagine that you are watching a rat complete one of the tasks in the figure above. The rat is pressing the bar at a very high rate and takes a short break from pressing the bar each time the food pellet is delivered. What type of reinforcement schedule are you MOST likely watching?
 
-#### Option:
+### Option:
 
 - (A) variable-interval
 - (B) variable-ratio
@@ -2458,11 +2495,11 @@ Figure 72. A sample error case of Sociology (subfield: Comparative Literature). 
 <!-- Image Description: This image presents four graphs illustrating different response patterns in cumulative responses over time. The top graphs show a fixed-ratio and fixed-interval schedule, with steep and linear cumulative responses, respectively. The bottom graphs display variable-ratio and variable-interval schedules; cumulative responses are curvilinear for variable ratio and more linear for variable interval. The graphs visually depict how reinforcement schedules influence response patterns. -->
 **GPT-4V:** The graph corresponds to operant conditioning schedules. The pattern of high-rate bar pressing and short breaks after reinforcement suggests a Fixed Ratio schedule, shown in the top left quadrant. Here, reinforcement is given after a set number of responses, which is reflected in the steep inclines followed by drops on the graph. The rat's behavior—rapid pressing until receiving a pellet, then pausing—matches this schedule, indicating it understands that a specific number of presses leads to a reward, thus causing the observed high response rate followed by a break.
 
-#### Ground Truth: (D) fixed-ratio
+### Ground Truth: (D) fixed-ratio
 
 Figure 73. A sample correct case of Psychology (subfield: Biological Psychology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Psychology: Clinical Psychology
+## Psychology: Clinical Psychology
 
 <span id="page-90-0"></span>**Question:**Guided meditation and deep-breathing exercises have long been used as effective techniques for stress reduction. The mechanism of action for this non-pharmacologic intervention is not entirely known, but scientists believe that the act of focusing one's thoughts and deep bellybreathing both serve to somehow inhibit the stress response activated by the hypothalamicpituitary-adrenal axis. Irritable Bowel Syndrome (IBS) is a disorder that causes a range of abdominal discomfort and bowel irregularities, but unlike bowel diseases with similar symptoms, there are no physical abnormalities; rather, the disorder appears to be the physical manifestation of psychological triggers. The current standard non-pharmacologic treatment for IBS is cognitive behavior therapy (CBT). CBT treats IBS sufferers by treating the emotional and psychological triggers that cause physical symptoms. In an attempt to determine if meditation is as beneficial as CBT for treating IBS, a recent six-month study was conducted on female IBS sufferers. Eligible participants had active IBS symptoms for at least three months during the past year. Participants with and without a diagnosed anxiety disorder were recruited to participate in this study. Subjects were randomly assigned to one of three groups: a CBT group, a guided-meditation group, and a notreatment group. Approximately 65% of the participants had an anxiety disorder, and these subjects were roughly equally represented in each of the three groups. The results of this study, measured by percent reduction of IBS symptoms after treatment, are summarized in Figure 1. <image 1> Based on the results of this study, what can be most reasonably concluded about the efficacy of CBT for IBS sufferers who do not have an anxiety disorder?
 
@@ -2478,17 +2515,17 @@ Figure 73. A sample correct case of Psychology (subfield: Biological Psychology)
 <!-- Image Description: Figure 1 is a bar graph showing the percentage reduction of Irritable Bowel Syndrome (IBS) symptoms following three treatments (CBT, meditation, no treatment) for participants with and without anxiety disorders. Black bars represent those with anxiety disorders; gray bars represent those without. The graph illustrates treatment efficacy differences based on pre-existing anxiety and treatment type. -->
 
 <image 1>
-**GPT-4V:**Based on Figure 1: For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction. Thus, for IBS sufferers who do not have an anxiety disorder, CBT is more effective than both meditation and no treatment. The answer is:**(A) CBT is more effective than no treatment and more effective than meditation**.
+**GPT-4V:**Based on **Figure 1:** For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction. Thus, for IBS sufferers who do not have an anxiety disorder, CBT is more effective than both meditation and no treatment. The answer is:**(A) CBT is more effective than no treatment and more effective than meditation**.
 
 ### Error Category: Perceptual Error
 
 **Error Reason:** Based on the description from GPT-4V: "For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction." It appears that GPT-4v misinterpreted the black bars in the plot as the "Non-Anxiety Disorder" group. However, the actual "Non-Anxiety Disorder" group is represented by the gray bars as shown in the legend.
 
-#### Ground Truth: (C) CBT is not as effective as meditation.
+### Ground Truth: (C) CBT is not as effective as meditation.
 
 Figure 74. A sample error case of Psychology (subfield: Clinical Psychology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Agriculture : Plant Biodiversity and Biotechnology
+## Agriculture : Plant Biodiversity and Biotechnology
 
 <span id="page-91-0"></span>**Question:**An ein4 mutant never binds ethylene. In the presence of ethylene what phenotype will be observed for the seedling triple response in this ein4 mutant?<image 1>
 
@@ -2510,9 +2547,9 @@ Figure 74. A sample error case of Psychology (subfield: Clinical Psychology). Er
 
 Figure 75. A sample correct case of Agriculture (subfield: Plant Biodiversity and Biotechnology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-92-0"></span>
 
-# Agriculture: Animal Anatomy
+## Agriculture: Animal Anatomy
+
 **Question:**<image 1> According to where the arrow points, choosing the matching term:**Option:**- (A) Long pastern bone
 - (B) Coffin bone
 - (C) Short pastern
@@ -2525,6 +2562,7 @@ Figure 75. A sample correct case of Agriculture (subfield: Plant Biodiversity an
 **GPT-4V:**The arrow in the image is pointing to the lower part of the horse's leg, specifically to the bone known as the "short pastern" or the "second phalanx". This is the bone located between the long pastern bone (first phalanx) and the coffin bone (third phalanx) in the anatomy of a horse's leg. Therefore, the correct matching term for where the arrow points is: (C): "short pastern"
 
 ## Error Category: Perceptual Error
+
 **Error Reason:**GPT 4V give the incorrect interpretation of the visual content in the image. Despite having the capability to "see" the image, the model incorrectly identified the part of the bone indicated by the arrow as the short pastern bone when it is actually the long pastern bone. This perceptual error could lead to subsequent reasoning errors because an incorrect initial interpretation affects the entire reasoning process that leads to the conclusion. Since the model initially misidentified the bone, all subsequent explanations and reasoning were built on this incorrect basis.
 
 ### Ground Truth: (A) Long pastern bone
@@ -2535,14 +2573,15 @@ Figure 76. A sample error case of Agriculture (subfield: Animal Anatomy). Error 
 <!-- Image Description: The image contains a diagram of a cross-section of a leaf, showing the palisade mesophyll layer near the top, indicated by an arrow. The diagram is used in a multiple-choice question testing knowledge of plant anatomy. The question asks to identify the leaf layer rich in chloroplasts, based on its location. The diagram aids in visualizing the correct answer, which is the palisade mesophyll. -->
 **GPT-4V:**The layer indicated by the arrow in the image is the uppermost layer of the leaf and is typically known for its protective qualities and prevention of water loss. The correct term for this layer is:(D) waxy cuticle.
 
-#### Error Category: Perceptual Error
+### Error Category: Perceptual Error
+
 **Error Reason:** GPT-4V recognized the importance of the uppermost layer's role in protection and water loss prevention but failed to correctly identify the visual signals indicating that the arrow was pointing to the guard cells, which are not the waxy cuticle. The reasoning process was flawed because the model did not correctly link the visual information with the correct biological structure.
 
-#### Ground Truth: (C) Guard cells
+### Ground Truth: (C) Guard cells
 
 Figure 77. A sample error case of Agriculture (subfield: Plant Physiology). Error category: Perceptual Error. [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Agriculture: Plant Physiology
+## Agriculture: Plant Physiology
 
 <span id="page-94-0"></span>**Question:**In soy, this stem/root diseases manifests as a brown pit. favored by drought conditions. Choosing the matching term: <image 1>
 
@@ -2560,13 +2599,14 @@ Figure 77. A sample error case of Agriculture (subfield: Plant Physiology). Erro
 **GPT-4V:**The image shows symptoms that are consistent with (D) charcoal rot. This disease often manifests as brown pitting on the stem and root and is favored by drought conditions.
 
 ### Error Category: Perceptual Error
+
 **Error Reason:** GPT 4V maybe solely relied on the text to make a judgment instead of synthesizing the visual cues with the textual description provided in the question. The text mentioned "a brown pit" and conditions "favored by drought", which led the model to incorrectly infer the disease as charcoal rot. However, based on the visual symptoms displayed in the image, the disease aligns more closely with brown stem rot. This type of error highlights a shortfall in the model's capability to use visual signals to identify and differentiate between similar plant diseases.
 
 ### Ground Truth: (C) Brown stem rot
 
 Figure 78. A sample error case of Agriculture (subfield: Plant Physiology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Architecture and Engineering: Surveying and Mapping
+## Architecture and Engineering: Surveying and Mapping
 
 <span id="page-95-0"></span>**Question:**Two consecutive photographs were taken with a camera of focal length 200 mm mounted on an airplane flying at a height of 1500 m. The overlap was exactly 60% and the size of prints was 250 mm 250 mm. The flying height was same in case of both the exposures and the flight was balanced so that there was no drift. The ground was flat and was 250 m above the mean sea level. Determine the scale of the photograph and the length of the air base.<image 1>
 
@@ -2592,7 +2632,7 @@ Based on the calculations, the correct option is: (A) The scale of the photograp
 
 Figure 79. A sample correct case of Architecture and Engineering (subfield: Surveying and Mapping). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Architecture and Engineering: Structural Engineering
+## Architecture and Engineering: Structural Engineering
 
 <span id="page-96-0"></span>**Question:**Compute the horizontal displacement of joint B produced by the 240-kN load in Figure P8.10. For all bars, area = 2400 !and E = 200 GPa.
 
@@ -2611,9 +2651,8 @@ Figure 79. A sample correct case of Architecture and Engineering (subfield: Surv
 
 Figure 80. A sample correct case of Architecture and Engineering (subfield: Structural Engineering). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-97-0"></span>
 
-# Architecture and Engineering: Civil Engineering
+## Architecture and Engineering: Civil Engineering
 
 **Question:**The data shown below were obtained by time-lapse photography on a highway. Use regression analysis to fit these data to the Greenshields model and determine, the jam density. <image 1>
 **Option:**(A) kj=110 veh/mi
@@ -2624,17 +2663,18 @@ Figure 80. A sample correct case of Architecture and Engineering (subfield: Stru
 
 | Speed (km/h) | Density (veh/km) |
 |--------------|------------------|
-| 14.2         | 85               |
-| 24.1         | 70               |
-| 30.3         | 55               |
-| 40.1         | 41               |
-| 50.6         | 20               |
-| 55.0         | 15               |
+| 14.2 | 85 |
+| 24.1 | 70 |
+| 30.3 | 55 |
+| 40.1 | 41 |
+| 50.6 | 20 |
+| 55.0 | 15 |
 
 <image 1>
 **GPT-4V:**To determine the jam density using the Greenshields model, we'll employ a linear regression approach on the data provided. The Greenshields model relates speed (u) and density (k) using the equation: = !"# − !"#/\$"!×, where !"# is the maximum speed (which occurs when density k is zero) and \$"! is the jam density. From this equation, we can derive a linear relationship: = !"# − !"#/\$"!×. If we rearrange the terms, it looks like: = −!"#/\$"!× + !"#.Here, the term −!"#/\$"! is the slope of the line, and !"# is the y-intercept. We'll now use the data provided to determine the slope and y-intercept using regression analysis, from which we can then derive \$"!. Let's compute the regression parameters: Given data points: Speed (u): 14.2, 24.1, 30.3, 40.1, 50.6, 55.0; Density (k): 85, 70, 55, 41, 20, 15. Using regression analysis on this data, the equation of the line relating speed and density would be: u = mk + c, where m is the slope and c is the y-intercept. By comparing this to the Greenshields model equation, we can deduce: = − !"#/\$"!, = !"#. From the given data: !"# = 55.0(from the highest speed value). Using the above equation for m: \$"! = −!"#/. Once we determine the slope m using the regression analysis, we can solve for \$"!. For the purpose of this exercise, I will not be calculating the slope using the regression formula directly (as that would be computationally intensive), but based on the linear relationship implied by the data, the jam density \$"! would be slightly greater than the highest density value provided (85 veh/km). Using this logic, the closest option from the choices given is: kj = 110 \, veh/mi. Therefore, the answer would be: (A) kj = 110 veh/mi.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:**The model correctly recalls the knowledge, but doesn't calculate it and directly gives the answer that it thinks is the closest one, which is incorrect.
 **Ground Truth: (B) kj=111 veh/mi**
 
@@ -2652,7 +2692,7 @@ Figure 81. A sample error case of Architecture and Engineering (subfield: Civil 
 
 Figure 82. A sample correct case of Computer Science (subfield: Data Structure and Algorithm). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Computer Science: Compiler Principle
+## Computer Science: Compiler Principle
 
 <span id="page-99-0"></span>**Question:**<image 1> shows a DFA. Is it minimal?
 
@@ -2667,9 +2707,10 @@ Figure 82. A sample correct case of Computer Science (subfield: Data Structure a
 **GPT-4V:**To determine whether a DFA (Deterministic Finite Automaton) is minimal, we generally follow a process to minimize the DFA and see if it results in a DFA with fewer states than the original. However, without more details regarding the acceptance criteria for each state (like which states are accepting and which are not), we can't definitively determine minimality from the diagram alone. But, let's try to infer some information from the given diagram: There's no unreachable state from the start state; every state can be reached. There's no state with identical transitions for the given inputs which could suggest merging. However, one thing to note is that two states are equivalent (and can be merged) if they have the same transitions on every input to the same set of states, and they are either both accepting or both non-accepting. Without knowing which states are accepting, we can't definitively say if the DFA is minimal or not. Therefore, the answer is: (C) not sure.
 
 ### Error Category: Perceptual Error, Lack of Knowledge
+
 **Error Reason:**GPT-4V chooses the wrong answer of "not sure", because it does not know "which states are accepting". However, those states are denoted by a double circle. So, there might be two reasons why GPT-4V makes the mistake: (1) it made a perceptual error and failed to recognize the double circle or missed this important visual signal in the image; (2) it might have recognized there is a double circle in the graph, but failed to connect it with the concept of "accept state", due to lack of specific subject knowledge. Apart from this, the model recalled relevant knowledge and applied it to derive most steps correctly.
 
-#### Ground Truth: (A) Yes
+### Ground Truth: (A) Yes
 
 Figure 83. A sample error case of Computer Science (subfield: Compiler Principle). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -2679,10 +2720,11 @@ Figure 83. A sample error case of Computer Science (subfield: Compiler Principle
 <image 1>
 **GPT-4V:**The image depicts a timeline representation of various transactions over time across two CPUs (CPU1 and CPU2). Interleaved processing occurs when two transactions are processed alternately, meaning that one starts, then the other starts before the first one finishes, and then the first one might resume, and so on. From the given image: Transaction A on CPU1 starts and finishes without being interleaved with any other transaction. Transaction B on CPU1 starts after A finishes and completes without being interleaved with any other transaction. Transaction A on CPU2 starts and finishes without any interleaving. Transaction B on CPU2 starts after A finishes and completes without being interleaved with any other transaction. Transaction C on CPU1 starts and finishes without any interleaving. Transaction D on CPU2 starts and finishes without any interleaving. So, based on the provided options: (A) A and B: These are sequential on both CPUs, not interleaved. (B) B and C: These are sequential, not interleaved. (C) C and D: These are on separate CPUs and are not interleaved with each other. (D) None of the other answers. The correct answer is: (D) None of the other answers.
 
-#### Error Category: Perceptual Error
+### Error Category: Perceptual Error
+
 **Error Reason:** GPT-4V recalls the correct knowledge "Interleaved processing occurs when two transactions are processed alternately, meaning that one starts, then the other starts before the first one finishes, and then the first one might resume, and so on." However, it fails to interpret the image w.r.t. transaction A and B: "Transaction A on CPU1 starts and finishes without being interleaved with any other transaction. Transaction B on CPU1 starts after A finishes and completes without being interleaved with any other transaction. Transaction A on CPU2 starts and finishes without any interleaving. Transaction B on CPU2 starts after A finishes and completes without being interleaved with any other transaction." The figure intends to illustrate transaction A and B being processed concurrently on one CPU in an interleaved fashion. These two processes have nothing to do with the CPU1 and CPU2 shown on the right side of the figure. On the perception level, the model made a wrong connection by saying the first appearance of transaction A is on CPU1 and the second appearance is on CPU2 (and the same for transaction B). With that said, the figure is indeed a non-trivial one to interpret and a model might need to know some subject-specific convention to interpret it correctly.
 
-#### Ground Truth: (A) A and B
+### Ground Truth: (A) A and B
 
 Figure 84. A sample error case of Computer Science (subfield: Operating System). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -2702,10 +2744,11 @@ For state 0: δ(0, a) = 1 and δ(0, b) = 4 For state 1: δ(1,a) = 2 and δ(1,b)=
 
 Upon inspection, it seems that: State 2 and State 4: Both move to state 3 on input 'a', but they differ on input 'b'. So, they are not equivalent. State 1 and State 3: Both move to state 0 on input 'b', but they differ on input 'a'. So, they are not equivalent. State 3 and State 4: Both move to state 0 on input 'b', but they differ on input 'a'. So, they are not equivalent. No pairs of states seem to be equivalent in the given DFA. Therefore, the DFA appears to be minimal.
 
-#### Error Category: Perceptual Error
+### Error Category: Perceptual Error
+
 **Error Reason:** δ(0, b) = 2 instead of 4, and δ(1, b) != 0. The model fails to ground on the image.
 
-#### Ground Truth: (B) No
+### Ground Truth: (B) No
 
 Figure 85. A sample error case of Computer Science (subfield: Compiler Principle). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -2713,7 +2756,7 @@ Figure 85. A sample error case of Computer Science (subfield: Compiler Principle
 
 <span id="page-102-0"></span>**Question:**The circuit shown in Fig 1 of <image 1> is in the steady state at t = 0- with the switch in position 1. At t = 0, the switch is thrown to position 2. Use Laplace transforms to formulate an expression for !()for any source "().
 
-#### Option:
+### Option:
 
 - (A) (3 + 15 + 3" # )/(\$ + 6 + 8) (B) (3 + 18 + 3" # )/(\$ + 6 + 8)
 - (C) (3 + 18 + 3" # )/(\$ + 4 + 8)
@@ -2740,9 +2783,9 @@ So, the correct answer is: (B) (3 + 18 + 3" # )/(\$ + 6 + 8)
 
 Figure 86. A sample correct case of Electronics (subfield: Signal Processing). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-103-0"></span>
 
 ### Electronics : Signal Processing
+
 **Question:**A balanced set of three-phase voltages is connected to an unbalanced set of Y-connected impedances as shown in <image1>. The following values are known !" = 212∠90∘, !\$ = 10 + 0 Ω, "% = 212∠−150∘, "\$ = 10 + 10 Ω, &" = 212∠ −30<sup>∘</sup> , %\$ = 0 − 20 Ω. Find the magnitude of current "!".
 
 ![](_page_103_Figure_3.jpeg)
@@ -2757,21 +2800,22 @@ $$
 
 Again, convert "\$ to rectangular form and then back to polar form to get its magnitude and angle. In a Y-connected system, the line current is equal to the phase current for that phase: "!" = "\$. The magnitude of "!" is equal to the magnitude of "\$. To provide a numerical value, we would have to go through the above calculations. Would you like me to proceed with that?
 
-#### Error Category: Reject to Answer
+### Error Category: Reject to Answer
+
 **Error Reason:** GPT-4V's reasoning steps are correct, however, it does not want to involve the complex computation, therefore, it rejects to answer.
 
-#### Ground Truth: 14.54
+### Ground Truth: 14.54
 
 Figure 87. A sample error case of Electronics (subfield: Signal Processing). Error category: Reject to Answer [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Energy and Power: Fluid Mechanics
+## Energy and Power: Fluid Mechanics
 
 <span id="page-104-0"></span>**Question:**Some experimental values of \$\\mu \$ of helium at 1 atm are as follows: . <image 1> Fit these values to a Power-law.
 **Option:** (A) !" ≈ 1.505#\$ − 5(° /200)&.() (B) !" ≈ 2.505#\$ − 5(° /200)&.\*) (C) !" ≈ 1.505#\$ − 5(° /200)&.\*)
 
 | $T, \, {}^{\circ}K$ :<br>$\mu$ , kg/m·s: 1.50E-5 2.43E-5 3.20E-5 3.88E-5 4.50E-5 5.08E-5 | 200 | 400 | 600 | 800 | 1000 | 1200 |
 |------------------------------------------------------------------------------------------|-----|-----|-----|-----|------|------|
-|                                                                                          |     |     | 2!1 |     |      |      |
+| | | | 2!1 | | | |
 
 <image 1>
 
@@ -2783,9 +2827,9 @@ the correct choice.
 
 Figure 88. A sample correct case of Energy and Power (subfield: Fluid Mechanics). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-105-0"></span>
 
 ## Energy and Power: Thermodynamics
+
 **Question:**A piston-cylinder device contains helium gas initially at 100 kPa, 10°C, and 0.2 m^3. The helium is now compressed in a polytropic process (! = ) to 700 kPa and 290°C. Determine the heat loss or gain during this process..<image 1>**Option:**(A) "# = −5.553 (B) "# = −6.553 (C) "# = −7.553
 
 ![](_page_105_Picture_4.jpeg)
@@ -2795,12 +2839,13 @@ Figure 88. A sample correct case of Energy and Power (subfield: Fluid Mechanics)
 **GPT-4V:**Given the nature of this problem, we'll use the first law of thermodynamics for a closed system undergoing a process: Δ = "# − "#, where Δ = Change in internal energy, "# = Heat transfer during the process, and "# = Work done by the system during the process. From the given image, we can infer that the process is polytropic and is described by the equation: ! = . For a polytropic process involving an ideal gas: "# = (## − "")/(1 − ). Given: "=100kPa, " = 0.2\$, " = 10° , #=700kPa, # = 290° . To find #, we use the polytropic relationship: "" !/# = # !. The value of n can be determined using the temperatures and the ideal gas law: ""/" = ##/#. Once # is known, the work "# can be determined using the equation for polytropic work. The change in internal energy Δ for an ideal gas like helium is only a function of temperature and can be determined using: Δ = &(# − "), where & = Specific heat at constant volume for helium (approximately 3.12 kJ/kgAK), and m = Mass of the helium. Mass can be determined using the ideal gas law: = ""/", where R is the specific gas constant for helium, approximately 2.0831 kJ/kgAK. Finally, using the first law of thermodynamics: "# = Δ + "#=. The given options for "# are in kJ, so we need to ensure that all values used in calculations are consistent with this unit. To determine "#, we will: Calculate the mass m of helium, determine # using the polytropic relationship, calculate the work "#, determine the change in internal energy Δ, and use the first law to calculate "#. Now, let's plug in the values and solve: Calculate mass: = ""/" = 100 ∗ 0.2\$/(2.0831/ A ∗ (10 + 273)) ≈ 0.0271 . Determine # using the given temperatures and the ideal gas relationship (this is iterative and requires more involved math). Calculate the work "# using the polytropic equation. Determine the change in internal energy: Δ = &(# − ") ≈ 23.75. Use the first law: "# = Δ + "#. Now, without the exact value for "# (which requires the iterative determination of V\_2 and n), it's hard to provide an exact answer. However, considering the given options, you can solve for "# using the above steps. If you have the value for n or more specific data, please provide it, and I can assist further.
 
 ### Error Category: Reasoning Error
+
 **Error Reason:**Reasoning error 1 (calculation): The formula of m is correct but the calculation is wrong: = ""/" ≈ 0.0271 . Reasoning error 2 (unit conversion T: The formula of Δ is correct but the unit conversion of T is wrong: Δ = &(# − ") ≈ 23.75 . Reasoning error 3 (calculation order): The final answer Q is to be calculated based on W, W is to be calculated based on # and n, n is to be calculated based on #. GPT4-V fails to calculate these variables in a correct order # → → → , thus it is unable to provide the answer.
 **Ground Truth: (B) \_12=−6.553**Figure 89. A sample error case of Energy and Power (subfield: Thermodynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-106-0"></span>
 
-# Materials: Materials Science
+## Materials: Materials Science
+
 **Question:**Below are shown, for five metals, reduction reactions and standard electrode potential values. Which of these metals is the least reactive? <image 1>
 **Option:**(A)Au
 
@@ -2812,11 +2857,12 @@ Figure 88. A sample correct case of Energy and Power (subfield: Fluid Mechanics)
 
 (E) Na
 
-| <image 1=""/> |  |  |
+| <image 1=""/> | | |
 |---------------|--|--|
 **GPT-4V:**The reactivity of a metal is inversely related to its standard electrode potential. The metal with the highest positive standard electrode potential will be the least reactive. From the provided table:Au³⁺ + 3 e⁻ -> Au has a standard electrode potential of +1.420 V, Cu²⁺ + 2 e⁻ -> Cu has a standard electrode potential of +0.340 V, Ni²⁺ + 2 e⁻ -> Ni has a standard electrode potential of −0.250 V, Fe²⁺ + 2 e⁻ -> Fe has a standard electrode potential of −0.440 V, Na⁺ + e⁻ -> Na has a standard electrode potential of −2.924 V. The highest positive standard electrode potential is for Au, which is +1.420 V. So, the least reactive metal is: (A) Au.
 
 ## Ground Truth: (A) Au
+
 **Explanation:** Since Au has the most positive standard electrode potential, it is the least reactive metal
 
 > Figure 90. A sample correct case of Materials (subfield: Materials Science). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
@@ -2854,7 +2900,7 @@ Figure 91. A sample error case of Materials (subfield: Mechanics of Materials). 
 
 Figure 92. A sample correct case of Mechanical Engineering (subfield: Control System). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# Mechanical Engineering: Engineering Dynamics
+## Mechanical Engineering: Engineering Dynamics
 
 <span id="page-109-0"></span>**Question:**The two small spheres, each of mass , are rigidly connected by a rod of negligible mass and are released from rest in the position shown and slide down the smooth circular guide in the vertical plane. Determine their common velocity as they reach the horizontal dashed position. Also find the force between sphere 1 and the supporting surface an instant before the sphere reaches the bottom position A.
 
@@ -2873,12 +2919,13 @@ Figure 92. A sample correct case of Mechanical Engineering (subfield: Control Sy
 **GPT-4V:**Two spheres, each of mass . The spheres slide down a smooth circular guide in a vertical plane. The problem involves two parts: calculating the common velocity of the spheres when they reach the horizontal dashed position; finding the normal force between sphere 1 and the supporting surface just before it reaches the bottom position A. Part 1: The potential energy lost by the spheres will be equal to their change in kinetic energy. Potential energy lost by each sphere = ℎ. For sphere 1:Height ℎ! = . For sphere 2: Height ℎ" = 2Total potential energy lost: #\$#%& = ℎ! + ℎ" = + 2 = 3. This potential energy is converted to kinetic energy for the two spheres: #\$#%& = 2×21" = 2 = 2. Part 2: Calculating the normal force just before sphere 1 reaches the bottom position A, its centrifugal force will be "/. Considering forces in the vertical direction for sphere 1: <sup>−</sup> <sup>=</sup> '(! ) . Using the velocity from Part 1, <sup>=</sup> 2 <sup>=</sup> 2 <sup>=</sup> 2. = 1 + 2 = 1 + 2 = 1 + 2 . Since 2 2 is a little more than 1, will be slightly more than 2mg but less than 3mg. The only choice which matches this range is 2mg. The correct option is: (A) = 2, = 2; = 2, = 2.
 
 ### Error Category: Reasoning Error
+
 **Error Reason:**The GPT-4v reasoning for the first part is wrong, and the second part is also wrong. For the first part, the potential energy for the two spheres is simply , while the GPT computed it as 3 (and that leads to the wrong answer). Given the correct potential energy , using energy conservation, the kinetic energy ! " 2" = , which implies the required velocity to be . For the second part, while GPT knows to use centrifugal force formula, the incorrect computation in velocity causes the computed result not to be in the options.**GPT ends up with approximating the closest option.**Indeed, by Centripetal force formula, <sup>−</sup> <sup>=</sup> '(! ) , and plug = , we end up with = 2.
 **Ground Truth: (C) Velocity, force**= , =*.*Figure 93. A sample error case of Mechanical Engineering (subfield: Engineering Dynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-110-0"></span>
 
-# Mechanical Engineering: Engineering Dynamics
+## Mechanical Engineering: Engineering Dynamics
+
 **Question:**With what minimum horizontal velocity can a boy throw a rock at A and have it just clear the obstruction at B?
 **Option:**(A) Minimal ! = 18.014/
 
@@ -2891,6 +2938,7 @@ Figure 92. A sample correct case of Mechanical Engineering (subfield: Control Sy
 **GPT-4V:**To solve this problem, we need to use the kinematic equations of motion for a projectile. Step 1: Determine the time it takes for the rock to fall a vertical distance of (26m−16m)=10m after clearing the obstruction at B. Using the equation: <sup>=</sup> " # #, where is the vertical displacement <sup>=</sup> 10m, is the acceleration due to gravity = 9.81m/s, and the falling time ≈1.428s. Step 2: Determine the horizontal distance covered in this time. This is the distance from A to the point right before the obstruction at B. Given that the total horizontal distance is 40m, the distance from A to just before B is 40m. Step 3: Determine the time it takes for the rock to fall 26m from A. Using the equation: = " # #, where <sup>=</sup> 26m, we obtain <sup>≈</sup> 2.302s. Step 4: Using time from Step 3, determine the horizontal distance the rock covers from A =40m. Step 5: Equating the expressions for from Step 2 and Step 4, Solving for width we get: width ≈ 17.469m. Plugging this into the equation from Step 2: ≈ 15.775m/s. But we made a mistake. When the rock just clears the obstruction, it doesn't have a vertical velocity of 0. In fact, its vertical velocity when it clears the obstruction at B is given by: # = # − 2# = # − 2, where = 10m. Plugging in ≈ 15.775m/s to obtain ≈ 24.014m/s.
 
 ## Error Category: Reasoning Error
+
 **Error Reason:**The first step of GPT-4v calculation is correct, where the time stay beyond point B vertically is 2ℎ/ = 1.428, is the acceleration due to gravity = 9.81m/s and ℎ=10m. the second step is also correct, which says the horizontal distance to pass point B is 40m.**The third step is wrong as we don't care about the time it takes for the rock to fall 26m from A.**Therefore, the sequential calculation is incorrect. The correct calculation should be 40m/1.428s is approximated as 28.014m/s.
 **Ground Truth: (C) Minimal** = . /
 
@@ -2915,78 +2963,76 @@ In this section, we show the distribution of 30 different image types in the 11.
 
 In this section, we report the performance of some selected models on 30 different image types in [Table 13.](#page-113-0)
 
-<span id="page-112-0"></span>
 
-| Disciplines              | Subjects                             | Subfields                                                                                                                                                                                                                                                                                                               |  |  |  |
+| Disciplines | Subjects | Subfields | | | |
 |--------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-| Art<br>&<br>Design       | Art                                  | Fine Arts, Drawing and Painting, Photography, Printmaking, Ceramic Art, Visual Arts,<br>Sculpture, AI Content Detection                                                                                                                                                                                                 |  |  |  |
-|                          | Design                               | Digital Art, Design History, Graphic Design, Fashion Design, Interior Design, Industrial Design                                                                                                                                                                                                                         |  |  |  |
-|                          | Music                                | Music                                                                                                                                                                                                                                                                                                                   |  |  |  |
-|                          | Art Theory                           | History of Art Theory, Art History, Art Criticism, Aesthetics, Contemporary Art Theory,<br>Visual Culture, Postmodern Art Theory, Phenomenology of Art                                                                                                                                                                  |  |  |  |
-|                          | Accounting                           | Financial Accounting, Investment, Managerial Accounting                                                                                                                                                                                                                                                                 |  |  |  |
-|                          | Economics                            | Macroeconomics, Microeconomics, Econometrics, Labor Economics, Principals of Economics                                                                                                                                                                                                                                  |  |  |  |
-| Business                 | Finance                              | Financial Marketing, Financial Management, Corporate Finance, Managerial Finance                                                                                                                                                                                                                                        |  |  |  |
-|                          | Manage                               | Operations Management, Strategic Management, Business Management, Project Management,<br>Cost Management, Principles of Management, Management Models                                                                                                                                                                   |  |  |  |
-|                          | Marketing                            | Market Research                                                                                                                                                                                                                                                                                                         |  |  |  |
-| Science                  | Biology                              | Biochemistry, Cell Biology, Genetics, Microbiology, Botany, Evolution, Animal Behavior, Physiology,<br>Molecular Biology, Animal Physiology, Ecology                                                                                                                                                                    |  |  |  |
-|                          | Chemistry                            | Inorganic Chemistry, Organic Chemistry, Physical Chemistry, Chemical Thermodynamics,<br>Analytical Chemistry, Chemical Kinetics, Biochemistry, Quantum Chemistry                                                                                                                                                        |  |  |  |
-|                          | Geography                            | Geotechnical Engineering, Human Geography, Physical Geography, Geographic Information Systems,<br>International Geography Olympiad                                                                                                                                                                                      |  |  |  |
-|                          | Math                                 | Calculus, Probability and Statistics, Linear Algebra, Geometry, Logic, Graph Theory, Group Theory,<br>Operation Research                                                                                                                                                                                                |  |  |  |
-|                          | Physic                               | Classical Mechanics, Electromagnetism, Thermodynamics and Statistical Mechanics, Optics, Nuclear Physics                                                                                                                                                                                                                |  |  |  |
-|                          | Psychology                           | Biological Psychology, Cognitive Psychology, Personality Psychology, Clinical Psychology,<br>Social Psychology, Developmental Psychology, Abnormal Psychology                                                                                                                                                           |  |  |  |
-| Health<br>&<br>Medicine  | Basic<br>Medical Science             | Immunology, Biochemistry and Genetics, Foundational Anatomical Sciences, Microbiology and Immunology,<br>Neurosciences, Anatomy, Neuroanatomy, Neurophysiology, Cardiovascular Physiology, Human Physiology,<br>Reproductive Physiology, Respiratory Physiology, Renal Physiology, Pathophysiology, Cellular Physiology |  |  |  |
-|                          | Clinical Medicine                    | Clinical Medicine, Dental, Circulatory, Respiratory, Clinical Neurology, Orthopaedic Surgery,<br>Heart Disease, Endocarditis, Cardiovascular Medicine, Endocrinology, Otolaryngology, Ophthalmology,<br>Urology, Clinical Pathology, Clinical Radiology                                                                 |  |  |  |
-|                          | Diagnostics &<br>Laboratory Medicine | Medical Imaging, Neuropathology, Pathology, Ophthalmic Pathology, Forensic Neuropathology,<br>Electrocardiography, Radiology                                                                                                                                                                                            |  |  |  |
-|                          | Pharmacy                             | Pharmaceutical Microbiology, Medicinal Chemistry, Biochemistry for Pharmaceutical Sciences,<br>Pharmacology and Drug Synthesis                                                                                                                                                                                          |  |  |  |
-|                          | Public Health                        | Epidemiology, Biostatistics, Communicable Disease Control                                                                                                                                                                                                                                                               |  |  |  |
-| Humanities               | History                              | U.S. History, World History, Modern History, European History, History-Comparison                                                                                                                                                                                                                                       |  |  |  |
-| &                        | Literature                           | American Literature, Poetry, Fiction, Drama, Children's Literature, Comparative Literature, Contemporary Literature                                                                                                                                                                                                     |  |  |  |
-| Social<br>Science        | Sociology                            | Sociology Theory, Social Economics, Political Economics.                                                                                                                                                                                                                                                                |  |  |  |
-| Tech<br>&<br>Engineering | Agriculture                          | Animal Physiology, Animal Science, Animal Nutrition, Reproduction, Genetics, Plant Physiology,<br>Plant Pathology, Animal and Environment, Animal Anatomy                                                                                                                                                               |  |  |  |
-|                          | Architecture                         | Surveying and Mapping, Structural Engineering, Water Resources Engineering, Civil Engineering                                                                                                                                                                                                                           |  |  |  |
-|                          | Computer Science                     | Data Structure and Algorithm, Computer Network, Artificial Intelligence, Databases,<br>Operating Systems, Compiler Principle, Computer Architecture                                                                                                                                                                     |  |  |  |
-|                          | Electronics                          | Analog electronics, Digital electronics, Electrical Circuit, Signal Processing                                                                                                                                                                                                                                          |  |  |  |
-|                          | Energy & Power                       | Thermodynamics, Heat Transfer, Fluid Mechanics                                                                                                                                                                                                                                                                          |  |  |  |
-|                          | Materials                            | Materials Science, Mechanics of Materials                                                                                                                                                                                                                                                                               |  |  |  |
-|                          | Mechanical<br>Engineering            | Fluid Dynamics, Mechanical Design, Mechanics of Materials, Mechanical Vibrations,<br>Engineering Dynamics, Control Systems, Engineering Graphics                                                                                                                                                                        |  |  |  |
+| Art<br>&<br>Design | Art | Fine Arts, Drawing and Painting, Photography, Printmaking, Ceramic Art, Visual Arts,<br>Sculpture, AI Content Detection | | | |
+| | Design | Digital Art, Design History, Graphic Design, Fashion Design, Interior Design, Industrial Design | | | |
+| | Music | Music | | | |
+| | Art Theory | History of Art Theory, Art History, Art Criticism, Aesthetics, Contemporary Art Theory,<br>Visual Culture, Postmodern Art Theory, Phenomenology of Art | | | |
+| | Accounting | Financial Accounting, Investment, Managerial Accounting | | | |
+| | Economics | Macroeconomics, Microeconomics, Econometrics, Labor Economics, Principals of Economics | | | |
+| Business | Finance | Financial Marketing, Financial Management, Corporate Finance, Managerial Finance | | | |
+| | Manage | Operations Management, Strategic Management, Business Management, Project Management,<br>Cost Management, Principles of Management, Management Models | | | |
+| | Marketing | Market Research | | | |
+| Science | Biology | Biochemistry, Cell Biology, Genetics, Microbiology, Botany, Evolution, Animal Behavior, Physiology,<br>Molecular Biology, Animal Physiology, Ecology | | | |
+| | Chemistry | Inorganic Chemistry, Organic Chemistry, Physical Chemistry, Chemical Thermodynamics,<br>Analytical Chemistry, Chemical Kinetics, Biochemistry, Quantum Chemistry | | | |
+| | Geography | Geotechnical Engineering, Human Geography, Physical Geography, Geographic Information Systems,<br>International Geography Olympiad | | | |
+| | Math | Calculus, Probability and Statistics, Linear Algebra, Geometry, Logic, Graph Theory, Group Theory,<br>Operation Research | | | |
+| | Physic | Classical Mechanics, Electromagnetism, Thermodynamics and Statistical Mechanics, Optics, Nuclear Physics | | | |
+| | Psychology | Biological Psychology, Cognitive Psychology, Personality Psychology, Clinical Psychology,<br>Social Psychology, Developmental Psychology, Abnormal Psychology | | | |
+| Health<br>&<br>Medicine | Basic<br>Medical Science | Immunology, Biochemistry and Genetics, Foundational Anatomical Sciences, Microbiology and Immunology,<br>Neurosciences, Anatomy, Neuroanatomy, Neurophysiology, Cardiovascular Physiology, Human Physiology,<br>Reproductive Physiology, Respiratory Physiology, Renal Physiology, Pathophysiology, Cellular Physiology | | | |
+| | Clinical Medicine | Clinical Medicine, Dental, Circulatory, Respiratory, Clinical Neurology, Orthopaedic Surgery,<br>Heart Disease, Endocarditis, Cardiovascular Medicine, Endocrinology, Otolaryngology, Ophthalmology,<br>Urology, Clinical Pathology, Clinical Radiology | | | |
+| | Diagnostics &<br>Laboratory Medicine | Medical Imaging, Neuropathology, Pathology, Ophthalmic Pathology, Forensic Neuropathology,<br>Electrocardiography, Radiology | | | |
+| | Pharmacy | Pharmaceutical Microbiology, Medicinal Chemistry, Biochemistry for Pharmaceutical Sciences,<br>Pharmacology and Drug Synthesis | | | |
+| | Public Health | Epidemiology, Biostatistics, Communicable Disease Control | | | |
+| Humanities | History | U.S. History, World History, Modern History, European History, History-Comparison | | | |
+| & | Literature | American Literature, Poetry, Fiction, Drama, Children's Literature, Comparative Literature, Contemporary Literature | | | |
+| Social<br>Science | Sociology | Sociology Theory, Social Economics, Political Economics. | | | |
+| Tech<br>&<br>Engineering | Agriculture | Animal Physiology, Animal Science, Animal Nutrition, Reproduction, Genetics, Plant Physiology,<br>Plant Pathology, Animal and Environment, Animal Anatomy | | | |
+| | Architecture | Surveying and Mapping, Structural Engineering, Water Resources Engineering, Civil Engineering | | | |
+| | Computer Science | Data Structure and Algorithm, Computer Network, Artificial Intelligence, Databases,<br>Operating Systems, Compiler Principle, Computer Architecture | | | |
+| | Electronics | Analog electronics, Digital electronics, Electrical Circuit, Signal Processing | | | |
+| | Energy & Power | Thermodynamics, Heat Transfer, Fluid Mechanics | | | |
+| | Materials | Materials Science, Mechanics of Materials | | | |
+| | Mechanical<br>Engineering | Fluid Dynamics, Mechanical Design, Mechanics of Materials, Mechanical Vibrations,<br>Engineering Dynamics, Control Systems, Engineering Graphics | | | |
 
 Table 12. Subfields of each subject.
 
-<span id="page-113-0"></span>
 
-| Image Types               | #Samples | Fuyu<br>-8B | Qwen-VL<br>-7B | InstructBLIP<br>-T5-XXL | LLaVA-1.5<br>-13B | BLIP-2 FLAN<br>-T5-XXL | GPT-4V |
+| Image Types | #Samples | Fuyu<br>-8B | Qwen-VL<br>-7B | InstructBLIP<br>-T5-XXL | LLaVA-1.5<br>-13B | BLIP-2 FLAN<br>-T5-XXL | GPT-4V |
 |---------------------------|----------|-------------|----------------|-------------------------|-------------------|------------------------|--------|
-| Test Overall              | 10500    | 27.4        | 32.9           | 33.8                    | 33.6              | 34.0                   | 557    |
-| Diagrams                  | 3184     | 27.6        | 30.1           | 31.8                    | 30.0              | 32.0                   | 46.8   |
-| Tables                    | 2267     | 26.6        | 29.0           | 29.8                    | 27.8              | 27.8                   | 61.8   |
-| Plots and Charts          | 840      | 24.8        | 31.8           | 36.2                    | 30.4              | 35.8                   | 55.6   |
-| Chemical Structures       | 573      | 25.0        | 27.2           | 27.1                    | 26.7              | 25.5                   | 50.6   |
-| Photographs               | 770      | 27.6        | 40.5           | 41.4                    | 44.4              | 42.0                   | 64.2   |
-| Paintings                 | 453      | 28.7        | 57.2           | 53.6                    | 56.3              | 52.1                   | 75.9   |
-| Geometric Shapes          | 336      | 21.1        | 25.3           | 21.4                    | 25.6              | 28.3                   | 40.2   |
-| Sheet Music               | 335      | 35.2        | 33.4           | 34.6                    | 35.8              | 34.9                   | 38.8   |
-| Medical Images            | 272      | 25.4        | 29.8           | 31.6                    | 36.4              | 29.8                   | 59.6   |
-| Pathological Images       | 253      | 26.5        | 27.7           | 31.2                    | 35.2              | 35.6                   | 63.6   |
-| Microscopic Images        | 226      | 27.0        | 37.6           | 29.2                    | 36.3              | 32.7                   | 58.0   |
-| MRI, CT scans, and X-rays | 198      | 21.7        | 36.9           | 33.3                    | 39.4              | 29.8                   | 50.0   |
-| Sketches and Drafts       | 184      | 37.0        | 32.1           | 29.9                    | 38.0              | 33.7                   | 55.4   |
-| Maps                      | 170      | 38.2        | 36.5           | 45.9                    | 47.6              | 43.5                   | 61.8   |
-| Technical Blueprints      | 162      | 24.7        | 25.9           | 28.4                    | 25.3              | 27.8                   | 38.9   |
-| Trees and Graphs          | 146      | 30.1        | 28.1           | 28.8                    | 28.8              | 34.9                   | 50.0   |
-| Mathematical Notations    | 133      | 15.8        | 27.1           | 22.6                    | 21.8              | 21.1                   | 45.9   |
-| Comics and Cartoons       | 131      | 29.0        | 51.9           | 49.6                    | 54.2              | 51.1                   | 68.7   |
-| Sculpture                 | 117      | 30.8        | 46.2           | 49.6                    | 51.3              | 53.0                   | 76.1   |
-| Portraits                 | 91       | 20.9        | 52.7           | 46.2                    | 54.9              | 47.3                   | 70.3   |
-| Screenshots               | 70       | 38.6        | 35.7           | 38.6                    | 34.3              | 47.1                   | 65.7   |
-| Other                     | 60       | 28.3        | 38.3           | 50.0                    | 51.7              | 58.3                   | 68.3   |
-| Poster                    | 57       | 38.6        | 50.9           | 52.6                    | 61.4              | 64.9                   | 80.7   |
-| Icons and Symbols         | 42       | 23.8        | 66.7           | 57.1                    | 59.5              | 59.5                   | 78.6   |
-| Historical Timelines      | 30       | 30.0        | 36.7           | 40.0                    | 43.3              | 43.3                   | 63.3   |
-| 3D Renderings             | 21       | 33.3        | 28.6           | 57.1                    | 38.1              | 47.6                   | 47.6   |
-| DNA Sequences             | 20       | 20.0        | 45.0           | 25.0                    | 25.0              | 45.0                   | 55.0   |
-| Landscapes                | 16       | 43.8        | 43.8           | 50.0                    | 31.2              | 62.5                   | 68.8   |
-| Logos and Branding        | 14       | 21.4        | 57.1           | 64.3                    | 35.7              | 50.0                   | 85.7   |
-| Advertisements            | 10       | 30.0        | 60.0           | 50.0                    | 60.0              | 70.0                   | 100.0  |
+| Test Overall | 10500 | 27.4 | 32.9 | 33.8 | 33.6 | 34.0 | 557 |
+| Diagrams | 3184 | 27.6 | 30.1 | 31.8 | 30.0 | 32.0 | 46.8 |
+| Tables | 2267 | 26.6 | 29.0 | 29.8 | 27.8 | 27.8 | 61.8 |
+| Plots and Charts | 840 | 24.8 | 31.8 | 36.2 | 30.4 | 35.8 | 55.6 |
+| Chemical Structures | 573 | 25.0 | 27.2 | 27.1 | 26.7 | 25.5 | 50.6 |
+| Photographs | 770 | 27.6 | 40.5 | 41.4 | 44.4 | 42.0 | 64.2 |
+| Paintings | 453 | 28.7 | 57.2 | 53.6 | 56.3 | 52.1 | 75.9 |
+| Geometric Shapes | 336 | 21.1 | 25.3 | 21.4 | 25.6 | 28.3 | 40.2 |
+| Sheet Music | 335 | 35.2 | 33.4 | 34.6 | 35.8 | 34.9 | 38.8 |
+| Medical Images | 272 | 25.4 | 29.8 | 31.6 | 36.4 | 29.8 | 59.6 |
+| Pathological Images | 253 | 26.5 | 27.7 | 31.2 | 35.2 | 35.6 | 63.6 |
+| Microscopic Images | 226 | 27.0 | 37.6 | 29.2 | 36.3 | 32.7 | 58.0 |
+| MRI, CT scans, and X-rays | 198 | 21.7 | 36.9 | 33.3 | 39.4 | 29.8 | 50.0 |
+| Sketches and Drafts | 184 | 37.0 | 32.1 | 29.9 | 38.0 | 33.7 | 55.4 |
+| Maps | 170 | 38.2 | 36.5 | 45.9 | 47.6 | 43.5 | 61.8 |
+| Technical Blueprints | 162 | 24.7 | 25.9 | 28.4 | 25.3 | 27.8 | 38.9 |
+| Trees and Graphs | 146 | 30.1 | 28.1 | 28.8 | 28.8 | 34.9 | 50.0 |
+| Mathematical Notations | 133 | 15.8 | 27.1 | 22.6 | 21.8 | 21.1 | 45.9 |
+| Comics and Cartoons | 131 | 29.0 | 51.9 | 49.6 | 54.2 | 51.1 | 68.7 |
+| Sculpture | 117 | 30.8 | 46.2 | 49.6 | 51.3 | 53.0 | 76.1 |
+| Portraits | 91 | 20.9 | 52.7 | 46.2 | 54.9 | 47.3 | 70.3 |
+| Screenshots | 70 | 38.6 | 35.7 | 38.6 | 34.3 | 47.1 | 65.7 |
+| Other | 60 | 28.3 | 38.3 | 50.0 | 51.7 | 58.3 | 68.3 |
+| Poster | 57 | 38.6 | 50.9 | 52.6 | 61.4 | 64.9 | 80.7 |
+| Icons and Symbols | 42 | 23.8 | 66.7 | 57.1 | 59.5 | 59.5 | 78.6 |
+| Historical Timelines | 30 | 30.0 | 36.7 | 40.0 | 43.3 | 43.3 | 63.3 |
+| 3D Renderings | 21 | 33.3 | 28.6 | 57.1 | 38.1 | 47.6 | 47.6 |
+| DNA Sequences | 20 | 20.0 | 45.0 | 25.0 | 25.0 | 45.0 | 55.0 |
+| Landscapes | 16 | 43.8 | 43.8 | 50.0 | 31.2 | 62.5 | 68.8 |
+| Logos and Branding | 14 | 21.4 | 57.1 | 64.3 | 35.7 | 50.0 | 85.7 |
+| Advertisements | 10 | 30.0 | 60.0 | 50.0 | 60.0 | 70.0 | 100.0 |
 
 Table 13. Selected models' performance on 30 different image types. Note that a single image may have multiple image types.
 
@@ -2996,18 +3042,18 @@ As existing models like OpenFlamingo and Otter support few-shot or in-context le
 
 <span id="page-114-1"></span>As shown in [Table 14,](#page-114-1) OpenFlamingo shows a decrease in performance when moving from 0-shot to 1-shot and 3-shot learning (from 0.263 to 0.256) and there is a slight increase when moving to 5-shot. Otter shows a consistent decline as more shots are introduced, dropping to 0.276 in 1-shot and further down to 0.258 in 3-shot and 5-shot. This trend suggests that existing open-source models' few-shot learning ability is very weak. And it additionally shows that our data samples might be too hard for these models to understand the underlying patterns or context.
 
-|              | 0shot | 1shot | 3shot | 5shot |
+| | 0shot | 1shot | 3shot | 5shot |
 |--------------|-------|-------|-------|-------|
 | OpenFlamingo | 0.263 | 0.256 | 0.259 | 0.264 |
-| Otter        | 0.291 | 0.276 | 0.258 | 0.258 |
+| Otter | 0.291 | 0.276 | 0.258 | 0.258 |
 
 Table 14. Few-shot results of OpenFlamingo and Otter.
 
-# <span id="page-115-0"></span>H. Data Annotation Protocol
+## <span id="page-115-0"></span>H. Data Annotation Protocol
 
 This document describes a comprehensive protocol for annotating a dataset comprising college-level multimodal questions (i.e., questions that incorporate images).
 
-# <span id="page-115-1"></span>H.1. Data Collection
+## <span id="page-115-1"></span>H.1. Data Collection
 
 Sources of Data: Data is primarily collected from free online resources, quizzes, textbooks, and other study materials. When collecting questions, the annotators should strictly adhere to copyright and licensing regulations on the source sites. Data from sources that prohibit copying or redistribution MUST be explicitly avoided. Besides, the annotators should try to find diverse sources instead of collecting questions from a single source.
 
@@ -3031,12 +3077,12 @@ Image Types: The annotators should find various types of images (e.g., diagrams,
 - Clearly categorize each question as either multiple-choice or open-ended.
 - Annotate all fields, including the question, answer options for multiple-choice questions, the correct answer, image types, question difficulty, and explanation (if there exists).
 
-# <span id="page-115-3"></span>H.3. Data Format and Structure
+## <span id="page-115-3"></span>H.3. Data Format and Structure
 
 - JSON File Format: The structured JSON format will include fields for number, question type, question text, answer options (for multiple-choice), correct answer, question difficulty, and explanation (if there exists).
 - Naming Conventions:
-  - Each collected sample will be stored in a separate JSON file following a standard naming rule: subject {Number}.json
-  - Image Files: image {QuesNum} {ImageNum}.png
+- Each collected sample will be stored in a separate JSON file following a standard naming rule: subject {Number}.json
+- Image Files: image {QuesNum} {ImageNum}.png
 - Interleaving Question with Images: The images should be inserted as a file path in the question/options/explanations.
 
 ## <span id="page-115-4"></span>H.4. Quality Control and Validation
@@ -3048,7 +3094,7 @@ Image Types: The annotators should find various types of images (e.g., diagrams,
 
 Ambiguities or unclear data instances should be flagged for a detailed review process. These questions will be collaboratively examined in team meetings to establish a standardized approach for annotation.
 
-# <span id="page-115-6"></span>H.6. Ethical Considerations
+## <span id="page-115-6"></span>H.6. Ethical Considerations
 
 - Copyright and Licensing: Strict adherence to copyright and licensing regulations is mandatory. Data from sources that prohibit copying or redistribution will be explicitly avoided.
 - Data Privacy: Compliance with privacy laws and ethical standards in data handling is paramount. The annotators should avoid collecting questions that contain any private information.
@@ -3102,7 +3148,7 @@ Huan Sun and Yu Su provided overarching and insightful discussions and comments 
 
 Wenhu Chen conceived the project with Xiang Yue. Wenhu Chen contributed to the conceptualization of the research by helping to refine the research questions and by providing critical insights into the design of the project. Besides, Wenhu Chen contributed to a significant amount of initial writing of the draft and offered strategic direction and expert advice that significantly enhanced the dataset and the follow-up analysis.
 
-# <span id="page-118-1"></span><span id="page-118-0"></span>J. Version Change Log
+## <span id="page-118-1"></span><span id="page-118-0"></span>J. Version Change Log
 
 ## CHANGES TO V2 (Dec.18) FROM V1 (Nov.27)
 
@@ -3115,10 +3161,10 @@ Wenhu Chen conceived the project with Xiang Yue. Wenhu Chen contributed to the c
 - We fixed text box dimensions in Appendix [C:](#page-21-0)
 - Figure [13.](#page-29-0) A sample error case of Art Theory
 - We fixed the typo in Appendix [C:](#page-21-0)
-  - Figure [34.](#page-50-0) A sample error case of Biology
-  - Figure [44.](#page-60-0) A sample error case of Math
-  - Figure [78.](#page-94-0) A sample error case of Agriculture
-  - Figure [94.](#page-110-0) A sample error case of Mechanical Engineering
+- Figure [34.](#page-50-0) A sample error case of Biology
+- Figure [44.](#page-60-0) A sample error case of Math
+- Figure [78.](#page-94-0) A sample error case of Agriculture
+- Figure [94.](#page-110-0) A sample error case of Mechanical Engineering
 
 ### CHANGES TO V3 (Dec.21) FROM V2 (Dec.18)
 
@@ -3132,10 +3178,10 @@ Wenhu Chen conceived the project with Xiang Yue. Wenhu Chen contributed to the c
 - We adjusted the overall results in [Table 2](#page-5-0) and added the main results table in [Table 4.](#page-14-0)
 - We Updated SPHINX Test set results from the [EvalAI.](https://eval.ai/web/challenges/challenge-page/2179/overview) (Table [2,](#page-5-0) [4,](#page-14-0) [5,](#page-15-2) [6,](#page-16-2) [7,](#page-17-2) [8,](#page-18-2) [9,](#page-19-2) [10\)](#page-20-2)
 - We added the validation set results from the author-provided outputs. (Table [2,](#page-5-0) [4,](#page-14-0) [5,](#page-15-2) [6,](#page-16-2) [7,](#page-17-2) [8,](#page-18-2) [9,](#page-19-2) [10\)](#page-20-2)
-  - MiniCPM-V & V2
-  - OmniLMM-12B
-  - HPT Air & Pro
-  - Adept Fuyu-Heavy
+- MiniCPM-V & V2
+- OmniLMM-12B
+- HPT Air & Pro
+- Adept Fuyu-Heavy
 - We added the test & validation set results from the author-provided and [EvalAI.](https://eval.ai/web/challenges/challenge-page/2179/overview) (Table [2,](#page-5-0) [4,](#page-14-0) [5,](#page-15-2) [6,](#page-16-2) [7,](#page-17-2) [8,](#page-18-2) [9,](#page-19-2) [10\)](#page-20-2)
 - Emu2-Chat
 - SVIT

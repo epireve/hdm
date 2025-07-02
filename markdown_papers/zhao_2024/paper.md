@@ -37,7 +37,6 @@ keywords:
 - zero-shot
 ---
 
-
 # <span id="page-0-0"></span>AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data
 
 Xinjie Zhao<sup>1</sup> , Moritz Blum<sup>2</sup> , Rui Yang<sup>3</sup> , Boming Yang<sup>1</sup> , Luis Márquez Carpintero<sup>4</sup> , Mónica Pina-Navarro<sup>4</sup> , Tony Wang<sup>5</sup> , Xin Li<sup>3</sup> , Huitao Li<sup>3</sup> , Yanran Fu<sup>6</sup> , Rongrong Wang<sup>7</sup> , Juntao Zhang<sup>8</sup> , Irene Li<sup>1</sup>
@@ -72,7 +71,7 @@ Contributions. (1) We implement a powerful natural language-driven interface tha
 
 tive multi-agent system driven versatile knowledge graph management framework, enabling users to perform action on knowledge graphs freely while allowing developers to easily integrate LLMs or multimodal models for creating robust, taskoriented agents; (3) Experiments demonstrate the effectiveness of AGENTiGraph, achieving 95.12% accuracy in user intent identification and a 90.45% success rate in execution, outperforming state-ofthe-art zero-shot baselines. User studies further validate the system's efficiency, with participants highlighting its ability to deliver concise, focused answers and effectiveness in complex knowledge management tasks across diverse domains.
 
-# 2 AGENTiGraph Framework Design
+## 2 AGENTiGraph Framework Design
 
 AGENTiGraph is designed to provide an intuitive and seamless interaction between users and knowledge graphs (G), the core of which is a humancentric approach that allows users to interact with the system using natural language inputs (q). We employ a multi-agent system to provide intuitive interaction between users and knowledge graphs, leveraging advanced LLM techniques. Each agent specializes in a specific task, collaboratively interpreting user input, decomposing it into actionable tasks, interacting with the knowledge graph, and generating responses (a).
 
@@ -85,7 +84,7 @@ Task Planning. The Task Planning Agent elevates the process by decomposing the i
 ![](_page_2_Figure_0.jpeg)
 <!-- Image Description: The image depicts a multi-agent framework for question answering. A flowchart shows a pipeline starting with user input, processed through task classification, key concept extraction, and knowledge graph fusion/construction agents. The framework uses a knowledge graph database for semantic data retrieval, visualized as interconnected nodes and databases. The output is an answer and visualization, displayed via an interactive query interface. Example prompt engineering for each agent is included. -->
 
-Figure 1: AGENTiGraph Framework: A multi-agent system for intelligent KG interaction and management.
+**Figure 1:** AGENTiGraph Framework: A multi-agent system for intelligent KG interaction and management.
 
 intent into a sequence of executable tasks (T = {t1, t2, ..., tn}). Leveraging CoT reasoning, this agent models task dependencies, optimizes execution order and then generates logically structured task sequences, which is particularly effective for complex queries requiring multi-step reasoning [\(Fu](#page-6-12) [et al.,](#page-6-12) [2023\)](#page-6-12).
 
@@ -110,7 +109,7 @@ The AGENTiGraph interface is designed for intuitive use and efficient knowledge 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image depicts a system architecture with two modes: Chatbot and Exploration. The Chatbot mode shows knowledge graph reasoning for user queries, processing a query about the relationship between "penn treebank" and "first-order logic," visualized as a graph and culminating in a system response. The Exploration mode displays interactive knowledge exploration using knowledge graphs, enabling automated induction of related nodes and showcasing a local knowledge base with selectable topics like text generation and probability. Both modes feature knowledge graph visualizations. -->
 
-Figure 2: AGENTiGraph's Dual-Mode Interface: Conversational AI with Interactive Knowledge Exploration
+**Figure 2:** AGENTiGraph's Dual-Mode Interface: Conversational AI with Interactive Knowledge Exploration
 
 The interface consists of three main components:
 
@@ -148,26 +147,25 @@ queries that closely resemble real-world scenarios [\(Extance,](#page-6-13) [202
 
 ## 2 User Intent Identification and Task Execution
 
-<span id="page-4-0"></span>
 
-| Model          | Acc.   | F1     | Exec. Success |  |  |
+| Model | Acc. | F1 | Exec. Success | | |
 |----------------|--------|--------|---------------|--|--|
-| Zero-shot      |        |        |               |  |  |
-| LLaMa 3.1-8b   | 0.6234 | 0.6112 | 0.5387        |  |  |
-| LLaMa 3.1-70b  | 0.6789 | 0.6935 | 0.5912        |  |  |
-| Gemini-1.5 pro | 0.8256 | 0.8078 | 0.7434        |  |  |
-| GPT-4          | 0.7845 | 0.7463 | 0.7123        |  |  |
-| GPT-4o         | 0.8334 | 0.8156 | 0.7712        |  |  |
-| AGENTiGraph    |        |        |               |  |  |
-| LLaMa 3.1-8b   | 0.8356 | 0.8178 | 0.7230        |  |  |
-| LLaMa 3.1-70b  | 0.8789 | 0.8367 | 0.7967        |  |  |
-| Gemini-1.5 pro | 0.9389 | 0.9323 | 0.8901        |  |  |
-| GPT-4          | 0.9234 | 0.8912 | 0.8778        |  |  |
-| GPT-4o         | 0.9512 | 0.9467 | 0.9045        |  |  |
+| Zero-shot | | | | | |
+| LLaMa 3.1-8b | 0.6234 | 0.6112 | 0.5387 | | |
+| LLaMa 3.1-70b | 0.6789 | 0.6935 | 0.5912 | | |
+| Gemini-1.5 pro | 0.8256 | 0.8078 | 0.7434 | | |
+| GPT-4 | 0.7845 | 0.7463 | 0.7123 | | |
+| GPT-4o | 0.8334 | 0.8156 | 0.7712 | | |
+| AGENTiGraph | | | | | |
+| LLaMa 3.1-8b | 0.8356 | 0.8178 | 0.7230 | | |
+| LLaMa 3.1-70b | 0.8789 | 0.8367 | 0.7967 | | |
+| Gemini-1.5 pro | 0.9389 | 0.9323 | 0.8901 | | |
+| GPT-4 | 0.9234 | 0.8912 | 0.8778 | | |
+| GPT-4o | 0.9512 | 0.9467 | 0.9045 | | |
 
-| Table 1: Evaluation of task classification accuracy and |  |  |
+| **Table 1:** Evaluation of task classification accuracy and | | |
 |---------------------------------------------------------|--|--|
-| execution success.                                      |  |  |
+| execution success. | | |
 
 Table [1](#page-4-0) presents the results of our experiment. We evaluated AGENTiGraph's performance against zero-shot baselines using several stateof-the-art language models, which demonstrate AGENTiGraph's significant performance improvements across all evaluated models and metrics. GPT-4o, when integrated with AGENTiGraph framework, achieves the highest performance, with a 95.12% accuracy in task classification, 94.67% F1 score, and a 90.45% success rate in task execution, which represents a substantial improvement over its zero-shot counterpart. These improvements are consistent across all model sizes, with even smaller models like LLaMa 3.1-8b showing marked enhancements, suggesting that AGENTi-Graph's agent-based architecture effectively augments the capabilities of underlying language models, potentially offering more efficient solutions for complex knowledge graph interactions.
 
@@ -204,7 +202,7 @@ AGENTiGraph presents a novel approach to knowledge graph interaction, leveraging
 - <span id="page-6-13"></span>Andy Extance. 2023. [Chatgpt has entered the class](https://www.nature.com/articles/d41586-023-03507-3)[room: how llms could transform education.](https://www.nature.com/articles/d41586-023-03507-3) *Nature*, 623:474–477.
 - <span id="page-6-7"></span>Nadime Francis, Alastair Green, Paolo Guagliardo, Leonid Libkin, Tobias Lindaaker, Victor Marsault, Stefan Plantikow, Mats Rydberg, Petra Selmer, and Andrés Taylor. 2018. [Cypher: An evolving query](https://doi.org/10.1145/3183713.3190657) [language for property graphs.](https://doi.org/10.1145/3183713.3190657) In *Proceedings of the 2018 International Conference on Management of*
 
-*Data*, SIGMOD '18, page 1433–1445, New York, NY, USA. Association for Computing Machinery.
+**Data:** , SIGMOD '18, page 1433–1445, New York, NY, USA. Association for Computing Machinery.
 
 - <span id="page-6-12"></span>Yao Fu, Hao Peng, Ashish Sabharwal, Peter Clark, and Tushar Khot. 2023. [Complexity-based prompting for](https://arxiv.org/abs/2210.00720) [multi-step reasoning.](https://arxiv.org/abs/2210.00720) *Preprint*, arXiv:2210.00720.
 - <span id="page-6-0"></span>Fan Gao, Hang Jiang, Rui Yang, Qingcheng Zeng, Jinghui Lu, Moritz Blum, Tianwei She, Yuang Jiang, and Irene Li. 2024. [Evaluating large language mod](https://doi.org/10.18653/v1/2024.findings-acl.321)[els on Wikipedia-style survey generation.](https://doi.org/10.18653/v1/2024.findings-acl.321) In *Findings of the Association for Computational Linguistics ACL 2024*, pages 5405–5418, Bangkok, Thailand and virtual meeting. Association for Computational Linguistics.
@@ -244,7 +242,7 @@ AGENTiGraph presents a novel approach to knowledge graph interaction, leveraging
 - <span id="page-8-4"></span>Takumi Yoshikoshi, Daisuke Kawahara, and Sadao Kurohashi. 2020. Multilingualization of a natural language inference dataset using machine translation (japanese). *The 244th Meeting of Natural Language Processing*.
 - <span id="page-8-0"></span>Yuchen Zhuang, Yue Yu, Kuan Wang, Haotian Sun, and Chao Zhang. 2023. [Toolqa: A dataset for llm](https://arxiv.org/abs/2306.13304) [question answering with external tools.](https://arxiv.org/abs/2306.13304) *Preprint*, arXiv:2306.13304.
 
-# <span id="page-9-0"></span>A Prompt Designs for AGENTiGraph Agents
+## <span id="page-9-0"></span>A Prompt Designs for AGENTiGraph Agents
 
 ## A.1 User Intent Interpretation Agent
 
@@ -314,9 +312,9 @@ Extracted Information:
 
 ```text
 {
-  "entities": ["BERT", "transformer architecture"],
-  "relations": [{"type": "relates_to", "source": "BERT", "target": "transformer architecture"}],
-  "domain": "NLP"
+"entities": ["BERT", "transformer architecture"],
+"relations": [{"type": "relates_to", "source": "BERT", "target": "transformer architecture"}],
+"domain": "NLP"
 }
 ```text
 
@@ -334,15 +332,15 @@ For Relation Judgment (Task 1):
 
 ```text
 {
-  "concept_1": "First concept",
-  "concept_2": "Second concept",
-  "relation": "Proposed relationship between concepts",
-  "relation_description": "Description of the relationship, if provided"
+"concept_1": "First concept",
+"concept_2": "Second concept",
+"relation": "Proposed relationship between concepts",
+"relation_description": "Description of the relationship, if provided"
 }
 For Prerequisite Prediction (Task 2):
 {
-  "target_concept": "Concept for which prerequisites are sought",
-  "domain": "Specific NLP domain or subdomain, if mentioned"
+"target_concept": "Concept for which prerequisites are sought",
+"domain": "Specific NLP domain or subdomain, if mentioned"
 }
 Ensure that your extraction is precise and relevant to the given task type.
 ```text
@@ -393,9 +391,9 @@ Graph Schema:
 
 ```text
 {
-  "nodes": ["Paper", "Author", "Conference"],
-  "relationships": ["CITES", "PUBLISHED_IN", "AUTHORED_BY"],
-  "properties": {"Paper": ["title", "year"], "Author": ["name"], "Conference": ["name", "year"]}
+"nodes": ["Paper", "Author", "Conference"],
+"relationships": ["CITES", "PUBLISHED_IN", "AUTHORED_BY"],
+"properties": {"Paper": ["title", "year"], "Author": ["name"], "Conference": ["name", "year"]}
 }
 ```text
 
@@ -438,9 +436,9 @@ Here's an example of the reasoning process:
 ```text
 Raw Query Results:
 [
-  {"paper": "Attention Is All You Need", "year": 2017, "citations": 50000},
-  {"paper": "BERT", "year": 2018, "citations": 30000},
-  {"paper": "GPT-3", "year": 2020, "citations": 10000}
+{"paper": "Attention Is All You Need", "year": 2017, "citations": 50000},
+{"paper": "BERT", "year": 2018, "citations": 30000},
+{"paper": "GPT-3", "year": 2020, "citations": 10000}
 ```text
 
 ```text
@@ -459,12 +457,12 @@ Now, apply reasoning to the following: Raw Query Results: {query\_results} Origi
 
 ```text
 {
-  "key_observations": ["Observation 1", "Observation 2", ...],
-  "inferred_relationships": ["Relationship 1", "Relationship 2", ...],
-  "logical_inferences": ["Inference 1", "Inference 2", ...],
-  "contextual_interpretation": "Explanation of how insights relate to the original query",
-  "confidence_assessment": "Percentage (0-100)",
-  "conclusion": "Summary of key findings and their relevance to the user's intent"
+"key_observations": ["Observation 1", "Observation 2", ...],
+"inferred_relationships": ["Relationship 1", "Relationship 2", ...],
+"logical_inferences": ["Inference 1", "Inference 2", ...],
+"contextual_interpretation": "Explanation of how insights relate to the original query",
+"confidence_assessment": "Percentage (0-100)",
+"conclusion": "Summary of key findings and their relevance to the user's intent"
 }
 ```text
 
@@ -482,12 +480,12 @@ User Query: "What are the key differences between BERT and GPT models?" Reasonin
 
 ```text
 {
-  "key_points": [
-    "BERT uses bidirectional context, GPT uses unidirectional",
-    "BERT is primarily for understanding, GPT for generation",
-    "Both use transformer architecture but with different objectives"
-  ],
-  "confidence": 95
+"key_points": [
+"BERT uses bidirectional context, GPT uses unidirectional",
+"BERT is primarily for understanding, GPT for generation",
+"Both use transformer architecture but with different objectives"
+],
+"confidence": 95
 }
 ```text
 
@@ -507,10 +505,10 @@ User Query: {user\_query} Identified Intent: {intent} Reasoning Results: {reason
 
 ```text
 "direct_answer": "A concise answer to the user's query",
-  "detailed_explanation": "A more comprehensive explanation",
-  "examples": ["Example 1", "Example 2", ...],
-  "caveats": ["Caveat 1", "Caveat 2", ...],
-  "further_exploration": ["Related topic 1", "Related topic 2", ...]
+"detailed_explanation": "A more comprehensive explanation",
+"examples": ["Example 1", "Example 2", ...],
+"caveats": ["Caveat 1", "Caveat 2", ...],
+"further_exploration": ["Related topic 1", "Related topic 2", ...]
 }
 ```text
 
@@ -530,13 +528,13 @@ New Information:
 
 ```text
 {
-  "entity": "T5",
-  "type": "LanguageModel",
-  "properties": {"publication_year": 2020, "architecture": "transformer"},
-  "relations": [
-    {"type": "DEVELOPED_BY", "target": "Google"},
-    {"type": "USED_FOR", "target": "TextToTextTasks"}
-  ]
+"entity": "T5",
+"type": "LanguageModel",
+"properties": {"publication_year": 2020, "architecture": "transformer"},
+"relations": [
+{"type": "DEVELOPED_BY", "target": "Google"},
+{"type": "USED_FOR", "target": "TextToTextTasks"}
+]
 }
 ```text
 
@@ -544,9 +542,9 @@ New Information:
 
 ```text
 {
-  "nodes": ["LanguageModel", "Organization", "Task"],
-  "relationships": ["DEVELOPED_BY", "USED_FOR"],
-  "properties": {"LanguageModel": ["name", "year", "architecture"]}
+"nodes": ["LanguageModel", "Organization", "Task"],
+"relationships": ["DEVELOPED_BY", "USED_FOR"],
+"properties": {"LanguageModel": ["name", "year", "architecture"]}
 }
 ```text
 
@@ -566,25 +564,25 @@ Provide your integration plan in the following JSON format:
 
 ```text
 {
-  "analysis": "Summary of the new information to be integrated",
-  "integration_strategy": "Description of how the new information will be incorporated",
-  "cypher_queries": [
-    {"purpose": "Node creation", "query": "CREATE (...) ..."},
-    {"purpose": "Relationship creation", "query": "MATCH (...) CREATE (...) ..."},
-    ...
-  ],
-  "verification_queries": [
-    {"purpose": "Verify node creation", "query": "MATCH (...) RETURN ..."},
-    ...
-  ],
-  "conflict_resolution": "Strategy for resolving potential conflicts with existing data",
-  "rollback_plan": "Steps to undo changes if integration fails"
+"analysis": "Summary of the new information to be integrated",
+"integration_strategy": "Description of how the new information will be incorporated",
+"cypher_queries": [
+{"purpose": "Node creation", "query": "CREATE (...) ..."},
+{"purpose": "Relationship creation", "query": "MATCH (...) CREATE (...) ..."},
+...
+],
+"verification_queries": [
+{"purpose": "Verify node creation", "query": "MATCH (...) RETURN ..."},
+...
+],
+"conflict_resolution": "Strategy for resolving potential conflicts with existing data",
+"rollback_plan": "Steps to undo changes if integration fails"
 }
 ```text
 
 Ensure that your integration plan maintains the integrity and consistency of the knowledge graph while successfully incorporating the new information.
 
-# <span id="page-16-0"></span>B Dataset Generation Process
+## <span id="page-16-0"></span>B Dataset Generation Process
 
 ## B.1 Overview
 
@@ -592,7 +590,7 @@ To comprehensively evaluate AGENTiGraph's performance, we generated an expanded 
 
 In this appendix, we detail the process of generating these test queries, including the specific LLM prompts used for each task type and the human verification procedures employed to maintain the dataset's integrity.
 
-# B.2 LLM Prompt Designs for Test Query Generation
+## B.2 LLM Prompt Designs for Test Query Generation
 
 For each task type, we carefully crafted specialized prompts to guide the LLMs in generating appropriate test queries. These prompts were designed to leverage prompt engineering strategies, incorporating clear instructions, relevant examples, and specifying the desired output format. The prompts were constructed to:
 
@@ -618,7 +616,7 @@ You are an expert in Natural Language Processing (NLP) education and assessment 
 
 ### Few-Shot Examples:
 
-#### Example 1:
+### Example 1:
 
 *Question:*"Is understanding word embeddings necessary for implementing neural machine translation models?" Example 2:
 *Question:*"Does knowledge of morphological analysis contribute to better performance in lemmatization tasks?" Example 3:
@@ -628,14 +626,14 @@ Now, generate 10 unique questions following these guidelines. Do not include any
 
 ## B.2.2 Prerequisite Prediction Queries
 
-| Enhanced Prerequisite Prediction Query Generation Prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Enhanced Prerequisite Prediction Query Generation Prompt |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Task Description: Generate high-quality questions where a student seeks to know the prior knowledge or prerequi<br>sites needed before learning a particular NLP concept, suitable for testing the Prerequisite Prediction capabilities of<br>AGENTiGraph.<br>Instructions for the LLM:<br>You are an experienced NLP educator creating study guides for students. Generate diverse and thoughtful questions where<br>a student asks about the necessary background knowledge before tackling a specific NLP topic. Use Chain-of-Thought<br>reasoning to ensure the prerequisites are logical and appropriate, but only output the final questions.<br>The questions should: |
-| • Focus on NLP concepts that typically require foundational knowledge.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| • Reflect a student's curiosity about what they need to learn first.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| • Be phrased naturally, as a student would ask their instructor or mentor.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| • Avoid repetition with the examples and cover a variety of NLP areas.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Few-Shot Examples:<br>Example 1:<br>Question: "What should I understand before learning about attention mechanisms in neural networks?"<br>Example 2:<br>Question: "Do I need a background in linguistics to study semantic role labeling?"<br>Example 3:<br>Question: "Is it important to know about convolutional neural networks before exploring text classification methods?"<br>Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.                                                                                                                                                                         |
+| • Focus on NLP concepts that typically require foundational knowledge. |
+| • Reflect a student's curiosity about what they need to learn first. |
+| • Be phrased naturally, as a student would ask their instructor or mentor. |
+| • Avoid repetition with the examples and cover a variety of NLP areas. |
+| Few-Shot Examples:<br>Example 1:<br>Question: "What should I understand before learning about attention mechanisms in neural networks?"<br>Example 2:<br>Question: "Do I need a background in linguistics to study semantic role labeling?"<br>Example 3:<br>Question: "Is it important to know about convolutional neural networks before exploring text classification methods?"<br>Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output. |
 
 ## B.2.3 Path Searching Queries
 
@@ -643,7 +641,7 @@ Now, generate 10 unique questions following these guidelines. Do not include any
 
 Task Description: Generate high-quality questions where a student asks for a learning path or sequence between two NLP concepts, suitable for testing the Path Searching capabilities of AGENTiGraph.
 
-#### Instructions for the LLM:
+### Instructions for the LLM:
 
 As an NLP curriculum developer, craft questions where a student seeks guidance on progressing from one NLP concept to another more advanced concept. Use Chain-of-Thought reasoning to ensure the learning paths are feasible and pedagogically sound, but only output the final questions.
 
@@ -654,23 +652,24 @@ The questions should:
 - Be phrased in a way that a student might ask for academic or career advice.
 - Include a variety of starting and ending concepts across different NLP domains.
 
-#### Few-Shot Examples:
+### Few-Shot Examples:
 
-#### Example 1:
+### Example 1:
+
 *Question:*"How can I move from understanding basic sentiment analysis to developing conversational AI chatbots?" Example 2:
 *Question:*"What steps should I follow to transition from learning POS tagging to mastering syntactic parsing?" Example 3:
 *Question:*"Can you suggest a learning path from n-gram language models to transformer-based models like BERT?" Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
 
 ## B.2.4 Concept Clustering Queries
 
-| Enhanced Concept Clustering Query Generation Prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Enhanced Concept Clustering Query Generation Prompt |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Task Description: Generate high-quality questions where a student asks about groups or clusters of related NLP concepts,<br>suitable for testing the Concept Clustering capabilities of AGENTiGraph.<br>Instructions for the LLM:<br>You are an NLP instructor helping students understand how different concepts are grouped within the field. Generate<br>questions where a student inquires about categories or clusters of related NLP topics. Use Chain-of-Thought reasoning to<br>ensure the clusters are coherent and meaningful, but only output the final questions.<br>The questions should: |
-| • Seek information about groups of concepts, techniques, or methodologies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| • Be phrased as a student trying to organize their knowledge or study plan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| • Cover various NLP domains and encourage understanding of how concepts interrelate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| • Be diverse and not overlap with the provided examples.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Few-Shot Examples:<br>Example 1:<br>Question: "What are the common techniques included in text normalization processes?"<br>Example 2:<br>Question: "Which algorithms are considered part of unsupervised learning in NLP?"<br>Example 3:<br>Question: "Can you tell me which NLP tasks are categorized under natural language understanding?"<br>Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.                                                                                                                                       |
+| • Seek information about groups of concepts, techniques, or methodologies. |
+| • Be phrased as a student trying to organize their knowledge or study plan. |
+| • Cover various NLP domains and encourage understanding of how concepts interrelate. |
+| • Be diverse and not overlap with the provided examples. |
+| Few-Shot Examples:<br>Example 1:<br>Question: "What are the common techniques included in text normalization processes?"<br>Example 2:<br>Question: "Which algorithms are considered part of unsupervised learning in NLP?"<br>Example 3:<br>Question: "Can you tell me which NLP tasks are categorized under natural language understanding?"<br>Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output. |
 
 ## B.2.5 Subgraph Completion Queries
 
@@ -687,9 +686,10 @@ The questions should:
 - Be phrased naturally, reflecting a student's desire to deepen their understanding.
 - Include a range of concepts and avoid redundancy with the examples.
 
-#### Few-Shot Examples:
+### Few-Shot Examples:
 
-#### Example 1:
+### Example 1:
+
 *Question:*"After learning about named entity recognition, what other related topics should I study to enhance my skills?" Example 2:
 *Question:*"Are there any lesser-known applications of dependency parsing that I should be aware of?" Example 3:
 *Question:*"What concepts am I missing if I want to fully understand discourse analysis in NLP?"
@@ -709,7 +709,7 @@ You are an NLP project advisor helping students connect theory to practice. Gene
 - Be phrased as a student seeking inspiration or guidance on project ideas.
 - Cover a variety of NLP applications and avoid repeating the examples.
 
-#### Few-Shot Examples:
+### Few-Shot Examples:
 
 Example 1:
 *Question:*"How can I utilize sentiment analysis to improve customer feedback systems?"
@@ -737,7 +737,7 @@ The questions should:
 - Be phrased naturally, as a student would ask.
 - Avoid overlapping with previous examples and ensure diversity.
 
-#### Few-Shot Examples:
+### Few-Shot Examples:
 
 Example 1:
 *Question:*"What are the limitations of current NLP models when it comes to understanding context?"
@@ -745,7 +745,8 @@ Example 1:
 Example 2:
 *Question:*"How does transfer learning benefit NLP tasks, and can you provide some examples?"
 
-#### Example 3:
+### Example 3:
+
 *Question:*"What are the ethical considerations when deploying language models in social media platforms?" Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
 
 ## B.3 Human Verification Process
@@ -762,26 +763,26 @@ Following the generation of queries using LLMs, we implemented a comprehensive h
 
 By implementing this human verification process, we ensured that the dataset not only reflects realistic and diverse interactions but also adheres to high standards of academic quality and integrity.
 
-# <span id="page-21-0"></span>C User Feedback Analysis
+## <span id="page-21-0"></span>C User Feedback Analysis
 
 We conducted a comprehensive user study involving participants with varying levels of expertise in knowledge graph systems, focusing on the domains of Natural Language Processing (NLP) and Computer Vision (CV). The feedback was collected from 50 user interactions with AGENTiGraph, compared against ChatGPT (GPT-4o), and provides valuable insights into the system's performance, user satisfaction, and areas for improvement.
 
-# C.1 Methodology
+## C.1 Methodology
 
 Participants interacted with AGENTiGraph within the domains of NLP and CV, posing various questions and evaluating the system's responses. The feedback was collected and analyzed qualitatively, focusing on the conciseness, accuracy, and completeness of the responses. We also compared AGENTiGraph's performance with that of ChatGPT to benchmark its effectiveness.
 
-# C.2 Representative Cases
+## C.2 Representative Cases
 
 Selected user feedback:
 
 - NLP domain: Table [2,](#page-23-0)
 - CV domian: Table [3.](#page-24-0)
 
-# C.3 Analysis of User Feedback
+## C.3 Analysis of User Feedback
 
 Our user study revealed several key insights into the performance and user perception of AGENTiGraph compared to ChatGPT, particularly in the domains of Natural Language Processing (NLP) and Computer Vision (CV). The feedback highlights both strengths and areas for improvement in AGENTiGraph's responses.
 
-# C.3.1 Natural Language Processing Domain
+## C.3.1 Natural Language Processing Domain
 
 In the NLP domain, users consistently noted that AGENTiGraph provided more concise responses compared to ChatGPT. This brevity was generally appreciated, especially for users already familiar with core NLP concepts. The concise nature of responses helped avoid information overload, making AGENTiGraph particularly useful for quick reviews or refreshers on NLP topics.
 
@@ -795,7 +796,7 @@ In the NLP domain, users consistently noted that AGENTiGraph provided more conci
 - Completeness: In some cases, particularly for more complex or open-ended questions (e.g., "What are the most complicated fields in NLP?"), AGENTiGraph's responses were incomplete or missing entirely. This suggests a need for improving the system's ability to handle broader, more abstract queries.
 - Depth of Explanation: While conciseness was appreciated, some users noted that for certain topics, AGENTiGraph's responses lacked the depth provided by ChatGPT. This was particularly evident in questions about future trends or comprehensive overviews of NLP applications.
 
-# C.3.2 Computer Vision Domain
+## C.3.2 Computer Vision Domain
 
 In the Computer Vision domain, user feedback was more mixed, with a higher proportion of responses requiring improvement or expansion.
 
@@ -825,65 +826,64 @@ The user feedback analysis provides valuable insights into the performance of AG
 
 Moving forward, these insights will be invaluable in guiding the development of AGENTiGraph. Future iterations should focus on enhancing the system's ability to provide more comprehensive responses when needed, improving its handling of abstract queries, and ensuring consistent performance across different domains. By addressing these areas, AGENTiGraph can further solidify its position as a powerful tool for knowledge graph interactions, catering to users with varying levels of expertise and information needs.
 
-| Table 2: Representative User Feedback Cases in NLP Domain |  |  |  |
+| **Table 2:** Representative User Feedback Cases in NLP Domain | | | |
 |-----------------------------------------------------------|--|--|--|
 |-----------------------------------------------------------|--|--|--|
 
-<span id="page-23-0"></span>
 
-| Question                                                                                                                                                                                                                                                                                        | AGENTiGraph Response                                                                                                                                                                                                                                                                                                                                                                                                                                           | User Feedback                |
+| Question | AGENTiGraph Response | User Feedback |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| What is the role of prepro<br>cessing steps like stop-word re<br>moval, stemming, and lemmati<br>zation in improving the perfor<br>mance of NLP models?                                                                                                                                         | The role of preprocessing steps like stop-word removal,<br>stemming, and lemmatization is to clean and normalize<br>text data, reducing noise and dimensionality. This helps<br>NLP models focus on the most relevant information,<br>improving their performance and efficiency.                                                                                                                                                                              | Shorter compared to ChatGPT  |
-| How do NLP models like BERT<br>and GPT differ from traditional<br>models such as Word2Vec?                                                                                                                                                                                                      | BERT and GPT use transformer architectures to under<br>stand context and generate text, while Word2Vec uses<br>shallow neural networks to create word embeddings<br>based on local context.                                                                                                                                                                                                                                                                    | Shorter compared to ChatGPT  |
-| What are the most complicated<br>fields in NLP?                                                                                                                                                                                                                                                 | None                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Incomplete or missing answer |
-| Can you explain what word em<br>beddings are and how they im<br>prove traditional text represen<br>tation methods?                                                                                                                                                                              | Word embeddings are dense vector representations of<br>words that capture their meanings, semantic relation<br>ships, and syntactic properties. They improve tradi<br>tional text representation methods, like bag-of-words<br>or tf-idf, by providing context-aware representations<br>that preserve the relationships between words, leading<br>to better performance in natural language processing<br>tasks.                                               | Shorter compared to ChatGPT  |
-| How do transformers and atten<br>tion mechanisms improve the<br>accuracy of language models<br>compared to older models like<br>RNNs and LSTMs?                                                                                                                                                 | Transformers and attention mechanisms address the<br>limitations of RNNs and LSTMs, leading to improved<br>accuracy in language models.                                                                                                                                                                                                                                                                                                                        | Shorter compared to ChatGPT  |
-| What is Natural Language Pro<br>cessing (NLP), and how is it<br>used in real-world applications?                                                                                                                                                                                                | None                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Incomplete or missing answer |
-| How does tokenization work in<br>NLP, and why is it important for<br>text processing?                                                                                                                                                                                                           | Tokenization in NLP involves breaking down text into<br>smaller units called tokens, such as words or phrases.<br>This process is crucial for text processing because it<br>enables the analysis and understanding of the text by<br>converting it into manageable pieces. Tokenization is<br>directly connected to text processing as it is a foun<br>dational step that facilitates further tasks like parsing,<br>sentiment analysis, and machine learning. | Shorter compared to ChatGPT  |
-| What are the differences be<br>tween rule-based NLP systems<br>and<br>machine<br>learning-based<br>NLP systems?                                                                                                                                                                                 | Rule-based NLP systems rely on predefined linguistic<br>rules and patterns, while machine learning-based NLP<br>systems use statistical models and algorithms to learn<br>from data.                                                                                                                                                                                                                                                                           | Shorter compared to ChatGPT  |
-| How do computational con<br>straints and the efficiency of full<br>attention mechanisms in trans<br>formers affect the processing of<br>long sequences, and what alter<br>natives, such as local attention<br>or hierarchical attention, are be<br>ing explored to overcome this<br>limitation? | Computational constraints and the efficiency of full at<br>tention mechanisms in transformers limit the processing<br>of long sequences due to their quadratic time and mem<br>ory complexity. Alternatives like local attention, which<br>restricts attention to a fixed window, and hierarchical<br>attention, which processes sequences at multiple levels<br>of granularity, are being explored to mitigate these limi<br>tations.                         | Shorter compared to ChatGPT  |
-| What is your opinion of the<br>NLP and its key points in the<br>coming years?                                                                                                                                                                                                                   | The relationship type in the given context is "opinion."<br>The question is asking for a personal viewpoint on the<br>future of natural language processing (NLP) and its key<br>points.                                                                                                                                                                                                                                                                       | Shorter compared to ChatGPT  |
+| What is the role of prepro<br>cessing steps like stop-word re<br>moval, stemming, and lemmati<br>zation in improving the perfor<br>mance of NLP models? | The role of preprocessing steps like stop-word removal,<br>stemming, and lemmatization is to clean and normalize<br>text data, reducing noise and dimensionality. This helps<br>NLP models focus on the most relevant information,<br>improving their performance and efficiency. | Shorter compared to ChatGPT |
+| How do NLP models like BERT<br>and GPT differ from traditional<br>models such as Word2Vec? | BERT and GPT use transformer architectures to under<br>stand context and generate text, while Word2Vec uses<br>shallow neural networks to create word embeddings<br>based on local context. | Shorter compared to ChatGPT |
+| What are the most complicated<br>fields in NLP? | None | Incomplete or missing answer |
+| Can you explain what word em<br>beddings are and how they im<br>prove traditional text represen<br>tation methods? | Word embeddings are dense vector representations of<br>words that capture their meanings, semantic relation<br>ships, and syntactic properties. They improve tradi<br>tional text representation methods, like bag-of-words<br>or tf-idf, by providing context-aware representations<br>that preserve the relationships between words, leading<br>to better performance in natural language processing<br>tasks. | Shorter compared to ChatGPT |
+| How do transformers and atten<br>tion mechanisms improve the<br>accuracy of language models<br>compared to older models like<br>RNNs and LSTMs? | Transformers and attention mechanisms address the<br>limitations of RNNs and LSTMs, leading to improved<br>accuracy in language models. | Shorter compared to ChatGPT |
+| What is Natural Language Pro<br>cessing (NLP), and how is it<br>used in real-world applications? | None | Incomplete or missing answer |
+| How does tokenization work in<br>NLP, and why is it important for<br>text processing? | Tokenization in NLP involves breaking down text into<br>smaller units called tokens, such as words or phrases.<br>This process is crucial for text processing because it<br>enables the analysis and understanding of the text by<br>converting it into manageable pieces. Tokenization is<br>directly connected to text processing as it is a foun<br>dational step that facilitates further tasks like parsing,<br>sentiment analysis, and machine learning. | Shorter compared to ChatGPT |
+| What are the differences be<br>tween rule-based NLP systems<br>and<br>machine<br>learning-based<br>NLP systems? | Rule-based NLP systems rely on predefined linguistic<br>rules and patterns, while machine learning-based NLP<br>systems use statistical models and algorithms to learn<br>from data. | Shorter compared to ChatGPT |
+| How do computational con<br>straints and the efficiency of full<br>attention mechanisms in trans<br>formers affect the processing of<br>long sequences, and what alter<br>natives, such as local attention<br>or hierarchical attention, are be<br>ing explored to overcome this<br>limitation? | Computational constraints and the efficiency of full at<br>tention mechanisms in transformers limit the processing<br>of long sequences due to their quadratic time and mem<br>ory complexity. Alternatives like local attention, which<br>restricts attention to a fixed window, and hierarchical<br>attention, which processes sequences at multiple levels<br>of granularity, are being explored to mitigate these limi<br>tations. | Shorter compared to ChatGPT |
+| What is your opinion of the<br>NLP and its key points in the<br>coming years? | The relationship type in the given context is "opinion."<br>The question is asking for a personal viewpoint on the<br>future of natural language processing (NLP) and its key<br>points. | Shorter compared to ChatGPT |
 
-<span id="page-24-0"></span>
 
-| Question                                                                                                   | AGENTiGraph Response                                                                                                                                                                     | User Feedback                                                                                                                                                                                                                |
+| Question | AGENTiGraph Response | User Feedback |
 |------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| What is the role of convolutional layers<br>in image processing?                                           | (Not provided)                                                                                                                                                                           | Improvement suggestion: It<br>could mention that the filters<br>slide across the image to pro<br>duce feature maps and that<br>convolutional layers preserve<br>spatial relationships by learn<br>ing hierarchical features. |
-| How do pooling layers help reduce the<br>computational complexity in CNNs?                                 | (Not provided)                                                                                                                                                                           | Improvement<br>suggestion:<br>Adding<br>that<br>pooling<br>helps<br>retain<br>the<br>most<br>relevant<br>information<br>while<br>discard<br>ing<br>redundant<br>data<br>could<br>strengthen the explanation.                 |
-| What are the differences between su<br>pervised and unsupervised methods for<br>image classification?      | The chatbot identifies that the<br>question is about a compari<br>son between supervised and<br>unsupervised methods. How<br>ever, it doesn't provide an an<br>swer to the core question | Incomplete answer                                                                                                                                                                                                            |
-| What are some of the challenges in ob<br>ject detection in computer vision?                                | (Not provided)                                                                                                                                                                           | Incomplete answer: Not di<br>rectly answer the question<br>about challenges in object de<br>tection                                                                                                                          |
-| How<br>do<br>image<br>augmentation<br>tech<br>niques help in improving the robust<br>ness of models?       | (Not provided)                                                                                                                                                                           | Improvement suggestion: It<br>could mention that augmen<br>tation reduces overfitting                                                                                                                                        |
-| How does feature extraction differ from<br>feature selection in image processing?                          | (Not provided)                                                                                                                                                                           | Satisfactory                                                                                                                                                                                                                 |
-| What are the key differences between<br>classical computer vision methods and<br>deep learning approaches? | (Not provided)                                                                                                                                                                           | Satisfactory                                                                                                                                                                                                                 |
-| What is the importance of data prepro<br>cessing in computer vision tasks?                                 | (Not provided)                                                                                                                                                                           | Satisfactory                                                                                                                                                                                                                 |
-| What are the major challenges in face<br>recognition systems?                                              | (Not provided)                                                                                                                                                                           | Satisfactory                                                                                                                                                                                                                 |
-| How do GANs work and what role do<br>they play in generating synthetic im<br>ages?                         | Explains the basic GAN pro<br>cess and the roles of the gen<br>erator and discriminator.                                                                                                 | Satisfactory                                                                                                                                                                                                                 |
+| What is the role of convolutional layers<br>in image processing? | (Not provided) | Improvement suggestion: It<br>could mention that the filters<br>slide across the image to pro<br>duce feature maps and that<br>convolutional layers preserve<br>spatial relationships by learn<br>ing hierarchical features. |
+| How do pooling layers help reduce the<br>computational complexity in CNNs? | (Not provided) | Improvement<br>suggestion:<br>Adding<br>that<br>pooling<br>helps<br>retain<br>the<br>most<br>relevant<br>information<br>while<br>discard<br>ing<br>redundant<br>data<br>could<br>strengthen the explanation. |
+| What are the differences between su<br>pervised and unsupervised methods for<br>image classification? | The chatbot identifies that the<br>question is about a compari<br>son between supervised and<br>unsupervised methods. How<br>ever, it doesn't provide an an<br>swer to the core question | Incomplete answer |
+| What are some of the challenges in ob<br>ject detection in computer vision? | (Not provided) | Incomplete answer: Not di<br>rectly answer the question<br>about challenges in object de<br>tection |
+| How<br>do<br>image<br>augmentation<br>tech<br>niques help in improving the robust<br>ness of models? | (Not provided) | Improvement suggestion: It<br>could mention that augmen<br>tation reduces overfitting |
+| How does feature extraction differ from<br>feature selection in image processing? | (Not provided) | Satisfactory |
+| What are the key differences between<br>classical computer vision methods and<br>deep learning approaches? | (Not provided) | Satisfactory |
+| What is the importance of data prepro<br>cessing in computer vision tasks? | (Not provided) | Satisfactory |
+| What are the major challenges in face<br>recognition systems? | (Not provided) | Satisfactory |
+| How do GANs work and what role do<br>they play in generating synthetic im<br>ages? | Explains the basic GAN pro<br>cess and the roles of the gen<br>erator and discriminator. | Satisfactory |
 
-Table 3: Representative User Feedback Cases in Computer Vision Domain
+**Table 3:** Representative User Feedback Cases in Computer Vision Domain
 
 ## <span id="page-25-0"></span>D Customized Knowledge Graph Extension
 
 In this section, we include the experimental details about the demonstrations in both legal and medical domains.
 
 ### D.1 Data
-*UK Legislation*The dataset published by [Chalkidis et al.](#page-6-14) [\(2021\)](#page-6-14) comprises legislative and regulatory texts sourced from <legislation.gov.uk>, the official UK government website for accessing legislation, all written in English. The UK government offers a searchable database of all UK laws and regulations, including current and historical statutes, statutory instruments, and amendments. The dataset includes detailed records about, e. g., the UK Public General Acts and UK Local Acts.
+
+**UK Legislation:** The dataset published by [Chalkidis et al.](#page-6-14) [\(2021\)](#page-6-14) comprises legislative and regulatory texts sourced from <legislation.gov.uk>, the official UK government website for accessing legislation, all written in English. The UK government offers a searchable database of all UK laws and regulations, including current and historical statutes, statutory instruments, and amendments. The dataset includes detailed records about, e. g., the UK Public General Acts and UK Local Acts.
 *MMedC (Japanese)*MMedC [\(Qiu et al.,](#page-7-18) [2024\)](#page-7-18) is a large-scale multilingual medical corpus developed to enrich LLMs with domain-specific medical knowledge. The dataset is based on multiple sources, and we use a subset derived from open-source medical websites in Japanese. The subset comprises research and product information about medical treatments and healthcare technology written in Japanese. For instance, it contains studies on chemotherapy regimens and information about medical devices.
 
-|                          | UK Leg. | Jap. Med. |
+| | UK Leg. | Jap. Med. |
 |--------------------------|---------|-----------|
-| # docs                   | 52,515  | 54,435    |
-| avg. tokens/doc          | 1,582   | 973       |
-| # extracted entities     | 88      | 86        |
-| # entities w/o abstracts | 8       | 11        |
-| # relations              | 10      | 13        |
-| # triples w/o fusion     | 268     | 124       |
-| # entities w/o fusion    | 328     | 143       |
-| # triples w/ fusion      | 1,168   | 408       |
-| # entities w/ fusion     | 318     | 124       |
+| # docs | 52,515 | 54,435 |
+| avg. tokens/doc | 1,582 | 973 |
+| # extracted entities | 88 | 86 |
+| # entities w/o abstracts | 8 | 11 |
+| # relations | 10 | 13 |
+| # triples w/o fusion | 268 | 124 |
+| # entities w/o fusion | 328 | 143 |
+| # triples w/ fusion | 1,168 | 408 |
+| # entities w/ fusion | 318 | 124 |
 
 <span id="page-25-1"></span>Tab. [4](#page-25-1) shows some general statistics about the two datasets.
 
-Table 4: Dataset statistics on UK Legislation and Japanese Medicine domain.
+**Table 4:** Dataset statistics on UK Legislation and Japanese Medicine domain.
 
 ### D.2 Knowledge Graph Construction
 
@@ -958,34 +958,34 @@ Excludes: Captures exceptions or exclusions where certain entities or assets are
 
 予防する (Prevent): This relation indicates how specific diseases or symptoms are prevented. 関連する症状 (Related symptoms): This relation indicates the symptoms related to a specific disease or condition.
 
-Figure 3: Descriptions of pre-defined relations used to build the KGs.
+**Figure 3:** Descriptions of pre-defined relations used to build the KGs.
 
 <span id="page-28-0"></span>![](_page_28_Figure_0.jpeg)
 <!-- Image Description: The image is a directed acyclic graph illustrating the relationships between several acts and regulations concerning biodiesel duty. "Biodiesel and Bioblend Regulations 2002" defines "biodiesel duty," which in turn defines "duty of excise." Separately, the "Oil Act" cites another act and defines the "Hydrocarbon Oil Duties Act 1979." The graph visually represents the legal framework surrounding biodiesel taxation. -->
 
-Figure 4: This graph outlines the relationships between regulations and acts concerning biodiesel and excise duties.
+**Figure 4:** This graph outlines the relationships between regulations and acts concerning biodiesel and excise duties.
 
 <span id="page-28-1"></span>![](_page_28_Figure_2.jpeg)
 <!-- Image Description: The image is a directed graph illustrating treatments for blood cancers. Nodes represent treatments (chemotherapy, hematopoietic stem cell transplantation, CAR-T cell therapy) and blood cancer types (blood tumor, non-Hodgkin's lymphoma, hematologic malignancies). Directed edges, labeled "To_treat," show the relationships between treatments and the cancers they address. The graph visually depicts the therapeutic options for various hematological malignancies. -->
 
-Figure 5: This graph shows treatments for blood-related tumors and hematologic malignancies, including chemotherapy, hematopoietic stem cell transplantation, and CAR-T cell therapy (machine translated from Japanese to English).
+**Figure 5:** This graph shows treatments for blood-related tumors and hematologic malignancies, including chemotherapy, hematopoietic stem cell transplantation, and CAR-T cell therapy (machine translated from Japanese to English).
 
 ![](_page_29_Figure_0.jpeg)
 <!-- Image Description: The image displays a graph visualization generated by a Cypher query (`MATCH (n) RETURN n`) within a graph database interface. The query retrieves all nodes (n) in the database. The visualization shows numerous nodes, interconnected to form clusters and smaller groups, representing the relationships between data points within the database. The purpose is to illustrate the structure and connectivity of the data. The interface also provides options for viewing data in table, text and code formats. -->
 
-Figure 6: Visualization of the created UK Legislation Knowledge Graph in Neo4j.
+**Figure 6:** Visualization of the created UK Legislation Knowledge Graph in Neo4j.
 
-|                                                                                                                         |                                                           | $\mathrel{\mathcal{R}}$ | $\epsilon^{\pi}$<br>$\wedge$ | $\mathsf{X}% _{0}$             |
+| | | $\mathrel{\mathcal{R}}$ | $\epsilon^{\pi}$<br>$\wedge$ | $\mathsf{X}% _{0}$ |
 |-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-------------------------|------------------------------|--------------------------------|
-|                                                                                                                         | uklegislation\$ MATCH (n) RETURN n                        |                         | ☆                            | 上                              |
-| ္ဆာင္က<br>Graph                                                                                                         |                                                           |                         |                              | $\lt$                          |
-| $\equiv$<br>Table                                                                                                       |                                                           |                         |                              |                                |
-| $\bigwedge_{\text{Text}}$                                                                                               |                                                           |                         |                              |                                |
-| $\fbox{ \begin{tabular}{ c c } \hline \textbf{$\lambda$} \\ \hline \textbf{$\lambda$} \\ \textbf{Code} \end{tabular} }$ |                                                           |                         |                              |                                |
-|                                                                                                                         |                                                           |                         |                              |                                |
-|                                                                                                                         |                                                           |                         |                              |                                |
-|                                                                                                                         | è<br>$\bullet-\frac{1}{2}$<br>$\mathcal{L}^{\mathcal{A}}$ |                         |                              | $\mathord{\textcircled{\lhd}}$ |
-|                                                                                                                         |                                                           |                         |                              | $\mathbin{\ominus}$            |
-|                                                                                                                         |                                                           |                         |                              | $\mathbb{C}^n_2$               |
+| | uklegislation\$ MATCH (n) RETURN n | | ☆ | 上 |
+| ္ဆာင္က<br>Graph | | | | $\lt$ |
+| $\equiv$<br>Table | | | | |
+| $\bigwedge_{\text{Text}}$ | | | | |
+| $\fbox{ \begin{tabular}{ c c } \hline \textbf{$\lambda$} \\ \hline \textbf{$\lambda$} \\ \textbf{Code} \end{tabular} }$ | | | | |
+| | | | | |
+| | | | | |
+| | è<br>$\bullet-\frac{1}{2}$<br>$\mathcal{L}^{\mathcal{A}}$ | | | $\mathord{\textcircled{\lhd}}$ |
+| | | | | $\mathbin{\ominus}$ |
+| | | | | $\mathbb{C}^n_2$ |
 
-Figure 7: Visualization of the created Japanese Med. Knowledge Graph in Neo4j.
+**Figure 7:** Visualization of the created Japanese Med. Knowledge Graph in Neo4j.

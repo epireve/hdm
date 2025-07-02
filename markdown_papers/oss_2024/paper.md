@@ -32,7 +32,7 @@ Heloisa Oss Boll1,2, Ali Amirahmadi<sup>2</sup> , Amira Soliman<sup>2</sup> , St
 
 <sup>2</sup>School of Information Technology, Halmstad University, Halmstad, Sweden <sup>3</sup>Bioinformatics Core, Hospital de Cl´ınicas de Porto Alegre (HCPA), Porto Alegre, Brazil
 
-#### Abstract
+### Abstract
 
 Objective: In modern healthcare, accurately predicting diseases is a crucial matter. This study introduces a novel approach using graph neural networks (GNNs) and a Graph Transformer (GT) to predict the incidence of heart failure (HF) on a patient similarity graph at the next hospital visit.
 
@@ -44,7 +44,7 @@ Discussion and Conclusion: Graph-based approaches such as GNNs provide an effect
 
 Keywords: graph neural network, disease prediction, heart failure, patient similarity, electronic health record
 
-#### \*Corresponding authors:
+### \*Corresponding authors:
 
 Email: hoboll@inf.ufrgs.br, Phone: +55 51 3308-6843; Email: mrmendoza@inf.ufrgs.br, Phone: +55 51 3308-6843
 
@@ -64,24 +64,24 @@ Specifically, our contributions to the field include: (1) developing a novel met
 
 ### 2 Materials and Methods
 
-#### 2.1 Data sources
+### 2.1 Data sources
 
 The study was based on the Medical Information Mart for Intensive Care III dataset, or MIMIC-III [\[14\]](#page-11-5). Diagnoses and procedures were encoded with the ICD-9 ontology [\[19\]](#page-11-6), while medications with NDC. Patient data were processed using Pandas and the PyHealth library [\[30\]](#page-12-8), which organized the EHR information into a structured dictionary format. We included patients who had at least two hospital visits to allow for the prediction of HF on a subsequent visit, resulting in a final sample of 4,760 patients with 8,891 unique visits. The total number of features was 4788, with 817 diagnosis codes, 517 procedure codes, and 3454 prescription codes. Our dataset was imbalanced, with about 28% of patients with HF (i.e., positive class).
 
 Labeling for HF was based on the presence of ICD-9 codes for HF during patient visits, following guidelines from the New York State Department of Health's ICD-9 Workbook [\[18\]](#page-11-7). If a heart failure code was found, we excluded that visit and all subsequent ones to prevent data leakage and labeled the patient as positive (1). Patients without any recorded HF diagnosis were labeled as negative (0). Further information is available in the Supplementary Materials.
 
-#### 2.2 Patient representation
+### 2.2 Patient representation
 
 We employed pre-trained low-dimensional medical embeddings to create patient representations. These consisted of 300-dimensional vectors for ICD-9 and NDC medication codes, generated with skip-gram [\[8\]](#page-11-8). The method captured relationships between medical codes by predicting the likelihood of their co-occurrence within a large corpus of healthcare claims data. The resource is publicly available on GitHub [\[15\]](#page-11-9).
 
 We first extracted the sets of diagnoses, procedures, and medication codes recorded during the patient's hospital visits. These were mapped to their corresponding embeddings, and an average of these embeddings was computed to represent each visit. We then averaged these visit-level embeddings to form a unique representation for each patient [\(Figure 1\)](#page-2-0). These were utilized to both construct the patient similarity graph and as input features in the predictive models.
 
 ![](_page_2_Figure_5.jpeg)
-<!-- Image Description: This flowchart illustrates a method for generating patient-level embeddings from medical codes (ICD-9, NDC).  Medical codes are processed using a skip-gram method (Choi et al., 2016) to create 300-dimensional embeddings per visit.  These visit-level embeddings are then averaged to create patient-level embeddings, summarizing patient medical history.  The flowchart details the steps, showing the transformation from individual codes to visit-level and finally patient-level representations. -->
+<!-- Image Description: This flowchart illustrates a method for generating patient-level embeddings from medical codes (ICD-9, NDC). Medical codes are processed using a skip-gram method (Choi et al., 2016) to create 300-dimensional embeddings per visit. These visit-level embeddings are then averaged to create patient-level embeddings, summarizing patient medical history. The flowchart details the steps, showing the transformation from individual codes to visit-level and finally patient-level representations. -->
 
-<span id="page-2-0"></span>Figure 1: Process for generating visit-level and patient-level representations based on medical concept embeddings.
+<span id="page-2-0"></span>**Figure 1:** Process for generating visit-level and patient-level representations based on medical concept embeddings.
 
-#### 2.3 Patient similarity graph
+### 2.3 Patient similarity graph
 
 Similarity between patient feature vectors was quantified using cosine similarity. We applied the K-Nearest Neighbors (KNN) algorithm for a range of K's (2-10) to the similarity matrix to determine the optimal number of edges for each patient node.
 
@@ -90,25 +90,25 @@ K = 3 was chosen based on the distortion metric, which measures the sum of squar
 The final graph included all 4,760 patients, with each node carrying the original patient-level embedding as a feature. A subgraph of 200 nodes can be found in [\(Figure 2\)](#page-3-0).
 
 ![](_page_3_Figure_2.jpeg)
-<!-- Image Description: The image displays a network graph.  Blue nodes represent one type of entity, and yellow nodes represent a different type, connected by black edges showing relationships.  The graph likely illustrates the structure of a complex system, possibly a social network or a biological interaction network. The visualization aims to show the overall topology and potentially identify key nodes or communities within the network. -->
+<!-- Image Description: The image displays a network graph. Blue nodes represent one type of entity, and yellow nodes represent a different type, connected by black edges showing relationships. The graph likely illustrates the structure of a complex system, possibly a social network or a biological interaction network. The visualization aims to show the overall topology and potentially identify key nodes or communities within the network. -->
 
-<span id="page-3-0"></span>Figure 2: Visualization of a random subset of nodes from the similarity graph, based on a breadthfirst search and the Kamada-Kawai algorithm. Yellow dots represent patients with HF (i.e., positive cases), while blue represents other patients (i.e., negative cases).
+<span id="page-3-0"></span>**Figure 2:** Visualization of a random subset of nodes from the similarity graph, based on a breadthfirst search and the Kamada-Kawai algorithm. Yellow dots represent patients with HF (i.e., positive cases), while blue represents other patients (i.e., negative cases).
 
 The graph was split into training, validation, and test sets (60-20-20) using the DeepSNAP library [\[33\]](#page-12-9). As DeepSNAP only supports fixed splits in graph transductive learning, we used a fixed data split across experiments. A summary of the graph data and each set is available in [Table 1.](#page-4-0)
 
-#### 2.4 Model architectures and implementation
+### 2.4 Model architectures and implementation
 
 We selected GraphSAGE (SAGE) [\[12\]](#page-11-11), which learns node representations by sampling and aggregating features from their local neighborhoods; Graph Attention Network (GAT) [\[28\]](#page-12-10), which introduces attention to weigh the importance of neighboring nodes for a given node's new representation; and Graph Transformer (GT) [\[24\]](#page-12-11), based on a more advanced attention mechanism.
 
-| Characteristics      | Full graph | Train mask | Val. mask | Test mask |
+| Characteristics | Full graph | Train mask | Val. mask | Test mask |
 |----------------------|------------|------------|-----------|-----------|
-| # total nodes        | 4760       | 2856       | 952       | 952       |
-| # edges              | 11763      | 11763      | 11763     | 11763     |
-| # positive nodes     | 1062       | 633        | 215       | 214       |
-| # negative nodes     | 3698       | 2223       | 737       | 738       |
-| % positive instances | 28.71      | 28.47      | 29.17     | 28.99     |
+| # total nodes | 4760 | 2856 | 952 | 952 |
+| # edges | 11763 | 11763 | 11763 | 11763 |
+| # positive nodes | 1062 | 633 | 215 | 214 |
+| # negative nodes | 3698 | 2223 | 737 | 738 |
+| % positive instances | 28.71 | 28.47 | 29.17 | 28.99 |
 
-<span id="page-4-0"></span>Table 1: Details from the constructed patient similarity graph. Nodes were split while maintaining the class imbalance ratio, ensuring the proportion from the full graph.
+<span id="page-4-0"></span>**Table 1:** Details from the constructed patient similarity graph. Nodes were split while maintaining the class imbalance ratio, ensuring the proportion from the full graph.
 
 These were implemented with PyTorch Geometric (PyG) [\[9\]](#page-11-12) and trained to perform binary node classification at the threshold of 0.5. Batch normalization was utilized to stabilize learning.
 
@@ -124,7 +124,7 @@ For benchmarking, we compared the performance of the best GNN model, the GT, wit
 
 To interpret the prediction patterns of the GT model, we examined three axes: graph connectivity patterns, attention weights, and clinical features within the patient similarity graph across the four classification groups — true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). After, we performed an integrative analysis over four random instances, one from each group.
 
-# 3 Quantitative results
+## 3 Quantitative results
 
 ### 3.1 GNN architecture performance
 
@@ -132,71 +132,71 @@ First, we aimed to investigate which GNN architecture performed best in predicti
 
 Secondly, we replaced the binary cross-entropy with other loss functions designed for classimbalanced scenarios, the weighted binary cross-entropy (WBCE) and the focal (FL) losses. The GT model with FL (α = 0.75, γ = 1) achieved the best metrics (F1 score: 0.5531, AUROC: 0.7914, AUPRC: 0.5393). Detailed hyperparameters and training and validation data can be found in the Supplementary Materials.
 
-<span id="page-5-0"></span>Table 2: Test results from GNN models optimized with the BCE loss, each run thrice. The GT model shows the highest F1 and recall scores. Standard deviations indicate variations across runs considering the same graph split.
+<span id="page-5-0"></span>**Table 2:** Test results from GNN models optimized with the BCE loss, each run thrice. The GT model shows the highest F1 and recall scores. Standard deviations indicate variations across runs considering the same graph split.
 
-| Metric   | SAGE   | GAT    | GT     |
+| Metric | SAGE | GAT | GT |
 |----------|--------|--------|--------|
-| F1       | 0.4758 | 0.4832 | 0.5328 |
-|          | 0.011  | 0.003  | 0.003  |
-|          | ±      | ±      | ±      |
-| Acc      | 0.8032 | 0.7356 | 0.7377 |
-|          | 0.004  | 0.000  | 0.002  |
-|          | ±      | ±      | ±      |
+| F1 | 0.4758 | 0.4832 | 0.5328 |
+| | 0.011 | 0.003 | 0.003 |
+| | ± | ± | ± |
+| Acc | 0.8032 | 0.7356 | 0.7377 |
+| | 0.004 | 0.000 | 0.002 |
+| | ± | ± | ± |
 | Bal. Acc | 0.6591 | 0.6697 | 0.7112 |
-|          | ±      | ±      | ±      |
-|          | 0.006  | 0.002  | 0.002  |
-| Rec      | 0.3972 | 0.5498 | 0.6651 |
-|          | 0.008  | 0.005  | 0.002  |
-|          | ±      | ±      | ±      |
-| Prec     | 0.5931 | 0.4310 | 0.4443 |
-|          | 0.017  | 0.001  | 0.003  |
-|          | ±      | ±      | ±      |
-| AUROC    | 0.7824 | 0.7537 | 0.7918 |
-|          | 0.000  | 0.001  | 0.002  |
-|          | ±      | ±      | ±      |
-| AUPRC    | 0.5476 | 0.4931 | 0.5200 |
-|          | 0.001  | 0.001  | 0.002  |
-|          | ±      | ±      | ±      |
+| | ± | ± | ± |
+| | 0.006 | 0.002 | 0.002 |
+| Rec | 0.3972 | 0.5498 | 0.6651 |
+| | 0.008 | 0.005 | 0.002 |
+| | ± | ± | ± |
+| Prec | 0.5931 | 0.4310 | 0.4443 |
+| | 0.017 | 0.001 | 0.003 |
+| | ± | ± | ± |
+| AUROC | 0.7824 | 0.7537 | 0.7918 |
+| | 0.000 | 0.001 | 0.002 |
+| | ± | ± | ± |
+| AUPRC | 0.5476 | 0.4931 | 0.5200 |
+| | 0.001 | 0.001 | 0.002 |
+| | ± | ± | ± |
 
-#### 3.2 Impact of clinical data
+### 3.2 Impact of clinical data
 
 To evaluate the impact of each data type on HF prediction, we retrained the GT with FL model using only medication, procedure, or diagnosis data. Medication data alone resulted in the highest recall, followed by diagnosis, with procedures having the least impact. The use of all three data types achieved the best performance. Details are available in the Supplementary Materials.
 
 Next, we conducted an ablation study by removing one data source at a time. The results confirmed that excluding medication data led to the most significant performance drop, followed by diagnosis data. Removing procedure data had the least impact. The combined model achieved the highest F1 score (0.5361) and AUPRC (0.5227), highlighting the importance of integrating multiple data sources. A summary is provided in [Table 3.](#page-5-1)
 
-<span id="page-5-1"></span>Table 3: Test results from the GT models with FL (α = 0.75, γ = 1) for the ablation study, each run thrice. Using data from the three sources results in a superior predictive performance. Standard deviations indicate variations across runs considering the same graph split.
+<span id="page-5-1"></span>**Table 3:** Test results from the GT models with FL (α = 0.75, γ = 1) for the ablation study, each run thrice. Using data from the three sources results in a superior predictive performance. Standard deviations indicate variations across runs considering the same graph split.
 
-| Metric (Test)     | Without diagnosis | Without prescriptions | Without procedures | Combined       |  |
+| Metric (Test) | Without diagnosis | Without prescriptions | Without procedures | Combined | |
 |-------------------|-------------------|-----------------------|--------------------|----------------|--|
-| F1 score          | 0.5233 ± 0.001    | 0.5071 ± 0.002        | 0.5275 ± 0.008     | 0.5361 ± 0.003 |  |
-| Accuracy          | 0.7066 ± 0.000    | 0.6964 ± 0.001        | 0.7321 ± 0.004     | 0.7321 ± 0.002 |  |
-| Balanced accuracy | 0.7101 ± 0.001    | 0.6958 ± 0.001        | 0.7083 ± 0.006     | 0.7166 ± 0.003 |  |
-| Recall            | 0.7165 ± 0.002    | 0.6947 ± 0.002        | 0.6551 ± 0.010     | 0.6885 ± 0.005 |  |
-| Precision         | 0.4122 ± 0.000    | 0.3993 ± 0.002        | 0.4370 ± 0.006     | 0.4389 ± 0.003 |  |
-| AUROC             | 0.7756 ± 0.001    | 0.7699 ± 0.001        | 0.7834 ± 0.000     | 0.7930 ± 0.001 |  |
-| AUPRC             | 0.5058 ± 0.001    | 0.4793 ± 0.002        | 0.5162 ± 0.001     | 0.5227 ± 0.002 |  |
+| F1 score | 0.5233 ± 0.001 | 0.5071 ± 0.002 | 0.5275 ± 0.008 | 0.5361 ± 0.003 | |
+| Accuracy | 0.7066 ± 0.000 | 0.6964 ± 0.001 | 0.7321 ± 0.004 | 0.7321 ± 0.002 | |
+| Balanced accuracy | 0.7101 ± 0.001 | 0.6958 ± 0.001 | 0.7083 ± 0.006 | 0.7166 ± 0.003 | |
+| Recall | 0.7165 ± 0.002 | 0.6947 ± 0.002 | 0.6551 ± 0.010 | 0.6885 ± 0.005 | |
+| Precision | 0.4122 ± 0.000 | 0.3993 ± 0.002 | 0.4370 ± 0.006 | 0.4389 ± 0.003 | |
+| AUROC | 0.7756 ± 0.001 | 0.7699 ± 0.001 | 0.7834 ± 0.000 | 0.7930 ± 0.001 | |
+| AUPRC | 0.5058 ± 0.001 | 0.4793 ± 0.002 | 0.5162 ± 0.001 | 0.5227 ± 0.002 | |
 
-#### 3.3 Benchmarking
+### 3.3 Benchmarking
 
 We compared the performance of the GT with FL model against five baseline algorithms. The GT with FL model demonstrated an increased test AUROC (0.7925) and AUPRC (0.5168) compared to others [\(Table 4,](#page-6-1) [Figure 4\)](#page-7-0). Although the differences in AUPRC between GT and Random Forest
 
 ![](_page_6_Figure_0.jpeg)
-<!-- Image Description: This image displays the performance evaluation of three graph neural network models (GraphSAGE, GAT, and a Ground Truth model (GT)) for a binary classification task.  Panel A shows ROC curves (AUROC) and precision-recall curves (AUPRC), illustrating the models' ability to discriminate between classes.  Panel B presents three confusion matrices, visualizing the true positive, true negative, false positive, and false negative predictions for each model, quantifying their performance with numerical values.  AUROC and AUPRC scores are provided for each model. -->
+<!-- Image Description: This image displays the performance evaluation of three graph neural network models (GraphSAGE, GAT, and a Ground Truth model (GT)) for a binary classification task. Panel A shows ROC curves (AUROC) and precision-recall curves (AUPRC), illustrating the models' ability to discriminate between classes. Panel B presents three confusion matrices, visualizing the true positive, true negative, false positive, and false negative predictions for each model, quantifying their performance with numerical values. AUROC and AUPRC scores are provided for each model. -->
 
-<span id="page-6-0"></span>Figure 3: AUROC and AUPRC curves (A) and confusion matrices (B) for GraphSAGE, GAT, and GT models on the test set. GraphSAGE has a higher true negative rate, while GT shows better recall, which is important for the detection of positive HF cases.
+<span id="page-6-0"></span>**Figure 3:** AUROC and AUPRC curves (A) and confusion matrices (B) for GraphSAGE, GAT, and GT models on the test set. GraphSAGE has a higher true negative rate, while GT shows better recall, which is important for the detection of positive HF cases.
 
 (AUPRC: 0.5132) were modest, the GT model's capacity to use graph-based relationships offers advantages. This is further investigated in the Discussion section.
 
-<span id="page-6-1"></span>Table 4: Performance metrics (F1 score, AUROC, AUPRC) of baseline algorithms on the test set, compared to the GT.
+<span id="page-6-1"></span>**Table 4:** Performance metrics (F1 score, AUROC, AUPRC) of baseline algorithms on the test set, compared to the GT.
 
-| Algorithm | F1 Score | AUROC  | AUPRC  |
+| Algorithm | F1 Score | AUROC | AUPRC |
 |-----------|----------|--------|--------|
-| RF        | 0.2677   | 0.7755 | 0.5132 |
-| KNN       | 0.3459   | 0.6659 | 0.3587 |
-| LR        | 0.3695   | 0.7516 | 0.4672 |
-| MLP       | 0.3750   | 0.7164 | 0.4387 |
-| GBT       | 0.3950   | 0.7755 | 0.4975 |
-| GT        | 0.5361   | 0.7925 | 0.5168 |
+| RF | 0.2677 | 0.7755 | 0.5132 |
+| KNN | 0.3459 | 0.6659 | 0.3587 |
+| LR | 0.3695 | 0.7516 | 0.4672 |
+| MLP | 0.3750 | 0.7164 | 0.4387 |
+| GBT | 0.3950 | 0.7755 | 0.4975 |
+| GT | 0.5361 | 0.7925 | 0.5168 |
 
 ### 3.4 Interpretability Results
 
@@ -205,19 +205,19 @@ We compared the performance of the GT with FL model against five baseline algori
 Our analysis focused on node degree and node similarity. TN and FP nodes exhibited the highest average degrees, indicating more diverse connections, while FN nodes had the fewest connections,
 
 ![](_page_7_Figure_0.jpeg)
-<!-- Image Description: This image presents a comparative analysis of six machine learning models (KNN, GBT, LR, RF, MLP, and GT) for a binary classification task.  It uses three plots: a bar chart showing F1 scores, an ROC curve illustrating AUROC (Area Under the ROC Curve), and a precision-recall curve depicting AUPRC (Area Under the Precision-Recall Curve).  Each plot displays the performance of the models, allowing for a comprehensive evaluation of their classification capabilities.  The higher values in each metric indicate better model performance. -->
+<!-- Image Description: This image presents a comparative analysis of six machine learning models (KNN, GBT, LR, RF, MLP, and GT) for a binary classification task. It uses three plots: a bar chart showing F1 scores, an ROC curve illustrating AUROC (Area Under the ROC Curve), and a precision-recall curve depicting AUPRC (Area Under the Precision-Recall Curve). Each plot displays the performance of the models, allowing for a comprehensive evaluation of their classification capabilities. The higher values in each metric indicate better model performance. -->
 
-<span id="page-7-0"></span>Figure 4: F1 scores, AUROC, and AUPRC curves of baseline algorithms on the test set, compared to the GT with FL, which utilizes relational information from the graph to make predictions. Standard deviations indicate variations across runs considering the same graph split.
+<span id="page-7-0"></span>**Figure 4:** F1 scores, AUROC, and AUPRC curves of baseline algorithms on the test set, compared to the GT with FL, which utilizes relational information from the graph to make predictions. Standard deviations indicate variations across runs considering the same graph split.
 
 suggesting that these HF patient profiles are more unique. Detailed metrics are available in the Supplementary Materials.
 
-#### 3.6 Attention weights
+### 3.6 Attention weights
 
 Attention weights, learned during training, highlight the importance of neighboring nodes' features for classifying a target node. We observed a bimodal distribution of weights in the final GT layer, indicating that the model assigned either high or low importance to neighbors.
 
 Furthermore, TP and FP nodes, as well as TN and FN nodes, exhibited similar attention patterns. TN nodes assigned higher attention to other negative neighbors, helping with the correct classification, while TP nodes showed a more balanced attention across neighbor types. FN nodes resemble TN patterns but with slightly more attention to positive neighbors, indicating challenges in correct classification. Further details are available in the Supplementary Materials.
 
-#### 3.7 Clinical features
+### 3.7 Clinical features
 
 The clinical feature analysis refers to diagnosis, procedure, and prescription codes across classification profiles in the test set. The original patient data links to the embeddings used as node features in the similarity graph (see [Figure 1\)](#page-2-0). [Figure 5](#page-14-0) shows a heatmap of the top 50 most frequent codes. The most important codes are translated in the main text and full code lookup is available in the Supplementary Materials, Table 12.
 
@@ -227,7 +227,7 @@ Procedures: Common critical care procedures such as endotracheal intubation (960
 
 Prescriptions: Prescription patterns were diverse, indicating the importance of pharmacotherapy in HF classification. Common hospital medications like intravenous sodium chloride (00338004904) and dextrose (00338001702) were frequently prescribed across profiles. In TP cases, high incidences of heparin sodium (00641040025) and potassium chloride (58177000111) were noted, emphasizing their role in managing HF. Furthermore, there was an overlap in medications between TP and FN profiles, including phenylephrine HCl (00517040525) and metoprolol (55390007310), suggesting that these patients receive similar pharmacological treatment indicative of their HF status.
 
-#### 3.8 Integrative analysis
+### 3.8 Integrative analysis
 
 A visualization of the immediate neighbors and the neighbors of neighbors (one and two-hop) of the four randomly selected nodes, along with the attention maps, is available in [Figure 6.](#page-15-0)
 
@@ -310,11 +310,11 @@ This work was financed in part by the Swedish Council for Higher Education throu
 <span id="page-13-0"></span>[34] Ying Zhang, Baohang Zhou, Kehui Song, Xuhui Sui, Guoqing Zhao, Ning Jiang, and Xiaojie Yuan. PM2f2n: Patient multi-view multi-modal feature fusion networks for clinical outcome prediction. ACL Anthology, 2022.
 
 ![](_page_14_Figure_0.jpeg)
-<!-- Image Description: The image contains three heatmaps visualizing diagnostic and prescription code frequencies, normalized per profile (top 50).  Each heatmap displays the percentage of true positive, true negative, false positive, and false negative codes.  The first heatmap shows diagnostic codes, the second procedure codes, and the third prescription codes.  The color intensity represents the percentage frequency, allowing for comparison of code occurrences across different categories within each code type. -->
+<!-- Image Description: The image contains three heatmaps visualizing diagnostic and prescription code frequencies, normalized per profile (top 50). Each heatmap displays the percentage of true positive, true negative, false positive, and false negative codes. The first heatmap shows diagnostic codes, the second procedure codes, and the third prescription codes. The color intensity represents the percentage frequency, allowing for comparison of code occurrences across different categories within each code type. -->
 
-<span id="page-14-0"></span>Figure 5: Heatmap of the top 50 most frequent codes across classification profiles from the test set, normalized by the number of patients in each profile. Medications show higher diversity across groups than other variables. 15
+<span id="page-14-0"></span>**Figure 5:** Heatmap of the top 50 most frequent codes across classification profiles from the test set, normalized by the number of patients in each profile. Medications show higher diversity across groups than other variables. 15
 
 ![](_page_15_Figure_0.jpeg)
-<!-- Image Description: The image displays four pairs of visualizations: a network graph and an attention score heatmap.  Each pair represents a different patient (TN, TP, FN, FP). The graphs show patient connections (nodes and edges), with node color indicating true/false positive/negative labels. Heatmaps depict attention scores between source and target patients, color-coded to show attention strength.  The purpose is to illustrate the model's performance by visualizing patient relationships and attention mechanisms in classifying patients. -->
+<!-- Image Description: The image displays four pairs of visualizations: a network graph and an attention score heatmap. Each pair represents a different patient (TN, TP, FN, FP). The graphs show patient connections (nodes and edges), with node color indicating true/false positive/negative labels. Heatmaps depict attention scores between source and target patients, color-coded to show attention strength. The purpose is to illustrate the model's performance by visualizing patient relationships and attention mechanisms in classifying patients. -->
 
-<span id="page-15-0"></span>Figure 6: TN (A), TP (B), FN (C), and FP (D) instance information. Left: one and two hop neighborhoods of the central node, highlighted in red. Right: attention map with source and target nodes in the one-hop neighborhood of the central node. 16
+<span id="page-15-0"></span>**Figure 6:** TN (A), TP (B), FN (C), and FP (D) instance information. Left: one and two hop neighborhoods of the central node, highlighted in red. Right: attention map with source and target nodes in the one-hop neighborhood of the central node. 16

@@ -31,11 +31,11 @@ tags:
 
 *e-mail: wanghong106@163.com*
 
-*Abstract***—Computer science major in secondary vocational schools focuses on cultivating students' ability to solve complex engineering problems. Thus both theoretical and practical teaching of professional courses are critically important. Due to the rapid update of knowledge in the computer domain, it is becoming challenging to better integrate theory and practice knowledge for teaching with advanced intelligent information technology. This paper constructs the knowledge graph for the computer networking course group in secondary vocational schools. We first propose methods for data acquisition, keyword extraction, relationship extraction, and knowledge storage. Then, we describe the complete process for constructing the knowledge graph. Finally, we visualize the relationship between knowledge points for theoretical and practical courses with the tool SmartKG. Our proposed method provides new ideas for teaching computer courses in secondary vocational schools, which helps cultivate highquality skilled talents.**
+**Abstract:** **—Computer science major in secondary vocational schools focuses on cultivating students' ability to solve complex engineering problems. Thus both theoretical and practical teaching of professional courses are critically important. Due to the rapid update of knowledge in the computer domain, it is becoming challenging to better integrate theory and practice knowledge for teaching with advanced intelligent information technology. This paper constructs the knowledge graph for the computer networking course group in secondary vocational schools. We first propose methods for data acquisition, keyword extraction, relationship extraction, and knowledge storage. Then, we describe the complete process for constructing the knowledge graph. Finally, we visualize the relationship between knowledge points for theoretical and practical courses with the tool SmartKG. Our proposed method provides new ideas for teaching computer courses in secondary vocational schools, which helps cultivate highquality skilled talents.**
 
 ## *Keywords-computer networking course group, knowledge graph, SmartKG, secondary vocational schools*
 
-#### I. INTRODUCTION
+### I. INTRODUCTION
 
 In 2022, the Ministry of Education announced its latest work priorities, mentioning the implementation of the Education Digitalization Strategy Initiative, which is strengthening demand, deepening integration, applicationdriven and actively promoting "Internet+Education", accelerate the digitalization and intelligent transformation and upgrading of education [1]. As the beginning of vocational education, secondary vocational schools are responsible for basic education and teaching, and provide a solid foundation for the success and development of students. Therefore, it is crucial to explore new educational and teaching methods in secondary vocational schools. By adopting a rich supply of digital education resources and services, the foundation is laid for exploring smart classroom construction and improving classroom teaching models. At present, in order to improve the quality of teaching, enhance students' interest in learning and strengthen their abilities, it is important to diversify and enrich teaching and learning activities by integrating internet technologies into teaching and learning, using a variety of open source software and devices.
 
@@ -43,7 +43,7 @@ Although knowledge graph has been developed for several years, it is still at th
 
 As a fundamental course in computer science, Computer Network covers a wide range of knowledge and has a strong theoretical. It has a strong correlation with practical courses, such as Network Equipment Installation and Network Integrated Cabling. In the curriculum arrangement of secondary vocational school, these courses are arranged in different semesters, which result in the weak correlation ability of students to knowledge points and the inability to learn knowledge accurately and effectively. At the same time, due to the different basic levels of students, it is impossible to uniformly measure their mastery of knowledge. However, as a set of knowledge points, knowledge graph not only facilitates students' evocation and extension of knowledge points, but also enriches the classroom format and strengthens students' desire for learning.
 
-#### II. RELATED CONCEPTS AND TECHNOLOGIES
+### II. RELATED CONCEPTS AND TECHNOLOGIES
 
 ## *A. Knowledge Graph*
 
@@ -60,7 +60,7 @@ The construction of knowledge graph mainly adopts two methods of top-down and bo
 The process of building a knowledge graph mainly consists of data collection, knowledge extraction, knowledge integration and knowledge application. The technical architecture of the knowledge graph is shown in Figure 1.
 
 ![](_page_1_Figure_4.jpeg)
-<!-- Image Description: The flowchart illustrates a knowledge graph construction process.  It shows data collection (structured, semi-structured, unstructured), knowledge extraction (physical, relationship, attribute extraction), knowledge integration (consolidation, common finger dissipation, entity disambiguation), and knowledge processing (intellectual reasoning, quality assessment, ontology construction).  The output is a knowledge graph built from third-party databases. -->
+<!-- Image Description: The flowchart illustrates a knowledge graph construction process. It shows data collection (structured, semi-structured, unstructured), knowledge extraction (physical, relationship, attribute extraction), knowledge integration (consolidation, common finger dissipation, entity disambiguation), and knowledge processing (intellectual reasoning, quality assessment, ontology construction). The output is a knowledge graph built from third-party databases. -->
 
 Figure 1. The technical architecture of the knowledge graph
 
@@ -74,7 +74,7 @@ The results obtained through knowledge acquisition and knowledge integration are
 
 The content contained in the knowledge graph needs to be constantly updated with the changes of the time. And there are two methods of updating it. The first method is a complete update, which means building a Knowledge Graph from scratch. This method is relatively simple, but requires a lot of resources. The second method is incremental updating, which means adding new knowledge based on the existing knowledge graph. This method is more complex, but consumes less resources [6].
 
-#### *C. SmartKG*
+### *C. SmartKG*
 
 SmartKG is an open source knowledge graph building product developed by Microsoft. The product is mainly used in knowledge graph teaching systems and is a lightweight tool for verifying the ontology design of knowledge graphs. SmartKG helps users to quickly build and visualise knowledge graphs. At the same time, according to the userdefined knowledge graphs, the system will automatically generate CheckBot with the graph as the knowledge base for simple question and answer operations.
 
@@ -82,26 +82,26 @@ The user describes the knowledge graph by using the corresponding template provi
 
 TABLE I. SMARTKG TABLE PROPERTIES
 
-| Name              | connotation                              |  |  |
+| Name | connotation | | |
 |-------------------|------------------------------------------|--|--|
-| entity ID         | ID number                                |  |  |
-| entity name       | Node Name                                |  |  |
-| entity label      | Node Type                                |  |  |
-| lead word         | Auxiliary as CheckBot                    |  |  |
-| attribute name    | Attribute name                           |  |  |
-| attribute value   | Instance of attribute name               |  |  |
-| relationship type | Relationship Name                        |  |  |
-| source entity ID  | ID of the header entity to be connected  |  |  |
-| target entity ID  | Required The ID of the tail entity to be |  |  |
-|                   | connected                                |  |  |
+| entity ID | ID number | | |
+| entity name | Node Name | | |
+| entity label | Node Type | | |
+| lead word | Auxiliary as CheckBot | | |
+| attribute name | Attribute name | | |
+| attribute value | Instance of attribute name | | |
+| relationship type | Relationship Name | | |
+| source entity ID | ID of the header entity to be connected | | |
+| target entity ID | Required The ID of the tail entity to be | | |
+| | connected | | |
 
 SmartKG has the following features: (a) Visualization: The whole process is including template filling, data uploading and data presentation can be operated intuitively. (b) High performance: The product has a built in high performance graph database engine that allows users to set up hundreds or even thousands of entity nodes and display the relationships that exist between them. (c) Easy to extend: Users can target the entities and their relationships to be added by making changes to the table data, and timely updates can be made to display new diagrams. (d) Intelligent: Users can search and query to find a node and its corresponding relationships after generating a knowledge graph using SmartKG tools. At the same time, the SmartKG tool generates a corresponding knowledge base based on the documents provided by the user, which can be used for question and answer operations.
 
-# III. KNOWLEDGE GRAPH CONSTRUCTION FOR COMPUTER NETWORK COURSE CLUSTERS
+## III. KNOWLEDGE GRAPH CONSTRUCTION FOR COMPUTER NETWORK COURSE CLUSTERS
 
 In this paper, the bottom-up method is used for knowledge graph construction. Firstly, the data is acquired from data sources such as e-textbooks, Zhihu and w3cschool. Then, entity identification, relationship extraction and attribute extraction are performed on the acquired data. Finally, the processed structured data is collated and imported into SmartKG to complete visualisation and other tasks.
 
-#### *A. Data Acquisition*
+### *A. Data Acquisition*
 
 Due to regional differences and teaching resources, secondary vocational schools choose different textbooks, but their teaching contents are generally the same. Therefore, this paper selects Jingdong Bookstore, w3cschool, Baidu Encyclopedia and Zhihu as the network data sources and crawls the data through python.
 
@@ -109,14 +109,14 @@ In Jingdong Bookstore, input "computer network" and select the keyword "secondar
 
 In addition, this experiment manually processes the content of the theoretical course "Fundamentals of Computer Network Technology" and the practical course "Installation and Commissioning of Network Equipment" for the secondary vocational school information security majors, to prepare for the subsequent keyword extraction, relationship extraction and entity attribute.
 
-#### *B. Keyword Extraction*
+### *B. Keyword Extraction*
 
 A key step in building a knowledge graph is through keyword extraction of the acquired data. There are many algorithms for keyword extraction, and this paper mainly applies the LDA document topic generation model, the statistical-based TF-IDF algorithm, and the network graphbased TextRank algorithm for keyword extraction.
 
 LDA (Latent Dirichlet Allocation), also known as the three-layer Bayesian probabilistic model, is to discover the subject information contained in documents through unsupervised learning. It consists of a three-layer structure of words, topics and documents. By using the co-occurrence relationship of words in the document to cluster the words, two probability distributions of "document topic" and "topic word" are obtained [9]. The relationships are shown in Figure 2.
 
 ![](_page_2_Figure_10.jpeg)
-<!-- Image Description: The figure is a graphical model depicting a generative process.  It shows a directed acyclic graph where nodes represent variables (e.g.,  θ,  φ, Z<sub>m,n</sub>, W<sub>m,n</sub>) and edges denote dependencies.  The model likely illustrates the relationships between latent variables (θ, φ) and observed variables (W<sub>m,n</sub>), possibly within a Bayesian framework. Subscripts  *m* and *n* suggest multiple instances of  Z and W, indicating a structured data representation.  The shaded node, W, implies it's the observed data.  The purpose is to visually represent the probabilistic model's structure and data generation process. -->
+<!-- Image Description: The figure is a graphical model depicting a generative process. It shows a directed acyclic graph where nodes represent variables (e.g., θ, φ, Z<sub>m,n</sub>, W<sub>m,n</sub>) and edges denote dependencies. The model likely illustrates the relationships between latent variables (θ, φ) and observed variables (W<sub>m,n</sub>), possibly within a Bayesian framework. Subscripts *m* and *n* suggest multiple instances of Z and W, indicating a structured data representation. The shaded node, W, implies it's the observed data. The purpose is to visually represent the probabilistic model's structure and data generation process. -->
 
 Figure 2. LDA model
 
@@ -148,23 +148,23 @@ $$
 
 Through the above three algorithms, this paper extracts keywords from the crawled data in turn. At the same time, stop words were added to filter out irrelevant words during the experiment. The final ranking was done by keyword weight, and Table 2 shows the top 10 keywords for each algorithm.
 
-| LDA_model  |        | Textrank        |        | TF-IDF     |        |
+| LDA_model | | Textrank | | TF-IDF | |
 |------------|--------|-----------------|--------|------------|--------|
-| Keywords   | Weight | Keywords        | Weight | Keywords   | Weight |
-| Protocol   | 0.0351 | Network         | 0.0351 | Practical  | 0.1643 |
-| Network    | 0.0205 | Address         | 0.0182 | IP         | 0.1485 |
-| IP         | 0.0195 | Protocol        | 0.0135 | Address    | 0.1304 |
-| TCP        | 0.0175 | Data            | 0.0134 | TCP        | 0.1124 |
-| Data       | 0.0152 | LAN             | 0.0119 | Network    | 0.1056 |
-| Computer   | 0.0136 | Network<br>Card | 0.0103 | Protocol   | 0.1047 |
-| Servers    | 0.0127 | Computer        | 0.0094 | IP Address | 0.0923 |
-| LAN        | 0.0127 | Task            | 0.0094 | Host       | 0.0882 |
-| Technology | 0.0118 | IP Address      | 0.0093 | Task       | 0.0861 |
-| Internet   | 0.0109 | Servers         | 0.0088 | Servers    | 0.0704 |
+| Keywords | Weight | Keywords | Weight | Keywords | Weight |
+| Protocol | 0.0351 | Network | 0.0351 | Practical | 0.1643 |
+| Network | 0.0205 | Address | 0.0182 | IP | 0.1485 |
+| IP | 0.0195 | Protocol | 0.0135 | Address | 0.1304 |
+| TCP | 0.0175 | Data | 0.0134 | TCP | 0.1124 |
+| Data | 0.0152 | LAN | 0.0119 | Network | 0.1056 |
+| Computer | 0.0136 | Network<br>Card | 0.0103 | Protocol | 0.1047 |
+| Servers | 0.0127 | Computer | 0.0094 | IP Address | 0.0923 |
+| LAN | 0.0127 | Task | 0.0094 | Host | 0.0882 |
+| Technology | 0.0118 | IP Address | 0.0093 | Task | 0.0861 |
+| Internet | 0.0109 | Servers | 0.0088 | Servers | 0.0704 |
 
 TABLE II. TOP 10 KEYWORDS
 
-# *C. Relationship Extraction*
+## *C. Relationship Extraction*
 
 Relationship extraction connects entities to each other and it is the key step to form knowledge graph. Commonly used methods for relationship extraction include rule-based methods, supervised learning methods, semi-supervised learning methods and unsupervised learning methods. Due to the small size of this experimental dataset, a rule-based approach combined with manual assistance is used for relationship extraction in order to improve the accuracy of the results.
 
@@ -172,21 +172,21 @@ Most rule-based methods rely on manual work, with more accurate results and no n
 
 TABLE III. RELATIONSHIP EXTRACTION RULES
 
-| Rules  | Contents                     |
+| Rules | Contents |
 |--------|------------------------------|
-| Rule 1 | X contains/is covered by Y   |
+| Rule 1 | X contains/is covered by Y |
 | Rule 2 | X relates to/is related to Y |
-| Rule3  | X is divided into Y          |
-|        |                              |
+| Rule3 | X is divided into Y |
+| | |
 
 Based on the above table, the relationships between entities (X,contains,Y), (X,associated,Y) and other relationships can be extracted when the relevant content is matched. Finally, a total of 521 relationships were extracted in this paper.
 
-#### *D. Knowledge Storage*
+### *D. Knowledge Storage*
 
 Through data crawling, keyword extraction and relationship extraction and other related work, our last step is to store and visualize knowledge. After comparing and measuring the extracted keywords with those obtained by manual construction, 239 entities were finally selected. At the same time, the attributes contained in each entity are completed manually. This paper uses SmartKG for knowledge storage and the results are shown in Figure 3.
 
 ![](_page_3_Figure_12.jpeg)
-<!-- Image Description: This image displays a knowledge graph, a network visualization. Nodes (circles), colored by category, represent concepts (e.g., "content," "subtask").  Edges (lines) show relationships between concepts, predominantly labeled "belong to," indicating hierarchical or associative links. The graph likely illustrates the structure or interdependencies within a specific knowledge domain, aiding analysis of its organization and complexity within the paper. -->
+<!-- Image Description: This image displays a knowledge graph, a network visualization. Nodes (circles), colored by category, represent concepts (e.g., "content," "subtask"). Edges (lines) show relationships between concepts, predominantly labeled "belong to," indicating hierarchical or associative links. The graph likely illustrates the structure or interdependencies within a specific knowledge domain, aiding analysis of its organization and complexity within the paper. -->
 
 Figure 3. Computer network knowledge graph
 
@@ -195,12 +195,12 @@ This paper focuses on the keywords "computer network basics" and "experimental t
 SmartKG can search for knowledge by querying, as shown in Figure 4. By inputting the keyword "Router", and then the relevant knowledge points will appear. Take the knowledge point "Router" as an example, it is both a key knowledge point in the theory class and a equipment that is required everywhere in the practical class. As the teaching requires students to have a high level of knowledge about routers and the ability to apply this knowledge, it can be displayed in the form of knowledge graph, which can enable students to master the required knowledge content in different learning periods. As shown in Figure 5, the router knowledge graph contains the basic attributes "definition", "english name", "function", "performance indicator" and "port". Moreover, it is one of the network transmission media. At the same time, the knowledge point "Router" involves many experimental tasks, such as "Basic configuration of a router" "LAN users accessing the Internet through a router" "Accessing the Internet through a wireless routing relationship", and so on.
 
 ![](_page_4_Figure_0.jpeg)
-<!-- Image Description: The image displays a search results interface.  A search for "Router" yielded three results: "Router," "Router configuration command," and "Router and layer 3 switch."  The interface shows a search bar, the number of results found (3), and a button to collapse all results.  The image likely illustrates a search function within a network configuration or documentation tool. -->
+<!-- Image Description: The image displays a search results interface. A search for "Router" yielded three results: "Router," "Router configuration command," and "Router and layer 3 switch." The interface shows a search bar, the number of results found (3), and a button to collapse all results. The image likely illustrates a search function within a network configuration or documentation tool. -->
 
 Figure 4. Query function
 
 ![](_page_4_Figure_2.jpeg)
-<!-- Image Description: This image is a knowledge graph visualizing relationships related to the term "Router."  The central node, colored crimson, represents "Router."  Gray nodes represent related concepts (e.g., "LAN port," "definition"), while red nodes denote relational terms (e.g., "belong to," "related knowledge").  Arrows indicate the direction of relationships between nodes, illustrating a network of interconnected concepts within the context of a router.  The graph likely serves to illustrate knowledge representation or semantic relationships in the paper. -->
+<!-- Image Description: This image is a knowledge graph visualizing relationships related to the term "Router." The central node, colored crimson, represents "Router." Gray nodes represent related concepts (e.g., "LAN port," "definition"), while red nodes denote relational terms (e.g., "belong to," "related knowledge"). Arrows indicate the direction of relationships between nodes, illustrating a network of interconnected concepts within the context of a router. The graph likely serves to illustrate knowledge representation or semantic relationships in the paper. -->
 
 Figure 5. Router knowledge points
 
@@ -208,26 +208,26 @@ The knowledge graph and research method discussed in this paper have been applie
 
 TABLE IV. SCORE ANALYSIS
 
-|                    | Class   | Number | Average<br>value | Standard<br>deviation | Standard<br>Error of<br>Mean |
+| | Class | Number | Average<br>value | Standard<br>deviation | Standard<br>Error of<br>Mean |
 |--------------------|---------|--------|------------------|-----------------------|------------------------------|
-| score              | Class 1 | 25     | 78.52            | 7.397                 | 1.679                        |
-|                    | Class 2 | 25     | 69.92            | 9.142                 | 1.828                        |
-| Question<br>type 1 | Class 1 | 25     | 22.64            | 2.123                 | .425                         |
-|                    | Class 2 | 25     | 21.44            | 2.752                 | .550                         |
-| Question           | Class 1 | 25     | 23.20            | 3.266                 | .653                         |
-| type 2             | Class 2 | 25     | 20.48            | 3.525                 | .705                         |
-| Question<br>type 3 | Class 1 | 25     | 32.68            | 4.388                 | .898                         |
-|                    | Class 2 | 25     | 28.00            | 4.555                 | .911                         |
+| score | Class 1 | 25 | 78.52 | 7.397 | 1.679 |
+| | Class 2 | 25 | 69.92 | 9.142 | 1.828 |
+| Question<br>type 1 | Class 1 | 25 | 22.64 | 2.123 | .425 |
+| | Class 2 | 25 | 21.44 | 2.752 | .550 |
+| Question | Class 1 | 25 | 23.20 | 3.266 | .653 |
+| type 2 | Class 2 | 25 | 20.48 | 3.525 | .705 |
+| Question<br>type 3 | Class 1 | 25 | 32.68 | 4.388 | .898 |
+| | Class 2 | 25 | 28.00 | 4.555 | .911 |
 
-#### IV. CONCLUSION
+### IV. CONCLUSION
 
 This paper takes the teaching content of the computer network course group as the core, involving theory and experimental operation. Firstly, we introduce the overview of knowledge graph, the construction process and the use of SmartKG application software; then we elaborate the methods applied in this paper and the experimental results in turn from four aspects: data acquisition, keyword extraction, relationship extraction and knowledge storage. The key to teaching computer networks is the common development of theory and practice, not only to cultivate students' mastery of theoretical knowledge, but also to focus on students' practical operation ability. In the process of rapid construction and development of a skill-based society, it is the key to vocational education to let students enjoy and apply their skills.
 
-#### ACKNOWLEDGMENT
+### ACKNOWLEDGMENT
 
 This work is supported by the Shandong Undergraduate Teaching Reform Research (key) Project (Z2020048,Z20211 46),Firstclass course project of Shandong Province (SDYLK C586). \* corresponding author.
 
-#### REFERENCES
+### REFERENCES
 
 - [1] "Key points of work of the Ministry of education in 2022: implementing the digital education strategy," Modern education technology, vol. 32, Feb. 2022, pp. 1.
 - [2] Ministry of Education: "2019 national education informatization work conference," Basic education courses, vol. 09, May. 2019, pp. 4.

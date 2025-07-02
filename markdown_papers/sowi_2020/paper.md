@@ -65,7 +65,7 @@ Abstract. The landscape of computing technologies is changing rapidly, straining
 
 Keywords: Software engineering · Overview · WebAssembly · Multiarchitecture software · Autonomy · Software engineering automation · Knowledge graphs.
 
-# 1 Introduction
+## 1 Introduction
 
 The modern landscape of hardware and software platforms is changing rapidly. In CPU architectures, the existing technologies are expanding their ranges of applications (e.g., ARM processors shifting to the servers), while entirely new platforms, such as RISC-V [\[24\]](#page-17-0), emerge. This requires the existing software to be adapted to the new instruction sets, which can be a costly and lengthy process. At the same time, computational workloads are increasingly deployed across the entire computing continuum [\[23\]](#page-17-1), introducing even more hardware diversity. Software engineers are faced with the seemingly impossible task of producing applications that are required to run on multiple highly heterogeneous platforms, spanning from the large Cloud clusters to the tiny IoT devices. The software must also evolve rapidly, to keep up with consumer demands, technological changes, and to maintain competitiveness in the global market. In this context, the current specific challenges for software vendors include migrating Cloud applications to the Edge [\[69\]](#page-20-0), and using the emerging, quickly evolving hardware (e.g., specialized machine learning accelerators [\[3,](#page-16-0)[50\]](#page-19-0)) to its full potential.
 
@@ -79,7 +79,7 @@ In the considered scenario, a software module that can detect falls of construct
 
 Summary of contributions. In this work, we consider the intersection of the following three relevant challenges in modern software engineering: (i) developing multi-architecture applications, (ii) accelerating and automating the SE processes, and (iii) software modeling. For each, a deep dive into the current technological obstacles and opportunities is presented. We believe that these challenges are interconnected and thus propose a joint solution – an architecture of a general system accelerating software engineering tasks for multi-architecture applications using WebAssembly. The presented system concept targets all stages of the software lifecycle – from planning, through coding, testing, up to deployment and operation. It leverages the latest achievements in AI, autonomy, and knowledge representation to potentially pose a paradigm shift in software engineering and change how next-generation software is developed.
 
-# <span id="page-2-0"></span>2 Background
+## <span id="page-2-0"></span>2 Background
 
 In what follows, we present an analysis of the main challenges and latest developments in the three considered areas: multi-architecture applications, software engineering process acceleration and automation, and software modeling.
 
@@ -145,14 +145,14 @@ In the guiding example, the company would most likely use UML (or BMPN, or a sim
 
 for this approach to succeed, the process of knowledge elicitation and formalization, as well as management of knowledge evolution would have to be at least partially automated. This, again, is an area of active research.
 
-# 3 Proposed System Architecture
+## 3 Proposed System Architecture
 
 Taking into account what has been discussed thus far, let us introduce an architecture for a system that would tackle the indicated challenges of software modeling and SE process automation for multi-architecture software. The proposed concept offers a comprehensive view of the entire software engineering lifecycle, and can plug in seamlessly into the existing tools and processes, such as those discussed in Section [2.](#page-2-0) The general architecture is described in what follows, with a visual overview presented in Figure [1.](#page-9-0) Further details about each component (WebAssembly Twin, Autonomy Core, and Modular Pluggable Connectors) are presented in subsequent sections.
 
 ![](_page_9_Figure_4.jpeg)
 <!-- Image Description: The image is a system architecture diagram illustrating an autonomy framework. It shows a WebAssembly Twin (WT) interacting with an Autonomy Core (AC) via an Open WebAssembly Twin API. The AC comprises machine learning, symbolic reasoning, and neuro-symbolic fusion components, with explainability and control features. Modular Pluggable Connectors (MPCs) enable interaction with existing tools and processes, depicted as interconnected modules. The system interfaces with a software engineer via an IDE plugin for autonomy supervision and control. -->
 
-<span id="page-9-0"></span>Fig. 1. Overview of the proposed system architecture.
+<span id="page-9-0"></span>Figure 1. Overview of the proposed system architecture.
 
 The technological and conceptual backbone of the proposed architecture is the WebAssembly Twin (WT), a dynamic, knowledge graph-enabled model of the WebAssembly software. The WT is intended to serve as a closely tied, bidirectionally synchronized "twin" of the WebAssembly modules and applications. Not only does the WT model reflect the actual, existing software, but also any change in the model induces corresponding changes in the software – essentially, providing a powerful Model-Driven Engineering abstraction. The WT is inherently modular, with modules corresponding to the different versions of the software and to the different modeling domains. The WT uses dynamic knowledge graphs [\[52\]](#page-19-11) with event-driven reads and writes, flowing through a highperformance event bus. Access to the WebAssembly Twin is provided via an open, universal API that is used by the Autonomy Core (AC) and the Modular Pluggable Connectors (MPCs). The WebAssembly Twin is further discussed in Section [3.1.](#page-10-0)
 
@@ -171,7 +171,7 @@ ecosystem appears to be most appropriate to be used as the knowledge graph model
 ![](_page_11_Figure_2.jpeg)
 <!-- Image Description: This diagram illustrates an Open WebAssembly Twin API architecture. It shows a dynamic knowledge graph interacting with the API via a streaming event bus. Knowledge fragments are input, and the API processes data (e.g., SAST results, code, tests) through modules (A, B, C). "WT write" and "WT read" depict data input and output, respectively. The API is built upon an Autonomy Core and modular connectors. The illustration clarifies the system's data flow and modular design. -->
 
-<span id="page-11-0"></span>Fig. 2. Architecture of the WebAssembly Twin.
+<span id="page-11-0"></span>Figure 2. Architecture of the WebAssembly Twin.
 
 This approach opens the way to expressing knowledge about software in a structured manner – its design requirements, code, tests, interfaces, software contracts, resource use characteristics, security vulnerabilities, and more, on multiple levels of integration. Owing to the intrinsic modularity and flexibility of knowledge graphs, the WT could be easily extended by third parties to cover new use cases, and fuse knowledge across all stages of the software lifecycle. Here, note that the WT cannot be merely a static knowledge graph. It must be a highly dynamic, event-driven system with an internal streaming event bus for carrying commands and knowledge fragments in near-real time. This is needed because the knowledge about the software will be evolving over time. For example, new requirements or target platforms may arise, refactors in the code may be made, and runtime errors may be registered in the deployments. Reacting to and propagating these events quickly is crucial to ensuring that the WebAssembly Twin really does deliver the expected value, instead of being a slow and superfluous add-on to the SE process. In the WT, the event bus writes to and reads from the internal dynamic knowledge graphs and allows for rapid propagation of commands and information to/from WT clients. With a dynamically changing, modular structure, the WT is able to handle a wide variety of challenging scenarios that require fusing complex knowledge across domains.
 
@@ -196,13 +196,13 @@ The modular structure of MPCs simplifies their implementation – for example, t
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This image depicts a workflow diagram illustrating the interactions between a WebAssembly Twin API and various software development stages. The central element is the WebAssembly Twin API, connected to modules representing Plan, Code, Build, Test, Run, Monitor, and Distribute. Arrows, differentiated by color to represent "WT-to-software MPC" and "Software-to-WT MPC," show data flow and dependencies between these stages, highlighting the API's role in managing the software development lifecycle. The diagram visually represents the communication and information exchange within the system. -->
 
-<span id="page-13-1"></span>Fig. 3. Example Modular Pluggable Connectors.
+<span id="page-13-1"></span>Figure 3. Example Modular Pluggable Connectors.
 
 specification This flexibility enables one to use any kind of AI applicable to a given problem and maximize reuse of existing AI solutions, easing the adoption. This may include: self-supervised generative models [\[28\]](#page-17-2) (e.g., for code and test generation), multimodal deep neural networks [49] (e.g., for interacting with users and reading graphical media such as hand-drawn diagrams), graph neural networks (for WT comprehension, e.g., ULTRA [20]), time series analysis and prediction models (for example, for anomaly detection in monitoring data [\[38\]](#page-18-16)), and symbolic reasoning [10] for inferring new knowledge based on what is already stored in the WebAssembly Twin. The MPCs are expected to form an open ecosystem of modules developed by multiple industry and research actors.
 
 In the guiding scenario, the software company would ideally be able to reuse many MPCs published openly by other actors. Additionally, they could relatively easily prepare their own MPCs for integrations with the tools already being used by the development teams. This would allow the company to retain most of its original tools and processes, lowering the cost of adopting the new technology. Use case-specific modules could also be prepared, for example an interface that would explain the software's algorithm using occupational health and safety terminology, by exploiting the cross-domain knowledge stored in the WebAssembly Twin.
 
-#### <span id="page-13-0"></span>3.3 Autonomy Core
+### <span id="page-13-0"></span>3.3 Autonomy Core
 
 Finally, the leap forward in automation capabilities is provided by the Autonomy Core (AC) (Figure 4) – a general autonomy enabler, capable of planning and executing complex WebAssembly software workflows on its own. The vision behind the AC is to realize complex, self-adaptive use cases – for example: (i) responding to a spike of runtime errors and fixing the bug autonomously, while also adding tests to prevent the problem from re-occurring; (ii) detecting a security vulnerability in the dependency chain and resolving the issue by updating
 
@@ -211,7 +211,7 @@ Finally, the leap forward in automation capabilities is provided by the Autonomy
 
 the affected module; (iii) identifying a possible resource optimization (e.g., more efficient library, unnecessary code) and introducing it in practice.
 
-<span id="page-14-0"></span>Fig. 4. Architecture of the Autonomy Core.
+<span id="page-14-0"></span>Figure 4. Architecture of the Autonomy Core.
 
 The Autonomy Core extends the framework of monitor-analyze-plan-execute with knowledge (MAPE-K) [\[30\]](#page-18-17), adapted to fit in the proposed architecture. The WebAssembly Twin serves as the source of knowledge, with the AC also being able to modify the WT in a feedback loop, enabling iterative processes (i.e. iterative self-adaptation). Knowledge graphs were previously proposed as an ideal base for future autonomous systems due to their unique characteristics [\[7\]](#page-16-8). Using the semantics imbued in the WT, the AC is able to "understand" the content of the WT, and generalize it to entirely new concepts (e.g., new use cases, or modeling domains) – this can be achieved with symbolic reasoning. On the other hand, machine learning methods excel at less rigorous cognitive processes, such as reasoning by analogy. The AC will effectively leverage both, using the emerging neuro-symbolic techniques that aim to bring together the best characteristics of both types of AI [\[26,](#page-17-15)[40,](#page-18-18)[76\]](#page-20-11).
 
@@ -221,7 +221,7 @@ the user and the AC, providing a set of concepts understandable by both the huma
 
 In the guiding scenario, an autonomous workflow could be used to automatically adapt the software to API changes in the customers' systems. Once such a change was detected, the AC would propose a modification to the integration code and submit it for human review. Alternatively, the AC could monitor the performance of the application in deployment and seek to identify hardware platforms on which the software performs poorly. Subsequently, it could issue improvement recommendations to the development team, along with potential code that could address the issue. The AC could simulate the outcome of different changes to the code and automatically discard modifications that would not improve the performance.
 
-# 4 Conclusion and Future Work
+## 4 Conclusion and Future Work
 
 The proposed system architecture aims to tackle several interconnected and very relevant challenges in modern software engineering. By analyzing the current issues concerning multi-architecture development, SE process acceleration, and software modeling, it becomes clear that there is a lot of room for novel methodological concepts and technical innovations. Specifically, the proposed architecture is intended to greatly accelerate software engineering processes, throughout the entire software lifecycle of multi-architecture, continuum-native applications. This is achieved through the proposed combination of dynamic, knowledge-based software models (WebAssembly Twin); flexible and powerful, yet transparent and controllable autonomy (Autonomy Core); and modularized automation components (Modular Pluggable Connectors). The ideas presented here are illustrated in a realistic guiding scenario, originating from the ASSIST-IoT project.
 
@@ -231,7 +231,7 @@ Acknowledgments. This study was partially funded by the European Commission, und
 
 Disclosure of Interests. The authors have no competing interests to declare that are relevant to the content of this article.
 
-# References
+## References
 
 - <span id="page-16-9"></span>1. Abel, D., Salvatier, J., Stuhlmüller, A., Evans, O.: Agent-agnostic human-in-theloop reinforcement learning. arXiv preprint arXiv:1701.04079 (2017)
 - <span id="page-16-11"></span>2. Alam, M., Gesese, G.A., Paris, P.H.: Neurosymbolic methods for dynamic knowledge graphs. arXiv preprint arXiv:2409.04572 (2024)

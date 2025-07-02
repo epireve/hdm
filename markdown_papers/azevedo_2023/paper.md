@@ -27,7 +27,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES <sup>∗</sup>
 
 Leonardo Guerreiro Azevedo IBM Research Rio de Janeiro, RJ, Brazil lga@br.ibm.com
@@ -40,7 +39,7 @@ Anna C. Oliveira\* PESC/COPPE acoliveira@cos.ufrj.br
 
 Marcio Ferreira Moreno\* MOBR Systems Sao Paulo, Brazil marcio@mobr.ai
 
-# ABSTRACT
+## ABSTRACT
 
 Modern applications commonly need to manage dataset types composed of heterogeneous data and schemas, making it difficult to access them in an integrated way. A single data store to manage heterogeneous data using a common data model is not effective in such a scenario, which results in the domain data being fragmented in the data stores that best fit their storage and access requirements (*e.g.,*NoSQL, relational DBMS, or HDFS). Besides, organization workflows independently consume these fragments, and usually, there is no explicit link among the fragments that would be useful to support an integrated view. The research challenge tackled by this work is to provide the means to query heterogeneous data residing on distinct data repositories that are not explicitly connected. We propose a federated database architecture by providing a single abstract global conceptual schema to users, allowing them to write their queries, encapsulating data heterogeneity, location, and linkage by employing: (i) meta-models to represent the global conceptual schema, the remote data local conceptual schemas, and mappings among them; (ii) provenance to create explicit links among the consumed and generated data residing in separate datasets. We evaluated the architecture through its implementation as a polystore service, following a microservice architecture approach, in a scenario that simulates a real case in Oil & Gas industry. Also, we compared the proposed architecture to a relational multidatabase system based on foreign data wrappers, measuring the user's cognitive load to write a query (or query complexity) and the query processing time. The results demonstrated that the proposed architecture allows query writing two times less complex than the one written for the relational multidatabase system, adding an excess of no more than 30% in query processing time.
 *K*eywords Knowledge and Data Engineering Tools and Techniques · Database integration · Distributed databases · Query processing
@@ -48,9 +47,9 @@ Modern applications commonly need to manage dataset types composed of heterogene
 <sup>∗</sup>*For authors marked with \* : Work done while at IBM Research*![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This flowchart illustrates a data processing workflow. Four workflows (Wf1-Wf4) are depicted: data quality assessment, geospatial index generation, expert knowledge ingestion, and data preparation. These workflows process geological raw data files through R-DBMS, Doc DBMS, and T-DBMS, culminating in training datasets stored in a parallel file system. Rectangles represent workflow steps, cylinders represent databases, and the legend clarifies data usage (used vs. generated). The image shows the stages involved in preparing data for a machine learning model. -->
 
-<span id="page-1-0"></span>Figure 1: Workflows and data stores of the oil reserves discovery scenario (adapted from [Souza*et al*[., 2019\]](#page-22-0)).
+<span id="page-1-0"></span>**Figure 1:** Workflows and data stores of the oil reserves discovery scenario (adapted from [Souza*et al*[., 2019\]](#page-22-0)).
 
-# <span id="page-1-7"></span>1 Introduction
+## <span id="page-1-7"></span>1 Introduction
 
 Several modern applications manipulate diverse datasets with different models and usages, employing specific tools and techniques, *e.g.,*applications in medical informatics, oceanography, metagenomics, and exploration and production phases in Oil & Gas [Souza*et al*[., 2019\]](#page-22-0).
 
@@ -88,11 +87,11 @@ We evaluate the architecture implementation in a scenario that simulates a real 
 
 The remainder of this work is divided as follows. Section [2](#page-2-1) presents the background and justify our choices. Section [3](#page-5-0) presents the proposed architecture. Section [4](#page-9-0) presents the proposal implementation and its evaluation. Section [5](#page-16-0) presents the related work. Section [6](#page-17-0) presents the conclusion and proposals of future work.
 
-# <span id="page-2-1"></span>2 Background
+## <span id="page-2-1"></span>2 Background
 
 This section presents the main concepts related to this work and the reasoning for their use in our proposal.
 
-# <span id="page-2-2"></span>2.1 Multidatabase and Polystore system
+## <span id="page-2-2"></span>2.1 Multidatabase and Polystore system
 
 A Multidatabase System (MDBS) provides a layer of software that runs on top of individual Database Management Systems (DBMSs) and facilitates users' access to various databases. The MDBS presents a Global Conceptual Schema (GCS) to the user, representing an integrated view of a database in which parts are allocated to different sites. In the MDBS environment, each site runs an individual DBMS, sharing some of its parts with the MDBS. Each local database
 
@@ -101,7 +100,7 @@ A Multidatabase System (MDBS) provides a layer of software that runs on top of i
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a multi-mediator architecture for data integration. A client interacts with a chain of mediators (Mediator1...Mediator<sub>n</sub>), each communicating with wrappers accessing different data sources: an RDBMS (RDB), parallel file system (Files), document DBMS (JSON), and triple store (Triples). The architecture facilitates data access from diverse sources through a unified client interface. -->
 
-<span id="page-3-1"></span>Figure 2: Layered Mediator/Wrapper Multidatabase System architecture (adapted from [\[Özsu and Valduriez, 2020\]](#page-21-0)).
+<span id="page-3-1"></span>**Figure 2:** Layered Mediator/Wrapper Multidatabase System architecture (adapted from [\[Özsu and Valduriez, 2020\]](#page-21-0)).
 
 is represented by a Local Conceptual Schema (LCS) [\[Özsu and Valduriez, 2020\]](#page-21-0). The database consumer formulates queries based on the GCS, and the MDBS translates them into a group of local queries and sends them to be executed by the individual DBMSs. The MDBS receives the responses, consolidates the queries' results, and returns an integrated result to the user [\[Özsu and Valduriez, 2020\]](#page-21-0).
 
@@ -125,7 +124,7 @@ There are several foreign data wrappers already implemented for PostgreSQL[12](#
 
 search string ("foreign data wrapper" OR fdw) AND (Postgres or PostgreSQL) in IEEE and ACM digital libraries. The robustness of PostgreSQL DBMS, its open-source license, the wrappers already implemented, and its wide use in literature motivated us to employ PostgreSQL FDW in validating our proposal.
 
-# <span id="page-4-6"></span>2.3 Provenance
+## <span id="page-4-6"></span>2.3 Provenance
 
 Provenance is also known as the audit trail, lineage, and pedigree of a data product. It contains information about the process and data used to derive the data product [\[Davidson and Freire, 2008\]](#page-20-2).
 
@@ -133,7 +132,7 @@ In this work, we are employing ProvLake[13](#page-4-0), a lineage data managemen
 
 ProvLake provides a lightweight *data tracking API*to be added to workflow codes (ProvLakeLib[14](#page-4-1)), such as scripts. Also, it provides a*query API*for runtime analytical queries that integrate multistore data. When combined with a polystore, it can query data directly in multiple stores jointly with their provenance data. Conversely, our solution enables access to remote data not ingested during the capture process using remote data links loaded during provenance capture.
 
-# <span id="page-4-5"></span>2.4 Knowledge Graph and Hyperknowledge (HK)
+## <span id="page-4-5"></span>2.4 Knowledge Graph and Hyperknowledge (HK)
 
 Knowledge Graphs have gained a broad use in research and business [Ji*et al*[., 2021\]](#page-21-6) since the term was coined by a Google blog post [\[Singhal, 2012\]](#page-21-7) in 2016 [\[Ehrlinger and Wöß, 2016\]](#page-20-5). There are several definitions of the term in the literature, and after a terminological analysis and based on the typical architecture of a knowledge-based system - which has information sources and is composed of a knowledge base (*e.g.,*ontology[15](#page-4-2)) and a reasoning engine components, Ehrlinger and Wöß's proposed the following definition [\[Ehrlinger and Wöß, 2016\]](#page-20-5):
 
@@ -169,7 +168,7 @@ KES (Knowledge Explorer System) [\[Moreno](#page-21-10)*et al*., 2018] is a web 
 
 Our polystore solution is provisioned as an HKBase service and KES is used to inspect the ingested data and as an alternative to manually manage models and mappings.
 
-# <span id="page-5-1"></span>2.6 Query complexity
+## <span id="page-5-1"></span>2.6 Query complexity
 
 The query complexity can be measured using the database and the user perspective. While the former considers the required time and the number of resources to run a query, the latter examines the user's cognitive load to read and write a query. Although query complexity measurement methods are well established for the database perspective, a few works address the user perspective [\[Vashistha and Jain, 2016\]](#page-22-4).
 
@@ -183,14 +182,14 @@ For the SPARQL query language, Yuanbo*et al.*[Guo*et al*[., 2005\]](#page-20-7) 
 
 In this work, both perspectives of query complexity concern us. Our goal is to provide a model to the user that encapsulates heterogeneity, reducing his/her cognitive load when writing queries. At the same time, we also aim to build a solution that does not excessively increase the query processing time. We are considering the query components, like literature works, to measure user query complexity and query execution time to measure the database perspective.
 
-# <span id="page-5-0"></span>3 Hyperknowledge Polystore
+## <span id="page-5-0"></span>3 Hyperknowledge Polystore
 
 This section presents our proposal of a polystore architecture that provides users with a single layer for data access encapsulating data and data store heterogeneity, location, and data linkage using schemas metadata, mappings, and provenance. We named Hyperknowledge Polystore or HKPoly because we use HK (Section [2.4\)](#page-4-5) in its implementation. Although we could use other ontology representations, HKPoly supports our requirements, like the *Context*composite node we use for knowledge modularization.
 
 ![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates two pathways for interacting with a knowledge graph (KG) system. Path (a) shows a client service consumer interacting with the HKPoly service, which then uses a KG DBMS to access the HKPoly KG database. Path (b) depicts a client user employing a KG UI modeling tool to interact with the HKPoly service and, indirectly, the KG database. The diagram showcases the architecture's components and their interactions. -->
 
-<span id="page-6-6"></span>Figure 3: HKPoly-client interaction: (a) Client application calls directly HKPoly service; (b) A user uses a UI which calls the HKPoly service.
+<span id="page-6-6"></span>**Figure 3:** HKPoly-client interaction: (a) Client application calls directly HKPoly service; (b) A user uses a UI which calls the HKPoly service.
 
 ## <span id="page-6-7"></span>3.1 Requirements and Stakeholders
 
@@ -216,7 +215,7 @@ HKPoly stakeholders and their responsibilities are:
 
 This section presents how HKPoly architecture supports the requirements, depicting the HKPoly metamodel elements.
 
-*HKPoly Knowledge Graph* (HKPoly KG) metamodel was created based on W3C-Prov standard and ProvLake (Section [2.3\)](#page-4-6). We proposed elements inheriting from W3C-Prov (like Collection and Entity), and we use ProvLake elements to represent workflow provenance schema and execution (*e.g.,*Workflow, Workflow Execution, Data Transformation, Data Transformation Execution, Attribute, Attribute Value).
+**HKPoly Knowledge Graph:** (HKPoly KG) metamodel was created based on W3C-Prov standard and ProvLake (Section [2.3\)](#page-4-6). We proposed elements inheriting from W3C-Prov (like Collection and Entity), and we use ProvLake elements to represent workflow provenance schema and execution (*e.g.,*Workflow, Workflow Execution, Data Transformation, Data Transformation Execution, Attribute, Attribute Value).
 
 HKPoly architecture supports requirements [R1,](#page-6-0) [R2,](#page-6-2) [R3](#page-6-1) and [R4](#page-6-3) through a service interface for client consumers manage domain and remote data stores metadata (Figure [3\)](#page-6-6). The service is accessed using a client application (Figure [3.](#page-6-6)a) or by a Web-based UI (Figure [3.](#page-6-6)b). The received metadata is stored in a database (HKPoly KG), which is managed by Database Management System (KG DBMS).
 
@@ -225,7 +224,7 @@ HKPoly architecture supports requirements [R1,](#page-6-0) [R2,](#page-6-2) [R3]
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: This image is a class diagram illustrating a data model. It shows the relationships between a `DatasetSchema` (a collection), `Attribute` (an entity), and a `referred` element. Relationships are defined using cardinality notations (e.g., 0..1, 1..*). The diagram clarifies how attributes relate to a dataset schema (as identifiers or general attributes), and how entities can be referenced. The purpose is to formally specify the structure of datasets within the paper. -->
 
-<span id="page-7-0"></span>Figure 4: HKPoly model used to represent the GCS schema.
+<span id="page-7-0"></span>**Figure 4:** HKPoly model used to represent the GCS schema.
 
 [R2](#page-6-2) Support: The Knowledge Engineer (KE) formulates a data schema to represent GCS domain elements as instances of the metamodel presented in Figure [4.](#page-7-0) The KE generates DatasetSchema for GCS's nodes,*e.g., Seismic*, *Horizon*and*Well*are created as dataset schemas. Attribute represent GCS's edges,*e.g., hasHorizon*and*hasWell*represent*has Horizon*and*has Well*edges which are related to*Seismic*dataset schema using isAttributeOf relationship. If the attribute identifies the class, the KE also creates the isIdentifierOf relationship,*e.g.,*the attribute*horizonURI*is identifier of*Seismic*dataset schema. The KE represents the relationship between two concepts using the referred relationship,*e.g.,*the attribute*Seismic.hasHorizon*referred the attribute*Horizon.horizonURI*.
 
@@ -250,12 +249,12 @@ Afterwards, the developers include calls to the ProvLakeLib (Section [2.3\)](#pa
 ![](_page_8_Figure_1.jpeg)
 <!-- Image Description: This image is a class diagram illustrating a data model. Rectangles represent classes (e.g., DataStore, Database, Attribute), with labels indicating class types and multiplicity. Arrows depict relationships (e.g., "isSchemaOf," "isMemberOfComplex") between classes, including cardinality constraints (e.g., "0..1," "1..*"). The diagram details the relationships between data stores (FileSystem, RDBMS, etc.), databases, schemas, and attributes, showing how they are interconnected within a system. -->
 
-<span id="page-8-0"></span>Figure 5: HKPoly model used to represent the LCS schemas.
+<span id="page-8-0"></span>**Figure 5:** HKPoly model used to represent the LCS schemas.
 
 ![](_page_8_Figure_3.jpeg)
 <!-- Image Description: This image is an Entity-Relationship Diagram (ERD) illustrating a data model. It depicts entities such as `Workflow`, `Data Transformation`, `Attribute`, `AttributeValue`, `DataStore`, and their relationships, indicated by labeled arrows and cardinality constraints (e.g., 1, *, 0..1). The diagram details the connections between workflow executions, data transformations, attribute values, and data storage, showing how data is generated, used, and derived throughout a workflow's lifecycle. The purpose is to formally represent the structure and relationships within a workflow data management system. -->
 
-<span id="page-8-1"></span>Figure 6: Provenance model based on ProvLake [Souza *et al*[., 2019\]](#page-22-0).
+<span id="page-8-1"></span>**Figure 6:** Provenance model based on ProvLake [Souza *et al*[., 2019\]](#page-22-0).
 
 DataTransformationExecution and the used and generated AttributeValues. The DataReferences are the AttributeValues that identify the data records residing in the DataStores, *e.g., id*and*URI*.
 
@@ -266,16 +265,16 @@ The schemas metadata, mappings, workflow schema, and workflow execution data sto
 ![](_page_9_Figure_1.jpeg)
 <!-- Image Description: The image is a data flow diagram illustrating a provenance tracking system. An instrumented client application sends data to a provenance manager, which then forwards it to a KG DBMS (Knowledge Graph Database Management System). Finally, the processed data is stored in an HKPoly KG (presumably a knowledge graph database specific to HKPoly). The diagram visually represents the stages of data processing and storage within the system. -->
 
-<span id="page-9-1"></span>Figure 7: Provenance manager architecture overview.
+<span id="page-9-1"></span>**Figure 7:** Provenance manager architecture overview.
 
 ![](_page_9_Figure_3.jpeg)
 <!-- Image Description: The image is a system architecture diagram. It illustrates the data flow in the HKPoly system. A client interacts with the HKPoly service, which in turn accesses data from various sources: a file system, document DBMS, relational DBMS, and a triplestore. These data sources are then integrated into a knowledge graph (HKPoly KG) via a KG DBMS. The diagram shows the system's layered architecture and data integration process. -->
 
-<span id="page-9-2"></span>Figure 8: HKPoly architecture overview.
+<span id="page-9-2"></span>**Figure 8:** HKPoly architecture overview.
 
 processes the query as follows: (i) It interprets and validates the input query concerning GCS elements, querying the KG, and supported operators; (ii) It creates local queries for each LCS that maps to the GCS elements used in the input query - HKPoly queries the KG to get the GCS and LCS mappings and provenance data required for query building; (iii) It creates an optimized query execution plan for the local queries; (iv) It coordinates the query execution on local DBMSs -*e.g.,*File System, Doc DBMS, RDBMS, and Triplestore in Figure [8;](#page-9-2) (v) It consolidates the results and sends the response to the client-user.
 
-# <span id="page-9-0"></span>4 HKPoly implementation in a real scenario
+## <span id="page-9-0"></span>4 HKPoly implementation in a real scenario
 
 This section presents the architecture implementation as well as its evaluation in a simulation of a real scenario. We present the scenario in Section [4.1,](#page-9-3) then HKPoly implementation in Section [4.2,](#page-10-0) and its evaluation in Section [4.3.](#page-13-0)
 
@@ -292,9 +291,9 @@ In this case study, the user is an ML expert with deep knowledge in the domain. 
 ![](_page_10_Figure_1.jpeg)
 <!-- Image Description: This diagram depicts a system architecture. It shows a client user interacting with a Knowledge Exchange System (KES) which connects to an IHKBase. This communicates with an HKBase, which uses HKPolyService and HKBaseService to access data from DBMS and IDBMS. The queried data includes seismic information and geodetic systems, stored in PostgreSQL, AllegroGraph, and Mongo. The diagram illustrates data flow and component interactions within the system. -->
 
-<span id="page-10-1"></span>Table 1: Seismic data and the data stores where they reside.
+<span id="page-10-1"></span>**Table 1:** Seismic data and the data stores where they reside.
 
-<span id="page-10-3"></span>Figure 9: HKPoly service component diagram considering components to support requirements [R1,](#page-6-0) [R2,](#page-6-2) [R3](#page-6-1) and [R4.](#page-6-3)
+<span id="page-10-3"></span>**Figure 9:** HKPoly service component diagram considering components to support requirements [R1,](#page-6-0) [R2,](#page-6-2) [R3](#page-6-1) and [R4.](#page-6-3)
 
 ### <span id="page-10-0"></span>4.2 HKPoly Implementation
 
@@ -318,31 +317,30 @@ Table [2](#page-11-0) (lines 3, 4, and 5) presents the LCS remote data store sch
 
 <span id="page-10-4"></span><span id="page-10-2"></span><sup>19</sup>RESTful web services follow REST [\[Fielding and Taylor, 2002\]](#page-20-10) principles to expose cohesive and low coupled web services. <sup>20</sup><https://jena.apache.org/>
 
-| Line | DataStore    | Database        | Schema       | DatasetSchema | Attribute<br>(isAttributeOf)                            | Identifier<br>(isIdentifierOf) |
+| Line | DataStore | Database | Schema | DatasetSchema | Attribute<br>(isAttributeOf) | Identifier<br>(isIdentifierOf) |
 |------|--------------|-----------------|--------------|---------------|---------------------------------------------------------|--------------------------------|
-| 1    |              |                 |              | Seismic       | URI, inline, crossline,<br>well, horizon, epsg          | URI                            |
-| 2    | PostgreSQL   | SeismicDB       | SeismicSQ    | SeismicHeader | id, inline, crossline,<br>header_info, filepath         | id                             |
-| 3    | AllegroGraph | Seismic catalog | Seismic repo | SeismicCls    | URI, name, hasWell,<br>hasHorizon                       | URI                            |
-| 4    | MongoDB      | Seismicdb       | Seismic      | Seismic_data  | identifier,<br>name,<br>num_ilines,<br>num_xlines, epsg | identifier                     |
+| 1 | | | | Seismic | URI, inline, crossline,<br>well, horizon, epsg | URI |
+| 2 | PostgreSQL | SeismicDB | SeismicSQ | SeismicHeader | id, inline, crossline,<br>header_info, filepath | id |
+| 3 | AllegroGraph | Seismic catalog | Seismic repo | SeismicCls | URI, name, hasWell,<br>hasHorizon | URI |
+| 4 | MongoDB | Seismicdb | Seismic | Seismic_data | identifier,<br>name,<br>num_ilines,<br>num_xlines, epsg | identifier |
 
-<span id="page-11-0"></span>Table 2: GCS of Seismic (line 1) and LCS of the Seismic data residing in the remote stores (lines 2, 3, and 4).
+<span id="page-11-0"></span>**Table 2:** GCS of Seismic (line 1) and LCS of the Seismic data residing in the remote stores (lines 2, 3, and 4).
 
-| Table 3: Seismic GCS and LCS mappings attribute mappings. |  |  |  |
+| **Table 3:** Seismic GCS and LCS mappings attribute mappings. | | | |
 |-----------------------------------------------------------|--|--|--|
 |-----------------------------------------------------------|--|--|--|
 
-<span id="page-11-1"></span>
 
-| GCS               | LCS                     |
+| GCS | LCS |
 |-------------------|-------------------------|
-| Seismic.URI       | SeismicHeader.id        |
-| Seismic.URI       | SeismicCls.id           |
-| Seismic.URI       | Seismic_data.identifier |
-| Seismic.inline    | SeismicHeader.inline    |
+| Seismic.URI | SeismicHeader.id |
+| Seismic.URI | SeismicCls.id |
+| Seismic.URI | Seismic_data.identifier |
+| Seismic.inline | SeismicHeader.inline |
 | Seismic.crossline | SeismicHeader.crossline |
-| Seismic.well      | SeismicCls.hasWell      |
-| Seismic.horizon   | SeismicCls.hasHorizon   |
-| Seismic.epsg      | Seismic_data.epsg       |
+| Seismic.well | SeismicCls.hasWell |
+| Seismic.horizon | SeismicCls.hasHorizon |
+| Seismic.epsg | Seismic_data.epsg |
 
 [R5](#page-6-4) is supported by provenance manager component, named as *HKProvManager*, provisioned also as a RESTful web service. The implementation is a realization of the overview architecture presented in Figure [7.](#page-9-1)
 
@@ -359,12 +357,12 @@ Figure [11](#page-12-1) presents a UML Activity diagram to exemplify the executi
 ![](_page_12_Figure_1.jpeg)
 <!-- Image Description: The image is a system diagram illustrating the architecture of an application using HBase. It shows an instrumented client application interacting with an HKProvManager, which in turn connects to an HBase system comprised of an HKBaseService and an HKDataSource. The HKDataSource uses a DBMS via an IDBMS interface. The diagram clarifies the data flow and component relationships within the described system. -->
 
-<span id="page-12-0"></span>Figure 10: Provenance Manager component architecture.
+<span id="page-12-0"></span>**Figure 10:** Provenance Manager component architecture.
 
 ![](_page_12_Figure_3.jpeg)
 <!-- Image Description: This flowchart depicts a data processing workflow. Netherlands assessment and knowledge information are input, processed through PostgreSQL, MongoDB, and AllegroGraph databases. Geospatial index generation and expert knowledge ingestion are intermediate steps. Data quality assessment precedes the main process. The final outputs are stored in the filesystem. The diagram illustrates the data flow and storage mechanisms used in the research. -->
 
-<span id="page-12-1"></span>Figure 11: Example of execution of the workflows of Figure [1](#page-1-0) to investigate the Seismic Netherlands. Workflows are illustrated as actions in the diagram.
+<span id="page-12-1"></span>**Figure 11:** Example of execution of the workflows of Figure [1](#page-1-0) to investigate the Seismic Netherlands. Workflows are illustrated as actions in the diagram.
 
 Figure [12](#page-13-1) presents HKPoly component diagram concerning the support for [R6](#page-6-5). It is a realization of the architecture depicted in Figure [8.](#page-9-2) The client application creates a query based on the GCS model using the Hyperknowledge query language (HyQL[21](#page-12-3)) [\[Moreno](#page-21-8) *et al*., 2021] (Section [2.4\)](#page-4-5). An example is Query [1](#page-13-2) which retrieves *Seismic*attributes (lines 1 and 2) considering workflow*geological\_data\_ingestion\_workflow*(Line 3) and*Seismic*'s *name*is*Netherlands*(Line 4). The workflow is referenced using the from clause, which indicates that queried data is contained in a Context object.
 
@@ -372,23 +370,22 @@ HKPoly interprets and validates the query using the data stored in the*HKPoly Kn
 
 <span id="page-12-3"></span><sup>21</sup>The HyQL grammar is presented in <https://ibm.ent.box.com/v/iswc2021-hyql-grammar>
 
-<span id="page-12-2"></span>
 
-| Table 4: Remote data store data captured during Seismic interpretation DL workflow execution. |  |  |
+| **Table 4:** Remote data store data captured during Seismic interpretation DL workflow execution. | | |
 |-----------------------------------------------------------------------------------------------|--|--|
-|                                                                                               |  |  |
+| | | |
 
-| DataTransformation          | DatasetSchema | Attribute                                   | AttributeValue          |  |
+| DataTransformation | DatasetSchema | Attribute | AttributeValue | |
 |-----------------------------|---------------|---------------------------------------------|-------------------------|--|
-| Data quality assessment     | SeismicHeader | id                                          | 12345                   |  |
-| Geospatial index generation | Seismic_data  | identifier                                  | 1111                    |  |
-| Expert Knowledge Ingestion  | SeismicCls    | URI<br>http://oilandgas/Seismic#Netherlands |                         |  |
-| Data preparation            | Training File | path                                        | /data/netherlands.train |  |
+| Data quality assessment | SeismicHeader | id | 12345 | |
+| Geospatial index generation | Seismic_data | identifier | 1111 | |
+| Expert Knowledge Ingestion | SeismicCls | URI<br>http://oilandgas/Seismic#Netherlands | | |
+| Data preparation | Training File | path | /data/netherlands.train | |
 
 ![](_page_13_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a system architecture. A "Client service consumer" interacts with "IHKPoly," which in turn uses "HKPolyService" within "HKBase." "HKPolyService" uses "HKDataSource," which connects to an "IDBMS" and "DBMS." "HKDataSource" is further connected to a "PostgreSQL FDW," which acts as an interface to "FileSystem," "MongoDB," "PostgreSQL," and "Triplestore" databases. The diagram shows data flow and dependencies between different components. -->
 
-Figure 12: HKPoly component diagram considering the [R6](#page-6-5) support.
+**Figure 12:** HKPoly component diagram considering the [R6](#page-6-5) support.
 
 <span id="page-13-1"></span>Query 1: HyQL query to retrieve Netherlands seismic data.
 
@@ -409,11 +406,11 @@ To access the remote heterogeneous data stores, HKPoly uses PostgreSQL Foreign D
 
 In Query [3,](#page-14-1) the from clause (lines 6 to 8) lists the PostgreSQL Foreign Tables[22](#page-13-3) that maps to the remote data stored in a*segy file*, *AllegroGraph knowledge base triples*, *Mongo Seismic collection*, and *Seismic\_Header table*. Lines 9 to 13 compute a "*constant table*" using the VALUES[23](#page-13-4) SQL clause with the workflow executions data values retrieved using Query [2.](#page-14-0) In the where clause, the *Foreign Tables*and*constant table*are joined (lines 14 to 17), and, as*Seismic.name*is linked to*kb\_seismic*and*seismic\_header Foreign Tables*, lines 18 and 19 are included in the SQL during its generation. The returned data is present in lines 1 to 5, which references the columns of the *Foreign Tables*mapping to*Seismic*domain object.
 
-#### <span id="page-13-0"></span>4.3 Evaluation
+### <span id="page-13-0"></span>4.3 Evaluation
 
 Our evaluation measures query complexity considering the two perspectives described in Section [2.6](#page-5-1) : the user perspective and the database perspective.
 
-#### 3.1 Query Complexity - User's Perspective
+### 3.1 Query Complexity - User's Perspective
 
 We choose counting the query components to estimate the user's cognitive load measurement. It is an approach presented in some works as showed in Section [2.6.](#page-5-1) We do not choose a weighted sum because there is no convergence that a weighting technique would improve the evaluation. We infer that counting the query components, regardless of the summing technique, is a fair estimate to evaluate the user's cognitive load.
 
@@ -478,7 +475,7 @@ Query 3: SQL to get data of Netherlands seismic.
 
 In this case, we count query components as an estimate to measure the user's cognitive load while writing a query. As described in Table [5,](#page-15-0) the user query (Query [1\)](#page-13-2), written in HyQL language, has 5 elements in the projection, 1 element in from clause, and 1 query filter. It results in 7 query components. On the other hand, the equivalent polystore SQL query (Query [3\)](#page-14-1) has 5 elements in the projection, 5 elements in from clause, 3 joins and 1 query filter, resulting on 14 query components [24](#page-14-2). Hence, in this example, we can infer that the query written in HyQL is less complex than the SQL query generated by HKPoly to access the external data.
 
-#### <span id="page-14-3"></span>4.3.2 Query Complexity - Database's Perspective
+### <span id="page-14-3"></span>4.3.2 Query Complexity - Database's Perspective
 
 In this case, we evaluate query complexity by measuring its processing time. Therefore, we evaluate the processing time HKPoly takes to process the user query, *i.e.,*the implementation depicted in Figure [12](#page-13-1) to support [R6](#page-6-5). We compared this time against the time required to process solely the*PostgreSQL FDW*query. The HKPoly processing time includes: (i) receive the query (through*IHKPoly*interface),*e.g.,*Query [1;](#page-13-2) (ii) parser the received query; (iii) run queries over*HKPoly Knowledge Graph*(using*HKDataSource*) to get required metadata and mappings, running Query [2](#page-14-0) and others; (iv) compute the *PostgreSQL FDW*query,*e.g.,*Query [3;](#page-14-1) and, (v) run the computed query using*PostgreSQL FDW*. The compared *PostgreSQL FDW*time corresponds only to the time elapsed in Step [4.3.2.](#page-14-3) We vary the data volume of
 
@@ -486,14 +483,14 @@ In this case, we evaluate query complexity by measuring its processing time. The
 
 | Query Components | Query 1 | Query 3 |
 |------------------|---------|---------|
-| Projection       | 5       | 5       |
-| Filter           | 1       | 1       |
-| Join Clause      | 0       | 3       |
-| From Clause      | 1       | 5       |
-| Total            | 7       | 14      |
+| Projection | 5 | 5 |
+| Filter | 1 | 1 |
+| Join Clause | 0 | 3 |
+| From Clause | 1 | 5 |
+| Total | 7 | 14 |
 
-<span id="page-15-0"></span>Table 5: Accounting query components as an estimate of user's cognitive load.
-*HKPoly Knowledge Graph*and the data volume of remote data stores to analyze HKPoly overhead when remote data stores' data volume increases.
+<span id="page-15-0"></span>**Table 5:** Accounting query components as an estimate of user's cognitive load.
+**HKPoly Knowledge Graph:** and the data volume of remote data stores to analyze HKPoly overhead when remote data stores' data volume increases.
 
 The first step to verify our hypothesis is to build an experimental deployment of our envisioned HKPoly architecture implementation. For that, we use Docker[25](#page-15-1) container solution, allocating 5 CPUs, 10GB RAM, and a swap area of 2GB in a machine with i5 Intel Quad Core 2GHz CPU and 16 GB RAM. HKBase, and its services (including HKPoly and*HKDataSource*) are deployed in a container. Our test bed mirrored the proposed architecture presented in Figure [12,](#page-13-1) considering that all servers were part of the same network. In this setup, we use *Apache Jena*as HKBase's main DBMS, and it is deployed in a single container. Each remote data store is also deployed in a separate container using a proper schema to match the seismic domain model, corresponding to the scenario presented in Section [4.1](#page-9-3) and used to describe HKPoly implementation (Section [4.2\)](#page-10-0). In this setup, we have the seismic data residing on*AllegroGraph*, *MongoDB*, and *PostgreSQL*. Table [2](#page-11-0) exemplifies Seismic attributes of data on each data store. The *PostgreSQL FDW*is deployed in a single container and loaded with data wrappers plugins to provide communication and data transformation between the remote databases. All these containers are started altogether with a composing script.
 
@@ -510,9 +507,9 @@ Although it is straightforward to assume that the overall query response time wo
 ![](_page_16_Figure_1.jpeg)
 <!-- Image Description: The image displays a bar chart comparing the time (in milliseconds) taken for HyQL-to-SQL query building and FDW SQL query execution at varying batch quantities (B001, B050, B100, B400, B700). Each bar is divided, showing the time spent in each process. The chart demonstrates how execution time increases with batch size for both processes, with FDW SQL query execution dominating the total time at larger batch quantities. -->
 
-<span id="page-16-1"></span>Figure 13: HyQL to SQL Query Building and FDW SQL Query Execution Response Time Analysis Over Batch Quantities (ms).
+<span id="page-16-1"></span>**Figure 13:** HyQL to SQL Query Building and FDW SQL Query Execution Response Time Analysis Over Batch Quantities (ms).
 
-# <span id="page-16-0"></span>5 Related Work
+## <span id="page-16-0"></span>5 Related Work
 
 Several works have tackled the database federation problem [\[Azevedo](#page-20-1)*et al*., 2020] [Tan *et al*[., 2017\]](#page-22-7). The Garlic system [Carey *et al*[., 1995\]](#page-20-12) is capable of integrating data from a broad range of data repositories. Garlic's architecture is based on repository wrappers, an object-oriented data model and query language to provide a uniform view of heterogeneous data types and data sources. The DiscoveryLink system [Haas *et al*[., 2001\]](#page-20-13) allows users to query data stored in heterogeneous and physically distributed data stores by using a virtual database. DiscoveryLink system is based on the fusion of several DB2 [Haas *et al*[., 2002\]](#page-20-14) and Garlic [Carey *et al*[., 1995\]](#page-20-12) components.
 
@@ -536,7 +533,7 @@ Giacomo et al. [\[De Giacomo](#page-20-17) *et al*., 2018] present an overview o
 
 Maccioni and Torlone [\[Maccioni and Torlone, 2018\]](#page-21-17) propose a data manipulation approach in polystores aka (query) augmentation which considers that objects in different data stores have a probabilistic relationship discovered by applying ML techniques. It allows query answering enrichment over a local database, using data from other databases inside a polystore system. Although we share the data linkage concept to bind related data objects in a polystore system, our approach is quite different. While [\[Maccioni and Torlone, 2018\]](#page-21-17) relies on learning through user's data exploration and crawling to understand how data objects are related, we provide data linkage using provenance besides a high-level view (the GCS) for users through integrating multiple databases.
 
-# <span id="page-17-0"></span>6 Conclusion
+## <span id="page-17-0"></span>6 Conclusion
 
 Provide an integrated view of heterogeneous data residing in different types of data stores is a big challenge [\[Stonebraker, 2015,](#page-22-1) [Özsu and Valduriez, 2020\]](#page-21-0). The main problem considered in this work is how to build data connections between such data and execute queries in an efficiently way.
 
@@ -550,11 +547,11 @@ We evaluated the query processing feature in which the input query is at the dom
 
 In future work, we aim at evolving HKPoly implementation to process other query operators and workflows of other scenarios with distinct structures besides improving the query execution processing time. We also aim at handling multimedia data (*e.g.,*video, audio, and text) [\[Pouyanfar](#page-21-18)*et al*., 2018] using the constructs of HK that represent this kind of data. In another direction, we can enhance the architecture by using ML techniques to augment polystore integration metadata like [\[Maccioni and Torlone, 2018\]](#page-21-17).
 
-# A Appendix with more details about the paper published at SBSI 2024
+## A Appendix with more details about the paper published at SBSI 2024
 
 The following sections present details about the paper that was not included in the paper submission to SBSI due to lack of space.
 
-# A.1 Use of the scientific research method
+## A.1 Use of the scientific research method
 
 We followed the scientific research method in this work executing the following steps:
 
@@ -576,7 +573,7 @@ details about its implementation, illustrating how it implements the proposed co
 
 Other IS theory could also strengthen the proposal construction, like Organizational Information Processing Theory and General Systems Theory.
 
-# A.3 How the work was structured
+## A.3 How the work was structured
 
 In the Introduction, we present the motivation, problem, gaps in the current solution, the research question, the goal of our work, and our proposal. We explain the background required to understand our work in Section 2, i.e., before presenting the solution details. In Section 3, we present the requirements a solution should support to tackle the research problem and our proposal of architecture to support them. The architecture is presented without implementation details so that different technologies can be used for one who wants to develop a solution following our architecture proposal. Afterward, in Section 4, we present an implementation of our architecture proposal considering the state-of-the-art technologies and a scenario to illustrate its use. We also present an evaluation of the implementation to demonstrate its feasibility, considering query complexity from the user and database perspective. After presenting the details of our solution and its implementation, we believe the reader has the knowledge about it and can understand the comparison we do to existing works – presented in Section 5. Finally, we present our conclusions, highlight the contributions, and present proposals for future work in Section 6.
 
@@ -601,7 +598,7 @@ Due to lack of space we could not include in the paper other references that are
 - [\[Villaça](#page-22-10) *et al*., 2020] L. H. N. Villaça, L. G. Azevedo, and S. W. M. Siqueira, "Microservice Architecture for Multistore Database Using Canonical Data Model," in Proceedings of the XVI Brazilian Symposium on Information Systems, in SBSI '20. New York, NY, USA: Association for Computing Machinery, Nov. 2020, pp. 1–8. doi: 10.1145/3411564.3411629.
 - [\[Mendes](#page-21-19) *et al*., 2019] Y. Mendes, R. Braga, V. Ströele, and D. de Oliveira, "Polyflow: A SOA for Analyzing Workflow Heterogeneous Provenance Data in Distributed Environments," in Proceedings of the XV Brazilian Symposium on Information Systems, in SBSI '19. New York, NY, USA: Association for Computing Machinery, May 2019, pp. 1–8. doi: 10.1145/3330204.3330259.
 
-# References
+## References
 
 - <span id="page-20-15"></span>[Angele and Gesmann, 2006] Angele, J. and Gesmann, M. (2006). Data integration using semantic technology: a use case. In *2006 Second International Conference on Rules and Rule Markup Languages for the Semantic Web (RuleML'06)*, pages 58–66. IEEE. DOI: 10.1109/RULEML.2006.9.
 - <span id="page-20-1"></span>[Azevedo *et al*., 2020] Azevedo, L. G., Soares, E. F. d. S., Souza, R., and Moreno, M. F. (2020). Modern federated database systems: An overview. In *22nd International Conference in Enterprise Information Systems (ICEIS)*, pages 276–283. European Association of Geoscientists & Engineers. DOI: 10.5220/0009795402760283.

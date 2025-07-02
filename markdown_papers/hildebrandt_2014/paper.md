@@ -62,7 +62,7 @@ Yushan Liu1,2, Yunpu Ma1,2, Marcel Hildebrandt<sup>1</sup> , Mitchell Joblin<sup
 
 Conventional static knowledge graphs model entities in relational data as nodes, connected by edges of specific relation types. However, information and knowledge evolve continuously, and temporal dynamics emerge, which are expected to influence future situations. In temporal knowledge graphs, time information is integrated into the graph by equipping each edge with a timestamp or a time range. Embeddingbased methods have been introduced for link prediction on temporal knowledge graphs, but they mostly lack explainability and comprehensible reasoning chains. Particularly, they are usually not designed to deal with link forecasting – event prediction involving future timestamps. We address the task of link forecasting on temporal knowledge graphs and introduce TLogic, an explainable framework that is based on temporal logical rules extracted via temporal random walks. We compare TLogic with state-of-the-art baselines on three benchmark datasets and show better overall performance while our method also provides explanations that preserve time consistency. Furthermore, in contrast to most state-ofthe-art embedding-based methods, TLogic works well in the inductive setting where already learned rules are transferred to related datasets with a common vocabulary.
 
-# Introduction
+## Introduction
 
 Knowledge graphs (KGs) structure factual information in the form of triples (es, r, eo), where e<sup>s</sup> and e<sup>o</sup> correspond to entities in the real world and r to a binary relation, e. g., *(Anna, born in, Paris)*. This knowledge representation leads to an interpretation as a directed multigraph, where entities are identified with nodes and relations with edge types. Each edge (es, r, eo) in the KG encodes an observed fact, where the source node e<sup>s</sup> corresponds to the subject entity, the target node e<sup>o</sup> to the object entity, and the edge type r to the predicate of the factual statement.
 
@@ -71,7 +71,7 @@ Some real-world information also includes a temporal dimension, e. g., the event
 <span id="page-0-0"></span>![](_page_0_Figure_10.jpeg)
 <!-- Image Description: This image is a directed graph illustrating diplomatic interactions among France, Germany, the USA, and China. Nodes represent countries (represented by flags) and Angela Merkel/Barack Obama (represented by portraits). Edges show communication types (e.g., "consult," "visit," "negotiate") and dates. The graph's purpose is to visually represent the sequence and nature of diplomatic engagements during a specific period. The dotted blue arrow indicates a less formal communication channel. -->
 
-Figure 1: A subgraph from the dataset ICEWS14 with the entities*Angela Merkel, Barack Obama, France*, and *China*. The timestamps are displayed in the format yy/mm/dd. The dotted blue line represents the correct answer to the query *(Angela Merkel, consult, ?, 2014/08/09)*. Previous interactions between *Angela Merkel*and*Barack Obama*can be interpreted as an explanation for the prediction.
+**Figure 1:** A subgraph from the dataset ICEWS14 with the entities*Angela Merkel, Barack Obama, France*, and *China*. The timestamps are displayed in the format yy/mm/dd. The dotted blue line represents the correct answer to the query *(Angela Merkel, consult, ?, 2014/08/09)*. Previous interactions between *Angela Merkel*and*Barack Obama*can be interpreted as an explanation for the prediction.
 
 indicates the time validity of the static event (es, r, eo), e. g.,*(Angela Merkel, visit, China, 2014/07/04)*. Figure [1](#page-0-0) visualizes a subgraph from the dataset ICEWS14 as an example of a tKG. In this work, we focus on tKGs where each edge is equipped with a single timestamp.
 
@@ -90,7 +90,7 @@ We propose TLogic that automatically mines cyclic temporal logical rules by extr
 - We conduct experiments on three benchmark datasets (ICEWS14, ICEWS18, and ICEWS0515) and show better overall performance compared with state-of-the-art baselines.
 - We demonstrate the effectiveness of our method in the inductive setting where our learned rules are transferred to a related dataset with a common vocabulary.
 
-# Related Work
+## Related Work
 
 Subsymbolic machine learning methods, e. g., embeddingbased algorithms, have achieved success for the link prediction task on static KGs. Well-known methods include RESCAL [\(Nickel, Tresp, and Kriegel 2011\)](#page-7-6), TransE [\(Bor](#page-7-7)[des et al. 2013\)](#page-7-7), DistMult [\(Yang et al. 2015\)](#page-7-8), and ComplEx [\(Trouillon et al. 2016\)](#page-7-9) as well as the graph convolutional approaches R-GCN [\(Schlichtkrull et al. 2018\)](#page-7-10) and CompGCN [\(Vashishth et al. 2020\)](#page-7-11). Several approaches have been recently proposed to handle tKGs, such as TTransE [\(Leblay and Chekol 2018\)](#page-7-3), TA-DistMult [\(Garc´ıa-](#page-7-12)[Duran, Duman](#page-7-12) ´ ci˘ c, and Niepert [2018\)](#page-7-12), DE-SimplE [\(Goel](#page-7-13) ´ [et al. 2020\)](#page-7-13), TNTComplEx [\(Lacroix, Obozinski, and](#page-7-4) [Usunier 2020\)](#page-7-4), CyGNet [\(Zhu et al. 2021\)](#page-7-14), RE-Net [\(Jin et al.](#page-7-5) [2019\)](#page-7-5), and xERTE [\(Han et al. 2021\)](#page-7-15). The main idea of these methods is to explicitly learn embeddings for timestamps or to integrate temporal information into the entity or relation embeddings. However, the black-box property of embeddings makes it difficult for humans to understand the predictions. Moreover, approaches with shallow embeddings are not suitable for an inductive setting with previously unseen entities, relations, or timestamps. From the above methods, only CyGNet, RE-Net, and xERTE are designed for the forecasting task. xERTE is also able to provide explanations by extracting relevant subgraphs around the query subject.
 
@@ -98,7 +98,7 @@ Symbolic approaches for link prediction on KGs like AMIE+ [\(Galarraga et al. 20
 
 Another class of approaches is based on random walks in the graph, where the walks can support an interpretable explanation for the predictions. For example, AnyBURL samples random walks for generating rules. The methods dynnode2vec [\(Mahdavi, Khoshraftar, and An 2018\)](#page-7-19) and change2vec [\(Bian et al. 2019\)](#page-7-20) alternately extract random walks on tKG snapshots and learn parameters for node embeddings, but they do not capture temporal patterns within the random walks. [Nguyen et al.](#page-7-21) [\(2018b\)](#page-7-21) extend the concept of random walks to temporal random walks on continuous-time dynamic networks for learning node embeddings, where the sequence of edges in the walk only moves forward in time.
 
-# Preliminaries
+## Preliminaries
 
 Let [n] := {1, 2, . . . , n}.
 
@@ -120,7 +120,7 @@ $$
 ((e_{l+1}, r_l, e_l, t_l), (e_l, r_{l-1}, e_{l-1}, t_{l-1}), \ldots, (e_2, r_1, e_1, t_1))
 $$
 
-with  $t_l \ge t_{l-1} \ge \cdots \ge t_1$ , (1)
+with $t_l \ge t_{l-1} \ge \cdots \ge t_1$ , (1)
 
 where (ei+1, r<sup>i</sup> , e<sup>i</sup> , ti) ∈ G for i ∈ [l].
 
@@ -136,7 +136,6 @@ $$
 
 with the temporal constraints
 
-<span id="page-2-0"></span>
 $$
 T_1 \leq T_2 \leq \cdots \leq T_l < T_{l+1}.\tag{2}
 $$
@@ -180,7 +179,7 @@ r
 
 11: return T R
 
-# Our Framework
+## Our Framework
 
 We introduce TLogic, a rule-based link forecasting framework for tKGs. TLogic first extracts temporal walks from the graph and then lifts these walks to a more abstract, semantic level to obtain temporal rules that generalize to new data. The application of these rules generates answer candidates, for which the body groundings in the graph serve as explicit and human-readable explanations. Our framework consists of the components rule learning and rule application. The pseudocode for rule learning is shown in Algorithm [1](#page-2-1) and for rule application in Algorithm [2.](#page-3-2)
 
@@ -206,7 +205,6 @@ where G˜ := G \ {(eo, r˜ −1 , es, t)} excludes the inverse edge to avoid red
 
 The transition distribution for sampling the next edge can either be uniform or exponentially weighted. We define an index mapping mˆ := (l + 1) − (m − 2) to be consistent with the indices in [\(1\)](#page-2-2). Then, the exponentially weighted probability for choosing edge u ∈ A (m, em<sup>ˆ</sup> , tm<sup>ˆ</sup> ) for m ∈ {2, . . . , l + 1} is given by
 
-<span id="page-3-4"></span>
 $$
 \mathbb{P}(u; m, e_{\hat{m}}, t_{\hat{m}}) = \frac{\exp(t_u - t_{\hat{m}})}{\sum_{\hat{u} \in \mathcal{A}(m, e_{\hat{m}}, t_{\hat{m}})} \exp(t_{\hat{u}} - t_{\hat{m}})}
 $$
@@ -216,19 +214,17 @@ where t<sup>u</sup> denotes the timestamp of edge u. The exponential weighting f
 
 The resulting temporal walk W is given by
 
-<span id="page-3-0"></span>
 $$
 ((e_1, r_h, e_{l+1}, t_{l+1}), (e_{l+1}, r_l, e_l, t_l), \ldots, (e_2, r_1, e_1, t_1)).
 $$
- (4)
+(4)
 
 W can then be transformed to a temporal rule R by replacing the entities and timestamps with variables. While the first edge in W becomes the rule head (E1, rh, El+1, Tl+1), the other edges are mapped to body atoms, where each edge (ei+1, r<sup>i</sup> , e<sup>i</sup> , ti) is converted to the body atom (E<sup>i</sup> , r<sup>−</sup><sup>1</sup> i , Ei+1, Ti). The final rule R is denoted by
 
-<span id="page-3-1"></span>
 $$
 ((E_1, r_h, E_{l+1}, T_{l+1}) \leftarrow \wedge_{i=1}^l (E_i, r_i^{-1}, E_{i+1}, T_i)).
 $$
- (5)
+(5)
 
 In addition, we impose the temporal consistency constraints T<sup>1</sup> ≤ T<sup>2</sup> ≤ · · · ≤ T<sup>l</sup> < Tl+1.
 
@@ -273,7 +269,7 @@ $$
 
 they have been extracted, but they could be employed in an inductive setting where the rules are transferred to related datasets that share a common vocabulary for straightforward application.
 
-#### Rule Application
+### Rule Application
 
 The learned temporal rules T R are applied to answer queries of the form q = (e q , r<sup>q</sup> , ?, t<sup>q</sup> ). The answer candidates are retrieved from the target entities of body groundings in the tKG G. If there exist no rules T R<sup>r</sup> <sup>q</sup> for the query relation r q , or if there are no matching body groundings in the graph, then no answers are predicted for the given query.
 
@@ -283,22 +279,20 @@ We apply the rules T R<sup>r</sup> <sup>q</sup> by decreasing confidence, where 
 
 Let B(R, c) be the set of body groundings of rule R that start at entity e q and end at entity c. We choose as score function f a convex combination of the rule's confidence and a function that takes the time difference t <sup>q</sup>−t1(B(R, c)) as input, where t1(B(R, c)) denotes the earliest timestamp t<sup>1</sup> in the body. If several body groundings exist, we take from all possible t<sup>1</sup> values the one that is closest to t q . For candidate c ∈ C(R), the score function is defined as
 
-<span id="page-3-3"></span>
 $$
 f(R, c) = a \cdot \text{conf}(R) + (1 - a) \cdot \exp(-\lambda(t^q - t_1(\mathcal{B}(R, c)))) \tag{6}
 $$
 
-with  $\lambda > 0$  and  $a \in [0, 1]$ .
+with $\lambda > 0$ and $a \in [0, 1]$ .
 
 The intuition for this choice of f is that candidates generated by high-confidence rules should receive a higher score. Adding a dependency on the timeframe of the rule grounding is based on the observation that the existence of edges in a rule become increasingly probable with decreasing time difference between the edges. We choose the exponential distribution since it is commonly used to model interarrival times of events. The time difference t <sup>q</sup> − t1(B(R, c)) is always non-negative for a future timestamp value t q , and with the assumption that there exists a fixed mean, the exponential distribution is also the maximum entropy distribution for such a time difference variable. The exponential distribution is rescaled so that both summands are in the range [0, 1].
 
 All candidates are saved with their scores as (c, f(R, c)) in C. We stop the rule application when the number of different answer candidates |{c | ∃R : (c, f(R, c)) ∈ C}| is at least k so that there is no need to go through all rules.
 
-#### Candidate Ranking
+### Candidate Ranking
 
 For the ranking of the answer candidates, all scores of each candidate c are aggregated through a noisy-OR calculation, which produces the final score
 
-<span id="page-4-2"></span>
 $$
 1 - \Pi_{\{s \mid (c,s) \in \mathcal{C}\}}(1 - s). \tag{7}
 $$
@@ -307,7 +301,7 @@ The idea is to aggregate the scores to produce a probability, where candidates i
 
 In case there are no rules for the query relation r q , or if there are no matching body groundings in the graph, it might still be interesting to retrieve possible answer candidates. In the experiments, we apply a simple baseline where the scores for the candidates are obtained from the overall object distribution in the training data if r q is a new relation. If r q already exists in the training set, we take the object distribution of the edges with relation type r q .
 
-# Experiments
+## Experiments
 
 ## Datasets
 
@@ -325,7 +319,7 @@ Similar to [Han et al.](#page-7-15) [\(2021\)](#page-7-15), we perform time-awar
 
 Baseline methods We compare TLogic[3](#page-4-3) with the state-ofthe-art baselines for static link prediction DistMult [\(Yang](#page-7-8) [et al. 2015\)](#page-7-8), ComplEx [\(Trouillon et al. 2016\)](#page-7-9), and Any-BURL [\(Meilicke et al. 2019,](#page-7-17) [2020\)](#page-7-22) as well as for temporal link prediction TTransE [\(Leblay and Chekol 2018\)](#page-7-3), TA-DistMult [\(Garc´ıa-Duran, Duman](#page-7-12) ´ ci˘ c, and Niepert [2018\)](#page-7-12), DE- ´ SimplE [\(Goel et al. 2020\)](#page-7-13), TNTComplEx [\(Lacroix, Obozin](#page-7-4)[ski, and Usunier 2020\)](#page-7-4), CyGNet [\(Zhu et al. 2021\)](#page-7-14), RE-Net [\(Jin et al. 2019\)](#page-7-5), and xERTE [\(Han et al. 2021\)](#page-7-15). All baseline results except for the results on AnyBURL are from [Han et al.](#page-7-15) [\(2021\)](#page-7-15). AnyBURL samples paths based on reinforcement learning and generalizes them to rules, where the rule space also includes, e. g., acyclic rules and rules with constants. A non-temporal variant of TLogic would sample paths randomly and only learn cyclic rules, which would presumably yield worse performance than AnyBURL. Therefore, we choose AnyBURL as a baseline to assess the effectiveness of adding temporal constraints.
 
-#### Results
+### Results
 
 The results of the experiments are displayed in Table [1.](#page-5-0) TLogic outperforms all baseline methods with respect to the metrics MRR, hits@3, and hits@10. Only xERTE performs better than Tlogic for hits@1 on the datasets ICEWS18 and ICEWS0515.
 
@@ -337,21 +331,20 @@ Besides a list of possible answer candidates with corresponding scores, TLogic c
 
 <span id="page-4-3"></span><sup>3</sup>Code available at<https://github.com/liu-yushan/TLogic.>
 
-<span id="page-5-0"></span>
 
-| Dataset                                                                        | ICEWS14                                                            |                                                                    |                                                                    | ICEWS18                                                            |                                                                    |                                                                    | ICEWS0515                                                          |                                                                    |                                                                    |                                                                    |                                                                    |                                                                    |
+| Dataset | ICEWS14 | | | ICEWS18 | | | ICEWS0515 | | | | | |
 |--------------------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------------------------------|
-| Model                                                                          | MRR                                                                | h@1                                                                | h@3                                                                | h@10                                                               | MRR                                                                | h@1                                                                | h@3                                                                | h@10                                                               | MRR                                                                | h@1                                                                | h@3                                                                | h@10                                                               |
-| DistMult<br>ComplEx<br>AnyBURL                                                 | 0.2767<br>0.3084<br>0.2967                                         | 0.1816<br>0.2151<br>0.2126                                         | 0.3115<br>0.3448<br>0.3333                                         | 0.4696<br>0.4958<br>0.4673                                         | 0.1017<br>0.2101<br>0.2277                                         | 0.0452<br>0.1187<br>0.1510                                         | 0.1033<br>0.2347<br>0.2544                                         | 0.2125<br>0.3987<br>0.3891                                         | 0.2873<br>0.3169<br>0.3205                                         | 0.1933<br>0.2144<br>0.2372                                         | 0.3219<br>0.3574<br>0.3545                                         | 0.4754<br>0.5204<br>0.5046                                         |
+| Model | MRR | h@1 | h@3 | h@10 | MRR | h@1 | h@3 | h@10 | MRR | h@1 | h@3 | h@10 |
+| DistMult<br>ComplEx<br>AnyBURL | 0.2767<br>0.3084<br>0.2967 | 0.1816<br>0.2151<br>0.2126 | 0.3115<br>0.3448<br>0.3333 | 0.4696<br>0.4958<br>0.4673 | 0.1017<br>0.2101<br>0.2277 | 0.0452<br>0.1187<br>0.1510 | 0.1033<br>0.2347<br>0.2544 | 0.2125<br>0.3987<br>0.3891 | 0.2873<br>0.3169<br>0.3205 | 0.1933<br>0.2144<br>0.2372 | 0.3219<br>0.3574<br>0.3545 | 0.4754<br>0.5204<br>0.5046 |
 | TTransE<br>TA-DistMult<br>DE-SimplE<br>TNTComplEx<br>CyGNet<br>RE-Net<br>xERTE | 0.1343<br>0.2647<br>0.3267<br>0.3212<br>0.3273<br>0.3828<br>0.4079 | 0.0311<br>0.1709<br>0.2443<br>0.2335<br>0.2369<br>0.2868<br>0.3270 | 0.1732<br>0.3022<br>0.3569<br>0.3603<br>0.3631<br>0.4134<br>0.4567 | 0.3455<br>0.4541<br>0.4911<br>0.4913<br>0.5067<br>0.5452<br>0.5730 | 0.0831<br>0.1675<br>0.1930<br>0.2123<br>0.2493<br>0.2881<br>0.2931 | 0.0192<br>0.0861<br>0.1153<br>0.1328<br>0.1590<br>0.1905<br>0.2103 | 0.0856<br>0.1841<br>0.2186<br>0.2402<br>0.2828<br>0.3244<br>0.3351 | 0.2189<br>0.3359<br>0.3480<br>0.3691<br>0.4261<br>0.4751<br>0.4648 | 0.1571<br>0.2431<br>0.3502<br>0.2754<br>0.3497<br>0.4297<br>0.4662 | 0.0500<br>0.1458<br>0.2591<br>0.1952<br>0.2567<br>0.3126<br>0.3784 | 0.1972<br>0.2792<br>0.3899<br>0.3080<br>0.3909<br>0.4685<br>0.5231 | 0.3802<br>0.4421<br>0.5275<br>0.4286<br>0.5294<br>0.6347<br>0.6392 |
-| TLogic                                                                         | 0.4304                                                             | 0.3356                                                             | 0.4827                                                             | 0.6123                                                             | 0.2982                                                             | 0.2054                                                             | 0.3395                                                             | 0.4853                                                             | 0.4697                                                             | 0.3621                                                             | 0.5313                                                             | 0.6743                                                             |
+| TLogic | 0.4304 | 0.3356 | 0.4827 | 0.6123 | 0.2982 | 0.2054 | 0.3395 | 0.4853 | 0.4697 | 0.3621 | 0.5313 | 0.6743 |
 
-Table 1: Results of link forecasting on the datasets ICEWS14, ICEWS18, and ICEWS0515. All metrics are time-aware filtered. The best results among all models are displayed in bold.
+**Table 1:** Results of link forecasting on the datasets ICEWS14, ICEWS18, and ICEWS0515. All metrics are time-aware filtered. The best results among all models are displayed in bold.
 
 <span id="page-5-1"></span>![](_page_5_Figure_2.jpeg)
 <!-- Image Description: The image displays a line graph comparing two methods ("unif" and "exp") for generating random walks in a network. The x-axis represents the number of walks, and the y-axis shows the Mean Reciprocal Rank (MRR). The graph illustrates how MRR improves as the number of walks increases for both methods, with "exp" showing slightly higher MRR values. The purpose is to demonstrate the impact of walk generation strategies on the performance of a ranking task, likely within a recommendation or knowledge graph context. -->
 
-Figure 2: MRR performance on the validation set of ICEWS14. The transition distribution is either uniform or exponentially weighted.
+**Figure 2:** MRR performance on the validation set of ICEWS14. The transition distribution is either uniform or exponentially weighted.
 
 walks are shown in Table [2,](#page-6-0) which serve as time-consistent explanations for the correct answer *Barack Obama*.
 
@@ -359,7 +352,7 @@ Inductive setting One advantage of our learned logical rules is that they are ap
 
 For the two rule-based methods AnyBURL and TLogic, we apply the rules learned on the training set of ICEWS0515 (with timestamps from 2005/01/01 to 2012/08/06) to the test set of ICEWS14 as well as the rules learned on the training set of ICEWS14 to the test set of ICEWS18 (see Table [3\)](#page-6-1). The performance of TLogic in the inductive setting is for all metrics close to the results in Table [1,](#page-5-0) while for AnyBURL, especially the results on ICEWS18 drop significantly. It seems that the encoded temporal information in TLogic is essential for achieving correct predictions in the inductive setting. ICEWS14 has only 7,128 entities, while ICEWS18 contains 23,033 entities. The results confirm that temporal rules from TLogic can even be transferred to a dataset with a large number of new entities and timestamps and lead to a strong performance.
 
-#### Analysis
+### Analysis
 
 The results in this section are obtained on the dataset ICEWS14, but the findings are similar for the other two datasets. More detailed results can be found in the supplementary material.
 
@@ -369,24 +362,23 @@ Transition distribution We test two transition distributions for the extraction 
 
 We observe that the exponential distribution leads to more rules of length 3 than the uniform setting (11,718 compared to 8,550 rules for 200 walks), while it is the opposite for rules of length 1 (7,858 compared to 11,019 rules). The exponential setting leads to more successful longer walks because the timestamp differences between subsequent edges tend to be smaller. It is less likely that there are no feasible transitions anymore because of temporal constraints. The uniform setting, however, leads to a better exploration of the neighborhood around the start node for shorter walks.
 
-<span id="page-6-0"></span>
 
-| Confidence | Head                               | Body                                                                                                                                       |
+| Confidence | Head | Body |
 |------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.963      | (E1, demonstrate or rally, E2, T4) | (E1,riot, E2, T1) ∧ (E2, make statement, E1, T2) ∧ (E1,riot, E2, T3)                                                                       |
-| 0.818      | (E1,share information, E2, T2)     | (E1, express intent to ease sanctions−1<br>, E2, T1)                                                                                       |
-| 0.750      | (E1, provide military aid, E3, T3) | (E1, provide military aid, E2, T1) ∧ (E2, intend to protect−1<br>, E3, T2)                                                                 |
-| 0.570      | (Merkel, consult, Obama, 14/08/09) | (Merkel, discuss by telephone, Obama, 14/07/22)                                                                                            |
-| 0.500      | (Merkel, consult, Obama, 14/08/09) | (Merkel, express intent to meet, Obama, 14/05/02)<br>∧ (Obama, consult−1<br>, Merkel, 14/07/18) ∧ (Merkel, consult−1<br>, Obama, 14/07/29) |
+| 0.963 | (E1, demonstrate or rally, E2, T4) | (E1,riot, E2, T1) ∧ (E2, make statement, E1, T2) ∧ (E1,riot, E2, T3) |
+| 0.818 | (E1,share information, E2, T2) | (E1, express intent to ease sanctions−1<br>, E2, T1) |
+| 0.750 | (E1, provide military aid, E3, T3) | (E1, provide military aid, E2, T1) ∧ (E2, intend to protect−1<br>, E3, T2) |
+| 0.570 | (Merkel, consult, Obama, 14/08/09) | (Merkel, discuss by telephone, Obama, 14/07/22) |
+| 0.500 | (Merkel, consult, Obama, 14/08/09) | (Merkel, express intent to meet, Obama, 14/05/02)<br>∧ (Obama, consult−1<br>, Merkel, 14/07/18) ∧ (Merkel, consult−1<br>, Obama, 14/07/29) |
 
-<span id="page-6-1"></span>Table 2: Three exemplary rules from the dataset ICEWS14 and two walks for the query *(Angela Merkel, consult, ?, 2014/08/09)*that lead to the correct answer*Barack Obama*. The timestamps are displayed in the format yy/mm/dd.
+<span id="page-6-1"></span>**Table 2:** Three exemplary rules from the dataset ICEWS14 and two walks for the query *(Angela Merkel, consult, ?, 2014/08/09)*that lead to the correct answer*Barack Obama*. The timestamps are displayed in the format yy/mm/dd.
 
-| Gtrain    | Gtest   | Model             | MRR              | h@1              | h@3              | h@10             |
+| Gtrain | Gtest | Model | MRR | h@1 | h@3 | h@10 |
 |-----------|---------|-------------------|------------------|------------------|------------------|------------------|
 | ICEWS0515 | ICEWS14 | AnyBURL<br>TLogic | 0.2664<br>0.4253 | 0.1800<br>0.3291 | 0.3024<br>0.4780 | 0.4477<br>0.6122 |
-| ICEWS14   | ICEWS18 | AnyBURL<br>TLogic | 0.1546<br>0.2915 | 0.0907<br>0.1987 | 0.1685<br>0.3330 | 0.2958<br>0.4795 |
+| ICEWS14 | ICEWS18 | AnyBURL<br>TLogic | 0.1546<br>0.2915 | 0.0907<br>0.1987 | 0.1685<br>0.3330 | 0.2958<br>0.4795 |
 
-Table 3: Inductive setting where rules learned on Gtrain are transferred and applied to Gtest.
+**Table 3:** Inductive setting where rules learned on Gtrain are transferred and applied to Gtest.
 
 Rule length We learn rules of lengths 1, 2, and 3. Using all rules for application results in the best performance (MRR on the validation set: 0.4373), followed by rules of only length 1 (0.4116), 3 (0.4097), and 2 (0.1563). The reason why rules of length 3 perform better than length 2 is that the temporal walks are allowed to transition back and forth between the same entities. Since we only learn cyclic rules, a rule body of length 2 must constitute a path with no recurring entities, resulting in fewer rules and rule groundings in the graph. Interestingly, simple rules of length 1 already yield very good performance.
 
@@ -400,17 +392,17 @@ Training and inference time The worst-case time complexity for learning rules of
 
 Both training and application can be parallelized since the rule learning for each relation and the rule application for each test query are independent. Rule learning with 200 walks and exponentially weighted transition distribution for rule lengths {1, 2, 3} on a machine with 8 CPUs takes 180 sec for ICEWS14, while the application on the validation set takes 2000 sec, with w = ∞ and k = 20. For comparison, the best-performing baseline xERTE needs for training one epoch on the same machine already 5000 sec, where an MRR of 0.3953 can be obtained, while testing on the validation set takes 700 sec.
 
-# Conclusion
+## Conclusion
 
 We have proposed TLogic, the first symbolic framework that directly learns temporal logical rules from temporal knowledge graphs and applies these rules for link forecasting. The framework generates answers by applying rules to observed events prior to the query timestamp and scores the answer candidates depending on the rules' confidences and time differences. Experiments on three datasets indicate that TLogic achieves better overall performance compared to state-ofthe-art baselines. In addition, our approach also provides time-consistent, explicit, and human-readable explanations for the predictions in the form of temporal logical rules.
 
 As future work, it would be interesting to integrate acyclic rules, which could also contain relevant information and might boost the performance for rules of length 2. Furthermore, the simple sampling mechanism for temporal walks could be replaced by a more sophisticated approach, which is able to effectively identify the most promising walks.
 
-# Acknowledgement
+## Acknowledgement
 
 This work has been supported by the German Federal Ministry for Economic Affairs and Climate Action (BMWK) as part of the project RAKI under grant number 01MD19012C and by the German Federal Ministry of Education and Research (BMBF) under grant number 01IS18036A. The authors of this work take full responsibility for its content.
 
-# References
+## References
 
 <span id="page-7-20"></span>Bian, R.; Koh, Y. S.; Dobbie, G.; and Divoli, A. 2019. Network embedding and change modeling in dynamic heterogeneous networks. In *Proceedings of the Forty-Second International ACM SIGIR Conference on Research and Development in Information Retrieval*.
 
@@ -458,35 +450,33 @@ This work has been supported by the German Federal Ministry for Economic Affairs
 
 <span id="page-7-14"></span>Zhu, C.; Chen, M.; Fan, C.; Cheng, G.; and Zhang, Y. 2021. Learning from history: modeling temporal knowledge graphs with sequential copy-generation networks. In *Proceedings of the Thirty-Fifth AAAI Conference on Artificial Intelligence*.
 
-# Supplementary Material
+## Supplementary Material
 
 Dataset statistics Table [4](#page-8-0) shows the statistics of the three datasets ICEWS14, ICEWS18, and ICEWS0515. |X | denotes the cardinality of a set X .
 
-<span id="page-8-0"></span>
 
-| Dataset | Gtrain  | Gvalid | Gtest  | E      | R   | T     |
+| Dataset | Gtrain | Gvalid | Gtest | E | R | T |
 |---------|---------|--------|--------|--------|-----|-------|
-| 14      | 63,685  | 13,823 | 13,222 | 7,128  | 230 | 365   |
-| 18      | 373,018 | 45,995 | 49,545 | 23,033 | 256 | 304   |
-| 0515    | 322,958 | 69,224 | 69,147 | 10,488 | 251 | 4,017 |
+| 14 | 63,685 | 13,823 | 13,222 | 7,128 | 230 | 365 |
+| 18 | 373,018 | 45,995 | 49,545 | 23,033 | 256 | 304 |
+| 0515 | 322,958 | 69,224 | 69,147 | 10,488 | 251 | 4,017 |
 
-Table 4: Dataset statistics with daily time resolution for all three ICEWS datasets.
+**Table 4:** Dataset statistics with daily time resolution for all three ICEWS datasets.
 
 Experimental details All experiments were conducted on a Linux machine with 16 CPU cores and 32 GB RAM. The set of tested hyperparameter ranges and best parameter values for TLogic are displayed in Table [5.](#page-8-1) Due to memory constraints, the time window w for ICEWS18 is set to 200 and for ICEWS0515 to 1000. The best hyperparameter values are chosen based on the MRR on the validation set. Due to the small variance of our approach, the shown results are based on one algorithm run. A random seed of 12 is fixed for the rule learning component to obtain reproducible results.
 
-<span id="page-8-1"></span>
 
-| Hyperparameter            | Range                      | Best      |
+| Hyperparameter | Range | Best |
 |---------------------------|----------------------------|-----------|
-| Number of walks n         | {10, 25, 50, 100, 200}     | 200       |
-| Transition distribution d | {unif, exp}                | exp       |
-| Rule lengths L            | {{1}, {2}, {3}, {1, 2, 3}} | {1, 2, 3} |
-| Time window w             | {30, 90, 150, 210, 270, ∞} | ∞         |
-| Minimum candidates k      | {10, 20}                   | 20        |
-| α (score function f)      | {0, 0.25, 0.5, 0.75, 1}    | 0.5       |
-| λ (score function f)      | {0.01, 0.1, 0.5, 1}        | 0.1       |
+| Number of walks n | {10, 25, 50, 100, 200} | 200 |
+| Transition distribution d | {unif, exp} | exp |
+| Rule lengths L | {{1}, {2}, {3}, {1, 2, 3}} | {1, 2, 3} |
+| Time window w | {30, 90, 150, 210, 270, ∞} | ∞ |
+| Minimum candidates k | {10, 20} | 20 |
+| α (score function f) | {0, 0.25, 0.5, 0.75, 1} | 0.5 |
+| λ (score function f) | {0.01, 0.1, 0.5, 1} | 0.1 |
 
-Table 5: Hyperparameter ranges and best parameter values.
+**Table 5:** Hyperparameter ranges and best parameter values.
 
 All results in the appendix refer to the validation set of ICEWS14. However, the observations are similar for the test set and the other two datasets. All experiments use the best set of hyperparameters, where only the analyzed parameters are modified.
 
@@ -496,132 +486,127 @@ The proportion of cases where there are no rules for the test query relation is 
 
 Number of walks and transition distribution Table [6](#page-9-0) shows the results for different choices of numbers of walks and transition distributions. The performance for all metrics increases with the number of walks. Exponentially weighted transition always outperforms uniform sampling.
 
-<span id="page-9-0"></span>
 
-| Walks | Transition | MRR    | h@1    | h@3    | h@10   |
+| Walks | Transition | MRR | h@1 | h@3 | h@10 |
 |-------|------------|--------|--------|--------|--------|
-| 10    | Unif       | 0.3818 | 0.2983 | 0.4307 | 0.5404 |
-| 10    | Exp        | 0.3906 | 0.3054 | 0.4408 | 0.5530 |
-| 25    | Unif       | 0.4098 | 0.3196 | 0.4614 | 0.5803 |
-| 25    | Exp        | 0.4175 | 0.3270 | 0.4710 | 0.5875 |
-| 50    | Unif       | 0.4219 | 0.3307 | 0.4754 | 0.5947 |
-| 50    | Exp        | 0.4294 | 0.3375 | 0.4837 | 0.6024 |
-| 100   | Unif       | 0.4266 | 0.3315 | 0.4817 | 0.6057 |
-| 100   | Exp        | 0.4324 | 0.3397 | 0.4861 | 0.6092 |
-| 200   | Unif       | 0.4312 | 0.3366 | 0.4851 | 0.6114 |
-| 200   | Exp        | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
+| 10 | Unif | 0.3818 | 0.2983 | 0.4307 | 0.5404 |
+| 10 | Exp | 0.3906 | 0.3054 | 0.4408 | 0.5530 |
+| 25 | Unif | 0.4098 | 0.3196 | 0.4614 | 0.5803 |
+| 25 | Exp | 0.4175 | 0.3270 | 0.4710 | 0.5875 |
+| 50 | Unif | 0.4219 | 0.3307 | 0.4754 | 0.5947 |
+| 50 | Exp | 0.4294 | 0.3375 | 0.4837 | 0.6024 |
+| 100 | Unif | 0.4266 | 0.3315 | 0.4817 | 0.6057 |
+| 100 | Exp | 0.4324 | 0.3397 | 0.4861 | 0.6092 |
+| 200 | Unif | 0.4312 | 0.3366 | 0.4851 | 0.6114 |
+| 200 | Exp | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
 
-Table 6: Results for different choices of numbers of walks and transition distributions.
+**Table 6:** Results for different choices of numbers of walks and transition distributions.
 
 Rule length Table [7](#page-9-1) indicates that using rules of all lengths for application results in the best performance. Learning only cyclic rules probably makes it more difficult to find rules of length 2, where the rule body must constitute a path with no recurring entities, leading to fewer rules and body groundings in the graph.
 
-<span id="page-9-1"></span>
 
-| Rule length | MRR    | h@1    | h@3    | h@10   |
+| Rule length | MRR | h@1 | h@3 | h@10 |
 |-------------|--------|--------|--------|--------|
-| 1           | 0.4116 | 0.3168 | 0.4708 | 0.5909 |
-| 2           | 0.1563 | 0.0648 | 0.1776 | 0.3597 |
-| 3           | 0.4097 | 0.3213 | 0.4594 | 0.5778 |
-| 1,2,3       | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
+| 1 | 0.4116 | 0.3168 | 0.4708 | 0.5909 |
+| 2 | 0.1563 | 0.0648 | 0.1776 | 0.3597 |
+| 3 | 0.4097 | 0.3213 | 0.4594 | 0.5778 |
+| 1,2,3 | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
 
-Table 7: Results for different choices of rule lengths.
+**Table 7:** Results for different choices of rule lengths.
 
 Time window Generally, the larger the time window, the better the performance (see Table [8\)](#page-9-2). If taking all previous timestamps leads to a too high memory usage, the time window should be decreased.
 
-<span id="page-9-2"></span>
 
-| Time window | MRR    | h@1    | h@3    | h@10   |
+| Time window | MRR | h@1 | h@3 | h@10 |
 |-------------|--------|--------|--------|--------|
-| 30          | 0.3842 | 0.3080 | 0.4294 | 0.5281 |
-| 90          | 0.4137 | 0.3287 | 0.4627 | 0.5750 |
-| 150         | 0.4254 | 0.3368 | 0.4766 | 0.5950 |
-| 210         | 0.4311 | 0.3403 | 0.4835 | 0.6035 |
-| 270         | 0.4356 | 0.3426 | 0.4892 | 0.6131 |
-| ∞           | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
+| 30 | 0.3842 | 0.3080 | 0.4294 | 0.5281 |
+| 90 | 0.4137 | 0.3287 | 0.4627 | 0.5750 |
+| 150 | 0.4254 | 0.3368 | 0.4766 | 0.5950 |
+| 210 | 0.4311 | 0.3403 | 0.4835 | 0.6035 |
+| 270 | 0.4356 | 0.3426 | 0.4892 | 0.6131 |
+| ∞ | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
 
-Table 8: Results for different choices of time windows.
+**Table 8:** Results for different choices of time windows.
 
 Score function Using the best hyperparameters values for α and λ, Table [9](#page-9-3) shows in the first row the results if only the rules' confidences are used for scoring, in the second row if only the exponential component is used, and in the last row the results for the combined score function. The combination yields the best overall performance. The optimal balance between the two terms, however, depends on the application and metric prioritization.
 
-<span id="page-9-3"></span>
 
-| α   | λ         | MRR    | h@1    | h@3    | h@10   |
+| α | λ | MRR | h@1 | h@3 | h@10 |
 |-----|-----------|--------|--------|--------|--------|
-| 1   | arbitrary | 0.3869 | 0.2806 | 0.4444 | 0.5918 |
-| 0   | 0.1       | 0.4077 | 0.3515 | 0.4820 | 0.6051 |
-| 0.5 | 0.1       | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
+| 1 | arbitrary | 0.3869 | 0.2806 | 0.4444 | 0.5918 |
+| 0 | 0.1 | 0.4077 | 0.3515 | 0.4820 | 0.6051 |
+| 0.5 | 0.1 | 0.4373 | 0.3434 | 0.4916 | 0.6161 |
 
-Table 9: Results for different parameter values in the score function f.
+**Table 9:** Results for different parameter values in the score function f.
 
 Rule learning The figures [3](#page-9-4) and [4](#page-9-5) show the number of rules learned under the two transition distributions. The total number of learned rules is similar for the uniform and exponential distribution, but there is a large difference for rules of lengths 1 and 3. The exponential distribution leads to more successful longer walks and thus more longer rules, while the uniform distribution leads to a better exploration of the neighborhood around the start node for shorter walks.
 
 <span id="page-9-4"></span>![](_page_9_Figure_13.jpeg)
 <!-- Image Description: The image displays a line graph comparing the number of rules generated under two different distributions ("unif" and "exp") and considering both total rules and rules of length one. The x-axis represents the number of walks, while the y-axis shows the number of rules. The graph illustrates how the number of generated rules increases with the number of walks, differing based on the distribution and rule length. It likely demonstrates the scalability or efficiency of a rule generation algorithm within the paper. -->
 
-Figure 3: Total number of learned rules and number of rules for length 1.
+**Figure 3:** Total number of learned rules and number of rules for length 1.
 
 <span id="page-9-5"></span>![](_page_9_Figure_15.jpeg)
 <!-- Image Description: The image displays a line graph showing the relationship between the number of walks and the number of rules generated, categorized by two rule length (2 and 3) and two distributions (uniform and exponential). The x-axis represents the number of walks, and the y-axis shows the number of rules. Four lines represent different combinations of rule length and distribution, illustrating how these factors affect rule generation scaling. The graph likely demonstrates the computational complexity or efficiency of a rule generation algorithm within the paper. -->
 
-Figure 4: Number of rules for lengths 2 and 3.
+**Figure 4:** Number of rules for lengths 2 and 3.
 
 Training and inference time The rule learning and rule application times are shown in the figures [5](#page-10-0) and [6,](#page-10-1) dependent on the number of extracted temporal walks during learning.
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
 <!-- Image Description: The image displays a line graph comparing the computation time (in seconds) of two methods, "unif" and "exp," as a function of the number of walks. The x-axis represents the number of walks, and the y-axis shows the execution time. The graph shows that execution time increases linearly with the number of walks for both methods, but "exp" consistently takes longer than "unif." The purpose is to demonstrate a performance comparison between the two algorithms. -->
 
-Figure 5: Rule learning time.
+**Figure 5:** Rule learning time.
 
 <span id="page-10-1"></span>![](_page_10_Figure_3.jpeg)
 <!-- Image Description: The image displays a line graph comparing computation time (in seconds) against the number of walks for two methods: "unif" and "exp". The x-axis represents the number of walks, while the y-axis shows the time taken. The graph illustrates that computation time increases with the number of walks, with "exp" consistently exhibiting higher execution times than "unif". The graph likely serves to demonstrate the relative efficiency of the two methods within the paper's algorithm. -->
 
-Figure 6: Rule application time.
+**Figure 6:** Rule application time.
 
 The worst-case time complexity for learning rules of length l is O(|R|nlDb), where n is the number of walks, D the maximum node degree in the training set, and b the number of body samples for estimating the confidence. The worst-case time complexity for inference is given by O(|G| + |T R<sup>r</sup> <sup>q</sup> |DL|E| log(k)), where L is the maximum rule length in T R<sup>r</sup> <sup>q</sup> and k the minimum number of candidates. More detailed steps of the algorithms for understanding these complexity estimations are given by Algorithm [3](#page-11-0) and Algorithm [4.](#page-12-0)
 
 ![](_page_11_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a temporal knowledge graph reasoning system. A temporal knowledge graph (showing nodes and edges with timestamps) undergoes temporal random walks, feeding into rule learning. Learned rules are applied to input (subject, predicate, ?, timestamp), generating ranked candidate answers (e.g., France, Germany with associated scores) based on temporal logical rules with confidence scores. The diagram depicts the workflow and data flow of the system. -->
 
-Figure 7: Overall framework.
+**Figure 7:** Overall framework.
 
-<span id="page-11-0"></span>
 
-|     | Algorithm 3: Rule learning (detailed)                                                                                 |
+| | Algorithm 3: Rule learning (detailed) |
 |-----|-----------------------------------------------------------------------------------------------------------------------|
-|     | Input: Temporal knowledge graph G.                                                                                    |
-|     | Parameters: Rule lengths L ⊂ N, number of temporal random walks<br>n ∈ N, transition distribution<br>d ∈ {unif, exp}. |
-|     | Output: Temporal logical rules T R.                                                                                   |
-|     | 1: for relation r ∈ R do                                                                                              |
-| 2:  | for l ∈ L do                                                                                                          |
-| 3:  | for i ∈ [n] do                                                                                                        |
-| 4:  | T Rl<br>r ← ∅                                                                                                         |
-| 5:  | According to transition distribution d, sample a temporal random walk W of length l + 1 with tl+1<br>> tl             |
-|     | . See (4).                                                                                                            |
-|     | Sample uniformly a start edge (es, r, eo, t) with edge type r.                                                        |
-| 6:  | for step m ∈ {2, , l + 1} do                                                                                          |
-| 7:  | Retrieve adjacent edges of current object node.                                                                       |
-| 8:  | if m = 2 then                                                                                                         |
-| 9:  | Filter out all edges with timestamps greater than or equal to the current timestamp.                                  |
-| 10: | else                                                                                                                  |
-| 11: | Filter out all edges with timestamps greater than the current timestamp.                                              |
-|     | Filter out the inverse edge of the previously sampled edge.                                                           |
-| 12: | if m = l + 1 then                                                                                                     |
-| 13: | Retrieve all filtered edges that connect the current object to the source of the walk.                                |
-| 14: | Sample the next edge from the filtered edges according to distribution d.                                             |
-|     | break if there are no feasible edges because of temporal or cyclic constraints.                                       |
-| 15: | Transform walk W to the corresponding temporal logical rule R.<br>. See (5).                                          |
-|     | Save information about the head relation and body relations.<br>Define variable constraints for recurring entities.   |
-| 16: | Estimate the confidence of rule R.                                                                                    |
-|     | Sample b body groundings. For each step m ∈ {1, , l}, filter the edges for the correct body relation besides for      |
-|     | the timestamps required to fulfill the temporal constraints.                                                          |
-|     | For successful body groundings, check the variable constraints.                                                       |
-|     | For each unique body, check if the rule head exists in the graph.                                                     |
-|     | Calculate rule support / body support.                                                                                |
-| 17: | T Rl<br>r ← T Rl<br>r ∪ {(R, conf(R))}                                                                                |
-| 18: | ← ∪l∈LT Rl<br>T Rr                                                                                                    |
-|     | r<br>19: T R ← ∪r∈RT Rr                                                                                               |
-|     | 20: return T R                                                                                                        |
-|     |                                                                                                                       |
+| | Input: Temporal knowledge graph G. |
+| | Parameters: Rule lengths L ⊂ N, number of temporal random walks<br>n ∈ N, transition distribution<br>d ∈ {unif, exp}. |
+| | Output: Temporal logical rules T R. |
+| | 1: for relation r ∈ R do |
+| 2: | for l ∈ L do |
+| 3: | for i ∈ [n] do |
+| 4: | T Rl<br>r ← ∅ |
+| 5: | According to transition distribution d, sample a temporal random walk W of length l + 1 with tl+1<br>> tl |
+| | . See (4). |
+| | Sample uniformly a start edge (es, r, eo, t) with edge type r. |
+| 6: | for step m ∈ {2, , l + 1} do |
+| 7: | Retrieve adjacent edges of current object node. |
+| 8: | if m = 2 then |
+| 9: | Filter out all edges with timestamps greater than or equal to the current timestamp. |
+| 10: | else |
+| 11: | Filter out all edges with timestamps greater than the current timestamp. |
+| | Filter out the inverse edge of the previously sampled edge. |
+| 12: | if m = l + 1 then |
+| 13: | Retrieve all filtered edges that connect the current object to the source of the walk. |
+| 14: | Sample the next edge from the filtered edges according to distribution d. |
+| | break if there are no feasible edges because of temporal or cyclic constraints. |
+| 15: | Transform walk W to the corresponding temporal logical rule R.<br>. See (5). |
+| | Save information about the head relation and body relations.<br>Define variable constraints for recurring entities. |
+| 16: | Estimate the confidence of rule R. |
+| | Sample b body groundings. For each step m ∈ {1, , l}, filter the edges for the correct body relation besides for |
+| | the timestamps required to fulfill the temporal constraints. |
+| | For successful body groundings, check the variable constraints. |
+| | For each unique body, check if the rule head exists in the graph. |
+| | Calculate rule support / body support. |
+| 17: | T Rl<br>r ← T Rl<br>r ∪ {(R, conf(R))} |
+| 18: | ← ∪l∈LT Rl<br>T Rr |
+| | r<br>19: T R ← ∪r∈RT Rr |
+| | 20: return T R |
+| | |
 
 <span id="page-12-0"></span>Algorithm 4: Rule application (detailed)
 

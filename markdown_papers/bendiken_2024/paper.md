@@ -26,7 +26,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # KNOW–A Real-World Ontology for Knowledge Capture with Large Language Models
 
 Arto Bendiken Haltia, Inc. arto@haltia.ai
@@ -41,13 +40,13 @@ We present KNOW–the Knowledge Navigator Ontology for the World–the first ont
 
 While not yet widely known in industry, the neuro-symbolic approach to artificial intelligence (AI)–in particular, the union of large language models (LLMs) and knowledge graphs (KGs)–has in academia already established itself as the most promising state-of-the-art pathway towards building practical, trustworthy, explainable, and interoperable AI systems. We will briefly outline the promise of the neuro-symbolic synthesis and explain why common ontologies are needed for reliability and interoperability.
 
-#### 1 Why LLMs Need KGs
+### 1 Why LLMs Need KGs
 
 Despite limited successes with prototypes which escaped the lab, over the course of the next several years industry attempts to deploy standalone LLMs in production will be increasingly frustrated by the limitations and deficiencies of said models: the limited context window and its poor scaling characteristics, the lack of introspectability and justifiability, the propensity towards hallucinations, as well as ultimately the implicit and static nature of the very knowledge encoded during pre-training and the difficulty of amending it afterwards.
 
 These various problems can be mitigated or solved by a hybrid approach where the LLM accesses and manipulates a symbolic knowledge base where facts are captured and represented in explicit form.
 
-#### 2 Why KGs Need LLMs
+### 2 Why KGs Need LLMs
 
 Conversely, large language models do already encode internally much of the commonsense tacit knowledge that in previous decades proved the most formidable challenge to symbolic approaches of knowledge representation and AI. Until recently, any toddler ultimately knew more about the nature and causal structure of our physical and social worlds
 
@@ -75,7 +74,7 @@ Examples of places common to all human societies include landmarks and places of
 
 As highly social creatures, the stature of the social reality–people and relationships–that we inhabit is nearly that of spacetime. Indeed, people have been known to prioritize consensus social reality over objective physical reality in their understanding of the world and actions in it. In this social dimension, then, we include the base concepts of Person and Group, the latter denoting a group of people. Unlike a biologist's classification of a person as a human, hominid, anthropoid, primate, mammal, and vertebrate animal, we are here concerned only with commonsense understanding[1](#page-1-0) and omit these taxonomic superclasses–at least in this first formulation of the ontology.
 
-# 3 Use Cases
+## 3 Use Cases
 
 Our primary use cases revolve around everyday human concerns. For example, and in particular:
 
@@ -84,7 +83,7 @@ Our primary use cases revolve around everyday human concerns. For example, and i
 ![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This image is a hierarchical tree diagram illustrating a taxonomy of "Thing". It branches into four main categories: Person, Group, Place, and Event. Each category is further subdivided into more specific entities (e.g., Person branches into Family, Nationality, etc.; Place branches into Airport, Cafe, etc.; Event into Birthday, Meeting, etc.). The diagram likely serves to define and categorize data types within the scope of the paper, possibly for knowledge representation or information retrieval. -->
 
-<span id="page-2-0"></span>Figure 1: Top-level classes in the ontology (not comprehensive)
+<span id="page-2-0"></span>**Figure 1:** Top-level classes in the ontology (not comprehensive)
 
 Social relationships and roles. Family, friends, acquaintances, coworkers, authority figures, and the various roles people play in society.
 
@@ -98,7 +97,7 @@ Time and events. Temporal concepts (past, present, future, duration, etc.), and 
 
 For secondary use cases, we also wish to extend support to fictional uses, especially modeling fictional social graphs– including in speculative fiction. This means, for example, that we don't constrain the value range of the age property on Person. And on the other hand, we call the class Person instead of Human; on the gripping hand, however, we haven't at present included an Agent class, as that would veer away from practicability. Similarly, Place isn't inherently something constrained only to Earth's surface, though the supermajority of uses will be exactly that. When practical uses and fictional uses are in tension, we have aimed to make the fictional use possible yet the practical use convenient.
 
-# 4 Software Libraries
+## 4 Software Libraries
 
 Large language models have proven capable code generation tools, and are deployed both for advanced code completion in code editors as well as in more ambitious prompt-driven uses. Given how code synthesis is seeing an unprecedented surge in interest, we have explicitly designed the ontology to be usable towards this important end. This affects, for example, property naming, which is designed to accord with naming conventions for coding.
 
@@ -114,7 +113,7 @@ A secondary objective for the SDKs is to enable data interchange via serializati
 
 It is our intention to continue, through open-source community contributions, to extend language support over time so as to cover at least the top 20 most popular programming languages and establish the initiative as a cornerstone for polyglot programming.
 
-# 5 Compare and Contrast
+## 5 Compare and Contrast
 
 We compare and contrast previous work including Schema.org and Cyc.
 
@@ -134,7 +133,7 @@ In seeking to model commonsense knowledge, our most esteemed predecessor is the 
 
 Our initiative also uses open source instead of proprietary licensing, and a public and collaborative development model instead of a closed and internal one. Our development cycle is iterative–acknowledging that worse is better [\[Gabriel, 1989\]](#page-4-8)–and driven by real-world use cases.
 
-# 6 Availability and Usage
+## 6 Availability and Usage
 
 The ontology is developed using an open-source ethos and a public, collaborative, and iterative development process at GitHub [\(github.com/KnowOntology\)](https://github.com/KnowOntology), with documentation and downloads made available on a dedicated website [\(know.dev\)](https://know.dev).
 

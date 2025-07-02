@@ -17,7 +17,6 @@ keywords:
 - question answering
 ---
 
-
 # A Survey on Benchmarks of Multimodal Large Language Models
 
 Jian Li1<sup>∗</sup> , Weiheng Lu<sup>2</sup> , Hao Fei<sup>3</sup> , Meng Luo<sup>3</sup> , Ming Dai<sup>4</sup> , Min Xia<sup>2</sup> , Yizhang Jin<sup>1</sup> , Zhenye Gan<sup>1</sup> , Ding Qi<sup>1</sup> , Chaoyou Fu<sup>5</sup> , Ying Tai<sup>5</sup> , Wankou Yang<sup>4</sup> , Yabiao Wang<sup>1</sup> , Chengjie Wang<sup>1</sup>
@@ -41,7 +40,7 @@ A comprehensive and objective benchmark for evaluating MLLMs is essential for co
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 <!-- Image Description: This image from an academic paper presents a visual analysis of large language models (LLMs). A circular diagram categorizes LLM evaluation aspects into "Specific Domains," "Key Capabilities," and "Other Modalities," further broken down into subcategories like "Cognition & Reasoning" and "Videos." Two bar charts show the growth in the number of LLM benchmarks over time and the relative dominance of specific LLMs (e.g., GPT-4, Gemini) across 83 benchmarks since 2024. The purpose is to illustrate the evolution of LLM evaluation and the performance landscape. -->
 
-Figure 1: (left) Taxonomy of this benchmarks survey, Our survey covers 5 key domains and 20-30 sub-class types, (Right up) Trend of MLLMs evaluation papers over time, (Right down) The statistics on the number of the top3 MLLMs on 83 benchmarks since 2024.
+**Figure 1:** (left) Taxonomy of this benchmarks survey, Our survey covers 5 key domains and 20-30 sub-class types, (Right up) Trend of MLLMs evaluation papers over time, (Right down) The statistics on the number of the top3 MLLMs on 83 benchmarks since 2024.
 
 the ability to handle long contexts and accurately follow instructions. Therefore, we aim to raise awareness in the community of the importance of MLLM evaluations by reviewing the current evaluation protocols.
 
@@ -56,7 +55,7 @@ In this survey, we aim to provide a comprehensive overview of recent advancement
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This image from an academic paper presents a hierarchical tree diagram categorizing and listing various benchmark datasets for evaluating large language models (LLMs). The tree branches into categories representing key capabilities (perception, reasoning, cognition), specific domains (decision-making, diverse cultures), and other modalities (video, audio). Leaf nodes list specific benchmark datasets with numerical references. The diagram’s purpose is to systematically showcase the breadth of LLM evaluation tasks and associated resources. -->
 
-Figure 2: Taxonomy of benchmarks for Multimodal Large Language Models
+**Figure 2:** Taxonomy of benchmarks for Multimodal Large Language Models
 
 - Key capabilities significantly impact the performance and user experience of MLLMs, including managing complex dialogues, accurately following instructions, and avoiding hallucinations while maintaining trustworthiness. These capabilities are essential for ensuring that MLLMs operate effectively across diverse real-world applications and adapt to various practical scenarios.
 - Other modalities include video, audio, and 3D point clouds, which also contain rich and diverse information reflective of the real world. These modalities provide critical context and enhance the ability of MLLMs to understand complex scenarios. Evaluating MLLMs' ability to handle various modalities can help in understanding their performance across different types of data and tasks, ensuring they are suitable for complex real-world scenarios and challenging tasks.
@@ -94,9 +93,9 @@ where L denotes the length of Ya. The parameter sizes of large language models (
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: The diagram illustrates a multi-stage model for instruction learning. It shows a large language model processing visual and textual input. The "Vision-Language Projector" integrates visual tokens (from a vision or audio encoder) with text tokens (language instruction). The pre-training stage uses a frozen language model, while the instruction-tuning stage tunes the projector and language model. The output is a language response. The diagram uses boxes to represent processing stages and arrows to show data flow. -->
 
-Figure 3: The architectures and training process of MLLMs.
+**Figure 3:** The architectures and training process of MLLMs.
 
-#### 2 MLLM Training
+### 2 MLLM Training
 
 The standard training process of MLLMs is a crucial factor that determines their performance on downstream tasks and their ability to handle diverse tasks. In this section, we provide an overview of various training methodologies, including pre-training, and instruction-tuning.
 
@@ -120,7 +119,7 @@ MLLMs rely on the powerful LLM to perform multimodal tasks, showing amazing emer
 
 To advance research on visual-related tasks, LLaVA-Bench [\[16\]](#page-20-15) and OwlEval [\[13\]](#page-20-12) were constructed to examine a variety of MLLM capabilities, but the quantity of these benchmarks was too small to fully reflect the performance of MLLMs. There was still an issue of lacking a more comprehensive evaluation with large-scale data. Fu et al. [\[9\]](#page-20-8) filled this gap by presenting the first comprehensive MLLM evaluation benchmark, MME, which measured both perception and cognition abilities across a range of subtasks. Considering that subjective benchmarks like OwlEval relied on human labor for evaluations, which was not scalable and could exhibit significant bias, Liu et al. [\[12\]](#page-20-11) proposed employing GPT-4 [\[3\]](#page-20-2) to match MLLM predictions and devised MMBench to robustly assess various abilities of MLLMs. However, both the binary judgments used in MME and the multiple-choice answer selection employed by MMBench could not fully capture the complexity of open-ended real-world dialogues. In light of this concern, Open-VQA [\[14\]](#page-20-13) and TouchStone [\[11\]](#page-20-10) were proposed to support open-ended answers. Nevertheless, the relatively small scale of these benchmarks introduced instability in the evaluation statistics. To overcome this limitation, SEED-Bench was introduced with annotations six times larger than existing benchmarks. It included a substantial number of multiple-choice questions covering various evaluation dimensions for both image and video modalities. Additionally, SEED-Bench-2 categorized MLLMs' capabilities into hierarchical levels from L0 to L4 and served as a benchmark for evaluating MLLMs' hierarchical capabilities. Despite the promising qualitative results regarding MLLMs' capabilities, it remained unclear how to systematically evaluate complex multimodal tasks and what the relationships among the evaluated tasks were. Based on this consideration, MM-Vet [\[10\]](#page-20-9) was devised to study integrated vision-language capabilities, allowing the evaluation to provide insights beyond overall model rankings. Moreover, MDVP-Bench [\[6\]](#page-20-5) and LAMM [\[17\]](#page-20-16) were created to provide a comprehensive assessment of MLLMs' capabilities, particularly in understanding visual prompting instructions. Furthermore, to provide a fair and systematic assessment of MLLMs' performance across diverse multimodal tasks, ChEF [\[7\]](#page-20-6) and UniBench [\[8\]](#page-20-7) were constructed as standardized and holistic evaluation frameworks, which helped to comprehensively understand the capabilities and limitations of MLLMs.
 
-#### 2 Fine-grained Perception
+### 2 Fine-grained Perception
 
 One indispensable cornerstone of MLLMs is the ability to perceive visible objects within scenes precisely. This includes evaluating MLLMs' capabilities in object detection and recognition, understanding details within local regions, and achieving accurate vision-language alignment. Such fine-grained perception is crucial for effective multimodal understanding and interaction.
 
@@ -132,7 +131,7 @@ ability of MLLMs to discern details in high-resolution images. Considering that 
 
 Nuanced Vision-language Alignment:Nuanced vision-language alignment involves interpreting complex interactions between visual and textual information, grasping subtle meanings, and aligning semantics between images and text. Winoground [\[35\]](#page-21-12) was designed to require models to match two images with two captions that contained the same set of words in different orders. However, the scale of Winoground was restricted by its costly curation, and it lacked a focus on linguistic phenomena. To address these limitations, VALSE [\[33\]](#page-21-10) and VLChecklist [\[34\]](#page-21-11) examined how MLLMs understood visual-linguistic concepts by converting real captions into confusing alternatives. By modifying textual representations related to relationships, attributes, and order, ARO [\[36\]](#page-21-13) assessed whether MLLMs could achieve fine-grained visual-language alignment on key concepts. Moreover, Eqben[\[31\]](#page-21-8) assessed whether MLLMs were sensitive to visual semantic changes by making minimal semantic changes in images, but the image diversity was limited by virtual engines. To produce diverse images that met the requirements, Peng et al.[\[32\]](#page-21-9) developed a benchmark called SPEC, utilizing a progressive pipeline to synthesize images that varied in a specific attribute while ensuring consistency in other aspects.
 
-#### 3 Image Understanding
+### 3 Image Understanding
 
 The image understanding task involves analyzing visual content to extract meaningful information, which includes grasping the context of scenes and integrating visual details with textual information to generate coherent descriptions and insights.
 
@@ -142,7 +141,7 @@ Implication Understanding: Understanding the meaning of images requires not only
 
 Image Quality and Aesthetics Perception:Image quality and aesthetics perception involves assessing image quality, perceiving visual distortions, and understanding low-level attributes such as color, lighting, composition, and style. It also relates to the aesthetics and design sense of photographs. Q-Bench[\[48\]](#page-22-4) explored the potential of MLLMs in low-level perception abilities. To highlight subtle differences or similarities that might not be evident when images were viewed in isolation, Q- Bench+[\[49\]](#page-22-5) extended the evaluation of low-level perception from single images to image pairs. To better align with human aesthetics, comprehensive aesthetic evaluation benchmarks AesBench[\[45\]](#page-22-1) and UNIAA[\[46\]](#page-22-2) were constructed to systematically evaluate the aesthetic abilities of MLLMs. Besides, Lin et al.[\[219\]](#page-30-4) proposed DesignProbe to comprehensively assess design capabilities of MLLMs from both the element level and the overall design level.
 
-# 4 Cognition and Reasoning
+## 4 Cognition and Reasoning
 
 MLLMs' cognitive and reasoning abilities encompass the model's capacity for advanced processing and complex inference beyond basic perception and understanding. Cognitive abilities involve integrating and manipulating extracted information to form coherent representations, while reasoning abilities focus on drawing logical conclusions and solving problems. Strong cognitive and reasoning abilities enable MLLMs to perform effective logical inference in complex tasks.
 
@@ -168,7 +167,7 @@ Knowledge-based Visual Question Answering: Knowledge-based visual question answe
 
 Knowledge Editing: Knowledge editing refers to the ability to update outdated, unknown, or incorrect information within MLLMs. The benchmark MMEdit, proposed by Cheng et al.[\[71\]](#page-23-3), provided a platform for testing the editability of MLLMs. However, it primarily focused on coarsegrained knowledge, which often failed to accurately represent fine-grained entities and scenarios in the real world. To address this limitation, Cheng[\[71\]](#page-23-3) introduced MIKE, a comprehensive and challenging benchmark for fine-grained multimodal entity knowledge editing. Meanwhile, VLKEB [\[73\]](#page-23-5) expanded the evaluation of knowledge editing portability, demonstrating MLLMs' ability to effectively apply edited knowledge in related contexts. Despite that, these benchmarks overlooked the organization of multimodal knowledge and lacked a precise definition of multimodal knowledge editing. To fill this gap, MC-MKE[\[74\]](#page-23-6) was developed as a benchmark to evaluate the reliability, locality, generality, and consistency of MLLMs across different editing formats.
 
-#### 3 Intelligence&Cognition:
+### 3 Intelligence&Cognition:
 
 Inspired by the development of human intelligence, some benchmarks leverage cognitive and educational theories to assess the intelligence of MLLMs. For instance, intelligence tests featuring abstraction visual reasoning and various levels of mathematical problems are used to evaluate MLLMs' logical reasoning capabilities. Additionally, multidisciplinary questions from various educational periods are employed to assess MLLMs' ability to integrate diverse knowledge and apply complex reasoning skills to solve intricate problems. These approaches are crucial for understanding and enhancing the cognitive and problem-solving capabilities of MLLMs.
 
@@ -178,7 +177,7 @@ Mathematical Question Answering: Using mathematics problems to evaluate MLLMs is
 
 Multidisciplinary Question Answering: Evaluating MLLMs using multidisciplinary questions from various educational stages assesses their ability to integrate and apply knowledge across different domains. This approach tests MLLMs' reasoning and problem-solving skills in diverse contexts, providing a comprehensive measure of general intelligence and cognition. ScienceQA[\[60\]](#page-22-16) was a benchmark containing multimodal science questions with rich domain diversity. While it covered a range of disciplines, most of the questions were at the elementary to middle school level, which limited its depth. To address this issue, M3Exam[\[85\]](#page-23-17) was proposed with a multilevel structure, featuring exams from three critical educational stages to comprehensively assess MLLMs' proficiency at different levels. Additionally, SceMQA[\[89\]](#page-23-21) focused on college entrance-level problems. Due to the importance of this stage, SceMQA comprised questions with answers accompanied by more detailed explanations. Intended to evaluate expert-level understanding, Yue et al.[\[87\]](#page-23-19) introduced MMMU, which included problems from college exams, quizzes, and textbooks across six common disciplines. However, these benchmarks were primarily available in English, restricting the evaluation to a single language. Therefore, CMMMU[\[86\]](#page-23-18), CMMU[\[88\]](#page-23-20), and MULTI[\[90\]](#page-24-0) were created to evaluate multi-discipline and multi-type question understanding and reasoning in Chinese.
 
-# 5 Specific Domains
+## 5 Specific Domains
 
 This section focuses on MLLMs' capabilities in specific tasks and applications, such as their ability to integrate complex visual and textual information, adapt to decision-making roles in dynamic environments, and effectively process diverse cultural and linguistic data. It then extends to discuss the practical applications of MLLMs, highlighting their impact on various sectors such as medicine, industry, and autonomous driving. By providing an overview of these benchmarks, this section aims to underscore the advancements in evaluating MLLMs' performance and their potential to address real-world challenges across different domains.
 
@@ -202,11 +201,11 @@ Embodied Decision-making: Embodied Decision-making requires MLLMs to be able to 
 
 Mobile Agency: Mobile-Agent leverages visual perception tools to accurately identify and locate both visual and textual elements within the app's front-end interface. Drawing on the visual information, it autonomously plans and decomposes complex tasks, navigating the mobile app through each step of the operation. To comprehensively assess Mobile-Agent's capabilities, Wang et al.[\[115\]](#page-25-3) introduced Mobile-Eval, a benchmark centered around current mainstream mobile apps. Mobile-Eval included instructions for various difficulty levels, but it primarily assessed whether MLLMs could complete the instructions, neglecting the fine-grained perception of the web interface. To fill this gap, You et al.[\[116\]](#page-25-4) proposed Ferret-UI, which required MLLMs to explain the functionality and provide fine-grained descriptions of UI elements. However, existing benchmarks for MLM agents in interactive environments were constrained by single environments and lacked detailed and generalized evaluation methods. To overcome these limitations, Xu et al.[\[117\]](#page-25-5) introduced CRAB, the first agent benchmark framework designed to support cross-environment tasks.
 
-#### 3 Diverse Cultures and Languages
+### 3 Diverse Cultures and Languages
 
 Most benchmarks primarily use English, leading to the neglect of other languages and cultures. To address this limitation, some benchmarks have been introduced to supplement data in a broader range of languages. CMMU[\[88\]](#page-23-20), CMMMU[\[86\]](#page-23-18), and MULTI[\[90\]](#page-24-0) were presented for multi-modal and multi-type questions in Chinese, featuring a wider variety of question types. Besides, the Henna benchmark[\[118\]](#page-25-6) was proposed to test MLLMs in Arabic culture, while the LaVy-Bench benchmark[\[119\]](#page-25-7) was designed for evaluating MLLMs' understanding of Vietnamese visual language tasks. To further enrich language diversity, MTVQA[\[120\]](#page-25-8) was proposed as the first benchmark featuring high-quality human expert annotations across 9 diverse languages. However, although MTVQA extended its linguistic range, it kept images the same, resulting in a narrow cultural representation. To address this limitation, Romero[\[121\]](#page-25-9) constructed CVQA, a culturally diverse multilingual visual question answering benchmark designed to cover a rich set of languages and cultures.
 
-#### 4 Other Applications
+### 4 Other Applications
 
 Some works focused on assessing MLLMs' abilities to handle highly professional and domainspecific data, such as medicine, transportation, engineering, remote sensing, and autonomous driving. These evaluations provided insights into how well MLLMs could adapt to and process specialized information in various complex fields, highlighting their potential for applications in areas requiring deep expertise and precise knowledge.
 
@@ -220,7 +219,7 @@ Society: Benchmarking MLLMs in addressing social needs and related domains is es
 
 Autonomous Driving: Autonomous driving is a rapidly developing field with immense potential to improve transportation safety and efficiency through advancements in sensor technologies and computer vision. Qian et al.[\[132\]](#page-26-2) constructed the first VQA benchmark for autonomous driving scenarios, named NuScenes-QA. It addressed visual question answering and provided richer visual information, including images and point clouds. However, NuScenes-QA primarily focused on scene-level driving tasks and could not cover all the reasoning processes involved in driving. In contrast, DriveLM-Data[\[133\]](#page-26-3) was a more comprehensive benchmark, which encapsulated perception, prediction, and planning for autonomous driving.
 
-# 6 Key Capabilities
+## 6 Key Capabilities
 
 These benchmarks evaluated dialogue capabilities, including handling extended dialogues and accurately following instructions, as well as assessing the model's level of hallucination and trustworthiness. Such capabilities are crucial for ensuring that MLLMs perform effectively across a range of real-world applications and can adapt to various practical scenarios.
 
@@ -254,7 +253,7 @@ Safety: Some works primarily test the safety of MLLMs, ensuring they refrain fro
 
 from models. To address this issue, Li et al.[\[160\]](#page-27-7) established MMUBench to evaluate the efficacy, generality, specificity, fluency, and diversity of machine unlearning methods in MLLMs. Moreover, Shi et al.[\[164\]](#page-27-11) introduced SHIELD, a benchmark designed to evaluate the effectiveness of MLLMs in addressing various challenges within the domain of facial security, including face anti-spoofing and face forgery detection. However, these benchmarks typically examined only one or a few aspects of safety and trustworthiness, lacking a comprehensive evaluation. To address this issue, MultiTrust [\[162\]](#page-27-9) and RTVLM [\[165\]](#page-27-12) were proposed as comprehensive and unified benchmarks. Both evaluated the safety capabilities of MLLMs across diverse dimensions and tasks.
 
-# 7 Other Modalities
+## 7 Other Modalities
 
 Beyond the image modality, other modalities such as video, audio, and 3D point clouds also contain rich and diverse information reflective of the real world. These modalities provide critical context and enhance the ability to understand complex scenarios. Evaluating MLLMs across these varied modalities is crucial for developing robust and versatile models capable of handling a wide range of complex real-world tasks. This section provides an overview of benchmarks designed to assess MLLMs across these different modalities, aiming to highlight their strengths and identify areas for further improvement.
 
@@ -276,167 +275,167 @@ MLLMs that jointly process audio and language hold great promise for audio under
 
 3D scenes offer a significant advantage over 2D images by providing accurate spatial relationships, depths, and occlusions, which are essential for interpreting complex environments. For MLLMs, enhanced 3D scene perception enables more precise responses in applications such as navigation, augmented reality, and complex spatial reasoning tasks. ScanQA [\[186\]](#page-28-10) was proposed for 3D visual question answering, requiring models to answer given questions based on point clouds. It was formatted as an attribute classification task, which made it difficult to assess MLLMs' detailed understanding of 3D scenes. LAMM[\[17\]](#page-20-16) transformed the classification task into a multiple-choice problem and added two tasks beyond 3D visual question answering: 3D object detection and visual grounding.
 
-Table 1: Summary of existing MLLM evaluations and benchmarks. This table provides an overview of the key attributes of the benchmarks introduced in this paper. The "Focus" describes the primary features and focal points of each benchmark; The "Answer Annotation" denotes the size of the dataset for each benchmark;The "Answer Type" categorizes the format of responses: T/F refers to True or False, Y/N denotes Yes or No, MQA indicates multiple-choice answers, restrictive text refers to text with specific format constraints, and open indicates open-ended responses. "Evaluation" specifies the evaluation methods employed;The "Models" column indicates the number of models evaluated in each benchmark.
+**Table 1:** Summary of existing MLLM evaluations and benchmarks. This table provides an overview of the key attributes of the benchmarks introduced in this paper. The "Focus" describes the primary features and focal points of each benchmark; The "Answer Annotation" denotes the size of the dataset for each benchmark;The "Answer Type" categorizes the format of responses: T/F refers to True or False, Y/N denotes Yes or No, MQA indicates multiple-choice answers, restrictive text refers to text with specific format constraints, and open indicates open-ended responses. "Evaluation" specifies the evaluation methods employed;The "Models" column indicates the number of models evaluated in each benchmark.
 
-| Benchmark           | Focus                                   | Answer Annotation | Answer Type | HGEvaluation | Models |
+| Benchmark | Focus | Answer Annotation | Answer Type | HGEvaluation | Models |
 |---------------------|-----------------------------------------|-------------------|-------------|--------------|--------|
-| VSR[54]             | visual spatial reasoning                | 10972             | T/F         | N/A          | 4      |
-| VALSE[33]           | visio-linguistic grounding capabilities | 6795              | A/Bs        | N/A          | 6      |
-| VL-CheckList[34]    | image-text matching                     |                   | A/B         | N/A          | 7      |
-| ARO[36]             | composition and order understanding     |                   | MQA         | N/A          | 4      |
-| Eqben[31]           | video-text matching                     | 250k              | A/B         | N/A          | 9      |
-| LLaVA-Bench[16]     | visual instruction following            | 54                | open        | GPT          | 4      |
-| OwlEval[13]         | comprehensive evaluation                | 82                | open        | Human        | 5      |
-| OCRBench[91]        | OCR capabilities                        | 1000              | open        | N/A          | 14     |
-| DUDE[98]            | understanding visually-rich documents   | 11448             | open        | N/A          | 6      |
-| POPE[140]           | object hallucination                    | 3000              | Y/N         | N/A          | 5      |
-| PerceptionTest[173] | Memory, Abstraction, Physics, Semantics | 11.6k             | MQA, open   | N/A          |        |
-| NuScenes-QA[132]    | autonomous driving                      | 460k              | open        | N/A          | 9      |
-| CODE[18]            | contextual object detection             | 10346             | open        | -            | 2      |
-| M3Exam[85]          | official human exam questions           | 12317             | MQA         | N/A          | 7      |
-| LAMM[17]            | instruction tuning                      | 62,439            | open        | GPT          | -      |
-| LAMM[17]            | multi-modal instruction tuning          | 62439             | open        | GPT          | 4      |
+| VSR[54] | visual spatial reasoning | 10972 | T/F | N/A | 4 |
+| VALSE[33] | visio-linguistic grounding capabilities | 6795 | A/Bs | N/A | 6 |
+| VL-CheckList[34] | image-text matching | | A/B | N/A | 7 |
+| ARO[36] | composition and order understanding | | MQA | N/A | 4 |
+| Eqben[31] | video-text matching | 250k | A/B | N/A | 9 |
+| LLaVA-Bench[16] | visual instruction following | 54 | open | GPT | 4 |
+| OwlEval[13] | comprehensive evaluation | 82 | open | Human | 5 |
+| OCRBench[91] | OCR capabilities | 1000 | open | N/A | 14 |
+| DUDE[98] | understanding visually-rich documents | 11448 | open | N/A | 6 |
+| POPE[140] | object hallucination | 3000 | Y/N | N/A | 5 |
+| PerceptionTest[173] | Memory, Abstraction, Physics, Semantics | 11.6k | MQA, open | N/A | |
+| NuScenes-QA[132] | autonomous driving | 460k | open | N/A | 9 |
+| CODE[18] | contextual object detection | 10346 | open | - | 2 |
+| M3Exam[85] | official human exam questions | 12317 | MQA | N/A | 7 |
+| LAMM[17] | instruction tuning | 62,439 | open | GPT | - |
+| LAMM[17] | multi-modal instruction tuning | 62439 | open | GPT | 4 |
 
-| Benchmark                            | Focus                                                                  | Answer Annotation | Answer Type             | HGEvaluation       | Models  |
+| Benchmark | Focus | Answer Annotation | Answer Type | HGEvaluation | Models |
 |--------------------------------------|------------------------------------------------------------------------|-------------------|-------------------------|--------------------|---------|
-| MME[9]                               | perception and cognition                                               | 1.5k              | Y/N                     | N/A                | 10      |
-| MMBench[12]                          | objective evaluation                                                   | 3217              | open                    | GPT                | 14      |
-| MovieChat[174]                       | long video understanding                                               | 14k               | open                    | GPT                | 6       |
-| MM-Vet[10]                           | integrated capabilities                                                | 205               | open                    | GPT                | 9       |
-| SciGraphQA[103]                      | scientific question-answering                                          | 657k              | open                    | GPT                | 5       |
-| DEMON[138]                           | demonstrative instruction understanding                                | 477.72K           | open                    | N/A                | 9       |
-| M-HalDetect[143]<br>VisIT-Bench[139] | hallucination detection<br>instruction following                       | 16K<br>592        | open<br>open            | human<br>Human/GPT | 3<br>14 |
-| EgoSchema[175]                       | long video understanding                                               | 5063              | MQA                     | N/A                | 4       |
-| TouchStone[11]                       | open-ended real-world dialogues                                        | 908               | open                    | GPT                | 7       |
-| Q-Bench[48]                          | low-level visual perception                                            | 2990              | Y/N,open                | N/A                | 15      |
-| MMHAL-BENCH[151]                     | penalizing hallucinations                                              | 96                | open                    | GPT                | 6       |
-| PCA-EVAL[113]                        | decision-making ability                                                | 300               | MQA                     | GPT                | 6       |
-| MathVista[79]                        | mathematical tasks                                                     | 735               | MQA,open                | GPT                | 12      |
-| MMEdit[71]                           | knowledge editing                                                      |                   | open                    | N/A                | 2       |
-| HallusionBench[145]                  | image-context reasoning                                                | 1129              | open                    | GPT                | 15      |
-| What'sUp[51]                         | spatial relations                                                      | 820               | text options            | N/A                | 8       |
-| ChEF[7]                              | Comprehensive Evaluation Framework                                     | -                 | -                       | -                  | 9       |
-| Bingo[144]                           | hallucinations related to bias and interference                        | 370               | open                    | GPT                | 2       |
-| MagnifierBench[28]                   | visual perception of small objects                                     | 283               | MQA, open               | Human/GPT          | -       |
-| ViLMA[168]                           | visio-linguistic capabilities                                          | 4177              | caption matching        | N/A                | 12      |
-| AMBER[152]                           | hallucinations related to attributes and relations                     | 15k               | Y/N, open               | N/A                | 9       |
-| MMC-Benchmark[104]                   | visual charts understanding                                            | 2k                | Open,MQA                | GPT                | 6       |
-| AutoEval-Video[180]                  | open ended video question answering                                    | 327               | open                    | GPT                | 11      |
-| Video-Bench[177]                     | comprehensive evaluation for video                                     | 17036             | MQA                     | N/A                | 8       |
-| MMMU[87]                             | college-level subject knowledge                                        | 11.5k             | MQA,open                | N/A                | 23      |
-| MVBench[166]                         | video understanding                                                    | 4000              | MQA                     | N/A                | 17      |
-| VITATECS[169]                        | temporal concept underStanding                                         | 13k               | open                    | N/A                | 9       |
-| MM-SafetyBench[163]                  | safety-critical evaluations                                            | 5040              | open                    | GPT                | 12      |
-| TimeIT[167]                          | long video understanding                                               | 125k              | open                    |                    | 8       |
-| Grounding-Bench[22]                  | grounding and chat capabilities                                        | 1000              | open                    | GPT                | 9       |
-| EgoPlan-Bench[112]                   | human-level planning                                                   | 5k                | MQA                     | N/A                | 28      |
-| M3DBench[188]                        | 3D instruction following                                               | 327k              | open                    | GPT                | 3       |
-| V*Bench[21]                          | grounding detailed visual information                                  | 191               | MQA                     |                    | 7       |
-| DriveLM-DATA[133]                    | autonomous driving                                                     |                   |                         |                    |         |
-| ChartBench[102]                      | chart comprehension                                                    | 600k              | open                    | N/A                | 21      |
-| TransportationGames[130]             | transportation                                                         | 1910              | MQA,T/F,open            | GPT                | 16      |
-| MMVP[24]                             | visual perception                                                      | 300               | MQA                     |                    | 9       |
-| BenchLMM[158]                        | robustness                                                             |                   | open                    | GPT                | 10      |
-| MM-SAP[157]                          | self-awareness in perception for MLLMs                                 | 1150              | MQA                     | N/A                | 14      |
-| AesBench[45]                         | image aesthetics perception                                            | 8400              | MQA                     | GPT                | 15      |
-| SPEC[32]                             | fine-grained comprehension                                             |                   | text options            | N/A                | 5       |
-| Mementos[37]                         | sequential image reasoning abilities                                   | 4761              | free-from               | GPT                | 9       |
-| CMMMU[86]                            | college-level subject knowledge                                        | 12K               | open                    | N/A                | 11      |
-| RTVLM[165]                           | red teaming                                                            | 5200              | open                    | GPT                | 10      |
-| CMMU[88]<br>Mobile-Eval[115]         | knowledge comprehension and reasoning<br>mobile device operations      | 3603<br>33        | open<br>N/A             | N/A<br>N/A         | 10      |
-| LHRS-Bench[122]                      | remote sensing                                                         | 690               | MQA                     | N/A                | 9       |
-| MHaluBench[149]                      | multimodal hallucination detection                                     | 420               | open                    | N/A                | 2       |
-| CorrelationQA[147]                   | instinctive bias across different types                                | 7308              | open                    | N/A                | 9       |
-| SHIELD[164]                          | face spoofing and forgery detection                                    |                   | T/F, MQA                | N/A                | 2       |
-| SceMQA[89]                           | core science subjects                                                  | 1045              | open                    | GPT                | 6       |
-| Q-Bench+[49]                         | low-level visual perception                                            | 949               | Y/N,open                | N/A                | 24      |
-| VQAv2-IDK[159]                       | self-awareness hallucination                                           | 20k               | open                    | N/A                | 3       |
-| Asclepius[126]                       | medicine                                                               | 3232              | MQA                     | N/A                | 6       |
-| ChartX[101]                          | chart reasoning                                                        | 48k               | open                    | N/A                | 11      |
-| MCUB[189]                            | understand inputs from diverse modalities                              |                   | MQA                     | N/A                | 5       |
-| MAD-Bench[154]                       | resist deceiving information in the prompt                             | 1000              | open                    | GPT                | 19      |
-| CODIS[57]                            | context-dependent visual comprehension                                 | 706               | Close&Open-ended        | Human/ GPT         | 14      |
-| MM-Soc[129]                          | social media content                                                   |                   | MQA,open                | N/A                | 10      |
-| VHTest[146]                          | visual hallucination                                                   | 1200              | Y/N                     | N/A                | 8       |
-| Math-Vision[82]                      | mathematical reasoning                                                 | 3k                | open                    | GPT                | 9       |
-| MIKE[72]                             | knowledge editing                                                      | 1000 entities     | open                    | N/A                | 2       |
-| MMEcaption[153]                      | inter-modality semantic coherence                                      |                   | N/A                     | N/A                | 7       |
-| OSCaR[171]                           | object state understanding                                             | 14084             | open                    | N/A                | 8       |
-| CRPE[53]                             | relation comprehension                                                 | -                 | MQA                     | N/A                | 3       |
-| TempCompass[170]                     | temporal perception                                                    | 7540              | multiple types of tasks | GPT                | 11      |
-| Henna[118]                           | Arabic culture                                                         | 1132              | open                    | GPT                | 2       |
-| NPHardEval4V[81]                     | reasoning abilities                                                    | 900               | restrictive text        | N/A                | 9       |
-| VLKEB[73]                            | knowledge editing                                                      | 3174              | open                    | N/A                | 5       |
-| CoIN[136]                            | continual instruction tuning                                           |                   | open                    | N/A                | 2       |
-| VL-ICL Bench[59]                     | in-context learning                                                    | 1520              | open                    | N/A                | 12      |
-| MathVerse[80]                        | visual math tasks                                                      | 15k               | open                    | GPT                | 17      |
-| VisualCoT[27]                        | specific local region identification                                   |                   | free-from               | GPT                | 3       |
-| P2GB[26]                             | visual reasoning capabilities                                          | 2130              | MQA                     | -                  | 3       |
-| MDVP-Bench[6]                        | visual prompting research                                              | -                 | Y/N                     | GPT                | 4       |
-| MMStar[65]                           | vision-indispensable tasks                                             | 1500              | MQA                     | N/A                | 16      |
-| M3D[125]                             | 3D medical tasks                                                       |                   | MQA,open                | N/A                | 2       |
-| JailBreakV-28K[161]                  | the robustness of MLLMs against jailbreak attacks                      | 28000             | open                    | LLM                | 10      |
-| FABA-Bench[44]                       | facial affective behavior analysis                                     | 403               | open                    | N/A                | 5       |
-| Ferret-UI[116]                       | understanding of mobile UI screens                                     | 69                | N/A                     | N/A                | 4       |
-| VisualWebBench[109]                  | understanding and grounding in web scenarios                           | 1.5k              | open                    | N/A                | 14      |
-| DesignQA[47]                         | real-world engineering tasks                                           | 1451              | open                    | N/A                | 5       |
-| Lavy[119]<br>UNIAA[46]               | vietnamese visual language understanding<br>image aesthetic attributes | 5354              | multiple types of tasks | N/A                | 13      |
-| CFMM[58]                             | counterfactual reasoning                                               | 2400              | A/B                     | N/A                | 7       |
-|                                      |                                                                        |                   |                         |                    |         |
+| MME[9] | perception and cognition | 1.5k | Y/N | N/A | 10 |
+| MMBench[12] | objective evaluation | 3217 | open | GPT | 14 |
+| MovieChat[174] | long video understanding | 14k | open | GPT | 6 |
+| MM-Vet[10] | integrated capabilities | 205 | open | GPT | 9 |
+| SciGraphQA[103] | scientific question-answering | 657k | open | GPT | 5 |
+| DEMON[138] | demonstrative instruction understanding | 477.72K | open | N/A | 9 |
+| M-HalDetect[143]<br>VisIT-Bench[139] | hallucination detection<br>instruction following | 16K<br>592 | open<br>open | human<br>Human/GPT | 3<br>14 |
+| EgoSchema[175] | long video understanding | 5063 | MQA | N/A | 4 |
+| TouchStone[11] | open-ended real-world dialogues | 908 | open | GPT | 7 |
+| Q-Bench[48] | low-level visual perception | 2990 | Y/N,open | N/A | 15 |
+| MMHAL-BENCH[151] | penalizing hallucinations | 96 | open | GPT | 6 |
+| PCA-EVAL[113] | decision-making ability | 300 | MQA | GPT | 6 |
+| MathVista[79] | mathematical tasks | 735 | MQA,open | GPT | 12 |
+| MMEdit[71] | knowledge editing | | open | N/A | 2 |
+| HallusionBench[145] | image-context reasoning | 1129 | open | GPT | 15 |
+| What'sUp[51] | spatial relations | 820 | text options | N/A | 8 |
+| ChEF[7] | Comprehensive Evaluation Framework | - | - | - | 9 |
+| Bingo[144] | hallucinations related to bias and interference | 370 | open | GPT | 2 |
+| MagnifierBench[28] | visual perception of small objects | 283 | MQA, open | Human/GPT | - |
+| ViLMA[168] | visio-linguistic capabilities | 4177 | caption matching | N/A | 12 |
+| AMBER[152] | hallucinations related to attributes and relations | 15k | Y/N, open | N/A | 9 |
+| MMC-Benchmark[104] | visual charts understanding | 2k | Open,MQA | GPT | 6 |
+| AutoEval-Video[180] | open ended video question answering | 327 | open | GPT | 11 |
+| Video-Bench[177] | comprehensive evaluation for video | 17036 | MQA | N/A | 8 |
+| MMMU[87] | college-level subject knowledge | 11.5k | MQA,open | N/A | 23 |
+| MVBench[166] | video understanding | 4000 | MQA | N/A | 17 |
+| VITATECS[169] | temporal concept underStanding | 13k | open | N/A | 9 |
+| MM-SafetyBench[163] | safety-critical evaluations | 5040 | open | GPT | 12 |
+| TimeIT[167] | long video understanding | 125k | open | | 8 |
+| Grounding-Bench[22] | grounding and chat capabilities | 1000 | open | GPT | 9 |
+| EgoPlan-Bench[112] | human-level planning | 5k | MQA | N/A | 28 |
+| M3DBench[188] | 3D instruction following | 327k | open | GPT | 3 |
+| V*Bench[21] | grounding detailed visual information | 191 | MQA | | 7 |
+| DriveLM-DATA[133] | autonomous driving | | | | |
+| ChartBench[102] | chart comprehension | 600k | open | N/A | 21 |
+| TransportationGames[130] | transportation | 1910 | MQA,T/F,open | GPT | 16 |
+| MMVP[24] | visual perception | 300 | MQA | | 9 |
+| BenchLMM[158] | robustness | | open | GPT | 10 |
+| MM-SAP[157] | self-awareness in perception for MLLMs | 1150 | MQA | N/A | 14 |
+| AesBench[45] | image aesthetics perception | 8400 | MQA | GPT | 15 |
+| SPEC[32] | fine-grained comprehension | | text options | N/A | 5 |
+| Mementos[37] | sequential image reasoning abilities | 4761 | free-from | GPT | 9 |
+| CMMMU[86] | college-level subject knowledge | 12K | open | N/A | 11 |
+| RTVLM[165] | red teaming | 5200 | open | GPT | 10 |
+| CMMU[88]<br>Mobile-Eval[115] | knowledge comprehension and reasoning<br>mobile device operations | 3603<br>33 | open<br>N/A | N/A<br>N/A | 10 |
+| LHRS-Bench[122] | remote sensing | 690 | MQA | N/A | 9 |
+| MHaluBench[149] | multimodal hallucination detection | 420 | open | N/A | 2 |
+| CorrelationQA[147] | instinctive bias across different types | 7308 | open | N/A | 9 |
+| SHIELD[164] | face spoofing and forgery detection | | T/F, MQA | N/A | 2 |
+| SceMQA[89] | core science subjects | 1045 | open | GPT | 6 |
+| Q-Bench+[49] | low-level visual perception | 949 | Y/N,open | N/A | 24 |
+| VQAv2-IDK[159] | self-awareness hallucination | 20k | open | N/A | 3 |
+| Asclepius[126] | medicine | 3232 | MQA | N/A | 6 |
+| ChartX[101] | chart reasoning | 48k | open | N/A | 11 |
+| MCUB[189] | understand inputs from diverse modalities | | MQA | N/A | 5 |
+| MAD-Bench[154] | resist deceiving information in the prompt | 1000 | open | GPT | 19 |
+| CODIS[57] | context-dependent visual comprehension | 706 | Close&Open-ended | Human/ GPT | 14 |
+| MM-Soc[129] | social media content | | MQA,open | N/A | 10 |
+| VHTest[146] | visual hallucination | 1200 | Y/N | N/A | 8 |
+| Math-Vision[82] | mathematical reasoning | 3k | open | GPT | 9 |
+| MIKE[72] | knowledge editing | 1000 entities | open | N/A | 2 |
+| MMEcaption[153] | inter-modality semantic coherence | | N/A | N/A | 7 |
+| OSCaR[171] | object state understanding | 14084 | open | N/A | 8 |
+| CRPE[53] | relation comprehension | - | MQA | N/A | 3 |
+| TempCompass[170] | temporal perception | 7540 | multiple types of tasks | GPT | 11 |
+| Henna[118] | Arabic culture | 1132 | open | GPT | 2 |
+| NPHardEval4V[81] | reasoning abilities | 900 | restrictive text | N/A | 9 |
+| VLKEB[73] | knowledge editing | 3174 | open | N/A | 5 |
+| CoIN[136] | continual instruction tuning | | open | N/A | 2 |
+| VL-ICL Bench[59] | in-context learning | 1520 | open | N/A | 12 |
+| MathVerse[80] | visual math tasks | 15k | open | GPT | 17 |
+| VisualCoT[27] | specific local region identification | | free-from | GPT | 3 |
+| P2GB[26] | visual reasoning capabilities | 2130 | MQA | - | 3 |
+| MDVP-Bench[6] | visual prompting research | - | Y/N | GPT | 4 |
+| MMStar[65] | vision-indispensable tasks | 1500 | MQA | N/A | 16 |
+| M3D[125] | 3D medical tasks | | MQA,open | N/A | 2 |
+| JailBreakV-28K[161] | the robustness of MLLMs against jailbreak attacks | 28000 | open | LLM | 10 |
+| FABA-Bench[44] | facial affective behavior analysis | 403 | open | N/A | 5 |
+| Ferret-UI[116] | understanding of mobile UI screens | 69 | N/A | N/A | 4 |
+| VisualWebBench[109] | understanding and grounding in web scenarios | 1.5k | open | N/A | 14 |
+| DesignQA[47] | real-world engineering tasks | 1451 | open | N/A | 5 |
+| Lavy[119]<br>UNIAA[46] | vietnamese visual language understanding<br>image aesthetic attributes | 5354 | multiple types of tasks | N/A | 13 |
+| CFMM[58] | counterfactual reasoning | 2400 | A/B | N/A | 7 |
+| | | | | | |
 
-| Benchmark             | Focus                                               | Answer Annotation | Answer Type               | HGEvaluation            | Models |
+| Benchmark | Focus | Answer Annotation | Answer Type | HGEvaluation | Models |
 |-----------------------|-----------------------------------------------------|-------------------|---------------------------|-------------------------|--------|
-| MARVEL[76]            | abstract visual reasoning                           | 770               | MQA                       | N/A                     | 9      |
-| DesignProbe[219]      | design task                                         | open              | GPT                       |                         | 9      |
-| ImplicitAVE[43]       | implicit value extraction                           | 1610              | restrictive text          | N/A                     | 6      |
-| MMT-Bench[192]        | general purpose multimodal intelligence             | 31k               | MQA                       | GPT                     | 30     |
-| SEED-Bench-2-Plus[94] | text-rich visual comprehension                      | 2.3k              | MQA                       | N/A                     | 34     |
-| MileBench[38]         | long-context capabilities                           | 6440              | MQA                       | N/A                     | 22     |
-| MileBench[38]         | multimodal long-context capabilities                | 6440              | MQA                       | N/A                     | 22     |
-| Plot2Code[110]        | multi-modal code tasks                              | 132               | open                      | GPT                     | 14     |
-| SciFIBench[107]       | scientific figure interpretation                    | 1000              | MQA                       | N/A                     | 26     |
-| SOK-Bench[70]         | video reasoning                                     | 44K               | MQA                       | N/A                     | 7      |
-| MRHal-Bench[221]      | hallucinations in multi-round dialogues             | 105               | open                      | GPT                     | 15     |
-| MTVQA[120]            | multilingual text-rich scenarios                    | 28607             | open                      | N/A                     | 18     |
-| MMUBench[160]         | evaluation of machine unlearning                    | 1000              | open                      | N/A                     | 4      |
-| M3CoT[61]             | multi-domain multi-step chain-of-thought reasoning  | 11459             | MQA                       | N/A                     | 5      |
-| Video-MME[179]        | comprehensive evaluation in video analysis          | 2700              | MQA                       | N/A                     | 12     |
-| SpatialRGPT[55]       | grounded spatial reasoning                          | 1406              | open                      | GPT                     | 9      |
-| MLVU[135]             | multi-task long Video Understanding                 | 2593              | MQA,open                  | GPT                     | 20     |
-| MLVU[135]             | multi-task long video understanding                 | 2593              | MQA                       | N/A                     | 20     |
-| M3GIA[78]             | intelligence tests                                  | 1800              | MQA                       | N/A                     | 24     |
-| II-Bench[42]          | higher-order perceptual                             | 1434              | MQA                       | N/A                     | 20     |
-| CVQA[121]             | culturally-diverse multilingual VQA                 | 9k                | MQA                       | N/A                     | 8      |
-| MultiTrust[162]       | the trustworthiness of MLLMs                        |                   | open                      | N/A                     | 21     |
-|                       |                                                     |                   |                           |                         |        |
-| MM-NIAH[99]           | long multimodal documents                           | 12k               | restrictive text          |                         | 9      |
-| MMWorld[181]          | multi-discipline, multi-faceted video understanding | 6627              | MQA, open                 | GPT                     | 12     |
-| MMRel[50]             | inter-object relations                              | 15k               | Y/N                       | N/A                     | 6      |
-| ADLMCQ[172]           | activities of daily living                          |                   | MQA                       | N/A                     | 5      |
-| MuirBench[39]         | multi-image understanding                           | 2600              | MQA                       | N/A                     | 20     |
-| VCog-Bench[77]        | abstract visual reasoning                           | 1440              | MQA                       | N/A                     | 16     |
-| MMR[155]              | robustness to leading questions                     | 600               | MQA                       | N/A                     | 18     |
-| MMNeedle[134]         | long-context capabilities                           | 280K              | restrictive text          | N/A                     | 11     |
-| MC-MKE[74]            | knowledge editing                                   | 2884              | open                      | N/A                     | 2      |
-| GSR-BENCH[52]         | spatial relationships                               | 820               | Template-based generation | N/A                     | 9      |
-| Event-Bench[176]      | event-oriented long video understanding             | 2190              | MQA                       | N/A                     | 12     |
-| VideoHallucer[150]    | hallucination detection in video                    | 1800              | Y/N                       | N/A                     | 12     |
-| CV-Bench[25]          | vision-centric tasks                                | 2638              | open                      | GPT                     |        |
-| MM-SpuBench[156]      | spurious biases in MLLMs                            | 10773             | MQA                       | N/A                     | 15     |
-| Charxiv[105]          | diverse charts understanding                        | 10k               | open                      | GPT                     | 24     |
-| MMRo[131]             | robot applications                                  | 26175             | MQA, open                 | GPT                     | 13     |
-| Web2Code[108]         | understanding of the web content                    | 5990              | Y/N, open                 | GPT                     | 4      |
-| MIA-Bench[137]        | layered instructions following                      | 400               | open                      | GPT                     | 29     |
-| CRAB[117]             | cross-environment tasks                             | 100               | N/A                       | N/A                     | 4      |
-| ScanReason[187]       | 3D reasoning grounding                              | 10k               | bounding box              | N/A                     | 11     |
-| MATHCHECK-GEO[83]     | geometry reasoning                                  | 1440              | open                      | GPT                     | 11     |
-| CHOPINLLM[106]        | diverse charts understanding                        | 6k                | open                      |                         |        |
-| MMIU[41]              | multi-image tasks                                   | 11K               | MQA                       | N/A                     | 24     |
-| GMAI-MMBench[124]     | medical applications                                | 26K               | MQA                       | GPT                     | 50     |
-| MuCR[56]              | multimodal causal reasoning                         | 400               | MQA, open                 | N/A                     | 17     |
-| SPARK[30]             | multi-vision sensor perception and reasoning        | 6,248             | Y/N, MQA                  | N/A                     | 10     |
-| MultiMed[127]         | multimodal and multitask medical understanding      | 2.56 million      | open                      | domain-specific metrics |        |
-| HR-Bench[29]          | high-resolution image perception                    | 200               | MQA                       | N/A                     | 13     |
+| MARVEL[76] | abstract visual reasoning | 770 | MQA | N/A | 9 |
+| DesignProbe[219] | design task | open | GPT | | 9 |
+| ImplicitAVE[43] | implicit value extraction | 1610 | restrictive text | N/A | 6 |
+| MMT-Bench[192] | general purpose multimodal intelligence | 31k | MQA | GPT | 30 |
+| SEED-Bench-2-Plus[94] | text-rich visual comprehension | 2.3k | MQA | N/A | 34 |
+| MileBench[38] | long-context capabilities | 6440 | MQA | N/A | 22 |
+| MileBench[38] | multimodal long-context capabilities | 6440 | MQA | N/A | 22 |
+| Plot2Code[110] | multi-modal code tasks | 132 | open | GPT | 14 |
+| SciFIBench[107] | scientific figure interpretation | 1000 | MQA | N/A | 26 |
+| SOK-Bench[70] | video reasoning | 44K | MQA | N/A | 7 |
+| MRHal-Bench[221] | hallucinations in multi-round dialogues | 105 | open | GPT | 15 |
+| MTVQA[120] | multilingual text-rich scenarios | 28607 | open | N/A | 18 |
+| MMUBench[160] | evaluation of machine unlearning | 1000 | open | N/A | 4 |
+| M3CoT[61] | multi-domain multi-step chain-of-thought reasoning | 11459 | MQA | N/A | 5 |
+| Video-MME[179] | comprehensive evaluation in video analysis | 2700 | MQA | N/A | 12 |
+| SpatialRGPT[55] | grounded spatial reasoning | 1406 | open | GPT | 9 |
+| MLVU[135] | multi-task long Video Understanding | 2593 | MQA,open | GPT | 20 |
+| MLVU[135] | multi-task long video understanding | 2593 | MQA | N/A | 20 |
+| M3GIA[78] | intelligence tests | 1800 | MQA | N/A | 24 |
+| II-Bench[42] | higher-order perceptual | 1434 | MQA | N/A | 20 |
+| CVQA[121] | culturally-diverse multilingual VQA | 9k | MQA | N/A | 8 |
+| MultiTrust[162] | the trustworthiness of MLLMs | | open | N/A | 21 |
+| | | | | | |
+| MM-NIAH[99] | long multimodal documents | 12k | restrictive text | | 9 |
+| MMWorld[181] | multi-discipline, multi-faceted video understanding | 6627 | MQA, open | GPT | 12 |
+| MMRel[50] | inter-object relations | 15k | Y/N | N/A | 6 |
+| ADLMCQ[172] | activities of daily living | | MQA | N/A | 5 |
+| MuirBench[39] | multi-image understanding | 2600 | MQA | N/A | 20 |
+| VCog-Bench[77] | abstract visual reasoning | 1440 | MQA | N/A | 16 |
+| MMR[155] | robustness to leading questions | 600 | MQA | N/A | 18 |
+| MMNeedle[134] | long-context capabilities | 280K | restrictive text | N/A | 11 |
+| MC-MKE[74] | knowledge editing | 2884 | open | N/A | 2 |
+| GSR-BENCH[52] | spatial relationships | 820 | Template-based generation | N/A | 9 |
+| Event-Bench[176] | event-oriented long video understanding | 2190 | MQA | N/A | 12 |
+| VideoHallucer[150] | hallucination detection in video | 1800 | Y/N | N/A | 12 |
+| CV-Bench[25] | vision-centric tasks | 2638 | open | GPT | |
+| MM-SpuBench[156] | spurious biases in MLLMs | 10773 | MQA | N/A | 15 |
+| Charxiv[105] | diverse charts understanding | 10k | open | GPT | 24 |
+| MMRo[131] | robot applications | 26175 | MQA, open | GPT | 13 |
+| Web2Code[108] | understanding of the web content | 5990 | Y/N, open | GPT | 4 |
+| MIA-Bench[137] | layered instructions following | 400 | open | GPT | 29 |
+| CRAB[117] | cross-environment tasks | 100 | N/A | N/A | 4 |
+| ScanReason[187] | 3D reasoning grounding | 10k | bounding box | N/A | 11 |
+| MATHCHECK-GEO[83] | geometry reasoning | 1440 | open | GPT | 11 |
+| CHOPINLLM[106] | diverse charts understanding | 6k | open | | |
+| MMIU[41] | multi-image tasks | 11K | MQA | N/A | 24 |
+| GMAI-MMBench[124] | medical applications | 26K | MQA | GPT | 50 |
+| MuCR[56] | multimodal causal reasoning | 400 | MQA, open | N/A | 17 |
+| SPARK[30] | multi-vision sensor perception and reasoning | 6,248 | Y/N, MQA | N/A | 10 |
+| MultiMed[127] | multimodal and multitask medical understanding | 2.56 million | open | domain-specific metrics | |
+| HR-Bench[29] | high-resolution image perception | 200 | MQA | N/A | 13 |
 
 Besides, Zhu et al. [\[187\]](#page-28-11) introduced a benchmark named ScanReason, which required MLLMs to conduct joint reasoning on the question and the 3D environment before predicting the 3D locations of target objects. To evaluate MLLMs' capability to accurately perceive fine-grained spatial relations such as depth, direction, and distance, Cheng et al. [\[55\]](#page-22-11) proposed SpatialRGPT, which specifically focused on MLLMs' ability to understand 3D spatial concepts like metric distance or size differences between objects. Meanwhile, a comprehensive evaluation benchmark for accurately assessing the capability of MLLMs on 3D tasks was crucial. In view of this, Li et al. [\[188\]](#page-28-12) introduced a comprehensive 3D-centric benchmark called M3DBench, which served as the foundation for developing a versatile and practical general-purpose assistant in real-world 3D environments.
 
@@ -446,7 +445,7 @@ In the real world, people are surrounded by audio, images, videos, and text mess
 
 question answering on general videos of real-life scenarios. Furthermore, to cover a wider range of modal information, Chen et al. [\[189\]](#page-28-13) introduced a benchmark called the Multimodal Commonality Understanding Benchmark (MCUB), which included four modalities—image, audio, video, and point cloud. The task of MCUB was to measure the model's ability to identify commonalities among input entities from diverse modalities but overlooked the various other relationships among different modalities. To achieve general-purpose multimodal intelligence, Ying et al.[\[192\]](#page-28-16) present MMT-Bench, a comprehensive benchmark designed to assess MLLMs across massive multimodal tasks, which required expert knowledge and deliberate visual recognition, localization, reasoning, and planning.
 
-# 8 Conclusion
+## 8 Conclusion
 
 Evaluation carries profound significance and is becoming imperative in the advancement of AGI models. It ensures that the models are not only performing as expected but also meeting the desired standards of accuracy, robustness, and fairness. Through rigorous evaluation, we can identify strengths and weaknesses, guide further improvements, and build trust in the deployment of AI systems in real-world applications. In this study, we provide a comprehensive overview of the evaluation and benchmarks of MLLMs, categorizing them into perception and understanding, cognition and reasoning, specific domains, key capabilities, and other modalities. We aim to enhance the understanding of the current status of MLLMs, elucidate their strengths and limitations, and provide insights into the future progression of MLLMs. Given the dynamic nature of this field, it's possible that some recent developments may not be fully covered. To address this, we plan to continuously update and enhance the information on our website, incorporating new insights as they emerge.
 

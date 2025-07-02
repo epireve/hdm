@@ -24,7 +24,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # Temporal Knowledge Graph Completion: A Survey
 
 Borui Cai<sup>1</sup> , Yong Xiang<sup>1</sup> , Longxiang Gao<sup>2</sup> , He Zhang<sup>3</sup> , Yunfeng Li<sup>3</sup> and Jianxin Li<sup>1</sup>
@@ -46,7 +45,7 @@ Knowledge graph completion (KGC) [Lin *et al.*[, 2015\]](#page-7-2) aims at auto
 <span id="page-0-0"></span>![](_page_0_Figure_10.jpeg)
 <!-- Image Description: This image displays a knowledge graph depicting relationships between Barack Obama, Donald Trump, and relevant entities. Oval nodes represent entities (e.g., "the USA," "Barack Obama"). Directed edges, labeled with relationship types and timeframes (e.g., "Is President 2009-2017"), connect the nodes, illustrating facts such as Obama's presidency and Trump's birthplace. The graph visually represents structured data about US presidents. -->
 
-Figure 1: A knowledge graph example that contains the temporal validity of facts.
+**Figure 1:** A knowledge graph example that contains the temporal validity of facts.
 
 link prediction). Benefiting from the blooming of machine learning and deep neural networks, many KGC methods perform effective link prediction through knowledge graph embedding [Rossi *et al.*[, 2021\]](#page-8-1). That is, learning lowdimensional representations for entities and relations with factual score functions, which measure the correctness of a fact. Despite their successes, one major limitation of KGC methods is that they can hardly learn the temporal dynamics of facts since they assume facts are static; however, many facts change over time. For example, in Fig. [1,](#page-0-0) {DonaldT rump, presidentOf, USA} is only valid from January 2017 to January 2021, while ignoring such temporal validity may lead to inaccurate predictions. Not to mention that the temporal dynamics of facts also carry essential causal patterns that can assist the link prediction.
 
@@ -77,7 +76,7 @@ where [x]<sup>+</sup> = max(x, 0) and γ is a hyper-parameter that regulates how
 $$
 \ell = \sum_{s \in \mathcal{D}} \frac{\exp(q(s))}{\sum_{s' \in \mathcal{D}_s^-} \exp(q(s'))}.
 $$
- (2)
+(2)
 
 The binary cross entropy loss [Liu *et al.*[, 2020a\]](#page-7-6) emphasizes the score of individual facts and negative samples as follows:
 
@@ -93,24 +92,23 @@ Compared with the ICEWS datasets, the performance of existing models on GDELT da
 
 Evaluation Protocol. The evaluation essentially measures how accurately a TKGC method can predict the missing
 
-<span id="page-2-0"></span>
 
-| Dataset    | E      | R   | T     | D         | T imestamp |
+| Dataset | E | R | T | D | T imestamp |
 |------------|--------|-----|-------|-----------|------------|
-| ICEWS14    | 7,128  | 230 | 365   | 90,730    | point      |
-| ICEWS05-15 | 10,488 | 251 | 4,017 | 479,329   | point      |
-| ICEWS18    | 23,033 | 256 | 304   | 468,558   | point      |
-| GDELT      | 500    | 20  | 366   | 3,419,607 | point      |
-| YAGO15k    | 15,403 | 32  | 169   | 138,048   | range      |
-| WIKIDATA   | 11,153 | 96  | 328   | 150,079   | range      |
+| ICEWS14 | 7,128 | 230 | 365 | 90,730 | point |
+| ICEWS05-15 | 10,488 | 251 | 4,017 | 479,329 | point |
+| ICEWS18 | 23,033 | 256 | 304 | 468,558 | point |
+| GDELT | 500 | 20 | 366 | 3,419,607 | point |
+| YAGO15k | 15,403 | 32 | 169 | 138,048 | range |
+| WIKIDATA | 11,153 | 96 | 328 | 150,079 | range |
 
-Table 1: Statistics of TKGC benchmark datasets.
+**Table 1:** Statistics of TKGC benchmark datasets.
 
 links and is normally defined as the ranking of the factual score of the true prediction among all candidates. The commonly used evaluation metrics for accuracy include Hits@k, Mean Ranking (MR) and Mean Reciprocal Ranking (MRR). Hits@k is the percentage of ranks lower than or equal to k, MR is the average rank for all test quadruples, and MRR is the inverse of MR. Entity prediction is a basic link prediction task for TKGC and is expressed as two types of queries; that is, (?, r, t, τ ) and (h, r, ?, τ ), which correspond to prediction objectives as arg minhˆ∈E <sup>q</sup>(h, r, t, τ <sup>ˆ</sup> ) and arg mintˆ∈E q(h, r,t, τ ˆ ), respectively.
 
 For some TKGC methods [\[Trivedi](#page-8-5) *et al.*, 2017] that adopt irreversible reasoning processes (e.g., path-finding from the head entity to the tail entity [Han *et al.*[, 2020b\]](#page-7-11)), the query (?, r, t, τ ) instead is predicted as (t, r<sup>−</sup>, ?, τ ) by introducing r <sup>−</sup> (the augmented inverse relation of r). During training, r <sup>−</sup> is learned by generating an inverse fact {t, r<sup>−</sup>, h, τ} for each fact {h, r, t, τ} in the training set. In addition to entity prediction, relation prediction ({h, ?, t, τ} [Li *et al.*[, 2021b\]](#page-7-8)) and time prediction ({h, r, t, ?} [\[Leblay and Chekol, 2018\]](#page-7-3)) are also discussed in some existing works, with same metrics for the accurate measurement. The current research community mainly focuses on evaluating TKGC models using queries that have timestamps seen in the dataset; while a rising challenge is to further evaluate the methods with out-ofsample timestamps that are unseen in the knowledge graph. Unseen timestamps can be categorized into two types, i.e., future timestamps [Li *et al.*[, 2021b\]](#page-7-8) and missing timestamps [Goel *et al.*[, 2020\]](#page-7-12). The evaluation with missing timestamps is regarded as interpolation or knowledge imputation; while future timestamps aim at extrapolation that challenges the effectiveness of predicting future events.
 
-# 3 Temporal Knowledge Graph Completion Methods
+## 3 Temporal Knowledge Graph Completion Methods
 
 To predict missing links, many KGC methods adopt factual score functions to measure the correctness of facts and negative samples. For example, the score function of TransE [\[Bor](#page-7-4)des *et al.*[, 2013\]](#page-7-4), q(h, r, t) = ke<sup>h</sup> + e<sup>r</sup> − etk, regards r as the translation between h and t. For TKGC, facts become quadruples due to additional timestamps. Therefore, TKGC expects more flexible models to further learn the temporal dynamics of knowledge graphs with the provided timestamps of facts. We observe that many TKGC methods are built upon existing KGC methods, and the main challenge is to design effective strategies to incorporate the timestamps into the factual score functions. Therefore, we analyze existing TKGC methods based on different strategies for timestamp integration and roughly categorize them into six types as follows:
 
@@ -147,7 +145,7 @@ Other than hyperplanes, TeRo [Xu *et al.*[, 2020a\]](#page-8-13) regards the tra
 
 where ◦ is the Hermitian product in the complex space. Then, the relation is regarded as the translation of the rotated head entity to the conjugate of the tail entity as q(s) = kehτ +er−e¯tτ k. Similarly, ChronoR [\[Sadeghian](#page-8-14) *et al.*, 2021] uses high-dimensional rotation transformation parameterized by relation and time to obtain the time-dependent representation of head entities, i.e., Qr,τ (e h ) = e t . Tensor nuclear norm is further adopted as the regularization term to ensure the learned representations generalize well to unseen timestamps. ToKE<sup>I</sup> [\[Leblay](#page-7-17) *et al.*, 2020] uses timestamps as more expressive transformation matrices, and to achieve arbitrary time precision (compatible with timestamps of different resolutions), it unifies possible time resolutions (e.g., quarter, month, week) as a one-hot vector, with different time resolutions separately expressed as vector segments. The onehot vector of the timestamp further corresponds to a series of linear transformation matrices, which are used to map entities/relations to be time-dependent.
 
-#### 3 Dynamic Embedding
+### 3 Dynamic Embedding
 
 In the TKGC task, time-dependent representations are expected to exhibit changes in entity/relation contexts over time. Notably, the variation of an entity/relation representation along the timeline usually follows specific dynamical evolution patterns. For example, a person's life cycle can only be bornIn −→ workAt −→ dieIn, and it is irreversible. Dynamic embedding methods aim at capturing these evolution patterns by encoding the dynamics in learned representations.
 
@@ -163,7 +161,7 @@ Markov Process Models. To learn the temporal dynamics, RTFE [Xu *et al.*[, 2021b
 
 Autoregressive Models. RE-NET [Jin *et al.*[, 2019\]](#page-7-21) models the dynamical evolution of facts in an autoregressive manner, i.e., the generation of a fact that belongs to G<sup>τ</sup> dependents on Gτ−m:τ−1, where m is the order of the autoregression. Besides Gτ−m:τ−<sup>1</sup> that carries the graph structures, the generation process further recurrently incorporates local multi-hop neighboring information of the fact, with a multi-relational graph aggregator. In addition to graph structures, RE-GCN [Li *et al.*[, 2021b\]](#page-7-8) employs multiple graph convolution layers on each graph snapshot to capture the dependencies of concurrent facts. The gate recurrent component is adopted to efficiently learn the long-term temporal patterns from historical facts and alleviate the gradient vanishing. Moreover, the static properties of entities (e.g., type) are used as constraints to further refine the learned representations. In addition to the direct neighbor aggregation process of entities, EvoKG [\[Park](#page-8-20) *et al.*[, 2022\]](#page-8-20) learns facts and corresponding timestamps through conditional density estimation, which depends on previously observed knowledge graph snapshots. The model is formulated as neural network-based estimators, with additional relational graph convolution networks that are extended to take the temporal evolution of entities and their interactions into account. A statistical model is further proposed by NLSM [\[Gracious](#page-7-22) *et al.*, 2021] to capture the dynamic evolution of graph snapshots, and a neural network-based variational inference ensures the model scales up to the complex knowledge graph structures. Different from the discrete evolution process, TANGO [Han *et al.*[, 2021\]](#page-7-10) adopts continuous-time embedding to encode both temporal and structural information of historical knowledge graph snapshots. Structural information is captured with multi-relational graph convolutional layers, and dynamical evolution is learned by neural ordinary differential equations (NODES). Considering that many facts are not informative when they do not change across two adjacent timestamps, a graph transition layer is further included in the model to emphasize facts that dissolute or form across two knowledge graph snapshots.
 
-#### 5 Reasoning with Historical Context
+### 5 Reasoning with Historical Context
 
 In TKGC, the adoption of timestamps helps reveal the chronological order of facts in the knowledge graph. That enables predicting missing links by reasoning with the historical context of the query. Normally, facts that occurred before and related to the query are regarded as their historical context. We observe existing methods mainly use two different perspectives to interpret the relevance between the query and its historical context for the link prediction.
 
@@ -171,11 +169,11 @@ Attention-based Relevance. Attention mechanisms that selectively concentrate on 
 
 Heuristic-based Relevance. Another perspective is to adopt external/domain knowledge, as heuristics or guidelines, during the relevance measurement of historical facts. Specifically, two types of predefined tendency scores (Goodness and Closeness) are introduced by TPmod [Bai *et al.*[, 2021\]](#page-6-2) to organize historical facts for the link prediction. Goodness measures the hostility level of relation, e.g., sanction is more hostile than collaborate, while Closeness measures how cooperative two entities are. Then, historical facts are aggregated based on the tendency scores, so that more relevant clues are used for the prediction. A GRU is further adopted for the aggregated historical facts at each timestamp to learn the dynamic reasoning process. CyGNet [Zhu *et al.*[, 2021\]](#page-8-3) observes that history often repeats itself in the knowledge graph datasets; for example, they report that more than 80% of events recorded from 1995 to 2019 in the ICEWS repository have occurred previously. Based on this, the model consists of two modes (Copy and Generation) for inference. The Copy mode learns the probability that the query is a repeat of related historical facts. The Generation mode learns the probability of all possible candidates to be the prediction, with a linear classifier. The outputs of the two modes are aggregated for the final prediction.
 
-# 6 Temporal Logical Rules
+## 6 Temporal Logical Rules
 
 Different from TKGC methods that lack explainability, rulebased methods adopt understandable temporal logical rules to predict missing links. Temporal logical rules are extended from static rules by AnyBURL [\[Meilicke](#page-7-24) *et al.*, 2019], which is a path from the query entity to the predicted entity, by further including timestamps. For example, (e1, r1, e3, τ3) ←− (e1, r1, e2, τ1) ∧ (e2, r2, e3, τ2), and the left-side is the rule head while the right-side is the rule body. The extracted paths are human-readable and thus provide a fair explanation for the predicted results. For simplicity, StreamLearner [\[Omran](#page-8-22) *et al.*[, 2019\]](#page-8-22) defines the rule-body to have the same timestamp. It adopts a static rule learner to extract a set of static rules (without timestamps), and extend them to temporal logical rules that have both effective rule heads and rule bodies (based on the confidence degree). TLogic [Liu *[et al.](#page-7-25)*, [2022\]](#page-7-25) relaxes the strict constraint and proposes cyclic temporal rules that have chronologically non-decreasing timestamps, i.e., (E1, rh, El+1, Tl+1) ← ∧<sup>l</sup> <sup>i</sup>=1(E<sup>i</sup> , r<sup>i</sup> , Ei+1, Ti). To efficiently learn such temporal logical rules, a temporal random walk method is developed to sample a small set of paths. The random walk uses exponential edge weights in the transition matrix to ensure that timely close edges are favored. To further improve the coverage, TLmod [Bai *et al.*[, 2023\]](#page-6-3) designs more rule forms, in addition to the path-based rules. That includes symmetric, equivalence, inverse, transitivity, and composition rules. These rules are obtained by learning their confidence scores in the knowledge graph, which are decided according to similarities between rule heads and rule bodies. In addition, obtained rules can be used for knowledge graph construction and quality assurance [Liu *et al.*[, 2020b\]](#page-7-26).
 
-# 4 Conclusion and Future Directions
+## 4 Conclusion and Future Directions
 
 This paper reviews recent studies of TKGC and organizes them by how time validity is incorporated for link prediction. Although these methods have achieved significant progress and obtained promising results on benchmark datasets, there are still several open challenges.
 
@@ -187,7 +185,7 @@ Larger-scale Knowledge Graph. Compared with datasets used for the evaluation of 
 
 Evolutionary Knowledge Graph. While most existing methods perform TKGC on invariant knowledge graphs, reallife knowledge graphs are constantly evolving, through the deletion of wrong facts and the inclusion of new facts. So, knowledge graphs constantly update their entities, relations, and timestamps. To avoid training a new model from scratch for each update, it is essential to consider TKGC in an incremental or continual learning scenario. Frontier work has attempted to address the catastrophic forgetting in this streaming scenario with experience replay and knowledge distillation [Wu *et al.*[, 2021\]](#page-8-0), and achieves results comparative to baselines. In the future, other continual learning techniques such as regularization and progressive neural networks can further be investigated for TKGC.
 
-# Acknowledgments
+## Acknowledgments
 
 This work was supported in part by the Australian Research Council under Grant LP190100594.
 

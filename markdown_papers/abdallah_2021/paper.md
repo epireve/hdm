@@ -25,11 +25,10 @@ images_removed: 0
 keywords: 
 ---
 
-
 # Towards a GML-Enabled Knowledge Graph Platform
 
-Hussein Abdallah *Concordia University,*hussein.abdallah@concordia.ca
-*Abstract*—This vision paper proposes KGNet, an on-demand graph machine learning (GML) as a service on top of RDF engines to support GML-enabled SPARQL queries. KGNet automates the training of GML models on a KG by identifying a task-specific subgraph. This helps reduce the task-irrelevant KG structure and properties for better scalability and accuracy. While training a GML model on KG, KGNet collects metadata of trained models in the form of an RDF graph called KGMeta, which is interlinked with the relevant subgraphs in KG. Finally, all trained models are accessible via a SPARQL-like query. We call it a GML-enabled query and refer to it as SPARQLML . KGNet supports SPARQLML on top of existing RDF engines as an interface for querying and inferencing over KGs using GML models. The development of KGNet poses research opportunities in several areas, including meta-sampling for identifying taskspecific subgraphs, GML pipeline automation with computational constraints, such as limited time and memory budget, and SPARQLML query optimization. KGNet supports different GML tasks, such as node classification, link prediction, and semantic entity matching. We evaluated KGNet using two real KGs of different application domains. Compared to training on the entire KG, KGNet significantly reduced training time and memory usage while maintaining comparable or improved accuracy. The KGNet source-code[1](#page-0-0) is available for further study.
+Hussein Abdallah *Concordia University,* hussein.abdallah@concordia.ca
+**Abstract:** This vision paper proposes KGNet, an on-demand graph machine learning (GML) as a service on top of RDF engines to support GML-enabled SPARQL queries. KGNet automates the training of GML models on a KG by identifying a task-specific subgraph. This helps reduce the task-irrelevant KG structure and properties for better scalability and accuracy. While training a GML model on KG, KGNet collects metadata of trained models in the form of an RDF graph called KGMeta, which is interlinked with the relevant subgraphs in KG. Finally, all trained models are accessible via a SPARQL-like query. We call it a GML-enabled query and refer to it as SPARQLML . KGNet supports SPARQLML on top of existing RDF engines as an interface for querying and inferencing over KGs using GML models. The development of KGNet poses research opportunities in several areas, including meta-sampling for identifying taskspecific subgraphs, GML pipeline automation with computational constraints, such as limited time and memory budget, and SPARQLML query optimization. KGNet supports different GML tasks, such as node classification, link prediction, and semantic entity matching. We evaluated KGNet using two real KGs of different application domains. Compared to training on the entire KG, KGNet significantly reduced training time and memory usage while maintaining comparable or improved accuracy. The KGNet source-code[1](#page-0-0) is available for further study.
 
 ## I. INTRODUCTION
 
@@ -37,16 +36,16 @@ Knowledge graphs (KGs) are constructed based on semantics captured from heteroge
 
 <span id="page-0-0"></span>Data scientists often work with KGs, which are typically stored in RDF engines. They are responsible for developing GML pipelines using frameworks, such as PyG [\[7\]](#page-7-6) and DGL [\[8\]](#page-7-7), to train models on these KGs. However, there is often a gap between the GML frameworks and RDF engines. This necessitates an initial step of transforming the entire KG from RDF triple format into adjacency matrices in a traditional GML pipeline. Afterward, the data scientist needs to select a suitable GML method from a wide range of KG embedding (KGE) or GNN methods [\[9\]](#page-7-8), [\[10\]](#page-7-9) to train the model. For the average user, this responsibility is time-consuming.
 
-Essam Mansour *Concordia University,*essam.mansour@concordia.ca
+Essam Mansour *Concordia University,* essam.mansour@concordia.ca
 
 <span id="page-0-1"></span>![](_page_0_Figure_9.jpeg)
 <!-- Image Description: This diagram is an Entity-Relationship Diagram (ERD) illustrating a data model. It depicts relationships between entities such as "Paper," "Venue," "Author," and "Affiliation." Relationships are shown with arrows and labels (e.g., "publishedIn," "authoredBy"). Dashed lines indicate weaker or less direct relationships. Features are represented as feature vectors. The diagram likely explains the data structure used for representing author and publication information within the paper. -->
 
-Fig. 1: A KG with nodes/edges in red, which could be predicted by classification and link prediction models on the fly.
+**Figure 1:** A KG with nodes/edges in red, which could be predicted by classification and link prediction models on the fly.
 
 <span id="page-0-2"></span>**prefix dblp**: <https://www.**dblp**.org/> **prefix kgnet**: <https://www.**kgnet**.com/> **select**?title ?venue 4**where**{ ?paper**a dblp**:Publication. ?paper **dblp**:title ?title. ?paper **?NodeClassifier**?venue. ?NodeClassifier**a kgnet:NodeClassifier**. ?NodeClassifier **kgnet**:TargetNode **dblp**:Publication. ?NodeClassifier **kgnet**:NodeLabel **dblp**:venue.}
 
-Fig. 2: SPARQLML pv : a SPARQLML query uses a node classification model to predict a paper's venue by querying and inferencing over the KG shown in Figure [1.](#page-0-1)
+**Figure 2:** SPARQLML pv : a SPARQLML query uses a node classification model to predict a paper's venue by querying and inferencing over the KG shown in Figure [1.](#page-0-1)
 
 Furthermore, the trained models are isolated from the RDF engine, where the KG is stored. Therefore, automating the training of GML models on KGs and providing accessibility to the trained models via a SPARQL-like query is essential. We refer to this query as a SPARQLML query.
 
@@ -68,7 +67,7 @@ In summary, the contributions of this paper are:
 <span id="page-1-0"></span>![](_page_1_Figure_7.jpeg)
 <!-- Image Description: This diagram depicts an architecture for a SPARQL-ML service. It shows two main components: a "GML as a Service" section with inference and training managers using embeddings and models via HTTP calls, and a "SPARQLML as a Service" section with a query manager (parser, re-writer, optimizer) interacting with a KGMeta governor and meta sampler. The system uses an RDF engine (Apache Jena, Star-dog, Openlink-Virtuoso) and exchanges metadata (A, KG') between the components. The purpose is to illustrate the system's workflow and the interaction between GML and SPARQL-ML components. -->
 
-Fig. 3: The KGNet architecture, which provides an interface language (SPARQLML) and enables AI applications and data scientists to automatically train GML models on top of KGs for querying and inferencing KGs based on the trained models.
+**Figure 3:** The KGNet architecture, which provides an interface language (SPARQLML) and enables AI applications and data scientists to automatically train GML models on top of KGs for querying and inferencing KGs based on the trained models.
 
 This automatic training utilizes task-specific subgraphs extracted using our meta-sampling approach.
 
@@ -86,11 +85,11 @@ GNNs have gained significant popularity in recent years. Hence, data scientists 
 <span id="page-2-1"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: The image displays a flowchart illustrating the GML (Graph Machine Learning) framework. It shows data flowing from a Graph Database (CSV input) through a Dataset Transformer (encoding and adjacency matrix creation), resulting in sparse matrices fed into the GML method (training and inferencing). The flowchart details the stages of data processing and model application within the framework. -->
 
-Fig. 4: A traditional GML pipeline [\[19\]](#page-8-3) using a GML framework. The pipeline starts with extracting the graph data, followed by data transformation into sparse matrices to train models for a GML task. Finally, the inference step is ready to predict results in isolation from the graph databases.
+**Figure 4:** A traditional GML pipeline [\[19\]](#page-8-3) using a GML framework. The pipeline starts with extracting the graph data, followed by data transformation into sparse matrices to train models for a GML task. Finally, the inference step is ready to predict results in isolation from the graph databases.
 
 KG nodes and edges, generating adjacency matrices, loading them into memory, and training GNNs using specific methods. Various GML frameworks, such as DGL [\[8\]](#page-7-7) and PyG [\[7\]](#page-7-6), offer multiple implementations of GNN methods. These frameworks support data transformation by loading graphs into memory as graph data structures and applying transformations. However, existing GML frameworks require significant memory and processing time for large KGs and a deep understanding of various GNN methods. In comparison, the OGB pipeline is simple, but it is a semi-automated process that necessitates human intervention and ML expertise to construct an effective pipeline and select an appropriate GNN method. Data scientists may choose the most appropriate GNN method based on various constraints, such as time or memory limitations. Furthermore, as depicted in Figure [4,](#page-2-1) the separation of the trained models from the KG engines adds an extra layer of complexity for data scientists to apply their models when inferring the KG.
 
-#### <span id="page-2-0"></span>III. CHALLENGES OF GML-ENABLED KG ENGINE
+### <span id="page-2-0"></span>III. CHALLENGES OF GML-ENABLED KG ENGINE
 
 This section highlights the open research challenges and opportunities raised by developing GML-enabled KG Engine.
 
@@ -101,22 +100,22 @@ GML methods vary significantly in terms of their accuracy, training time, and me
 <span id="page-2-2"></span>![](_page_2_Figure_8.jpeg)
 <!-- Image Description: The image is a hierarchical flowchart categorizing graph embedding methods. It branches from "Graph Embedding" into "KGE" (Knowledge Graph Embedding) methods (Semantic, DistMult, ComplEx, Translational) and "GNN" (Graph Neural Network) methods. GNNs are further divided into homogeneous and heterogeneous networks, with subcategories including sampling (node/layer, subgraph) and propagation (spectral, attentional) techniques. Specific algorithms under each category are listed. The purpose is to provide a comprehensive overview of the different approaches to graph embedding. -->
 
-Fig. 5: A taxonomy of methods for training GML models.
+**Figure 5:** A taxonomy of methods for training GML models.
 
 GML methods may perform differently under the same budget constraints, and selecting the best method can depend on several factors. Hence, automating a training pipeline for a specific GML task based on a user's budget for time and memory is challenging. For instance, some GML methods perform fullbatch training, which requires more memory budget. These methods require huge memory to train models on large KGs. Some other GNN methods may suffer from over-smoothing, which can cause accuracy degradation. Sampling-based GNN (mini-batch training) methods use different types of sampling, which vary in avoiding these limitations. Therefore, automating the selection of GML methods for a specific task based on a given time or memory budget is challenging.
 
 Real KGs can contain millions to billions of triples, such as DBLP [\[11\]](#page-7-10) and MAG [\[25\]](#page-8-9). However, training GML models on these large KGs requires colossal computing resources that exceed the capabilities of a single machine. As a result, there is a need for identifying a smaller training dataset of the KG, which is specific to the task at hand. This process is known as meta-sampling. It has been proposed in various application domains, including computer vision [\[26\]](#page-8-10), [\[27\]](#page-8-11) and speech recognition [\[28\]](#page-8-12), to extract a training dataset that is tailored to the given task. In the context of GML, meta-sampling presents an opportunity to optimize training models on large KGs by selecting a representative sub-graph that is relevant to the task. This approach can help reduce time and memory requirements without sacrificing accuracy. Therefore, exploring the potential benefits of using meta-sampling in training GML models to extract task-specific subgraphs is crucial. By doing so, we can improve the efficiency and effectiveness of GML methods on large-scale KGs. This raises a research opportunity to explore different meta-sampling approaches for GML methods on large knowledge graphs (KGs).
 
-###*B. Seamless Integration Between GML Models and KGs*Enabling GML on top of RDF engines poses significant challenges, mainly interfacing between the trained models and the underlying data management engine. One common approach is to use user-defined functions (UDFs) to implement this interface [\[29\]](#page-8-13)–[\[31\]](#page-8-14). However, this comes with a cost for query optimizations in data systems [\[32\]](#page-8-15). The existence of an extensive catalog of UDFs can limit the expressiveness of MLbased queries. For instance, a large catalog of UDFs makes it difficult for users to choose between UDFs and find the
+### *B. Seamless Integration Between GML Models and KGs*Enabling GML on top of RDF engines poses significant challenges, mainly interfacing between the trained models and the underlying data management engine. One common approach is to use user-defined functions (UDFs) to implement this interface [\[29\]](#page-8-13)–[\[31\]](#page-8-14). However, this comes with a cost for query optimizations in data systems [\[32\]](#page-8-15). The existence of an extensive catalog of UDFs can limit the expressiveness of MLbased queries. For instance, a large catalog of UDFs makes it difficult for users to choose between UDFs and find the
 
 <span id="page-3-1"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a system for automated graph machine learning (GML). It shows the stages: input (GML task, subgraph, budget, specifications); dataset transformation (preprocessing, adjacency matrix generation, train-test split); optimal GML method selection (considering GNN methods, budget, resources); GML model training (using libraries like DGL and PyG); and GML inference via a REST API, outputting results in JSON format. A key component is the GML optimizer which selects the best GNN (GCN, RGCN, etc.) based on resource constraints. -->
 
-Fig. 6: The automation of training pipeline and inference in our GML-as-a-service (GMLaaS). GMLaaS interacts with the KGMeta Manager to train a model for a specific task with limited budget. The automated pipeline opt to the near-optimal GML method for training a model within a limited budget. GMLaaS supports task inference through RestAPI that is called by a UDF.
+**Figure 6:** The automation of training pipeline and inference in our GML-as-a-service (GMLaaS). GMLaaS interacts with the KGMeta Manager to train a model for a specific task with limited budget. The automated pipeline opt to the near-optimal GML method for training a model within a limited budget. GMLaaS supports task inference through RestAPI that is called by a UDF.
 
 right one for their needs. Most existing query optimizers do not have models estimating the cost of these UDFs. Hence, automating the query optimization of SPARQLML queries is challenging. There is a research opportunity for seamless integration between trained GML models and RDF. To address these challenges, we proposed KGMeta as a graph representation of metadata of trained models interlinked with the KGs.
 
-#*C. Optimizing SPARQL*ML *Queries and Benchmarks*User-defined predicates were first proposed for SQL [\[33\]](#page-8-16). In SPARQLML, a user-defined predicate is used to get a prediction from one of the trained models associated with a specific node in the graph. Estimating the cost of evaluating a user-defined predicate is more complex than estimating the cost of a traditional RDF predicate. While cardinality estimation is used to optimize only the execution time for the latter, a user-defined predicate in a SPARQLML query can be inferred by multiple models, each with varying accuracy and inference time. RDF engines are unaware of this information, leading to the problem of selecting the best model for inference.
+## *C. Optimizing SPARQL*ML *Queries and Benchmarks*User-defined predicates were first proposed for SQL [\[33\]](#page-8-16). In SPARQLML, a user-defined predicate is used to get a prediction from one of the trained models associated with a specific node in the graph. Estimating the cost of evaluating a user-defined predicate is more complex than estimating the cost of a traditional RDF predicate. While cardinality estimation is used to optimize only the execution time for the latter, a user-defined predicate in a SPARQLML query can be inferred by multiple models, each with varying accuracy and inference time. RDF engines are unaware of this information, leading to the problem of selecting the best model for inference.
 
 For a SPARQLML query, the inference step in an RDF engine using a chosen model is a challenging task that requires optimization, specifically for rank-ordering the inference process. The challenge lies in deciding whether to perform the inference in a single call to a UDF or per instance, which may result in an extensive number of UDF calls. Additionally, each model has a unique cardinality, i.e., the total number of predictions it can make. This makes predicting rank-ordering complex as RDF engines lack accurate estimation of UDF costs.
 
@@ -126,7 +125,7 @@ To address these challenges, there are research opportunities for developing ben
 
 <span id="page-3-0"></span>KGNet provides two main services, namely GML as a Service (GMLaaS) and SPARQLML as a Service on top of existing RDF engines, as shown in Figure [3.](#page-1-0)
 
-###*A. GML as a Service (GMLaaS)*Random Comunity KGNet is a platform that offers end-to-end automation of GML training on KGs, as depicted in Figure [6.](#page-3-1) The platform provides*GMLaaS*, a Restful service that manages GML models in terms of automatic training and interactive inferencing. Additionally, it utilizes an embedding store to facilitate entity similarity search tasks by computing the similarity between embedding vectors. The *GML training manager*automates the training pipeline per task. However, the automation of GML training on KGs is challenging due to the complexity and size of KGs. Therefore, KGNet leverages our meta-sampling approach to optimize the training process by selecting a taskspecific subgraph (KG<sup>0</sup> ) that is specific to the given task. This step helps reduce the time and memory required without trading accuracy. The pipeline takes as input a task-specific subgraph (KG<sup>0</sup> ), the GML task, the task budget, and the available resources within the ML environment.
+### *A. GML as a Service (GMLaaS)*Random Comunity KGNet is a platform that offers end-to-end automation of GML training on KGs, as depicted in Figure [6.](#page-3-1) The platform provides*GMLaaS*, a Restful service that manages GML models in terms of automatic training and interactive inferencing. Additionally, it utilizes an embedding store to facilitate entity similarity search tasks by computing the similarity between embedding vectors. The *GML training manager*automates the training pipeline per task. However, the automation of GML training on KGs is challenging due to the complexity and size of KGs. Therefore, KGNet leverages our meta-sampling approach to optimize the training process by selecting a taskspecific subgraph (KG<sup>0</sup> ) that is specific to the given task. This step helps reduce the time and memory required without trading accuracy. The pipeline takes as input a task-specific subgraph (KG<sup>0</sup> ), the GML task, the task budget, and the available resources within the ML environment.
 
 The*Data Transformer*step converts the subgraph into a sparse-matrix format optimized for in-memory and matrix operations. This format is compatible with popular graph ML data loaders, such as Py-Geometric and DGL, and is ideal for sparse KGs. Our pipeline ensures data consistency by validating node/edge types counts, removing literal data and target class edges, and generating graph statistics. We also perform a train-validation-test split using different strategies like random and community-based. KGNet automates this transformation, making ad-hoc GML training queries possible.
 
@@ -135,7 +134,7 @@ The*Optimal GML Method Selection*step selects the best GML method for a given ta
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: This image presents two diagrams (A and B) illustrating the architecture of link prediction and node classification tasks. Each diagram uses a graph structure showing the relationships between tasks (e.g., Link Predictor Task, Node Classifier Task), data sources (dblp:Person, dblp:Publication), models (GML Model), and evaluation metrics (MRR Score, F1 Score). The diagrams highlight the flow of information and dependencies between different components within each task. Dashed lines represent relationships, and solid lines show direct dependencies. -->
 
-Fig. 7: A KGMeta graph of two trained models for node classification and link prediction tasks. The white nodes are nodes from the original data KG. The dashed nodes/edges are metadata collected per trained model.
+**Figure 7:** A KGMeta graph of two trained models for node classification and link prediction tasks. The white nodes are nodes from the original data KG. The dashed nodes/edges are metadata collected per trained model.
 
 ```text
 1 prefix dblp:<https://www.dblp.org/>
@@ -150,7 +149,7 @@ Fig. 7: A KGMeta graph of two trained models for node classification and link pr
 10 Priority:ModelScore} } )};
 ```text
 
-Fig. 8: A SPARQLML insert query that trains a paper-venue classifier on DBLP. The TrainGML function is a UDF that is implemented inside the RDF engine.
+**Figure 8:** A SPARQLML insert query that trains a paper-venue classifier on DBLP. The TrainGML function is a UDF that is implemented inside the RDF engine.
 
 based on the dimension of the sparse-matrices and GNN neighbour nodes features aggregation approach adopted by each method. For GNN sampling-based methods, the sampling cost basically depends on the sampling heuristic used [\[34\]](#page-8-17). Thus, we are working on a more advanced estimation method based on sampling the sparse-matrices and running a few epochs on them.
 
@@ -172,7 +171,7 @@ KGNet's GML-optimizer determines the necessary resources for each method and opt
 - 6 ?NodeClassifier**kgnet**:TargetNode **dblp**:Publication.
 - 7 ?NodeClassifier **kgnet**:NodeLabel **dblp**:venue.}
 
-Fig. 9: A SPARQLML delete query that deletes a trained model and its meta-data.
+**Figure 9:** A SPARQLML delete query that deletes a trained model and its meta-data.
 
 ```text
 1 prefix dblp: <https://www.dblp.com/>
@@ -188,9 +187,9 @@ Fig. 9: A SPARQLML delete query that deletes a trained model and its meta-data.
 - 8 ?**LinkPredictor kgnet**:DestinationNode **dblp**:affiliation.
 - 9 ?**LinkPredictor kgnet**:TopK-Links 10.}
 
-Fig. 10: A SPARQLML query predicting author affiliation link (edge) on DBLP KG.
+**Figure 10:** A SPARQLML query predicting author affiliation link (edge) on DBLP KG.
 
-# *B. The SPARQL*ML *as a Service*
+## *B. The SPARQL*ML *as a Service*
 
 We offer a SPARQLML as a Service, which comprises three main components: Query Manager, KGMeta Governor, and Meta-sampler. In addition, we provide an interfacing language called SPARQLML that enables users to express SPARQLlike queries for INSERT, DELETE, or SELECT operations, such that: (*i*) a SPARQLML *INSERT* query is used to train a GML model and maintain its metadata in KGMeta (as shown in Figure [8\)](#page-4-1), (*ii*) a SPARQLML *DELETE* query is used to delete trained model files and associated embeddings from the GML-aaS component and then deletes its metadata from the KGMeta (as in Figure [9\)](#page-4-2), (*iii*) a SPARQLML *SELECT*query is for querying and inferencing the KG, e.g., the query in Figure [10.](#page-4-3) When a SPARQLML query is received, the Query Manager parses it. An INSERT or DELETE query is sent to the KGMeta Governor. If it is a SELECT query, it is optimized and rewritten as a SPARQL query.
 *1) KGMeta Governor:*The KGMeta Governor maintains a KGMeta graph for each KG, using statistics and metadata collected from trained GML models specific to that KG. The INSERT query is a request to train a task on a certain KG. The parsed information includes the task type (such as node classification or link prediction), the task inputs (such as the target nodes and classification labels (Y classes) for a classification task), and a budget (such as memory and time budget). Experienced ML users can provide additional information, such as hyperparameters or a specific GML method. This information is encapsulated as a JSON object, as shown in Figure [8.](#page-4-1) At line 4, the*TrainGML*is a UDF that takes as input a JSON object that encapsulates all required information to train a GML model. The KGMeta Governor sends the task to the meta-sampler to obtain a task-specific subgraph (KG<sup>0</sup> ) for the given task. Then governor interacts with the GML Training Manager to automate the training
@@ -206,7 +205,7 @@ We offer a SPARQLML as a Service, which comprises three main components: Query M
 8 }
 ```text
 
-Fig. 11: A candidate SPARQL for SPARQLML pv
+**Figure 11:** A candidate SPARQL for SPARQLML pv
 
 pipeline for this task. Once training is complete, the KGMeta Governor receives the trained model's metadata, including accuracy and inference time, to maintain the KGMeta, as illustrated in Figure [7.](#page-4-0)
 *2) Meta-sampler:* Our meta-sampler aims to identify a task-specific subgraph (KG<sup>0</sup> ) for training a GML task. Each GML task targets nodes of a specific type, such as dblp:Publication in SPARQLML pv . Our meta-sampler extracts a task-specific subgraph (KG<sup>0</sup> ), which comprises a set of triples with representative triples associated with the target nodes. Based on the KG schema structure the size of KG<sup>0</sup> is much smaller than the size of KG. This smaller size will optimize training time and require less memory for training the GML task A. However, the KG may contain triples that are not reachable from a target node v <sup>T</sup> or connected via more than three hops from v T . These triples do not assist the model in generalizing and may lead to over-smoothing problems [\[36\]](#page-8-19), [\[37\]](#page-8-20).
@@ -229,7 +228,7 @@ The *SPARQL*ML *Query Re-writer*uses the near-optimal GML model with URI m to ge
 9 as ?venues_dic where { } }}
 ```text
 
-Fig. 12: A candidate SPARQL for SPARQLML pv
+**Figure 12:** A candidate SPARQL for SPARQLML pv
 
 Manager in our GMLaaS to get inference based on the pretrained model m. The number of HTTP calls may dominates the query execution cost. For example, SPARQLML pv predicts the venue of all papers, whose size is |?papers|.
 
@@ -250,29 +249,29 @@ Real KGs: We mainly focus on two benchmark KGs distinguishing in graph size, gra
 <span id="page-6-2"></span>![](_page_6_Figure_1.jpeg)
 <!-- Image Description: This image presents a technical comparison of two knowledge graph embedding methods, DBLP(KG) and KGNET(KG'), on three metrics: accuracy, training time, and memory usage. Three bar charts illustrate the performance of each method across three different models (G-SAINT, RGCN, SH-SAINT). A table summarizes the size and characteristics of the DBLP and YAGO4 knowledge graphs used in the evaluation. The image aims to demonstrate the relative efficiency and accuracy of the KGNET method compared to DBLP across different tasks and models. -->
 
-Fig. 13: (a) Accuracy, (B) Training Time, and (C) Training Memory for DBLP KG Paper-Venue node classification task. The KGNet task-oriented sampled subgraph (KG') significantly improves accuracy, training time, and memory.
+**Figure 13:** (a) Accuracy, (B) Training Time, and (C) Training Memory for DBLP KG Paper-Venue node classification task. The KGNet task-oriented sampled subgraph (KG') significantly improves accuracy, training time, and memory.
 
 [\[39\]](#page-8-22)). We conducted two node classification tasks and one link prediction. We followed the tasks used in OGB [\[19\]](#page-8-3). Statistics about used KG and tasks are provided in Table [I.](#page-6-1)
 
 Endpoints: We use Virtuoso 07.20.3229 as a SPARQL endpoint, as it is widely adopted as an endpoint for large KGs, such as DBLP. The standard, unmodified installation of the Virtuoso engine was run at the endpoints and used in all experiments.
 
-####*B. GML Experiments With Real KGs*Three GML tasks are conducted to evaluate the KGNet automated GML pipeline. For Node classification task, GNN methods are used to train node classifiers to predict a venue for each DBLP paper. The KG is loaded into the Virtuoso RDF engine. KGNet performs meta-sampling using d1h1 to extract the task-specific subgraph (KG<sup>0</sup> ) to train RGCN, Graph-SAINT, and Shadow-SAINT methods. The task results in Figures [13](#page-6-2) and [14](#page-6-3) show that our KGNet training pipeline using (KG<sup>0</sup> ) outperforms the traditional pipeline on the full KG in all methods with up to 11% accuracy score. The automated training pipeline of KGNet has successfully enabled GNN methods to achieve significant reductions in memory consumption and training time. Specifically, KGNet has demonstrated a reduction of at least 22% in memory consumption and 27% in training time. These results demonstrate that KGNet can effectively discover task-specific subgraphs for each task.
+### *B. GML Experiments With Real KGs*Three GML tasks are conducted to evaluate the KGNet automated GML pipeline. For Node classification task, GNN methods are used to train node classifiers to predict a venue for each DBLP paper. The KG is loaded into the Virtuoso RDF engine. KGNet performs meta-sampling using d1h1 to extract the task-specific subgraph (KG<sup>0</sup> ) to train RGCN, Graph-SAINT, and Shadow-SAINT methods. The task results in Figures [13](#page-6-2) and [14](#page-6-3) show that our KGNet training pipeline using (KG<sup>0</sup> ) outperforms the traditional pipeline on the full KG in all methods with up to 11% accuracy score. The automated training pipeline of KGNet has successfully enabled GNN methods to achieve significant reductions in memory consumption and training time. Specifically, KGNet has demonstrated a reduction of at least 22% in memory consumption and 27% in training time. These results demonstrate that KGNet can effectively discover task-specific subgraphs for each task.
 
 Our Link prediction task aims to predict an author's affiliation link based on their publications and affiliations history
 
 <span id="page-6-3"></span>![](_page_6_Figure_8.jpeg)
 <!-- Image Description: This figure presents a comparative analysis of YAGO and KGNET knowledge graph embedding models across three metrics: accuracy (A), training time (B), and memory usage (C). Each bar chart displays the performance of both models on three datasets (G-SAINT, RGCN, SH-SAINT). The numerical values on the bars represent the specific performance in each category for each model-dataset combination. The purpose is to demonstrate the relative strengths and weaknesses of YAGO and KGNET regarding accuracy, efficiency, and resource consumption. -->
 
-Fig. 14: (a) Accuracy, (B) Training Time, and (C) Training Memory for YAGO-4 KG Place-Country node classification task. The KGNet task-oriented sampled subgraph (KG') significantly improves accuracy, training time, and memory.
+**Figure 14:** (a) Accuracy, (B) Training Time, and (C) Training Memory for YAGO-4 KG Place-Country node classification task. The KGNet task-oriented sampled subgraph (KG') significantly improves accuracy, training time, and memory.
 
 <span id="page-6-4"></span>![](_page_6_Figure_10.jpeg)
 <!-- Image Description: This figure presents a comparative analysis of DBLP(KG) and KGNET(KG') methods using bar charts. (A) shows Hits@10, (B) shows training time in hours, and (C) shows memory usage in GB for the MorsE dataset. KGNET(KG') generally demonstrates superior performance in terms of Hits@10, while DBLP(KG) requires significantly more time and memory. The figure illustrates the trade-off between performance and resource consumption. -->
 
-Fig. 15: (a) Accuracy, (B) Training Time, and (C) Training Memory for the DBLP Author Affiliation link prediction task. The KGNet task-oriented edge sampled subgraph (KG') significantly improves the Hits@10 MRR score, training time, and training memory.
+**Figure 15:** (a) Accuracy, (B) Training Time, and (C) Training Memory for the DBLP Author Affiliation link prediction task. The KGNet task-oriented edge sampled subgraph (KG') significantly improves the Hits@10 MRR score, training time, and training memory.
 
 on the DBLP knowledge graph. MorsE [\[22\]](#page-8-6) is the state-of-theart link-prediction sampling-based method. We use the MorsE in the traditional pipeline with the full KG. In the KGNet pipeline, our meta-sampling first extracts the task-specific subgraph (KG<sup>0</sup> ) using d2h1 to train MorsE. The results, shown in Figure [15,](#page-6-4) demonstrate that the KGNet automated pipeline outperforms the pipeline trained on the full KG in terms of Hits@10 MRR score. KGNet achieves a significant reduction in memory usage and training time, with a reduction of 94% compared to the pipeline trained on the full KG.
 
-#### VI. RELATED WORK
+### VI. RELATED WORK
 
 <span id="page-6-0"></span>The adoption of combining AI and database systems has been growing rapidly, with two main approaches emerging: AI models incorporated in DB systems (AI4DB) and database techniques optimized for AI systems for better scalability (DB4AI) [\[40\]](#page-8-23). In KGNet, we classify SPARQLML as part of the AI4DB approach since we have extended the KG engine to query and perform inference on KGs using GML models. However, we classify GMLaaS as part of the DB4AI approach since we have optimized the training pipeline using our meta-sampling approach, which queries a KG to extract a task-specific subgraph. Works RDFFrames [\[41\]](#page-8-24), DistRDF2ML [\[42\]](#page-8-25), and Apple Saga [\[18\]](#page-8-2) aim to bridge the gap between ML and RDF systems by enabling the user to extract data from heterogeneous graph engines in a standard tabular format to apply traditional ML tasks such as classification, regression, and clustering or use KGE methods to generate node/edge embeddings for similarity search applications.
 
@@ -282,11 +281,11 @@ Google's BigQuery ML [\[46\]](#page-8-29) provides user-friendly tools to suppor
 
 Bordawekar et al. [\[48\]](#page-8-31) built a cognitive relation database engine that queries database records utilizing word similarity using word2vec embeddings and extends results with external data sources. The cognitive DB represents a step towards linking representation learning with DB using text embedding techniques. EmbDI [\[49\]](#page-8-32) automatically learns local relation embeddings with high quality from relational datasets using a word embedding to support datasets schema matching. Unlike all the above-mentioned systems, KGNet proposed a platform combining DB4AI and AI4DB approaches to bridge the gap between GML frameworks and RDF engines.
 
-#### VII. CONCLUSION
+### VII. CONCLUSION
 
 <span id="page-7-15"></span>The lack of integration between GML frameworks and RDF engines necessitates that data scientists manually optimize GML pipelines to retrieve KGs stored in RDF engines and select appropriate GML methods that align with their computing resources. Furthermore, the trained models cannot be directly used for querying and inference over KGs, which impedes systems' scalability, particularly as KGs grow in size and require excessive computing resources. Additionally, these limitations impact the system's flexibility, as descriptive query languages are incapable of incorporating GML models. To overcome these limitations, this vision paper proposed KGNet, an on-demand GML-as-a-service (GMLaaS) platform on top of RDF engines to support GML-enabled SPARQL queries (SPARQLML). KGNet uses meta-sampling to extract a task-specific subgraph (KG<sup>0</sup> ) as a search query against a KG for a specific task. Our GMLaaS automates a costeffective pipeline using KG<sup>0</sup> to train a model within a given time or memory budget. KGNet maintains the metadata and statistics of trained models as an RDF graph called KGMeta, which is stored alongside associated KGs. KGMeta leads to a seamless integration between GML models and RDF engines, allowing users to easily express their SPARQLML queries based on the SPARQL logic of pattern matching. Moreover, KGMeta enables KGNet to optimize SPARQLML queries for model selection and rank-ordering for the inferencing process. KGNet raises research opportunities spanning across data management and AI.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-7-0"></span>[1] H. Aidan, B. Eva, and et.al., "Knowledge graphs,"*ACM Comput. Surv.*, vol. 54, no. 4, 2021. [Online]. Available: [https://doi.org/10.1145/](https://doi.org/10.1145/3447772) [3447772](https://doi.org/10.1145/3447772)
 - <span id="page-7-1"></span>[2] S. Wu, F. Sun, W. Zhang, X. Xie, and B. Cui, "Graph neural networks in recommender systems: A survey," *ACM Comput. Surv.*, vol. 55, no. 5, pp. 97:1–97:37, 2023. [Online]. Available: <https://doi.org/10.1145/3535101>

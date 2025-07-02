@@ -109,7 +109,7 @@ Memory. The memory (state) of the model at time t consists of a vector si(t) for
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: This flowchart depicts a graph neural network architecture. A batch of graph edges (nodes 1-3 with edges t1, t2) is input. "emb" creates node embeddings. "msg" generates messages, which are aggregated ("agg"). "mem" updates the memory with aggregated messages. "dec" predicts edge probabilities, used to calculate the loss. The process iterates through time steps (t1, t2). Each box represents a matrix of data; colors represent different node/time step combinations. -->
 
-Figure 1: Computations performed by TGN on a batch of time-stamped interactions.*Top:*embeddings are produced by the embedding module using the temporal graph and the node's memory (1). The embeddings are then used to predict the batch interactions and compute the loss (2, 3).*Bottom:*these same interactions are used to update the memory (4, 5, 6). This is a simplified flow of operations which would prevent the training of all the modules in the bottom as they would not receiving a gradient. Section [3.2](#page-4-0) explains how to change the flow of operations to solve this problem and figure [2](#page-4-1) shows the complete diagram.
+**Figure 1:** Computations performed by TGN on a batch of time-stamped interactions.*Top:*embeddings are produced by the embedding module using the temporal graph and the node's memory (1). The embeddings are then used to predict the batch interactions and compute the loss (2, 3).*Bottom:*these same interactions are used to update the memory (4, 5, 6). This is a simplified flow of operations which would prevent the training of all the modules in the bottom as they would not receiving a gradient. Section [3.2](#page-4-0) explains how to change the flow of operations to solve this problem and figure [2](#page-4-1) shows the complete diagram.
 
 Thanks to this specific module, TGNs have the capability to memorize long term dependencies for each node in the graph. When a new node is encountered, its memory is initialized as the zero vector, and it is then updated for each event involving the node, even after the model has finished training. While a global (graph-wise) memory can also be added to the model to track the evolution of the entire network, we leave this as future work.
 
@@ -150,9 +150,9 @@ $$
 $$
 
 where h is a learnable function. This includes many different formulations as particular cases:
-*Identity*(id): emb(i, t) = si(t), which uses the memory directly as the node embedding.
-*Time projection*(time): emb(i, t) = (1 + ∆t w) ◦ si(t), where w are learnable parameters, ∆t is the time since the last interaction, and ◦ denotes element-wise vector product. This version of the embedding method was used in Jodie [\(Kumar et al., 2019\)](#page-10-5).
-*Temporal Graph Attention*(attn): A series of L graph attention layers compute i's embedding by aggregating information from its L-hop temporal neighborhood.
+**Identity:** (id): emb(i, t) = si(t), which uses the memory directly as the node embedding.
+**Time projection:** (time): emb(i, t) = (1 + ∆t w) ◦ si(t), where w are learnable parameters, ∆t is the time since the last interaction, and ◦ denotes element-wise vector product. This version of the embedding method was used in Jodie [\(Kumar et al., 2019\)](#page-10-5).
+**Temporal Graph Attention:** (attn): A series of L graph attention layers compute i's embedding by aggregating information from its L-hop temporal neighborhood.
 
 The input to the l-th layer is i's representation h (l−1) i (t), the current timestamp t, i's neighborhood representation {h (l−1) 1 (t), . . . , h (l−1) <sup>N</sup> (t)} together with timestamps t1, . . . , t<sup>N</sup> and features ei1(t1), . . . , eiN (t<sup>N</sup> ) for each of the considered interactions which form an edge in i's temporal neighborhood:
 
@@ -179,7 +179,7 @@ $$
 $$
 
 Here, φ(·) represents a generic time encoding [\(Xu et al., 2020\)](#page-12-3), k is the concatenation operator and zi(t) = emb(i, t) = h (L) i (t). Each layer amounts to performing multi-head-attention [\(Vaswani et al.,](#page-11-8) [2017\)](#page-11-8) where the query (q (l) (t)) is a reference node (i.e. the target node or one of its L − 1-hop neighbors), and the keys K(l) (t) and values V(l) (t) are its neighbors. Finally, an MLP is used to combine the reference node representation with the aggregated information. Differently from the original formulation of this layer (firstly proposed in TGAT [\(Xu et al., 2020\)](#page-12-3)) where no node-wise temporal features were used, in our case the input representation of each node h (0) j (t) = s<sup>j</sup> (t)+v<sup>j</sup> (t) and as such it allows the model to exploit both the current memory s<sup>j</sup> (t) and the temporal node features v<sup>j</sup> (t).
-*Temporal Graph Sum*(sum): A simpler and faster aggregation over the graph:
+**Temporal Graph Sum:** (sum): A simpler and faster aggregation over the graph:
 
 $$
 \mathbf{h}_i^{(l)}(t) = \mathbf{W}_2^{(l)}(\mathbf{h}_i^{(l-1)}(t) \| \tilde{\mathbf{h}}_i^{(l)}(t)),\tag{10}
@@ -196,7 +196,7 @@ The graph embedding modules mitigate the staleness problem by aggregating inform
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a message-passing neural network architecture. Raw messages are processed through aggregation and memory update steps. A batch of nodes is embedded, resulting in node embeddings. These embeddings are then used by a decoder to produce edge probabilities, which are evaluated via a loss function. The numbered steps detail the flow of information through the system. -->
 
-Figure 2: Flow of operations of TGN used to train the memory-related modules.*Raw Message Store* stores the necessary raw information to compute messages, i.e. the input to the message functions, which we call raw messages, for interactions which have been processed by the model in the past. This allows the model to delay the memory update brought by an interaction to later batches. At first, the memory is updated using messages computed from raw messages stored in previous batches (1, 2, 3). The embeddings can then be computed using the just updated memory (grey link) (4). By doing this, the computation of the memory-related modules directly influences the loss (5, 6), and they receive a gradient. Finally, the raw messages for this batch interactions are stored in the raw message store (6) to be used in future batches.
+**Figure 2:** Flow of operations of TGN used to train the memory-related modules.*Raw Message Store* stores the necessary raw information to compute messages, i.e. the input to the message functions, which we call raw messages, for interactions which have been processed by the model in the past. This allows the model to delay the memory update brought by an interaction to later batches. At first, the memory is updated using messages computed from raw messages stored in previous batches (1, 2, 3). The embeddings can then be computed using the just updated memory (grey link) (4). By doing this, the computation of the memory-related modules directly influences the loss (5, 6), and they receive a gradient. Finally, the raw messages for this batch interactions are stored in the raw message store (6) to be used in future batches.
 
 neighbours have been recently active, and by aggregating their memories, TGN can compute an up-to-date embedding for the node. The temporal graph attention is additionally able to select which neighbors are more important based on both features and timing information.
 
@@ -210,7 +210,7 @@ More formally, at any time t, the Raw Message Store contains (at most) one raw m
 
 <span id="page-4-2"></span><sup>1</sup>The Raw Message Store does not contain a message for i only if i has never been involved in an event in the past.
 
-# 4 RELATED WORK
+## 4 RELATED WORK
 
 Early models for learning on dynamic graphs focused on DTDGs. Such approaches either aggregate graph snapshots and then apply static methods [\(Liben-Nowell & Kleinberg, 2007;](#page-10-3) [Hisano, 2018;](#page-9-7) [Sharan & Neville, 2008;](#page-11-9) [Ibrahim & Chen, 2015;](#page-9-8) [Ahmed & Chen, 2016;](#page-8-7) [Ahmed et al., 2016\)](#page-8-8), assemble snapshots into tensors and factorize [\(Dunlavy et al., 2011;](#page-8-4) [Yu et al., 2017;](#page-12-7) [Ma et al., 2019\)](#page-10-9), or encode each snapshot to produce a series of embeddings. In the latter case, the embeddings are either aggregated by taking a weighted sum [\(Yao et al., 2016;](#page-12-8) [Zhu et al., 2012\)](#page-12-9), fit to time series models [\(Huang & Lin, 2009;](#page-9-9) [Güne¸s et al., 2016;](#page-9-10) [da Silva Soares & Prudêncio, 2012;](#page-8-9) [Moradabadi](#page-10-10) [& Meybodi, 2017\)](#page-10-10), used as components in RNNs [\(Seo et al., 2018;](#page-11-10) [Narayan & Roe, 2018;](#page-10-11) [Manessi](#page-10-12) [et al., 2020;](#page-10-12) [Yu et al., 2019;](#page-12-4) [Chen et al., 2018;](#page-8-10) [Sankar et al., 2020;](#page-11-6) [Pareja et al., 2019\)](#page-10-4), or learned by imposing a smoothness constraint over time [\(Kim & Han, 2009;](#page-10-13) [Gupta et al., 2011;](#page-9-11) [Yao et al., 2016;](#page-12-8) [Zhu et al., 2017;](#page-12-10) [Zhou et al., 2018;](#page-12-11) [Singer et al., 2019;](#page-11-11) [Goyal et al., 2018;](#page-9-12) [Fard et al., 2019;](#page-9-13) [Pei et al.,](#page-11-12) [2016\)](#page-11-12). Another line of work encodes DTDGs by first performing random walks on an initial snapshot and then modifying the walk behaviour for subsequent snapshots [\(Mahdavi et al., 2018;](#page-10-14) [Du et al.,](#page-8-11) [2018;](#page-8-11) [Xin et al., 2016;](#page-11-13) [De Winter et al., 2018;](#page-8-12) [Yu et al., 2018\)](#page-12-5). Spatio-temporal graphs (considered by [Zhang et al.](#page-12-12) [\(2018\)](#page-12-12); [Li et al.](#page-10-15) [\(2018\)](#page-10-15) for traffic forecasting) are specific cases of dynamic graphs where the topology of the graph is fixed.
 
@@ -218,43 +218,42 @@ CTDGs have been addressed only recently. Several approaches use random walk mode
 
 Most recent CTDGs learning models can be interpreted as specific cases of our framework (see Table [1\)](#page-5-0). For example, Jodie [\(Kumar et al., 2019\)](#page-10-5) uses the time projection embedding module emb(i, t) = (1 + ∆tw) ◦ si(t). TGAT [\(Xu et al., 2020\)](#page-12-3) is a specific case of TGN when the memory and its related modules are missing, and graph attention is used as the Embedding module. DyRep [\(Trivedi et al., 2019\)](#page-11-7) computes messages using graph attention on the destination node neighbors. Finally, we note that TGN generalizes the Graph Networks (GN) model [\(Battaglia et al.,](#page-8-1) [2018\)](#page-8-1) for static graphs (with the exception of the global block that we omitted from our model for the sake of simplicity), and thus the majority of existing graph message passing-type architectures.
 
-<span id="page-5-0"></span>Table 1: Previous models for deep learning on continuous-time dynamic graphs are specific case of our TGN framework. Shown are multiple variants of TGN used in our ablation studies. *method*(l,n) refers to graph convolution using l layers and n neighbors. †uses t-batches. <sup>∗</sup> uses uniform sampling of neighbors, while the default is sampling the most recent neighbors. ‡message aggregation not explained in the paper. <sup>k</sup> uses a summary of the destination node neighborhood (obtained through graph attention) as additional input to the message function.
+<span id="page-5-0"></span>**Table 1:** Previous models for deep learning on continuous-time dynamic graphs are specific case of our TGN framework. Shown are multiple variants of TGN used in our ablation studies. *method*(l,n) refers to graph convolution using l layers and n neighbors. †uses t-batches. <sup>∗</sup> uses uniform sampling of neighbors, while the default is sampling the most recent neighbors. ‡message aggregation not explained in the paper. <sup>k</sup> uses a summary of the destination node neighborhood (obtained through graph attention) as additional input to the message function.
 
-|            | Mem. | Mem. Updater | Embedding       | Mess. Agg. | Mess. Func. |
+| | Mem. | Mem. Updater | Embedding | Mess. Agg. | Mess. Func. |
 |------------|------|--------------|-----------------|------------|-------------|
-| Jodie      | node | RNN          | time            | —†         | id          |
-| TGAT       | —    | —            | attn (2l, 20n)∗ | —          | —           |
-| DyRep      | node | RNN          | id              | —‡         | attnk       |
-| TGN-attn   | node | GRU          | attn (1l, 10n)  | last       | id          |
-| TGN-2l     | node | GRU          | attn (2l, 10n)  | last       | id          |
-| TGN-no-mem | —    | —            | attn (1l, 10n)  | —          | —           |
-| TGN-time   | node | GRU          | time            | last       | id          |
-| TGN-id     | node | GRU          | id              | last       | id          |
-| TGN-sum    | node | GRU          | sum (1l, 10n)   | last       | id          |
-| TGN-mean   | node | GRU          | attn (1l, 10n)  | mean       | id          |
+| Jodie | node | RNN | time | —† | id |
+| TGAT | — | — | attn (2l, 20n)∗ | — | — |
+| DyRep | node | RNN | id | —‡ | attnk |
+| TGN-attn | node | GRU | attn (1l, 10n) | last | id |
+| TGN-2l | node | GRU | attn (2l, 10n) | last | id |
+| TGN-no-mem | — | — | attn (1l, 10n) | — | — |
+| TGN-time | node | GRU | time | last | id |
+| TGN-id | node | GRU | id | last | id |
+| TGN-sum | node | GRU | sum (1l, 10n) | last | id |
+| TGN-mean | node | GRU | attn (1l, 10n) | mean | id |
 
-|            | Wikipedia    |             | Reddit       |             | Twitter      |             |
+| | Wikipedia | | Reddit | | Twitter | |
 |------------|--------------|-------------|--------------|-------------|--------------|-------------|
-|            | Transductive | Inductive   | Transductive | Inductive   | Transductive | Inductive   |
-| GAE∗       | 91.44 ± 0.1  | †           | 93.23 ± 0.3  | †           | —            | †           |
-| VAGE∗      | 91.34 ± 0.3  | †           | 92.92 ± 0.2  | †           | —            | †           |
-| DeepWalk∗  | 90.71 ± 0.6  | †           | 83.10 ± 0.5  | †           | —            | †           |
-| Node2Vec∗  | 91.48 ± 0.3  | †           | 84.58 ± 0.5  | †           | —            | †           |
-| GAT∗       | 94.73 ± 0.2  | 91.27 ± 0.4 | 97.33 ± 0.2  | 95.37 ± 0.3 | 67.57 ± 0.4  | 62.32 ± 0.5 |
-| GraphSAGE∗ | 93.56 ± 0.3  | 91.09 ± 0.3 | 97.65 ± 0.2  | 96.27 ± 0.2 | 65.79 ± 0.6  | 60.13 ± 0.6 |
-| CTDNE      | 92.17 ± 0.5  | †           | 91.41 ± 0.3  | †           | —            | †           |
-| Jodie      | 94.62 ± 0.5  | 93.11 ± 0.4 | 97.11 ± 0.3  | 94.36 ± 1.1 | 85.20 ± 2.4  | 79.83 ± 2.5 |
-| TGAT       | 95.34 ± 0.1  | 93.99 ± 0.3 | 98.12 ± 0.2  | 96.62 ± 0.3 | 70.02 ± 0.6  | 66.35 ± 0.8 |
-| DyRep      | 94.59 ± 0.2  | 92.05 ± 0.3 | 97.98 ± 0.1  | 95.68 ± 0.2 | 83.52 ± 3.0  | 78.38 ± 4.0 |
-| TGN-attn   | 98.46 ± 0.1  | 97.81 ± 0.1 | 98.70 ± 0.1  | 97.55 ± 0.1 | 94.52 ± 0.5  | 91.37 ± 1.1 |
+| | Transductive | Inductive | Transductive | Inductive | Transductive | Inductive |
+| GAE∗ | 91.44 ± 0.1 | † | 93.23 ± 0.3 | † | — | † |
+| VAGE∗ | 91.34 ± 0.3 | † | 92.92 ± 0.2 | † | — | † |
+| DeepWalk∗ | 90.71 ± 0.6 | † | 83.10 ± 0.5 | † | — | † |
+| Node2Vec∗ | 91.48 ± 0.3 | † | 84.58 ± 0.5 | † | — | † |
+| GAT∗ | 94.73 ± 0.2 | 91.27 ± 0.4 | 97.33 ± 0.2 | 95.37 ± 0.3 | 67.57 ± 0.4 | 62.32 ± 0.5 |
+| GraphSAGE∗ | 93.56 ± 0.3 | 91.09 ± 0.3 | 97.65 ± 0.2 | 96.27 ± 0.2 | 65.79 ± 0.6 | 60.13 ± 0.6 |
+| CTDNE | 92.17 ± 0.5 | † | 91.41 ± 0.3 | † | — | † |
+| Jodie | 94.62 ± 0.5 | 93.11 ± 0.4 | 97.11 ± 0.3 | 94.36 ± 1.1 | 85.20 ± 2.4 | 79.83 ± 2.5 |
+| TGAT | 95.34 ± 0.1 | 93.99 ± 0.3 | 98.12 ± 0.2 | 96.62 ± 0.3 | 70.02 ± 0.6 | 66.35 ± 0.8 |
+| DyRep | 94.59 ± 0.2 | 92.05 ± 0.3 | 97.98 ± 0.1 | 95.68 ± 0.2 | 83.52 ± 3.0 | 78.38 ± 4.0 |
+| TGN-attn | 98.46 ± 0.1 | 97.81 ± 0.1 | 98.70 ± 0.1 | 97.55 ± 0.1 | 94.52 ± 0.5 | 91.37 ± 1.1 |
 
-<span id="page-6-0"></span>
 
-|                                                                    |  | Table 2: Average Precision (%) for future edge prediction task in transductive and inductive settings. |
+| | | **Table 2:** Average Precision (%) for future edge prediction task in transductive and inductive settings. |
 |--------------------------------------------------------------------|--|--------------------------------------------------------------------------------------------------------|
-| First, Second, Third best performing method. ∗Static graph method. |  | †Does not support inductive.                                                                           |
+| First, Second, Third best performing method. ∗Static graph method. | | †Does not support inductive. |
 
-# 5 EXPERIMENTS
+## 5 EXPERIMENTS
 
 Datasets. We use three datasets in our experiments: Wikipedia, Reddit [\(Kumar et al., 2019\)](#page-10-5), and Twitter, which are described in detail in Appendix [A.3.](#page-14-0) Our experimental setup closely follows [\(Xu](#page-12-3) [et al., 2020\)](#page-12-3) and focuses on the tasks of future edge ('link') prediction and dynamic node classification. In future edge prediction, the goal is to predict the probability of an edge occurring between two nodes at a given time. Our encoder is combined with a simple MLP decoder mapping from the concatenation of two node embeddings to the probability of the edge. We study both the transductive and inductive settings. In the transductive task, we predict future links of the nodes observed during training, whereas in the inductive tasks we predict future links of nodes never observed before. For node classification, the transductive setting is used. For all tasks and datasets we perform the same 70%-15%-15% chronological split as in [Xu et al.](#page-12-3) [\(2020\)](#page-12-3). All the results were averaged over 10 runs. Hyperparameters and additional details can be found in Appendix [A.4.](#page-14-1)
 
@@ -266,20 +265,20 @@ Table [2](#page-6-0) presents the results on future edge prediction. Our model c
 
 Due to the efficient parallel processing and the need for only one graph attention layer (see Section [5.2](#page-7-0) for the ablation study on the number of layers), our
 
-<span id="page-6-1"></span>Table 3: ROC AUC % for the dynamic node classification. <sup>∗</sup>Static graph method.
+<span id="page-6-1"></span>**Table 3:** ROC AUC % for the dynamic node classification. <sup>∗</sup>Static graph method.
 
-|            | Wikipedia   | Reddit      |
+| | Wikipedia | Reddit |
 |------------|-------------|-------------|
-| GAE∗       | 74.85 ± 0.6 | 58.39 ± 0.5 |
-| VAGE∗      | 73.67 ± 0.8 | 57.98 ± 0.6 |
-| GAT∗       | 82.34 ± 0.8 | 64.52 ± 0.5 |
+| GAE∗ | 74.85 ± 0.6 | 58.39 ± 0.5 |
+| VAGE∗ | 73.67 ± 0.8 | 57.98 ± 0.6 |
+| GAT∗ | 82.34 ± 0.8 | 64.52 ± 0.5 |
 | GraphSAGE∗ | 82.42 ± 0.7 | 61.24 ± 0.6 |
-| CTDNE      | 75.89 ± 0.5 | 59.43 ± 0.6 |
-| JODIE      | 84.84 ± 1.2 | 61.83 ± 2.7 |
-| TGAT       | 83.69 ± 0.7 | 65.56 ± 0.7 |
-| DyRep      | 84.59 ± 2.2 | 62.91 ± 2.4 |
-| TGN-attn   | 87.81 ± 0.3 | 67.06 ± 0.9 |
-|            |             |             |
+| CTDNE | 75.89 ± 0.5 | 59.43 ± 0.6 |
+| JODIE | 84.84 ± 1.2 | 61.83 ± 2.7 |
+| TGAT | 83.69 ± 0.7 | 65.56 ± 0.7 |
+| DyRep | 84.59 ± 2.2 | 62.91 ± 2.4 |
+| TGN-attn | 87.81 ± 0.3 | 67.06 ± 0.9 |
+| | | |
 
 model is up to 30× faster than TGAT per epoch (Figure [3a\)](#page-7-1), while requiring a similar number of epochs to converge.
 
@@ -293,7 +292,7 @@ model is up to 30× faster than TGAT per epoch (Figure [3a\)](#page-7-1), while 
 
 (b) Performance of methods with different number of layers and with or without memory when sampling an increasing number of neighbors.*Last*and*uniform*refer to neighbor sampling strategy.
 
-Figure 3: Ablation studies on the Wikipedia dataset for the transductive setting of the future edge prediction task. Means and standard deviations were computed over 10 runs.
+**Figure 3:** Ablation studies on the Wikipedia dataset for the transductive setting of the future edge prediction task. Means and standard deviations were computed over 10 runs.
 
 ### <span id="page-7-0"></span>5.2 CHOICE OF MODULES
 
@@ -416,15 +415,15 @@ In case of a node deletion event, we simply remove the node (and its incoming an
 <span id="page-13-2"></span>![](_page_13_Figure_0.jpeg)
 <!-- Image Description: The image is a block diagram depicting a system's architecture. It shows data flow through interconnected modules labeled "msg," "agg," "mem," "emb," and "||". Inputs include `v(t)`, `m_raw(t)`, `s(t-)`, and `e(t)`, while outputs are `s(t-)`, `m_raw(t)`, and `z(t)`. Arrows indicate data flow between modules, annotated with variables like `m(t)` and `m̃(t)`, representing data transformations within the system. The diagram likely illustrates the internal workings of a specific model or algorithm in the paper. -->
 
-Figure 4: Schematic diagram of TGN. m\_raw(t) is the raw message generated by event e(t), t˜is the instant of time of the last event involving each node, and t <sup>−</sup> the one immediately preceding t.
+**Figure 4:** Schematic diagram of TGN. m\_raw(t) is the raw message generated by event e(t), t˜is the instant of time of the last event involving each node, and t <sup>−</sup> the one immediately preceding t.
 
-#### <span id="page-13-0"></span>A.2 TGN TRAINING
+### <span id="page-13-0"></span>A.2 TGN TRAINING
 
 When parallelizing the training of TGN, it is important to mantain the temporal dependencies between interactions. If the events on each node were independent, we could treat them as a sequence and train an RNN on each node independently using Back Propagation Through Time (BTPP). However, the graph structure introduces dependencies between the events (the update of a node depends on the current memory of other nodes) which prevent us from processing nodes in parallel. Previous methods either process the interactions one at a time, or use the t-batch [\(Kumar et al., 2019\)](#page-10-5) training algorithm, which however does not satisfy temporal consistency when aggregating from the graph as in the case of TGN (since the update does not only depend on the memory of the other node involved the interaction, but also on the neighbors of the two nodes).
 
 This issues motivate our training algorithm, which processes all interactions in batches following the chronological order. It stores the last message for each node in a message store, to process it before predicting the next interaction for the node. This allows the memory-related modules to receive a gradient. Algorithm [1](#page-13-1) presents the pseudocode for TGN training, while Figure [4](#page-13-2) shows a schematic diagram of TGN.
 
-#### Algorithm 1: Training TGN
+### Algorithm 1: Training TGN
 
 ```text
 1 s ← 0 ; // Initialize memory to zeros
@@ -435,26 +434,26 @@ This issues motivate our training algorithm, which processes all interactions in
 6 ¯m ← agg(m) ; // Aggregate messages for the same nodes
 7 ˆs ← mem( ¯m, s) ; // Get updated memory
 8 zi
-     , zj
-       , zn ← embˆs(i, t), embˆs(j, t), embˆs(n, t) ; // Compute node embeddings3
+, zj
+, zn ← embˆs(i, t), embˆs(j, t), embˆs(n, t) ; // Compute node embeddings3
 9 ppos, pneg ← dec(zi
-                  , zj), dec(zi
-                         , zn) ; // Compute interactions probs
+, zj), dec(zi
+, zn) ; // Compute interactions probs
 10 l = BCE(ppos, pneg) ; // Compute BCE loss
 11 m_rawi
-          , m_rawj ← (ˆsi
-                    ,ˆsj
-                      , t, e),(ˆsj
-                             ,ˆsi
-                              , t, e) ; // Compute raw messages
+, m_rawj ← (ˆsi
+,ˆsj
+, t, e),(ˆsj
+,ˆsi
+, t, e) ; // Compute raw messages
 12 m_raw ← store_raw_messages(m_raw, m_rawi
-                                     , m_rawj) ; // Store raw
-     messages
+, m_rawj) ; // Store raw
+messages
 13 si
-     , sj ← ˆsi
-           ,ˆsj
-             ; // Store updated memory for sources and
-     destinations
+, sj ← ˆsi
+,ˆsj
+; // Store updated memory for sources and
+destinations
 14 end
 ```text
 
@@ -472,17 +471,17 @@ Node features are not present in any of these datasets, and we therefore assign 
 
 <span id="page-14-2"></span>The statistics of the three datasets are reported in table [4.](#page-14-2)
 
-|                             | Wikipedia   | Reddit      | Twitter     |
+| | Wikipedia | Reddit | Twitter |
 |-----------------------------|-------------|-------------|-------------|
-| # Nodes                     | 9,227       | 11,000      | 8,861       |
-| # Edges                     | 157,474     | 672,447     | 119,872     |
-| # Edge features             | 172         | 172         | 768         |
-| # Edge features type        | LIWC        | LIWC        | BERT        |
-| Timespan                    | 30 days     | 30 days     | 7 days      |
-| Chronological Split         | 70%-15%-15% | 70%-15%-15% | 70%-15%-15% |
-| # Nodes with dynamic labels | 217         | 366         | –           |
+| # Nodes | 9,227 | 11,000 | 8,861 |
+| # Edges | 157,474 | 672,447 | 119,872 |
+| # Edge features | 172 | 172 | 768 |
+| # Edge features type | LIWC | LIWC | BERT |
+| Timespan | 30 days | 30 days | 7 days |
+| Chronological Split | 70%-15%-15% | 70%-15%-15% | 70%-15%-15% |
+| # Nodes with dynamic labels | 217 | 366 | – |
 
-Table 4: Statistics of the datasets used in the experiments.
+**Table 4:** Statistics of the datasets used in the experiments.
 
 Twitter Dataset Generation To generate the Twitter dataset we started with the snapshot of the Recsys Challenge training data on 2020/09/06. We filtered the data to include only retweet edges (discarding other types of interactions) where the timestamp was present. This left approximately 10% of the edges in the original dataset. We then filtered the retweet multi-graph (users can be connected by multiple retweets) to only include the largest connected component. Finally, we filtered the graph to only the top 5,000 nodes in-degree and the top 5,000 by out-degree, ending up with 8,861 nodes since some nodes were in both sets.
 
@@ -492,25 +491,24 @@ Hyperparameters For the all datasets, we use the Adam optimizer with a learning 
 
 Baselines Results Our results for GAE [\(Kipf & Welling, 2016\)](#page-10-17), VGAE [\(Kipf & Welling, 2016\)](#page-10-17), DeepWalk [\(Perozzi et al., 2014\)](#page-11-16), Node2Vec [\(Grover & Leskovec, 2016\)](#page-9-16), GAT [\(Velickovic et al.,](#page-11-5) [2018\)](#page-11-5) and GraphSAGE [\(Hamilton et al., 2017b\)](#page-9-0), CTDNE [\(Nguyen et al., 2018\)](#page-10-16) and TGAT [\(Xu et al.,](#page-12-3) [2020\)](#page-12-3) are taken directly from the TGAT paper [\(Xu et al., 2020\)](#page-12-3). For Jodie [\(Kumar et al., 2019\)](#page-10-5) and DyRep [\(Trivedi et al., 2019\)](#page-11-7), in order to make the comparison as fair as possible, we implement our own version in PyTorch as a specific case of our tgn framework. For Jodie we simply use the
 
-Table 5: Model Hyperparameters.
+**Table 5:** Model Hyperparameters.
 
-<span id="page-15-0"></span>
 
-|                          | Value |
+| | Value |
 |--------------------------|-------|
-| Memory Dimension         | 172   |
-| Node Embedding Dimension | 100   |
-| Time Embedding Dimension | 100   |
-| # Attention Heads        | 2     |
-| Dropout                  | 0.1   |
+| Memory Dimension | 172 |
+| Node Embedding Dimension | 100 |
+| Time Embedding Dimension | 100 |
+| # Attention Heads | 2 |
+| Dropout | 0.1 |
 
 time embedding module, while for DyRep we augment the messages with the result of a temporal graph attention performed on the destination's neighborhood. For both we use a vanilla RNN as the memory updater module.
 
-#### A.4.1 NEIGHBOR SAMPLING: UNIFORM VS MOST RECENT
+### A.4.1 NEIGHBOR SAMPLING: UNIFORM VS MOST RECENT
 
 <span id="page-15-1"></span>When performing neighborhood sampling [\(Hamilton et al., 2017a\)](#page-9-4) in static graphs, nodes are usually sampled uniformly. While this strategy is also possible for dynamic graphs, it turns out that the most recent edges are often the most informative. In Figure [5](#page-15-1) we compare two TGN-attn models (see Table [1\)](#page-5-0) with either uniform or most recent neighbor sampling, which shows that a model which samples the most recent edges obtains higher performances.
 
 ![](_page_15_Figure_5.jpeg)
 <!-- Image Description: The scatter plot displays the relationship between time per epoch (in seconds) and test average precision for two methods: "most\_recent" and "uniform". Each method is represented by an ellipse indicating the mean and variance of the test average precision. The plot visually compares the performance and efficiency of the two methods. "most\_recent" achieves higher precision but requires less time per epoch than "uniform". -->
 
-Figure 5: Comparison of two TGN-attn models using different neighbor sampling strategies (when sampling 10 neighbors). Sampling the most recent edges clearly outperforms uniform sampling. Means and standard deviations (visualized as ellipses) were computed over 10 runs.
+**Figure 5:** Comparison of two TGN-attn models using different neighbor sampling strategies (when sampling 10 neighbors). Sampling the most recent edges clearly outperforms uniform sampling. Means and standard deviations (visualized as ellipses) were computed over 10 runs.

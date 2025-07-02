@@ -29,7 +29,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents
 
 Petr Anokhin<sup>1</sup> , Nikita Semenov<sup>2</sup> , Artyom Sorokin<sup>1</sup> , Dmitry Evseev<sup>2</sup> , Andrey
@@ -63,7 +62,7 @@ In our research, we have developed a memory architecture
 ![](_page_1_Figure_0.jpeg)
 <!-- Image Description: The image contains two parts. (A) illustrates the Ariadne LLM agent architecture: a directed graph ("AriGraph") representing episodic and semantic memory, feeding into a decision-making module interacting with an environment. (B) is a bar chart comparing the normalized scores of Ariadne against other agents (human players, Reflexion, Simulacra, Summary, RAG, and full history) on text-based games, showing Ariadne's superior performance. Error bars represent variability. -->
 
-Figure 1: (A) The architecture of our Ariadne agent, equipped with AriGraph memory. AriGraph integrates both semantic knowledge graph and past experiences. Memory in the form of a semantic knowledge graph extended with episodic vertices and edges significantly enhances the performance of LLM-agent in text-based games. (B) The average performance of our agent on text games, compared to various baselines including human players and other LLM memory implementations. The LLM-agents differ only in the memory module, while the decisionmaking component remains identical across all versions. The results for the agents are displayed for the top three out of five runs. For human players, the results are presented as both the top three and the average across all participants.
+**Figure 1:** (A) The architecture of our Ariadne agent, equipped with AriGraph memory. AriGraph integrates both semantic knowledge graph and past experiences. Memory in the form of a semantic knowledge graph extended with episodic vertices and edges significantly enhances the performance of LLM-agent in text-based games. (B) The average performance of our agent on text games, compared to various baselines including human players and other LLM memory implementations. The LLM-agents differ only in the memory module, while the decisionmaking component remains identical across all versions. The results for the agents are displayed for the top three out of five runs. For human players, the results are presented as both the top three and the average across all participants.
 
 called Ariadne's Graph (AriGraph), that integrates semantic and episodic memories within a memory graph framework. A knowledge graph represents a network of interconnected semantic knowledge, while episodic memories are depicted as episodic edges that can connect multiple relations within the graph. As an agent interacts with environment, it learns joint semantic and episodic world model by updating and extending knowledge graph based memory. This architecture not only serves as a foundational memory framework but also aids in environmental modeling, improving spatial orientation and exploration capabilities. For the general framework of our LLM agent called Ariadne, we employed pipeline of memory retrieval, planing and decision making. For evaluation of proposed methods we set up experiments to study two research questions.
 
@@ -86,20 +85,20 @@ Memory graph structure. AriGraph world model G = (Vs, Es, Ve, Ee) consists of *s
 
 <span id="page-1-0"></span><sup>1</sup> Strictly speaking, episodic edges cannot be called edges or
 
-| Algorithm 1: Memory Graph Search                               |
+| Algorithm 1: Memory Graph Search |
 |----------------------------------------------------------------|
-| Input: set of queries Q, Vs, Es, Ve, Ee,                       |
-| number of episodic vertices k, semantic                        |
-| search depth d and width w                                     |
+| Input: set of queries Q, Vs, Es, Ve, Ee, |
+| number of episodic vertices k, semantic |
+| search depth d and width w |
 | Q<br>Result: retrieved episodic vertices V<br>, retrieved<br>e |
-| semantic triplets EQ<br>s                                      |
-| EQ<br>← ∅,<br>s                                                |
-| foreach q in Q do                                              |
-| E′<br>s ← SemanticSearch(q, Vs, Es, d, w)                      |
-| EQ<br>← EQ<br>s ∪ E′<br>s<br>s                                 |
-| end                                                            |
-| Q<br>← EpisodicSearch(EQ<br>V<br>, Ve, Ee, k)<br>e<br>s        |
-| return EQ<br>Q<br>, V<br>s<br>e                                |
+| semantic triplets EQ<br>s |
+| EQ<br>← ∅,<br>s |
+| foreach q in Q do |
+| E′<br>s ← SemanticSearch(q, Vs, Es, d, w) |
+| EQ<br>← EQ<br>s ∪ E′<br>s<br>s |
+| end |
+| Q<br>← EpisodicSearch(EQ<br>V<br>, Ve, Ee, k)<br>e<br>s |
+| return EQ<br>Q<br>, V<br>s<br>e |
 
 <span id="page-2-0"></span>Constructing AriGraph. Interaction with the environment can provide the agent with an information about the world to create new or update previously acquired knowledge. Given new observation ot, LLM agent extracts new triplets as semantic vertices V t s and edges E<sup>t</sup> s . To find already existing knowledge about the objects mentioned in o<sup>t</sup> a set of all semantic edges Erel s incident to vertices V t s is filtered out. Then outdated edges in Erel s are detected by comparing them with E<sup>t</sup> s and removed from the graph. After clearing outdated knowledge we expand semantic memory with V t s and E<sup>t</sup> s . Episodic memory is updated by simply adding new episodic vertex v t e containing o<sup>t</sup> and new episodic edge that connect all edges in E<sup>t</sup> <sup>s</sup> with v t e . Episodic nodes store agent's past history and episodic edges connects all knowledge received at the same step. See Appendix [E](#page-11-0) for prompts used to extract new triplets and detect outdated knowledge.
 
@@ -136,7 +135,7 @@ even hyperedges, because they connect vertices with multiple graph edges, but fo
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
 <!-- Image Description: The image displays two diagrams. (A) shows a knowledge graph representing semantic and episodic memory. Nodes represent objects (e.g., Tuna, Table) and edges represent relationships (e.g., "contains," "is on"). Different colors denote semantic and episodic information. (B) illustrates a cognitive architecture for an agent. It shows information flow from observation through working memory, planning, and decision-making modules to produce actions within an environment. The AriGraph module learns and updates the world model. The diagram clarifies the agent's reasoning process. -->
 
-Figure 2: AriGraph world model and Ariadne cognitive architecture. (A) AriGraph learns episodic and semantic knowledge during interaction with unknown environment. At each time step t new episodic vertex (containing full textual observation ot) is added to the episodic memory. Then LLM model parses observation o<sup>t</sup> to extract relevant relationships in a form of triplets (object1, relation, object2). These triplets are used to update semantic memory graph. The connection between episodic and semantic memory occurs through episodic edges that link each episodic vertex with all triplets extracted from respective observation. (B) Ariadne agent explores the environment and accomplishes tasks with AriGraph. User sets goal to the agent. Working memory is populated with recent history of observations and actions, relevant semantic and episodic knowledge retrieved from the AirGraph world model. Planing LLM module uses content of working memory to generate new or update existing plan. Results of planning are stored back in working memory. Finally, a ReAct-based module reads memory content and selects one of possible actions to be executed in the environment. Every observation triggers learning that updates agent's world model.
+**Figure 2:** AriGraph world model and Ariadne cognitive architecture. (A) AriGraph learns episodic and semantic knowledge during interaction with unknown environment. At each time step t new episodic vertex (containing full textual observation ot) is added to the episodic memory. Then LLM model parses observation o<sup>t</sup> to extract relevant relationships in a form of triplets (object1, relation, object2). These triplets are used to update semantic memory graph. The connection between episodic and semantic memory occurs through episodic edges that link each episodic vertex with all triplets extracted from respective observation. (B) Ariadne agent explores the environment and accomplishes tasks with AriGraph. User sets goal to the agent. Working memory is populated with recent history of observations and actions, relevant semantic and episodic knowledge retrieved from the AirGraph world model. Planing LLM module uses content of working memory to generate new or update existing plan. Results of planning are stored back in working memory. Finally, a ReAct-based module reads memory content and selects one of possible actions to be executed in the environment. Every observation triggers learning that updates agent's world model.
 
 and clues leading to the final goal. The basic variation has 12 rooms and 4 keys, hard one has 16 rooms and 5 keys and hardest contains 36 rooms, 7 keys and additional distract items in every room.
 
@@ -146,7 +145,7 @@ Cooking. The goal is to prepare and consume a meal by following a recipe, select
 
 For baselines we used Ariadne's planning and decision making module with one of the following types of memory instead of AriGraph model: full history of observations and actions, iterative summarization, RAG, RAG with Reflexion [Shinn *et al.*[, 2023\]](#page-8-5), and Simulacra - memory implementation from [Park *et al.*[, 2023\]](#page-8-4).
 
-*Full history*involves retaining a complete record of all observations and actions to inform decision-making at every step.*Summarization*, as an alternative to storing the full history, focuses on retaining only the necessary information while discarding the rest. The standard *RAG*baseline retrieves top-k memories based on their similarity score to the current observation and plan.*Simulacra*features a scoring mechanism that integrates recency, importance, and relevance, alongside reflections on the extracted memories. The*Reflexion*baseline differs from other methods in its approach, as it operates over multiple trials. After failing a trial, the agent reflects on its trajectories to document information that may assist in solving the task in subsequent trials. We used the gpt-4-0125-preview as LLM backbone for AriGraph and other LLM-based baselines.
+**Full history:** involves retaining a complete record of all observations and actions to inform decision-making at every step.*Summarization*, as an alternative to storing the full history, focuses on retaining only the necessary information while discarding the rest. The standard *RAG*baseline retrieves top-k memories based on their similarity score to the current observation and plan.*Simulacra*features a scoring mechanism that integrates recency, importance, and relevance, alongside reflections on the extracted memories. The*Reflexion*baseline differs from other methods in its approach, as it operates over multiple trials. After failing a trial, the agent reflects on its trajectories to document information that may assist in solving the task in subsequent trials. We used the gpt-4-0125-preview as LLM backbone for AriGraph and other LLM-based baselines.
 
 Additionally, we tested our architecture on a variation of the cooking test from [\[Adhikari](#page-7-8)*et al.*, 2021] to compare it with RL baselines. These tasks have 4 levels of difficulty, however, they are significantly simpler than our main tasks, having fewer locations, ingredients, and required actions (Appendix [F\)](#page-13-0).
 
@@ -154,7 +153,7 @@ For *RL*baselines, we collect the best results reported by [\[Adhikari](#page-7-
 
 To estimate human performance in the same games, we developed a graphical user interface , allowing volunteers to play basic versions of the Treasure Hunt, The Cleaning, and the Cooking. After collecting the data, we excluded sessions where the game was not completed.
 
-#### 2 NetHack environment
+### 2 NetHack environment
 
 NetHack [\[Kuttler](#page-7-6) ¨ *et al.*, 2020] is a classic roguelike adventure game featuring procedurally generated multi-level dungeon (see Figure [13](#page-19-0) in Appendix for a dungeon level example). It poses significant challenges for both LLM-based and RLbased approaches, requiring complex exploration, resource management, and strategic planning.
 
@@ -163,7 +162,7 @@ We based our experiments on NetPlay [\[Jeurissen](#page-7-10) *et al.*, [2024\]]
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: The image presents bar graphs comparing normalized scores across different methods (Ariadne, Reflexion, Simulacra, human performance) on three tasks: Treasure Hunt, Cooking, and Cleaning. Subplots (A) show results using various approaches, while (B) displays results for harder versions of Treasure Hunt and Cooking. Subplot (C) shows human evaluations of the different methods across all three tasks. Error bars represent uncertainty. The figure aims to demonstrate comparative performance of different methods on complex reasoning tasks. -->
 
-Figure 3: AriGraph world model enables Ariadne agent to successfully solve variety of text games. (A) Ariadne outperform baseline agents with alternative types of memory. (B) Ariadne with episodic and semantic memory scales to harder environments without losing performance. (C) Ariadne shows performance comparable to the best human players. The Y-axis shows the normalized score, which is calculated relative to the maximum possible points that can be obtained in each environment. Error bars show standard deviation. The number of max steps is set to 60 in the Cooking and to 150 in other games.
+**Figure 3:** AriGraph world model enables Ariadne agent to successfully solve variety of text games. (A) Ariadne outperform baseline agents with alternative types of memory. (B) Ariadne with episodic and semantic memory scales to harder environments without losing performance. (C) Ariadne shows performance comparable to the best human players. The Y-axis shows the normalized score, which is calculated relative to the maximum possible points that can be obtained in each environment. Error bars show standard deviation. The number of max steps is set to 60 in the Cooking and to 150 in other games.
 
 observations (*Level obs*) effectively function as handcrafted memory oracle for the agent.
 
@@ -171,7 +170,7 @@ To evaluate our Ariadne agent, we restricted textual observations to agent's cur
 
 We compare three agents. The first is *NetPlay [Room obs]*with restricted textual observations, the second is our*Ariadne [Room obs]*agent that receives Room Obs and updates Ari-Graph, and the last is*NetPlay [Level obs]*with access to inforation about explored level.
 
-#### 3 Multi-hop Q&A
+### 3 Multi-hop Q&A
 
 Although our memory architecture was originally designed for an agent interacting with the environment, we evaluated its performance on standard multi-hop Q&A benchmarks — Musique [\[Trivedi](#page-8-11)*et al.*, 2022] and HotpotQA [\[Yang](#page-8-12) *et al.*, [2018\]](#page-8-12) to show its robustness and efficiency in more standard retrieval tasks. We made slight adjustments to the promts and replaced Contriever model with BGE-M3[\[Chen](#page-7-11) *et al.*, [2024\]](#page-7-11), as it is a better fit for general text encoding. We used 200 random samples from both datasets similar to [\[Li](#page-7-12) *et al.*[, 2024a\]](#page-7-12). We compared the performance of our approach against Graphreader [Li *et al.*[, 2024a\]](#page-7-12), ReadAgent [Lee *[et al.](#page-7-13)*, [2024\]](#page-7-13), HOLMES [Panda *et al.*[, 2024\]](#page-8-13), GraphRAG [\[Edge](#page-7-14) *et al.*[, 2024\]](#page-7-14) and RAG baselines provided in [Li *et al.*[, 2024a\]](#page-7-12).
 
@@ -188,7 +187,7 @@ The Cooking game has the highest difficulty, because any error at intermediate s
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: The image presents four bar graphs comparing the normalized scores of five different methods (GATA, LTL-GATA, EXPLORER, GPT-4, Ariadne) across four levels (Level 1-4). Each bar represents a method's performance at a specific level, with error bars indicating variability. A dashed horizontal line indicates a benchmark score. The purpose is to illustrate and compare the performance of these methods at different complexity levels. -->
 
-Figure 4: Ariadne LLM agent shows top performance compared to RL alternatives. Comparison of Ariadne and Full History baseline (GPT-4) with RL baselines in the cooking benchmark. Ariadne demonstrates superior performance across all 4 difficulty levels
+**Figure 4:** Ariadne LLM agent shows top performance compared to RL alternatives. Comparison of Ariadne and Full History baseline (GPT-4) with RL baselines in the cooking benchmark. Ariadne demonstrates superior performance across all 4 difficulty levels
 
 to recall useful observations such as the content of the recipe or cooking instructions. For token usage of every method see Table [3,](#page-10-0) Appendix [D.](#page-10-1)
 
@@ -200,19 +199,19 @@ Graph quality. We measured AriGraph's growth rate and update rate during gamepla
 
 Overal results demonstrate clear advantage of Ariadne agent over LLM based and RL baselines. Semantic memory enables the Ariadne Agent to build and update knowledge about the current state of the POMDP environment, which is crucial for navigation, exploration and capturing relevant details in interactive environments. On the other hand, episodic memory assists the agent in retrieving detailed long-term information that may not be captured in semantic memory, as demonstrated by the results in the Cooking task.
 
-#### 2 NetHack
+### 2 NetHack
 
 The results are presented in Table [1.](#page-5-1) Scores column shows average game score across 3 runs, Levels column shows average number of dungeon levels completed by an agent. GPT-4o was used for all agents. Underscoring the importance of memory in this task,*NetPlay [Level obs]*with access to memory oracle achieved the highest scores, while*NetPlay [Room obs]*with only current room observations performed the worst.*Ariadne [Room obs]*successfully utilized Ari-Graph word model, achieving performance comparable to the baseline with memory oracle.
 
-<span id="page-5-1"></span>Table 1: Ariadne with obscured partial observations performs comparable to NetPlay agent full level information.
+<span id="page-5-1"></span>**Table 1:** Ariadne with obscured partial observations performs comparable to NetPlay agent full level information.
 
-| Method              | Score           | Levels      |
+| Method | Score | Levels |
 |---------------------|-----------------|-------------|
-| Ariadne (Room obs)  | 593.00 ± 202.62 | 6.33 ± 2.31 |
-| NetPlay (Room obs)  | 341.67 ± 109.14 | 3.67 ± 1.15 |
+| Ariadne (Room obs) | 593.00 ± 202.62 | 6.33 ± 2.31 |
+| NetPlay (Room obs) | 341.67 ± 109.14 | 3.67 ± 1.15 |
 | NetPlay (Level obs) | 675.33 ± 130.27 | 7.33 ± 1.15 |
 
-#### 3 Multi-hop Q&A
+### 3 Multi-hop Q&A
 
 We compared AriGraph with the latest LLM-based approaches that employ knowledge graph construction and retrieval techniques for question answering over documents (Table [2\)](#page-6-1). Our memory architecture, adapted from the Ariadne TextWorld agent, utilizing both GPT-4 and GPT-4omini outperformed baseline methods like ReadAgent (GPT-4), GPT-4 RAG, GPT-4 full context and GraphReader (GPT-4). GraphRAG served as a strong GPT-4o-mini baseline, due to its extremely hight costs. ArigGraph (GPT-4o-mini) showed weaker performance on Musique, but outperformed GraphRAG on HotpotQA. Notably, our approach is more then 10x cheaper in comparison to GraphRAG (Table [3,](#page-10-0) Appendix [D\)](#page-10-1).
 
@@ -225,21 +224,21 @@ Voyager [Wang*et al.*[, 2023a\]](#page-8-14), Ghost in the Minecraft [\[Zhu](#pa
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image presents ten line graphs, five pairs arranged vertically. Each pair displays data for a different task: "Treasure Hunt," "Treasure Hunt Hard," "Cooking," "Cooking Hard," and "Cleaning." The top graph in each pair shows the cumulative number of triplets and items over time. The bottom graph shows the number of new triplets and replacements over time. The purpose is to illustrate the progression of triplets and items, along with the rate of change, across different tasks. -->
 
-Figure 5: AriGraph demonstrate good scaling during learning and with environment size. A size of the knowledge graph quickly saturates during exploration and learning phase. KG grows moderately when the Treasure Hunt and the Cooking games include more rooms and objects in their hard versions.
+**Figure 5:** AriGraph demonstrate good scaling during learning and with environment size. A size of the knowledge graph quickly saturates during exploration and learning phase. KG grows moderately when the Treasure Hunt and the Cooking games include more rooms and objects in their hard versions.
 
-<span id="page-6-1"></span>Table 2: AriGraph memory demonstrates competitive performance on Multi-Hop Q&A datasets. Even in non interactive tasks AriGraph is comparable to strong QA baseline agents. The best results with the base GPT-4o and GPT-4o-mini are shown in bold and underline respectively.
+<span id="page-6-1"></span>**Table 2:** AriGraph memory demonstrates competitive performance on Multi-Hop Q&A datasets. Even in non interactive tasks AriGraph is comparable to strong QA baseline agents. The best results with the base GPT-4o and GPT-4o-mini are shown in bold and underline respectively.
 
-| Method                                            | MuSiQue      |              |              | HotpotQA     |
+| Method | MuSiQue | | | HotpotQA |
 |---------------------------------------------------|--------------|--------------|--------------|--------------|
-|                                                   | EM           | F1           | EM           | F1           |
-| BM25(top-3)                                       | 25.0         | 31.1         | 45.7         | 58.5         |
-| Ada-002(top-3)                                    | 24.5         | 32.1         | 45.0         | 58.1         |
-| GPT-4 full context                                | 33.5         | 42.7         | 53.0         | 68.4         |
-| GPT-4 + supporting facts                          | 45.0         | 56.0         | 57.0         | 73.8         |
-| ReadAgent(GPT-4)                                  | 35.0         | 45.1         | 48.0         | 62.0         |
-| GraphReader(GPT-4)                                | 38.0         | 47.4         | 55.0         | 70.0         |
-| HOLMES(GPT-4)                                     | 48.0         | 58.0         | 66.0         | 78.0         |
-| AriGraph(GPT-4)                                   | 45.0         | 57.0         | 68.0         | 74.7         |
+| | EM | F1 | EM | F1 |
+| BM25(top-3) | 25.0 | 31.1 | 45.7 | 58.5 |
+| Ada-002(top-3) | 24.5 | 32.1 | 45.0 | 58.1 |
+| GPT-4 full context | 33.5 | 42.7 | 53.0 | 68.4 |
+| GPT-4 + supporting facts | 45.0 | 56.0 | 57.0 | 73.8 |
+| ReadAgent(GPT-4) | 35.0 | 45.1 | 48.0 | 62.0 |
+| GraphReader(GPT-4) | 38.0 | 47.4 | 55.0 | 70.0 |
+| HOLMES(GPT-4) | 48.0 | 58.0 | 66.0 | 78.0 |
+| AriGraph(GPT-4) | 45.0 | 57.0 | 68.0 | 74.7 |
 | GraphRAG(GPT-4o<br>mini)<br>AriGraph(GPT-4o-mini) | 40.0<br>36.5 | 53.5<br>47.9 | 58.7<br>60.0 | 63.3<br>68.6 |
 
 pleted actions in a long-term memory module, but has no structural representation of knowledge and episodic memories. LARP [Yan *et al.*[, 2023\]](#page-8-17) utilizes the concepts of episodic and semantic memories but treats them as separate instances and lacks a structural representation of knowledge.
@@ -321,93 +320,93 @@ Kumaravel, Gerald Tesauro, Kartik Talamadupula, Mrinmaya Sachan, and Murray Camp
 
 Pseudo-code for SemanticSearch function in AriGraph is listed in Algorithm [2.](#page-9-2) This algorithm is close to BFS search. The main difference is the use of retrieval mechanism in function EmbedAndRetrieve. Function EmbedAndRetrieve(E, q, w) uses pretrained Contriever [\[Izacard](#page-7-7) *et al.*, 2022] model to compute embeddings for edges E and query q and then returns top w edges with a highest similarity score. Similarity score between edge e and query q is a dot product between their embeddings. Most of the times, when query for EmbedAndRetrieve is a semantic vertex, it simply returns edges incident to this vertex, but also has ability to retrieve edges connected to vertices that are semantically close to the query vertex. For example, semantic graph can contain separate vertices for "grill" and "grilling" that are not directly connected, so searching for "grill" can potentially return edge ("bbq", "used for", "grilling").
 
-| Algorithm 2: Semantic Search |  |  |  |
+| Algorithm 2: Semantic Search | | | |
 |------------------------------|--|--|--|
 |------------------------------|--|--|--|
 
 ```text
 Input: search query q, Es, search depth d, search
-      width w
+width w
 Result: relevant vertices semantic V
-                             q
-                            s
-                              and edges Eq
-                                        s
+q
+s
+and edges Eq
+s
 Eq
- s ← ∅
+s ← ∅
 L ← ∅ // init empty
-   queue of queries
+queue of queries
 Enqueue(L, q) // push q into
-   queue L
+queue L
 D[q] ← 0 // set search
-   distance for q to zero
+distance for q to zero
 while L is not empty do
-   q
-    ′ ← Dequeue(L) // remove
-      first element from L
-   if D[q
-       ′
-        ] ≥ d then
-      continue
-   end
-   // use Contriever model to find
-      top w triplets closest to q
-                                      ′
-   E′
-    s ← EmbedAndRetrieve(Es, q′
-                                 , w)
-   foreach ei
-           in E′
-               s do
-      V
-       ′
-       s ← IncidentVertices(ei)
-         // returns two incident
-         semantic vertices
-      foreach v in V
-                  ′
-                 s do
-         if v not in L then
-            Enqueue(L, v)
-            D[v] ← D[q
-                      ′
-                      ] + 1
-         end
-      end
-   end
-   Eq
-    s ← Eq
-          s ∪ E′
-              s
+q
+′ ← Dequeue(L) // remove
+first element from L
+if D[q
+′
+] ≥ d then
+continue
+end
+// use Contriever model to find
+top w triplets closest to q
+′
+E′
+s ← EmbedAndRetrieve(Es, q′
+, w)
+foreach ei
+in E′
+s do
+V
+′
+s ← IncidentVertices(ei)
+// returns two incident
+semantic vertices
+foreach v in V
+′
+s do
+if v not in L then
+Enqueue(L, v)
+D[v] ← D[q
+′
+] + 1
+end
+end
+end
+Eq
+s ← Eq
+s ∪ E′
+s
 end
 return Eq
-       s
+s
 ```text
 
 ## <span id="page-9-2"></span>B Exploration
 
 Before any planning or decision-making occurs, an auxiliary agent assesses the need for exploration based on a preestablished plan. Depending on this assessment, it either activates or deactivates exploration mode. Moreover, the graph agent extracts triplets containing information about exits, such as "kitchen, has an unexplored exit, south," and triplets detailing spatial connections between locations like "hall, east of, kitchen." Subsequently, simple graph-based methods can be employed to identify all exits from each room that the agent has detected but not yet explored. This information is then added to the working memory of the agent. Function for finding triplets corresponding to probable unexplored actions is listed in Algorithm [3.](#page-9-3) Current implementation uses expert knowledge about what elements of the semantic graph can represent locations and exits between them.
 
-| Algorithm 3: Unexplored exit detection               |  |  |
+| Algorithm 3: Unexplored exit detection | | |
 |------------------------------------------------------|--|--|
-| Input: Vs, Es, Ve, Ee, current location vl           |  |  |
-| Result: triplets Eexp<br>with information about<br>s |  |  |
-| unexplored exits from vl                             |  |  |
-| Eexp ← ∅                                             |  |  |
-| Eout ←<br>GetOutgoing(Es, vl)<br>//<br>get           |  |  |
-| semantic edges outgoing from<br>vl                   |  |  |
-| foreach e in Eout do                                 |  |  |
-| if RepresentExit(e)<br>then                          |  |  |
-| Eexp ←<br>Eexp ∪ {e}                                 |  |  |
-| Ein ←<br>GetIncoming(Es, vl)<br>//<br>get            |  |  |
-| semantic edges incoming in<br>vl                     |  |  |
-| foreach e in Ein do                                  |  |  |
-| if RepresentExit(e)<br>then                          |  |  |
-| //<br>remove exits leading to                        |  |  |
-| explored locations                                   |  |  |
-| Eexp ←                                               |  |  |
-| Eexp \ {FindRelatedExit(Eexp, e)}                    |  |  |
-|                                                      |  |  |
+| Input: Vs, Es, Ve, Ee, current location vl | | |
+| Result: triplets Eexp<br>with information about<br>s | | |
+| unexplored exits from vl | | |
+| Eexp ← ∅ | | |
+| Eout ←<br>GetOutgoing(Es, vl)<br>//<br>get | | |
+| semantic edges outgoing from<br>vl | | |
+| foreach e in Eout do | | |
+| if RepresentExit(e)<br>then | | |
+| Eexp ←<br>Eexp ∪ {e} | | |
+| Ein ←<br>GetIncoming(Es, vl)<br>//<br>get | | |
+| semantic edges incoming in<br>vl | | |
+| foreach e in Ein do | | |
+| if RepresentExit(e)<br>then | | |
+| //<br>remove exits leading to | | |
+| explored locations | | |
+| Eexp ← | | |
+| Eexp \ {FindRelatedExit(Eexp, e)} | | |
+| | | |
 
 ### <span id="page-9-3"></span>return Eexp
 
@@ -420,26 +419,26 @@ From the obtained results, one can conclude that the graph grows most actively d
 <span id="page-10-2"></span>![](_page_10_Figure_0.jpeg)
 <!-- Image Description: The image presents six plots, three line graphs above three bar graphs. Each set of graphs compares the performance of three large language models (LLaMA-3-8B, LLaMA-3-70B, GPT-4). The top graphs show the cumulative number of triplets and items over time, illustrating knowledge base growth. The bottom graphs display the number of new triplets, replacements, and items added at each step, providing a granular view of knowledge base updates. The plots analyze knowledge base evolution during model training. -->
 
-Figure 6: Statistics of graph construction and updating during the random walk.
+**Figure 6:** Statistics of graph construction and updating during the random walk.
 
 maintains a slower growth rate when the agent operates within the familiar parts of the environment. Additionally, it is evident that the growth rate of the graph decreases as the quality of the LLM used in its construction increases.
 
 ## <span id="page-10-1"></span><span id="page-10-0"></span>D Token usage
 
-Table 3: Token Usage Analysis for Text Games and QA Tasks
+**Table 3:** Token Usage Analysis for Text Games and QA Tasks
 
-| Method                               | Prompt Tokens | Completion Tokens |  |
+| Method | Prompt Tokens | Completion Tokens | |
 |--------------------------------------|---------------|-------------------|--|
-| Text Games (per step)                |               |                   |  |
-| Ariadne agent                        | 6,000         | 500               |  |
-| RAG memory agent                     | 4,000         | 350               |  |
-| Summary memory agent                 | 3,800         | 350               |  |
-| Full history memory agent (step 150) | 14,000        | 350               |  |
-| Simulacra memory agent               | 7,500         | 400               |  |
-| Reflexion memory agent               | 5,800         | 350               |  |
-| QA Benchmarks (per task)             |               |                   |  |
-| AriGraph                             | 11,000        | 2,500             |  |
-| GraphRAG                             | 115,000       | 20,000            |  |
+| Text Games (per step) | | | |
+| Ariadne agent | 6,000 | 500 | |
+| RAG memory agent | 4,000 | 350 | |
+| Summary memory agent | 3,800 | 350 | |
+| Full history memory agent (step 150) | 14,000 | 350 | |
+| Simulacra memory agent | 7,500 | 400 | |
+| Reflexion memory agent | 5,800 | 350 | |
+| QA Benchmarks (per task) | | | |
+| AriGraph | 11,000 | 2,500 | |
+| GraphRAG | 115,000 | 20,000 | |
 
 ## <span id="page-11-0"></span>E LLM Prompts
 
@@ -471,7 +470,7 @@ Remember that triplets must be extracted in format: " subject\_1, relation\_1, o
 
 Extracted triplets:'''
 
-#### Outdated Triplet Selection Prompt
+### Outdated Triplet Selection Prompt
 
 The triplets denote facts about the environment where the player moves. The player takes actions and the environment changes, so some triplets from the list of existing triplets can be replaced with one of the new triplets. For example, the player took the item from the locker and the existing triplet "item, is in , locker" should be replaced with the new triplet " item, is in, inventory".
 
@@ -499,97 +498,93 @@ If you find triplet in Existing triplets which semantically duplicate some tripl
 
 Generate only replacing, no descriptions are needed. Existing triplets: {ex\_triplets}. New triplets: {new\_triplets}.
 
-####
 
 Warning! Replacing must be generated strictly in following format: [[outdated\_triplet\_1 -> actual\_triplet\_1], [ outdated\_triplet\_2 -> actual\_triplet\_2], ...], you MUST NOT include any descriptions in answer. Replacing:
 
-#### Exploration check prompt
+### Exploration check prompt
 
-####
 
 INSTRUCTION: You will be provided with sub-goals and reasons for it from plan of an agent. Your task is to state if this sub goals require exploration of the environment, finding or locating something. Answer with just True or False. #### Plan: {plan0}
 
-#### Planning prompt
+### Planning prompt
 
 ```text
-####
 INSTRUCTION:
 You are a planner within the agent system tasked with
-     navigating the environment in a text-based game.
+navigating the environment in a text-based game.
 Your role is to create a concise plan to achieve your main
-     goal or modify your current plan based on new
-     information received.
+goal or modify your current plan based on new
+information received.
 Make sure your sub-goals will benefit the achivment of your
-      main goal. If your main goal is an ongoing complex
-     process, also put sub-goals that can immediately
-     benifit achiving something from your main goal.
+main goal. If your main goal is an ongoing complex
+process, also put sub-goals that can immediately
+benifit achiving something from your main goal.
 If you need to find something, put it into sub-goal.
 If you wish to alter or delete a sub-goal within the
-     current plan, confirm that this sub-goal has been
-     achieved according to the current observation or is
-     no longer relevant to achieving your main goal.
-     Untill then do not change wording in "sub_goal"
-     elements of your plan and their position in the plan.
-      Only change wording in "reason" part to track the
-     progress of completion of sub-goals.
+current plan, confirm that this sub-goal has been
+achieved according to the current observation or is
+no longer relevant to achieving your main goal.
+Untill then do not change wording in "sub_goal"
+elements of your plan and their position in the plan.
+Only change wording in "reason" part to track the
+progress of completion of sub-goals.
 If sub-goal was completed or confirmed to be no more
-     relevant, delete it, replase it with new one or with
-     lower priority sub-goals from the plan. Untill then
-     keep the structure of sub-goals as it is. Create new
-     sub-goals only if they will benifit your main goal
-     and do not prioritize them over current sub-goals.
+relevant, delete it, replase it with new one or with
+lower priority sub-goals from the plan. Untill then
+keep the structure of sub-goals as it is. Create new
+sub-goals only if they will benifit your main goal
+and do not prioritize them over current sub-goals.
 If your task is to obtain something, make shure that the
-     item is in your inventory before changing your sub-
-     goal.
+item is in your inventory before changing your sub-
+goal.
 Your plan contains important information and goals you need
-      to complete. Do not alter sub-goals or move them in
-     hierarchy if they were not completed!
+to complete. Do not alter sub-goals or move them in
+hierarchy if they were not completed!
 Pay attention to your inventory, what items you are carring
-     , when setting the sub-goals. These items might be
-     important.
+, when setting the sub-goals. These items might be
+important.
 Pay attention to information from your memory module, it is
-      important.
+important.
 There should always be at least one sub-goal.
 State the progress of completing your sub-goals in "reason"
-      for each sub-goal.
+for each sub-goal.
 Write your answer exactly in this json format:
 { "main_goal": "...",
- "plan_steps": [{
-    "sub_goal_1": "...",
-    "reason": "..."
-   },
-   {
-    "sub_goal_2": "...",
-    "reason": "..."
-   },
-   {
-    "sub_goal_...": "...",
-    "reason": "..."
-   }],
- "your_emotion":
-   {
-    "your_current_emotion": "emotion",
-    "reason_behind_emotion": "..."
-   }}
+"plan_steps": [{
+"sub_goal_1": "...",
+"reason": "..."
+},
+{
+"sub_goal_2": "...",
+"reason": "..."
+},
+{
+"sub_goal_...": "...",
+"reason": "..."
+}],
+"your_emotion":
+{
+"your_current_emotion": "emotion",
+"reason_behind_emotion": "..."
+}}
 Do not write anything else.
-####
 1. Main goal: {main_goal}
 2. History of {n_prev} last observations and actions: {
-     observations}
+observations}
 3. Your current observation: {observation}
 4. Information from the memory module that can be relevant
-     to current situation: {subgraph}
+to current situation: {subgraph}
 5. Your {topk_episodic} most relevant episodic memories
-     from the past for the current situation: {
-     top_episodic}.
+from the past for the current situation: {
+top_episodic}.
 6. Your previous plan: {plan0}
 *if is explore*7. Yet unexplored exits in the environment:
-      {all_unexpl_exits}
+{all_unexpl_exits}
 ```text
 
-#### ReAct decision making prompt
+### ReAct decision making prompt
 
-#### #### INSTRUCTION:
+### #### INSTRUCTION:
 
 You are an action selector within an agent system designed to navigate an environment in a text-based game. Your
 
@@ -624,9 +619,9 @@ Do not write anything else. ####
 
 Possible actions in current situation: {valid\_actions}
 
-#### Summarization prompt
+### Summarization prompt
 
-#### ####
+### ####
 
 INSTRUCTION: You are a guide within a team of agents engaging in a textbased game. Your role is to concisely yet thoroughly detail all the essential aspects of the current situation. Ensure that your summary aids in information extraction and facilitates the decisionmaking process by focusing on pertinent details and excluding extraneous information. Incorporate a strategic outlook in your narrative, emphasizing information integral to forming a tactical plan.
 
@@ -634,7 +629,7 @@ Accurately relay the outcomes of previously attempted actions, as this is pivota
 
 Be judicious with your inferences, presenting only wellsubstantiated information that is likely to be of practical benefit. Your account should be succinct, encapsulated within a maximum of three paragraphs.
 
-#### Main goal: {main\_goal}
+### Main goal: {main\_goal}
 
 - 2. History of {n\_prev} last observations and actions: { observations}
 - 3. Your current observation: {observation}
@@ -667,25 +662,24 @@ This section presents the step-by-step dynamics of performance of different agen
 <span id="page-14-0"></span>![](_page_14_Figure_0.jpeg)
 <!-- Image Description: This flowchart diagrams a puzzle or game. Rectangles represent rooms, each containing a differently colored locked locker. Lines connect rooms, illustrating the sequence to find keys. Each locker contains either a key to another locker, or, in Room A, the final treasure. The chart's purpose is to visually represent the solution's steps, showing the logic of unlocking the lockers in order to obtain the treasure. -->
 
-Figure 7: Treasure Hunt environment
+**Figure 7:** Treasure Hunt environment
 
-<span id="page-14-1"></span>
 
-|                          | Treasure<br>Hunt | Treasure<br>Hunt<br>Hard | Treasure<br>Hunt<br>Hardest | Cooking | Cooking<br>Hard | Cooking<br>Hardest | Cleaning |
+| | Treasure<br>Hunt | Treasure<br>Hunt<br>Hard | Treasure<br>Hunt<br>Hardest | Cooking | Cooking<br>Hard | Cooking<br>Hardest | Cleaning |
 |--------------------------|------------------|--------------------------|-----------------------------|---------|-----------------|--------------------|----------|
-| Full History             | 0.47             | -                        | -                           | 0.18    | -               | -                  | 0.05     |
-| Summary                  | 0.33             | 0.17                     | -                           | 0.52    | 0.21            | -                  | 0.35     |
-| RAG                      | 0.33             | 0.17                     | -                           | 0.36    | 0.17            | -                  | 0.39     |
-| Reflexion                | 0.93             | -                        | -                           | 1.0     | -               | -                  | 0.27     |
-| Simulacra                | 0.4              | -                        | -                           | 0.3     | -               | -                  | 0.7      |
-| AriGraph                 | 1.0              | 1.0                      | 1.0                         | 1.0     | 1.0             | 0.65               | 0.79     |
-| AriGraph w/o exploration | 0.87             | -                        | -                           | 0.87    | -               | -                  | 0.76     |
-| AriGraph w/o episodic    | 1.0              | 0.67                     | -                           | 0.64    | 0.45            | -                  | 0.92     |
-| AriGraph LLaMA-3-70B     | 0.47             | -                        | -                           | 0.67    | -               | -                  | 0.5      |
-| Human Top-3              | 1.0              | -                        | -                           | 1.0     | -               | -                  | 1.0      |
-| Human All                | 0.96             | -                        | -                           | 0.32    | -               | -                  | 0.59     |
+| Full History | 0.47 | - | - | 0.18 | - | - | 0.05 |
+| Summary | 0.33 | 0.17 | - | 0.52 | 0.21 | - | 0.35 |
+| RAG | 0.33 | 0.17 | - | 0.36 | 0.17 | - | 0.39 |
+| Reflexion | 0.93 | - | - | 1.0 | - | - | 0.27 |
+| Simulacra | 0.4 | - | - | 0.3 | - | - | 0.7 |
+| AriGraph | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.65 | 0.79 |
+| AriGraph w/o exploration | 0.87 | - | - | 0.87 | - | - | 0.76 |
+| AriGraph w/o episodic | 1.0 | 0.67 | - | 0.64 | 0.45 | - | 0.92 |
+| AriGraph LLaMA-3-70B | 0.47 | - | - | 0.67 | - | - | 0.5 |
+| Human Top-3 | 1.0 | - | - | 1.0 | - | - | 1.0 |
+| Human All | 0.96 | - | - | 0.32 | - | - | 0.59 |
 
-Table 4: All normalised scores across all tasks in TextWorld environment. Based on the results, it is evident that the agent with AriGraph significantly outperforms all baselines and scales well to larger and more complex environments. An important outcome is that our agent demonstrated near-human performance in text-based games, which has not been previously achieved using LLM.
+**Table 4:** All normalised scores across all tasks in TextWorld environment. Based on the results, it is evident that the agent with AriGraph significantly outperforms all baselines and scales well to larger and more complex environments. An important outcome is that our agent demonstrated near-human performance in text-based games, which has not been previously achieved using LLM.
 
 <span id="page-15-0"></span>![](_page_15_Figure_0.jpeg)
 <!-- Image Description: This diagram depicts a flowchart illustrating a series of interconnected rooms, each containing a locked locker and potentially a key or note. Lines connect rooms indicating the key's location relative to the locked locker. The chart's purpose is to visually represent a puzzle or game scenario requiring players to find keys within specific rooms to unlock subsequent lockers, ultimately leading to the treasure in Room A. Each room box displays the locker's color, lock status, and any contained items (keys or notes). -->
@@ -696,12 +690,12 @@ Table 4: All normalised scores across all tasks in TextWorld environment. Based 
 <span id="page-16-0"></span>![](_page_16_Figure_0.jpeg)
 <!-- Image Description: The image is a flowchart illustrating the relationships between rooms, lockers, keys, and objects in a game or puzzle. Each box represents a room containing locked lockers and items on tables. Lines connect rooms indicating item transfers or key usage. The flowchart visually depicts the interconnectedness of the puzzle's elements to solve it. The purpose is to provide a comprehensive overview of the game's structure and logic. -->
 
-Figure 9: Treasure Hunt hardest environment
+**Figure 9:** Treasure Hunt hardest environment
 
 <span id="page-17-0"></span>![](_page_17_Figure_0.jpeg)
 <!-- Image Description: This image is a diagram depicting the objects located in various rooms of a house. It uses a relational structure, showing how items are associated with specific rooms (Bathroom, Kitchen, Kids Room, etc.). Each room is represented by a box containing a list of objects, visually linked to other rooms through connecting lines. The diagram likely serves to illustrate data organization or spatial relationships within a home environment for the paper's research. -->
 
-Figure 10: Cleaning environment
+**Figure 10:** Cleaning environment
 
 <span id="page-18-0"></span>![](_page_18_Figure_0.jpeg)
 <!-- Image Description: This image is a diagram illustrating a house's spatial layout and object locations. It uses a hierarchical structure, showing rooms (kitchen, living room, bedroom, bathroom, etc.) connected by corridors. Each room contains a list of objects (e.g., furniture, food). The diagram also includes outdoor areas (garden, backyard, shed) and their contents, with connections representing doors. The purpose is likely to visualize the spatial relationships and object locations within a specific environment for a research purpose. -->
@@ -712,14 +706,14 @@ Figure 10: Cleaning environment
 <span id="page-18-1"></span>![](_page_18_Figure_2.jpeg)
 <!-- Image Description: This image is an entity-relationship diagram depicting a house and its surroundings, including a garden, backyard, shed, and supermarket. Rectangles represent entities (e.g., "kitchen," "garden"), containing attributes (e.g., "Lettuce," "Patio table"). Lines connect entities to show relationships, illustrating the location of items and their connections to different rooms and spaces. The diagram likely serves to illustrate a spatial or data model within the paper. -->
 
-Figure 12: Cooking hard environment
+**Figure 12:** Cooking hard environment
 
 <span id="page-19-0"></span>![](_page_19_Figure_0.jpeg)
 <!-- Image Description: The image displays a game interface, likely from an academic paper on AI or game development. It shows a top-down view of a game map with a player character, enemies (kobold zombies), and items. Text boxes detail agent thoughts (AI decision-making process), message history, and character stats (level, health, inventory). The map's text-based representation is also shown, possibly for analysis purposes. The image illustrates a specific moment in the game, showcasing the AI's actions and reasoning. -->
 
-Figure 13: Example of NetHack level
+**Figure 13:** Example of NetHack level
 
 <span id="page-20-0"></span>![](_page_20_Figure_0.jpeg)
 <!-- Image Description: The image presents six learning curves comparing the performance of different agents (Ariadne, with and without experience/episodic memory, Human Top-3, Human All, Fullhist, RAG) across three tasks (Treasure Hunt, Cleaning, Cooking, each with easy and hard versions). Each graph plots normalized score against step number, showing the cumulative performance over time. Shaded areas represent confidence intervals. The curves illustrate how the agents' performance improves as they complete more steps in each task, allowing for a comparative analysis of their learning capabilities. -->
 
-Figure 14: Performance Dynamics in Test Games. In the Treasure Hunt, the Ariadne agent delivers performance comparable to top players; in the Cleaning task, it falls slightly behind, but in the Cooking, it surpasses top human players in speed. The hard variants of the tasks demonstrate that the quality of Ariadne's performance does not decrease with increasing task difficulty, and also highlight the importance of episodic memory.
+**Figure 14:** Performance Dynamics in Test Games. In the Treasure Hunt, the Ariadne agent delivers performance comparable to top players; in the Cleaning task, it falls slightly behind, but in the Cooking, it surpasses top human players in speed. The hard variants of the tasks demonstrate that the quality of Ariadne's performance does not decrease with increasing task difficulty, and also highlight the importance of episodic memory.

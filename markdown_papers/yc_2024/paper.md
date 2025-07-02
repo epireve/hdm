@@ -25,7 +25,7 @@ tags:
 ---
 
 ![](_page_0_Picture_0.jpeg)
-<!-- Image Description: The image is a logo for "Applied Sciences."  It features a stylized graphic of three test tubes in a rack, suggesting experimental work within the sciences. The logo likely serves as a journal title or publisher identifier, indicating the subject matter of the paper in which it appears. -->
+<!-- Image Description: The image is a logo for "Applied Sciences." It features a stylized graphic of three test tubes in a rack, suggesting experimental work within the sciences. The logo likely serves as a journal title or publisher identifier, indicating the subject matter of the paper in which it appears. -->
 
 # *Article* **A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion**
 
@@ -39,7 +39,7 @@ School of Management and Engineering, Capital University of Economics and Busine
 
 **Keywords:** knowledge graph; temporal knowledge graph completion; deep learning
 
-# **1. Introduction**
+## **1. Introduction**
 
 Knowledge graphs (KGs) represent real-world information as structured facts in the form of triples, i.e., (subject entity, relation, object entity), abbreviated as (*s*,*r*, *o*), where *s* and *o* represent entities, and *r* represents a relation that holds between the two entities. For example, given a triple (Barack Obama, PresidentOf, USA), it indicates that there is a relation "PresidentOf" between the entities "Barack Obama" and "USA". The rich information carried by KGs makes them popular in various artificial intelligence and data mining applications, such as question answering [\[1\]](#page-13-0), recommender [\[2\]](#page-13-1), and dialogue systems [\[3\]](#page-13-2), etc. Although current KGs consist of billions of facts, they are still far from complete. For instance, in Freebase [\[4\]](#page-13-3), more than 75% of person entities have no known nationality [\[5\]](#page-13-4), which hampers their usefulness in the aforementioned applications.
 
@@ -48,23 +48,22 @@ Knowledge graph completion (KGC) tries to solve this incompleteness problem by i
 As TKGC has attracted increased attention from the research community, various TKGC methods have been proposed, among which, deep learning (DL)-based methods have achieved state-of-the-art performance. Therefore, in order to promote further progress in this field, it is necessary to comprehensively summarize and compare the existing DLbased TKGC methods. We note that: (1) Ref. [\[8\]](#page-13-7) provides a review of temporal knowledge
 
 ![](_page_0_Picture_11.jpeg)
-<!-- Image Description: The image is a simple graphic consisting of a yellow circle containing a white checkmark, accompanied by the text "check for updates".  It's likely a visual cue or button within the paper's software, indicating a function for users to verify the presence of  software updates or new versions.  The image serves as a user interface element within the context of a technical paper discussing software development or deployment. -->
+<!-- Image Description: The image is a simple graphic consisting of a yellow circle containing a white checkmark, accompanied by the text "check for updates". It's likely a visual cue or button within the paper's software, indicating a function for users to verify the presence of software updates or new versions. The image serves as a user interface element within the context of a technical paper discussing software development or deployment. -->
 
 **Citation:** Jia, N.; Yao, C. A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion. *Appl. Sci.* **2024**, *14*, 8871. [https://doi.org/10.3390/](https://doi.org/10.3390/app14198871) [app14198871](https://doi.org/10.3390/app14198871)
 
 Academic Editor:Antonio Pagliaro
 
-Received: 4 September 2024 Revised: 23 September 2024 Accepted: 30 September 2024 Published: 2 October 2024
 
 ![](_page_0_Picture_15.jpeg)
-<!-- Image Description: The image displays a Creative Commons (CC) license indicator.  It shows the CC logo, a symbol representing attribution, and the abbreviation "BY," signifying the "Attribution" license type. This indicates the work is licensed under Creative Commons Attribution, requiring attribution to the creator if used or shared. -->
+<!-- Image Description: The image displays a Creative Commons (CC) license indicator. It shows the CC logo, a symbol representing attribution, and the abbreviation "BY," signifying the "Attribution" license type. This indicates the work is licensed under Creative Commons Attribution, requiring attribution to the creator if used or shared. -->
 
 **Copyright:** © 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
 
 graphs, which includes a section on TKGC. However, this section only covers five early methods related to TKGC. (2) Ref. [\[9\]](#page-13-8) provides a review of temporal knowledge graphs, focusing on representation learning-based TKGC methods. (3) There are three review papers [\[10](#page-13-9)[–12\]](#page-13-10) on TKGC, but they either mainly focus on the interpolation-based methods or, perhaps due to space limitations, introduce TKGC methods from a macro perspective. Most importantly, the above reviews do not include research work from the last one to two years.
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
-<!-- Image Description: This image is a knowledge graph illustrating relationships between entities.  Rectangular nodes represent entities (e.g., USA, Barack Obama), and directed edges show relationships (e.g., "PresidentOf," "LocatedIn") with associated timeframes. The graph depicts connections between US presidents, their birthplaces, and their educational background,  demonstrating the use of a knowledge graph to represent factual information. -->
+<!-- Image Description: This image is a knowledge graph illustrating relationships between entities. Rectangular nodes represent entities (e.g., USA, Barack Obama), and directed edges show relationships (e.g., "PresidentOf," "LocatedIn") with associated timeframes. The graph depicts connections between US presidents, their birthplaces, and their educational background, demonstrating the use of a knowledge graph to represent factual information. -->
 
 **Figure 1.** A knowledge graph example that contains temporal information [\[10\]](#page-13-9).
 
@@ -78,11 +77,11 @@ Our main contributions are summarized as follows:
 
 The remainder of this paper is organized as follows. Section [2](#page-1-1) introduces the background of TKGC, including task definition, benchmark datasets, and evaluation protocol. Section [3](#page-3-0) summarizes the DL-based TKGC methods and Section [4](#page-10-0) summarizes the experimental results of these methods. Section [5](#page-12-0) concludes this paper and highlights the future directions of TKGC.
 
-#### <span id="page-1-1"></span>**2. Background**
+### <span id="page-1-1"></span>**2. Background**
 
 In this section, we first provide the definitions of TKG and TKGC and then introduce available benchmark datasets and the general evaluation protocol.
 
-#### *2.1. Task Definition*
+### *2.1. Task Definition*
 
 *A temporal knowledge graph (TKG)* is a multi-relational directed graph with labeled timestamped edges between entities. It is usually expressed as G = (F|E, R, T ), where E, R, and T are the sets of entities, relations, and timestamps, respectively, and F ⊂ E × R × E × T is the set of facts that represent real events in the world. A fact *f* is denoted as (*s*,*r*, *o*, *t*), where *s* ∈ E, *r* ∈ R, *o* ∈ E, and *t* ∈ T are the subject (head) entity, relation, object (tail) entity, and timestamp, respectively.
 
@@ -98,22 +97,22 @@ period, denoted as (*s*,*r*, *o*, [*t<sup>b</sup>* , *te* ]), with *t<sup>b</sup
 
 In addition to the above three subtasks, several studies [\[14](#page-13-12)[,15\]](#page-13-13) have attempted to predict temporal information, namely, time prediction, which aims to predict the timestamp for which the given triple is consider valid, i.e., (*s*,*r*, *o*, ?). Depending on the timestamp range, TKGC has two settings: interpolation and extrapolation. Specifically, for a TKG from timestamp *t*<sup>0</sup> to timestamp *tT*, the interpolation setting aims to infer the facts with timestamp *t*<sup>0</sup> < *t* < *tT*, and the extrapolation setting aims to predict future facts that occur at timestamp *t* with *t* > *tT*. This paper focuses on the DL-based TKGC methods that adopt the interpolation setting.
 
-# *2.2. Benchmark Datasets*
+## *2.2. Benchmark Datasets*
 
 There are eight commonly used datasets for TKGC, and the main statistics for these datasets are summarized in Table [1.](#page-2-0)
 
 <span id="page-2-0"></span>**Table 1.** Statistics for TKGC benchmark datasets. #Entities, #Relations, #Timestamps, #Train, #Validation, and #Test denote the number of entities, relations, timestamps, training set, validation set, and test set, respectively.
 
-| Dataset     | #Entities | #Relations | #Timestamps | #Train    | #Validation | #Test   | Timestamps    |
+| Dataset | #Entities | #Relations | #Timestamps | #Train | #Validation | #Test | Timestamps |
 |-------------|-----------|------------|-------------|-----------|-------------|---------|---------------|
-| ICEWS14     | 6869      | 230        | 365         | 72,826    | 8941        | 8963    | time point    |
-| ICEWS05-15  | 10,094    | 251        | 4017        | 368,962   | 46,275      | 46,092  | time point    |
-| ICEWS18     | 23,033    | 256        | 304         | 373,018   | 45,995      | 49,545  | time point    |
-| GDELT       | 500       | 20         | 366         | 2,735,685 | 341,961     | 341,961 | time point    |
-| YAGO11k     | 10,623    | 10         | 70          | 16,406    | 2050        | 2051    | time interval |
-| YAGO15k     | 15,403    | 34         | 198         | 29,381    | 3635        | 3685    | time interval |
-| Wikidata12k | 12,554    | 24         | 81          | 32,497    | 4062        | 4062    | time interval |
-| WIKI        | 12,554    | 24         | 232         | 539,286   | 67,538      | 63,110  | time interval |
+| ICEWS14 | 6869 | 230 | 365 | 72,826 | 8941 | 8963 | time point |
+| ICEWS05-15 | 10,094 | 251 | 4017 | 368,962 | 46,275 | 46,092 | time point |
+| ICEWS18 | 23,033 | 256 | 304 | 373,018 | 45,995 | 49,545 | time point |
+| GDELT | 500 | 20 | 366 | 2,735,685 | 341,961 | 341,961 | time point |
+| YAGO11k | 10,623 | 10 | 70 | 16,406 | 2050 | 2051 | time interval |
+| YAGO15k | 15,403 | 34 | 198 | 29,381 | 3635 | 3685 | time interval |
+| Wikidata12k | 12,554 | 24 | 81 | 32,497 | 4062 | 4062 | time interval |
+| WIKI | 12,554 | 24 | 232 | 539,286 | 67,538 | 63,110 | time interval |
 
 ICEWS14, ICEWS05-15, and ICEWS18. These three datasets are subsets of Integrated Crisis Early Warning Systems (ICEWS). ICEWS processes vast amounts of data from digitized news, social media, and other sources to predict, track, and respond to global events with time points, primarily for early warning purposes. These three datasets contain events in 2014, 2005–2015, and 2018, respectively.
 
@@ -123,13 +122,13 @@ YAGO11k, YAGO15k, WIKI, and Wikidata12k. These datasets are subsets of YAGO3 [\[
 
 project launched in 2012 that aims to create a free knowledge graph about the world that can be read and edited by both humans and machines. Notably, different from ICEWS dataset that only involves time points, temporal information in YAGO3 and Wikidata is expressed in different forms, including time points such as 1 January 2000, time intervals containing begin or end time with shapes such as 'occursSince 2003' or 'occursUntil 2005', and time intervals containing both begin and end time, such as [2000, 2010]. In YAGO11k and Wikidata12k, all facts have temporal information in the form of time intervals with begin and end times. Among these two subsets, the frequency distribution of timestamps in YAGO11k exhibits the long-tail property, which makes it difficult to predict. In YAGO15k, temporal information is represented in the form of time intervals containing begin or end time, and some facts do not even include timestamps. Therefore, this subset is temporally incomplete and more challenging.
 
-# *2.3. Evaluation Protocol*
+## *2.3. Evaluation Protocol*
 
 The evaluation protocol describes how to measure the performance of the TKGC method. Typically, for a test quadruple (*s*, *p*, *o*,*t*), it generates corresponding corrupted quadruples for the subtasks entity predict, relation predict, and time prediction, respectively. For entity predict, the corrupted quadruples are generated by replacing either the subject entity (for subject entity predict) or the object entity (for object entity predict) with all possible entities such that the resulting corrupted quadruples do not belong to the TKG, i.e., *C<sup>s</sup>* = {(*s* ′ ,*r*, *o*,*t*) : *s* ′ ∈ *E*,(*s* ′ ,*r*, *o*,*t*) ∈/ *G*} or *C<sup>o</sup>* = {(*s*,*r*, *o* ′ ,*t*) : *o* ′ ∈ *E*,(*s*,*r*, *o* ′ ,*t*) ∈/ *G*}. The corrupted quadruples of relation prediction and time prediction are generated in a similar way: *C<sup>r</sup>* = {(*s*,*r* ′ , *o*,*t*) : *r* ′ ∈ *R*,(*s*,*r* ′ , *o*,*t*) ∈/ *G*} and *C<sup>t</sup>* = {(*s*,*r*, *o*,*t* ′ ) : *t* ′ ∈ *T*,(*s*,*r*, *o*,*t* ′ ) ∈/ *G*}, respectively. Then, the corrupted quadruples and test quadruple on each subtask are sorted according to the scoring function to obtain the rank of the test quadruple.
 
 Commonly used evaluation metrics include *Mean Rank* (*MR*), *Mean Reciprocal Ranking* (*MRR*), and *Hits@N*. *MR* is the average rank for all test quadruples, and *MRR* is the inverse of *MR*. *Hits@N* is the percentage of test quadruplets with ranks lower than or equal to N.
 
-#### <span id="page-3-0"></span>**3. Deep Learning-Based TKGC Methods**
+### <span id="page-3-0"></span>**3. Deep Learning-Based TKGC Methods**
 
 The papers included in this survey were identified by searching for the phrase "temporal knowledge graph completion" in Google Scholar. We observed that topics tended to drift away from our focus after 100 search results, so we stopped the investigation there. Given our focus on the latest research trends in this field, we restricted candidate papers to those published after 1 January 2018.
 
@@ -139,33 +138,33 @@ TransE [\[17\]](#page-13-15) is a classic model of static KGC, which maps entiti
 
 <span id="page-4-0"></span>**Table 2.** Fine-grained categorization of deep learning-based temporal knowledge graph completion methods.
 
-| Categories                   | TKGC Methods        | Extended from Static KGC Methods | Encoder–Decoder |  |
+| Categories | TKGC Methods | Extended from Static KGC Methods | Encoder–Decoder | |
 |------------------------------|---------------------|----------------------------------|-----------------|--|
-|                              | TA-TransE [27]      | TransE [17]                      | ✘               |  |
-| LSTM-based methods           | TA-DISTMULT [27]    | DISTMULT [19]                    | ✘               |  |
-|                              | TA-TransR [28]      | TransR [18]                      | ✘               |  |
-|                              | CATKGC [29]         | ✘                                | ✘               |  |
-|                              | ConvTKG [30]        | ✘                                | ✔               |  |
-| CNN-based methods            | SANe [31]           | ✘                                | ✘               |  |
-|                              | SANe+ [32]          | ✘                                | ✘               |  |
-|                              | TempCaps [33]       | CapsE [20]                       | ✘               |  |
-| CapsNet-based methods        | BiQCap [34]         | ✘                                | ✘               |  |
-|                              | RoAN [35]           | SimplE [22]                      | ✘               |  |
-| Attention-based methods      | HSAE [36]           | ✘                                | ✔               |  |
-|                              | TGAP [37]           | ✘                                | ✔               |  |
-| GNN-based methods            | STRGNN [38]         | ✘                                | ✔               |  |
-|                              | HyGNet [39]         | ✘                                | ✘               |  |
-|                              | TeMP [40]           | TransE [17]                      | ✔               |  |
-|                              | MtGCN [41]          | ConvTransE [26]                  | ✔               |  |
-| GCN-based methods            | TAGCN [42]          | ConvE [23]                       | ✔               |  |
-|                              | TAL-TKGC [43]       | ✘                                | ✘               |  |
-|                              | THOR [44]           | ✘                                | ✘               |  |
-|                              | IAGAT [45]          | ✘                                | ✘               |  |
-| GAN-based methods            | DEGAT [46]          | ConvKB [25]                      | ✔               |  |
-|                              | T-GAE [47]          | ConvKB [25]                      | ✔               |  |
-|                              | SToKE [48]          | ✘                                | ✘               |  |
-| Language model-based methods | Llama-2-7b-CoH [49] | ✘                                | ✘               |  |
-|                              | Vicuna-7b-CoH [49]  | ✘                                | ✘               |  |
+| | TA-TransE [27] | TransE [17] | ✘ | |
+| LSTM-based methods | TA-DISTMULT [27] | DISTMULT [19] | ✘ | |
+| | TA-TransR [28] | TransR [18] | ✘ | |
+| | CATKGC [29] | ✘ | ✘ | |
+| | ConvTKG [30] | ✘ | ✔ | |
+| CNN-based methods | SANe [31] | ✘ | ✘ | |
+| | SANe+ [32] | ✘ | ✘ | |
+| | TempCaps [33] | CapsE [20] | ✘ | |
+| CapsNet-based methods | BiQCap [34] | ✘ | ✘ | |
+| | RoAN [35] | SimplE [22] | ✘ | |
+| Attention-based methods | HSAE [36] | ✘ | ✔ | |
+| | TGAP [37] | ✘ | ✔ | |
+| GNN-based methods | STRGNN [38] | ✘ | ✔ | |
+| | HyGNet [39] | ✘ | ✘ | |
+| | TeMP [40] | TransE [17] | ✔ | |
+| | MtGCN [41] | ConvTransE [26] | ✔ | |
+| GCN-based methods | TAGCN [42] | ConvE [23] | ✔ | |
+| | TAL-TKGC [43] | ✘ | ✘ | |
+| | THOR [44] | ✘ | ✘ | |
+| | IAGAT [45] | ✘ | ✘ | |
+| GAN-based methods | DEGAT [46] | ConvKB [25] | ✔ | |
+| | T-GAE [47] | ConvKB [25] | ✔ | |
+| | SToKE [48] | ✘ | ✘ | |
+| Language model-based methods | Llama-2-7b-CoH [49] | ✘ | ✘ | |
+| | Vicuna-7b-CoH [49] | ✘ | ✘ | |
 
 ### *3.1. LSTM-Based Methods*
 
@@ -204,7 +203,7 @@ Since LSTM can handle sequences of varying lengths, a natural advantage is that 
 
 Methods in this category combine LSTM with existing classical static KGC methods to learn time-aware relations or entities for TKGC. They have clear motivations, simple implementations, and are efficient, but they are unable to model the graph structure inherent in TKGs.
 
-# *3.2. CNN-Based Methods*
+## *3.2. CNN-Based Methods*
 
 Convolutional neural networks (CNNs) [\[24\]](#page-14-5) have achieved remarkable performance in the field of computer vision, such as object detection [\[53\]](#page-15-18) and image segmentation [\[54\]](#page-15-19). The core operation of CNN is to extract different feature maps of input data through convolution kernels. Formally, the feature value at location (*i*, *j*) in the *k*-th feature map is calculated by:
 
@@ -224,7 +223,7 @@ in separate spaces. In particular, a time-aware parameter generator (TaPG) is de
 
 Methods in this category use CNNs to model temporal information and its interactions, which have more powerful feature learning capabilities than the above LSTM-based methods but which are still unable to model the graph structure of TKGs.
 
-# *3.3. CapsNet-Based Methods*
+## *3.3. CapsNet-Based Methods*
 
 Capsule network (CapsNet) [\[21\]](#page-14-2) can be seen as an improved version of CNN, which can encode the intrinsic spatial relationships between a part and the whole in images. It consists of two key components: capsules and a dynamic routing mechanism. A capsule is a group of neurons that processes different information about an object, and the length of its output vector represents the probability that the object represented by the capsule is present in the current input. To guarantee the length of the vector stays between 0 and 1, a squash function is used:
 
@@ -249,7 +248,7 @@ BiQCap [\[34\]](#page-14-15) combines biquaternions and capsule networks for TKG
 
 Methods in this category have similar characteristics to the CNN-based methods. Since CapsNet is an improved version of CNN, it inherits the characteristics of CNN and can model local and global spatial relationships. Therefore, methods in this category can theoretically better characterize the spatial characteristics of entities in TKGs.
 
-# *3.4. Attention-Based Methods*
+## *3.4. Attention-Based Methods*
 
 The attention mechanism [\[55\]](#page-16-0) is popular in sequence modeling tasks such as machine translation [\[56\]](#page-16-1) and speech recognition [\[57\]](#page-16-2). Formally, the relevant score of the *i*-th data in the input sequence and the *j*-th data in the output sequence is computed as:
 
@@ -265,7 +264,7 @@ Inspired by the self-attention mechanism [\[59\]](#page-16-4) and the diachronic
 
 Methods in this category use the attention mechanism to model the importance of entities and/or relations in TKGs. They have the characteristics of theoretical simplicity but usually need to be combined with other methods to complete the TKGs.
 
-# *3.5. GNN-Based Methods*
+## *3.5. GNN-Based Methods*
 
 A graph neural network (GNN) [\[60\]](#page-16-5) is an effective model that operates directly on graph-structured data, such as social networks [\[61\]](#page-16-6) and road networks [\[62\]](#page-16-7). It follows a recursive neighborhood aggregation (or message passing) scheme, where the feature vector of a node (i.e., entity) is computed by recursively aggregating and transforming embeddings of its neighboring nodes. Formally, the computation of the feature vector of each node can be described as:
 
@@ -281,7 +280,7 @@ HyGNet [\[39\]](#page-15-4) exploits hyperbolic geometry to model temporal knowl
 
 Methods in this category use GNN to model the graph structure in TKGs, assuming that similar entities have similar graph structures. However, relying solely on structural information limits the completion performance. Therefore, methods in this category usually combine with other mechanisms to model information other than structural information in TKGs, such as relations, entity descriptions, and attributes, etc., for TKGC.
 
-# *3.6. GCN-Based Methods*
+## *3.6. GCN-Based Methods*
 
 Graph convolutional network (GCN) [\[64](#page-16-9)[,65\]](#page-16-10) is a variant of GNN that uses a convolutionlike operation to aggregate the features of each node's corresponding neighbor nodes and then performs a non-linear transformation to update the feature vector of each node. Formally, at the *k*-th layer, the feature vector of each node is computed as (the aggregate and update function are integrated):
 
@@ -330,7 +329,7 @@ T-GAE [\[47\]](#page-15-12) simultaneously applies GAN and LSTM to the TKGC task
 
 Methods in this category have similar characteristics to the GNN-based and GCNbased methods. Since GAN introduces an attention mechanism based on GCN, which enables it to characterize the different importance of different neighbor entities in the aggregation process, in theory, the GAN-based methods can better model the heterogeneity of TKGs.
 
-#### *3.8. Language Model-Based Methods*
+### *3.8. Language Model-Based Methods*
 
 Pre-trained language models [\[67](#page-16-12)[,68\]](#page-16-13) and large language models [\[69\]](#page-16-14) are making new waves in the field of natural language processing and artificial intelligence due to their emergent ability and generalizability.
 
@@ -348,33 +347,33 @@ It should be pointed out that the methods in Table [3](#page-11-0) were implemen
 
 by randomly replacing its subject entity or object entity with every entity in the entity set, while the static filtered setting constructs corrupted triples by removing all corrupted triples that are repeated with triples in the train, validation, and test sets to reduce the impact of these repeated corrupted triples. Since directly applying the static filtered setting to TKGC may wrongly remove corrupted quadruplets, Goel et al. [\[58\]](#page-16-3) introduced temporal information into the static filtered setting and proposed the time-wise filtered setting. More specifically, for each test quadruple (*s*,*r*, *o*, *t*) ∈ *test*, it constructs the corrupted quadruples as (*s* ′ ,*r*, *o*, *t*),(*s*,*r*, *o* ′ , *t*) ∈ G / , where *s* ′ , *o* ′ ∈ E.
 
-| Category                     | TKGC Method              | MRR   | MR  | Hits@10 | Hits@1 |
+| Category | TKGC Method | MRR | MR | Hits@10 | Hits@1 |
 |------------------------------|--------------------------|-------|-----|---------|--------|
-|                              | ⋆<br>TA-TransE [27]      | 0.299 | 79  | 66.8    | 9.6    |
-| LSTM-based methods           | ⋆<br>TA-DISTMULT [27]    | 0.474 | 98  | 72.8    | 34.6   |
-|                              | TA-TransR [28]           | -     | -   | -       | -      |
-|                              | CATKGC [29]              | -     | -   | -       | -      |
-|                              | ⋄<br>ConvTKG [30]        | 0.740 | -   | 86.2    | 67.4   |
-| CNN-based methods            | ∗<br>SANe [31]           | 0.683 | -   | 82.3    | 60.5   |
-|                              | SANe+ [32]<br>∗          | 0.686 | -   | 82.6    | 60.8   |
-|                              | ∗<br>TempCaps [33]       | 0.521 | -   | 70.5    | 42.3   |
-| CapsNet-based methods        | †<br>BiQCap [34]         | 0.691 | -   | 83.7    | 62.1   |
-|                              | ⋆<br>RoAN [35]           | 0.599 | -   | 82.3    | 47.9   |
-| Attention-based methods      | †<br>HSAE [36]           | 0.864 | -   | 94.1    | 81.7   |
-|                              | †<br>TGAP [37]           | 0.670 | -   | 84.5    | 56.8   |
-| GNN-based methods            | ⋆<br>STRGNN [38]         | 0.781 | -   | 85.1    | 66.7   |
-|                              | ∗<br>HyGNet [39]         | 0.693 | -   | 83.7    | 61.2   |
-|                              | ⋆<br>TeMP [40]           | 0.691 | -   | 91.7    | 56.6   |
-|                              | MtGCN [41]               | -     | -   | -       | -      |
-| GCN-based methods            | ⋆<br>TAGCN [42]          | 0.641 | -   | 81.2    | 55.3   |
-|                              | ⋆<br>TAL-TKGC [43]       | 0.354 | -   | 69.2    | 22.6   |
-|                              | †<br>THOR [44]           | 0.799 | -   | 88.2    | 75.0   |
-|                              | ∗<br>IAGAT [45]          | 0.615 | -   | 80.8    | 50.3   |
-| GAN-based methods            | †<br>DEGAT [46]          | 0.777 | 241 | 87.1    | 72.4   |
-|                              | ∗<br>T-GAE [47]          | 0.696 | -   | 86.2    | -      |
-|                              | ∗<br>SToKE [48]          | 0.712 | -   | 88.5    | 60.5   |
-| Language model-based methods | ∗<br>Llama-2-7b-CoH [49] | -     | -   | 69.9    | 38.6   |
-|                              | ∗<br>Vicuna-7b-CoH [49]  | -     | -   | 70.7    | 39.2   |
+| | ⋆<br>TA-TransE [27] | 0.299 | 79 | 66.8 | 9.6 |
+| LSTM-based methods | ⋆<br>TA-DISTMULT [27] | 0.474 | 98 | 72.8 | 34.6 |
+| | TA-TransR [28] | - | - | - | - |
+| | CATKGC [29] | - | - | - | - |
+| | ⋄<br>ConvTKG [30] | 0.740 | - | 86.2 | 67.4 |
+| CNN-based methods | ∗<br>SANe [31] | 0.683 | - | 82.3 | 60.5 |
+| | SANe+ [32]<br>∗ | 0.686 | - | 82.6 | 60.8 |
+| | ∗<br>TempCaps [33] | 0.521 | - | 70.5 | 42.3 |
+| CapsNet-based methods | †<br>BiQCap [34] | 0.691 | - | 83.7 | 62.1 |
+| | ⋆<br>RoAN [35] | 0.599 | - | 82.3 | 47.9 |
+| Attention-based methods | †<br>HSAE [36] | 0.864 | - | 94.1 | 81.7 |
+| | †<br>TGAP [37] | 0.670 | - | 84.5 | 56.8 |
+| GNN-based methods | ⋆<br>STRGNN [38] | 0.781 | - | 85.1 | 66.7 |
+| | ∗<br>HyGNet [39] | 0.693 | - | 83.7 | 61.2 |
+| | ⋆<br>TeMP [40] | 0.691 | - | 91.7 | 56.6 |
+| | MtGCN [41] | - | - | - | - |
+| GCN-based methods | ⋆<br>TAGCN [42] | 0.641 | - | 81.2 | 55.3 |
+| | ⋆<br>TAL-TKGC [43] | 0.354 | - | 69.2 | 22.6 |
+| | †<br>THOR [44] | 0.799 | - | 88.2 | 75.0 |
+| | ∗<br>IAGAT [45] | 0.615 | - | 80.8 | 50.3 |
+| GAN-based methods | †<br>DEGAT [46] | 0.777 | 241 | 87.1 | 72.4 |
+| | ∗<br>T-GAE [47] | 0.696 | - | 86.2 | - |
+| | ∗<br>SToKE [48] | 0.712 | - | 88.5 | 60.5 |
+| Language model-based methods | ∗<br>Llama-2-7b-CoH [49] | - | - | 69.9 | 38.6 |
+| | ∗<br>Vicuna-7b-CoH [49] | - | - | 70.7 | 39.2 |
 
 <span id="page-11-0"></span>**Table 3.** Experimental results on ICEWS05-15.
 
@@ -416,7 +415,7 @@ In this paper, we present a review of the deep learning-based TKGC methods and s
 
 **Conflicts of Interest:** The authors declare no conflicts of interest.
 
-# **References**
+## **References**
 
 - <span id="page-13-0"></span>1. Wang, Y.; Lipka, N.; Rossi, R.A.; Siu, A.; Zhang, R.; Derr, T. Knowledge graph prompting for multi-document question answering. *Proc. Aaai Conf. Artif. Intell.* **2024**, *38*, 19206–19214. [\[CrossRef\]](http://doi.org/10.1609/aaai.v38i17.29889)
 - <span id="page-13-1"></span>2. Jiang, Y.; Yang, Y.; Xia, L.; Huang, C. Diffkg: Knowledge graph diffusion model for recommendation. In Proceedings of the 17th ACM International Conference on Web Search and Data Mining, Merida, Mexico, 4–8 March 2024; pp. 313–321.

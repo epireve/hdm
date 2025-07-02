@@ -69,7 +69,7 @@ Subjects Artificial Intelligence, Data Mining and Machine Learning, Sentiment An
 
 Keywords Temporal knowledge graph reasoning, Recurrent encoding, Contrastive learning
 
-# INTRODUCTION
+## INTRODUCTION
 
 Knowledge graphs (KGs) act as repositories of factual information within the human world comprising a large array of data utilized throughout different intelligent
 
@@ -99,7 +99,7 @@ model uses the GCN and the gated recurrent unit to obtain the dependency relatio
 - A recurrent encoder is developed using the graph convolution network and the double recurrent mechanism. This encoder effectively captures the dependency relationships among historical facts. Additionally, this work proposes a historical matrix that comprehensively accounts for repeated historical facts. In addition, the TRCL model integrates contrastive learning to alleviate the impact of irrelevant historical data on entity prediction. Finally, the developed model uses a decoder containing periodic time vectors to derive TKG reasoning outcomes.
 - Extensive testing was performed on multiple public datasets to strengthen the validity and generalizability of the TRCL model providing robust evidence on its effectiveness across diverse scenarios.
 
-# RELATED WORK
+## RELATED WORK
 
 ## Temporal knowledge graph reasoning
 
@@ -107,13 +107,13 @@ TKG reasoning is segmented into interpolation reasoning and extrapolation reason
 
 based on the conditional probabilities. RE-NET ([Jin et al., 2019](#page-17-2)) uses neighborhood aggregators and recurrent event encoders to encode historical facts. RE-NET uses graph structure information but this model only considers local structures. xERTE ([Han et al.,](#page-17-6) [2020](#page-17-6)) establishes an interpretable prediction model based on subgraph search. CyGNet ([Zhu et al., 2021](#page-20-1)) applies repeated facts in historical sets to predict high-frequency entities. TANGO ([Han et al., 2021](#page-17-7)) models the temporal knowledge graph using neural ordinary differential equations with continuous-time reasoning capabilities. TIme Traveler (TITer) by [Sun et al. \(2021\)](#page-18-4) utilizes reinforcement learning techniques to predict target entities based on path search. Similar to TITer, Clue Searching and Temporal Reasoning (CluSTeR) ([Li et al., 2021a](#page-18-5)) also uses reinforcement learning to search for possible target entities. RE-GCN ([Li et al., 2021b](#page-18-1)) and its extended CEN ([Li et al., 2022a](#page-18-2)) model the evolution of entities and relationships at each timestamp to obtain local historical dependencies, and they introduce static attributes to improve prediction results. However, they do not fully utilize long-term information. EvoExplor ([Zhang et al., 2022a](#page-19-10)) achieves entity prediction by capturing complex evolutionary theories and community structures of historical facts. Graph Hawkes Transformer (GHT) ([Sun et al., 2022](#page-18-6)) proposes a Transformer based point-to-point process model for capturing structural and temporal information. TLogic ([Liu et al., 2022](#page-18-7)) and TLmod ([Bai et al., 2023](#page-17-8)) use temporal logic regulations collected from temporal knowledge graphs to predict entities. HiSMatch ([Li et al., 2022b](#page-18-8)) incorporated two structural encoders to compute representations of query-related history and candidate-related history, and integrates background knowledge into entity representations. TEemporal logiCal grapH networkS (TECHS) ([Lin et al., 2023](#page-18-9)) introduces a temporal graph encoder and a logical decoder for TKG reasoning, and puts forward a forward message-passing mechanism. The Pre-trained Language Model with Prompts for temporal Knowledge graph completion (PPT) ([Xu et al., 2023a](#page-19-11)) transforms the quadruple into input for the pre-trained model and converts the time intervals between different timestamps into prompts to constituting coherent sentences with semantic information. [Lee et al. \(2023\)](#page-17-9) proposes a model to use in-context learning with large language models for TKG reasoning. The proposed model transformed relevant historical facts into prompts and earned prediction results through token probabilities. GenTKG ([Liao et al., 2024](#page-18-10)) capitalizes on a retrieval tactic on the ground of temporal logic rules and valid fine-tuning with few-shot parameters for TKG reasoning. TiRGN ([Li, Sun & Zhao,](#page-18-3) [2022](#page-18-3)) considers the sequential, reduplicative and periodic patterns of historical facts. TiRGN fully recognizes local and global history information. But TiRGN ignores the interference of repeated history on entity prediction. CENET ([Xu et al., 2023b](#page-19-8)) utilizes the frequency of historical events and contrastive learning to obtain correlations between historical and unhistorical events in order to predict matching entities. However CENET does not consider the evolution of historical facts, resulting in poor performance.
 
-# Contrastive learning
+## Contrastive learning
 
 Contrastive learning has been broadly utilized across several territories, such as computer vision ([Feng et al., 2023](#page-17-10); [Lin et al., 2023](#page-18-9); [Wu et al., 2023b](#page-19-12)), muti-modal learning ([Xie et al., 2023](#page-19-13)), audio processing ([Hu et al., 2023](#page-17-11)) and natural language processing
 
 ([Rethmeier & Augenstein, 2023](#page-18-11); [Zhao et al., 2023](#page-20-2)). Recently, contrastive learning has been applied in static knowledge graph reasoning. SimKGC model ([Wang et al., 2022](#page-19-14)) introduced three types of negative samples for improving the efficiency of contrastive learning. SimRE ([Zhang et al., 2024](#page-19-15)) employed comparative learning to mimic the head and body of rules, and incorporates rule features into the model through simple addition. However contrastive learning has been less applied in TKG reasoning. The CENET model is an example of using contrastive learning for TKG reasoning. This model utilizes contrastive learning to recognize historical and non-historical facts, reducing the interference of historical facts on entity prediction.
 
-# PRELIMINARIES
+## PRELIMINARIES
 
 ## Relational graph convolutional network
 
@@ -144,13 +144,13 @@ A TKG <sup>G</sup> is formalized as a sequence of KG snapshots, i.e., G¼ Gf g <
 
 The intention of TKG extrapolation is to forecast missing subject entity or object entity in given query (s, r, ?, t) or (?, r, o, t) according to previous historical KG snapshot f g <sup>G</sup><sup>1</sup>; <sup>G</sup><sup>2</sup>; …; <sup>G</sup><sup>t</sup><sup>1</sup> . For simplicity, this article adds the quadruple of the inverse relation (o, r1, s, t) in TKG. Therefore the extrapolation task is simplified to predict the object entity. For each prediction task (s, r, ?, t) at time t, We employ the TKG snapshot sequence of m timestamps before time t as <sup>G</sup><sup>t</sup>m:t1.
 
-# THE PROPOSED METHODOLOGY
+## THE PROPOSED METHODOLOGY
 
-The prevailing focus in contemporary research on temporal knowledge graph reasoning lies in extrapolation knowledge graph reasoning, aimed at forecasting future events in the ground of historical occurrences. The proposed TRCL model addresses the task of extrapolation relationship reasoning. To facilitate comprehension, this work introduces the key notations, followed by a systematic presentation of each component of the model. The flow chart of the proposed TRCL framework is displayed in [Fig. 1.](#page-6-0)
+The prevailing focus in contemporary research on temporal knowledge graph reasoning lies in extrapolation knowledge graph reasoning, aimed at forecasting future events in the ground of historical occurrences. The proposed TRCL model addresses the task of extrapolation relationship reasoning. To facilitate comprehension, this work introduces the key notations, followed by a systematic presentation of each component of the model. The flow chart of the proposed TRCL framework is displayed in [Figure 1.](#page-6-0)
 
 ## Model overview of the proposed TRLC model
 
-The TRLC model proposed in this article consists of four modules. The first module takes the sequential information of k snapshots before the current timestamp t as input to the recurrent encoder, obtaining the embedding of entities and relations. The second module is to establish a global historical matrix, with the aim of integrating all repeated historical information into knowledge graph reasoning. The third module is to use the loss function of contrastive learning to diminish the effect of irrelevant historical information on the model's prediction of future events. The fourth module uses a time decoder to capture periodic information, and ultimately this module can obtain the predicted results for each entity. The entire framework of the proposed TRLC model is shown in [Fig. 2](#page-6-1).
+The TRLC model proposed in this article consists of four modules. The first module takes the sequential information of k snapshots before the current timestamp t as input to the recurrent encoder, obtaining the embedding of entities and relations. The second module is to establish a global historical matrix, with the aim of integrating all repeated historical information into knowledge graph reasoning. The third module is to use the loss function of contrastive learning to diminish the effect of irrelevant historical information on the model's prediction of future events. The fourth module uses a time decoder to capture periodic information, and ultimately this module can obtain the predicted results for each entity. The entire framework of the proposed TRLC model is shown in [Figure 2](#page-6-1).
 
 ### Recurrent encoder
 
@@ -236,7 +236,6 @@ Considering that some events occur periodically, for example, the NBA game is he
 
 aperiodicity of historical facts. The periodic and aperiodic time-dependent vectors are designed according to [Eqs. \(9\)](#page-8-0) and [\(10\)](#page-9-0) by utilizing Time2Vec ([Kazemi et al., 2019](#page-17-13)) encoder.
 
-<span id="page-9-0"></span>
 $$
 T_t^p = \sin(\omega_p t + \varphi_p) \tag{10}
 $$
@@ -247,7 +246,7 @@ $$
 
 where T<sup>p</sup> <sup>t</sup> and Tnp <sup>t</sup> are d-dimensional periodic and aperiodic time vectors, !p, 'p, !np and 'np are learnable parameters.
 
-#### Time decoder
+### Time decoder
 
 After obtaining the representation of entity hs;<sup>t</sup> and relationship rt, as well as the periodic representation of time T<sup>p</sup> <sup>t</sup> and the non periodic representation of time Tnp <sup>t</sup> , we use the convolution operation introduced in TiRGN to fuse the four representations mentioned above. The specific formula is as follows:
 
@@ -275,15 +274,14 @@ $$
 
 where map denotes a feature map operator, and W 2 <sup>R</sup>cd<sup>d</sup> denotes a matrix for linear transformation. Ht is the embedding of entity.
 
-#### Training objective
+### Training objective
 
 Because different queries can be duplicate facts or newly occurring facts, we have set a hyper-parameter to equilibrate the values of p<sup>h</sup> and p<sup>n</sup><sup>h</sup>. The formula is as described below:
 
-<span id="page-9-1"></span>
 $$
 p = \alpha \times p^{h} + (1 - \alpha) \times p^{nh}
 $$
- (16)
+(16)
 
 where hyper-parameters <sup>a</sup> 2 ½ <sup>0</sup>; <sup>1</sup> .
 
@@ -297,7 +295,7 @@ $$
 
 Note that the loss function <sup>L</sup>cl of contrastive learning and the loss function <sup>L</sup>td of entity prediction are trained simultaneously.
 
-# RESULTS AND DISCUSSIONS
+## RESULTS AND DISCUSSIONS
 
 ## Experimental setup
 
@@ -311,15 +309,14 @@ Several researches ([Han et al., 2021](#page-17-7); [Sun et al., 2021](#page-18-
 
 For all datasets, the embedding size d is selected as 200. The amount of one-dimensional convolution-based GCN layers is selected as 2 and the dropout rate for each layer is selected as 0.2. The parameters of TRCL are optimized by using adam ([Kingma & Ba,](#page-17-15) [2014](#page-17-15)) during training, and the learning rate is selected as 0.001. The batch size is selected as the amount of quadruples in each timestamp. During training, the optimal local historical KG snapshot sequence lengths for Integrated Crisis Early Warning System (ICEWS) 14, ICEWS05-15, ICEWS18, and Global Database of Events, Language, and Tone (GDELT) are selected as 12, 19, 17 and 10, respectively. During testing, the optimal local historical KG snapshot sequence lengths for ICEWS14, ICEWS05-15, ICEWS18 and GDELT are selected as 13, 21, 20 and 11, respectively. Like RE-GCN and TiRGN, this article added static KG information to datasets ICEWS14, ICEWS05-15 and ICEWS18. For time-guided decoders, the amount of channels is selected as 50 and the kernel size is selected as 4 × 3. This article attempted numerous α values from 0 to 1 and ultimately determined α = 0.3 as the history weight for all the datasets.
 
-<span id="page-11-0"></span>
 
-| Table 1 Statistics of the TKG datasets. |          |           |           |            |         |            |               |  |
+| Table 1 Statistics of the TKG datasets. | | | | | | | | |
 |-----------------------------------------|----------|-----------|-----------|------------|---------|------------|---------------|--|
-| Dataset                                 | Entities | Relations | Training  | Validation | Test    | Timestamps | Time interval |  |
-| ICEWS14                                 | 6,869    | 230       | 74,845    | 8,514      | 7,371   | 365        | 24 h          |  |
-| ICEWS05-15                              | 23,033   | 251       | 368,868   | 46,302     | 46,159  | 4,017      | 24 h          |  |
-| ICEWS18                                 | 10,094   | 256       | 373,018   | 45,995     | 49,545  | 365        | 24 h          |  |
-| GDELT                                   | 7,691    | 240       | 1,734,399 | 238,765    | 305,241 | 2,975      | 15 min        |  |
+| Dataset | Entities | Relations | Training | Validation | Test | Timestamps | Time interval | |
+| ICEWS14 | 6,869 | 230 | 74,845 | 8,514 | 7,371 | 365 | 24 h | |
+| ICEWS05-15 | 23,033 | 251 | 368,868 | 46,302 | 46,159 | 4,017 | 24 h | |
+| ICEWS18 | 10,094 | 256 | 373,018 | 45,995 | 49,545 | 365 | 24 h | |
+| GDELT | 7,691 | 240 | 1,734,399 | 238,765 | 305,241 | 2,975 | 15 min | |
 
 ### Results
 
@@ -331,54 +328,53 @@ According to experimental results, it can be concluded that the proposed TRCL mo
 
 On the other hand, when compared with the TiRGN model, except for the H@1 metric in dataset ICEWS05-15, the experimental results of the proposed TRCL model attained the best results, indicating that incorporating contrastive learning is profitable for enhancing the performance of our model. Through in-depth analysis of the experimental results of models TRCL and TiRGN, we found that the experimental effect is the best in ICEWS14, the experimental results in ICEWS18 and GDELT were second in effectiveness, the experimental effect is the worst in ICEWS05-15. Through analyzing the dataset, it was found that the dataset of ICEWS14 is the simplest. When comparing with ICEWS14, although the number of timestamps is the same in ICEWS18, this dataset has more entities
 
-| Model             | ICEWS14 |       |       | ICEWS18 |       |       |       |       |
+| Model | ICEWS14 | | | ICEWS18 | | | | |
 |-------------------|---------|-------|-------|---------|-------|-------|-------|-------|
-|                   | MRR     | H@1   | H@3   | H@10    | MRR   | H@1   | H@3   | H@10  |
-| RGCRN (2018)      | 38.48   | 28.52 | 42.85 | 58.10   | 28.02 | 18.62 | 31.59 | 46.44 |
-| RE-NET (2020)     | 39.86   | 30.11 | 44.04 | 58.21   | 29.78 | 19.73 | 32.55 | 48.46 |
-| CyGNet (2021)     | 37.65   | 27.43 | 42.63 | 57.90   | 27.12 | 17.21 | 30.97 | 46.85 |
-| xERTE (2021)      | 40.79   | 32.70 | 45.67 | 57.30   | 29.31 | 21.03 | 33.51 | 46.48 |
-| TITer (2021)      | 41.73   | 32.74 | 46.46 | 58.44   | 29.98 | 22.05 | 33.46 | 44.83 |
-| RE-GCN (2021)     | 42.00   | 31.63 | 47.20 | 61.65   | 30.58 | 21.01 | 34.34 | 48.75 |
-| CEN (2022)        | 42.20   | 32.08 | 47.46 | 61.31   | 31.50 | 21.79 | 35.44 | 50.59 |
-| TiRGN (2022)      | 44.04   | 33.83 | 48.95 | 63.84   | 33.66 | 23.19 | 37.99 | 54.22 |
-| CENET (2023)      | 32.42   | 24.56 | 35.41 | 48.13   | 26.40 | 17.68 | 29.37 | 43.79 |
-| The proposed TRCL | 45.07   | 34.71 | 50.22 | 65.37   | 33.78 | 23.26 | 38.20 | 54.39 |
+| | MRR | H@1 | H@3 | H@10 | MRR | H@1 | H@3 | H@10 |
+| RGCRN (2018) | 38.48 | 28.52 | 42.85 | 58.10 | 28.02 | 18.62 | 31.59 | 46.44 |
+| RE-NET (2020) | 39.86 | 30.11 | 44.04 | 58.21 | 29.78 | 19.73 | 32.55 | 48.46 |
+| CyGNet (2021) | 37.65 | 27.43 | 42.63 | 57.90 | 27.12 | 17.21 | 30.97 | 46.85 |
+| xERTE (2021) | 40.79 | 32.70 | 45.67 | 57.30 | 29.31 | 21.03 | 33.51 | 46.48 |
+| TITer (2021) | 41.73 | 32.74 | 46.46 | 58.44 | 29.98 | 22.05 | 33.46 | 44.83 |
+| RE-GCN (2021) | 42.00 | 31.63 | 47.20 | 61.65 | 30.58 | 21.01 | 34.34 | 48.75 |
+| CEN (2022) | 42.20 | 32.08 | 47.46 | 61.31 | 31.50 | 21.79 | 35.44 | 50.59 |
+| TiRGN (2022) | 44.04 | 33.83 | 48.95 | 63.84 | 33.66 | 23.19 | 37.99 | 54.22 |
+| CENET (2023) | 32.42 | 24.56 | 35.41 | 48.13 | 26.40 | 17.68 | 29.37 | 43.79 |
+| The proposed TRCL | 45.07 | 34.71 | 50.22 | 65.37 | 33.78 | 23.26 | 38.20 | 54.39 |
 
 <span id="page-12-0"></span>Table 2 Performance (in percentage) for entity prediction task on ICEWS14 and ICEWS18 with time-aware metrics. The best performance is highlighted in bold.
 
 <span id="page-12-1"></span>Table 3 Performance (in percentage) for entity prediction task on ICEWS05-15 and GDELT with time-aware metrics. The best performance is highlighted in bold.
 
-| Model             | ICEWS05-15 |       |       |       | GDELT |       |       |       |
+| Model | ICEWS05-15 | | | | GDELT | | | |
 |-------------------|------------|-------|-------|-------|-------|-------|-------|-------|
-|                   | MRR        | H@1   | H@3   | H@10  | MRR   | H@1   | H@3   | H@10  |
-| RGCRN (2018)      | 44.56      | 34.16 | 50.06 | 64.51 | 19.37 | 12.24 | 20.57 | 33.32 |
-| RE-NET (2020)     | 43.67      | 33.55 | 48.83 | 62.72 | 19.55 | 12.38 | 20.80 | 34.00 |
-| CyGNet (2021)     | 40.42      | 29.44 | 46.06 | 61.60 | 20.22 | 12.35 | 21.66 | 35.82 |
-| xERTE (2021)      | 46.62      | 37.84 | 52.31 | 63.92 | 19.45 | 11.92 | 20.84 | 34.18 |
-| TITer (2021)      | 47.60      | 38.29 | 52.74 | 64.86 | 18.19 | 11.52 | 19.20 | 31.00 |
-| RE-GCN (2021)     | 48.03      | 37.33 | 53.90 | 68.51 | 19.69 | 12.46 | 20.93 | 33.81 |
-| CEN (2022)        | 46.84      | 36.38 | 52.45 | 67.01 | 20.39 | 12.96 | 21.77 | 34.97 |
-| TiRGN (2022)      | 50.04      | 39.25 | 56.13 | 70.71 | 21.67 | 13.63 | 23.27 | 37.60 |
-| CENET (2023)      | 39.10      | 29.02 | 43.81 | 58.43 | 20.23 | 12.69 | 21.70 | 34.92 |
-| The proposed TRCL | 50.12      | 39.08 | 56.39 | 70.87 | 21.85 | 13.68 | 23.55 | 38.10 |
+| | MRR | H@1 | H@3 | H@10 | MRR | H@1 | H@3 | H@10 |
+| RGCRN (2018) | 44.56 | 34.16 | 50.06 | 64.51 | 19.37 | 12.24 | 20.57 | 33.32 |
+| RE-NET (2020) | 43.67 | 33.55 | 48.83 | 62.72 | 19.55 | 12.38 | 20.80 | 34.00 |
+| CyGNet (2021) | 40.42 | 29.44 | 46.06 | 61.60 | 20.22 | 12.35 | 21.66 | 35.82 |
+| xERTE (2021) | 46.62 | 37.84 | 52.31 | 63.92 | 19.45 | 11.92 | 20.84 | 34.18 |
+| TITer (2021) | 47.60 | 38.29 | 52.74 | 64.86 | 18.19 | 11.52 | 19.20 | 31.00 |
+| RE-GCN (2021) | 48.03 | 37.33 | 53.90 | 68.51 | 19.69 | 12.46 | 20.93 | 33.81 |
+| CEN (2022) | 46.84 | 36.38 | 52.45 | 67.01 | 20.39 | 12.96 | 21.77 | 34.97 |
+| TiRGN (2022) | 50.04 | 39.25 | 56.13 | 70.71 | 21.67 | 13.63 | 23.27 | 37.60 |
+| CENET (2023) | 39.10 | 29.02 | 43.81 | 58.43 | 20.23 | 12.69 | 21.70 | 34.92 |
+| The proposed TRCL | 50.12 | 39.08 | 56.39 | 70.87 | 21.85 | 13.68 | 23.55 | 38.10 |
 
 and data. The experimental effect of ICEWS18 is also not as good as ICEWS14, indicating that contrastive learning is not effective in dealing with complex datasets. The ICEWS05- 15 dataset has the highest number of entities and timestamps, but the amount of data is not the largest. In contrast, GDELT has a relatively large number of timestamps but not many entities, and there is extensive training data in GDELT, which enables the model to receive sufficient training. The experimental results of GDELT are much better than those in ICEWS05-15 dataset, indicating that comparative learning with many experimental data can improve classification performance. Moreover, the proposed TRCL model outperforms the CENET model. Specifically, the CENET model takes into account the frequency of contrastive learning and historical facts, however does not incorporate the
 
-<span id="page-13-0"></span>
 
-| Table 4 The ablation study results on ICEWS14 and ICEWS18 datasets. |          |       |         |       |  |  |  |  |  |
+| Table 4 The ablation study results on ICEWS14 and ICEWS18 datasets. | | | | | | | | | |
 |---------------------------------------------------------------------|----------|-------|---------|-------|--|--|--|--|--|
-| Model                                                               | ICEWS14s |       | ICEWS18 |       |  |  |  |  |  |
-|                                                                     | MRR      | H@3   | MRR     | H@3   |  |  |  |  |  |
-| TRCL                                                                | 45.07    | 50.22 | 33.78   | 38.20 |  |  |  |  |  |
-| TRCL-h                                                              | 42.76    | 47.73 | 32.60   | 36.65 |  |  |  |  |  |
-| TRCL-nh                                                             | 36.72    | 40.92 | 26.93   | 30.81 |  |  |  |  |  |
-| TRCL-cl                                                             | 44.38    | 49.82 | 33.41   | 37.84 |  |  |  |  |  |
+| Model | ICEWS14s | | ICEWS18 | | | | | | |
+| | MRR | H@3 | MRR | H@3 | | | | | |
+| TRCL | 45.07 | 50.22 | 33.78 | 38.20 | | | | | |
+| TRCL-h | 42.76 | 47.73 | 32.60 | 36.65 | | | | | |
+| TRCL-nh | 36.72 | 40.92 | 26.93 | 30.81 | | | | | |
+| TRCL-cl | 44.38 | 49.82 | 33.41 | 37.84 | | | | | |
 
 model of factual evolution. Therefore, the proposed TRCL model is much higher than the CENET model.
 
-# Ablation study
+## Ablation study
 
 To investigate the effects of repetitive historical information, recurrent encoder, and contrastive learning on the model TRCL, this work compared different variants of TRCL according to MRR and H@3 metrics: the variant TRCL-h removes repetitive historical information based on the TRCL model; the variant TRCL-nh removed the current encoder from the TRCL model; the variant TRCL-cl has removed contrastive learning from the TRCL model. We have shown the results of the variant model on datasets ICEWS14 and ICEWS18 in [Table 4](#page-13-0). The results illustrate that the TRCL model surpasses TRCL-h, TRCLnh, and TRCL-cl in all metrics, which proves that the model can efficiently improve the capability of entity prediction tasks by integrating repetitive historical information, recurrent encoder, and contrastive learning. Specifically, as shown in [Table 4](#page-13-0).
 
@@ -386,7 +382,7 @@ From the perspective of MRR indicators, TRCL improved by approximately 2.3% on d
 
 Meanwhile, from the perspective of MRR indicators, the proposed TRCL model has improved by approximately 0.7% on dataset ICEWS14 and by approximately 0.4% on dataset ICEWS18 compared to TRCL-cl; From the H@3 metric, TRCL improved by approximately 0.4% on dataset ICEWS14 and approximately 0.4% on dataset ICEWS18 compared to TRCL-cl. This indicates that incorporating contrastive learning into TRCL can avoid the interference of repeated historical information on entity prediction tasks.
 
-# Sensitivity analysis
+## Sensitivity analysis
 
 To investigate the influence of repeated historical facts on entity forecast tasks, this work conducted sensitivity analysis on hyper-parameter α in formula 16 on datasets ICEWS14
 
@@ -413,23 +409,23 @@ To investigate the influence of learning rate on entity forecast tasks, this wor
 
 of entity prediction tasks is optimal when the learning rate is 0.001, for both the MRR metric and the H@3 metric. This indicates that suitable learning rate contributed to good performance in entity prediction tasks.
 
-# CONCLUSION AND FUTURE WORK
+## CONCLUSION AND FUTURE WORK
 
 This article put forward a new TKG reasoning model, namely TRCL. The TRCL model captures the dependency relationships of historical facts through a recurrent encoder. Afterwards, the model considers the positive impact of repeated historical facts on entity prediction through a global historical matrix. In addition, the model also avoids interference from irrelevant historical facts on entity prediction by incorporating contrastive learning. Finally, the TKG reasoning results are obtained through a time decoder. Substantial experiments conducted on four benchmark datasets have shown that the TRCL model is better than existing methods in most metrics. In the future, this work will study the reasoning ability of models towards emerging facts.
 
 Despite the overall efficacy, TRCL's performance on the ICEWS05-15 dataset highlights the challenge of handling complex data with limited training samples. This requires future enhancements in data efficiency. Future directions include reducing the model's dependence on extensive data, potentially through pre-trained model integration, and broadening its capabilities to relationship prediction tasks within TKG reasoning. These explorations can further solidify TRCL's adaptability and effectiveness in diverse applications, setting a promising path for ongoing research in temporal knowledge graphs.
 
-# <span id="page-16-0"></span>ADDITIONAL INFORMATION AND DECLARATIONS
+## <span id="page-16-0"></span>ADDITIONAL INFORMATION AND DECLARATIONS
 
-# Funding
+## Funding
 
 The authors received no funding for this work.
 
-# Competing Interests
+## Competing Interests
 
 The authors declare that they have no competing interests.
 
-# Author Contributions
+## Author Contributions
 
 - Weitong Liu conceived and designed the experiments, performed the experiments, analyzed the data, performed the computation work, prepared figures and/or tables, and approved the final draft.
 - Khairunnisa Hasikin conceived and designed the experiments, authored or reviewed drafts of the article, and approved the final draft.
@@ -437,7 +433,7 @@ The authors declare that they have no competing interests.
 - Meizhen Liu analyzed the data, prepared figures and/or tables, and approved the final draft.
 - Xuechen Zhao performed the experiments, performed the computation work, prepared figures and/or tables, and approved the final draft.
 
-# Data Availability
+## Data Availability
 
 The following information was supplied regarding data availability:
 
@@ -451,7 +447,7 @@ The Global Database of Events, Language, and Tone (GDELT) dataset is available i
 
 Supplemental information for this article can be found online at [http://dx.doi.org/10.7717/](http://dx.doi.org/10.7717/peerj-cs.2595#supplemental-information) [peerj-cs.2595#supplemental-information.](http://dx.doi.org/10.7717/peerj-cs.2595#supplemental-information)
 
-# <span id="page-17-8"></span>REFERENCES
+## <span id="page-17-8"></span>REFERENCES
 
 - Bai L, Yu W, Chai D, Zhao W, Chen M. 2023. Temporal knowledge graphs reasoning with iterative guidance by temporal logical rules. Information Sciences 621:22–35 [DOI 10.1016/j.ins.2022.11.096.](http://dx.doi.org/10.1016/j.ins.2022.11.096)
 - <span id="page-17-1"></span>Bakhshi M, Nematbakhsh M, Mohsenzadeh M, Rahmani AM. 2022. SParseQA: sequential word reordering and parsing for answering complex natural language questions over knowledge graphs. Knowledge-Based Systems 235:107626 [DOI 10.1016/j.knosys.2021.107626.](http://dx.doi.org/10.1016/j.knosys.2021.107626)

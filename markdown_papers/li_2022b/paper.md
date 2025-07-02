@@ -36,12 +36,11 @@ keywords:
 - sub-optimal
 ---
 
-
 # Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
 
 <span id="page-0-2"></span>Zhuohang Li<sup>1</sup> Jiaxin Zhang<sup>2</sup> Luyang Liu<sup>3</sup> Jian Liu<sup>1</sup> <sup>1</sup>University of Tennessee, Knoxville <sup>2</sup>Oak Ridge National Laboratory <sup>3</sup>Google Research zli96@vols.utk.edu, zhangj@ornl.gov, luyangliu@google.com, jliu@utk.edu
 
-# Abstract
+## Abstract
 
 *Federated Learning (FL) framework brings privacy benefits to distributed learning systems by allowing multiple clients to participate in a learning task under the coordination of a central server without exchanging their private data. However, recent studies have revealed that private information can still be leaked through shared gradient information. To further protect user's privacy, several defense mechanisms have been proposed to prevent privacy leakage via gradient information degradation methods, such as using additive noise or gradient compression before sharing it with the server. In this work, we validate that the private training data can still be leaked under certain defense settings with a new type of leakage, i.e., Generative Gradient Leakage (GGL). Unlike existing methods that only rely on gradient information to reconstruct data, our method leverages the latent space of generative adversarial networks (GAN) learned from public image datasets as a prior to compensate for the informational loss during gradient degradation. To address the nonlinearity caused by the gradient operator and the GAN model, we explore various gradient-free optimization methods (e.g., evolution strategies and Bayesian optimization) and empirically show their superiority in reconstructing high-quality images from gradients compared to gradient-based optimizers. We hope the proposed method can serve as a tool for empirically measuring the amount of privacy leakage to facilitate the design of more robust defense mechanisms*[1](#page-0-0) *.*# Introduction
 
@@ -67,7 +66,7 @@ In this work, we demonstrate on two image datasets that recovering high-fidelity
 - To avoid sub-optimal solutions and reveal more private information, we compare different gradient-free optimizers with conventional gradient-based optimizers (e.g., Adam) and experimentally show their superiority for gradient leakage attack in terms of reconstructed image quality and its similarity to the client's private image.
 - We demonstrate on two image datasets (i.e., CelebA [\[31\]](#page-9-14) and ImageNet [\[9\]](#page-8-4)) that with the proposed GGL, highresolution images can still be recovered from the shared gradients even with the considered defenses, while existing gradient leakage attacks all fail.
 
-# Related Work
+## Related Work
 
 ## 1. Privacy Leakage via Gradient
 
@@ -83,7 +82,7 @@ A common type of cryptographic solution is secure multi-party computation (MPC),
 
 Another line of research seeks to constrain the amount of leaked sensitive information by intentionally sharing degraded gradients. Differential privacy (DP) is the standard way to quantify and limit the privacy disclosure about individual users. DP can be applied at either the server's side (central DP) or the client's side (local DP). In comparison, local DP provides a better notion of privacy as it does not require the client to trust anyone. It utilizes a randomized mechanism to distort the gradients before sharing them with the server [\[14,](#page-9-9) [48\]](#page-10-5). DP offers a worst-case information theoretic guarantee on how much an adversary can learn from the released data. However, for these worst-case bounds to be most meaningful, they typically involve adding too much noise which often reduces the utility of the trained models. In addition to DP, it is demonstrated that performing gradient compression/sparsification can also help to prevent information leakage from the gradients [\[56\]](#page-10-4). A most recent work by Sun*et al.* [\[44\]](#page-10-6) identifies the data representation leakage from gradients as the root cause of privacy leakage in FL and proposes a defense named Soteria, which computes the gradients based on perturbed data representations. It is shown that Soteria can achieve a certifiable level of robustness while maintaining good model utility.
 
-# Methodology
+## Methodology
 
 ## 1. Threat Model
 
@@ -100,7 +99,6 @@ mechanism. The adversary's objective is to reveal as much private information as
 
 Problem Formulation. The task of reconstructing a training image x ∈ R d from its gradients y ∈ R <sup>m</sup> can be formulated as a non-linear inverse problem:
 
-<span id="page-2-1"></span>
 $$
 y = F(x), \tag{1}
 $$
@@ -125,7 +123,6 @@ where D(·) is a distance metric, ω(x) : R <sup>d</sup> → R is the standard i
 
 Motivated by the success of deep generative models for compressed sensing [\[3,](#page-8-8)[46\]](#page-10-10), in this work, we aim to leverage a generative model trained on public datasets as the learned natural image prior to ensure the reconstructed image quality. Moreover, to further account for the privacy defenses that produce degraded gradient information, we propose an adaptive attack by estimating the transformation T (·) and incorporating it in the optimization process. Specifically, given a well-trained generator G(·), we target to solve the following optimization problem:
 
-<span id="page-3-0"></span>
 $$
 \mathbf{z}^*= \underset{\mathbf{z} \in \mathbb{R}^k}{\operatorname{argmin}} \underbrace{\mathcal{D}\big(\mathbf{y}, \mathcal{T}\big(F(G(\mathbf{z}))\big)\big)}_{\text{gradient matching loss}} + \lambda \underbrace{\mathcal{R}(G; \mathbf{z})}_{\text{regularization}}, \qquad (4)
 $$
@@ -137,7 +134,7 @@ Label Inference. Given the shared gradients, the adversary can first adopt an an
 $$
 \nabla \mathbf{W}_{FC}^{i} = \frac{\partial \mathcal{L}(f_{\theta}(\mathbf{x}), \mathbf{c})}{\partial z_{i}} \times \frac{\partial z_{i}}{\partial \mathbf{W}_{FC}^{i}},
 $$
- (5)
+(5)
 
 where z<sup>i</sup> is the i th output of the FC layer. Note that computing the second term ∂z<sup>i</sup> ∂W<sup>i</sup> F C results in the post-activation outputs of the previous layer, which will be always nonnegative if activation functions like ReLU or sigmoid are applied. For networks trained with cross-entropy loss on one-hot labels (assuming softmax is applied at the last layer), the first term will be negative if and only if i = c. Thus the ground truth label can be retrieved by identifying the index of the negative entry of ∇W<sup>i</sup> F C . The inferred label will be used for evaluating the FL model training loss L(fθ(x), c). For conditional GANs [\[36\]](#page-9-20), the inferred label will also be used as the class condition.
 
@@ -145,19 +142,19 @@ Gradient Transformation Estimation. The adversary can further attempt to mitigat
 
 (1)*Gradient Clipping*: A common technique used in DP studies [\[14,](#page-9-9) [48\]](#page-10-5) to restrict the contribution of each individual client. Given a clipping bound S, gradient clipping transforms the gradients as Tcli(y, S) = y/max(1, kyk<sup>2</sup> S ). In practice, gradient clipping is often done in a layer-wise manner. The adversary can take the `<sup>2</sup> norm at each layer of the observed gradients as the estimated clipping bound.
 
-(2) *Gradient Sparsification*: Originally proposed for reducing the communication bandwidth of distributed training [\[30\]](#page-9-21), gradient sparsification is also reported to be effective for defending against gradient leakage attacks [\[56\]](#page-10-4). Specifically, given a pruning rate p ∈ (0, 1), the client first computes a threshold τ ← p of |y|, which is then used to produce a mask M ← |y| > τ . Finally, the mask is applied to the gradients during the transformation, i.e., Tspa(y, p) = y  M. This operation is also layer-wise. The adversary can use the percentage of non-zero entries in the observed gradient to estimate its sparsity.
+(2) *Gradient Sparsification*: Originally proposed for reducing the communication bandwidth of distributed training [\[30\]](#page-9-21), gradient sparsification is also reported to be effective for defending against gradient leakage attacks [\[56\]](#page-10-4). Specifically, given a pruning rate p ∈ (0, 1), the client first computes a threshold τ ← p of |y|, which is then used to produce a mask M ← |y| > τ . Finally, the mask is applied to the gradients during the transformation, i.e., Tspa(y, p) = y M. This operation is also layer-wise. The adversary can use the percentage of non-zero entries in the observed gradient to estimate its sparsity.
 
-(3) *Representation Perturbation*: The core of the recently proposed Soteria [\[44\]](#page-10-6) defense is to prevent data leakage by perturbing the representation learned from a single fully-connected layer L (i.e., the defended layer) to cause maximal reconstruction error. Assume f<sup>r</sup> : R <sup>d</sup> → R l is the feature extractor before the defended layer that maps x ∈ R d to a l-dimensional data representation r ∈ R l . Specifically, the client first evaluates the impact of each entry of the representation by computing <sup>r</sup>i(∇xfr(ri))<sup>−</sup><sup>1</sup> 2 : i ∈ {0, 1, ..., l − 1} . Given a pruning rate p ∈ (0, 1), the client then prunes the p × l elements in r with the largest <sup>r</sup>i(∇xfr(ri))<sup>−</sup><sup>1</sup> 2 values to get r 0 . Finally, the client computes the gradients on the perturbed representation r 0 . This can be thought as applying a mask only to the gradients of the defended layer: Trep(y, p) = y  ML. As this process is deterministic for a given x and FL model fθ, the adversary can reverse-engineer this mask according to the non-zero entries of the gradients from the defended layer.
+(3) *Representation Perturbation*: The core of the recently proposed Soteria [\[44\]](#page-10-6) defense is to prevent data leakage by perturbing the representation learned from a single fully-connected layer L (i.e., the defended layer) to cause maximal reconstruction error. Assume f<sup>r</sup> : R <sup>d</sup> → R l is the feature extractor before the defended layer that maps x ∈ R d to a l-dimensional data representation r ∈ R l . Specifically, the client first evaluates the impact of each entry of the representation by computing <sup>r</sup>i(∇xfr(ri))<sup>−</sup><sup>1</sup> 2 : i ∈ {0, 1, ..., l − 1} . Given a pruning rate p ∈ (0, 1), the client then prunes the p × l elements in r with the largest <sup>r</sup>i(∇xfr(ri))<sup>−</sup><sup>1</sup> 2 values to get r 0 . Finally, the client computes the gradients on the perturbed representation r 0 . This can be thought as applying a mask only to the gradients of the defended layer: Trep(y, p) = y ML. As this process is deterministic for a given x and FL model fθ, the adversary can reverse-engineer this mask according to the non-zero entries of the gradients from the defended layer.
 
 Gradient Matching Loss. The first term in the objective function (Equation [4\)](#page-3-0) encourages the solver to find images that are contextually similar to the client's private training images in the generator's latent space by minimizing the distance between the transformed gradients of the generated images ˜y and the observed gradients y. We explore the following distance metrics for calculating the gradient matching loss: (1) *Squared*`<sup>2</sup>*norm*[\[51,](#page-10-2) [54,](#page-10-3) [56\]](#page-10-4): D1(y, ˜y) = ky − ˜yk 2 2 ; and (2)*Cosine Distance*[\[13\]](#page-9-7): D2(y, ˜y) = 1 − <y,˜y> kyk<sup>2</sup> k˜yk<sup>2</sup> . Cosine distance is magnitudeinvariant and is equivalent to optimizing the Euclidean distance of two normalized gradient vectors.
 
 <span id="page-4-3"></span><span id="page-4-0"></span>
 
-| Grad. |               | D1             | D2             |                |  |  |  |
+| Grad. | | D1 | D2 | | | | |
 |-------|---------------|----------------|----------------|----------------|--|--|--|
-| Reg.  | MSE-I ↓       | PSNR ↑         | MSE-I ↓        | PSNR ↑         |  |  |  |
-| R1    | 0.0320±0.0173 | 15.6814±2.6387 | 0.03671±0.0227 | 15.3471±3.1093 |  |  |  |
-| R2    | 0.0337±0.0206 | 15.5405±2.7090 | 0.06290±0.0815 | 14.3249±4.1627 |  |  |  |
+| Reg. | MSE-I ↓ | PSNR ↑ | MSE-I ↓ | PSNR ↑ | | | |
+| R1 | 0.0320±0.0173 | 15.6814±2.6387 | 0.03671±0.0227 | 15.3471±3.1093 | | | |
+| R2 | 0.0337±0.0206 | 15.5405±2.7090 | 0.06290±0.0815 | 14.3249±4.1627 | | | |
 
 Table 1. Comparison of different loss function configurations.
 
@@ -174,23 +171,22 @@ Optimization Strategy. The target inverse problem described in Equation [4](#pag
 
 Figure 3. Visual comparison of different optimizers. The images on the right are the reconstruction samples produced by three types of optimizers with different random seeds.
 
-<span id="page-4-1"></span>
 
-|          | Metric         |                | Adam   | BO      |        | CMA-ES  |        |  |
+| | Metric | | Adam | BO | | CMA-ES | | |
 |----------|----------------|----------------|--------|---------|--------|---------|--------|--|
-| Dataset  |                | Mean           | Std.   | Mean    | Std.   | Mean    | Std.   |  |
-|          | MSE-I ↓ 0.0427 |                | 0.0025 | 0.0813  | 0.0131 | 0.0708  | 0.0008 |  |
-| CelebA   |                | PSNR ↑ 13.6965 | 0.2593 | 10.9455 | 0.6816 | 11.4989 | 0.0533 |  |
-|          | LPIPS ↓ 0.1435 |                | 0.0083 | 0.2162  | 0.0328 | 0.2136  | 0.0133 |  |
-|          | MSE-R ↓ 0.0003 |                | 0.0001 | 0.0012  | 0.0003 | 0.0015  | 0.0022 |  |
-| ImageNet | MSE-I ↓ 0.5918 |                | 0.1955 | 0.2648  | 0.0181 | 0.2667  | 0.0119 |  |
-|          | PSNR ↑ 2.4433  |                | 1.3565 | 5.7783  | 0.2992 | 5.7420  | 0.1988 |  |
-|          | LPIPS ↓ 0.7983 |                | 0.0280 | 0.6166  | 0.0590 | 0.5736  | 0.0209 |  |
-|          | MSE-R ↓ 0.1051 |                | 0.0703 | 0.0035  | 0.0005 | 0.0018  | 0.0002 |  |
+| Dataset | | Mean | Std. | Mean | Std. | Mean | Std. | |
+| | MSE-I ↓ 0.0427 | | 0.0025 | 0.0813 | 0.0131 | 0.0708 | 0.0008 | |
+| CelebA | | PSNR ↑ 13.6965 | 0.2593 | 10.9455 | 0.6816 | 11.4989 | 0.0533 | |
+| | LPIPS ↓ 0.1435 | | 0.0083 | 0.2162 | 0.0328 | 0.2136 | 0.0133 | |
+| | MSE-R ↓ 0.0003 | | 0.0001 | 0.0012 | 0.0003 | 0.0015 | 0.0022 | |
+| ImageNet | MSE-I ↓ 0.5918 | | 0.1955 | 0.2648 | 0.0181 | 0.2667 | 0.0119 | |
+| | PSNR ↑ 2.4433 | | 1.3565 | 5.7783 | 0.2992 | 5.7420 | 0.1988 | |
+| | LPIPS ↓ 0.7983 | | 0.0280 | 0.6166 | 0.0590 | 0.5736 | 0.0209 | |
+| | MSE-R ↓ 0.1051 | | 0.0703 | 0.0035 | 0.0005 | 0.0018 | 0.0002 | |
 
 Table 2. Quantitative comparison of different optimizers.
 
-# Experiments
+## Experiments
 
 ## 1. Experimental Setup
 
@@ -202,19 +198,19 @@ Evaluation Metrics. Besides qualitative visual comparison, we use the following 
 
 <span id="page-5-2"></span><span id="page-5-1"></span>
 
-| Attack   |                  | Additive Noise [44, 56] |         |         | Gradient Clipping [14, 48] |                 |         | Gradient Sparsification [56] |               |                 |         | Soteria [44] |        |                 |         |         |         |
+| Attack | | Additive Noise [44, 56] | | | Gradient Clipping [14, 48] | | | Gradient Sparsification [56] | | | | Soteria [44] | | | | | |
 |----------|------------------|-------------------------|---------|---------|----------------------------|-----------------|---------|------------------------------|---------------|-----------------|---------|--------------|--------|-----------------|---------|---------|---------|
-| Dataset  |                  | MSE-I ↓                 | PSNR ↑  | LPIPS ↓ |                            | MSE-R ↓ MSE-I ↓ | PSNR ↑  | LPIPS ↓                      |               | MSE-R ↓ MSE-I ↓ | PSNR ↑  | LPIPS ↓      |        | MSE-R ↓ MSE-I ↓ | PSNR ↑  | LPIPS ↓ | MSE-R ↓ |
-|          | DLG [56] 0.6479  |                         | 1.8843  | 0.8197  | 0.0021                     | 0.2097          | 6.7831  | 0.7375                       | 0.0326        | 0.3335          | 4.7679  | 0.7986       | 0.0155 | 0.3624          | 4.4069  | 0.8007  | 0.0285  |
-|          | iDLG [54] 0.6261 |                         | 2.0329  | 0.8209  | 0.0025                     | 0.1960          | 7.0762  | 0.7280                       | 0.0326        | 0.3301          | 4.8124  | 0.8035       | 0.0162 | 0.3269          | 4.8553  | 0.8036  | 0.0396  |
-| CelebA   | IG [13]          | 0.4880                  | 3.1151  | 0.8260  | 0.0097 0.0543              |                 | 12.6517 | 0.2998                       | 0.0003 0.4103 |                 | 3.8687  | 0.7975       | 0.0113 | 0.3441          | 4.6326  | 0.8008  | 0.0316  |
-|          | GI [51]          | 0.5738                  | 2.4116  | 0.8302  | 0.0023                     | 0.1790          | 7.4701  | 0.7142                       | 0.0322        | 0.2958          | 5.2888  | 0.7775       | 0.0163 | 0.3179          | 4.9768  | 0.7991  | 0.0409  |
-|          | GGL              | 0.0780                  | 11.0766 | 0.1906  | 0.0010 0.0760              |                 | 11.1902 | 0.1670                       | 0.0015 0.0768 |                 | 11.1466 | 0.1620       | 0.0007 | 0.0968          | 10.1434 | 0.2561  | 0.0007  |
-|          | DLG [56] 0.7438  |                         | 1.2852  | 0.9353  | 0.0049                     | 0.3809          | 4.1912  | 0.9798                       | 2.1610        | 0.4432          | 3.5336  | 0.8907       | 0.0075 | 0.5990          | 2.2253  | 0.9195  | 0.5415  |
-|          | iDLG [54] 0.7352 |                         | 1.3359  | 0.9392  | 0.0041                     | 0.3699          | 4.3190  | 0.9473                       | 1.8810        | 0.4357          | 3.6077  | 0.8935       | 0.0077 | 0.6089          | 2.1542  | 0.9198  | 0.5425  |
-| ImageNet | IG [13]          | 0.3081                  | 5.1120  | 0.8677  | 0.4490 0.1432              |                 | 8.4386  | 0.7476                       | 0.0214        | 0.2993          | 5.2376  | 0.8805       | 0.0501 | 0.3683          | 4.3373  | 0.8700  | 0.5057  |
-|          | GI [51]          | 0.6593                  | 1.8090  | 0.9448  | 0.0031                     | 0.3702          | 4.3154  | 0.9451                       | 1.8807        | 0.4404          | 3.5611  | 0.8889       | 0.0072 | 0.6235          | 2.0511  | 0.9169  | 0.5792  |
-|          | GGL              | 0.2686                  | 5.7089  | 0.5915  | 0.0018 0.2230              |                 | 6.5163  | 0.5592                       | 0.0015        | 0.2141          | 6.6920  | 0.5170       | 0.0017 | 0.2484          | 6.0477  | 0.5685  | 0.0022  |
+| Dataset | | MSE-I ↓ | PSNR ↑ | LPIPS ↓ | | MSE-R ↓ MSE-I ↓ | PSNR ↑ | LPIPS ↓ | | MSE-R ↓ MSE-I ↓ | PSNR ↑ | LPIPS ↓ | | MSE-R ↓ MSE-I ↓ | PSNR ↑ | LPIPS ↓ | MSE-R ↓ |
+| | DLG [56] 0.6479 | | 1.8843 | 0.8197 | 0.0021 | 0.2097 | 6.7831 | 0.7375 | 0.0326 | 0.3335 | 4.7679 | 0.7986 | 0.0155 | 0.3624 | 4.4069 | 0.8007 | 0.0285 |
+| | iDLG [54] 0.6261 | | 2.0329 | 0.8209 | 0.0025 | 0.1960 | 7.0762 | 0.7280 | 0.0326 | 0.3301 | 4.8124 | 0.8035 | 0.0162 | 0.3269 | 4.8553 | 0.8036 | 0.0396 |
+| CelebA | IG [13] | 0.4880 | 3.1151 | 0.8260 | 0.0097 0.0543 | | 12.6517 | 0.2998 | 0.0003 0.4103 | | 3.8687 | 0.7975 | 0.0113 | 0.3441 | 4.6326 | 0.8008 | 0.0316 |
+| | GI [51] | 0.5738 | 2.4116 | 0.8302 | 0.0023 | 0.1790 | 7.4701 | 0.7142 | 0.0322 | 0.2958 | 5.2888 | 0.7775 | 0.0163 | 0.3179 | 4.9768 | 0.7991 | 0.0409 |
+| | GGL | 0.0780 | 11.0766 | 0.1906 | 0.0010 0.0760 | | 11.1902 | 0.1670 | 0.0015 0.0768 | | 11.1466 | 0.1620 | 0.0007 | 0.0968 | 10.1434 | 0.2561 | 0.0007 |
+| | DLG [56] 0.7438 | | 1.2852 | 0.9353 | 0.0049 | 0.3809 | 4.1912 | 0.9798 | 2.1610 | 0.4432 | 3.5336 | 0.8907 | 0.0075 | 0.5990 | 2.2253 | 0.9195 | 0.5415 |
+| | iDLG [54] 0.7352 | | 1.3359 | 0.9392 | 0.0041 | 0.3699 | 4.3190 | 0.9473 | 1.8810 | 0.4357 | 3.6077 | 0.8935 | 0.0077 | 0.6089 | 2.1542 | 0.9198 | 0.5425 |
+| ImageNet | IG [13] | 0.3081 | 5.1120 | 0.8677 | 0.4490 0.1432 | | 8.4386 | 0.7476 | 0.0214 | 0.2993 | 5.2376 | 0.8805 | 0.0501 | 0.3683 | 4.3373 | 0.8700 | 0.5057 |
+| | GI [51] | 0.6593 | 1.8090 | 0.9448 | 0.0031 | 0.3702 | 4.3154 | 0.9451 | 1.8807 | 0.4404 | 3.5611 | 0.8889 | 0.0072 | 0.6235 | 2.0511 | 0.9169 | 0.5792 |
+| | GGL | 0.2686 | 5.7089 | 0.5915 | 0.0018 0.2230 | | 6.5163 | 0.5592 | 0.0015 | 0.2141 | 6.6920 | 0.5170 | 0.0017 | 0.2484 | 6.0477 | 0.5685 | 0.0022 |
 *tio (PSNR* ↑*)*: The ratio of the maximum squared pixel fluctuation and the MSE between the target image and the reconstructed image; (3) *Learned Perceptual Image Patch Similarity (LPIPS* ↓*)*[\[52\]](#page-10-12): the perceptual image similarity between the target image and the reconstructed image measured by a VGG network [\[42\]](#page-10-13), and (4)*MSE - Representation Space (MSE-R* ↓*)*: the MSE between the target image and the reconstructed image measured in the learned representation space, i.e., the feature vector before the final classification layer [\[44\]](#page-10-6). Note that "↓" means the lower the metric the higher relative image quality, while "↑" represents the higher the metric the higher image quality.
 
 ## 2. Choice of Loss Function
@@ -237,7 +233,7 @@ Following prior studies [\[44,](#page-10-6) [56\]](#page-10-4), we choose a rela
 <!-- Image Description: This image presents a comparative analysis of image reconstruction techniques under different noise conditions. Two datasets (CelebA and ImageNet) are shown. Each column represents a method (DLG, i DLG, IG, GI, GGL), while rows show the original image, image corrupted by additive noise, gradient clipping effects, and soteria sparsification. The purpose is to visually compare the robustness of these methods against various types of image degradation. The images demonstrate the effect of each method on image reconstruction from noisy or otherwise manipulated inputs. -->
 
 Figure 4. Comparison of the reconstruction results with attack baselines on the CelebA & ImageNet datasets under various privacy defenses.
-*Noise*[\[44,](#page-10-6) [56\]](#page-10-4): inject a Gaussian noise ε ∼ N (0, σ<sup>2</sup> I) to the gradients with σ = 0.1; (2)*Gradient Clipping*[\[14,](#page-9-9) [48\]](#page-10-5): clip the values of the gradients with a bound of S = 4; (3)*Gradient Spasification*[\[56\]](#page-10-4): perform magnitude-based pruning on the gradients to achieve 90% sparsity; and (4)*Soteria*[\[44\]](#page-10-6): gradients are generated on the perturbed representation with a pruning rate of 80%.
+**Noise:** [\[44,](#page-10-6) [56\]](#page-10-4): inject a Gaussian noise ε ∼ N (0, σ<sup>2</sup> I) to the gradients with σ = 0.1; (2)*Gradient Clipping*[\[14,](#page-9-9) [48\]](#page-10-5): clip the values of the gradients with a bound of S = 4; (3)*Gradient Spasification*[\[56\]](#page-10-4): perform magnitude-based pruning on the gradients to achieve 90% sparsity; and (4)*Soteria*[\[44\]](#page-10-6): gradients are generated on the perturbed representation with a pruning rate of 80%.
 
 Results. Table [3](#page-5-1) compares the performance of the proposed method GGL with other gradient leakage attack methods. Our general observation is that existing attack methods struggle to reconstruct a realistic image with the present of any privacy defense mechanism, while the proposed GGL is able to synthesize high quality images that are similar to the original ones, with the measured PSNR >10.1 on the CelebA dataset and >5.7 on ImageNet dataset across all scenarios. One exception is that we find the gradient clipping operation has a very low effect on the IG attack. This is because clipping to `<sup>2</sup> norm only changes the magnitude of the gradients and does not affect the angular information (i.e., direction). Therefore, though gradient clipping increases the reconstruction error for attacks based on the Euclidean distance between gradients, it will not affect the IG attack which utilizes the magnitude-invariant cosine distance for computing its gradient matching loss. Clipping to L<sup>∞</sup> norm instead would address this issue, however, it is not adopted by existing DP mechanisms as it will result in a poor `<sup>2</sup> bound. We also notice that comparing to gradient sparsification, reconstructing from the gradients produced from the perturbed data representation using the Soteria defense would result in higher MSE in both the image space and the representation space, especially on the ImageNet dataset. Despite this, such defense can still be bypassed by our adaptive attack.
 
@@ -263,7 +259,7 @@ construction with the lowest PSNR. We thus believe this attack can also be used 
 
 We next apply the Soteria [\[44\]](#page-10-6) defense on the CelebA dataset as a case study to investigate the impact of different defense parameters. We use the attack baselines and the proposed GGL to generate reconstructions as we vary the pruning rate from 0% to 80%, and summarize the results in Figure [7.](#page-7-1) The authors reported in their original paper [\[44\]](#page-10-6) that the DLG [\[56\]](#page-10-4) and IG [\[13\]](#page-9-7) attack can tolerate the Soteria defense with a pruning rate up to 40% on the CIFAR10 dataset. Differently, we observe that on the CelebA dataset, defense with a low pruning rate of 10% would already impose a significant impact on the reconstruction results of these attacks. This is perhaps because the Soteria defense mainly affects the fully-connected layer that produces class-level data representation. Different from CIFAR10, the class-wise label of the CelebA dataset does not directly reveal contextual information about the subject (e.g., the identity of the person). Instead, it only encodes very coarse-grained information (i.e., gender) and thus can be more susceptible to perturbations. In other words, privacy information that is entangled with the class label is more likely to be leaked through gradients. Nevertheless, the proposed method can still reliably recover the profile of the person from the remaining gradients regardless of the pruning rate.
 
-# Discussion
+## Discussion
 
 Limitation. Although the image prior captured by the GAN model can help restore the missing information from the degraded gradients for better image reconstruction, at the same time the output image distribution is also constrained by the GAN latent space, rendering it hard to faithfully reconstruct out-of-distribution image samples. Figure [8](#page-8-12) shows two examples of attempting to reconstruct out-of-distribution ImageNet images under the Soteria defense [\[44\]](#page-10-6): in Figure [8a,](#page-8-12) the orientation of the object reconstructed image is changed from the original image; and
 
@@ -290,15 +286,15 @@ Figure 9. Visualization of the loss landscapes.
 
 can help to effectively achieve privacy preservation against generative gradient leakage attacks.
 
-# Conclusion
+## Conclusion
 
 This work presents Generative Gradient Leakage (GGL), an approach that utilizes a generative model to extract prior information from public datasets to improve image reconstruction from degraded gradients produced by privacy defenses. Our experimental results on two image classification datasets show that with the learned image prior, the proposed method is more resilient to the perturbations and lossy transformations applied to the gradients and is still able to reconstruct high-fidelity images that reveal information about the original images when existing attacks all fail. We hope the proposed method can serve as an analysis tool for empirical privacy auditing to help facilitate the future design of privacy defenses.
 
-# Acknowledgement
+## Acknowledgement
 
 The authors would like to thank Peter Kairouz from Google Research for his valuable feedback on the paper. This work is supported in part by NSF CNS-2114161, ECCS-2132106, CBET-2130643, the Science Alliance's StART program, and the GCP credits provided by Google Cloud. This work is also supported by the U.S. Department of Energy, Office of Science, Office of Advanced Scientific Computing Research, Applied Mathematics program; and by the Artificial Intelligence Initiative at the Oak Ridge National Laboratory (ORNL). ORNL is operated by UT- Battelle, LLC., for the U.S. Department of Energy under Contract DEAC05-00OR22725.
 
-# References
+## References
 
 - <span id="page-8-6"></span>[1] Nitin Agrawal, Ali Shahin Shamsabadi, Matt J Kusner, and Adria Gasc ` on. Quotient: two-party secure neural network ´ training and prediction. In*Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security*, pages 1231–1247, 2019. [3](#page-2-2)
 - <span id="page-8-7"></span>[2] Amir Beck and Marc Teboulle. Fast gradient-based algorithms for constrained total variation image denoising and deblurring problems. *IEEE transactions on image processing*, 18(11):2419–2434, 2009. [3](#page-2-2)
@@ -367,7 +363,7 @@ Bonawitz, Zachary Charles, Graham Cormode, Rachel Cummings, et al. Advances and 
 - <span id="page-10-15"></span>[55] Ligeng Zhu and Song Han. Deep Leakage from Gradients Implementation. [https://github.com/mit-han](https://github.com/mit-han-lab/dlg)[lab/dlg](https://github.com/mit-han-lab/dlg). Accessed: 2021-11-09. [6](#page-5-2)
 - <span id="page-10-4"></span>[56] Ligeng Zhu and Song Han. Deep leakage from gradients. In *Federated learning*, pages 17–31. Springer, 2020. [1,](#page-0-2) [2,](#page-1-0) [3,](#page-2-2) [4,](#page-3-1) [5,](#page-4-3) [6,](#page-5-2) [7,](#page-6-2) [8,](#page-7-2) [11,](#page-10-16) [13](#page-12-0)
 
-# A. Additional Reconstruction Samples
+## A. Additional Reconstruction Samples
 
 Due to page limit, we only include the reconstruction results under the Soteria [\[44\]](#page-10-6) defense in our main paper (Figure [5\)](#page-6-1) for additional visualization samples on the ImageNet dataset. Here we present the full results under all 4 considered defenses (i.e., additive noise [\[44,](#page-10-6) [56\]](#page-10-4) with σ = 0.1, gradient clipping [\[14,](#page-9-9) [48\]](#page-10-5) with S = 4, gradient spasification [\[56\]](#page-10-4) with a pruning rate of 90%, and Soteria [\[44\]](#page-10-6) with a pruning rate of 80%) in Figure [10.](#page-10-17) We observe that our method is able to reconstruct high-quality images from gradients in all these considered cases regardless of the type of defense.
 
@@ -376,34 +372,33 @@ Due to page limit, we only include the reconstruction results under the Soteria 
 
 Figure 10. Reconstruction results under various defenses on the ImageNet dataset: (first row) original images and (the rest of rows) their reconstructions by GGL under various defenses.
 
-# <span id="page-11-0"></span>B. Implementation Details
+## <span id="page-11-0"></span>B. Implementation Details
 
 Optimization Configuration. We use the following configuration for the explored optimizers: (1) *Adam*: initial learning rate lr = 0.1, β<sup>1</sup> = 0.9, β<sup>2</sup> = 0.999. On the CelebA dataset, we use a step learning rate decay at step 937, 1562, and 2189, by a factor of γ = 0.1. On the ImageNet dataset, the learning rate is linearly warmed-up from 0 during the first 125 iterations and gradually reduced to 0 in the last 625 iterations using cosine decay; (2) *BO*: We use the *TurBO-1*algorithm [\[10\]](#page-8-3) with 256 initial points, batch size = 10, lower bound = −2, upper bound = 2, and automatic relevance determination (ARD) kernel for the Gaussian process; and (3)*CMA-ES*: we use random initialization with batch size = 50. We set λ = 0.1 for experiments on the CelebA dataset. On the ImageNet dataset, for algorithms that do not innately support bound constraints, we apply the *tanh*function to achieve the bound.
 
 GAN Configuration. For the CelebA dataset, we train a DCGAN [\[40\]](#page-9-25) with a latent dimension of 128 with its detailed structure presented in Figure [11.](#page-11-1) Specifically, we use the Wasserstein distance with the loss weight set to 10 for the gradient penalty [\[17\]](#page-9-26). The GAN model is trained for 100 epochs using Adam optimizer with a learning rate of 0.0001 and a batch size of 64. For the ImageNet dataset, we use a pre-trained BigGAN [\[6\]](#page-8-2) with a latent dimension of 128 and output image size of 256 × 256. The output image is further rescaled to 224 × 224 for computing the FL task.
 
-<span id="page-11-1"></span>
 
-| Type              | Kernel | Stride | Output |  |  |  |  |  |  |
+| Type | Kernel | Stride | Output | | | | | | |
 |-------------------|--------|--------|--------|--|--|--|--|--|--|
-| FC                |        |        | 8192   |  |  |  |  |  |  |
-| BN1D              |        |        | 8192   |  |  |  |  |  |  |
-| DeConv2D          | 2 × 2  | 2 × 2  | 256    |  |  |  |  |  |  |
-| BN2D              |        |        | 256    |  |  |  |  |  |  |
-| DeConv2D          | 2 × 2  | 2 × 2  | 128    |  |  |  |  |  |  |
-| BN2D              |        |        | 128    |  |  |  |  |  |  |
-| DeConv2D          | 2 × 2  | 2 × 2  | 3      |  |  |  |  |  |  |
-| (a) Generator     |        |        |        |  |  |  |  |  |  |
-| Type              | Kernel | Stride | Output |  |  |  |  |  |  |
-| Conv2D            | 3 × 3  | 2 × 2  | 128    |  |  |  |  |  |  |
-| Conv2D            | 3 × 3  | 2 × 2  | 256    |  |  |  |  |  |  |
-| Conv2D            | 3 × 3  | 2 × 2  | 512    |  |  |  |  |  |  |
-| FC                |        |        | 1      |  |  |  |  |  |  |
-| (b) Discriminator |        |        |        |  |  |  |  |  |  |
+| FC | | | 8192 | | | | | | |
+| BN1D | | | 8192 | | | | | | |
+| DeConv2D | 2 × 2 | 2 × 2 | 256 | | | | | | |
+| BN2D | | | 256 | | | | | | |
+| DeConv2D | 2 × 2 | 2 × 2 | 128 | | | | | | |
+| BN2D | | | 128 | | | | | | |
+| DeConv2D | 2 × 2 | 2 × 2 | 3 | | | | | | |
+| (a) Generator | | | | | | | | | |
+| Type | Kernel | Stride | Output | | | | | | |
+| Conv2D | 3 × 3 | 2 × 2 | 128 | | | | | | |
+| Conv2D | 3 × 3 | 2 × 2 | 256 | | | | | | |
+| Conv2D | 3 × 3 | 2 × 2 | 512 | | | | | | |
+| FC | | | 1 | | | | | | |
+| (b) Discriminator | | | | | | | | | |
 
 Figure 11. GAN structure for the CelebA dataset.
 
-# C. Loss Landscape Analysis
+## C. Loss Landscape Analysis
 
 Comparison with GAN Inversion. In our attack, we consider the private image to be unknown and the adversary attempts to reconstruct the image from the shared gradient information using a pre-trained GAN. However, such reconstruction is constrained by the generator's fitting abil-
 
@@ -421,7 +416,7 @@ Different Defenses. We next analyze how each defense mechanism affects the loss 
 
 Figure 13. Visualization of observed loss landscapes under various defense settings. The bottom 3 rows compare the loss surface with (right) and without (left) applying adaptive transformation at the adversary's side.
 
-# D. Larger Batch Sizes or Multiple Local Steps
+## D. Larger Batch Sizes or Multiple Local Steps
 
 Recovering high-resolution batch data with multiple local steps remains a major challenge in this line of research. Most existing studies [\[13,](#page-9-7) [56\]](#page-10-4) only work on small images (32×32px) for batch size > 1. Currently, the only study that accounts for local steps > 1 is IG [\[13\]](#page-9-7), but it only works on a single ImageNet image. The only study that can work on batched full-size ImageNet images (224×224px) is GI [\[51\]](#page-10-2), which supports up to 48 images with local step = 1. However, it can only reveal limited information from partial images of the batch, and it assumes that the BatchNorm (BN) statistics (mean and std.) of the target batch is jointly provided with the gradients and only works for specially pretrained large ResNet-50 model (larger model provides more gradient information).
 
@@ -444,6 +439,6 @@ Figure 15. Reconstruction by GGL with multiple local steps.
 
 Figure 16. Reconstruction of*in-the-wild*images: (1st row) images from*Google Images*and (2nd row) their reconstructions by GGL.
 
-# E. Recovering In-the-wild Data
+## E. Recovering In-the-wild Data
 
 We target the practical scenario where the attacker can utilize all public-accessible data as prior information to launch the attack. Thus we chose to use CelebA and ImageNet for evaluation as they are all Internet-based datasets and are easy to access as an attacker. We also used the disjoint dataset so that the images used for testing haven't been used for GAN training. To investigate the performance of GGL under the scenario where the testing image is not from the GAN training distribution, we conducted additional experiments to recover*in-the-wild* images (i.e., arbitrary images from the search results in Google Images with appropriate cropping/resizing). From the results in Figure [16,](#page-12-4) we can see that GGL can still reveal a reasonable amount of visual information even if the testing images are not from the GAN training distribution.

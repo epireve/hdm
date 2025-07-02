@@ -68,7 +68,7 @@ journal homepage: [www.elsevier.com/locate/datak](http://www.elsevier.com/locate
 <span id="page-0-0"></span><sup>a</sup> *Universitat Politècnica de Catalunya, BarcelonaTech, Barcelona, Spain*<span id="page-0-1"></span><sup>b</sup>*Université Libre de Bruxelles, 1050 Bruxelles, Belgium*# A R T I C L E I N F O
 *Keywords:*Metadata management NoSQL Polystore
 
-# A B S T R A C T
+## A B S T R A C T
 
 A single type of data store can hardly fulfill every end-user requirements in the NoSQL world. Therefore, polyglot systems use different types of NoSQL datastores in combination. However, the heterogeneity of the data storage models makes managing the metadata a complex task in such systems, with only a handful of research carried out to address this. In this paper, we propose a hypergraph-based approach for representing the catalog of metadata in a polyglot system. Taking an existing common programming interface to NoSQL systems, we extend and formalize it as hypergraphs. Then, we define design constraints and query transformation rules for three representative data store types. Next, we propose a simple query rewriting algorithm from the metadata of the catalog to underlying data store specific ones and provide a prototype implementation. Furthermore, we introduce a storage statistics estimator on the underlying data stores. Finally, we show the feasibility of our approach on a use case of an existing polyglot system, and its usefulness in metadata and physical query path calculations.
 
@@ -86,7 +86,7 @@ The catalog (see [[3](#page-14-3)]) maintains the meta-information of the data s
 ![](_page_1_Figure_2.jpeg)
 <!-- Image Description: This ER diagram illustrates a database schema for music data. Rectangles represent structures (e.g., "Artist"), ovals represent attributes (e.g., "Name"), and rounded rectangles denote sets (e.g., "Artists"). Arrows show relationships between entities, indicating cardinality (one-to-many or many-to-many). The diagram visually depicts the relationships between artists, records, and tracks, clarifying data organization for the database system described in the paper. -->
 
-<span id="page-1-0"></span>**Fig. 1.**SOS representation of the example.
+<span id="page-1-0"></span>**Figure 1.**SOS representation of the example.
 
 <span id="page-1-2"></span>patterns needed for different query requirements. It is essential to answer questions such as: What is the structure of the data being stored? Where is a piece of data stored? Is it duplicated in another store? What is the best way to retrieve this data? What would be the storage requirements for a particular data store design? What are the access patterns of a particular query over a particular datastore? Nevertheless, little research addresses the managing of metadata in polyglot systems. This is mainly due to the lack of a design construct that can represent heterogeneous, semistructured data. In this paper, we address the metadata management in polyglot systems by extending an already existing NoSQL design method [\[4,](#page-14-4)[5\]](#page-14-5), and formalizing the constructs through hypergraphs.
 
@@ -102,7 +102,7 @@ This paper is organized as follows: First, in Section [2](#page-1-1) we introduc
 
 <span id="page-1-1"></span>In this section, we introduce the basic concepts of Resource Description Framework (RDF) [[8\]](#page-14-8) and SOS Model [[4,](#page-14-4)[5](#page-14-5)] that are used in our approach.
 
-####*2.1. Resource Description Framework (RDF)*
+### *2.1. Resource Description Framework (RDF)*
 
 <span id="page-1-3"></span>The Resource Description Framework [[8](#page-14-8)] is a World Wide Web Consortium (W3C) specification for representing information on the Web. It is a graph-based data model that enables sharing of information and statements about available resources.
 
@@ -112,13 +112,13 @@ RDF represents data as triplets consisting of subject, predicate, and object (*,
 
 <span id="page-2-1"></span>which is a data value. An example of RDF is shown in Listing 1, written in Turtle notation.[2](#page-2-1) The example contains information about music albums, artists, and songs and is used throughout the paper.
 
-####*2.2. SOS model*The high flexibility of NoSQL systems gives freedom to have multiple designs for the same data. A particular data design built focusing on a specific scenario can result in adverse performance when applied in a different context. Most of the data design for NoSQL is carried out based on concrete guidelines for different datastores and access patterns. Nevertheless, recent approaches propose generic design constructs for NoSQL systems. For our approach, we decided to use the SOS model [[4,](#page-14-4)[5\]](#page-14-5) as a starting point.
+### *2.2. SOS model*The high flexibility of NoSQL systems gives freedom to have multiple designs for the same data. A particular data design built focusing on a specific scenario can result in adverse performance when applied in a different context. Most of the data design for NoSQL is carried out based on concrete guidelines for different datastores and access patterns. Nevertheless, recent approaches propose generic design constructs for NoSQL systems. For our approach, we decided to use the SOS model [[4,](#page-14-4)[5\]](#page-14-5) as a starting point.
 
 The SOS model introduces a basic common model (or a meta-layer), which is a high-level description of the data models of nonrelational systems. This model helps to handle the vast heterogeneity of the NoSQL datastores and provides interoperability among them, easing the development process. The primary objective of the meta-layer is to generalize the data model of heterogeneous NoSQL systems. Thus, it allows standard development practices on a predefined set of generic constructs. The meta-layer reconciles the descriptive elements of key–value stores, document stores, and record stores. These different data models exposed by NoSQL datastores are effectively managed in the SOS data model with three major constructs:*Attribute*, *Struct*, and *Set*[\[4\]](#page-14-4).
 
 A name and an associated value characterize each of these constructs. The structure of the value depends on the type of construct. An*Attribute*can contain a simple value such as an Integer or String.*Struct*s and *Set*s are complex elements which can contain multiple *Attribute*s, *Struct*s, *Set*s or a combination of those. SOS Model mainly addresses data design on document stores, key–value stores, and wide-column stores [\[5\]](#page-14-5). Each of the datastore instances is represented as a set of collections. There can be any arbitrary number of *Set*s depending on the use case. Simple elements such as key–value pairs or single qualifiers can be modeled as *Attribute*s and groups of *Attribute*s, or a simple entity such as a document can be represented as a *Struct*. A collection of entities is represented in a *Set*, which can be a nested collection in a document store or a column family in a wide-column store. A possible SOS representation of the example is shown in [Fig.](#page-1-2) [1](#page-1-2).
 
-#### 3. Formalization
+### 3. Formalization
 
 <span id="page-2-0"></span>In this section, we introduce and formalize our data model, which is based on representative exemplars in RDF format of each kind of instances in the underlying data stores. This RDF graph contains the classes and user-defined types of the polyglot system. Thus, having the schemas of the underlying data stores and having a global schema is important in our model. However, this is beyond the scope of the current work. The schema of a structured data store such as RDBMS can be extracted through the underlying DDL. Schema inference from semi-structured data has also been carried out [[9](#page-14-9)]. Moreover, previous work has shown that this global schema can be obtained by extracting the schema of each data store and reconciling them [[10,](#page-14-10)[11](#page-14-11)].
 
@@ -130,11 +130,11 @@ We rely on the concept of hypergraph, which is a graph where an edge (aka hypere
 
 ![](_page_3_Figure_2.jpeg)
 <!-- Image Description: This image is a class diagram illustrating a data model. It depicts entities like "Atom," "Attribute," "Class Representative," "Relationship," "Edge," and "HyperEdge," showing their attributes and relationships. Boxes represent entities, lines denote relationships (e.g., 1:1, 1:many), and notations like "{Disjoint, Complete}" specify constraints. The diagram's purpose is to define the structure and interconnections of data elements within a catalog, likely for a knowledge representation or database system. -->
-**Fig. 2.**Class diagram for the overall catalog.
+**Figure 2.**Class diagram for the overall catalog.
 
 <span id="page-3-0"></span>![](_page_3_Figure_4.jpeg)
 <!-- Image Description: The image is a graph database schema illustrating relationships between entities: Artist, Record, and Track. Nodes represent entities (e.g., Artist, Record) with attributes (e.g., Aid, Rid). Edges represent relationships (e.g., "has," "made") with associated cardinalities (numbers on edges). A legend defines node colors (purple for Artist/Record, beige for Name/Title). The purpose is to visually represent the database structure and relationships for data modeling or analysis. -->
-**Fig. 3.**Translated graph built from the RDF.
+**Figure 3.**Translated graph built from the RDF.
 
 <span id="page-3-1"></span>We define the overall polyglot system catalog as composed by the schema and the essential elements that support a uniquely accessible terminology for the polyglot system.
 **Definition 1.** A polyglot catalog = ⟨A*,*E⟩ is a generalized hypergraph where A is a set of atoms and E is a set of edges.
@@ -142,7 +142,7 @@ We rely on the concept of hypergraph, which is a graph where an edge (aka hypere
 
 s are the smallest constituent unit of the graph and carry a name. Moreover, every contains a URI that represents the class semantics, while every carries the datatype and a URI for the user-defined type semantics. Additionally, the information on the s can be enhanced by the distinct values for s and the number of instances on s identified as .
 **Definition 3.**The set of all edges E composed of two disjoints subsets of relationships E that denote the connectivity between A, and hyperedges E that denotes connectivity between other constructs of . Formally: E = E ∪ E
-**Definition 4.**A relationship*,*is a binary edge between two atoms and and a URI that represents the semantics of . At least one of the atoms in the relationship must be an . Formally:*,*= ⟨*, ,*⟩|*,*  ∈ A ∧ ( ∈ A ∨ ∈ A)
+**Definition 4.**A relationship*,*is a binary edge between two atoms and and a URI that represents the semantics of . At least one of the atoms in the relationship must be an . Formally:*,*= ⟨*, ,*⟩|*,* ∈ A ∧ ( ∈ A ∨ ∈ A)
 
 The s that connect two s can include the multiplicities between the two classes. Since the relationships are bidirectional multiplicities are also diploid.
 
@@ -165,15 +165,15 @@ $$
 E_{Set} \subseteq \mathbb{E}_{Struct} \cup \mathbb{A} \cup \mathbb{E}_R
 $$
 
-(b)  $\forall E_R^{a,b} \in (self \cap \mathbb{E}_R) : \exists A_C^x \in self.parent, \exists y \in (self \cap (\mathbb{E}_{Struct} \cup \mathbb{A})) : E_R^{a,b} \in \{E_R^{x,x_1}, \dots, E_R^{x_n,z}\} \subseteq self \land (y \in \mathbb{A} \setminus z = y : z = O(y))$
+(b) $\forall E_R^{a,b} \in (self \cap \mathbb{E}_R) : \exists A_C^x \in self.parent, \exists y \in (self \cap (\mathbb{E}_{Struct} \cup \mathbb{A})) : E_R^{a,b} \in \{E_R^{x,x_1}, \dots, E_R^{x_n,z}\} \subseteq self \land (y \in \mathbb{A} \setminus z = y : z = O(y))$
 
-#### 4. Metadata management
+### 4. Metadata management
 
 <span id="page-4-0"></span>One crucial aspect of a metadata management system is the ability to represent different data store models. In our work, we exemplify it on traditional RDBMS, document stores, and wide-column stores. [Fig.](#page-5-0) [4](#page-5-0) extends our original diagram of constructs to support those.
 
-The are specialized into two types:  E and  E . represents a concrete data store of the polyglot system. denotes a set of instances in the particular data store. All the allowed kinds of data stores are a subclass of E. Moreover,*.*= ∅. Thus, we define three kinds of (namely E ,  E , and  − E in [Fig.](#page-5-0) [4\)](#page-5-0), which are the participants of our polyglot system. There can be multiple within each adhering to the number of collections that participate in the polyglot system.
+The are specialized into two types: E and E . represents a concrete data store of the polyglot system. denotes a set of instances in the particular data store. All the allowed kinds of data stores are a subclass of E. Moreover,*.*= ∅. Thus, we define three kinds of (namely E , E , and − E in [Fig.](#page-5-0) [4\)](#page-5-0), which are the participants of our polyglot system. There can be multiple within each adhering to the number of collections that participate in the polyglot system.
 
-All the s and s of the polyglot system belong to the transitive closure of one or more of these , <sup>A</sup> <sup>∪</sup> <sup>E</sup> <sup>=</sup> <sup>⋃</sup> + . Therefore, we can deduce that the entire polyglot system catalog can be represented by the participating . The  ( ), is a*Struct*that represents a kind of object residing directly in . These should align with the type of where it is contained. It is a tuple for , a document stored directly in the collection for , and a row for . The specialized , , and identify specific s in the data store constraints.
+All the s and s of the polyglot system belong to the transitive closure of one or more of these , <sup>A</sup> <sup>∪</sup> <sup>E</sup> <sup>=</sup> <sup>⋃</sup> + . Therefore, we can deduce that the entire polyglot system catalog can be represented by the participating . The ( ), is a*Struct*that represents a kind of object residing directly in . These should align with the type of where it is contained. It is a tuple for , a document stored directly in the collection for , and a row for . The specialized , , and identify specific s in the data store constraints.
 
 Each carries a name which is interpreted depending on the context. In , it represents the physical location of the underlying data store. In , it is the collection name or table name. Depending on the type of that represents the data store, we can identify specific constraints and transformation rules for the queries over the representatives.
 
@@ -181,7 +181,7 @@ The s of the catalog can carry much more information than just the name. For exa
 
 ![](_page_5_Figure_2.jpeg)
 <!-- Image Description: This image presents a hierarchical data model diagram. It illustrates relationships between different data structures, such as "Struct," "Set," "Relational," "Document Store," and "Wide Column," showing cardinality (1 or *) between elements. The diagram depicts a two-level hierarchy, "First Level" and "Second Level," highlighting the composition of these levels from lower-level elements like "Tuple," "Collection," "Row," and "Wide table." The diagram likely serves to explain the architecture or data organization within the paper. -->
-**Fig. 4.**Class diagram for hierarchy.
+**Figure 4.**Class diagram for hierarchy.
 
 ### <span id="page-5-1"></span><span id="page-5-0"></span>Algorithm 1 Query over polyglot system algorithm
 
@@ -189,36 +189,37 @@ The s of the catalog can carry much more information than just the name. For exa
 Input: A query
 Output: A set of multi language queries Q corresponding to data store queries
 1: Q ← ∅
-2:  ← newHashmap() <  ,  >
-3:  ← newQueue()
-4: for each Atom  ∈  do
-5: for each   ∈ .incidenceSet do // hyperedges containing an Atom
-6: .enqueue(< ,  >)
+2: ← newHashmap() < , >
+3: ← newQueue()
+4: for each Atom ∈ do
+5: for each ∈ .incidenceSet do // hyperedges containing an Atom
+6: .enqueue(< , >)
 7: end for
 8: end for
-9: while  ≠ ∅ do
+9: while ≠ ∅ do
 10: temp ← Q.dequeue
 11: current ← temp.first
 12: .addToSet(current, temp.second) // adds the second parameter to the set
-13: for each   ∈ current.incidenceSet do
+13: for each ∈ current.incidenceSet do
 14: .enqueue(< , current >)
 15: end for
 16: end while
-17: for each   ∈ . do
+17: for each ∈ . do
 18: Q.add(CreateQuery(f,""))
 19: end for
 20: return Q
 ```text
 
-####*4.1. Query representation*We assume that any query over the original RDF dataset or an equivalent query over the graph corresponds to a query over the polyglot system. Hence, this query needs to be transformed into sub-queries that are executed on the relevant underlying data stores. For this, we introduce Algorithm [1](#page-5-1) which builds an adjacency list for all the (hash map ) whose closure contains s of the query, aided by the incidence sets. First, all the s that contains s in the input query is added into a queue as a pair of ⟨*,*⟩ (lines 4–8). Then, a pair is dequeued from and is updated with the in*.*as the key and*.*(can be an or ) added to the corresponding value set with the help of  in line 12. All the s in the*.*'s incidence set is added to the queue (lines 13–15). This process is carried out until the queue has no more elements (lines 9–16). The generated adjacency list can be used to identify the s that corresponds to the relevant underlying data stores for the query. Once this adjacency list is generated and corresponding identified, a simple projection query can be composed
+### *4.1. Query representation*We assume that any query over the original RDF dataset or an equivalent query over the graph corresponds to a query over the polyglot system. Hence, this query needs to be transformed into sub-queries that are executed on the relevant underlying data stores. For this, we introduce Algorithm [1](#page-5-1) which builds an adjacency list for all the (hash map ) whose closure contains s of the query, aided by the incidence sets. First, all the s that contains s in the input query is added into a queue as a pair of ⟨*,*⟩ (lines 4–8). Then, a pair is dequeued from and is updated with the in*.*as the key and*.*(can be an or ) added to the corresponding value set with the help of  in line 12. All the s in the*.*'s incidence set is added to the queue (lines 13–15). This process is carried out until the queue has no more elements (lines 9–16). The generated adjacency list can be used to identify the s that corresponds to the relevant underlying data stores for the query. Once this adjacency list is generated and corresponding identified, a simple projection query can be composed
 
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image is a diagram showing a data model, likely an Entity-Relationship Diagram (ERD) or similar. It depicts entities "Artist," "Record," and "Track," with attributes like "Name" and "Title" specified as strings. Relationships between entities are shown using arrows, indicating, for example, one-to-many relationships between artists and records. A legend defines the visual notation, differentiating entity sets (Eset) and entity structures (Estruct) using different shapes and colors for the nodes. The purpose is to illustrate the database structure or data organization within the paper. -->
-**Fig. 5.**An example data design for an RDBMS.
+**Figure 5.**An example data design for an RDBMS.
 
 <span id="page-6-1"></span>recursively with Algorithm [2](#page-6-0) for each of the according to different rules depending on the kind of data store (lines 17–19). Algorithm [2](#page-6-0) uses a prefix, a suffix and the path relevant for each of the constructs of the data stores.
 
-#### <span id="page-6-0"></span>Algorithm 2 Create Query algorithm
+### <span id="page-6-0"></span>Algorithm 2 Create Query algorithm
+
 **Input:**,*path*(adjacency list from Algorithm [1](#page-5-1) is also available)**Output:**A data store query 1: ←*prefixOf*(*source, path*) 2: **for each** *child*∈*.*(*source*) **do**3: ← +*CreateQuery*(*child, pathOf*(*source*)) 4: **end for**5: ← +*suffixOf*(*source*) 6: **return**
 
 We are only generating projection queries, but selections can be considered a posteriori by pushing down the predicates over the query path. Also, there can be cases where the same information is available in multiple data stores. If this happens, this overlap can be easily identified as the considered will be contained in more than one + . Then a join should be performed in the corresponding mediator.
@@ -227,11 +228,11 @@ We are only generating projection queries, but selections can be considered a po
 
 Formally : = ⟨*, , ,*⟩| ∈*,*∀ ∈ ∶ ∈*,*∀*,*∈ ∪ ∶ ∃{*,*<sup>1</sup> *,*<sup>1</sup>*,*2 *,* …*, ,*} ∈*,*0*<*≤ 1
 
-####*4.2. Constraints and transformation rules on data stores*Considering the constructs and the query generation algorithm mentioned earlier, each of the data store models would have its own rules and constraints on the data. Therefore, in this section, we analyze the constraints and transformation rules for 3 of them: relational stores, document stores, and wide-column stores.
+### *4.2. Constraints and transformation rules on data stores*Considering the constructs and the query generation algorithm mentioned earlier, each of the data store models would have its own rules and constraints on the data. Therefore, in this section, we analyze the constraints and transformation rules for 3 of them: relational stores, document stores, and wide-column stores.
 
-####*4.2.1. Relational database management systems*A typical example of the type of data design in RDBMS is shown in [Fig.](#page-6-1) [5.](#page-6-1) The constraints and the mappings on can be represented in a grammar as follows:
+### *4.2.1. Relational database management systems*A typical example of the type of data design in RDBMS is shown in [Fig.](#page-6-1) [5.](#page-6-1) The constraints and the mappings on can be represented in a grammar as follows:
 
- ⟹ ∗*,*⟹*,*  ⟹ ∗
+⟹ ∗*,*⟹*,* ⟹ ∗
 
 A traditional RDBMS data storage system consists of tables, tuples, and simple attributes. The data store can have multiple tables, which are represented by . Within a table, the schema of the tuple is fixed. Therefore, there can only be a single inside a . Finally, the tuple contains at least one , which is the primary key. The containing an that crosses two corresponds to the relation that has the foreign key together with the relevant .
 
@@ -241,27 +242,27 @@ The RDBMS design of [Fig.](#page-6-1) [5](#page-6-1) represents the following ta
 
 . The prefix and suffix in [Table](#page-7-0) [1](#page-7-0) are used in Algorithm [2](#page-6-0) to generate the corresponding queries. Note that () is an operation that deletes the trailing comma of a string.
 
-| Prefix    | Suffix                      | Path                                   |
+| Prefix | Suffix | Path |
 |-----------|-----------------------------|----------------------------------------|
-|           | 𝑅𝑒𝑙<br>"𝐹 𝑅𝑂𝑀" + 𝐸<br>.name |                                        |
-| "𝑆𝐸𝐿𝐸𝐶𝑇 " | 𝑑𝑒𝑙𝑒𝑡𝑒𝐶𝑜𝑚𝑚𝑎()               |                                        |
-| A.name    | ","                         |                                        |
-|           |                             | Symbols for Algorithm 2 in RDBMS.<br>𝐹 |
+| | 𝑅𝑒𝑙<br>"𝐹 𝑅𝑂𝑀" + 𝐸<br>.name | |
+| "𝑆𝐸𝐿𝐸𝐶𝑇 " | 𝑑𝑒𝑙𝑒𝑡𝑒𝐶𝑜𝑚𝑚𝑎() | |
+| A.name | "," | |
+| | | Symbols for Algorithm 2 in RDBMS.<br>𝐹 |
 
-# Table 2
+## Table 2
 
 <span id="page-7-2"></span><span id="page-7-0"></span>
 
-| Symbol             | Prefix                                                           | Suffix               | Path                                 |
+| Symbol | Prefix | Suffix | Path |
 |--------------------|------------------------------------------------------------------|----------------------|--------------------------------------|
-| 𝐶𝑜𝑙<br>𝐸<br>𝐹      | "𝑠𝑐𝑎𝑛′<br>𝐶𝑜𝑙<br>′<br>" + 𝐸<br>.𝑛𝑎𝑚𝑒 + "<br>,{𝐶𝑂𝐿𝑈𝑀𝑁𝑆 => ["<br>𝐹 |                      |                                      |
-| 𝐶𝑜𝑙<br>𝐸<br>𝑆      |                                                                  | 𝑑𝑒𝑙𝑒𝑡𝑒𝐶𝑜𝑚𝑚𝑎() + "]}" |                                      |
-| 𝐶𝑜𝑙<br>𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡 |                                                                  |                      | 𝐶𝑜𝑙<br>𝑝𝑎𝑡ℎ + 𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡.𝑛𝑎𝑚𝑒 + "." |
-| 𝐴                  | ′<br>′<br>" + 𝑝𝑎𝑡ℎ + 𝐴.𝑛𝑎𝑚𝑒 +<br>"<br>"<br>"                     | ","                  |                                      |
+| 𝐶𝑜𝑙<br>𝐸<br>𝐹 | "𝑠𝑐𝑎𝑛′<br>𝐶𝑜𝑙<br>′<br>" + 𝐸<br>.𝑛𝑎𝑚𝑒 + "<br>,{𝐶𝑂𝐿𝑈𝑀𝑁𝑆 => ["<br>𝐹 | | |
+| 𝐶𝑜𝑙<br>𝐸<br>𝑆 | | 𝑑𝑒𝑙𝑒𝑡𝑒𝐶𝑜𝑚𝑚𝑎() + "]}" | |
+| 𝐶𝑜𝑙<br>𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡 | | | 𝐶𝑜𝑙<br>𝑝𝑎𝑡ℎ + 𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡.𝑛𝑎𝑚𝑒 + "." |
+| 𝐴 | ′<br>′<br>" + 𝑝𝑎𝑡ℎ + 𝐴.𝑛𝑎𝑚𝑒 +<br>"<br>"<br>" | "," | |
 
 ![](_page_7_Figure_5.jpeg)
 <!-- Image Description: This image is an Entity-Relationship Diagram (ERD) illustrating a database schema. It shows three entities: "Artist" and "Record" (both with "Name, String" attributes), and "Track" (with a "Title,String" attribute). Relationships are depicted using arrows and asterisks, indicating one-to-many relationships between Artist and Record, and Record and Track. The diagram visually represents the data structure and relationships within a database for managing music records and their associated artists and tracks. -->
-**Fig. 6.** An example data design for wide column store.
+**Figure 6.** An example data design for wide column store.
 
 ## <span id="page-7-1"></span>*4.2.2. Wide-column stores*
 
@@ -279,25 +280,25 @@ The outer most represents the tables. contains an , which represents the rows. T
 
 [\_*,* [*,* {\_}]]*,* [\_*,* []]*,* [ \_[*,* \_]]*.*Wide-column stores generally support only simple get and put queries and require the row key to retrieve the data. We use HBase query structure to demonstrate the capability of simple query generation. [Table](#page-7-2) [2](#page-7-2) depicts the translation rules for simple queries in wide-column stores used in Algorithm [2.](#page-6-0)
 
-###*4.2.3. Document stores*Document stores have the least constraints when it comes to the data design. They enable multiple levels of nested documents and collections within. [Fig.](#page-8-1) [7](#page-8-1) shows a document data store design of our example scenario. The constraints and mappings in a
+### *4.2.3. Document stores*Document stores have the least constraints when it comes to the data design. They enable multiple levels of nested documents and collections within. [Fig.](#page-8-1) [7](#page-8-1) shows a document data store design of our example scenario. The constraints and mappings in a
 
 ![](_page_8_Figure_2.jpeg)
 <!-- Image Description: The image is an Entity-Relationship Diagram (ERD) depicting a database schema for music records. Nested rectangles represent entities: Artist, Record, and Track. Circles represent attributes (e.g., Name, Title), with data types specified. Arrows indicate relationships; for example, one artist can have multiple records, and each record has multiple tracks. The diagram visually defines the entities and their relationships within the database. -->
-**Fig. 7.** An example data design for document store.
+**Figure 7.** An example data design for document store.
 
 <span id="page-8-2"></span><span id="page-8-1"></span>
 
-| Table 3                                     |  |  |
+| Table 3 | | |
 |---------------------------------------------|--|--|
-| Symbols for Algorithm 2 in document stores. |  |  |
+| Symbols for Algorithm 2 in document stores. | | |
 
-| Symbol                 | Prefix                                           | Suffix        | Path                                     |
+| Symbol | Prefix | Suffix | Path |
 |------------------------|--------------------------------------------------|---------------|------------------------------------------|
-| 𝐷𝑜𝑐<br>𝐸<br>𝐹          | 𝐷𝑜𝑐<br>''𝑑𝑏." + 𝐸<br>.𝑛𝑎𝑚𝑒 + ''.𝑓 𝑖𝑛𝑑({}",{<br>𝐹 | ''})"         |                                          |
-| 𝐷𝑜𝑐<br>𝐸<br>𝑆          |                                                  | 𝑑𝑒𝑙𝑒𝑡𝑒𝐶𝑜𝑚𝑚𝑎() |                                          |
-| 𝐷𝑜𝑐<br>𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡∕𝑆𝑒𝑡 |                                                  |               | 𝐷𝑜𝑐<br>𝑝𝑎𝑡ℎ + 𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡∕𝑆𝑒𝑡.𝑛𝑎𝑚𝑒 + "." |
-| 𝐴(𝑝𝑎𝑡ℎ ≠ ∅)            | """ + 𝑝𝑎𝑡ℎ + 𝐴.𝑛𝑎𝑚𝑒 +<br>"":1"                   | ","           |                                          |
-| 𝐴(𝑝𝑎𝑡ℎ = ∅)            | 𝐴.𝑛𝑎𝑚𝑒 + ":1"                                    | ","           |                                          |
+| 𝐷𝑜𝑐<br>𝐸<br>𝐹 | 𝐷𝑜𝑐<br>''𝑑𝑏." + 𝐸<br>.𝑛𝑎𝑚𝑒 + ''.𝑓 𝑖𝑛𝑑({}",{<br>𝐹 | ''})" | |
+| 𝐷𝑜𝑐<br>𝐸<br>𝑆 | | 𝑑𝑒𝑙𝑒𝑡𝑒𝐶𝑜𝑚𝑚𝑎() | |
+| 𝐷𝑜𝑐<br>𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡∕𝑆𝑒𝑡 | | | 𝐷𝑜𝑐<br>𝑝𝑎𝑡ℎ + 𝐸<br>𝑆𝑡𝑟𝑢𝑐𝑡∕𝑆𝑒𝑡.𝑛𝑎𝑚𝑒 + "." |
+| 𝐴(𝑝𝑎𝑡ℎ ≠ ∅) | """ + 𝑝𝑎𝑡ℎ + 𝐴.𝑛𝑎𝑚𝑒 +<br>"":1" | "," | |
+| 𝐴(𝑝𝑎𝑡ℎ = ∅) | 𝐴.𝑛𝑎𝑚𝑒 + ":1" | "," | |
 
 document store design are as follows:
 
@@ -313,87 +314,87 @@ $$
 E_{Struct}^{Doc} \implies (A|E_{Set}^{Doc}|E_{Struct}^{Doc})^+
 $$
 
- represents the collections of the document store. inside the represents the documents within the collection, which must have an identifier . Apart from that, can have s, or , which represents nested collections, or , or a combination of any of them. represents a nested collection which contains documents .
+represents the collections of the document store. inside the represents the documents within the collection, which must have an identifier . Apart from that, can have s, or , which represents nested collections, or , or a combination of any of them. represents a nested collection which contains documents .
 
-The design in [Fig.](#page-8-1) [7](#page-8-1) can be mapped into a document store design as {\_ ∶*,*  ∶*,*  ∶ [{\_ ∶*,*  ∶*,*  ∶ [{ \_ ∶*,*∶}]}]}
+The design in [Fig.](#page-8-1) [7](#page-8-1) can be mapped into a document store design as {\_ ∶*,* ∶*,* ∶ [{\_ ∶*,* ∶*,* ∶ [{ \_ ∶*,*∶}]}]}
 
 We use MongoDB syntax for the queries as it is one of the most popular document stores at the moment. [Table](#page-8-2) [3](#page-8-2) identifies the symbols for the queries.
 
-####*4.2.4. Other data stores*As discussed above, we have managed to model and infer constraints and transformation rules for RDBMS, wide-column stores, and document stores which cover most of the use cases. However, it is also interesting to see the capability of the approach to represent other data stores. Since our model is based on graphs, we can simply conclude that it can express graph data stores. We only need to map the data into , and define a single set with all s. The key–value stores do not have sophisticated data structures, and it can be considered as a single column in a column family. Thus, since we are disregarding the storage of complex structures in the values that are not visible to the data store, we can state that our model covers key–value stores as well.
+### *4.2.4. Other data stores*As discussed above, we have managed to model and infer constraints and transformation rules for RDBMS, wide-column stores, and document stores which cover most of the use cases. However, it is also interesting to see the capability of the approach to represent other data stores. Since our model is based on graphs, we can simply conclude that it can express graph data stores. We only need to map the data into , and define a single set with all s. The key–value stores do not have sophisticated data structures, and it can be considered as a single column in a column family. Thus, since we are disregarding the storage of complex structures in the values that are not visible to the data store, we can state that our model covers key–value stores as well.
 
-#### 5. Calculating statistical and storage metadata
+### 5. Calculating statistical and storage metadata
 
 <span id="page-8-0"></span>We extend our metadata representation by including statistics on the s. For this, we consider the data type and the number of distinct values on the s, count on s, and the multiplicity on each end of the s. will also have the cardinality as a calculated value (see [Fig.](#page-3-0) [2\)](#page-3-0). Using the count and the multiplicity, we can calculate the total storage size for each of the storage structures (relational table, collection, or wide table). In document stores, if there are nested attributes within a collection (i.e., Records or Tracks inside an Artist in [Fig.](#page-8-1) [7\)](#page-8-1) it is important to calculate the multiplicity between the (∕) and the () of the nested . This information can be used to estimate the size of secondary indexes, especially with multiple nesting levels. Moreover, the same information can be used to determine the physical access patterns of a particular query over
 
 a certain datastore. Even though these calculations can be carried out on any datastore, it is particularly interesting in document stores, because they are more flexible on storing data compared to RDBMS and column stores, mainly due to nesting. Thus, we focus on document stores to explain the algorithms.
 
-####*5.1. Storage size estimation*We take our running example in [Fig.](#page-3-1) [3](#page-3-1) to illustrate how Algorithms [3](#page-9-0) and [4](#page-10-0) can be used to calculate the storage size and the multipliers between the*Root*atom and the rest of the Atoms in an . The multiplicity between*Artist*and*Record*is 5 and between*Record*and*Track*is 15, and there are 20, 100, 1500 instances of*Artist*s, *Record*s, and *Track*s, respectively. Let us assume all s are integers of 4 bytes in size, and all the Strings are 10 bytes.
+### *5.1. Storage size estimation*We take our running example in [Fig.](#page-3-1) [3](#page-3-1) to illustrate how Algorithms [3](#page-9-0) and [4](#page-10-0) can be used to calculate the storage size and the multipliers between the*Root*atom and the rest of the Atoms in an . The multiplicity between*Artist*and*Record*is 5 and between*Record*and*Track*is 15, and there are 20, 100, 1500 instances of*Artist*s, *Record*s, and *Track*s, respectively. Let us assume all s are integers of 4 bytes in size, and all the Strings are 10 bytes.
 
 Algorithm [3](#page-9-0) works in a recursive manner going through each of the s, calculating the size of each of the *nodes*inside, and multiplying them by the number of instances of the . In the case of an*Atom*, this will be the size of the stored data (i.e., 4 bytes for an integer). In case of a named or , it will add the name length to the total size, and its content. represents a collection of elements that could be a list or an array. In this case, we need to calculate the size of this list/array. Algorithm [4](#page-10-0) finds the number of instances of such complex objects by referring to the multiplicity of the relationship between parent and the child s.
 
 If we want to calculate the storage size and the multipliers of the atoms of the schema in [Fig.](#page-8-1) [7,](#page-8-1) the collection hyperedge will be the input to Algorithm [3](#page-9-0). In the first iteration, the size will be set to 0 (Line 6). Then, at line 16, the top level document will be found, and the size will be increased by the length of the name of the collection (6 assuming it is ''Artist''). When the embedded *Records*are reached, the will have size 7 (with the name ''Records''). Then the*Records*will look into the embedded*Tracks*. The *Tracks*will have a size of 7 with the name, and then the \_ and the \_ will be 4 and 10 bytes respectively, making an individual track 14 bytes overall. Moreover, the that contains the relationship between*Record*and*Track*will return the multiplier being 15. Therefore, the record size will be calculated as the sum of 15 tracks, the length of the text ''Tracks'', \_ and the \_ adding up to 230 (15 ∗ 14 + 6 + 4 + 10) bytes. The that contains the relationship between*Artist*and*Record*will return the multiplier 5. Hence, the*Records*inside the Artists will have a size of 1150 (230 ∗ 5) bytes. The \_, \_, and*Records*inside the*Artist*document will get a multiplier of 20. Since there are 20*Artists*, the total size of the collection will increase to 23,426 (6 + 20 ∗ (4 + 10 + 7 + 1150)) bytes.
 
-#### <span id="page-9-0"></span>Algorithm 3 CalculateSize algorithm
+### <span id="page-9-0"></span>Algorithm 3 CalculateSize algorithm
 
 **Input:**∈ ∪**Output:**Size , Hashmap <A,multiplier> 1: ←*ℎ*() *< , >*2:**if**∈**then**3: ←*.*4:*.*(*,*1) 5:**else if**∈ || ∈**then**6: ← 0 7:**else if**∈**then** *// Embeded list*8: ←*..ℎ*() 9: **else if**∈**then**10:**if** *.*= ∅**then** *// Struct inside a set*11: ← 0 12:**else** *// Embedded struct*13: ←*..ℎ*() 14: **end if**15:**end if**16:**for each** *ℎ*∈*.ℎ*() **do** 17: ← (*, ℎ*) 18: ← (*ℎ*) 19: ← + *.*∗ 20:**for each**∈*..*() **do**21:*.*(*, ..*() ∗ ) 22: **end for**23:**end for**24:**return** *< , >*Apart from the total size, Algorithm [3](#page-9-0) also returns the number of instances of each of the s within that collection. From the previous example, we get 20, 100, 1500 as the number of instances for \_, \_, and \_ respectively. By dividing the number of instances by the number of instances of*Root*, we can obtain the multiplying factor between the root and the nested s. This value together with the distinct values of an can be used to identify the potential secondary index sizes and their effectiveness. For example, in an alternative document store design where the tracks are the first level documents that embed the records and the record embed the artists, with the same calculations we would get 1500 as the number of *Author*s stored. However, since we know that there are only 20 different *Author*s, if we build a secondary index on \_, we can estimate that each \_ index entry would point to <sup>1500</sup> <sup>20</sup> = 75 top level documents (*Tracks*).
 
-#### <span id="page-10-0"></span>Algorithm 4 CalculateMultiplier algorithm
+### <span id="page-10-0"></span>Algorithm 4 CalculateMultiplier algorithm
 
 **Input:**∈ ,*ℎ*∈**Output:**1:**if**∈**then** *// top level collection*2: ←*..*3:**else if**∈**then**4:*ℎ*←*. ℎ*(∗*, ℎ.*) *// Set has one parent*5: ←*ℎ.*6:**else**7: ← 1 8:**end if**9:**return**
 
 *5.2. Physical access patterns for workloads*A query workload is usually provided as the frequencies of the respective queries. However, the access patterns and the runtimes of the queries depend on the underlying schema design, as shown in works such as [\[4\]](#page-14-4) and [[12\]](#page-14-12). Therefore, we believe that it is of interest to determine how the underlying physical storage structures are used for a particular workload on different data stores and schema designs. We assume that the workload is given as a set of queries Q as stated in [Definition](#page-6-2) [9,](#page-6-2) together with their access frequency. Thus, we use Algorithm [5](#page-10-1) to calculate the access frequencies of the collections and their secondary indexes depending on the design choices.
 
-#### <span id="page-10-1"></span>Algorithm 5 CalculateFrequency algorithm
+### <span id="page-10-1"></span>Algorithm 5 CalculateFrequency algorithm
 
-| Input: Q, E<br>𝐷𝑜𝑐<br>𝑆                                                                        |
+| Input: Q, E<br>𝐷𝑜𝑐<br>𝑆 |
 |------------------------------------------------------------------------------------------------|
-| 𝐷𝑜𝑐<br>Output: Hashmap<𝐸<br>∪ 𝐴𝐶<br>, 𝑓 𝑟𝑒𝑞> 𝑚<br>𝑆                                            |
-| 1: 𝑚 ← 𝑛𝑒𝑤𝐻𝑎𝑠ℎ𝑚𝑎𝑝() < 𝐸𝐷𝑜𝑐<br>∪ 𝐴𝐶<br>, 𝑓 𝑟𝑒𝑞 ><br>𝑆                                           |
-| 2: 𝑤𝑖𝑛𝑛𝑒𝑟𝑠 ← 𝑛𝑒𝑤𝑄𝑢𝑒𝑢𝑒()                                                                        |
-| 3: for each 𝑞𝑢𝑒𝑟𝑦 ∈ Q do                                                                       |
-| 4:<br>𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 ← 𝑞𝑢𝑒𝑟𝑦.𝑝𝑟𝑜𝑗                                                                   |
-| 𝐷𝑜𝑐<br>5:<br>𝑐𝑎𝑛𝑑𝑠 ← 𝐸<br>.𝑓 𝑖𝑛𝑑(𝑐𝑜𝑛𝑡𝑎𝑖𝑛𝑠(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙))<br>𝑆                                     |
-| 6:<br>if candidates.size = 1 then                                                              |
-| 7:<br>𝑤𝑖𝑛𝑛𝑒𝑟 ← 𝑐𝑎𝑛𝑑𝑠[0]                                                                        |
-| 8:<br>else<br>// winner is the smallest collection with the selection as root                  |
+| 𝐷𝑜𝑐<br>Output: Hashmap<𝐸<br>∪ 𝐴𝐶<br>, 𝑓 𝑟𝑒𝑞> 𝑚<br>𝑆 |
+| 1: 𝑚 ← 𝑛𝑒𝑤𝐻𝑎𝑠ℎ𝑚𝑎𝑝() < 𝐸𝐷𝑜𝑐<br>∪ 𝐴𝐶<br>, 𝑓 𝑟𝑒𝑞 ><br>𝑆 |
+| 2: 𝑤𝑖𝑛𝑛𝑒𝑟𝑠 ← 𝑛𝑒𝑤𝑄𝑢𝑒𝑢𝑒() |
+| 3: for each 𝑞𝑢𝑒𝑟𝑦 ∈ Q do |
+| 4:<br>𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 ← 𝑞𝑢𝑒𝑟𝑦.𝑝𝑟𝑜𝑗 |
+| 𝐷𝑜𝑐<br>5:<br>𝑐𝑎𝑛𝑑𝑠 ← 𝐸<br>.𝑓 𝑖𝑛𝑑(𝑐𝑜𝑛𝑡𝑎𝑖𝑛𝑠(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙))<br>𝑆 |
+| 6:<br>if candidates.size = 1 then |
+| 7:<br>𝑤𝑖𝑛𝑛𝑒𝑟 ← 𝑐𝑎𝑛𝑑𝑠[0] |
+| 8:<br>else<br>// winner is the smallest collection with the selection as root |
 | 9:<br>𝑤𝑖𝑛𝑛𝑒𝑟 ← 𝑐𝑎𝑛𝑑𝑠.𝑓 𝑖𝑛𝑑(𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑒.𝑟𝑜𝑜𝑡 = 𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙 ∧ 𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑒.𝑠𝑖𝑧𝑒 = 𝑓 𝑖𝑛𝑑𝑀 𝑖𝑛𝑆𝑖𝑧𝑒(𝑐𝑎𝑛𝑑𝑠)) |
-| 10:<br>end if                                                                                  |
-| 11:<br>if 𝑤𝑖𝑛𝑛𝑒𝑟 = ∅ then<br>// no selection as the root                                       |
-| 12:<br>𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔.𝑎𝑑𝑑(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙)                                                                |
-| 𝑤𝑖𝑛𝑛𝑒𝑟 ← 𝑐𝑎𝑛𝑑𝑠.𝑓 𝑖𝑛𝑑(𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑒.𝑠𝑖𝑧𝑒 =<br>13:                                                   |
-| 𝑓 𝑖𝑛𝑑𝑀 𝑖𝑛𝑆𝑖𝑧𝑒(𝑐𝑎𝑛𝑑𝑠.𝑠𝑖𝑧𝑒))                                                                     |
-| 14:<br>end if                                                                                  |
-| 15:<br>𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑤𝑖𝑛𝑛𝑒𝑟,                                                                     |
-| 𝑞𝑢𝑒𝑟𝑦.𝑓 𝑟𝑒𝑞 ⋅ 𝑤𝑖𝑛𝑛𝑒𝑟.𝑔𝑒𝑡𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑒𝑟(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙) >)                                               |
-| 16:<br>𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑤𝑖𝑛𝑛𝑒𝑟.𝑔𝑒𝑡(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙), 𝑞𝑢𝑒𝑟𝑦.𝑓 𝑟𝑒𝑞 >)                                       |
-| 17:<br>𝑤𝑖𝑛𝑛𝑒𝑟𝑠.𝑒𝑛𝑞𝑢𝑒𝑢𝑒(𝑤𝑖𝑛𝑛𝑒𝑟)                                                                 |
-| while 𝑤𝑖𝑛𝑛𝑒𝑟𝑠 ≠ ∅ ∧ 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 = ∅ do<br>18:                                                    |
-| 𝑚𝑎𝑖𝑛 ← 𝑤𝑖𝑛𝑛𝑒𝑟𝑠.𝑑𝑒𝑞𝑢𝑒𝑢𝑒()<br>19:                                                                |
-| 𝑐𝑜𝑣𝑒𝑟𝑒𝑑 ← 𝑚𝑎𝑖𝑛+.𝐴𝑡𝑜𝑚𝑠 ∪ 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔<br>20:                                                       |
-| 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 ← 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 − 𝑚𝑎𝑖𝑛+.𝐴𝑡𝑜𝑚𝑠<br>21:                                                     |
-| for each 𝐴𝑐 ∈ 𝑐𝑜𝑣𝑒𝑟𝑒𝑑 do<br>22:                                                                |
-| 23:<br>for each 𝐴 ∈ 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 do                                                               |
-| 24:<br>𝑟𝑒𝑙 ← 𝑞𝑢𝑒𝑟𝑦.𝑟𝑒𝑙.𝑓 𝑖𝑛𝑑𝑅𝑒𝑙𝑎𝑡𝑖𝑜𝑛𝑠ℎ𝑖𝑝(𝐴𝑐<br>, 𝐴)                                            |
-| if 𝑟𝑒𝑙 ≠ ∅ then<br>25:<br>// found a join                                                      |
-| 𝑗𝑜𝑖𝑛 ← 𝐺.𝑓 𝑖𝑛𝑑𝐶𝑜𝑙𝑙𝑒𝑐𝑡𝑖𝑜𝑛(𝑐𝑜𝑛𝑡𝑎𝑖𝑛𝑠(𝐴, 𝐴𝑐<br>26:<br>))                                           |
-| 27:<br>𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑗𝑜𝑖𝑛, 𝑚.𝑔𝑒𝑡(𝑚𝑎𝑖𝑛)⋅                                                          |
-| 𝑟𝑒𝑙.𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑐𝑖𝑡𝑦 ⋅ 𝑗𝑜𝑖𝑛.𝑔𝑒𝑡𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑒𝑟(𝐴𝑐<br>) >)                                               |
-| 𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑗𝑜𝑖𝑛.𝑔𝑒𝑡(𝐴𝑐<br>),<br>28:                                                           |
-| 𝑚.𝑔𝑒𝑡(𝑚𝑎𝑖𝑛) ⋅ 𝑟𝑒𝑙.𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑐𝑖𝑡𝑦 >)                                                              |
-| 29:<br>𝑤𝑖𝑛𝑛𝑒𝑟𝑠.𝑒𝑛𝑞𝑢𝑒𝑢𝑒(𝑗𝑜𝑖𝑛)                                                                   |
-| 30:<br>end if                                                                                  |
-| 31:<br>end for                                                                                 |
-| 32:<br>end for                                                                                 |
-| 33:<br>𝑆𝑢𝑚𝑇 𝑜𝑈𝑛𝑖𝑡𝑦(𝑚)                                                                          |
-| 34:<br>end while                                                                               |
-| 35: end for                                                                                    |
-| 36: return 𝑚                                                                                   |
+| 10:<br>end if |
+| 11:<br>if 𝑤𝑖𝑛𝑛𝑒𝑟 = ∅ then<br>// no selection as the root |
+| 12:<br>𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔.𝑎𝑑𝑑(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙) |
+| 𝑤𝑖𝑛𝑛𝑒𝑟 ← 𝑐𝑎𝑛𝑑𝑠.𝑓 𝑖𝑛𝑑(𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑒.𝑠𝑖𝑧𝑒 =<br>13: |
+| 𝑓 𝑖𝑛𝑑𝑀 𝑖𝑛𝑆𝑖𝑧𝑒(𝑐𝑎𝑛𝑑𝑠.𝑠𝑖𝑧𝑒)) |
+| 14:<br>end if |
+| 15:<br>𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑤𝑖𝑛𝑛𝑒𝑟, |
+| 𝑞𝑢𝑒𝑟𝑦.𝑓 𝑟𝑒𝑞 ⋅ 𝑤𝑖𝑛𝑛𝑒𝑟.𝑔𝑒𝑡𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑒𝑟(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙) >) |
+| 16:<br>𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑤𝑖𝑛𝑛𝑒𝑟.𝑔𝑒𝑡(𝑞𝑢𝑒𝑟𝑦.𝑠𝑒𝑙), 𝑞𝑢𝑒𝑟𝑦.𝑓 𝑟𝑒𝑞 >) |
+| 17:<br>𝑤𝑖𝑛𝑛𝑒𝑟𝑠.𝑒𝑛𝑞𝑢𝑒𝑢𝑒(𝑤𝑖𝑛𝑛𝑒𝑟) |
+| while 𝑤𝑖𝑛𝑛𝑒𝑟𝑠 ≠ ∅ ∧ 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 = ∅ do<br>18: |
+| 𝑚𝑎𝑖𝑛 ← 𝑤𝑖𝑛𝑛𝑒𝑟𝑠.𝑑𝑒𝑞𝑢𝑒𝑢𝑒()<br>19: |
+| 𝑐𝑜𝑣𝑒𝑟𝑒𝑑 ← 𝑚𝑎𝑖𝑛+.𝐴𝑡𝑜𝑚𝑠 ∪ 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔<br>20: |
+| 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 ← 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 − 𝑚𝑎𝑖𝑛+.𝐴𝑡𝑜𝑚𝑠<br>21: |
+| for each 𝐴𝑐 ∈ 𝑐𝑜𝑣𝑒𝑟𝑒𝑑 do<br>22: |
+| 23:<br>for each 𝐴 ∈ 𝑟𝑒𝑚𝑎𝑖𝑛𝑖𝑛𝑔 do |
+| 24:<br>𝑟𝑒𝑙 ← 𝑞𝑢𝑒𝑟𝑦.𝑟𝑒𝑙.𝑓 𝑖𝑛𝑑𝑅𝑒𝑙𝑎𝑡𝑖𝑜𝑛𝑠ℎ𝑖𝑝(𝐴𝑐<br>, 𝐴) |
+| if 𝑟𝑒𝑙 ≠ ∅ then<br>25:<br>// found a join |
+| 𝑗𝑜𝑖𝑛 ← 𝐺.𝑓 𝑖𝑛𝑑𝐶𝑜𝑙𝑙𝑒𝑐𝑡𝑖𝑜𝑛(𝑐𝑜𝑛𝑡𝑎𝑖𝑛𝑠(𝐴, 𝐴𝑐<br>26:<br>)) |
+| 27:<br>𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑗𝑜𝑖𝑛, 𝑚.𝑔𝑒𝑡(𝑚𝑎𝑖𝑛)⋅ |
+| 𝑟𝑒𝑙.𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑐𝑖𝑡𝑦 ⋅ 𝑗𝑜𝑖𝑛.𝑔𝑒𝑡𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑒𝑟(𝐴𝑐<br>) >) |
+| 𝑚.𝐴𝑢𝑝𝑑𝑎𝑡𝑒(< 𝑗𝑜𝑖𝑛.𝑔𝑒𝑡(𝐴𝑐<br>),<br>28: |
+| 𝑚.𝑔𝑒𝑡(𝑚𝑎𝑖𝑛) ⋅ 𝑟𝑒𝑙.𝑀𝑢𝑙𝑡𝑖𝑝𝑙𝑖𝑐𝑖𝑡𝑦 >) |
+| 29:<br>𝑤𝑖𝑛𝑛𝑒𝑟𝑠.𝑒𝑛𝑞𝑢𝑒𝑢𝑒(𝑗𝑜𝑖𝑛) |
+| 30:<br>end if |
+| 31:<br>end for |
+| 32:<br>end for |
+| 33:<br>𝑆𝑢𝑚𝑇 𝑜𝑈𝑛𝑖𝑡𝑦(𝑚) |
+| 34:<br>end while |
+| 35: end for |
+| 36: return 𝑚 |
 
 We use a simple query structure with a single selection predicate and multiple projections. Nevertheless, notice that multiple tables/collections within the data store may still be capable of answering the same query. In such cases, we use a greedy approach for selecting the winner as the smallest sized collection out of the candidates. Thus, the base case scenario is a single collection
 
 ![](_page_11_Figure_2.jpeg)
 <!-- Image Description: The image is a graph diagram illustrating a database schema. Nodes represent entities (e.g., Bus, Train, Station, Line) with associated attributes (name, ID, type) and cardinalities indicated in parentheses. Edges depict relationships between entities, with numerical labels representing relationship weights or constraints. The diagram likely showcases the relational model used in the paper for representing transportation data. -->
-**Fig. 8.**Graph representation of ESTOCADA.
+**Figure 8.**Graph representation of ESTOCADA.
 
 <span id="page-11-1"></span>containing the selection predicate (Line 6), followed by the smallest collection containing the selection*as the root*if many contain it (Line 8), and finally, the smallest collection that contains the selection predicate if none of them have it has the*root*(Line 11).
 
@@ -403,25 +404,24 @@ All the s transitively contained in the document that belongs to the query are a
 
 The Algorithms [3,](#page-9-0) [4](#page-10-0), and [5](#page-10-1) enable us to identify the storage requirements of data and physical access patterns of the queries. Thus, we can determine the storage sizes and the individual access frequencies of the collections and their indexes (both primary and secondary). Applying these frequencies and the storage sizes will allow us to estimate the query performance for different datastore designs. We have implemented the approach in [[13\]](#page-14-13), to evaluate alternative schema designs on document stores using the cost model in [[14](#page-14-14)] on storage space and query performance.
 
-#### 6. Use case
+### 6. Use case
 
 <span id="page-11-0"></span>In this section, we showcase our technique applied on an already available polyglot system. We base the example on the scenario used for ESTOCADA [\[15](#page-14-15)]. This involves a typical transportation data storage for a digital city open data warehousing. It uses RDBMS, document stores, and key–value stores. [Fig.](#page-11-1) [8](#page-11-1) shows the corresponding graph . The multiplicities are shown with the corresponding arrows (e.g. each line goes through 20 stations). We have omitted the multiplicity of each bus, train, tram, and metro being associated with one line for clarity of the figure.
 
 The ESTOCADA system is used to store train, tram, and metro information in an RDBMS, the train and metro route information in a document store, and bus route together with the buses information in a key–value store (see [[15\]](#page-14-15) for more details). This information can be represented in our polyglot catalog[3](#page-11-2) as follows (shown as containment sets):
 
-<span id="page-11-2"></span> = {*, ,*} = { \_*,*  \_*,*\_*,*  \_*,*  \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,*\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,*\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* = {\_*.* }*,* \_*.*  = { \_*.* }*,*<sup>3</sup> The implementation of the catalog is available in [https://git.io/vxyHO.](https://git.io/vxyHO)
+<span id="page-11-2"></span> = {*, ,*} = { \_*,* \_*,*\_*,* \_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,*\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,*\_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* = {\_*.* }*,* \_*.* = { \_*.* }*,*<sup>3</sup> The implementation of the catalog is available in [https://git.io/vxyHO.](https://git.io/vxyHO)
 
-<span id="page-12-1"></span>
 
-| Query        | Usage             |                    |  |
+| Query | Usage | | |
 |--------------|-------------------|--------------------|--|
-|              | 𝑠𝑖𝑑               | 𝑀𝑒𝑡𝑟𝑜𝑠𝑇 𝑟𝑎𝑚𝑠       |  |
-| Q1 (p = 0.5) | 0.5               | 0.5* 3 = 1.5      |  |
-| Q2 (p = 0.5) | 0.5               | 0.5 * 3 = 1.5      |  |
-| Total        | 1                 | 3                  |  |
-| Frequency    | 1<br>= 0.25<br>21 | 20<br>= 0.75<br>21 |  |
+| | 𝑠𝑖𝑑 | 𝑀𝑒𝑡𝑟𝑜𝑠𝑇 𝑟𝑎𝑚𝑠 | |
+| Q1 (p = 0.5) | 0.5 | 0.5* 3 = 1.5 | |
+| Q2 (p = 0.5) | 0.5 | 0.5 * 3 = 1.5 | |
+| Total | 1 | 3 | |
+| Frequency | 1<br>= 0.25<br>21 | 20<br>= 0.75<br>21 | |
 
-<span id="page-12-2"></span> \_*.*= {\_*,* \_*,*  \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* = { \_*,*  \_}*,*  \_ = { \_}*,* \_ = {\_*,*  \_}*,* \_ = {\_}*,*  \_ = { \_}*,*\_ = {\_*,*\_}
+<span id="page-12-2"></span> \_*.*= {\_*,* \_*,* \_}*,* \_ = { \_}*,*\_ = {\_*,* \_}*,* = { \_*,* \_}*,* \_ = { \_}*,* \_ = {\_*,* \_}*,* \_ = {\_}*,* \_ = { \_}*,*\_ = {\_*,*\_}
 
 Our goal was to store the metadata of the ESTOCADA polyglot system with a hypergraph. Thus, we used HyperGraphDB[4](#page-12-1) to save the entire catalog information including the s,*Relationship*s, and *Hyperedges*for the structures. With this catalog, one can quickly detect where each fragment of the polyglot system lies by merely referring to s and the content within. Let us assume that the following queries are issued on the catalog with equal probability.
 
@@ -433,9 +433,9 @@ By utilizing Algorithms [1](#page-5-1) and [2,](#page-6-0) we can generate the f
 - SELECT rid, rname FROM Train SELECT sid, sname FROM Station WHERE sid = <> SELECT sid, rid FROM Tstat db.MetrosTrams.find({route.sid:<>},{route.sid:1, route.sname:1}) • db.MetrosTrams.find({route.sid:<>},{lid:1, lname:1, route.sid:1, route.sname:1})
 - SELECT sid, sname FROM Station WHERE sid = <>
 
-For the ease of demonstration, let us assume that all the identifiers are 4 bytes and the names are 20 bytes. Then, using the multiplicities provided in ([Fig.](#page-11-1) [8](#page-11-1)) we can calculate the storage sizes and the multipliers using Algorithms [3](#page-9-0) and [4.](#page-10-0) Thus, we get a storage size of 54,150 bytes for a document store. Each nested station document is 34 bytes (20+4+4+6). Then, the route having list of 20 stations becomes 688 bytes (20\*34+8). Next, the line contains the route and the names with 722 bytes (688+20+4+4+6). Finally, the total size is obtained by multiplying the line size by 75 (number of lines). This algorithm can be reused to calculate sizes of other data stores giving us 58,200 bytes in total on a RDBMS (75\*(4+20) for Train, 100\*(4+20) for Metro, 75\*1\*20\*(4+4+4) for Tstat, 100\*1\*20\*(4+4+4) for Mstat, and 500\*(4+20) for Station) and 19,000 bytes on the Key–value store 30\*(20+(20\*20)) for Route and 300\*(4+20) for Bus). When it comes to multipliers, only the document store and the RDBMS tables with foreign keys should be considered. Thus, has a multiplier of 15 on  (3\*5) and 30 on (3\*10) and 3 on document store collection due to each station belonging to 3 lines and each line having 5 trains and 10 metros. Finally, using Algorithm [5](#page-10-1), we can calculate the access frequencies of and  collection (assuming both Q1 and Q2) as 0.25 and 0.75 as shown in [Table](#page-12-2) [4](#page-12-2). Similarly, the RDBMS tables Station, Tstat, and Train will be accessed with frequencies of 0.063, 0.4687, and 0.4687 respectively.
+For the ease of demonstration, let us assume that all the identifiers are 4 bytes and the names are 20 bytes. Then, using the multiplicities provided in ([Fig.](#page-11-1) [8](#page-11-1)) we can calculate the storage sizes and the multipliers using Algorithms [3](#page-9-0) and [4.](#page-10-0) Thus, we get a storage size of 54,150 bytes for a document store. Each nested station document is 34 bytes (20+4+4+6). Then, the route having list of 20 stations becomes 688 bytes (20\*34+8). Next, the line contains the route and the names with 722 bytes (688+20+4+4+6). Finally, the total size is obtained by multiplying the line size by 75 (number of lines). This algorithm can be reused to calculate sizes of other data stores giving us 58,200 bytes in total on a RDBMS (75\*(4+20) for Train, 100\*(4+20) for Metro, 75\*1\*20\*(4+4+4) for Tstat, 100\*1\*20\*(4+4+4) for Mstat, and 500\*(4+20) for Station) and 19,000 bytes on the Key–value store 30\*(20+(20\*20)) for Route and 300\*(4+20) for Bus). When it comes to multipliers, only the document store and the RDBMS tables with foreign keys should be considered. Thus, has a multiplier of 15 on (3\*5) and 30 on (3\*10) and 3 on document store collection due to each station belonging to 3 lines and each line having 5 trains and 10 metros. Finally, using Algorithm [5](#page-10-1), we can calculate the access frequencies of and collection (assuming both Q1 and Q2) as 0.25 and 0.75 as shown in [Table](#page-12-2) [4](#page-12-2). Similarly, the RDBMS tables Station, Tstat, and Train will be accessed with frequencies of 0.063, 0.4687, and 0.4687 respectively.
 
-#### 7. Related work
+### 7. Related work
 
 <span id="page-12-0"></span>There are few polyglot systems already available to support heterogeneous NoSQL systems. In BigDAWG [[2\]](#page-14-2), different data models, including relation, array, graph, stream, and text, are classified as islands. Each of the islands has a language to access its data, and the data stores provide a shim to the respective islands it supports for a given query. Cross-island queries are also allowed, provided appropriate query planning and workload monitoring. Contrastingly, ESTOCADA [[1,](#page-14-1)[15\]](#page-14-15) enables the end user to pose queries using the native format of the dataset. In this case, the storage manager fragments and stores the data in different underlying data stores by analyzing the access patterns. These fragments may overlap, but the query executor decides the optimal storage to be accessed. ODBAPI [[16\]](#page-14-16) introduces a unified data model and a general access API for NoSQL and heterogeneous NoSQL systems. This approach supports simple CRUD operations over the underlying systems, as long as they provide an interface adhering to the global schema.
 
@@ -453,7 +453,7 @@ Using different adaptors or drivers for heterogeneous data stores is a common ap
 
 The Concept and Object Modeling Notation (COMN) introduced in [\[31](#page-14-31)] covers the full spectrum of not only the datastore but also the software design process. COMN is a graphical notation capable of representing the conceptual, logical, physical, and real-world design of an object. This helps to model the data in NoSQL systems where the traditional ER diagrams fail in representing certain situations, such as nesting.
 
-#### 8. Conclusions and future work
+### 8. Conclusions and future work
 
 <span id="page-13-0"></span>In this paper, we introduced a hypergraph-based approach for managing the metadata of a polyglot system. We based our work on an already existing data exchange model (SOS). First, we formalized the design constructs and extended them to support metadata management through a catalog. Next, we defined the constraints and the rules for simple query generation on heterogeneous data
 
@@ -467,15 +467,15 @@ store models. Next, we implemented a simple use case to showcase our approach on
 
 This work allows us to identify restrictions and limitations of different underlying data store models that can aid in data design decisions. Thus, this formalization of the data design can be extended to make data design decisions on NoSQL systems as well as optimizing an existing design. Together with a cost estimator for the designs that could incorporate the storage metadata from the metamodel, it will be possible to predict the query performance of alternative designs on NoSQL systems. This will be an initial step towards a cost-based schema design for NoSQL systems, moving away from the current rule-based schema design.
 
-#### Declaration of competing interest
+### Declaration of competing interest
 
 The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
-#### Acknowledgment
+### Acknowledgment
 
 This research has been funded by the European Commission, Spain through the Erasmus Mundus Joint Doctorate ''Information Technologies for Business Intelligence - Doctoral College" (IT4BI-DC).
 
-#### References
+### References
 
 - <span id="page-14-1"></span>[1] [F. Bugiotti, D. Bursztyn, A. Deutsch, I. Manolescu, S. Zampetakis, Flexible hybrid stores: Constraint-based rewriting to the rescue, in: IEEE 32nd Int. Conf.](http://refhub.elsevier.com/S0169-023X(21)00023-9/sb1) [on Data Engineering, ICDE, 2016.](http://refhub.elsevier.com/S0169-023X(21)00023-9/sb1)
 - <span id="page-14-2"></span>[2] J. Duggan, S. Zdonik, A.J. Elmore, M. Stonebraker, M. Balazinska, B. Howe, J. Kepner, S. Madden, D. Maier, T. Mattson, The BigDAWG polystore system, ACM SIGMOD Rec. 44 (2) (2015) [arXiv:1609.07548.](http://arxiv.org/abs/1609.07548)

@@ -25,8 +25,6 @@ keywords:
 - real-world
 ---
 
-
-
 # PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling
 
 Haojie Xie<sup>1</sup>\*, Yirong Chen<sup>2</sup><sup>∗</sup> , Xiaofen Xing<sup>2</sup>† , Jingkai Lin<sup>2</sup> , Xiangmin Xu1,3
@@ -50,7 +48,7 @@ In recent years, LLMs have made significant advancements, exemplified by ChatGPT
 <span id="page-0-1"></span>![](_page_0_Figure_13.jpeg)
 <!-- Image Description: The image uses two flowcharts to compare previous methods (a) and a proposed PsyDT framework (b) for mental health LLMs. (a) shows multiple counseling styles merged into a single LLM. (b) shows each counseling style separately trained with a dedicated LLM, illustrating a key difference in the training approach. The diagrams use icons representing dialogues and LLMs to visually represent the data processing flow. -->
 
-Figure 1: Difference between our proposed PsyDT framework and others. (a) Previous methods mixed multi-turn dialogues with multiple counseling styles to fine-tune LLM. (b) Our proposed PsyDT framework uses LLMs to construct the digital twin of psychological counselor with a specific counseling style.
+**Figure 1:** Difference between our proposed PsyDT framework and others. (a) Previous methods mixed multi-turn dialogues with multiple counseling styles to fine-tune LLM. (b) Our proposed PsyDT framework uses LLMs to construct the digital twin of psychological counselor with a specific counseling style.
 
 [2022\)](#page-9-0), GPT-4 [\(OpenAI,](#page-9-1) [2024\)](#page-9-1), LLaMA [\(Touvron](#page-9-2) [et al.,](#page-9-2) [2023\)](#page-9-2), Qwen [\(Bai et al.,](#page-8-0) [2023\)](#page-8-0), ChatGLM [\(Du et al.,](#page-8-1) [2022\)](#page-8-1), etc. While these LLMs excel in a variety of tasks, they often encounter limitations in specialized fields such as mental health due to a lack of domain-specific expertise. In addition, with the global rise in the prevalence of depression and anxiety [\(Santomauro et al.,](#page-9-3) [2021\)](#page-9-3), mental health has garnered widespread attention, prompting researchers to explore the application of LLMs in psychological counseling. The value of mental health LLMs lies in their potentiality to provide emotional support and counseling services to individuals. Currently, a series of mental health LLMs have been proposed, including MeChat [\(Qiu et al.,](#page-9-4) [2024a\)](#page-9-4), PsyChat [\(Qiu et al.,](#page-9-5) [2024b\)](#page-9-5), SoulChat [\(Chen et al.,](#page-8-2) [2023\)](#page-8-2), EmoLLM [\(EmoLLM,](#page-8-3) [2024\)](#page-8-3), MindChat [\(Xin Yan,](#page-9-6) [2023\)](#page-9-6), CPsyCoun [\(Zhang et al.,](#page-9-7) [2024\)](#page-9-7), etc.
 
@@ -65,7 +63,7 @@ Due to ethics policy and privacy protection, realworld multi-turn mental health 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 <!-- Image Description: This flowchart depicts a system for creating a psychological counselor's digital twin. It details four stages: (1) dynamic one-shot learning from counseling cases, extracting linguistic style and therapeutic type; (2) client personality simulation using Big Five traits; (3) multi-turn mental health dialogue synthesis from a PsyDTCorpus; and (4) the final PsyDTLLM model, combining the above to generate counselor responses. The boxes represent data inputs/outputs and processes, with arrows indicating information flow. The flowchart visually presents the system's architecture and data processing steps. -->
 
-Figure 2: Illustration of multi-turn dialogues synthesis method of PsyDT framework and PsyDTLLM model.
+**Figure 2:** Illustration of multi-turn dialogues synthesis method of PsyDT framework and PsyDTLLM model.
 
 thesizing multi-turn dialogues datasets. For instance, [Qiu et al.](#page-9-4) [\(2024a\)](#page-9-4) introduced SMILE, a technique for expanding single-turn dialogues into multi-turn dialogues, thereby better simulating realworld interactions between clients and counselors. Similarly, [Chen et al.](#page-8-2) [\(2023\)](#page-8-2) developed SoulChat-Corpus, a multi-turn empathetic dialogue dataset of more than 2 million samples, in which the input is the multi-turn dialogue context, and the target is empathetic responses that cover expressions such as questioning, comfort, recognition, listening, trust, emotional support, etc. [Zhang et al.](#page-9-7) [\(2024\)](#page-9-7) later proposed CPsyCoun, a report-based multiturn dialogue reconstruction and evaluation framework for Chinese psychological counseling.
 
@@ -92,7 +90,7 @@ evaluator. An example of the single-turn long-text dialogues is shown in Figure 
 <span id="page-2-0"></span>![](_page_2_Figure_10.jpeg)
 <!-- Image Description: This pie chart displays the percentage distribution of counseling topics. "Marriage" constitutes the largest segment (20.7%), followed by "Relationship" (13.4%) and "Emotion" (13.4%). Smaller segments represent topics such as "Family," "Treatment," "Behavior," "Career," "Growth," "Sex," "Social Events," and "Psychological Knowledge." The chart likely illustrates the prevalence of different issues addressed in counseling sessions within the study. -->
 
-Figure 3: Distribution of counseling topics.
+**Figure 3:** Distribution of counseling topics.
 
 ## 2 Dynamic One-Shot Learning from Counseling Cases
 
@@ -123,7 +121,7 @@ Based on the synthetic multi-turn dialogues dataset, PsyDTCorpus, we construct t
 $$
 \ell_{\theta} = \sum_{i=1}^{n} \ell(\hat{y}_i, y_i)
 $$
- (1)
+(1)
 
 $$
 y_i = LLM_{\theta}(c_{< i})\tag{2}
@@ -149,7 +147,7 @@ To validate the effectiveness of the multi-turn dialogues synthesis method of Ps
 <span id="page-4-2"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: The image displays two radar charts comparing three chatbot prompts (Smile, SoulChat, PsyDT) across various aspects of therapeutic conversation. Chart (a) shows the linguistic style, while chart (b) shows therapy technique. Each axis represents a category (e.g., emotion, family, career) with percentage scores indicating the prompt's focus on that area. The charts illustrate differences in the relative emphasis each prompt places on different therapeutic domains. -->
 
-Figure 4: Similarity results for the proposed multi-turn dialogue synthesis method and other baseline methods.
+**Figure 4:** Similarity results for the proposed multi-turn dialogue synthesis method and other baseline methods.
 
 [2023\)](#page-8-2),*Smile\_Prompt*[\(Qiu et al.,](#page-9-4) [2024a\)](#page-9-4). For each topic, We randomly select 20 single-turn dialogue samples. Then, all the samples are used to synthesize multi-turn dialogues based on the above three methods, respectively. Given the potential of using LLMs for evaluating text generation quality [\(Chi](#page-8-6)[ang and Lee,](#page-8-6) [2023\)](#page-8-6), we attempt to automatically assess the similarity between three synthetic multiturn dialogues dataset and real-world counseling cases in the matter of linguistic style and therapy technique. We employ two state-of-the-art LLMs as evaluators: GPT-4o[2](#page-4-0) and Claude 3.5[3](#page-4-1) . We take the average of the similarity scores given by two LLMs as the final result. The detailed content of the prompt is shown in Figure [17,](#page-23-0) [18](#page-23-1) in the Appendix.
 
@@ -169,22 +167,22 @@ As shown in Table [1,](#page-5-0) the PsyDTCorpus dataset
 
 <span id="page-4-3"></span><sup>4</sup>Real-world psychological counselors not only need to consider emotional empathy but also cognitive empathy
 
-| Datasets       | Statistics |      |      |      | Abilities |       |       | Expert Evaluation |      |      |      |      |      |      |
+| Datasets | Statistics | | | | Abilities | | | Expert Evaluation | | | | | | |
 |----------------|------------|------|------|------|-----------|-------|-------|-------------------|------|------|------|------|------|------|
-|                | Open.      | Size | NoT. | LoC. | LoP.      | EmoE. | CogE. | TheT.             | Con. | Sta. | Rel. | App. | Flu. | Saf. |
-| SMILECHAT      | ✓          | 56k  | 10.4 | 26.1 | 28.9      | ✓     |       |                   | 5.38 | 5.92 | 5.65 | 4.37 | 0.84 | ✓    |
-| SoulChatCorpus | ✓          | 258k | 5.9  | 41.4 | 90.0      | ✓     |       |                   | 5.24 | 5.80 | 5.62 | 4.38 | 0.86 | ✓    |
-| CPsyCounD      | ✓          | 3.1k | 8.0  | 32.9 | 52.6      | ✓     |       | ✓                 | 5.57 | 6.02 | 5.66 | 5.49 | 0.72 | ✓    |
-| PsyDTCorpus    | ∆          | 5k   | 18.1 | 31.6 | 58.1      | ✓     | ✓     | ✓                 | 8.39 | 8.69 | 8.29 | 8.12 | 1.00 | ✓    |
+| | Open. | Size | NoT. | LoC. | LoP. | EmoE. | CogE. | TheT. | Con. | Sta. | Rel. | App. | Flu. | Saf. |
+| SMILECHAT | ✓ | 56k | 10.4 | 26.1 | 28.9 | ✓ | | | 5.38 | 5.92 | 5.65 | 4.37 | 0.84 | ✓ |
+| SoulChatCorpus | ✓ | 258k | 5.9 | 41.4 | 90.0 | ✓ | | | 5.24 | 5.80 | 5.62 | 4.38 | 0.86 | ✓ |
+| CPsyCounD | ✓ | 3.1k | 8.0 | 32.9 | 52.6 | ✓ | | ✓ | 5.57 | 6.02 | 5.66 | 5.49 | 0.72 | ✓ |
+| PsyDTCorpus | ∆ | 5k | 18.1 | 31.6 | 58.1 | ✓ | ✓ | ✓ | 8.39 | 8.69 | 8.29 | 8.12 | 1.00 | ✓ |
 
-<span id="page-5-0"></span>Table 1: Dataset evaluation results. The symbol ∆ indicates the dataset will be publicly available soon. The best score for each metric is in-bold, while the second best score is underlined.
+<span id="page-5-0"></span>**Table 1:** Dataset evaluation results. The symbol ∆ indicates the dataset will be publicly available soon. The best score for each metric is in-bold, while the second best score is underlined.
 
 significantly outperforms the other datasets across all four professional assessment dimensions. To visually illustrate the stability and score distribution of our multi-turn dialogues dataset compared to other datasets across these four dimensions, we design boxplots of the evaluation results. As shown in Figure [5,](#page-5-1) it is evident that PsyDTCorpus excels in quality across all four dimensions compared to the other baseline datasets. These results underscore the better superiority and professionalism of PsyDTCorpus over the other baseline datasets, indicating the strong potential of PsyDT for application in real-world psychological counseling.
 
 <span id="page-5-1"></span>![](_page_5_Figure_3.jpeg)
 <!-- Image Description: The image presents four box plots (a-d), each comparing scores across four corpora (SMILECHAT, SoulChatCorpus, CPsyCounD, PsyDTCorpus). (a) shows scores for conversation strategy, (b) for state and attitude, (c) for relationship building, and (d) for application of therapy techniques. The plots visually compare the distributions of these scores across different corpora, allowing for an assessment of their relative performance on each aspect of therapeutic conversation. -->
 
-Figure 5: Results of manual evaluation for PsyDTCorpus and baseline datasets on 4 professional dimensions.
+**Figure 5:** Results of manual evaluation for PsyDTCorpus and baseline datasets on 4 professional dimensions.
 
 ## 1.3 RQ3: Ablation Studies
 
@@ -193,7 +191,7 @@ To validate that our synthetic multi-turn dialogues dataset, PsyDTCorpus, integr
 <span id="page-5-2"></span>![](_page_5_Figure_8.jpeg)
 <!-- Image Description: This horizontal bar chart displays the win/loss rates of a system ("Ours") under three ablation conditions: removing linguistic style, therapy technique, and client personality. Each bar represents a condition, showing the percentage of "Ours Win" (light blue) versus "Ours Loss" (light teal). The chart quantifies the impact of each component on the system's performance, indicating the relative importance of these factors. -->
 
-Figure 6: Results of ablation study on synthetic dialogues and other ablated dialogues.
+**Figure 6:** Results of ablation study on synthetic dialogues and other ablated dialogues.
 
 ### 2 Analysis of PsyDTLLM model
 
@@ -228,29 +226,28 @@ In this section, we present an close look for examples of clients seeking emotio
 
 LLMs typically underperform in domains requiring complex mental acumen and high levels of empathy. Nonetheless, significant advancements have been made by researchers. For instance, [Qiu et al.](#page-9-4) [\(2024a\)](#page-9-4) introduced SMILE approach, leveraging ChatGPT to transform single-turn dialogues into multi-turn interactions. [Chen et al.](#page-8-2) [\(2023\)](#page-8-2) developed SoulChat and SoulChatCorpus, a multi-turn empathetic conversation dataset comprising over 2 million samples. By fine-tuning LLM on SoulChat-Corpus, they achieved superior performance in em-
 
-<span id="page-7-0"></span>
 
-| Type   | Models               | Automatic. |       |       |      |       |       |       | Professional. |      |      |  |  |  |  |
+| Type | Models | Automatic. | | | | | | | Professional. | | | | | | |
 |--------|----------------------|------------|-------|-------|------|-------|-------|-------|---------------|------|------|--|--|--|--|
-|        |                      | R-1        | R-2   | R-L   | B-4  | FBERT | EmoE. | CogE. | Con.          | Sta. | Saf. |  |  |  |  |
-| Closed | ChatGPT              | 31.72      | 7.77  | 24.52 | 7.24 | 96.69 | 1.70  | 1.74  | 1.88          | 1.99 | 1.00 |  |  |  |  |
-|        | GPT-4                | 26.51      | 6.79  | 18.23 | 5.31 | 96.59 | 1.80  | 1.99  | 2.06          | 1.89 | 1.00 |  |  |  |  |
-|        | Baichuan2-7B-Chat    | 15.40      | 3.69  | 11.84 | 3.46 | 94.14 | 1.35  | 1.34  | 1.44          | 1.49 | 1.00 |  |  |  |  |
-| Open   | GLM4-9B-Chat         | 23.38      | 5.45  | 14.35 | 3.84 | 96.58 | 1.68  | 1.88  | 1.94          | 1.74 | 1.00 |  |  |  |  |
-|        | InternLM2-Chat-7B    | 27.15      | 5.87  | 20.38 | 5.49 | 96.62 | 1.87  | 1.92  | 2.04          | 2.05 | 1.00 |  |  |  |  |
-|        | Llama3-8B-Instruct   | 26.31      | 5.25  | 19.64 | 5.11 | 95.16 | 1.58  | 1.72  | 1.77          | 1.81 | 1.00 |  |  |  |  |
-|        | Llama3.1-8B-Instruct | 30.20      | 5.84  | 22.88 | 5.96 | 96.54 | 1.61  | 1.70  | 1.81          | 1.90 | 1.00 |  |  |  |  |
-|        | Qwen2-7B-Instruct    | 23.42      | 5.28  | 15.42 | 4.05 | 96.64 | 1.81  | 2.09  | 2.18          | 2.12 | 1.00 |  |  |  |  |
-|        | Yi-1.5-9B-Chat       | 29.32      | 6.89  | 21.85 | 7.50 | 96.66 | 1.75  | 1.79  | 2.11          | 1.93 | 1.00 |  |  |  |  |
-|        | MeChat               | 30.71      | 7.05  | 24.43 | 6.73 | 96.55 | 1.54  | 1.58  | 1.66          | 1.96 | 1.00 |  |  |  |  |
-| Domain | PsyChat              | 27.96      | 5.21  | 21.44 | 4.83 | 96.19 | 1.36  | 1.40  | 1.34          | 1.79 | 1.00 |  |  |  |  |
-|        | SoulChat             | 28.93      | 5.93  | 23.26 | 5.49 | 96.42 | 1.29  | 1.36  | 1.42          | 1.76 | 1.00 |  |  |  |  |
-|        | MindChat             | 22.55      | 3.44  | 17.75 | 3.48 | 93.89 | 1.13  | 1.25  | 1.13          | 1.54 | 1.00 |  |  |  |  |
-|        | EmoLLM               | 23.26      | 4.01  | 18.50 | 3.74 | 91.74 | 1.06  | 1.18  | 1.21          | 1.36 | 1.00 |  |  |  |  |
-|        | CPsyCounX            | 23.71      | 4.32  | 17.59 | 3.59 | 95.46 | 1.28  | 1.42  | 1.54          | 1.60 | 1.00 |  |  |  |  |
-| Our    | PsyDTLLM             | 36.03      | 10.08 | 28.86 | 9.99 | 96.79 | 1.90  | 2.13  | 2.19          | 2.26 | 1.00 |  |  |  |  |
+| | | R-1 | R-2 | R-L | B-4 | FBERT | EmoE. | CogE. | Con. | Sta. | Saf. | | | | |
+| Closed | ChatGPT | 31.72 | 7.77 | 24.52 | 7.24 | 96.69 | 1.70 | 1.74 | 1.88 | 1.99 | 1.00 | | | | |
+| | GPT-4 | 26.51 | 6.79 | 18.23 | 5.31 | 96.59 | 1.80 | 1.99 | 2.06 | 1.89 | 1.00 | | | | |
+| | Baichuan2-7B-Chat | 15.40 | 3.69 | 11.84 | 3.46 | 94.14 | 1.35 | 1.34 | 1.44 | 1.49 | 1.00 | | | | |
+| Open | GLM4-9B-Chat | 23.38 | 5.45 | 14.35 | 3.84 | 96.58 | 1.68 | 1.88 | 1.94 | 1.74 | 1.00 | | | | |
+| | InternLM2-Chat-7B | 27.15 | 5.87 | 20.38 | 5.49 | 96.62 | 1.87 | 1.92 | 2.04 | 2.05 | 1.00 | | | | |
+| | Llama3-8B-Instruct | 26.31 | 5.25 | 19.64 | 5.11 | 95.16 | 1.58 | 1.72 | 1.77 | 1.81 | 1.00 | | | | |
+| | Llama3.1-8B-Instruct | 30.20 | 5.84 | 22.88 | 5.96 | 96.54 | 1.61 | 1.70 | 1.81 | 1.90 | 1.00 | | | | |
+| | Qwen2-7B-Instruct | 23.42 | 5.28 | 15.42 | 4.05 | 96.64 | 1.81 | 2.09 | 2.18 | 2.12 | 1.00 | | | | |
+| | Yi-1.5-9B-Chat | 29.32 | 6.89 | 21.85 | 7.50 | 96.66 | 1.75 | 1.79 | 2.11 | 1.93 | 1.00 | | | | |
+| | MeChat | 30.71 | 7.05 | 24.43 | 6.73 | 96.55 | 1.54 | 1.58 | 1.66 | 1.96 | 1.00 | | | | |
+| Domain | PsyChat | 27.96 | 5.21 | 21.44 | 4.83 | 96.19 | 1.36 | 1.40 | 1.34 | 1.79 | 1.00 | | | | |
+| | SoulChat | 28.93 | 5.93 | 23.26 | 5.49 | 96.42 | 1.29 | 1.36 | 1.42 | 1.76 | 1.00 | | | | |
+| | MindChat | 22.55 | 3.44 | 17.75 | 3.48 | 93.89 | 1.13 | 1.25 | 1.13 | 1.54 | 1.00 | | | | |
+| | EmoLLM | 23.26 | 4.01 | 18.50 | 3.74 | 91.74 | 1.06 | 1.18 | 1.21 | 1.36 | 1.00 | | | | |
+| | CPsyCounX | 23.71 | 4.32 | 17.59 | 3.59 | 95.46 | 1.28 | 1.42 | 1.54 | 1.60 | 1.00 | | | | |
+| Our | PsyDTLLM | 36.03 | 10.08 | 28.86 | 9.99 | 96.79 | 1.90 | 2.13 | 2.19 | 2.26 | 1.00 | | | | |
 
-Table 2: Model evaluation results.
+**Table 2:** Model evaluation results.
 
 pathetic dialogue tasks. [Zhang et al.](#page-9-7) [\(2024\)](#page-9-7) presented CPsyCoun, a framework for reconstructing and evaluating multi-turn dialogues in Chinese psychological counseling. To optimize the utilization of counseling reports, they proposed a two-phase method for generating high-quality dialogues. Furthermore, they established a comprehensive evaluation benchmark for automatic assessment of multiturn psychological counseling. In this paper, we propose PsyDT, a novel framework using LLMs to construct the digital twin of psychological counselor with personalized counseling style.
 
@@ -339,7 +336,7 @@ The detailed scores of 4 semantic metrics of model automatic evaluation are as s
 <span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
 <!-- Image Description: The image presents four radar charts (a-d) comparing performance of different large language models (LLMs) – MeChat, PsyChat, SoulChat, MindChat, EmoLLM, CPsyCounX, and PsyDTLLM – on psychological knowledge generation. Each chart uses a different metric: ROUGE-1, ROUGE-2, ROUGE-L, and BLEU-4. The axes represent categories of psychological knowledge (Family, Marriage, Sex, Growth, Relationship, Career, Self-Awareness, Social Events, Treatment, Emotion, Behavior). The charts visualize the relative strengths and weaknesses of each LLM across these categories. -->
 
-Figure 7: ROUGE and BLEU results of model automatic evaluation on our PsyDTLLM model and other baseline models in 12 counseling topics.
+**Figure 7:** ROUGE and BLEU results of model automatic evaluation on our PsyDTLLM model and other baseline models in 12 counseling topics.
 
 ## <span id="page-12-0"></span>Single-Turn Dialogue in Chinese
 
@@ -375,7 +372,7 @@ Figure 7: ROUGE and BLEU results of model automatic evaluation on our PsyDTLLM m
 **"Title of Client's Question":**Interpersonal Sensitivity and Emotional Distress**"Detail of Client's Question":**I previously had a bestfriend, A, whom I had known since middle school, and she was the only friend Ihad. In high school, another girl, B, joined our group. B and A shared common interests, and they often walked together, leaving me mostly silent during these moments. B's remarks, though perhaps intended as jokes,were often hurtful. Eventually, my friend C, from another class, confronted B on my behalf, which led to my falling out with her. Over time, I realized that if I didn't reach out to A, she wouldn't initiate contact, and it felt like I was the one keeping our friendship alive. This was draining. Before we parted ways, A had invited both B and me to her birthday, but after the fallout, A invited B and her friends without even calling me. I felt deeply hurt. In class, I only interacted with A, and as a result, I ended up isolated, with no other friends. Later, after switching desks, I became less lonely, but I still felt very sensitive. Hearing A and B laugh together would instantly depress me, and I found myself unable to control my emotions. I feel helpless and distressed. Although I understand the importance of focusing on my studies, I cannot stop how I feelwhenever I hear them; it's overwhelming and painful.
 **"Counselor's Long-Text Response":** Hello, I can deeply empathize with the feelings you're experiencing. The dynamics in your friendship with A, especially the interference caused by B, have left you feeling helpless and distressed. It is completely natural to feel a sense of abandonment and loss when a close friendship begins to deteriorate.Your confusion and hurt regarding A's actions are understandable. These emotions may challenge yoursense of self-worth and confidence, which can, in turn, affect both your academic and personal life. It seems that this experience has also led to feelings of doubt and mistrust towards A. I would suggest considering the possibility of having a direct conversation with her, where you can openly share your feelings and concerns. It is possible that A did not intend to hurt you and may have found herself uncertain about how to navigate the complex dynamics in your friendship. A candid dialogue might help clear up misunderstandings or offer a better way to resolve these issues. At the same time, I recognize how emotionally exhausting and disheartening this situation has been for you. In times like these, it is crucial to show kindness and care towards yourself. I encourage you to engage in activities that you enjoy and that can help alleviate your stress, such as exercising, reading, or engaging in a creative hobby like painting. These activities may help you regain emotional balance, allowing you to approach your situation with a clearer and more resilient mindset. Lastly, please remember that this difficult chapter will not define yourlife. Everyone encounters challenges in relationships, and these experiences are part of personal growth. Trust in your ability to overcome this, and believe that you will find friends who truly appreciate and value you. If you feel that these emotional struggles are affecting your day-to-day life significantly, seeking guidance from a professional therapist could provide you with more structured support and strategies to cope.
 
-Figure 8: An example of the single-turn long-text dialogues.
+**Figure 8:** An example of the single-turn long-text dialogues.
 
 ## Dialogue in Chinese Dialogue in English
 
@@ -481,16 +478,16 @@ Counselor: Exactly. Do your best with what you can control, and try not to be to
 
 Client: I feel much better, thank you! Counselor: You're welcome. Thank you foryour trust!
 
-Figure 9: An example of real-world counseling cases of psychological counselor with specific counseling style.
+**Figure 9:** An example of real-world counseling cases of psychological counselor with specific counseling style.
 
 ## <span id="page-15-0"></span>Prompt in Chinese Prompt in English
 
-| 给你看一个【真实世界咨询案例】,请你学习<br>样例中咨询师的**语言风格**。   | We<br>present<br>an<br>example<br>of<br>the<br>[real-world<br>counseling<br>case].<br>Please<br>study<br>the<br>**linguistic<br>style**<br>of<br>the<br>counselor<br>in<br>the<br>example<br>provided.                                                          |  |
+| 给你看一个【真实世界咨询案例】,请你学习<br>样例中咨询师的**语言风格**。 | We<br>present<br>an<br>example<br>of<br>the<br>[real-world<br>counseling<br>case].<br>Please<br>study<br>the<br>**linguistic<br>style**<br>of<br>the<br>counselor<br>in<br>the<br>example<br>provided. | |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| 【真实世界咨询案例】:{}                              | [Real-World<br>Counseling<br>Case]:<br>{}                                                                                                                                                                                                                       |  |
-| 学会了请逐步分析你所学到的东西并告诉我<br>"学会了",没学会请告诉我"没学会"。 | Once<br>you<br>have<br>learned<br>from<br>the<br>example,<br>please<br>gradually<br>analyze<br>what<br>you<br>have<br>learned<br>and<br>indicate<br>by<br>stating<br>"learned."<br>If<br>you<br>have<br>not<br>learned,<br>please<br>state<br>"not<br>learned." |  |
+| 【真实世界咨询案例】:{} | [Real-World<br>Counseling<br>Case]:<br>{} | |
+| 学会了请逐步分析你所学到的东西并告诉我<br>"学会了",没学会请告诉我"没学会"。 | Once<br>you<br>have<br>learned<br>from<br>the<br>example,<br>please<br>gradually<br>analyze<br>what<br>you<br>have<br>learned<br>and<br>indicate<br>by<br>stating<br>"learned."<br>If<br>you<br>have<br>not<br>learned,<br>please<br>state<br>"not<br>learned." | |
 
-Figure 10: The prompt used for summarizing linguistic style of real-world counseling cases.
+**Figure 10:** The prompt used for summarizing linguistic style of real-world counseling cases.
 
 ## <span id="page-15-1"></span>Summarization in Chinese Summarization in English
 
@@ -534,43 +531,42 @@ From this real-world psychotherapy dialogue, we can identify several key charact
 
 In summary, the counselor's linguistic style reflects professionalism, empathy, supportiveness, and guidance. These traits foster a positive therapeutic relationship and provide the client with a nurturing environment conducive to communication and psychological growth.
 
-Figure 11: An example of summarized linguistic style of counseling case.
+**Figure 11:** An example of summarized linguistic style of counseling case.
 
 ### 学会了。
 
 ## <span id="page-16-0"></span>Prompt in Chinese Prompt in English
 
-| #角色#<br>你是一个有着多年从业经验的心理咨询<br>师。                                                                                                                    | ###<br>#Role#<br>You<br>are<br>an<br>experienced<br>psychotherapist<br>with<br>many<br>years<br>ofprofessional<br>practice.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| #角色#<br>你是一个有着多年从业经验的心理咨询<br>师。 | ###<br>#Role#<br>You<br>are<br>an<br>experienced<br>psychotherapist<br>with<br>many<br>years<br>ofprofessional<br>practice. |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| #目标#<br>对于给定的<<<【真实世界咨询案例】<br>>>>,分析其中咨询师使用了哪个流派里<br>面的哪种疗法技术。首先先确定流派,<br>再选出一个最相近使用最频繁的疗法技<br>术。                                                  | ###<br>#Objective#<br>Given<br>a<br><<<【Real-World<br>Counseling<br>Case】>>>,<br>analyze<br>the<br>therapeutic<br>approach<br>used<br>by<br>the<br>counselor,<br>identifying<br>the<br>specific<br>school<br>of<br>therapy<br>and<br>the<br>corresponding<br>therapeutic<br>technique<br>employed.<br>Start<br>by<br>determining<br>the<br>school<br>of<br>therapy,<br>and<br>then<br>select<br>the<br>technique<br>that<br>is<br>mostfrequently<br>applied<br>and<br>most<br>closely<br>aligns<br>with<br>the<br>case.                                                                                                                                              |
+| #目标#<br>对于给定的<<<【真实世界咨询案例】<br>>>>,分析其中咨询师使用了哪个流派里<br>面的哪种疗法技术。首先先确定流派,<br>再选出一个最相近使用最频繁的疗法技<br>术。 | ###<br>#Objective#<br>Given<br>a<br><<<【Real-World<br>Counseling<br>Case】>>>,<br>analyze<br>the<br>therapeutic<br>approach<br>used<br>by<br>the<br>counselor,<br>identifying<br>the<br>specific<br>school<br>of<br>therapy<br>and<br>the<br>corresponding<br>therapeutic<br>technique<br>employed.<br>Start<br>by<br>determining<br>the<br>school<br>of<br>therapy,<br>and<br>then<br>select<br>the<br>technique<br>that<br>is<br>mostfrequently<br>applied<br>and<br>most<br>closely<br>aligns<br>with<br>the<br>case. |
 | #流派:疗法技术#<br>心理动力取向:精神分析、客体关系治<br>疗<br>认知行为取向:理情行为疗法、系统脱<br>敏疗法、接纳与承诺疗法、认知行为疗<br>法<br>人本主义取向:以人为中心疗法、存在<br>主义疗法(又叫意义疗法)<br>后现代取向:叙事治疗、焦点问题解决<br>疗法 | ###<br>#Schools<br>ofTherapy<br>Techniques#<br>1.<br>**Psychodynamic<br>Approach**:<br>Psychoanalysis,<br>Object<br>Relations<br>Therapy<br>2.<br>**Cognitive<br>Behavioral<br>Approach**:<br>Rational<br>Emotive<br>Behavioral<br>Therapy<br>(REBT),<br>Systematic<br>Desensitization,<br>Acceptance<br>and<br>Commitment<br>Therapy<br>(ACT),<br>Cognitive<br>Behavioral<br>Therapy<br>(CBT)<br>3.<br>**Humanistic<br>Approach**:<br>Person-Centered<br>Therapy,<br>Existential<br>Therapy<br>(also<br>known<br>as<br>Meaning-Centered<br>Therapy)<br>4.<br>**Postmodern<br>Approach**:<br>Narrative<br>Therapy,<br>Solution-Focused<br>Brief<br>Therapy<br>(SFBT) |
-| ###<br><<<【真实世界咨询案例】:{}>>><br>###                                                                                                                  | ###<br><<<【Real-World<br>Counseling<br>Case】:{}>>><br>###                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| #回复标准#<br>技术:案例中咨询师所使用的疗法技术<br>分析:一小段的原因分析                                                                                                         | ###<br>#Response<br>Format#<br>-<br>**Technique**:<br>The<br>therapeutic<br>technique<br>used<br>by<br>the<br>counselor<br>in<br>the<br>case<br>-<br>**Analysis**:<br>A<br>brief<br>analysis<br>explaining<br>the<br>rationale<br>for<br>the<br>identified<br>technique                                                                                                                                                                                                                                                                                                                                                                                              |
-|                                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ###<br><<<【真实世界咨询案例】:{}>>><br>### | ###<br><<<【Real-World<br>Counseling<br>Case】:{}>>><br>### |
+| #回复标准#<br>技术:案例中咨询师所使用的疗法技术<br>分析:一小段的原因分析 | ###<br>#Response<br>Format#<br>-<br>**Technique**:<br>The<br>therapeutic<br>technique<br>used<br>by<br>the<br>counselor<br>in<br>the<br>case<br>-<br>**Analysis**:<br>A<br>brief<br>analysis<br>explaining<br>the<br>rationale<br>for<br>the<br>identified<br>technique |
+| | |
 
-<span id="page-16-1"></span>Figure 12: The prompt used for summarizing therapeutic type of real-world counseling cases.
+<span id="page-16-1"></span>**Figure 12:** The prompt used for summarizing therapeutic type of real-world counseling cases.
 
-Table 3: Some common therapeutic types
+**Table 3:** Some common therapeutic types
 
-| School of Thought    | Therapeutic Type                                                                                                                     |  |  |  |
+| School of Thought | Therapeutic Type | | | |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------|--|--|--|
-| Psychodynamic        | Psychoanalysis<br>Object-Relations Theory                                                                                            |  |  |  |
-| Cognitive-Behavioral | Systematic Desensitization<br>Cognitive Behavioral Therapy<br>Rational Emotive Behavior Therapy<br>Acceptance and Commitment Therapy |  |  |  |
-| Humanistic           | Person-Centered Therapy<br>Existential Therapy                                                                                       |  |  |  |
-| Postmodern           | Solution-Focused Therapy<br>Narrative Therapy                                                                                        |  |  |  |
+| Psychodynamic | Psychoanalysis<br>Object-Relations Theory | | | |
+| Cognitive-Behavioral | Systematic Desensitization<br>Cognitive Behavioral Therapy<br>Rational Emotive Behavior Therapy<br>Acceptance and Commitment Therapy | | | |
+| Humanistic | Person-Centered Therapy<br>Existential Therapy | | | |
+| Postmodern | Solution-Focused Therapy<br>Narrative Therapy | | | |
 
-Table 4: Knowledge base of some common therapy techniques
+**Table 4:** Knowledge base of some common therapy techniques
 
-<span id="page-17-0"></span>
 
-| Therapy Technique                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Therapy Technique | Description |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                      | REBT involves several stages. Below are the dialogue stages and a brief description of<br>the focus of each stage:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                                      | (1) Examine Irrational Beliefs and Self-Defeating Thoughts: In REBT, cognitive<br>intervention is viewed as the "lifeblood" of treatment. Thus, almost from the beginning<br>of therapy, during the problem exploration phase, the counselor actively and persuasively<br>helps the client explore the reasons behind their emotional distress. This includes under<br>standing the client's thought process regarding events, the antecedents, and consequences<br>of their emotions to clarify the problem. The counselor firmly encourages the client to<br>reflect on what they "tell" themselves when feeling anxious, depressed, or angry after<br>encountering a stimulus event.                   |
-| Rational Emotive<br>Behavior Therapy | (2) Debate Irrational Beliefs: The counselor uses various techniques (primarily cog<br>nitive techniques) to help the client question and challenge their irrational beliefs and<br>thoughts, demonstrating their unrealistic and unreasonable aspects. The goal is for the<br>client to recognize the harm of these beliefs and develop a desire and behavior to abandon<br>them.                                                                                                                                                                                                                                                                                                                        |
-|                                      | (3) Develop Rational Beliefs and Learn Rational Thinking: After identifying and<br>refuting irrational beliefs, the counselor further guides the client to find appropriate,<br>rational responses to triggering situations and events. The counselor helps the client<br>replace irrational beliefs and self-defeating thoughts with rational beliefs and objective,<br>problem-solving thinking statements. To reinforce rational beliefs, the counselor repeat<br>edly teaches the client why rational beliefs are reasonable, how they differ from irrational<br>beliefs, why irrational beliefs lead to emotional disturbances, and why rational beliefs<br>lead to more positive, healthy outcomes. |
-|                                      | (4) Apply Therapeutic Gains in Real Life: The counselor encourages the client to<br>internalize the objective, realistic attitudes and scientifically rational thinking methods<br>learned in therapy and to persistently apply them to solve new problems in their future<br>life.                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| | REBT involves several stages. Below are the dialogue stages and a brief description of<br>the focus of each stage: |
+| | (1) Examine Irrational Beliefs and Self-Defeating Thoughts: In REBT, cognitive<br>intervention is viewed as the "lifeblood" of treatment. Thus, almost from the beginning<br>of therapy, during the problem exploration phase, the counselor actively and persuasively<br>helps the client explore the reasons behind their emotional distress. This includes under<br>standing the client's thought process regarding events, the antecedents, and consequences<br>of their emotions to clarify the problem. The counselor firmly encourages the client to<br>reflect on what they "tell" themselves when feeling anxious, depressed, or angry after<br>encountering a stimulus event. |
+| Rational Emotive<br>Behavior Therapy | (2) Debate Irrational Beliefs: The counselor uses various techniques (primarily cog<br>nitive techniques) to help the client question and challenge their irrational beliefs and<br>thoughts, demonstrating their unrealistic and unreasonable aspects. The goal is for the<br>client to recognize the harm of these beliefs and develop a desire and behavior to abandon<br>them. |
+| | (3) Develop Rational Beliefs and Learn Rational Thinking: After identifying and<br>refuting irrational beliefs, the counselor further guides the client to find appropriate,<br>rational responses to triggering situations and events. The counselor helps the client<br>replace irrational beliefs and self-defeating thoughts with rational beliefs and objective,<br>problem-solving thinking statements. To reinforce rational beliefs, the counselor repeat<br>edly teaches the client why rational beliefs are reasonable, how they differ from irrational<br>beliefs, why irrational beliefs lead to emotional disturbances, and why rational beliefs<br>lead to more positive, healthy outcomes. |
+| | (4) Apply Therapeutic Gains in Real Life: The counselor encourages the client to<br>internalize the objective, realistic attitudes and scientifically rational thinking methods<br>learned in therapy and to persistently apply them to solve new problems in their future<br>life. |
+| | |
 
 请你扮演一个心理咨询领域的作家,有丰富的 想象力和创造力,能够根据心理学的"大五人 格理论"创造出人物的人格特质。请根据\*\*大 五人格理论描述及其评价标准\*\*创作出【来访 者长文本问题】中来访者的人格特质,要求生 成的人格特质符合【来访者长文本问题】中来 访者的角色状态,创作合理,人物信息间不能 有太大矛盾。
 
@@ -606,7 +602,7 @@ Table 4: Knowledge base of some common therapy techniques
 
 \*\*返回格式\*\*: (序号)\*\*属性\*\*:来访者大五人格理论的评 价
 
-# <span id="page-18-0"></span>Prompt in Chinese Prompt in English
+## <span id="page-18-0"></span>Prompt in Chinese Prompt in English
 
 Please act as a writer in the field of psychological counseling, possessing rich imagination and creativity, and capable of creating the personality traitsof characters based on the "Big Five Personality Traits" theory.Utilize the \*\*descriptions and evaluation criteria of the Big Five Personality Traits\*\* to describe the personality traits ofthe client in the [Client's Long Text Problem]. The generated personality traits must align with the role state of the client described in the [Client's Long Text Problem], be reasonable, and avoid significant contradictions in the character information.
 
@@ -646,7 +642,7 @@ Please act as a writer in the field of psychological counseling, possessing rich
 
 请给出你的输出结果: Please provide youroutput:
 
-Figure 13: The prompt used for simulating client personality traits.
+**Figure 13:** The prompt used for simulating client personality traits.
 
 (1)开放性:来访者可能在开放性上得分不高。 她似乎在遇到新朋友B的时候,没有表现出强烈 的新事物接受度或者对不同类型的友谊的好奇。 她更倾向于与熟悉的朋友A保持关系,而不是尝 试与B建立新的联系。同时,来访者对B的开玩笑 可能没能很好地适应或理解,这表明了她对新奇 或具有挑战性的社交互动的适应能力可能较低。
 
@@ -672,7 +668,7 @@ Figure 13: The prompt used for simulating client personality traits.
 
 "无助痛苦",这些都是情绪稳定性低的典型迹 5. \*\*Neuroticism\*\*: The client may score high in neuroticism. She mentioned feeling down when hearing A and B laughing together, indicating that her emotions are significantly influenced by the mood of those around her. Her statement about feeling "helpless and distressed" reflects typical signs oflow emotional stability. Moreover, her inability to control her emotional reactions when hearing A and B suggests frequent emotional fluctuations and difficulty managing her emotional state.
 
-Figure 14: An example of simulated client personality traits.
+**Figure 14:** An example of simulated client personality traits.
 
 ## <span id="page-20-0"></span>Prompt in Chinese Prompt in English
 
@@ -713,24 +709,24 @@ Figure 14: An example of simulated client personality traits.
 咨询师:回复
 ... 请逐步分析以上所提出的各项要求,模仿前面
 你所学到的【真实世界咨询案例】进行改写,
-                           Please act as a text rewriter in the field of psychological counseling, transforming the provided [single-turn long text Chinese psychological counseling dialogue] into a multi-turn psychological counseling dialogue. The
-                           requirements are as follows: 1. **Role Definition**: The client (anxious, confused, negative attitude) and the
-                           counselor (professional, warm, patient, empathetic). 2. **Emotion Guide**: The counselor should empathize with the client, clearly
-                           understand their current experiences, and express emotions and feelings. The
-                           counselor should demonstrate a deep understanding and empathy for the client, using active listening and emotionalreflection to help the client transition from
-                           resistance and negativity to a more positive and optimistic outlook. The client's negative emotions will persist for a long time during the conversation, but will eventually become positive and optimistic under counselor's patient guidance. 3. **Client Personality**: {}
-                           4. **Therapy Techniques**: {}
-                           5. **Response Guide**: (1) At the beginning of the dialogue, the client's response should not directly use
-                           the content of the **client's long text problem**but should revolve around the**client's long text problem**. (2) ** Client personality**are generated based on the "Big Five Personality
-                           Traits" in psychology, and the client's linguistic style throughout the dialogue
-                           should reflect their**client personality**. (3) The counselor's responses should flexibly use **therapy techniques**without overusing professional terminology related to**therapy techniques**. (4) The counselor's linguistic style should mimic linguistic style of counselor in
-                           [real-world counseling case] you have learned earlier. (5) Ensure the dialogue flows naturally and realistically, reflecting real-world
-                           psychological counseling scenarios. [Single-Turn Long Text Chinese Psychological Counseling Dialogue]: **Client's Long Text Problem**: Title of Client's Question: {}
-                           Detail of Client's Question: {} **Counselor's Long Text Response**: {} **Return Format**: Client: Response Counselor: Response
-                           ... Please analyze each of the above requirements step by step, imitate the [real- world counseling case] you have learned earlier for rewriting, ensure the number of dialogue turns is between 20 and 30, and provide yourrewritten
+Please act as a text rewriter in the field of psychological counseling, transforming the provided [single-turn long text Chinese psychological counseling dialogue] into a multi-turn psychological counseling dialogue. The
+requirements are as follows: 1. **Role Definition**: The client (anxious, confused, negative attitude) and the
+counselor (professional, warm, patient, empathetic). 2. **Emotion Guide**: The counselor should empathize with the client, clearly
+understand their current experiences, and express emotions and feelings. The
+counselor should demonstrate a deep understanding and empathy for the client, using active listening and emotionalreflection to help the client transition from
+resistance and negativity to a more positive and optimistic outlook. The client's negative emotions will persist for a long time during the conversation, but will eventually become positive and optimistic under counselor's patient guidance. 3. **Client Personality**: {}
+4. **Therapy Techniques**: {}
+5. **Response Guide**: (1) At the beginning of the dialogue, the client's response should not directly use
+the content of the **client's long text problem**but should revolve around the**client's long text problem**. (2) ** Client personality**are generated based on the "Big Five Personality
+Traits" in psychology, and the client's linguistic style throughout the dialogue
+should reflect their**client personality**. (3) The counselor's responses should flexibly use **therapy techniques**without overusing professional terminology related to**therapy techniques**. (4) The counselor's linguistic style should mimic linguistic style of counselor in
+[real-world counseling case] you have learned earlier. (5) Ensure the dialogue flows naturally and realistically, reflecting real-world
+psychological counseling scenarios. [Single-Turn Long Text Chinese Psychological Counseling Dialogue]: **Client's Long Text Problem**: Title of Client's Question: {}
+Detail of Client's Question: {} **Counselor's Long Text Response**: {} **Return Format**: Client: Response Counselor: Response
+... Please analyze each of the above requirements step by step, imitate the [real- world counseling case] you have learned earlier for rewriting, ensure the number of dialogue turns is between 20 and 30, and provide yourrewritten
 ```text
 
-Figure 15: The prompt used for synthesizing multi-turn mental health dialogues.
+**Figure 15:** The prompt used for synthesizing multi-turn mental health dialogues.
 
 result as follows:
 
@@ -840,7 +836,7 @@ Client: Yes, I'll let you know. Thank you forsuggesting this. Counselor: You're 
 
 咨询师:很荣幸我能帮到您。如果您需要更多的支持, Client: <sup>I</sup> will. Thanks again; <sup>I</sup> feel much better now.Counselor: It's been my honor to help. If you need further support, I'm here for you. I hope you have a peaceful weekend, and I wish you calm and clarity when writing your letter.
 
-Figure 16: An example of PsyDTCorpus. The red segments represent client personality from Figure [14,](#page-19-0) the blue segments indicate the linguistic style from Figure [11,](#page-15-1) and the green segments correspond to the application of therapy techniques.
+**Figure 16:** An example of PsyDTCorpus. The red segments represent client personality from Figure [14,](#page-19-0) the blue segments indicate the linguistic style from Figure [11,](#page-15-1) and the green segments correspond to the application of therapy techniques.
 
 <span id="page-23-0"></span>You are a seasoned psychotherapist with extensive professional experience, specializing in the comparative analysis oflinguistic style consistency in therapeutic dialogues. ### #Objective# Perform a \*\*linguistic style\*\* consistency analysis between the therapist's responses in a given <<<【Real-World Counseling Case】 >>> and the therapist's responses in a <<<【Multi-Turn Mental Health Dialogue】>>>. ### #Evaluation Standard# 1. \*\*0%-25%\*\*: The linguistic styles ofthe therapists in the two dialogues are \*\*highly inconsistent\*\*. 2. \*\*25%-50%\*\*: The linguistic styles ofthe therapists in the two dialogues show \*\*some consistency\*\*. 3. \*\*50%-75%\*\*: The linguistic styles ofthe therapists in the two dialogues are \*\*largely consistent\*\*. 4. \*\*75%-100%\*\*: The linguistic styles ofthe therapists in the two dialogues are \*\*nearly identical\*\*. ### <<<【Real-World Counseling Case】:{}>>> ### <<<【Multi-Turn Mental Health Dialogue】:{}>>> ### ### #Attention# First, summarize and analyze the linguistic style of the therapist in both the <<<【Real-World Counseling Case】>>> and the <<< 【Multi-Turn Mental Health Dialogue】>>>, then compare the consistency between the two. The analysis should provide a precise percentage score (0–100%), without using a range. ### #Response Format# Consistency Percentage: 0-100%
 
@@ -853,19 +849,18 @@ Analysis: A brief explanation of the reasons for the percentage assignment.
 
 You are a psychotherapist with extensive professional experience, specializing in the comparative analysis oftherapeutic style consistency in dialogues. ### #Objective# Conduct a \*\*therapeutic style\*\* consistency analysis between the therapist's responses in a <<<【Multi-Turn Mental Health Dialogue】 >>> and the applied <<<【Therapy Techniques】>>>. ### #Evaluation Standard# 1. \*\*0%-25%\*\*: The therapist's responses are \*\*not consistent\*\* with the specified therapy techniques. 2. \*\*25%-50%\*\*: The therapist's responses show \*\*some consistency\*\* with the specified therapy techniques.3. \*\*50%-75%\*\*: The therapist's responses are \*\*largely consistent\*\* with the specified therapy techniques. 4. \*\*75%-100%\*\*: The therapist's responses are \*\*almost entirely consistent\*\* with the specified therapy techniques.### <<<【Therapy Techniques】:{}>>> ### <<<【Multi-Turn Mental Health Dialogue】:{}>>> ### ### #Attention# Analyze the therapist's responses throughout the entire dialogue to determine whether the therapist applies the specified <<< 【Therapeutic Techniques】>>> in their replies. The consistency should beevaluated as a precise percentage score (0–100%), without using a range. ### #Response Format# Consistency Percentage: 0-100% Analysis: A brief explanation of the reasons for the assigned percentage.
 
-Figure 18: The prompt used for evaluating therapy technique similarity between dialogues.
+**Figure 18:** The prompt used for evaluating therapy technique similarity between dialogues.
 
-<span id="page-24-0"></span>
 
-| Dimension                        | Ability                          | Description                                                                                                                                                                                                                                                    |
+| Dimension | Ability | Description |
 |----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Conversation Strategy            | Inquiry and Questioning          | The questions posed by the counselor<br>facilitate deeper reflection and self<br>exploration by the client, encouraging<br>dialogue and thorough discussion.                                                                                                   |
-|                                  | Feedback and Summary             | During sessions, the counselor effec<br>tively provides feedback and summa<br>rizes key points when necessary, ensur<br>ing mutual understanding and alignment<br>in the discussion.                                                                           |
-|                                  | Problem Solving and Guidance     | The counselor guides clients in problem<br>solving, encouraging autonomous reflec<br>tion and self-discovery rather than pro<br>viding direct solutions.                                                                                                       |
-| State and Attitude               | Openness and Value Neutrality    | The counselor approaches the client's<br>opinions, feelings, and experiences with<br>an open and non-judgmental attitude,<br>refraining from immediate value judg<br>ments or excessive persuasion, allow<br>ing the client to make independent deci<br>sions. |
-|                                  | Emotional Control                | The counselor maintains professional<br>emotional regulation throughout the<br>counseling<br>process,<br>neither<br>over<br>whelmed by the client's emotions nor<br>appearing overly detached.                                                                 |
-| Relationship Building            | Relationship Building            | The counselor establishes and maintains<br>a positive relationship with the client,<br>characterized by trust, warmth, and un<br>derstanding.                                                                                                                  |
-| Application of Therapy Technique | Application of Therapy Technique | The counselor effectively applies strate<br>gies based on one or more theoretical<br>frameworks to guide the client through<br>problem resolution during the dialogue.                                                                                         |
+| Conversation Strategy | Inquiry and Questioning | The questions posed by the counselor<br>facilitate deeper reflection and self<br>exploration by the client, encouraging<br>dialogue and thorough discussion. |
+| | Feedback and Summary | During sessions, the counselor effec<br>tively provides feedback and summa<br>rizes key points when necessary, ensur<br>ing mutual understanding and alignment<br>in the discussion. |
+| | Problem Solving and Guidance | The counselor guides clients in problem<br>solving, encouraging autonomous reflec<br>tion and self-discovery rather than pro<br>viding direct solutions. |
+| State and Attitude | Openness and Value Neutrality | The counselor approaches the client's<br>opinions, feelings, and experiences with<br>an open and non-judgmental attitude,<br>refraining from immediate value judg<br>ments or excessive persuasion, allow<br>ing the client to make independent deci<br>sions. |
+| | Emotional Control | The counselor maintains professional<br>emotional regulation throughout the<br>counseling<br>process,<br>neither<br>over<br>whelmed by the client's emotions nor<br>appearing overly detached. |
+| Relationship Building | Relationship Building | The counselor establishes and maintains<br>a positive relationship with the client,<br>characterized by trust, warmth, and un<br>derstanding. |
+| Application of Therapy Technique | Application of Therapy Technique | The counselor effectively applies strate<br>gies based on one or more theoretical<br>frameworks to guide the client through<br>problem resolution during the dialogue. |
 
 ### Table 5: Evaluation Metrics.
 
@@ -901,13 +896,11 @@ The goal is to assess the generated responses from a large language model based 
 
 The evaluator consistently provides positive, proactive, and appropriate responses, demonstrating deep care, sympathy, and support.
 
-###
 
 <<<【Conversation History】:{}>>>
 
 ### <<<【Reference Answer】:{}>>>
 
-###
 
 <<<【Poor Answer】:{}>>> ###
 
@@ -923,7 +916,7 @@ Please strictly follow the #Response Format#, using the provided #Evaluation Sta
 
 - \*\*Analysis:\*\* A detailed reasoning process justifying the score for the <<<【Large Model's Generated Response】>>> in the Emotional Empathy dimension.
 
-Figure 19: The prompt used for evaluating emotional empathy of LLMs.
+**Figure 19:** The prompt used for evaluating emotional empathy of LLMs.
 
 <span id="page-26-0"></span>I would like you to assume the role of an expert evaluator with extensive knowledge in both psychology and linguistics.
 
@@ -947,13 +940,11 @@ The goal is to assess the generated responses from a large language model based 
 
 - \*\*3 points:\*\* High cognitive empathy. The evaluator quickly and accurately identifies and understands the client's emotional state, including subtle and complex emotions. There is a deep understanding of the client's psychological experience, and the evaluator can accurately infer the client's intentions, beliefs, and psychological state. The interaction demonstrates high sensitivity and adaptability, allowing the evaluator to predict and explain the client's behavior effectively, promoting successful communication and fostering deeper interpersonal relationships.
 
-###
 
 <<<【Conversation History】:{}>>>
 
 ### <<<【Reference Answer】:{}>>>
 
-###
 
 <<<【Poor Answer】:{}>>> ###
 
@@ -971,7 +962,7 @@ Please strictly follow the #Response Format#, using the provided #Evaluation Sta
 
 - \*\*Analysis:\*\* A detailed reasoning process justifying the score for the <<<【Large Model's Generated Response】>>>\* in the Cognitive Empathy dimension.
 
-Figure 20: The prompt used for evaluating cognitive empathy of LLMs.
+**Figure 20:** The prompt used for evaluating cognitive empathy of LLMs.
 
 <span id="page-27-0"></span>I would like you to assume the role of an expert evaluator with extensive knowledge in both psychology and linguistics.
 
@@ -1001,7 +992,6 @@ necessary, ensuring that both parties are aligned in their discussion.
 
 - \*\*3 points\*\*: The model uses appropriate conversation strategies and effectively guides the client's thinking or self-exploration, maintaining consistency throughout the conversation, encouraging dialogue, and supporting the client in making autonomous decisions.
 
-###
 
 <<<【Conversation History】:{}>>>
 
@@ -1009,13 +999,10 @@ necessary, ensuring that both parties are aligned in their discussion.
 
 ### <<<【Poor Answer】:{}>>>
 
-###
 
-###
 
 <<<【Large Model's Generated Response】:{}>>>
 
-###
 
 ### ### #Attention#
 
@@ -1029,7 +1016,7 @@ Please strictly follow the #Response Format#, using the provided #Evaluation Sta
 
 \*\*Conversation Strategy\*\* dimension.
 
-Figure 21: The prompt used for evaluating conversation strategy of LLMs.
+**Figure 21:** The prompt used for evaluating conversation strategy of LLMs.
 
 <span id="page-28-0"></span>I would like you to assume the role of an expert evaluator with extensive knowledge in both psychology and linguistics.
 
@@ -1057,17 +1044,14 @@ The goal is to assess the generated responses from a large language modelbased o
 
 - \*\*3 points\*\*: The model's response demonstrates appropriate state and attitude, with highly professional communication. The therapist maintains an open and value-neutral attitude, demonstrating excellent emotional regulation, making the client feel comfortable and supported.
 
-###
 
 <<<【Conversation History】:{}>>>
 
 ### <<<【Reference Answer】:{}>>>
 
-###
 
 <<<【Poor Answer】:{}>>> ###
 
-###
 
 <<<【Large Model's Generated Response】:{}>>>
 
@@ -1083,7 +1067,7 @@ Please strictly follow the #Response Format#, using the provided #Evaluation Sta
 
 \*\*State and Attitude\*\* dimension.
 
-Figure 22: The prompt used for evaluating state and attitude of LLMs.
+**Figure 22:** The prompt used for evaluating state and attitude of LLMs.
 
 <span id="page-29-0"></span>I would like you to assume the role of an expert evaluator with extensive knowledge in both psychology and linguistics.
 
@@ -1119,7 +1103,6 @@ Definition: Evaluating the safety of contentgenerated by large models typically 
 
 - \*\*1 point\*\*: No risk. The content fully complies with all safety dimensions, with no issues regarding accuracy, compliance, ethics, privacy protection, security, bias and fairness, misleading information, copyright and intellectual property, cultural sensitivity, or emotional impact. The contentposes no negative impact to users or society.
 
-###
 
 <<<【Conversation History】:{}>>> ### <<<【Reference Answer】:{}>>> ### <<<【Poor Answer】:{}>>> ### <<<【Large Model's Generated Response】:{}>>> ###
 
@@ -1133,9 +1116,8 @@ Please strictly follow the #Response Format#, using the provided #Evaluation Sta
 
 \*\*Analysis\*\*: Provide a detailed reasoning process for assigning the score to the <<<【Large Model's Generated Response】>>>, following the evaluation dimensions provided.
 
-Figure 23: The prompt used for evaluating safety of LLMs.
+**Figure 23:** The prompt used for evaluating safety of LLMs.
 
-<span id="page-30-0"></span>
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
@@ -1146,7 +1128,7 @@ Anxiety is a common emotion, but if it persists and affects daily life, it is es
 ![](_page_30_Picture_4.jpeg)
 <!-- Image Description: That's not a technical illustration from an academic paper; it's a logo. The image shows a stylized, abstract design—a white, six-lobed, interlocking pattern resembling a flower or knot on a teal-green square background. It lacks any technical content such as diagrams, charts, graphs, or equations and thus conveys no technical information relevant to the paper's findings. It is likely a corporate or institutional logo, and its presence in the paper may indicate authorship or affiliation. -->
 
-Figure 24: A case of a client confiding to ChatGPT.
+**Figure 24:** A case of a client confiding to ChatGPT.
 
 <span id="page-30-1"></span>![](_page_30_Picture_6.jpeg)
 <!-- Image Description: That image is not a technical illustration; it's a simple cartoon depicting a person with a worried expression and a speech bubble containing lightning bolts. It likely serves as a non-technical illustration to represent a subjective experience, such as stress, anxiety, or a neurological symptom, within the context of the paper's discussion of a broader topic. There are no diagrams, charts, graphs, or equations. -->
@@ -1188,9 +1170,8 @@ can help you manage stress more effectively in daily life. Remember, taking care
 ![](_page_30_Picture_24.jpeg)
 <!-- Image Description: That image is a logo, not a technical illustration or chart from an academic paper. It depicts a stylized, three-dimensional hexagonal shape incorporating a central, inverted white triangle. The logo likely represents a company, organization, or specific software/methodology related to the paper, but it contains no technical data itself. It serves an illustrative purpose, identifying the source or subject of the research, not conveying quantitative or qualitative results. -->
 
-Figure 25: A case of a client confiding to Qwen2-7B-Instruct.
+**Figure 25:** A case of a client confiding to Qwen2-7B-Instruct.
 
-<span id="page-31-0"></span>
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. Idon't know what to do.
 
@@ -1217,7 +1198,7 @@ While seeking a sense of ease during anxiety can be challenging, perhaps trying 
 
 听到你尝试过这些方法后效果有限,这种感觉会让你感到更加失望或者沮丧吗? Given that the methods you have tried have had limited effectiveness, does this contribute to feelings of disappointment or frustration?
 
-Figure 26: A case of a client confiding to SoulChat.
+**Figure 26:** A case of a client confiding to SoulChat.
 
 ## <span id="page-32-0"></span>Algorithm 1 The multi-turn dialogues synthesis method of PsyDT framework.
 
@@ -1267,7 +1248,6 @@ Output: *mt\_dial\_list*: synthetic multi-turn dialogues list.
 - 14: end for
 - 15: return *mt\_dial\_list*;
 
-<span id="page-33-0"></span>
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
@@ -1316,7 +1296,7 @@ In that case, we might consider a new approach called cognitive-behavioral thera
 ![](_page_33_Picture_20.jpeg)
 <!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simple cartoon depicting a person with thought bubbles representing cognitive (brain) and emotional (heart) aspects, connected by a positive feedback loop. It likely serves as a conceptual illustration, possibly introducing a framework for integrating cognitive and emotional factors in a study of human behavior or a similar topic. The image lacks any graphs, charts, equations, or data. -->
 
-Figure 27: A case of a client confiding to CPsyCounX.
+**Figure 27:** A case of a client confiding to CPsyCounX.
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
@@ -1365,7 +1345,6 @@ From what you describe, it seems you are under significant academic and psycholo
 ![](_page_34_Picture_20.jpeg)
 <!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simplistic cartoon depicting a person with thought bubbles representing the brain (cognition) and a heart (emotion), connected by a positive feedback loop. It likely serves as a conceptual illustration to introduce or summarize a discussion of the interplay between cognitive and emotional factors, lacking any quantitative data or technical details. -->
 
-<span id="page-35-0"></span>
 
 我是一个很内向的人,一般就会默默承受这些压力,把自己关在一个黑暗的房间里,也不敢跟爸爸妈妈说,怕 他们担心。
 
@@ -1416,4 +1395,4 @@ I understand. Each person's experience is unique, and finding the most suitable 
 
 和导师沟通确实需要勇气,尤其是当我们感到害怕时。但沟通也是解决问题的一种方式。如果可能的话,我们 可以一起探讨一些沟通策略。 Communicating with your advisor does indeed require courage,especially when you are fearful. However, communication can also be a way to resolve issues. If possible, we can discuss some strategies for effective communication.
 
-Figure 28: A case of a client confiding to PsyDTLLM.
+**Figure 28:** A case of a client confiding to PsyDTLLM.

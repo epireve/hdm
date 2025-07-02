@@ -31,7 +31,7 @@ Andrea Bontempelli, Marcelo Rodas Britez, Xiaoyue Li, Haonan Zhao Luca Erculiani
 
 Keywords. Personal Situational Context, Knowledge Representation, Machine Learning, Machine-Human alignment
 
-# Introduction
+## Introduction
 
 We focus on the development of AIs which live in lifelong symbiosis with a human and interact with her via smart wearables, for instance, smart phones, smart watches, or also - for certain health-centered applications - medical devices. By*Human-AI Symbiosis*we mean here an AI which is aware of the user's life and well-being, in*all aspects of the user's everyday life*, this being the premise for the AI to provide added value services. It is therefore a *holistic*symbiosis enabling a level of interaction which goes far beyond what achieved so far by personal assistants, which focus on single aspects of the user's life, such as calendar and agenda management, physical activities and fitness, education and learning, information access and management, cf. [\[1,](#page-6-0)[2,](#page-6-1)[3\]](#page-6-2). This is a very difficult task whose underlying difficulty, still unsolved, has been known for decades. As discussed in John McCarthy's Turing Award lecture [\[4\]](#page-6-3), as soon as one gets out of specialized and well defined domains, AIs suffer from the problem of*brittleness*, namely their inability to deal with situations differing even marginally from the scope for which there they were devised. McCarthy called this the *Problem of Generality*. The original formulation was meant only for knowledge-based approaches. For some time it looked like machine
 
@@ -43,7 +43,7 @@ The key intuition underlying our approach is that, in a world which is ever chan
 
 Based on the above assumptions, the research described here is based on three main ingredients:*(i)*A general KR mechanism for defining the personal context so as to enable the machine to view the world in user's terms.*(ii)*A suite of general ML mechanisms enabling an AI to perform context recognition in the wild, adapting to changes in the world and in its user.*(iii)*A lifelong*machine-human alignment loop*to maintain alignment through bidirectional interaction. The rest of the paper will describe the progress made in the three lines of research mentioned above (Sections [2,](#page-1-0) [3,](#page-2-0) [4\)](#page-4-0). Section [5](#page-5-0) will report the lessons learned also indicating the implications on the way ahead. Most of this work has been applied in real world scenarios, based on data collected during experiments designed as part of this research. The SmartUnitn2 dataset, built with an experiment involving 158 university students over a period of four weeks (see, e.g., the description in [\[8\]](#page-6-7)) will be the base for the examples and the results described in the following.
 
-# <span id="page-1-0"></span>2. Representing the personal situational context
+## <span id="page-1-0"></span>2. Representing the personal situational context
 
 The notion of context used here was originally (informally) defined in [\[9\]](#page-6-8) as*"a theory of the world which encodes an individual's subjective perspective about it"*. The key intuition underlying the use of contexts is that generality is achieved by moving from the approach where there is only one monolithic theory of the *objective*world to an unbound number of*subjective*views, modeled as contexts, each providing a partial view of the world, i.e., the set of facts which are locally relevant to the current activity [\[10\]](#page-6-9). In this work, we represent contexts as Knowledge Graphs (KGs) and assume that the AI is able to store any number of them as (sets of)*Life Sequences*[\[8\]](#page-6-7), where a Life Sequence is a sequence of contexts. Figure [1](#page-2-1) represents a small life sequence with three contexts.
 
@@ -56,7 +56,7 @@ Informally, the*personal situational context*describes the circumstances of a pe
 
 Given the notion of context as from above, we define the notion of*Life sequence*as a sequence of contexts during a certain period. We assume that me is involved in only one personal context at a time. In fact, at any given moment, a person can be in only one place. This context representation has been used in [\[11](#page-6-10)[,12\]](#page-6-11).
 
-# <span id="page-2-0"></span>3. Continually evolving context recognition
+## <span id="page-2-0"></span>3. Continually evolving context recognition
 
 Given the notion of personal context, the question becomes how to obtain context information in applications where it is needed. The personal context of a user is typically not directly accessible, at least not in real-time, so it must be inferred from what other information is available. What is needed is a mechanism for enabling an AI to carry out this step. This problem is what we refer to as*personal context recognition*(PCR).
 *Context recognition in a static world.*From one perspective, PCR can be viewed as a generalization of tasks like activity recognition [\[13\]](#page-6-12) – where one is given access to measurements from handheld or wearable sensors and has to derive what (unobserved) action the user is performing – from a single aspect of the personal context (namely, activity) to the whole context. This immediately suggests an ML approach consisting of two steps: collecting examples of sensor recordings annotated with context information and then using this data to learn a map between the two that generalizes to unseen situa-
@@ -73,7 +73,7 @@ So far, PCR can be viewed as a rather standard (although highly non-trivial) ML 
 
 more complex as it can affect the knowledge encoded in the context knowledge graph. In other words, whereas concepts like "Friend" and "Library" are essentially immutable, the*specific*friends and libraries that matter to the user do change over time, for instance when she graduates. We refer to this as*knowledge drift*[\[25\]](#page-7-4): concepts and relations can become obsolete or irrelevant, and new ones may need to be acquired. Failure to align the AI's understanding to the updated knowledge may lead to providing useless or actively harmful predictions. Given the ego-centric nature of the personal context, the only way to counter knowledge drift is to interact with the user herself. This is actually necessary: different forms of knowledge drift leave a similar footprint on the data, which is thus insufficient to disambiguate between – and therefore properly adapt to – them. In [\[25\]](#page-7-4), we developed a novel algorithm that tackles all of these issues by integrating*automated*drift detection and adaptation of the machine's knowledge graph with an*interactive*step in which the user helps the machine to disambiguate between alternative kinds of knowledge drift.
 
-# <span id="page-4-0"></span>4. Machine-human alignment loop
+## <span id="page-4-0"></span>4. Machine-human alignment loop
 
 The goal here is to design a general*machine-human alignment loop*that ensures alignment over the life span of the AI. We posit that doing so will involve*continual*, *bidirectional interaction*. The question is then how to structure it such that it is cognitively cheap (on the human's side) and computationally affordable (on the machine's side). This is where most future research lies. For instance, an important issue is how to make sure that the user does not get bothered by a (life)long intensive interaction with the AI (most often not generated by her). A second main issue is that the ML techniques above generate a high number of heterogeneous questions, asking for very different information, motivated by different purposes and based on different background knowledge. Even assuming that the user does not get bothered, how can we make sure that the user does not get confused therefore providing the AI with wrong information?
 
@@ -83,7 +83,7 @@ On the machine side, the need to obtain supervision can be addressed by adapting
 
 guided learning [\[28\]](#page-7-7). In real-world lifelong alignment interaction however entails solving additional problems, such as choosing*when*to request annotations so as to maximize response time and quality. Moreover, in order to handle change, the machine will have to interleave requests for supervision with skeptical learning*and*knowledge drift detection and adaptation. How to properly model and implement bidirectional interaction of this kind is left to future work.
 
-# <span id="page-5-0"></span>5. Lessons learned
+## <span id="page-5-0"></span>5. Lessons learned
 
 What described above are only first steps. Still a few general lessons have already been learned which provide guidelines for the work to come.
 
@@ -95,7 +95,7 @@ The third relates to the Machine-Human alignment loop. The first wave of experim
 
 The fourth issue is the importance of running real world experiments in the wild. One reason is that there are no datasets about Human-Machine symbiosis. The second is that there is a need of ethics aware datasets, mainly because of its huge impact on the life of people. The third is that the evaluation of the AI we are developing, which evolves in time while, at the same time, changing the behaviour of the human, requires a careful design of the experiment. Various datasets have been collected, see [\[32](#page-7-11)[,33,](#page-7-12)[34](#page-7-13)[,35\]](#page-7-14), using the iLog platform [\[36,](#page-7-15)[8\]](#page-6-7). A major challenge is the need of a general methodology to be used to run these experiments in a systematic way. This brings up the issue of interdisciplinarity. Initially, the focus was on Philosophy and Cognitive Science, but here there is also a need to learn from the (Computational) Social Sciences (e.g., see [\[37\]](#page-7-16)).
 
-# Author profiles
+## Author profiles
 
 - Andrea Bontempelli, PhD student, KR, ML and AI
 - Marcelo Rodas Britez, Post-doctoral Researcher, KR and AI
@@ -106,7 +106,7 @@ The fourth issue is the importance of running real world experiments in the wild
 - Andrea Passerini, Associate Professor, ML and AI
 - Fausto Giunchiglia, Full Professor, KR, AI and ML
 
-# References
+## References
 
 - <span id="page-6-0"></span>[1] Mitchell TM, Caruana R, Freitag D, McDermott J, Zabowski D, et al. Experience with a learning personal assistant. Communications of the ACM. 1994;37(7):80-91.
 - <span id="page-6-1"></span>[2] Guha R, Gupta V, Raghunathan V, Srikant R. User modeling for a personal assistant. In: Proceedings of the Eighth ACM International Conference on Web Search and Data Mining; 2015. p. 275-84.

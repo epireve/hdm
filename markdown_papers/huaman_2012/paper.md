@@ -73,43 +73,43 @@ This paper is structured as follows. Section [2](#page-1-0) provides a look into
 
 In this section, we discuss the most relevant work on quality assessment over the past years that implies data, information, linked data, and KGs quality. In order to accurately define and measure a quality dimension (QD), it is not enough to review the quality of data or linked data solely. In fact, KG quality needs an overall picture of quality assessment within the years of their popularization. Defining what quality is, within the context of KGs, will depend greatly on whether QDs have been identified for the data consumers [\[13\]](#page-8-0), the data source [\[2,](#page-7-1)[10\]](#page-8-1), and the use case [\[3,](#page-7-2)[4,](#page-7-3)[14\]](#page-8-2).
 
-| Ref.       | Summary                      | Dimensions                                                       |
+| Ref. | Summary | Dimensions |
 |------------|------------------------------|------------------------------------------------------------------|
-| Wang and   | 15 QDs grouped in 4          | Accessibility, Accuracy, Appropriate amount, Believability,      |
-| Strong,    | categories: Accessibility    | Completeness, Concise representation, Consistent representa      |
-| 1996 [13]  | (2), Contextual (5), In      | tion, Ease of understanding, Interpretability, Objectivity, Rel  |
-|            | trinsic (4), Representa      | evancy, Reputation, Security, Timeliness, Value added            |
-|            | tional (4)                   |                                                                  |
-| Naumann    | 22 QDs grouped in 3 cat      | Accuracy, Amount of data, Availability, Believability, Com       |
-| and        | egories: Object criteria     | pleteness, Concise representation, Consistent representation,    |
-| Rolker,    | (9), Process criteria (6),   | Customer support, Documentation, Interpretability, Latency,      |
-| 2000 [10]  | Subject criteria (7)         | Objectivity, Price, Relevancy, Reliability, Reputation, Re       |
-|            |                              | sponse time, Security, Timeliness, Understandability, Value      |
-|            |                              | added, Verifiability                                             |
-| Bizer,     | 16 QDs grouped in 4          | Accessibility, Accuracy, Appropriate amount, Believability,      |
-| 2007 [2]   | categories: Accessibility    | Completeness, Concise representation, Consistency, Consis        |
-|            | (2), Contextual (7), In      | tent representation, Interpretability, Objectivity, Offensive    |
-|            | trinsic (4), Representa      | ness, Relevancy, Response time, Timeliness, Understandabil       |
-|            | tional (3)                   | ity, Verifiability                                               |
-| Zaveri     | 18 QDs grouped in 4          | Accuracy, Availability, Completeness, Concise representation,    |
-| et<br>al., | categories: Accessibility    | Conciseness, Consistency, Interlinking, Interoperability, Inter  |
-| 2016 [14]  | (5), Contextual (4), In      | pretability, Licensing, Performance, Relevancy, Security, Syn    |
-|            | trinsic (5), Representa      | tactic validity, Timeliness, Trustworthiness, Understandabil     |
-|            | tional (4)                   | ity, Versatility                                                 |
-| F¨arber    | 11 QDs in 4 categories:      | Accessibility, Accuracy, Completeness, Consistency, Interlink    |
-| et<br>al., | Accessibility<br>(3),<br>Con | ing, Interoperability, Licensing, Relevancy, Timeliness, Trust   |
-| 2018 [3]   | textual (3), Intrinsic (3),  | worthiness, Understandability                                    |
-|            | Representational (2)         |                                                                  |
-| Fensel     | 23 QDs                       | Accessibility, Accuracy, Appropriate amount, Believability,      |
-| et<br>al., |                              | Completeness, Concise representation, Consistent representa      |
-| 2020 [4]   |                              | tion, Cost effectiveness, Ease of manipulation, Ease of opera    |
-|            |                              | tion, Ease of understanding, Flexibility, Free of error, Interop |
-|            |                              | erability, Objectivity, Relevancy, Reputation, Security, Time    |
-|            |                              | liness, Traceability, Understandability, Value added, Variety    |
-| Hogan      | 10 QDs in 4 categories:      | Accuracy, Coverage, Coherency, Succinctness, Interoperabil       |
-| et<br>al., | Accuracy (3), Coverage       | ity, Licensing, Relevancy, Timeliness, Trustworthiness, Under    |
-| 2021 [5]   | (2), Coherency (2), Suc      | standability                                                     |
-|            | cinctness (3)                |                                                                  |
+| Wang and | 15 QDs grouped in 4 | Accessibility, Accuracy, Appropriate amount, Believability, |
+| Strong, | categories: Accessibility | Completeness, Concise representation, Consistent representa |
+| 1996 [13] | (2), Contextual (5), In | tion, Ease of understanding, Interpretability, Objectivity, Rel |
+| | trinsic (4), Representa | evancy, Reputation, Security, Timeliness, Value added |
+| | tional (4) | |
+| Naumann | 22 QDs grouped in 3 cat | Accuracy, Amount of data, Availability, Believability, Com |
+| and | egories: Object criteria | pleteness, Concise representation, Consistent representation, |
+| Rolker, | (9), Process criteria (6), | Customer support, Documentation, Interpretability, Latency, |
+| 2000 [10] | Subject criteria (7) | Objectivity, Price, Relevancy, Reliability, Reputation, Re |
+| | | sponse time, Security, Timeliness, Understandability, Value |
+| | | added, Verifiability |
+| Bizer, | 16 QDs grouped in 4 | Accessibility, Accuracy, Appropriate amount, Believability, |
+| 2007 [2] | categories: Accessibility | Completeness, Concise representation, Consistency, Consis |
+| | (2), Contextual (7), In | tent representation, Interpretability, Objectivity, Offensive |
+| | trinsic (4), Representa | ness, Relevancy, Response time, Timeliness, Understandabil |
+| | tional (3) | ity, Verifiability |
+| Zaveri | 18 QDs grouped in 4 | Accuracy, Availability, Completeness, Concise representation, |
+| et<br>al., | categories: Accessibility | Conciseness, Consistency, Interlinking, Interoperability, Inter |
+| 2016 [14] | (5), Contextual (4), In | pretability, Licensing, Performance, Relevancy, Security, Syn |
+| | trinsic (5), Representa | tactic validity, Timeliness, Trustworthiness, Understandabil |
+| | tional (4) | ity, Versatility |
+| F¨arber | 11 QDs in 4 categories: | Accessibility, Accuracy, Completeness, Consistency, Interlink |
+| et<br>al., | Accessibility<br>(3),<br>Con | ing, Interoperability, Licensing, Relevancy, Timeliness, Trust |
+| 2018 [3] | textual (3), Intrinsic (3), | worthiness, Understandability |
+| | Representational (2) | |
+| Fensel | 23 QDs | Accessibility, Accuracy, Appropriate amount, Believability, |
+| et<br>al., | | Completeness, Concise representation, Consistent representa |
+| 2020 [4] | | tion, Cost effectiveness, Ease of manipulation, Ease of opera |
+| | | tion, Ease of understanding, Flexibility, Free of error, Interop |
+| | | erability, Objectivity, Relevancy, Reputation, Security, Time |
+| | | liness, Traceability, Understandability, Value added, Variety |
+| Hogan | 10 QDs in 4 categories: | Accuracy, Coverage, Coherency, Succinctness, Interoperabil |
+| et<br>al., | Accuracy (3), Coverage | ity, Licensing, Relevancy, Timeliness, Trustworthiness, Under |
+| 2021 [5] | (2), Coherency (2), Suc | standability |
+| | cinctness (3) | |
 
 <span id="page-1-1"></span>Table 1. Comparison of quality dimensions.
 
@@ -127,47 +127,47 @@ Last but not least, Fensel et al. [\[4\]](#page-7-3) provide a list of QDs that 
 
 Most of the authors, with exception to [\[13,](#page-8-0)[14\]](#page-8-2), do not describe the methodology used to define QDs, yet they were created in the context on which the authors focus. In this paper, we consider the dimensions proposed by the authors listed in Table [1.](#page-1-1) Note that flexibility is highly related to ease of manipulation dimension [\[4\]](#page-7-3), understandability is also called ease of understanding [\[14\]](#page-8-2), and value-added is also considered as part of completeness [\[3\]](#page-7-2). In order to define QDs that are relevant to KGs, we look up into KG's definition, which is characterized by its variety to cover various domains [\[3](#page-7-2)[,4,](#page-7-3)[11\]](#page-8-3). Furthermore, we consider that some dimensions are getting attention over the last years in the literature,
 
-| Goal                | Question, Metrics, and Type (QN/QL)                                |
+| Goal | Question, Metrics, and Type (QN/QL) |
 |---------------------|--------------------------------------------------------------------|
-| Accessibility       | Is the KG (or at least part of it) available (QN), provides an     |
-|                     | SPARQL endpoint (QN), retrievable (QN), supports content ne        |
-|                     | gotiation (QN), and contain a license (QN)?                        |
-| Accuracy            | Is the KG reliable and correct, e.g., syntactically (QN) and se    |
-|                     | mantically (QN)?                                                   |
-| Appropriate         | Does the KG contain an appropriate amount (QN) of instances        |
-| amount              | for a specific task?                                               |
-| Believability       | Does the KG provide provenance information (QN), is trustwor       |
-|                     | thy (QL), and has not unknown nor empty values (QN)?               |
-| Completeness        | At which degree is the KG complete regarding data (QN), pop        |
-|                     | ulation (QN), and interlinking (QN)?                               |
-| Concise<br>represen | Is the KG concisely represented by avoiding blank nodes (QN)       |
-| tation              | and reification (QN)                                               |
+| Accessibility | Is the KG (or at least part of it) available (QN), provides an |
+| | SPARQL endpoint (QN), retrievable (QN), supports content ne |
+| | gotiation (QN), and contain a license (QN)? |
+| Accuracy | Is the KG reliable and correct, e.g., syntactically (QN) and se |
+| | mantically (QN)? |
+| Appropriate | Does the KG contain an appropriate amount (QN) of instances |
+| amount | for a specific task? |
+| Believability | Does the KG provide provenance information (QN), is trustwor |
+| | thy (QL), and has not unknown nor empty values (QN)? |
+| Completeness | At which degree is the KG complete regarding data (QN), pop |
+| | ulation (QN), and interlinking (QN)? |
+| Concise<br>represen | Is the KG concisely represented by avoiding blank nodes (QN) |
+| tation | and reification (QN) |
 | Consistent<br>repre | Is the KG consistently represented, e.g., disjoint inconsistencies |
-| sentation           | of classes (QN), inconsistent inverse functional property values   |
-|                     | (QN), schema restrictions (QN)?                                    |
-| Cost-effectiveness  | Does the KG require extra data at any cost (QL)?                   |
-| Ease of manipula    | At which level does the KG provide documentation (QL)?             |
-| tion                |                                                                    |
-| Ease of operation   | Is it possible to update (QN), download (QN), and integrate        |
-|                     | (QN) the KG?                                                       |
-| Ease<br>of<br>under | Is the KG represented using self-descriptive URIs (QN) and in      |
-| standing            | various languages (QN)?                                            |
-| Free of error       | Does the KG provide correct property values (QN)?                  |
-| Interoperability    | Is the KG interoperable, e.g., openly available (QN) and uses      |
-|                     | standard vocabularies (QL)?                                        |
-| Objectivity         | Is the KG objective, e.g., unbiased (QL) and declares provenance   |
-|                     | information (QN)?                                                  |
-| Relevancy           | Is the KG relevant for the task at hand, e.g., at which level the  |
-|                     | KG provides knowledge for an specific domain or use case (QL)?     |
-| Reputation          | Is the KG well rated? E.g is the KG well positioned in explicit    |
-|                     | ratings (QL).                                                      |
-| Security            | Does the KG provide security mechanisms like digital signature     |
-|                     | (QN) and KG authentication (QL)?                                   |
-| Timeliness          | At which degree is the KG up to date (QN) and fresh (QN)?          |
-| Traceability        | Does the KG provide mean to verify its provenance (QL) and         |
-|                     | authenticity (QL)?                                                 |
-| Variety             | At which degree the KG integrates various domain sources           |
-|                     | (QL)?                                                              |
+| sentation | of classes (QN), inconsistent inverse functional property values |
+| | (QN), schema restrictions (QN)? |
+| Cost-effectiveness | Does the KG require extra data at any cost (QL)? |
+| Ease of manipula | At which level does the KG provide documentation (QL)? |
+| tion | |
+| Ease of operation | Is it possible to update (QN), download (QN), and integrate |
+| | (QN) the KG? |
+| Ease<br>of<br>under | Is the KG represented using self-descriptive URIs (QN) and in |
+| standing | various languages (QN)? |
+| Free of error | Does the KG provide correct property values (QN)? |
+| Interoperability | Is the KG interoperable, e.g., openly available (QN) and uses |
+| | standard vocabularies (QL)? |
+| Objectivity | Is the KG objective, e.g., unbiased (QL) and declares provenance |
+| | information (QN)? |
+| Relevancy | Is the KG relevant for the task at hand, e.g., at which level the |
+| | KG provides knowledge for an specific domain or use case (QL)? |
+| Reputation | Is the KG well rated? E.g is the KG well positioned in explicit |
+| | ratings (QL). |
+| Security | Does the KG provide security mechanisms like digital signature |
+| | (QN) and KG authentication (QL)? |
+| Timeliness | At which degree is the KG up to date (QN) and fresh (QN)? |
+| Traceability | Does the KG provide mean to verify its provenance (QL) and |
+| | authenticity (QL)? |
+| Variety | At which degree the KG integrates various domain sources |
+| | (QL)? |
 
 <span id="page-3-0"></span>Table 2. Proposed quality dimensions and metrics.
 
@@ -202,7 +202,7 @@ The goal of developing an assessment framework is to obtain a quality status of 
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: The image presents a hierarchical diagram illustrating a four-stage process. Stages include: 1. Identification (users, use cases, KGs); 2. Setting (KGs, QDs, QMs weighting); 3. Assessment (QMs, QDs, KGs assessment); and 4. Exploitation (KGA, UC results, UI). The diagram uses boxes to represent components and connecting lines to show the relationships between them, depicting a layered workflow from user input to final results displayed on a user interface. -->
 
-<span id="page-5-0"></span>Fig. 1. Hierarchical decomposition of our KG Quality Assessment Framework.
+<span id="page-5-0"></span>Figure 1. Hierarchical decomposition of our KG Quality Assessment Framework.
 
 - i. KGs Setting. It is not a straight forward task, for instance. KGs use different schema for describing a same property, e.g., label[1](#page-5-1) , name[2](#page-5-2) , or Q82799[3](#page-5-3) . Moreover, there are KGs that do not provide a SPARQL endpoint (e.g. Google's Knowledge Graph), so SPARQL queries must be adapted to a different query format (e.g. API).
 - ii. QDs Weighting. Beta-weights (βi) are defined for selecting QDs, such as β<sup>i</sup> defines a weight of importance for each d<sup>i</sup> QD and β<sup>i</sup> ∈ [0, 1] where 0 is the minimum degree of importance and a value 1 is the maximum degree. Furthermore, it must hold:
@@ -216,7 +216,7 @@ iii. QMs Weighting. Alpha-weights (αi,j ) defines a weight of importance for ea
 $$
 \sum_{j=1}^{j_i} \alpha_{i,j} = 1
 $$
- for all  $i = 1, ..., 20$
+for all $i = 1, ..., 20$
 
 <span id="page-5-1"></span><sup>1</sup> label is a RDFs property used to describe a name for a subject. [https://www.w3.](https://www.w3.org/2000/01/rdf-schema#label) [org/2000/01/rdf-schema#label](https://www.w3.org/2000/01/rdf-schema#label)
 
@@ -257,7 +257,7 @@ As described above, the alpha- and beta- weights affect the overall result of an
 
 Note that, our framework defines QDs and QMs as we understood them. However, every situation or application might require some adaptation. Also notice that some QM are similar to each other or one QM might be combined in more than one QD, therefore we advise not to select all QD and QM at the same time, e.g., play with the alpha- and beta- weights until you get a desirable result.
 
-# <span id="page-7-0"></span>5 Conclusion and Future Work
+## <span id="page-7-0"></span>5 Conclusion and Future Work
 
 In this paper, we conducted a comprehensive study on quality assessment, which included data, information, linked data, and KGs quality context. We propose 20 QDs that are relevant in the KGs context and several metrics that can be quantitatively or quantitatively measured. Furthermore, we remark the importance of taking into account cost-effectiveness, traceability, and variety QDs. Then, we propose a user-driven assessment framework for evaluating the quality of KGs. Our framework comprises 4 steps: identification, setting, assessment, and exploitation. Furthermore, The framework can be used for lighting KGs architects on the basic quality requirements of KGs, and in the development of future KG assessment frameworks.
 

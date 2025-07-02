@@ -30,8 +30,6 @@ keywords:
 - well-established
 ---
 
-
-
 <!-- cite_key: ilkouhttpsorcidorg---2022 -->
 
 
@@ -161,16 +159,15 @@ The current line of research is still in an early stage. In our first steps in u
 <span id="page-3-1"></span>![](_page_3_Figure_9.jpeg)
 <!-- Image Description: The image is a UML diagram illustrating a system for learning path recommendation. Rectangles represent components: "User," "User Logs," "Learning Preference," "User Profile," "Learning Path," "Recommendation," "Answer," "Test," "Exercise," "Accessibility," "Psychological Parameter," and "Academic Parameter." Arrows show relationships, such as "definesLearningPath," "generatedFrom," "hasProfile," and "solves," indicating data flow and dependencies between components. The diagram visually depicts the system's architecture and information flow for personalized learning recommendations. -->
 
-Figure 2: User Profile pattern from EduCOR [\[11\]](#page-4-12) ontology.
+**Figure 2:** User Profile pattern from EduCOR [\[11\]](#page-4-12) ontology.
 
 <span id="page-3-2"></span>![](_page_3_Figure_11.jpeg)
 <!-- Image Description: The image presents a stacked bar chart displaying survey results. Five questions (EQ1-EQ5) are analyzed, each showing the percentage of respondents selecting one of five response options: strongly disagree, somewhat disagree, neither agree nor disagree, somewhat agree, and strongly agree. The chart visually compares the distribution of responses across the five questions, highlighting agreement/disagreement levels for each. The y-axis represents percentage, and the x-axis represents the question number. -->
 
-Figure 3: User general feedback from CollabGraph [\[15\]](#page-4-26). EQ: "I like the" 1: the group results visualized in a graph, 2: the summary of the team-members results, 3: the graph visualizations , 4: graph visualization next to the list view of the search results, 5: combination of the list and graph view.
+**Figure 3:** User general feedback from CollabGraph [\[15\]](#page-4-26). EQ: "I like the" 1: the group results visualized in a graph, 2: the summary of the team-members results, 3: the graph visualizations , 4: graph visualization next to the list view of the search results, 5: combination of the list and graph view.
 
 EduCOR ontology [\[11\]](#page-4-12) for personalised recommendations of educational resources. EduCOR consists of different parts and has a focus on user profiling, as can be seen in Figure [2.](#page-3-1) This part of the overall ontology has been extended in our latest submission to facilitate the necessary components for the creation of PKG ontology for web search [\[14\]](#page-4-27) with respect to accessibility parameters, such as content access rights and privacy.
 
-<span id="page-4-1"></span>
 
 In our latest paper, which is currently under submission [\[15\]](#page-4-26), we dive into the collaborative search and propose a collaborative search graph summary visualisation alongside the classical list-view of search results [\[15\]](#page-4-26). Our back end suggests the development of PKGs for each user which capture users' activity, connect to a KG in order to identify concepts and entities, and propagate the top entities to be visualised in the group summary graph. We evaluated our system on six different learning scenarios among 105 valid participants in a well-established user experience questionnaire and some evaluation questions we developed based on the parameters we wanted to rate. Our system shows high likability among users, as can be seen in Figure [3.](#page-3-2) However, it is still to be investigated how users perceive our system in an on-site experiment, and how the implementation of PKGs is superior to a simpler approach with the extensions we foresee for our system.
 

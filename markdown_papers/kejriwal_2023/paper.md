@@ -65,7 +65,7 @@ Additional Key Words and Phrases: Entity resolution, instance matching, knowledg
 
 Mayank Kejriwal. 2023. Named Entity Resolution in Personal Knowledge Graphs. 1, 1 (July 2023), [22](#page-21-0) pages. [https://doi.org/10.1145/](https://doi.org/10.1145/nnnnnnn.nnnnnnn) [nnnnnnn.nnnnnnn](https://doi.org/10.1145/nnnnnnn.nnnnnnn)
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Due to the growth of large amounts of heterogeneous data (especially involving people) on the Web and in enterprise, the problem often arises as to when two pieces of information describing two entities are, in fact, describing the same underlying entity. For instance, a company may make an acquisition and attempt to merge the acquired company's database with their own database. It is probable that there is overlap between the two, and that the acquiring company shares some customers with the acquired company. Similarly, a data aggregator may be attempting to merge together profiles from different public websites, or even social media platforms. Such platforms have heavy overlap, leading naturally to the problem of 'resolving' entities.
 
@@ -82,7 +82,7 @@ Author's address: Mayank Kejriwal, kejriwal@isi.edu, University of Southern Cali
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
 <!-- Image Description: This image is a graph illustrating a knowledge representation. Nodes represent entities (e.g., "John_Adams," "Microsoft") and relationships (e.g., "employs," "date_of_birth"). Edges connect nodes, showing relationships between entities. The dotted red line depicts a "sameAs" relationship, linking two representations of the same individual. The graph demonstrates how different information about individuals and organizations can be interconnected within a knowledge base. -->
 
-Fig. 1. An illustration of the named entity resolution problem between fragments of two personal knowledge graphs (PKGs).
+Figure 1. An illustration of the named entity resolution problem between fragments of two personal knowledge graphs (PKGs).
 
 subsequently discussed, many of these differences tend to be algorithmic, rather than conceptual, and are a consequence of the natural evolution of the field over time.
 
@@ -106,7 +106,7 @@ A critical point to note here is the notion of an instance in an RDF PKG. For in
 
 A pragmatic reason for not considering literals explicitly is that, if an entity is represented only as a literal (such as a string or a number) and has no other information or attributes associated with it, domain-specific 'matching' functions would be more appropriate rather than an advanced ER solution. Several such functions are available and widely used for common attributes, such as dates, names, and addresses [\[91\]](#page-19-1), [\[22\]](#page-17-4), [\[1\]](#page-16-4). For example, if the problem was merely restricted to matching people's names, without any other surrounding context or attributes, a string-matching algorithm, some of which rely on phonetics [\[107\]](#page-20-6), could be used. We subsequently provide more details on such matching functions because, aside from being useful for matching simple literals, they are also useful for converting pairs of entity representations into numeric feature vectors.
 
-# 2 TWO-STEP FRAMEWORK FOR EFFICIENT NAMED ENTITY RESOLUTION
+## 2 TWO-STEP FRAMEWORK FOR EFFICIENT NAMED ENTITY RESOLUTION
 
 Even in early research, the quadratic complexity of pairwise ER was becoming well recognized [\[102\]](#page-20-0). Given two RDF graphs <sup>1</sup> and <sup>2</sup> that we represent equivalently, with slight abuse of terminology, as sets of named entities (i.e., ignoring edges, literals, and entity-types that are not of interest), a naïve ER must evaluate all possible entity pairs, namely the cross-product <sup>1</sup> × 2. Even assuming constant cost per evaluation, which may not always be the case, the run-time complexity is (|<sup>1</sup> ||<sup>2</sup> |).
 
@@ -117,13 +117,13 @@ To alleviate the quadratic complexity of evaluating all possible bilateral pairs
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 <!-- Image Description: The flowchart depicts a knowledge graph (KG) matching process. Two RDF KGs are input, processed via a blocking method (using a blocking key) to create a candidate set of pairs. A trained classifier then assesses the similarity of these pairs, generating `:sameAs` links as output. The diagram illustrates the system's workflow, highlighting the key steps involved in matching entities across different KGs. -->
 
-Fig. 2. A typical two-step ER workflow that is often implemented in practice for solving the problem efficiently and effectively. Although the figure assumes two RDF KGs, a similar workflow would also apply to non-KG datasets, as well as to the deduplication problem (where a single dataset is input).
+Figure 2. A typical two-step ER workflow that is often implemented in practice for solving the problem efficiently and effectively. Although the figure assumes two RDF KGs, a similar workflow would also apply to non-KG datasets, as well as to the deduplication problem (where a single dataset is input).
 
 entity pairs become candidates for further evaluation by a matching or similarity function in the second step [\[126\]](#page-21-2). This function, which is also called a link specification function in the literature, may be Boolean or probabilistic, and makes a prediction about whether an input entity-pair represents the same underlying entity. Prediction quality metrics, such as precision and recall, can then be used to evaluate the performance of the entire ER system by comparing the predicted matches to those present in an external ground-truth of 'gold-standard' matches.
 
 In most ER systems, <sup>1</sup> and <sup>2</sup> are assumed to be structurally homogeneous [\[12,](#page-16-5) [27\]](#page-17-0), a term introduced in an influential survey [\[27\]](#page-17-0). That is, <sup>1</sup> and <sup>2</sup> are assumed to contain entities of the same type (e.g., Person), and are described by the same property schema. The latter implies that the same sets of attribute-types are associated with entities in both data sources. An important special application of structural homogeneity is deduplication, whereby matching entities in a single data source must be found. In the rest of this chapter, we assume structural homogeneity as well, except where explicitly indicated. In practice, this assumption is not problematic because, even in the rare case of matching entities between PKGs with drastically different ontologies, an ontology matching solution can be applied as a first step to homogenize the data sources [\[72,](#page-19-2) [104,](#page-20-7) [117,](#page-20-8) [123\]](#page-21-3).
 
-# 1 Blocking Step
+## 1 Blocking Step
 
 Following the intuitions described earlier, a blocking key can be defined as follows.
 
@@ -150,12 +150,12 @@ In the worse case, there could be entities that represent a singleton-canopy i.e
 
 Furthermore, it is easy to extend the method to the two-PKG (or even multi-PKG) case by using the entities from the smallest PKG (or some other such well-defined selection rule) exclusively as seed entities. This extension has the added advantage of rendering the algorithm deterministic, since the randomization inherent in the original version above (which determines both the set and order of seed entities ultimately considered) is no longer present. We note Manuscript submitted to ACM
 
-# <span id="page-5-0"></span>6 Kejriwal
+## <span id="page-5-0"></span>6 Kejriwal
 
 ![](_page_5_Figure_1.jpeg)
 <!-- Image Description: The image illustrates a data processing algorithm. Two tables show personal data (First Name, Last Name, Zipcode, Blocking Key Value). A "slide window" technique processes the data in stages, creating a "candidate set C" which is a set of pairs of data. The algorithm adds pairs from the sliding window to the candidate set iteratively, as shown in the flow chart. The figure demonstrates the step-wise construction of the candidate set, highlighting the algorithm's operation. -->
 
-Fig. 3. An illustration of the Sorted Neighborhood blocking method.
+Figure 3. An illustration of the Sorted Neighborhood blocking method.
 
 that the theoretical or empirical properties of the Canopies algorithm, similar to other blocking algorithms, has not been well explored in the multi-PKG case where more than two PKGs have to be resolved. Indeed, proper algorithmic architectures for multi-PKG ER remains an under-addressed problem in the AI and database literature.
 
@@ -173,7 +173,7 @@ An LSH family is considered to be (, , , )-sensitive if it is the case that any 
 
 One can see the application of this algorithm to blocking under the right conditions, as the goal of blocking is very similar to that of LSH. Indeed, an LSH-like algorithm is directly applicable to instance-based blocking methods like Canopies that rely explicitly on distance functions rather than blocking keys. However, it must be borne in mind that the requirements of LSH are stricter, whereas Canopies can be used with any well-defined distance measure. A good example of a distance function which is amenable to LSH is the Jaccard function, which can be approximated through the MinHash function (which has the requisite properties and sensitivity defined earlier). Certainly, despite its rigid assumptions, LSH should be considered as a viable baseline for more complex blocking methods. Beyond ER, it has also been applied to problems such as ontology alignment [\[17\]](#page-16-9), and on occasion, it has also been applied to the similarity step of ER.
 
-# 2 Similarity / Matching Step
+## 2 Similarity / Matching Step
 
 Although the expectation is that the candidate set generated by blocking contains most (and in the ideal situation, all) of the true positives (duplicate entity pairs) present in the PKGs being resolved, its approximate and efficient nature also leads to many true negatives being present[1](#page-7-0) . Additionally, a few false negatives may get 'excluded' from the candidate set. In a subsequent section, we discuss the evaluation of blocking to measure the extent to which this is taking place. Note that, once excluded, there is no hope of recovering 'false negatives' (except to re-execute a different blocking algorithm or two-step workflow on the entire dataset) in the similarity step. However, a 'good' similarity function can distinguish between true positives and true negatives effectively, leading to better results in the overall two-step workflow. Indeed, it is easy to see that the similarity function must be finer-grained, compared to blocking, as it needs to make that distinction, which blocking proved incapable of doing due to its focus on efficiency rather than effectiveness [\[27\]](#page-17-0).
 
@@ -191,14 +191,13 @@ Many link specification functions have been explored by researchers through the 
 
 Manuscript submitted to ACM
 
-<span id="page-8-0"></span>
 
-| Bob's pizza place | 1223 W. 290 St.               | 4.97 / 5 stars               | Parking available                |
+| Bob's pizza place | 1223 W. 290 St. | 4.97 / 5 stars | Parking available |
 |-------------------|-------------------------------|------------------------------|----------------------------------|
-| Bob's pizza       | 290 <sup>th</sup> & Normandie | $4.96/5$ stars               | Parking available but<br>limited |
-| StringSim<br>0.   | StringSim <sub>4</sub><br>0.9 | <b>StringSim<sub>1</sub></b> | StringSim                        |
+| Bob's pizza | 290 <sup>th</sup> & Normandie | $4.96/5$ stars | Parking available but<br>limited |
+| StringSim<br>0. | StringSim <sub>4</sub><br>0.9 | <b>StringSim<sub>1</sub></b> | StringSim |
 
-Fig. 4. Conversion of an entity pair to a feature vector that could then be used in ordinary classification systems (e.g., deep neural networks).
+Figure 4. Conversion of an entity pair to a feature vector that could then be used in ordinary classification systems (e.g., deep neural networks).
 
 of such techniques in databases (primarily), we refer the reader to [\[27\]](#page-17-0), as well as a book on data matching [\[12\]](#page-16-5). Below, we provide more details on a machine learning-centric approach to the problem.
 
@@ -214,7 +213,7 @@ would be consequential as it significantly eases the burden of scalability, both
 
 A machine learning classifier is trained on positively and negatively labeled training samples, and is used to classify vectors in the candidate set. Several classifiers have been explored in the literature, with random forest, multilayer perceptron and Support Vector Machine classifiers all found to perform reasonably well [\[58,](#page-18-0) [110,](#page-20-11) [118\]](#page-20-12). In more recent years, neural networks have also been applied [\[20\]](#page-16-10).
 
-# 3 Independence of the Blocking and Similarity Steps
+## 3 Independence of the Blocking and Similarity Steps
 
 The two-step workflow, and our description of blocking and similarity, seems to suggest that the two steps are largely independent. Historically, and even in actual practice, this has been the case, and it is even possible to 'swap' out different blocking algorithms while keeping the similarity step constant (and similarly for swapping the similarity modules while keeping blocking constant). However, it behooves us to mention that nothing prevents blocking and similarity from being interlocked. Namely, the two steps can be set up such that they 'interact' in a real system i.e., we do not need the candidate set to be completely generated prior to executing the similarity step. A simple example of this is a system that tries to conserve space by not storing the candidate set explicitly, but piping pairs to the similarity step as they are generated by blocking. The system still maintains the assumption, however, that decisions made in the similarity step have no impact on blocking (i.e., there is no backward feedback). Furthermore, depending on the blocking method used, there may be a loss in overall efficiency, since the same pair may be classified several times by the similarity step (as we are not maintaining a set-based data structure). Even in this simple example, the tradeoffs between time and space efficiency must be carefully negotiated.
 
@@ -222,13 +221,13 @@ A small, but growing, number of applications in recent years have also been chal
 
 While such techniques are promising, their implementations have mostly been limited to serial architectures, owing to the need for continuous data-sharing between the similarity and block generating components [\[105,](#page-20-14) [127\]](#page-21-4). Experimentally, the benefits of such techniques over independent techniques like Sorted Neighborhood or traditional blocking (with skew-eliminating measures such as block purging) have not been established extensively enough to warrant widespread adoption. Therefore, the two-step workflow, with both steps relatively independent, continues to be predominant in much of the ER research [\[89\]](#page-19-4).
 
-# 3 EVALUATING NAMED ENTITY RESOLUTION
+## 3 EVALUATING NAMED ENTITY RESOLUTION
 
 The independence of blocking and similarity suggests that the performance of each can be controlled for the other in experiments [\[27\]](#page-17-0). In the last decade both blocking and similarity have become increasingly sophisticated. It is now the rule, rather than the exception, to publish either on blocking or on similarity within an individual publication [\[11\]](#page-16-6). Manuscript submitted to ACM
 
 Despite some potential disadvantages, this methodology has yielded the adoption of well-defined evaluation metrics and standards for both steps.
 
-# 1 Evaluating Blocking
+## 1 Evaluating Blocking
 
 The primary aim of blocking is to scale the naïve similarity-only ER system that bilaterally pairs all entities with one another. Blocking serves this goal by generating a smaller candidate set than this 'exhaustive set'. However, if time-complexity reduction were the only goal, optimal blocking would simply yield the empty set as the candidate set. Such a system would ultimately be without utility because it would generate a candidate set with zero duplicates coverage.
 
@@ -269,7 +268,7 @@ Theoretically, PQ may be a better measure of the tradeoff between PC and RR than
 
 PQ can sometimes give estimates that are difficult to interpret. For example, suppose there were 1,000 duplicates in the ground-truth, and the candidate set C only contained ten pairs, of which eight represent duplicates. In this example, PQ would be 80%. Assuming that the exhaustive set is large enough, such that RR is near-perfect, the F-Measure would still be less than 2% (since PC is less than 1%). The F-Measure result would be correctly interpreted as an indication that, for practical purposes, the blocking process has failed. The result indicated by PQ alone is clearly misleading, suggesting that, as a tradeoff measure, PQ should not be substituted for the F-Measure of PC and RR. An alternative, proposed by at least one author but not used widely, is to compute and report the F-Measure of PQ and PC, instead of PC and RR [\[11\]](#page-16-6).
 
-# 2 Evaluating Similarity
+## 2 Evaluating Similarity
 
 As similarity is most similar to a machine learning classification problem (such as sentiment analysis), the best way to evaluate it given the real-world requirements of ER is to compute precision and recall. Specifically, once a candidate set is output by blocking and processed by similarity, the final expected output is a partition of into sets and of pairs of resolved ('duplicated') and non-resolved ('non-duplicates') entities.
 
@@ -278,11 +277,11 @@ Given a ground-truth set Ω (using the terminology of the previous section) of a
 <span id="page-12-0"></span>![](_page_12_Figure_1.jpeg)
 <!-- Image Description: This timeline chart displays the chronological development of entity matching systems from 2007 onwards. It shows various systems categorized by their year of introduction. "Linked Open Data" is the earliest entry, followed by systems like "Silk," "Limes," and others, progressing to more recent approaches such as "DeepER" and "LIME". The chart illustrates the evolution of techniques in the field. -->
 
-Fig. 5. A timeline of approaches (primarily for the similarity step) that have evolved to address ER.
+Figure 5. A timeline of approaches (primarily for the similarity step) that have evolved to address ER.
 
 We emphasize that computing a measure such as accuracy is usually not a good idea. The reason is that the vast majority of pairs are expected to be non-duplicates, meaning that if a system were to predict every pair in the candidate set to be a non-duplicate pair, the resulting accuracy would be very high! Such a measure is clearly without utility. Precision and recall preempt this problem because neither takes true negatives into account in the computation.
 
-# 4 EVOLUTION OF RESEARCH IN NAMED ENTITY RESOLUTION
+## 4 EVOLUTION OF RESEARCH IN NAMED ENTITY RESOLUTION
 
 Owing to its 50-year history, many systems and research methods have been proposed for ER. Figure [5](#page-12-0) shows how different streams of thought have emerged over the decades. While necessarily simplified (e.g., many of these classes of approaches have overlapped, and some are still widely used), the figure largely tracks what has happened in the broader AI community and its many applications. For the more technical reader, we recommend books on both ER and knowledge graphs (which tend to contain chapters on ER) [\[13,](#page-16-11) [34,](#page-17-1) [45,](#page-17-2) [124\]](#page-21-1).
 
@@ -290,7 +289,7 @@ In the Semantic Web community, rule-based systems were considered state-of-the-a
 
 Beyond the similarity step, where machine learning has been applied and studied much more extensively, methods have been proposed in the last two decades to learn blocking keys given training data of duplicates and non-duplicates [\[31,](#page-17-7) [37,](#page-17-8) [48,](#page-17-9) [50\]](#page-18-3). More recently, such approaches have also been tried for heterogeneous data collections [\[52\]](#page-18-4). This was quite a departure from the traditional approach, which was to manually specify blocking keys that seemed 'intuitive'. As multiple approaches have now showed, a systematic approach to learning blocking keys can lead to non-trivial savings in complexity reduction, or in improved PC and PQ. The technique for learning blocking keys is less straightforward than training classifiers for similarity, but theoretically similar to problems such as set covering [\[10\]](#page-16-12). Along with blocking scheme learning, research also continues on developing new blocking methods (or variants of existing methods, like Sorted Neighborhood) for novel ecosystems such as Linked Open Data [\[56\]](#page-18-5).
 
-# 5 CHALLENGES AND OPPORTUNITIES FOR NAMED ENTITY RESOLUTION
+## 5 CHALLENGES AND OPPORTUNITIES FOR NAMED ENTITY RESOLUTION
 
 Despite being a 50-year old problem, and improvements in Artificial Intelligence and deep learning technology, ER remains a challenging problem due to the rapid growth of large and heterogeneous datasets published on the Web. In the previous section, a critical challenge that was described is the non-obvious ability of existing systems to simultaneously address challenges such as domain-independence, scalability and heterogeneity. At the same time, in the existing AI literature, there are theoretical and applied mechanisms to address some of these challenges. A machine learning paradigm such as transfer learning, for example, could potentially be used to handle the domain-independence requirement by first bootstrapping an ER system in a few 'anchor' domains, and then using transfer learning to adapt the system to other domains. In theory, such an approach seems feasible, but in practice, it is very difficult to execute. Some other challenges, which were also expounded upon in [\[32\]](#page-17-3) are:
 
@@ -313,7 +312,7 @@ Beyond developing better theoretical foundations, one must also bear in mind tha
 
 (6) Other Applied Directions: As PKGs are used in different ways in different domains and use-cases, the issue of properly building domain-specific PKGs (of which ER is an important component) remains critical and is an important application of the general research direction of domain-specific KG construction [\[120\]](#page-21-10). Semantic search, especially in domain-specific applications [\[46\]](#page-17-25), is another important direction as it will likely require advances in domain-specific search [\[62,](#page-18-16) [73\]](#page-19-21). Because of the rise of large language models, and deep learning more generally, we believe that an ER approach that melds the best of traditional approaches to the problem with deep learning could lead to significant advances in upcoming years [\[74\]](#page-19-22). This is true for KG research, more generally [\[14\]](#page-16-20). An example of such an application is hypothesis generation and geopolitical forecasting using (for example) multi-modal KGs rather than directly using raw text or video sources [\[130\]](#page-21-11). Finally, many applications require processing and conducting ER on datasets that are structurally heterogeneous. Even today, structural homogeneity remains a strong assumption in the ER community. Removing this assumption from future approaches is a promising direction [\[30\]](#page-17-26), but is not without challenges [\[31,](#page-17-7) [49\]](#page-18-17).
 
-# 6 CONCLUSION
+## 6 CONCLUSION
 
 Named Entity Resolution is an important application that has been researcher for almost half a century. While the early applications of ER were limited to patient records and census data, they have proliferated in an era of Big Data and open knowledge. It is likely to continue playing an important role in Artificial Intelligence efforts in both government and industry in the near- and long-term future, especially in data-intensive text applications. As a recent book discussed, industry is now starting to invest intensively in AI systems to grow or maintain a competitive advantage, and open assets such as Linked Data and off-the-shelf large language models are important drivers in such implementations. Because of the open nature of these assets, there is a more level playing field than was historically the case. Properly implementing, scaling, and evaluating advanced algorithms, and ensuring that the data is 'clean', may well provide the edge in many cases. For most datasets, achieving such quality requires concerted effort in ER. 'Properly' in this context also implies gaining a better understanding of bias in training or evaluating an ER model [\[51\]](#page-18-18), and other weak spots of the model.
 
@@ -321,7 +320,7 @@ Named Entity Resolution in Personal Knowledge Graphs 17
 
 This chapter provided a background on ER essentials. Particularly important is the two-step workflow, comprising blocking and similarity, and their respective evaluation methodologies and metrics, which has emerged as a standard for ER. However, many important research questions and opportunities still remain, several of which we covered in the previous section. Another important research area that is particularly important to ER but that we did not mention in the previous section is the efficient generation of unbiased training sets. While this may not prove to be a problem if zero-shot learning and few-shot learning techniques are adapted to address ER, at present, only supervised learning techniques currently have the quality necessary for high-stakes applications. Hence, generation of high-quality training sets remains an important problem. Unlike regular machine learning applications, random sampling and labeling does not work very well because most pairs of nodes in the KG are not duplicates.
 
-# REFERENCES
+## REFERENCES
 
 - <span id="page-16-4"></span>[1] Alfred V Aho and Margaret J Corasick. 1975. Efficient string matching: an aid to bibliographic search. Commun. ACM 18, 6 (1975), 333–340.
 - <span id="page-16-2"></span>[2] Dean Allemang and James Hendler. 2011. Semantic web for the working ontologist: effective modeling in RDFS and OWL. Elsevier.
@@ -375,7 +374,7 @@ arXiv[:2103.00683](https://arxiv.org/abs/2103.00683) <https://arxiv.org/abs/2103
 - <span id="page-17-13"></span>[47] Mayank Kejriwal and Yuesheng Luo. 2022. On the Empirical Association between Trade Network Complexity and Global Gross Domestic Product. CoRR abs/2211.13117 (2022). <https://doi.org/10.48550/arXiv.2211.13117> arXiv[:2211.13117](https://arxiv.org/abs/2211.13117)
 - <span id="page-17-9"></span>[48] Mayank Kejriwal and Daniel P Miranker. 2013. An unsupervised algorithm for learning blocking schemes. In 2013 IEEE 13th International Conference on Data Mining. IEEE, 340–349.
 
-# Named Entity Resolution in Personal Knowledge Graphs 19
+## Named Entity Resolution in Personal Knowledge Graphs 19
 
 - <span id="page-18-17"></span>[49] Mayank Kejriwal and Daniel P. Miranker. 2014. On Linking Heterogeneous Dataset Collections. In Proceedings of the ISWC 2014 Posters & Demonstrations Track a track within the 13th International Semantic Web Conference, ISWC 2014, Riva del Garda, Italy, October 21, 2014 (CEUR Workshop Proceedings, Vol. 1272), Matthew Horridge, Marco Rospocher, and Jacco van Ossenbruggen (Eds.). CEUR-WS.org, 217–220. [http://ceur](http://ceur-ws.org/Vol-1272/paper_17.pdf)[ws.org/Vol-1272/paper\\_17.pdf](http://ceur-ws.org/Vol-1272/paper_17.pdf)
 - <span id="page-18-18"></span><span id="page-18-3"></span>[50] Mayank Kejriwal and Daniel P Miranker. 2014. A two-step blocking scheme learner for scalable link discovery. OM 14 (2014), 49–60.
@@ -422,7 +421,7 @@ arXiv[:2103.00683](https://arxiv.org/abs/2103.00683) <https://arxiv.org/abs/2103
 - <span id="page-19-5"></span>[90] Hanna Köpcke, Andreas Thor, and Erhard Rahm. 2010. Evaluation of entity resolution approaches on real-world match problems. Proceedings of the VLDB Endowment 3, 1-2 (2010), 484–493.
 - <span id="page-19-1"></span>[91] Nick Koudas, Amit Marathe, and Divesh Srivastava. 2004. Flexible string matching against large databases in practice. In Proceedings of the Thirtieth international conference on Very large data bases-Volume 30. 1078–1086.
 
-# Named Entity Resolution in Personal Knowledge Graphs 21
+## Named Entity Resolution in Personal Knowledge Graphs 21
 
 - <span id="page-20-21"></span>[92] Yuesheng Luo and Mayank Kejriwal. 2021. Understanding COVID-19 Vaccine Reaction through Comparative Analysis on Twitter. CoRR abs/2111.05823 (2021). arXiv[:2111.05823](https://arxiv.org/abs/2111.05823) <https://arxiv.org/abs/2111.05823>
 - <span id="page-20-22"></span>[93] Yuesheng Luo and Mayank Kejriwal. 2022. Understanding COVID-19 Vaccine Reaction Through Comparative Analysis on Twitter. In Intelligent Computing - Proceedings of the 2022 Computing Conference, Volume 1, SAI 2022, Virtual Event, 14-15 July 2022 (Lecture Notes in Networks and Systems, Vol. 506), Kohei Arai (Ed.). Springer, 846–864. [https://doi.org/10.1007/978-3-031-10461-9\\_58](https://doi.org/10.1007/978-3-031-10461-9_58)

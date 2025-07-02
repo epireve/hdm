@@ -49,8 +49,6 @@ keywords:
 - precision
 ---
 
-
-
 # Integrating Historical Person Registers as Linked Open Data in the WarSampo Knowledge Graph
 
 Mikko Koho1,2(B), Petri Leskinen<sup>1</sup>, and Eero Hyv¨onen1,2
@@ -90,7 +88,7 @@ The military rank and military unit of a soldier are prone to change in time due
 **2. Register of Military Death in the Finnish Wars 1939–1945.**The register contains 94 700 death records (DR) [\[8](#page-7-10)], depicting the status of the person at the time of his/her death. The spreadsheet source data contains detailed information about the known Finnish persons who perished in WW2. There are 32 columns of structured information about each person, with each cell having a single literal value.
 **3. Register of the Prisoners of War in Soviet Union 1939–1945.**The register contains 4200 prisoner records (PR) [\[9\]](#page-7-5), depicting the status of persons at the time when they were captured. It was published in WarSampo on November 2019. The spreadsheet source data contains mostly very detailed information about each known Finnish prisoner of war. The spreadsheet contains 45 columns of information about each person, gathered from, e.g., various archives. Often a single cell contains multiple values corresponding to information in different sources, following a pre-defined cell formatting. Most of the cells contain well-formed literal values, like the municipality of birth, military rank, and date of returning from captivity.
 
-# 3 Method: Linking Person Records
+## 3 Method: Linking Person Records
 
 The WarSampo KG is built from source datasets using a repeatable data transformation pipeline [\[10](#page-7-4)]. In this approach, the domain experts maintain the primary data in the original native format, i.e., typically spreadsheets. When a source dataset is updated, the pipeline can be used to easily recreate the whole KG with the updated data.
 
@@ -116,23 +114,22 @@ To address temporal changes in a person's military rank and the observed varianc
 
 <span id="page-3-2"></span><sup>7</sup> [https://github.com/SemanticComputing/WarPrisoners.](https://github.com/SemanticComputing/WarPrisoners)
 
-<span id="page-4-0"></span>
 
-| Property                 | Comparison type | Binary/Continuous variable |
+| Property | Comparison type | Binary/Continuous variable |
 |--------------------------|-----------------|----------------------------|
-| Given names              | String          | Continuous                 |
-| Family name              | String          | Continuous                 |
-| Municipality of birth    | Intersection    | Binary                     |
-| Date of birth [earliest] | Date            | Continuous                 |
-| Date of birth [latest]   | Date            | Continuous                 |
-| Date of death [earliest] | Date            | Continuous                 |
-| Date of death [latest]   | Date            | Continuous                 |
-| Municipality of death    | Intersection    | Binary                     |
-| Activity end             | Date            | Binary                     |
-| Military rank            | Intersection    | Binary                     |
-| Military rank level      | Numerical       | Continuous                 |
-| Military unit            | Intersection    | Binary                     |
-| Occupation               | Intersection    | Binary                     |
+| Given names | String | Continuous |
+| Family name | String | Continuous |
+| Municipality of birth | Intersection | Binary |
+| Date of birth [earliest] | Date | Continuous |
+| Date of birth [latest] | Date | Continuous |
+| Date of death [earliest] | Date | Continuous |
+| Date of death [latest] | Date | Continuous |
+| Municipality of death | Intersection | Binary |
+| Activity end | Date | Binary |
+| Military rank | Intersection | Binary |
+| Military rank level | Numerical | Continuous |
+| Military unit | Intersection | Binary |
+| Occupation | Intersection | Binary |
 **Table 1.**Used metadata comparisons between the registers for the probabilistic RL.
 
 comparative level of a rank is used. This also addresses the rather permanent separation between enlisted ranks and commissioned officers.

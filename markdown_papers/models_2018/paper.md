@@ -29,25 +29,24 @@ keywords:
 - task-relevant
 ---
 
-
 # Affordable AI Assistants with Knowledge Graph of Thoughts
 
-| Maciej Besta∗                        | Lorenzo Paleari      |                            | Jia Hao Andrea Jiang |                               | Robert Gerstenberger          |  |
+| Maciej Besta∗ | Lorenzo Paleari | | Jia Hao Andrea Jiang | | Robert Gerstenberger | |
 |--------------------------------------|----------------------|----------------------------|----------------------|-------------------------------|-------------------------------|--|
-| ETH Zurich                           | ETH Zurich           |                            | ETH Zurich           |                               | ETH Zurich                    |  |
-| You Wu                               | Jón Gunnar Hannesson |                            | Patrick Iff          | Ales Kubicek                  | Piotr Nyczyk                  |  |
-| ETH Zurich                           | ETH Zurich           |                            | ETH Zurich           | ETH Zurich                    | Cledar                        |  |
-| Diana Khimey                         | Nils Blach           |                            | Haiqiang Zhang       | Tao Zhang                     | Peiran Ma                     |  |
-| ETH Zurich                           | ETH Zurich           |                            | ETH Zurich           | ETH Zurich                    | ETH Zurich                    |  |
-| Grzegorz Kwasniewski ´<br>ETH Zurich |                      | Marcin Copik<br>ETH Zurich |                      | Hubert Niewiadomski<br>Cledar | Torsten Hoefler<br>ETH Zurich |  |
+| ETH Zurich | ETH Zurich | | ETH Zurich | | ETH Zurich | |
+| You Wu | Jón Gunnar Hannesson | | Patrick Iff | Ales Kubicek | Piotr Nyczyk | |
+| ETH Zurich | ETH Zurich | | ETH Zurich | ETH Zurich | Cledar | |
+| Diana Khimey | Nils Blach | | Haiqiang Zhang | Tao Zhang | Peiran Ma | |
+| ETH Zurich | ETH Zurich | | ETH Zurich | ETH Zurich | ETH Zurich | |
+| Grzegorz Kwasniewski ´<br>ETH Zurich | | Marcin Copik<br>ETH Zurich | | Hubert Niewiadomski<br>Cledar | Torsten Hoefler<br>ETH Zurich | |
 
-# Abstract
+## Abstract
 
 Large Language Models (LLMs) are revolutionizing the development of AI assistants capable of performing diverse tasks across domains. However, current state-of-the-art LLM-driven agents face significant challenges, including high operational costs and limited success rates on complex benchmarks like GAIA. To address these issues, we propose Knowledge Graph of Thoughts (KGoT), an innovative AI assistant architecture that integrates LLM reasoning with dynamically constructed knowledge graphs (KGs). KGoT extracts and structures task-relevant knowledge into a dynamic KG representation, iteratively enhanced through external tools such as math solvers, web crawlers, and Python scripts. Such structured representation of task-relevant knowledge enables low-cost models to solve complex tasks effectively while also minimizing bias and noise. For example, KGoT achieves a 29% improvement in task success rates on the GAIA benchmark compared to Hugging Face Agents with GPT-4o mini. Moreover, harnessing a smaller model dramatically reduces operational costs by over 36× compared to GPT-4o. Improvements for other models (e.g., Qwen2.5-32B and Deepseek-R1-70B) and benchmarks (e.g., SimpleQA) are similar. KGoT offers a scalable, affordable, versatile, and high-performing solution for AI assistants.
 
 Website & code: <https://github.com/spcl/knowledge-graph-of-thoughts>
 
-# 1 Introduction
+## 1 Introduction
 
 Large Language Models (LLMs) are transforming the world. However, training LLMs is expensive, time-consuming, and resource-intensive. In order to democratize the access to generative AI, the landscape of agent systems has massively evolved during the last two years [\[14,](#page-11-0) [18,](#page-11-1) [28,](#page-12-0) [35,](#page-12-1) [37,](#page-13-0) [44–](#page-13-1) [46,](#page-14-0) [69,](#page-15-0) [74,](#page-16-0) [77,](#page-16-1) [78,](#page-16-2) [88,](#page-17-0) [99,](#page-18-0) [103\]](#page-18-1). These schemes have been applied to numerous tasks in reasoning [\[14,](#page-11-0) [19,](#page-11-2) [23\]](#page-12-2), planning [\[40,](#page-13-2) [63,](#page-15-1) [73,](#page-16-3) [84\]](#page-16-4), software development [\[79\]](#page-16-5), and many others [\[17,](#page-11-3) [52,](#page-14-1) [71,](#page-15-2) [89\]](#page-17-1).
 
@@ -67,7 +66,7 @@ Our evaluation against top GAIA leaderboard baselines demonstrates its effective
 
 On top of that, KGoT reduces noise and simultaneously minimizes bias and improves fairness by externalizing reasoning into an explicit knowledge graph rather than relying solely on the LLM's internal generation (contribution #4). This ensures that key steps when resolving tasks are grounded in transparent, explainable, and auditable information.
 
-# 2 Knowledge Graph of Thoughts
+## 2 Knowledge Graph of Thoughts
 
 We first illustrate the key idea, namely, using a knowledge graph to encode *structurally*the task contents. Figure [1](#page-2-0) shows an example task and its corresponding evolving KG.
 
@@ -78,7 +77,7 @@ A knowledge graph (KG) is a structured representation of information that organi
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
 <!-- Image Description: The image illustrates a knowledge graph construction and query answering process. A natural language question (input) is used to build an initial knowledge graph, which is then enhanced by querying external data and incorporating information from a YouTube transcript. This enhanced graph is used to generate a precise answer. The process is shown as a flowchart with knowledge graphs represented as node-edge diagrams, evolving from a simple graph to a more complex one containing relevant information extracted from external sources. -->
 
-Figure 1: Illustration of the key idea behind Knowledge Graph of Thoughts (KGoT): transforming the representation of a task for an AI assistant from a textual form into a knowledge graph (KG). As an example, we use a Level-3 (i.e., highest difficulty) task from the GAIA benchmark. In order to solve the task, KGoT evolves this KG by adding relevant information that brings the task closer to completion. This is achieved by iteratively running various tools. Finally, the task is solved by extracting the relevant information from the KG, using – for example – a graph query, or an LLM's inference process with the KG provided as a part of the input prompt. More examples of KGs are in Appendix [A.](#page-19-0)
+**Figure 1:** Illustration of the key idea behind Knowledge Graph of Thoughts (KGoT): transforming the representation of a task for an AI assistant from a textual form into a knowledge graph (KG). As an example, we use a Level-3 (i.e., highest difficulty) task from the GAIA benchmark. In order to solve the task, KGoT evolves this KG by adding relevant information that brings the task closer to completion. This is achieved by iteratively running various tools. Finally, the task is solved by extracting the relevant information from the KG, using – for example – a graph query, or an LLM's inference process with the KG provided as a part of the input prompt. More examples of KGs are in Appendix [A.](#page-19-0)
 
 ### 2 Harnessing Knowledge Graphs for Effective AI Assistant Task Resolution
 
@@ -90,7 +89,7 @@ In order to evolve the KG task representation, KGoT iteratively interacts with t
 
 In addition to adding new graph elements, KGoT also supports other graph operations. This includes removing nodes and edges, used as a part of noise elimination strategies.
 
-#### <span id="page-2-1"></span>2.3 Extracting Information from the KG
+### <span id="page-2-1"></span>2.3 Extracting Information from the KG
 
 To accommodate varying performance requirements and tasks, KGoT supports different ways to extract the information from the KG when solving a task. Currently, we offer graph query languages or general-purpose languages; each of them can be combined with the so-called Direct Retrieval.
 
@@ -104,7 +103,7 @@ languages, with a certain preference for the former, because its generated queri
 
 KGoT externalizes and structures the reasoning process, which reduces noise, mitigates model bias, and improves fairness, because in each iteration both the outputs from tools and LLM thoughts are converted into triples and stored explicitly. Unlike opaque monolithic LLM generations, this fosters transparency and facilitates identifying biased inference steps. It also facilitates noise mitigation: new triples can be explicitly checked for the quality of their information content before being integrated into the KG, and existing triples can also be removed if they are deemed redundant (examples of such triples that have been found and removed are in Appendix [B.6\)](#page-27-0).
 
-# 3 System Architecture
+## 3 System Architecture
 
 The KGoT modular and flexible architecture, pictured in Figure [2,](#page-5-0) consists of three main components: the Graph Store Module, the Controller, and the Integrated Tools, each playing a critical role in the task-solving process. Below, we provide a detailed description of each component and its role in the system. Additional details are in Appendix [B](#page-22-0) (architecture) and in Appendix [C](#page-30-0) (prompts).
 
@@ -112,7 +111,7 @@ The KGoT modular and flexible architecture, pictured in Figure [2,](#page-5-0) c
 
 A key component of the KGoT system is the Graph Store Module, which manages the storage and retrieval of the dynamically evolving knowledge graph which represents the task state. In order to harness graph queries, we use a graph database backend; in the current KGoT implementation, we test Cypher together with Neo4j [\[67\]](#page-15-6), an established graph database [\[8,](#page-10-1) [9,](#page-10-2) [11\]](#page-11-4), as well as SPARQL together with the RDF4J backend [\[3\]](#page-10-3). Then, in order to support graph accesses using a generalpurpose language, KGoT harnesses the NetworkX library [\[60\]](#page-15-7) and Python. Note that the extensible design of KGoT enables seamless integration of any other backends and languages.
 
-# 2 Managing the Workflow with the Controller Module
+## 2 Managing the Workflow with the Controller Module
 
 The Controller orchestrates the entire KGoT system, managing interactions between the KG and the tools. Upon receiving a user query, it iteratively interprets the task, determines the appropriate tools to invoke based on the KG state and task needs, and integrates tool outputs back into the KG. The Controller uses a dual-LLM architecture with a *clear separation of roles*: the LLM Graph Executor constructs and evolves the KG, while the LLM Tool Executor manages tool selection and execution.
 
@@ -120,7 +119,7 @@ The LLM Graph Executor determines the next steps after each iteration that const
 
 The LLM Tool Executor operates as the executor of the plan devised by the LLM Graph Executor. It identifies the most suitable tools for retrieving missing information, considering factors such as tool availability, relevance, and the outcome of previous tool invocation attempts. For example, if a web crawler fails to retrieve certain data, the LLM Tool Executor might prioritize a different retrieval mechanism or adjust its queries. The LLM Tool Executor manages the tool execution process, including interacting with APIs, performing calculations, or extracting information, and returns the results to the LLM Graph Executor for further reasoning and integration into the KG.
 
-# 3 Ensuring Versatile and Extensible Set of Integrated Tools
+## 3 Ensuring Versatile and Extensible Set of Integrated Tools
 
 The KGoT system offers a hierarchical suite of specialized tools tailored to diverse task needs. At its core, the Python Code Tool enables dynamic script generation and execution for complex computations, including math-related steps. The LLM Tool supplements the controller's reasoning by integrating an auxiliary language model, enhancing knowledge access while minimizing hallucination risk. For multimodal inputs, the Image Tool supports image processing and extraction. Web-based tasks are handled by the Surfer Agent (based on the design by Hugging Face Agents [\[68\]](#page-15-4)), which leverages tools like the Wikipedia Tool, granular navigation tools (PageUp, PageDown, Find), and SerpApi [\[72\]](#page-15-8) for search. Additional tools include the ExtractZip Tool for compressed files and the Text Inspector Tool for converting content from sources like MP3s and YouTube transcripts into Markdown. Finally, the user can seamlessly add a new tool by initializing the tool, passing in the
 
@@ -130,11 +129,11 @@ logger object for tool use statistics, and appending the tool to the tool list v
 
 KGoT uses various optimizations to enhance scalability and performance. They include (1) asynchronous execution using asyncio [\[64\]](#page-15-9) to parallelize LLM tool invocations, mitigating I/O bottlenecks and reducing idle time, (2) graph operation parallelism by reformulating LLM-generated Cypher queries to enable concurrent execution of independent operations in a graph database, and (3) MPI-based distributed processing, which decomposes workloads into atomic tasks distributed across ranks using a work-stealing algorithm to ensure balanced computational load and scalability.
 
-# 5 Ensuring System Robustness with Majority Voting
+## 5 Ensuring System Robustness with Majority Voting
 
 Robustness is ensured with majority voting, also known as self-consistency [\[83\]](#page-16-7) (other strategies such as embedding-based stability are also applicable [\[15\]](#page-11-5)). For this, we query the LLM multiple times when deciding whether to insert more data into the KG or retrieve existing data, when deciding which tool to use, and when parsing the final solution. This approach reduces the impact of single-instance errors or inconsistencies in various parts of the KGoT architecture.
 
-# 6 Ensuring Layered Error Containment & Management
+## 6 Ensuring Layered Error Containment & Management
 
 To manage LLM-generated syntax errors, KGoT includes LangChain's JSON parsers that detect syntax issues. When a syntax error is detected, the system first attempts to correct it by adjusting the problematic syntax using different encoders, such as the "unicode escape" [\[65\]](#page-15-10). If the issue persists, KGoT employs a retry mechanism (three attempts by default) that uses the LLM to rephrase the query/command and attempts to regenerate its output. If the error persists, the system logs it for further analysis, bypasses the problematic query, and continues with other iterations.
 
@@ -142,20 +141,20 @@ To manage API & system related errors, such as the OpenAI code 500, the primary 
 
 The Python Executor tool, a key component of the system, is containerized to ensure secure execution of LLM-generated code. This tool is designed to run code with strict timeouts and safeguards, preventing potential misuse or resource overconsumption.
 
-# 7 Implementation Details
+## 7 Implementation Details
 
 Containerization with Docker and Sarus KGoT employs Docker [\[25\]](#page-12-4) and Sarus [\[4\]](#page-10-4) for containerization, enabling a consistent and isolated runtime environment for all components. We containerize critical modules such as the KGoT controller, the Neo4j knowledge graph, and integrated tools (e.g., the Python Executor tool for safely running LLM-generated code with timeouts). Here, Docker provides a widely adopted containerization platform for local and cloud deployments that guarantees consistency between development and production environments. Sarus, a specialized container platform designed for high-performance computing (HPC) environments, extends KGoT's portability to HPC settings where Docker is typically unavailable due to security constraints. This integration allows KGoT to operate efficiently in HPC environments, leveraging their computational power.
 
 Adaptability with LangChain The KGoT system harnesses LangChain [\[46\]](#page-14-0), an open-source framework specifically designed for creating and orchestrating LLM-driven applications. LangChain offers a comprehensive suite of tools and APIs that simplify the complexities of managing LLMs, including prompt engineering, tool integration, and the coordination of LLM outputs.
 
-# <span id="page-4-1"></span>4 System Workflow
+## <span id="page-4-1"></span>4 System Workflow
 
 We show the workflow in the bottom part of Figure [2.](#page-5-0) The workflow begins when the user submits a problem to the system **1**. The first step is to verify whether the maximum number of iterations allowed for solving the problem has been reached**2**. If the iteration limit is exceeded, the system will no longer try to gather additional information and insert it into the KG, but instead will return a solution with the existing data in the KG**3**. Otherwise, the majority vote (over several replies from the LLM) decides whether the system should proceed with the Enhance pathway (using tools to
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
 <!-- Image Description: The image presents a flowchart detailing the "Knowledge Graph of Thoughts" system. The upper section shows a high-level overview of the system's architecture, illustrating the interaction between a user question, a controller, LLM executors (graph and tool), and integrated tools. The lower section provides a detailed flowchart of the process, showing steps like graph state creation, iterative decision-making using an LLM, tool calls, and solution generation. The flowchart uses numbered steps and highlights LLM usage within the process. Various integrated tools and their interdependencies are also illustrated. -->
 
-Figure 2: Architecture overview of KGoT (top part) and the design details combined with the workflow (bottom part).
+**Figure 2:** Architecture overview of KGoT (top part) and the design details combined with the workflow (bottom part).
 
 generate new knowledge) or directly proceed to the Solve pathway (gathering the existing knowledge in the KG and using it to deliver the task solution).
 
@@ -163,7 +162,7 @@ The Enhance Pathway If the majority vote indicates an Enhance pathway, the next 
 
 The Solve Pathway If the majority vote directs the system to the Solve pathway, the system executes multiple solve operations iteratively**7**. If an execution produces an invalid value or error three times in a row, the system asks the LLM to attempt to correct the issue by recreating the used query. The query is then re-executed. If errors persist after three such retries, the query is regenerated entirely, disregarding the faulty result, and the process restarts. After the Solve operation returns the result, final parsing is applied, which includes potential mathematical processing to resolve potential calculations**8**and refining the output (e.g., formatting the results appropriately)**9**.
 
-# 5 Evaluation
+## 5 Evaluation
 
 We now show advantages of KGoT over the state of the art. Additional results and full details on the evaluation setup are in Appendix [D.](#page-41-0)
 
@@ -172,7 +171,7 @@ Comparison Baselines. We focus on the Hugging Face (HF) Agents [\[68\]](#page-15
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image presents two bar charts comparing the performance of different knowledge graph reasoning methods. The left chart shows the number of solved tasks, categorized by method (e.g., GPT-40, Neo4j+Query) and difficulty level. Higher bars indicate better performance. The right chart displays the average cost (in seconds) for each method, with lower bars indicating lower cost. Both charts allow for a comparative analysis of the trade-off between performance and computational cost across various approaches. -->
 
-Figure 3: Advantages of different variants of KGoT over other baselines (Hugging Face Agents using both GPT-4o-mini and GPT-4o, Magentic-One, GPTSwarm, two RAG baselines, Zero-Shot GPT-4o mini, and Zero-Shot GPT-4o) on the validation dataset of the GAIA benchmark. DR stands for Direct Retrieval. The used model is GPT-4o mini unless noted otherwise.
+**Figure 3:** Advantages of different variants of KGoT over other baselines (Hugging Face Agents using both GPT-4o-mini and GPT-4o, Magentic-One, GPTSwarm, two RAG baselines, Zero-Shot GPT-4o mini, and Zero-Shot GPT-4o) on the validation dataset of the GAIA benchmark. DR stands for Direct Retrieval. The used model is GPT-4o mini unless noted otherwise.
 
 a simple RAG scheme and GraphRAG [\[28\]](#page-12-0). Both RAG baselines use the same tool-generated knowledge, chunking data at tool-call granularity (i.e., a chunk corresponds to individual tool call output). Simple RAG constructs a vector database from these tool outputs while GraphRAG instead models the tool outputs as a static KG of entities and relations, enabling retrieval via graph traversal. Finally, we use Zero-Shot schemes where a model answers without any additional agent framework.
 
@@ -182,13 +181,13 @@ Considered Metrics We focus primarily on the number of solved tasks as well as t
 
 Considered Datasets We use the GAIA benchmark [\[59\]](#page-15-3) focusing on the validation set (165 tasks) for budgetary reasons and also because it comes with the ground truth answers. The considered tasks are highly diverse in nature; many require parsing websites or analyzing PDF, image, and audio files. We focus on GAIA as this is currently the most comprehensive benchmark for general-purpose AI assistants, covering diverse domains such as web navigation, code execution, image reasoning, scientific QA, and multimodal tasks. We further evaluate on SimpleQA [\[85\]](#page-17-2), a factuality benchmark of 4,326 questions, of which we sample 10% for budgetary reasons. The dataset spans diverse topics and emphasizes single, verifiable answers, making it effective for assessing factual accuracy.
 
-# 1 Advantages of KGoT
+## 1 Advantages of KGoT
 
 Figure [3](#page-6-0) shows the number of solved tasks (the left side) as well as the average cost per solved task (the right side) for different KGoT variants as well as all comparison baselines. While we focus on GPT-4o mini, we also show the results for HF Agents and Zero-Shot with GPT-4o. Additionally, we show the Pareto front in Figure [11](#page-41-1) for the multidimensional optimization problem of improving accuracy (i.e., reducing failed tasks) and lowering cost. All variants of KGoT solve a greater number of tasks (up to 9 more) compared to HF Agents while also being more cost-efficient (between 42% to 62% lower costs). The key reason for the KGoT advantages stems from harnessing the knowledge graph–based representation of the evolving task state.
 
 The ideal fusion runs of Neo4j and NetworkX solve an even greater number of tasks (57 for both) than the single runs, they have a lower average cost (up to 62% lower than HF Agents), and they even outperform HF Agents with GPT-4o. The fusion of all combinations of backend and solver types solve by far the highest number of tasks (71) – more than twice as much as HF Agents – while also exhibiting 44% lower cost than HF Agents. The direct Zero-Shot use of GPT-4o mini and GPT-4o has the lowest average cost per solved task (just \$0.0013 and \$0.0164 respectively), making it the most cost-effective, however this approach is only able to solve 17 and 29 tasks, respectively. GPTSwarm is cheaper compared to KGoT, but also comes with fewer solved tasks (only 26). While Magentic-One is a capable agent with a sophisticated architecture, its performance with GPT-4o mini is limited, solving 31 tasks correctly, while also exhibiting significantly higher costs. Simple RAG yields somewhat higher costs than KGoT and it solves fewer tasks (35). GraphRAG performs even worse, solving only 23 tasks and incurring even higher cost. While neither RAG baseline can invoke new tools to gather missing information (reducing accuracy and adaptability), GraphRAG's worse performance is due to the fact that it primarily targets query summarization and not tasks as diverse as those tested by GAIA. Overall, KGoT achieves the best cost-accuracy tradeoff, being both highly affordable and very effective.
 
-# 2 Analysis of Methods for Knowledge Extraction
+## 2 Analysis of Methods for Knowledge Extraction
 
 We explore different methods of extracting knowledge. Overall, in many situations, different methods have complementary strengths and weaknesses.
 
@@ -200,7 +199,7 @@ Our analysis of failed tasks indicates that, in many cases, the KG contains the 
 
 We also found that Direct Retrieval excels at extracting dispersed information but struggles with structured queries, whereas graph queries are more effective for structured reasoning but can fail when the LLM generates incorrect query formulations. Although both Cypher and general-purpose queries occasionally are erroneous, Python scripts require more frequent corrections because they are often longer and more error-prone. However, despite the higher number of corrections, the LLM is able to fix Python code more easily than Cypher queries, often succeeding after a single attempt. During retrieval, the LLM frequently embeds necessary computations directly within the Python scripts while annotating its reasoning through comments, improving transparency and interpretability.
 
-# 3 Advantages Beyond GAIA Benchmark
+## 3 Advantages Beyond GAIA Benchmark
 
 We also evaluated KGoT as well as HF Agents and GPTSwarm on a 10% sample (433 tasks) of the SimpleQA benchmark (detailed results are in Appendix [D.1\)](#page-42-0). KGoT performs best, solving 73.21%, while HF Agents and GPTSwarm exhibit reduced accuracy (66.05% and 53.81% respectively). KGoT incurs only 0.018\$ per solved task, less than a third of the HF Agents costs (0.058\$), while being somewhat more expensive than GPTSwarm (0.00093\$).
 
@@ -209,12 +208,12 @@ We further evaluated KGoT on the entire SimpleQA benchmark (due to very high cos
 <span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
 <!-- Image Description: The image is a bar chart comparing the performance of four different large language models (LLMs) across various tasks. The x-axis represents different LLM configurations (e.g., Qwen2.5-32B, DeepSeek-R1-70B), and the y-axis shows the number of tasks solved, with higher values indicating better performance. The chart compares GPTswarm, HF Agents, KGOT (Neo4j + Query), and Zero-Shot approaches, visually demonstrating their relative strengths and weaknesses on diverse task sets. -->
 
-Figure 4: Performance on the GAIA validation set with KGoT (non-fusion) using various LLM models. For KGoT, we use Cypher graph queries for knowledge extraction from the Neo4j graph database.
+**Figure 4:** Performance on the GAIA validation set with KGoT (non-fusion) using various LLM models. For KGoT, we use Cypher graph queries for knowledge extraction from the Neo4j graph database.
 
 ![](_page_8_Figure_2.jpeg)
 <!-- Image Description: This stacked bar chart displays the number of solved tasks at three difficulty levels (Level 1, 2, 3) across different knowledge graph (KG) setups: Neo4j, NetworkX, a combination of both, and a no-KG control. Each bar represents a specific task approach (e.g., query, direct retrieve). The chart compares performance across methods, showing the number of tasks solved at each level for each approach. A horizontal dashed line indicates the maximum number of solvable tasks (71). -->
 
-Figure 5: The impact coming from harnessing knowledge graphs (KGs) with different knowledge extraction methods (graph queries with Neo4j and Cypher, and general-purpose languages with Python and NetworkX), vs. using no KGs at all. DR stands for Direct Retrieval. Model: GPT-4o mini.
+**Figure 5:** The impact coming from harnessing knowledge graphs (KGs) with different knowledge extraction methods (graph queries with Neo4j and Cypher, and general-purpose languages with Python and NetworkX), vs. using no KGs at all. DR stands for Direct Retrieval. Model: GPT-4o mini.
 
 ## 4 Ensuring Scalability and Mitigating Bottlenecks
 
@@ -228,7 +227,7 @@ Finally, we investigate the impact on performance coming from harnessing KGs, vs
 
 We offer further analyses in Appendix [D,](#page-41-0) including studying the impact on performance from different tool sets, prompt formats as well as fusion types.
 
-# 6 Related Work
+## 6 Related Work
 
 Our work is related to numerous LLM domains.
 
@@ -250,17 +249,17 @@ Another increasingly important part of the LLM ecosystem is the usage of tools t
 
 While KGoT focuses on classical AI assistant tasks, it serves as a flexible and extensible foundation for other applications. Promising directions could include supporting multi-stage, cost-efficient reasoning, for example to enhance the capabilities of the recent reasoning models such as DeepSeek-R1. Extending KGoT to this and other domains may require new ways of KG construction via predictive graph models [\[7,](#page-10-9) [16\]](#page-11-10), integration with neural graph databases [\[12\]](#page-11-11), or deployment over distributed-memory clusters for scalability. Further, refining its reasoning strategies through advanced task decomposition schemes could improve performance on very long-horizon tasks. These directions highlight both the generality of the framework and current boundaries in tool orchestration, reasoning depth, and scalability, which we aim to address in future work.
 
-# 7 Conclusion
+## 7 Conclusion
 
 In this paper, we introduce Knowledge Graph of Thoughts (KGoT), an AI assistant architecture that enhances the reasoning capabilities of low-cost models while significantly reducing operational expenses. By dynamically constructing and evolving knowledge graphs (KGs) that encode the task and its resolution state, KGoT enables structured knowledge representation and retrieval, improving task success rates on benchmarks such as GAIA and SimpleQA. Our extensive evaluation demonstrates that KGoT outperforms existing LLM-based agent solutions, for example achieving a substantial increase in task-solving efficiency of 29% or more over the competitive Hugging Face Agents baseline, while ensuring over 36× lower costs. Thanks to its modular design, KGoT can be extended to new domains that require complex multi-step reasoning integrated with extensive interactions with the external compute environment, for example automated scientific discovery or software design.
 
-# Acknowledgments and Disclosure of Funding
+## Acknowledgments and Disclosure of Funding
 
 We thank Chi Zhang and Muyang Du for their contributions to the framework. We thank Hussein Harake, Colin McMurtrie, Mark Klein, Angelo Mangili, and the whole CSCS team granting access to the Ault, Daint and Alps machines, and for their excellent technical support. We thank Timo Schneider for help with infrastructure at SPCL. This project received funding from the European Research Council (Project PSAP, No. 101002047), and the European High-Performance Computing Joint Undertaking (JU) under grant agreement No. 955513 (MAELSTROM). This project was supported by the ETH Future Computing Laboratory (EFCL), financed by a donation from Huawei Technologies. This project received funding from the European Union's HE research and innovation programme under the grant agreement No. 101070141 (Project GLACIATION). We gratefully acknowledge the
 
 Polish high-performance computing infrastructure PLGrid (HPC Center: ACK Cyfronet AGH) for providing computer facilities and support within computational grant no. PLG/2024/017103.
 
-# References
+## References
 
 - <span id="page-10-7"></span>[1] Abdelrahman Abdallah and Adam Jatowt. 2024. Generator-Retriever-Generator Approach for Open-Domain Question Answering. <https://doi.org/10.48550/arXiv.2307.11278> arXiv:2307.11278 [cs.CL]
 - <span id="page-10-8"></span>[2] Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi. 2024. Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection. In*Proceedings of the Twelfth International Conference on Learning Representations*(Vienna, Austria)*(ICLR '24)*. OpenReview, Amherst, MA, USA, 30 pages. [https://openreview.net/forum?id=](https://openreview.net/forum?id=hSyW5go0v8) [hSyW5go0v8](https://openreview.net/forum?id=hSyW5go0v8)
@@ -380,29 +379,29 @@ USA)*(Advances in Neural Information Processing Systems, Vol. 36)*, A. Oh, T. Na
 - [102] Zhaocheng Zhu, Yuan Xue, Xinyun Chen, Denny Zhou, Jian Tang, Dale Schuurmans, and Hanjun Dai. 2024. Large Language Models Can Learn Rules. [https://doi.org/10.48550/](https://doi.org/10.48550/arXiv.2310.07064) [arXiv.2310.07064](https://doi.org/10.48550/arXiv.2310.07064) arXiv:2310.07064 [cs.AI]
 - <span id="page-18-1"></span>[103] Mingchen Zhuge, Wenyi Wang, Louis Kirsch, Francesco Faccio, Dmitrii Khizbullin, and Jürgen Schmidhuber. 2024. GPTSwarm: Language Agents as Optimizable Graphs. In*Proceedings of the 41st International Conference on Machine Learning (ICML '24)*(Vienna, Austria)*(Proceedings of Machine Learning Research, Vol. 235)*, Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp (Eds.). PMLR, New York, NY, USA, 62743–62767. [https://proceedings.mlr.press/v235/](https://proceedings.mlr.press/v235/zhuge24a.html) [zhuge24a.html](https://proceedings.mlr.press/v235/zhuge24a.html)
 
-# <span id="page-19-0"></span>A Additional Examples of Knowledge Graph Representation of Tasks
+## <span id="page-19-0"></span>A Additional Examples of Knowledge Graph Representation of Tasks
 
 We include selected snapshots of KG representation of tasks, covering a wide range of graph structures from simple chains to trees and cyclic graphs. Each snapshot captures the current KG state in a JSON file, exported using a predefined query that retrieves all labeled nodes and edges. Regardless of the underlying graph backend, the use of a consistent export format allows all snapshots to be visualized through Neo4j's built-in web interface. In the following, we showcase illustrations of such snapshots and task statements from the GAIA validation set. Please note that the GAIA benchmark discourages making its tasks accessible to crawling. To honor their wishes, we replaced the names of entities with placeholders in the following examples, while keeping the overall structure intact.
 
 <span id="page-19-1"></span>![](_page_19_Figure_2.jpeg)
 <!-- Image Description: The image displays a question ("What writer is quoted by Merriam-Webster for the Word of the Day from [date]?"), its required tools (web browser, search engine, audio capability), and its representation as an enhanced knowledge graph. The graph visually depicts the relationships between "Date," "Word," "Quote," and the "Writer" using nodes and labeled edges, illustrating how the KGOT (Knowledge Graph-based Question Answering) task is resolved. The arrow indicates the transformation of the question into the knowledge graph representation. -->
 
-Figure 6: Example of a chain structure. This task requires 7 intermediate steps and the usage of 3 tools. The expected solution is '[firstname lastname]'. KGoT invokes the Surfer agent to search for relevant pages, locate the relevant quote, and find the person who said it. All intermediate information is successfully retrieved and used for enhancing the dynamically constructed KG. The quote contains two properties, significance and text. 'significance' stores the meaning of the quote, whereas 'text' stores the actual quote.
+**Figure 6:** Example of a chain structure. This task requires 7 intermediate steps and the usage of 3 tools. The expected solution is '[firstname lastname]'. KGoT invokes the Surfer agent to search for relevant pages, locate the relevant quote, and find the person who said it. All intermediate information is successfully retrieved and used for enhancing the dynamically constructed KG. The quote contains two properties, significance and text. 'significance' stores the meaning of the quote, whereas 'text' stores the actual quote.
 
 ![](_page_19_Figure_4.jpeg)
 <!-- Image Description: The image displays a question requiring web search to find the name of a bishop who never became pope, given a museum's portrait accession number and its subject's consecrators. It shows a knowledge graph representing the relationships (co-consecrated) between individuals, with nodes for bishops and popes and edges indicating the relationships. The graph illustrates how the knowledge graph facilitates answering the question ("KGOT Task Resolution" shows the process). -->
 
-Figure 7: Example of a tree structure. This task requires 6 intermediate steps and the usage of 2 tools. The expected solution is '[firstname1 lastname1]'. The Surfer agent is also invoked for this task. In this KG representation of the task, [popename] is identified as the consecrator, where [firstname1 lastname1], [firstname2 lastname2] and [firstname3 lastname3] are all co-consecrators. Subsequently, the correct answer is obtained from the KGoT from the KG by correctly identifying [firstname1 lastname1] as the one without any labels.
+**Figure 7:** Example of a tree structure. This task requires 6 intermediate steps and the usage of 2 tools. The expected solution is '[firstname1 lastname1]'. The Surfer agent is also invoked for this task. In this KG representation of the task, [popename] is identified as the consecrator, where [firstname1 lastname1], [firstname2 lastname2] and [firstname3 lastname3] are all co-consecrators. Subsequently, the correct answer is obtained from the KGoT from the KG by correctly identifying [firstname1 lastname1] as the one without any labels.
 
 <span id="page-19-2"></span>![](_page_19_Figure_6.jpeg)
 <!-- Image Description: The image displays a question requiring the number of studio albums released by a specific artist within a given timeframe, using web resources. It then shows a knowledge graph illustrating the task's resolution using KGOT (Knowledge Graph based question answering technique). The graph is a node-and-edge representation where nodes represent albums and the artist, and edges represent the "released" relationship, annotated with the release year. The graph visually depicts how the question can be answered by traversing the relationships within the knowledge graph. -->
 
-Figure 8: Example of a tree structure. This task requires 4 intermediate steps and the usage of 2 tools. The expected solution is '4'. This is a trap question where only the studio albums should be taken into account. In addition to years, the type of the albums is also stored as a property in the KG. Please note that the original GAIA task has a different solution, which we do not want to reveal.
+**Figure 8:** Example of a tree structure. This task requires 4 intermediate steps and the usage of 2 tools. The expected solution is '4'. This is a trap question where only the studio albums should be taken into account. In addition to years, the type of the albums is also stored as a property in the KG. Please note that the original GAIA task has a different solution, which we do not want to reveal.
 
 ![](_page_20_Figure_0.jpeg)
 <!-- Image Description: The image displays a problem statement (left) and its knowledge graph representation (right). The problem involves executing a Python script on a string array to obtain a C++ code URL, then compiling and running that code on a numerical array. The knowledge graph visually depicts the steps: script generation, code processing, array sorting, and integer summation, culminating in the final result (65). The graph uses nodes to represent data and edges to depict the operations. -->
 
-Figure 9: Example of a cyclic graph structure. This task requires 7 intermediate steps and the usage of 6 tools. The expected solution is '65'. Here, array has the property 'values' with [42, 23, 2, 88, 37, 15], SortedArray contains the correctly sorted values [2, 15, 23, 37, 42, 88]. The final solution '65' is correctly retrieved and parsed as KGoT response. Please note that we used different array values than in the original GAIA task.
+**Figure 9:** Example of a cyclic graph structure. This task requires 7 intermediate steps and the usage of 6 tools. The expected solution is '65'. Here, array has the property 'values' with [42, 23, 2, 88, 37, 15], SortedArray contains the correctly sorted values [2, 15, 23, 37, 42, 88]. The final solution '65' is correctly retrieved and parsed as KGoT response. Please note that we used different array values than in the original GAIA task.
 
 ## A.1 Graph Storage Representation of Knowledge Graph Examples
 
@@ -414,27 +413,27 @@ We start with GAIA question 59, which is illustrated in Figure [6.](#page-19-1) 
 
 ```text
 Nodes:
-  Label: Writer
-    {neo4j_id:0, properties:{'name': '[firstname lastname]'}}
-  Label: WordOfTheDay
-    {neo4j_id:1, properties:{'pronunciation': '[con-cept]', 'definition':
-      'textual definition', 'counter': 1, 'origin': 'some war between year-year',
-      'word': '[concept]', 'date': '[date1]'}}
-  Label: Quote
-    {neo4j_id:2, properties:{'text': '[quote]', 'source': '[newspaper name]',
-      'date': '[date2]'}}
+Label: Writer
+{neo4j_id:0, properties:{'name': '[firstname lastname]'}}
+Label: WordOfTheDay
+{neo4j_id:1, properties:{'pronunciation': '[con-cept]', 'definition':
+'textual definition', 'counter': 1, 'origin': 'some war between year-year',
+'word': '[concept]', 'date': '[date1]'}}
+Label: Quote
+{neo4j_id:2, properties:{'text': '[quote]', 'source': '[newspaper name]',
+'date': '[date2]'}}
 Relationships:
-  Label: QUOTED_FOR
-  {source: {neo4j_id: 0, label: Writer}, target: {neo4j_id: 1, label: WordOfTheDay},
-      properties: {}}
-  Label: QUOTED_IN
-    {source: {neo4j_id: 0, label: Writer}, target: {neo4j_id: 2, label: Quote},
-      properties: {}}
+Label: QUOTED_FOR
+{source: {neo4j_id: 0, label: Writer}, target: {neo4j_id: 1, label: WordOfTheDay},
+properties: {}}
+Label: QUOTED_IN
+{source: {neo4j_id: 0, label: Writer}, target: {neo4j_id: 2, label: Quote},
+properties: {}}
 ```text
 
 The Cypher query used to extract the solution was the following:
 
-#### Cypher query to extract the solution for question 59.
+### Cypher query to extract the solution for question 59.
 
 ```text
 MATCH (w:Writer)-[:QUOTED_FOR]->(wod:WordOfTheDay {date: '[date1]'})
@@ -443,60 +442,70 @@ RETURN w.name AS writer_name
 
 To illustrate the use of NetworkX, we use a knowledge graph for question 6 (shown in Figure [8\)](#page-19-2) from the GAIA benchmark after the second iteration.
 
-#### NetworkX KG representation while processing question 6.
+### NetworkX KG representation while processing question 6.
 
 ```text
 Existing Nodes:
- Label: Function
-   [{id:A1, properties:{'name': 'image_inspector'}},
-     {id:call_X2CcPnp5acMUPAp1Qx3OTvKx, properties:{'name': 'image_inspector',
-     'args': {'question': 'What Python script is depicted in the attached image?',
-     'full_path_to_image': '[filepath].png'}}}]
- Label: Script
-  [{id:A2, properties:{'description': 'Python script to construct a URL by combining
-     a base URL with specific indices from an array'}}]
- Label: Array
-  [{id:A3, properties:{'content': "['URL', 'ele', 'me', 'nts', 'as', 'sho', 'rt',
-     'str', 'ings']"}}]
- Label: URL
-   [{id:A4, properties:{'base': '[base URL]', 'indices': [some indices]}}]
+Label: Function
+[{id:A1, properties:{'name': 'image_inspector'}},
+{id:call_X2CcPnp5acMUPAp1Qx3OTvKx, properties:{'name': 'image_inspector',
+'args': {'question': 'What Python script is depicted in the attached image?',
+'full_path_to_image': '[filepath].png'}}}]
+Label: Script
+[{id:A2, properties:{'description': 'Python script to construct a URL by combining
+a base URL with specific indices from an array'}}]
+Label: Array
+[{id:A3, properties:{'content': "['URL', 'ele', 'me', 'nts', 'as', 'sho', 'rt',
+'str', 'ings']"}}]
+Label: URL
+[{id:A4, properties:{'base': '[base URL]', 'indices': [some indices]}}]
 Existing Relationships:
- Label: uses
-   [{source: {id: A1}, target: {id: A2}, properties: {}}]
- Label: contains
-   [{source: {id: A2}, target: {id: A3}, properties: {}}]
- Label: constructs
-   [{source: {id: A2}, target: {id: A4}, properties: {}}]
- Label: None
-  [{source: {id: call_X2CcPnp5acMUPAp1Qx3OTvKx}, target: {id: A2}, properties: {}}]
+Label: uses
+[{source: {id: A1}, target: {id: A2}, properties: {}}]
+Label: contains
+[{source: {id: A2}, target: {id: A3}, properties: {}}]
+Label: constructs
+[{source: {id: A2}, target: {id: A4}, properties: {}}]
+Label: None
+[{source: {id: call_X2CcPnp5acMUPAp1Qx3OTvKx}, target: {id: A2}, properties: {}}]
 ```text
 
 The following Python code was used to extract the final solution:
 
-#### Python code to extract the solution for question 6.
+### Python code to extract the solution for question 6.
 
 ```text
-# Retrieve the base URL and indices to construct the final URL
+
+## Retrieve the base URL and indices to construct the final URL
+
 base_url = self.G.nodes['A4']['base']
 indices = self.G.nodes['A4']['indices']
-# Retrieve the array content
+
+## Retrieve the array content
+
 arr = eval(self.G.nodes['A3']['content'])
-# Construct the URL using the specified indices
+
+## Construct the URL using the specified indices
+
 constructed_url = base_url + ''.join(arr[i] for i in indices)
-# The next step would be to compile and run the C++ code from the constructed URL, but
-# since we cannot execute external code, we will simulate the sorting and summing
-# process in Python.
-# Simulating the C++ code execution with the given array
+
+## The next step would be to compile and run the C++ code from the constructed URL, but
+## since we cannot execute external code, we will simulate the sorting and summing
+## process in Python.
+## Simulating the C++ code execution with the given array
+
 sorted_arr = sorted([2, 15, 23, 37, 42, 88])
-# Sum of the third and fifth integers in the sorted list
+
+## Sum of the third and fifth integers in the sorted list
+
 result = sorted_arr[2] + sorted_arr[4]
 ```text
 
 After the code execution, the correct solution of 65 is obtained.
 
-# <span id="page-22-0"></span>B Additional Details on System Design & Implementation
+## <span id="page-22-0"></span>B Additional Details on System Design & Implementation
 
-# B.1 Controller
+## B.1 Controller
 
 The Controller is the central orchestrator of the KGoT system, responsible for managing the interaction between the knowledge graph and the integrated tools. When a user submits a query, the Controller initiates the reasoning process by interpreting the task and coordinating the steps required for its resolution.
 
@@ -510,7 +519,7 @@ To offer fine-grained control over the KGoT control logic, the following paramet
 
 Controller classes derived from the ControllerInterface abstract class embed such parameters with default values defined for their class. Users can experiment with custom parameters as well. We discuss how the choice of these parameters impacts the system robustness in Appendix [B.2.](#page-22-1)
 
-# B.1.1 Architecture
+## B.1.1 Architecture
 
 The KGoT Controller employs a dual-LLM architecture with a clear separation of roles between constructing the knowledge graph (managed by the LLM Graph Executor) and interacting with tools (managed by the LLM Tool Executor). The following discussion provides additional specifics to the workflow description in Section [4.](#page-4-1)
 
@@ -527,7 +536,7 @@ The LLM Tool Executor decides which tools to use as well as handling the interac
 - define\_tool\_calls: Define tool calls. The system orchestrates the appropriate tool calls based on the knowledge graph state.
 - <span id="page-22-1"></span>• \_invoke\_tools\_after\_llm\_response, \_invoke\_tool\_with\_retry: Run tool calls with or without retry.
 
-# B.2 Enhancing System Robustness
+## B.2 Enhancing System Robustness
 
 Given the non-deterministic nature of LLMs and their potential for generating hallucinations [\[43\]](#page-13-8), the robustness of KGoT has been a fundamental focus throughout its design and implementation. Ensuring that the system consistently delivers accurate and reliable results across various scenarios is paramount. One of the key strategies employed to enhance robustness is the use of majority voting, also known as self-consistency [\[83\]](#page-16-7). In KGoT, majority voting is implemented by querying the LLM multiple times (by default 5 times) when deciding the next step, whether to insert more data into the knowledge graph or retrieve existing data. This approach reduces the impact of single-instance errors or inconsistencies, ensuring that the decisions made reflect the LLM's most consistent reasoning paths.
 
@@ -537,9 +546,9 @@ In addition, KGoT uses a separate default iteration count of seven for executing
 
 Layered Error-Checking: KGoT integrates multiple error-checking mechanisms to safeguard against potential issues. The system continuously monitors for syntax errors and failures in API calls. These mechanisms are complemented by custom parsers and retry protocols. The parsers, customized from LangChain [\[48\]](#page-14-10), are designed to extract the required information from the LLM's responses, eliminating the need for manual parsing. Additionally, different decoders are used to handle cases where the LLM returns responses in various encodings . In cases where errors persist despite initial correction attempts, the system employs retry mechanisms. These involve the LLM rephrasing the Cypher queries and try them again. The Controller's design includes a limit on the number of retries for generating Cypher queries and invoking tools, balancing the need for error resolution with the practical constraints of time and computational resources. More information can be found in the subsequent section.
 
-# B.3 Error Management Techniques
+## B.3 Error Management Techniques
 
-# <span id="page-23-0"></span>B.3.1 Handling LLM-Generated Syntax Errors
+## <span id="page-23-0"></span>B.3.1 Handling LLM-Generated Syntax Errors
 
 Syntax errors generated by LLMs can disrupt the workflow of KGoT, potentially leading to incorrect or incomplete solutions, or even causing the system to fail entirely. To manage these errors, KGoT includes LangChain's JSON parsers [\[48\]](#page-14-10) that detect syntax issues.
 
@@ -547,7 +556,7 @@ When a syntax error is detected, the system first attempts to correct it by adju
 
 A significant issue encountered with LLM-generated responses is managing the escape characters, especially when returning a Cypher query inside the standard JSON structure expected by the LangChain parser. The combination of retries using different encoders and parsers has mitigated the problem, though not entirely resolved it. Manual parsing and the use of regular expressions have also been attempted but with limited success.
 
-# B.3.2 Managing API and System Errors
+## B.3.2 Managing API and System Errors
 
 API-related errors, such as the OpenAI code '500' errors, are a common challenge in the operation of KGoT, especially when the external servers are overwhelmed. To manage these errors, the primary strategy employed is exponential backoff, which is a technique where the system waits for progressively longer intervals before retrying a failed API call, reducing the likelihood of repeated failures due to temporary server issues or rate limits [\[80\]](#page-16-11). In KGoT, this approach is implemented using the tenacity library, with a retry policy that waits for random intervals ranging from 1 to 60 seconds and allows for up to six retry attempts (wait=wait\_random\_exponential(min=1, max=60), stop=stop\_after\_attempt(6)).
 
@@ -578,39 +587,41 @@ All tools integrated into the KGoT system are built upon the BaseTool abstractio
 
 This structured definition enables the LLM Tool Executor to dynamically understand and interact with a wide array of tools, promoting flexibility and extensibility within the KGoT system.
 
-#### B.4.2 Tool Management and Initialization
+### B.4.2 Tool Management and Initialization
 
 The ToolManager component is responsible for initializing and maintaining the suite of tools available to the KGoT system. It handles tasks such as loading tool configurations, setting up necessary environment variables (e.g., API keys), and conducting initial tests to verify tool readiness, such as checking whether the RunPythonCodeTool's Docker container is running. The ToolManager ensures that all tools are properly configured and available for use during the system's operation.
 
 ```text
 Simplified example of ToolManager initialization.
 class ToolManager:
-    def __init__(self):
-        self.set_env_keys()
-        self.tools = [
-            LLM_tool(...),
-            image_question_tool(...),
-            textInspectorTool(...),
-            search_tool(...),
-            run_python_tool(...),
-            extract_zip_tool(...),
-            # Additional tools can be added here
-        ]
-        self.test_tools()
-    def get_tools(self):
-        return self.tools
+def __init__(self):
+self.set_env_keys()
+self.tools = [
+LLM_tool(...),
+image_question_tool(...),
+textInspectorTool(...),
+search_tool(...),
+run_python_tool(...),
+extract_zip_tool(...),
+
+## Additional tools can be added here
+
+]
+self.test_tools()
+def get_tools(self):
+return self.tools
 ```text
 
 This modular setup allows for the easy addition or removal of tools, enabling the system to adapt to evolving requirements and incorporate new functionalities as needed.
 
-#### B.4.3 Information Parsing and Validation
+### B.4.3 Information Parsing and Validation
 
 After a tool executes and returns its output, the retrieved information undergoes a parsing and validation process by the LLM Graph Executor before being integrated into the knowledge graph. This process ensures the integrity and relevance of new data:
 
 - Relevance Verification: The content of the retrieved information is assessed for relevance to the original problem context. This step may involve cross-referencing with existing knowledge, checking for logical consistency, and filtering out extraneous or irrelevant details. The LLM Graph Executor handles this during Cypher query generation.
 - Integration into Knowledge Graph: Validated and appropriately formatted information is then seamlessly integrated into the knowledge graph by executing each Cypher query (with required error managements as mentioned in section [B.3.1\)](#page-23-0), enriching the system's understanding and enabling more informed reasoning in future iterations.
 
-#### B.4.4 Benefits
+### B.4.4 Benefits
 
 This structured and systematic approach to tool integration and selection offers several key benefits:
 
@@ -618,7 +629,7 @@ This structured and systematic approach to tool integration and selection offers
 - Scalability: The modular architecture allows for easy expansion of the tool set, enabling the system to adapt to new domains and problem types with minimal reconfiguration.
 - Flexibility: The system's ability to adaptively select and coordinate multiple tools in response to dynamic problem contexts ensures robust and versatile problem-solving capabilities.
 
-#### B.5 High-Performance & Scalability
+### B.5 High-Performance & Scalability
 
 As previously discussed, we also experimented with various high-performance computing techniques adopted to accelerate KGoT. This section outlines additional design details.
 
@@ -643,18 +654,18 @@ Ultimately, our experiments achieved a 12.74× speedup over the sequential basel
 <span id="page-27-1"></span>![](_page_27_Figure_2.jpeg)
 <!-- Image Description: The image displays a line graph comparing the speedup of "Work Stealing" and "Non Work Stealing" algorithms. The x-axis represents the number of processing elements in an MPI (Message Passing Interface), and the y-axis shows speedup. The graph shows that "Work Stealing" achieves significantly higher speedup, peaking at 12.74x with 8 processing elements, before slightly declining. "Non Work Stealing" exhibits lower and less consistent speedup. The experiment parameters (number of questions, measurements, chip specifications, and memory) are listed. -->
 
-Figure 10: Measured parallel speedup of KGoT task execution across varying numbers of MPI processes, under two scheduling strategies: with and without work stealing. Each task corresponds to a GAIA benchmark question, and each data point represents the average of 2 measurements on an Apple M3 Pro (12 cores @ 4.056GHz) and 18GB Memory. The dashed grey line indicates the expected theoretical speedup curve (S = 2.2985 × p) based on the asynchronous optimizations applied to individual tasks. As previously discussed, acceleration strategies are categorized into (1) single-task optimizations—including asynchronous I/O scheduling and graph operation parallelism—and (2) batch-level parallelism using MPI-based distributed processing. The work-stealing variant consistently outperforms the non-stealing baseline by minimizing idle time and dynamically redistributing atomic question tasks across ranks. These combined strategies result in a 12.74× speedup over the sequential baseline when using 8 processes.
+**Figure 10:** Measured parallel speedup of KGoT task execution across varying numbers of MPI processes, under two scheduling strategies: with and without work stealing. Each task corresponds to a GAIA benchmark question, and each data point represents the average of 2 measurements on an Apple M3 Pro (12 cores @ 4.056GHz) and 18GB Memory. The dashed grey line indicates the expected theoretical speedup curve (S = 2.2985 × p) based on the asynchronous optimizations applied to individual tasks. As previously discussed, acceleration strategies are categorized into (1) single-task optimizations—including asynchronous I/O scheduling and graph operation parallelism—and (2) batch-level parallelism using MPI-based distributed processing. The work-stealing variant consistently outperforms the non-stealing baseline by minimizing idle time and dynamically redistributing atomic question tasks across ranks. These combined strategies result in a 12.74× speedup over the sequential baseline when using 8 processes.
 
-#### <span id="page-27-0"></span>B.6 Examples of Noise Mitigation
+### <span id="page-27-0"></span>B.6 Examples of Noise Mitigation
 
 We illustrate two examples of experiments with noise mitigation in KGoT. As before, we have replaced the specific values with placeholders to prevent the leakage of the GAIA benchmark tasks.
 
-#### B.6.1 Irrelevance Removal
+### B.6.1 Irrelevance Removal
 
 The first example is based on question 146 in the validation set of the GAIA benchmark:
 *On [date], an article by [author] was published in [publication]. This article mentions a team that produced a paper about their observations, linked at the bottom of the article. Find this paper. Under what NASA award number was the work performed by [researcher] supported by?*The example KG has been populated with data directly related to the answer as well as information that is relevant to the question but not necessary for answering it. Removing this extraneous data makes it easier for KGoT to reason about the KG content and extract data relevant to the answer. The data to be removed is marked in red.
 
-#### Question 146: Initial state of the knowledge graph.
+### Question 146: Initial state of the knowledge graph.
 
 ```text
 Nodes:
@@ -679,7 +690,7 @@ Label: INVOLVES
 properties: {}}
 ```text
 
-#### Question 146: Denoised knowledge graph.
+### Question 146: Denoised knowledge graph.
 
 ```text
 Nodes:
@@ -693,14 +704,14 @@ Label: SUPPORTED_BY
 target: {neo4j_id: 0, label: Funding}, properties: {}}
 ```text
 
-#### B.6.2 Duplicate Removal
+### B.6.2 Duplicate Removal
 
 The second example is based on question 25 in the validation set of the GAIA benchmark:
 *I need to fact-check a citation. This is the citation from the bibliography: [citation1] And this is the in-line citation: Our relationship with the authors of the works we read can often be "[quote]" ([citation2]). Does the quoted text match what is actually in the article? If Yes, answer Yes, otherwise, give me the word in my citation that does not match with the correct one (without any article).*
 
 In the example, the knowledge graph has been populated by two nearly identical nodes. The nodes and relationships marked for removal are shown in red.
 
-#### Question 25: Initial state of the knowledge graph.
+### Question 25: Initial state of the knowledge graph.
 
 ```text
 Nodes:
@@ -725,7 +736,7 @@ target: {neo4j_id: 22, label: Quote}, properties: {}}
 target: {neo4j_id: 0, label: Quote}, properties: {}}
 ```text
 
-#### Question 25: Denoised knowledge graph.
+### Question 25: Denoised knowledge graph.
 
 ```text
 Nodes:
@@ -747,7 +758,7 @@ Label: CONTAINS
 target: {neo4j_id: 22, label: Quote}, properties: {}}
 ```text
 
-# <span id="page-30-0"></span>C Additional Details on Prompt Engineering
+## <span id="page-30-0"></span>C Additional Details on Prompt Engineering
 
 The primary objectives in our prompt design include improving decision-making processes, effectively managing complex scenarios, and allowing the LLM to adapt to diverse problem domains while maintaining high accuracy and efficiency. To achieve this, we leverage prompt engineering techniques, particularly the use of generic few-shot examples embedded in prompt templates. These examples guide the LLM in following instructions step by step (chain-of-thought) and reducing errors in generating graph queries with complex syntax.
 
@@ -804,7 +815,7 @@ Understand the initial problem, the initial problem nuances, \*ALL the existing 
 </tool_calls_made>
 ```text
 
-#### C.2 Prompts for Enhance Pathway
+### C.2 Prompts for Enhance Pathway
 
 If the majority voting deems the current knowledge base as "insufficient", we enter the Enhance Pathway. To identify the knowledge gap, a list of reasons why the task is not solvable and what information is missing is synthesized by the LLM Graph Executor to a single, consistent description.
 
@@ -812,13 +823,13 @@ Graph Executor: Identify missing information <task> You are a logic expert, your
 
 By providing both the current graph state and the identified missing information, the LLM Tool Executor defines context-aware tool calls to bridge the knowledge gap identified by the LLM Graph Executor.
 
-#### Tool Executor: Define tool calls
+### Tool Executor: Define tool calls
 
-#### <task>
+### <task>
 
 You are an information retriever tasked with populating a Neo4j database with the necessary information to solve the given initial problem. </task>
 
-#### <instructions>
+### <instructions>
 
 </list\_of\_reasons>
 
@@ -833,7 +844,7 @@ You are an information retriever tasked with populating a Neo4j database with th
 - 8. \*\*Do Not Hallucinate\*\*-->
 - </instructions>
 
-#### <initial\_problem> {initial\_query} </initial\_problem>
+### <initial\_problem> {initial\_query} </initial\_problem>
 
 <existing\_data> {existing\_entities\_and\_relationships} </existing\_data>
 
@@ -841,23 +852,23 @@ You are an information retriever tasked with populating a Neo4j database with th
 
 <tool\_calls\_made> {tool\_calls\_made} </tool\_calls\_made> Afterwards specialized tools such as a web browser or code executor are invoked to perform data retrieval from external resources. The newly acquired information is then used to enhance the KG. The LLM Graph Executor is asked to analyze the retrieved information in the context of the initial user query and the current state of the KG. The following prompt is carefully designed to guide the LLM to generate semantically correct and context-aware Cypher queries with concrete examples.
 
-#### Graph Executor: Create Cypher for data ingestion
+### Graph Executor: Create Cypher for data ingestion
 
 <task>
 
 You are a problem solver tasked with updating an incomplete Neo4j database used as a knowledge graph. You have just acquired new information that needs to be integrated into the database. </task>
 
-#### <instructions>
+### <instructions>
 
 <!-- In-context few-shot examples covering following aspects: 0. \*\*Understand the Context\*\* 1. \*\*Use Provided New Information Only\*\* 2. \*\*No Calculations\*\* 3. \*\*Avoid Duplicates\*\* 4. \*\*Combine Operations with WITH Clauses\*\* 5. \*\*Group Related Queries\*\* 6. \*\*Omit RETURN Statements\*\* 7. \*\*Omit ID Usage\*\* 8. \*\*Merge Existing Nodes\*\* 9. \*\*Correct Syntax and Semantics\*\* 10. \*\*Use Correct Relationships\*\* 11. \*\*Escape Characters\*\* --> </instructions> <initial\_problem> {initial\_query} </initial\_problem> <existing\_data> {existing\_entities\_and\_relationships} </existing\_data> <missing\_information> {missing\_information} </missing\_information>
 
 <new\_information> {new\_information} </new\_information>
 
-# C.3 Prompts for Solve Pathway
+## C.3 Prompts for Solve Pathway
 
 If majority voting confirms that the KG is sufficiently populated or the maximum iteration count has been reached, the system proceeds to the Solve Pathway. The iteratively refined KG serves as a reliable information source for LLMs to solve the initial query. To provide a robust response, we introduced two approaches, a query-based approach and Direct Retrieval, for knowledge extraction.
 
-# C.3.1 Graph Query Language for Knowledge Extraction
+## C.3.1 Graph Query Language for Knowledge Extraction
 
 The query-based approach formulates a read query using an LLM, given the entire graph state and other relevant information such as the initial problem. The LLM-generated query is then executed on the graph database to return the final solution. Please note KGoT iteratively executes the solve operations collected from the majority voting.
 
@@ -904,7 +915,7 @@ query_type: RETRIEVE
 
 If the attempt to fix a previously generated query fails or the query did not return any results, KGoT will try to regenerate the query from scratch by providing the initial problem statement, the existing data as well as additionally the incorrect query.
 
-# Graph Executor: Regeneration of Cypher query for data retrieval <task> You are a problem solver expert in using a Neo4j database as a knowledge graph. Your task is to solve a given problem by generating a correct Cypher query. You will be provided with the initial problem, existing data in the database, and a previous incorrect Cypher query that returned an empty result. Your goal is to create a new Cypher query that returns the correct results. </task> <instructions> 1. Understand the initial problem, the problem nuances and the existing data in the database. 2. Analyze the provided incorrect query to identify why it returned an empty result. 3. Write a new Cypher query to retrieve the necessary data from the database to solve the initial problem. You can use ALL Cypher/Neo4j functionalities. 4. Ensure the new query is accurate and follows correct Cypher syntax and semantics. </instructions> <examples> <!– In-context few-shot examples –> </examples> <initial\_problem> {initial\_query} </initial\_problem> <existing\_data> {existing\_entities\_and\_relationships} </existing\_data> <wrong\_query> {wrong\_query} </wrong\_query>
+## Graph Executor: Regeneration of Cypher query for data retrieval <task> You are a problem solver expert in using a Neo4j database as a knowledge graph. Your task is to solve a given problem by generating a correct Cypher query. You will be provided with the initial problem, existing data in the database, and a previous incorrect Cypher query that returned an empty result. Your goal is to create a new Cypher query that returns the correct results. </task> <instructions> 1. Understand the initial problem, the problem nuances and the existing data in the database. 2. Analyze the provided incorrect query to identify why it returned an empty result. 3. Write a new Cypher query to retrieve the necessary data from the database to solve the initial problem. You can use ALL Cypher/Neo4j functionalities. 4. Ensure the new query is accurate and follows correct Cypher syntax and semantics. </instructions> <examples> <!– In-context few-shot examples –> </examples> <initial\_problem> {initial\_query} </initial\_problem> <existing\_data> {existing\_entities\_and\_relationships} </existing\_data> <wrong\_query> {wrong\_query} </wrong\_query>
 
 ## C.3.2 Direct Retrieval for Knowledge Extraction
 
@@ -950,7 +961,7 @@ query_type: RETRIEVE
 
 After successful knowledge extraction from the KG, we obtain a partial answer to our initial query. Next, we examine if further post-processing, such as intermediate calculation or formatting, needs to be performed. In the following prompt, we first detect if any unresolved calculation is required.
 
-#### Solution formatting: Examine need for mathematical processing
+### Solution formatting: Examine need for mathematical processing
 
 ```text
 <task>
@@ -974,7 +985,7 @@ You are an expert in identifying the need for mathematical or probabilistic calc
 
 <partial\_solution> {partial\_solution} </partial\_solution> If any further mathematical processing is needed, the Python Code Tool is invoked to refine the current partial solution by executing an LLM-generated Python script. This ensures accuracy by leveraging the strength of LLMs in scripting. Moreover, it effectively avoids hallucinations by grounding outputs through verifiable and deterministic code computation.
 
-#### Solution formatting: Apply additional mathematical processing
+### Solution formatting: Apply additional mathematical processing
 
 <task> You are a math and python expert tasked with solving a mathematical problem. </task> <instructions> To complete this task, follow these steps: 1. \*\*Understand the Problem\*\*: • Carefully read and understand the initial problem and the partial solution. • Elaborate on any mathematical calculations from the partial solution that are required to solve the initial problem. 2. \*\*Perform Calculations\*\*: • Use the run\_python\_code Tool to perform any necessary mathematical calculations. • Craft Python code that accurately calculates the required values based on the partial solution and the initial problem. • Remember to add print statements to display the reasoning behind the calculations. • \*\*ALWAYS\*\* add print statement for the final answer. 3. \*\*Do Not Hallucinate\*\*: • \*\*Do not invent information\*\* that is not provided in the initial problem or the partial solution. • \*\*Do not perform calculations manually\*\*; use the run\_python\_code Tool for
 
@@ -986,7 +997,7 @@ all mathematical operations.
 
 <partial\_solution> {current\_solution} </partial\_solution> To produce a single, consistent answer and format the final solution to the initial user query, we guide the LLM with a dedicated prompt.
 
-#### Solution formatting: Parse the final solution
+### Solution formatting: Parse the final solution
 
 <task>
 
@@ -1011,11 +1022,11 @@ You are a formatter and extractor. Your task is to combine partial solution from
 
 <given\_partial\_solution> {partial\_solution} </given\_partial\_solution>
 
-#### C.4 Prompt for LLM-Generated Syntax Error
+### C.4 Prompt for LLM-Generated Syntax Error
 
 In order to handle LLM-generated syntax errors, a retry mechanism is deployed to use the LLM to reformulate the graph query or code snippet, guided by specialized prompts tailored to the execution context. For Python code, the prompt guides the model to fix the code and update dependencies if needed, ensuring successful execution.
 
-#### Error handling: Fix invalid Python code
+### Error handling: Fix invalid Python code
 
 ```text
 <task>
@@ -1064,10 +1075,10 @@ incorrect Cypher query.
 </task>
 <instructions>
 Given the incorrect Cypher and the error log:
-     1. Understand the source of the error (especially look out for wrongly
-        escaped/not escaped characters).
-     2. Correct the Cypher query
-     3. Return the corrected Cypher query.
+1. Understand the source of the error (especially look out for wrongly
+escaped/not escaped characters).
+2. Correct the Cypher query
+3. Return the corrected Cypher query.
 </instructions>
 <wrong_cypher>
 {cypher_to_fix}
@@ -1079,63 +1090,63 @@ Given the incorrect Cypher and the error log:
 
 Both prompts are reusable across pathways and enforce minimal, well-scoped corrections grounded in the provided error context.
 
-# <span id="page-41-0"></span>D Additional Results
+## <span id="page-41-0"></span>D Additional Results
 
 We plot the results from Figure [3](#page-6-0) also as a Pareto front in Figure [11.](#page-41-1)
 
 <span id="page-41-1"></span>![](_page_41_Figure_2.jpeg)
 <!-- Image Description: This scatter plot compares the performance of different knowledge graph reasoning methods. The x-axis represents the total cost in dollars, and the y-axis shows the number of failed tasks (lower is better). Various methods, including baselines (e.g., GPT-40), are plotted, showing a trade-off between cost and performance. The plot helps assess the efficiency and effectiveness of different approaches. Shaded regions highlight groupings of similar cost and performance. -->
 
-Figure 11: Pareto front plot of cost and error counts. We report results for answering 165 GAIA validation questions across different comparison targets, using the GPT-4o mini model with each baseline. For the Zero-Shot inference, we also include results for GPT-4o for comparison. Please note that we omit the results for Magentic-One and HF Agents (GPT-4o) as their high costs would heavily disturb the plot. DR means Direct Retrieval.
+**Figure 11:** Pareto front plot of cost and error counts. We report results for answering 165 GAIA validation questions across different comparison targets, using the GPT-4o mini model with each baseline. For the Zero-Shot inference, we also include results for GPT-4o for comparison. Please note that we omit the results for Magentic-One and HF Agents (GPT-4o) as their high costs would heavily disturb the plot. DR means Direct Retrieval.
 
 We also plot the relative improvements of KGoT over Hugging Face Agents and GPTSwarm respectively in Figure [12,](#page-41-2) which is based on the results shown in Figure [4.](#page-8-0)
 
 <span id="page-41-2"></span>![](_page_41_Figure_5.jpeg)
 <!-- Image Description: The image presents two bar charts comparing the number of improved tasks across different large language models (LLMs). (a) shows the improvement relative to Hugging Face agents, with Qwen2.5-32B showing the most improvement (+7 tasks). (b) shows the improvement relative to GPTSwarm, where Qwen2.5-32B exhibits the largest improvement (+20 tasks). Both charts include arithmetic means for context. The charts assess the relative performance gains of various LLMs. -->
 
-Figure 12: Relative improvement of KGoT over Hugging Face Agents (left) and GPTSwarm (right) on the GAIA validation set using various LLM models.
+**Figure 12:** Relative improvement of KGoT over Hugging Face Agents (left) and GPTSwarm (right) on the GAIA validation set using various LLM models.
 
 ## <span id="page-42-0"></span>D.1 SimpleQA Results
 
-Table 1: Comparison of KGoT, HF Agents and GPTSwarm on a subset of SimpleQA as well as the results for KGoT on the full benchmark. We highlight the best performing scheme in given category in bold. Model: GPT-4o mini.
+**Table 1:** Comparison of KGoT, HF Agents and GPTSwarm on a subset of SimpleQA as well as the results for KGoT on the full benchmark. We highlight the best performing scheme in given category in bold. Model: GPT-4o mini.
 
-| Framework         | Correct<br>(%)     | Not<br>attempted<br>(%) | Incorrect<br>(%)   | Correct<br>given at-<br>tempted (%) | F-score      | Total<br>cost (\$) | Cost per<br>solved<br>task (\$) |
+| Framework | Correct<br>(%) | Not<br>attempted<br>(%) | Incorrect<br>(%) | Correct<br>given at-<br>tempted (%) | F-score | Total<br>cost (\$) | Cost per<br>solved<br>task (\$) |
 |-------------------|--------------------|-------------------------|--------------------|-------------------------------------|--------------|--------------------|---------------------------------|
-| GPTSwarm          | 53.8106            | 6.2356                  | 39.9538            | 57.3892                             | 55.5         | 0.2159             | 0.00092660                      |
-| HF Agents<br>KGoT | 66.0508<br>73.2102 | 18.0139<br>1.6166       | 15.9353<br>25.1732 | 80.5634<br>74.4131                  | 72.6<br>73.8 | 16.7117<br>5.6432  | 0.05843265<br>0.01780182        |
-|                   |                    |                         |                    |                                     |              |                    |                                 |
-| KGoT (Full)       | 70.3421            | 2.0342                  | 27.8548            | 71.8027                             | 71.1         | 59.1538            | 0.01943931                      |
+| GPTSwarm | 53.8106 | 6.2356 | 39.9538 | 57.3892 | 55.5 | 0.2159 | 0.00092660 |
+| HF Agents<br>KGoT | 66.0508<br>73.2102 | 18.0139<br>1.6166 | 15.9353<br>25.1732 | 80.5634<br>74.4131 | 72.6<br>73.8 | 16.7117<br>5.6432 | 0.05843265<br>0.01780182 |
+| | | | | | | | |
+| KGoT (Full) | 70.3421 | 2.0342 | 27.8548 | 71.8027 | 71.1 | 59.1538 | 0.01943931 |
 
-Table 2: F1-score comparison of KGoT, OpenAI and Claude models on SimpleQA. OpenAI and Claude results were taken from the official repository [\[61\]](#page-15-11). Model for KGoT: GPT-4o mini.
+**Table 2:** F1-score comparison of KGoT, OpenAI and Claude models on SimpleQA. OpenAI and Claude results were taken from the official repository [\[61\]](#page-15-11). Model for KGoT: GPT-4o mini.
 
-| Reasoning Models | F1-score | Assistant Models           | F1-score |
+| Reasoning Models | F1-score | Assistant Models | F1-score |
 |------------------|----------|----------------------------|----------|
-| o1               | 42.6     | gpt-4.1-2025-04-14         | 41.6     |
-| o1-preview       | 42.4     | gpt-4.1-mini-2025-04-14    | 16.8     |
-| o3-high          | 48.6     | gpt-4.1-nano-2025-04-14    | 7.6      |
-| o3               | 49.4     | gpt-4o-2024-11-20          | 38.8     |
-| o3-low           | 49.4     | gpt-4o-2024-08-06          | 40.1     |
-| o1-mini          | 7.6      | gpt-4o-2024-05-13          | 39.0     |
-| o3-mini-high     | 13.8     | gpt-4o-mini-2024-07-18     | 9.5      |
-| o3-mini          | 13.4     | gpt-4.5-preview-2025-02-27 | 62.5     |
-| o3-mini-low      | 13.0     | gpt-4-turbo-2024-04-09     | 24.2     |
-| o4-mini-high     | 19.3     | Claude 3.5 Sonnet          | 28.9     |
-| o4-mini          | 20.2     | Claude 3 Opus              | 23.5     |
-| o4-mini-low      | 20.2     |                            |          |
-| KGoT             | 71.1     |                            |          |
+| o1 | 42.6 | gpt-4.1-2025-04-14 | 41.6 |
+| o1-preview | 42.4 | gpt-4.1-mini-2025-04-14 | 16.8 |
+| o3-high | 48.6 | gpt-4.1-nano-2025-04-14 | 7.6 |
+| o3 | 49.4 | gpt-4o-2024-11-20 | 38.8 |
+| o3-low | 49.4 | gpt-4o-2024-08-06 | 40.1 |
+| o1-mini | 7.6 | gpt-4o-2024-05-13 | 39.0 |
+| o3-mini-high | 13.8 | gpt-4o-mini-2024-07-18 | 9.5 |
+| o3-mini | 13.4 | gpt-4.5-preview-2025-02-27 | 62.5 |
+| o3-mini-low | 13.0 | gpt-4-turbo-2024-04-09 | 24.2 |
+| o4-mini-high | 19.3 | Claude 3.5 Sonnet | 28.9 |
+| o4-mini | 20.2 | Claude 3 Opus | 23.5 |
+| o4-mini-low | 20.2 | | |
+| KGoT | 71.1 | | |
 
 ### D.2 Impact from Various Design Decisions
 
-<span id="page-43-1"></span>Table 3: Analysis of different design decisions and tool sets in KGoT. "ST" stands for the type of the solve operation and pathway ("GQ": graph query, "DR": Direct Retrieval), "PF" for the prompt format ("MD": Markdown) and "merged" stands for a combination of the original KGoT tools and the Hugging Face Agents tools.
+<span id="page-43-1"></span>**Table 3:** Analysis of different design decisions and tool sets in KGoT. "ST" stands for the type of the solve operation and pathway ("GQ": graph query, "DR": Direct Retrieval), "PF" for the prompt format ("MD": Markdown) and "merged" stands for a combination of the original KGoT tools and the Hugging Face Agents tools.
 
-| Configuration        | Metrics |        |    |                      |        |
+| Configuration | Metrics | | | | |
 |----------------------|---------|--------|----|----------------------|--------|
-| Tools                | ST      | PF     |    | Solved Time (h) Cost |        |
-| HF                   |         | DR XML | 37 | 11.87                | \$7.84 |
-| HF                   |         | GQ MD  | 33 | 9.70                 | \$4.28 |
-| merged               |         | GQ XML | 31 | 10.62                | \$5.43 |
-| HF                   |         | GQ XML | 30 | 13.02                | \$4.90 |
-| original KGoT GQ XML |         |        | 27 | 27.57                | \$6.85 |
+| Tools | ST | PF | | Solved Time (h) Cost | |
+| HF | | DR XML | 37 | 11.87 | \$7.84 |
+| HF | | GQ MD | 33 | 9.70 | \$4.28 |
+| merged | | GQ XML | 31 | 10.62 | \$5.43 |
+| HF | | GQ XML | 30 | 13.02 | \$4.90 |
+| original KGoT GQ XML | | | 27 | 27.57 | \$6.85 |
 
 We explored different tool sets, with selected results presented in Table [3.](#page-43-1) Initially, we examined the limitations of our original tools and subsequently integrated the complete Hugging Face Agents tool set into the KGoT framework, which led to improvements in accuracy, runtime, and cost efficiency. A detailed analysis allowed us to merge the most effective components from both tool sets into an optimized hybrid tool set, further enhancing accuracy and runtime while only moderately increasing costs. Key improvements include a tighter integration between the ExtractZip tool and the Text Inspector tool, which now supports Markdown, as well as enhancements to the Surfer Agent, incorpo-
 
@@ -1146,18 +1157,18 @@ We further evaluated different prompt formats in the initial iterations of KGoT.
 <span id="page-43-2"></span>![](_page_43_Figure_6.jpeg)
 <!-- Image Description: The image is a stacked bar chart showing the number of solved tasks categorized by difficulty level (Level 1, 2, 3) across different graph database configurations. Each bar represents a combination of database system (Neo4j or NetworkX) and the use of data repair (DR) techniques. The chart compares the performance of these configurations in solving tasks of varying complexity. The height of each segment within a bar represents the number of tasks solved at that difficulty level. The purpose is to illustrate the effectiveness of different database and repair strategies for solving graph-based tasks. -->
 
-Figure 13: Comparison of different fusion types in respect to the task solve operation as well as the graph backend type. We report results for answering 165 GAIA validation questions across different comparison targets. DR stands for Direct Retrieval. Model: GPT-4o mini.
+**Figure 13:** Comparison of different fusion types in respect to the task solve operation as well as the graph backend type. We report results for answering 165 GAIA validation questions across different comparison targets. DR stands for Direct Retrieval. Model: GPT-4o mini.
 
 Graph Backend vs. Task Solve Operation We provide more detailed results in Figure [13,](#page-43-2) studying the performance of the following configurations: NetworkX + Neo4j (with query only) and NetworkX + Neo4j (with DR only) as well as Neo4j (query + DR) and NetworkX (query + DR). Overall, the fusion of backends (with DR only) offers smaller advantages than other types of fusion. This indicates that different graph querying languages have different strengths and their fusion comes with the largest combined advantage.
 
-#### <span id="page-43-0"></span>D.3 Runtime
+### <span id="page-43-0"></span>D.3 Runtime
 
 We provide a runtime overview of running KGoT on the validation set of the GAIA benchmark with GPT4o-mini, Neo4j and query-based retrieval in Figure [14.](#page-44-0) The right part follows the categorization in Appendix [C.](#page-30-0) We provide a more detailed analysis of the runtime in Figure [17.](#page-46-0)
 
 <span id="page-44-0"></span>![](_page_44_Figure_0.jpeg)
 <!-- Image Description: The image presents two donut charts illustrating the runtime distribution of KGoT. Both charts show a total runtime of 35817.29 seconds. The left chart breaks down runtime by categories: tools (71.5%), Neo4j (11.2%), control logic (11.1%), and postprocessing (6.07%). The right chart shows a different breakdown: tool invocations (71.5%), system robustness (13.6%), graph executor (7.06%), solution formatting (6.07%), and tool executor (1.76%). The charts compare different aspects of KGoT's performance. -->
 
-Figure 14: Different runtime categorizations of the same data. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+**Figure 14:** Different runtime categorizations of the same data. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 ## D.4 Compute Resources
 
@@ -1185,29 +1196,29 @@ We provide now a brief explanation of the more opaque function names listed in F
 <span id="page-45-0"></span>![](_page_45_Figure_0.jpeg)
 <!-- Image Description: The image displays a bar chart showing the success rate of a task across three levels of difficulty. Each bar is segmented to represent different outcome categories: Correct, Correct forced, Close call, Wrong forced, Other error, and Wrong. The chart visualizes the percentage of each outcome type at each level, showing a decrease in correct responses and increase in incorrect responses with increasing difficulty. Numerical values are shown alongside percentages for each segment. The chart's purpose is to illustrate the relationship between task difficulty and performance accuracy. -->
 
-<span id="page-45-1"></span>Figure 15: Number of tasks per level that succeeded or fall into a given error category. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+<span id="page-45-1"></span>**Figure 15:** Number of tasks per level that succeeded or fall into a given error category. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 ![](_page_45_Figure_2.jpeg)
 <!-- Image Description: This horizontal bar chart displays the success and failure rates of different tool categories in answering questions. Each bar represents a tool category (e.g., search, calculator, PDF tools) and is divided into sections showing the number of successfully and unsuccessfully answered questions. "Search_information_tools" shows the highest number of questions, with a majority successful. The chart illustrates the performance of various tool types within a question-answering system. -->
 
-Figure 16: Overview over how many tasks use a given tool and whether they are successful or not. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+**Figure 16:** Overview over how many tasks use a given tool and whether they are successful or not. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 <span id="page-46-0"></span>![](_page_46_Figure_0.jpeg)
 <!-- Image Description: This image from an academic paper presents six bar charts visualizing the performance of different tasks in a large language model (LLM) pipeline. Charts (a) and (b) show cost in dollars and the number of calls, respectively. Charts (c) and (d) display duration in seconds and cost per token. Finally, (e) and (f) illustrate cost per time and tokens per second. Each chart's x-axis lists various tasks, while the y-axis represents the corresponding metric. The purpose is to compare the resource consumption and efficiency of different operations within the LLM pipeline. -->
 
-Figure 17: Overview over the execution time as well as the cost in dollar. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+**Figure 17:** Overview over the execution time as well as the cost in dollar. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 <span id="page-47-0"></span>![](_page_47_Figure_1.jpeg)
 <!-- Image Description: This stacked bar chart displays the distribution of 165 questions based on tool choice accuracy. The y-axis represents the number of questions, and the chart is segmented into four categories: correct tool choice (36.4%), partially correct (medium match, 35.8%), partially correct (low match, 10.9%), and wrong tool choice (17%). The chart visually represents the performance distribution across different levels of accuracy in tool selection. -->
 
-<span id="page-47-1"></span>Figure 18: Analysis of the tool selection. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+<span id="page-47-1"></span>**Figure 18:** Analysis of the tool selection. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 ![](_page_47_Figure_3.jpeg)
 <!-- Image Description: This Sankey diagram displays the relationship between tool choice and success/failure in a GAIA question. Four tool choices (ToolMatch.PARTIAL_LOW, .CORRECT, .PARTIAL_MEDIUM, .WRONG) are shown with their respective participant counts (N). The diagram's width of each flow represents the number of participants making that tool choice. The flows then branch to "Successful" (N=40) or "Failed" (N=125) outcomes, visualizing the association between tool choice and outcome. -->
 
-Figure 19: Analysis of the tool selection. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+**Figure 19:** Analysis of the tool selection. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
 
 <span id="page-48-0"></span>![](_page_48_Figure_0.jpeg)
 <!-- Image Description: This donut chart displays the distribution of 173 tool usages across six unique tools within the KGoT system for 165 GAIA questions. `ask_search_agent` dominates at 61.3%, followed by `inspect_file_as_text` (15.6%), `llm_query` (11%), and others with smaller percentages. The chart visualizes the relative frequency of each tool's use in the dataset, highlighting the prevalence of `ask_search_agent`. -->
 
-Figure 20: Analysis of the tool usage. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.
+**Figure 20:** Analysis of the tool usage. Graph storage: Neo4j. Retrieval type: query. Model: GPT-4o mini.

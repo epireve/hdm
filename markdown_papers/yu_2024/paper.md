@@ -47,23 +47,21 @@ keywords:
 - end-users
 ---
 
-
-
 # *Article*Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics
+
 **Mingqin Yu 1,\*, Fethi A. Rabhi [1](https://orcid.org/0000-0001-8934-6259) and Madhushi Bandara [2](https://orcid.org/0000-0001-6543-3841)**- <sup>1</sup> School of Computer Science and Engineering Building K17, University of New South Wales, Sydney, NSW 2052, Australia; f.rabhi@unsw.edu.au
 - <sup>2</sup> School of Computer Science, University of Technology Sydney, Ultimo, NSW 2007, Australia; madhushi.bandara@uts.edu.au
 -**\***Correspondence: mingqin.yu@unsw.edu.au
 **Abstract:**The burgeoning significance of environmental, social, and governance (ESG) metrics in realms such as investment decision making, corporate reporting, and risk management underscores the imperative for a robust, comprehensive solution capable of effectively capturing, representing, and analysing the multifaceted and intricate ESG data landscape. Facing the challenge of aligning with diverse standards and utilising complex datasets, organisations require robust systems for the integration of ESG metrics with traditional financial reporting. Amidst this, the evolving regulatory landscape and the demand for transparency and stakeholder engagement present significant challenges, given the lack of standardized ESG metrics in certain areas. Recently, the use of ontologydriven architectures has gained attention for their ability to encapsulate domain knowledge and facilitate integration with decision-support systems. This paper proposes a knowledge graph in the ESG metric domain to assist corporations in cataloguing and navigating ESG reporting requirements, standards, and associated data. Employing a design science methodology, we developed an ontology that serves as both a conceptual foundation and a semantic layer, fostering the creation of an interoperable ESG Metrics Knowledge Graph (ESGMKG) and its integration within operational layers. This ontology-driven approach promises seamless integration with diverse ESG data sources and reporting frameworks, while addressing the critical challenges of metric selection, alignment, and data verification, supporting the dynamic nature of ESG metrics. The utility and effectiveness of the proposed ontology were demonstrated through a case study centred on the International Financial Reporting Standards (IFRS) framework that is widely used within the banking industry.
 **Keywords:**ESG; ontology; ontology-driven architecture; ESG metrics; design science method
 
-# 1. Introduction
+## 1. Introduction
 
 The risks of a changing climate extend to all sectors of the economy [\[1\]](#page-13-0). The burgeoning significance of environmental, social, and governance (ESG) metrics in realms such as investment decision making, corporate reporting, and risk management underscores the imperative for a robust, comprehensive solution capable of effectively capturing, representing, and analysing the multifaceted and intricate ESG data landscape. As organisations delve into the realm of ESG reporting, they encounter a landscape rife with complexities, primarily due to the diversity of reporting standards and the intricate process of managing ESG-related data [\[2,](#page-13-1)[3\]](#page-13-2). This environment not only demands the meticulous selection and alignment of relevant ESG metrics with overarching reporting frameworks but also necessitates sophisticated data management systems to ensure the integrity and verifiability of the reported metrics [\[4,](#page-14-0)[5\]](#page-14-1). The integration of these metrics into traditional financial reporting frameworks adds another layer of complexity, highlighting the critical need for a nuanced understanding of materiality in relation to stakeholder expectations [\[6\]](#page-14-2). Moreover, the evolving regulatory landscape further complicates these challenges, making transparency, stakeholder engagement, and the pursuit of standardized metrics essential
 **Citation:**Yu, M.; Rabhi, F.A.; Bandara, M. Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics.*Electronics* **2024**, *13*, 1719. [https://doi.org/10.3390/](https://doi.org/10.3390/electronics13091719) [electronics13091719](https://doi.org/10.3390/electronics13091719)
 
 Academic Editors: Stefano Ferilli and Domenico Redavid
 
-Received: 22 March 2024 Revised: 13 April 2024 Accepted: 26 April 2024 Published: 29 April 2024
 
 **Copyright:** © 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
 
@@ -101,7 +99,7 @@ In summary, the collaborative application of ESG metric ontologies and knowledge
 
 ## <span id="page-3-0"></span>3. Development Methodology
 
-###*3.1. Research Methodology*This study was conducted following the Design Science Research (DSR) Methodology, as detailed by Peffers et al. [\[26\]](#page-14-22). DSR offers a structured approach to creating and evaluating IT artifacts that address specific challenges in the real world. In this case, the main desired artifact is the*ESG Metrics Knowledge Graph (ESGMKG)*and its underpinning ontology. DSR encompasses six well-defined stages, each contributing to the systematic development and assessment of the ESGMKG, thereby ensuring its relevance and efficacy in addressing the intricacies of ESG metric management, especially for data management and reporting. This methodology is structured in six distinct steps, as shown in Figure [1.](#page-4-0)
+### *3.1. Research Methodology*This study was conducted following the Design Science Research (DSR) Methodology, as detailed by Peffers et al. [\[26\]](#page-14-22). DSR offers a structured approach to creating and evaluating IT artifacts that address specific challenges in the real world. In this case, the main desired artifact is the*ESG Metrics Knowledge Graph (ESGMKG)*and its underpinning ontology. DSR encompasses six well-defined stages, each contributing to the systematic development and assessment of the ESGMKG, thereby ensuring its relevance and efficacy in addressing the intricacies of ESG metric management, especially for data management and reporting. This methodology is structured in six distinct steps, as shown in Figure [1.](#page-4-0)
 
 Here, we describe how the six DSR steps are applied in our work. The motivation (identified in the first step) is the lack of comprehensive knowledge-driven approaches in the ESG metric management and assessment space, as discussed in Section [2.1.](#page-1-1) The objective (part of the second step) is developing a knowledge graph-based solution for ESG metric management and assessment that maintains the links between ESG reporting categories and the selected metrics used to fulfill disclosure requirements as organisations need to satisfy multiple reporting frameworks, as discussed in Section [2.2.](#page-2-0)
 
@@ -137,7 +135,7 @@ The formulation of these CQs was an elaborate process that entailed extensive co
 
 ## <span id="page-5-0"></span>4. Proposed Architecture and Ontology
 
-###*4.1. Architecture Overview*To envision how the proposed ontology can be used within organisations and align with existing systems, we proposed a system architecture structured into three integral layers. Each layer caters to specific functionalities and user groups, drawing on the categorisation of stakeholders by CFA Institute [\[33\]](#page-14-29). The target users of this architecture include a broad spectrum of stakeholders ranging from asset owners to regulators, all of whom stand to benefit from enhanced ESG reporting and investment management [\[34\]](#page-14-30). Figure [2](#page-6-1) shows the hierarchical structure of the proposed ESG metric management system.
+### *4.1. Architecture Overview*To envision how the proposed ontology can be used within organisations and align with existing systems, we proposed a system architecture structured into three integral layers. Each layer caters to specific functionalities and user groups, drawing on the categorisation of stakeholders by CFA Institute [\[33\]](#page-14-29). The target users of this architecture include a broad spectrum of stakeholders ranging from asset owners to regulators, all of whom stand to benefit from enhanced ESG reporting and investment management [\[34\]](#page-14-30). Figure [2](#page-6-1) shows the hierarchical structure of the proposed ESG metric management system.
 
 <span id="page-6-1"></span>![](_page_6_Picture_2.jpeg)
 <!-- Image Description: This architectural diagram depicts a microservice-based system for ESG (Environmental, Social, and Governance) data management. It shows three microservices (Framework Category, ESG Metrics Modelling, and ESG Datasource Collection) interacting via a GUI accessible to Chief Sustainability Officers, Investors, and Regulators. A continuous integration/continuous delivery (CI/CD) cycle is illustrated for the microservices. The system also includes an ESGMKG Ontology Data Management Platform with components for data governance, security, service delivery, and authentication. -->
@@ -167,15 +165,15 @@ In designing the ontology and ESGMKG, it is crucial to delineate a set of compet
 
 <span id="page-7-0"></span>**Table 1.** Example competency questions.
 
-| Purpose                                                         | Competency Question                                                          |
+| Purpose | Competency Question |
 |-----------------------------------------------------------------|------------------------------------------------------------------------------|
-| Exploring the frameworks that apply to an organisation          | Which reporting framework applies to a specific company?                     |
+| Exploring the frameworks that apply to an organisation | Which reporting framework applies to a specific company? |
 | Understanding the different reporting dimensions in a framework | What are the available metric categories for a specific reporting framework? |
-| Discovering which metric can be used for which category         | What metrics represent a specific category?                                  |
-| Relating a metric to the measurement method behind it           | What model is used for calculating a specific metric?                        |
-| Relating a metric to the data used to calculate it              | What metric or indicator is involved in calculating a specific metric?       |
-| Locating the datasets that are used to calculate metrics        | What is the dataset used for a specific indicator?                           |
-| Locating the origin of datasets used to calculate metrics       | Where is the original data source for an available metric or dataset?        |
+| Discovering which metric can be used for which category | What metrics represent a specific category? |
+| Relating a metric to the measurement method behind it | What model is used for calculating a specific metric? |
+| Relating a metric to the data used to calculate it | What metric or indicator is involved in calculating a specific metric? |
+| Locating the datasets that are used to calculate metrics | What is the dataset used for a specific indicator? |
+| Locating the origin of datasets used to calculate metrics | Where is the original data source for an available metric or dataset? |
 
 The key classes of ESGMKG ontology are listed in Table [2.](#page-8-0) Each class plays a vital role in the ontology's ability to accurately represent and manage ESG-related data, facilitating more informed and effective ESG reporting and analysis.
 
@@ -187,21 +185,21 @@ structure not only underscores the layered approach of the ESGMKG ontology but a
 
 <span id="page-8-0"></span>**Table 2.**Key Classes of ESGMKG.
 
-| ESGMKG Class           | Definition                                                                                                                                                |
+| ESGMKG Class | Definition |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ESG_ReportingFramework | A reporting framework that emerges from ESG initiatives, including standards and guidelines such as IFRS S1,<br>TCFD, etc.                                |
-| ESG_Category           | Categories recommended by the framework or required by corporations for ESG reporting and compliance.                                                     |
-| ESG_Metric             | Metrics under various ESG categories, also definable by corporations according to their specific needs and goals.                                         |
-| ESG_ComputingModel     | A mathematical or computing model transforming selected ESG metrics or indicators into a composite metric for<br>a comprehensive view of ESG performance. |
-| Indicator              | Any data variable usable in the computation of an ESG metric.                                                                                             |
-| Dataset                | A set of values from a data source usable to compute ESG metrics.                                                                                         |
-| Datasource             | The origin of an ESG dataset, which can be a primary or secondary source.                                                                                 |
+| ESG_ReportingFramework | A reporting framework that emerges from ESG initiatives, including standards and guidelines such as IFRS S1,<br>TCFD, etc. |
+| ESG_Category | Categories recommended by the framework or required by corporations for ESG reporting and compliance. |
+| ESG_Metric | Metrics under various ESG categories, also definable by corporations according to their specific needs and goals. |
+| ESG_ComputingModel | A mathematical or computing model transforming selected ESG metrics or indicators into a composite metric for<br>a comprehensive view of ESG performance. |
+| Indicator | Any data variable usable in the computation of an ESG metric. |
+| Dataset | A set of values from a data source usable to compute ESG metrics. |
+| Datasource | The origin of an ESG dataset, which can be a primary or secondary source. |
 
 <span id="page-8-1"></span>![](_page_8_Figure_4.jpeg)
 <!-- Image Description: The image displays a directed graph, likely representing a data model. Nodes, color-coded (yellow, orange, green, teal), represent entities like "ESG Metric," "ESG Category," "Dataset," and "Indicator." Edges show relationships (e.g., "ObtainedFrom," "DividedInto") between these entities. The graph illustrates the flow and dependencies within an ESG reporting framework, clarifying data sources and calculations used to derive ESG metrics. The interface suggests a visual modeling tool for building and managing such frameworks. -->
 **Figure 3.**Visualisation of ESGMKG key classes and relationships on Stardog platform.
 
-##*4.3. ESGMKG Integration*
+## *4.3. ESGMKG Integration*
 
 In the practical implementation of the ESG metric management system, the integration of the ESGMKG within the architecture's three layers—GUI, service, and data management—plays a pivotal role in operationalizing the system's functionality. At the GUI layer, the ontology's structured representation of ESG concepts directly informs the user interface design, enabling tailored views and interactive elements that resonate with the specific needs of chief sustainability officers, investors, and regulators. This ensures that users are presented with relevant, knowledge-driven insights, facilitating efficient navigation and decision-making processes. Moving deeper into the architecture, the service layer leverages the ESGMKG to interpret and process user queries, translating them into semantic operations that interact with the underlying knowledge graph. This layer acts as the bridge between the user-facing interface and the data-rich ESGMKG, employing advanced querying capabilities to fetch, analyse, and return precise ESG metrics and relationships. Finally, at the ontology data management platform layer, the practical application of the ontology extends to managing the lifecycle of ESG data, where the underlying technology
 
@@ -240,28 +238,27 @@ The ESGMKG ontology utilizes three value types to represent data: string, number
 
 ## <span id="page-10-0"></span>*5.2. Usage Scenarios and Competency Questions*The prototype knowledge graph is designed to provide answers regarding models, metrics, indicators, datasets, and data sources that are integral to the entire reporting process for different types of users within an organisation. For validation purposes, we defined some usage scenarios that make use of the competency questions. The development of these questions was guided by established methodologies in ontology construction as discussed in Sections [3.2](#page-4-1) and [3.3.](#page-5-1) An example of a usage scenario which was tailored to our specific use case is shown in Table [3.](#page-10-1) In this scenario, the user is able to identify which metric corresponds to which reporting category and which data sources are used in calculating each data component of this metric. Other usage scenarios have been tested to ensure that the ESGMKG is not only theoretically sound but also practically applicable to the selected scenarios. Whenever necessary, new instances were added to provide a full picture of the ESG data managed by the organisation. This ensures that ESGMKG possesses the necessary depth and breadth to cater to the information needs of users within the specified domain.
 
-<span id="page-10-1"></span>
 
-| Table 3. Example of a usage scenario based on the competency questions developed for the case study. |  |  |  |  |  |  |
+| Table 3. Example of a usage scenario based on the competency questions developed for the case study. | | | | | | |
 |------------------------------------------------------------------------------------------------------|--|--|--|--|--|--|
 |------------------------------------------------------------------------------------------------------|--|--|--|--|--|--|
 
-| Competency Questions                                                                      | Solution                                                                                                                                                                                                             |
+| Competency Questions | Solution |
 |-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. Which reporting framework is applicable for this company in<br>Australia?              | The applicable reporting framework is IFRS S1 (disclosures can be submitted to<br>the Australian Prudential Regulation Authority (APRA)) and TCFD<br>(disclosures can be submitted to Clean Energy Regulator (CER)). |
-| 2. What are the available metric categories for the IFRS S1<br>reporting framework?       | They are environmental risk, environmental opportunity, social risk,<br>and governance risk.                                                                                                                         |
-| 3. What metric can be used for measuring impact in the category<br>of environmental risk? | Environmental Risk Metric 1, Environmental Risk Metric 2.                                                                                                                                                            |
-| 4. What model is used to compute Environmental Risk Metric 1?                             | ESG MetricComputingModel 1.                                                                                                                                                                                          |
-| 5. What inputs Environmental Risk Metric 1 needs to be<br>calculated?                     | Reported Carbon Emissions, Electricity Purchased Total, Energy Consumed<br>Total, Waste Total, and Water Withdrawal Total are needed for Environmental<br>Risk Metric 1 calculation.                                 |
+| 1. Which reporting framework is applicable for this company in<br>Australia? | The applicable reporting framework is IFRS S1 (disclosures can be submitted to<br>the Australian Prudential Regulation Authority (APRA)) and TCFD<br>(disclosures can be submitted to Clean Energy Regulator (CER)). |
+| 2. What are the available metric categories for the IFRS S1<br>reporting framework? | They are environmental risk, environmental opportunity, social risk,<br>and governance risk. |
+| 3. What metric can be used for measuring impact in the category<br>of environmental risk? | Environmental Risk Metric 1, Environmental Risk Metric 2. |
+| 4. What model is used to compute Environmental Risk Metric 1? | ESG MetricComputingModel 1. |
+| 5. What inputs Environmental Risk Metric 1 needs to be<br>calculated? | Reported Carbon Emissions, Electricity Purchased Total, Energy Consumed<br>Total, Waste Total, and Water Withdrawal Total are needed for Environmental<br>Risk Metric 1 calculation. |
 
-| Competency Questions                                                                  | Solution                                                                                                                 |
+| Competency Questions | Solution |
 |---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| 6. What model is used for computing Reported Carbon Emission?                         | ESG MetricComputingModel 3.                                                                                              |
-| 7. What inputs Reported Carbon Emissions needs to be<br>calculated?                   | CO2 Direct Scope1, CO2 Indirect Scope2, and CO2 Indirect Scope 3 are needed<br>for Reported Carbon Emission calculation. |
-| 8. What model is used to compute CO2 Direct Scope 1?                                  | ProxyModel(copy of input).                                                                                               |
-| 9. What inputs CO2 Direct Scope 1 needs to be calculated?                             | CO2DirectScope1.                                                                                                         |
-| 10. What model is used to compute CO2DirectScope1?                                    | It is a column in 'esg_raw_data_on_corporations.csv.zip' dataset.                                                        |
-| 11. What is the datasource for the dataset<br>'esg_raw_data_on_corporations.csv.zip'? | It is obtained from the Eurofidai data source.                                                                           |
+| 6. What model is used for computing Reported Carbon Emission? | ESG MetricComputingModel 3. |
+| 7. What inputs Reported Carbon Emissions needs to be<br>calculated? | CO2 Direct Scope1, CO2 Indirect Scope2, and CO2 Indirect Scope 3 are needed<br>for Reported Carbon Emission calculation. |
+| 8. What model is used to compute CO2 Direct Scope 1? | ProxyModel(copy of input). |
+| 9. What inputs CO2 Direct Scope 1 needs to be calculated? | CO2DirectScope1. |
+| 10. What model is used to compute CO2DirectScope1? | It is a column in 'esg_raw_data_on_corporations.csv.zip' dataset. |
+| 11. What is the datasource for the dataset<br>'esg_raw_data_on_corporations.csv.zip'? | It is obtained from the Eurofidai data source. |
 
 ### Table 3.*Cont.*
 
@@ -273,28 +270,28 @@ Table [4](#page-11-1) presents two samples of RDF representations reflecting ins
 
 <span id="page-11-1"></span>**Table 4.**Triples in RDF turtle format for two sample entities in ESGMKG.
 
-| Subject                                                               | Predicate                | Object                                                                                                        |
+| Subject | Predicate | Object |
 |-----------------------------------------------------------------------|--------------------------|---------------------------------------------------------------------------------------------------------------|
-| # Instance of Reporting                                               |                          |                                                                                                               |
-| Framework IFRS_S1                                                     |                          |                                                                                                               |
-| <esgmkg:ifrs_s1></esgmkg:ifrs_s1>                                     | a                        | <esgmkg:esg_reportingframework></esgmkg:esg_reportingframework>                                               |
-| <esgmkg:ifrs_s1></esgmkg:ifrs_s1>                                     | rdfs:label               | "IFRS_S1"                                                                                                     |
-| <esgmkg:ifrs_s1></esgmkg:ifrs_s1>                                     | ESGMKG:ReportingBody     | "Australian Prudential Regulation Authority (APRA)"                                                           |
-|                                                                       |                          | <esgmkg:environmental_risk>,</esgmkg:environmental_risk>                                                      |
-| <esgmkg:ifrs_s1></esgmkg:ifrs_s1>                                     | ESGMKG:DividedInto       | <esgmkg:environmental_opportunity>,</esgmkg:environmental_opportunity>                                        |
-|                                                                       |                          | <esgmkg:governance_risk>,</esgmkg:governance_risk>                                                            |
-|                                                                       |                          | <esgmkg:social_risk></esgmkg:social_risk>                                                                     |
-| # Instance of ESG Computing                                           |                          |                                                                                                               |
-| MetricComputingModel 3                                                |                          |                                                                                                               |
-| <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3> | a                        | <esgmkg:esg_computingmodel></esgmkg:esg_computingmodel>                                                       |
-| <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3> | rdfs:label               | "ESG MetricComputingModel 3"                                                                                  |
+| # Instance of Reporting | | |
+| Framework IFRS_S1 | | |
+| <esgmkg:ifrs_s1></esgmkg:ifrs_s1> | a | <esgmkg:esg_reportingframework></esgmkg:esg_reportingframework> |
+| <esgmkg:ifrs_s1></esgmkg:ifrs_s1> | rdfs:label | "IFRS_S1" |
+| <esgmkg:ifrs_s1></esgmkg:ifrs_s1> | ESGMKG:ReportingBody | "Australian Prudential Regulation Authority (APRA)" |
+| | | <esgmkg:environmental_risk>,</esgmkg:environmental_risk> |
+| <esgmkg:ifrs_s1></esgmkg:ifrs_s1> | ESGMKG:DividedInto | <esgmkg:environmental_opportunity>,</esgmkg:environmental_opportunity> |
+| | | <esgmkg:governance_risk>,</esgmkg:governance_risk> |
+| | | <esgmkg:social_risk></esgmkg:social_risk> |
+| # Instance of ESG Computing | | |
+| MetricComputingModel 3 | | |
+| <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3> | a | <esgmkg:esg_computingmodel></esgmkg:esg_computingmodel> |
+| <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3> | rdfs:label | "ESG MetricComputingModel 3" |
 | <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3> | ESGMKG:DependentVariable | <esgmkg:co2_directscope1>, <esgmkg:co2_indirectscope2>,</esgmkg:co2_indirectscope2></esgmkg:co2_directscope1> |
-|                                                                       |                          | <esgmkg:co2_indirectscope3></esgmkg:co2_indirectscope3>                                                       |
-| <esgmkg:reported_carbon_emission></esgmkg:reported_carbon_emission>   | ESGMKG:ObtainedFrom      | <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3>                                         |
+| | | <esgmkg:co2_indirectscope3></esgmkg:co2_indirectscope3> |
+| <esgmkg:reported_carbon_emission></esgmkg:reported_carbon_emission> | ESGMKG:ObtainedFrom | <esgmkg:esg_metriccomputingmodel3></esgmkg:esg_metriccomputingmodel3> |
 
 The first set of triples in Table [4](#page-11-1) showcases that the IFRS S1 framework is divided into different metric categories: Environmental Risk, Environmental Opportunity, Governance Risk, and Social Risk. Each triple consists of a subject (e.g., 'ESGMKG: IFRS\_S1'), a predicate (e.g., 'rdfs: label'), and an object, which can be a literal value like 'IFRS\_S1' or a reference to another resource instance such as 'ESGMKG: Environmental\_Risk'. Following the same structure, the second set of triples ESG\_MetricComputingModel3 showcases its dependent variables (as in Equation [\(2\)](#page-9-3)). The last triple represents that 'ESGMKG: Reported\_Carbon\_Emission' is obtained from ESG\_MetricComputingModel3. This structured approach not only facilitates the precise definition of entities but also enables the dynamic association of different entities' ESG metrics with relevant categories.
 
-##*5.4. Querying the Implementation*Each competency question is translated into a SPARQL query (the query language for semantic web notation) and executed on the Stardog platform. When tested against the instance ontology, the Stardog implementation was able to answer all listed competency questions. An example of how we evaluated competency questions 6 and 7 shown in Table [3](#page-10-1) is showcased by Figure [4.](#page-12-0) The SPARQL query retrieves the ESG model(s) that compute the 'Reported Carbon Emission' metric, as well as all input metrics or indicators required for these models.
+## *5.4. Querying the Implementation*Each competency question is translated into a SPARQL query (the query language for semantic web notation) and executed on the Stardog platform. When tested against the instance ontology, the Stardog implementation was able to answer all listed competency questions. An example of how we evaluated competency questions 6 and 7 shown in Table [3](#page-10-1) is showcased by Figure [4.](#page-12-0) The SPARQL query retrieves the ESG model(s) that compute the 'Reported Carbon Emission' metric, as well as all input metrics or indicators required for these models.
 
 <span id="page-12-0"></span>![](_page_12_Figure_4.jpeg)
 <!-- Image Description: The image displays a screenshot of a SPARQL query executed within the Stardog knowledge graph platform. The query retrieves data on ESG metrics, specifically focusing on "reported carbon emissions" as a dependent variable. The results table shows three instances of an ESG metric computing model, each linked to different carbon emission scopes (direct and indirect). The screenshot serves to illustrate the querying capabilities of the platform for accessing and structuring environmental, social, and governance (ESG) data. -->
@@ -319,29 +316,29 @@ Another future direction is incorporating natural language processing capabiliti
 **Acknowledgments:**We extend our sincere gratitude to the members and the board of the Fintech AI Innovation Consortium (FAIC), with a special mention of Cognitivo and Westpac, for their invaluable support. Additionally, we are grateful to the consulted industry experts who provided insights and guidance, significantly enriching our understanding on the ESG assessment process. Their expertise and contributions have been pivotal to the success of this work.
 **Conflicts of Interest:**The authors declare no conflicts of interest.
 
-# Abbreviations
+## Abbreviations
 
 The following abbreviations are used in this manuscript:
 
-| ESG    | Environmental, Social, and Governance               |
+| ESG | Environmental, Social, and Governance |
 |--------|-----------------------------------------------------|
-| ESGMKG | ESG Metric Knowledge Graph                          |
-| DSR    | Design Science Research                             |
-| RDF    | Resource Description Framework                      |
-| OWL    | Web Ontology Language                               |
-| SPARQL | SPARQL Protocol and RDF Query Language              |
-| IFRS   | International Financial Reporting Standards         |
-| TCFD   | Task Force on Climate-related Financial Disclosures |
-| TNFD   | Taskforce on Nature-related Financial Disclosures   |
-| SASB   | Sustainability Accounting Standards Board           |
-| APRA   | Australian Prudential Regulation Authority          |
-| CER    | Clean Energy Regulator                              |
-| GUI    | Graphical User Interface                            |
-| ERM 1  | Environmental Risk Metric 1                         |
-| MSCI   | Morgan Stanley Capital International                |
-|        |                                                     |
+| ESGMKG | ESG Metric Knowledge Graph |
+| DSR | Design Science Research |
+| RDF | Resource Description Framework |
+| OWL | Web Ontology Language |
+| SPARQL | SPARQL Protocol and RDF Query Language |
+| IFRS | International Financial Reporting Standards |
+| TCFD | Task Force on Climate-related Financial Disclosures |
+| TNFD | Taskforce on Nature-related Financial Disclosures |
+| SASB | Sustainability Accounting Standards Board |
+| APRA | Australian Prudential Regulation Authority |
+| CER | Clean Energy Regulator |
+| GUI | Graphical User Interface |
+| ERM 1 | Environmental Risk Metric 1 |
+| MSCI | Morgan Stanley Capital International |
+| | |
 
-# References
+## References
 
 - <span id="page-13-0"></span>1. Australian Prudential Regulation Authority. Prudential Practice Guide: Draft CPG 229 Climate Change Financial Risks. 2021. Available online: [https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) [default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%25](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) [20Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB4](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) [9QpQ1eyC1dw\\_](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.apra.gov.au/sites/default/files/2021-11/Final%2520Prudential%2520Practice%2520Guide%2520CPG%2520229%2520Climate%2520Change%2520Financial%2520Risks.pdf&ved=2ahUKEwitmZq1u9qFAxX8cvUHHZhUAAEQFnoECBMQAQ&usg=AOvVaw2H1HYzEaB49QpQ1eyC1dw_) (accessed on 6 March 2024).
 - <span id="page-13-1"></span>2. Elkington, J. Cannibals with Forks: The Triple Bottom Line of 21st Century Business.*Capstone* **1997**, *1*, 1–16. [\[CrossRef\]](http://doi.org/10.1002/tqem.3310080106)

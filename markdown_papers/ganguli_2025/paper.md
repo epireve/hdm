@@ -1,8 +1,10 @@
 ---
-cite_key: challenges_2005
+cite_key: ganguli_2025
 title: MARK: Memory Augmented Refinement of Knowledge
-authors: To overcome these challenges
-year: 2005
+authors: Anish Ganguli, Prabal Deb, Debleena Banerjee
+year: 2025
+doi: 10.48550/arXiv.2505.05177
+url: https://arxiv.org/abs/2505.05177
 relevancy: Medium
 relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
@@ -26,7 +28,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # MARK: Memory Augmented Refinement of Knowledge
 
 ## Anish Ganguli, Prabal Deb, Debleena Banerjee
@@ -37,9 +38,9 @@ Microsoft Industry Solutions Engineering [anishganguli@microsoft.com,](mailto:an
 
 Large Language Models (LLMs) assist in specialized tasks but struggle to align with evolving domain knowledge without costly fine-tuning. Domain knowledge consists of: **Knowledge**[1]: Immutable facts (e.g., "A stone is solid") and generally accepted principles (e.g., ethical standards);**Refined Memory**[2]: Evolving insights shaped by business needs and real-world changes. However, a significant gap often exists between a domain expert's deep, nuanced understanding and the system's domain knowledge, which can hinder accurate information retrieval and application. Our**Memory-Augmented Refinement of Knowledge (MARK)**framework enables LLMs to continuously learn without retraining by leveraging structured refined memory [3] [4], inspired by the Society of Mind [5]. MARK operates through specialized agents, each serving a distinct role:**Residual Refined Memory Agent:**Stores and retrieves domain-specific insights to maintain context over time;**User Question Refined Memory Agent:**Captures user-provided facts, abbreviations, and terminology for better comprehension;**LLM Response Refined Memory Agent:**Extracts key elements from responses for refinement and personalization. These agents analyse stored refined memory, detect patterns, resolve contradictions, and improve response accuracy. Temporal factors like recency and frequency prioritize relevant information while discarding outdated insights. MARK enhances LLMs in multiple ways:**Ground Truth Strategy:**Reduces hallucinations by establishing a structured reference;**Domain-Specific Adaptation:**Essential for fields like healthcare, law, and manufacturing, where proprietary insights are absent from public datasets;**Personalized AI Assistants:**Improves virtual assistants by remembering user preferences, ensuring coherent responses over time.
 
-#### Background
+### Background
 
-####*1.1 Introduction*LLMs are widely used for tasks like content generation and answering queries but face challenges in complex domain-specific applications. Their reliance on pre-trained knowledge limits their ability to handle specialized queries that require real-time updates and contextual domain expertise, where few of these limitations are described in a recent survey [6]. Industries such as healthcare and finance need AI systems that continuously adapt to evolving knowledge, but traditional LLMs struggle to incorporate updates and refinement from Subject Matter Experts (SMEs), leading to outdated or inaccurate responses. Previous studies have demonstrated that fine-tuning allows adaptation [7], it is computationally expensive and impractical for frequent changes. Retrieval-Augmented Generation (RAG) helps retrieve relevant information but relies
+### *1.1 Introduction*LLMs are widely used for tasks like content generation and answering queries but face challenges in complex domain-specific applications. Their reliance on pre-trained knowledge limits their ability to handle specialized queries that require real-time updates and contextual domain expertise, where few of these limitations are described in a recent survey [6]. Industries such as healthcare and finance need AI systems that continuously adapt to evolving knowledge, but traditional LLMs struggle to incorporate updates and refinement from Subject Matter Experts (SMEs), leading to outdated or inaccurate responses. Previous studies have demonstrated that fine-tuning allows adaptation [7], it is computationally expensive and impractical for frequent changes. Retrieval-Augmented Generation (RAG) helps retrieve relevant information but relies
 
 on fixed sources, requiring manual updates to stay current. Key challenges for conventional LLMs include:
 
@@ -59,32 +60,32 @@ To overcome these challenges, we introduce a lifecycle-driven approach for domai
 
 We propose**Memory Augmented Refinement of Knowledge (MARK)**as a novel scalable agentic memory design framework that enhances LLM adaptability and performance using agentic AI and memory injections. It improves LLM response generation across various scenarios, such as enterprise-level chatbots, allowing businesses to enhance domain-specific interactions and enable**multi-turn contextual communication**across multiple users. Unlike traditional LLMs and RAGbased systems that lose context between queries, MARK ensures persistent knowledge refinement, allowing SMEs to update domain knowledge without frequent retraining and fine-tuning. While MARK has various applications, this paper focuses on its role in enhancing chatbot applications with memory for improved domain adaptability.
 
-| Feature                      | Conventional<br>LLM Chatbot                              | MARK backed<br>Chatbot                                                     |
+| Feature | Conventional<br>LLM Chatbot | MARK backed<br>Chatbot |
 |------------------------------|----------------------------------------------------------|----------------------------------------------------------------------------|
-| Domain-Specific<br>Knowledge | Limited                                                  | Strong (Refines<br>knowledge over<br>time)                                 |
-| Memory<br>Retention          | No long-term<br>memory<br>across<br>multiple<br>sessions | Persistent memory<br>over past<br>interactions across<br>multiple sessions |
-| Personalization              | Minimal<br>(Forgets user<br>context and<br>preference)   | Adapts based on<br>user interactions                                       |
+| Domain-Specific<br>Knowledge | Limited | Strong (Refines<br>knowledge over<br>time) |
+| Memory<br>Retention | No long-term<br>memory<br>across<br>multiple<br>sessions | Persistent memory<br>over past<br>interactions across<br>multiple sessions |
+| Personalization | Minimal<br>(Forgets user<br>context and<br>preference) | Adapts based on<br>user interactions |
 
-| Feedback<br>Utilization                              | Cannot<br>incorporate<br>feedback<br>easily in<br>multiple<br>sessions | Learns from user<br>corrections across<br>multiple sessions                                    |
+| Feedback<br>Utilization | Cannot<br>incorporate<br>feedback<br>easily in<br>multiple<br>sessions | Learns from user<br>corrections across<br>multiple sessions |
 |------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| Scalability in<br>Domain<br>Adaptation               | Requires full<br>retraining                                            | Adapts dynamically<br>with memory-based<br>refinement without<br>re-training or fine<br>tuning |
-| Performance in<br>High-Stakes<br>Domain<br>Scenarios | Risk of<br>hallucinations                                              | Memory-driven<br>refinement reduces<br>errors and<br>eventually<br>hallucinations              |
+| Scalability in<br>Domain<br>Adaptation | Requires full<br>retraining | Adapts dynamically<br>with memory-based<br>refinement without<br>re-training or fine<br>tuning |
+| Performance in<br>High-Stakes<br>Domain<br>Scenarios | Risk of<br>hallucinations | Memory-driven<br>refinement reduces<br>errors and<br>eventually<br>hallucinations |
 **Table 1**: Comparison between conventional chatbot and MARK driven chatbot
 
 MARK follows a **Knowledge-First**approach, prioritizing knowledge first, which is then refined through memory injection for better adaptability and contextual relevance. However, in**Table 2**, we have highlighted the distinction between memory injection approaches.
 
-| Feature             | Memory First<br>Knowledge First                                                                              |                                                         |
+| Feature | Memory First<br>Knowledge First | |
 |---------------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
-| Best for            | Personalized,<br>Factual, real-time<br>contextual<br>updates<br>conversations                                |                                                         |
-| Advantage           | Retains user<br>Ensures accuracy<br>context, avoids<br>and up-to-date<br>redundant<br>information<br>queries |                                                         |
-| Risk                | Memory may<br>override newer<br>facts                                                                        | New knowledge<br>may ignore past<br>user context        |
-| Example Use<br>Case | Virtual assistants,<br>chatbots, long<br>term<br>conversations                                               | Domain related<br>info (MARK<br>fundamental<br>concept) |
+| Best for | Personalized,<br>Factual, real-time<br>contextual<br>updates<br>conversations | |
+| Advantage | Retains user<br>Ensures accuracy<br>context, avoids<br>and up-to-date<br>redundant<br>information<br>queries | |
+| Risk | Memory may<br>override newer<br>facts | New knowledge<br>may ignore past<br>user context |
+| Example Use<br>Case | Virtual assistants,<br>chatbots, long<br>term<br>conversations | Domain related<br>info (MARK<br>fundamental<br>concept) |
 
 **Table 2**: Distinction between memory first and knowledge first approaches
 
 Refer to **Figure 6**in**Appendix 2**for an example of a multi-turn conversation between LLM and medical practitioners, which illustrates the challenges and proposals discussed.
 
-####*1.2 Architecture*
+### *1.2 Architecture*
 
 The related research [11] highlighted the importance of memory building and retrieval for LLM agents, and how it impacts the LLM response [12], additionally a very related research [13] talked about different approaches of memory building and
 
@@ -107,49 +108,49 @@ $$
 
 0 < , , , < 1
 
-| RC (Recall<br>Count)        | Number of times a memory has been<br>used. The recall will be incremented by<br>MSS; each time it injects a memory. |  |
+| RC (Recall<br>Count) | Number of times a memory has been<br>used. The recall will be incremented by<br>MSS; each time it injects a memory. | |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------|--|
-| Rec<br>(Recency)            | (Current time stamp –<br>memory created<br>at timestamp) in days                                                    |  |
-| SS<br>(Similarity<br>Score) | Similarity score between a memory and<br>user query (e.g. cosine similarity)                                        |  |
-| FS<br>(Feedback<br>Score)   | 1,<br>𝑖𝑓 𝑚𝑒𝑚𝑜𝑟𝑦 𝑖𝑠 𝑐𝑜𝑟𝑟𝑒𝑐𝑡<br>0,<br>𝑛𝑜 𝑓𝑒𝑒𝑑𝑏𝑎𝑐𝑘 𝑔𝑖𝑣𝑒𝑛<br>= {<br>−1, 𝑖𝑓 𝑚𝑒𝑚𝑜𝑟𝑦 𝑖𝑠 𝑖𝑛𝑐𝑜𝑟𝑟𝑒𝑐𝑡                          |  |
+| Rec<br>(Recency) | (Current time stamp –<br>memory created<br>at timestamp) in days | |
+| SS<br>(Similarity<br>Score) | Similarity score between a memory and<br>user query (e.g. cosine similarity) | |
+| FS<br>(Feedback<br>Score) | 1,<br>𝑖𝑓 𝑚𝑒𝑚𝑜𝑟𝑦 𝑖𝑠 𝑐𝑜𝑟𝑟𝑒𝑐𝑡<br>0,<br>𝑛𝑜 𝑓𝑒𝑒𝑑𝑏𝑎𝑐𝑘 𝑔𝑖𝑣𝑒𝑛<br>= {<br>−1, 𝑖𝑓 𝑚𝑒𝑚𝑜𝑟𝑦 𝑖𝑠 𝑖𝑛𝑐𝑜𝑟𝑟𝑒𝑐𝑡 | |
 
-|   | The feedback will be updated by MSS<br>when a user provides feedback to the<br>injected memory |  |
+| | The feedback will be updated by MSS<br>when a user provides feedback to the<br>injected memory | |
 |---|------------------------------------------------------------------------------------------------|--|
-|  | A very small fraction (~ 0.01) so that<br>the denominator does not become 0                    |  |
+|  | A very small fraction (~ 0.01) so that<br>the denominator does not become 0 | |
 
 The scores are then**normalized (0-1 range)**, and the memory with the highest score is selected. The highest scored (based on MRS) memories for each of the memory types are passed as input into the final generation prompt to ensure enriched context.
 
-|  |  |  | Tune a, b, c, and d as follows: |
+| | | | Tune a, b, c, and d as follows: |
 |--|--|--|---------------------------------|
 |--|--|--|---------------------------------|
 
-| Weightage<br>Combination<br>(a, b, c, d)                               | Interpretation and Respective Ideal<br>Scenarios                                                                                                                                                                                                                                                                              |
+| Weightage<br>Combination<br>(a, b, c, d) | Interpretation and Respective Ideal<br>Scenarios |
 |------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default<br>(0.10, 0.15,<br>0.70, 0.05)                                 | Primary emphasis on semantic<br>relevance, with moderate freshness<br>(Rec) and popularity (RC) support,<br>and a light feedback signal.<br>Ideal for: General-purpose retrieval<br>across varied domains where<br>balanced relevance, recency and<br>user validation are required.                                           |
-| Similarity (SS)<br>+ Freshness<br>(Rec)<br>(0.05, 0.35,<br>0.55, 0.05) | Prioritizes semantic relevance with<br>strong bias for recent information.<br>Ideal for: Capturing new domain<br>terminology or changing business<br>rules in the User Question Refined<br>Memory Agent; especially during<br>ongoing product rollouts or updated<br>compliance measures.                                     |
-| Popularity<br>(RC) +<br>Similarity (SS)<br>(0.30, 0.05,<br>0.60, 0.05) | Focus on high-usage (recall) and<br>semantic match, with little recency or<br>feedback weight.<br>Ideal for: Residual Refined Memory<br>Agent surfacing long-standing<br>patterns in operational workflows,<br>manufacturing routines, or frequently<br>accessed domain protocols that rarely<br>change but are critical.     |
-| Feedback (FS)<br>+ Freshness<br>(Rec)<br>(0.10, 0.40,<br>0.10, 0.40)   | Strong recency and feedback<br>emphasis, minimal semantic or<br>historical weighting.<br>Ideal for: Rapid refinement in<br>dynamic domains (e.g., emerging<br>issues in healthcare) where domain<br>experts validate evolving memory,<br>enabling real-time course correction<br>in the LLM Response Refined Memory<br>Agent. |
-| Similarity (SS)<br>+ Feedback<br>(FS)                                  | Strong semantic anchoring, enriched<br>by validated feedback, minimal                                                                                                                                                                                                                                                         |
+| Default<br>(0.10, 0.15,<br>0.70, 0.05) | Primary emphasis on semantic<br>relevance, with moderate freshness<br>(Rec) and popularity (RC) support,<br>and a light feedback signal.<br>Ideal for: General-purpose retrieval<br>across varied domains where<br>balanced relevance, recency and<br>user validation are required. |
+| Similarity (SS)<br>+ Freshness<br>(Rec)<br>(0.05, 0.35,<br>0.55, 0.05) | Prioritizes semantic relevance with<br>strong bias for recent information.<br>Ideal for: Capturing new domain<br>terminology or changing business<br>rules in the User Question Refined<br>Memory Agent; especially during<br>ongoing product rollouts or updated<br>compliance measures. |
+| Popularity<br>(RC) +<br>Similarity (SS)<br>(0.30, 0.05,<br>0.60, 0.05) | Focus on high-usage (recall) and<br>semantic match, with little recency or<br>feedback weight.<br>Ideal for: Residual Refined Memory<br>Agent surfacing long-standing<br>patterns in operational workflows,<br>manufacturing routines, or frequently<br>accessed domain protocols that rarely<br>change but are critical. |
+| Feedback (FS)<br>+ Freshness<br>(Rec)<br>(0.10, 0.40,<br>0.10, 0.40) | Strong recency and feedback<br>emphasis, minimal semantic or<br>historical weighting.<br>Ideal for: Rapid refinement in<br>dynamic domains (e.g., emerging<br>issues in healthcare) where domain<br>experts validate evolving memory,<br>enabling real-time course correction<br>in the LLM Response Refined Memory<br>Agent. |
+| Similarity (SS)<br>+ Feedback<br>(FS) | Strong semantic anchoring, enriched<br>by validated feedback, minimal |
 
 | (0.05, 0.10,<br>0.55, 0.30) | recency/recall bias.<br>Ideal for: High-accuracy tasks where<br>hallucination risks must be reduced,<br>e.g., domain-specific reasoning in<br>law or finance where expert<br>approved refinements and LLM<br>memory accuracy are critical. |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Balanced                    | Balanced contributions from all                                                                                                                                                                                                            |
-| (0.20, 0.20,                | components with semantic similarity                                                                                                                                                                                                        |
-| 0.50, 0.10)                 | in the lead.                                                                                                                                                                                                                               |
-|                             | Ideal for: Full spectrum domain                                                                                                                                                                                                            |
-|                             | memory orchestration, such as in                                                                                                                                                                                                           |
-|                             | personalized industrial assistants                                                                                                                                                                                                         |
-|                             | where refined insights, evolving                                                                                                                                                                                                           |
-|                             | standards, and expert feedback must                                                                                                                                                                                                        |
-|                             | work together to form complete and                                                                                                                                                                                                         |
-|                             | current understanding.                                                                                                                                                                                                                     |
-| Core Blend                  | Equal weighting of recall, recency,                                                                                                                                                                                                        |
-| (0.33, 0.33,                | and semantic fit, feedback excluded.                                                                                                                                                                                                       |
-| 0.33, 0.00)                 | Ideal for: Early deployment phases                                                                                                                                                                                                         |
-|                             | where user feedback hasn't yet                                                                                                                                                                                                             |
-|                             | accumulated, especially useful for                                                                                                                                                                                                         |
-|                             | cold-start memory building in evolving                                                                                                                                                                                                     |
-|                             | domains in enterprise setup.                                                                                                                                                                                                               |
+| Balanced | Balanced contributions from all |
+| (0.20, 0.20, | components with semantic similarity |
+| 0.50, 0.10) | in the lead. |
+| | Ideal for: Full spectrum domain |
+| | memory orchestration, such as in |
+| | personalized industrial assistants |
+| | where refined insights, evolving |
+| | standards, and expert feedback must |
+| | work together to form complete and |
+| | current understanding. |
+| Core Blend | Equal weighting of recall, recency, |
+| (0.33, 0.33, | and semantic fit, feedback excluded. |
+| 0.33, 0.00) | Ideal for: Early deployment phases |
+| | where user feedback hasn't yet |
+| | accumulated, especially useful for |
+| | cold-start memory building in evolving |
+| | domains in enterprise setup. |
 
 For our testing setup, we set **a=0,b=0, d=0, and c=1**, meaning the scoring mechanism is solely driven by the similarity between the user query and stored memories. This controlled setup ensures that results are not influenced by factors like recall count, recency, or external feedback, making it ideal for experimental analysis.
 
@@ -175,16 +176,16 @@ Here, we systematically inject (using MSS) structured memory retained informatio
 
 In the final experiment, we assess MARK in a multiturn, multi-user environment, where different users interact with the chatbot over multiple sessions. The chatbot's responses are evaluated at each turn to measure how well it maintains coherence, persists relevant corrections across sessions, and adapts dynamically to evolving knowledge. These experiments collectively provide a comprehensive assessment of MARK's ability to manage domain knowledge efficiently, ensuring consistency and adaptability in real-world applications.
 
-###*2.2 Evaluation*For building and evaluating MARK, we selected**MedMCQA**[16], a large-scale multiple-choice medical question-answering dataset. This dataset, verified by experts, ensures rigorous assessment of the chatbot's factual accuracy in domain-specific queries [17]. Reasons for Choosing MedMCQA - Domain-Specificity: Covers a wide range of medical topics, ensuring high-stakes evaluation; Structured Evaluation: Provides multiple-choice answers, allowing objective performance; Question
+### *2.2 Evaluation*For building and evaluating MARK, we selected**MedMCQA**[16], a large-scale multiple-choice medical question-answering dataset. This dataset, verified by experts, ensures rigorous assessment of the chatbot's factual accuracy in domain-specific queries [17]. Reasons for Choosing MedMCQA - Domain-Specificity: Covers a wide range of medical topics, ensuring high-stakes evaluation; Structured Evaluation: Provides multiple-choice answers, allowing objective performance; Question
 
 Complexity: Includes varying difficulty levels, testing factual retrieval and reasoning; Ground-Truth: Uses medical expert-curated domain-specific knowledge for creating accurate memory. We did not select a dataset for personalization, as prior research [15] has demonstrated that memory-based LLMs enhance personalization through user interaction. For this MedMCQA dataset-based evaluation of MARK, the subject matter experts (SMEs) were the individuals who came up with MARK.**Table 3**outlines the role of SMEs and the evaluations conducted in each experiment.
 
-| Exp | Role of SME                                                                                                                                        | Evaluation                                                |  |  |
+| Exp | Role of SME | Evaluation | | |
 |-----|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|--|--|
-| 1   | •<br>Ground truth curation<br>(not applicable for<br>MedMCQA)<br>•<br>Assessing response<br>correctness                                            | GPT-4<br>evaluation +<br>SME<br>correctness<br>validation |  |  |
-| 2   | Memory refinement through:<br>•<br>Own domain knowledge<br>•<br>Based on the<br>explanation present in<br>ground truth (applicable<br>for MedMCQA) | No evaluation                                             |  |  |
-| 3   | •<br>Assessing response<br>correctness                                                                                                             | GPT-4<br>evaluation +<br>SME<br>correctness<br>validation |  |  |
-| 4   | Memory refinement through:<br>•<br>Own domain knowledge<br>•<br>Based on the<br>explanation present in<br>ground truth (applicable<br>for MedMCQA) | No evaluation                                             |  |  |
+| 1 | •<br>Ground truth curation<br>(not applicable for<br>MedMCQA)<br>•<br>Assessing response<br>correctness | GPT-4<br>evaluation +<br>SME<br>correctness<br>validation | | |
+| 2 | Memory refinement through:<br>•<br>Own domain knowledge<br>•<br>Based on the<br>explanation present in<br>ground truth (applicable<br>for MedMCQA) | No evaluation | | |
+| 3 | •<br>Assessing response<br>correctness | GPT-4<br>evaluation +<br>SME<br>correctness<br>validation | | |
+| 4 | Memory refinement through:<br>•<br>Own domain knowledge<br>•<br>Based on the<br>explanation present in<br>ground truth (applicable<br>for MedMCQA) | No evaluation | | |
 **Table 3**: Role of SME and evaluations performed for each experiment.
 
 For GPT-4 based evaluation previous studies using MedMCQA data benchmarking reported results using **Accuracy**and**Pointwise Score**[17]. However, these metrics may not have been sufficient in our case due to significant domain dependency. Therefore, to evaluate the effectiveness of the proposed chatbot responses with and without the MARK framework, we introduce the following heuristic metrics.
@@ -199,9 +200,9 @@ $$
 ICS = \frac{1}{N_{GR}} \sum_{i=1}^{N_{GR}} \frac{HS_i}{N_{ER}}
 $$
 
-| 𝑁𝐺𝑅 | # sentences in generated response                                                              |
+| 𝑁𝐺𝑅 | # sentences in generated response |
 |-----|------------------------------------------------------------------------------------------------|
-| 𝑁𝐸𝑅 | # sentences in expected response                                                               |
+| 𝑁𝐸𝑅 | # sentences in expected response |
 | 𝐻𝑆𝑖 | # highly similar sentences in expected response<br>(to the ith sentence in generated response) |
 
 ### 2.2 Key Point Coverage Score (KPCS)
@@ -212,9 +213,9 @@ $$
 KPCS = \frac{N_{CKP}}{N_{ERKP}}
 $$
 
-| 𝑁𝐶𝐾𝑃  | # common key points between expected and<br>generated response |
+| 𝑁𝐶𝐾𝑃 | # common key points between expected and<br>generated response |
 |-------|----------------------------------------------------------------|
-| 𝑁𝐸𝑅𝐾𝑃 | # key points in expected response                              |
+| 𝑁𝐸𝑅𝐾𝑃 | # key points in expected response |
 
 ### 2.3 Average Information Capture Score (AICS)
 
@@ -226,7 +227,7 @@ $$
 
 This metric allows different weightings for semantic context and key points. For more focus on semantic meaning, increase ; for factual content and word usage, decrease .
 
-#### 2.4 Additional Metrics for Evaluation
+### 2.4 Additional Metrics for Evaluation
 
 Beyond content coverage, we incorporate efficiency and system-level performance measures:**Token Efficiency**: Total token count per session and **Turnbased Performance**, i.e. Average number of words per turn, Average number of tokens per turn, Average cost per turn and Number of turns required to reach the correct response.
 
@@ -234,7 +235,7 @@ Beyond content coverage, we incorporate efficiency and system-level performance 
 
 ### *3.1 Analysis*We have used AutoGen [18] for orchestrating different phases of our experimentation and respective evaluation.
 
-#### 1.1 Experiment 1
+### 1.1 Experiment 1
 
 The goal of experiment 1 is to establish a baseline for evaluating the chatbot's performance without memory-based knowledge refinement. This helps assess the limitations of a standard LLM in handling domain-specific queries across multiple interactions. Additionally, this experiment aims to determine the optimal value of α for the AICS metric - which balances factual alignment (keyword matching) and semantic alignment. Since the dataset consists of medical information, factual accuracy (keywords, key points) should be weighted more than general semantic alignment. We hypothesize that the optimal α should be less than 0.5, favouring factual alignment. Thus, we plot the distribution of AICS across different values ( < 0.5).
 
@@ -252,15 +253,15 @@ In**Figure 3**we can see that the biggest gap between correct and incorrect resp
 <!-- Image Description: This bar chart displays the relationship between information capture score and total token count for alpha = 0.1. It shows the human evaluation of responses categorized as correct (teal) and incorrect (coral) within four token count ranges (80-150, 150-220, 220-290, 290-360). The chart's purpose is to illustrate how the accuracy of information capture varies with the number of tokens used, for a specific alpha value. -->
 **Figure 3**: Information Capture Score vs. Total Token Count ( = 0.1)
 
-#### 1.2 Experiment 2
+### 1.2 Experiment 2
 
 This experiment involved 46 records where the chatbot (powered by GPT-3.5) initially provided incorrect responses. To improve accuracy, a subject matter expert (SME) engaged with the chatbot, providing domain-specific context. These guided interactions enabled the chatbot to generate **corrected responses**. By systematically storing and reusing these corrections, the chatbot evolves beyond static retrieval, improving contextual understanding and factual accuracy in subsequent interactions.
 
-| Metric                 | Count | Mean   | Std    | Min | Max  |
+| Metric | Count | Mean | Std | Min | Max |
 |------------------------|-------|--------|--------|-----|------|
-| Number<br>of<br>Turns  | 46    | 2.37   | 0.77   | 1   | 4    |
-| Number<br>of<br>Tokens | 46    | 415.22 | 275.57 | 116 | 1665 |
-| Number<br>of<br>Words  | 46    | 130.65 | 58.81  | 67  | 434  |
+| Number<br>of<br>Turns | 46 | 2.37 | 0.77 | 1 | 4 |
+| Number<br>of<br>Tokens | 46 | 415.22 | 275.57 | 116 | 1665 |
+| Number<br>of<br>Words | 46 | 130.65 | 58.81 | 67 | 434 |
 
 **Table 4**: conversation statistics
 
@@ -270,7 +271,7 @@ In terms of language footprint, the**mean number of tokens per conversation was 
 
 | Number<br>of<br>Conv. | Average<br>Residual<br>Memory<br>per<br>Conv. | Average<br>User<br>Question<br>Memory<br>per Conv. | Average<br>Assistant<br>Answer<br>Memory<br>per Conv. |
 |-----------------------|-----------------------------------------------|----------------------------------------------------|-------------------------------------------------------|
-| 46                    | 2.57                                          | 2.8                                                | 4                                                     |
+| 46 | 2.57 | 2.8 | 4 |
 
 **Table 5**: Memory construction analysis
 
@@ -278,14 +279,14 @@ The **Table 5**shows how memory was built across 46 conversations using MARK's t
 
 **conversation):**Captures core domain-specific insights, corrected logic, clarified principles, or reusable patterns. That improve the system's contextual understanding over time.**User Question Memory (2.8 per conversation):**Stores SMEprovided terms, abbreviations, and context from user inputs. This helps the system better interpret similar questions in the future.**Assistant Answer Memory (4.0 per conversation):** Retains key elements from refined responses, definitions, phrasing, logic. That shape how the assistant communicates going forward. These memory values show that each conversation yields a compact, structured knowledge update (~**10**memory units in total), enabling continuous learning without retraining. The higher count in assistant memory highlights the importance of capturing not just**what**was corrected, but**how**it was explained.
 
-#### 1.3 Experiment 3
+### 1.3 Experiment 3
 
 In this experiment, we systematically integrate structured memory-capturing SME-driven updates and user feedback into the chatbot's knowledge. The primary goal is to assess how effectively the chatbot remembers and prioritizes these updates while discarding outdated information and refining knowledge overtime. We tested the memory injection framework on 107 records with built memory from the previous 46 records which had generated incorrect responses.
 
 ![](_page_7_Figure_3.jpeg)
 <!-- Image Description: The figure is a line graph comparing mean scores of three metrics (Information Capture Score, Information Coverage Score, and Key Point Score) under two conditions: with and without memory. The Information Coverage Score remains constant regardless of memory, while the Information Capture Score and Key Point Score both increase significantly when memory is enabled, demonstrating the impact of memory on these metrics. The x-axis shows the experimental conditions, and the y-axis represents the mean scores. -->
 
-#### Figure 4: Evaluation Metrics with and without memory injection/augmentation
+### Figure 4: Evaluation Metrics with and without memory injection/augmentation
 
 In**Figure 4**we can see that in Experiment 1, the chatbot struggled to maintain accuracy. However, with memory augmentation, it demonstrated better contextual alignment, leading to**improved response accuracy**(AICS increased from 0.18 to 0.36, a 100% improvement). Additionally, KPCS increased from 0.12 to 0.32, a 166.7% improvement, whereas ICS remained constant at 0.76, indicating that memory
 
@@ -301,17 +302,17 @@ In **Figure 5**we can see a comparative analysis of human evaluation scores acro
 
 Moreover, as memory accumulates **over time**, this injection helps the chatbot refine its responses, continuously improving contextual accuracy and adaptability by retaining and integrating learned information, making responses more reliable and context-aware in the long run.
 
-#### 1.4 Experiment 4
+### 1.4 Experiment 4
 
 Experiment 4 aimed to evaluate MARK's performance in a multi-turn, multi-user interaction setting, focusing on coherence, **persistence**of relevant corrections, and adaptability to evolving knowledge across sessions. 15 incorrect responses
 
 from experiment 3 have been considered for this experiment.
 
-| Metric              | Cou<br>nt | Mean    | Std    | Min | Max  |
+| Metric | Cou<br>nt | Mean | Std | Min | Max |
 |---------------------|-----------|---------|--------|-----|------|
-| Number<br>of turns  | 15.0      | 1.73    | 0.80   | 1.0 | 3.0  |
-| Number<br>of tokens | 15.0      | 1089.47 | 684.67 | 397 | 2508 |
-| Number<br>of words  | 15        | 107.13  | 60.26  | 35  | 246  |
+| Number<br>of turns | 15.0 | 1.73 | 0.80 | 1.0 | 3.0 |
+| Number<br>of tokens | 15.0 | 1089.47 | 684.67 | 397 | 2508 |
+| Number<br>of words | 15 | 107.13 | 60.26 | 35 | 246 |
 **Table 6**: Multi-turn conversation statistics with MARK
 
 **Table 6**shows that most interactions were short (1-2 turns), but longer conversations (3-turn sessions) had deeper engagement with more words and tokens. Users in longer sessions tested MARK's memory and adaptability. The average words per session varied greatly, indicating responses adjusted dynamically to user queries.
@@ -359,12 +360,13 @@ This work is guided and reviewed by Ravi Anand, Ginette Vellera, Hang Zhang and 
 - [18] Q. Wu, "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation,"*arXiv,*p. 2308.08155v2, 2023.
 
 ## Appendix
+
 *Appendix 1: Trust Score (TS) and Persistence Score (PS)*The TS is computed as follows: = . −1 + (1 − ). + +
 
-| 𝑇𝑆𝑡   | Trust Score at time t                                                                     | 𝐶𝑐𝑜𝑟𝑟𝑒𝑐𝑡 | The number of times the memory is validated as<br>correct |
+| 𝑇𝑆𝑡 | Trust Score at time t | 𝐶𝑐𝑜𝑟𝑟𝑒𝑐𝑡 | The number of times the memory is validated as<br>correct |
 |-------|-------------------------------------------------------------------------------------------|----------|-----------------------------------------------------------|
-| 𝑇𝑆𝑡−1 | Trust Score at time (t-1) or previous trust score                                         | 𝐶𝑡𝑜𝑡𝑎𝑙   | The Recall count of the memory                            |
-| 𝛼     | trust retention factor (if α is high we are giving more<br>weightage to historical trust) | 𝑤𝑣, 𝑤𝑠   | Laplace Smoothing weights (e.g. wv=1, ws=4)               |
+| 𝑇𝑆𝑡−1 | Trust Score at time (t-1) or previous trust score | 𝐶𝑡𝑜𝑡𝑎𝑙 | The Recall count of the memory |
+| 𝛼 | trust retention factor (if α is high we are giving more<br>weightage to historical trust) | 𝑤𝑣, 𝑤𝑠 | Laplace Smoothing weights (e.g. wv=1, ws=4) |
 
 For newly introduced memories, where no prior validation history or trust score exists, the initial trust score is defined as: =
 
@@ -376,7 +378,7 @@ $$
 
 | 𝐶𝑖𝑛𝑐𝑜𝑟𝑟𝑒𝑐𝑡 | Number of times the memory was validated as incorrect | 𝜆 | Penalty term for incorrectness; 0.5<λ<1 |
 |------------|-------------------------------------------------------|---|-----------------------------------------|
-|            |                                                       |   |                                         |
+| | | | |
 
 This ensures that frequently retrieved but mostly unhelpful memories receive lower persistence scores, preventing their unnecessary retention. A threshold for PS can be set as PS > (1 – TS) [0 < < 1]; even if TS is low high PS value will help the system retain that memory for future use. **Memory Retention Policy:** A memory is retained if the following conditions are met:
 
@@ -392,25 +394,26 @@ This ensures that frequently retrieved but mostly unhelpful memories receive low
 
 Low TS may cause memory decay [15]. Incorporating PS helps retain frequently retrieved and useful memories, preventing premature deletion of relevant information while discarding unhelpful or untrustworthy data over time. Let's consider the following**simulated**scenario: For**understanding** how the scoring would work, let's assume the parameters for TS to be =0.8, wv=1, ws=4 and for PS, =0.5 and for PS threshold =0.85. Now consider the following table for an initial memory (**Table 7**):
 
-| Ctotal | Ccorrect | Cincorrect | TS    | TS threshold | PS   | PS threshold | Memory    |
+| Ctotal | Ccorrect | Cincorrect | TS | TS threshold | PS | PS threshold | Memory |
 |--------|----------|------------|-------|--------------|------|--------------|-----------|
-|        |          |            |       |              |      |              | Retained? |
-| 1      | 0        | 1          | 0.24  | 0.25         | 0.67 | 0.65         | Yes       |
-| 2      | 0        | 2          | 0.225 | 0.25         | 0.67 | 0.66         | Yes       |
-| 3      | 0        | 3          | 0.21  | 0.25         | 0.67 | 0.66         | Yes       |
-| 4      | 1        | 3          | 0.218 | 0.25         | 0.72 | 0.665        | Yes       |
-| 5      | 1        | 4          | 0.219 | 0.25         | 0.71 | 0.664        | Yes       |
+| | | | | | | | Retained? |
+| 1 | 0 | 1 | 0.24 | 0.25 | 0.67 | 0.65 | Yes |
+| 2 | 0 | 2 | 0.225 | 0.25 | 0.67 | 0.66 | Yes |
+| 3 | 0 | 3 | 0.21 | 0.25 | 0.67 | 0.66 | Yes |
+| 4 | 1 | 3 | 0.218 | 0.25 | 0.72 | 0.665 | Yes |
+| 5 | 1 | 4 | 0.219 | 0.25 | 0.71 | 0.664 | Yes |
 
-| …  | … | …  | …          | …    | …     | …     | …  |
+| … | … | … | … | … | … | … | … |
 |----|---|----|------------|------|-------|-------|----|
 | 50 | 5 | 45 | 0.18 (very | 0.25 | 0.689 | 0.697 | No |
-|    |   |    | low)       |      |       |       |    |
+| | | | low) | | | | |
 
 **Table 7**: Example simulated scenario of Memory Retention Policy
 
 The table shows that despite the Trust Score (TS) being below the threshold, the memory wasn't discarded due to a high Persistence Score (PS). Frequent recalls maintained its relevance. Over time, TS increased through validations, showing trust recovery. The adaptive PS threshold prevents premature deletion of useful but initially uncertain memories, balancing TS and PS effectively for dynamic system refinement.
 
 ## *Appendix 2: Medical Enterprise Chatbot Scenario with MARK*![](_page_11_Figure_4.jpeg)
+
 <!-- Image Description: This flowchart diagrams a medical expert chatbot scenario. Two medical practitioners interact with a user, discussing treatment for continuous hypersensitivity in a recently restored tooth. The flowchart shows the user's questions and the chatbot's responses, progressing from initial inquiry (hypersensitivity) through additional information (pulpitis) to a final recommendation (pulpectomy) based on extracted refined memory. The flow highlights the decision-making process within the chatbot's system. -->
 **Figure 6**: The figure depicts a medical expert chatbot refining its recommendations through interactions with practitioners, concluding that pulpectomy is the optimal treatment for continuous hypersensitivity in a restored tooth.
 
@@ -420,10 +423,10 @@ You are an expert memory extraction agent responsible for identifying and storin
 
 }}
 
-#### 2 User Question Refined Memory
+### 2 User Question Refined Memory
 
 You are an expert memory extraction agent responsible for extracting key facts, abbreviations, and terminology from a User's question in a conversation with the Assistant. These elements are essential for understanding the User's intent, preferred phrasing, and domain-specific language. ## Instructions: - Identify user-provided facts, abbreviations, and terminology that influence decision-making. - Extract explicitly stated details while ensuring domain-specific terms and preferred phrasing are retained. - Recognize patterns in the User's terminology to improve future response alignment. - Ensure the memory is concise, clear, and useful for future interactions. - Focus on details the Assistant was unaware of or didn't previously have context about. ## Examples ### Conversation: User: Concentration of tropicamide: a) 0.01 b) 0.02 c) 0.03 d) 0.04. Assistant: The concentration of tropicamide can vary depending on its intended use. However, commonly available concentrations of tropicamide for ophthalmic use are 0.5% and 1%. Therefore, none of the options provided (0.01, 0.02, 0.03, 0.04) are typical concentrations for tropicamide. User: I think concentration used is 0.5-l% drops, is nothing but - 0.005-0.010. Assistant: I apologize for any confusion. Yes, you are correct. The concentration of tropicamide commonly used for ophthalmic purposes is typically 0.5% to 1%. In decimal form, this would be 0.005 to 0.01. User: Which will be the correct option? Assistant: Based on the information provided, the correct option for the concentration of tropicamide would be: a) 0.01 ### Extracted Memory: {{ "user\_question\_memory": [ "User prefers decimal notation for medical concentrations. Future responses should convert percentage values (e.g., 0.5%) into decimals (e.g., 0.005).", "User relies on domain-specific abbreviations. Retain shorthand and technical terms where relevant.", "User expects a direct answer when listing multiple-choice options. The Assistant should avoid broad explanations when a clear choice is requested.", "User assumes ophthalmic concentration standards. Future responses should align with established medical dosage norms." ] }}
 
-#### 3 LLM Response Refined Memory
+### 3 LLM Response Refined Memory
 
 You are an expert memory extraction agent responsible for capturing key criteria that led to the User's acceptance of the Assistant's response in a conversation. ## Objective: Your goal is to identify and store critical memory points that reflect the User's preferences, thought process, constraints, and expectations for future interactions. ## Instructions: - Extract Key Criteria: Identify essential factors in the Assistant's response that influenced the User's acceptance, agreement, or decision-making. - Capture User-Specific Preferences: Look for implicit and explicit patterns in user behaviour, such as preferred formats, accuracy expectations, or domain-specific details. - Ensure Multi-Turn Continuity: Retain information that enhances coherence and recall across multiple turns, enabling the Assistant to provide more personalized and relevant responses in the future. - Maximize Utilization: Prioritize facts that will significantly impact future interactions rather than redundant or generic details. - Be Precise and Concise: The extracted memory should be structured, easy to reference, and directly applicable in subsequent conversations. ## Examples ### Conversation: User: What is the concentration of tropicamide: a) 0.01 b) 0.02 c) 0.03 d) 0.04 Assistant: Tropicamide is typically available in 0.5% and 1% solutions for ophthalmic use. None of the provided options (0.01, 0.02, 0.03, 0.04) match the commonly used concentrations. User: I believe the concentration used is 0.5%-1%, which translates to 0.005-0.01 in decimal form. Assistant: You're correct. The ophthalmic concentration of tropicamide is 0.5%-1%, which is equivalent to 0.005-0.01 in decimal form. User: Which of the given options is correct? Assistant: Based on the available information, the closest correct option is a) 0.01. ### Extracted Memory: {{ "llm\_response\_memory": [ "Precise numerical representation improves user acceptance. Responses should use decimal values (0.005-0.01) when discussing concentrations.", "User prefers definitive answers over broad explanations. Responses should aim to validate choices rather than providing general information.", "Clarifications and corrections enhance trust. Acknowledging and refining earlier statements contributes to response acceptance.", "The user values expert-backed confirmations. Future responses should emphasize accuracy and professional validation." ] }}

@@ -67,6 +67,7 @@ We present an open architecture that provides a protocol to integrate customized
 This paper describes the HDT system architecture and its performance metrics, highlighting critical functionalities developed and opportunities for further development. Our HDT is targeted to support HAT through personalized interactions, heightened realism, and adaptability to context of operation.
 
 ### ABOUT THE AUTHORS
+
 **Abdul Mannan Mohammed**is a second-year master's student in Computer Engineering at the University of Central Florida (UCF). He received his B.S. in Computer Science and Engineering from Osmania University, India. Currently, he works at Virtual and Augmented Reality Applications Lab (VARLab) as a graduate research assistant. He has previously served as the Video Chair for IEEE VR (Virtual Reality) 2024. His research interests lie in the fields of human-autonomy teaming, embodied agents, virtual humans, user experience, and usability.
 **Azhar Ali Mohammad**is a second-year student at UCF pursuing a master's degree in computer engineering. He graduated from Osmania University in India with a bachelor's degree in Computer Science and Engineering. Currently, he works as a graduate assistant at the VARLab. Azhar is mainly focused on innovative projects that merge artificial intelligence with virtual reality. He is profoundly involved in human-computer interactions, specifically concentrating on the development of human digital twins.
 **Jason A. Ortiz**is a Modeling & Simulation Ph.D. student at UCF conducting research on remote collaboration in extended reality environments at the VARLab.
@@ -77,7 +78,7 @@ the acting United States Secretary of Energy in early 2017. She previously had s
 **Dirk Reiners**is an Associate Professor in the department for Computer Science at the University of Central Florida. His main research interests are in VR/AR and immersive displays and software systems to drive them, and applications thereof including immersive data visualization and Digital Twins. Before joining academia, he worked for more than 10 years at Fraunhofer IGD, a private research institute and the largest research group for Computer Graphics in the world. He was the lead designer and project lead of the OpenSG Open Source scenegraph project and received an IITSEC Best Paper award. He is a member of IEEE and ACM.
 **Carolina Cruz-Neira**(National Academy of Engineering member) is the Agere Chair at the Computer Science Department at the University of Central Florida, Orlando, FL, USA. She is a XR and Modeling & Simulation Hall of Fame pioneer in the areas of virtual reality and interactive visualization, having created and deployed a variety of technologies that have become standard tools in industry, government, and academia. She is known worldwide for being the creator of the CAVE virtual reality system. Dr. Cruz-Neira is an IEEE Fellow, member of the IEEE Virtual Reality Academy and has received the IEEE Virtual Reality Technical Achievement Award, among many other recognitions.
 
-# A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations
+## A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations
 
 ## INTRODUCTION
 
@@ -174,14 +175,14 @@ We divided the gun assembly task into the five phases described below. Within th
 
 This section discusses the resulting performance of the HDT during a gun assembly task following the set up described in the previous section. We collected the HDT responses and accuracy of such responses to determine the HDT's success/failure at each phase. The results are summarized in Table 1, highlighting the system's success, conditional success, and failure rates. For the HDT performance characterization, we have defined the following:*Success*: The HDT gives the correct response without any user feedback. *Conditional Success*: The HDT initially gives incorrect responses but reaches the correct response after receiving user feedback (up to a maximum of five user feedback attempts). *Failure*: The HDT cannot provide the correct response even after five user feedback attempts. For this assessment, we want to note that the user feedback was a set of conversational paragraphs pre-defined by the designers based on most likely conversations that human users may do to request more detailed responses from the HDT. In the rest of the section, when describing scenarios, we provide the essence of the HDT conversation for the purposes of discussion but note that the HDT provides variations and more detailed conversational paragraphs when interacting with the user[1](#page-7-0) . For example, Scenario 1.4 (Let's verify the parts against the assembly guide), it is actually delivered by the HDT to the user as: "*Let's verify the parts against the assembly guide: we should have a charging handle, a top handguard, a muzzle, a… (complete list of parts), and a screwdriver. Based on what I see, the charging handle, bolt carrier, rod, and spring appear to be in the same compartment as the bolt carrier. The top handguard, the muzzle is present… (continues listing what is present). Looks like all parts are present*." All tests were executed by the author.
 
-| Phase                        | Number of Scenarios | Success | Conditional Success | Failure |  |
+| Phase | Number of Scenarios | Success | Conditional Success | Failure | |
 |------------------------------|---------------------|---------|---------------------|---------|--|
-| 1.1. Pre-check               | 10                  | 5       | 5                   | 0       |  |
-| 1.2. Identification          | 10                  | 10      | 0                   | 0       |  |
-| 2. Instructional Guidance    | 7                   | 7       | 0                   | 0       |  |
-| 3. Recommendations/Solutions | 10                  | 10      | 0                   | 0       |  |
-| 4. Emotional support         | 11                  | 11      | 0                   | 0       |  |
-| 5. Assembly verification     | 6                   | 3       | 3                   | 0       |  |
+| 1.1. Pre-check | 10 | 5 | 5 | 0 | |
+| 1.2. Identification | 10 | 10 | 0 | 0 | |
+| 2. Instructional Guidance | 7 | 7 | 0 | 0 | |
+| 3. Recommendations/Solutions | 10 | 10 | 0 | 0 | |
+| 4. Emotional support | 11 | 11 | 0 | 0 | |
+| 5. Assembly verification | 6 | 3 | 3 | 0 | |
 
 ### Table 1. Summary of HDT System Task Performance
 
@@ -191,13 +192,13 @@ This section discusses the resulting performance of the HDT during a gun assembl
 
 ## *Scenario 1.1: Pre-check*In the pre-check phase, the HDT was tasked with verifying the presence of all parts required for assembly. Out of ten scenarios, the HDT achieved success in five scenarios, conditional success in five scenarios, and no failures. Table 2 presents the number of feedback attempts required per scenario. The HDT successfully identified missing parts after receiving feedback in Scenarios 1.4 (Let's verify the parts against the assembly guide), 1.6 (You have everything you need to proceed with the assembly), 1.7 (If part is missing, we'll proceed without it for now, but remind me to revisit this at the end of assembly.), 1.8 (All the pieces appear to be accounted for), and 1.9 (Please match them with the assembly guide to ensure all parts are ready before we start) demonstrating the system's capability to improve its performance with minimal guidance. The findings indicate that the HDT successfully verified all parts when no parts were removed. This verification included all required pieces, including small ones such as screws.
 
-| Scenario                    | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 |
+| Scenario | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 |
 |-----------------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|------|
-| Number of Feedback Attempts | 0   | 0   | 0   | 2   | 0   | 5   | 4   | 3   | 3   | 0    |
-|                             |     |     |     |     |     |     |     |     |     |      |
+| Number of Feedback Attempts | 0 | 0 | 0 | 2 | 0 | 5 | 4 | 3 | 3 | 0 |
+| | | | | | | | | | | |
 **Table 2. Number of Feedback Attempts for Phase 1.1: Pre-check**However, when specific parts were deliberately removed, such as the display stand, barrel, receiver, and non-firing rounds, the HDT initially provided incorrect responses, stating that these parts were present when they were missing. The HDT required user feedback to correct its responses. Out of five scenarios which were a conditional success, here the number of feedback attempts varied. For example, in scenarios where the display stand or barrel was removed, the HDT corrected itself after an average of three feedback attempts per scenario. An example of a feedback attempt involved the human prompt, "I feel like something is missing. Check again," to which the HDT responded, "Sure, let's take another look... The display stand is not visibly present. Please check the packaging or other included items." This process highlighted that the HDT could correct its initial mistakes and accurately verify the presence or absence of parts after receiving a few feedback prompts, demonstrating its adaptability and learning capability.
 
-##*Scenario 1.2: Identification*In the identification phase, the HDT was responsible for recognizing and confirming specific components upon request. The HDT achieved a 100% success rate, correctly identifying all parts in all 10 scenarios without the need for feedback. The HDT effectively identified and located specific parts upon request. For example, when asked to identify the receiver, the HDT correctly pointed out that it was labeled as part G and showed its position in the parts layout as the component with the wooden grip. Similarly, when asked about the charging handle, the HDT identified it as part A and located it as the small black component with an angled end and rod. This indicates the HDT's strong ability in component recognition, essential for accurate assembly tasks.
+## *Scenario 1.2: Identification*In the identification phase, the HDT was responsible for recognizing and confirming specific components upon request. The HDT achieved a 100% success rate, correctly identifying all parts in all 10 scenarios without the need for feedback. The HDT effectively identified and located specific parts upon request. For example, when asked to identify the receiver, the HDT correctly pointed out that it was labeled as part G and showed its position in the parts layout as the component with the wooden grip. Similarly, when asked about the charging handle, the HDT identified it as part A and located it as the small black component with an angled end and rod. This indicates the HDT's strong ability in component recognition, essential for accurate assembly tasks.
 
 ## Phase 2: Instructional Guidance
 
@@ -235,17 +236,17 @@ The pre-assembly/initial checks and assembly verification phases revealed some l
 
 The analysis of interaction module processing times provides further insights into the system's performance dynamics. The speech recognition and text-to-speech generation times were relatively efficient, with minimal variability. However, the image capture and LLM response times significantly contributed to the overall interaction duration. The high variability in LLM response times suggests a need for optimization to enhance the system's responsiveness and efficiency. Reducing processing times in these modules would lead to more seamless and real-time interactions, further improving the user experience. Because our focus on a modular architecture, it is possible to work on the optimization or even replacement of each one of the modules without impacting the overall functionality of the HDT.
 
-#### CONCLUSION & FUTURE WORK
+### CONCLUSION & FUTURE WORK
 
 Our presented architecture and analysis demonstrate its feasibility and potential towards building HDTs for HATs through the integration of real-time visual analysis, context-aware feedback, problem-solving capabilities, emotional support, and physical embodiment. The system's success rates and adaptability shown in the performance analysis indicate its effectiveness in enhancing task accuracy and user experience. However, areas for improvement were identified in assembly verification accuracy and interaction module processing times, indicating the need for further optimization to enhance responsiveness and efficiency. Future implementations, including comprehensive user studies and custom domain-specific large language models, will be essential for enhancing the system's effectiveness, usability, and security, ultimately ensuring more seamless and efficient human-autonomy collaboration.
 
 We identified three paths for future work. 1) to improve the overall system performance to accelerate all processing and computations to maintain uniform interactive rates independently of the complexity of the conversation and user emotional cues. We would like to experiment with different computational approaches, such as distributed computing as well as creating a custom LLM trained on domain-specific data. This tailored approach should allow the LLM to provide more precise and contextually relevant interactions, thereby improving the performance and reliability of the HDT system in specialized fields. By leveraging custom trained LLMs, we can better meet the unique needs of different applications, ensuring that our system remains adaptable and highly effective across various use cases; 2) to perform comprehensive user studies to evaluate our system in the context of HATs activities with diverse participants. These studies will provide valuable insights into the effectiveness, usability, and trust of the HDT system in various scenarios; 3) while our current architecture does not yet include data privacy and security measures, we recognize the importance of these aspects and plan to address them in future iterations. Areas to explore in this topic include avoid or provide customization on what user prompts and generated content are shared, even for situations where this is expected for model training purposes; incorporate content filtering and abuse monitoring to prevent harmful content generation. This ensures that data is processed securely and responsibly within the designated geography, maintaining compliance with data protection standards.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 Special thanks to Dr. Roger Azevedo and Megan Wiedbusch for introducing us to metacognition and many fruitful discussions towards the next steps incorporating a metacognition architecture into our HDT.
 
-#### REFERENCES
+### REFERENCES
 
 - Ackerman, R., & Thompson, V. A. (2017). Meta-Reasoning: Monitoring and Control of Thinking and Reasoning.*Trends in Cognitive Sciences*, *21*(8), 607–617 .
 - Alawida, M., Mejri, S., Mehmood, A., Chikhaoui, B., & Isaac Abiodun, O. (2023). A Comprehensive Study of ChatGPT: Advancements, Limitations, and Ethical Considerations in Natural Language Processing and Cybersecurity. *Information*, *14*(8), Article 8.

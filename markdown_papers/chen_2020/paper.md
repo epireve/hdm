@@ -28,7 +28,6 @@ images_removed: 0
 keywords: 
 ---
 
-
 # A Survey on Collaborative Mechanisms Between Large and Small Language Models
 
 Yi Chen1,2, JiaHao Zhao1,2, HaoHao Han1,2
@@ -65,13 +64,13 @@ Before delving into the collaborative mechanisms between Large Language Models (
 
 ### 1 Large Language Models
 
-#### 1.1 Definition, Architecture, and Characteristics
+### 1.1 Definition, Architecture, and Characteristics
 
 Large Language Models (LLMs) typically refer to language understanding and generation models with parameter scales in the billions or more. Their architectures are mostly based on the Transformer framework, employing autoregressive (e.g., GPT series) or masked language modeling strategies (e.g., BERT, T5) for pre-training (raffel2020exploring; [Brown, Mann,](#page-31-0) [Ryder, et al.,](#page-31-0) [2020;](#page-31-0) [OpenAI,](#page-33-0) [2023\)](#page-33-0). These models learn language structure, knowledge representation, and reasoning patterns from massive unsupervised corpora, enabling deep modeling of natural language text and supporting generalization to various downstream tasks.
 
 From an architectural perspective, LLMs usually consist of tens to hundreds of Transformer layers, each containing multi-head attention mechanisms, feed-forward networks, residual connections, and normalization operations. As the number of model parameters increases, their capabilities do not grow linearly but exhibit certain "emergent phenomena." That is, once the model scale exceeds a certain threshold, they automatically demonstrate more complex abilities such as language understanding, mathematical reasoning, and multimodal interaction (wei2022emergent; [Gao, K. Zhu, and Z. Liu,](#page-31-1) [2025\)](#page-31-1). This non-linear performance leap has become an important clue in the current exploration of artificial general intelligence.
 
-#### 1.2 Advantages and Limitations
+### 1.2 Advantages and Limitations
 
 LLMs possess unparalleled advantages in general language modeling. They exhibit strong generalization capabilities and can perform various natural language processing tasks through prompts or in-context learning, including question answering, translation, summarization, code generation, and knowledge retrieval, demonstrating potential for zero-shot and few-shot learning. LLMs have deep semantic understanding and long-text modeling capabilities, preserving contextual logic and structural integrity. Through fine-tuning or reinforcement learning (such as RLHF), their behavior and alignment with human preferences can be further optimized.
 
@@ -87,7 +86,7 @@ Small Language Models (SLMs) refer to models with parameter scales ranging from 
 
 Compared to LLMs, SLMs are more suitable for deployment on platforms with limited computing resources, such as edge devices, mobile terminals, and browser plugins. Their characteristics, including fast inference speed, low energy consumption, and flexible deployment, make them key components for achieving localized, low-latency human-computer interaction. In application scenarios like voice assistants, text input methods, and intelligent customer service, small models can respond quickly to user requests, protect user privacy, and reduce reliance on networks and the cloud.
 
-#### 2.2 Advantages, Limitations, and Typical Construction Methods
+### 2.2 Advantages, Limitations, and Typical Construction Methods
 
 The prominent advantages of small models are reflected in their lightweight nature, high efficiency, and deployment-friendliness. On the one hand, due to their compact structure, they can perform inference on ordinary CPUs or low-power devices without relying on high-performance GPUs, significantly reducing operational costs. On the other hand, SLMs typically possess good task adaptability and can achieve performance optimization in specific scenarios through fine-tuning or distillation. Furthermore, keeping data processing local helps enhance user privacy protection capabilities, meeting the requirements of certain industries with high compliance demands.
 
@@ -109,13 +108,13 @@ Conversely, the advantages of small models lie in their smaller parameter count 
 
 Collaboration essentially involves the large model acting as the "brain" for complex decisionmaking, while the small model serves as the "nerve endings" for lightweight interaction, forming a "central processor + edge node" division of labor system.
 
-#### 3.3 Transferability of Architecture and Training
+### 3.3 Transferability of Architecture and Training
 
 This can be achieved through points like knowledge distillation techniques and Parameter-Efficient Fine-Tuning (PEFT). Knowledge distillation techniques, using methods like Soft Labels and intermediate layer feature transfer (e.g., FitNets), allow large models to transfer implicit knowledge (such as semantic representation, reasoning logic) into training signals for small models. This enables small models to inherit the core capabilities of large models while remaining lightweight (e.g., TinyBERT achieves 96% of BERT's performance on the GLUE benchmark with 75% fewer parameters).
 
 Parameter-Efficient Fine-Tuning, through techniques like LoRA and QLoRA, allows small models to perform localized fine-tuning based on the pre-trained parameters of large models, quickly adapting to specific tasks (e.g., in medical Q&A scenarios, the accuracy of small models increased by 20% after fine-tuning). This forms a collaborative training paradigm of "large model foundation + small model specialization."
 
-#### 3.4 Adaptability of Deployment Scenarios
+### 3.4 Adaptability of Deployment Scenarios
 
 In terms of adaptability, collaboration between cloud and edge can be utilized. Large models rely on high-compute cloud servers (requiring tens of GB of VRAM) and are suitable for handling batch complex tasks (e.g., text generation, multi-turn dialogue). Small models can be deployed on low-compute devices (e.g., Raspberry Pi, mobile phone chips) and are responsible for real-time interaction and local data preprocessing (e.g., speech recognition, preliminary user intent analysis). The two communicate via APIs or lightweight protocols (e.g., gRPC) to enable data flow.
 
@@ -137,7 +136,7 @@ SLMs often handle the front-end tasks in a model pipeline, such as input underst
 
 Based on the interaction methods and information flow between LLMs and SLMs, their collaboration modes can be classified into pipeline, hybrid/routing, auxiliary/enhancement, knowledge distillation-driven, and integration/fusion collaboration.
 
-#### 1.1 Pipeline Collaboration
+### 1.1 Pipeline Collaboration
 
 Pipeline collaboration is a sequential execution mode where the output of one model serves as the input for another [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024\)](#page-34-0). Since SLMs typically offer higher efficiency, they are often used for executing preliminary processing or generating candidate results, which are then passed to LLMs for more complex reasoning or knowledge integration [\(Gao, K. Zhu, and Z. Liu,](#page-31-1) [2025\)](#page-31-1).
 
@@ -150,11 +149,11 @@ The key to pipeline collaboration lies in reasonably dividing tasks and designin
 ![](_page_7_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates four approaches to using large language models (LLMs) for email drafting. Stages 1-3 show a user's request processed by a generic cloud-based LLM (2), revealing privacy concerns due to data leakage. Stage 3 contrasts this with a specialized, on-device SLM, which is less effective. Finally, stage 4 depicts a hybrid approach: the on-device SLM uses the cloud LLM for high-level knowledge, protecting privacy while maintaining effectiveness. The flowchart compares different architectures for privacy-preserving LLM-based text generation. -->
 
-<span id="page-7-0"></span>Figure 1: CoGenesis framework structure diagram. 1. Context-aware instructional examples. 2. Context-aware Language Models (LLMs) excel in context awareness but pose privacy risks. 3. On-device specialized Small Language Models (SLMs) prioritize privacy but have lower performance. 4. Collaborative LLMs and SLMs enhance privacy protection and improve performance.
+<span id="page-7-0"></span>**Figure 1:** CoGenesis framework structure diagram. 1. Context-aware instructional examples. 2. Context-aware Language Models (LLMs) excel in context awareness but pose privacy risks. 3. On-device specialized Small Language Models (SLMs) prioritize privacy but have lower performance. 4. Collaborative LLMs and SLMs enhance privacy protection and improve performance.
 
 communication protocols and the type of information exchanged must be carefully considered to ensure seamless and effective collaboration. Pipeline collaboration typically leverages the efficiency of SLMs for preliminary processing or context collection, offloading computationally intensive and knowledge-dependent tasks to LLMs, thereby striking a balance between speed and accuracy.
 
-#### 1.2 Hybrid/Routing Collaboration
+### 1.2 Hybrid/Routing Collaboration
 
 Hybrid or routing collaboration refers to using a mechanism (usually called a router) to decide which model (LLM or SLM) should handle a specific input or sub-task [\(Xinyuan Wang et al.,](#page-34-4) [2025;](#page-34-4) [W. Zheng et al.,](#page-34-5) [2025;](#page-34-5) [Lv et al.,](#page-32-2) [2025\)](#page-32-2). The routing decision is typically based on task complexity, domain, cost, required latency, or other predefined criteria.
 
@@ -165,7 +164,7 @@ Other research efforts focus on developing routers capable of selecting the most
 ![](_page_8_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a collaborative inference system using Large Language Models (LLMs) and smaller language models (SLMs). Three example question-answering scenarios ("cases") demonstrate the iterative process. Each case shows data flow between LLM and SLM, with correct and incorrect answers indicated. A separate section depicts the training phase, where routing preferences are learned and stored in a router to optimize subsequent inference. The diagram visually explains the system's architecture and its decision-making process. -->
 
-<span id="page-8-0"></span>Figure 2: CITER framework structure diagram. Utilizes a router for collaborative inference between SLM and LLM. The router is trained using routing preferences collected through three scenarios. Scenario 1: SLM generates the correct token, routing preference assigned to SLM. Scenario 2: SLM generates an incorrect token, while LLM generates the correct token, routing preference assigned to LLM. Scenario 3: Neither SLM nor LLM generates the correct token; collaborative reasoning is performed to obtain the complete response for assigning routing preference.
+<span id="page-8-0"></span>**Figure 2:** CITER framework structure diagram. Utilizes a router for collaborative inference between SLM and LLM. The router is trained using routing preferences collected through three scenarios. Scenario 1: SLM generates the correct token, routing preference assigned to SLM. Scenario 2: SLM generates an incorrect token, while LLM generates the correct token, routing preference assigned to LLM. Scenario 3: Neither SLM nor LLM generates the correct token; collaborative reasoning is performed to obtain the complete response for assigning routing preference.
 
 models of different scales and capabilities based on task requirements. HybridLLM utilizes a binary classifier to predict query difficulty and routes between different models accordingly [\(Yao et al.,](#page-34-7) [2025\)](#page-34-7).
 
@@ -173,7 +172,7 @@ Cascading is a common routing strategy that first attempts to process input usin
 
 Intelligent routing requires a mechanism capable of accurately assessing input features and the capabilities of available models to make optimal decisions. The router needs to understand the complexity of the task, the domain of the query, and the specific strengths and weaknesses of each LLM and SLM in the system. This might involve training a separate model to predict performance or using heuristic methods based on query features. Balancing cost, latency, and quality is a key consideration when designing routing mechanisms. More powerful models typically come with higher costs and latency, so the routing strategy must weigh these factors according to the application's needs. For real-time applications, latency might be the most critical factor, potentially prioritizing faster (but possibly less accurate) SLMs for certain query types. For tasks requiring high accuracy, the system might route to a more powerful (and more expensive) LLM. Routing strategies need to be configurable to meet different performance objectives.
 
-#### 1.3 Auxiliary/Enhancement Collaboration
+### 1.3 Auxiliary/Enhancement Collaboration
 
 In auxiliary or enhancement collaboration, one model (either LLM or SLM) assists another to improve its performance or capabilities [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024;](#page-34-0) [Shao et al.,](#page-33-3) [2025;](#page-33-3) [Jennifer Hu and Frank,](#page-32-4) [2024\)](#page-32-4).
 
@@ -182,7 +181,7 @@ An LLM can decompose a complex query into several sub-problems and then assign t
 ![](_page_9_Figure_0.jpeg)
 <!-- Image Description: The image displays three diagrams illustrating different retrieval-augmented generation (RAG) methods. (a) shows a standard RAG pipeline: query → retriever → LLM → answer. (b) depicts IRCOT, where an LLM generates sub-queries to refine retrieval. (c) presents Collab-RAG, using a white-box SLM to generate sub-queries, with a supervision mechanism evaluating LLM answers. The diagrams compare different architectures and highlight the role of sub-queries and supervision in improving answer quality. -->
 
-<span id="page-9-0"></span>Figure 3: Iterative training framework of Collab-RAG. The SLM updates its parameters based on the generation quality of the LLM reader. This process iterates multiple times, progressively improving the SLM's decomposition capability.
+<span id="page-9-0"></span>**Figure 3:** Iterative training framework of Collab-RAG. The SLM updates its parameters based on the generation quality of the LLM reader. This process iterates multiple times, progressively improving the SLM's decomposition capability.
 
 the LLMs' reasoning capabilities. LLMs can also be used to generate training data or provide feedback signals for SLMs, thereby helping SLMs learn and improve [\(Deng et al.,](#page-31-6) [2023\)](#page-31-6).
 
@@ -190,7 +189,7 @@ The Collab-RAG framework demonstrates an application of auxiliary collaboration,
 
 Auxiliary collaboration allows for a division of labor based on the inherent strengths of each model type, potentially improving overall performance compared to using either model alone. LLMs excel at understanding complex instructions and possess broad knowledge, while SLMs may be more specialized and efficient on certain specific tasks. By having them assist each other, the system can leverage the LLM's understanding to guide the SLM, or use the SLM's specialized knowledge to inform the LLM's reasoning. Designing effective auxiliary mechanisms requires careful consideration of how the models can best complement each other and the communication methods used for this interaction. Simply having one model feed its output to another might not be the most effective approach. Assistance might involve providing specific types of information, guiding the reasoning process, or offering feedback on the other model's performance. Communication needs to be tailored to the specific assistance being provided.
 
-#### 1.4 Knowledge Distillation-Driven Collaboration
+### 1.4 Knowledge Distillation-Driven Collaboration
 
 Knowledge Distillation (KD) is a key technique used to transfer knowledge and capabilities from a large, often proprietary teacher model (LLM) to a smaller, more efficient student model (SLM) [\(X. Xu et al.,](#page-34-9) [2024;](#page-34-9) [W. Xu et al.,](#page-34-3) [2024\)](#page-34-3).
 
@@ -198,7 +197,7 @@ KD involves multiple aspects, including the type of knowledge (output probabilit
 
 Knowledge distillation is a critical mechanism for enabling LLM-level intelligence to be deployed in resource-constrained environments by creating smaller, more efficient models. While LLMs offer superior performance, their size and computational requirements limit their applicability in many practical scenarios. KD allows us to transfer the knowledge learned by these large models into smaller models that can be deployed on edge devices or used in applications with strict latency requirements. The success of knowledge distillation depends on several factors, including the choice of teacher and student models, the quality and quantity of distillation data, and the specific distillation techniques employed. Different LLMs have different strengths, and the choice of teacher model will influence the type of knowledge transferred. The distillation data should be representative of the tasks the student model will perform. Selecting the appropriate distillation algorithm and tuning its parameters are also crucial for achieving optimal performance.
 
-#### 1.5 Integration/Fusion Collaboration
+### 1.5 Integration/Fusion Collaboration
 
 Integration or fusion collaboration refers to combining the architectures or outputs of LLMs and SLMs into a unified system to leverage their complementary strengths in a more tightly coupled manner [\(Naveed et al.,](#page-33-4) [2023;](#page-33-4) [Subramanian, Elango, and Gungor,](#page-33-5) [2025;](#page-33-5) [Lv et al.,](#page-32-2) [2025;](#page-32-2) [X. Dong et al.,](#page-31-7) [2024;](#page-31-7) [F. Wan et al.,](#page-34-10) [2024\)](#page-34-10).
 
@@ -213,9 +212,9 @@ To effectively implement collaboration between LLMs and SLMs, the following key 
 ![](_page_11_Figure_0.jpeg)
 <!-- Image Description: This diagram illustrates the architecture of a language model. It shows a sequential process starting with an embedding layer, followed by repeated "Hymba Blocks." Each block contains a "Full Attn" and "SWA" component, with KV sharing every two layers. A detailed view shows that each Hymba Block consists of layer normalization, a hybrid-head module, and a feed-forward network (FFN). The process concludes with an LM Head. The diagram clarifies the model's structure and component interactions. -->
 
-<span id="page-11-0"></span>Figure 4: Overall architecture of the Hymba model
+<span id="page-11-0"></span>**Figure 4:** Overall architecture of the Hymba model
 
-#### 2.1 Task Allocation and Intelligent Routing
+### 2.1 Task Allocation and Intelligent Routing
 
 In heterogeneous LLM-SLM systems, task allocation faces numerous challenges, requiring consideration of task complexity, required knowledge, computational resources, latency constraints, and cost [\(Varangot-Reille et al.,](#page-34-6) [2025\)](#page-34-6). The main goal is to intelligently assign system input tasks to the most appropriate model for processing.
 
@@ -225,13 +224,13 @@ Self-reinforcing routing optimization utilizes reinforcement learning to progres
 
 Intelligent routing mechanisms can dynamically assign tasks to the most suitable model based on predefined criteria or learned policies. This includes routing based on query difficulty, performance prediction, and cost awareness [\(Xinyuan Wang et al.,](#page-34-4) [2025;](#page-34-4) [Mohammadshahi,](#page-32-7) [Shaikh, and Yazdani,](#page-32-7) [2024\)](#page-32-7). Smaller, faster models can be used for initial intent detection, routing requests to more specialized or larger models [\(Guha et al.,](#page-32-8) [2024\)](#page-32-8). Effective task allocation and routing are crucial for optimizing the performance and efficiency of collaborative LLM-SLM systems, ensuring each task is handled by the most appropriate model. Developing robust and adaptive routing mechanisms requires a deep understanding of each model's capabilities and the characteristics of the tasks being processed. This might involve creating benchmarks to evaluate model performance on different task types and designing routing strategies that can adapt to changing conditions.
 
-#### 2.2 Inter-Model Communication and Interface Design
+### 2.2 Inter-Model Communication and Interface Design
 
 Seamless and efficient communication between LLMs and SLMs is crucial in collaborative environments.
 
 Natural language interfaces play an important role in this process, particularly in Chainof-Agents [\(Yusen Zhang et al.,](#page-34-11) [2024\)](#page-34-11), where working agents can pass information via natural language. This approach leverages the language understanding capabilities of LLMs, simplifies the complexity of interface design, and improves system interpretability [\(Yusen Zhang et al.,](#page-34-11)
 
-#### [2024\)](#page-34-11).
+### [2024\)](#page-34-11).
 
 Structured intermediate representations can provide a more standardized communication mechanism. CoGenesis [\(Kaiyan Zhang, Jianyu Wang, Hua, et al.,](#page-34-2) [2024\)](#page-34-2) uses a 'sketch' format for communication between large and small models. This representation conveys key information as a structured summary, making it easier for downstream models to process and more compact yet information-rich than raw text [\(Kaiyan Zhang, Jianyu Wang, Hua, et al.,](#page-34-2) [2024\)](#page-34-2).
 
@@ -239,13 +238,13 @@ Through probability distribution sharing, models can communicate uncertainty at 
 
 This involves different communication methods, such as passing text-based prompts and responses, sharing intermediate representations (like embeddings, hidden states), or using specialized APIs for inter-model communication [\(King et al.,](#page-32-9) [2024;](#page-32-9) [Pozdniakov et al.,](#page-33-6) [2024;](#page-33-6) [Woźniak et al.,](#page-34-13) [2024\)](#page-34-13). Designing standardized interfaces that allow different models to interact effectively, regardless of their underlying architecture, is also an important consideration. Additionally, challenges related to ensuring data consistency and format compatibility between models need to be addressed. The efficiency and effectiveness of collaboration are directly influenced by the degree of communication and information exchange between models. Well-designed interfaces and communication protocols are essential for achieving seamless interaction. The choice of communication methods and interface design should be tailored to the specific collaboration mode and the type of information being exchanged. Pipeline collaboration might only require passing final outputs, whereas more tightly integrated models may benefit from sharing intermediate representations.
 
-#### 2.3 Model Fusion and Result Integration
+### 2.3 Model Fusion and Result Integration
 
 Model fusion refers to merging the architectures or parameters of LLMs and SLMs to create a superior model, including techniques like weight averaging, knowledge fusion, ensemble learning, probability distribution-based fusion, model stacking, and mixture-of-experts models [\(Tang, Jun Wang, and Su,](#page-33-7) [2024;](#page-33-7) [F. Wan et al.,](#page-34-10) [2024;](#page-34-10) [Yang et al.,](#page-34-14) [2024;](#page-34-14) [Mavromatis, P.](#page-32-10) [Karypis, and G. Karypis,](#page-32-10) [2024;](#page-32-10) [Z. Wang et al.,](#page-34-15) [2025;](#page-34-15) [Shi et al.,](#page-33-8) [2024\)](#page-33-8).
 
 Result integration refers to combining the outputs of collaborative models. Common methods include simple averaging, weighted averaging, majority voting, or using another model to combine the outputs. Additionally, handling potential inconsistencies or conflicts in the outputs of different models is necessary. Model fusion and result integration are crucial for creating unified systems that can leverage the distinct strengths and knowledge of multiple models. The choice of technique depends on the specific goals of the collaboration and the characteristics of the involved models. Evaluating the effectiveness of model fusion and result integration requires careful consideration of appropriate metrics and benchmarks to assess the performance of the combined system.
 
-#### 2.4 State Synchronization and Context Management
+### 2.4 State Synchronization and Context Management
 
 In collaborative LLMs and SLMs, especially in multi-turn dialogues or sequential tasks, maintaining a consistent state and managing context is crucial. This involves synchronizing the internal states (memory, attention weights) of the collaborating models and managing and sharing contextual information between them [\(Subramanian, Elango, and Gungor,](#page-33-5) [2025;](#page-33-5) [F.](#page-34-0) [Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024;](#page-34-0) [Naveed et al.,](#page-33-4) [2023;](#page-33-4) [Mojarradi et al.,](#page-33-9) [2024\)](#page-33-9), for example, using shared memory modules or passing context along with input. Additionally, challenges related to handling long context scenarios and ensuring contextual coherence across multiple interactions need to be addressed.
 
@@ -270,12 +269,12 @@ Wearable devices and IoT voice assistants require rapid processing of user comma
 ![](_page_14_Figure_0.jpeg)
 <!-- Image Description: This diagram illustrates a three-layered architecture for an IoT system. The bottom layer shows IoT devices (lightbulb, water level sensor, smart relay, temperature/humidity sensor). The middle layer depicts a gateway layer with three interconnected nodes. The top layer shows a voice assistant device (LPN node) connected to the internet via cellular technology and capable of making phone calls. The architecture uses a BLE mesh network. The diagram's purpose is to visually represent the system's structure and communication flow. -->
 
-<span id="page-14-0"></span>Figure 5: Edge-cloud collaborative LLM-SLM architecture
+<span id="page-14-0"></span>**Figure 5:** Edge-cloud collaborative LLM-SLM architecture
 
 ![](_page_14_Figure_2.jpeg)
 <!-- Image Description: This flowchart illustrates a text generation system using an Edge SLM and a Cloud LLM. An Edge SLM autoregressively generates tokens ("quick," "brown," "dog," "barks"). These are sent to a cloud LLM for verification. The cloud LLM assigns confidence scores (color-coded) to each token, rejecting "dog" and accepting others. Verified tokens are then transferred back to the edge device. The diagram shows the data flow and the verification process using confidence scores. -->
 
-<span id="page-14-1"></span>Figure 6: Hybrid SLM-LLM framework structure
+<span id="page-14-1"></span>**Figure 6:** Hybrid SLM-LLM framework structure
 
 relying on cloud processing suffer significant user experience degradation in weak network environments. To address this, researchers have proposed an edge-cloud collaborative LLM-SLM architecture, as shown in Figure [5.](#page-14-0)
 
@@ -286,7 +285,7 @@ In practical applications, Google's Gboard and SwiftKey have adopted similar met
 ![](_page_15_Figure_0.jpeg)
 <!-- Image Description: This image depicts a cloud-edge-client architecture for machine learning. It shows three deployment scenarios: cloud-edge, edge-only, and cloud-edge-client. Each scenario illustrates model training and inference processes, including fine-tuned models, knowledge relay, and API gateways. Different model types (large, domain-specific, lightweight) and their deployment locations are shown. The figure also highlights advantages (reduced latency, privacy) and concerns (limited resources, accuracy) of each deployment. The architecture diagram uses boxes and arrows to represent data flow and model interactions. -->
 
-Figure 7: LLM Edge Deployment Strategy
+**Figure 7:** LLM Edge Deployment Strategy
 
 calling cloud services when more complex understanding is needed [\(Kumar,](#page-32-13) [2025\)](#page-32-13). This collaborative approach significantly enhances the smoothness of user experience and privacy protection levels.
 
@@ -362,7 +361,7 @@ The collaboration between Large Language Models (LLMs) and Small Language Models
 
 ### 1 Collaboration Efficiency and System Overhead
 
-#### 1.1 Latency of Task Routing Decisions
+### 1.1 Latency of Task Routing Decisions
 
 Although LLM-SLM collaboration aims to enhance overall efficiency, the collaboration process itself can introduce new overheads, potentially negatively impacting system performance. Key challenges lie in the latency of task routing decisions, the cost of inter-model communication, and the complexity management of the overall system.
 
@@ -372,7 +371,7 @@ SLMs are favored for their low inference latency, especially suitable for edge d
 
 A core paradox exists: the primary motivation for using SLMs is often to reduce latency, yet the mechanism for effectively choosing when to use an SLM (i.e., the router) itself introduces latency. The router's latency becomes a critical factor; if it is too high, the net latency reduction from collaboration (SLM latency + router latency vs. LLM latency) diminishes. This presents an open research challenge: developing near-zero-latency routing mechanisms or demonstrating that routing overhead is consistently negligible compared to the LLM-SLM latency difference. \*\*Open Issues:\*\* Develop ultra-low-latency routing mechanisms; quantify the trade-offs between routing complexity/accuracy and latency; design systems capable of masking routing latency through parallel processing.
 
-#### 1.2 Cost of Inter-Model Communication
+### 1.2 Cost of Inter-Model Communication
 
 In collaborative systems, especially in edge-cloud scenarios (SLM runs locally, LLM in the cloud), data transfer between models (e.g., queries, intermediate results, context, model outputs) incurs communication costs and latency. This is particularly challenging for real-time applications or when handling large amounts of data.
 
@@ -396,7 +395,7 @@ Due to differences in training data and model capacity, LLMs and SLMs possess di
 
 LLMs suffer from hallucination and knowledge staleness issues, while SLMs often underperform in specialized domains without sufficient domain-specific knowledge. Techniques like Knowledge Distillation (KD) aim to transfer knowledge from LLMs to SLMs [\(F. Wang, L.](#page-34-0) [Zhang, and Jian Hu,](#page-34-0) [2024\)](#page-34-0), but aligning complex distributions is difficult [\(Peng and Jiajun](#page-33-17) [Zhang,](#page-33-17) [2024\)](#page-33-17). RAG is used to inject external, up-to-date knowledge, but consistently integrating retrieved knowledge is also challenging. Research with the KnowsLM framework shows RAG excels at real-time knowledge injection, while fine-tuning is better for stylistic consistency [\(Harbola and Purwar,](#page-32-22) [2025\)](#page-32-22). The CoVer framework uses SLM verification to check the consistency of LLM reasoning [\(Y. Yan et al.,](#page-34-17) [2025\)](#page-34-17). The CrossLM framework uses feedback from SLMs to improve synthetic data generated by LLMs for mutual enhancement [\(Deng et](#page-31-6)
 
-#### al., [2023\)](#page-31-6).
+### al., [2023\)](#page-31-6).
 
 When LLMs and SLMs possess conflicting information (due to different training cutoffs or specializations), the collaborative system needs a mechanism to resolve this conflict. Simple fusion could lead to factual errors. This requires a sophisticated truth discovery mechanism or a strategy to explicitly trust one model's knowledge domain over another based on the specific query type. LLMs and SLMs have different knowledge bases; LLMs can hallucinate or be outdated, while SLMs may lack broad knowledge or domain specifics. Collaboration can lead to models providing conflicting factual information. The system needs a strategy to handle these conflicts: prioritizing one model based on context/task, using external verification (like RAG), or employing a fusion mechanism that weighs confidence/recency. Failure to resolve conflicts results in unreliable and untrustworthy outputs.
 
@@ -416,7 +415,7 @@ The increased number of components in collaborative systems means increased moni
 
 While offering potential advantages, LLM-SLM collaborative systems may also introduce or amplify risks related to security, privacy, and ethics. The flow of data between different models, the collaborative decision-making process, and the inherent flaws of the models themselves can all be sources of these problems.
 
-#### 4.1 Privacy Risks of Data Flow Between Different Models
+### 4.1 Privacy Risks of Data Flow Between Different Models
 
 When data, especially data containing sensitive user information, flows between local SLMs and cloud LLMs (or even between different LLMs), the risk of privacy leakage increases.
 
@@ -533,7 +532,7 @@ In conclusion, the collaborative mechanism between large and small language mode
 - <span id="page-30-1"></span>Aizip (Mar. 19, 2024). Aizip Works with SoftBank Corp. to Launch Customized Small Language Model Solutions for Privacy-Critical Enterprise Applications. url: [https://aizip.ai/](https://aizip.ai/aizip-works-with-softbank-corp-to-launch-customized-small-language-model-solutions-for-privacy-critical-enterprise-applications/) [aizip-works-with-softbank-corp-to-launch-customized-small-language-model](https://aizip.ai/aizip-works-with-softbank-corp-to-launch-customized-small-language-model-solutions-for-privacy-critical-enterprise-applications/)[solutions-for-privacy-critical-enterprise-applications/](https://aizip.ai/aizip-works-with-softbank-corp-to-launch-customized-small-language-model-solutions-for-privacy-critical-enterprise-applications/).
 - <span id="page-30-0"></span>Amayuelas, Alfonso et al. (2025). "Self-Resource Allocation in Multi-Agent LLM Systems". In: arXiv preprint arXiv:2504.02051.
 - <span id="page-30-2"></span>Arcee AI (2025). All About Small Language Models (SLMs). url: [https://www.arcee.ai/](https://www.arcee.ai/about-slms) [about-slms](https://www.arcee.ai/about-slms).
-- <span id="page-30-3"></span>Arize AI (2025). Merge, Ensemble, and Cooperate! A Survey on Collaborative LLM Strategies. url: [https : / / arize . com / blog / merge - ensemble - and - cooperate - a - survey - on](https://arize.com/blog/merge-ensemble-and-cooperate-a-survey-on-collaborative-llm-strategies/)  [collaborative-llm-strategies/](https://arize.com/blog/merge-ensemble-and-cooperate-a-survey-on-collaborative-llm-strategies/).
+- <span id="page-30-3"></span>Arize AI (2025). Merge, Ensemble, and Cooperate! A Survey on Collaborative LLM Strategies. url: [https : / / arize . com / blog / merge - ensemble - and - cooperate - a - survey - on](https://arize.com/blog/merge-ensemble-and-cooperate-a-survey-on-collaborative-llm-strategies/) [collaborative-llm-strategies/](https://arize.com/blog/merge-ensemble-and-cooperate-a-survey-on-collaborative-llm-strategies/).
 
 - <span id="page-31-13"></span>Boateng, Gordon Owusu et al. (2025). "A survey on large language models for communication, network, and service management: Application insights, challenges, and future directions". In: IEEE Communications Surveys & Tutorials.
 - <span id="page-31-0"></span>Brown, Tom B, Benjamin Mann, Nick Ryder, et al. (2020). "Language models are few-shot learners". In: NeurIPS.

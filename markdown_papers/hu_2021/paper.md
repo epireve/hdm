@@ -65,7 +65,7 @@ Current LLMs struggle with long-context inputs, limiting their effectiveness wit
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 <!-- Image Description: The image contains two diagrams. (a) illustrates CodexGraph's architecture: an LM agent interacts with a code graph database, exchanging schema information with a code repository. (b) shows CodexGraph's applications, demonstrating its integration with academic benchmarks (CrossCodeEval, EvoCodeBench, SWE-Bench) and real-world applications (Code Chat, Code Debugger, etc.). The diagrams visually represent the system's structure and functionality. -->
 
-Figure 1: (a) Using a unified schema, CODEXGRAPH employs code graph databases as interfaces that allow LLM agents to interact seamlessly with code repositories. (b) CODEXGRAPH supports the management of a wide range of tasks, from academic-level code benchmarks to real-world software engineering applications. recall rates. Meanwhile, existing tool/API-based interfaces that connect codebases and LLMs are typically task-specific and require extensive expert knowledge [\(Orwall](#page-13-1) ¨ , [2024;](#page-13-1) [Chen et al.,](#page-10-5) [2024\)](#page-10-5). Furthermore, our experimental results in Section [5](#page-6-0) indicate that the two selected methods lack flexibility and generalizability for diverse repository-level code tasks.
+**Figure 1:** (a) Using a unified schema, CODEXGRAPH employs code graph databases as interfaces that allow LLM agents to interact seamlessly with code repositories. (b) CODEXGRAPH supports the management of a wide range of tasks, from academic-level code benchmarks to real-world software engineering applications. recall rates. Meanwhile, existing tool/API-based interfaces that connect codebases and LLMs are typically task-specific and require extensive expert knowledge [\(Orwall](#page-13-1) ¨ , [2024;](#page-13-1) [Chen et al.,](#page-10-5) [2024\)](#page-10-5). Furthermore, our experimental results in Section [5](#page-6-0) indicate that the two selected methods lack flexibility and generalizability for diverse repository-level code tasks.
 
 Recent studies have demonstrated the effectiveness of graph structures in code repositories [\(Phan](#page-11-9) [et al.,](#page-11-9) [2024;](#page-11-9) [Cheng et al.,](#page-10-4) [2024\)](#page-10-4). Meanwhile, inspired by recent advances in graph-based RAG [\(Edge et al.,](#page-10-6) [2024;](#page-10-6) [Liu et al.,](#page-11-7) [2024b;](#page-11-7) [He et al.,](#page-10-7) [2024\)](#page-10-7) and the application of executable code (such as SQL, Cypher, and Python) to consolidate LLM agent actions [\(Wang et al.,](#page-12-3) [2024;](#page-12-3) [Li et al.,](#page-11-10) [2024c;](#page-11-10) [Xue](#page-12-4) [et al.,](#page-12-4) [2023\)](#page-12-4), we present CODEXGRAPH, as shown in Figure [1](#page-1-0) (a). CODEXGRAPH alleviates the limitations of existing approaches by bridging code repositories with LLMs through graph databases. CODEXGRAPH utilizes static analysis to extract code graphs from repositories using a task-agnostic schema that defines the nodes and edges within the code graphs. In these graphs, nodes represent source code symbols such as MODULE, CLASS, and FUNCTION, and each node is enriched with relevant meta-information. The edges between nodes represent the relationships among these symbols, such as CONTAINS, INHERITS, and USES (see Figure [2](#page-3-0) for an illustrative example). By leveraging the structural properties of graph databases, CODEXGRAPH enhances the LLM agent's comprehension of code structures. CODEXGRAPH leverages repository code information and graph structures for global analysis and multi-hop reasoning, enhancing code task performance. When users provide code-related inputs, the LLM agent analyzes the required information from the code graphs, constructs flexible queries using graph query language, and locates relevant nodes or edges. This enables precise and efficient retrieval, allowing for effective scaling to larger repository tasks.
 
@@ -91,9 +91,8 @@ Retrieval-Augmented Generation (RAG) systems primarily aim to retrieve relevant 
 
 CODEXGRAPH is a system that bridges code repositories and large language models (LLMs) through code graph database interfaces. It indexes input code repositories using static analysis, storing code symbols and relationships as nodes and edges in a graph database according to a predefined schema. When presented with a coding question, CODEXGRAPH leverages the LLM agent to generate graph queries, which are executed to retrieve relevant code fragments or code structures
 
-<span id="page-3-0"></span>
 
-Figure 2: Illustration of the process for indexing source code to generate a code graph based on the given graph database schema. Subfigure (3) provides a visualization example of the resultant code graph in Neo4j.
+**Figure 2:** Illustration of the process for indexing source code to generate a code graph based on the given graph database schema. Subfigure (3) provides a visualization example of the resultant code graph in Neo4j.
 
 from the database. The detailed processes of constructing the code graph database and the LLM agent's interactions with it are explained in sections [3.1](#page-3-1) and [3.2,](#page-4-0) respectively.
 
@@ -112,7 +111,7 @@ Phase 2: Complete the edges. The second phase addresses the limitations of shall
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
 <!-- Image Description: The image depicts a system architecture for translating code questions into graph queries. A primary language model (LM) agent receives a code question (e.g., "complete unfinished code"), generates natural language queries (e.g., "retrieve module where class 'LinearClassifier' is defined"), and passes them to a translation LM agent. The translation agent then produces a graph query (Cypher syntax) to extract relevant information from a schema. The diagram illustrates the workflow with boxes representing agents and data, and arrows indicating data flow. -->
 
-Figure 3: The primary LLM agent analyzes the given code question, writting natural language queries. These queries are then processed by the translation LLM agent, which translates them into executable graph queries.
+**Figure 3:** The primary LLM agent analyzes the given code question, writting natural language queries. These queries are then processed by the translation LLM agent, which translates them into executable graph queries.
 
 effective in resolving Python's re-export issues. We convert relative imports to absolute imports, enabling accurate establishment of cross-file CONTAINS relationships through graph queries. Simultaneously, we record INHERITS relationships for each class. For complex cases like multiple inheritance, DFS is used to establish edges for inherited FIELD and METHOD nodes within the graph database. This comprehensive approach ensures accurate capture of both intra-file and cross-file relationships, providing a complete representation of the codebase structure.
 
@@ -142,23 +141,23 @@ Large Language Models (LLMs). We evaluate CODEXGRAPH on three advanced and wellk
 
 <span id="page-5-0"></span><sup>3</sup><https://github.com/princeton-nlp/SWE-bench/issues/2>
 
-<span id="page-6-5"></span>Table 1: Performance comparison of CODEXGRAPH and RACG baselines across three benchmarks using different backbone LLMs. The absence of values in SWE-bench Lite for the NO RAG method is due to issues with mismatches between the dataset and the code when running inference scripts [3](#page-5-0) . Similarly, the missing values in EvoCodeBench are attributable to task inputs being unsuitable for constructing the required BM25 queries, and the original paper also does not provide the corresponding implementation. Best results are bolded.
+<span id="page-6-5"></span>**Table 1:** Performance comparison of CODEXGRAPH and RACG baselines across three benchmarks using different backbone LLMs. The absence of values in SWE-bench Lite for the NO RAG method is due to issues with mismatches between the dataset and the code when running inference scripts [3](#page-5-0) . Similarly, the missing values in EvoCodeBench are attributable to task inputs being unsuitable for constructing the required BM25 queries, and the original paper also does not provide the corresponding implementation. Best results are bolded.
 
-| Model    | Method        | CrossCodeEval Lite (Python) |       |       |       | SWE-bench Lite | EvoCodeBench |          |
+| Model | Method | CrossCodeEval Lite (Python) | | | | SWE-bench Lite | EvoCodeBench | |
 |----------|---------------|-----------------------------|-------|-------|-------|----------------|--------------|----------|
-|          |               | EM                          | ES    | ID-EM | ID-F1 | Pass@1         | Pass@1       | Recall@1 |
-|          | NO RAG        | 8.20                        | 46.16 | 13.0  | 36.92 | -              | 19.34        | 11.34    |
-| Qwen2    | BM25          | 15.50                       | 51.74 | 22.60 | 45.44 | 0.00           | -            | -        |
-|          | AUTOCODEROVER | 5.21                        | 47.63 | 10.16 | 36.54 | 9.34           | 16.91        | 7.86     |
-|          | CODEXGRAPH    | 5.00                        | 47.99 | 9.10  | 36.44 | 1.95           | 14.62        | 8.60     |
-|          | NO RAG        | 11.70                       | 60.73 | 16.90 | 47.85 | -              | 25.47        | 11.04    |
-|          | BM25          | 21.90                       | 67.52 | 30.60 | 59.04 | 1.17           | -            | -        |
-| DS-Coder | AUTOCODEROVER | 14.90                       | 59.78 | 22.30 | 51.34 | 15.56          | 20.28        | 7.56     |
-|          | CODEXGRAPH    | 20.20                       | 63.14 | 28.10 | 54.88 | 12.06          | 27.62        | 12.01    |
-|          | NO RAG        | 10.80                       | 59.36 | 16.70 | 48.22 | -              | 27.83        | 11.79    |
-| GPT-4o   | BM25          | 21.20                       | 66.18 | 30.20 | 58.71 | 3.11           | -            | -        |
-|          | AUTOCODEROVER | 21.20                       | 61.92 | 28.10 | 54.81 | 22.96          | 28.78        | 11.17    |
-|          | CODEXGRAPH    | 27.90                       | 67.98 | 35.60 | 61.08 | 22.96          | 36.02        | 11.87    |
+| | | EM | ES | ID-EM | ID-F1 | Pass@1 | Pass@1 | Recall@1 |
+| | NO RAG | 8.20 | 46.16 | 13.0 | 36.92 | - | 19.34 | 11.34 |
+| Qwen2 | BM25 | 15.50 | 51.74 | 22.60 | 45.44 | 0.00 | - | - |
+| | AUTOCODEROVER | 5.21 | 47.63 | 10.16 | 36.54 | 9.34 | 16.91 | 7.86 |
+| | CODEXGRAPH | 5.00 | 47.99 | 9.10 | 36.44 | 1.95 | 14.62 | 8.60 |
+| | NO RAG | 11.70 | 60.73 | 16.90 | 47.85 | - | 25.47 | 11.04 |
+| | BM25 | 21.90 | 67.52 | 30.60 | 59.04 | 1.17 | - | - |
+| DS-Coder | AUTOCODEROVER | 14.90 | 59.78 | 22.30 | 51.34 | 15.56 | 20.28 | 7.56 |
+| | CODEXGRAPH | 20.20 | 63.14 | 28.10 | 54.88 | 12.06 | 27.62 | 12.01 |
+| | NO RAG | 10.80 | 59.36 | 16.70 | 48.22 | - | 27.83 | 11.79 |
+| GPT-4o | BM25 | 21.20 | 66.18 | 30.20 | 58.71 | 3.11 | - | - |
+| | AUTOCODEROVER | 21.20 | 61.92 | 28.10 | 54.81 | 22.96 | 28.78 | 11.17 |
+| | CODEXGRAPH | 27.90 | 67.98 | 35.60 | 61.08 | 22.96 | 36.02 | 11.87 |
 
 • GPT-4o: Developed by OpenAI [4](#page-6-1) , this model excels in commonsense reasoning, mathematics, and code, and is among the top-performing models as of July 2024 [5](#page-6-2) .
 
@@ -186,13 +185,13 @@ RACG is crucial for repository-level code tasks. In Table [1,](#page-6-5) RACG-b
 
 <span id="page-6-4"></span><sup>7</sup><https://dashscope.console.aliyun.com/model>
 
-<span id="page-7-0"></span>Table 2: Average token cost comparison across three benchmarks (GPT-4o as the backbone LLM).
+<span id="page-7-0"></span>**Table 2:** Average token cost comparison across three benchmarks (GPT-4o as the backbone LLM).
 
-|               | CrossCodeEval Lite (Python) | SWE-bench Lite | EvoCodeBench |
+| | CrossCodeEval Lite (Python) | SWE-bench Lite | EvoCodeBench |
 |---------------|-----------------------------|----------------|--------------|
-| BM25          | 1.47k                       | 14.76k         | -            |
-| AUTOCODEROVER | 10.74k                      | 76.01k         | 21.41k       |
-| CODEXGRAPH    | 22.16k                      | 102.25k        | 24.49k       |
+| BM25 | 1.47k | 14.76k | - |
+| AUTOCODEROVER | 10.74k | 76.01k | 21.41k |
+| CODEXGRAPH | 22.16k | 102.25k | 24.49k |
 
 metric compared to NO-RAG. This demonstrates that the NO-RAG approach, which relies solely on in-file context and lacks interaction with the code repository, significantly limits performance.
 
@@ -213,23 +212,22 @@ Optimal querying strategies vary across different benchmarks. There are two stra
 <span id="page-7-1"></span>![](_page_7_Figure_10.jpeg)
 <!-- Image Description: The image presents three bar charts comparing performance metrics for single versus multiple queries on two code search benchmarks: CrossCodeEval Lite (Python) and SWE-bench Lite. The charts display Exact Match (EM), Edit Similarity (ES), and Pass@1, showing higher scores for multiple queries in both benchmarks, indicating improved performance with multiple query inputs. Each bar's color represents the query type. -->
 
-Figure 4: Performance comparison of different querying strategies on CrossCodeEval Lite (Python) and SWE-bench Lite.
+**Figure 4:** Performance comparison of different querying strategies on CrossCodeEval Lite (Python) and SWE-bench Lite.
 
 ficulty (26.43*vs.*27.90 in the EM metric), the "multiple queries" strategy is more effective. In
 
-<span id="page-8-1"></span>
 
-| Model    | Method                    | CrossCodeEval Lite (Python) |                |                |                |  |  |
+| Model | Method | CrossCodeEval Lite (Python) | | | | | |
 |----------|---------------------------|-----------------------------|----------------|----------------|----------------|--|--|
-|          |                           | EM                          | ES             | ID-EM          | ID-F1          |  |  |
-| Qwen2    | CODEXGRAPH                | 5.00                        | 47.99          | 9.10           | 36.44          |  |  |
-|          | w/o translation LLM Agent | 0.50 (-4.50)                | 10.45 (-37.54) | 0.60 (-8.50)   | 2.62 (-33.82)  |  |  |
-| DS-Coder | CODEXGRAPH                | 20.20                       | 63.14          | 28.10          | 54.88          |  |  |
-|          | w/o translation LLM Agent | 5.50 (-14.70)               | 53.56 (-9.58)  | 11.20 (-16.90) | 39.75 (-15.13) |  |  |
-| GPT-4o   | CODEXGRAPH                | 27.90                       | 67.98          | 35.60          | 61.08          |  |  |
-|          | w/o translation LLM Agent | 8.30 (-19.60)               | 56.36 (-11.62) | 14.40 (-21.20) | 44.08 (-17.00) |  |  |
+| | | EM | ES | ID-EM | ID-F1 | | |
+| Qwen2 | CODEXGRAPH | 5.00 | 47.99 | 9.10 | 36.44 | | |
+| | w/o translation LLM Agent | 0.50 (-4.50) | 10.45 (-37.54) | 0.60 (-8.50) | 2.62 (-33.82) | | |
+| DS-Coder | CODEXGRAPH | 20.20 | 63.14 | 28.10 | 54.88 | | |
+| | w/o translation LLM Agent | 5.50 (-14.70) | 53.56 (-9.58) | 11.20 (-16.90) | 39.75 (-15.13) | | |
+| GPT-4o | CODEXGRAPH | 27.90 | 67.98 | 35.60 | 61.08 | | |
+| | w/o translation LLM Agent | 8.30 (-19.60) | 56.36 (-11.62) | 14.40 (-21.20) | 44.08 (-17.00) | | |
 
-Table 3: Ablation study about the translation LLM agent on CrossCodeEval Lite (Python).
+**Table 3:** Ablation study about the translation LLM agent on CrossCodeEval Lite (Python).
 
 contrast, for SWE-bench Lite, which presents higher reasoning difficulty, the "single query" strategy yields better outcomes (22.96*vs.*17.90 in the Pass@1 metric). These findings provide valuable guidance for researchers in selecting the most appropriate querying strategy for future studies.
 
@@ -319,41 +317,43 @@ Each node in the code graph represents a different element within Python code, a
 
 ```text
 Graph Database Schema: Nodes
+
 ## Nodes
+
 MODULE:
-  Attributes:
-    - name (String): Name of the module (dotted name)
-    - file_path (String): File path of the module
+Attributes:
+- name (String): Name of the module (dotted name)
+- file_path (String): File path of the module
 CLASS:
-  Attributes:
-    - name (String): Name of the class
-    - file_path (String): File path of the class
-    - signature (String): The signature of the class
-    - code (String): Full code of the class
+Attributes:
+- name (String): Name of the class
+- file_path (String): File path of the class
+- signature (String): The signature of the class
+- code (String): Full code of the class
 FUNCTION:
-  Attributes:
-    - name (String): Name of the function
-    - file_path (String): File path of the function
-    - code (String): Full code of the function
-    - signature (String): The signature of the function
+Attributes:
+- name (String): Name of the function
+- file_path (String): File path of the function
+- code (String): Full code of the function
+- signature (String): The signature of the function
 FIELD:
-  Attributes:
-    - name (String): Name of the field
-    - file_path (String): File path of the field
-    - class (String): Name of the class the field belongs to
+Attributes:
+- name (String): Name of the field
+- file_path (String): File path of the field
+- class (String): Name of the class the field belongs to
 METHOD:
-  Attributes:
-    - name (String): Name of the method
-    - file_path (String): File path of the method
-    - class (String): Name of the class the method belongs to
-    - code (String): Full code of the method
-    - signature (String): The signature of the method
+Attributes:
+- name (String): Name of the method
+- file_path (String): File path of the method
+- class (String): Name of the class the method belongs to
+- code (String): Full code of the method
+- signature (String): The signature of the method
 GLOBAL_VARIABLE:
-  Attributes:
-    - name (String): Name of the global variable
-    - file_path (String): File path of the global variable
-    - code (String): The code segment in which the global variable
-         is defined
+Attributes:
+- name (String): Name of the global variable
+- file_path (String): File path of the global variable
+- code (String): The code segment in which the global variable
+is defined
 ```text
 
 ### A.1.2 Edge Types
@@ -362,59 +362,61 @@ Edges in the code graph represent various relationships between the nodes. The e
 
 ```text
 Graph Database Schema: Edges
+
 ## Edges
+
 CONTAINS:
-  Source: MODULE
-  Target: CLASS or FUNCTION or GLOBAL_VARIABLE
+Source: MODULE
+Target: CLASS or FUNCTION or GLOBAL_VARIABLE
 HAS_METHOD:
-  Source: CLASS
-  Target: METHOD
+Source: CLASS
+Target: METHOD
 HAS_FIELD:
-  Source: CLASS
-  Target: FIELD
+Source: CLASS
+Target: FIELD
 INHERITS:
-  Source: CLASS
-  Target: CLASS (base class)
+Source: CLASS
+Target: CLASS (base class)
 USES:
-  Source: FUNCTION or METHOD
-  Target: GLOBAL_VARIABLE or FIELD
-  Attributes:
-    - source_association_type (String): FUNCTION, METHOD
-    - target_association_type (String): GLOBAL_VARIABLE, FIELD
+Source: FUNCTION or METHOD
+Target: GLOBAL_VARIABLE or FIELD
+Attributes:
+- source_association_type (String): FUNCTION, METHOD
+- target_association_type (String): GLOBAL_VARIABLE, FIELD
 ```text
 
 ### <span id="page-16-0"></span>A.2 Real-World Application
 
 In this section, we present the WebUI interface for CODEXGRAPH, showcasing its five practical applications: Code Chat, Code Debugger, Code Unittestor, Code Generator, and Code Commentor. The interface is designed to facilitate user interaction, providing a streamlined and intuitive environment for various code-related tasks. We built the WebUI interface using Streamlit[8](#page-16-1) , a powerful and user-friendly framework that allows for the rapid development of interactive web applications.
 
-| help<br>code chat<br>code commenter<br>code debugger                                                                                                                                                                                                                                                 | <b>Code Chat</b><br>Settings                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | $\mathbf{v}$                                                                                                                                                                                                                                                                                                                                                                                                          |
+| help<br>code chat<br>code commenter<br>code debugger | <b>Code Chat</b><br>Settings | $\mathbf{v}$ |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| code penerator<br>code unittester                                                                                                                                                                                                                                                                    | Summarize the CodesSnaphApentChat, class, what method, and what for                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Summarize the CodexGraphAgentChat class, what has method, and what for                                                                                                                                                                                                                                                                                                                                                |
-| 雲染                                                                                                                                                                                                                                                                                                   | œ,<br>answer:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | analysis                                                                                                                                                                                                                                                                                                                                                                                                              |
-| <b>CodexGraph Agent</b>                                                                                                                                                                                                                                                                              | The CodexGraphAgentChat class is designed for managing chat-based interactions involving an agent. It includes<br>the following methods:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | The user's question asks for a summary of the CodexGraphAgentChat Class, specifically what methods it has and<br>their purposes. To answer this, we need to:                                                                                                                                                                                                                                                          |
+| code penerator<br>code unittester | Summarize the CodesSnaphApentChat, class, what method, and what for | Summarize the CodexGraphAgentChat class, what has method, and what for |
+| 雲染 | œ,<br>answer: | analysis |
+| <b>CodexGraph Agent</b> | The CodexGraphAgentChat class is designed for managing chat-based interactions involving an agent. It includes<br>the following methods: | The user's question asks for a summary of the CodexGraphAgentChat Class, specifically what methods it has and<br>their purposes. To answer this, we need to: |
 | How to use<br>1. Enter your OpenALAPI key or Deepseek<br>API key below<br>2. Upload an absolute path of local Code<br>$Repo =$<br>3. Choice a topic on top and ask a related<br>question about the Code Repo<br>$\odot$<br>OpenAUDeepseek API Key<br>$\bullet$<br>---------------------------------- | _tnit_: Initializes the agent.<br>ı.<br>2. Un_call (self, msg) : Makes a Language Model (LLM) call with a given message.<br>update_agent_nessage(self, msg):Updates the agent's message.<br>3.<br>update_user_message(self, msg):Updates the user's message.<br>4.<br>get_chat_history(self) : Rotriovos the chat history.<br>5.<br>generate(self, nessages) : Generates responses based on the messages.<br>6.<br>7. nuncself, user query) str., file path) str = 11, ++kwargs) -> str : Runs specific tasks with a user<br>query and optional file path.<br>8. set_action_type_and_nessage(self): Sots the action type and message.<br>Each method plays a crucial role in facilitating chat interactions, leveraging an LLM for generating responses, | 1. Identify the CodexGraphAgentChat class and its file path.<br>2. List all methods within this class.<br>3. Optionally, if method signatures or code snippets are available, they could provide insights into the purpose<br>of each method.<br>Given the schema, we can start by querying for the CodesGraphAgentChat class to ensure it exists and to gather<br>its methods.<br>code search<br><b>Text Query 1</b> |
-| About                                                                                                                                                                                                                                                                                                | and maintaining a history of interactions.<br>analysis:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Retrieve the names and file paths of all methods within the CodexGraphAzentChat class.                                                                                                                                                                                                                                                                                                                                |
-| CodexGraph Agent is an advanced multi-<br>tasking agent that integrates a language<br>model (LM) agent with a code graph                                                                                                                                                                             | input any question about this repo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| About | and maintaining a history of interactions.<br>analysis: | Retrieve the names and file paths of all methods within the CodexGraphAzentChat class. |
+| CodexGraph Agent is an advanced multi-<br>tasking agent that integrates a language<br>model (LM) agent with a code graph | input any question about this repo | |
 
-Figure 5: WebUI for the Code Chat, used for answering any questions related to code repositories.
+**Figure 5:** WebUI for the Code Chat, used for answering any questions related to code repositories.
 
 | (a) Code Debugger | (b) Code Unittestor |
 |-------------------|---------------------|
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
-|                   |                     |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
 
 (c) Code Generator (d) Code Commentor
 
-Figure 6: WebUI for Code Debugger, Code Unittestor, Code Generator, and Code Commentor.
+**Figure 6:** WebUI for Code Debugger, Code Unittestor, Code Generator, and Code Commentor.
 
 To experience our application firsthand, you can visit ModelScope-Agent and navigate to the CODEXGRAPH[9](#page-16-2) . This repository provides a detailed guide on how to set up and interact with the various applications we have described.
 
@@ -428,19 +430,19 @@ Code Chat allows users to inquire about a code repository, providing insights in
 
 Here is an example of Code Chat. The user's question is " Summarize the 'CodexGraphAgentChat' class, what has method, and what for".
 
-|     | Summarize the CodexGraphAgentChat class, what has method, and what for                                                                                       |
+| | Summarize the CodexGraphAgentChat class, what has method, and what for |
 |-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| آڪڙ | analysis                                                                                                                                                     |
-|     | The user's question asks for a summary of the CodexGraphAgentChat class, specifically what methods it has and<br>their purposes. To answer this, we need to: |
-|     | 1. Identify the CodexGraphAgentChat class and its file path.                                                                                                 |
-|     | List all methods within this class.<br>$\mathcal{D}$                                                                                                         |
-|     | Optionally, if method signatures or code snippets are available, they could provide insights into the purpose<br>3.<br>of each method.                       |
-|     | Given the schema, we can start by querying for the CodexGraphAgentChat class to ensure it exists and to gather<br>its methods.                               |
-|     |                                                                                                                                                              |
+| آڪڙ | analysis |
+| | The user's question asks for a summary of the CodexGraphAgentChat class, specifically what methods it has and<br>their purposes. To answer this, we need to: |
+| | 1. Identify the CodexGraphAgentChat class and its file path. |
+| | List all methods within this class.<br>$\mathcal{D}$ |
+| | Optionally, if method signatures or code snippets are available, they could provide insights into the purpose<br>3.<br>of each method. |
+| | Given the schema, we can start by querying for the CodexGraphAgentChat class to ensure it exists and to gather<br>its methods. |
+| | |
 
-Figure 7: Using Cypher queries to retrieve information about the 'CodexGraphAgentChat' class, from the code repository.
+**Figure 7:** Using Cypher queries to retrieve information about the 'CodexGraphAgentChat' class, from the code repository.
 
-Figure 8: Once the necessary information is gathered, Code Chat constructs a comprehensive response to the user's question. This response includes a summary of the 'CodexGraphAgentChat' class, a list of its methods, and a description of what each method does.
+**Figure 8:** Once the necessary information is gathered, Code Chat constructs a comprehensive response to the user's question. This response includes a summary of the 'CodexGraphAgentChat' class, a list of its methods, and a description of what each method does.
 
 ### A.2.2 Example of Code Debugger
 
@@ -451,25 +453,25 @@ Here is an example of Code Debugger. The user's input is a real issue[10](#page-
 ![](_page_18_Figure_4.jpeg)
 <!-- Image Description: The image displays Python code demonstrating an issue with the OpenAI API's `chat_no_stream()` method. The code snippet shows a call to the method and subsequent retrieval of usage information (`usage_info`). The "Actual Output" section shows an empty dictionary, while the "Expected Output" shows a dictionary containing token counts ("prompt_tokens," "completion_tokens," "total_tokens"), highlighting a discrepancy between the actual and expected results. This demonstrates a bug where token usage is not properly reported. -->
 
-Figure 9: The issue describes a problem where the outcome does not match the expected behavior.
+**Figure 9:** The issue describes a problem where the outcome does not match the expected behavior.
 
-Figure 10: Analyzing the problem and retrieving information using Cypher queries.
+**Figure 10:** Analyzing the problem and retrieving information using Cypher queries.
 
 <span id="page-18-0"></span><sup>10</sup><https://github.com/modelscope/modelscope-agent/pull/549>
 
 ![](_page_19_Figure_4.jpeg)
 <!-- Image Description: Figure 11 is a caption describing a process, not an image containing a diagram, chart, graph, equation, or technical illustration. The caption states that the figure depicts the execution of Cypher queries to search code for relevant information. It indicates that the figure illustrates a code search method using Cypher queries. -->
 
-Figure 12: Analyzing the retrieved information to identify potential causes of the bug.
+**Figure 12:** Analyzing the retrieved information to identify potential causes of the bug.
 
-Figure 13: Performing additional Cypher code searches to gather more information.
+**Figure 13:** Performing additional Cypher code searches to gather more information.
 
 ![](_page_20_Picture_9.jpeg)
 <!-- Image Description: The image contains only the word "analysis," suggesting that it's a placeholder or caption for a section of the paper detailing an analysis. There are no diagrams, charts, graphs, equations, or illustrations present in this image itself. The small graphic appears to be a logo or watermark unrelated to the analysis content. -->
 
-Figure 14: Inferring the cause of the bug based on the analysis of the retrieved information.
+**Figure 14:** Inferring the cause of the bug based on the analysis of the retrieved information.
 
-Figure 15: Identifying the precise location of the bug in the codebase.
+**Figure 15:** Identifying the precise location of the bug in the codebase.
 
 ### Figure 16: Providing a detailed explanation of the issue and the underlying cause of the bug.
 
@@ -485,30 +487,30 @@ Here is an example of Code Unittestor. The user's input is: "Generate test cases
 ![](_page_22_Figure_2.jpeg)
 <!-- Image Description: The image displays Python unit test code for a `TaskManager` class. It includes test functions (`test_add_task_success`, `test_add_task_failure`, `test_add_task_invalid_input`, `test_init_method`) verifying the `add_task` method's handling of successful addition, failure (due to existing task ID), invalid input, and class initialization. Mocking is used to isolate the `add_task` method for focused testing. The code uses assertions (`assertTrue`, `assertFalse`, `assertRaises`, `assertIsInstance`) to validate expected outcomes. -->
 
-Figure 19: Generated detailed unit test code for the 'TaskManager' class, covering its methods and inheritance relationships.
+**Figure 19:** Generated detailed unit test code for the 'TaskManager' class, covering its methods and inheritance relationships.
 
 ### A.2.4 Example of Code Generator
 
 The user has requested a function to retrieve the number of input and output tokens of 'CypherAgent'. However, the challenge is identifying the corresponding fields within 'CypherAgent' as this information is not provided in the user's input.
 
-| ÷ | thought                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ÷ | thought |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   | To fulfill the user's requirement of generating a function to get the number of input tokens and output tokens of a CypherAgent, I need to first ide<br>CypherAgent class and its methods or fields that are related to token counting. This involves querying the graph database to retrieve the methods<br>fields of the CypherAgent class or any base classes it inherits from, as the functionality might be inherited or defined in a base class. Additionally,<br>check if there are any methods or fields specifically related to token counting within the class or its hierarchy. |
-|   | action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|   | <b>TEXT QUERIES</b>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|   | action_input ®                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|   | [start_of_text_queries]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|   | <b>Text Query 1</b>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|   | Retrieve all methods and fields of the class 'CypherAgent'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|   | <b>Text Query 2</b>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|   | Retrieve all base classes that 'CypherAgent' inherits from.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|   | <b>Text Query 3</b>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|   | Retrieve methods and fields from the base classes of 'CypherAgent' that contain 'token' in their names. [end_of_text_queries]                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| | To fulfill the user's requirement of generating a function to get the number of input tokens and output tokens of a CypherAgent, I need to first ide<br>CypherAgent class and its methods or fields that are related to token counting. This involves querying the graph database to retrieve the methods<br>fields of the CypherAgent class or any base classes it inherits from, as the functionality might be inherited or defined in a base class. Additionally,<br>check if there are any methods or fields specifically related to token counting within the class or its hierarchy. |
+| | action |
+| | <b>TEXT QUERIES</b> |
+| | action_input ® |
+| | [start_of_text_queries] |
+| | <b>Text Query 1</b> |
+| | Retrieve all methods and fields of the class 'CypherAgent'. |
+| | <b>Text Query 2</b> |
+| | Retrieve all base classes that 'CypherAgent' inherits from. |
+| | <b>Text Query 3</b> |
+| | Retrieve methods and fields from the base classes of 'CypherAgent' that contain 'token' in their names. [end_of_text_queries] |
+| | |
 
-Figure 20: The thought process in determining how to identify the relevant fields.
+**Figure 20:** The thought process in determining how to identify the relevant fields.
 
-Figure 21: By using Cypher queries, it was discovered that the corresponding fields are 'input token num' and 'output token num', which enables the generation of the correct code.
+**Figure 21:** By using Cypher queries, it was discovered that the corresponding fields are 'input token num' and 'output token num', which enables the generation of the correct code.
 
 ### A.2.5 Example of Code Commentor
 
@@ -517,27 +519,27 @@ The Code Commentor analyzes code to provide detailed comments, enhancing code re
 ![](_page_23_Figure_4.jpeg)
 <!-- Image Description: The image displays a Python code snippet showing a `TaskManager` class inheriting from `BaseManager`. The snippet includes an `__init__` method and an `add_task` method that creates a `Task` object and utilizes the base class's `add_item` method. Accompanying text explains the code's origin and purpose, emphasizing the need to understand the involved classes and methods for effective commenting. -->
 
-Figure 22: The thought process: Understand the 'Task' class and 'add item' method.
+**Figure 22:** The thought process: Understand the 'Task' class and 'add item' method.
 
-| # file path: task manager.py                                                                 |
+| # file path: task manager.py |
 |----------------------------------------------------------------------------------------------|
-| from user import User                                                                        |
-| from task import Task                                                                        |
-| from base manager import BaseManager                                                         |
-| class TaskManager (BaseManager):                                                             |
-| $def __init__(self):$<br>0.000                                                               |
-| Initializes a new instance of the TaskManager class.<br>11.11.11                             |
-| $super()$ . __init__()                                                                       |
-| def add_task(self, task_id, title, description, user_id):<br>11.11.11                        |
-| Adds a new task to the task manager.                                                         |
-| Parameters:                                                                                  |
-| task id: Unique identifier for the task.                                                     |
-| title: Title of the task.                                                                    |
-| description: Description of the task.                                                        |
-| user id: Identifier of the user associated with the task.                                    |
-| Returns:                                                                                     |
+| from user import User |
+| from task import Task |
+| from base manager import BaseManager |
+| class TaskManager (BaseManager): |
+| $def __init__(self):$<br>0.000 |
+| Initializes a new instance of the TaskManager class.<br>11.11.11 |
+| $super()$ . __init__() |
+| def add_task(self, task_id, title, description, user_id):<br>11.11.11 |
+| Adds a new task to the task manager. |
+| Parameters: |
+| task id: Unique identifier for the task. |
+| title: Title of the task. |
+| description: Description of the task. |
+| user id: Identifier of the user associated with the task. |
+| Returns: |
 | bool: True if the task was successfully added, False if the task already exists.<br>19.19.19 |
-| task = Task(task_id, title, description, user_id)<br>return self.add_item(task_id, task)     |
-|                                                                                              |
+| task = Task(task_id, title, description, user_id)<br>return self.add_item(task_id, task) |
+| |
 
-Figure 23: By using Cypher queries, the specific implementation of the return function was obtained, and the return type was clarified.
+**Figure 23:** By using Cypher queries, the specific implementation of the return function was obtained, and the return type was clarified.

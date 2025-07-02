@@ -56,7 +56,7 @@ Abstract. We present a novel approach to knowledge graph visualization based on 
 
 Keywords: Knowledge Graphs · Information Visualization · Ontology Design Patterns · Exploratory Search.
 
-# 1 Introduction
+## 1 Introduction
 
 Exploring and understanding large knowledge graphs is a recurrent and tricky task in most knowledge graph and ontology projects. Its difficulty is amplified by the magnitude and the heterogeneity of the analyzed KG [\[8\]](#page-14-0). Visualization methods are the main means to support KG understanding, but existing visualization tools mainly reflect the syntactic structure of KGs rather than their conceptual semantics, thus limiting usability and clarity [\[10\]](#page-14-1). An ideal KG visualization tool should facilitate the answering of questions such as: what are the conceptual components of a KG? What are the key elements of such components? How these components are instantiated? Which altogether help answering the more general question of what a KG talks about. We think that to address this problem there is a need for a change of perspective on how to visualize the content of a KG, and that this perspective can be supported by ontology design patterns. Ideally, an intuitive (displayed) overview of a large knowledge graph should fit the dimension of a page, which can be achieved if KG data are grouped according to conceptual components, identified by ODPs.
 
@@ -70,7 +70,7 @@ As a case study, we deployed ODPReactor for accessing (a portion of) ArCo, the I
 
 The remainder of this paper is structured as follows. After a discussion of related work (Sect. [2\)](#page-1-4), we present the proposed ODP-based visualization approach (Sect. [3\)](#page-2-0) and discuss its implementation (Sect. [4\)](#page-7-0). Eventually we report the results of our user study (Sect. [5\)](#page-10-0) and conclude the paper.
 
-# <span id="page-1-4"></span>2 Related Work
+## <span id="page-1-4"></span>2 Related Work
 
 We place our research in the area of Knowledge Graph visualization. To the best of our knowledge, the only tool that adopts patterns as guidance for the exploratory search is Aemoo [\[21\]](#page-15-1). Aemoo is a Linked Data exploration tool that uses Encyclopedic Knowledge Patterns as relevance criteria for selecting, organizing, and visualizing knowledge. Although our work draws inspiration from Aemoo, our approach aims at broadening Aemoo's scope (which is limited to encyclopedic patterns) by developing a general method for interacting with Knowledge Graphs shaped according to any Ontology Design Pattern.
 
@@ -80,7 +80,7 @@ Graph-based visualization tools. H-BOLD [\[24\]](#page-15-2) is a graph-based vi
 
 Template-based visualization tools. Exhibit [\[15\]](#page-15-6) is one of the first example of usage of templates (called Lens Templates) for presenting KGs. On the same line of research we can find other works based on template based visualization, such as LodView[3](#page-2-1) (the tool adopted for accessing the ArCo KG) or others [\[1,](#page-14-4)[29,](#page-15-7)[18,](#page-15-8)[26,](#page-15-9)[2\]](#page-14-5). A special case is the tool proposed by McBrien et al. [\[19\]](#page-15-10) which includes a mechanism for recommending the most appropriate visualization for a given SPARQL query. Our approach leverages these experiences, meaning that, the visualization strategies implemented by ODPReactor could be seen as templates for visualizing a KG. A limit of the existing template-based approaches is that they consider as meaningful boundary for describing an entity its neighborhood only (which is typically the set of triples involving a resource), and all the entities are described with the same boundary. However, while this is an effective strategy for "simple" KGs, it fails short with sophisticated KGs in which the meaningful boundary of each entity depends on the type of the entity and the pattern the entity is involved in. ODPReactor goes beyond these approaches since it associates each entity of the KG with a meaningful boundary that depends on the ODPs the entity is involved in (implying that each entity might have a different boundary).
 
-# <span id="page-2-0"></span>3 Approach
+## <span id="page-2-0"></span>3 Approach
 
 In this section we briefly review the main concepts we build upon (ODP, OPLa and key-concept classes), then we describe our framework and an example of visualization based on the ODP Part Of.
 
@@ -103,7 +103,7 @@ We propose a general framework based on three levels of visualizations. The top 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
 <!-- Image Description: This image from an academic paper presents three visualizations related to a data model. (a) shows a graph illustrating relationships (specializes, part of, has view) between different types of cultural properties. (b) depicts a table for exploration, showing "view," "object," "parts," and "filter controls." (c) displays a visualization level illustrating a part-whole relationship using geometric shapes. The image likely describes different levels of data representation and user interaction within the system. -->
 
-Fig. 1: Overview of the system on three levels
+**Figure 1:** Overview of the system on three levels
 
 entity of the KG. First, we intuitively describe the aim and the characteristic of these levels, and, then we formally define our visualization method.
 
@@ -138,18 +138,18 @@ Note that our approach is completely independent of the specific implementation 
 
 (a) Pattern Part Of and associated mapping functions (b) Example of pattern instances mapping
 
-Fig. 2: An example of application of our approach on pattern Part Of
+**Figure 2:** An example of application of our approach on pattern Part Of
 
 alization code of a pattern on a different knowledge graph that implements the same pattern and is annotated with the extended OPLa. To make a pattern P visualizable, the developer needs to compose the set of filter controls, design the visual frame and define the functions emap<sup>P</sup> (Q) and vmap<sup>P</sup> (Q). Figure [2](#page-7-1) shows an example of a pattern and how data of specific instances is mapped into the GUI. The left part (Figure [2a\)](#page-7-1) depicts the Part Of ODP, defined by property hasPart, which connects an object to its parts. We include the properties label and depiction, although not part of the pattern, since they are present (at least label) in all KGs for crucially increase their human-readability. The pattern is associated to the emap<sup>P</sup> and vmap<sup>P</sup> functions, whose implementation is reported in the right side of Figure [2a](#page-7-1) in pseudo-SPARQL. Given a pattern instance Q, identified by uri(Q), emap<sup>P</sup> (Q) retrieves the object label (?l) and the number of parts (?p). It also applies the filter (user defined filter in the WHERE clause) and return φ (an empty set of tuples) if filter constraints are not satisfied. vmap<sup>P</sup> (Q) extracts figures of the object and every part (?d and ?dp, identified by property depiction) and maps them into the visual frame (the visual mapping is summarized by the visual frame() function). The right part (Figure [2b](#page-7-1) shows a concrete example of two instances Q<sup>1</sup> and Q<sup>2</sup> of pattern Part Of and their mapping into the table for the exploration (bottom-right side) and the visual frame (top-right side). For space reasons we only show the visual frame for Q1. For each label and depiction we report the corresponding SPARQL variable of the emap<sup>P</sup> and vmap<sup>P</sup> implementations (taken from Figure [2a\)](#page-7-1).
 
-# <span id="page-7-0"></span>4 Implementation
+## <span id="page-7-0"></span>4 Implementation
 
 Design Methodology. We put emphasys on the importance of user cognition in the visualization design process [\[22\]](#page-15-16) and, taking inspiration by other successful experiences (e.g. [\[12\]](#page-15-17)) we applied User-Centered Design (UCD) principles. Specifically, we followed agile design methodology with brief iteration cycles (1
 
 <span id="page-8-3"></span>![](_page_8_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates the architecture of a system for exploring and visualizing linked data (LD). It shows a frontend with two microservices (ODPBrowser and Extended-Ld-Reactor), built using Node.js and React.js, communicating via HTTP. The frontend interacts with a data layer comprising SPARQL endpoints and a MongoDB database. The ODP-UI, a ReactJS component package, facilitates LD visualization. The user interacts with the system through exploratory search and ontology/LD visualization functionalities. -->
 
-Fig. 3: ODPReactor architecture.
+**Figure 3:** ODPReactor architecture.
 
 week sprints). This process involved 2 developers, and 3 users collaborated in the process by continuously providing feedback on the tool. Once the tool reached a stable version, we conducted an experiment with an 11-participants focus group and evaluated the usability according to the System Usability Scale (SUS) [\[4\]](#page-14-8). The results are discussed in Section [5.](#page-10-0)
 
@@ -197,7 +197,7 @@ Use case scenario. We describe a use-case scenario as an example to show how the
 
 information about all cultural properties that in 1856 were located in a specific area in Paris. Claire accesses to the ODPBroswer, retrieves the ODPs composing ArCo and double-clicks the node representing the Time-Indexed Typed Location. A data table with cultural property instances and associated data (according to dimensions of the pattern) is shown and a series of filter facilities are made available to her. Claire then filters data by: (i) drawing an area around Paris on the location filter control geographical map; and (ii) selecting a time interval with the interval filter control slider. She locates the specific cultural property she is interested in, and selects it. ODPBrowser pass the control to Extended-Ld-Reactor to load the instance data from the SPARQL endpoint and display it in a mosaic grid of visual frames.
 
-# <span id="page-10-0"></span>5 User Study
+## <span id="page-10-0"></span>5 User Study
 
 In this section, we report on the results of the user evaluation of the proposed approach. As proof-of-concept of our approach, we deployed ODPReactor for a portion of the ArCo KG. The portion included 200 cultural properties randomly selected among those participating to (at least) an instance of the three ODPs chosen for the case study. In terms of pattern instances this selection included: 49 instances for Cultural Property Component Of, 270 for Time Indexed Typed Location and 158 for Measurement Collection. The test was conducted by 11 users, composed by 3 researchers, 5 Phd students and 3 working professionals. All participants were familiar with Semantic Web and Linked Data technologies and were not involved in the development process.
 
@@ -211,7 +211,7 @@ Each tester was asked to perform a series of searching tasks (e.g. finding the l
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
 <!-- Image Description: The image is a pie chart illustrating the distribution of subjective ratings. Six respondents rated something as "Excellent," four as "Good," one as "Poor," and one as "Awful." The chart visually represents the frequency of each rating category, likely to summarize participant feedback or survey results within the paper's overall analysis. No equations or other illustrations are present. -->
 
-Fig. 4: SUS results.
+**Figure 4:** SUS results.
 
 The results of the evaluation according to the SUS scale are presented in Figure [4.](#page-11-0) They show that the tool is considered excellent by more than half of the users and good by the remaining ones except one, whose judgment was poor. The average score was 81.4, with a standard deviation of 12.6.
 
@@ -219,30 +219,28 @@ Assessment of the visualization level. A first group of tasks, reported in Table
 
 We considered as evaluation metric the number of correct answers, the time of execution and the users judgment of usability. An answer has been evaluated as correct if the user correctly identified the entry containing the data, although the answer is only partial. For example in tasks TITL1 and TITL2, for littleknown cities the users had difficulties in distinguishing the city from the village or from the county (all reported in the same entry). Therefore we considered all such answers as correct. The results are reported in Figure [5.](#page-13-0) Figure [5a](#page-13-0) shows the number of correct task executions. ODPReactor always performs similarly or better than LodView. Figure [5b](#page-13-0) shows the average task execution time. ODPReactor always performs better than LodView, with the exception of TITL 1, which regards retrieving the location of a cultural property. By analyzing the recordings it emerges that the users have quickly identified the data, but have delayed the transcription, because of difficulties in distinguishing the town (specifically Caravino and Vittorio Veneto) from the village or from the province. The same behaviour is not reflected in the LodView tasks, since the answers consist in widely-known cities (specifically Rome and Turin). Figure [5c](#page-13-0) shows the user judgment of the tool, where ODPReactor was considered significantly more adequate than LodView. This result is emphasized for the Measurement Collection tasks, where ODPReactor was evaluated unanimuosly very adequate while the
 
-<span id="page-12-0"></span>
 
-| ID     | ODP involved       | Question                                                          |
+| ID | ODP involved | Question |
 |--------|--------------------|-------------------------------------------------------------------|
-| Comp 1 | Cultural Property  | How many components is the object                                 |
-| Comp 2 | Component of       | made of?                                                          |
-| TITL 1 | Time indexed typed | In which city is the cultural property                            |
-| TITL 2 | location           | located?                                                          |
-| MC 1   |                    | Measurement collection What is the length/height of this cultural |
-| MC 2   |                    | property?                                                         |
+| Comp 1 | Cultural Property | How many components is the object |
+| Comp 2 | Component of | made of? |
+| TITL 1 | Time indexed typed | In which city is the cultural property |
+| TITL 2 | location | located? |
+| MC 1 | | Measurement collection What is the length/height of this cultural |
+| MC 2 | | property? |
 
-Table 1: Data visualization tasks
+**Table 1:** Data visualization tasks
 
-<span id="page-12-1"></span>
 
-| ID        | ODP involved                      | Question                                                                |
+| ID | ODP involved | Question |
 |-----------|-----------------------------------|-------------------------------------------------------------------------|
-|           | ES Task 1 Measurement collection  | How many cultural properties are higher<br>than 2 m?                    |
-| ES Task 2 | Cultural Property<br>Component of | How many cultural properties have at least<br>eight components?         |
-| ES Task 3 | Time indexed typed<br>location    | How many cultural properties have Firenze as<br>their current location? |
-| ES Task 4 |                                   | How many cultural properties were there in<br>Firenze before the 1945?  |
-| ES Task 5 |                                   | How many works by Prampolini Enrico are<br>there in Bologna?            |
+| | ES Task 1 Measurement collection | How many cultural properties are higher<br>than 2 m? |
+| ES Task 2 | Cultural Property<br>Component of | How many cultural properties have at least<br>eight components? |
+| ES Task 3 | Time indexed typed<br>location | How many cultural properties have Firenze as<br>their current location? |
+| ES Task 4 | | How many cultural properties were there in<br>Firenze before the 1945? |
+| ES Task 5 | | How many works by Prampolini Enrico are<br>there in Bologna? |
 
-Table 2: Exploratory search tasks
+**Table 2:** Exploratory search tasks
 
 judgment for LodView was almost equally distributed from Very adequate to Inadequate.
 
@@ -255,22 +253,22 @@ Finally, we report on the results of the exploratory research tasks on ODPReacto
 
 (c) Usability.
 
-Fig. 5: Data visualization tasks
+**Figure 5:** Data visualization tasks
 
 Results are summed up in Figure [6.](#page-14-10) We collected 55 (11 × 5) responses by aggregating correctness, usability and difficulty, from all tasks and all users. Most of the users performed the task correctly (Fig. [6a\)](#page-14-10). We analyzed the recordings for understanding the reasons of failure or difficulties in executing the task. It emerged that among 10 wrong answers, 9 ones are due to failures to apply all filters necessary for the complex multi-filter tasks, while for the other one the data was correctly identified but wrongly reported. Specifically, the testers wrongly set the filter of the Time-indexed Typed Location instances for selecting only those having a certain type (e.g. Current Location). This indicates that the usage of such filter was not intuitive for the testers and it has to redesigned. Finally, Figure [6b](#page-14-10) shows the result of the questions about usability of the tool. Most of the users judged the tool very adequate or adequate. 51 answers out of 55 were positive or intermediate. Figure [6c](#page-14-10) shows similar positive results about difficulty.
 
-# 6 Conclusions and Future Work
+## 6 Conclusions and Future Work
 
 This work proposed a novel approach to Knowledge Graph visualization that uses Ontology Design Patterns as first-class citizens for accessing and navigating KGs. We described a general framework that enables reusing an ODP-related visual
 
 <span id="page-14-10"></span>![](_page_14_Figure_1.jpeg)
 <!-- Image Description: The image contains three pie charts presenting survey results. (a) shows the correctness of answers (45 correct, 10 incorrect). (b) displays usability ratings (24 very adequate, 16 adequate, 11 medium, 2 very inadequate). (c) illustrates task difficulty (19 very easy, 19 easy, 13 medium, 2 difficult, 2 very difficult). The charts likely assess system performance based on user feedback in an academic study. -->
 
-Fig. 6: Exploratory search tasks
+**Figure 6:** Exploratory search tasks
 
 frame to different KGs and implemented a tool for validating the concept. The results of the execution of a set of tasks on the tool demonstrated the validity of the proposed approach, confirmed by considering both objective parameters and user perspective. In future we plan to enrich our library of visual frames with new ODP-based views and to explore general methods for automatizing the annotation of pattern instances. We also plan to study an automatic system for building filter facets and to make an extensive evaluation on a larger number of users.
 
-# References
+## References
 
 - <span id="page-14-4"></span>1. Arndt, N., Z¨anker, S., Sejdiu, G., Tramp, S.: Jekyll rdf: Template-based linked data publication with minimized effort and maximum scalability. In: Proc of ICWE. pp. 331–346 (2019)
 - <span id="page-14-5"></span>2. Auer, S., Doehring, R., Dietzold, S.: Less - template-based syndication and presentation of linked data. In: Proc of ESWC. pp. 211–224 (2010)

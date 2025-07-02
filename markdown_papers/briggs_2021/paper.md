@@ -27,14 +27,13 @@ images_removed: 0
 keywords: 
 ---
 
-
 # A Review of Privacy-preserving Federated Learning for the Internet-of-Things
 
 Christopher Briggs, Zhong Fan and Peter Andras
 
 **Abstract** The Internet-of-Things (IoT) generates vast quantities of data, much of it attributable to individuals' activity and behaviour. Gathering personal data and performing machine learning tasks on this data in a central location presents a significant privacy risk to individuals as well as challenges with communicating this data to the cloud. However, analytics based on machine learning and in particular deep learning benefit greatly from large amounts of data to develop high-performance predictive models. This work reviews federated learning as an approach for performing machine learning on distributed data with the goal of protecting the privacy of user-generated data as well as reducing communication costs associated with data transfer. We survey a wide variety of papers covering communication-efficiency, client heterogeneity and privacy preserving methods that are crucial for federated learning in the context of the IoT. Throughout this review, we identify the strengths and weaknesses of different methods applied to federated learning and finally, we outline future directions for privacy preserving federated learning research, particularly focusing on IoT applications.
 
-# 1 Introduction
+## 1 Introduction
 
 The Internet-of-Things (IoT) is represented by network-connected machines, often small embedded computers that provide physical objects with digital capabilities such as identification, inventory tracking and sensing & actuator control. Mobile devices such as smartphones also represent a facet of the IoT, often used as a sensing
 
@@ -60,7 +59,7 @@ Performing computationally expensive tasks such as training deep learning models
 
 This review provides a comprehensive survey of privacy preserving federated learning. We show how federated learning is ideally suited for data analytics in the IoT and review research addressing privacy concerns [\[10\]](#page-25-3), bandwidth limitations [\[11\]](#page-25-4), and power/compute limitations [\[12\]](#page-25-5). The rest of this review is organised as follows. Section [2](#page-2-0) provides an introduction to preliminary work on distributed machine learning and its influence on federated learning literature. Section [3](#page-5-0) describes federated learning in detail and outlines the major contributions to federated learning research including methods for reducing communication. Following this, section [4](#page-14-0) gives an overview of privacy in data analysis and methods for preserving the privacy of an individual's data. Section [5](#page-19-0) follows with an analysis of privacy preserving methods as applied to federated learning to protect latent data. Finally section [6](#page-22-0) discusses major outstanding challenges and future directions to apply federated learning to IoT applications and section [7](#page-23-0) presents concluding remarks.
 
-# <span id="page-2-0"></span>2 Distributed machine learning
+## <span id="page-2-0"></span>2 Distributed machine learning
 
 Federated learning was preceded by much work in distributed machine learning in the data-centre [\[13,](#page-25-6) [8,](#page-25-1) [14\]](#page-25-7). This section gives a brief history of distributed machine learning, paying particular attention to distributed deep learning training via stochastic gradient descent (SGD). Deep learning is concerned with machine learning problems based on artificial neural networks comprised of many layers and has been used with great success in the fields of computer vision, speech recognition and translation as well as many other areas [\[15\]](#page-25-8). In these fields, most other machine learning methods have been surpassed by deep learning methods due to the very complex functions they can compute which can both approximate training labels and generalise well to unseen samples.
 
@@ -68,7 +67,7 @@ Deep neural networks (DNNs) are composed of multiple connected units (also known
 
 DNNs perform best when trained on very large datasets and often incorporate millions if not billions of parameters to express weights between neurons (for example the AlexNet DNN achieved state-of-the-art performance on the ImageNet dataset in 2012 using 60 million parameters [\[18\]](#page-25-11)). Both of these factors require large sums of memory and compute capabilities. To scale complex DNNs trained on lots of data requires concurrency across multiple CPUs or more commonly GPUs (most often in a local cluster). GPUs are optimised to perform matrix calculations and are well suited for the operations required to compute activations across a DNN. Concurrency can be achieved in a variety of ways as discussed below.
 
-# 2.1 Concurrency
+## 2.1 Concurrency
 
 To train a large DNN efficiently across multiple nodes, the calculations required in the forward and backward passes need to parellelised. One method to achieve this is model parallelism which distributes collections of neurons among the available compute nodes [\[13\]](#page-25-6). Each node then only needs to compute the activations of its own neurons, however must communicate regularly with nodes computing on connected neurons. The calculations on all nodes must occur synchronously and therefore computation proceeds at the speed of the slowest node in the cluster. Another drawback of the model parallelism approach is that the current mini-batch must be copied to all nodes in the compute cluster, further increasing communication costs within the cluster.
 
@@ -78,7 +77,7 @@ The final method to achieve parallelism in training a large DNN is termed data p
 
 Hybrid parallelism combines two or all three of the concurrency schemes mentioned above to mitigate the drawbacks associated with each and best support parallelism on the underlying hardware. DistBelief [\[13\]](#page-25-6) achieves this by distributing the data, network layers, and neurons within the same layer among the available compute nodes, making use of all three concurrency schemes. Similarly, Project Adam [\[19\]](#page-25-12) employs all three concurrency schemes but much more efficiently than DistBelief (using significantly fewer nodes to achieve high accuracy on the ImageNet[1](#page-3-0) 22k data set)
 
-# 2.2 Model consistency
+## 2.2 Model consistency
 
 Model consistency refers to the state of a model when trained in a distributed manner [\[8\]](#page-25-1) - a consistent model should reflect the same parameter values among compute nodes prior to each training iteration (or set of training iterations, sometimes referred to as a communication round). In order to maintain model consistency, individual compute nodes need to write updates to a global parameter server [\[14\]](#page-25-7). The parameter
 
@@ -95,7 +94,7 @@ $$
 $$
 w_{t+1} = w_t - \eta \Delta w_t.
 $$
- (1)
+(1)
 
 <span id="page-4-0"></span>Asynchronous updates occur when the parameter server shares the latest parameters without waiting for all nodes to return parameter updates. This reduces model consistency as parameters can be overwritten and become stale due to slow communicating nodes. This method is hardware performant however as optimisation can proceed without waiting for all nodes to send parameter updates. The HOGWILD! algorithm [\[20\]](#page-25-13) takes advantage of sparsity within the parameter update matrix to asynchronously update gradients in shared memory resulting in faster convergence. Downpour SGD [\[13\]](#page-25-6) describes asynchronous updates as an additional mechanism to add stochasticity to the optimisation process resulting in greater prediction performance.
 
@@ -104,9 +103,9 @@ In order to improve consistency using hardware performant asynchronous updates, 
 $$
 \eta_k = \begin{cases} \eta/\tau_k & \text{if } \tau_k \neq 0 \\ \eta & \text{otherwise} \end{cases}
 $$
- (2)
+(2)
 
-# 2.3 Centralised vs decentralised learning
+## 2.3 Centralised vs decentralised learning
 
 Centralised distribution of the model updates requires a parameter server (which may be a single machine or sharded across multiple machines as in [\[13\]](#page-25-6)). The global model tracks the averaged parameters aggregated from all the compute nodes that perform training (see [Equation 1\)](#page-4-0). The downside to this distribution method is the high communication cost between compute nodes and the parameter server. Multiple shards can relieve this bottleneck to some extent, such that different workers read and write parameter updates to specific shards [\[19,](#page-25-12) [13\]](#page-25-6).
 
@@ -116,9 +115,9 @@ Decentralised distribution of DNN training does not rely on a parameter server t
 
 Communication can be avoided completely during training, resulting in many individual models represented by very different parameters. These models can be combined (as an ensemble [\[15\]](#page-25-8)), however averaging the predictions from many models can slow down inference on new data. To tackle this, a process known as knowledge distillation can be used to train a single DNN (known as the mimic network) to emulate the predictions of an ensemble model [\[29,](#page-26-1) [30,](#page-26-2) [31\]](#page-26-3). Unlabelled data is passed through the ensemble network to obtain labels on which the mimic network can be trained.
 
-# <span id="page-5-0"></span>3 Federated learning
+## <span id="page-5-0"></span>3 Federated learning
 
-# 3.1 Overview
+## 3.1 Overview
 
 Federated learning extends the idea of distributed machine learning, making use of data parallelism. However, rather than randomly partitioning a centralised dataset to many compute nodes, training occurs in the user domain on distributed data owned by the individual users (often referred to as clients) [\[9\]](#page-25-2). The consequence of this is that user data is never shared directly with a third party orchestrating the training procedure. This greatly benefits users where the data might be considered sensitive. Where data needs to be observed (for example, during the training operation), processing is handled on the device where the data resides (for example a smartphone). Once a round of training is completed on the device, the model parameters are communicated to an aggregating server, such as a parameter server provided by a third party. Although the training data itself is never disclosed to the third-party, it is a reasonable concern that something about an individual's training data might be inferred by the parameter updates; this is discussed further in [section 5.](#page-19-0)
 
@@ -143,30 +142,29 @@ is well suited to training via many clients (for example linear regression and l
 Federated optimisation was first suggested as a new setting for vastly and unevenly distributed machine learning by Konecný et al. [\[33\]](#page-26-5) in 2016. In their work, the authors ˘ first describe the nature of the federated setting (non-IID data, varying quantity of data per client etc). Additionally, the authors test a simple application of distributed gradient descent against a federated modification of SVRG (a variance reducing variant of SGD [\[34\]](#page-26-6)) over distributed data. Federated SVRG calculates gradients and performs parameter updates on each of*K*nodes over the available data on each node and obtains a weighted average of the parameters from all clients. The performance of these algorithms are verified on a logistic regression language model using Google+ data to determine whether a post will receive at least one comment. As logistic regression is a convex problem, the algorithms can be benchmarked against a known optimum. Federated SVRG is shown to outperform gradient descent by converging to the optimum within 30 rounds of communication.
 **Algorithm 1**Federated Averaging (FedAvg) algorithm.*C*is the fraction of clients selected to participate in each communication round. The*K*clients are indexed by*k*; *B*is the local mini-batch size, P<sup>k</sup> is the dataset available to client*k*, *E*is the number of local epochs, and η is the learning rate
 
-<span id="page-7-0"></span>
 
-| 1:  | procedure FedAvg                                    | Run on server      |
+| 1: | procedure FedAvg | Run on server |
 |-----|-----------------------------------------------------|--------------------|
-| 2:  | Initialise<br>w0                                    |                    |
-| 3:  | for each round<br>t = 1<br>2                        |                    |
-| 4:  | ,  do<br>,<br>m ← max                               |                    |
-| 5:  | (C · K, 1)<br>St ← (random set of<br>m clients)     |                    |
-| 6:  | for each client<br>k ∈ St<br>do                     | In parallel        |
-| 7:  | t+1 ← ClientUpdate(k<br>, wt )<br>wk                |                    |
-| 8:  | end for                                             |                    |
-| 9:  | nk<br>ÍK<br>n wk<br>wt+1 ←<br>k=1                   |                    |
-| 10: | t+1<br>end for                                      |                    |
-| 11: | end procedure                                       |                    |
-|     |                                                     |                    |
-| 12: | procedure ClientUpdate(k<br>, w)                    | Run on client<br>k |
-| 13: | B ← (Split<br>into mini-batches of size<br>B)<br>Pk |                    |
-| 14: | for each local epoch<br>i from 1 to<br>E do         |                    |
-| 15: | for batch<br>b ∈ B do                               |                    |
-| 16: | w ← w − η∇L(w;<br>b)                                |                    |
-| 17: | end for                                             |                    |
-| 18: | end for                                             |                    |
-| 19: | return<br>w to server                               |                    |
-| 20: | end procedure                                       |                    |
+| 2: | Initialise<br>w0 | |
+| 3: | for each round<br>t = 1<br>2 | |
+| 4: | , do<br>,<br>m ← max | |
+| 5: | (C · K, 1)<br>St ← (random set of<br>m clients) | |
+| 6: | for each client<br>k ∈ St<br>do | In parallel |
+| 7: | t+1 ← ClientUpdate(k<br>, wt )<br>wk | |
+| 8: | end for | |
+| 9: | nk<br>ÍK<br>n wk<br>wt+1 ←<br>k=1 | |
+| 10: | t+1<br>end for | |
+| 11: | end procedure | |
+| | | |
+| 12: | procedure ClientUpdate(k<br>, w) | Run on client<br>k |
+| 13: | B ← (Split<br>into mini-batches of size<br>B)<br>Pk | |
+| 14: | for each local epoch<br>i from 1 to<br>E do | |
+| 15: | for batch<br>b ∈ B do | |
+| 16: | w ← w − η∇L(w;<br>b) | |
+| 17: | end for | |
+| 18: | end for | |
+| 19: | return<br>w to server | |
+| 20: | end procedure | |
 
 Federated learning (as described in [\[9\]](#page-25-2) simplifies the federated SVRG approach in [\[33\]](#page-26-5) by modifying SGD for the federated setting. McMahan et al. [\[9\]](#page-25-2) provide two distributed SGD scenarios for their experiments: FedSGD and FedAvg. FedSGD performs a single step of gradient descent on all the clients and averages the gradients on the server. The FedAvg algorithm (shown in algorithm [1\)](#page-7-0) randomly selects a fraction of the clients to participate in each round of training. Each client*k*computes the gradients on the current state of the global model w<sup>t</sup> and updates the parameters w k t+1 in the standard fashion in gradient descent:
 
@@ -179,14 +177,14 @@ All clients communicate their updates to the aggregating server, which then calc
 $$
 w_{t+1} \leftarrow \sum_{k=1}^{K} \frac{n_k}{n} w_{t+1}^k.
 $$
- (5)
+(5)
 
 Here,*n*<sup>k</sup> /*n* is the fraction of data available to the client compared to the available data to all participating clients. Clients can perform one or multiple steps of gradient descent before sending weight updates as orchestrated by the federated algorithm. A diagram describing how federated learning proceeds in the FedAvg scenario is provided in [Figure 1](#page-8-0)
 
 ![](_page_8_Figure_2.jpeg)
 <!-- Image Description: This flowchart illustrates a federated learning system. A server randomly selects clients (step 1), sends a global model (step 2), and clients train local models on their data (step 3). Model parameters are sent back to the server (step 4), averaged (step 5), and the global model is updated (step 6). The system is designed to be tolerant of communication failures. Nodes represent servers and clients, and arrows depict data flow. -->
 
-<span id="page-8-0"></span>**Fig. 1**Schematic diagram showing how communication proceeds between the aggregating server and individual clients according to the FedAvg protocol. This procedure is iterated until the model converges or the model reaches some desired target metric (e.g. elapsed time, accuracy)
+<span id="page-8-0"></span>**Figure 1**Schematic diagram showing how communication proceeds between the aggregating server and individual clients according to the FedAvg protocol. This procedure is iterated until the model converges or the model reaches some desired target metric (e.g. elapsed time, accuracy)
 
 Centralised machine learning (and distributed learning in the data center) benefits from training under the assumption that data can be shuffled and is independent and identically distributed (IID). This assumption is generally invalid in federated learning as the training data is decentralised with significantly different distributions and number of samples between participating clients. Training using non-IID data has been shown to converge much more slowly than IID data in a federated learning setting using the MNIST[2](#page-8-1) dataset (for handwritten digit recognition), distributed between clients after having been sorted by the target label [\[9\]](#page-25-2). The overall accuracy achieved by a DNN trained via federated learning can be significantly reduced when trained on highly skewed non-IID data [\[35\]](#page-26-7). Yue et al. [\[35\]](#page-26-7) show that accuracy can be improved by sharing a small subset of non-private data between all the clients in order to reduce the variance between weight updates of the clients involved in each communication round. The FedProx algorithm [\[36\]](#page-26-8) encompasses FedAvg as a special case and adds a regularising term to the local optimisation objective. This has the effect of limiting the distance between the local model and global model during each communication round and stabilises training overall. Karimireddy et al [\[37\]](#page-26-9) takes a similar approach using SCAFFOLD by accounting for client drift (the estimated difference between the global and local model directions) and corrects for this in the model update step. This can be understood as a variance reduction
 
@@ -194,42 +192,42 @@ Centralised machine learning (and distributed learning in the data center) benef
 
 method and significantly outperforms FedAvg by reducing the number of rounds of communication and improving the final model accuracy on highly skewed non-IID data.
 
-| Ref Research focus    | Year Major contribution                                                                                                                                                                        |
+| Ref Research focus | Year Major contribution |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [33] Optimisation     | 2016 First description of federated optimisation and its application to<br>a convex problem (logistic regression)                                                                              |
-| [9] Optimisation      | 2016 Description of federated averaging (FedAvg) algorithm to im<br>prove the performance of the global model and reduce commu<br>nication between the clients and server                      |
-| [38] Communication    | 2016 Methods for compressing weight updates and reducing the band<br>width required to perform federated learning                                                                              |
-| [39] Multi-task FL    | 2017 Application of multi-task learning in a federated setting and dis<br>cussion of system challenges relevant to using federated learning<br>on resource-constrained devices                 |
-| [40] FL attacks       | 2018 A demonstration of poisoning the shared global model in a fed<br>erated learning setting                                                                                                  |
-| [41] FL attacks       | 2018 A method to recognise adversarial clients and combat model<br>poisoning in a federated learning setting                                                                                   |
-| [42] Application      | 2018 Application of federated learning in a commercial setting (next<br>word keyborard prediction in Android Gboard)                                                                           |
-| [43] Optimisation     | 2018 Application of per-coordinate averaging (based on Adam) to fed<br>erated learning to achieve faster convergence (in fewer commu<br>nication rounds)                                       |
-| [44] Application      | 2018 Applied federated learning to a healthcare application including<br>further training after federated learning on client data (transfer<br>learning)                                       |
-| [45] Client selection | 2018 A method of federated learning selecting clients with faster com<br>munication/greater resources to participate in each communica<br>tion round achieving faster convergence              |
-| [12] Communication    | 2018 Description of adaptive federated learning method suitable for<br>deployment on resource-constrained devices to optimally learn a<br>shared model while maintaining a fixed energy budget |
-| [35] Non-IID          | 2018 Characterisation of how non-IID data reduces the model perfor<br>mance of federated learning and method for improving model<br>performance                                                |
-| [36] Optimisation     | 2018 Adds a tunable regularising term to FedAvg to stabilise training<br>on skewed, non-IID data, limiting the influence of client models<br>on the global model.                              |
-| [46] Multi-task FL    | 2019 Training pluralistic models that are tailored to subsets of clients<br>that belong to the same timezones                                                                                  |
-| [37] Optimisation     | 2020 Applies a variance reduction method for improving convergence<br>speed on non-IID data compared to FedAvg                                                                                 |
+| [33] Optimisation | 2016 First description of federated optimisation and its application to<br>a convex problem (logistic regression) |
+| [9] Optimisation | 2016 Description of federated averaging (FedAvg) algorithm to im<br>prove the performance of the global model and reduce commu<br>nication between the clients and server |
+| [38] Communication | 2016 Methods for compressing weight updates and reducing the band<br>width required to perform federated learning |
+| [39] Multi-task FL | 2017 Application of multi-task learning in a federated setting and dis<br>cussion of system challenges relevant to using federated learning<br>on resource-constrained devices |
+| [40] FL attacks | 2018 A demonstration of poisoning the shared global model in a fed<br>erated learning setting |
+| [41] FL attacks | 2018 A method to recognise adversarial clients and combat model<br>poisoning in a federated learning setting |
+| [42] Application | 2018 Application of federated learning in a commercial setting (next<br>word keyborard prediction in Android Gboard) |
+| [43] Optimisation | 2018 Application of per-coordinate averaging (based on Adam) to fed<br>erated learning to achieve faster convergence (in fewer commu<br>nication rounds) |
+| [44] Application | 2018 Applied federated learning to a healthcare application including<br>further training after federated learning on client data (transfer<br>learning) |
+| [45] Client selection | 2018 A method of federated learning selecting clients with faster com<br>munication/greater resources to participate in each communica<br>tion round achieving faster convergence |
+| [12] Communication | 2018 Description of adaptive federated learning method suitable for<br>deployment on resource-constrained devices to optimally learn a<br>shared model while maintaining a fixed energy budget |
+| [35] Non-IID | 2018 Characterisation of how non-IID data reduces the model perfor<br>mance of federated learning and method for improving model<br>performance |
+| [36] Optimisation | 2018 Adds a tunable regularising term to FedAvg to stabilise training<br>on skewed, non-IID data, limiting the influence of client models<br>on the global model. |
+| [46] Multi-task FL | 2019 Training pluralistic models that are tailored to subsets of clients<br>that belong to the same timezones |
+| [37] Optimisation | 2020 Applies a variance reduction method for improving convergence<br>speed on non-IID data compared to FedAvg |
 **Table 1**A summary of important contributions to federated learning research
 
 A Review of Privacy-preserving Federated Learning for the Internet-of-Things 11
 
-# 3.2 Multi-task federated learning
+## 3.2 Multi-task federated learning
 
 A different approach to federating optimisation over many nodes is proposed by Smith et al. [\[39\]](#page-26-11). In this work, each client's data distribution is modelled as a single task as part of a multi-task learning objective. In multi-task learning, all tasks are assumed to be similar and therefore each task can benefit from learning derived from all the other tasks. On three different problems (based on human activity recognition and computer vision), the federated multi-task learning setting outperforms a centralised global setting and a strictly localised setting with lower average prediction errors. As part of this work [\[39\]](#page-26-11), the authors also show that federated multi-task learning is robust to nodes temporarily dropping out during learning and when communication is reduced (by simulating more iterations on the client per communication round). Eichner et al. [\[46\]](#page-26-18) propose a pluralistic approach to tackle the issue of training only when devices are available (generally overnight for mobile phones). Multiple models are trained according to the timezone when the device is available and results in better language models targeted at each timezone. To specifically tackle the issue to model degredation due to the presence of non-IID data [\[35\]](#page-26-7), Sattler et al. [\[47\]](#page-26-19) propose splitting the shared model by determining the cosine similarity of updates from different clients during training. Similarly, Briggs et al. [\[48\]](#page-26-20) use a hierarchical clustering algorithm to judge client update similarity to produce models tailored to clients with similarly-distributed data.
 
-# 3.3 Applied federated learning
+## 3.3 Applied federated learning
 
 Federated learning is particularly well suited as a solution for distributed learning in the IoT setting. As such, federated learning research is flourishing in various applications associated with the IoT. Federated learning has been applied in robotics to aid multiple robots to share imitation learning strategies [\[49\]](#page-26-21) and more generally for protecting privacy-sensitive robotics tasks [\[50\]](#page-26-22). In mobile edge computing environments, federated learning has been demonstrated for predicting demand in edge deployed applications [\[51\]](#page-27-0) and for improving proactive edge content caching mechanisms [\[52\]](#page-27-1). For vehicular edge computing, Lu et al. [\[53\]](#page-27-2) propose a framework to tackle issues of intermittent vehicle connectivity and an untrusted aggregating entity and Ye et al. [\[54\]](#page-27-3) propose a system using federated learning for intelligent connected vehicle image classification tasks. Energy demand in electrical vehicle charging networks has also been addressed with a federated learning strategy by Saputra et al. [\[55\]](#page-27-4). For anomaly detection in IoT environments, federated learning has been applied to detect intrusions and attacks by Nguyen et al. [\[56\]](#page-27-5). More novel applications of federated learning include learning to detect jamming in drone networks [\[57\]](#page-27-6), predicting breaks in presence by users of virtual reality environments [\[58\]](#page-27-7) and human activity recognition using wearable devices [\[59\]](#page-27-8).
 
 For supervised problems, user data needs to be labelled by the user to be useful for training. This is demonstrated in [\[42\]](#page-26-14) where a long short-term memory neural network (LSTM) is trained via many clients on words typed on a mobile keyboard to predict the next word. However, this data is clearly highly sensitive and should not be sent to a central server directly and would benefit from training via federated learning. The training data for this model is automatically labelled when the user types the next word. In cases where data is stored locally and already labelled such as medical health records, privacy is of great concern and even sharing of data between hospitals may be prohibited [\[60\]](#page-27-9). Federated learning can be applied in these settings to improve a shared global model that is more accurate than a model trained by each hospital separately. In [\[44\]](#page-26-16), electronic health records from 58 hospitals are used to train a simple neural network in a federated setting to predict patient mortality. The authors found that partially training the network using federated learning, followed by freezing the first layer and training only on the data available to each client resulted in better performing models for each hospital.
 
-# 3.4 Federated learning attacks
+## 3.4 Federated learning attacks
 
 Due to the nature of distributed client participation required for federated learning, the protocol is susceptible to adversarial attacks. Multiple works [\[40,](#page-26-12) [61\]](#page-27-10) present methods for poisoning the global model with an adversary acting as a client in the federated learning setting. The adversary constructs an update such that it survives the averaging procedure and heavily influences or replaces the global model. In this way, an adversary can poison the model to return predictions specified by the attacker given certain input features. Fung et al. [\[41\]](#page-26-13) describe a method to defend against sybilbased adversarial attacks by measuring the similarity between client contributions during model averaging and filtering attacker's updates out. These kinds of attacks might be inadvertently mitigated against using some of the modifications to FedAvg outlined above (for example by FedProx [\[36\]](#page-26-8) or SCAFFOLD [\[37\]](#page-26-9)) to limit the effect of individual client updates.
 
-# 3.5 Communication-efficient federated learning
+## 3.5 Communication-efficient federated learning
 
 As highlighted above, distributed learning and federated learning in particular suffer from high latency between communication rounds. Additionally, given a sufficiently large DNN, the number of parameters that need to be communicated in each communication round from possibly many thousands of clients becomes problematic in relation to data transmission and traffic arriving at the aggregating server. There are several approaches to mitigating these issues as discussed in this subsection.
 
@@ -259,7 +257,7 @@ By selecting clients based on client resource constraints in a mobile edge compu
 
 <span id="page-13-1"></span><sup>6</sup> https://www.kaggle.com/zalando-research/fashionmnist
 
-# <span id="page-14-0"></span>4 Privacy preservation
+## <span id="page-14-0"></span>4 Privacy preservation
 
 Data collection for the purpose of learning something about a population (for example in machine learning to discover a function for mapping the data to target labels) can expose sensitive information about individual users. In machine learning, this is often not the primary concern of the developer or researcher creating the model, yet is extremely important for circumstances where personally sensitive data is collected and disseminated in some form (e.g. via a trained model). Privacy has become even more important in the age of big data (data which is characterised by its large volume, variety and velocity [\[69\]](#page-27-18)). As businesses gather increasing amounts of data about users, the risk of privacy breaches via controlled data releases grows.
 
@@ -269,7 +267,7 @@ Privacy is upheld as a human right in many countries via Article 12 of the Unive
 
 Privacy can be preserved in a number of ways, yet it is important to maintain a balance between the level of privacy and utility of the data (along with some consideration for the computational complexity required to preserve privacy). A privacy mechanism augments the original data in order to prevent a breach of personal privacy (i.e. an individual should not be able to be recognised in the data). For example, a privacy mechanism might use noise to augment the result of a query on the data [\[74\]](#page-28-2). Adding too much noise to a result might render it meaningless and adding too little noise might leak sensitive information. The privacy/utility tradeoff is a primary concern of the privacy mechanisms to be discussed in the next subsection.
 
-# 4.1 Privacy preserving methods
+## 4.1 Privacy preserving methods
 
 The privacy preserving methods discussed in this section can be described as either*suppressive*or*perturbative*[\[75\]](#page-28-3). Suppressive methods include removal of attributes in the data, restricting queries via the privacy mechanism, aggregation/generalisation of data attributes and returning a sampled version of the original data. Perturbative methods include noise addition to the result of a query on the data or rounding of values in the dataset.
 
@@ -292,14 +290,14 @@ Despite the apparent advantages of homomorphic encryption to provide privacy to 
 
 Secure multi-party computation (SMC) [\[89\]](#page-28-17) can also be adopted to compute a function on private data owned by many parties such that no party learns anything about others' data - only the output of the function. Many SMC protocols are based on Shamir's secret sharing [\[90\]](#page-28-18) which splits data into *n*pieces in such a way that at least*k* pieces are required to reconstruct the original data (*k*−1 pieces reveal nothing about the original data). For example a value*x*is shared with multiple servers (as*<sup>x</sup>*A, *<sup>x</sup>*B...) via an SMC protocol such that the data can only be reconstructed if the shared pieces on *k*servers are known [\[91\]](#page-28-19). Various protocols exist to compute some function over the data held on the different servers via rounds of communication, however the servers involved are assumed to be trustworthy.
 
-#### <span id="page-16-0"></span>4.1.3 Differential privacy
+### <span id="page-16-0"></span>4.1.3 Differential privacy
 
 Differential privacy provides an elegant and rigorous mathematical measure of the level of privacy afforded by a privacy preserving mechanism. A differentially private privacy preserving mechanism acting on very similar datasets will return statistically indistinguishable results. More formally: Given some privacy mechanism*M*that maps inputs from domain*D*to outputs in range*R*, it is "almost" equally likely (by some multiplicative factor ) for any subset of outputs*<sup>S</sup>*<sup>⊆</sup>*<sup>R</sup>*to occur, regardless of the presence or absence of a single individual in 2 neighbouring datasets*d*and*d*0 drawn from*D*(differing by a single individual) [\[74\]](#page-28-2)
 
 $$
 Pr[M(d) \in S] \le e^{\epsilon} Pr[M(d') \in S].
 $$
- (6)
+(6)
 
 <span id="page-16-1"></span><sup>9</sup> https://github.com/shaih/HElib
 
@@ -317,7 +315,7 @@ $$
 M(d) = Q(d) + Laplace\big(0, \frac{\Delta Q}{\epsilon}\big). \tag{8}
 $$
 
- A relaxed version of differential privacy known as (, δ)-differential privacy [\[94\]](#page-29-0) provides greater flexibility in designing privacy preserving mechanisms and greater resistance to attacks making use of auxiliary information [\[92\]](#page-28-20):
+A relaxed version of differential privacy known as (, δ)-differential privacy [\[94\]](#page-29-0) provides greater flexibility in designing privacy preserving mechanisms and greater resistance to attacks making use of auxiliary information [\[92\]](#page-28-20):
 
 $$
 Pr[M(d) \in S] \le e^{\epsilon} Pr[M(d') \in S] + \delta. \tag{9}
@@ -336,9 +334,9 @@ The following mechanism then satisfies (, δ)-differential privacy (given , δ <
 $$
 M(d) = Q(d) + \frac{\Delta_2 Q}{\epsilon} \mathcal{N}(0, 2 \ln(1.25/\delta)).
 $$
- (11)
+(11)
 
- is additive for multiple queries [\[92\]](#page-28-20) and therefore an -budget should be designed to protect private data when queried multiple times. Practically, this means that any differential privacy based system must keep track of who queries what and how often to ensure that some predefined -budget is not surpassed. In a machine learning setting a method of accounting for the accumulated privacy loss over training iterations [\[10\]](#page-25-3) needs to be employed to maintain an -budget.
+is additive for multiple queries [\[92\]](#page-28-20) and therefore an -budget should be designed to protect private data when queried multiple times. Practically, this means that any differential privacy based system must keep track of who queries what and how often to ensure that some predefined -budget is not surpassed. In a machine learning setting a method of accounting for the accumulated privacy loss over training iterations [\[10\]](#page-25-3) needs to be employed to maintain an -budget.
 
 Accumulated knowledge as described above is one of the weaknesses of differential privacy to keep sensitive data private [\[92\]](#page-28-20). Another is collusion. If multiple users collude in the querying of the data (sharing the results of queries with one another) the -budget for any single user might be breached. Finally, suppose an -budget is assigned for each individual query; a user making queries on correlated data will use only the budget for each query, yet may be able to gain more information due to the fact that two quantities are correlated (e.g. income and rent). Clearly, large (or large -budgets) introduce greater risk of privacy breaches than small ones but selecting an appropriate is a non-trivial issue. Lee and Clinton [\[96\]](#page-29-2) discuss the means by which might be selected for a given problem but identify that in order to do so, the dataset and the queries on the dataset should be known ahead of time.
 
@@ -348,7 +346,7 @@ Limited examples of practical applications using differential privacy exist outs
 
 Future research and applications of differential privacy are likely to focus on improving utility whilst retaining good privacy guarantees in order for greater adoption by the IT industry.
 
-# <span id="page-19-0"></span>5 Privacy preservation in federated learning
+## <span id="page-19-0"></span>5 Privacy preservation in federated learning
 
 Federated learning already increases the level of privacy afforded to an individual over traditional machine learning on a static dataset. It mitigates the storage of sensitive personal data by a third party and prevents a third party from performing learning tasks on the data for which the individual had not initially given permission. Additionally, inference does not require that further sensitive data be sent to a third party as the global model is available to the individual on their own private device [\[11\]](#page-25-4). Despite these privacy improvements, the weight/gradient updates uploaded by individuals may reveal information about the user's data, especially if certain weights in the weight matrix are sensitive to specific features or values in the individual's data (for example, specific words in a language prediction model [\[102\]](#page-29-8)). These updates are available to any client participating in federated learning as well as the aggregating server.
 
@@ -365,16 +363,16 @@ While SMC achieves privacy through increased computational complexity, different
 A Review of Privacy-preserving Federated Learning for the Internet-of-Things 21
 **Table 2**A summary of important contributions to federated learning research with a focus on privacy enhancing mechanisms (DP = Differential privacy, HE = Homomorphic encryption, SMC = Secure multi-party computation)
 
-| Ref<br>Year | Major contribution                                                                                                                                                                | Privacy<br>mecha<br>nism | Privacy details                                                                                                                                                                                                                               |
+| Ref<br>Year | Major contribution | Privacy<br>mecha<br>nism | Privacy details |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [11] 2015   | Description of a selective distibuted gradient<br>descent method to reduce communication and<br>the application of differential privacy to protect<br>the model parameter updates | DP                       | Batch-level<br>DP,<br>-DP<br><br>(Laplace mechanism)                                                                                                                                                                                          |
-| [10] 2016   | Description of an efficient accounting method<br>for accumulating privacy losses while training<br>a DNN with differential privacy                                                | DP                       | Batch-level DP, (<br>-<br>)-DP<br><br>δ<br>(Gaussian mechanism)                                                                                                                                                                               |
-| [103] 2017  | New method to provide secure multi-party com<br>putation specifically tailored towards federated<br>learning                                                                      | SMC                      | Secure aggregation proto<br>col evaluates the average<br>gradients<br>of<br>clients<br>only<br>when a sufficient number<br>send updates                                                                                                       |
-| [98] 2017   | Method for providing user-level differential pri<br>vacy for federated learning with only small loss<br>in model utility                                                          | DP                       | User-level<br>DP,<br>(<br>-<br>)-DP<br><br>δ<br>(Gaussian mechanism)                                                                                                                                                                          |
-| [102] 2017  | Method for providing user-level differential pri<br>vacy for federated learning without degrading<br>model utility                                                                | DP                       | User-level<br>DP,<br>(<br>-<br>)-DP<br><br>δ<br>(Gaussian mechanism)                                                                                                                                                                          |
-| [104] 2017  | Demonstration of an attack method on the<br>global model using a generative adversarial net<br>work, effective even against record/batch-level<br>DP                              | DP                       | Attack<br>tested<br>against<br>record/batch-level<br>DP<br>(implemented using [11])                                                                                                                                                           |
-| [105] 2017  | Method for encrypting user updates during<br>distributed training, decryptable only when<br>many clients have participated in the distributed<br>learning objective               | HE,<br>SMC               | Gradient updates are en<br>crypted<br>using<br>homomor<br>phic encryption. Aggregate<br>server obtains average gra<br>dient over all workers but<br>can only decrypt this result<br>once a certain number of up<br>dates have been aggregated |
-| [106] 2019  | Description of a full-scale production-ready<br>federated learning system (focusing on mobile<br>devices)                                                                         | SMC                      | Optionally makes use of the<br>Secure aggregation proto<br>col in [103]                                                                                                                                                                       |
+| [11] 2015 | Description of a selective distibuted gradient<br>descent method to reduce communication and<br>the application of differential privacy to protect<br>the model parameter updates | DP | Batch-level<br>DP,<br>-DP<br><br>(Laplace mechanism) |
+| [10] 2016 | Description of an efficient accounting method<br>for accumulating privacy losses while training<br>a DNN with differential privacy | DP | Batch-level DP, (<br>-<br>)-DP<br><br>δ<br>(Gaussian mechanism) |
+| [103] 2017 | New method to provide secure multi-party com<br>putation specifically tailored towards federated<br>learning | SMC | Secure aggregation proto<br>col evaluates the average<br>gradients<br>of<br>clients<br>only<br>when a sufficient number<br>send updates |
+| [98] 2017 | Method for providing user-level differential pri<br>vacy for federated learning with only small loss<br>in model utility | DP | User-level<br>DP,<br>(<br>-<br>)-DP<br><br>δ<br>(Gaussian mechanism) |
+| [102] 2017 | Method for providing user-level differential pri<br>vacy for federated learning without degrading<br>model utility | DP | User-level<br>DP,<br>(<br>-<br>)-DP<br><br>δ<br>(Gaussian mechanism) |
+| [104] 2017 | Demonstration of an attack method on the<br>global model using a generative adversarial net<br>work, effective even against record/batch-level<br>DP | DP | Attack<br>tested<br>against<br>record/batch-level<br>DP<br>(implemented using [11]) |
+| [105] 2017 | Method for encrypting user updates during<br>distributed training, decryptable only when<br>many clients have participated in the distributed<br>learning objective | HE,<br>SMC | Gradient updates are en<br>crypted<br>using<br>homomor<br>phic encryption. Aggregate<br>server obtains average gra<br>dient over all workers but<br>can only decrypt this result<br>once a certain number of up<br>dates have been aggregated |
+| [106] 2019 | Description of a full-scale production-ready<br>federated learning system (focusing on mobile<br>devices) | SMC | Optionally makes use of the<br>Secure aggregation proto<br>col in [103] |
 
 with a central server but also experiment with adding noise to the updates to satisfy differential privacy and protect the contributions of individuals to the global model. An -budget is divided and spent on selecting gradients above a certain threshold and on publishing the gradients. Judging the sensitivity of SGD is achieved by bounding the gradients between [−γ, γ] (γ is set to some small number). Laplacian noise is generated using this sensitivity and added to the updates prior to selection/publishing. The authors show that their differentially private method outperforms standalone training (training performed by each client on their own data alone) and approaches the performance of SGD on a non-private static dataset given that enough clients participate in each communication round.
 
@@ -386,31 +384,31 @@ A method for attacking deep learning models trained via federated learning has b
 
 An alternative method to perform machine learning on private data is via a knowledge distillation-like approach. Private Aggregation of Teacher Ensembles (PATE) [\[107\]](#page-29-13) trains a student model (which is published and used for inference) using many teacher models in an ensemble. Neither the sensitive data available to the teacher models, nor the teacher models themselves are ever published. The teacher models once trained on the sensitive data are then used to label public data in a semi-supervised fashion via voting for the predicted class. The votes cast by the teachers have noise generated via a Laplacian distribution added to preserve the privacy of their predictions. This approach requires that public data is available to train the student model, however shows better performance than [\[10\]](#page-25-3) and [\[11\]](#page-25-4) whilst maintaining privacy guarantees ((, δ)-differential privacy of (2.04, <sup>10</sup>−<sup>5</sup> ) and (8.19, 10−<sup>6</sup> ) on the MINST and SVHN datasets respectively). Further improvements to PATE show that the method can scale to large multi-class problems [\[108\]](#page-29-14).
 
-# <span id="page-22-0"></span>6 Challenges in applying privacy-preserving federated learning to the IoT
+## <span id="page-22-0"></span>6 Challenges in applying privacy-preserving federated learning to the IoT
 
 In this section, we identify and outline some promising areas to develop privacypreserving federated learning research, particularly focused on IoT environments.
 
-# 6.1 Optimal model architecture/hyperparameters
+## 6.1 Optimal model architecture/hyperparameters
 
 Federated learning precludes seeing the data that a model is trained on. On a traditionally centralised dataset, a deep learning architecture and hyperparameters can be selected via a validation strategy. However to follow the same approach in federated learning to find an optimal architecture or set the optimal hyperparameters to produce good models would require training many models on user devices (possibly incurring unacceptable amounts of battery power and bandwidth). Therefore novel research is required to tackle this specific problem, unique to federated learning.
 
-# 6.2 Continual learning
+## 6.2 Continual learning
 
 Training a machine learning model is an expensive and time-consuming task and this can be significantly worse in the federated learning setting. As data distributions evolve over time, a trained model's performance deteriorates. To avoid the cost of federated training many times over, research into methods for improving how a model learns is congruent to the federated learning objective over time. Methods such as meta-learning, online learning and continual learning will be important here which will have specific challenges unique to the distributed nature of federated learning.
 
-# 6.3 Better privacy preserving methods
+## 6.3 Better privacy preserving methods
 
 As seen in this review, there is an observable tradeoff between the performance of a model and the privacy that is afforded to a user. Further research is ongoing into differential privacy accounting methods that introduce less noise into the model (thus improving utility) for the same level of privacy (as judged by the parameter). Likewise, further research is required to vastly reduce the computational burden of methods such as homomorphic encryption and secure multi-party computation in order for them to become common-use methods for preserving privacy for large-scale machine learning tasks.
 
-# 6.4 Federated learning combined with fog computing
+## 6.4 Federated learning combined with fog computing
 
 Reducing the latency between rounds of training in federated learning is desirable to train models quickly. Fog computing nodes could feasibly be leveraged as aggregating servers to remove the round-trip communication between clients and cloud servers in the aggregation step of federated learning. Fog computing could also bring other benefits, such as sharing the computational burden by hierarchically aggregating many large client models.
 
-# 6.5 Federated learning on low power devices
+## 6.5 Federated learning on low power devices
 
 Training deep networks on resource constrained and low power devices poses specific challenges for federated learning. Much of the research into federated learning focusses on mobile devices such as smartphones with abundant compute, storage and power capabilities. As such, new methods are required for reducing the amount of work individual devices need to do to contribute to training (perhaps using the model parallelism approach seen in [\[13\]](#page-25-6) or training only certain deep network layers on subsets of devices.)
 
-# <span id="page-23-0"></span>7 Conclusion
+## <span id="page-23-0"></span>7 Conclusion
 
 Deep learning has shown impressive successes in the fields of computer vision, speech recognition and language modelling. With the exploding increase in deployments of IoT devices, naturally, deep learning is starting to be applied at the edge of the network on mobile and resource-limited embedded devices. This environment however presents difficult challenges for training deep models due to their energy, compute and memory requirements. Beyond this, a model's utility is strictly limited to the data available to the edge device. Allowing machines close to the edge of the
 
@@ -420,11 +418,11 @@ Federated learning presents a new field of research but has great potential for 
 
 The intersection of federated learning, differential privacy and IoT data represents a fruitful area of research. Performing deep learning efficiently on resourceconstrained devices while preserving privacy and utility poses a real challenge. Additionally, the nature of IoT data as opposed to internet data for private federated learning deserves more attention from the research community. IoT data is often represented by highly skewed non-IID data with high temporal variability. This is a challenge that needs to be overcome for federated learning to flourish in edge environments.
 
-# Acknowledgements
+## Acknowledgements
 
 This work is partly supported by the SEND project (grant ref.Âă32R16P00706) funded by ERDF and BEIS.
 
-# References
+## References
 
 - <span id="page-24-0"></span>1. Gartner. (2018, Nov.) Gartner Identifies Top 10 Strategic IoT Technologies and Trends. [Online]. Available: [https://www.gartner.com/en/newsroom/press-releases/2018-11-](https://www.gartner.com/en/newsroom/press-releases/2018-11-07-gartner-identifies-top-10-strategic-iot-technologies-and-trends) [07-gartner-identifies-top-10-strategic-iot-technologies-and-trends](https://www.gartner.com/en/newsroom/press-releases/2018-11-07-gartner-identifies-top-10-strategic-iot-technologies-and-trends)
 - <span id="page-24-1"></span>2. F. Bonomi, R. Milito, J. Zhu, and S. Addepalli, "Fog computing and its role in the internet of things," in*SIGCOMM 2012 MCC workshop*. New York, New York, USA: ACM, Aug. 2012, pp. 13–16.

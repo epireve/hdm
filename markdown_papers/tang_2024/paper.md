@@ -29,7 +29,6 @@ keywords:
 - state-of-the-art
 ---
 
-
 # DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction in Temporal Knowledge Graphs
 
 XING [TANG,](https://orcid.org/0000-0003-0265-2056) College of Computer Science and Technology, Zhejiang University, Hangzhou, China LING [CHEN,](https://orcid.org/0000-0003-1934-5992) State Key Laboratory of Blockchain and Data Security, College of Computer Science and Technology, Zhejiang University, Hangzhou, China
@@ -74,7 +73,7 @@ To address the aforementioned deficiencies, we propose**DHyper**, a recurrent **
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This Venn diagram displays the overlapping memberships of three international groups: G7, NATO, and the Belt and Road Initiative. National flags represent each member state, visually showing the intersections and unique memberships within each organization. The diagram's purpose is to illustrate the geopolitical relationships and shared affiliations among these nations. -->
 
-Fig. 1. The example of the high-order correlation among countries.
+Figure 1. The example of the high-order correlation among countries.
 
 first work that incorporates the hypergraph modeling into TKGs, which simultaneously models the influences of both the high-order correlations among entities and among relations. The major contributions of our work are outlined as follows:
 
@@ -84,11 +83,11 @@ first work that incorporates the hypergraph modeling into TKGs, which simultaneo
 
 The remainder of this article is structured as follows: Section 2 provides a review of existing methods associated with this work. The definitions of the associated terms and the formulation of the task are given in Section [3.](#page-4-0) The specifics of the proposed model are presented in Section [4.](#page-4-0) The experimental results and analyses are given in Section [5.](#page-9-0) Finally, we conclude the article and present future work in Section [6.](#page-19-0)
 
-# 2 RELATED WORKS
+## 2 RELATED WORKS
 
 In thissection, we provide an overview of the related works, including event prediction approaches in TKG and HGNN related studies.
 
-# 2.1 Event Prediction Approaches in TKGs
+## 2.1 Event Prediction Approaches in TKGs
 
 Inspired by the success of DNNs in various areas, e.g., natural language processing [\[7\]](#page-21-0) and computer vision [\[20\]](#page-21-0), researchers have proposed massive DNN based approaches. In these approaches, GNNs are integrated with RNNs and their variants, e.g.,**Long Short-Term Memory (LSTM)**and**Gated Recurrent Units (GRUs)**, to model the graph structure information and the temporal dependency in TKGs [\[3,](#page-21-0) [6,](#page-21-0) [10,](#page-21-0) [14,](#page-21-0) [15,](#page-21-0) [26\]](#page-22-0). RE-NET [\[10\]](#page-21-0) models graph structure information and the temporal dependency by GNNs and RNNs and employs an autoregressive way to get the joint probability distribution of all events. Glean [\[6\]](#page-21-0) models the influences of neighbor entities and relations by CompGCN [\[24\]](#page-21-0) and captures the temporal dependency among representations by GRUs. Both TeMP [\[26\]](#page-22-0) and RE-GCN [\[14\]](#page-21-0) aggregate the message from neighbor entities by R-GCN [\[18\]](#page-21-0) and model the temporal dependency by customized GRUs. DACHA [\[3\]](#page-21-0) introduces a self-attentive encoder to encode historical relations and exploits a dual graph convolution network to aggregate the message from neighbor entities and historical relations. TiRGN [\[15\]](#page-21-0) introduces a multi-relation based GCN to capture graph structure information and develops a double recurrent mechanism to model the temporal dependency. In these approaches, graphs are constructed based on quadruplets, and GNNs are employed to capture the pairwise correlation between entities.
 
@@ -100,7 +99,7 @@ HGNNs are a kind of special GNNs, where each hyperedge can connect multiple node
 
 To handle this issue, HERALD [\[35\]](#page-22-0) introduces a hypergraph Laplacian adaptor to automatically adapt the hypergraph structure based on node representations and the pre-defined hypergraph Laplacian. MBHT [\[29\]](#page-22-0) constructs the itemwise semantic dependency hypergraph based on a metric learning module to model the high-order dependencies among items. HCCF [\[27\]](#page-22-0) captures the complex high-order dependencies among users by a parameterized hypergraph learning module. These studies show that discovering the high-order correlation among nodes by a learning <span id="page-4-0"></span>paradigm is effective. Inspired by this, we also propose to capture the high-order correlations among entities and among relations in a parameterized way.
 
-# 3 PRELIMINARIES
+## 3 PRELIMINARIES
 
 In this section, we give the definitions of associated terms and formulate the problem.
 
@@ -118,14 +117,14 @@ Problem 1 (Event Prediction Task). *Given head entity s and tail entity o, the e
 
 As shown in Figure [2,](#page-5-0) DHyper is a recurrent dual hypergraph neural network. For a timestep, the residual gate combines the output of the previous timestep with the initial entity and relation representations to generate the input of the**dual hypergraph neural network (DHGNN)**. DHGNN includes DHL and DHMP. DHL discovers the high-order correlations among entities and among relations in a parameterized way to generate the entity hypergraph and the relation hypergraph, respectively. DHMP performs the information aggregation and representation fusion on dual hypergraphs to fully model the influences of both the high-order correlations among entities and among relations. The attentive temporal encoder captures the temporal dependency among the fused representations of all timesteps to output the integrated entity and relation representations, which are used for predicting events in the future.
 
-# 4.1 DHGNN
+## 4.1 DHGNN
 
 DHGNN is the key module of the proposed method DHyper that performs the dual hypergraph modeling by DHL and DHMP. DHL builds the entity graph and the relation graph based on historical events for each timestep. The high-order correlations among entities and among relations are discovered in a parameterized way by the entity and relation hypergraph mappers. In addition, the prior hypergraph mapper infuses the prior dependency between relations and four primary tendencies to impose constraints on relation representations. Note that the entity, relation, and prior
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
 <!-- Image Description: This image depicts a Dual Hypergraph Message Passing Network (DHMP) architecture for temporal knowledge graph completion. It shows a dual hypergraph learning module (DHL) transforming entity and relation graphs into hypergraphs, processed by hypergraph neural networks (EHGNN and RHGNN). These results are fused, then iteratively passed through a DHGNN with residual gates and an attentive temporal encoder across multiple timesteps to generate predictions. Matrices represent feature representations at each step, illustrating the flow of information and processing within the model. -->
 
-Fig. 2. The framework of the proposed method DHyper.
+Figure 2. The framework of the proposed method DHyper.
 
 hypergraph mappers are shared across all timesteps. DHMP performs the information aggregation and representation fusion on the entity hypergraph and the relation hypergraph. Specifically, the **entity hypergraph neural network (EHGNN)**and the**relation hypergraph neural network (RHGNN)**perform the information aggregation on the entity hypergraph and the relation hypergraph, respectively. The entity to relation fuser and the relation to entity fuser conduct the representation fusion on dual hyrgraphs.
 *4.1.1 DHL.*To utilize the crucial information from historical eventsto depict entities, the entity graph*G*<sup>e</sup> = (*V*<sup>e</sup>,*E*e) is constructed based on historical events for each timestep in the historical window [1 : *T*− 1]. The edge construction rule of*G*<sup>e</sup> is formulated as
@@ -133,14 +132,14 @@ hypergraph mappers are shared across all timesteps. DHMP performs the informatio
 $$
 l_{i,j}^e = \begin{cases} 1 & \text{there is an event between entities } e_i \text{ and } e_j \\ 0 & \text{otherwise} \end{cases}
 $$
- (1)
+(1)
 
 In addition to the correlation between entities, capturing the correlation between relations is also ofsignificance for more accurate event prediction. Specifically, the relation graph*G*<sup>r</sup> = (*V*<sup>r</sup> ,*E*<sup>r</sup> ) is constructed by regarding the relations of*G*<sup>e</sup> as nodes. The edge on*G*<sup>r</sup> is defined based on whether a pair of relations share an entity, which is formulated as
 
 $$
 l_{i,j}^{\mathrm{r}} = \begin{cases} 1 & \text{relations } r_i \text{ and } r_j \text{ share an entity} \\ 0 & \text{otherwise} \end{cases}
 $$
- (2)
+(2)
 
 At the beginning, each entity *e<sup>i</sup>*and relation*r<sup>i</sup>*are given with the random initial representations*ei*and*ri*, respectively.
 
@@ -273,7 +272,7 @@ $$
 
 <span id="page-9-0"></span>where**W**<sup>Q</sup> and **W**<sup>K</sup> are learnable parameters. *am*,*<sup>n</sup>*isthe attention weight. In this way, the attentive temporal encoder outputs the integrated representation of entities or relations**˜** *h<sup>m</sup>*(denoted as*e***˜**s, *e***˜**o, or *r***˜**in the following sections, where*e***˜**<sup>s</sup> is the integrated representation of head entities, *e***˜**<sup>o</sup> is the integrated representation of tail entities, and *r***˜**is the integrated representation of relations, which integrate the temporal information and graph structure information).
 
-# 4.4 Event Prediction
+## 4.4 Event Prediction
 
 Following [\[14\]](#page-21-0), we employ the Conv-TransE [\[41\]](#page-22-0)to predict the probability of each relation between an entity pair, which is calculated as
 *P*(*y***ˆ**|*s*, *o*, G1:*<sup>T</sup>*<sup>−</sup><sup>1</sup> ) =*σ* (*L*rConvFC (*e***˜**s, *e***˜**o)), (23)
@@ -292,7 +291,7 @@ where *F*and*N*<sup>r</sup> are the numbers of samples in the training set and r
 
 We analyze the computational complexity of DHyper. For DHL, owing to the designs of the lowrank factorization and sparse threshold strategies, the time complexity is*O*((N<sup>1</sup> + N2)×D), where N<sup>1</sup> and N<sup>2</sup> are the numbers of hyperedges in *G*eh and *G*rh, respectively, and D is the dimension of representations. For DHMP, the time complexity is *O*( L × (*ζ*+*ϖ*) × (N<sup>1</sup> + N2)×D), where L is the number of layers in DHMP, and *ζ*and*ϖ*are the numbers of entities and relations, respectively. The time complexity of the residual gate is*O*(MD), as we unroll M timesteps. For the attentive temporal encoder, the time complexity is *O*(T D), where T is the length of history. For the event prediction module, the time complexity is *O*(D).
 
-# 5 EXPERIMENTS
+## 5 EXPERIMENTS
 
 In this section, we present extensive experiments to justify the superiority of DHyper. We first introduce the experimental datasets and settings, followed by the comparison with baselines and ablation study. Next, we provide the parameter sensitivity analysis. Finally, we present the case study to further validate the effectiveness of DHyper.
 
@@ -300,26 +299,26 @@ In this section, we present extensive experiments to justify the superiority of 
 
 To evaluate the performance of DHyper, we conduct experiments on six real-world datasets, i.e., ICEWS14, ICEWS18, GDELT18, ICEWS14C, ICEWS18C, and GDELT18C. The former three datasets are collected by Li et al. [\[14\]](#page-21-0), covering periods from 2014/1/1 to 2014/12/31, from 2018/1/1 to 2018/10/31, and from 2018/1/1 to 2018/1/31, respectively. We pre-process them to obtain the last three datasets by setting the type field of entities as countries to conduct filtering, which only contain the records of country-specific events and can contribute to more clear and insightful analyses of real-world relations between countries. Following [\[14\]](#page-21-0), all datasets are split into the training set,
 
-| Dataset  | #Entity | #Relation | Training set | Validation set | Test set | #Timestep | Time granularity |
+| Dataset | #Entity | #Relation | Training set | Validation set | Test set | #Timestep | Time granularity |
 |----------|---------|-----------|--------------|----------------|----------|-----------|------------------|
-| ICEWS14  | 7,128   | 230       | 74,845       | 8,514          | 7,371    | 365       | 24 hours         |
-| ICEWS14C | 205     | 171       | 35,665       | 7,369          | 7,068    | 365       | 24 hours         |
-| ICEWS18  | 23,033  | 256       | 373,018      | 45,995         | 49,545   | 304       | 24 hours         |
-| ICEWS18C | 208     | 164       | 34,497       | 4,412          | 4,661    | 304       | 24 hours         |
-| GDELT18  | 7,691   | 240       | 1,734,399    | 238,765        | 305,241  | 2,751     | 15 minutes       |
-| GDELT18C | 219     | 211       | 158,901      | 21,351         | 27,407   | 2,751     | 15 minutes       |
+| ICEWS14 | 7,128 | 230 | 74,845 | 8,514 | 7,371 | 365 | 24 hours |
+| ICEWS14C | 205 | 171 | 35,665 | 7,369 | 7,068 | 365 | 24 hours |
+| ICEWS18 | 23,033 | 256 | 373,018 | 45,995 | 49,545 | 304 | 24 hours |
+| ICEWS18C | 208 | 164 | 34,497 | 4,412 | 4,661 | 304 | 24 hours |
+| GDELT18 | 7,691 | 240 | 1,734,399 | 238,765 | 305,241 | 2,751 | 15 minutes |
+| GDELT18C | 219 | 211 | 158,901 | 21,351 | 27,407 | 2,751 | 15 minutes |
 
 Table 1. The Statistics of Datasets
 
 Table 2. The Search Spaces and the Final Choices of NNI (ICEWS14, ICEWS18, GDELT18, ICEWS14C, ICEWS18C, and GDELT18C are Abbreviated as ICE14, ICE18, GDE18, ICE14C, ICE18C, and GDE18C, Respectively)
 
-| Hyper-parameter                 | Search space                         | Final choices |        |       |        |       |        |  |
+| Hyper-parameter | Search space | Final choices | | | | | | |
 |---------------------------------|--------------------------------------|---------------|--------|-------|--------|-------|--------|--|
-|                                 |                                      | ICE14         | ICE14C | ICE18 | ICE18C | GDE18 | GDE18C |  |
-| Number of entity hyperedges     | {2, 4, 6, 8, 10, 12, 14, 16, 18, 20} | 14            | 10     | 12    | 10     | 16    | 8      |  |
-| Number of relation hyperedges   | {2, 4, 6, 8, 10, 12, 14, 16, 18, 20} | 8             | 6      | 6     | 8      | 10    | 6      |  |
-| Number of layers for DHMP       | {1, 2, 3, 4, 5}                      | 2             | 2      | 2     | 2      | 2     | 2      |  |
-| Length of the historical window | {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}      | 7             | 10     | 5     | 9      | 3     | 7      |  |
+| | | ICE14 | ICE14C | ICE18 | ICE18C | GDE18 | GDE18C | |
+| Number of entity hyperedges | {2, 4, 6, 8, 10, 12, 14, 16, 18, 20} | 14 | 10 | 12 | 10 | 16 | 8 | |
+| Number of relation hyperedges | {2, 4, 6, 8, 10, 12, 14, 16, 18, 20} | 8 | 6 | 6 | 8 | 10 | 6 | |
+| Number of layers for DHMP | {1, 2, 3, 4, 5} | 2 | 2 | 2 | 2 | 2 | 2 | |
+| Length of the historical window | {1, 2, 3, 4, 5, 6, 7, 8, 9, 10} | 7 | 10 | 5 | 9 | 3 | 7 | |
 
 validation set, and test set in chronological order. The detailed statistics of datasets are presented in Table 1.
 
@@ -350,12 +349,12 @@ where L*<sup>j</sup>*represents the true label set for sample*j* and |L*<sup>j</
 
 To justify the superiority of DHyper, we compare it with the SOTA event prediction approaches in TKGs. The detailed descriptions of compared baselines are as follows.
 
-#### Shallow encoders-based approaches:
+### Shallow encoders-based approaches:
 
 - —**TTransE** [\[12\]](#page-21-0) extends TransE [\[46\]](#page-22-0) by modeling timestamps as corresponding representations.
 - —**HyTE** [\[4\]](#page-21-0) models timestamps as corresponding hyperplanes.
 
-# DNNs based approaches:
+## DNNs based approaches:
 
 - —**TeMP** [\[26\]](#page-22-0) uses R-GCN [\[18\]](#page-21-0) to model the influence of neighbor entities and employs a frequency-based gating GRU to model the temporal dependency among inactive events.
 - —**RE-NET** [\[10\]](#page-21-0) uses GCNs to model the influence of neighbor entities and employs RNNs to model the temporal dependency among events.
@@ -374,47 +373,47 @@ To ensure fairness, we compare all baselines based on the same experimental prot
 
 (1) DHyper shows superior performance compared to all baselines on the event prediction and entity prediction task, especially in surpassing the best baseline by an average of 13.09%, 4.26%, 17.60%, and 18.03% in MRR, Hits@1, Hits@3, and Hits@10 for the event prediction task on six datasets, respectively. The results justify the advantage of introducing the hypergraph modeling to capture the high-order correlation among entities and among relations. Note that the results of DHyper on ICEWS14C, ICEWS18C, and GDELT18C
 
-|                                                                                                                                       |        | ICEWS14 |        |         |                                                                                                                 | ICEWS14C |        |         |  |  |
+| | | ICEWS14 | | | | ICEWS14C | | | | |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------|---------|--------|---------|-----------------------------------------------------------------------------------------------------------------|----------|--------|---------|--|--|
-| Approach                                                                                                                              | MRR    | Hits@1  | Hits@3 | Hits@10 | MRR                                                                                                             | Hits@1   | Hits@3 | Hits@10 |  |  |
-| TTransE (WWW 2018) 23.79 ± 0.03* 14.24 ± 0.51* 29.17 ± 0.07* 34.56 ± 0.05* 11.79 ± 0.53* 13.24 ± 0.01* 19.97 ± 0.27* 24.88 ± 0.56*    |        |         |        |         |                                                                                                                 |          |        |         |  |  |
-| HyTE (EMNLP 2018)                                                                                                                     |        |         |        |         | 25.12 ± 0.73* 18.15 ± 0.22* 30.15 ± 0.01* 45.37 ± 0.41* 22.17 ± 0.73* 18.15 ± 0.52* 27.28 ± 0.01* 35.37 ± 0.44* |          |        |         |  |  |
-| RE-NET (EMNLP 2020) 45.77 ± 0.28* 37.98 ± 0.03* 49.07 ± 0.07* 58.87 ± 0.24* 43.27 ± 0.48* 36.97 ± 0.35* 47.08 ± 0.01* 55.19 ± 0.28*   |        |         |        |         |                                                                                                                 |          |        |         |  |  |
-| Glean (KDD 2020)                                                                                                                      |        |         |        |         | 42.20 ± 0.71* 36.86 ± 0.59* 47.68 ± 0.43* 52.39 ± 0.06* 40.24 ± 0.01* 34.62 ± 0.39* 45.48 ± 0.53* 50.09 ± 0.08* |          |        |         |  |  |
-| TeMP (EMNLP 2020)                                                                                                                     |        |         |        |         | 46.04 ± 0.24* 39.07 ± 0.01* 49.84 ± 0.01* 59.74 ± 0.01* 44.17 ± 0.11* 37.37 ± 0.18* 47.78 ± 0.06* 55.66 ± 0.08* |          |        |         |  |  |
-| RE-GCN (SIGIR 2021)                                                                                                                   |        |         |        |         | 45.56 ± 0.01* 38.09 ± 0.61* 50.37 ± 0.11* 62.44 ± 0.63* 41.76 ± 0.61* 36.67 ± 0.06* 45.37 ± 0.01* 51.74 ± 0.11* |          |        |         |  |  |
-| DACHA (TKDD 2022)                                                                                                                     |        |         |        |         | 45.44 ± 0.71* 37.88 ± 0.09* 49.47 ± 0.67* 58.69 ± 0.06* 44.26 ± 0.22* 37.59 ± 0.23* 44.18 ± 0.27* 53.19 ± 0.08* |          |        |         |  |  |
-| TiRGN (IJCAI 2022)                                                                                                                    |        |         |        |         | 46.07 ± 0.21* 39.83 ± 0.26* 52.17 ± 0.48* 63.95 ± 0.61* 44.73 ± 0.11* 38.13 ± 0.11* 49.77 ± 0.27* 60.91 ± 0.31* |          |        |         |  |  |
-| TITer (EMNLP 2021)                                                                                                                    |        |         |        |         | 46.12 ± 0.28* 39.08 ± 0.01* 50.76 ± 0.01* 60.39 ± 0.11* 44.86 ± 0.31* 39.37 ± 0.21* 48.84 ± 0.06* 55.79 ± 0.51* |          |        |         |  |  |
-| EvoExplore (KBS 2022) 47.71 ± 0.13* 40.68 ± 0.22* 52.37 ± 0.17* 65.94 ± 0.32* 49.77 ± 0.03* 40.12 ± 0.26* 54.37 ± 0.57* 65.83 ± 0.29* |        |         |        |         |                                                                                                                 |          |        |         |  |  |
-| GTRL (TKDE 2023)                                                                                                                      |        |         |        |         | 46.25 ± 0.33* 40.11 ± 0.53* 51.09 ± 0.44* 65.79 ± 0.27* 50.95 ± 0.21* 40.31 ± 0.33* 52.09 ± 0.11* 64.89 ± 0.32*|          |        |         |  |  |
-| DHyper                                                                                                                                |        |         |        |         | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.18 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09         |          |        |         |  |  |
-| Improvement                                                                                                                           | 17.69% | 7.57%   | 25.00% | 30.25%  | 6.30%                                                                                                           | 2.83%    | 14.09% | 14.46%  |  |  |
+| Approach | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | | |
+| TTransE (WWW 2018) 23.79 ± 0.03* 14.24 ± 0.51* 29.17 ± 0.07* 34.56 ± 0.05* 11.79 ± 0.53* 13.24 ± 0.01* 19.97 ± 0.27* 24.88 ± 0.56* | | | | | | | | | | |
+| HyTE (EMNLP 2018) | | | | | 25.12 ± 0.73* 18.15 ± 0.22* 30.15 ± 0.01* 45.37 ± 0.41* 22.17 ± 0.73* 18.15 ± 0.52* 27.28 ± 0.01* 35.37 ± 0.44* | | | | | |
+| RE-NET (EMNLP 2020) 45.77 ± 0.28* 37.98 ± 0.03* 49.07 ± 0.07* 58.87 ± 0.24* 43.27 ± 0.48* 36.97 ± 0.35* 47.08 ± 0.01* 55.19 ± 0.28* | | | | | | | | | | |
+| Glean (KDD 2020) | | | | | 42.20 ± 0.71* 36.86 ± 0.59* 47.68 ± 0.43* 52.39 ± 0.06* 40.24 ± 0.01* 34.62 ± 0.39* 45.48 ± 0.53* 50.09 ± 0.08* | | | | | |
+| TeMP (EMNLP 2020) | | | | | 46.04 ± 0.24* 39.07 ± 0.01* 49.84 ± 0.01* 59.74 ± 0.01* 44.17 ± 0.11* 37.37 ± 0.18* 47.78 ± 0.06* 55.66 ± 0.08* | | | | | |
+| RE-GCN (SIGIR 2021) | | | | | 45.56 ± 0.01* 38.09 ± 0.61* 50.37 ± 0.11* 62.44 ± 0.63* 41.76 ± 0.61* 36.67 ± 0.06* 45.37 ± 0.01* 51.74 ± 0.11* | | | | | |
+| DACHA (TKDD 2022) | | | | | 45.44 ± 0.71* 37.88 ± 0.09* 49.47 ± 0.67* 58.69 ± 0.06* 44.26 ± 0.22* 37.59 ± 0.23* 44.18 ± 0.27* 53.19 ± 0.08* | | | | | |
+| TiRGN (IJCAI 2022) | | | | | 46.07 ± 0.21* 39.83 ± 0.26* 52.17 ± 0.48* 63.95 ± 0.61* 44.73 ± 0.11* 38.13 ± 0.11* 49.77 ± 0.27* 60.91 ± 0.31* | | | | | |
+| TITer (EMNLP 2021) | | | | | 46.12 ± 0.28* 39.08 ± 0.01* 50.76 ± 0.01* 60.39 ± 0.11* 44.86 ± 0.31* 39.37 ± 0.21* 48.84 ± 0.06* 55.79 ± 0.51* | | | | | |
+| EvoExplore (KBS 2022) 47.71 ± 0.13* 40.68 ± 0.22* 52.37 ± 0.17* 65.94 ± 0.32* 49.77 ± 0.03* 40.12 ± 0.26* 54.37 ± 0.57* 65.83 ± 0.29* | | | | | | | | | | |
+| GTRL (TKDE 2023) | | | | | 46.25 ± 0.33* 40.11 ± 0.53* 51.09 ± 0.44* 65.79 ± 0.27* 50.95 ± 0.21* 40.31 ± 0.33* 52.09 ± 0.11* 64.89 ± 0.32*| | | | | |
+| DHyper | | | | | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.18 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09 | | | | | |
+| Improvement | 17.69% | 7.57% | 25.00% | 30.25% | 6.30% | 2.83% | 14.09% | 14.46% | | |
 
 <span id="page-12-0"></span>Table 3. The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS14 and ICEWS14c (Mean ± Std)
 
 <sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
-| Table 4. | The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS18 and |  |
+| Table 4. | The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS18 and | |
 |----------|--------------------------------------------------------------------------------------|--|
-|          | ICEWS18C (Mean ± Std)                                                                |  |
+| | ICEWS18C (Mean ± Std) | |
 
-|                                                                                                                                       | ICEWS18 |        |        |                                                                                                                 | ICEWS18C     |        |                                           |         |  |
+| | ICEWS18 | | | | ICEWS18C | | | | |
 |---------------------------------------------------------------------------------------------------------------------------------------|---------|--------|--------|-----------------------------------------------------------------------------------------------------------------|--------------|--------|-------------------------------------------|---------|--|
-| Approach                                                                                                                              | MRR     | Hits@1 | Hits@3 | Hits@10                                                                                                         | MRR          | Hits@1 | Hits@3                                    | Hits@10 |  |
-| TTransE (WWW 2018) 11.96 ± 0.24* 13.97 ± 0.11* 12.79 ± 0.01* 24.33 ± 0.14*                                                            |         |        |        |                                                                                                                 | 9.84 ± 0.22* |        | 10.29 ± 0.03* 11.04 ± 0.01* 18.89 ± 0.08* |         |  |
-| HyTE (EMNLP 2018)                                                                                                                     |         |        |        | 21.85 ± 0.14* 16.86 ± 0.39* 25.64 ± 0.11* 41.86 ± 0.25* 22.23 ± 0.73* 16.27 ± 0.52* 25.68 ± 0.07* 33.39 ± 0.14* |              |        |                                           |         |  |
-| RE-NET (EMNLP 2020) 42.25 ± 0.01* 33.81 ± 0.24* 44.98 ± 0.33* 52.72 ± 0.61* 41.05 ± 0.21* 32.87 ± 0.37* 42.78 ± 0.27* 50.43 ± 0.01*   |         |        |        |                                                                                                                 |              |        |                                           |         |  |
-| Glean (KDD 2020)                                                                                                                      |         |        |        | 37.11 ± 0.22* 34.15 ± 0.04* 42.56 ± 0.61* 47.35 ± 0.61* 35.58 ± 0.01* 32.26 ± 0.58* 40.44 ± 0.22* 46.49 ± 0.04* |              |        |                                           |         |  |
-| TeMP (EMNLP 2020)                                                                                                                     |         |        |        | 43.24 ± 0.24* 38.77 ± 0.01* 45.04 ± 0.01* 55.94 ± 0.01* 43.08 ± 0.23* 36.07 ± 0.22* 43.18 ± 0.01* 53.03 ± 0.58* |              |        |                                           |         |  |
-| RE-GCN (SIGIR 2021)                                                                                                                   |         |        |        | 41.56 ± 0.01* 37.59 ± 0.61* 44.34 ± 0.11* 57.42 ± 0.63* 40.27 ± 0.48* 36.35 ± 0.01* 41.75 ± 0.48* 49.25 ± 0.11* |              |        |                                           |         |  |
-| DACHA (TKDD 2022)                                                                                                                     |         |        |        | 43.87 ± 0.03* 37.11 ± 0.02* 47.47 ± 0.17* 57.69 ± 0.07* 40.11 ± 0.03* 36.11 ± 0.04* 46.17 ± 0.14* 52.37 ± 0.06* |              |        |                                           |         |  |
-| TiRGN (IJCAI 2022)                                                                                                                    |         |        |        | 44.27 ± 0.18* 38.13 ± 0.09* 50.66 ± 0.31* 62.90 ± 0.44* 43.57 ± 0.18* 37.23 ± 0.08* 47.67 ± 0.35* 54.44 ± 0.17* |              |        |                                           |         |  |
-| TITer (EMNLP 2021)                                                                                                                    |         |        |        | 45.44 ± 0.28* 39.78 ± 0.01* 48.77 ± 0.01* 58.73 ± 0.11* 44.07 ± 0.01* 38.85 ± 0.23* 46.44 ± 0.22* 49.79 ± 0.45* |              |        |                                           |         |  |
-| EvoExplore (KBS 2022) 46.65 ± 0.17* 40.05 ± 0.43* 50.07 ± 0.26* 58.35 ± 0.18* 47.33 ± 0.27* 38.96 ± 0.03* 49.37 ± 0.16* 56.15 ± 0.13* |         |        |        |                                                                                                                 |              |        |                                           |         |  |
-| GTRL (TKDE 2023)                                                                                                                      |         |        |        | 46.35 ± 0.11* 40.95 ± 0.03* 51.19 ± 0.21* 60.18 ± 0.26* 49.33 ± 0.21* 40.15 ± 0.31* 53.39 ± 0.01* 60.74 ± 0.01*|              |        |                                           |         |  |
-| DHyper                                                                                                                                |         |        |        | 54.22 ± 0.05 42.16 ± 0.21 63.26 ± 0.21 75.38 ± 0.24 52.11 ± 0.06 41.04 ± 0.21 60.03 ± 0.11 73.22 ± 0.07         |              |        |                                           |         |  |
-| Improvement                                                                                                                           | 16.23%  | 2.95%  | 23.58% | 19.84%                                                                                                          | 5.64%        | 2.22%  | 12.44%                                    | 20.55%  |  |
+| Approach | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | |
+| TTransE (WWW 2018) 11.96 ± 0.24* 13.97 ± 0.11* 12.79 ± 0.01* 24.33 ± 0.14* | | | | | 9.84 ± 0.22* | | 10.29 ± 0.03* 11.04 ± 0.01* 18.89 ± 0.08* | | |
+| HyTE (EMNLP 2018) | | | | 21.85 ± 0.14* 16.86 ± 0.39* 25.64 ± 0.11* 41.86 ± 0.25* 22.23 ± 0.73* 16.27 ± 0.52* 25.68 ± 0.07* 33.39 ± 0.14* | | | | | |
+| RE-NET (EMNLP 2020) 42.25 ± 0.01* 33.81 ± 0.24* 44.98 ± 0.33* 52.72 ± 0.61* 41.05 ± 0.21* 32.87 ± 0.37* 42.78 ± 0.27* 50.43 ± 0.01* | | | | | | | | | |
+| Glean (KDD 2020) | | | | 37.11 ± 0.22* 34.15 ± 0.04* 42.56 ± 0.61* 47.35 ± 0.61* 35.58 ± 0.01* 32.26 ± 0.58* 40.44 ± 0.22* 46.49 ± 0.04* | | | | | |
+| TeMP (EMNLP 2020) | | | | 43.24 ± 0.24* 38.77 ± 0.01* 45.04 ± 0.01* 55.94 ± 0.01* 43.08 ± 0.23* 36.07 ± 0.22* 43.18 ± 0.01* 53.03 ± 0.58* | | | | | |
+| RE-GCN (SIGIR 2021) | | | | 41.56 ± 0.01* 37.59 ± 0.61* 44.34 ± 0.11* 57.42 ± 0.63* 40.27 ± 0.48* 36.35 ± 0.01* 41.75 ± 0.48* 49.25 ± 0.11* | | | | | |
+| DACHA (TKDD 2022) | | | | 43.87 ± 0.03* 37.11 ± 0.02* 47.47 ± 0.17* 57.69 ± 0.07* 40.11 ± 0.03* 36.11 ± 0.04* 46.17 ± 0.14* 52.37 ± 0.06* | | | | | |
+| TiRGN (IJCAI 2022) | | | | 44.27 ± 0.18* 38.13 ± 0.09* 50.66 ± 0.31* 62.90 ± 0.44* 43.57 ± 0.18* 37.23 ± 0.08* 47.67 ± 0.35* 54.44 ± 0.17* | | | | | |
+| TITer (EMNLP 2021) | | | | 45.44 ± 0.28* 39.78 ± 0.01* 48.77 ± 0.01* 58.73 ± 0.11* 44.07 ± 0.01* 38.85 ± 0.23* 46.44 ± 0.22* 49.79 ± 0.45* | | | | | |
+| EvoExplore (KBS 2022) 46.65 ± 0.17* 40.05 ± 0.43* 50.07 ± 0.26* 58.35 ± 0.18* 47.33 ± 0.27* 38.96 ± 0.03* 49.37 ± 0.16* 56.15 ± 0.13* | | | | | | | | | |
+| GTRL (TKDE 2023) | | | | 46.35 ± 0.11* 40.95 ± 0.03* 51.19 ± 0.21* 60.18 ± 0.26* 49.33 ± 0.21* 40.15 ± 0.31* 53.39 ± 0.01* 60.74 ± 0.01*| | | | | |
+| DHyper | | | | 54.22 ± 0.05 42.16 ± 0.21 63.26 ± 0.21 75.38 ± 0.24 52.11 ± 0.06 41.04 ± 0.21 60.03 ± 0.11 73.22 ± 0.07 | | | | | |
+| Improvement | 16.23% | 2.95% | 23.58% | 19.84% | 5.64% | 2.22% | 12.44% | 20.55% | |
 
 <sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
@@ -422,65 +421,65 @@ are inferior to those on ICEWS14, ICEWS18, and GDELT18, possibly due to their sp
 
 (2) In general, derived structures-based approaches, e.g., GTRL and EvoExplore, outperform other DNN based approaches, e.g., TeMP, RE-NET, Glean, RE-GCN, and DACHA, which
 
-|                                                                                                                                       |        |                                                                                                                 | GDELT18 |         | GDELT18C     |        |                                           |         |  |
+| | | | GDELT18 | | GDELT18C | | | | |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------|-----------------------------------------------------------------------------------------------------------------|---------|---------|--------------|--------|-------------------------------------------|---------|--|
-| Approach                                                                                                                              | MRR    | Hits@1                                                                                                          | Hits@3  | Hits@10 | MRR          | Hits@1 | Hits@3                                    | Hits@10 |  |
-| TTransE (WWW 2018) 11.04 ± 0.11* 11.83 ± 0.11* 19.25 ± 0.02* 29.56 ± 0.02*                                                            |        |                                                                                                                 |         |         | 9.14 ± 0.02* |        | 12.46 ± 0.01* 17.59 ± 0.54* 20.38 ± 0.01* |         |  |
-| HyTE (EMNLP 2018)                                                                                                                     |        | 19.47 ± 0.01* 15.69 ± 0.11* 23.86 ± 0.01* 40.43 ± 0.11* 22.17 ± 0.73* 18.15 ± 0.52* 27.28 ± 0.01* 35.37 ± 0.44* |         |         |              |        |                                           |         |  |
-| RE-NET (EMNLP 2020) 32.12 ± 0.11* 30.72 ± 0.11* 42.96 ± 0.11* 46.59 ± 0.01* 31.89 ± 0.01* 27.74 ± 0.36* 40.55 ± 0.21* 45.69 ± 0.01*   |        |                                                                                                                 |         |         |              |        |                                           |         |  |
-| Glean (KDD 2020)                                                                                                                      |        | 35.14 ± 0.11* 26.29 ± 0.51* 40.28 ± 0.33* 45.37 ± 0.47* 33.11 ± 0.32* 25.29 ± 0.01* 39.26 ± 0.01* 41.35 ± 0.21* |         |         |              |        |                                           |         |  |
-| TeMP (EMNLP 2020)                                                                                                                     |        | 39.23 ± 0.24* 33.37 ± 0.01* 42.45 ± 0.01* 51.49 ± 0.01* 39.63 ± 0.24* 30.97 ± 0.01* 41.05 ± 0.01* 49.89 ± 0.01* |         |         |              |        |                                           |         |  |
-| RE-GCN (SIGIR 2021)                                                                                                                   |        | 38.01 ± 0.01* 29.53 ± 0.61* 37.54 ± 0.11* 48.44 ± 0.63* 37.56 ± 0.01* 25.09 ± 0.61* 37.34 ± 0.11* 42.44 ± 0.63* |         |         |              |        |                                           |         |  |
-| DACHA (TKDD 2022)                                                                                                                     |        | 35.87 ± 0.03* 28.11 ± 0.02* 40.47 ± 0.17* 50.69 ± 0.07* 34.11 ± 0.03* 28.61 ± 0.04* 38.17 ± 0.14* 42.37 ± 0.06* |         |         |              |        |                                           |         |  |
-| TiRGN (IJCAI 2022)                                                                                                                    |        | 35.97 ± 0.07* 23.63 ± 0.06* 39.27 ± 0.17* 49.60 ± 0.25* 32.27 ± 0.07* 27.63 ± 0.03* 30.22 ± 0.18* 45.26 ± 0.27* |         |         |              |        |                                           |         |  |
-| TITer (EMNLP 2021)                                                                                                                    |        | 39.54 ± 0.28* 31.52 ± 0.01* 43.76 ± 0.01* 47.47 ± 0.11* 41.55 ± 0.28* 37.08 ± 0.01* 41.76 ± 0.01* 47.98 ± 0.11* |         |         |              |        |                                           |         |  |
-| EvoExplore (KBS 2022) 33.62 ± 0.22* 27.94 ± 0.35* 41.37 ± 0.11* 51.47 ± 0.25* 47.62 ± 0.22* 37.94 ± 0.35* 46.33 ± 0.11* 57.17 ± 0.25* |        |                                                                                                                 |         |         |              |        |                                           |         |  |
-| GTRL (TKDE 2023)                                                                                                                      |        | 40.13 ± 0.11* 37.45 ± 0.07* 47.39 ± 0.04* 58.74 ± 0.05* 47.28 ± 0.21* 38.45 ± 0.01* 50.39 ± 0.01* 56.74 ± 0.01*|         |         |              |        |                                           |         |  |
-| DHyper                                                                                                                                |        | 51.15 ± 0.05 40.22 ± 0.25 57.29 ± 0.24 65.33 ± 0.22 50.11 ± 0.06 39.45 ± 0.21 55.23 ± 0.11 63.95 ± 0.06         |         |         |              |        |                                           |         |  |
-| Improvement                                                                                                                           | 27.46% | 7.40%                                                                                                           | 20.89%  | 11.22%  | 5.23%        | 2.60%  | 9.61%                                     | 11.86%  |  |
+| Approach | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 | |
+| TTransE (WWW 2018) 11.04 ± 0.11* 11.83 ± 0.11* 19.25 ± 0.02* 29.56 ± 0.02* | | | | | 9.14 ± 0.02* | | 12.46 ± 0.01* 17.59 ± 0.54* 20.38 ± 0.01* | | |
+| HyTE (EMNLP 2018) | | 19.47 ± 0.01* 15.69 ± 0.11* 23.86 ± 0.01* 40.43 ± 0.11* 22.17 ± 0.73* 18.15 ± 0.52* 27.28 ± 0.01* 35.37 ± 0.44* | | | | | | | |
+| RE-NET (EMNLP 2020) 32.12 ± 0.11* 30.72 ± 0.11* 42.96 ± 0.11* 46.59 ± 0.01* 31.89 ± 0.01* 27.74 ± 0.36* 40.55 ± 0.21* 45.69 ± 0.01* | | | | | | | | | |
+| Glean (KDD 2020) | | 35.14 ± 0.11* 26.29 ± 0.51* 40.28 ± 0.33* 45.37 ± 0.47* 33.11 ± 0.32* 25.29 ± 0.01* 39.26 ± 0.01* 41.35 ± 0.21* | | | | | | | |
+| TeMP (EMNLP 2020) | | 39.23 ± 0.24* 33.37 ± 0.01* 42.45 ± 0.01* 51.49 ± 0.01* 39.63 ± 0.24* 30.97 ± 0.01* 41.05 ± 0.01* 49.89 ± 0.01* | | | | | | | |
+| RE-GCN (SIGIR 2021) | | 38.01 ± 0.01* 29.53 ± 0.61* 37.54 ± 0.11* 48.44 ± 0.63* 37.56 ± 0.01* 25.09 ± 0.61* 37.34 ± 0.11* 42.44 ± 0.63* | | | | | | | |
+| DACHA (TKDD 2022) | | 35.87 ± 0.03* 28.11 ± 0.02* 40.47 ± 0.17* 50.69 ± 0.07* 34.11 ± 0.03* 28.61 ± 0.04* 38.17 ± 0.14* 42.37 ± 0.06* | | | | | | | |
+| TiRGN (IJCAI 2022) | | 35.97 ± 0.07* 23.63 ± 0.06* 39.27 ± 0.17* 49.60 ± 0.25* 32.27 ± 0.07* 27.63 ± 0.03* 30.22 ± 0.18* 45.26 ± 0.27* | | | | | | | |
+| TITer (EMNLP 2021) | | 39.54 ± 0.28* 31.52 ± 0.01* 43.76 ± 0.01* 47.47 ± 0.11* 41.55 ± 0.28* 37.08 ± 0.01* 41.76 ± 0.01* 47.98 ± 0.11* | | | | | | | |
+| EvoExplore (KBS 2022) 33.62 ± 0.22* 27.94 ± 0.35* 41.37 ± 0.11* 51.47 ± 0.25* 47.62 ± 0.22* 37.94 ± 0.35* 46.33 ± 0.11* 57.17 ± 0.25* | | | | | | | | | |
+| GTRL (TKDE 2023) | | 40.13 ± 0.11* 37.45 ± 0.07* 47.39 ± 0.04* 58.74 ± 0.05* 47.28 ± 0.21* 38.45 ± 0.01* 50.39 ± 0.01* 56.74 ± 0.01*| | | | | | | |
+| DHyper | | 51.15 ± 0.05 40.22 ± 0.25 57.29 ± 0.24 65.33 ± 0.22 50.11 ± 0.06 39.45 ± 0.21 55.23 ± 0.11 63.95 ± 0.06 | | | | | | | |
+| Improvement | 27.46% | 7.40% | 20.89% | 11.22% | 5.23% | 2.60% | 9.61% | 11.86% | |
 
 <span id="page-13-0"></span>Table 5. The Performance (in Percentage) of DHyper and the Compared Approaches on GDELT18 and GDELT18C (Mean ± Std)
 
 <sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
-| Approach   | MRR   | Hits@1 | Hits@3 | Hits@10 |
+| Approach | MRR | Hits@1 | Hits@3 | Hits@10 |
 |------------|-------|--------|--------|---------|
-| TTransE    | 10.04 | 6.31   | 19.23  | 28.08   |
-| (WWW       | ±     | ±      | ±      | ±       |
-| 2018)      | 0.11* | 0.11*  | 0.02*  | 0.05*   |
-| HyTE       | ±     | ±      | ±      | ±       |
-| (EMNLP     | 18.41 | 5.16   | 21.75  | 30.47   |
-| 2018)      | 0.01* | 0.32*  | 0.01*  | 0.11*   |
-| RE-NET     | 20.78 | 15.37  | 23.16  | 35.59   |
-| (EMNLP     | ±     | ±      | ±      | ±       |
-| 2020)      | 0.11* | 0.11*  | 0.11*  | 0.01*   |
-| Glean      | ±     | ±      | ±      | ±       |
-| (KDD       | 21.14 | 19.29  | 27.28  | 36.37   |
-| 2020)      | 0.11* | 0.51*  | 0.33*  | 0.47*   |
-| TeMP       | 36.23 | 31.37  | 39.47  | 48.45   |
-| (EMNLP     | ±     | ±      | ±      | ±       |
-| 2020)      | 0.24* | 0.03*  | 0.01*  | 0.01*   |
-| RE-GCN     | ±     | ±      | ±      | ±       |
-| (SIGIR     | 21.19 | 19.53  | 22.92  | 35.71   |
-| 2021)      | 0.01* | 0.61*  | 0.11*  | 0.07*   |
-| DACHA      | 31.05 | 28.11  | 40.12  | 48.12   |
-| (TKDD      | ±     | ±      | ±      | ±       |
-| 2022)      | 0.07* | 0.02*  | 0.16*  | 0.03*   |
-| TiRGN      | ±     | ±      | ±      | ±       |
-| (IJCAI     | 23.64 | 20.95  | 26.88  | 40.26   |
-| 2022)      | 0.21* | 0.06*  | 0.11*  | 0.25*   |
-| TITer      | 20.54 | 11.52  | 21.08  | 32.47   |
-| (EMNLP     | ±     | ±      | ±      | ±       |
-| 2021)      | 0.28* | 0.01*  | 0.01*  | 0.11*   |
-| EvoExplore | ±     | ±      | ±      | ±       |
-| (KBS       | 23.61 | 17.44  | 32.37  | 41.47   |
-| 2022)      | 0.22* | 0.35*  | 0.11*  | 0.21*   |
-| GTRL       | 39.23 | 33.37  | 42.45  | 51.49   |
-| (TKDE      | ±     | ±      | ±      | ±       |
-| 2023)      | 0.24* | 0.01*  | 0.01*  | 0.01*   |
-| DHyper     | ±     | ±      | ±      | ±       |
-|            | 41.87 | 35.17  | 45.45  | 54.09   |
-|            | 0.07* | 0.02*  | 0.17*  | 0.03*|
+| TTransE | 10.04 | 6.31 | 19.23 | 28.08 |
+| (WWW | ± | ± | ± | ± |
+| 2018) | 0.11* | 0.11* | 0.02* | 0.05* |
+| HyTE | ± | ± | ± | ± |
+| (EMNLP | 18.41 | 5.16 | 21.75 | 30.47 |
+| 2018) | 0.01* | 0.32* | 0.01* | 0.11* |
+| RE-NET | 20.78 | 15.37 | 23.16 | 35.59 |
+| (EMNLP | ± | ± | ± | ± |
+| 2020) | 0.11* | 0.11* | 0.11* | 0.01* |
+| Glean | ± | ± | ± | ± |
+| (KDD | 21.14 | 19.29 | 27.28 | 36.37 |
+| 2020) | 0.11* | 0.51* | 0.33* | 0.47* |
+| TeMP | 36.23 | 31.37 | 39.47 | 48.45 |
+| (EMNLP | ± | ± | ± | ± |
+| 2020) | 0.24* | 0.03* | 0.01* | 0.01* |
+| RE-GCN | ± | ± | ± | ± |
+| (SIGIR | 21.19 | 19.53 | 22.92 | 35.71 |
+| 2021) | 0.01* | 0.61* | 0.11* | 0.07* |
+| DACHA | 31.05 | 28.11 | 40.12 | 48.12 |
+| (TKDD | ± | ± | ± | ± |
+| 2022) | 0.07* | 0.02* | 0.16* | 0.03* |
+| TiRGN | ± | ± | ± | ± |
+| (IJCAI | 23.64 | 20.95 | 26.88 | 40.26 |
+| 2022) | 0.21* | 0.06* | 0.11* | 0.25* |
+| TITer | 20.54 | 11.52 | 21.08 | 32.47 |
+| (EMNLP | ± | ± | ± | ± |
+| 2021) | 0.28* | 0.01* | 0.01* | 0.11* |
+| EvoExplore | ± | ± | ± | ± |
+| (KBS | 23.61 | 17.44 | 32.37 | 41.47 |
+| 2022) | 0.22* | 0.35* | 0.11* | 0.21* |
+| GTRL | 39.23 | 33.37 | 42.45 | 51.49 |
+| (TKDE | ± | ± | ± | ± |
+| 2023) | 0.24* | 0.01* | 0.01* | 0.01* |
+| DHyper | ± | ± | ± | ± |
+| | 41.87 | 35.17 | 45.45 | 54.09 |
+| | 0.07* | 0.02* | 0.17* | 0.03*|
 
 <sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
@@ -494,22 +493,22 @@ To explore the contributions of each component in DHyper, we conduct an ablation
 
 DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction 129:15
 
-| Table 7. | The Comparison (in Percentage) of DHyper and its Variants with Different Ways to Generate |  |  |
+| Table 7. | The Comparison (in Percentage) of DHyper and its Variants with Different Ways to Generate | | |
 |----------|-------------------------------------------------------------------------------------------|--|--|
-|          | Hypergraphs (Mean ± Std)                                                                  |  |  |
+| | Hypergraphs (Mean ± Std) | | |
 
-|                                                                                                                               |     |        | ICEWS14                                                                                                         |         |     |        | ICEWS14C |         |
+| | | | ICEWS14 | | | | ICEWS14C | |
 |-------------------------------------------------------------------------------------------------------------------------------|-----|--------|-----------------------------------------------------------------------------------------------------------------|---------|-----|--------|----------|---------|
-| Method                                                                                                                        | MRR | Hits@1 | Hits@3                                                                                                          | Hits@10 | MRR | Hits@1 | Hits@3   | Hits@10 |
-| DHyper w/o S                                                                                                                  |     |        | 55.15 ± 0.23* 42.48 ± 0.15* 63.79 ± 0.14* 82.79 ± 0.24* 52.49 ± 0.15* 41.21 ± 0.03* 61.08 ± 0.31* 73.19 ± 0.22* |         |     |        |          |         |
-| DHyper w/o L                                                                                                                  |     |        | 55.06 ± 0.01* 42.79 ± 0.61* 62.37 ± 0.22* 81.44 ± 0.03* 51.96 ± 0.21* 41.33 ± 0.17 60.33 ± 0.07* 73.24 ± 0.19*  |         |     |        |          |         |
-| DHyper w/o LS 54.35 ± 0.23* 42.31 ± 0.13* 61.86 ± 0.26* 79.91 ± 0.21* 51.55 ± 0.21* 41.01 ± 0.33* 60.09 ± 0.11* 72.78 ± 0.32* |     |        |                                                                                                                 |         |     |        |          |         |
-| DHyper w/o RP 51.77 ± 0.22* 41.88 ± 0.33* 58.31 ± 0.29* 72.73 ± 0.31* 48.15 ± 0.27* 39.17 ± 0.33* 55.35 ± 0.27* 68.79 ± 0.21* |     |        |                                                                                                                 |         |     |        |          |         |
-| DHyper w/o E                                                                                                                  |     |        | 50.56 ± 0.01* 41.09 ± 0.61* 60.37 ± 0.11* 72.44 ± 0.03* 47.76 ± 0.21* 39.07 ± 0.18* 55.37 ± 0.01* 69.74 ± 0.11* |         |     |        |          |         |
-| DHyper w/o R                                                                                                                  |     |        | 52.44 ± 0.21* 42.28 ± 0.09* 60.47 ± 0.67* 75.69 ± 0.18* 51.26 ± 0.22* 40.59 ± 0.23* 59.18 ± 0.27* 71.19 ± 0.08* |         |     |        |          |         |
-| DHyper w/o P                                                                                                                  |     |        | 53.25 ± 0.33* 42.11 ± 0.13* 61.09 ± 0.14* 79.71 ± 0.21* 51.35 ± 0.21* 40.91 ± 0.33* 59.79 ± 0.11* 72.39 ± 0.32* |         |     |        |          |         |
-| DHyper-DP                                                                                                                     |     |        | 52.56 ± 0.01* 42.09 ± 0.61* 60.37 ± 0.11* 75.44 ± 0.03* 50.76 ± 0.21* 40.67 ± 0.18* 58.37 ± 0.01* 70.74 ± 0.11*|         |     |        |          |         |
-| DHyper                                                                                                                        |     |        | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.38 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09         |         |     |        |          |         |
+| Method | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 |
+| DHyper w/o S | | | 55.15 ± 0.23* 42.48 ± 0.15* 63.79 ± 0.14* 82.79 ± 0.24* 52.49 ± 0.15* 41.21 ± 0.03* 61.08 ± 0.31* 73.19 ± 0.22* | | | | | |
+| DHyper w/o L | | | 55.06 ± 0.01* 42.79 ± 0.61* 62.37 ± 0.22* 81.44 ± 0.03* 51.96 ± 0.21* 41.33 ± 0.17 60.33 ± 0.07* 73.24 ± 0.19* | | | | | |
+| DHyper w/o LS 54.35 ± 0.23* 42.31 ± 0.13* 61.86 ± 0.26* 79.91 ± 0.21* 51.55 ± 0.21* 41.01 ± 0.33* 60.09 ± 0.11* 72.78 ± 0.32* | | | | | | | | |
+| DHyper w/o RP 51.77 ± 0.22* 41.88 ± 0.33* 58.31 ± 0.29* 72.73 ± 0.31* 48.15 ± 0.27* 39.17 ± 0.33* 55.35 ± 0.27* 68.79 ± 0.21* | | | | | | | | |
+| DHyper w/o E | | | 50.56 ± 0.01* 41.09 ± 0.61* 60.37 ± 0.11* 72.44 ± 0.03* 47.76 ± 0.21* 39.07 ± 0.18* 55.37 ± 0.01* 69.74 ± 0.11* | | | | | |
+| DHyper w/o R | | | 52.44 ± 0.21* 42.28 ± 0.09* 60.47 ± 0.67* 75.69 ± 0.18* 51.26 ± 0.22* 40.59 ± 0.23* 59.18 ± 0.27* 71.19 ± 0.08* | | | | | |
+| DHyper w/o P | | | 53.25 ± 0.33* 42.11 ± 0.13* 61.09 ± 0.14* 79.71 ± 0.21* 51.35 ± 0.21* 40.91 ± 0.33* 59.79 ± 0.11* 72.39 ± 0.32* | | | | | |
+| DHyper-DP | | | 52.56 ± 0.01* 42.09 ± 0.61* 60.37 ± 0.11* 75.44 ± 0.03* 50.76 ± 0.21* 40.67 ± 0.18* 58.37 ± 0.01* 70.74 ± 0.11*| | | | | |
+| DHyper | | | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.38 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09 | | | | | |
 
 <sup>∗</sup>indicates that DHyper is statistically superior to its variants according to pairwise*t*-test at a 95% significance level. The best results are in bold.
 
@@ -532,16 +531,16 @@ The results are shown in Table 7, from which we can observe the following phenom
 
 Table 8. The Comparison (in Percentage) of DHyper and its Variants with Different Ways to Perform the Information Aggregation and Representation Fusion on Dual Hypergraphs (Mean ± Std)
 
-|                                                                                                                               | ICEWS14 |                                                                                                                 |        |         | ICEWS14C |        |        |         |
+| | ICEWS14 | | | | ICEWS14C | | | |
 |-------------------------------------------------------------------------------------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------|--------|---------|----------|--------|--------|---------|
-| Method                                                                                                                        | MRR     | Hits@1                                                                                                          | Hits@3 | Hits@10 | MRR      | Hits@1 | Hits@3 | Hits@10 |
-| DHyper w/o RH 51.77 ± 0.22* 41.88 ± 0.33* 58.31 ± 0.29* 72.73 ± 0.31* 48.15 ± 0.27* 40.17 ± 0.33* 55.35 ± 0.27* 68.79 ± 0.21* |         |                                                                                                                 |        |         |          |        |        |         |
-| DHyper w/o EH 50.56 ± 0.01* 41.09 ± 0.61* 60.37 ± 0.11* 72.44 ± 0.03* 47.76 ± 0.21* 40.67 ± 0.18* 55.37 ± 0.01* 69.74 ± 0.11* |         |                                                                                                                 |        |         |          |        |        |         |
-| DHyper-E/R                                                                                                                    |         | 55.64 ± 0.24* 42.37 ± 0.01* 63.84 ± 0.01* 83.74 ± 0.01* 53.17 ± 0.11* 41.17 ± 0.18* 60.78 ± 0.06* 74.66 ± 0.08* |        |         |          |        |        |         |
-| DHyper-E+R                                                                                                                    |         | 54.56 ± 0.01* 42.09 ± 0.61* 62.37 ± 0.11* 82.44 ± 0.63* 52.76 ± 0.61* 41.07 ± 0.19* 59.37 ± 0.01* 73.74 ± 0.11* |        |         |          |        |        |         |
-| DHyper-U                                                                                                                      |         | 49.64 ± 0.71* 39.88 ± 0.09* 57.47 ± 0.55* 68.69 ± 0.57* 46.36 ± 0.21* 39.59 ± 0.21* 54.18 ± 0.47* 66.19 ± 0.33* |        |         |          |        |        |         |
-| DHyper w/o F                                                                                                                  |         | 52.17 ± 0.33* 41.98 ± 0.13* 61.33 ± 0.14* 78.73 ± 0.21* 51.55 ± 0.32* 40.95 ± 0.23* 57.09 ± 0.21* 71.26 ± 0.32*|        |         |          |        |        |         |
-| DHyper                                                                                                                        |         | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.38 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09         |        |         |          |        |        |         |
+| Method | MRR | Hits@1 | Hits@3 | Hits@10 | MRR | Hits@1 | Hits@3 | Hits@10 |
+| DHyper w/o RH 51.77 ± 0.22* 41.88 ± 0.33* 58.31 ± 0.29* 72.73 ± 0.31* 48.15 ± 0.27* 40.17 ± 0.33* 55.35 ± 0.27* 68.79 ± 0.21* | | | | | | | | |
+| DHyper w/o EH 50.56 ± 0.01* 41.09 ± 0.61* 60.37 ± 0.11* 72.44 ± 0.03* 47.76 ± 0.21* 40.67 ± 0.18* 55.37 ± 0.01* 69.74 ± 0.11* | | | | | | | | |
+| DHyper-E/R | | 55.64 ± 0.24* 42.37 ± 0.01* 63.84 ± 0.01* 83.74 ± 0.01* 53.17 ± 0.11* 41.17 ± 0.18* 60.78 ± 0.06* 74.66 ± 0.08* | | | | | | |
+| DHyper-E+R | | 54.56 ± 0.01* 42.09 ± 0.61* 62.37 ± 0.11* 82.44 ± 0.63* 52.76 ± 0.61* 41.07 ± 0.19* 59.37 ± 0.01* 73.74 ± 0.11* | | | | | | |
+| DHyper-U | | 49.64 ± 0.71* 39.88 ± 0.09* 57.47 ± 0.55* 68.69 ± 0.57* 46.36 ± 0.21* 39.59 ± 0.21* 54.18 ± 0.47* 66.19 ± 0.33* | | | | | | |
+| DHyper w/o F | | 52.17 ± 0.33* 41.98 ± 0.13* 61.33 ± 0.14* 78.73 ± 0.21* 51.55 ± 0.32* 40.95 ± 0.23* 57.09 ± 0.21* 71.26 ± 0.32*| | | | | | |
+| DHyper | | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.38 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09 | | | | | | |
 
 <sup>∗</sup>indicates that DHyper is statistically superior to its variants according to pairwise*t*-test at a 95% significance level. The best results are in bold.
 
@@ -564,9 +563,9 @@ The results are shown in Table 8, from which we can observe the following phenom
 <span id="page-16-0"></span>![](_page_16_Figure_0.jpeg)
 <!-- Image Description: The image contains four line graphs (a-d) showing Mean Reciprocal Rank (MRR) performance of three knowledge graph embedding models (ICEWS14, ICEWS18, GDELT18). Graphs (a) and (b) plot MRR against the number of entity and relation hyperedges, respectively. Graphs (c) and (d) show MRR versus the length of the historical window and the number of layers in DHMP, respectively. The purpose is to compare the models' performance under varying hyperparameters. -->
 
-Fig. 3. The impact of hyper-parameters.
+Figure 3. The impact of hyper-parameters.
 
-#### 5.5 Parameter Sensitivity Analysis
+### 5.5 Parameter Sensitivity Analysis
 
 To investigate the impact of several important parameters, including the numbers of entity hyperedges and relation hyperedges, the length of the historical window, and the number of layers in DHMP, we conduct the parameter sensitivity analysis on ICEWS14, ICEWS18, and GDELT18.
 
@@ -578,13 +577,13 @@ We evaluate the impact of the numbers of entity hyperedges and relation hyperedg
 ![](_page_17_Figure_2.jpeg)
 <!-- Image Description: The image presents two scatter plots comparing the performance of EvoExplore (a) and DHyper (b) algorithms. Each plot displays data points representing different countries, with some labeled. The plots likely illustrate the algorithms' performance in a two-dimensional feature space, showing the clustering or distribution of results for each algorithm. The purpose is to visually compare the algorithms' effectiveness and potentially reveal differences in their data representation. -->
 
-Fig. 4. The visualization of entity representations.
+Figure 4. The visualization of entity representations.
 
 We evaluate the impact of the length of the historical window, varying it from 1 to 10 with the step of 1. The results are shown in Figure [3\(](#page-16-0)c), from which we can observe an initial improvement in performance with the increase of the length of the historical window, followed by a gradual decline. The best performances are achieved when the length of the historical window is 7, 5, and 3 on ICEWS14, ICEWS18, and GDELT18, respectively. This suggests that an excessively long historical window may lead to a large number of irrelevant or noisy information, adversely affecting model performance.
 
 We evaluate the impact of the number of layersin the DHMP, varying it from 1 to 5 with the step of 1. The results are shown in Figure [3\(](#page-16-0)d), from which we can observe that with the increase of the number of layers, first the performance increases and then degrades rapidly. The best performance is achieved when the number of layers is 2 on all datasets. This is most likely because the model complexity grows with the number of layers in DHMP. When the number of layers is too large, the high model complexity will increase the risk of over-fitting.
 
-# 5.6 Case Study
+## 5.6 Case Study
 
 To intuitively reveal the superiority of DHyper, we perform several case studies.
 
@@ -593,12 +592,12 @@ In Figures 4 and [5,](#page-18-0) we use the t-SNE method [\[23\]](#page-21-0) t
 <span id="page-18-0"></span>![](_page_18_Figure_1.jpeg)
 <!-- Image Description: The image presents two scatter plots, (a) EvoExplore and (b) DHyper, visualizing data from a dimensionality reduction technique. Each plot displays data points representing different types of actions (e.g., "Provide military aid," "Fight with small arms"). The plots compare the spatial distribution of these actions across two different dimensionality reduction methods, illustrating how the methods cluster similar actions. The purpose is to show the effectiveness of each method in representing the data. -->
 
-Fig. 5. The visualization of relation representations.
+Figure 5. The visualization of relation representations.
 
 ![](_page_18_Figure_3.jpeg)
 <!-- Image Description: The image displays four heatmaps (a-d), each visualizing an entity-hyperedge adjacency matrix. The color intensity represents a value between 0 and 1, likely indicating a relationship strength. (a) shows results for DHyper; (b) shows DHyper without S; (c) shows DHyper without L; and (d) shows GTRL. The heatmaps compare different models' performance by visualizing the relationships between entities and hyperedges. -->
 
-Fig. 6. The visualization of the mapping matrix of GTRL and the entity incidence matrices of DHyper, DHyper w/o S, and DHyper w/o L. The darker colors represent the higher probabilities.
+Figure 6. The visualization of the mapping matrix of GTRL and the entity incidence matrices of DHyper, DHyper w/o S, and DHyper w/o L. The darker colors represent the higher probabilities.
 
 In Figure 6, we visualize the entity incidence matrices of the entity hypergraphs obtained by DHyper, DHyper w/o S, and DHyper w/o L, along with the mapping matrix of the entity group mapper obtained by the SOTA derived structures-based approach GTRL [\[21\]](#page-21-0) on ICEWS14C. We observe a more dispersed probability distribution in Figure 6(a), with most probabilities ranging between 0 and 0.8, indicating that DHyper more effectively discerns dependencies among diverse entities through a more pronounced differentiation in the incidence matrix. In contrast, Figure 6(b) shows a more uniform probability distribution with minimal variation, all below 0.4, likely due to the absence of the sparse threshold strategy in DHyper w/o S, which fails to filter out less significant connections, resulting in a more homogeneous probability distribution. The probability distribution in Figure 6(c) shows greater randomness, reflecting a reduced capability of DHyper w/o L to discern underlying dependencies following the removal of the low-rank strategy. In Figure 6(d),
 
@@ -608,51 +607,50 @@ In Figure 6, we visualize the entity incidence matrices of the entity hypergraph
 ![](_page_19_Figure_2.jpeg)
 <!-- Image Description: The image displays four heatmaps (a-d), each visualizing the relationship between relation hyperedges. The color intensity represents a numerical value (0.0-1.0) indicating the strength or frequency of the relationships. Each heatmap (a) DHyper, (b) DHyper w/o S, (c) DHyper w/o L, and (d) DHyper w/o LS represents a different experimental condition, allowing comparison of relationship strength under varying parameters. The purpose is to illustrate and compare the effects of these parameters on the relationships within a system. -->
 
-Fig. 7. The visualization of the relation hypergraph incidence matrices of DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. The darker colors represent the higher probabilities.
+Figure 7. The visualization of the relation hypergraph incidence matrices of DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. The darker colors represent the higher probabilities.
 
 GTRL produces the most uniform probability distribution, all below 0.4, highlighting the importance of both low-rank factorization and sparse threshold strategies in learning hypergraph incidence matrices. Without these strategies, the incidence matrix produced by GTRL lacks distinctiveness and prominence in terms of probabilities. This observation is consistent with the comparison of the relation hypergraph incidence matrices generated by DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. Forinstance, in Figure 7(a), the relation incidence matrix produced by DHyper exhibits a more clearly differentiated set of probabilities, with most ranging from 0 to 0.6. However, in Figure 7(d), there is minimal variation in probabilities, all below 0.4. These results provide strong evidence for the effectiveness of DHyper. By introducing the dual hypergraph modeling armed with the low-rank factorization and sparse threshold strategies in learning hypergraph incidence matrices, DHyper can better discriminate the dependencies between hyperedges and nodes.
 
 In Table [9,](#page-20-0) we present the top ten predicted relations for three test samples in the test set of ICEWS14C, which are obtained by DHyper, the SOTA DNNs based approach TiRGN [\[15\]](#page-21-0), and the SOTA derived structures-based approach EvoExplore [\[34\]](#page-22-0). The test samples concern the conflict that arose between Russia and Ukraine in February 2014. Russia sent military forces to the Crimean region of Ukraine, leading to condemnations and sanctions by several countries, including the United States and European nations. The following three test samples, i.e., (Russia, ?, Ukraine, 2014/12/16), (the United States, ?, Russia, 2014/12/17), and (France, ?, Russia, 2014/12/17), are investigated. We can find that compared to TiRGN and EvoExplore, DHyper predicts more correct relations and achieves a higher ranking of correctly predicted relations. The results indicate that by introducing the hypergraph modeling to capture the high-order correlations among entities and among relations, DHyper is capable of achieving more accurate prediction results.
 
-# 6 CONCLUSIONS AND FUTURE WORK
+## 6 CONCLUSIONS AND FUTURE WORK
 
 Accurate event predicting in TKGs requires the ability to capture correlations among entities and among relations. To this end, we propose DHyper, a recurrent DHGNN that leverages the hypergraph modeling to simultaneously capture high-order correlations among entities and among
 
-<span id="page-20-0"></span>
 
-|             |                                         | Top ten predicted relations             |                                         |
+| | | Top ten predicted relations | |
 |-------------|-----------------------------------------|-----------------------------------------|-----------------------------------------|
-| Test sample | TiRGN                                   | EvoExplore                              | DHyper                                  |
-| (Russia, ?, | Engage in diplomatic cooperation        | Host a visit                            | Criticize or denounce                   |
-| Ukraine,    | Make empathetic comment                 | Consult                                 | Sign formal agreement                   |
-| 2014/12/16) | Apologize                               | Make statement                          | Reduce or break diplomatic relations    |
-|             | Appeal for economic aid                 | Express intent to meet or negotiate     | Engage in negotiation                   |
-|             | Host a visit                            | Engage in negotiation                   | Praise or endorse                       |
-|             | Consult                                 | Criticize or denounce                   | Impose embargo, boycott, or sanctions   |
-|             | Praise or endorse                       | Praise or endorse                       | Threaten to halt negotiations           |
-|             | Make optimistic comment                 | Impose embargo, boycott, or sanctions   | Use conventional military force         |
-|             | Criticize or denounce                   | Use conventional military force         | Accuse                                  |
-|             | Appeal for diplomatic cooperation       | Appeal for economic aid                 | Apologize                               |
-| (The United | Make statement                          | Host a visit                            | Impose embargo, boycott, or sanctions   |
-| States, ?,  | Make a visit                            | Provide military aid                    | Sign formal agreement                   |
-| Russia,     | Sign formal agreement                   | Impose embargo, boycott, or sanctions   | Accuse                                  |
-| 2014/12/17) | Express intent to meet or negotiate     | Sign formal agreement                   | Engage in negotiation                   |
-|             | Impose embargo, boycott, or sanctions   | Praise or endorse                       | Use conventional military force         |
-|             | Consult                                 | Fight with small arms and light weapons | Disapprove                              |
-|             | Praise or endorse                       | Disapprove                              | Demand                                  |
-|             | Express intent to yield                 | Engage in negotiation                   | Engage in diplomatic cooperation        |
-|             | Share intelligence or information       | Use unconventional violence             | Apologize                               |
-|             | Appeal for diplomatic cooperation       | Express intent to yield                 | Express intent to yield                 |
-| (France, ?, | Use unconventional violence             | Praise or endorse                       | Fight with small arms and light weapons |
-| Russia,     | Praise or endorse                       | Provide military aid                    | Use unconventional violence             |
-| 2014/12/17) | Engage in diplomatic cooperation        | Demand material cooperation             | Threaten non-force                      |
-|             | Fight with small arms and light weapons | Rally opposition against                | Make an appeal or request               |
-|             | Disapprove                              | Threaten                                | Engage in negotiation                   |
-|             | Sign formal agreement                   | Consult                                 | Rally opposition against                |
-|             | Provide military aid                    | Fight with small arms and light weapons | Disapprove                              |
-|             | Consult                                 | Make a visit                            | Host a visit                            |
-|             | Demand material cooperation             | Express intent to meet or negotiate     | Express intent to meet or negotiate     |
-|             | Make an appeal or request               | Impose embargo, boycott, or sanctions   | Mediate                                 |
+| Test sample | TiRGN | EvoExplore | DHyper |
+| (Russia, ?, | Engage in diplomatic cooperation | Host a visit | Criticize or denounce |
+| Ukraine, | Make empathetic comment | Consult | Sign formal agreement |
+| 2014/12/16) | Apologize | Make statement | Reduce or break diplomatic relations |
+| | Appeal for economic aid | Express intent to meet or negotiate | Engage in negotiation |
+| | Host a visit | Engage in negotiation | Praise or endorse |
+| | Consult | Criticize or denounce | Impose embargo, boycott, or sanctions |
+| | Praise or endorse | Praise or endorse | Threaten to halt negotiations |
+| | Make optimistic comment | Impose embargo, boycott, or sanctions | Use conventional military force |
+| | Criticize or denounce | Use conventional military force | Accuse |
+| | Appeal for diplomatic cooperation | Appeal for economic aid | Apologize |
+| (The United | Make statement | Host a visit | Impose embargo, boycott, or sanctions |
+| States, ?, | Make a visit | Provide military aid | Sign formal agreement |
+| Russia, | Sign formal agreement | Impose embargo, boycott, or sanctions | Accuse |
+| 2014/12/17) | Express intent to meet or negotiate | Sign formal agreement | Engage in negotiation |
+| | Impose embargo, boycott, or sanctions | Praise or endorse | Use conventional military force |
+| | Consult | Fight with small arms and light weapons | Disapprove |
+| | Praise or endorse | Disapprove | Demand |
+| | Express intent to yield | Engage in negotiation | Engage in diplomatic cooperation |
+| | Share intelligence or information | Use unconventional violence | Apologize |
+| | Appeal for diplomatic cooperation | Express intent to yield | Express intent to yield |
+| (France, ?, | Use unconventional violence | Praise or endorse | Fight with small arms and light weapons |
+| Russia, | Praise or endorse | Provide military aid | Use unconventional violence |
+| 2014/12/17) | Engage in diplomatic cooperation | Demand material cooperation | Threaten non-force |
+| | Fight with small arms and light weapons | Rally opposition against | Make an appeal or request |
+| | Disapprove | Threaten | Engage in negotiation |
+| | Sign formal agreement | Consult | Rally opposition against |
+| | Provide military aid | Fight with small arms and light weapons | Disapprove |
+| | Consult | Make a visit | Host a visit |
+| | Demand material cooperation | Express intent to meet or negotiate | Express intent to meet or negotiate |
+| | Make an appeal or request | Impose embargo, boycott, or sanctions | Mediate |
 
 Table 9. Top Ten Relations Predicted by TiRGN and DHyper for Three Test Samples
 
@@ -662,7 +660,7 @@ relations. Specifically, DHL is proposed to discover the high-order correlations
 
 In the future, we will extend this work in the following directions. Firstly, DHL captures only one type of high-order correlation among entities and among relations. To tackle complex scenarios with diverse entities and relations in TKGs, we will improve DHL by introducing different types of high-order correlations based on their semantics. Secondly, DHyper only considers two levels of hierarchy, i.e., entities and entity hyperedges orrelations and relation hyperedges. To explore more complex correlations with different granularities among entities and relations, we plan to improve <span id="page-21-0"></span>DHyper by introducing multi-level hyperedges. Lastly, DHyper only conducts experiments on the event prediction task in TKGs. To explore the generalization ability of models, we would like to enhance DHyper by optimizing the recommendation task and event prediction task with a jointlearning framework.
 
-# REFERENCES
+## REFERENCES
 
 - [1] Yuyue Zhao, Xiang Wang, Jiawei Chen, Yashen Wang, Wei Tang, Xiangnan He, and Haiyong Xie. 2022. Time-aware path reasoning on knowledge graph for recommendation.*ACM Transactions on Information Systems*41, 2 (2022), 1–26.
 - [2] Yakun Li, Lei Hou, and Juanzi Li. 2023. Preference-aware graph attention networks for cross-domain recommendations with collaborative knowledge graph.*ACM Transactions on Information Systems*41, 3 (2023), 1–26.

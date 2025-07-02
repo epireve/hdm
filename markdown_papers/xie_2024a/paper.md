@@ -28,11 +28,11 @@ tags:
 
 Yuxia Xie and Kai Yang *[,](https://orcid.org/0000-0002-5983-198X) Senior Member, IEEE*
 
-*Abstract***—The exponential growth of scale and complexity in distributed systems necessitates significant maintenance efforts. Logs play an indispensable role in system operation and maintenance since they record crucial runtime information. However, recent studies on log anomaly detection have primarily focused on deep learning methods, which entail high computational complexity for learning temporal and semantic features from logs. Moreover, most deep learning-based approaches for log anomaly detection require supervised training, which is labor intensive. To address these challenges, this article proposes a framework called** *GAE-Log***.** *GAE-Log* **leverages event graphs and knowledge graphs to model logs comprehensively. By integrating temporal dynamics through event graphs and incorporating contextual information from knowledge graphs,** *GAE-Log* **enhances the understanding of the system's status. Moreover,** *GAE-Log* **employs adversarial training of autoencoders for anomaly detection on logs. The effectiveness of** *GAE-Log* **is evaluated through an ablation study and comprehensive comparisons using both public and synthetic log datasets. The results demonstrate that** *GAE-Log* **outperforms stateof-the-art methods in log anomaly detection, achieving significant performance improvements.**
+**Abstract:** **—The exponential growth of scale and complexity in distributed systems necessitates significant maintenance efforts. Logs play an indispensable role in system operation and maintenance since they record crucial runtime information. However, recent studies on log anomaly detection have primarily focused on deep learning methods, which entail high computational complexity for learning temporal and semantic features from logs. Moreover, most deep learning-based approaches for log anomaly detection require supervised training, which is labor intensive. To address these challenges, this article proposes a framework called** *GAE-Log***.** *GAE-Log* **leverages event graphs and knowledge graphs to model logs comprehensively. By integrating temporal dynamics through event graphs and incorporating contextual information from knowledge graphs,** *GAE-Log* **enhances the understanding of the system's status. Moreover,** *GAE-Log* **employs adversarial training of autoencoders for anomaly detection on logs. The effectiveness of** *GAE-Log* **is evaluated through an ablation study and comprehensive comparisons using both public and synthetic log datasets. The results demonstrate that** *GAE-Log* **outperforms stateof-the-art methods in log anomaly detection, achieving significant performance improvements.**
 
-*Index Terms***—Adversarial training, anomaly detection, autoencoder, event graph, knowledge graph, log analysis.**
+**Index Terms:** **—Adversarial training, anomaly detection, autoencoder, event graph, knowledge graph, log analysis.**
 
-#### I. INTRODUCTION
+### I. INTRODUCTION
 
 **T** HE growing scale and complexity of distributed systems pose challenges in terms of their management and operation. Downtime in these systems can result in significant revenue loss[\[1\].](#page-11-0) In fact, Gartner reports that the cost of system downtime is \$540 000 per hour at the higher end [\[2\],](#page-11-0) [\[3\].](#page-11-0) Thus, ensuring reliability has become imperative in the distributed system.
 
@@ -65,7 +65,7 @@ In summary, our log anomaly detection framework, *GAE-Log*, utilizes graph featu
 
 The rest of this article is organized as follows. In Section II, we first investigate the related work on log anomaly detection. Then, we elaborate on the details of the *GAE-Log* framework in Section [III.](#page-3-0) We provide a comprehensive explanation of the construction and feature extraction of the graph, and the *GAE-Log* for anomaly detection. Next, we assess the performance of *GAE-Log* using both synthetic and public log dataset in Section [IV.](#page-8-0) Finally, Section [V](#page-11-0) concludes this article, summarizing the key findings and contributions of our work.
 
-#### II. RELATED WORK
+### II. RELATED WORK
 
 In this section, we provide a detailed overview of log anomaly detection research, highlighting the different approaches and techniques that have been explored in the field. Extensive research efforts have been undertaken for log anomaly detection, including machine learning-based methods, statisticsbased methods, and graph-based methods. We present a detailed overview of log anomaly detection research as follows.
 
@@ -81,57 +81,56 @@ The machine learning-based methods focus on converting heterogeneous log data in
 
 *Others Deep Learning Models:*In [\[35\],](#page-12-0) a convolutional neural network (CNN) is employed to detect anomalous logs within a big data system. This approach utilizes different filters to encode the logs into low-dimensional features, enabling effective anomaly detection. In comparison, our previous work, LogM [\[36\],](#page-12-0) leverages a combination of CNN and Bi-LSTM networks for log anomaly prediction. The CNN module captures semantic features, while the Bi-LSTM grasps temporal dynamics. This joint approach enhances the model's capability to handle log anomalies comprehensively. In addition to anomaly prediction, LogM proposes both unsupervised and supervised methods for diagnosing failures, making it applicable to various practical scenarios. Furthermore, Xia et al. [\[37\]](#page-12-0) introduced a log anomaly detection model based on generative adversarial network (GAN). This model consists of a generator, which models the distribution of real and synthetic log data, and a discriminator, which distinguishes anomalous samples from normal ones. By incorporating the adversarial training framework of GANs, this approach aims to improve the accuracy of log anomaly detection.
 
-#### *B. Statistics-Based Methods*
+### *B. Statistics-Based Methods*
 
 Statistics-based methods aim to capture the statistical characteristics of log data in order to identify samples that deviate from expected patterns. Several examples of such methods are listed below. Yamanishi et al. [\[38\]](#page-12-0) employed a hybrid hidden Markov model (HMM) to model the behavior of system logs. They use an online learning algorithm to dynamically select optimal mixed components and calculate the anomaly score based on the statistical information of the entire testing data. He et al. [\[39\]](#page-12-0) utilized event count vectors as features and employ LR to estimate the anomaly score. By representing logs as event counts, they capture the occurrence frequency of different events and use LR to determine the likelihood of anomalies. In [\[40\],](#page-12-0) logs are transformed into signals to record the distribution of each time window. They calculate the Kullback–Leibler (K-L) divergence between the signal distribution of the current time window and the previous time window to detect anomalies. For intrusion detection in network traffic analysis, Hareesh et al.[\[41\]](#page-12-0) presented a statistical histogram model for normal behavior. By comparing network traffic to this model, they efficiently identify both flooding attacks and nonflooding attacks by detecting deviations from the expected behavior. Du et al. [\[42\]](#page-12-0) proposed a method, where they represent the distribution of log templates on a time axis using frequency sequences. Behavior subsequences are then formed and grouped into different clusters based on their distribution. Anomaly scores are calculated for each cluster, allowing for the identification of different types of anomalies. These statistics-based methods leverage various statistical approaches, such as HMM, event counting, signal analysis, and histogram modeling, to detect anomalies in system logs.
 
-# *C. Graph-Based Methods*
+## *C. Graph-Based Methods*
 
 The graph-based methods play a key role in extracting features from logs and constructing a graph to model the execution rules of the system. Several specific studies and frameworks are mentioned in this context. For instance, Yuan et al. [\[43\]](#page-12-0) proposed a method for detecting anomalous behaviors by mining templates and template sequences, which are used to form a graph representing the control flow. To assess abnormality, they compare this graph with benchmark graphs formed in the normal status. Similarly, Aharon et al. [\[44\]](#page-12-0) put forward a time-weighted graph for control flow, aiming to capture patterns under normal status and provide alerts for deviations. Beschastnikh et al. [\[45\]](#page-12-0) developed a model specifically designed to enhance the detection of anomalies in concurrent systems. They analyze system logs to form communication finite state machines (CFSM), which are utilized to infer system behaviors. Fu et al. [\[46\]](#page-12-0) understand system logs through contextual analysis. Specifically, they employ the formal concept analysis (FCA) method to model log sequences and utilize the DT model to find key factors. Xu et al. [\[47\]](#page-12-0) adopted an approach that involves extracting template sequences from logs and modeling these sequences with the finite state machine (FSM) algorithm. On the other hand,
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
-<!-- Image Description: The image displays a system architecture for anomaly detection.  It shows three modules: an event graph module extracting events from log files, a knowledge graph module extracting entities and relations, and an anomaly detection module using autoencoders.  Event and knowledge graph embeddings are fused for anomaly scoring, visualized via a diagram illustrating the data flow and processing steps of the system.  A graph embedding process is depicted. -->
+<!-- Image Description: The image displays a system architecture for anomaly detection. It shows three modules: an event graph module extracting events from log files, a knowledge graph module extracting entities and relations, and an anomaly detection module using autoencoders. Event and knowledge graph embeddings are fused for anomaly scoring, visualized via a diagram illustrating the data flow and processing steps of the system. A graph embedding process is depicted. -->
 
-Fig. 1. Flowchart of *GAE-Log*, which includes four modules, namely event graph module, knowledge graph module, graph feature fusion, and anomaly detection (best viewed in color).
+Figure 1. Flowchart of *GAE-Log*, which includes four modules, namely event graph module, knowledge graph module, graph feature fusion, and anomaly detection (best viewed in color).
 
 Yu et al. [\[48\]](#page-12-0) constructed a directed graph model customized for interleaved logs. This model utilized log identifiers such as request ID and transaction ID to represent the relations within the logs. These graph-based methods offer valuable techniques for extracting log features and representing control flow patterns.
 
 However, the use of deep learning models in log anomaly detection often poses challenges due to the requirement for supervised training, which necessitates extensive data labeling. Furthermore, practical implementation of neural networks can be computationally complex. While statistics-based methods are efficient in identifying system anomalies, their detection accuracy is relatively poor. Moreover, the aforementioned methods do not consider the construction of graphs for system events or the analysis of system architectures using knowledge graphs, which could provide a more comprehensive understanding of anomalies. To address these limitations, we propose a framework called *GAE-Log* that integrates event graphs and knowledge graphs to capture comprehensive system features. In addition, *GAE-Log* employs adversarial training to train the autoencoders for log anomaly detection.
 
-# III. *GAE-LOG:* LOG ANOMALY DETECTION BY ADVERSARIAL AUTOENCODERS WITH GRAPH FEATURE FUSION
+## III. *GAE-LOG:* LOG ANOMALY DETECTION BY ADVERSARIAL AUTOENCODERS WITH GRAPH FEATURE FUSION
 
-*GAE-Log* effectively performs anomaly detection on system logs by leveraging graph features. The framework of *GAE-Log* consists of four main modules, namely event graph module, knowledge graph module, graph feature fusion, and anomaly detection, as presented in Fig. 1. To begin with, *GAE-Log* processes execution log files by parsing log messages into structured log templates and extracting log events to construct event graphs.
+*GAE-Log* effectively performs anomaly detection on system logs by leveraging graph features. The framework of *GAE-Log* consists of four main modules, namely event graph module, knowledge graph module, graph feature fusion, and anomaly detection, as presented in Figure 1. To begin with, *GAE-Log* processes execution log files by parsing log messages into structured log templates and extracting log events to construct event graphs.
 
-<span id="page-4-0"></span>
 
-|               | /10.251.215.16:55695 dest: /10.251.215.16:56010<br>size 91178 from /10.250.10.6 |             |                         | 2018-11-08 20:22:12 INFO dfs. DataNode\$DataXceiver: Receiving block blk 7503483334202473044 src:<br>2018-11-08 20:23:10 INFO dfs. DataNode\$PacketResponder; Received block blk -1608999687919862906 of |                |
+| | /10.251.215.16:55695 dest: /10.251.215.16:56010<br>size 91178 from /10.250.10.6 | | | 2018-11-08 20:22:12 INFO dfs. DataNode\$DataXceiver: Receiving block blk 7503483334202473044 src:<br>2018-11-08 20:23:10 INFO dfs. DataNode\$PacketResponder; Received block blk -1608999687919862906 of | |
 |---------------|---------------------------------------------------------------------------------|-------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Preprocessing |                                                                                 |             |                         |                                                                                                                                                                                                          |                |
-| Date          | Time                                                                            | Level       | <b>Block</b><br>ID      | <b>Event Template</b>                                                                                                                                                                                    | Event<br>ID    |
-| 20181108      | 202212                                                                          | <b>INFO</b> | 7503483334<br>202473044 | Receiving block $\langle$ *><br>src: $\langle \langle * \rangle$ dest: $\langle \langle * \rangle$                                                                                                       | $E_1$          |
-| 20181108      | 202310                                                                          | <b>INFO</b> | 1608999687<br>919862906 | Receiving block $\lt^*$<br>of size $\langle * \rangle$ from $\langle * \rangle$                                                                                                                          | E <sub>2</sub> |
+| Preprocessing | | | | | |
+| Date | Time | Level | <b>Block</b><br>ID | <b>Event Template</b> | Event<br>ID |
+| 20181108 | 202212 | <b>INFO</b> | 7503483334<br>202473044 | Receiving block $\langle$ *><br>src: $\langle \langle * \rangle$ dest: $\langle \langle * \rangle$ | $E_1$ |
+| 20181108 | 202310 | <b>INFO</b> | 1608999687<br>919862906 | Receiving block $\lt^*$<br>of size $\langle * \rangle$ from $\langle * \rangle$ | E <sub>2</sub> |
 
-Fig. 2. Example of log preprocessing to get log events.
+Figure 2. Example of log preprocessing to get log events.
 
 ![](_page_4_Figure_3.jpeg)
-<!-- Image Description: The image displays a weighted directed graph.  Nodes (circles labeled E<sub>i</sub>) represent entities, and edges (lines labeled w<sub>i</sub>) represent weighted relationships between them.  The graph's structure shows connections and weights indicating the strength of each relationship between entities.  No specific calculations or equations are shown. -->
+<!-- Image Description: The image displays a weighted directed graph. Nodes (circles labeled E<sub>i</sub>) represent entities, and edges (lines labeled w<sub>i</sub>) represent weighted relationships between them. The graph's structure shows connections and weights indicating the strength of each relationship between entities. No specific calculations or equations are shown. -->
 
-Fig. 3. Example of event graph, where node indicates log event and edge indicates transition of events.
+Figure 3. Example of event graph, where node indicates log event and edge indicates transition of events.
 
-The Drain algorithm [\[49\]](#page-12-0) is employed in this article for log parsing, which generates log event templates. Each log event template is mapped to a predefined log event and distinguished by different identifiers, as depicted in Fig. 2. The event graph is then encoded into vectors via graph embedding methods. Simultaneously, *GAE-Log* extracts entities and relations to form a system knowledge graph. The knowledge graph embedding algorithms are utilized to obtain embedding vectors for the knowledge graph. Subsequently, *GAE-Log* applies graph feature fusion to combine the features extracted from the event graph and knowledge graph. Finally, for log anomaly detection, *GAE-Log* utilizes adversarial training of autoencoders, enabling the framework to effectively identify anomalies in logs.
+The Drain algorithm [\[49\]](#page-12-0) is employed in this article for log parsing, which generates log event templates. Each log event template is mapped to a predefined log event and distinguished by different identifiers, as depicted in Figure 2. The event graph is then encoded into vectors via graph embedding methods. Simultaneously, *GAE-Log* extracts entities and relations to form a system knowledge graph. The knowledge graph embedding algorithms are utilized to obtain embedding vectors for the knowledge graph. Subsequently, *GAE-Log* applies graph feature fusion to combine the features extracted from the event graph and knowledge graph. Finally, for log anomaly detection, *GAE-Log* utilizes adversarial training of autoencoders, enabling the framework to effectively identify anomalies in logs.
 
-#### *A. Event Graph*
+### *A. Event Graph*
 
-To better characterize the sequential logs, we propose an event graph to model the log data. The event graph serves to represent the operation processes that occur during the execution of system tasks, providing a depiction of the temporal dynamics within the system. Fig. 3 presents an example of the event graph, showcasing the visualization of these operation processes.
+To better characterize the sequential logs, we propose an event graph to model the log data. The event graph serves to represent the operation processes that occur during the execution of system tasks, providing a depiction of the temporal dynamics within the system. Figure 3 presents an example of the event graph, showcasing the visualization of these operation processes.
 
 Now, let us delve into the detailed construction of event graphs. First, the parsed log messages are grouped into different categories based on log identifiers. Each group represents the execution of an individual system task. Log identifiers are specific tokens used to differentiate and group related operations within the system [\[1\].](#page-11-0) For example, block ID is commonly used for partitioning logs in HDFS, while task ID is typically used for Hadoop system logs. Second, *GAE-Log* clusters the
 
 ![](_page_4_Figure_9.jpeg)
-<!-- Image Description: The image displays a graph depicting relationships between software components and events.  Nodes represent components (e.g., "dfs.DataNodes," "Log1") and events ("E1"). Edges labeled "Component is," "Content is," "Event is," and "Level is" illustrate the connections.  The graph visually shows a hierarchical or network structure linking logs, events, and components. -->
+<!-- Image Description: The image displays a graph depicting relationships between software components and events. Nodes represent components (e.g., "dfs.DataNodes," "Log1") and events ("E1"). Edges labeled "Component is," "Content is," "Event is," and "Level is" illustrate the connections. The graph visually shows a hierarchical or network structure linking logs, events, and components. -->
 
-Fig. 4. Example of knowledge graph, where different kinds of entities and relations are shown (best viewed in color).
+Figure 4. Example of knowledge graph, where different kinds of entities and relations are shown (best viewed in color).
 
-logs to obtain templates and assigns tags to each template. In Fig. 3, E*<sup>i</sup>* represents the *i*th log template corresponding to a specific system event. Third, *GAE-Log* constructs the event graph by capturing temporal dynamics to model transitions among log events. Temporal dynamics refer to the connections between log events abstracted from the raw log data, determined based on their occurrence in the log sequence. This modeling approach captures the dynamic changes in the workflow during the execution of system tasks. Furthermore, *GAE-Log* performs normalization on the cooccurrence times of events to compute edge weights w*i*. For an edge e*i,j* involving nodes E*<sup>i</sup>* and E*<sup>j</sup>* , the cooccurrence count of the two nodes in the entire event graph is calculated as c*i,j* , and the total number of edges in the event graph is denoted as s*i,j* . The weight of edge e*i,j* is expressed as c*i,j*/s*i,j* .
+logs to obtain templates and assigns tags to each template. In Figure 3, E*<sup>i</sup>* represents the *i*th log template corresponding to a specific system event. Third, *GAE-Log* constructs the event graph by capturing temporal dynamics to model transitions among log events. Temporal dynamics refer to the connections between log events abstracted from the raw log data, determined based on their occurrence in the log sequence. This modeling approach captures the dynamic changes in the workflow during the execution of system tasks. Furthermore, *GAE-Log* performs normalization on the cooccurrence times of events to compute edge weights w*i*. For an edge e*i,j* involving nodes E*<sup>i</sup>* and E*<sup>j</sup>* , the cooccurrence count of the two nodes in the entire event graph is calculated as c*i,j* , and the total number of edges in the event graph is denoted as s*i,j* . The weight of edge e*i,j* is expressed as c*i,j*/s*i,j* .
 
 Afterward, the event graphs are encoded into vectors using graph embedding methods. Each event graph represents the execution of an individual system task and is associated with a label. In practice, *GAE-Log* takes the nodes and edges of a graph as input and employs the graph2vec [\[50\]](#page-12-0) algorithm to obtain the feature vector**v***<sup>i</sup>* for the entire event graph. The graph embedding is performed by treating the entire graph as a document and rooted subgraphs as words. Through doc2vec [\[51\],](#page-12-0) embedding vectors are generated for each node, representing specific log events. In particular,
 
@@ -141,16 +140,16 @@ $$
 
 ## *B. Knowledge Graph*
 
-Due to the inherent complexity of the system, anomalies may involve various software and hardware. Relying solely on modeling the log data makes it challenging to fully analyze the system's status, while an anomaly often involves the configuration and contextual information of multiple components. To gain a comprehensive understanding of the system with minimal human intervention, we devise a knowledge graph to assist anomaly detection. Fig. 4 displays an example of the knowledge graph, illustrating the presence of different entities and their relations.
+Due to the inherent complexity of the system, anomalies may involve various software and hardware. Relying solely on modeling the log data makes it challenging to fully analyze the system's status, while an anomaly often involves the configuration and contextual information of multiple components. To gain a comprehensive understanding of the system with minimal human intervention, we devise a knowledge graph to assist anomaly detection. Figure 4 displays an example of the knowledge graph, illustrating the presence of different entities and their relations.
 
-| Log entity       | <b>Event entity</b> | Level entity | <b>Component entity</b>   | <b>Content entity</b>                    |
+| Log entity | <b>Event entity</b> | Level entity | <b>Component entity</b> | <b>Content entity</b> |
 |------------------|---------------------|--------------|---------------------------|------------------------------------------|
-| Log <sub>i</sub> | $E_{I}$             | <b>INFO</b>  | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
-| $Log_2$          | $E_{\rm S}$         | <b>INFO</b>  | dfs.FSNamesystem          | BLOCK* NameSystem.allocateBlock: <*>     |
-| Log <sub>3</sub> | $E_{I}$             | <b>INFO</b>  | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
-| Log <sub>4</sub> | $E_{I}$             | <b>INFO</b>  | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
+| Log <sub>i</sub> | $E_{I}$ | <b>INFO</b> | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
+| $Log_2$ | $E_{\rm S}$ | <b>INFO</b> | dfs.FSNamesystem | BLOCK* NameSystem.allocateBlock: <*> |
+| Log <sub>3</sub> | $E_{I}$ | <b>INFO</b> | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
+| Log <sub>4</sub> | $E_{I}$ | <b>INFO</b> | dfs.DataNode\$DataXceiver | Receiving block <*> src: /<*> dest: /<*> |
 
-Fig. 5. Example of entity extraction for the knowledge graph.
+Figure 5. Example of entity extraction for the knowledge graph.
 
 Specifically, the knowledge graph comprises five categories of entities:
 
@@ -167,18 +166,18 @@ Furthermore, we define the following four types of relations:
 - 3) *Relations among logs and components* depict the components associated with each log.
 - 4) *Relations among logs and content* describe the content of each log.
 
-Now, let us illustrate how the construction algorithm works. First, we predefine the entities and relations based on effective data analysis. Then, we perform entity extraction to get five types of entities, as shown in Fig. 5. For these five types of entities, we utilize the corresponding relations to connect them. Take the four log messages in Fig. 5 as an example, we explain how Fig. [4](#page-4-0) is established. Starting with Log<sup>1</sup> as the central node, we analyze the entity extraction results and find its event entity is E1, establishing a relation between Log<sup>1</sup> and E1. In addition, the level entity for Log<sup>1</sup> is INFO, so we connect Log<sup>1</sup> and INFO to indicate that the level for Log<sup>1</sup> is INFO. Similarly, we connect Log<sup>1</sup> with its component entity and content entity. Furthermore, considering entities Log<sup>1</sup> and Log2, they both have the log level INFO. For entities Log<sup>1</sup> and Log3, their event templates are E1, while for entities Log<sup>1</sup> and Log4, their component entities are the same. Hence, we connect them through relations among logs and levels and relations among logs and components, respectively. By applying these connections, we obtain the complete knowledge graph, as depicted in Fig. [4.](#page-4-0)
+Now, let us illustrate how the construction algorithm works. First, we predefine the entities and relations based on effective data analysis. Then, we perform entity extraction to get five types of entities, as shown in Figure 5. For these five types of entities, we utilize the corresponding relations to connect them. Take the four log messages in Figure 5 as an example, we explain how Fig. [4](#page-4-0) is established. Starting with Log<sup>1</sup> as the central node, we analyze the entity extraction results and find its event entity is E1, establishing a relation between Log<sup>1</sup> and E1. In addition, the level entity for Log<sup>1</sup> is INFO, so we connect Log<sup>1</sup> and INFO to indicate that the level for Log<sup>1</sup> is INFO. Similarly, we connect Log<sup>1</sup> with its component entity and content entity. Furthermore, considering entities Log<sup>1</sup> and Log2, they both have the log level INFO. For entities Log<sup>1</sup> and Log3, their event templates are E1, while for entities Log<sup>1</sup> and Log4, their component entities are the same. Hence, we connect them through relations among logs and levels and relations among logs and components, respectively. By applying these connections, we obtain the complete knowledge graph, as depicted in Fig. [4.](#page-4-0)
 
 In conclusion, the knowledge graph in *GAE-Log* offers a simple and user-friendly approach for construction. It efficiently captures abundant information that depicts the system running status. Furthermore, by incorporating system topology, it effectively uncovers intercomponent relations, facilitating system understanding and anomaly detection. The constructed knowledge graph is then encoded into embedding vectors **k***i*, which enhance the training of anomaly detection models on log datasets and resulting in performance improvements
 
 $$
 \mathbf{k}_{i} = [k_{i1}, k_{i2}, k_{i3}, \ldots], i \in [1, d].
 $$
- (2)
+(2)
 
 In our previous work, LogM [\[36\],](#page-12-0) we also utilized a knowledge graph. To provide a more thorough comparison, let us further discuss the differences between the two approaches. The knowledge graph employed in LogM is designed as an anomaly knowledge graph to facilitate the failure diagnosis. In this context, the entities represent abnormal events and root causes within the system, while the relations capture the characteristics of abnormal events and their corresponding root causes. Conversely, the knowledge graph proposed in this study serves as a system architecture knowledge graph aimed at enhancing the anomaly detection performance. It encompasses various entities such as log entities, event entities, component entities, and more. The relations within this knowledge graph depict specific events associated with logs and the source components of the logs, etc. In terms of diversity and informativeness, the entities and relations in *GAE-Log* offer a broader range of informative characteristics compared to those in LogM. To summarize, these two types of knowledge graphs not only exhibit significant differences in terms of entities and relations, but also address distinct downstream tasks.
 
-#### *C. Graph Feature Fusion*
+### *C. Graph Feature Fusion*
 
 The event graph and knowledge graph are closely related but exhibit significant differences. First, the event graph is a directed, homogeneous, and weighted network constructed using sequential logs. It represents the execution of individual system tasks within certain task-specific contexts. On the other hand, the knowledge graph encodes entities and relations into triples (h, r, t), where h, r, and t represent head entities, relations, and tail entities, respectively. The knowledge graph is an undirected, heterogeneous network without weights, constructed using configuration information, system topology, and raw logs. Furthermore, the knowledge graph serves as a semantic network that reflects the objective laws of the system. In a sense, the knowledge graph is an abstract graph with shared attributes among multiple event graphs. While the event graph focuses on the execution of a specific system task, the knowledge graph collects relevant information about the entire system's status. The event graph and knowledge graph are complementary to each other, as they capture different aspects of the system. To leverage their correlation and differences, we propose a graph feature fusion <span id="page-6-0"></span>method that integrates features from both graphs, resulting in a more comprehensive understanding of the system's status.
 
@@ -190,7 +189,7 @@ $$
 
 where ⊕ denotes the concatenation operation, and α and β are weight coefficients. The weight coefficients are used to determine the importance of the event graph features and the knowledge graph features. Specifically, α is constrained within the range (0,1] and β within the range [0,1]. To find the optimal weight parameters, experiments are performed. Initially, one of the weight parameters, either α or β, is fixed while the other is dynamically adjusted. This process examines the influence of each weight parameter on anomaly detection. Finally, the parameter combination resulting in the best performance is selected.
 
-#### *D. Anomaly Detection*
+### *D. Anomaly Detection*
 
 Logs serve as records of the system's running status, following a predetermined workflow during normal executions. Log anomaly detection aims to identify anomalous patterns deviating from normal behavior. To achieve this, it is essential to model the temporal dynamics of sequential logs in their normal state to effectively distinguish anomalous patterns. One commonly utilized neural network model for anomaly detection is the autoencoder. The underlying assumption of an autoencoder is that normal samples are relatively straightforward to reconstruct compared to anomalies and conform to expected distributions. Therefore, we employ an autoencoder to model the sequential logs during the normal state, enabling the discrimination of the system's status.
 
@@ -234,16 +233,16 @@ $$
 $$
 \min_{D_1} \max_{D_2} ||\mathbf{x}_i - D_2(D_1(\mathbf{x}_i))||_2.
 $$
- (9)
+(9)
 
 By incorporating the concept of adversarial training, we aim to empower autoencoder 2 with superior anomaly discrimination capabilities.
 
 To summarize, Step B comprises a dual-training approach where decoder D<sup>1</sup> focuses on minimizing the reconstruction error, while decoder D<sup>2</sup> aims to maximize the reconstruction
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
-<!-- Image Description: The image depicts a two-autoencoder anomaly detection system.  Input (Xᵢ) passes through Autoencoder 1 (AE₁) yielding a latent representation (Z).  Z is then input to Autoencoder 2 (AE₂).  Reconstruction losses (Lre) from both decoders (D₁, D₂) are combined to calculate an anomaly score.  The diagram uses boxes to represent layers within the autoencoders, and arrows to show data flow. -->
+<!-- Image Description: The image depicts a two-autoencoder anomaly detection system. Input (Xᵢ) passes through Autoencoder 1 (AE₁) yielding a latent representation (Z). Z is then input to Autoencoder 2 (AE₂). Reconstruction losses (Lre) from both decoders (D₁, D₂) are combined to calculate an anomaly score. The diagram uses boxes to represent layers within the autoencoders, and arrows to show data flow. -->
 
-Fig. 6. Network architecture of anomaly detection in *GAE-Log*, which includes one encoder and two decoders (best viewed in color).
+Figure 6. Network architecture of anomaly detection in *GAE-Log*, which includes one encoder and two decoders (best viewed in color).
 
 error. This interplay is fundamental in enhancing the anomaly detection capabilities of autoencoder 2.
 
@@ -276,48 +275,47 @@ Once the anomaly score exceeds a predefined threshold, we classify the log data 
 
 **Input**: **x***i*: training sequential log feature, N: number of epochs, **xˆ***i*: testing sequential log feature, λ: threshold. **Output**: y: labels.
 
-Training stage:  
+Training stage:
 \n
 $$
 E, D_1, D_2 \leftarrow
 $$
- initialize weights  
-\n $n \leftarrow 1$   
-\nwhile  $n < N$  do  
-\n $Z_i \leftarrow E(\mathbf{x}_i)$   
-\n $\bar{\mathbf{x}}_i^1 \leftarrow D_1(Z_i)$   
-\n $\bar{\mathbf{x}}_i^2 \leftarrow D_2(Z_i)$   
-\n $\bar{\mathbf{x}}_i^2 \leftarrow D_2(E(\bar{\mathbf{x}}_i^1))$   
-\n $\mathcal{L}_{AE_1} \leftarrow \frac{1}{n} ||\mathbf{x}_i - \bar{\mathbf{x}}_i^1||_2 + (1 - \frac{1}{n}) ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2$   
-\n $\mathcal{L}_{AE_2} \leftarrow \frac{1}{n} ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2 - (1 - \frac{1}{n}) ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2$   
-\nend while  
-\nTesting stage:  
-\n $\hat{\mathbf{x}}_i^1 \leftarrow D_1(E(\hat{\mathbf{x}}_i))$   
-\n $\hat{\mathbf{x}}_i^2 \leftarrow D_2(E(\hat{\mathbf{x}}_i^1))$   
-\n $\epsilon(\hat{\mathbf{x}}_i) = ||\hat{\mathbf{x}}_i - \hat{\mathbf{x}}_i^1||_2 + ||\hat{\mathbf{x}}_i - \hat{\mathbf{x}}_i^2||_2$   
-\nif  $\epsilon(\hat{\mathbf{x}}_i) \ge \lambda$  then  
-\n $y = 1$   
-\nelse  
-\n $y = 0$   
+initialize weights
+\n $n \leftarrow 1$
+\nwhile $n < N$ do
+\n $Z_i \leftarrow E(\mathbf{x}_i)$
+\n $\bar{\mathbf{x}}_i^1 \leftarrow D_1(Z_i)$
+\n $\bar{\mathbf{x}}_i^2 \leftarrow D_2(Z_i)$
+\n $\bar{\mathbf{x}}_i^2 \leftarrow D_2(E(\bar{\mathbf{x}}_i^1))$
+\n $\mathcal{L}_{AE_1} \leftarrow \frac{1}{n} ||\mathbf{x}_i - \bar{\mathbf{x}}_i^1||_2 + (1 - \frac{1}{n}) ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2$
+\n $\mathcal{L}_{AE_2} \leftarrow \frac{1}{n} ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2 - (1 - \frac{1}{n}) ||\mathbf{x}_i - \bar{\mathbf{x}}_i^2||_2$
+\nend while
+\nTesting stage:
+\n $\hat{\mathbf{x}}_i^1 \leftarrow D_1(E(\hat{\mathbf{x}}_i))$
+\n $\hat{\mathbf{x}}_i^2 \leftarrow D_2(E(\hat{\mathbf{x}}_i^1))$
+\n $\epsilon(\hat{\mathbf{x}}_i) = ||\hat{\mathbf{x}}_i - \hat{\mathbf{x}}_i^1||_2 + ||\hat{\mathbf{x}}_i - \hat{\mathbf{x}}_i^2||_2$
+\nif $\epsilon(\hat{\mathbf{x}}_i) \ge \lambda$ then
+\n $y = 1$
+\nelse
+\n $y = 0$
 \nend if
 
 initially calculate the ROC curve to assess the performance of our model. By carefully interpreting the ROC curve, we can determine the optimal threshold that maximizes the performance of our anomaly detection system. Specifically, the overall flow of the algorithm is shown in Algorithm 1.
 
 TABLE I SETUP OF THE DIFFERENT LOG DATASETS
 
-<span id="page-8-0"></span>
 
 | Log Datasets | Number of log messages | Anomaly ratio |
 |--------------|------------------------|---------------|
-| <b>HDFS</b>  | 100 000                | $2.9\%$       |
-| OpenStack    | 1 3 3 3 3 1 8          | $7.1\%$       |
-| WordCount    | 156 203                | 4.8%          |
-| PageRank     | 138 475                | 6.3%          |
-| WordSort     | 19535                  | 6.7%          |
+| <b>HDFS</b> | 100 000 | $2.9\%$ |
+| OpenStack | 1 3 3 3 3 1 8 | $7.1\%$ |
+| WordCount | 156 203 | 4.8% |
+| PageRank | 138 475 | 6.3% |
+| WordSort | 19535 | 6.7% |
 
 The key of the anomaly detection network is to achieve high-performance anomaly detection for logs by effectively combining the efficient reconstruction capability of the autoencoder for normal data with the discriminative power of different branch decoder networks for anomaly data, achieved through adversarial training.
 
-#### IV. PERFORMANCE EVALUATION
+### IV. PERFORMANCE EVALUATION
 
 In this section, our main focus is on the performance evaluation of the proposed method. First, we present a detailed description of the dataset. Second, we describe the baselines. Third, we show the evaluation metrics. Fourth, we provide experimental results. Fifth, we conduct an ablation study to analyze the impact of different components. Finally, we compare the computational complexity of the *GAE-Log* with other algorithms.
 
@@ -331,7 +329,7 @@ The *OpenStack log dataset* [\[29\]](#page-12-0) is sourced from the CloudLab cl
 
 Table I provides a summary of the details for all five datasets, including the total number of log messages and the anomaly ratio within each dataset. During the experiment, we randomly divided the original dataset into two equal parts for training and testing purposes. By utilizing these diverse datasets, we aim to assess the performance and robustness of our proposed method across different log sources and anomaly scenarios.
 
-#### *B. Baselines*
+### *B. Baselines*
 
 We compare our *GAE-Log* with several baselines commonly used in log anomaly detection. These baselines include:
 
@@ -347,40 +345,40 @@ We compare our *GAE-Log* with several baselines commonly used in log anomaly det
 
 To conduct our experiments, we utilize the open-source platform LOGPAI [\[39\],](#page-12-0) [\[59\]](#page-12-0) for implementing the aforementioned approaches. The *GAE-Log* model is built using PyTorch [\[60\].](#page-12-0) For training the autoencoders, we use the ReLU activation function [\[61\]](#page-12-0) and Sigmoid activation function. In our experiments, we set the dimension of the event graph embedding feature and the knowledge graph embedding feature as 128. For the *GAE-Log* model, the following parameter values are used: dim(**v***i*) = 128, dim(**k***i*) = 128, dim(**x***i*) = 256, and N = 100. We carefully analyze the results obtained from these parameter configurations in our experiments. By leveraging the LOGPAI platform and the PyTorch library, we ensure robust implementation and accurate evaluation of the proposed methods.
 
-#### *C. Evaluation Metrics*
+### *C. Evaluation Metrics*
 
 We employ the Precision, Recall, and F1-Score as metrics to evaluate the performance of log anomaly detection. The formulations are
 
 $$
 Precision = \frac{TP}{TP + FP}
 $$
- (14)
+(14)
 
 $$
 Recall = \frac{TP}{TP + FN}
 $$
- (15)
+(15)
 
 $$
 F1\text{-Score} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}.\tag{16}
 $$
 
-#### *D. Experimental Results*
+### *D. Experimental Results*
 
 The main focus of our proposed *GAE-Log* framework is to model sequential logs using event graphs and characterize system information using knowledge graphs. By integrating the features of event graphs and knowledge graphs, *GAE-Log* achieves a comprehensive understanding of system anomalies, leading to effective anomaly detection. In our experiments, we conduct both comparison experiments and an ablation study to verify the effectiveness of the *GAE-Log* framework.
 
 | Datasets<br>Approaches | <b>HDFS</b> | WordCount | PageRank | WordSort | OpenStack |
 |------------------------|-------------|-----------|----------|----------|-----------|
-| LR                     | 0.602       | 0.652     | 0.696    | 0.535    | 0.620     |
-| DT                     | 0.596       | 0.722     | 0.742    | 0.610    | 0.578     |
-| iForest                | 0.596       | 0.500     | 0.492    | 0.513    | 0.600     |
-| OC-SVM                 | 0.381       | 0.333     | 0.947    | 0.222    | 0.641     |
-| LogCluster [ICSE'16]   | 0.710       | 0.596     | 0.778    | 0.303    | 0.423     |
-| DeepLog [CCS'17]       | 0.640       | 0.893     | 0.700    | 0.667    | 0.932     |
-| CNN [DASC'18]          | 0.690       | 0.419     | 0.916    | 0.667    |           |
-| LogRobust [IJCAI'19]   | 0.690       | 0.901     | 0.778    | 0.667    | 0.825     |
-| Logsy [ICDM'20]        | 0.632       | 0.092     | 0.778    |          | 0.667     |
-| GAE-Log                | 0.975       | 0.948     | 0.952    | 0.955    | 0.999     |
+| LR | 0.602 | 0.652 | 0.696 | 0.535 | 0.620 |
+| DT | 0.596 | 0.722 | 0.742 | 0.610 | 0.578 |
+| iForest | 0.596 | 0.500 | 0.492 | 0.513 | 0.600 |
+| OC-SVM | 0.381 | 0.333 | 0.947 | 0.222 | 0.641 |
+| LogCluster [ICSE'16] | 0.710 | 0.596 | 0.778 | 0.303 | 0.423 |
+| DeepLog [CCS'17] | 0.640 | 0.893 | 0.700 | 0.667 | 0.932 |
+| CNN [DASC'18] | 0.690 | 0.419 | 0.916 | 0.667 | |
+| LogRobust [IJCAI'19] | 0.690 | 0.901 | 0.778 | 0.667 | 0.825 |
+| Logsy [ICDM'20] | 0.632 | 0.092 | 0.778 | | 0.667 |
+| GAE-Log | 0.975 | 0.948 | 0.952 | 0.955 | 0.999 |
 
 TABLE II COMPARISON RESULTS OF ANOMALY DETECTION ON DIFFERENT DATASETS IN TERMS OF F1-SCORE
 
@@ -413,42 +411,42 @@ In our ablation study, we conduct several experiments to determine the importanc
 To enhance the reliability and comprehensiveness of our experimental results, we compare the performance trends of
 
 ![](_page_10_Figure_1.jpeg)
-<!-- Image Description: The figure displays a grouped bar chart comparing F1-scores for four methods (EG/oKG, weighted_EG/oKG, EG w/KG, weighted_EG w/KG) across two datasets (HDFS and OpenStack).  Each bar represents an F1-score;  the chart shows the performance variation between the methods and datasets. Dashed horizontal lines indicate average F1-scores.  Numerical F1-score values are overlaid on the bars. -->
+<!-- Image Description: The figure displays a grouped bar chart comparing F1-scores for four methods (EG/oKG, weighted_EG/oKG, EG w/KG, weighted_EG w/KG) across two datasets (HDFS and OpenStack). Each bar represents an F1-score; the chart shows the performance variation between the methods and datasets. Dashed horizontal lines indicate average F1-scores. Numerical F1-score values are overlaid on the bars. -->
 
-Fig. 7. Anomaly detection performance of the *GAE-Log* framework on public HDFS logs and OpenStack logs respectively.
+Figure 7. Anomaly detection performance of the *GAE-Log* framework on public HDFS logs and OpenStack logs respectively.
 
 ![](_page_10_Figure_3.jpeg)
-<!-- Image Description: The image displays a bar chart comparing F1-scores for four methods (EG/oKG, weighted_EG/oKG, EG w/KG, weighted_EG w/KG) across three feature sets (WordCount, PageRank, WordSort).  Each bar represents an F1-score, with values indicated numerically. A dashed horizontal line shows a baseline score.  The chart compares the performance of different methods on the same feature sets. -->
+<!-- Image Description: The image displays a bar chart comparing F1-scores for four methods (EG/oKG, weighted_EG/oKG, EG w/KG, weighted_EG w/KG) across three feature sets (WordCount, PageRank, WordSort). Each bar represents an F1-score, with values indicated numerically. A dashed horizontal line shows a baseline score. The chart compares the performance of different methods on the same feature sets. -->
 
-Fig. 8. Anomaly detection performance of the *GAE-Log* framework on Hadoop dataset with three different applications.
+Figure 8. Anomaly detection performance of the *GAE-Log* framework on Hadoop dataset with three different applications.
 
-different feature settings in *GAE-Log*. Fig. 7 illustrates the ablation study results of public HDFS logs and OpenStack logs, presenting the F1-Scores under different feature settings. The results vividly demonstrate the outstanding performance of *GAE-Log* in log anomaly detection across various configurations: EG/oKG, weighted\_EG/oKG, EG w/KG, and weighted\_EG w/KG. Notably, we observe that the performance of *GAE-Log* using EG/oKG is inferior to that using weighted\_EG/oKG, while the performance of weighted\_EG/oKG falls short compared to EG w/KG.
+different feature settings in *GAE-Log*. Figure 7 illustrates the ablation study results of public HDFS logs and OpenStack logs, presenting the F1-Scores under different feature settings. The results vividly demonstrate the outstanding performance of *GAE-Log* in log anomaly detection across various configurations: EG/oKG, weighted\_EG/oKG, EG w/KG, and weighted\_EG w/KG. Notably, we observe that the performance of *GAE-Log* using EG/oKG is inferior to that using weighted\_EG/oKG, while the performance of weighted\_EG/oKG falls short compared to EG w/KG.
 
-Fig. 8 presents the anomaly detection results specifically for Hadoop applications. First, across different applications and methods employed, *GAE-Log* utilizing weighted\_EG w/KG and EG w/KG consistently outperforms *GAE-Log* employing
+Figure 8 presents the anomaly detection results specifically for Hadoop applications. First, across different applications and methods employed, *GAE-Log* utilizing weighted\_EG w/KG and EG w/KG consistently outperforms *GAE-Log* employing
 
 <span id="page-11-0"></span>TABLE III TIME COST OF DIFFERENT APPROACHES
 
-|            | <b>HDFS</b> dataset |                 |  |
+| | <b>HDFS</b> dataset | | |
 |------------|---------------------|-----------------|--|
-| Approaches | Training            | Testing         |  |
-| GAE-Log    | 1h 25 m             | 7s              |  |
-| LogCluster | 19 <sub>m</sub>     | 23s             |  |
-| DeepLog    | 1h 50 m             | 20 <sub>m</sub> |  |
-| <b>CNN</b> | 2h 23 m             | 22 <sub>m</sub> |  |
-| LogRobust  | 1h 20m              | 49 <sub>s</sub> |  |
-| Logsy      | 3h 18 m             | 34 m            |  |
+| Approaches | Training | Testing | |
+| GAE-Log | 1h 25 m | 7s | |
+| LogCluster | 19 <sub>m</sub> | 23s | |
+| DeepLog | 1h 50 m | 20 <sub>m</sub> | |
+| <b>CNN</b> | 2h 23 m | 22 <sub>m</sub> | |
+| LogRobust | 1h 20m | 49 <sub>s</sub> | |
+| Logsy | 3h 18 m | 34 m | |
 
 weighted\_EG/oKG and EG/oKG. This finding validates the effectiveness of integrating features from both event graphs and knowledge graphs in *GAE-Log*. Second, when the knowledge graph and the weights in the event graph are removed, a certain level of performance degradation occurs. Notably, the absence of the knowledge graph has the most significant impact, underscoring its crucial role in the anomaly detection process. Moreover, through a comparative analysis of the utilization of weighted\_EG to address event co-occurrences, we consistently observe improved performance across all three applications. Furthermore, it is worth noting that when *GAE-Log* already achieves superior performance with certain methods, the additional improvement from the knowledge graph and weights in the event graph is not as pronounced, which is intuitively understandable.
 
-# *F. Complexity Analysis*
+## *F. Complexity Analysis*
 
 In this section, we provide a complexity analysis for *GAE-Log* and other related methods. The training time and testing time on the HDFS dataset are presented in Table III. Overall, all the approaches demonstrate efficient testing times, which are significantly lower than the training times. Among these approaches, *GAE-Log* achieves the best performance. Regarding the training time, *GAE-Log* exhibits favorable efficiency compared to the other methods. However, it is slightly slower than LogCluster, which utilizes a simple clustering approach. In summary, *GAE-Log* proves to be highly effective, with short detection time and acceptable training time. In addition, we conducted a detailed analysis of the time cost for each component of *GAE-Log*: Specifically, the construction of the event graph requires 25 s, the construction of the knowledge graph takes 11 s, and the graph embedding processes for the event graph and the knowledge graph require 9 and 21 s, respectively.
 
-# V. CONCLUSION
+## V. CONCLUSION
 
 This article proposes a framework called *GAE-Log* for detecting system anomalies in unstructured logs. Detecting such anomalies not only reduces financial costs, but also enhances system availability. The *GAE-Log* framework leverages two key components: the event graph and the knowledge graph, in order to model the relations among sequential logs and capture system information, respectively. By integrating the features from both graphs, *GAE-Log* offers a comprehensive perspective on system anomalies. Moreover, *GAE-Log* utilizes adversarial training for autoencoders, thereby achieving enhanced performance in log anomaly detection. To evaluate the effectiveness of the framework, extensive tests were conducted on both public and synthetic log datasets. The results demonstrate that *GAE-Log* exhibits significant advantages in detecting log anomalies.
 
-#### REFERENCES
+### REFERENCES
 
 - [1] S. He, P. He, Z. Chen, T. Yang, Y. Su, and M. R. Lyu, "A survey on automated log analysis for reliability engineering," *ACM Comput. Surv.*, vol. 54, no. 6, pp. 1–37, 2021.
 - [2] A. Lerner, "The cost of downtime," 2014. [Online]. Available: [https://](https://blogs.gartner.com/andrew-lerner/2014/07/16/the-cost-of-downtime/) [blogs.gartner.com/andrew-lerner/2014/07/16/the-cost-of-downtime/](https://blogs.gartner.com/andrew-lerner/2014/07/16/the-cost-of-downtime/)
@@ -515,14 +513,14 @@ This article proposes a framework called *GAE-Log* for detecting system anomalie
 - [61] X. Glorot, A. Bordes, and Y. Bengio, "Deep sparse rectifier neural networks," in *Proc. 14th Int. Conf. Artif. Intell. Statist.*, vol. 15, 2011, pp. 315–323.
 
 ![](_page_12_Picture_39.jpeg)
-<!-- Image Description: The image is a grayscale photograph of a young woman's face, presented in a frontal, neutral expression.  The image appears to be a sample image, possibly used for facial recognition or similar image processing research.  No diagrams, charts, graphs, or equations are present.  The focus is solely on the facial features. -->
+<!-- Image Description: The image is a grayscale photograph of a young woman's face, presented in a frontal, neutral expression. The image appears to be a sample image, possibly used for facial recognition or similar image processing research. No diagrams, charts, graphs, or equations are present. The focus is solely on the facial features. -->
 
 **Yuxia Xie** was born in Sichuan, China. She received the B.S. degree in computer science from Qingdao University, Qingdao, China, in 2017. She received the Ph.D. degree in computer science from Tongji University, Shanghai, China, in 2023.
 
 Her research interests primarily revolve around Big Data analytics, machine learning, deep learning, graph modeling, and AIOps.
 
 ![](_page_12_Picture_42.jpeg)
-<!-- Image Description: That's a grayscale headshot photograph of a person, likely an author or contributor to the academic paper.  It contains no diagrams, charts, graphs, equations, or other technical illustrations.  The image is solely a portrait. -->
+<!-- Image Description: That's a grayscale headshot photograph of a person, likely an author or contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or other technical illustrations. The image is solely a portrait. -->
 
 **Kai Yang** (Senior Member, IEEE) received the B.Eng. degree from Southeast University, Nanjing, China, the M.S. degree from the National University of Singapore, Singapore, and the Ph.D. degree from Columbia University, New York, NY, USA.
 

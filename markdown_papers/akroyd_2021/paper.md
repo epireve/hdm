@@ -28,39 +28,13 @@ phase2_processed: true
 original_folder: Akroyd-2021-Universal-digital-twin
 keywords: 
 ---
-a-dynamic-
-images_total: 15
-images_kept: 14
-images_removed: 1
-tags:
-- Biomedical
-- Healthcare
-- IoT
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- API
-- CityChem
-- CityEngine
-- DeAngelo
-- DeCarolis
-- DesignIssues
-- InstantaneousView
-- InterfaceOntology
-- LinkedData
-- MacCarthy
-- about-us
-- active agents
-- adms-model
----
 
 # RESEARCH ARTICLE
 
 ![](_page_0_Picture_2.jpeg)
 <!-- Image Description: The image is the logo for Cambridge University Press. It consists of text stating "CAMBRIDGE UNIVERSITY PRESS" and a stylized circular logo featuring overlapping C and D shapes in blue and teal. The image serves as a publisher's imprint, indicating the source of the academic paper. There are no charts, graphs, equations, or other technical illustrations present. -->
 
-# Universal Digital Twin - A Dynamic Knowledge Graph
+## Universal Digital Twin - A Dynamic Knowledge Graph
 
 Jethro Akroyd[1](#page-0-0)[,2](#page-0-1) , Sebastian Mosbach[1,](#page-0-0)[2](#page-0-1) [,](https://orcid.org/0000-0001-7018-9433) Amit Bhave[3](#page-0-2) and Markus Kraft[1,](#page-0-0)[2](#page-0-1)[,4,](#page-0-3) [\\*](#page-0-4)
 
@@ -70,7 +44,6 @@ Jethro Akroyd[1](#page-0-0)[,2](#page-0-1) , Sebastian Mosbach[1,](#page-0-0)[2]
 
 <span id="page-0-4"></span><span id="page-0-3"></span>4 School of Chemical and Biomedical Engineering, Nanyang Technological University, Singapore 637459, Singapore \*Corresponding author. E-mail: [mk306@cam.ac.uk](mailto:mk306@cam.ac.uk)
 
-Received: 27 January 2021; Revised: 05 May 2021; Accepted: 26 June 2021
 
 Keywords: Agents; data; digital twin; dynamic knowledge graph; interoperability
 
@@ -84,7 +57,7 @@ Countries must make significant changes to their infrastructure and energy syste
 
 © The Author(s), 2021. Published by Cambridge University Press. This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence ([http://creativecommons.org/licenses/by/4.0/\)](http://creativecommons.org/licenses/by/4.0/), which permits unrestricted re-use, distribution and reproduction, provided the original article is properly cited.
 
-#### Introduction
+### Introduction
 
 In the 2016 Paris Agreement, 196 nations committed to reduce their greenhouse gas emissions in a legally binding treaty on climate change. The obligations under the agreement are projected to require significant changes in infrastructure, ranging from a move to large-scale energy distribution (Tröndle et al., [2020;](#page-23-0) Brown and Botterud, [2021](#page-21-0)) to the adoption of distributed energy resources (Jain et al., [2017\)](#page-22-0) and the development of intelligent infrastructure (Ziar et al., [2021](#page-24-0)).
 
@@ -108,11 +81,11 @@ The purpose of this paperis to demonstrate how Semantic Web technology can be us
 
 The paper is structured as follows. Section 2 discusses the Semantic Web and the technologies that are available as part of it. Section 3 explains the World Avatar and presents examples that demonstrate its capability, and discusses current work to develop a knowledge-graph-based digital twin of the UK to support the decarbonization of the UK energy landscape. Conclusions are discussed in Section 5.
 
-#### The Semantic Web Stack
+### The Semantic Web Stack
 
 The Semantic Web (Berners-Lee et al., [2001\)](#page-20-1) provides a valid description logic (Baader et al., [2007](#page-20-2)) representation of data on the World Wide Web. Resources on the Semantic Web are all instances of ontological classes. The resources are identified using internationalized resource identifiers (IRIs), ensuring an unambiguous representation. Technologies that enable the architecture, development and existence of the Semantic Web are vertically orchestrated based on functional dependency, forming the Semantic Web stack. The interested reader is referred to Allemang and Hendler [\(2011\)](#page-20-3).
 
-#### 1. Ontologies
+### 1. Ontologies
 
 An ontology is a collection of classes, object properties and data properties expressing facts about and a semantic model of a domain of interest, for example, the built environment. An object property links an instance of a class (the domain of the property) to an instance of a class (the range of the property).[1](#page-2-0) Object properties may be structured hierarchically. A data property links an instance of a class (the domain of the
 
@@ -164,7 +137,7 @@ A central tenet of the World Avatar is the requirement to share data so that all
 
 The following sections present an overview of the World Avatar and give examples of how it has been used to date. Section 3.1 describes the structure of the World Avatar. Section 3.2 discusses the computational agents that operate within the World Avatar. Section 3.4 presents example use cases. Section 4 describes the extension of the World Avatar toward a knowledge-graph-based digital twin of the UK. In order to keep the exposition concise, technical details about implementation are omitted here, but can be found in the references provided.
 
-# 1. Structure
+## 1. Structure
 
 The World Avatar (Eibeck et al., [2019;](#page-22-3) CARES, [2020d](#page-21-7)) represents information in a dynamic knowledge graph using technologies from the Semantic Web stack. Unlike a traditional database, the World Avatar contains an ecosystem of autonomous computational agents that continuously update it.
 
@@ -186,9 +159,9 @@ Agents can perform a variety of activities and can operate on both the concepts 
 - Input/output. Agents can update instances with data from the real world, for example, data from sensors or smart infrastructure. Agents can retrieve data from the knowledge graph and send signals back to real world, for example, to visualize data or to control an actuator.
 - Update. Agents can query the knowledge graph, calculate derived quantities, and update instances with the new data. An example could be querying sources of emissions and the prevailing wind conditions to update estimates of air quality by simulating the dispersion of the emissions (Eibeck et al., [2019;](#page-22-3) Zhou et al., [2019\)](#page-24-2).
 - Restructure. Agents can restructure the knowledge graph by:
-  - Adding instances (i.e., items in ABoxes), for example, to explore the optimal placement of new infrastructure (Devanand et al., [2019;](#page-21-14) Eibeck et al., [2020](#page-21-9)).
-  - Adding concepts (i.e., items in TBoxes) to improve the description of data, for example, to add classes relating to dispatchable and nondispatchable resources to an ontology describing energy sources.
-  - Adding relationships between instances or between concepts, for example, using ontology matching to support the creation of relationships between equivalent concepts.
+- Adding instances (i.e., items in ABoxes), for example, to explore the optimal placement of new infrastructure (Devanand et al., [2019;](#page-21-14) Eibeck et al., [2020](#page-21-9)).
+- Adding concepts (i.e., items in TBoxes) to improve the description of data, for example, to add classes relating to dispatchable and nondispatchable resources to an ontology describing energy sources.
+- Adding relationships between instances or between concepts, for example, using ontology matching to support the creation of relationships between equivalent concepts.
 - Create new agents. Agents can provide services to facilitate agent discovery and to create composite agents to coordinate the activities of agents to perform complex tasks, for example, the estimation of air quality (Zhou et al., [2019](#page-24-2)). The possibility of introducing an agent marketplace and quality of service (QoS) measures for agents has been demonstrated using a blockchain-based smart contract system (Zhou et al., [2020a\)](#page-24-3).
 
 The calculations performed by agents can take any form, including physics-based models with a theoretical structure, gray box models that combine some theoretical structure with data-driven components, and pure data-driven models. See Yu et al. [\(2020](#page-23-13)) for examples of these approaches in the context of emissions modeling. The availability of semantically structured machine-queryable data makes the World Avatar well-suited to be coupled to machine learning applications, where it is wellknown that the time spent on data preparation and curation typically adds a significant cost to machine learning.
@@ -199,11 +172,11 @@ The potential of the World Avatar arises from the generic functionalities offere
 
 The current ontological coverage of the World Avatar includes 3D city data (OntoCityGML, Eibeck et al., [2019](#page-22-3)), weather (Weather Ontology, Institute of Computer Engineering at Technical University of Vienna, [2014](#page-22-10)), process engineering (OntoCAPE, Marquardt et al., [2010](#page-23-14)), eco-industrial parks (OntoEIP, Zhang et al., [2017;](#page-24-4) Zhou et al., [2017](#page-24-1); Zhou et al., [2018\)](#page-24-5), and electrical power systems (OntoPowerSys, Devanand et al., [2020](#page-21-8)). It includes ontologies for quantum chemistry (OntoCompChem, Krdzavac et al., [2019\)](#page-22-11), chemical species (OntoSpecies, Farazi et al., [2020b\)](#page-22-12), chemical kinetic reaction mechanisms (OntoKin, Farazi et al., [2020a](#page-22-13)), and combustion experiments (OntoChemExp, Bai et al., [2021](#page-20-13)). Selected subgraphs of the LOD Cloud (lod-cloud.net, [2020](#page-23-15)), in particular DBpedia (Lehmann et al., [2015](#page-22-14); DBpedia, [2020\)](#page-21-15) are also connected to the knowledge graph.
 
-# 4. Use cases
+## 4. Use cases
 
 This section presents use cases that demonstrate different aspects of the World Avatar. The use cases are from the Cities Knowledge Graph, PIPS, and J-Park Simulator projects so are mainly associated with Singapore. However, the application of the World Avatar is not restricted to these contexts, as we shall discuss in Section 4.
 
-# 4.1. Urban planning
+## 4.1. Urban planning
 
 The Cities Knowledge Graph project (CARES, [2020b\)](#page-21-16) will integrate urban design and planning tools developed by the Future Cities Laboratory at the Singapore-ETH Centre with the World Avatar. The tools include the Collaborative Interactive Visualization and Analysis Laboratory design informatics platform (Future Cities Laboratory, [2020b\)](#page-22-15), the Multi-Agent Transport Simulation Singapore model (Future Cities Laboratory, [2020c](#page-22-16)), the City Energy Analyst toolbox (Future Cities Laboratory, [2020a](#page-22-17)), and the ESRI CityEngine (Environmental Systems Research Institute, [2020](#page-22-18)) 3D modeling software. The concept is shown in [Figure 2.](#page-7-0)
 
@@ -285,7 +258,7 @@ The interconnectedness of all represented concepts and instances that is inheren
 
 The following sections describe progress toward the creation of the base world in a knowledge-graphbased digital twin of the UK, and discuss a route to meet the challenges posed by goal alignment in the context of parallel worlds.
 
-#### 1. Base world
+### 1. Base world
 
 This section describes the progress to date and the immediate next steps for the creation of the base world in a knowledge-graph-based digital twin of the UK. The immediate motivation for doing this is to help address questions relating to how best to help the UK achieve net zero carbon emissions. The energy sector is the largest contributor to emissions in the UK and was responsible for 82% of total emissions in 2018 (Brown et al., [2020,](#page-20-17) p. 40). Work to date has therefore focused on data relating to the electric power system, the gas grid, the potential for photovoltaic and wind power, biomass and the built environment, all of which are critical to the future of the energy landscape (Committee on Climate Change, [2018](#page-21-13)). Beyond carbon emission reduction, potential applications are of course numerous and include, but are not limited to, public health, urban and infrastructure planning, and achieving a circular economy.
 
@@ -336,19 +309,18 @@ has an associated Unique Property Reference Number (UPRN), likewise every road h
 
 Figure 11. Modified screenshots of city data in the vicinity of Manchester Piccadilly Railway Station (Virtual City Systems, [2020\)](#page-23-29). Contains public sector information licensed under the Open Government License v3.0.
 
-#### 2. Goal alignment for parallel worlds
+### 2. Goal alignment for parallel worlds
 
 The parallel worlds capability of the World Avatar offers a powerful tool to explore the design space of complex problems. However, the problems of interest, for example, how best to develop the UK infrastructure, rapidly become too complex to be treated in the manner of classical optimization problems. This is the case both in the sense that the problems are not amenable to defining a straightforward objective function and in the sense that the design space is too complex to be explored without some additional insight to suggest propitious scenarios. In an ideal world, computational agents would suggest scenarios and automate the exploration of the design space. In order to attempt this, it will be necessary to equip the agents with an understanding of our values and what we, as a society, want to achieve. In other words, we need to equip the agents with goals.
 
 There are many ways to define goals. The sustainable development goals (SDGs) (United Nations, [2015](#page-23-30)) defined by the UN offer one possible starting point. There are 17 SDGs, which are further specified in terms of 169 targets, each of which is associated with a set of proposed indicators. Each level in this hierarchy is increasingly specific, so whilst the goals are abstract, the indicators are specific and measurable. [Table 1](#page-17-0) shows an example for SDG 9.
 
-<span id="page-17-0"></span>
 
-| SDG             | Description                                                                                                                                                                                                                                                                                                        |  |
+| SDG | Description | |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
-| Goal 9          | Build resilient infrastructure, promote inclusive and sustainable industrialization, and<br>foster innovation                                                                                                                                                                                                      |  |
-| Target 9.4      | By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with<br>increased resource-use efficiency and greater adoption of clean and environmentally<br>sound technologies and industrial processes, with all countries taking action in<br>accordance with their respective capabilities |  |
-| Indicator 9.4.1 | CO2<br>emission per unit of value added                                                                                                                                                                                                                                                                            |  |
+| Goal 9 | Build resilient infrastructure, promote inclusive and sustainable industrialization, and<br>foster innovation | |
+| Target 9.4 | By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with<br>increased resource-use efficiency and greater adoption of clean and environmentally<br>sound technologies and industrial processes, with all countries taking action in<br>accordance with their respective capabilities | |
+| Indicator 9.4.1 | CO2<br>emission per unit of value added | |
 
 Table 1. Sustainable Development Goal 9, Target 9.4 and Indicator 9.4.1.
 
@@ -358,7 +330,7 @@ Another possible route forward could be to calculate goals based on environmenta
 
 Inevitably, there will arise scenarios where goals conflict with each other (Fuso Nerini et al., [2018\)](#page-22-26). For example, building more roads may enable better access to schools and therefore better education, so lifting people out of poverty and reducing hunger. However, this would also lead to more road use which could (depending on the type of transport) lead to more pollution. It is therefore necessary to consider goal alignment, that is to say, how to ensure that the scenarios considered by the World Avatar support the goals of humanity. This could potentially be achieved by using the goals not only to inform, but also constrain the suggestion of scenarios. The questions of how to suggest scenarios and achieve goal alignment remain important topics of research.
 
-#### Conclusions
+### Conclusions
 
 This paper demonstrates for the first time how a comprehensive digital twin can be implemented as a dynamic knowledge graph built using technologies from the Semantic Web stack. Examples are presented from the World Avatar project.
 
@@ -374,51 +346,51 @@ The use case from the parallel world demonstrates the use of the dynamic knowled
 
 Work to develop a knowledge-graph-based digital twin of the UK is ongoing. The next iteration of the digital twin will be applied in the context of supporting the decarbonization of the UK energy landscape and will enable the semantic annotation of data describing the power system and the electrical and gas transmission systems, of data describing solar radiation and wind, and of data describing what biomass is grown where. The Semantic Web stack provides tools that confer a number of advantages on knowledgegraph-based digital twins. However, the implementation of a digital twin that meets the needs of a Universal Digital Twin remains hugely challenging and poses a number of open questions. Nonetheless, there are good reasons to be optimistic. The achievements of Google, Microsoft, IBM, Facebook, and eBay (Noy et al., [2019\)](#page-23-11) show that these types of technical challenges can be addressed and that the results have the potential to be extraordinary.
 
-#### Nomenclature
+### Nomenclature
 
-| ABox      | Assertional component (of an ontology)          |
+| ABox | Assertional component (of an ontology) |
 |-----------|-------------------------------------------------|
-| ADMS      | Atmospheric dispersion modeling system          |
-| AI        | Artificial intelligence                         |
-| API       | Application programming interface               |
-| BC        | Black carbon                                    |
-| BMS       | Building management system                      |
-| CCGT      | Combined cycle gas turbine                      |
-| CFD       | Computational fluid dynamics                    |
-| CSR       | Corporate social responsibility                 |
-| DUKES     | Digest of UK energy statistics                  |
-| EPISODE   | Eulerian urban dispersion model                 |
-| ESG       | Environmental, social, and governance           |
-| ESRI      | Environmental Systems Research Institute        |
-| GeoSPARQL | Geographic query language for RDF data          |
-| HPC       | High performance computing                      |
-| IMF       | Information management framework                |
-| IRI       | Internationalized resource identifier           |
-| LOD       | Linked open data                                |
-| NLP       | Natural language processing                     |
-| NOx       | Nitrogen oxides                                 |
-| OBDA      | Ontology-based data access                      |
-| OGC       | Open geospatial consortium                      |
-| OPF       | Optimal power flow                              |
-| OS        | Ordnance survey                                 |
-| PIPS      | Pharma Innovation Programme Singapore           |
-| PM        | Particulate matter                              |
-| PM2.5     | Particulate matter less than 2.5 μm in diameter |
-| PM10      | Particulate matter less than 10 μm in diameter  |
-| QoS       | Quality of service                              |
-| QSAR      | Quantitative structure activity relationship    |
-| QSPR      | Quantitative structure property relationship    |
-| RDF       | Resource description framework                  |
-| SDG       | Sustainable development goal                    |
-| SDGIO     | Sustainable development goal interface ontology |
-| SMR       | Small modular nuclear reactor                   |
-| SPARQL    | SPARQL protocol and RDF query language          |
-| SQL       | Structured query language                       |
-| SRM       | Stochastic reactor model                        |
-| TBox      | Terminological component (of an ontology)       |
-| UPRN      | Unique property reference number                |
-| USRN      | Unique street reference number                  |
-|           |                                                 |
+| ADMS | Atmospheric dispersion modeling system |
+| AI | Artificial intelligence |
+| API | Application programming interface |
+| BC | Black carbon |
+| BMS | Building management system |
+| CCGT | Combined cycle gas turbine |
+| CFD | Computational fluid dynamics |
+| CSR | Corporate social responsibility |
+| DUKES | Digest of UK energy statistics |
+| EPISODE | Eulerian urban dispersion model |
+| ESG | Environmental, social, and governance |
+| ESRI | Environmental Systems Research Institute |
+| GeoSPARQL | Geographic query language for RDF data |
+| HPC | High performance computing |
+| IMF | Information management framework |
+| IRI | Internationalized resource identifier |
+| LOD | Linked open data |
+| NLP | Natural language processing |
+| NOx | Nitrogen oxides |
+| OBDA | Ontology-based data access |
+| OGC | Open geospatial consortium |
+| OPF | Optimal power flow |
+| OS | Ordnance survey |
+| PIPS | Pharma Innovation Programme Singapore |
+| PM | Particulate matter |
+| PM2.5 | Particulate matter less than 2.5 μm in diameter |
+| PM10 | Particulate matter less than 10 μm in diameter |
+| QoS | Quality of service |
+| QSAR | Quantitative structure activity relationship |
+| QSPR | Quantitative structure property relationship |
+| RDF | Resource description framework |
+| SDG | Sustainable development goal |
+| SDGIO | Sustainable development goal interface ontology |
+| SMR | Small modular nuclear reactor |
+| SPARQL | SPARQL protocol and RDF query language |
+| SQL | Structured query language |
+| SRM | Stochastic reactor model |
+| TBox | Terminological component (of an ontology) |
+| UPRN | Unique property reference number |
+| USRN | Unique street reference number |
+| | |
 
 Acknowledgments. Thank you to the members of the Computational Modelling (CoMo) Group in the Department of Chemical Engineering and Biotechnology at the University of Cambridge, the members of the Cambridge Centre for Advanced Research and Education in Singapore (CARES), and the members of Computational Modelling Cambridge Ltd. (CMCL) who have contributed to the research underlying the ideas described in this paper. Special thanks to Tom Savage who helped prepare a number of the figures and to Dr Feroz Farazi who helped check some of the text.
 

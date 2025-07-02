@@ -25,13 +25,13 @@ tags:
 ---
 
 ![](_page_0_Picture_0.jpeg)
-<!-- Image Description: That's not a technical image from an academic paper; it's a button graphic likely from a software application.  The image displays a circular icon—partially teal, yellow, and red—featuring a red bookmark-like shape. Below the icon, the text "Check for updates" is displayed.  The image's purpose would be to visually prompt a user to search for and install software updates within the application.  It's not a chart, graph, diagram, or equation; it's purely a user interface element. -->
+<!-- Image Description: That's not a technical image from an academic paper; it's a button graphic likely from a software application. The image displays a circular icon—partially teal, yellow, and red—featuring a red bookmark-like shape. Below the icon, the text "Check for updates" is displayed. The image's purpose would be to visually prompt a user to search for and install software updates within the application. It's not a chart, graph, diagram, or equation; it's purely a user interface element. -->
 
 # Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online Environments
 
 [Chunpai Wang](https://orcid.org/0000-0003-3162-4310) chunpai.wang@chase.com JPMorgan Chase & Co. New York, New York, USA
 
-#### ABSTRACT
+### ABSTRACT
 
 With the advance of online education systems, accessibility to learning materials has increased. In these systems, students can practice independently and learn from different learning materials over long periods of time. As a result, it is essential to trace students' knowledge states over long learning sequences while maintaining a personalized model of each individual student's progress. However, the existing deep learning-based knowledge tracing models are either not personalized or not tailored for handling long sequences. Handling long sequences are especially essential in the online education environments, in where models are preferred to be updated with the newly collected user data in a timely manner as students could acquire knowledge on each learning activity. In this paper, we propose a knowledge tracing model, Continuous Personalized Knowledge Tracing (CPKT), that can mimic the realworld long-term continuous learning scenario by incorporating a novel online model training paradigm that is suitable for the knowledge tracing problem. To achieve personalized knowledge tracing, we propose two model components: 1) personalized memory slots to maintain learner's knowledge in a lifelong manner, and 2) personalized user embeddings that help to accurately predict the individual responses, correctly detect the personalized knowledge acquisition and forgetting patterns, and better interpret and analyze the learner's progress. Additionally, we propose transition-aware stochastic shared embedding according to the learning transition matrix to regularize the online model training. Extensive experiments on four real-world datasets showcase the effectiveness and superiority of CPKT, especially for students with longer sequences.
 
@@ -49,7 +49,7 @@ CIKM '23, October 21–25, 2023, Birmingham, United Kingdom
 
 [Shaghayegh Sahebi](https://orcid.org/0000-0002-8933-3279) ssahebi@albany.edu University at Albany - SUNY Albany, New York, USA
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Chunpai Wang and Shaghayegh Sahebi. 2023. Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online Environments. In Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM '23), October 21–25, 2023, Birmingham, United Kingdom. ACM, New York, NY, USA, [10](#page-9-0) pages. [https://doi.org/10.](https://doi.org/10.1145/3583780.3614822) [1145/3583780.3614822](https://doi.org/10.1145/3583780.3614822)
 
@@ -77,11 +77,11 @@ Our contributions of this work are three-fold.
 - We design and propose the transition-aware stochastic shared embeddings (TA-SSE) to prevent overfitting due to increasing number of parameters from personalization and a smaller amount of training data from online training. TA-SSE could be potentially applied to any deep knowledge tracing or sequential models to reduce model overfitting.
 - We conduct extensive experiments on four real-world datasets to compare the prediction performance of CPKT with six baselines, validate the effectiveness of proposed components with ablation studies, and demonstrate the advantage of CPKT on long-term knowledge modeling.
 
-#### 2 RELATED WORK
+### 2 RELATED WORK
 
 Our work relates to the deep knowledge tracing (KT) models and personalized knowledge tracing. KT has been an essential problem in the learner modeling and educational data mining domain as it can be used for evaluating students' strength and weakness points, predicting student performance, suggesting the next learning materials to students, and redesigning the class curricula.
 
-#### 2.1 Traditional Personalized Knowledge Tracing
+### 2.1 Traditional Personalized Knowledge Tracing
 
 The KT problem has been studied in the fields such as education, psychology, neuroscience, and cognitive science since the 1980s. Early attempts at solving KT problem could be classified into two main categories: the probabilistic models and logistic models.
 
@@ -91,7 +91,7 @@ On the other hand, logistic models such as Rasch model (also known as 1PL-IRT) [
 
 number of attempts at an item or a skill. Other similar logistic models are Instructional Factor Models (IFM) [\[4\]](#page-9-15), the Elo Rating System (ERS) [\[22\]](#page-9-16), the DASH model [\[14\]](#page-9-17), and DAS3H [\[5\]](#page-9-18), which take more complex settings into account, such as multiple types learning interventions or skill forgetting effect. The aforementioned logistic models generally assume each user is associated with a single student ability parameter, which is over-simplified in the real-world learning environments. Some other logistic models resort to the matrix factorization to resolve this limitation [\[12,](#page-9-19) [27,](#page-9-20) [29,](#page-9-21) [37\]](#page-9-22) by projecting each student and each item into a latent vector u and v that depicted students' knowledge state and items' knowledge association weight, respectively.
 
-#### 2.2 Deep Knowledge Tracing
+### 2.2 Deep Knowledge Tracing
 
 Deep neural networks have been applied to the knowledge tracing problem since 2015 [\[23\]](#page-9-5), which have become the competitive alternatives to the probabilistic models and logistic models with the advent of increasingly large scale datasets. Piech et al. [\[23\]](#page-9-5) first explored the Recurrent Neural Networks (RNNs) and proposed the Deep Knowledge Tracing (DKT) to model student learning and demonstrated substantial improvements in prediction performance on a range of knowledge tracing datasets. Gervet et al. [\[8\]](#page-9-23) further systematically compared the probabilistic models, logistic models, and deep learning models on the prediction performance and concluded that with the right set of features, logistic models with student parameters lead on datasets of moderate size, deep learning models lead on datasets of large size, and probabilistic models lag behind other approaches. Zhang et al. [\[34\]](#page-9-1) proposed the Dynamic Key-Value Memory Networks (DKVMN) that is capable of discovering underlying concepts of exercises typically annotated by human and depicting the changing knowledge state after each exercise. Pandey and Karypis [\[18\]](#page-9-2) applied the cutting-edge attention mechanism technique in the field of natural language processing to the task of student performance prediction and proposed the Self-Attentive Knowledge Tracing (SAKT) model. Unlike the DKT and DKVMN, which make prediction based on the summarized context vector over time, SAKT models student's interaction history and predicts student's future performance by considering the relevant exercises from the past interactions. Ghosh et al. [\[9\]](#page-9-3) further couples the monotonic attention mechanism with Rasch model to regularize the concept and question embeddings and improve the model interpretability. Numerous new models were proposed for the KT problem recently. But many of them presuppose supplementary contextual information, such as LPKT [\[25\]](#page-9-24), EKT [\[15\]](#page-9-25), RKT [\[19\]](#page-9-26), MF-DAKT [\[35\]](#page-9-27), DMKT [\[30\]](#page-9-28), TAMKOT [\[38\]](#page-9-29), etc.
 
@@ -101,13 +101,13 @@ sensitivity on the question before updating the knowledge state. However, like t
 
 2.2.1 CPKT vs. Existing Works. Our work, CPKT, differs from the previous studies as it is the first deep knowledge tracing model that can learn personalized learning patterns throughout the whole student trajectory sequence. It learns user embeddings in addition to individualized knowledge state representations and embeds user embedding with knowledge acquisition and forgetting modules to capture the current individualized knowledge state. Furthermore, CPKT is designed to utilize online model training to mimic the reallife learning process for rolling forecasting, rather than offline batch training. Thus, it could maintain and update the individualized student's knowledge state over time in a timely and continuous manner.
 
-# 3 CONTINUOUS PERSONALIZED KNOWLEDGE TRACING (CPKT)
+## 3 CONTINUOUS PERSONALIZED KNOWLEDGE TRACING (CPKT)
 
-#### 3.1 Problem Formulation
+### 3.1 Problem Formulation
 
 Given a student's historical performance records, the goal of KT is to predict the student's performance on an upcoming problem, while tracking student knowledge states. The student's historical performance typically consists of a sequence of problems and their correctness or scores at each discrete time step, denoted as a tuple ( , ), for student at time step . Here, is a problem or exercise from a set of distinct problems, and is either a binary value to represent the correctness or a continuous value between 0 and 1 to represent the normalized score. Formally, given student 's past history records up to time − 1, as {( 1 , 1 ), · · · , ( −1 , −1 )}, our task is to predict their performance to an assigned problem at the current time step . The general deep learning-based models omit the superscript in the context and do not differentiate distinct students' historical records. We achieve continuous personalized knowledge tracing via a personalized memory-augmented network model (Section [3.2\)](#page-2-0) and a transition-aware online learning and prediction paradigm (Section [3.3\)](#page-3-0).
 
-#### <span id="page-2-0"></span>3.2 Personalized Memory Augmented Network
+### <span id="page-2-0"></span>3.2 Personalized Memory Augmented Network
 
 We build our continuous personalized model based on dynamic memory-augmented neural networks, specifically DKVMN [\[34\]](#page-9-1), that has been shown to be successful for deep knowledge tracing. These models rely on a static key matrix to represent the learning material concepts and a dynamic value matrix to store students' updated mastery levels (states) of those corresponding concepts. Assuming that there are latent concepts { 1 , · · · , } for each learning resource, and each latent concept can be represented by
 
@@ -130,7 +130,7 @@ Secondly, we extract and summarize the target student 's personalized knowledge 
 $$
 \mathbf{r}_{s,t}^q = \sum_{i=1}^N w_q(i) \mathbf{M}_{s,t}^v(i)
 $$
- (2)
+(2)
 
 where M , () denotes the ℎ row of value matrix M ,
 
@@ -159,7 +159,7 @@ Then, we erase the student's memory value matrix on the ℎ concept based on the
 $$
 \tilde{\mathbf{M}}_{s,t}^v(i) = \mathbf{M}_{s,t-1}^v(i) \otimes \left[1^{d_h} - w_q(i)\mathbf{f}_{s,t}\right]
 $$
- (6)
+(6)
 
 where 1 <sup>ℎ</sup> denotes the 1-vector with size ℎ, and ⊗ represents the Hadamard product.
 
@@ -168,22 +168,22 @@ Similarly, we apply another fully connected layer with a Tanh activation on the 
 $$
 \mathbf{a}_{s,t} = \text{Tanh} \left( \mathbf{W}_4^\top \left[ \mathbf{v}_t, \mathbf{u}_s \right] + \mathbf{b}_4 \right)^T
 $$
-  
+
 $$
 \mathbf{M}_{s,t}^v(i) = \tilde{\mathbf{M}}_{s,t-1}^v(i) + w_q(i) \mathbf{a}_{s,t}
 $$
- (7)
+(7)
 
 Notice that, we use (W , b) for ∈ {1, 2, 3, 4} to denote the weights and biases of fully connected layers in the formulas above. We show the network architecture of CPKT in Figure [1.](#page-4-0)
 
-#### <span id="page-3-0"></span>3.3 Continuous Knowledge Tracing
+### <span id="page-3-0"></span>3.3 Continuous Knowledge Tracing
 
 The existing deep knowledge tracing models are trained with the offline batched data, that consists of truncated portions of student sequences. This type of training results in losing the dependence between portions of the same student sequence and creates a problem for personalized KT. Additionally, it cannot be directly used in the real-world online learning environment, where the students incrementally interact with the problems. Using the offline batch
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
-<!-- Image Description: This diagram illustrates a personalized lifelong learning model.  It shows a system with two memory modules (M<sup>v</sup> and M<sup>k</sup>) which read and write data based on prediction requests (q<sub>t</sub>).  A "Transition-Aware Stochastic Shared Embedding" block processes the memory outputs to generate updated memory states (M<sup>v</sup><sub>s,t+1</sub>) using sigmoid and tanh activation functions.  The model incorporates incremental data feeding and an evolving learning trajectory.  The diagram details the data flow and operations within the model's memory management and learning process. -->
+<!-- Image Description: This diagram illustrates a personalized lifelong learning model. It shows a system with two memory modules (M<sup>v</sup> and M<sup>k</sup>) which read and write data based on prediction requests (q<sub>t</sub>). A "Transition-Aware Stochastic Shared Embedding" block processes the memory outputs to generate updated memory states (M<sup>v</sup><sub>s,t+1</sub>) using sigmoid and tanh activation functions. The model incorporates incremental data feeding and an evolving learning trajectory. The diagram details the data flow and operations within the model's memory management and learning process. -->
 
-Figure 1: Online Learning and Prediction Workflow for CPKT. The purple component corresonds to the personalized performance prediction, and the green component describes the personalized knowledge forgetting and acquisition.
+**Figure 1:** Online Learning and Prediction Workflow for CPKT. The purple component corresonds to the personalized performance prediction, and the green component describes the personalized knowledge forgetting and acquisition.
 
 data, the model should be retrained periodically to adapt to the new interaction data and predict the students' next attempts. This retraining is time-consuming. Here, we introduce our Continuous Knowledge Tracing paradigm that includes two components: online learning and prediction (Section [3.3.1\)](#page-4-1), and transition-aware stochastic shared embedding. First, we introduce an online learning paradigm that could iteratively collect each student's data, incrementally update each student's knowledge, and accurately predict each student's next performance over time.
 
@@ -199,50 +199,50 @@ However, SSE requires an auxiliary knowledge graph to compute the switching prob
 
 CIKM '23, October 21–25, 2023, Birmingham, United Kingdom Chunpai Wang and Shaghayegh Sahebi
 
-#### Algorithm 1: CPKT
+### Algorithm 1: CPKT
 
-|    | Input: Observed student responses Ω𝑜𝑏𝑠<br>, including other                                         |
+| | Input: Observed student responses Ω𝑜𝑏𝑠<br>, including other |
 |----|-----------------------------------------------------------------------------------------------------|
-|    | students' and the target student's historical                                                       |
-|    | responses. Hyperparameter 𝜌<br>denotes by SSE                                                       |
-|    | threshold and 𝐻<br>denotes by time window size.                                                     |
-|    | 1 Sort each student's responses by the timestamp.                                                   |
-|    | 2 Generate the learning transition matrix T based on all                                            |
-|    | observed learning trajectories.                                                                     |
-|    | 3 Generate a dictionary D that stores each problem as key                                           |
-|    | and a list of corresponding observed score or correctness                                           |
-|    | from all students as value.                                                                         |
-|    | 4 for each testing time index 𝑡<br>do                                                               |
-| 5  | Extract each student's responses between time index<br>𝑠                                            |
-|    | 𝑡−1<br>, 𝑎𝑠<br>)}𝑖=𝑡−1<br>𝑡<br>− 𝐻<br>and 𝑡<br>= {(𝑞<br>− 1, denotes by Ω<br>𝑖<br>𝑖<br>𝑡−𝐻<br>𝑖=𝑡−𝐻 |
-| 6  | 𝑡−1<br>Feed Ω<br>along with student IDs into model.<br>𝑡−𝐻                                          |
-| 7  | 𝑠<br>for each problem 𝑞<br>and corresponding interaction<br>𝑖                                       |
-|    | 𝑠<br>, 𝑎𝑠<br>𝑡−1<br>(𝑞<br>) ∈ Ω<br>do<br>𝑖<br>𝑖<br>𝑡−𝐻                                              |
-| 8  | Identify the problem embedding k𝑖<br>and interaction                                                |
-|    | embedding v𝑖                                                                                        |
-| 9  | Generate a random number 𝛾<br>∈ [0,<br>1].                                                          |
-| 10 | if 𝛾<br><<br>𝜌<br>then                                                                              |
-| 11 | , where 𝑗<br>∼ 𝑇𝑖𝑗<br>= 𝑝𝑟𝑜𝑏(𝑗<br>  𝑖)<br>Replace k𝑖<br>with k𝑗                                     |
-| 12 | Randomly sample a response 𝑎𝑗<br>for problem 𝑞𝑗                                                     |
-|    | from D.                                                                                             |
-| 13 | Identify the interaction embedding v𝑗<br>for                                                        |
-|    | (𝑞𝑗<br>, 𝑎𝑗), and replace<br>v𝑖<br>with v𝑗                                                          |
-| 14 | end                                                                                                 |
-| 15 | end                                                                                                 |
-| 16 | for each student 𝑠<br>do                                                                            |
-| 17 | Identify the student embedding u𝑠                                                                   |
-| 18 | Generate a random number 𝛾<br>∈ [0,<br>1].                                                          |
-| 19 | if 𝛾<br><<br>𝜌<br>then                                                                              |
-| 20 | Randomly sample a student 𝑧<br>from all students.                                                   |
-| 21 | Identify the student embedding u𝑧                                                                   |
-| 22 | Replace u𝑠<br>with u𝑧                                                                               |
-| 23 | end                                                                                                 |
-| 24 | end                                                                                                 |
-| 25 | Forward and backward pass with the new embeddings                                                   |
-|    | to train the model by minimizing the training loss.                                                 |
-| 26 | Predict the target student's response at time 𝑡.                                                    |
-| 27 | Collect the target student's new response into Ω𝑜𝑏𝑠                                                 |
-| 28 | Update the transition matrix T as well as D.                                                        |
+| | students' and the target student's historical |
+| | responses. Hyperparameter 𝜌<br>denotes by SSE |
+| | threshold and 𝐻<br>denotes by time window size. |
+| | 1 Sort each student's responses by the timestamp. |
+| | 2 Generate the learning transition matrix T based on all |
+| | observed learning trajectories. |
+| | 3 Generate a dictionary D that stores each problem as key |
+| | and a list of corresponding observed score or correctness |
+| | from all students as value. |
+| | 4 for each testing time index 𝑡<br>do |
+| 5 | Extract each student's responses between time index<br>𝑠 |
+| | 𝑡−1<br>, 𝑎𝑠<br>)}𝑖=𝑡−1<br>𝑡<br>− 𝐻<br>and 𝑡<br>= {(𝑞<br>− 1, denotes by Ω<br>𝑖<br>𝑖<br>𝑡−𝐻<br>𝑖=𝑡−𝐻 |
+| 6 | 𝑡−1<br>Feed Ω<br>along with student IDs into model.<br>𝑡−𝐻 |
+| 7 | 𝑠<br>for each problem 𝑞<br>and corresponding interaction<br>𝑖 |
+| | 𝑠<br>, 𝑎𝑠<br>𝑡−1<br>(𝑞<br>) ∈ Ω<br>do<br>𝑖<br>𝑖<br>𝑡−𝐻 |
+| 8 | Identify the problem embedding k𝑖<br>and interaction |
+| | embedding v𝑖 |
+| 9 | Generate a random number 𝛾<br>∈ [0,<br>1]. |
+| 10 | if 𝛾<br><<br>𝜌<br>then |
+| 11 | , where 𝑗<br>∼ 𝑇𝑖𝑗<br>= 𝑝𝑟𝑜𝑏(𝑗<br> 𝑖)<br>Replace k𝑖<br>with k𝑗 |
+| 12 | Randomly sample a response 𝑎𝑗<br>for problem 𝑞𝑗 |
+| | from D. |
+| 13 | Identify the interaction embedding v𝑗<br>for |
+| | (𝑞𝑗<br>, 𝑎𝑗), and replace<br>v𝑖<br>with v𝑗 |
+| 14 | end |
+| 15 | end |
+| 16 | for each student 𝑠<br>do |
+| 17 | Identify the student embedding u𝑠 |
+| 18 | Generate a random number 𝛾<br>∈ [0,<br>1]. |
+| 19 | if 𝛾<br><<br>𝜌<br>then |
+| 20 | Randomly sample a student 𝑧<br>from all students. |
+| 21 | Identify the student embedding u𝑧 |
+| 22 | Replace u𝑠<br>with u𝑧 |
+| 23 | end |
+| 24 | end |
+| 25 | Forward and backward pass with the new embeddings |
+| | to train the model by minimizing the training loss. |
+| 26 | Predict the target student's response at time 𝑡. |
+| 27 | Collect the target student's new response into Ω𝑜𝑏𝑠 |
+| 28 | Update the transition matrix T as well as D. |
 
 to the item contents. Instead, we propose to generate and use a transition matrix based on the student learning trajectories. Learning trajectories typically contain some information on the learning material similarities. For example, if problem A is typically viewed or solved by students right before solving problem B, it may indicate a prerequisite relationship or sharing of similar knowledge concepts between the two problems. The idea of TA-SSE is that the embeddings of these two exercises should share some similarities
 
@@ -257,11 +257,11 @@ For TA-SSE, we build and update a× transition matrix T over time, in which ever
 $$
 T_{ij} = \text{prob}(j \mid i) = \frac{|i \rightarrow j|}{|i|}
 $$
- (8)
+(8)
 
 where | → | denotes the number of records that transit from exercise to exercise and || denotes the total number of records of exercise viewed by all students. We sample the problem embeddings to be swapped during the online training according to this transition matrix T. For student embeddings, we leverage the SSE-SE [\[32\]](#page-9-34) to randomly replace one embedding with another with a predefined sampling threshold.
 
-#### 3.4 Online Training and Testing
+### 3.4 Online Training and Testing
 
 3.4.1 Training Losses. All learnable parameters in the entire CPKT model are trained by minimizing the Root Mean Squared Error (RMSE) or Binary Cross-Entropy loss (BCE) of all students' observed responses or TA-SSE replacement within a sliding time window of size :
 
@@ -284,9 +284,9 @@ Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online
 
 Compared to the non-personalized state-of-the-art deep knowledge tracing models, our proposed CPKT has higher memory costs for the storage of each user's memory slots and embeddings. Notwithstanding, this cost scales linearly with the number of users. With regard to time cost, we have made significant improvements, particularly in cases where education systems are updated frequently, since we do not need to retrain the entire dataset after each update.
 
-#### 4 EXPERIMENTS
+### 4 EXPERIMENTS
 
-#### 4.1 Research Questions
+### 4.1 Research Questions
 
 We conduct extensive experiments on four real-world datasets to investigate three research questions on our proposed CPKT in the task of predicting students' future performance:
 
@@ -294,7 +294,7 @@ We conduct extensive experiments on four real-world datasets to investigate thre
 - RQ2. How do different proposed components affect its prediction performance?
 - RQ3. How does the model perform on the users with different lengths of learning trajectories?
 
-#### 4.2 Datasets
+### 4.2 Datasets
 
 We use four real-world datasets to evaluate the proposed model. The descriptive statistics of each dataset are shown in table [1.](#page-7-0)
 
@@ -333,20 +333,20 @@ We conduct 5-fold user-stratified cross-validation to separate users into train 
 
 <span id="page-7-0"></span>CIKM '23, October 21–25, 2023, Birmingham, United Kingdom Chunpai Wang and Shaghayegh Sahebi
 
-|            |       |           |                     | Mean      | STD       | Correct   | Incorrect | Max      |
+| | | | | Mean | STD | Correct | Incorrect | Max |
 |------------|-------|-----------|---------------------|-----------|-----------|-----------|-----------|----------|
-| Dataset    | Users | Questions | Question<br>Records | Question  | Question  | Question  | Question  | Sequence |
-|            |       |           |                     | Responses | Responses | Responses | Responses | Length   |
-| MORF       | 686   | 10        | 12031               | 0.7763    | 0.2507    | N/A       | N/A       | 46       |
-| ASSIST2015 | 19840 | 100       | 683801              | N/A       | N/A       | 500379    | 183422    | 1000     |
-| EdNet      | 1000  | 11249     | 200931              | N/A       | N/A       | 118767    | 82184     | 1000     |
-| Junyi      | 1564  | 142       | 120984              | N/A       | N/A       | 86654     | 34328     | 1000     |
+| Dataset | Users | Questions | Question<br>Records | Question | Question | Question | Question | Sequence |
+| | | | | Responses | Responses | Responses | Responses | Length |
+| MORF | 686 | 10 | 12031 | 0.7763 | 0.2507 | N/A | N/A | 46 |
+| ASSIST2015 | 19840 | 100 | 683801 | N/A | N/A | 500379 | 183422 | 1000 |
+| EdNet | 1000 | 11249 | 200931 | N/A | N/A | 118767 | 82184 | 1000 |
+| Junyi | 1564 | 142 | 120984 | N/A | N/A | 86654 | 34328 | 1000 |
 
-Table 1: Descriptive Statistics of 4 Real World Datasets.
+**Table 1:** Descriptive Statistics of 4 Real World Datasets.
 
 each user's testing size varies, as some test users may have longer testing sequences than others. Eventually, we compare the average performance over all testing data on all five folds.
 
-#### 4.5 Implementation Details
+### 4.5 Implementation Details
 
 Similar to most of the baselines, we convert the interaction tuple ( , ) into a single value = + × as the lookup key of the embedding layer in the binary response datasets, including AS-SIST15, EdNet, and Junyi. But for the MORF dataset with numerical responses, we feed the tuple ( , ) into a linear layer to get the embedding.
 
@@ -356,7 +356,7 @@ All models are implemented in PyTorch and tested to achieve similar performance 
 
 4.5.1 Regularizations. Other than the proposed TA-SSE strategy to prevent overfitting, we also deploy some other commonly used regularization methods in CPKT and the baselines, such as weight decay, gradient clipping, and early stopping. For gradient norm clipping, we use the threshold 10.0 to avoid gradient exploding for all methods. In addition, we leverage the validation-based earlystopping that uses a small portion of training data as validation data.
 
-#### 4.6 Prediction Performance Results
+### 4.6 Prediction Performance Results
 
 We show the prediction performance for all methods on four datasets in Table [2.](#page-8-0) The table included the average performance ±95% confidence intervals. Since MORF has normalized scores between 0 and 1, we use Root Mean Square Error (RMSE) as the evaluation metric for prediction performance comparison. A low RMSE score indicates a high prediction performance. For the rest of the datasets with binary values to represent correctness, we use the Area Under the Curve (AUC) as the evaluation metric, which is commonly used in the existing literature. A high AUC score accounts for a high prediction performance. We use bold font to indicate the best performance and underline to indicate the second-best performance.
 
@@ -372,49 +372,48 @@ As we could see in Table [2,](#page-8-0) the combination of the personalization 
 
 <span id="page-8-0"></span>Continuous Personalized Knowledge Tracing: Modeling Long-Term Learning in Online Environments CIKM '23, October 21–25, 2023, Birmingham, United Kingdom
 
-|               | MORF      | ASSIST2015 | EdNet     | Junyi     |
+| | MORF | ASSIST2015 | EdNet | Junyi |
 |---------------|-----------|------------|-----------|-----------|
-| Methods       | RMSE      | AUC        | AUC       | AUC       |
-| DKT           | 0.1990    | 0.7142     | 0.6349    | 0.8709    |
-|               | ± 0.0087  | ± 0.0029   | ± 0.0048  | ± 0.0072  |
-| DKVMN         | 0.1995    | 0.7047     | 0.6291    | 0.8685    |
-|               | ± 0.0067  | ± 0.0034   | ± 0.0070  | ± 0.0084  |
-| SAKT          | 0.1975    | 0.6997     | 0.6296    | 0.8208    |
-|               | ± 0.0075  | ± 0.0153   | ± 0.0059  | ± 0.0091  |
-| SAINT         | 0.2190    | 0.6533     | 0.5058    | 0.8406    |
-|               | ± 0.0186  | ± 0.0135   | ± 0.0070  | ± 0.0078  |
-| AKT           | 0.2417    | 0.6870     | 0.6303    | 0.8133    |
-|               | ± 0.0112  | ± 0.0159   | ± 0.0070  | ± 0.0152  |
-| IEKT          | 0.2481    | 0.7204     | 0.5980    | 0.8721    |
-|               | ± 0.0054  | ± 0.0027   | ± 0.0133  | ± 0.0026  |
-| CPKT-W/O-Pers | 0.1919    | 0.7202     | 0.5745    | 0.8546    |
-|               | ± 0.0092  | ± 0.0040   | ± 0.0036  | ± 0.0078  |
-| CPKT-W/O-SSE  | 0.1895    | 0.7092     | 0.5753    | 0.8333    |
-|               | ± 0.0067  | ± 0.0049   | ± 0.0058  | ± 0.0051  |
-| CPKT          | ± 0.0081∗ | ± 0.0032∗  | ± 0.0072∗ | ± 0.0072∗ |
-|               | 0.1752    | 0.7274     | 0.6558    | 0.8802    |
+| Methods | RMSE | AUC | AUC | AUC |
+| DKT | 0.1990 | 0.7142 | 0.6349 | 0.8709 |
+| | ± 0.0087 | ± 0.0029 | ± 0.0048 | ± 0.0072 |
+| DKVMN | 0.1995 | 0.7047 | 0.6291 | 0.8685 |
+| | ± 0.0067 | ± 0.0034 | ± 0.0070 | ± 0.0084 |
+| SAKT | 0.1975 | 0.6997 | 0.6296 | 0.8208 |
+| | ± 0.0075 | ± 0.0153 | ± 0.0059 | ± 0.0091 |
+| SAINT | 0.2190 | 0.6533 | 0.5058 | 0.8406 |
+| | ± 0.0186 | ± 0.0135 | ± 0.0070 | ± 0.0078 |
+| AKT | 0.2417 | 0.6870 | 0.6303 | 0.8133 |
+| | ± 0.0112 | ± 0.0159 | ± 0.0070 | ± 0.0152 |
+| IEKT | 0.2481 | 0.7204 | 0.5980 | 0.8721 |
+| | ± 0.0054 | ± 0.0027 | ± 0.0133 | ± 0.0026 |
+| CPKT-W/O-Pers | 0.1919 | 0.7202 | 0.5745 | 0.8546 |
+| | ± 0.0092 | ± 0.0040 | ± 0.0036 | ± 0.0078 |
+| CPKT-W/O-SSE | 0.1895 | 0.7092 | 0.5753 | 0.8333 |
+| | ± 0.0067 | ± 0.0049 | ± 0.0058 | ± 0.0051 |
+| CPKT | ± 0.0081∗ | ± 0.0032∗ | ± 0.0072∗ | ± 0.0072∗ |
+| | 0.1752 | 0.7274 | 0.6558 | 0.8802 |
 
-Table 2: Student Performance Prediction Results on 4 Real-World Datasets.
+**Table 2:** Student Performance Prediction Results on 4 Real-World Datasets.
 
-Table 3: AUC and BCE Results for Trajectory Length Analysis on EdNet Data.
+**Table 3:** AUC and BCE Results for Trajectory Length Analysis on EdNet Data.
 
-<span id="page-8-1"></span>
 
-| Group  | #Users | Range of    | Mean AUC         |                  |                  | P-Value of CPKT vs. |                     |  |
+| Group | #Users | Range of | Mean AUC | | | P-Value of CPKT vs. | | |
 |--------|--------|-------------|------------------|------------------|------------------|---------------------|---------------------|--|
-|        |        | Test Length | DKT              | DKVMN            | CPKT             | DKT                 | DKVMN               |  |
-| Short  | 199    | [0,110]     | 0.6352           | 0.6427           | 0.6321           | 𝑝<br>= 0.8421       | 𝑝<br>= 0.4767       |  |
-| Medium | 210    | [110,380]   | 0.6422           | 0.6363           | 0.6440           | 𝑝<br>= 0.7375       | 𝑝<br>= 0.1398       |  |
-| Long   | 234    | [380,900]   | 0.6413           | 0.6315           | 0.6475           | p=0.0745            | p=1.51e-05          |  |
-|        |        |             |                  |                  |                  |                     |                     |  |
-|        |        | Range of    |                  | Mean BCE         |                  |                     | P-Value of CPKT vs. |  |
-| Group  | #Users | Test Length | DKT              | DKVMN            | CPKT             | DKT                 | DKVMN               |  |
-| Short  | 199    | [0,110]     | 0.6550           | 0.6884           | 0.6530           | 𝑝<br>= 0.8583       | 𝑝<br>= 0.0154       |  |
-| Medium | 210    | [110,380]   | 0.6474<br>0.6562 | 0.6750<br>0.6942 | 0.6375<br>0.6389 | 𝑝<br>= 0.0475       | 𝑝<br>= 2.87e−09     |  |
+| | | Test Length | DKT | DKVMN | CPKT | DKT | DKVMN | |
+| Short | 199 | [0,110] | 0.6352 | 0.6427 | 0.6321 | 𝑝<br>= 0.8421 | 𝑝<br>= 0.4767 | |
+| Medium | 210 | [110,380] | 0.6422 | 0.6363 | 0.6440 | 𝑝<br>= 0.7375 | 𝑝<br>= 0.1398 | |
+| Long | 234 | [380,900] | 0.6413 | 0.6315 | 0.6475 | p=0.0745 | p=1.51e-05 | |
+| | | | | | | | | |
+| | | Range of | | Mean BCE | | | P-Value of CPKT vs. | |
+| Group | #Users | Test Length | DKT | DKVMN | CPKT | DKT | DKVMN | |
+| Short | 199 | [0,110] | 0.6550 | 0.6884 | 0.6530 | 𝑝<br>= 0.8583 | 𝑝<br>= 0.0154 | |
+| Medium | 210 | [110,380] | 0.6474<br>0.6562 | 0.6750<br>0.6942 | 0.6375<br>0.6389 | 𝑝<br>= 0.0475 | 𝑝<br>= 2.87e−09 | |
 
 than personalization. Overall, none of the personalization or SSE components are dispensable.
 
-#### 4.7 Trajectory Length Analysis
+### 4.7 Trajectory Length Analysis
 
 To have a deeper understanding of our continuous knowledge tracing method, we analyze its performance according to the student learning trajectory lengths. Specifically, we are interested in studying how much online learning along with personalization are helping in knowledge tracing for students with long (vs. short) trajectories. We compare the performance between CPKT and the two most stable baselines (DKT and DKVMN) on EdNet data.
 
@@ -424,11 +423,11 @@ As we could see in Table [3,](#page-8-1) the difference between CPKT and the bas
 
 length increases. Comparing CPKT with itself, we see that its AUC increases for the students with longer trajectories. But it is not true for DKVMN and DKT. Especially in DKVMN, we see a better AUC performance for students with shorter trajectory lengths. This shows the superiority of CPKT for continuous knowledge tracing, compared to the baselines.
 
-#### 5 CONCLUSIONS
+### 5 CONCLUSIONS
 
 In this paper, we proposed Continuous Personalized Knowledge Tracing (CPKT), to track individualized student knowledge and predict student performance over long learning trajectories. CPKT is a personalized memory-augmented neural network that is trained using an online learning and prediction paradigm. Also, we proposed the TA-SSE, a transition-aware stochastic shared embedding regularization method that could resolve the overfitting issues from additional personalized user embeddings and online learning. We conducted extensive experiments on four real-world datasets and showed that CPKT significantly outperforms both personalized and non-personalized deep KT models. Our ablation studies showed that student-specific parameters and stochastic regularizations are both necessary for CPKT's enhanced performance on the task of predicting students' future responses. Also, with the incorporation of TA-SSE, CPKT is able to track student knowledge states in very long sequences without decaying its prediction performance.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 This paper is based upon work supported by the National Science Foundation under Grant No. 2047500.
 

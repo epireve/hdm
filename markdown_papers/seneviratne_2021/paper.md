@@ -87,7 +87,7 @@ Extending the PKGs to the health domain, [Gyrard et al.](#page-6-3) define Perso
 ![](_page_1_Figure_0.jpeg)
 <!-- Image Description: This flowchart illustrates a dietary recommendation system. User input (personal health record and food log) and domain expert knowledge (dietary guidelines) are processed via time series summarization and knowledge representation. A semantic reasoner integrates this data with personal health and food knowledge graphs to generate dietary recommendations. The system's architecture is shown as a series of interconnected components, visually representing data flow and processing steps. -->
 
-<span id="page-1-0"></span>**Figure 1:**Overview of the System Generating Dietary Recommendations
+<span id="page-1-0"></span>****Figure 1:****Overview of the System Generating Dietary Recommendations
 
 medical datasets and IoT devices containing only information relevant to the user. However, given that broad definition, it is often impossible to determine what would be included and excluded from the graph, especially in a dietary recommendation setting.
 
@@ -114,23 +114,23 @@ Utilizing an extended Time Series Summarization (TSS) framework [\[10\]](#page-6
 
 user [\[10\]](#page-6-7). We extended this framework to generate RDF triples based on temporal patterns found within the data. The patterns discovered are related to the constraints mentioned by T2D patients within the user study mentioned above. Instead of the natural language summaries that would be output from the TSS, we utilize the PHO concepts to capture the temporal patterns in the PHKG as RDF triples. The food log was gathered from synthetic data spanning five weeks at the meal-level granularity using the MyFitnessPal schema. For each meal, we have the nutrient information of the food consumed (i.e., nutrient consumption such as calorie intake) and the names of the foods consumed. Since our goal is to recommend clinically relevant diet recommendations, we focus on temporal patterns on nutrient intake, such as the recommendation to maintain a consistent carbohydrate intake, such as the following temporal summary.
 
-|  | Listing 1: RDF representation for "This past full week |
+| | Listing 1: RDF representation for "This past full week |
 |--|--------------------------------------------------------|
-|  | (starting from Sep 23 and ending on Sep 30, you        |
-|  | have kept your carbohydrate intake relatively          |
-|  | fixed (or consistent)."                                |
+| | (starting from Sep 23 and ending on Sep 30, you |
+| | have kept your carbohydrate intake relatively |
+| | fixed (or consistent)." |
 
-|   | 1 :user a prov:Person.                   |
+| | 1 :user a prov:Person. |
 |---|------------------------------------------|
-|   | 2 :user sio:hasAttribute :               |
-|   | ConsistentCarbohydrateIntake.            |
-|   | 3 :ConsistentCarbohydrateIntake a stato: |
-|   | coefficientOfVariation;                  |
-| 4 | sio:hasValue "0.99"^^xsd:float;          |
-| 5 | prov:startedAtTime "2021-09-23T00        |
-|   | :00:00-00:00"^^xsd:dateTime;             |
-| 6 | prov:endedAtTime "2021-09-30T00          |
-|   | :00:00-00:00"^^xsd:dateTime.             |
+| | 2 :user sio:hasAttribute : |
+| | ConsistentCarbohydrateIntake. |
+| | 3 :ConsistentCarbohydrateIntake a stato: |
+| | coefficientOfVariation; |
+| 4 | sio:hasValue "0.99"^^xsd:float; |
+| 5 | prov:startedAtTime "2021-09-23T00 |
+| | :00:00-00:00"^^xsd:dateTime; |
+| 6 | prov:endedAtTime "2021-09-30T00 |
+| | :00:00-00:00"^^xsd:dateTime. |
 
 A user whose dietary preference is to maintain a lowcarb, high-fat diet would be interested in a summary that specifies how frequently they have been consistent with a low-carb, high-fat diet. The concepts LowCarbDiet, and highFatDiet are defined in the PHO to comprise of a diet either high or low of the corresponding macronutrient as advised by a subject matter expert. The extended-TSS uses these threshold values to determine if the temporal data pertaining to the diet is either a LowCarbDiet and/or highFatDiet, and labels it as such.
 
@@ -146,13 +146,13 @@ on a day-to-day basis using a relationship that encapsulates the consumption of 
 
 <span id="page-3-0"></span>Listing 3: RDF representation for "*You have been maintaining a low-carb, high-fat diet.*"
 
-|   | 1 :user sio:hasAttribute :          |
+| | 1 :user sio:hasAttribute : |
 |---|-------------------------------------|
-|   | LowCarbHighFatNutrientIntakeGoal.   |
-|   | 2 :LowCarbHighFatNutrientIntakeGoal |
-| 3 | sio:hasParticipant :LowCarbDiet, :  |
-|   | HighFatDiet;                        |
-| 4 | sio:hasValue "true"^^xsd:boolean.   |
+| | LowCarbHighFatNutrientIntakeGoal. |
+| | 2 :LowCarbHighFatNutrientIntakeGoal |
+| 3 | sio:hasParticipant :LowCarbDiet, : |
+| | HighFatDiet; |
+| 4 | sio:hasValue "true"^^xsd:boolean. |
 
 Our PHKG comprises patterns such as the ones described above captured as RDF triples, with a specific focus on foods consumed.
 
@@ -164,7 +164,7 @@ In this section, we describe the semantic modeling of two selected ADA guideline
 
 ### <span id="page-3-1"></span>5.1. Example Guidelines
 
-#### Guideline 1: Guideline 1:
+### Guideline 1: Guideline 1:
 
 *"For pre-diabetic and diabetic individuals, diet low in total fat but relatively high in carbohydrates should be replaced with Mediterranean diet."*The semantic encoding of this guideline contains the rules (conditions) for when this recommendation should be valid can be identified. These include (i) the person has T2D or pre-diabetes (since we are applying the rule from ADA), (ii) the person is consuming a diet, and (iii) the diet is classified as a HighCarbDiet and LowFatDiet. In addition, the recommended action specifies that the diet should be replaced with a Mediterranean diet.
 
@@ -174,20 +174,20 @@ Listing 4: OWL expression of Guideline 1.
 2 EquivalentTo:
 3 DietaryAssessment and
 4 prov:wasAssociatedWith some prov:
-         Person and
+Person and
 5 prov:wasAssociatedWith doid:
-         Diabetes or doid:PreDiabetes
+Diabetes or doid:PreDiabetes
 6 SubClassOf:
 7 DiabeticStatusAssessment
 8 Class:
-      DiabeticLowFatHigCarbDietConsumption
+DiabeticLowFatHigCarbDietConsumption
 9 EquivalentTo:
 10 Diabetic and
 11 sio:hasAttribute some
 12 (ConsistentPattern
 13 and (sio:hasAttribute only
 14 (HighCarbDiet and
-                 LowFatDiet)))
+LowFatDiet)))
 15 SubClassOf:
 16 DietConsumption
 
@@ -195,10 +195,10 @@ Listing 4: OWL expression of Guideline 1.
 19 EquivalentTo:
 20 prov:wasAssociatedWith some
 21 (sio:hasAttribute some
-          DiabeticLowFatHigCarbDietConsumption
-           and
-          MediterraneanDietRecommendation
-          )
+DiabeticLowFatHigCarbDietConsumption
+and
+MediterraneanDietRecommendation
+)
 22 SubClassOf:
 23 Directive
 
@@ -208,16 +208,17 @@ Listing 4: OWL expression of Guideline 1.
 28 "{tag: 'Mediterranean'}"
 29 Annotations:
 30 rdfs:label "For pre-diabetic and
-         diabetic individuals diet low
-         in total fat but relatively
-         high in carbohydrates should be
-          replaced with Mediterranean
-         diet."
+diabetic individuals diet low
+in total fat but relatively
+high in carbohydrates should be
+replaced with Mediterranean
+diet."
 31 SubClassOf:
 32 Recommendation
 ```text
 
-#### Guideline 2:
+### Guideline 2:
+
 *"For individuals whose daily insulin dosing is fixed, a consistent pattern of carbohydrate intake with respect to time and amount may be recommended to improve glycemic control and reduce the risk of hypoglycemia."*In the above rule, if a T2D patient is undergoing insulin therapy, they must have a consistent carbohydrate intake. The rule captures insulin intake and food consumption over a given period and determines whether the carbohydrate intake has been consistent. As demonstrated by the rule's OWL encoding in Listing [5,](#page-4-0) there is a temporal pattern descriptor (i.e., ConsistentCarbPattern) that is associated with the consistent consumption of an amount of carbohydrates during a particular meal (e.g., breakfast) as determined by the TSS. There are also specific personal characteristics of a user (i.e., Diabetes status and FixedInsulinDosage), all of which are modeled in the PHO and captured in the PHKG. The recommendation provides the required range as a personalized guideline constraint, which would be used in the downstream application in providing the relevant dietary recommendation.
 
 Listing 5: OWL expression of Guideline 2.
@@ -232,18 +233,18 @@ Listing 5: OWL expression of Guideline 2.
 7 EquivalentTo:
 8 ConsistentPattern and
 9 (sio:hasAttribute some food:
-         Carbohydrates)
+Carbohydrates)
 
 11 Class: ConsistentCarbDietDirective
 12 EquivalentTo:
 13 Diabetic and
 14 (sio:hasAttribute some
-         FixedInsulinDosage) and
+FixedInsulinDosage) and
 15 (sio:hasAttribute some
-         ConsistentCarbPattern) and
+ConsistentCarbPattern) and
 16 prov:wasAssociatedWith some
 17 (sio:hasAttribute some
-          ConsistentCarbRecommendation)
+ConsistentCarbRecommendation)
 
 19 Class: ConsistentCarbRecommendation
 20 EquivalentTo:
@@ -257,15 +258,15 @@ Listing 5: OWL expression of Guideline 2.
 28 'daily total' : '150'}}" .
 29 Annotations:
 30 rdfs:label "For individuals whose
-         daily insulin dosing is fixed,
-         a consistent pattern of
-         carbohydrate intake with
-         respect to time and amount may
-         be recommended to improve
-         glycemic control and reduce the
+daily insulin dosing is fixed,
+a consistent pattern of
+carbohydrate intake with
+respect to time and amount may
+be recommended to improve
+glycemic control and reduce the
 ```text
 
-#### 5.2. Semantic Reasoner in Action
+### 5.2. Semantic Reasoner in Action
 
 Using the guideline rules modeled in Section [5.1](#page-3-1) on the PHKG generated in Section [4,](#page-2-0) we can generate directives that provide clinically relevant dietary recommendations. Specifically, the semantic reasoner would assert a specific subclass of the Directive (e.g., MediterraneanDietDirective or ConsistentCarbDietDirective). These asserted directives would be associated with a certain Recommendation (e.g., MediterraneanDietRecommendation and ConsistentCarbRecommendation), that would inform a downstream application how to provide an appropriate recommendation. We provide several questions that could be translated into SPARQL and evaluated with the insights generated from the semantic reasoner in Section [6.](#page-4-1)
 
@@ -279,11 +280,11 @@ These types of questions take the following form:
 
 - 1.**Progress:** *("How have I been doing (improving, getting worse, maintaining) over the past day/week?)"*- 2.**Consistency:** *("Have I been consistent in my carbohydrate intake?")*- 3.**Compliance:** *("Have I been following a Mediterranean diet?")*To answer these types of questions related to the user's performance, we need to focus on how well their dietary intake matches up with the guidelines within a certain period. For example, the user may be struggling to maintain a consistent carbohydrate intake over the past week because they have been missing breakfast. In such a scenario, a question such as #1 above can be answered by discovering patterns within relevant temporal personal health data and deciding which of these may be the most important to surface to the user.
 
-#### 6.2. Behavioral Recommendations
+### 6.2. Behavioral Recommendations
 
 - 1.**Improve Diet:** *("How can I improve my diet strategy (considering personal preferences and context)?")*- 2.**Improve Performance:** *("Will my current diet strategy improve my performance?")*- 3.**Satisfying Preferences:** *("Does my current diet strategy meet my preferences?")*To successfully answer these questions, we include the user's personal preferences and context in the PHKG. For example, if the user cannot eat breakfast due to their demanding daily schedule, the system has to come up with alternatives to alleviate this problem by recommending different carbohydrate amounts for lunch and dinner or recommend mid-morning snacks.
 
-#### 6.3. Food Recommendations
+### 6.3. Food Recommendations
 
 - 1.**Use Implicit Knowledge:** *("What should I eat for breakfast?")*- 2.**Allergies:** *("What foods can I eat if I have a dairy allergy?")*- 3.**Dislikes:** *("What can I substitute for almonds?")*For question #1 above, even though the question appears generic, using the PHKG, we augment the question with some implicit knowledge available in the PHKG and expand the question to a form such as*"What should I eat for breakfast [diabetic, prefers spicy food, carbohydrates between 30-45 g, not to exceed 150 g daily total]?"*. The constraints that go inside the "[]" are determined using a semantic reasoner (in our workflow, we used the in-built reasoner in Protégé [\[16\]](#page-6-13), and OWLReady2 [\[17\]](#page-6-14) for this purpose). The semantic reasoner evaluates the PHKG against the guidelines to generate the user's dietary needs and preferences. These will be in the form of personalized guideline constraints that provide input to downstream machine learning tasks such as recipe recommendations. In conjunction with the FoodKG [\[4\]](#page-6-1) containing over 1 million recipes, ingredients, and nutrients, we can then recommend an appropriate food item either using SPARQL queries or deep learning based personalized food recommendation methods such as pFoodReq [\[18\]](#page-6-15). Both of these approaches would be able to leverage the food preferences, eating habits encoded in the PHKG, and the dietary guidelines or restrictions as appropriate for the user. Questions #2 and #3 would follow the same process and include the explicit constraints (i.e., allergies and dislikes) stated explicitly.
 

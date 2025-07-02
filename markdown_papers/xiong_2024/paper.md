@@ -25,11 +25,9 @@ keywords:
 - tg-llm
 ---
 
-
-
 # arXiv:2401.06853v6 [cs.CL] 8 Oct 2024
 
-# Large Language Models Can Learn Temporal Reasoning
+## Large Language Models Can Learn Temporal Reasoning
 
 Siheng Xiong<sup>1</sup><sup>∗</sup> , Ali Payani<sup>2</sup><sup>∗</sup> , Ramana Kompella<sup>2</sup> , Faramarz Fekri<sup>1</sup>
 
@@ -46,7 +44,7 @@ As one of the fundamental abilities, temporal reasoning (TR) plays an important 
 ![](_page_0_Figure_10.jpeg)
 <!-- Image Description: This image from an academic paper illustrates a two-step process: text-to-temporal graph translation and temporal graph reasoning. Step 1 shows transforming a text narrative into a temporal graph representing events and their timelines. Step 2 uses this graph to answer a question about the duration of two events, comparing the time spans visually and calculating the differences to determine if the statement is true or false. The graphs are node-link diagrams showing entities (John, Sophia, locations) and relationships (marriage, ownership) across time, with dates specified. The robot icon symbolizes an automated process. -->
 
-Figure 1: Our framework (TG-LLM) performs temporal reasoning in two steps: 1) Text-to-Temporal Graph translation: generate (relevant) temporal graph given the context and keyword (extracted from questions); 2) Temporal Graph Reasoning: perform Chain-of-Thought reasoning over the temporal graph.
+**Figure 1:** Our framework (TG-LLM) performs temporal reasoning in two steps: 1) Text-to-Temporal Graph translation: generate (relevant) temporal graph given the context and keyword (extracted from questions); 2) Temporal Graph Reasoning: perform Chain-of-Thought reasoning over the temporal graph.
 
 [Zhao,](#page-10-2) [2023;](#page-10-2) [Chu et al.,](#page-8-1) [2023;](#page-8-1) [Qiu et al.,](#page-10-3) [2023\)](#page-10-3), preventing their applications from solving complex real-world problems. In particular, TR requires a combination of various skills including mathematical and logical reasoning as well as commonsense knowledge [\(Zhou et al.,](#page-11-0) [2019;](#page-11-0) [Vashishtha et al.,](#page-10-4) [2020;](#page-10-4) [Qin et al.,](#page-10-5) [2021\)](#page-10-5).
 
@@ -74,7 +72,7 @@ A1: (John Thompson owned Pearl Network).
 
 Q2: True or false: event (John Thompson owned Pearl Network) was longer in duration than event (Sophia Parker was married to John Thompson)? A2: True. · · ·
 
-Table 1: Each sample from TGQA dataset is in the form of (temporal graph, story, questions, answers).
+**Table 1:** Each sample from TGQA dataset is in the form of (temporal graph, story, questions, answers).
 
 language-based TR. In this framework, we first translate the context into a latent representation (temporal graph), and then perform reasoning on it. Extensive experiments prove that our novel approach results in superior performance compared to the baselines.
 
@@ -85,26 +83,25 @@ language-based TR. In this framework, we first translate the context into a late
 
 In this section, we present the construction pipeline for TGQA dataset that is fully controllable and re-
 
-<span id="page-2-0"></span>
 
-| Reasoning Type | Question                                                                                           | Answer                                              |
+| Reasoning Type | Question | Answer |
 |----------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Sequencing     | Given the following <n> events: <event_a>, <event_b>, <event_c>,</event_c></event_b></event_a></n> | <event_a>/<event_b>/</event_b></event_a>            |
-|                | <event_d>, · · · , which event is the first/second/third/fourth/· · · one in</event_d>             | <event_c>/<event_d>/</event_d></event_c>            |
-|                | the chronological order?                                                                           | · · ·                                               |
-| Duration       | How long did the event <event_a> last?</event_a>                                                   | <duration_of_event_a></duration_of_event_a>         |
-| Temporal       | How much time passed between the start of <event_a> and the start of</event_a>                     | <gap_between_event_a< td=""></gap_between_event_a<> |
-| Relation       | <event_b>?</event_b>                                                                               | _and_Event_B_startTime>                             |
-|                | What happened right before/after <event_a> started?</event_a>                                      | <event_b> right before/</event_b>                   |
-|                |                                                                                                    | after <event_a></event_a>                           |
-| Facts          | When did the <event_a> occur?</event_a>                                                            | <event_a_starttime></event_a_starttime>             |
-| Extraction     |                                                                                                    |                                                     |
-| Simultaneity   | True or false: <event_a> and <event_b> happened at the same year?</event_b></event_a>              | True / False                                        |
-|                | True or false: <event_a> was still happening when <event_b> started?</event_b></event_a>           | True / False                                        |
-| Comparative    | True or false: <event_a> was longer in duration than <event_b>?</event_b></event_a>                | True / False                                        |
-| Analysis       |                                                                                                    |                                                     |
+| Sequencing | Given the following <n> events: <event_a>, <event_b>, <event_c>,</event_c></event_b></event_a></n> | <event_a>/<event_b>/</event_b></event_a> |
+| | <event_d>, · · · , which event is the first/second/third/fourth/· · · one in</event_d> | <event_c>/<event_d>/</event_d></event_c> |
+| | the chronological order? | · · · |
+| Duration | How long did the event <event_a> last?</event_a> | <duration_of_event_a></duration_of_event_a> |
+| Temporal | How much time passed between the start of <event_a> and the start of</event_a> | <gap_between_event_a< td=""></gap_between_event_a<> |
+| Relation | <event_b>?</event_b> | _and_Event_B_startTime> |
+| | What happened right before/after <event_a> started?</event_a> | <event_b> right before/</event_b> |
+| | | after <event_a></event_a> |
+| Facts | When did the <event_a> occur?</event_a> | <event_a_starttime></event_a_starttime> |
+| Extraction | | |
+| Simultaneity | True or false: <event_a> and <event_b> happened at the same year?</event_b></event_a> | True / False |
+| | True or false: <event_a> was still happening when <event_b> started?</event_b></event_a> | True / False |
+| Comparative | True or false: <event_a> was longer in duration than <event_b>?</event_b></event_a> | True / False |
+| Analysis | | |
 
-Table 2: Reasoning types with the corresponding questions and answers in TGQA.
+**Table 2:** Reasoning types with the corresponding questions and answers in TGQA.
 
 quires minimal supervision for text-temporal graph alignment. Compared with existing datasets [\(Chen](#page-8-2) [et al.,](#page-8-2) [2021;](#page-8-2) [Tan et al.,](#page-10-8) [2023a\)](#page-10-8), we have the groundtruth timelines and more diverse categories and types of TR questions (Table [2\)](#page-2-0). More importantly, the pipeline can be used for various scenarios and tasks. We first split the large temporal knowledge graph, YAGO11k [\(Dasgupta et al.,](#page-8-3) [2018\)](#page-8-3), into subgraphs with a restriction on the number of events, and anonymize the entities to avoid data leakage. Then each story is translated from the subgraph by GPT-3.5 [\(Ouyang et al.,](#page-10-0) [2022\)](#page-10-0). By using some rule-based templates, we obtain reliable question and answer (QA) pairs from the graph. Finally, to reduce the noise introduced from the misalignment between the subgraph and generated story, we propose a semi-automatic verification method.
 
@@ -116,7 +113,7 @@ Step 2: Graph-based Open QA Creation. In TGQA, each sample is in the form of (te
 
 Step 3: Quality Control. In TGQA, noise might be introduced from the misalignment between the given subgraph and LLM-generated story. To address this problem, we propose a semi-automatic verification method. Fully manual inspection is expensive, but by first utilizing LLM we can narrow down potential errors, and only manually inspect the set of unanswered questions by LLM. Specifically, given a generated story, GPT-3.5 is queried on the time of each event in the graph. If it cannot give the correct answer, we consider the event as possibly missing in the story, which requires further manual verification. We proved the effectiveness of our semi-automatic pipeline with fully manual verification of the test stories. Note that supervision is only required for story-TG alignment verification, since all the QAs are generated from rules. We show dataset statistics in Appendix [A,](#page-12-0) and all the prompts involved in Appendix [C.](#page-14-0)
 
-# 3 TG-LLM
+## 3 TG-LLM
 
 Motivated by human perception, we propose a new paradigm called TG-LLM. We first translate the text into a temporal graph (TG), and then guide the LLM to perform deliberate reasoning on it.
 
@@ -135,7 +132,7 @@ Ground-truth TG Generation. For some datasets such as TGQA, a verified TG (corre
 ![](_page_3_Figure_9.jpeg)
 <!-- Image Description: This image displays a flowchart illustrating a reasoning process. It presents multiple examples ("In-context Examples" and "Inference") where a question is answered through a chain of thought (CoT). Each CoT step leads to an answer (True/False) and is associated with a probability value `P<sub>sample</sub>(c<sub>i</sub>)`, representing the model's confidence in its reasoning. The purpose is to demonstrate the model's ability to reason through complex scenarios and provide confidence scores for its conclusions. -->
 
-Figure 2: In Chain-of-Thought (CoT) bootstrapping, we only accept CoTs that lead to correct final answers and sample them according to their contrastive learning scores to balance usefulness and diversity.
+**Figure 2:** In Chain-of-Thought (CoT) bootstrapping, we only accept CoTs that lead to correct final answers and sample them according to their contrastive learning scores to balance usefulness and diversity.
 
 provide several in-context demonstrations which include a story and extracted entities, relations and time expressions as input and the corresponding TG as output (Table [15\)](#page-17-0). For those stories without explicit time expressions, we skip Step (2), and ask GPT-3.5 to provide the temporal order of events. Similar to TGQA, we verify the generated TG by first asking GPT-3.5 the pre-defined QAs, and then manually checking the alignment if GPT-3.5 fails. Supervised Fine-tuning. We first conducted experiments to decide the best in-context format of TG. It is found out that providing a chronological list of events helps LLM perform better TR. In addition, it offers advantages to separate the start and end time of the same event. With these steps, the TG in context is transferred into a timeline with the alignment between entities, relations and times. We perform supervised fine-tuning (SFT) using Llama-2 model [\(Touvron et al.,](#page-10-11) [2023b\)](#page-10-11) with Low-Rank Adaptation (LoRA) [\(Hu et al.,](#page-9-5) [2021\)](#page-9-5). The input and output of the model are the story and aligned timeline, respectively. In experiments, we observe benefits from the SFT on our dataset to
 
@@ -176,12 +173,10 @@ Compared with other tasks, reasoning suffers more from data insufficiency since 
 
 Our framework involves two steps: text-to-TG translation and temporal graph reasoning. Notably, for the reasoning part, the model is trained over ground-truth/verified TGs but infers on the estimated graphs. This discrepancy actually hurts the robustness of reasoning. Thus, we introduce some disturbances on the TG during training. Note that the type of disturbances should be carefully designed in order to avoid confusing the LLM. We first investigate two types of disturbances: (i) remove irrelevant edges (Eq. [5\)](#page-4-5) and (ii) replace edges by using relation synonyms (Eq. [6\)](#page-4-6). An edge (event) is considered irrelevant if not involved in both QA and CoT.
 
-<span id="page-4-5"></span>
 $$
 F_{irr} \in \{F : P(c|g_{\setminus\{F\}}, e, q) \approx P_0\}_{F \in g} \tag{5}
 $$
 
-<span id="page-4-6"></span>
 $$
 F' \in \{ f_R(F) : P(c|f_R(g), e, q) \approx P_0 \}_{F \in g} \quad (6)
 $$
@@ -191,13 +186,12 @@ where P<sup>0</sup> := P(c|g, e, q) denotes the original conditional probability
 <span id="page-4-4"></span>![](_page_4_Figure_17.jpeg)
 <!-- Image Description: This image from an academic paper demonstrates data cleaning techniques on a knowledge graph. Four variations of a graph are presented. The original graph shows nodes representing people (John, Sophia) and locations, linked by edges denoting relationships (married to, born in, owned) and time spans. Subsequent panels show the same data after applying transformations, including removing edges, replacing relation labels with synonyms ("married to" becomes "become life partner"), and altering entity names and time ranges. The purpose is to illustrate data cleaning processes for improving knowledge graph quality. -->
 
-<span id="page-4-3"></span><span id="page-4-2"></span><span id="page-4-1"></span><span id="page-4-0"></span>Figure 3: We further boost the model performance with several graph data augmentation strategies: remove irrelevant edges, use relation synonyms and change entities/times.
+<span id="page-4-3"></span><span id="page-4-2"></span><span id="page-4-1"></span><span id="page-4-0"></span>**Figure 3:** We further boost the model performance with several graph data augmentation strategies: remove irrelevant edges, use relation synonyms and change entities/times.
 
 is obtained from the global mapping of relation names fR(·).
 
 Furthermore, to make sure LLM learns the underlying logic of TR instead of just memorizing semantic information, we introduce another two types of disturbances: (iii) globally map all the entity names in training data to some random names of the same type (Eq[.7\)](#page-5-0) , and (iv) change the times based on a global offset (Eq[.7\)](#page-5-0). For each relation, we generate these random entity names with GPT-3.5 by providing several examples of existing names.
 
-<span id="page-5-0"></span>
 $$
 g' = f_T(f_E(g)), e' = f_T(e),
 $$
@@ -233,50 +227,48 @@ We use Llama2-13B as the baseline due to limited computational resources. We inj
 <span id="page-5-1"></span>![](_page_5_Figure_12.jpeg)
 <!-- Image Description: The image presents a bar chart comparing the performance of four different methods (ICL, SFT, SFT + bs, SFT + bs + aug) for TGQA (presumably a type of question answering task). For each method, three metrics are shown: EM (Exact Match), F1 score, and accuracy (Acc). The chart illustrates how the different methods and their variations affect the performance metrics, demonstrating an improvement in all three metrics across the methods. -->
 
-Figure 4: Performance comparison between different CoT generation strategies on TGQA.
+**Figure 4:** Performance comparison between different CoT generation strategies on TGQA.
 
-<span id="page-5-2"></span>
 
-| Strategy       | ER-T1 | ER-T2 | ER-T3 | ER-T4 |
+| Strategy | ER-T1 | ER-T2 | ER-T3 | ER-T4 |
 |----------------|-------|-------|-------|-------|
-| ICL            | 0.13  | 0.13  | 0.31  | 0.10  |
-| SFT            | 0.04  | 0.17  | 0.13  | 0.10  |
-| SFT + bs       | 0.06  | 0.13  | 0.03  | 0.08  |
-| SFT + bs + aug | 0.03  | 0.05  | 0.04  | 0.05  |
+| ICL | 0.13 | 0.13 | 0.31 | 0.10 |
+| SFT | 0.04 | 0.17 | 0.13 | 0.10 |
+| SFT + bs | 0.06 | 0.13 | 0.03 | 0.08 |
+| SFT + bs + aug | 0.03 | 0.05 | 0.04 | 0.05 |
 
-Table 3: Human evaluation on the generated CoTs by different strategies. ER: error rate; T1: using wrong info; T2: logical inconsistency; T3: external knowledge error; T4: temporal graph error. (Error type explanations are listed in Appendix [B.](#page-12-1))
+**Table 3:** Human evaluation on the generated CoTs by different strategies. ER: error rate; T1: using wrong info; T2: logical inconsistency; T3: external knowledge error; T4: temporal graph error. (Error type explanations are listed in Appendix [B.](#page-12-1))
 
-<span id="page-6-0"></span>
 
-|                      | TGQA  |       | TimeQA |           |       |           |       | TempReason |         |       |       |         |       |       |       |
+| | TGQA | | TimeQA | | | | | TempReason | | | | | | | |
 |----------------------|-------|-------|--------|-----------|-------|-----------|-------|------------|---------|-------|-------|---------|-------|-------|-------|
-| Model                |       |       |        | Easy-mode |       | Hard-mode |       |            | OBQA-L2 |       |       | OBQA-L3 |       |       |       |
-|                      | EM    | F1    | Acc    | EM        | F1    | Acc       | EM    | F1         | Acc     | EM    | F1    | Acc     | EM    | F1    | Acc   |
-| T5-base†             | 0.410 | 0.608 | -      | 0.600     | 0.682 | -         | 0.556 | 0.641      | -       | 0.260 | 0.450 | -       | 0.238 | 0.418 | -     |
-| T5-large†            | 0.548 | 0.713 | -      | 0.631     | 0.716 | -         | 0.595 | 0.681      | -       | 0.327 | 0.509 | -       | 0.288 | 0.468 | -     |
-| Temp-T5†             | 0.640 | 0.778 | -      | -         | -     | -         | -     | -          | -       | 0.318 | 0.496 | -       | 0.261 | 0.430 | -     |
-| REMEMO-base†         | 0.435 | 0.633 | -      | 0.614     | 0.704 | -         | 0.582 | 0.673      | -       | 0.336 | 0.516 | -       | 0.285 | 0.449 | -     |
-| REMEMO-large†        | 0.461 | 0.660 | -      | 0.637     | 0.723 | -         | 0.605 | 0.693      | -       | 0.374 | 0.549 | -       | 0.334 | 0.493 | -     |
-| GPT-3.5 (ICL-SP)     | 0.598 | 0.699 | -      | 0.640     | 0.668 | -         | 0.512 | 0.506      | -       | 0.303 | 0.409 | -       | 0.365 | 0.453 | -     |
-| GPT-3.5 (ICL-CoT)    | 0.706 | 0.788 | -      | 0.565     | 0.603 | -         | 0.436 | 0.464      | -       | 0.340 | 0.478 | -       | 0.243 | 0.348 | -     |
-| GPT-4∗<br>(ICL-SP)   | 0.772 | 0.829 | -      | 0.716     | 0.742 | -         | 0.571 | 0.546      | -       | 0.454 | 0.525 | -       | 0.431 | 0.485 | -     |
-| GPT-4∗<br>(ICL-CoT)  | 0.821 | 0.865 | -      | 0.662     | 0.693 | -         | 0.618 | 0.636      | -       | 0.388 | 0.480 | -       | 0.352 | 0.447 | -     |
-| Llama2-7B (ICL-SP)   | 0.415 | 0.596 | 0.447  | 0.352     | 0.408 | 0.367     | 0.341 | 0.404      | 0.354   | 0.205 | 0.344 | 0.226   | 0.044 | 0.084 | 0.153 |
-| Llama2-7B (ICL-CoT)  | 0.548 | 0.686 | 0.578  | 0.367     | 0.425 | 0.393     | 0.302 | 0.354      | 0.360   | 0.233 | 0.410 | 0.263   | 0.179 | 0.357 | 0.187 |
-| Llama2-13B (ICL-SP)  | 0.440 | 0.609 | 0.526  | 0.439     | 0.493 | 0.450     | 0.427 | 0.481      | 0.437   | 0.284 | 0.452 | 0.289   | 0.189 | 0.370 | 0.183 |
-| Llama2-13B (ICL-CoT) | 0.628 | 0.762 | 0.668  | 0.518     | 0.572 | 0.535     | 0.434 | 0.490      | 0.480   | 0.330 | 0.498 | 0.368   | 0.242 | 0.391 | 0.272 |
-| Llama2-70B (ICL-SP)  | 0.618 | 0.736 | 0.665  | 0.583     | 0.627 | 0.631     | 0.493 | 0.537      | 0.551   | 0.358 | 0.491 | 0.387   | 0.128 | 0.181 | 0.148 |
-| Llama2-70B (ICL-CoT) | 0.761 | 0.838 | 0.796  | 0.552     | 0.612 | 0.623     | 0.447 | 0.501      | 0.512   | 0.325 | 0.477 | 0.345   | 0.303 | 0.393 | 0.318 |
-| Llama2-13B (SFT-SP)  | 0.550 | 0.720 | 0.652  | 0.412     | 0.449 | 0.455     | 0.362 | 0.404      | 0.412   | 0.337 | 0.506 | 0.338   | 0.244 | 0.408 | 0.253 |
-| Llama2-13B (SFT-CoT) | 0.646 | 0.722 | 0.705  | 0.550     | 0.586 | 0.564     | 0.332 | 0.391      | 0.379   | 0.256 | 0.433 | 0.281   | 0.285 | 0.409 | 0.305 |
-| Llama2-13B (SFT-TGR) | 0.797 | 0.850 | 0.819  | 0.664     | 0.691 | 0.673     | 0.631 | 0.664      | 0.649   | 0.424 | 0.522 | 0.432   | 0.356 | 0.469 | 0.399 |
+| Model | | | | Easy-mode | | Hard-mode | | | OBQA-L2 | | | OBQA-L3 | | | |
+| | EM | F1 | Acc | EM | F1 | Acc | EM | F1 | Acc | EM | F1 | Acc | EM | F1 | Acc |
+| T5-base† | 0.410 | 0.608 | - | 0.600 | 0.682 | - | 0.556 | 0.641 | - | 0.260 | 0.450 | - | 0.238 | 0.418 | - |
+| T5-large† | 0.548 | 0.713 | - | 0.631 | 0.716 | - | 0.595 | 0.681 | - | 0.327 | 0.509 | - | 0.288 | 0.468 | - |
+| Temp-T5† | 0.640 | 0.778 | - | - | - | - | - | - | - | 0.318 | 0.496 | - | 0.261 | 0.430 | - |
+| REMEMO-base† | 0.435 | 0.633 | - | 0.614 | 0.704 | - | 0.582 | 0.673 | - | 0.336 | 0.516 | - | 0.285 | 0.449 | - |
+| REMEMO-large† | 0.461 | 0.660 | - | 0.637 | 0.723 | - | 0.605 | 0.693 | - | 0.374 | 0.549 | - | 0.334 | 0.493 | - |
+| GPT-3.5 (ICL-SP) | 0.598 | 0.699 | - | 0.640 | 0.668 | - | 0.512 | 0.506 | - | 0.303 | 0.409 | - | 0.365 | 0.453 | - |
+| GPT-3.5 (ICL-CoT) | 0.706 | 0.788 | - | 0.565 | 0.603 | - | 0.436 | 0.464 | - | 0.340 | 0.478 | - | 0.243 | 0.348 | - |
+| GPT-4∗<br>(ICL-SP) | 0.772 | 0.829 | - | 0.716 | 0.742 | - | 0.571 | 0.546 | - | 0.454 | 0.525 | - | 0.431 | 0.485 | - |
+| GPT-4∗<br>(ICL-CoT) | 0.821 | 0.865 | - | 0.662 | 0.693 | - | 0.618 | 0.636 | - | 0.388 | 0.480 | - | 0.352 | 0.447 | - |
+| Llama2-7B (ICL-SP) | 0.415 | 0.596 | 0.447 | 0.352 | 0.408 | 0.367 | 0.341 | 0.404 | 0.354 | 0.205 | 0.344 | 0.226 | 0.044 | 0.084 | 0.153 |
+| Llama2-7B (ICL-CoT) | 0.548 | 0.686 | 0.578 | 0.367 | 0.425 | 0.393 | 0.302 | 0.354 | 0.360 | 0.233 | 0.410 | 0.263 | 0.179 | 0.357 | 0.187 |
+| Llama2-13B (ICL-SP) | 0.440 | 0.609 | 0.526 | 0.439 | 0.493 | 0.450 | 0.427 | 0.481 | 0.437 | 0.284 | 0.452 | 0.289 | 0.189 | 0.370 | 0.183 |
+| Llama2-13B (ICL-CoT) | 0.628 | 0.762 | 0.668 | 0.518 | 0.572 | 0.535 | 0.434 | 0.490 | 0.480 | 0.330 | 0.498 | 0.368 | 0.242 | 0.391 | 0.272 |
+| Llama2-70B (ICL-SP) | 0.618 | 0.736 | 0.665 | 0.583 | 0.627 | 0.631 | 0.493 | 0.537 | 0.551 | 0.358 | 0.491 | 0.387 | 0.128 | 0.181 | 0.148 |
+| Llama2-70B (ICL-CoT) | 0.761 | 0.838 | 0.796 | 0.552 | 0.612 | 0.623 | 0.447 | 0.501 | 0.512 | 0.325 | 0.477 | 0.345 | 0.303 | 0.393 | 0.318 |
+| Llama2-13B (SFT-SP) | 0.550 | 0.720 | 0.652 | 0.412 | 0.449 | 0.455 | 0.362 | 0.404 | 0.412 | 0.337 | 0.506 | 0.338 | 0.244 | 0.408 | 0.253 |
+| Llama2-13B (SFT-CoT) | 0.646 | 0.722 | 0.705 | 0.550 | 0.586 | 0.564 | 0.332 | 0.391 | 0.379 | 0.256 | 0.433 | 0.281 | 0.285 | 0.409 | 0.305 |
+| Llama2-13B (SFT-TGR) | 0.797 | 0.850 | 0.819 | 0.664 | 0.691 | 0.673 | 0.631 | 0.664 | 0.649 | 0.424 | 0.522 | 0.432 | 0.356 | 0.469 | 0.399 |
 
-Table 4: Main results using different models and strategies. We report exact match (EM), token-level F1 scores, and perplexity-based accuracy (Acc). Note: (1) Results with † are reported in the original papers. We only fine-tune and evaluate the models on our dataset. (2) Results with \*are evaluated on 1000 random test samples.
+**Table 4:** Main results using different models and strategies. We report exact match (EM), token-level F1 scores, and perplexity-based accuracy (Acc). Note: (1) Results with † are reported in the original papers. We only fine-tune and evaluate the models on our dataset. (2) Results with \*are evaluated on 1000 random test samples.
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image presents four bar charts comparing three metrics (ΔEM, ΔF1, ΔAcc) across different methods (ICL-CoT, SFT (TGQA), SFT) for two question-answering tasks (TimeQA in easy and hard modes) and two reasoning tasks (TempReason with OBQA-L2 and OBQA-L3). Each chart displays the change in the three metrics, likely representing performance improvements. The purpose is to quantitatively compare the effectiveness of different methods on various question-answering and reasoning tasks. -->
 
-Figure 5: Performance comparison between different strategies on TimeQA and TempReason. To obtain a fair comparison, we use Llama2-13B as the base model for all strategies. The basic strategy used to calculate the performance changes is in-context learning with standard Input/Output prompt (ICL-SP).
+**Figure 5:** Performance comparison between different strategies on TimeQA and TempReason. To obtain a fair comparison, we use Llama2-13B as the base model for all strategies. The basic strategy used to calculate the performance changes is in-context learning with standard Input/Output prompt (ICL-SP).
 
 ### 3 Main Results
 
@@ -294,22 +286,21 @@ Do these learned capabilities of temporal reasoning generalize to other tasks? W
 
 We ablate different modules to see their contributions to the performance. We show the performance comparison between different configurations (Table [5\)](#page-7-0). To obtain a fair comparison, we use Llama2- 13B as the base model for all configurations. From the ablation study, we obtain some insights: (1) LLM can benefit from explicitly presented (temporal) graph which is intuitive, concise and structured. (2) Given a reliable graph, CoT bootstrapping with contrastive learning brings better performance than vanilla CoT distillation. (3) Data augmentation is necessary for LLMs to perform complex tasks such as temporal reasoning. (4) The introduction of external knowledge such as mathematics and commonsense can further augment the generation.
 
-# 5 Related Work
+## 5 Related Work
 
 Language-based Temporal Reasoning. Recently, language-based TR has gained substantial research focus [\(Liu et al.,](#page-9-7) [2023,](#page-9-7) [2024b;](#page-9-8) [Chen et al.,](#page-8-4) [2024a,](#page-8-4)[b;](#page-8-5) [Wang et al.,](#page-10-14) [2024;](#page-10-14) [Jiayang et al.,](#page-9-9) [2024;](#page-9-9) [Xia et al.,](#page-11-6) [2024\)](#page-11-6). The vision here is to help LMs understand temporal concepts and logic such that they can perform more complicate tasks. Existing methods mainly solve this problem with time-aware language modeling. For example, [\(Rosin et al.,](#page-10-15) [2022;](#page-10-15) [Pereira,](#page-10-16) [2022;](#page-10-16) [Tan et al.,](#page-10-8) [2023a\)](#page-10-8) propose specific pre-training/fine-tuning strategies for robust TR. On the other hand, [\(Ning et al.,](#page-10-17) [2019;](#page-10-17) [Zhou](#page-11-7) [et al.,](#page-11-7) [2020a,](#page-11-7)[b;](#page-11-8) [Yang et al.,](#page-11-9) [2020,](#page-11-9) [2023a\)](#page-11-5) design auxiliary objectives to introduce external temporal
 
-<span id="page-7-0"></span>
 
-| Config.                 | EM    | F1    | Acc   |
+| Config. | EM | F1 | Acc |
 |-------------------------|-------|-------|-------|
-| Baseline (SFT-CoT)      | 0.646 | 0.722 | 0.705 |
-| TG                      | 0.675 | 0.754 | 0.711 |
-| TG + CoT(bs)            | 0.723 | 0.797 | 0.736 |
-| TG + CoT(bs + aug)      | 0.782 | 0.838 | 0.795 |
-| TG + EK + CoT(bs)       | 0.753 | 0.803 | 0.776 |
+| Baseline (SFT-CoT) | 0.646 | 0.722 | 0.705 |
+| TG | 0.675 | 0.754 | 0.711 |
+| TG + CoT(bs) | 0.723 | 0.797 | 0.736 |
+| TG + CoT(bs + aug) | 0.782 | 0.838 | 0.795 |
+| TG + EK + CoT(bs) | 0.753 | 0.803 | 0.776 |
 | TG + EK + CoT(bs + aug) | 0.797 | 0.850 | 0.819 |
 
-Table 5: Ablation study results on TGQA with Llama2- 13B. TG: temporal graph, CoT: chain of thought, EK: external knwoledge, bs: bootstrapping, aug: graph data augmentation.
+**Table 5:** Ablation study results on TGQA with Llama2- 13B. TG: temporal graph, CoT: chain of thought, EK: external knwoledge, bs: bootstrapping, aug: graph data augmentation.
 
 knowledge. Although these methods made some progress, representation learning for the underlying structure and logic of TR are either ignored or not explicitly involved.
 
@@ -319,25 +310,25 @@ Reasoning over Knowledge Graphs. Knowledge graphs (KGs) as the foundation repres
 
 which limit their application to certain tasks, our framework offers enhanced generalization and usability, largely attributed to its innovative use of text-to-graph translation as a precursor to graph reasoning.
 
-# 6 Conclusion
+## 6 Conclusion
 
 TG-LLM, a novel framework for LMs, has been proposed to improve their performance on temporal reasoning. To produce reliable final answers, our framework equips LLMs with the temporal graph and intermediate reasoning steps. Extensive experiments indicate that TG-LLM achieves better performance than existing pipelines. An interesting direction for future work is to extend it to more complex applications such as inductive and abductive reasoning. Due to the graph structure and capability of deliberate reasoning, it is promising to improve the model performance on these tasks as well.
 
-# Limitations
+## Limitations
 
 Graph-augmented approaches [\(Jin et al.,](#page-9-19) [2024;](#page-9-19) [Fan](#page-8-7) [et al.,](#page-8-7) [2024;](#page-8-7) [Shang and Huang,](#page-10-23) [2024;](#page-10-23) [He and Hooi,](#page-9-20) [2024\)](#page-9-20) including TG-LLM help language models better learn related concepts from the perspective of graph. Although we demonstrate TG-LLM has good performance on understanding temporal relations, it still needs adaptations for temporal commonsense reasoning [\(Zhou et al.,](#page-11-0) [2019;](#page-11-0) [Qin et al.,](#page-10-5) [2021\)](#page-10-5). Explicit in-context integration of commonsense presents opportunities for this task. Further, we mainly improve the capability of LLMs by introducing a new paradigm and providing more plausible and informative training data. There can be opportunities such as simulating an environment to provide feedback to LLMs [\(Hao et al.,](#page-9-21) [2023\)](#page-9-21). For example, we can verify the generated TG based on prior knowledge such as the time gap between someone's birth date and death date, i.e., a person's lifespan, should fall into a certain range. In this way, we can further improve the performance.
 
-# Ethics Statement
+## Ethics Statement
 
 In this paper, we adopt YAGO11k for fine-tuning the language models. The dataset is publicly available, and is for research purposes only. We also use GPT model to generate text based on YAGO11k, for which OpenAI has been committed to addressing ethical considerations. In addition, we adopt TimeQA and TempReason for evaluation. Both
 
 datasets are publicly available, and are for research purposes only. However, they may still contain improper or harmful content. None of such content reflects the opinions of the authors.
 
-# Acknowledgements
+## Acknowledgements
 
 This work was supported by a sponsored research award by Cisco Research.
 
-# References
+## References
 
 - <span id="page-8-0"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report.*arXiv preprint arXiv:2303.08774*.
 - <span id="page-8-4"></span>Jianhao Chen, Haoyuan Ouyang, Junyang Ren, Wentao Ding, Wei Hu, and Yuzhong Qu. 2024a. Timelinebased sentence decomposition with in-context learning for temporal fact extraction. *arXiv preprint arXiv:2405.10288*.
@@ -425,44 +416,42 @@ This work was supported by a sponsored research award by Cisco Research.
 <span id="page-12-2"></span>![](_page_12_Figure_0.jpeg)
 <!-- Image Description: The image presents two histograms depicting the frequency distribution of the number of facts in training and test samples. The top histogram shows the distribution for training data, peaking around 8 facts. The bottom histogram displays the distribution for test data, showing a similar, though slightly less skewed distribution. Both histograms illustrate the data's characteristics regarding the number of facts per sample used in the experiment. -->
 
-Figure 6: Number of facts distribution in TGQA.
+**Figure 6:** Number of facts distribution in TGQA.
 
 <span id="page-12-3"></span>![](_page_12_Figure_2.jpeg)
 <!-- Image Description: The image contains two pie charts comparing the distribution of question types in a training set and a test set. Each chart displays nine question types (0-8), represented by different colored segments. The charts' purpose is to show the class balance of the datasets, illustrating the relative proportions of each question type in both the training and testing data used in a machine learning model. The visual comparison helps assess the similarity of the distributions and potential biases. -->
 
-Figure 7: Types of questions distribution in TGQA.
+**Figure 7:** Types of questions distribution in TGQA.
 
 ## <span id="page-12-0"></span>A Dataset Statistics of TGQA
 
 In this section, we provide statistics for our TGQA dataset. We obtain 400 samples for training, 100 for validation and another 100 for test, with about 30 QA pairs in a single sample. We show the distribution of the number of facts (in one sample) in training (with validation) and test set (Figure [6\)](#page-12-2). It determines the complexity of the TR tasks to some extent. We also show the distribu-
 
-<span id="page-12-4"></span>
 
-| Entity Name Mapping   |                              |  |  |  |  |
+| Entity Name Mapping | | | | | |
 |-----------------------|------------------------------|--|--|--|--|
-| Ori                   | New                          |  |  |  |  |
-| Beverly_Adams         | Isabella_Thompson            |  |  |  |  |
-| Edmonton              | Lancaster                    |  |  |  |  |
-| Al_Gore               | Chris_Evans                  |  |  |  |  |
-| Carrara_Stadium       | Maplewood_Arena              |  |  |  |  |
-| Bend_Sinister_(novel) | Lakefield_Chronicles_(novel) |  |  |  |  |
-| · · ·                 | · · ·                        |  |  |  |  |
+| Ori | New | | | | |
+| Beverly_Adams | Isabella_Thompson | | | | |
+| Edmonton | Lancaster | | | | |
+| Al_Gore | Chris_Evans | | | | |
+| Carrara_Stadium | Maplewood_Arena | | | | |
+| Bend_Sinister_(novel) | Lakefield_Chronicles_(novel) | | | | |
+| · · · | · · · | | | | |
 
-Table 6: We use a global mapping for entity names from GPT-3.5 to avoid data leakage.
+**Table 6:** We use a global mapping for entity names from GPT-3.5 to avoid data leakage.
 
-<span id="page-12-5"></span>
 
-| External Knowledge                                   |
+| External Knowledge |
 |------------------------------------------------------|
 | 1885 before 1893 before 1916 before 1918 before 1922 |
-| before 1928 before 1941                              |
-| 1918 - 1916 = 2                                      |
-| 1928 - 1893 = 35                                     |
-| 1928 - 1922 = 6                                      |
-| 1941 - 1918 = 23                                     |
-| 2 < 6 < 23 < 35                                      |
+| before 1928 before 1941 |
+| 1918 - 1916 = 2 |
+| 1928 - 1893 = 35 |
+| 1928 - 1922 = 6 |
+| 1941 - 1918 = 23 |
+| 2 < 6 < 23 < 35 |
 
-Table 7: We integrate the necessary mathematics and commonsense in context as external knowledge for TR.
+**Table 7:** We integrate the necessary mathematics and commonsense in context as external knowledge for TR.
 
 tion of question types in training (with validation) and test set (Figure [7\)](#page-12-3), where Q0: "Which event occurred first, <Event\_A> or <Event\_B>?", Q1: "Given the following <N> events: <Event\_A>, <Event\_B>, <Event\_C>, <Event\_D>, · · · , which event is the first/second/third/fourth/· · · one in the chronological order?", Q2: "How long did the event <Event\_A> last?", Q3: "", Q4: "How much time passed between the start of <Event\_A> and the start of <Event\_B>?", Q5: "What happened right before/after <Event\_A> started?", Q6: "When did the <Event\_A> occur?", Q7: "True or false: <Event\_A> and <Event\_B> happened at the same year?", Q8: "True or false: <Event\_A> was still happening when <Event\_B> started?". Note that we give eight question categories in Table [2,](#page-2-0) since in a strict sense Q0 and Q1 can be considered as the same type. Among all the question types, Q1 has the largest portion since it has multiple variants. Similarly, Q7 with two variants also has a larger portion. To mitigate question category imbalance, we first calculate the metrics for each category, and then use the average as the final scores. Additionally, we show examples for the global mapping for entity names (Table [6\)](#page-12-4) and external knowledge (Table [7\)](#page-12-5) used in our dataset.
 
@@ -470,61 +459,60 @@ tion of question types in training (with validation) and test set (Figure [7\)](
 
 In this section, we present more experiment details for further research. We include graph data aug-
 
-<span id="page-13-0"></span>
 
-| Temporal Graph:                                         |
+| Temporal Graph: |
 |---------------------------------------------------------|
-| (Use relation synonyms/Remove irrelevant edges)         |
-| [1] (John Thompson was born in Weston) starts at 1921;  |
-| [2] (John Thompson run Pearl Network) starts at 1942;   |
-| [3] (Sophia Parker and John Thompson became life        |
-| partner) starts at 1947; [4] (John Thompson and Sophia  |
+| (Use relation synonyms/Remove irrelevant edges) |
+| [1] (John Thompson was born in Weston) starts at 1921; |
+| [2] (John Thompson run Pearl Network) starts at 1942; |
+| [3] (Sophia Parker and John Thompson became life |
+| partner) starts at 1947; [4] (John Thompson and Sophia |
 | Parker became life partner) starts at 1947; [5] (Sophia |
-| Parker and John Thompson became life partner)           |
-| ends at 1953; [6] (John Thompson and Sophia Parker)     |
-| became life partner) ends at 1953; [7] (John Thompson   |
-| run Pearl Network) ends at 1967.                        |
-| Graph-based QAs:                                        |
-| (No need for change)                                    |
-| Q: True or false: event (John Thompson owned Pearl      |
-| Network) was longer in duration than event (Sophia      |
-| Parker was married to John Thompson)?                   |
-| CoT: The duration for each event can be                 |
-| calculated as follows:                                  |
-| (John Thompson owned Pearl Network) starts at           |
-| 1942, ends at 1967, 1967 - 1942 = 25                    |
-| (Sophia Parker was married to John Thompson) starts     |
-| at 1947, ends at 1953, 1953 - 1947 = 6                  |
-| 25 is greater than 6 , thus, the answer is True.        |
-| A: True.                                                |
-| Temporal Graph:                                         |
-| (Change entities/times)                                 |
-| [1] (James Brown was born in Oslo) starts at 1931;      |
-| [2] (James Brown owned Iris Inn) starts at 1952;        |
-| [3] (Ella Perry was married to James Brown) starts      |
-| at 1957; [4] (James Brown was married to Ella Perry)    |
-| starts at 1957; [5] (Ella Perry was married to James    |
-| Brown) ends at 1963; [6] (James Brown was married       |
-| to Ella Perry) ends at 1963; [7] (James Brown owned     |
-| Iris Inn) ends at 1977; [8] (James Brown died in        |
-| Auckland) starts at 1998; [9] (Ella Perry died in       |
-| Monaco) starts at 2005.                                 |
-| Graph-based QAs:                                        |
-| (Change entities/times)                                 |
-| Q: True or false: event (James Brown owned Iris Inn)    |
-| was longer in duration than event (Ella Perry was       |
-| married to James Brown)?                                |
-| CoT: The duration for each event can be                 |
-| calculated as follows:                                  |
-| (James Brown owned Iris Inn) starts at 1952, ends at    |
-| 1977, 1977 - 1952 = 25                                  |
-| (Ella Perry was married to James Brown) starts at       |
-| 1957 , ends at 1963, 1963 - 1957 = 6                    |
-| 25 is greater than 6 , thus, the answer is True.        |
-| A: True.                                                |
-|                                                         |
+| Parker and John Thompson became life partner) |
+| ends at 1953; [6] (John Thompson and Sophia Parker) |
+| became life partner) ends at 1953; [7] (John Thompson |
+| run Pearl Network) ends at 1967. |
+| Graph-based QAs: |
+| (No need for change) |
+| Q: True or false: event (John Thompson owned Pearl |
+| Network) was longer in duration than event (Sophia |
+| Parker was married to John Thompson)? |
+| CoT: The duration for each event can be |
+| calculated as follows: |
+| (John Thompson owned Pearl Network) starts at |
+| 1942, ends at 1967, 1967 - 1942 = 25 |
+| (Sophia Parker was married to John Thompson) starts |
+| at 1947, ends at 1953, 1953 - 1947 = 6 |
+| 25 is greater than 6 , thus, the answer is True. |
+| A: True. |
+| Temporal Graph: |
+| (Change entities/times) |
+| [1] (James Brown was born in Oslo) starts at 1931; |
+| [2] (James Brown owned Iris Inn) starts at 1952; |
+| [3] (Ella Perry was married to James Brown) starts |
+| at 1957; [4] (James Brown was married to Ella Perry) |
+| starts at 1957; [5] (Ella Perry was married to James |
+| Brown) ends at 1963; [6] (James Brown was married |
+| to Ella Perry) ends at 1963; [7] (James Brown owned |
+| Iris Inn) ends at 1977; [8] (James Brown died in |
+| Auckland) starts at 1998; [9] (Ella Perry died in |
+| Monaco) starts at 2005. |
+| Graph-based QAs: |
+| (Change entities/times) |
+| Q: True or false: event (James Brown owned Iris Inn) |
+| was longer in duration than event (Ella Perry was |
+| married to James Brown)? |
+| CoT: The duration for each event can be |
+| calculated as follows: |
+| (James Brown owned Iris Inn) starts at 1952, ends at |
+| 1977, 1977 - 1952 = 25 |
+| (Ella Perry was married to James Brown) starts at |
+| 1957 , ends at 1963, 1963 - 1957 = 6 |
+| 25 is greater than 6 , thus, the answer is True. |
+| A: True. |
+| |
 
-Table 8: We propose several graph data augmentation strategies for reasoning over temporal knowledge graph. The original TG is shown in Table [1.](#page-1-0) We highlight the changed information.
+**Table 8:** We propose several graph data augmentation strategies for reasoning over temporal knowledge graph. The original TG is shown in Table [1.](#page-1-0) We highlight the changed information.
 
 mentation examples, model versions and evaluation tasks & metrics.
 
@@ -552,31 +540,30 @@ Questions (Hard-mode):
 
 George Washington took which position before 1778? What was George Washington's position in early 1780s? · · ·
 
-Table 9: Example questions of two difficulty levels in TimeQA. Easy-mode: the query time expression is explicitly mentioned in the story. Hard-mode: obtaining the answer needs inference based on the temporal relation between the query time expression and the one mentioned in the story.
+**Table 9:** Example questions of two difficulty levels in TimeQA. Easy-mode: the query time expression is explicitly mentioned in the story. Hard-mode: obtaining the answer needs inference based on the temporal relation between the query time expression and the one mentioned in the story.
 
-<span id="page-14-2"></span>
 
-| TempReason                                                 |
+| TempReason |
 |------------------------------------------------------------|
-| Lionel Andrés "Leo" Messi (born 24 June 1987) is an Ar     |
+| Lionel Andrés "Leo" Messi (born 24 June 1987) is an Ar |
 | gentine professional footballer who plays as a forward for |
-| and captains both Major League Soccer club · · ·           |
-|                                                            |
-| Questions (L1):                                            |
-| What is the year after 2010?                               |
-| · · ·                                                      |
-|                                                            |
-| Questions (L2):                                            |
-| What team did Leo Messi play for in 2010?                  |
-| · · ·                                                      |
-|                                                            |
-| Questions (L3):                                            |
-| What team did Leo Messi play for after Barcelona?          |
-| · · ·                                                      |
-|                                                            |
-|                                                            |
+| and captains both Major League Soccer club · · · |
+| |
+| Questions (L1): |
+| What is the year after 2010? |
+| · · · |
+| |
+| Questions (L2): |
+| What team did Leo Messi play for in 2010? |
+| · · · |
+| |
+| Questions (L3): |
+| What team did Leo Messi play for after Barcelona? |
+| · · · |
+| |
+| |
 
-Table 10: Example questions of three difficulty levels under the OBQA setting in TempReason. L1: Time-Time Relation, L2: Time-Event Relation, L3: Event-Event Relation.
+**Table 10:** Example questions of three difficulty levels under the OBQA setting in TempReason. L1: Time-Time Relation, L2: Time-Event Relation, L3: Event-Event Relation.
 
 that lead to the wrong conclusion.
 
@@ -600,31 +587,30 @@ In this section, we show example prompts used in our framework. Specifically, Ta
 
 We provide the fine-grained results of TGQA in Table [11.](#page-15-0) In TGQA, there are nine types of questions as explained in Appendix [A.](#page-12-0) We show all the models with different strategies. Zero-shot performance is also considered to investigate the effect of in-context examples. Note that we do not include zero-shot performance of the Llama2 family since they are not fine-tuned on instructions, i.e., we can not obtain valid zero-shot learning results. For zeroshot learning results, the format of generation is not
 
-<span id="page-15-0"></span>
 
-| Model                                             | TGQA  |       |       |       |       |       |       |       |       |       |
+| Model | TGQA | | | | | | | | | |
 |---------------------------------------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-|                                                   | Q0    | Q1    | Q2    | Q3    | Q4    | Q5    | Q6    | Q7    | Q8    | Total |
-| GPT-3.5‡<br>(0-shot SP)                           | 0.801 | 0.435 | 0.660 | 0.355 | 0.930 | 0.955 | 0.710 | 0.315 | 0.617 | 0.642 |
-| GPT-3.5 (1-shot SP)                               | 0.842 | 0.411 | 0.656 | 0.555 | 0.924 | 0.650 | 0.500 | 0.353 | 0.495 | 0.598 |
-| GPT-3.5‡<br>(0-shot CoT)                          | 0.930 | 0.565 | 0.680 | 0.665 | 0.920 | 0.945 | 0.695 | 0.395 | 0.596 | 0.710 |
-| GPT-3.5 (1-shot CoT)                              | 0.884 | 0.457 | 0.783 | 0.791 | 0.921 | 0.832 | 0.755 | 0.357 | 0.574 | 0.706 |
-| GPT-4‡∗ (0-shot SP)                               | 0.801 | 0.689 | 0.920 | 0.620 | 0.930 | 0.940 | 0.758 | 0.575 | 0.737 | 0.776 |
-| GPT-4∗<br>(1-shot SP)                             | 0.820 | 0.660 | 0.870 | 0.630 | 0.910 | 0.990 | 0.760 | 0.610 | 0.700 | 0.772 |
-| GPT-4‡∗ (0-shot CoT)                              | 0.950 | 0.692 | 0.901 | 0.881 | 0.919 | 0.980 | 0.778 | 0.647 | 0.858 | 0.848 |
-| GPT-4∗<br>(1-shot CoT)                            | 0.930 | 0.758 | 0.903 | 0.869 | 0.892 | 0.920 | 0.758 | 0.667 | 0.680 | 0.821 |
-| Llama2-7B (1-shot SP)                             | 0.554 | 0.216 | 0.163 | 0.147 | 0.353 | 0.924 | 0.683 | 0.115 | 0.579 | 0.415 |
-| Llama2-7B (1-shot CoT)                            | 0.660 | 0.264 | 0.484 | 0.603 | 0.693 | 0.947 | 0.632 | 0.079 | 0.574 | 0.548 |
-| Llama2-13B (1-shot SP)                            | 0.442 | 0.341 | 0.353 | 0.192 | 0.686 | 0.640 | 0.561 | 0.163 | 0.580 | 0.440 |
-| Llama2-13B (1-shot CoT)                           | 0.597 | 0.263 | 0.670 | 0.678 | 0.881 | 0.947 | 0.736 | 0.258 | 0.622 | 0.628 |
-| Llama2-70B (1-shot SP)                            | 0.752 | 0.447 | 0.520 | 0.349 | 0.941 | 0.891 | 0.665 | 0.413 | 0.585 | 0.618 |
-| Llama2-70B (1-shot CoT)                           | 0.980 | 0.490 | 0.878 | 0.832 | 0.944 | 0.878 | 0.807 | 0.294 | 0.750 | 0.761 |
-| Llama2-13B (1-shot SFT - TG)                      | 0.878 | 0.515 | 0.656 | 0.866 | 0.835 | 0.845 | 0.726 | 0.369 | 0.383 | 0.675 |
-| Llama2-13B (1-shot SFT - TG + CoT(bs))            | 0.947 | 0.732 | 0.747 | 0.825 | 0.931 | 0.987 | 0.495 | 0.466 | 0.649 | 0.753 |
-| Llama2-13B (1-shot SFT - TG + CoT(bs + aug))      | 0.931 | 0.710 | 0.729 | 0.860 | 0.927 | 0.977 | 0.627 | 0.534 | 0.739 | 0.782 |
+| | Q0 | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Total |
+| GPT-3.5‡<br>(0-shot SP) | 0.801 | 0.435 | 0.660 | 0.355 | 0.930 | 0.955 | 0.710 | 0.315 | 0.617 | 0.642 |
+| GPT-3.5 (1-shot SP) | 0.842 | 0.411 | 0.656 | 0.555 | 0.924 | 0.650 | 0.500 | 0.353 | 0.495 | 0.598 |
+| GPT-3.5‡<br>(0-shot CoT) | 0.930 | 0.565 | 0.680 | 0.665 | 0.920 | 0.945 | 0.695 | 0.395 | 0.596 | 0.710 |
+| GPT-3.5 (1-shot CoT) | 0.884 | 0.457 | 0.783 | 0.791 | 0.921 | 0.832 | 0.755 | 0.357 | 0.574 | 0.706 |
+| GPT-4‡∗ (0-shot SP) | 0.801 | 0.689 | 0.920 | 0.620 | 0.930 | 0.940 | 0.758 | 0.575 | 0.737 | 0.776 |
+| GPT-4∗<br>(1-shot SP) | 0.820 | 0.660 | 0.870 | 0.630 | 0.910 | 0.990 | 0.760 | 0.610 | 0.700 | 0.772 |
+| GPT-4‡∗ (0-shot CoT) | 0.950 | 0.692 | 0.901 | 0.881 | 0.919 | 0.980 | 0.778 | 0.647 | 0.858 | 0.848 |
+| GPT-4∗<br>(1-shot CoT) | 0.930 | 0.758 | 0.903 | 0.869 | 0.892 | 0.920 | 0.758 | 0.667 | 0.680 | 0.821 |
+| Llama2-7B (1-shot SP) | 0.554 | 0.216 | 0.163 | 0.147 | 0.353 | 0.924 | 0.683 | 0.115 | 0.579 | 0.415 |
+| Llama2-7B (1-shot CoT) | 0.660 | 0.264 | 0.484 | 0.603 | 0.693 | 0.947 | 0.632 | 0.079 | 0.574 | 0.548 |
+| Llama2-13B (1-shot SP) | 0.442 | 0.341 | 0.353 | 0.192 | 0.686 | 0.640 | 0.561 | 0.163 | 0.580 | 0.440 |
+| Llama2-13B (1-shot CoT) | 0.597 | 0.263 | 0.670 | 0.678 | 0.881 | 0.947 | 0.736 | 0.258 | 0.622 | 0.628 |
+| Llama2-70B (1-shot SP) | 0.752 | 0.447 | 0.520 | 0.349 | 0.941 | 0.891 | 0.665 | 0.413 | 0.585 | 0.618 |
+| Llama2-70B (1-shot CoT) | 0.980 | 0.490 | 0.878 | 0.832 | 0.944 | 0.878 | 0.807 | 0.294 | 0.750 | 0.761 |
+| Llama2-13B (1-shot SFT - TG) | 0.878 | 0.515 | 0.656 | 0.866 | 0.835 | 0.845 | 0.726 | 0.369 | 0.383 | 0.675 |
+| Llama2-13B (1-shot SFT - TG + CoT(bs)) | 0.947 | 0.732 | 0.747 | 0.825 | 0.931 | 0.987 | 0.495 | 0.466 | 0.649 | 0.753 |
+| Llama2-13B (1-shot SFT - TG + CoT(bs + aug)) | 0.931 | 0.710 | 0.729 | 0.860 | 0.927 | 0.977 | 0.627 | 0.534 | 0.739 | 0.782 |
 | Llama2-13B (1-shot SFT - TG + EK + CoT(bs + aug)) | 0.944 | 0.775 | 0.729 | 0.849 | 0.924 | 0.980 | 0.783 | 0.506 | 0.681 | 0.797 |
 
-Table 11: Fine-grained results on TGQA using different models and strategies. We report exact match (EM) as the performance metric. Note: (1) Results with \* are evaluated on 1000 random test samples. (2) Results with ‡ are parsed by GPT-3.5 during evaluation (might introduce errors).
+**Table 11:** Fine-grained results on TGQA using different models and strategies. We report exact match (EM) as the performance metric. Note: (1) Results with \* are evaluated on 1000 random test samples. (2) Results with ‡ are parsed by GPT-3.5 during evaluation (might introduce errors).
 
 guaranteed. The original accuracy is very low since rule-based parser cannot handle it. Instead, we use GPT-3.5 as parser to extract the answer from the generation (might introduce errors). Also, we only adopt one example in context due to context length limitation (long-context LLM performance could increase with more in-context demonstrations).
 
@@ -634,7 +620,7 @@ It can be seen that in-context demonstrations are not necessary for powerful pre
 
 Based on the above facts, generate a short story for me.
 
-Table 12: Example of the graph-based story generation in TGQA.
+**Table 12:** Example of the graph-based story generation in TGQA.
 
 <span id="page-16-1"></span>Once upon a time, in the vibrant city of Seattle, two remarkable individuals, Molly Adams and Liam Thomas Dawson, were born in the year 1896. Little did they know that their destinies were entwined from the very beginning.
 
@@ -644,7 +630,7 @@ Growing up in the same neighborhood, Molly and Liam developed a deep friendship 
 
 When did the event (Molly Adams was married to Liam Thomas Dawson) end?
 
-Table 13: Example of the story-temporal graph alignment verification in TGQA.
+**Table 13:** Example of the story-temporal graph alignment verification in TGQA.
 
 ### <span id="page-16-2"></span>Knox Cunningham
 
@@ -654,7 +640,7 @@ Sir Samuel Knox Cunningham, 1st Baronet, QC (3 April 1909 – 29 July 1976) was 
 
 Extract all the time expressions such as 'June 1994', '1973', 'late 1980s'.
 
-Table 14: Example of the temporal info identification in TimeQA.
+**Table 14:** Example of the temporal info identification in TimeQA.
 
 <span id="page-17-0"></span>Knox Cunningham
 
@@ -664,11 +650,11 @@ Sir Samuel Knox Cunningham, 1st Baronet, QC (3 April 1909 – 29 July 1976) was 
 
 Construct a timeline for Knox Cunningham's position. You should only consider these time points (3 April 1909, 1930s, 1939, 1942, 1943, 1945, 1947, 1949, 1954, 29 July 1976).
 
-Table 15: Example of the temporal graph construction in TimeQA.
+**Table 15:** Example of the temporal graph construction in TimeQA.
 
 Which position did Knox Cunningham hold from May 1955 to Apr 1956?
 
-Table 16: Example of the temporal graph-QA alignment verification in TimeQA.
+**Table 16:** Example of the temporal graph-QA alignment verification in TimeQA.
 
 Useful information:
 
@@ -746,4 +732,4 @@ Useful information: 1948 before 1970 before 2005 before 2007 before 2010 1970 - 
 
 Answer: Let's think step by step.
 
-Table 17: Example of the CoT bootstrapping in TGQA.
+**Table 17:** Example of the CoT bootstrapping in TGQA.

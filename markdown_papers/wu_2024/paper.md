@@ -35,8 +35,6 @@ keywords:
 - yago-hy
 ---
 
-
-
 # <span id="page-0-0"></span>Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs
 
 Zifeng Ding[\\*](#page-0-0)1,2,<sup>3</sup> , Jingcheng Wu\*<sup>4</sup> , Jingpei Wu<sup>1</sup> , Yan Xia<sup>3</sup>,<sup>5</sup> ,
@@ -57,18 +55,18 @@ zd320@cam.ac.uk,
 
 yan.xia@tum.de
 
-# Abstract
+## Abstract
 
 Stemming from traditional knowledge graphs (KGs), hyper-relational KGs (HKGs) provide additional key-value pairs (i.e., qualifiers) for each KG fact that help to better restrict the fact validity. In recent years, there has been an increasing interest in studying graph reasoning over HKGs. Meanwhile, as discussed in recent works that focus on temporal KGs (TKGs), world knowledge is ever-evolving, making it important to reason over temporal facts in KGs. Previous mainstream benchmark HKGs do not explicitly specify temporal information for each HKG fact. Therefore, almost all existing HKG reasoning approaches do not devise any module specifically for temporal reasoning. To better study temporal fact reasoning over HKGs, we propose a new type of data structure named hyper-relational TKG (HTKG). Every fact in an HTKG is coupled with a timestamp explicitly indicating its time validity. We develop two new benchmark HTKG datasets, i.e., Wiki-hy and YAGO-hy, and propose an HTKG reasoning model that efficiently models hyper-relational temporal facts. To support future research on this topic, we open-source our datasets and model[1](#page-0-1) .
 
-# 1 Introduction
+## 1 Introduction
 
 Traditional knowledge graphs (KGs) represent world knowledge by storing a collection of facts in the form of triples. Each KG fact can be described as (s, r, o), where s, o are the subject and object entities of the fact and r denotes the relation between them. On top of traditional triple-based KGs, hyperrelational KGs (HKGs) are designed to introduce additional information into each triple-based fact (also known as primary triple in HKGs) by incorporating a number of key-value restrictions named as qualifiers [\(Zhang et al.,](#page-11-0) [2018;](#page-11-0) [Guan et al.,](#page-9-0) [2019;](#page-9-0)
 
 <span id="page-0-2"></span>![](_page_0_Figure_17.jpeg)
 <!-- Image Description: This image from an academic paper presents two examples of hyper-relational knowledge graphs. (A) depicts Albert Einstein's education, showing his Bachelor's in Mathematics from ETH Zurich and his Doctorate in Physics from the University of Zurich. (B) illustrates Ang Lee's nominations for the Academy Award and European Film Award for Best Non-European Film for "Brokeback Mountain" in 2006 and 2005, respectively. Each example uses nodes (images and text) and edges to represent relationships, demonstrating the structure of hyper-relational knowledge graph facts (KG and TKG). -->
 
-Figure 1: Examples of HKG (A) and HTKG (B) facts. Contents inside dashed line squares denote qualifiers. We also provide another example of HTKG fact showcasing diverse sets of qualifiers in App. [A.](#page-12-0)
+**Figure 1:** Examples of HKG (A) and HTKG (B) facts. Contents inside dashed line squares denote qualifiers. We also provide another example of HTKG fact showcasing diverse sets of qualifiers in App. [A.](#page-12-0)
 
 [Galkin et al.,](#page-9-1) [2020\)](#page-9-1). Compared with triple-based KGs, HKGs provide more complicated semantics. For example, in Fig. [1](#page-0-2) (A), the degree and major information of *Albert Einstein* is provided, which helps to differentiate between the facts regarding two universities attended by him.
 
@@ -92,7 +90,7 @@ Another point worth noting is that some recent works have started to explore whe
 
 To summarize, our contribution is three-folded: (1) We propose a new data structure HTKG that draws attention to temporal fact reasoning over HKGs and propose two corresponding benchmarks (Sec. [2.1](#page-1-0) and [3\)](#page-2-0). (2) We propose HypeTKG, a model specifically designed to reason over HTKGs. Experimental results show that HypeTKG performs well in temporal fact reasoning over HTKGs (Sec. [5.2\)](#page-5-0). (3) We study the influence of TI relational knowledge on HTKG reasoning and adapt HypeTKG to accommodate to TI information. We show that our model can benefit by carefully balancing the information between temporal and TI knowledge (Sec. [5.3\)](#page-6-0).
 
-# 2 Preliminaries and Related Work
+## 2 Preliminaries and Related Work
 
 ## <span id="page-1-0"></span>2.1 Definition and Problem Statement
 
@@ -116,7 +114,7 @@ facts into solely key-value pairs would also cause a problem that the relations 
 
 To draw attention to temporal fact reasoning over hyper-relational facts, a recent work [\(Hou et al.,](#page-9-12) [2023\)](#page-9-12) proposes n-tuple TKG (N-TKG), where each hyper-relational fact is represented with an n-tuple: (r, {ρ<sup>i</sup> : ei} n <sup>i</sup>=1, t). n and t are the arity and the timestamp of the fact, respectively. ρ<sup>i</sup> is the labeled role of the entity e<sup>i</sup> . r denotes fact type. Compared with HTKG, N-TKG has limitation: HTKGs explicitly separate primary facts with additional qualifiers, while N-TKGs mix all the entities from the primary facts and qualifiers and are unable to fully emphasize the importance of primary facts. Hou et al. also propose a model NE-Net for extrapolated LP on N-TKGs. It is not optimal for interpolation because it can only model the graph information before the prediction timestamp. See App. [K](#page-16-0) for more discussion.
 
-# <span id="page-2-0"></span>3 Proposing New Benchmarks
+## <span id="page-2-0"></span>3 Proposing New Benchmarks
 
 We propose two HTKG benchmark datasets Wikihy and YAGO-hy. Wiki-hy contains HTKG facts extracted from Wikidata [\(Vrandecic and Krötzsch,](#page-11-7) [2014\)](#page-11-7), where they happen from year 1513 to 2020. YAGO-hy is constructed from the facts in YAGO3 [\(Mahdisoltani et al.,](#page-10-11) [2015\)](#page-10-11) and the time scope is from year 1830 to 2018. We use previous traditional TKG benchmarks Wikidata11k [\(Jung et al.,](#page-9-3) [2021\)](#page-9-3) and YAGO1830 [\(Han et al.,](#page-9-4) [2021a\)](#page-9-4) as bases and search for the qualifiers of their facts in Wikidata. We use the MediaWiki API[6](#page-2-2) to identify the quadruple-based TKG facts in Wikidata and extract all the qualifiers stated under the corresponding Wikidata statements. Since Wikidata11k is origi-
 
@@ -124,26 +122,25 @@ We propose two HTKG benchmark datasets Wikihy and YAGO-hy. Wiki-hy contains HTKG
 
 <span id="page-2-2"></span><sup>6</sup> https://www.wikidata.org/w/api.php
 
-<span id="page-3-0"></span>
 
-| Dataset | Ntrain   | Nvalid  | Ntest   | Epri    | EQual  | Rpri | RQual |     | T    ∃ Qual | avg( Qual ) | Qual% | GTI    | ETI    |
+| Dataset | Ntrain | Nvalid | Ntest | Epri | EQual | Rpri | RQual | | T ∃ Qual | avg( Qual ) | Qual% | GTI | ETI |
 |---------|----------|---------|---------|---------|--------|------|-------|-----|-------------|-------------|-------|--------|--------|
-| Wiki-hy | 111, 252 | 13, 900 | 13, 926 | 11, 140 | 1, 642 | 92   | 44    | 508 | 26, 670     | 1.59        | 9.59% | 5, 360 | 3, 801 |
-| YAGO-hy | 51, 193  | 10, 973 | 10, 977 | 10, 026 | 359    | 10   | 33    | 188 | 10, 214     | 1.10        | 6.98% | 7, 331 | 5, 782 |
+| Wiki-hy | 111, 252 | 13, 900 | 13, 926 | 11, 140 | 1, 642 | 92 | 44 | 508 | 26, 670 | 1.59 | 9.59% | 5, 360 | 3, 801 |
+| YAGO-hy | 51, 193 | 10, 973 | 10, 977 | 10, 026 | 359 | 10 | 33 | 188 | 10, 214 | 1.10 | 6.98% | 7, 331 | 5, 782 |
 
-Table 1: Dataset statistics. Ntrain/Nvalid/Ntest is the number of facts in the training/validation/test set. |Epri|/|Rpri|/|T | is the number of entities/relations/timestamps in primary quadruples. |EQual|/|RQual| is the number of additional entities/relations only existing in qualifiers. |∃ Qual|/Qual% is the number/the proportion of facts containing at least one qualifier. Complete sets of entities and relations are E = Epri ∪ EQual and R = Rpri ∪ RQual, respectively. ETI is the number of entities additionally introduced in TI facts GTI and ETI ∩ E = ∅.
+**Table 1:** Dataset statistics. Ntrain/Nvalid/Ntest is the number of facts in the training/validation/test set. |Epri|/|Rpri|/|T | is the number of entities/relations/timestamps in primary quadruples. |EQual|/|RQual| is the number of additional entities/relations only existing in qualifiers. |∃ Qual|/Qual% is the number/the proportion of facts containing at least one qualifier. Complete sets of entities and relations are E = Epri ∪ EQual and R = Rpri ∪ RQual, respectively. ETI is the number of entities additionally introduced in TI facts GTI and ETI ∩ E = ∅.
 
 nally extracted from Wikidata, we can directly find its relations and entities in this KB. YAGO1830's entities share the same pool as Wikidata but relation types are taken from*schema.org*. We map YAGO1830's relations to Wikidata's relations to enable fact matching (detailed mapping in App. [B\)](#page-12-1). We provide dataset statistics of both datasets in Table [1.](#page-3-0) Qualifier searching will include additional entities and relations. We include them in model training and evaluation. We augment quadruplebased TKG facts with their searched qualifiers. The facts without any searched qualifier will remain unchanged. All the facts in our datasets are based on English. We discuss why we use Wikidata-based but not other popular ICEWS-based TKGs to construct HTKGs in App. [C.](#page-12-2)
 
 We explore TI knowledge as follows. We first find the top 400 frequent relations in Wikidata KB. Based on them, we then manually check each of them and pick out top 10 frequent relations that describe TI relationships among entities. The selected TI relations are *family name*, *native language*, *subclass of*, *official language*, *child*, *sibling*, *father*, *mother*, *ethnic group*, *country of origin*. We ensure that they are disjoint from the existing relations in the original HTKGs. Starting from the entities in our HTKGs, we search for their associated TI facts in Wikidata, where each of them corresponds to a selected TI relation. For example, for the YAGOhy entity *Emmy Award*, we take the facts such as (*Emmy Award*, *subclass of*, *television award*). As a result, we collect a set of facts denoted as GTI (GTI ∩ Gtr = ∅) for Wiki-hy and YAGO-hy. We allow models to use all of them for enhancing LP over temporal facts during train/valid/test. See Table [1](#page-3-0) for GTI statistics.
 
-# <span id="page-3-1"></span>4 HypeTKG
+## <span id="page-3-1"></span>4 HypeTKG
 
 HypeTKG consists of two parts, i.e., a qualifierattentional time-aware graph encoder (QATGE) and a qualifier matching decoder (QMD). To further learn from TI knowledge, we equip HypeTKG
 
 with additional modules and develop a model variant HypeTKG<sup>ψ</sup> (model structure shown in Fig. [2\)](#page-4-0).
 
-# 1 Qualifier-Attentional Time-Aware Graph Encoder
+## 1 Qualifier-Attentional Time-Aware Graph Encoder
 
 QATGE learns a contextualized representation for every entity. Given an entity e, QATGE first finds its temporal neighbors from Gobs: N<sup>e</sup> = {ζ} = {((e ′ , r′ , t′ ), {(r ′ qi , e′ qi )} n <sup>i</sup>=1)}, where each temporal neighbor ζ is derived from a fact ((e ′ , r′ , e, t′ ), {(r ′ qi , e′ qi )} n <sup>i</sup>=1) ∈ Gobs connecting to e. For each ζ, QATGE employs an attention-based module to model its qualifiers. It computes the representation h ζ qi for the i th qualifier q<sup>i</sup> of ζ with a function ϕ(·, ·).
 
@@ -173,11 +170,10 @@ w ∈ R d is a trainable parameter. h˜<sup>ζ</sup> qi [j] denotes the j th ele
 
 (a) Qualifier-attentional time-aware graph encoder (QATGE). (b) Qualifier matching decoder (QMD).
 
-Figure 2: Model structure of HypeTKG<sup>ψ</sup>. HypeTKG<sup>ψ</sup> first uses QATGE to encode all the entities. It then uses QMD to compute score regarding every candidate entity e<sup>c</sup> ∈ E. Temporal information is considered in both QATGE and QMD for temporal reasoning. The structure of HypeTKG can be derived by excluding the components concerning TI facts. View with Sec. [4](#page-3-1) for better understanding. e ′′ 1 , ..., e′′ n<sup>s</sup> TI and r ′′ 1 , ..., r′′ n<sup>s</sup> TI are the entities and relations from a number of n s TI TI neighbors of query subject s, respectively.
+**Figure 2:** Model structure of HypeTKG<sup>ψ</sup>. HypeTKG<sup>ψ</sup> first uses QATGE to encode all the entities. It then uses QMD to compute score regarding every candidate entity e<sup>c</sup> ∈ E. Temporal information is considered in both QATGE and QMD for temporal reasoning. The structure of HypeTKG can be derived by excluding the components concerning TI facts. View with Sec. [4](#page-3-1) for better understanding. e ′′ 1 , ..., e′′ n<sup>s</sup> TI and r ′′ 1 , ..., r′′ n<sup>s</sup> TI are the entities and relations from a number of n s TI TI neighbors of query subject s, respectively.
 
 where each of its element α<sup>i</sup> [j] denotes the attention score determining how important the j th element of the i th qualifier q<sup>i</sup> is in the j th element of h ζ Qual. The importance increases as the score rises. WQual ∈ R d×d is a weight matrix. h ζ Qual can be viewed as a parameter that adaptively selects the information highly-related to r ′ from all the qualifiers of ζ. To compute e's representation he, we aggregate over all its temporal neighbors in N<sup>e</sup> with a gated structure.
 
-<span id="page-4-2"></span>
 $$
 \mathbf{h}_e = \tfrac{1}{|\mathcal{N}_e|} \sum_{\zeta \in \mathcal{N}_e} \mathbf{W}_2 \phi \left( \mathbf{h}_{(e',t')}, \left( \gamma \mathbf{h}_{\text{qual}}^{\zeta} + (1 - \gamma) \mathbf{h}_{r'} \right) \right), \tag{3}
 $$
@@ -204,7 +200,7 @@ where nall denotes the number of s-related qualifiers and W3,W<sup>4</sup> ∈ R
 $$
 \lambda(e_c) = (\mathbf{h}^{\text{que}} *\mathbf{h}_t)^\top \mathbf{W}_5 \mathbf{h}_{e_c}.
 $$
- (5)
+(5)
 
 W<sup>5</sup> ∈ R d×d is a score matrix. HypeTKG takes the candidate entity with the highest score as the predicted answer.
 
@@ -227,11 +223,11 @@ $$
 $$
 \mathbf{h}_{e} = (1 - \beta) \mathbf{h}_{e}^{\text{temp}} + \beta \mathbf{h}_{e}^{\psi}.
 $$
- (6)
+(6)
 
 β is a trainable parameter controlling the magnitude of TI information. N ψ <sup>e</sup> = {ζ <sup>ψ</sup>} <sup>=</sup> {(e ′′, r′′)|(e ′′, r′′, e) ∈ GTI} denotes e's TI neighbors derived from additional TI facts. h temp <sup>e</sup> and h ψ <sup>e</sup> contain the encoded temporal and TI information, respectively. In QMD, we incorporate TI knowledge when we compute the query feature h que. Same as how we model query qualifiers, we use a TI-wise Transformer to model s's TI neighbors and output a TI feature h s TI. We expand the input length of the query-wise Transformer and input h(s,t)∥hr∥h que Qual∥h glo Qual∥h s TI for computing h que . Note that we do not model TI neighbors of all |E| candidate entities in QMD because (1) this will incur excessive computational cost and (2) this part of information has been learned in QATGE.
 
-#### 4 Parameter Learning
+### 4 Parameter Learning
 
 We minimize a binary cross-entropy (BCE) loss for learning model parameters. We take every fact in Gobs as a query fact δ and switch its object entity o to every other entity e ∈ (E \ {o}) to create |E| − 1 negative facts {δ <sup>−</sup>}. Our loss is defined as
 
@@ -241,7 +237,7 @@ $$
 
 l<sup>δ</sup> = −y<sup>δ</sup> log(λ(δ)) − (1 − yδ) log(1 − λ(δ)), lδ<sup>−</sup> = −yδ<sup>−</sup> log(λ(δ <sup>−</sup>))−(1−yδ<sup>−</sup> ) log(1−λ(δ −)) denote the BCE of δ and δ <sup>−</sup>, respectively. y<sup>δ</sup> = 1 and yδ<sup>−</sup> = 0 because we want to simultaneously maximize λ(δ) and minimize λ(δ <sup>−</sup>). |Gobs| is the number of HTKG facts in Gobs.
 
-# 5 Experiments
+## 5 Experiments
 
 We do HTKG LP over Wiki-hy and YAGO-hy. We report HTKG LP results in Sec. [5.2.](#page-5-0) We study whether additional TI knowledge helps HTKG LP in Sec. [5.3.](#page-6-0) We do ablation studies and study the impact of the ratio of utilized qualifiers in Sec. [5.4.](#page-6-1) Finally, we present several case studies to show the effectiveness of leveraging TI knowledge and qualifier matcher for temporal fact reasoning over HTKGs in Sec. [5.5.](#page-7-0) We provide complexity analysis of our model in App. [D.](#page-12-3) We also study the impact of qualifier-augmented fact proportion and present it in App. [I.](#page-14-0)
 
@@ -255,32 +251,31 @@ We report the HTKG LP results of all methods in Table [2.](#page-6-2) We observe
 
 <span id="page-5-1"></span><sup>8</sup>TKG extrapolation methods are not considered since we only study interpolated LP over HTKGs. Extrapolation methods are constrained to only use the graph information before each LP query, making them suboptimal for interpolation.
 
-<span id="page-6-2"></span>
 
-| Datasets       |       |       | WiKi-hy |             | YAGO-hy |       |       |       |  |
+| Datasets | | | WiKi-hy | | YAGO-hy | | | | |
 |----------------|-------|-------|---------|-------------|---------|-------|-------|-------|--|
-| Model          | MRR   | H@1   | H@3     | H@10        | MRR     | H@1   | H@3   | H@10  |  |
-| DE-SimplE      | 0.351 | 0.218 | 0.405   | 0.640       | 0.684   | 0.625 | 0.715 | 0.807 |  |
-| TeRo           | 0.572 | 0.473 | 0.640   | 0.727       | 0.760   | 0.720 | 0.782 | 0.822 |  |
-| T-GAP          | 0.588 | 0.486 | 0.651   | 0.726       | 0.773   | 0.736 | 0.800 | 0.835 |  |
-| BoxTE          | 0.449 | 0.348 | 0.512   | 0.646       | 0.685   | 0.642 | 0.725 | 0.767 |  |
-| TARGCN         | 0.589 | 0.498 | 0.652   | 0.733       | 0.769   | 0.742 | 0.772 | 0.817 |  |
-| TeAST          | 0.601 | 0.507 | 0.669   | 0.761       | 0.794   | 0.763 | 0.817 | 0.844 |  |
-| HGE            | 0.602 | 0.507 | 0.666   | 0.765       | 0.790   | 0.760 | 0.814 | 0.837 |  |
-| NaLP-Fix       | 0.507 | 0.460 | 0.569   | 0.681       | 0.730   | 0.709 | 0.751 | 0.813 |  |
-| HINGE          | 0.543 | 0.497 | 0.585   | 0.694       | 0.758   | 0.730 | 0.762 | 0.819 |  |
-| HypE           | 0.624 | 0.604 | 0.631   | 0.658       | 0.800   | 0.785 | 0.799 | 0.830 |  |
-| StarE          | 0.565 | 0.491 | 0.599   | 0.703       | 0.765   | 0.737 | 0.776 | 0.820 |  |
-| GRAN           | 0.661 | 0.610 | 0.679   | 0.750       | 0.808   | 0.789 | 0.817 | 0.842 |  |
-| HyconvE        | 0.641 | 0.600 | 0.656   | 0.729       | 0.771   | 0.754 | 0.782 | 0.811 |  |
-| ShrinkE        | 0.669 | 0.593 | 0.703   | 0.789 0.808 |         | 0.782 | 0.824 | 0.852 |  |
-| HyNT           | 0.537 | 0.444 | 0.587   | 0.723       | 0.763   | 0.724 | 0.787 | 0.836 |  |
-| HypeTKG        | 0.687 | 0.633 | 0.710   | 0.789       | 0.832   | 0.817 | 0.838 | 0.857 |  |
-| HypeTKGψ 0.693 |       | 0.642 | 0.715   | 0.792       | 0.842   | 0.821 | 0.839 | 0.858 |  |
+| Model | MRR | H@1 | H@3 | H@10 | MRR | H@1 | H@3 | H@10 | |
+| DE-SimplE | 0.351 | 0.218 | 0.405 | 0.640 | 0.684 | 0.625 | 0.715 | 0.807 | |
+| TeRo | 0.572 | 0.473 | 0.640 | 0.727 | 0.760 | 0.720 | 0.782 | 0.822 | |
+| T-GAP | 0.588 | 0.486 | 0.651 | 0.726 | 0.773 | 0.736 | 0.800 | 0.835 | |
+| BoxTE | 0.449 | 0.348 | 0.512 | 0.646 | 0.685 | 0.642 | 0.725 | 0.767 | |
+| TARGCN | 0.589 | 0.498 | 0.652 | 0.733 | 0.769 | 0.742 | 0.772 | 0.817 | |
+| TeAST | 0.601 | 0.507 | 0.669 | 0.761 | 0.794 | 0.763 | 0.817 | 0.844 | |
+| HGE | 0.602 | 0.507 | 0.666 | 0.765 | 0.790 | 0.760 | 0.814 | 0.837 | |
+| NaLP-Fix | 0.507 | 0.460 | 0.569 | 0.681 | 0.730 | 0.709 | 0.751 | 0.813 | |
+| HINGE | 0.543 | 0.497 | 0.585 | 0.694 | 0.758 | 0.730 | 0.762 | 0.819 | |
+| HypE | 0.624 | 0.604 | 0.631 | 0.658 | 0.800 | 0.785 | 0.799 | 0.830 | |
+| StarE | 0.565 | 0.491 | 0.599 | 0.703 | 0.765 | 0.737 | 0.776 | 0.820 | |
+| GRAN | 0.661 | 0.610 | 0.679 | 0.750 | 0.808 | 0.789 | 0.817 | 0.842 | |
+| HyconvE | 0.641 | 0.600 | 0.656 | 0.729 | 0.771 | 0.754 | 0.782 | 0.811 | |
+| ShrinkE | 0.669 | 0.593 | 0.703 | 0.789 0.808 | | 0.782 | 0.824 | 0.852 | |
+| HyNT | 0.537 | 0.444 | 0.587 | 0.723 | 0.763 | 0.724 | 0.787 | 0.836 | |
+| HypeTKG | 0.687 | 0.633 | 0.710 | 0.789 | 0.832 | 0.817 | 0.838 | 0.857 | |
+| HypeTKGψ 0.693 | | 0.642 | 0.715 | 0.792 | 0.842 | 0.821 | 0.839 | 0.858 | |
 
-Table 2: HTKG LP results. The best results without using TI facts are marked in bold. H@1/H@3/H@10 means Hits@1/Hits@3/Hits@10.
+**Table 2:** HTKG LP results. The best results without using TI facts are marked in bold. H@1/H@3/H@10 means Hits@1/Hits@3/Hits@10.
 
-# <span id="page-6-0"></span>5.3 Do TI Relational Knowledge Help HTKG Reasoning?
+## <span id="page-6-0"></span>5.3 Do TI Relational Knowledge Help HTKG Reasoning?
 
 We let HypeTKG and all baselines use the additional TI facts and report their temporal fact LP performance on Wiki-hy and YAGO-hy in Table [3.](#page-6-3) For the HKG approaches, we directly include these facts into our datasets. For traditional TKG reasoning approaches, we create a number of temporal facts for each TI fact along the whole timeline and include these temporal facts into the datasets. For example, let tmin/tmax denotes the minimum/maximum timestamp of an HTKG. We transform a TI fact (s, r, o) to {(s, r, o, tmin), ...,(s, r, o, tmax)}. Surprisingly, we observe that while HypeTKG constantly benefit from the additional TI relational knowledge, other baselines cannot. We attribute this to the following reasons: (1) TI facts introduce distributional shift. Baseline methods learn TI and temporal knowledge without distinguishing their difference, making them less focused on the temporal facts. (2) HypeTKG employs its gate-structured graph encoder that adaptively controls the amount of information from the TI facts. HypeTKG's decoder also uses Transformer to distinguish the importance of different TI facts. These two steps help HypeTKG to exploit the TI knowledge that is most beneficial in LP and discard the redundant information. We further study whether TI knowledge can improve reasoning on quadruple-based TKGs in App. [H.](#page-14-1)
 
@@ -288,67 +283,63 @@ We let HypeTKG and all baselines use the additional TI facts and report their te
 
 <span id="page-6-6"></span>Ablation Study We conduct ablation studies to demonstrate the importance of different model com-
 
-<span id="page-6-3"></span>
 
-| Datasets  |         | WiKi-hy |        | YAGO-hy |       |        |  |
+| Datasets | | WiKi-hy | | YAGO-hy | | | |
 |-----------|---------|---------|--------|---------|-------|--------|--|
-| Model     | w.o. TI | w. TI   | ∆ ↑    | w.o. TI | w. TI | ∆ ↑    |  |
-| DE-SimplE | 0.351   | 0.326   | -0.025 | 0.684   | 0.643 | -0.041 |  |
-| TeRo      | 0.572   | 0.553   | -0.019 | 0.760   | 0.742 | -0.018 |  |
-| T-GAP     | 0.588   | 0.568   | -0.020 | 0.773   | 0.761 | -0.012 |  |
-| BoxTE     | 0.449   | 0.409   | -0.040 | 0.685   | 0.670 | -0.015 |  |
-| TARGCN    | 0.589   | 0.588   | -0.001 | 0.769   | 0.769 | 0.000  |  |
-| TeAST     | 0.601   | 0.581   | -0.020 | 0.794   | 0.779 | -0.015 |  |
-| HGE       | 0.602   | 0.592   | -0.010 | 0.790   | 0.780 | -0.010 |  |
-| NaLP-Fix  | 0.507   | 0.504   | -0.003 | 0.730   | 0.728 | -0.002 |  |
-| HINGE     | 0.543   | 0.535   | -0.008 | 0.758   | 0.754 | -0.004 |  |
-| HypE      | 0.624   | 0.623   | -0.001 | 0.800   | 0.798 | -0.002 |  |
-| StarE     | 0.565   | 0.547   | -0.018 | 0.765   | 0.758 | -0.007 |  |
-| GRAN      | 0.661   | 0.667   | +0.006 | 0.808   | 0.794 | -0.014 |  |
-| HyconvE   | 0.641   | 0.630   | -0.011 | 0.771   | 0.767 | -0.004 |  |
-| ShrinkE   | 0.669   | 0.655   | -0.014 | 0.808   | 0.806 | -0.002 |  |
-| HyNT      | 0.537   | 0.536   | -0.001 | 0.763   | 0.765 | +0.002 |  |
-| HypeTKG   | 0.687   | 0.693   | +0.006 | 0.832   | 0.842 | +0.010 |  |
+| Model | w.o. TI | w. TI | ∆ ↑ | w.o. TI | w. TI | ∆ ↑ | |
+| DE-SimplE | 0.351 | 0.326 | -0.025 | 0.684 | 0.643 | -0.041 | |
+| TeRo | 0.572 | 0.553 | -0.019 | 0.760 | 0.742 | -0.018 | |
+| T-GAP | 0.588 | 0.568 | -0.020 | 0.773 | 0.761 | -0.012 | |
+| BoxTE | 0.449 | 0.409 | -0.040 | 0.685 | 0.670 | -0.015 | |
+| TARGCN | 0.589 | 0.588 | -0.001 | 0.769 | 0.769 | 0.000 | |
+| TeAST | 0.601 | 0.581 | -0.020 | 0.794 | 0.779 | -0.015 | |
+| HGE | 0.602 | 0.592 | -0.010 | 0.790 | 0.780 | -0.010 | |
+| NaLP-Fix | 0.507 | 0.504 | -0.003 | 0.730 | 0.728 | -0.002 | |
+| HINGE | 0.543 | 0.535 | -0.008 | 0.758 | 0.754 | -0.004 | |
+| HypE | 0.624 | 0.623 | -0.001 | 0.800 | 0.798 | -0.002 | |
+| StarE | 0.565 | 0.547 | -0.018 | 0.765 | 0.758 | -0.007 | |
+| GRAN | 0.661 | 0.667 | +0.006 | 0.808 | 0.794 | -0.014 | |
+| HyconvE | 0.641 | 0.630 | -0.011 | 0.771 | 0.767 | -0.004 | |
+| ShrinkE | 0.669 | 0.655 | -0.014 | 0.808 | 0.806 | -0.002 | |
+| HyNT | 0.537 | 0.536 | -0.001 | 0.763 | 0.765 | +0.002 | |
+| HypeTKG | 0.687 | 0.693 | +0.006 | 0.832 | 0.842 | +0.010 | |
 
-Table 3: MRR for all methods with (w. TI) and without (w.o. TI) TI facts. ∆ ↑ denotes the absolute improvement. Note that HypeTKG w. TI equals HypeTKG<sup>ψ</sup>.
+**Table 3:** MRR for all methods with (w. TI) and without (w.o. TI) TI facts. ∆ ↑ denotes the absolute improvement. Note that HypeTKG w. TI equals HypeTKG<sup>ψ</sup>.
 
 ponents of HypeTKG. In study A (Variant A), we neglect the qualifiers in all HTKG facts and do not include any qualifier learning component. In study B (Variant B), we remove qualifier attention in QATGE. In study C (Variant C), we remove the qualifier matcher in QMD. In study D (Variant D), we exclude time modeling modules and neglect timestamps in primary quadruples. From Table [4,](#page-6-4) we observe that learning qualifiers is essential in reasoning HTKGs. Both qualifier attention in QATGE and qualifier matcher contribute to qualifier modeling. We also find that modeling temporal information is essential for temporal fact reasoning.
 
-<span id="page-6-4"></span>
 
-|           |      | Setting |         | Wiki-hy |       |       | YAGO-hy |       |       |
+| | | Setting | | Wiki-hy | | | YAGO-hy | | |
 |-----------|------|---------|---------|---------|-------|-------|---------|-------|-------|
-| Model     | Time | Q Att   | Q Match | MRR     | H@1   | H@10  | MRR     | H@1   | H@10  |
-| Variant A | ✓    | ✗       | ✗       | 0.642   | 0.569 | 0.775 | 0.795   | 0.770 | 0.841 |
-| Variant B | ✓    | ✗       | ✓       | 0.671   | 0.616 | 0.777 | 0.826   | 0.811 | 0.856 |
-| Variant C | ✓    | ✓       | ✗       | 0.671   | 0.615 | 0.777 | 0.803   | 0.781 | 0.842 |
-| Variant D | ✗    | ✓       | ✓       | 0.652   | 0.597 | 0.751 | 0.792   | 0.769 | 0.835 |
-| HypeTKG ✓ |      | ✓       | ✓       | 0.687   | 0.633 | 0.789 | 0.832   | 0.817 | 0.857 |
+| Model | Time | Q Att | Q Match | MRR | H@1 | H@10 | MRR | H@1 | H@10 |
+| Variant A | ✓ | ✗ | ✗ | 0.642 | 0.569 | 0.775 | 0.795 | 0.770 | 0.841 |
+| Variant B | ✓ | ✗ | ✓ | 0.671 | 0.616 | 0.777 | 0.826 | 0.811 | 0.856 |
+| Variant C | ✓ | ✓ | ✗ | 0.671 | 0.615 | 0.777 | 0.803 | 0.781 | 0.842 |
+| Variant D | ✗ | ✓ | ✓ | 0.652 | 0.597 | 0.751 | 0.792 | 0.769 | 0.835 |
+| HypeTKG ✓ | | ✓ | ✓ | 0.687 | 0.633 | 0.789 | 0.832 | 0.817 | 0.857 |
 
-Table 4: Ablation studies. Q means qualifier.
+**Table 4:** Ablation studies. Q means qualifier.
 
 <span id="page-6-5"></span>![](_page_6_Figure_11.jpeg)
 <!-- Image Description: The image presents a line graph comparing the performance of two knowledge graph embedding methods, Wiki-hy and YAGO-hy, across varying qualifier ratios. It plots Mean Reciprocal Rank (MRR) and Hits@3, both measures of ranking accuracy. Solid lines represent MRR, dashed lines Hits@3, with green for Wiki-hy and red for YAGO-hy. The graph shows that performance generally improves with increasing qualifier ratio for both methods and metrics. -->
 
-Figure 3: HypeTKG performance with a varying ratio of used qualifiers.
+**Figure 3:** HypeTKG performance with a varying ratio of used qualifiers.
 
-<span id="page-7-1"></span>
 
-| Case | Query                                                                        | Answer           | Subject-Related Qualifiers                                                                        | Attention Score                            |
+| Case | Query | Answer | Subject-Related Qualifiers | Attention Score |
 |------|------------------------------------------------------------------------------|------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------|
-| A1   | ((Andrey Kolmogorov, award received, ?, 1941), ∅)                            | USSR State Prize | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | −1<br>9.39e<br>−2<br>6.09e<br>−10<br>2.61e |
-| A2   | ((Andrey Kolmogorov, place of death, ?, 1987),<br>{(country, Soviet Union)}) | Moscow           | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | 0.99<br>−21<br>1.64e<br>−22<br>5.00e       |
+| A1 | ((Andrey Kolmogorov, award received, ?, 1941), ∅) | USSR State Prize | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | −1<br>9.39e<br>−2<br>6.09e<br>−10<br>2.61e |
+| A2 | ((Andrey Kolmogorov, place of death, ?, 1987),<br>{(country, Soviet Union)}) | Moscow | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | 0.99<br>−21<br>1.64e<br>−22<br>5.00e |
 
-Table 5: Case study A: cases for studying qualifier matcher.
+**Table 5:** Case study A: cases for studying qualifier matcher.
 
-<span id="page-7-2"></span>
 
-| Case | Query                                                        | Prediction w. TI    | Prediction w.o. TI | Related TI Facts                                                                                                                           |
+| Case | Query | Prediction w. TI | Prediction w.o. TI | Related TI Facts |
 |------|--------------------------------------------------------------|---------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| B1   | ((Pisa, country, ?, 1860), ∅)                                | Kingdom of Sardinia | Kingdom of Prussia | (Pisa, official language, Italian)<br>(Kingdom of Sardinia, official language, Italian)<br>(Kingdom of Prussia, official language, German) |
-| B2   | ((AK, place of birth, ?, 1903), {(country, Russian Empire)}) | Tbilisi             | Moscow             | (AK, native language, Georgian)<br>(Tbilisi, official language, Georgian)                                                                  |
+| B1 | ((Pisa, country, ?, 1860), ∅) | Kingdom of Sardinia | Kingdom of Prussia | (Pisa, official language, Italian)<br>(Kingdom of Sardinia, official language, Italian)<br>(Kingdom of Prussia, official language, German) |
+| B2 | ((AK, place of birth, ?, 1903), {(country, Russian Empire)}) | Tbilisi | Moscow | (AK, native language, Georgian)<br>(Tbilisi, official language, Georgian) |
 
-Table 6: Case study B: cases for studying the effectiveness of TI relational knowledge. Prediction w./w.o. TI means the prediction result with/without using time-invariant facts.*AK*is the abbreviation of the entity*Aram Khachaturian*.
+**Table 6:** Case study B: cases for studying the effectiveness of TI relational knowledge. Prediction w./w.o. TI means the prediction result with/without using time-invariant facts.*AK*is the abbreviation of the entity*Aram Khachaturian*.
 
 Impact of the Ratio of Utilized Qualifiers To further investigate the importance of learning qualifiers for reasoning hyper-relational temporal facts, we report HypeTKG's performance on Wiki-hy/YAGO-hy by using a varying ratio of utilized qualifiers. We implement HypeTKG on all Wiki-hy/YAGO-hy facts but randomly sample 0%/25%/50%/75%/100% of all the existing qualifiers during training and evaluation. From Fig. [3,](#page-6-5) we observe that HypeTKG achieves better results as the ratio increases, showing a positive correlation between its performance and the number of utilized qualifiers. This indicates that modeling qualifiers is beneficial for LP over temporal facts.
 
@@ -360,19 +351,19 @@ that the query qualifiers have been modeled with a query-specific qualifier feat
 
 B: Effectiveness of TI Knowledge We demonstrate how TI relational knowledge enhances HTKG reasoning with two cases (Table [6\)](#page-7-2). In both cases, HypeTKG achieves optimal prediction by leveraging TI knowledge, and makes mistakes without it. In B1, HypeTKG predicts the false answer *Kingdom of Prussia*without the support of TI facts. However, after considering them, HypeTKG manages to make accurate prediction because*Pisa*should share the same official language with the country that contains it. In B2, since both*Tbilisi*and*Moscow*belonged to*Russian Empire*in 1903, it is hard for HypeTKG to distinguish them during prediction without any further information. However, by knowing that*Aram Khachaturian*'s native language is same as the official language of *Tbilisi*, i.e., Georgian, HypeTKG can exclude the influence of *Moscow*because people speak Russian there.
 
-# 6 Conclusion
+## 6 Conclusion
 
 In this work, we propose a new data structure named HTKG for studying temporal fact reasoning over HKGs. To reason HTKGs, we design a model HypeTKG that is able to simultaneously deal with temporal information and qualifiers. We benchmark HypeTKG and various previous HKG/TKG reasoning methods on two newlyconstructed datasets, i.e., Wiki-hy and YAGO-hy. We show that HypeTKG achieves superior performance on HTKG LP. Besides, we mine the TI relational knowledge from Wikidata KB and study whether it can benefit models on hyper-relational temporal fact reasoning. We find that temporal fact reasoning on HTKGs can be enhanced by carefully balancing the information between temporal and TI knowledge.
 
-# 7 Limitations
+## 7 Limitations
 
 One limitation of our work is that we have not explored qualifier prediction, i.e., predicting the missing elements in the qualifiers. We also have not considered another challenge in temporal fact reasoning, i.e., time prediction. We think our work can be the base of future studies on these two topics. Also, as we have only studied interpolated link prediction on HTKGs, developing HTKG extrapolation methods would also be an important direction in the future. Besides, given the growing interest in inductive learning on traditional TKGs (e.g., [\(Ding et al.,](#page-9-13) [2022b,](#page-9-13) [2023b](#page-9-14)[,a\)](#page-9-15), we believe it is equally important to explore inductive learning on HTKGs, which remains unaddressed in this work.
 
-# Acknowledgement
+## Acknowledgement
 
 This work has been funded by the Munich Center for Machine Learning and supported by the Federal Ministry of Education and Research and the State of Bavaria. Jingcheng Wu has been funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - SFB 1574 - Project number 471687386. The authors thank the International Max Planck Research School for Intelligent Systems (IMPRS-IS) for supporting Bo Xiong. This research has also been partially funded by Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany's Excellence Strategy - EXC 2075 - 390740016, the Stuttgart Center for Simulation Science (SimTech), the European Union's Horizon 2020 research and the the Bundesministerium für Wirtschaft und Energie (BMWi), grant aggrement No. 01MK20008F.
 
-# References
+## References
 
 <span id="page-8-7"></span>Ivana Balazevic, Carl Allen, and Timothy M. Hospedales. 2019. [Tucker: Tensor factorization for](https://doi.org/10.18653/v1/D19-1522) [knowledge graph completion.](https://doi.org/10.18653/v1/D19-1522) In*Proceedings of*
 
@@ -451,37 +442,36 @@ This work has been funded by the Munich Center for Machine Learning and supporte
 
 *of Artificial Intelligence, IAAI 2021, The Eleventh Symposium on Educational Advances in Artificial Intelligence, EAAI 2021, Virtual Event, February 2-9, 2021*, pages 4732–4740. AAAI Press.
 
-# <span id="page-12-0"></span>A Additional HTKG example
+## <span id="page-12-0"></span>A Additional HTKG example
 
 We provide an additional HTKG fact highlighting the diversity of qualifiers within distinct temporal facts happening at the same timestamp (Fig. [4\)](#page-12-4). The two awards *Al Gore*received in*2007*can be differentiated considering the coupled qualifiers.
 
 <span id="page-12-4"></span>![](_page_12_Figure_3.jpeg)
 <!-- Image Description: The image is a timeline showing Al Gore's 2007 Nobel Peace Prize and Primetime Emmy Award. Circular icons represent the Nobel medal and Emmy statuette, with Gore's photo in the center. Connecting lines and text indicate the year and reason for each award: the Nobel Prize was shared with the Intergovernmental Panel on Climate Change, while the Emmy recognized Gore's work on "Current TV." The timeline visually links Gore's achievements in environmental advocacy and media. -->
 
-Figure 4: Additional example of HTKG fact.
+**Figure 4:** Additional example of HTKG fact.
 
-# <span id="page-12-1"></span>B YAGO-hy Construction Details
+## <span id="page-12-1"></span>B YAGO-hy Construction Details
 
 We provide the relation mapping from YAGO1830 to Wikidata in Table [7.](#page-12-5) During matching, we carefully examine YAGO1830 facts and find that*playsFor*represents a person playing for a sports team, and*isAffiliatedTo*represents a person's political affiliation. Therefore, we map*playsFor*to*member of sports team*and*isAffiliatedTo*to*member of political party*. Besides, YAGO1830 is originally a TKG extrapolation dataset, we redistribute its facts and change it into an interpolation dataset before qualifier searching. We ensure that the proportions of the number of facts in train/valid/test sets of YAGO-hy conform to the corresponding sets in YAGO1830.
 
-<span id="page-12-5"></span>
 
-| YAGO Relation  | Wikidata Relation         | Wikidata Relation ID |
+| YAGO Relation | Wikidata Relation | Wikidata Relation ID |
 |----------------|---------------------------|----------------------|
-| wasBornIn      | place of birth            | P19                  |
-| diedIn         | place of death            | P20                  |
-| worksAt        | employer                  | P108                 |
-| playsFor       | member of sports team     | P54                  |
-| hasWonPrize    | award received            | P166                 |
-| isMarriedTo    | spouse                    | P26                  |
-| owns           | owned by−1                | P127                 |
-| graduatedFrom  | educated at               | P69                  |
-| isAffiliatedTo | member of political party | P102                 |
-| created        | notable work              | P800                 |
+| wasBornIn | place of birth | P19 |
+| diedIn | place of death | P20 |
+| worksAt | employer | P108 |
+| playsFor | member of sports team | P54 |
+| hasWonPrize | award received | P166 |
+| isMarriedTo | spouse | P26 |
+| owns | owned by−1 | P127 |
+| graduatedFrom | educated at | P69 |
+| isAffiliatedTo | member of political party | P102 |
+| created | notable work | P800 |
 
-Table 7: Relation type mapping from YAGO1830 to Wikidata. *owned by*−<sup>1</sup> denotes the inverse relation of *owns*
+**Table 7:** Relation type mapping from YAGO1830 to Wikidata. *owned by*−<sup>1</sup> denotes the inverse relation of *owns*
 
-# <span id="page-12-2"></span>C Why Not Construct ICEWS-Based HTKGs?
+## <span id="page-12-2"></span>C Why Not Construct ICEWS-Based HTKGs?
 
 Integrated Crisis Early Warning System (ICEWS) [\(Boschee et al.,](#page-8-4) [2015\)](#page-8-4) is another popular KB for constructing quadruple-based TKGs. Hou et al. [\(Hou et al.,](#page-9-12) [2023\)](#page-9-12) use ICEWS to construct an N-TKG, i.e., NICE. We do not use ICEWS to construct HTKGs due to the following reasons. Different from Wikidata, every fact in ICEWS has no additional statements that can serve as qualifiers. To solve this problem, Hou et al. design rule templates on ICEWS relations and decompose the relation of each ICEWS quadruple-based fact into several parts. For example, an ICEWS-based fact (*Iran*, *express intent to provide humanitarian aid*, *Yemen*, t) will be transformed into:
 
@@ -489,56 +479,53 @@ Integrated Crisis Early Warning System (ICEWS) [\(Boschee et al.,](#page-8-4) [2
 
 N-TKG assumes that this transformation brings auxiliary information into fact quadruples, however, we think the amount of additional information is highly limited. This is because the transformation from an ICEWS-based fact quadruple into an N-TKG fact does not consider any additional information source other than the original quadruple. In other words, the amount of information stored in an ICEWS-based fact quadruple is nearly the same as the amount carried by its n-tuple form. As discussed in previous works about HKGs, qualifiers are introduced to better restrict the fact validity and also increase the data expressiveness. Due to the lack of additional linked statements in ICEWS, it is not easy to construct meaningful HTKGs based on this KB.
 
-# <span id="page-12-3"></span>D Complexity Analysis
+## <span id="page-12-3"></span>D Complexity Analysis
 
 The time complexity of HypeTKG is the same as most of previous GNN-based TKG approaches, which is O(|T ||E| + |T ||R|), where T , E, and R are the number of timestamps, entities, and relations, respectively. Similarly, the memory complexity is O(|E|d + |R|d). The qualifier modeling modules, though requires additional computation, does not increase the time and memory complexity as qualifiers are also composed by entities and relations. As for HypeTKGψ, since it considers
 
 time-invariant knowledge that introduces additional entities and relations, the time complexity becomes O(|T |(|E| + |ETI|) + |T |(|R| + |RTI|)) and the memory complexity is O((|E| + |ETI|)d + (|R| + |RTI|)d). |ETI| and |RTI| are the numbers of introduced new entities and relations in time-invariant facts, respectively.
 
-# <span id="page-13-1"></span>E Evaluation Metrics Details
+## <span id="page-13-1"></span>E Evaluation Metrics Details
 
 MRR computes the mean of the reciprocal ranks for all test queries: <sup>1</sup> 2Ntest P que 1 θque , where θque denotes the rank of the ground truth missing entity in the test query que. Note that for each fact in the test set, we derive two LP queries for both subject and object entity prediction, and therefore, the total number of test queries is 2Ntest. Hits@1/3/10 denotes the proportion of the test queries where ground truth entities are ranked as top 1/3/10.
 
-# <span id="page-13-0"></span>F Complex Vector Mapping Details
+## <span id="page-13-0"></span>F Complex Vector Mapping Details
 
 h C e ′ qi ∈ C d <sup>2</sup> and h C r ′ qi ∈ C d <sup>2</sup> are the complex vectors mapped from h<sup>e</sup> ′ qi and h<sup>r</sup> ′ qi . The real part of h C e ′ qi is the first half of h<sup>e</sup> ′ qi and the imaginary part is the second half, e.g., if h<sup>e</sup> ′ qi = [6, 3]<sup>⊤</sup> ∈ R 2 , then h C e ′ qi = [6 + 3<sup>√</sup> −1]<sup>⊤</sup> ∈ C 1 . h C r ′ qi [j] = cos(h<sup>r</sup> ′ qi [j])+<sup>√</sup> −1 sin(h<sup>r</sup> ′ qi [ d <sup>2</sup> +j]), where h C r ′ qi [j] and h<sup>r</sup> ′ qi [ d <sup>2</sup> +j] denote the j th and ( d <sup>2</sup> +j) th element of h C r ′ qi and h<sup>r</sup> ′ qi , respectively.
 
-# <span id="page-13-2"></span>G Implementation Details
+## <span id="page-13-2"></span>G Implementation Details
 
 We implement all the experiments of HypeTKG and baselines with PyTorch [\(Paszke et al.,](#page-10-12) [2019\)](#page-10-12) on an NVIDIA A40 with 48GB memory and a 2.6GHZ AMD EPYC 7513 32-Core Processor. For HypeTKG, we set the batch size to 256 and use the Adam optimizer with an initial learning rate of 0.0001. We search hyperparameters following Table [8.](#page-13-3) For each dataset, we do 108 trials to try different hyperparameter settings. We run 100 epochs for each trial and compare their validation results. We choose the setting leading to the best validation result and take it as the best hyperparameter setting. The best hyperparameter setting is also stated in Table [8.](#page-13-3) Every result reported is the average result of five runs with different random seeds. The error bars are relatively small and are omitted. We report the total training time of our model until it reaches maximum performance in Table [9.](#page-13-4) We also specify
 
-<span id="page-13-3"></span>
 
-| Hyperparameter                   | Search Space    |
+| Hyperparameter | Search Space |
 |----------------------------------|-----------------|
-| # Layers of Aggregation in QATGE | {1, 2}          |
-| Embedding Size                   | {100, 200, 300} |
-| γ Initialization                 | {0.1, 0.2, 0.3} |
-| β Initialization                 | {0.1, 0.2, 0.3} |
+| # Layers of Aggregation in QATGE | {1, 2} |
+| Embedding Size | {100, 200, 300} |
+| γ Initialization | {0.1, 0.2, 0.3} |
+| β Initialization | {0.1, 0.2, 0.3} |
 
-Table 8: Hyperparameter searching strategy. Optimal hyperparameters are marked in bold. The best hyperparameter settings of both datasets are the same.
+**Table 8:** Hyperparameter searching strategy. Optimal hyperparameters are marked in bold. The best hyperparameter settings of both datasets are the same.
 
-<span id="page-13-4"></span>
 
-| Datasets | YAGO-hy       | Wiki-hy       |  |
+| Datasets | YAGO-hy | Wiki-hy | |
 |----------|---------------|---------------|--|
-| Model    | Training Time | Training Time |  |
-| HypeTKG  | 37.53h        | 48.32h        |  |
-| HypeTKGψ | 40.06h        | 51.72h        |  |
+| Model | Training Time | Training Time | |
+| HypeTKG | 37.53h | 48.32h | |
+| HypeTKGψ | 40.06h | 51.72h | |
 
-Table 9: Training time.
+**Table 9:** Training time.
 
 the GPU memory usage (Table [10\)](#page-13-5) and number of parameters (Table [11\)](#page-14-2).
 
-<span id="page-13-5"></span>
 
-| Datasets | YAGO-hy    | Wiki-hy    |  |
+| Datasets | YAGO-hy | Wiki-hy | |
 |----------|------------|------------|--|
-| Model    | GPU Memory | GPU Memory |  |
-| HypeTKG  | 9,514MB    | 30,858MB   |  |
-| HypeTKGψ | 15,422MB   | 43,976MB   |  |
+| Model | GPU Memory | GPU Memory | |
+| HypeTKG | 9,514MB | 30,858MB | |
+| HypeTKGψ | 15,422MB | 43,976MB | |
 
-|  |  | Table 10: GPU memory usage. |  |
+| | | **Table 10:** GPU memory usage. | |
 |--|--|-----------------------------|--|
 |--|--|-----------------------------|--|
 
@@ -572,30 +559,28 @@ For baselines, we use the official open-sourced implementations of the following
 
 <span id="page-13-19"></span><sup>22</sup>https://github.com/bdi-lab/HyNT
 
-<span id="page-14-2"></span>
 
-| Datasets | YAGO-hy    | Wiki-hy    |
+| Datasets | YAGO-hy | Wiki-hy |
 |----------|------------|------------|
-| Model    | # Param    | # Param    |
-| HypeTKG  | 10,830,222 | 11,028,690 |
+| Model | # Param | # Param |
+| HypeTKG | 10,830,222 | 11,028,690 |
 | HypeTKGψ | 13,075,246 | 13,274,314 |
 
-Table 11: Number of parameters.
+**Table 11:** Number of parameters.
 
-<span id="page-14-3"></span>
 
-| Datasets         |     | WiKi-hy |         | YAGO-hy |        |         |  |
+| Datasets | | WiKi-hy | | YAGO-hy | | | |
 |------------------|-----|---------|---------|---------|--------|---------|--|
-| Model            | MRR | Hits@1  | Hits@10 | MRR     | Hits@1 | Hits@10 |  |
-| Variant Aψ 0.660 |     | 0.587   | 0.791   | 0.818   | 0.797  | 0.855   |  |
+| Model | MRR | Hits@1 | Hits@10 | MRR | Hits@1 | Hits@10 | |
+| Variant Aψ 0.660 | | 0.587 | 0.791 | 0.818 | 0.797 | 0.855 | |
 
-Table 12: TKG LP results with time-invariant knowledge.
+**Table 12:** TKG LP results with time-invariant knowledge.
 
-# <span id="page-14-1"></span>H Can TI Knowledge Improve Reasoning over Traditional TKGs?
+## <span id="page-14-1"></span>H Can TI Knowledge Improve Reasoning over Traditional TKGs?
 
 To answer this question, we also enable Variant A (introduced in Sec. [5.4](#page-6-6) Ablation Study) to use TI facts and develop Variant Aψ. Since Variant A and A <sup>ψ</sup> do not model qualifiers, letting them perform HTKG LP equals doing LP over quadruple-based traditional TKGs. We report Variant Aψ's LP results in Table [12.](#page-14-3) By comparing them with Table [4,](#page-6-4) we find that our TI knowledge modeling components can also effectively enhance reasoning over traditional TKGs.
 
-# <span id="page-14-0"></span>I Impact of Qualifier-Augmented Fact Proportion.
+## <span id="page-14-0"></span>I Impact of Qualifier-Augmented Fact Proportion.
 
 To better quantify HypeTKG's power in learning qualifiers, we sample several datasets from Wikihy and YAGO-hy with different proportions of facts equipped with qualifiers. We experiment HypeTKG and its variants on these new datasets.
 
@@ -603,46 +588,43 @@ To better quantify HypeTKG's power in learning qualifiers, we sample several dat
 
 For example, when we construct Wiki-hy (66), we keep Wiki-hy (100) unchanged and further sample quadruple-based facts from Wiki-hy. If a fact is sampled from the training set of Wiki-hy, then it will be put into the training set of Wikihy (66). For YAGO-hy, we construct YAGO-hy (100)/(66)/(33) in the same way. We keep the data example proportions of train/valid/test sets in Wiki-hy (100)/(66)/(33) same as the ones in Wikihy. YAGO-hy (100)/(66)/(33) follows the same policy. Table [13](#page-14-4) shows the dataset statistics of (100)/(66)/(33) datasets used to study the impact of qualifier-augmented fact proportion. As more quadruple-based facts are added, e.g. from (100) to (66), |Epri|/|Rpri| grows and some entities/relations only existed in qualifiers will appear in primary quadruples, leading to smaller |EQual|/|RQual|. This does not mean that (100)/(66)/(33) datasets share different pools of qualifier-augmented facts. Note that the proportions of facts with at least one qualifier in the original Wiki-hy and YAGO-hy are 9.59% and 6.98% (Table [1\)](#page-3-0), respectively, which are much smaller than 33%.
 
-<span id="page-14-4"></span>
 
-| Dataset      | Ntrain  | Nvalid | Ntest  | Epri    | EQual  | Rpri | RQual | T   |
+| Dataset | Ntrain | Nvalid | Ntest | Epri | EQual | Rpri | RQual | T |
 |--------------|---------|--------|--------|---------|--------|------|-------|-----|
-| Wiki-hy(100) | 21, 210 | 2, 764 | 2, 696 | 3, 392  | 1, 648 | 25   | 49    | 507 |
-| Wiki-hy(66)  | 31, 815 | 4, 146 | 4, 044 | 8, 786  | 1, 643 | 58   | 47    | 507 |
-| Wiki-hy(33)  | 63, 630 | 8, 292 | 8, 088 | 10, 656 | 1, 642 | 72   | 46    | 507 |
-| YAGO-hy(100) | 7, 232  | 1, 530 | 1, 452 | 1, 739  | 414    | 9    | 33    | 187 |
-| YAGO-hy(66)  | 10, 848 | 2, 295 | 2, 178 | 4, 844  | 392    | 10   | 33    | 188 |
-| YAGO-hy(33)  | 21, 696 | 4, 590 | 4, 356 | 7, 339  | 378    | 10   | 33    | 188 |
+| Wiki-hy(100) | 21, 210 | 2, 764 | 2, 696 | 3, 392 | 1, 648 | 25 | 49 | 507 |
+| Wiki-hy(66) | 31, 815 | 4, 146 | 4, 044 | 8, 786 | 1, 643 | 58 | 47 | 507 |
+| Wiki-hy(33) | 63, 630 | 8, 292 | 8, 088 | 10, 656 | 1, 642 | 72 | 46 | 507 |
+| YAGO-hy(100) | 7, 232 | 1, 530 | 1, 452 | 1, 739 | 414 | 9 | 33 | 187 |
+| YAGO-hy(66) | 10, 848 | 2, 295 | 2, 178 | 4, 844 | 392 | 10 | 33 | 188 |
+| YAGO-hy(33) | 21, 696 | 4, 590 | 4, 356 | 7, 339 | 378 | 10 | 33 | 188 |
 
-Table 13: (100)/(66)/(33) dataset statistics.
+**Table 13:** (100)/(66)/(33) dataset statistics.
 
 Experiments We report the performance of HypeTKG and its first three variants on all created datasets in Table [14](#page-15-1) and [15.](#page-15-2) Regardless of the proportion of qualifier-augmented facts, we have two findings: (1) HypeTKG and Variant B & C benefit from qualifiers on all datasets, confirming the importance of learning qualifiers for reasoning hyper-relational temporal facts. (2) Variant B & C constantly underperform HypeTKG on all datasets, proving the effectiveness of both qualifier modeling components. Note that (100)/(66)/(33) datasets have different data distributions as the original datasets. Therefore, it is not meaningful to directly compare each model variant's performance among them (e.g., compare Variant A across Wikihy (100)/(66)/(33)). Our findings are based on different variants' performance on the same dataset (e.g., compare Variant A, B, C and HypeTKG on Wiki-hy(100)).
 
-<span id="page-15-1"></span>
 
-|           | Setting |       |       | Wiki-hy (33) |       |       | Wiki-hy (66) |       |       | Wiki-hy (100) |       |       |
+| | Setting | | | Wiki-hy (33) | | | Wiki-hy (66) | | | Wiki-hy (100) | | |
 |-----------|---------|-------|-------|--------------|-------|-------|--------------|-------|-------|---------------|-------|-------|
-| Model     | Time    | Q Att | Match | MRR          | H@1   | H@10  | MRR          | H@1   | H@10  | MRR           | H@1   | H@10  |
-| Variant A | ✓       | ✗     | ✗     | 0.499        | 0.420 | 0.624 | 0.522        | 0.457 | 0.622 | 0.629         | 0.562 | 0.739 |
-| Variant B | ✓       | ✗     | ✓     | 0.520        | 0.462 | 0.626 | 0.570        | 0.528 | 0.638 | 0.669         | 0.622 | 0.749 |
-| Variant C | ✓       | ✓     | ✗     | 0.519        | 0.461 | 0.622 | 0.567        | 0.524 | 0.639 | 0.662         | 0.607 | 0.749 |
-| HypeTKG   | ✓       | ✓     | ✓     | 0.546        | 0.492 | 0.642 | 0.573        | 0.531 | 0.642 | 0.682         | 0.640 | 0.750 |
+| Model | Time | Q Att | Match | MRR | H@1 | H@10 | MRR | H@1 | H@10 | MRR | H@1 | H@10 |
+| Variant A | ✓ | ✗ | ✗ | 0.499 | 0.420 | 0.624 | 0.522 | 0.457 | 0.622 | 0.629 | 0.562 | 0.739 |
+| Variant B | ✓ | ✗ | ✓ | 0.520 | 0.462 | 0.626 | 0.570 | 0.528 | 0.638 | 0.669 | 0.622 | 0.749 |
+| Variant C | ✓ | ✓ | ✗ | 0.519 | 0.461 | 0.622 | 0.567 | 0.524 | 0.639 | 0.662 | 0.607 | 0.749 |
+| HypeTKG | ✓ | ✓ | ✓ | 0.546 | 0.492 | 0.642 | 0.573 | 0.531 | 0.642 | 0.682 | 0.640 | 0.750 |
 
-Table 14: Study of qualifier-augmented fact proportion on Wiki-hy.
+**Table 14:** Study of qualifier-augmented fact proportion on Wiki-hy.
 
-<span id="page-15-2"></span>
 
-|           | Setting |       |         | YAGO-hy (33) |       | YAGO-hy (66) |       |       | YAGO-hy (100) |       |       |       |
+| | Setting | | | YAGO-hy (33) | | YAGO-hy (66) | | | YAGO-hy (100) | | | |
 |-----------|---------|-------|---------|--------------|-------|--------------|-------|-------|---------------|-------|-------|-------|
-| Model     | Time    | Q Att | Q Match | MRR          | H@1   | H@10         | MRR   | H@1   | H@10          | MRR   | H@1   | H@10  |
-| Variant A | ✓       | ✗     | ✗       | 0.650        | 0.624 | 0.694        | 0.574 | 0.531 | 0.644         | 0.593 | 0.576 | 0.622 |
-| Variant B | ✓       | ✗     | ✓       | 0.692        | 0.673 | 0.701        | 0.640 | 0.629 | 0.668         | 0.685 | 0.672 | 0.706 |
-| Variant C | ✓       | ✓     | ✗       | 0.687        | 0.669 | 0.700        | 0.638 | 0.625 | 0.667         | 0.683 | 0.670 | 0.705 |
-| HypeTKG   | ✓       | ✓     | ✓       | 0.696        | 0.678 | 0.703        | 0.645 | 0.632 | 0.669         | 0.688 | 0.676 | 0.712 |
+| Model | Time | Q Att | Q Match | MRR | H@1 | H@10 | MRR | H@1 | H@10 | MRR | H@1 | H@10 |
+| Variant A | ✓ | ✗ | ✗ | 0.650 | 0.624 | 0.694 | 0.574 | 0.531 | 0.644 | 0.593 | 0.576 | 0.622 |
+| Variant B | ✓ | ✗ | ✓ | 0.692 | 0.673 | 0.701 | 0.640 | 0.629 | 0.668 | 0.685 | 0.672 | 0.706 |
+| Variant C | ✓ | ✓ | ✗ | 0.687 | 0.669 | 0.700 | 0.638 | 0.625 | 0.667 | 0.683 | 0.670 | 0.705 |
+| HypeTKG | ✓ | ✓ | ✓ | 0.696 | 0.678 | 0.703 | 0.645 | 0.632 | 0.669 | 0.688 | 0.676 | 0.712 |
 
-Table 15: Study of qualifier-augmented fact proportion on YAGO-hy.
+**Table 15:** Study of qualifier-augmented fact proportion on YAGO-hy.
 
-# J Case Study Details
+## J Case Study Details
 
 <span id="page-15-0"></span>A: Effectiveness of Qualifier Matcher We give an insight of how our qualifier matcher improves HTKG reasoning with three cases (Table [5\)](#page-7-1). HypeTKG ranks the ground truth missing entities in these cases as top 1 and achieves optimal prediction. As discussed in Sec. [4.2,](#page-4-3) we learn a global qualifier feature in the qualifier matcher by considering the contribution of all the existing qualifiers related to the subject entity of the LP query. Each qualifier is assigned an attention score η<sup>l</sup> indicating its contribution. Note that numerous queries are derived from the facts that are without any qualifier. For example, in Case A1, no qualifier is provided in predicting which reward did *Andrey Kolmogorov*receive in 1941 (Case A1 and A2 are taken from YAGO-hy). HypeTKG extracts all the qualifiers related to*Andrey Kolmogorov* from other facts in YAGO-hy and computes the global qualifier feature based on them. We find that it assigns a great attention score to the qualifier (*country of citizenship*, *Soviet Union*) and this qualifier can directly be taken as a hint to predict the ground truth missing entity *USSR State Prize* since USSR is also interpreted as Soviet Union. We also find that (*field of work*, *mathematics*) is also dominant in the global qualifier feature. This is also reasonable because Andrey Kolmogorov was a mathematician and he was awarded USSR State Prize of mathematics in 1941. Compared with these two qualifiers, the last qualifier, i.e., {(*country*, *Soviet Union*)}), is not so important in prediction, and thus is assigned a low attention score by HypeTKG. Case A1 implies that to reason
 
@@ -650,24 +632,24 @@ the facts without qualifiers, i.e., quadruple-based facts, our qualifier matcher
 
 strate how TI relational knowledge enhances HTKG reasoning with two cases (Table [6\)](#page-7-2). In both cases, HypeTKG achieves optimal prediction (ranks ground truth answers as top 1) by leveraging TI knowledge, and makes mistakes without considering it. Case B1 is taken from Wikihy. In B1, HypeTKG predicts the false answer
 
-| Case | Query                                                                        | Answer               | Subject-Related Qualifiers                                                                        | Attention Score                            |
+| Case | Query | Answer | Subject-Related Qualifiers | Attention Score |
 |------|------------------------------------------------------------------------------|----------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------|
-| A1   | ((Andrey Kolmogorov, award received, ?, 1941), ∅)                            | USSR State Prize     | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | −1<br>9.39e<br>−2<br>6.09e<br>−10<br>2.61e |
-| A2   | ((Andrey Kolmogorov, place of death, ?, 1987),<br>{(country, Soviet Union)}) | Moscow               | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | 0.99<br>−21<br>1.64e<br>−22<br>5.00e       |
-| A3   | ((Wernher von Braun, academic degree, ?, 1934), ∅)                           | Doctor of Philosophy | (academic degree, Doctor of Philosophy)<br>(academic major, physics )                             | 0.99<br>−10<br>6.00e                       |
+| A1 | ((Andrey Kolmogorov, award received, ?, 1941), ∅) | USSR State Prize | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | −1<br>9.39e<br>−2<br>6.09e<br>−10<br>2.61e |
+| A2 | ((Andrey Kolmogorov, place of death, ?, 1987),<br>{(country, Soviet Union)}) | Moscow | (country of citizenship, Soviet Union)<br>(field of work, mathematics)<br>(country, Soviet Union) | 0.99<br>−21<br>1.64e<br>−22<br>5.00e |
+| A3 | ((Wernher von Braun, academic degree, ?, 1934), ∅) | Doctor of Philosophy | (academic degree, Doctor of Philosophy)<br>(academic major, physics ) | 0.99<br>−10<br>6.00e |
 
-Table 16: Case study A: cases for studying qualifier matcher.
+**Table 16:** Case study A: cases for studying qualifier matcher.
 
-| Case | Query                                                        | Prediction w. TI    | Prediction w.o. TI | Related TI Facts                                                                                                                           |
+| Case | Query | Prediction w. TI | Prediction w.o. TI | Related TI Facts |
 |------|--------------------------------------------------------------|---------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| B1   | ((Pisa, country, ?, 1860), ∅)                                | Kingdom of Sardinia | Kingdom of Prussia | (Pisa, official language, Italian)<br>(Kingdom of Sardinia, official language, Italian)<br>(Kingdom of Prussia, official language, German) |
-| B2   | ((AK, place of birth, ?, 1903), {(country, Russian Empire)}) | Tbilisi             | Moscow             | (AK, native language, Georgian)<br>(Tbilisi, official language, Georgian)                                                                  |
+| B1 | ((Pisa, country, ?, 1860), ∅) | Kingdom of Sardinia | Kingdom of Prussia | (Pisa, official language, Italian)<br>(Kingdom of Sardinia, official language, Italian)<br>(Kingdom of Prussia, official language, German) |
+| B2 | ((AK, place of birth, ?, 1903), {(country, Russian Empire)}) | Tbilisi | Moscow | (AK, native language, Georgian)<br>(Tbilisi, official language, Georgian) |
 
-Table 17: Case study B: cases for studying the effectiveness of TI relational knowledge. Prediction w./w.o. TI means the prediction result with/without using time-invariant facts. *AK*is the abbreviation of the entity*Aram Khachaturian*.
+**Table 17:** Case study B: cases for studying the effectiveness of TI relational knowledge. Prediction w./w.o. TI means the prediction result with/without using time-invariant facts. *AK*is the abbreviation of the entity*Aram Khachaturian*.
 
-*Kingdom of Prussia*without the support of TI facts. However, after considering them, HypeTKG manages to make accurate prediction because*Pisa*should share the same official language with the country that contains it. Case B2 is taken from YAGO-hy. In B2, since both*Tbilisi*and*Moscow*belonged to*Russian Empire*in 1903, it is hard for HypeTKG to distinguish them during prediction without any further information. However, by knowing that*Aram Khachaturian*'s native language is same as the official language of *Tbilisi*, i.e., Georgian, HypeTKG can exclude the influence of *Moscow* because people speak Russian there. The presented cases illustrate how our model better reasons HTKGs with TI knowledge.
+**Kingdom of Prussia:** without the support of TI facts. However, after considering them, HypeTKG manages to make accurate prediction because*Pisa*should share the same official language with the country that contains it. Case B2 is taken from YAGO-hy. In B2, since both*Tbilisi*and*Moscow*belonged to*Russian Empire*in 1903, it is hard for HypeTKG to distinguish them during prediction without any further information. However, by knowing that*Aram Khachaturian*'s native language is same as the official language of *Tbilisi*, i.e., Georgian, HypeTKG can exclude the influence of *Moscow* because people speak Russian there. The presented cases illustrate how our model better reasons HTKGs with TI knowledge.
 
-# <span id="page-16-0"></span>K Related Work Details
+## <span id="page-16-0"></span>K Related Work Details
 
 ## K.1 Traditional KG & TKG Reasoning
 

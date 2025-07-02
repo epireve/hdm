@@ -24,9 +24,6 @@ tags:
   - "Educational Technology"
 ---
 
-![](_page_0_Picture_0.jpeg)
-<!-- Image Description: That's not a technical image from an academic paper; it's a button graphic.  It depicts a stylized bookmark icon within a circular border, overlaid on a rectangular button with the text "Check for updates".  This is likely a user interface element, prompting the reader (or user) to look for software or document revisions.  There are no charts, graphs, equations, or technical illustrations present.  The image's purpose is purely informational, indicating the availability of updates. -->
-
 # Discerning Individual Preferences for Identifying and Flagging Misinformation on Social Media
 
 Dipto Barman∗ ADAPT Centre, Trinity College Dublin barmand@tcd.ie
@@ -47,14 +44,14 @@ As social media grapples with the proliferation of misinformation, flagging syst
 
 Misinformation, Fake News Flags, Fact-checking, Preferences, Experiment
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Dipto Barman, Kevin Koidl, and Owen Conlan. 2024. Discerning Individual Preferences for Identifying and Flagging Misinformation on Social Media. In Proceedings of the 32nd ACM Conference on User Modeling, Adaptation
 
 <sup>∗</sup>Corresponding author.
 
 ![](_page_0_Picture_14.jpeg)
-<!-- Image Description: The image displays a Creative Commons (CC) license symbol.  Specifically, it shows the CC logo alongside a symbol representing attribution ("BY"), indicating that the work is licensed under a Creative Commons Attribution license. This means the work can be shared and adapted, provided the original author is appropriately credited. -->
+<!-- Image Description: The image displays a Creative Commons (CC) license symbol. Specifically, it shows the CC logo alongside a symbol representing attribution ("BY"), indicating that the work is licensed under a Creative Commons Attribution license. This means the work can be shared and adapted, provided the original author is appropriately credited. -->
 
 This work is licensed undera [Creative Commons Attribution International 4.0 License.](https://creativecommons.org/licenses/by/4.0/)
 
@@ -74,7 +71,7 @@ shared the headline. The approach presented in this paper focuses on studying ho
 
 The remainder of the article is structured as follows. Following this introduction, a brief overview of related work and concepts is provided, and the overarching research questions are presented. This is followed by the research methodology detailing the experimental setup. Based on this, the research findings are introduced, followed by the conclusion.
 
-#### 2 RELATED WORKS AND CONCEPTS
+### 2 RELATED WORKS AND CONCEPTS
 
 Flag-based warning systems provide visual cues about content credibility and significantly influence user psychology and behaviour. The format of these flags varies strongly [\[6\]](#page-8-5), such as "false information" or "disputed" labels, elicit varied responses from users. For instance, a "false information" tag might prompt immediate scepticism, whereas a "disputed" label could lead to further investigation by the user. Research has shown that visual flags effectively reduce users' tendency to believe and spread flagged content [\[7\]](#page-8-6), [\[8\]](#page-8-7). These warnings encourage users to scrutinise the credibility of the information and seek more reliable sources before accepting or sharing it.
 
@@ -96,14 +93,14 @@ RQ3: How do user characteristics (e.g., age, gender, education level, political 
 
 To address these three research questions, we define accuracy perception (measured as a Likert response 1- not accuracy at all to 5 – very accurate) as how closely the user believes the claim/headline aligns with the truth or factual accuracy [\[20\]](#page-8-17). Trust (measured as a Likert response 1- not trustworthy at all to 5 – very trustworthy) is defined as how trustworthy the flagging system is to the user. Importantly, we hypothesise that different users perceive and react to information differently. This study explores the correlations between user characteristics and their response to warning flags. By doing so, we intend to offer insights into developing more personalised and effective strategies to combat misinformation on social media platforms. In the following section, the research methodology of this study is introduced.
 
-#### 3 METHODOLOGY
+### 3 METHODOLOGY
 
 The research study presented in this paper employs a within-subject design that simulates a social media environment in which some of the headlines are marked with misinformation flags. Some flags in the experiment are enriched with explanatory context drawn
 
 <span id="page-2-1"></span>![](_page_2_Figure_2.jpeg)
-<!-- Image Description: This image displays six histograms showing the distribution of demographic and attitudinal variables.  Variables include age, CRT score, education level, gender, political label, and social media use. Each histogram visually represents the frequency of each category within each variable, allowing for a quick assessment of the sample's characteristics.  The purpose is to provide descriptive statistics of the study's participants. -->
+<!-- Image Description: This image displays six histograms showing the distribution of demographic and attitudinal variables. Variables include age, CRT score, education level, gender, political label, and social media use. Each histogram visually represents the frequency of each category within each variable, allowing for a quick assessment of the sample's characteristics. The purpose is to provide descriptive statistics of the study's participants. -->
 
-Figure 1: Sample Distribution for the Study.
+**Figure 1:** Sample Distribution for the Study.
 
 from fact-checking sites that debunk the misleading headlines. The experiment aims to evaluate the combined efficacy of warning flags and explanatory narratives in diminishing the impact of misinformation on users. By incorporating these explanatory narratives into the flagging mechanism, we aim to provide the immediate context to the user. The supplementary text serves as an instantaneous counter to the false information, enabling users to comprehend the presence of a flag and its rationale. We postulate that this integration will elevate the flagging system's transparency, nurturing deeper trust and comprehension among users. Drawing from psychological research, we hypothesise that offering a straightforward refutation within the flag itself will better equip users to dismiss the false information [\[19\]](#page-8-16).
 
@@ -116,9 +113,9 @@ The headlines used in this experiment were chosen from a broader collection of C
 <span id="page-2-0"></span><sup>1</sup>https://www.qualtrics.com
 
 <span id="page-3-0"></span>![](_page_3_Picture_2.jpeg)
-<!-- Image Description: The image presents three examples of false news headlines, each accompanied by a fact-checker's dispute.  (i) displays a headline linking the Clintons to inflated medical supply prices. (ii) shows a headline about Vladimir Putin's daughter's death from a COVID vaccine. (iii) features a headline about deaths caused by a pastor administering Dettol.  Each example is visually presented as a screenshot of a news article with an overlaid fact-check indicator. The purpose is to illustrate examples of misinformation and the role of fact-checking. -->
+<!-- Image Description: The image presents three examples of false news headlines, each accompanied by a fact-checker's dispute. (i) displays a headline linking the Clintons to inflated medical supply prices. (ii) shows a headline about Vladimir Putin's daughter's death from a COVID vaccine. (iii) features a headline about deaths caused by a pastor administering Dettol. Each example is visually presented as a screenshot of a news article with an overlaid fact-check indicator. The purpose is to illustrate examples of misinformation and the role of fact-checking. -->
 
-Figure 2: Stimulus types used in the study.
+**Figure 2:** Stimulus types used in the study.
 
 through another random selection process. To mitigate any potential source bias, we intentionally excluded the source website of the headline from the stimuli, as we wanted to study the effects of the headlines on the participants and the difference between warning flags with and without explanatory text.
 
@@ -132,13 +129,13 @@ Illustrations of the three types of stimuli are depicted in Figure [2](#page-3-0
 
 The participants were presented with these ten news stimuli in a random sequence and were asked to evaluate their perceptions of accuracy ("Given the presentation, how accurate do you believe the headline is?") using a Likert scale from 1 (Not accurate at all) to 5 (Very accurate). They were also asked to assess their likelihood of sharing the headlines with friends and family on social media ("Given the presentation above, how likely are you to share this headline with your friends and family on social media?") on a Likert scale from 1 (Not likely at all) to 5 (Very likely). In conditions involving flags, participants were requested to judge the credibility of the flags ("How trustworthy is the warning label and the associated text to you?") on a Likert scale from 1 (not trustworthy at all) to 5 (very trustworthy). Additionally, two attention check questions were interspersed randomly throughout the survey.
 
-#### 4 DATA ANALYSIS AND RESULTS
+### 4 DATA ANALYSIS AND RESULTS
 
 The data was analysed using Kolmogorov-Smirnov and Shapiro-Wilk tests, which indicated that it was not normally distributed, necessitating the use of non-parametric tests. We employed the
 
 Friedman test to examine differences in accuracy and sharing likelihood ratings across four types of stimuli. The same test was also used to evaluate the trustworthiness of the flagged conditions and to ascertain if there were any significant differences between the two flagging conditions (i.e., fake news with a warning flag versus fake news with both a warning and an explanatory flag).
 
-#### 4.1 Accuracy Rating
+### 4.1 Accuracy Rating
 
 The results of the Friedman test suggest significant variations in perceived accuracy ratings across different stimulus types (Friedman chi-squared = 441.77, p < 2.2e-16). Specifically, the test revealed that the differences in accuracy ratings among the stimuli are statistically significant, with a p-value well below the 0.05 threshold.
 
@@ -149,13 +146,13 @@ Further pairwise comparisons showed that when fake news was flagged with a warni
 The statistical significance across all comparisons emphasises the robustness of flagging as a tool for misinformation mitigation on social media platforms. These results, therefore, address RQ1
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
-<!-- Image Description: The image displays box plots illustrating accuracy ratings for different news stimuli.  "Fake_news_A," "Fake_news_Flag_A," "Fake_news_W_A," and "True_news_A" represent various news types.  Each box plot shows the median, interquartile range, and outliers of accuracy ratings, categorized as "very accurate" to "not accurate at all." The figure shows how accuracy perceptions vary across true and fake news conditions, potentially highlighting the impact of warning labels ("Flag"). -->
+<!-- Image Description: The image displays box plots illustrating accuracy ratings for different news stimuli. "Fake_news_A," "Fake_news_Flag_A," "Fake_news_W_A," and "True_news_A" represent various news types. Each box plot shows the median, interquartile range, and outliers of accuracy ratings, categorized as "very accurate" to "not accurate at all." The figure shows how accuracy perceptions vary across true and fake news conditions, potentially highlighting the impact of warning labels ("Flag"). -->
 
-Figure 3: The accuracy rating for the stimuli fake news (Fake\_News\_A), fake news with warning flag (Fake\_news\_Flag\_A), fake news with warning and explanation flag (Fake\_news\_W\_A), and true news (True\_news\_A)
+**Figure 3:** The accuracy rating for the stimuli fake news (Fake\_News\_A), fake news with warning flag (Fake\_news\_Flag\_A), fake news with warning and explanation flag (Fake\_news\_W\_A), and true news (True\_news\_A)
 
 by suggesting that flagging, especially when accompanied by explanatory text, effectively diminishes the perceived accuracy of fake news and enhances users' discrimination between false and true information. The efficacy of this approach is visually demonstrated in the box plot shown in Figure [3](#page-4-0) below.
 
-#### 4.2 Sharing Intent
+### 4.2 Sharing Intent
 
 The analysis of sharing likelihood using the Friedman test indicated significant differences in the willingness to share among the various types of news stimuli (Friedman chi-squared = 203.24, df = 3, p-value < 2.2e-16). This outcome denotes that participants' intent to share content varied significantly depending on whether the news was flagged or not and whether it included explanatory text.
 
@@ -165,7 +162,7 @@ When comparing the sharing likelihood between fake news with a warning flag and 
 
 These findings answer RQ1 by illustrating the pivotal role of flagging in not only reducing the spread of misinformation but also fostering a more discerning approach among social media users. Overall, the results also indicate a general hesitancy among users to share content, regardless of the stimulus presented on social media. This trend may be attributed to an increased caution exercised by individuals due to the prevalent overabundance of misinformation online [\[25\]](#page-9-2). A cautious approach to sharing information aligns with the observed efficacy of flagging mechanisms; even without additional explanatory text, the mere presence of a flag is sufficient to reduce the intention to share potentially fake news significantly. The impact of flagging on user sharing behaviour is visually represented in the box plot depicted in Figure [4.](#page-5-0)
 
-#### 4.3 Trustworthiness of the flagging system
+### 4.3 Trustworthiness of the flagging system
 
 The trust in the flagging system was quantitatively assessed using the Friedman test, which showed significant differences in trust likelihood ratings between the flagging conditions (Friedman chisquared = 13.337, df = 1, p-value = 0.0002602). This finding suggests that there are discernible variations in how users trust different flagging mechanisms implemented on social media.
 
@@ -174,27 +171,27 @@ Subsequent pairwise comparisons using the Wilcoxon signedrank test, with no need
 These results demonstrate the critical role of explanatory text in flagging systems for misinformation, thus addressing RQ2. While flags alone provide a certain level of trust among users, adding
 
 <span id="page-5-0"></span>![](_page_5_Figure_2.jpeg)
-<!-- Image Description: This box plot displays sharing ratings for different news stimuli.  "Fake_news_S," "Fake_news_Flag_S," "Fake_news_W_S," and "True_news_S" represent different conditions. The plot shows the median, interquartile range, and outliers for each condition, illustrating the distribution of sharing ratings and comparing them across true and fake news, with and without warnings.  Higher ratings indicate greater willingness to share. -->
+<!-- Image Description: This box plot displays sharing ratings for different news stimuli. "Fake_news_S," "Fake_news_Flag_S," "Fake_news_W_S," and "True_news_S" represent different conditions. The plot shows the median, interquartile range, and outliers for each condition, illustrating the distribution of sharing ratings and comparing them across true and fake news, with and without warnings. Higher ratings indicate greater willingness to share. -->
 
-<span id="page-5-1"></span>Figure 4: The sharing intent for the stimuli fake news (Fake\_News\_S), fake news with warning flag (Fake\_news\_Flag\_S), fake news with warning and explanation flag (Fake\_news\_W\_S), and true news (True\_news\_S)
+<span id="page-5-1"></span>**Figure 4:** The sharing intent for the stimuli fake news (Fake\_News\_S), fake news with warning flag (Fake\_news\_Flag\_S), fake news with warning and explanation flag (Fake\_news\_W\_S), and true news (True\_news\_S)
 
 ![](_page_5_Figure_4.jpeg)
-<!-- Image Description: The image displays two box plots comparing trust ratings for "Fake_news_Flag_T" and "Fake_news_W_T" stimuli.  The y-axis shows trust ratings ranging from "Very untrustworthy" to "Very trustworthy."  The box plots illustrate the distribution of trust ratings (median, quartiles, and outliers) for each stimulus, allowing for a visual comparison of their trustworthiness perceptions. -->
+<!-- Image Description: The image displays two box plots comparing trust ratings for "Fake_news_Flag_T" and "Fake_news_W_T" stimuli. The y-axis shows trust ratings ranging from "Very untrustworthy" to "Very trustworthy." The box plots illustrate the distribution of trust ratings (median, quartiles, and outliers) for each stimulus, allowing for a visual comparison of their trustworthiness perceptions. -->
 
-Figure 5: The trust rating for the stimuli fake news with warning flag (Fake\_news\_Flag\_T) and fake news with warning and explanation flag (Fake\_news\_W\_T)
+**Figure 5:** The trust rating for the stimuli fake news with warning flag (Fake\_news\_Flag\_T) and fake news with warning and explanation flag (Fake\_news\_W\_T)
 
 explanatory text significantly enhances the credibility and effectiveness of these flags. This enhancement in trust is vital, as it could lead to higher adherence to the warnings provided and less dissemination of false information. The implication for social media platforms is clear: incorporating explanatory text into flagging systems can be a powerful strategy in fostering user trust and combating the spread of misinformation. The effectiveness of this approach is visually supported by the box plot presented in Figure [5.](#page-5-1)
 
-#### 4.4 User Characteristics and Flagging Systems
+### 4.4 User Characteristics and Flagging Systems
 
 To answer our RQ3 – we analyse the different effects of the flagging systems on the independent variables (age, gender, education
 
 level, political ideology, Cognitive Reflection Test, and personality traits). We conduct a Spearman correlation analysis between the independent variables to understand the relationship between user characteristics and the different flagging systems. The significant correlations heat map is given in Figure [6.](#page-6-0) Furthermore, we employed the Kruskal-Wallis test to delve deeper into the nuances of these relationships. This non-parametric method was chosen for its effectiveness in comparing differences between independent groups when the normality assumptions are unmet. It allowed us to discern how distinct categories within each variable (e.g., different age groups, education levels, etc.) perceive and react differently to the flagging systems. The results from both the significant correlations and Kruskal-Wallis tests provide compelling insights into
 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
-<!-- Image Description: This heatmap displays a correlation matrix.  Rows and columns represent variables including age, education, social media use, political label, personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism), and indicators of fake news consumption (A=article, S=social media, T=total, W=website; Flag signifies a binary indicator of fake news exposure).  Numerical values within cells represent correlation coefficients, showing the strength and direction of relationships between variables.  The color gradient indicates the correlation strength, with darker blues representing positive correlations and darker reds representing negative correlations. The purpose is to illustrate relationships between individual characteristics and the consumption of fake news. -->
+<!-- Image Description: This heatmap displays a correlation matrix. Rows and columns represent variables including age, education, social media use, political label, personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism), and indicators of fake news consumption (A=article, S=social media, T=total, W=website; Flag signifies a binary indicator of fake news exposure). Numerical values within cells represent correlation coefficients, showing the strength and direction of relationships between variables. The color gradient indicates the correlation strength, with darker blues representing positive correlations and darker reds representing negative correlations. The purpose is to illustrate relationships between individual characteristics and the consumption of fake news. -->
 
-Figure 6: The Significant Correlations between variables
+**Figure 6:** The Significant Correlations between variables
 
 how demographics and cognitive abilities affect users' reactions to flagged news.
 
@@ -216,7 +213,7 @@ In relation to RQ3, we conclude that user characteristics such as age, gender, p
 
 and nuanced approaches to flagging misinformation catering to diverse user profiles.
 
-#### 5 CONCLUSION AND FUTURE WORKS
+### 5 CONCLUSION AND FUTURE WORKS
 
 In conclusion, our study provides crucial insights into the efficacy of misinformation flagging systems on social media, particularly in the context of COVID-19 related content. Our findings suggest that adding explanatory text to misinformation flags derived directly from fact-checking websites significantly influences user perceptions of news accuracy and trustworthiness. This echoes the broader empirical evidence suggesting that such flags are effective in combating misinformation [\[8\]](#page-8-7), [\[9\]](#page-8-8), [\[26\]](#page-9-3).
 
@@ -236,11 +233,11 @@ Despite the potential limitations, our research illuminates the benefits of addi
 
 Future research should continue to build on these findings, investigating other relevant factors and refining the design of misinformation flags for optimal impact. Since we use inoculations [\[19\]](#page-8-16) as a technique, investigating the long-term effects of these counterfactual messages embedded in the flagging system would be worthwhile. Furthermore, these inoculation messages can be generated using Large Language models (LLMs) [\[28\]](#page-9-5). Another such direction would be to investigate personalisation in this field of research. Research in the field of persuasive technologies [\[11\]](#page-8-10), [\[12\]](#page-8-19) has indicated that personalised approaches to individuals provide a better response for persuasion than a "one size fits all" type solution. As stated in [\[29\]](#page-9-6), personal efficacy is one of the reasons why an individual reacts to fake news. LLMs can also tailor these explanations based on user characteristics and behaviours. Therefore, it would be worthwhile to investigate whether different designs for misinformation flags would increase trustworthiness among user groups, such as different age groups, genders, and other moderating factors.
 
-#### ACKNOWLEDGMENTS
+### ACKNOWLEDGMENTS
 
 This work was conducted with the financial support of the Science Foundation Ireland Centre for Research Training in Digitally-Enhanced Reality (d-real) under Grant No. 18/CRT/6224 and at the ADAPT SFI Research Centre at Trinity College Dublin. ADAPT, the SFI Research Centre for AI-Driven Digital Content Technology is funded by Science Foundation Ireland through the SFI Research Centres Programme and is co-funded under the European Regional Development Fund (ERDF) through Grant Agreement No. 13/RC/2106. This work was also supported by the VIGILANT project, which has received funding from the European Union's Horizon Europe Programme under Grant Agreement No. 101073921.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-8-0"></span>[1] D. M. J. Lazer et al., "The science of fake news," Science, vol. 359, no. 6380, p. 1094, Mar. 2018, doi: 10.1126/science.aao2998.
 - <span id="page-8-1"></span>[2] J. Zarocostas, "How to fight an infodemic," The Lancet, vol. 395, no. 10225, Feb. 2020, doi: 10.1016/S0140-6736(20)30461-X.

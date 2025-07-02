@@ -68,7 +68,7 @@ Health data integration enables a collaborative utilization of data across diffe
 
 health data collaborative utilization, health data integration, health data management, interoperability, patient-centered care, self-management
 
-# Introduction
+## Introduction
 
 The traditional healthcare system is facing various challenges. Chronic diseases are one of the big threats to human health, and are becoming a challenge to healthcare systems all over the world.1 The rapidly growing aging population is becoming another challenge. The proportion of the world's population aged 60years or above is expected to reach 21 percent in 2050.2 Therefore, the current healthcare system has to be improved to fulfill the gap of resource shortage, high cost and
 
@@ -98,9 +98,9 @@ However, the systems holding these health data are usually heterogeneously built
 
 The remainder of this article is organized as follows. Section "Background" introduces some of the concepts that are closely related to this study. Section "Method" presents the review method. The results are presented in section "Results." Section "Discussion" discusses the review results and some related issues. Known limitations and potential risks are listed in section "Limitations." The article is concluded in section "Conclusion."
 
-# Background
+## Background
 
-#*What is health data integration*The terminologies for certain concepts on the topic of health data integration are not firmly defined or consistently used since the topic is relatively new. For the term health data integration in this article, we refer to that health data from heterogeneous or distributed sources processed by a certain approach to act as they come from one source in a seamless way. The data sources could be health-related Web services, devices or electronic health record systems, and so on. For utilization,
+## *What is health data integration*The terminologies for certain concepts on the topic of health data integration are not firmly defined or consistently used since the topic is relatively new. For the term health data integration in this article, we refer to that health data from heterogeneous or distributed sources processed by a certain approach to act as they come from one source in a seamless way. The data sources could be health-related Web services, devices or electronic health record systems, and so on. For utilization,
 
 ![](_page_2_Figure_1.jpeg)
 <!-- Image Description: This diagram illustrates a system for integrating and utilizing health data. Three services (Service 1, 2, and 3, each represented by a box of circles) feed data into a central "Integrated Health Data" node, depicted as a tree-like structure. This integrated data is then utilized for data visualization, patient views, and a smart agent. Arrows indicate data flow, showcasing the integration and utilization stages. The diagram's purpose is to visually represent the architecture of the health data system. -->
@@ -110,7 +110,7 @@ we refer to provide a seamless way to utilize the integrated health data for oth
 
 Interoperability, which is a well-defined concept, is highly related to health data integration but still different in perspective. According to the definition by the Healthcare Information and Management Systems Society (HIMSS), there are three levels of interoperability, which are*Foundational, Structural*and*Semantic*. 15 The *Foundational*level is achieved by allowing the data exchange from one system to be received by another, while the*Structural*level requires defining the structure of the data, and the ability to interpret the syntax of the data.*Semantic*is the highest level of interoperability. It applies codification of the data with vocabulary upon the structured data so that the receiving system can interpret the data. When a certain level of interoperability is achieved, the health data in different information systems, services or devices can be exchanged, interpreted, integrated and then utilized.15 In other words, interoperability is a prerequisite for the integration. Correspondingly, integration and utilization are the products of interoperability. A tremendous amount of work has been done on promoting interoperability in eHealth,16 including various interoperability standards (HL7 standards, Digital Imaging and Communications in Medicine (DICOM), Clinical Information Modeling Initiative (CIMI), etc.) and clinical coding systems (SNOMED-CT, ICD, Logical Observation Identifiers Names and Codes (LOINC), etc.).
 
-#*Different target problems*Health data integration is needed to assist the management of health under different usage purposes. General healthcare information management is one of the main purposes. The integration is required when it is in need of the health data from different systems such as hospital information system, medical imaging system, physiological monitoring device and so on. It is for the general
+## *Different target problems*Health data integration is needed to assist the management of health under different usage purposes. General healthcare information management is one of the main purposes. The integration is required when it is in need of the health data from different systems such as hospital information system, medical imaging system, physiological monitoring device and so on. It is for the general
 
 ![](_page_3_Figure_1.jpeg)
 <!-- Image Description: This figure illustrates three data flow models for healthcare information management. Each model depicts interactions between healthcare providers, third-party service providers, and patients. Solid arrows represent direct data exchange, while dashed lines indicate indirect or less direct communication. The models are categorized as general health information, chronic disease management, and health/lifestyle self-management, highlighting the different data flow patterns depending on the type of care. -->
@@ -120,7 +120,7 @@ usage purpose, that is, it does not specifically target a certain type of diseas
 
 The integration of health data for the different usage purposes not only requires interoperability among different systems, but on many occasions also involves different stakeholders such as the healthcare provider, patient and third-party service provider. The different usage purposes, which can be seen as different target problems, do not exist in isolation from each other. Figure 2 shows three of the care models for the mentioned target problems that require health data integration among different stakeholders. There exist overlaps and connections among them. All the three models involve three stakeholders, and they have different levels of connections between each other. In the figure, the solid line stands for a main connection and the dashed line stands for a minor connection. In the model of the general healthcare information management, data integration mainly proceeds within the healthcare provider with the patient. The third-party service provider may also be involved in some cases. In the other two models, the patient becomes the main player in the health data management.
 
-#*Data integration beyond eHealth*The need for data integration from various sources is not only in the domain of eHealth. For the general purpose, various technologies are being used to integrate data from different homogeneous or heterogeneous sources. Platform-bound Application Programming Interface (API) and programming language specified Software Development Kit (SDK) are two of the commonly used ways to access, manipulate and further integrate data distributed in different systems.
+## *Data integration beyond eHealth*The need for data integration from various sources is not only in the domain of eHealth. For the general purpose, various technologies are being used to integrate data from different homogeneous or heterogeneous sources. Platform-bound Application Programming Interface (API) and programming language specified Software Development Kit (SDK) are two of the commonly used ways to access, manipulate and further integrate data distributed in different systems.
 
 Thanks to the development of Web technologies, which has promoted the interoperability of various software applications running on distributed and diversified systems, the platform-independent Web API has become a preferred way of accessing data across different systems. Within the Web technologies, various approaches have been developed and evolved. Simple Object Access Protocol (SOAP) messaging and REpresentational State Transfer (REST) architectural style are the two representative approaches as an interface for communication on the Web.
 
@@ -128,11 +128,11 @@ Semantic Web, the semantic extension of the Web, has also been explored and appl
 
 In the discipline of bioinformatics, data integration is also a necessity due to the increasingly large numbers of data sources.18 C. Goble and R. Stevens18 discussed various data integration approaches, including Service Oriented Architecture (SOA), data warehouse and a few approaches empowered by Web technologies. Semantic Web technology is highlighted as a promising approach to integrate data sources into a Web of biological data. One of the recent impressive works is the FAIR (Findable, Accessible, Interoperable and Reusable) data principles,19 which intends to improve the discovery and integration of the diverse bioinformatics data sources using various common and standard technologies with the Web and Semantic Web.
 
-# Method
+## Method
 
 The snowballing sampling method was used to identify the relevant literature. It is a recursive process of identifying relevant articles from the reference list of an article and the citations to an article, which are referred to as backward snowballing and forward snowballing.20 The reason to choose the snowballing method is that the research on health data integration is relatively new, so there is a lack of well-defined and consistently used terminologies for this topic.21 Besides, it also provides extra information about where articles are referenced with context. Previous review study has proven that snowballing is a reliable method to identify relevant articles.21,22
 
-#*Inclusion and exclusion criteria*The included articles have to be published in English from 2008 to June 2018, the time we started article search. This is because we want to make sure that the included studies are up-to-date, since the development of healthcare technologies has seen a strong growth over the past years. We considered only peer-reviewed articles for the purpose of keeping a high-quality standard for this survey. We also excluded articles not written in English and duplicated publications of the same study that have been already included. The following inclusion and exclusion criteria were also used to keep the study focus on the topic.
+## *Inclusion and exclusion criteria*The included articles have to be published in English from 2008 to June 2018, the time we started article search. This is because we want to make sure that the included studies are up-to-date, since the development of healthcare technologies has seen a strong growth over the past years. We considered only peer-reviewed articles for the purpose of keeping a high-quality standard for this survey. We also excluded articles not written in English and duplicated publications of the same study that have been already included. The following inclusion and exclusion criteria were also used to keep the study focus on the topic.
 
 In*inclusion*, at least one of the following criteria is fulfilled:
 
@@ -153,7 +153,7 @@ In *exclusion*, any of the following criteria is fulfilled:
 - Articles discussing only applying certain health management applications, platforms or services;
 - Articles discussing only architectural design without specific data integration method.
 
-#*Review process*The snowballing review approach started by identifying a small start set of relevant articles for snowballing sampling. To identify a start set, an initial article set was established through looking into our previously known relevant articles and an initial database search in Google Scholar and Scopus. Based on an initial check of the accordance with the inclusion and exclusion criteria, 12 articles were selected into the initial set from the database search with keywords*(integrat\* OR aggregat\* OR fus\* OR composit\*) AND (data OR information) AND (ehealth OR e-health OR health\*)*and certain filter parameters. A total of 22 articles were selected into the initial set together with other 10 previously known relevant articles. By applying the inclusion and exclusion criteria to the articles in the initial set, a start set of six articles, where two articles were from the database search and four articles were from previously known articles, were considered to start the snowballing sampling.
+## *Review process*The snowballing review approach started by identifying a small start set of relevant articles for snowballing sampling. To identify a start set, an initial article set was established through looking into our previously known relevant articles and an initial database search in Google Scholar and Scopus. Based on an initial check of the accordance with the inclusion and exclusion criteria, 12 articles were selected into the initial set from the database search with keywords*(integrat\* OR aggregat\* OR fus\* OR composit\*) AND (data OR information) AND (ehealth OR e-health OR health\*)*and certain filter parameters. A total of 22 articles were selected into the initial set together with other 10 previously known relevant articles. By applying the inclusion and exclusion criteria to the articles in the initial set, a start set of six articles, where two articles were from the database search and four articles were from previously known articles, were considered to start the snowballing sampling.
 
 Figure 3 shows the article identification process with the number of articles at each stage. The snowballing sampling started with the six articles in the start set and proceeded in an iterative processes with the identified articles until no new articles were found. Through backward snowballing, we reviewed the references of each relevant article by the title, publication year, source type and language according to the criteria. The citations to each relevant article were also reviewed through forward snowballing. A total of 408 articles were identified through the backward and forward snowballing sampling processes.
 
@@ -161,65 +161,65 @@ The abstract of each article in the result set was used to apply the inclusion a
 
 ## Table 1. Data extracted during review.
 
-| Data                              | Purpose |
+| Data | Purpose |
 |-----------------------------------|---------|
-| Metadata                          |         |
-| Year                              | Insight |
-| Authors                           | Insight |
-| Publication type                  | Insight |
-| Synthesized data                  |         |
-| Target problem                    | Insight |
-| Technologies used for integration | RQ1     |
-| Integration classification        | RQ1     |
-| Technologies used for utilization | RQ2     |
-| Utilization classification        | RQ2     |
-| Discussed challenges              | RQ3     |
-| Future work mentioned             | RQ3     |
+| Metadata | |
+| Year | Insight |
+| Authors | Insight |
+| Publication type | Insight |
+| Synthesized data | |
+| Target problem | Insight |
+| Technologies used for integration | RQ1 |
+| Integration classification | RQ1 |
+| Technologies used for utilization | RQ2 |
+| Utilization classification | RQ2 |
+| Discussed challenges | RQ3 |
+| Future work mentioned | RQ3 |
 
 RQ: research question.
 
 relevant scope, we started to read the introduction section of each remaining article and apply the inclusion and exclusion criteria. This reduces the article set further to 42 articles. After reading the full text of these articles, 32 articles were included in the final inclusion set in accordance with the inclusion and exclusion criteria.
 
-#*Data extraction*The form in Table 1 was used to extract the data from each included article for the purpose of keeping the review consistent and explicit. Besides the metadata, the synthesized data of each article were also extracted for analysis purpose. The field*target problem*was used to record what kind of problem a study is focusing on and trying to solve, for example, whether it is for a specific type of disease management or only for general purpose. The remaining data were used to answer the research questions we proposed in the "Introduction." The data fields of the technologies used for both the integration and utilization were also extracted.
+## *Data extraction*The form in Table 1 was used to extract the data from each included article for the purpose of keeping the review consistent and explicit. Besides the metadata, the synthesized data of each article were also extracted for analysis purpose. The field*target problem*was used to record what kind of problem a study is focusing on and trying to solve, for example, whether it is for a specific type of disease management or only for general purpose. The remaining data were used to answer the research questions we proposed in the "Introduction." The data fields of the technologies used for both the integration and utilization were also extracted.
 
-# Results
+## Results
 
-#*Identified studies*After several rounds of comparing and screening based on inclusion and exclusion criteria, 32 articles were included as listed in Table 2. Most of the included articles are journal articles, which is 25 specifically, and the remaining 7 are conference articles. All the included articles were published in or after 2011. It needs to be noted that not all the publications in 2018 were available for our search since we started this study in June 2018. As is clear from Figure 4, this period constitutes a time frame for more active research in this topic and hence the increasing tendency of publications. One of the major reasons could be due to the vast amount of wearable devices, mobile applications and health record systems being used by patients and healthcare providers in recent years. This has created a growing requirement for integrating health data distributed in different systems.
+## *Identified studies*After several rounds of comparing and screening based on inclusion and exclusion criteria, 32 articles were included as listed in Table 2. Most of the included articles are journal articles, which is 25 specifically, and the remaining 7 are conference articles. All the included articles were published in or after 2011. It needs to be noted that not all the publications in 2018 were available for our search since we started this study in June 2018. As is clear from Figure 4, this period constitutes a time frame for more active research in this topic and hence the increasing tendency of publications. One of the major reasons could be due to the vast amount of wearable devices, mobile applications and health record systems being used by patients and healthcare providers in recent years. This has created a growing requirement for integrating health data distributed in different systems.
 
-| Reference                   | Year | Publication type | Target problem                            |
+| Reference | Year | Publication type | Target problem |
 |-----------------------------|------|------------------|-------------------------------------------|
-| Aboelfotoh et al.23         | 2015 | Conference       | General Healthcare Information Management |
-| Azarm et al.24              | 2017 | Conference       | General Healthcare Information Management |
-| Bentley et al.25            | 2013 | Journal          | Health/Lifestyle Self-Management          |
-| Carbonaro et al.26          | 2018 | Journal          | Health/Lifestyle Self-Management          |
-| Chung and Park27            | 2016 | Journal          | Chronic Disease Management                |
-| Corredor et al.28           | 2014 | Journal          | General Healthcare Information Management |
-| Fox et al.29                | 2011 | Journal          | General Healthcare Information Management |
-| Garai et al.30              | 2017 | Journal          | General Healthcare Information Management |
-| Gay and Leijdekkers8        | 2015 | Journal          | Health/Lifestyle Self-Management          |
-| Georgi et al.31             | 2018 | Journal          | Health/Lifestyle Self-Management          |
-| Hong et al.32               | 2017 | Conference       | General Healthcare Information Management |
-| Jabbar et al.33             | 2017 | Journal          | General Healthcare Information Management |
-| Kim et al.34                | 2015 | Journal          | Health/Lifestyle Self-Management          |
-| Kim and Chung35             | 2014 | Journal          | General Healthcare Information Management |
-| Kumar et al.4               | 2016 | Journal          | Chronic Disease Management                |
-| Mandel et al.36             | 2016 | Journal          | General Healthcare Information Management |
-| Marceglia et al.37          | 2015 | Journal          | General Healthcare Information Management |
-| Mezghani et al.38           | 2015 | Journal          | General Healthcare Information Management |
-| Pagkalos and Petrou5        | 2016 | Journal          | Health/Lifestyle Self-Management          |
-| Pang et al.39               | 2015 | Journal          | General Healthcare Information Management |
-| Potter et al.40             | 2012 | Journal          | General Healthcare Information Management |
-| Pustišek41                  | 2017 | Journal          | Chronic Disease Management                |
-| Puustjärvi and Puustjärvi42 | 2011 | Journal          | General Healthcare Information Management |
-| Rhayem et al.43             | 2018 | Conference       | General Healthcare Information Management |
-| Roehrs et al.44             | 2017 | Journal          | General Healthcare Information Management |
-| Ruggeri and Briante45       | 2017 | Conference       | General Healthcare Information Management |
-| Ryu et al.46                | 2017 | Journal          | General Healthcare Information Management |
-| Santos et al.47             | 2016 | Journal          | Health/Lifestyle Self-Management          |
-| Schweitzer et al.48         | 2017 | Conference       | General Healthcare Information Management |
-| Seo et al.49                | 2018 | Journal          | Health/Lifestyle Self-Management          |
-| Triantafyllidis et al.50    | 2013 | Journal          | Chronic Disease Management                |
-| Urbauer et al.51            | 2017 | Conference       | General Healthcare Information Management |
+| Aboelfotoh et al.23 | 2015 | Conference | General Healthcare Information Management |
+| Azarm et al.24 | 2017 | Conference | General Healthcare Information Management |
+| Bentley et al.25 | 2013 | Journal | Health/Lifestyle Self-Management |
+| Carbonaro et al.26 | 2018 | Journal | Health/Lifestyle Self-Management |
+| Chung and Park27 | 2016 | Journal | Chronic Disease Management |
+| Corredor et al.28 | 2014 | Journal | General Healthcare Information Management |
+| Fox et al.29 | 2011 | Journal | General Healthcare Information Management |
+| Garai et al.30 | 2017 | Journal | General Healthcare Information Management |
+| Gay and Leijdekkers8 | 2015 | Journal | Health/Lifestyle Self-Management |
+| Georgi et al.31 | 2018 | Journal | Health/Lifestyle Self-Management |
+| Hong et al.32 | 2017 | Conference | General Healthcare Information Management |
+| Jabbar et al.33 | 2017 | Journal | General Healthcare Information Management |
+| Kim et al.34 | 2015 | Journal | Health/Lifestyle Self-Management |
+| Kim and Chung35 | 2014 | Journal | General Healthcare Information Management |
+| Kumar et al.4 | 2016 | Journal | Chronic Disease Management |
+| Mandel et al.36 | 2016 | Journal | General Healthcare Information Management |
+| Marceglia et al.37 | 2015 | Journal | General Healthcare Information Management |
+| Mezghani et al.38 | 2015 | Journal | General Healthcare Information Management |
+| Pagkalos and Petrou5 | 2016 | Journal | Health/Lifestyle Self-Management |
+| Pang et al.39 | 2015 | Journal | General Healthcare Information Management |
+| Potter et al.40 | 2012 | Journal | General Healthcare Information Management |
+| Pustišek41 | 2017 | Journal | Chronic Disease Management |
+| Puustjärvi and Puustjärvi42 | 2011 | Journal | General Healthcare Information Management |
+| Rhayem et al.43 | 2018 | Conference | General Healthcare Information Management |
+| Roehrs et al.44 | 2017 | Journal | General Healthcare Information Management |
+| Ruggeri and Briante45 | 2017 | Conference | General Healthcare Information Management |
+| Ryu et al.46 | 2017 | Journal | General Healthcare Information Management |
+| Santos et al.47 | 2016 | Journal | Health/Lifestyle Self-Management |
+| Schweitzer et al.48 | 2017 | Conference | General Healthcare Information Management |
+| Seo et al.49 | 2018 | Journal | Health/Lifestyle Self-Management |
+| Triantafyllidis et al.50 | 2013 | Journal | Chronic Disease Management |
+| Urbauer et al.51 | 2017 | Conference | General Healthcare Information Management |
 **Table 2.**Identified studies with publication information and target problem.
 
 We analyzed the target problems of the included articles and classified them into categories. From Figure 5, we can see that the majority of the studies were targeted at integrating health data for the problem of General Healthcare Information Management. This is natural and accords with our expectation because it can cover different purposes. The problem of Health/Lifestyle Self-Management occupies the second place as it is now becoming a great demand for engaging people to manage their health on a daily base. Chronic Disease Management falls in the third place. Although the solutions for General Healthcare Information Management can cover the requirements, there are still a few studies that target specifically on Chronic Disease Management.
@@ -238,40 +238,40 @@ conform to these standards. Therefore, we investigated if the approaches in the 
 
 The interoperability level that each integration approach achieved was also investigated. According to the three levels of interoperability defined by HIMSS,15 we adapt the definitions to the scenario of health data integration. The*Foundational*level is achieved by allowing data to be retrieved from the source system, while the*Structural*level requires defining the structure of the data, and the ability to interpret the syntax of the data. The*Semantic*level requires an approach to annotate the structured data with semantic meanings by using a coding system, vocabulary or
 
-| Reference                       | Standard conformance | Interoperability level | Effort |
+| Reference | Standard conformance | Interoperability level | Effort |
 |---------------------------------|----------------------|------------------------|--------|
-| Aboelfotoh et al.23             | Yes                  | Structural             | High   |
-| Azarm et al.24                  | No                   | Structural             | High   |
-| Bentley et al.25                | No                   | Structural             | High   |
-| Carbonaro et al.26              | Yes                  | Semantic               | Medium |
-| Chung and Park27                | No                   | Structural             | High   |
-| Corredor et al.28               | Yes                  | Structural             | Medium |
-| Fox et al.29                    | Yes                  | Structural             | High   |
-| Garai et al.30                  | Yes                  | Structural             | High   |
-| Gay and Leijdekkers8            | Yes                  | Structural             | High   |
-| Georgi et al.31                 | No                   | Structural             | Medium |
-| Hong et al.32                   | Yes                  | Structural             | High   |
-| Jabbar et al.33                 | No                   | Semantic               | Medium |
-| Kim et al.34                    | Yes                  | Semantic               | Medium |
-| Kim and Chung35                 | No                   | Semantic               | Medium |
-| Kumar et al.4                   | No                   | Structural             | Medium |
-| Mandel et al.36                 | Yes                  | Semantic               | Medium |
-| Marceglia et al.37              | Yes                  | Structural             | High   |
-| Mezghani et al.38               | No                   | Semantic               | Medium |
-| Pagkalos and Petrou5            | No                   | Semantic               | Medium |
-| Pang et al.39                   | Yes                  | Structural             | High   |
-| Potter et al.40                 | No                   | Semantic               | Medium |
-| Pustišek41                      | No                   | Structural             | High   |
-| Puustjärvi and Puustjärvi42 Yes |                      | Semantic               | Medium |
-| Rhayem et al.43                 | No                   | Semantic               | Medium |
-| Roehrs et al.44                 | Yes                  | Structural             | Medium |
-| Ruggeri and Briante45           | No                   | Structural             | High   |
-| Ryu et al.46                    | No                   | Structural             | High   |
-| Santos et al.47                 | No                   | Structural             | High   |
-| Schweitzer et al.48             | Yes                  | Structural             | Medium |
-| Seo et al.49                    | No                   | Structural             | High   |
-| Triantafyllidis et al.50        | No                   | Structural             | High   |
-| Urbauer et al.51                | Yes                  | Structural             | High   |
+| Aboelfotoh et al.23 | Yes | Structural | High |
+| Azarm et al.24 | No | Structural | High |
+| Bentley et al.25 | No | Structural | High |
+| Carbonaro et al.26 | Yes | Semantic | Medium |
+| Chung and Park27 | No | Structural | High |
+| Corredor et al.28 | Yes | Structural | Medium |
+| Fox et al.29 | Yes | Structural | High |
+| Garai et al.30 | Yes | Structural | High |
+| Gay and Leijdekkers8 | Yes | Structural | High |
+| Georgi et al.31 | No | Structural | Medium |
+| Hong et al.32 | Yes | Structural | High |
+| Jabbar et al.33 | No | Semantic | Medium |
+| Kim et al.34 | Yes | Semantic | Medium |
+| Kim and Chung35 | No | Semantic | Medium |
+| Kumar et al.4 | No | Structural | Medium |
+| Mandel et al.36 | Yes | Semantic | Medium |
+| Marceglia et al.37 | Yes | Structural | High |
+| Mezghani et al.38 | No | Semantic | Medium |
+| Pagkalos and Petrou5 | No | Semantic | Medium |
+| Pang et al.39 | Yes | Structural | High |
+| Potter et al.40 | No | Semantic | Medium |
+| Pustišek41 | No | Structural | High |
+| Puustjärvi and Puustjärvi42 Yes | | Semantic | Medium |
+| Rhayem et al.43 | No | Semantic | Medium |
+| Roehrs et al.44 | Yes | Structural | Medium |
+| Ruggeri and Briante45 | No | Structural | High |
+| Ryu et al.46 | No | Structural | High |
+| Santos et al.47 | No | Structural | High |
+| Schweitzer et al.48 | Yes | Structural | Medium |
+| Seo et al.49 | No | Structural | High |
+| Triantafyllidis et al.50 | No | Structural | High |
+| Urbauer et al.51 | Yes | Structural | High |
 **Table 3.**Characteristics of identified studies (standard conformance, interoperability level and effort of integration).
 
 ![](_page_9_Figure_3.jpeg)
@@ -288,12 +288,13 @@ We also measured the effort of integration on three levels: low, medium and high
 
 As shown in the third bar of Figure 6, of the 32 approaches considered, 15 require medium effort for integrating a data source. The remaining approaches (17 in number) are considered to require high effort. None of these approaches is considered as low effort consuming. Therefore, more studies are needed on the task of integrating health data from different sources.
 
-#*Integration classifications*Based on our observations and the related information, we classified the approaches of health data integration into three classifications:
-*APIs with Manual Alignment*: this classification means that the studies aggregate health data from different sources by using APIs, and then perform manual alignment to make the data with different data models integrated. It also implies that the process and the integrated data have no semantics embedded, which distinguishes it from the classification of *Semantic Web*. This kind of integration usually proceeds in a dynamic manner, which means the integration method does not store the data.
+## *Integration classifications*Based on our observations and the related information, we classified the approaches of health data integration into three classifications:
 
-*Semantic Web*: this classification means that the studies use Semantic Web technologies to integrate health data from different sources and to make either the integration process or the integrated data semantically enriched. Usually, approaches of this kind require the data sources to have additional semantic annotations or some other processing.
+**APIs with Manual Alignment:**  this classification means that the studies aggregate health data from different sources by using APIs, and then perform manual alignment to make the data with different data models integrated. It also implies that the process and the integrated data have no semantics embedded, which distinguishes it from the classification of *Semantic Web*. This kind of integration usually proceeds in a dynamic manner, which means the integration method does not store the data.
 
-*Platform*: an approach classified as a *Platform*approach is based on if it performs as a platform. That means, for example, if it has various connectivities, stores data, connects with other platforms or has functionalities such as analysis built-in on its own. It is difficult to separate the approaches of*APIs with Manual Alignment*from the approaches of*Platform*clearly and precisely, since many of the platform approaches actually utilize APIs to aggregate data. We can regard the*Platform*classification as an enhanced version of*APIs with Manual Alignment*classification. Some of the platform approaches are actually Personal Health Record (PHR) systems, but we classified them as platform approaches on the perspective of the data integration approach.
+**Semantic Web:**  this classification means that the studies use Semantic Web technologies to integrate health data from different sources and to make either the integration process or the integrated data semantically enriched. Usually, approaches of this kind require the data sources to have additional semantic annotations or some other processing.
+
+**Platform:**  an approach classified as a *Platform*approach is based on if it performs as a platform. That means, for example, if it has various connectivities, stores data, connects with other platforms or has functionalities such as analysis built-in on its own. It is difficult to separate the approaches of*APIs with Manual Alignment*from the approaches of*Platform*clearly and precisely, since many of the platform approaches actually utilize APIs to aggregate data. We can regard the*Platform*classification as an enhanced version of*APIs with Manual Alignment*classification. Some of the platform approaches are actually Personal Health Record (PHR) systems, but we classified them as platform approaches on the perspective of the data integration approach.
 
 We observed that the integration approaches for a few other studies could be classified as a fourth classification,*Data Warehouse*, in the process of literature review. However, none of these qualified in our final inclusion set. This is because some of these studies just store the data in one place without a meaningful integration, and some of the studies suit better to the *Platform*classification. Table 4 lists the integration classifications of all the included studies, and whether they presented or discussed any utilization method.
 
@@ -307,40 +308,40 @@ The Internet of Things (IoT) paradigm and its evolution Web of Things (WoT) faci
 
 Although three approaches are stated as platforms,30,50,51 they are classified to this classification based on their characteristics. The reason is that they integrate health data using only Webbased APIs without other types of connectivities. Garai et al.30 proposed a hybrid cloud-based Open Telemedicine Interoperability Hub (OTI-Hub) to interconnect traditional healthcare, industrial telemedicine and IoT wearable devices. The *receiver module*of the OTI-Hub uses Web APIs to retrieve the data. The*transformation module*transforms the collected to HL7 interoperability standard format. Its*Hubs integration module*provides REST API to provide data access to
 
-| Reference                   | Integration classification | Utilization<br>mentioned | Main technical features        |
+| Reference | Integration classification | Utilization<br>mentioned | Main technical features |
 |-----------------------------|----------------------------|--------------------------|--------------------------------|
-| Aboelfotoh et al.23         | Platform                   | No                       | Mobile                         |
-| Azarm et al.24              | Platform                   | Yes                      | Cloud, Web API                 |
-| Bentley et al.25            | APIs with Manual Alignment | Yes                      | Mashup, REST Web API, Android  |
-| Carbonaro et al.26          | Semantic Web               | No                       | OWL, RDF, RML, REST Web API    |
-| Chung and Park27            | Platform                   | Yes                      | Web API, Android               |
-| Corredor et al.28           | APIs with Manual Alignment | Yes                      | WoT, REST Web API              |
-| Fox et al.29                | APIs with Manual Alignment | Yes                      | Mashup, Sqwelch                |
-| Garai et al.30              | APIs with Manual Alignment | Yes                      | Cloud, Web API                 |
-| Gay and Leijdekkers8        | Platform                   | No                       | Web API, Bluetooth, ANT+       |
-| Georgi et al.31             | Platform                   | Yes                      | IoT, Android, Bluetooth, WiFi  |
-| Hong et al.32               | Platform                   | Yes                      | Cloud, REST Web API, Bluetooth |
-| Jabbar et al.33             | Semantic Web               | Yes                      | RDF, Cloud, IoT                |
-| Kim et al.34                | Semantic Web               | No                       | Domain Ontology                |
-| Kim and Chung35             | Semantic Web               | Yes                      | RDF, Domain Ontology           |
-| Kumar et al.4               | Platform                   | Yes                      | Apple HealthKit                |
-| Mandel et al.36             | Platform                   | Yes                      | REST Web API                   |
-| Marceglia et al.37          | Platform                   | No                       | iOS                            |
-| Mezghani et al.38           | Semantic Web               | Yes                      | REST Web API, RDF, SPARQL      |
-| Pagkalos and Petrou5        | Semantic Web               | Yes                      | Web API, OWL, RDF              |
-| Pang et al.39               | Platform                   | Yes                      | Android                        |
-| Potter et al.40             | Semantic Web               | Yes                      | OWL, RDF, Domain Ontology      |
-| Pustišek41                  | Platform                   | Yes                      | IoT, Cloud                     |
-| Puustjärvi and Puustjärvi42 | Semantic Web               | No                       | OWL, RDF, Domain Ontology      |
-| Rhayem et al.43             | Semantic Web               | Yes                      | IoT, Domain Ontology           |
-| Roehrs et al.44             | Platform                   | Yes                      | P2P, Blockchain                |
-| Ruggeri and Briante45       | Platform                   | No                       | IoT, REST Web API              |
-| Ryu et al.46                | Platform                   | Yes                      | Android, Database              |
-| Santos et al.47             | APIs with Manual Alignment | Yes                      | IoT, REST Web API, Android     |
-| Schweitzer et al.48         | Semantic Web               | Yes                      | WSMO, REST Web API             |
-| Seo et al.49                | APIs with Manual Alignment | Yes                      | Mashup, REST Web API           |
-| Triantafyllidis et al.50    | APIs with Manual Alignment | Yes                      | WSDL, REST Web API, SOAP       |
-| Urbauer et al.51            | APIs with Manual Alignment | Yes                      | REST Web API                   |
+| Aboelfotoh et al.23 | Platform | No | Mobile |
+| Azarm et al.24 | Platform | Yes | Cloud, Web API |
+| Bentley et al.25 | APIs with Manual Alignment | Yes | Mashup, REST Web API, Android |
+| Carbonaro et al.26 | Semantic Web | No | OWL, RDF, RML, REST Web API |
+| Chung and Park27 | Platform | Yes | Web API, Android |
+| Corredor et al.28 | APIs with Manual Alignment | Yes | WoT, REST Web API |
+| Fox et al.29 | APIs with Manual Alignment | Yes | Mashup, Sqwelch |
+| Garai et al.30 | APIs with Manual Alignment | Yes | Cloud, Web API |
+| Gay and Leijdekkers8 | Platform | No | Web API, Bluetooth, ANT+ |
+| Georgi et al.31 | Platform | Yes | IoT, Android, Bluetooth, WiFi |
+| Hong et al.32 | Platform | Yes | Cloud, REST Web API, Bluetooth |
+| Jabbar et al.33 | Semantic Web | Yes | RDF, Cloud, IoT |
+| Kim et al.34 | Semantic Web | No | Domain Ontology |
+| Kim and Chung35 | Semantic Web | Yes | RDF, Domain Ontology |
+| Kumar et al.4 | Platform | Yes | Apple HealthKit |
+| Mandel et al.36 | Platform | Yes | REST Web API |
+| Marceglia et al.37 | Platform | No | iOS |
+| Mezghani et al.38 | Semantic Web | Yes | REST Web API, RDF, SPARQL |
+| Pagkalos and Petrou5 | Semantic Web | Yes | Web API, OWL, RDF |
+| Pang et al.39 | Platform | Yes | Android |
+| Potter et al.40 | Semantic Web | Yes | OWL, RDF, Domain Ontology |
+| Pustišek41 | Platform | Yes | IoT, Cloud |
+| Puustjärvi and Puustjärvi42 | Semantic Web | No | OWL, RDF, Domain Ontology |
+| Rhayem et al.43 | Semantic Web | Yes | IoT, Domain Ontology |
+| Roehrs et al.44 | Platform | Yes | P2P, Blockchain |
+| Ruggeri and Briante45 | Platform | No | IoT, REST Web API |
+| Ryu et al.46 | Platform | Yes | Android, Database |
+| Santos et al.47 | APIs with Manual Alignment | Yes | IoT, REST Web API, Android |
+| Schweitzer et al.48 | Semantic Web | Yes | WSMO, REST Web API |
+| Seo et al.49 | APIs with Manual Alignment | Yes | Mashup, REST Web API |
+| Triantafyllidis et al.50 | APIs with Manual Alignment | Yes | WSDL, REST Web API, SOAP |
+| Urbauer et al.51 | APIs with Manual Alignment | Yes | REST Web API |
 **Table 4.**Integration classifications of identified studies.
 
 API: Application Programming Interface; REST: REpresentational State Transfer; OWL: Web Ontology Language; RDF: Resource Description Framework; SOAP: Simple Object Access Protocol; SPARQL: SPARQL Protocol and RDF Query Language; WSMO: Web Service Modeling Ontology; RML: RDF Mapping Language; ANT: Adaptive Network Topology; WSDL: Web Service Definition Language.
@@ -371,14 +372,15 @@ Similar to the other classifications, there are approaches that combine the IoT 
 
 Three articles32,36,44 demonstrated novel and interesting architectural platforms for the health data integration and utilization. A. Roehrs et al.44 proposed OmniPHR that utilizes blockchain and routing overlay P2P network to build a distributed PHR system to integrate the health data from different systems, including EMR and EHR systems from healthcare providers and patient devices. They also proposed to apply openEHR standard, NLP technologies and Ontologies to build a semantic database for storing the health data of each datablock. An interconnected PHR system model was proposed by J. Hong et al.32 It includes the hospital information system, public cloud APIs service, PHR gateway system and mobile application. The PHR gateway system is based on Samsung's ARTIK 10 IoT module, which has various connectivities including Bluetooth, ZigBee, WiFi and so on to gather data from different types of health devices. The connections among the interconnected systems are achieved by email pushing service and RESTful Web APIs.
 
-#*Utilization classifications*An approach to utilizing the integrated health data is mentioned in most of the included studies. We classified five classifications of these utilization approaches as follows:
-*Database*: this classification is the simplest one among the five classifications. The utilization approaches with this classification provide access to the integrated health data only in the form of a database.
+## *Utilization classifications*An approach to utilizing the integrated health data is mentioned in most of the included studies. We classified five classifications of these utilization approaches as follows:
 
-*API*: the classification of *API*means that an approach integrates data from different sources and then provides access to the integrated data as services in a more uniform way. Usually, these services are invoked via Web APIs or other types of APIs.
-*Semantic Web Tech Stack*: this utilization classification only applies to the approaches of *Semantic Web*integration classification, where the integrated data themselves are annotated with semantic meaning. It makes them able to provide access to the integrated data by using Semantic Web technologies stack, which is usually SPARQL.
-*Application Platform*: this classification means that an approach provides applications of the integrated data directly, other than access to the integrated data. Applications that we observed include data analytics, data visualization, data sharing and so on. It can be regarded as an approach with one more layer than the Web service classification.
+**Database:**  this classification is the simplest one among the five classifications. The utilization approaches with this classification provide access to the integrated health data only in the form of a database.
 
-*Composition*: this means that an approach composites several services together as a way of providing access to multiple health data sources. It can be seen as both a way of integration and utilization. It is difficult to separate *Composition*classification clearly from*Web service/API*and*APP Platform*. Most of the approaches in *Composition*are*Mashup*, which is in between these two classifications. A *Mashup*approach provides just a single view of the integrated data with other kinds of web data. It is more than APIs but less than application platforms based on its characteristics.
+**API:**  the classification of *API*means that an approach integrates data from different sources and then provides access to the integrated data as services in a more uniform way. Usually, these services are invoked via Web APIs or other types of APIs.
+**Semantic Web Tech Stack:**  this utilization classification only applies to the approaches of *Semantic Web*integration classification, where the integrated data themselves are annotated with semantic meaning. It makes them able to provide access to the integrated data by using Semantic Web technologies stack, which is usually SPARQL.
+**Application Platform:**  this classification means that an approach provides applications of the integrated data directly, other than access to the integrated data. Applications that we observed include data analytics, data visualization, data sharing and so on. It can be regarded as an approach with one more layer than the Web service classification.
+
+**Composition:**  this means that an approach composites several services together as a way of providing access to multiple health data sources. It can be seen as both a way of integration and utilization. It is difficult to separate *Composition*classification clearly from*Web service/API*and*APP Platform*. Most of the approaches in *Composition*are*Mashup*, which is in between these two classifications. A *Mashup*approach provides just a single view of the integrated data with other kinds of web data. It is more than APIs but less than application platforms based on its characteristics.
 
 Table 5 lists the utilization classifications of all the studies that have one. Figure 8 shows the division of each utilization classification in a pie chart, together with no utilization method. We can see that there are nine approaches classified as*Web service*, which makes it the most appeared classification. Six approaches are classified as *Semantic Web*. The *Composition*and*APP Platform*are both applied in four articles. Only two articles apply the*Database*approach.
 
@@ -389,40 +391,40 @@ The utilization classifications of these approaches are not perfect. Overlap exi
 
 Of all the aforementioned approaches, five apply*APIs with Manual Alignment*to integrate the health data from various sources and then provide access through Web APIs. The*Hubs integration module*of the OTI-Hub provides REST APIs to the external systems for data access.30 Based on our understanding of the descriptions in the article, the integrated health data would be represented in an HL7 v3 standard XML payload. In the study performed by P. Urbauer et al.,51 the server infrastructure component also provides data access in an HL7 standard, but in the newer version of REST FHIR APIs, to the health data visualization applications. The*µ*WoTOP architecture also provides REST Web APIs for developing consumer applications.28 It enables the interoperability of the integrated health data by wrapping the API messages in different standard formats including HL7, SNOMED and Common Alerting Protocol (CAP). Besides REST Web APIs, it also provides an event-driven communication in a publisher–subscriber paradigm to manage alert events in CAP format. Although the SOAP-based API is not as popular as REST in recent years, it is also provided as a support to the REST APIs for communication with external platforms.50 In the study by M. Azarm et al.,24 the proposed framework is composed of a set of Web service APIs, a data storage
 
-| Reference                   | Utilization classification |
+| Reference | Utilization classification |
 |-----------------------------|----------------------------|
-| Aboelfotoh et al.23         | Not mention utilization    |
-| Azarm et al.24              | API                        |
-| Bentley et al.25            | Composition                |
-| Carbonaro et al.26          | Not mention utilization    |
-| Chung and Park27            | Application platform       |
-| Corredor et al.28           | API                        |
-| Fox et al.29                | Composition                |
-| Garai et al.30              | API                        |
-| Gay and Leijdekkers8        | Not mention utilization    |
-| Georgi et al.31             | API                        |
-| Hong et al.32               | API                        |
-| Jabbar et al.33             | Semantic Web Tech Stack    |
-| Kim et al.34                | Not mention utilization    |
-| Kim and Chung35             | Semantic Web Tech Stack    |
-| Kumar et al.4               | API                        |
-| Mandel et al.36             | Application platform       |
-| Marceglia et al.37          | Not mention utilization    |
-| Mezghani et al.38           | Semantic Web Tech Stack    |
-| Pagkalos and Petrou5        | Semantic Web Tech Stack    |
-| Pang et al.39               | API                        |
-| Potter et al.40             | Semantic Web Tech Stack    |
-| Pustišek41                  | Application platform       |
-| Puustjärvi and Puustjärvi42 | Not mention utilization    |
-| Rhayem et al.43             | Semantic Web Tech Stack    |
-| Roehrs et al.44             | Database                   |
-| Ruggeri and Briante45       | Not mention utilization    |
-| Ryu et al.46                | Database                   |
-| Santos et al.47             | Application platform       |
-| Schweitzer et al.48         | Composition                |
-| Seo et al.49                | Composition                |
-| Triantafyllidis et al.50    | API                        |
-| Urbauer et al.51            | API                        |
+| Aboelfotoh et al.23 | Not mention utilization |
+| Azarm et al.24 | API |
+| Bentley et al.25 | Composition |
+| Carbonaro et al.26 | Not mention utilization |
+| Chung and Park27 | Application platform |
+| Corredor et al.28 | API |
+| Fox et al.29 | Composition |
+| Garai et al.30 | API |
+| Gay and Leijdekkers8 | Not mention utilization |
+| Georgi et al.31 | API |
+| Hong et al.32 | API |
+| Jabbar et al.33 | Semantic Web Tech Stack |
+| Kim et al.34 | Not mention utilization |
+| Kim and Chung35 | Semantic Web Tech Stack |
+| Kumar et al.4 | API |
+| Mandel et al.36 | Application platform |
+| Marceglia et al.37 | Not mention utilization |
+| Mezghani et al.38 | Semantic Web Tech Stack |
+| Pagkalos and Petrou5 | Semantic Web Tech Stack |
+| Pang et al.39 | API |
+| Potter et al.40 | Semantic Web Tech Stack |
+| Pustišek41 | Application platform |
+| Puustjärvi and Puustjärvi42 | Not mention utilization |
+| Rhayem et al.43 | Semantic Web Tech Stack |
+| Roehrs et al.44 | Database |
+| Ruggeri and Briante45 | Not mention utilization |
+| Ryu et al.46 | Database |
+| Santos et al.47 | Application platform |
+| Schweitzer et al.48 | Composition |
+| Seo et al.49 | Composition |
+| Triantafyllidis et al.50 | API |
+| Urbauer et al.51 | API |
 
 **Table 5.**Integrated data utilization classifications of identified studies.
 
@@ -445,9 +447,9 @@ The service mashups are mainly data-oriented, while there is a transition to a m
 
 To support better interpretation and analysis on the health data with semantics, more complex semantic reasoning were explored in addition to simple SPARQL queries in four articles.35,38,40,43 Semantic Web Rule Language (SWRL) was used by A. Rhayem et al.43 to define several inference rules, which are then executed by an algorithm they proposed for analyzing vital signs and supporting doctors' decision making. Also, in the study by J. Kim and K. Y. Chung,35 inference will be performed by a context reasoner with healthcare and exercise knowledge rules after a SPARQL query.
 
-# Discussion
+## Discussion
 
-#*Challenges in health data integration*We found it quite common in both the included and excluded studies, regardless of the integration classifications, that plenty of them (17 out of 32 from the included ones) integrate health data using Web APIs to retrieve data from Web services. Web API is a promising technique for this problem as it provides a unified interface, the HTTP protocol, to connect to the various services running on distributed and diversified systems. One of the good examples is the study done by V. Gay and P. Leijdekkers. It uses Web APIs to retrieve health and fitness data from both platforms and Web services of specific vendors.8 In addition, besides the health and fitness data, also the data related to social activities can be retrieved and integrated from services using Web APIs.5,49 Although besides the Web API, there are other necessary connectivity protocols such as Bluetooth,8,32 platform-bound APIs,4,39,46 and so on,31,44 it is better to simplify the types of connectivities for the matter of integration. Otherwise, it introduces complexity to the integration process, for example, maintaining different communication technologies, dealing with different Bluetooth communication modes and protocols.8,32 It does not mean to get rid of other connectivities, but to add an additional service layer upon the existing system to support Web API as a uniform interface for the integration.
+## *Challenges in health data integration*We found it quite common in both the included and excluded studies, regardless of the integration classifications, that plenty of them (17 out of 32 from the included ones) integrate health data using Web APIs to retrieve data from Web services. Web API is a promising technique for this problem as it provides a unified interface, the HTTP protocol, to connect to the various services running on distributed and diversified systems. One of the good examples is the study done by V. Gay and P. Leijdekkers. It uses Web APIs to retrieve health and fitness data from both platforms and Web services of specific vendors.8 In addition, besides the health and fitness data, also the data related to social activities can be retrieved and integrated from services using Web APIs.5,49 Although besides the Web API, there are other necessary connectivity protocols such as Bluetooth,8,32 platform-bound APIs,4,39,46 and so on,31,44 it is better to simplify the types of connectivities for the matter of integration. Otherwise, it introduces complexity to the integration process, for example, maintaining different communication technologies, dealing with different Bluetooth communication modes and protocols.8,32 It does not mean to get rid of other connectivities, but to add an additional service layer upon the existing system to support Web API as a uniform interface for the integration.
 
 However, there are limitations for the widely applied Web approach paradigms, one of the problems being that using Web APIs to consume health data from different services is becoming a tediously repetitive work that requires a high demand for human labor.59 After identifying the desired Web services, data consumers are then required to read documents and program similar code to retrieve health data. This makes it a more human labor-centered work rather than a more intelligence-centered work. In addition, it makes the contract between data consumer and services fragile.60 Whenever a small change happens on the service, it may break the contract for the successful retrieving of health data for the client.
 
@@ -457,23 +459,23 @@ In sum, the very nature of the health data integration problem lies in solving t
 
 For the second challenge, the potential solution has similar requirements. It should be well integrated, lightweight, flexible and also fit with the common standards. The REST resource model is the de facto standard for organizing the information unit on the current Web.65 Standardization can alleviate the problem, but there is a cost to adopt a standard and a single standard may not be able to match the needs of every application use case. Semantic Web technologies also have the potential to alleviate the problem. However, simply annotating semantics to the diversified data models will not only fail to solve the problem, but also bring high complexity and low efficiency.64 Therefore, a tradeoff needs to be made among flexibility, efficiency (either for development or processing), interoperability and standardization. The next-generation health informatics interoperability standard HL7 FHIR's adoption of the REST resource model and Linked Data module makes this approach more applicable to the integration with standards.66,67 A seamless integration cannot be achieved based on only the existing interfaces provided by service providers. It needs both sides, which are the service consumer (the one intends to integrate) and service provider, to make improvements for making a better integration.
 
-# *Utilization of integrated health data*Based on our observation of the included studies, there is no dominated utilization classification. The*Database*approach would require too much unnecessary detail for the utilizers to know in advance.46 It is at a level too low to be exposed for collaboration. The same problems apply to the approach of*Semantic Web Tech Stack*, that is, SPARQL, as well. The raw data-oriented SPARQL query is not an appropriate way to be provided directly as access to data.5,33 However, it is good to provide utilization based on it, which is similar to the Web API to be provided as access to data on the Web instead of SQL query. Within the approach of *API*, there are platform-bound API, for example, APIs bound to iOS or Android platform in the observed studies.4,37,39,46 This approach can take advantage of the platform's functionalities and utilities. However, it restricts the utilization to the specific platform only.
+## *Utilization of integrated health data*Based on our observation of the included studies, there is no dominated utilization classification. The*Database*approach would require too much unnecessary detail for the utilizers to know in advance.46 It is at a level too low to be exposed for collaboration. The same problems apply to the approach of*Semantic Web Tech Stack*, that is, SPARQL, as well. The raw data-oriented SPARQL query is not an appropriate way to be provided directly as access to data.5,33 However, it is good to provide utilization based on it, which is similar to the Web API to be provided as access to data on the Web instead of SQL query. Within the approach of *API*, there are platform-bound API, for example, APIs bound to iOS or Android platform in the observed studies.4,37,39,46 This approach can take advantage of the platform's functionalities and utilities. However, it restricts the utilization to the specific platform only.
 
 The platform-independent Web API is a better alternative to provide open and free utilization to the integrated health data, though it may bring a little loss on the performance front. By annotating with semantics, the enriched Web API approach could provide a more effective way for collaborative utilization, which is also a necessity for providing a high-quality application platform. Therefore, the approach of semantically enriched Web API, which can be regarded as a combination of the two mostly applied classifications, has the potential to provide a well-integrated, lightweight and flexible solution.
 
-# *Potential of flexible common data model*For the purpose of collaborative utilization of health data with heterogeneous data models, Common Data Model (CDM) transformation is one of the trending approaches. For example, the semantic CDM transformation introduced by Pacaci et al.68 transformed health records data from heterogeneous sources to an CDM-based database in a three-step process, which includes transforming source data sets to RDF documents, applying semantic conversion rules to make the data as instances of the CDM's ontological model and populating the repositories by processing the RDF instances data. It avoids developing many custom analytical methods to the data with the heterogeneous data models and underlying vocabularies when utilizing health data from different sources.69,70 This type of CDM transformation method, which is regarded as an Extract Transform Load (ETL)-like procedure, is currently designed and applied to work with more static data repositories. The core idea and methods of CDM is possible to be applied to a more dynamic environment like data services.
+## *Potential of flexible common data model*For the purpose of collaborative utilization of health data with heterogeneous data models, Common Data Model (CDM) transformation is one of the trending approaches. For example, the semantic CDM transformation introduced by Pacaci et al.68 transformed health records data from heterogeneous sources to an CDM-based database in a three-step process, which includes transforming source data sets to RDF documents, applying semantic conversion rules to make the data as instances of the CDM's ontological model and populating the repositories by processing the RDF instances data. It avoids developing many custom analytical methods to the data with the heterogeneous data models and underlying vocabularies when utilizing health data from different sources.69,70 This type of CDM transformation method, which is regarded as an Extract Transform Load (ETL)-like procedure, is currently designed and applied to work with more static data repositories. The core idea and methods of CDM is possible to be applied to a more dynamic environment like data services.
 
 However, a potential issue with CDM is that it might be impossible to have a common model that satisfies all the usage scenarios. The study of SENHANCE5 utilizes ontology to make data of hardware sensors and human sensors into a common observation model, but it did not present how the model can be extended for flexible use cases. The sensor and activity model introduced by D. Seo et al.49 uses Activity Streams71 to represent activity logs that contain data retrieved from the heterogeneous physical and social sensors in a rich and extendable way. In an ongoing study,72 a Linked Health Resource ontology is used to model together data from different types of services. This method tries to keep the flexibility of data models while integrating standard-based common data model, which is the FHIR resource specification. However, one of the limitations is that it requires service providers organizing data in a resource-oriented model with semantic annotations. The requirements are difficult to avoid though it increases the effort of service providers. In order to achieve interoperability in bioinformatics data sources, the FAIR principles require data providers to apply certain design patterns and Web technologies as well.19
 
 Most of the newly proposed methods for integrating data are solutions that keep the data sources as distributed as they are, instead of trying to make a large platform that centralizes all the data in one place. This phenomenon complies with the trending topic on the current Web, the Decentralized Web movement initialized by the inventor of the Web, Sir Tim Berners-Lee, to avoid the problems of single-point solutions.73
 
-# Limitations
+## Limitations
 
 Potential risks that may exist in this study include the neglecting of relevant articles due to the exclusion of articles that are irrelevant but might be a bridge to other relevant articles; the connections were cut in an early phase. This review included only peer-reviewed articles, so that it excluded other types of sources (e.g. gray literature) that may bring additional information for a more comprehensive review. This study also excluded non-English-language published articles, which may contain different technical approaches beyond the ones found in this review. As we
 
 Security and privacy issues are vital for either the health data themselves or the integration process. However, most of the included articles have not yet tried to cover or even discuss the security and privacy problems for the integration approaches, since the study topic is still at its early phase. Therefore, this article did not discuss them as well. Nevertheless, we believe they will be put on the agenda within the research community as the progress being made to the study of integration.
 
-# Conclusion
+## Conclusion
 
 In this article, we presented a review of recent proposals in the relatively new topic of health data integration. The snowballing review process identified 32 highly relevant articles spread from the year 2011 to mid-2018. We analyzed the health data integration approaches presented in the articles, and classified them into three classifications of*APIs with Manual Alignment, Semantic Web*and*Platform*. The approaches for the utilization of integrated health data were also analyzed, where 25 approaches are presented in the article. The utilization approaches were classified into five classifications of *Database, API, Composition, Semantic Web Tech Stack*and*Application platform*.
 
@@ -487,7 +489,7 @@ The author(s) declared no potential conflicts of interest with respect to the re
 
 The author(s) received no financial support for the research, authorship and/or publication of this article.
 
-# ORCID iD
+## ORCID iD
 
 Cong Peng <https://orcid.org/0000-0002-3127-7024>
 

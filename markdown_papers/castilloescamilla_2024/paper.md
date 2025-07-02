@@ -24,6 +24,7 @@ images_removed: 3
 
 
 # *Article*The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women
+
 **Joaquín Castillo-Escamilla 1,2,3 [,](https://orcid.org/0000-0002-3385-1421) María del Mar Salvador-Viñas 1,2 and José Manuel Cimadevilla 1,2,\***- <sup>1</sup> Department of Psychology, University of Almería (UAL), 04120 La Cañada, Spain; adx94@yahoo.es (J.C.-E.); mariasv1798@gmail.com (M.d.M.S.-V.)
 - <sup>2</sup> Health Research Center, University of Almería (UAL), 04120 La Cañada, Spain
 - <sup>3</sup> Faculty of Health Sciences, International University of La Rioja (UNIR), 26006 Logroño, Spain
@@ -58,7 +59,7 @@ We expected physically active individuals to outperform sedentary participants i
 
 ### 2. Materials and Methods
 
-###*2.1. Participants*
+### *2.1. Participants*
 
 First, an a priori power analysis was performed G\*Power v. 3.1.9.7 [\[43\]](#page-15-13) for a repeated measures ANOVA (within–between interaction) with a = 0.05, power = 0.95, f = 0.253, 2 groups, and 4 measurements. The total required sample size was N = 36. We opted for f = 0.253 as it represents a medium effect, equivalent to eta partial squared of 0.06, following Cohen's conventions [\[44\]](#page-15-14).
 
@@ -76,20 +77,20 @@ To begin, the participants performed the Time Comparison Task. It was designed u
 <!-- Image Description: The image is a flowchart depicting the experimental paradigm of a visual memory task. It shows a sequence of four stages: fixation point (1000ms), memorization of a black square (100-1600ms), another fixation point (1000ms), and a recognition stage (100-1600ms) where participants judge the duration of a second square relative to the first and respond accordingly (Press Z for longer, M for shorter). The durations are given in milliseconds. The diagram illustrates the timing and order of stimuli presented to participants. -->
 **Figure 1.**Sample trial of the Time Comparison Task The participants needed to decide if the second square's presentation was faster or slower than that of the first.**Figure 1.** Sample trial of the Time Comparison Task The participants needed to decide if the second square's presentation was faster or slower than that of the first.
 
-| Square Presentation<br>Times (1st and 2nd in ms) | Time Category<br>(Below/Above 1000 ms) | Trial Type (Faster/Slower).<br>Second Presentation vs. First |  |  |  |  |
+| Square Presentation<br>Times (1st and 2nd in ms) | Time Category<br>(Below/Above 1000 ms) | Trial Type (Faster/Slower).<br>Second Presentation vs. First | | | | |
 |--------------------------------------------------|----------------------------------------|--------------------------------------------------------------|--|--|--|--|
-| 200–400 ms                                       | Below                                  | Slower                                                       |  |  |  |  |
-| 400–200 ms                                       | Below                                  | Faster                                                       |  |  |  |  |
-| 400–600 ms                                       | Below                                  | Slower                                                       |  |  |  |  |
-| 600–400 ms                                       | Below                                  | Faster                                                       |  |  |  |  |
-| 600–800 ms                                       | Below                                  | Slower                                                       |  |  |  |  |
-| 800–600 ms                                       | Below                                  | Faster                                                       |  |  |  |  |
-| 1000–1200 ms                                     | Above                                  | Slower                                                       |  |  |  |  |
-| 1200–1000 ms                                     | Above                                  | Faster                                                       |  |  |  |  |
-| 1200–1400 ms                                     | Above                                  | Slower                                                       |  |  |  |  |
-| 1400–1200 ms                                     | Above                                  | Faster                                                       |  |  |  |  |
-| 1400–1600 ms                                     | Above                                  | Slower                                                       |  |  |  |  |
-| 1600–1400 ms                                     | Above                                  | Faster                                                       |  |  |  |  |
+| 200–400 ms | Below | Slower | | | | |
+| 400–200 ms | Below | Faster | | | | |
+| 400–600 ms | Below | Slower | | | | |
+| 600–400 ms | Below | Faster | | | | |
+| 600–800 ms | Below | Slower | | | | |
+| 800–600 ms | Below | Faster | | | | |
+| 1000–1200 ms | Above | Slower | | | | |
+| 1200–1000 ms | Above | Faster | | | | |
+| 1200–1400 ms | Above | Slower | | | | |
+| 1400–1200 ms | Above | Faster | | | | |
+| 1400–1600 ms | Above | Slower | | | | |
+| 1600–1400 ms | Above | Faster | | | | |
 
 <span id="page-4-0"></span>**Table 1.**Trial combinations of the Time Comparison Task. They were classified in two different time categories (above and below 1000 ms) and two trial types (faster/slower).
 
@@ -105,9 +106,9 @@ The participants then performed The Boxes Room Task [\[41\]](#page-15-10). It wa
 
 the other hand, a wrong box was opened, it turned red and no melody was heard. During the trial, the opened boxes remained the corresponding color until the participants had found all the rewarding boxes or until 150 s had elapsed. The reward boxes remained in the same locations during all trials, allowing the subjects to perform better from one trial to the next. Additionally, the starting point was changed between trials to avoid egocentric solutions. Participants were asked to try to find the green boxes as quickly as possible and to avoid opening the red boxes. They were not informed about the spatial strategies, the change of the starting position, or the position of the rewarding boxes. Accuracy and latency per trial were registered.
 
-###*2.3. Procedure*Subjects were individually tested in the laboratories of the University of Almera. Before beginning the computerized tests, they were informed about the objective of the study and signed an informed consent. The researcher then conducted a brief computerized interview to record possible exclusion criteria. They were then placed in individual soundproof experimental rooms to avoid possible distractions. The evaluator explained the instructions for the Time Comparison Task [\[42\]](#page-15-11), leaving the room once the participant had understood the procedure and completed the practical tests. After this test, the same procedure was followed with The Boxes Room Task. The entire experiment lasted between 20 and 25 min.
+### *2.3. Procedure*Subjects were individually tested in the laboratories of the University of Almera. Before beginning the computerized tests, they were informed about the objective of the study and signed an informed consent. The researcher then conducted a brief computerized interview to record possible exclusion criteria. They were then placed in individual soundproof experimental rooms to avoid possible distractions. The evaluator explained the instructions for the Time Comparison Task [\[42\]](#page-15-11), leaving the room once the participant had understood the procedure and completed the practical tests. After this test, the same procedure was followed with The Boxes Room Task. The entire experiment lasted between 20 and 25 min.
 
-###*2.4. Data Analysis*In the Time Comparison Task, the percentage of correct responses (accuracy) and the response time (RT) were chosen as dependent variables, following prior works that used ePrime for related cognitive capabilities such as working memory [\[51\]](#page-15-19). Following the time literature stated in the introduction, these variables were further divided by the type of trial (type; faster or slower) and the time difference (time; above and below 1000 ms). On the other hand, in The Boxes Room Task, the mean error and latencies were chosen as dependent variables. In this case, the means per trial were averaged by block, from trial 2 to 4, from 5 to 7, and finally from 8 to 10, following previous studies with this task to avoid error dispersion [\[27\]](#page-14-26). Trial 1 was discarded for the averaging for errors and latencies, as participants still did not identify the positions of the prized boxes, having a chance-level performance. After classifying these variables, the analyses were performed.
+### *2.4. Data Analysis*In the Time Comparison Task, the percentage of correct responses (accuracy) and the response time (RT) were chosen as dependent variables, following prior works that used ePrime for related cognitive capabilities such as working memory [\[51\]](#page-15-19). Following the time literature stated in the introduction, these variables were further divided by the type of trial (type; faster or slower) and the time difference (time; above and below 1000 ms). On the other hand, in The Boxes Room Task, the mean error and latencies were chosen as dependent variables. In this case, the means per trial were averaged by block, from trial 2 to 4, from 5 to 7, and finally from 8 to 10, following previous studies with this task to avoid error dispersion [\[27\]](#page-14-26). Trial 1 was discarded for the averaging for errors and latencies, as participants still did not identify the positions of the prized boxes, having a chance-level performance. After classifying these variables, the analyses were performed.
 
 - First, for the Time Comparison Task, two repeated measures ANOVAs (group (athlete/sedentary) × type (faster/slower) × time (above/below 1000 ms)) were performed; the first was based on precision scores, while the second used response times as dependent variables.
 - Then, for The Boxes Room Task, two separate repeated measures ANOVAs (group (athlete/sedentary) × block (2–4/5–7/8–9)) were performed. In this case, the mean errors per block were used in the first ANOVA, while the mean latency per block was used in the second.
@@ -117,7 +118,7 @@ In all cases, post hoc tests were applied using the Bonferroni procedure for int
 
 ### 3. Results
 
-###*3.1. Time Comparison Task—Accuracy and Response Times per Group 3.1. Time Comparison Task—Accuracy and Response Times per Group*For the mean precision in the Time Comparison Task, repeated measures ANOVA showed a main effect on time (F(1,40) = 23.48;*p*= 0.000; η<sup>p</sup> <sup>2</sup> = 0.370) and type (F(1,40) = 57.77;*p*= 0.000; η<sup>p</sup> <sup>2</sup> = 0.591), but not on group (F(1,40) = 1.69;*p*= 0.201). The interactions group × type (F(1,40) = 5.66;*p*= 0.022; η<sup>p</sup> <sup>2</sup> = 0.124) and time × type (F(1,40) = 35.01;*p*= 0.000; ηp <sup>2</sup> = 0.467) reached significance. For the mean precision in the Time Comparison Task, repeated measures ANOVA showed a main effect on time (F(1,40) = 23.48;*p*= 0.000; ηp2 = 0.370) and type (F(1,40) = 57.77;*p*= 0.000; ηp2 = 0.591), but not on group (F(1,40) = 1.69;*p*= 0.201). The interactions group × type (F(1,40) = 5.66;*p*= 0.022; ηp2 = 0.124) and time × type (F(1,40) = 35.01;*p*= 0.000; ηp2 = 0.467) reached significance.
+### *3.1. Time Comparison Task—Accuracy and Response Times per Group 3.1. Time Comparison Task—Accuracy and Response Times per Group*For the mean precision in the Time Comparison Task, repeated measures ANOVA showed a main effect on time (F(1,40) = 23.48;*p*= 0.000; η<sup>p</sup> <sup>2</sup> = 0.370) and type (F(1,40) = 57.77;*p*= 0.000; η<sup>p</sup> <sup>2</sup> = 0.591), but not on group (F(1,40) = 1.69;*p*= 0.201). The interactions group × type (F(1,40) = 5.66;*p*= 0.022; η<sup>p</sup> <sup>2</sup> = 0.124) and time × type (F(1,40) = 35.01;*p*= 0.000; ηp <sup>2</sup> = 0.467) reached significance. For the mean precision in the Time Comparison Task, repeated measures ANOVA showed a main effect on time (F(1,40) = 23.48;*p*= 0.000; ηp2 = 0.370) and type (F(1,40) = 57.77;*p*= 0.000; ηp2 = 0.591), but not on group (F(1,40) = 1.69;*p*= 0.201). The interactions group × type (F(1,40) = 5.66;*p*= 0.022; ηp2 = 0.124) and time × type (F(1,40) = 35.01;*p*= 0.000; ηp2 = 0.467) reached significance.
 
 When assessing the interaction of group × type with post hoc analyses (Bonferroni procedure), there were different patterns regarding the type of the trial. For faster trials, the Sport Group had better precision (M = 0.62; SD = 0.19) than the Sedentary Group (M = 0.48; SD = 0.16), with*p* = 0.021. For slower trials, both groups were similar (*p*= 0.384). Both groups performed better in slower trials compared to faster trials. This interaction result is shown in Figure [3.](#page-6-0) When assessing the interaction of group × type with post hoc analyses (Bonferroni procedure), there were different patterns regarding the type of the trial. For faster trials, the Sport Group had better precision (M = 0.62; SD = 0.19) than the Sedentary Group (M = 0.48; SD = 0.16), with*p* = 0.021. For slower trials, both groups were similar (*p*= 0.384). Both groups performed better in slower trials compared to faster trials. This interaction result is shown in Figure 3.
 
@@ -160,7 +161,7 @@ When considering mean latencies separately, repeated measures ANOVA showed a sim
 
 **Figure 7.**Mean response times per block of trials per group. There were no differences between groups. In intragroup differences, the Sedentary Group became faster through each trial block grad‐ ually. In contrast, Sport Group was able to get faster only in trials 2–4 and 5–7. Mean + SEM.**Figure 7.**Mean response times per block of trials per group. There were no differences between groups. In intragroup differences, the Sedentary Group became faster through each trial block gradually. In contrast, Sport Group was able to get faster only in trials 2–4 and 5–7. Mean + SEM.
 
-###*3.3. Correlations and Linear Regressions (Full Sample; n = 42)*Regarding significant correlations between tasks, it was shown that accuracy in faster trials of the Time Comparison Task was negatively correlated with the latency of The Boxes Room Task for two blocks, trials 5–7 (r = −0.370;*p*= 0.016) and trials 8–10 (r = −0.316;*p*= 0.042). Additionally, the precision in trials greater than 1000 ms on the Time Comparison Task was negatively correlated with mean errors in trials 5–7 of The Boxes Room Task (r = −0.320;*p*= 0.039). Both tasks showed a general pattern of internal consistency separately, with most variables of the same task relating between them at*p*< 0.050. Table [A1](#page-13-0) shows the complete correlation chart.
+### *3.3. Correlations and Linear Regressions (Full Sample; n = 42)*Regarding significant correlations between tasks, it was shown that accuracy in faster trials of the Time Comparison Task was negatively correlated with the latency of The Boxes Room Task for two blocks, trials 5–7 (r = −0.370;*p*= 0.016) and trials 8–10 (r = −0.316;*p*= 0.042). Additionally, the precision in trials greater than 1000 ms on the Time Comparison Task was negatively correlated with mean errors in trials 5–7 of The Boxes Room Task (r = −0.320;*p*= 0.039). Both tasks showed a general pattern of internal consistency separately, with most variables of the same task relating between them at*p*< 0.050. Table [A1](#page-13-0) shows the complete correlation chart.
 
 The significant correlations between tasks were further checked with linear regression analyses in order, showing the following patterns:
 
@@ -208,26 +209,27 @@ In conclusion, despite these possible limitations, our work was able to successf
 **Conflicts of Interest:**The authors declare that they have no conflicts of interest.
 
 ## Appendix A
+
 **Table A1.**Complete correlation graph between the Time Comparison Task (TCT) and The Boxes Room Task (BOX) for all measures.
 
-|                  | TCT<br>Global | TCT<br>Faster | TCT<br>Slower | TCT- < 1 s | TCT- > 1 s | RT-TCT<br>Global | RT-TCT<br>Faster | RT-TCT<br>Slower | RT-TCT- < 1 s | RT-TCT > 1 s | BOX-B1 | BOX-B2   | BOX-B3   | RT-BOX<br>B1 | RT-BOX<br>B2 | RT-BOX<br>B3 |
+| | TCT<br>Global | TCT<br>Faster | TCT<br>Slower | TCT- < 1 s | TCT- > 1 s | RT-TCT<br>Global | RT-TCT<br>Faster | RT-TCT<br>Slower | RT-TCT- < 1 s | RT-TCT > 1 s | BOX-B1 | BOX-B2 | BOX-B3 | RT-BOX<br>B1 | RT-BOX<br>B2 | RT-BOX<br>B3 |
 |------------------|---------------|---------------|---------------|------------|------------|------------------|------------------|------------------|---------------|--------------|--------|----------|----------|--------------|--------------|--------------|
-| TCT-Global       | 1             | 0.766**| 0.582**| 0.682**| 0.736**| 0.035            | 0.066            | −0.103           | −0.134        | 0.174        | −0.119 | −0.259   | −0.160   | −0.100       | −0.204       | −0.215       |
-| TCT-Faster       |               | 1             | −0.076        | 0.357*    | 0.717 **| −0.018           | −0.067           | −0.078           | −0.110        | 0.069        | −0.055 | −0.294   | −0.242   | −0.144       | −0.370*     | −0.316 *|
-| TCT-Slower       |               |               | 1             | 0.607**| 0.235      | 0.076            | 0.187            | −0.062           | −0.068        | 0.183        | −0.114 | −0.030   | 0.059    | 0.027        | 0.152        | 0.065        |
-| TCT- < 1 s       |               |               |               | 1          | 0.007      | 0.021            | 0.118            | −0.045           | −0.055        | 0.082        | 0.028  | −0.037   | −0.074   | −0.121       | −0.063       | −0.165       |
-| TCT- > 1 s       |               |               |               |            | 1          | 0.028            | −0.019           | −0.100           | −0.132        | 0.163        | −0.188 | −0.320* | −0.150   | −0.024       | −0.221       | −0.142       |
-| RT-TCT<br>Global |               |               |               |            |            | 1                | 0.940 **| 0.919**| 0.841**| 0.878**| −0.013 | 0.028    | 0.221    | 0.014        | 0.069        | 0.066        |
-| RT-TCT<br>Faster |               |               |               |            |            |                  | 1                | 0.804**| 0.772**| 0.842**| 0.022  | 0.010    | 0.224    | −0.045       | 0.038        | 0.035        |
-| RT-TCT<br>Slower |               |               |               |            |            |                  |                  | 1                | 0.874**| 0.717**| 0.042  | 0.089    | 0.237    | 0.086        | 0.128        | 0.093        |
-| RT-TCT- < 1 s    |               |               |               |            |            |                  |                  |                  | 1             | 0.479**| 0.193  | 0.148    | 0.311*  | 0.127        | 0.186        | 0.177        |
-| RT-TCT > 1 s     |               |               |               |            |            |                  |                  |                  |               | 1            | −0.191 | −0.085   | 0.084    | −0.090       | −0.053       | −0.050       |
-| BOX-B1           |               |               |               |            |            |                  |                  |                  |               |              | 1      | 0.655 **| 0.365*  | 0.617 **| 0.643**| 0.457**|
-| BOX-B2           |               |               |               |            |            |                  |                  |                  |               |              |        | 1        | 0.706**| 0.402**| 0.677**| 0.632**|
-| BOX-B3           |               |               |               |            |            |                  |                  |                  |               |              |        |          | 1        | 0.115        | 0.301        | 0.764**|
-| RT-BOX-B1        |               |               |               |            |            |                  |                  |                  |               |              |        |          |          | 1            | 0.782**| 0.364*      |
-| RT-BOX-B2        |               |               |               |            |            |                  |                  |                  |               |              |        |          |          |              | 1            | 0.535 **     |
-| RT-BOX-B3        |               |               |               |            |            |                  |                  |                  |               |              |        |          |          |              |              | 1            |
+| TCT-Global | 1 | 0.766**| 0.582**| 0.682**| 0.736**| 0.035 | 0.066 | −0.103 | −0.134 | 0.174 | −0.119 | −0.259 | −0.160 | −0.100 | −0.204 | −0.215 |
+| TCT-Faster | | 1 | −0.076 | 0.357* | 0.717 **| −0.018 | −0.067 | −0.078 | −0.110 | 0.069 | −0.055 | −0.294 | −0.242 | −0.144 | −0.370* | −0.316 *|
+| TCT-Slower | | | 1 | 0.607**| 0.235 | 0.076 | 0.187 | −0.062 | −0.068 | 0.183 | −0.114 | −0.030 | 0.059 | 0.027 | 0.152 | 0.065 |
+| TCT- < 1 s | | | | 1 | 0.007 | 0.021 | 0.118 | −0.045 | −0.055 | 0.082 | 0.028 | −0.037 | −0.074 | −0.121 | −0.063 | −0.165 |
+| TCT- > 1 s | | | | | 1 | 0.028 | −0.019 | −0.100 | −0.132 | 0.163 | −0.188 | −0.320* | −0.150 | −0.024 | −0.221 | −0.142 |
+| RT-TCT<br>Global | | | | | | 1 | 0.940 **| 0.919**| 0.841**| 0.878**| −0.013 | 0.028 | 0.221 | 0.014 | 0.069 | 0.066 |
+| RT-TCT<br>Faster | | | | | | | 1 | 0.804**| 0.772**| 0.842**| 0.022 | 0.010 | 0.224 | −0.045 | 0.038 | 0.035 |
+| RT-TCT<br>Slower | | | | | | | | 1 | 0.874**| 0.717**| 0.042 | 0.089 | 0.237 | 0.086 | 0.128 | 0.093 |
+| RT-TCT- < 1 s | | | | | | | | | 1 | 0.479**| 0.193 | 0.148 | 0.311* | 0.127 | 0.186 | 0.177 |
+| RT-TCT > 1 s | | | | | | | | | | 1 | −0.191 | −0.085 | 0.084 | −0.090 | −0.053 | −0.050 |
+| BOX-B1 | | | | | | | | | | | 1 | 0.655 **| 0.365* | 0.617 **| 0.643**| 0.457**|
+| BOX-B2 | | | | | | | | | | | | 1 | 0.706**| 0.402**| 0.677**| 0.632**|
+| BOX-B3 | | | | | | | | | | | | | 1 | 0.115 | 0.301 | 0.764**|
+| RT-BOX-B1 | | | | | | | | | | | | | | 1 | 0.782**| 0.364* |
+| RT-BOX-B2 | | | | | | | | | | | | | | | 1 | 0.535 ** |
+| RT-BOX-B3 | | | | | | | | | | | | | | | | 1 |
 
 <span id="page-13-0"></span>TCT = Time Comparison Task; BOX = The Boxes Room Task; s = Seconds; \* *p* < 0.050; \*\* *p*< 0.010. Significant correlations are highlighted in bold.
 

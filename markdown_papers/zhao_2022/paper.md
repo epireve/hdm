@@ -186,7 +186,7 @@ Client C<sup>i</sup> then applies the homomorphic encryption algorithm Enc() to 
 <span id="page-3-1"></span>**Skefl\_Garble**$$
 (i) \stackrel{\text{def}}{=} \text{enc}(\widehat{W}_i).
 $$
- (1)
+(1)
 
 On average, each client C<sup>i</sup> would receive n sub-models and the local aggregation involves up to nm operations. Therefore, the time complexity of Skefl Garble() is O(mn).
 
@@ -277,11 +277,10 @@ $$
 
 which is equivalent to
 
-<span id="page-4-0"></span>
 $$
 Pr[o=1 \land \mathbf{enc}(W_1)] \le \frac{1}{4} + \frac{\mu}{2}.
 $$
- (5)
+(5)
 
 Now, suppose
 
@@ -342,17 +341,17 @@ Transitioning to the meticulous assessment of the Asymmetric Threshold Secret Sh
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The image contains four line graphs comparing the accuracy (in percentage) of three federated learning algorithms—Skefl, FedHE, and FedAvg—across ten training rounds. Each graph likely represents a different dataset or experimental setting. The y-axis shows accuracy, and the x-axis represents the round number. The purpose is to visually compare the convergence speed and final accuracy of the algorithms. -->
 
-Figure 1: Skefl accuracy for MNIST, FMNIST, CIFAR-10, and SVHN
+**Figure 1:** Skefl accuracy for MNIST, FMNIST, CIFAR-10, and SVHN
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image presents four bar charts comparing the time (in seconds) taken for "Split," "Merge," and "Verify" operations of an algorithm (ATSS) on four different datasets (MNIST, FMNIST, CIFAR, SVHN). Each chart shows that the "Split" operation consistently takes the longest, followed by "Merge," with "Verify" being the fastest. Error bars are included. The purpose is to illustrate the computational cost of each step of the ATSS algorithm across different datasets. -->
 
-Figure 2: Performance of ATSS primitives on MNIST, FMNIST, CIFAR-10, and SVHN
+**Figure 2:** Performance of ATSS primitives on MNIST, FMNIST, CIFAR-10, and SVHN
 
 <span id="page-6-2"></span>![](_page_6_Figure_4.jpeg)
 <!-- Image Description: The image presents four bar charts comparing the time (in seconds) taken by three different federated learning aggregation methods (Dist, Aggr, FedAvg) on four datasets (MNIST, FMNIST, CIFAR, SVHN) using the Skefl algorithm. Each chart shows the time for each aggregation method on a specific dataset, allowing for a comparison of efficiency across datasets and algorithms. Error bars are included, suggesting variability in the results. The purpose is to illustrate the performance differences between the aggregation methods in terms of execution time. -->
 
-Figure 3: Skefl overhead of FedAvg on MNIST, FMNIST, CIFAR-10, and SVHN
+**Figure 3:** Skefl overhead of FedAvg on MNIST, FMNIST, CIFAR-10, and SVHN
 
 ### Skefl Overhead
 

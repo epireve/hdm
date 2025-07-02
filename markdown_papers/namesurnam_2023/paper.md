@@ -36,17 +36,17 @@ Keywords: Territory Ontology · Evolution Representation · Change Detection Alg
 
 Resource Type: Ontology Resource Type: Software and datasets License: Creative Common 4.0 License: Creative Common 4.0 DOI: 10.5281/zenodo.7451702 DOI: 10.5281/zenodo.7451408 URL:https://w3id.org/HHT URL:https://github.com/Brainchain09/HHT-SHACL
 
-# 1 Introduction
+## 1 Introduction
 
 In the context of digital humanities, representing territories as they once were is a keen issue. Among many issues arising when attempting to represent historical territories is their geometrical representation [13]. While it is common to use a vector geometry representation when tackling space-spanning entities, the available historical data generally has no geometric representation, which makes such approaches difficult to implement, whether it be for representation or reasoning about changes. In addition, in an historical approach, it is to be noted that representing the geometry of territories could be considered as a representation bias. It is known for example that, back in the 18th century, the typical representation of a territory was a list of places [6]. Another dimension of historical territories is their layered structure within multiple hierarchies. While current territorial hierarchies rely on a single territorial division, labeled as a nomenclature (example: INSEE in France), contexts such as the modern period in France call for several hierarchy layers depending on the power dimension considered (religious, administrative, etc.). As of now, to the best of our knowledge, no ontology nor change detection algorithm takes these two features into account. Thus, this paper proposes an algorithm to detect territorial changes relying on a data representation using an ontology we created, HHT (Historical Hierarchical Territories). Section 2 tackles the state of the art regarding historical territory representation. Section 3 addresses HHT, the ontology we propose for this purpose. Section 4 describes the algorithm used to detect and qualify changes in a knowledge graph relying on HHT. Finally, section 5 presents the evaluation of said algorithm for multiple datasets displaying various particularities.
 
-# 2 Representing historical territories and changes
+## 2 Representing historical territories and changes
 
 ### 2.1 Inherent difficulties in representing historical territories
 
 Representing historical territories is complex due to various factors. First, it is necessary to represent the hierarchical relations between the various territories. Several approaches exist to represent multi-level territorial divisions, whether they be context specific approaches (RAMON<sup>1</sup> for NUTS) or generic approaches (TSN [3]), they all describe hierarchies covering a whole territory according to a single nomenclature. It is, for example, impossible to simultaneously represent both an administrative territorial division and a religious one in TSN. Representing the geometry is also an issue for historical territories, as it is often found to be either missing or imprecise [13]. However, most approaches [3, 15] rely on full geometry description, such as TSN which uses a GeoSPARQL representation.
 
-#### 2.2 Territories as temporal entities
+### 2.2 Territories as temporal entities
 
 When representing historical territories, temporal evolution is to be taken into account, thus inducing these territories to be considered as perdurant entities [3] as defined in the DOLCE ontology [8]. This ontology introduces the notions of perdurants, which are objects whose temporal properties evolve, as opposed to endurants which retain the same properties through their whole existence. Several approaches have been developed over the years to represent such entities. In [10], a general conceptual framework is proposed for temporal entities that distinguishes between SNAP (endurants) and SPAN (perdurants) ontologies. The 4D-Fluents approach [17] is also a common solution when representing perdurants [2]. It relies on representing perdurants as a series of time slices. More precisely, while an instance p represents the entity itself, it is attached to several time slices which represents its state at various points in time. Some recent work go further by generalizing this approach to describe any kind of statement
 
@@ -60,29 +60,29 @@ Change ontological representation In approaches such as fluents[17], change repr
 
 Change detection algorithms TSN provides an algorithm to automatically represent changes [4]. This algorithm is used to match entities in two consecutive versions of a nomenclature. It includes both a statistical identity preservation matching of entities, and an explicit qualification of changes. However, this algorithm is not intended to reason on an existing knowledge graph but rather to create a complete knowledge graph from raw data. Furthermore, part of the analysis carried out when computing the differences between two versions is a geometric comparison relying on geospatial vector files. This issue is partly tackled in the original change bridge approach[13]. This approach comes with an algorithm which relies on explicitly representing local changes (i.e. changes at the city scale, for example) in order to infer greater scale changes. However, this approach relies on knowing the extent of the surface of local entities (50 km<sup>2</sup> for example), which is still not always available in an historical context.
 
-# 3 The HHT Ontology for historical territories
+## 3 The HHT Ontology for historical territories
 
 ### 3.1 Territory representation and link with TSN
 
 To sum up, historical territories require an ontology that would allow representation of multiple overlaying hierarchies and their evolution, without knowledge of the territories' geometry. In order to take into account all these particularities of historical territory representation, the HHT ontology was proposed, basing on the TSN ontology [3], while focusing on units instead of nomenclatures. Figure 1a presents the main concepts and main properties of the territory representation proposed by HHT. All figures are available in the ontology documentation. It mostly revolves around the classes hht:Unit which represents a territorial unit, its subtype hht:HistoricalTerritory which adds the notion of control by an actor (not discussed in this paper), hht:Level which categorizes a hierarchical level, and hht:HierarchicalCriterion which corresponds to the criterion related to a level (example: Religious). This class is one of the main differences with TSN and enables the coexistence of multiple hierarchy layers on a single geographic space. However, we retain the level and unit versioning architecture. Instances of hht:Unit and hht:Level are bearers of the identity of the real world entities they represent. In order to represent their successive states, they are provided respectively with hht:UnitVersion and hht:LevelVersion through the adequate hht:hasVersion subproperty. Each unit version is a member of a level version which materializes its level in the hierarchy. Unit versions on a given level can be linked to Sub/Upper units that are members of the Sub/Upper level. Each of these hht:Version has property hht:validityPeriod providing the time stamp of the described state relying on OWL-Time's interval concept. Considering that UnitVersions have their own validity period is one other main difference with TSN. In order to further reduce the fragmentation into slices, the impact of lower/upper territories on a hht:UnitVersion was tackled. It was first decided to redefine the time slices of a hht:Unit whenever one of its hierarchically linked territories was modified [5]. However, this naive approach was found to induce an over-fragmentation of the time slices. It was thus decided that the timeline of a hht:Unit would only be fragmented (by increasing the number of
 
 ![](_page_4_Figure_1.jpeg)
-<!-- Image Description: The image displays a simplified instance example of a graph database schema, omitting validity periods and using `hht:contains`.  Nodes represent entities (e.g., `hht:Level`, `ex:Occitanie`), and edges depict relationships (e.g., `hht:hasVersion`, `hht:isMemberOf`).  The diagram illustrates hierarchical relationships between administrative units (regions, departments, communes) and their versions across time, showcasing the structure's organization and data representation within the paper's context.  Color-coding distinguishes different entity types. -->
+<!-- Image Description: The image displays a simplified instance example of a graph database schema, omitting validity periods and using `hht:contains`. Nodes represent entities (e.g., `hht:Level`, `ex:Occitanie`), and edges depict relationships (e.g., `hht:hasVersion`, `hht:isMemberOf`). The diagram illustrates hierarchical relationships between administrative units (regions, departments, communes) and their versions across time, showcasing the structure's organization and data representation within the paper's context. Color-coding distinguishes different entity types. -->
 
 (a) Schema of the HHT Ontology
 
-Fig. 1: HHT Ontology: classes and instanciation
+**Figure 1:** HHT Ontology: classes and instanciation
 
 its versions) whenever a change in lower territories induces a change of the territory's geometry (see section 3.2). Hierarchical relations (hht:hasSubUnit and hht:hasUpperUnit) are thus valid only during the intersection of the validity intervals of the hht:UnitVersion it links. Note the existence of a super property for hht:hasSubUnit, hht:contains which describes geometry inclusion and is transitive. This property is notably used to access the building blocks of a version, as described in section 3.2. Figure 1b presents a multi-level description of territories using HHT. It omits validity periods, which are considered to be the same for all versions. Figure 2 presents an example of representation using HHT, both with the current and the previous time fragmenting. In the current approach (left part of the figure), the renaming of ex:La-Chapelle-Blanche leads to this entity having two versions. However, as renaming does not affect the geometry of ex:Ploëmel, this hht:Unit retains only one hht:UnitVersion to which both versions of the lower territory are related through the hht:hasUpperUnit property (the validity of said property is implicitly the intersection of the validity intervals of both versions). In the former approach (right part of the figure), however, ex:Ploëmel gets two versions, resulting in a heavier knowledge graph (that would get heavier as we get higher in the hierarchy).
 
-#### 3.2 Discrete Geometry and building blocks
+### 3.2 Discrete Geometry and building blocks
 
 As mentioned in section 2.1, geometry is an issue when representing historical territories. In order to address this, geometry representation is achieved by using a notion of building block, which are assumed to exist across the whole study period. A subclass of hht:LevelVersion, hht:ElementaryLevelVersion qualifies a hierarchical level version whose members (instances related to the level version with the hht:isMemberOf property) are territory versions that are building
 
 ![](_page_5_Figure_1.jpeg)
-<!-- Image Description: The image presents two diagrams comparing "current" and "previous" approaches to representing historical data.  Each diagram uses boxes to represent entities (e.g., "PloërmelV1661") and arrows to show relationships (e.g., "hht:hasVersion").  The diagrams illustrate a hierarchical structure with different levels and versions, focusing on temporal aspects using "hht:validityPeriod" and time intervals.  The purpose is to visually contrast the two modeling approaches, highlighting differences in their structure and relationships. -->
+<!-- Image Description: The image presents two diagrams comparing "current" and "previous" approaches to representing historical data. Each diagram uses boxes to represent entities (e.g., "PloërmelV1661") and arrows to show relationships (e.g., "hht:hasVersion"). The diagrams illustrate a hierarchical structure with different levels and versions, focusing on temporal aspects using "hht:validityPeriod" and time intervals. The purpose is to visually contrast the two modeling approaches, highlighting differences in their structure and relationships. -->
 
-Fig. 2: Examples of current and previous version fragmentation
+**Figure 2:** Examples of current and previous version fragmentation
 
 blocks of the geometry. In this approach, a territory geometry is discrete, and is can be defined for every hht:UnitVersion. Considering such an entity v, we define geometry as the set of hht:Unit that have a version contained by v that is identified as a member of a hht:ElementaryLevelVersion. These units are (by definition of the elementary level) hierarchically inferior to said territory. To guarantee a time-consistent geometry, we consider a set of hht:Unit, and not of hht:UnitVersion. Building blocks can go through non-geometrical evolutions (such as name changes), and thus have multiple versions even though their geometry is considered as fixed. Formally, given u a hht:UnitVersion, we can define its geometry as the set of versions of the lowest (elementary) level territorial units that compose it:
 
@@ -90,14 +90,14 @@ geometry(u) = {b|∃bLevel, bV ersion, hht : contains(u, bV ersion)∧ hht : isM
 
 In figure 1b, we have geometry(ex : OccitanieV 1) = {ex : Muret, ex : T oulouse, ex : F oix, ex : P amiers}. This definition uses hht:contains, which is transitive. However it does not imply that the geometry of a unit is the sum of that of its direct sub units. This apparent flaw is legitimated in an historical context due to impreciseness in historical sources (an elementary level unit stated to be inside a higher level unit without describing the intermediate hierarchy). Note that despite describing the geometry of evolving territories, this definition is devoid of any temporal component as it is defined for hht:UnitVersion, which are already temporally stamped.
 
-#### 3.3 HHT-Change: Representing and qualifying change
+### 3.3 HHT-Change: Representing and qualifying change
 
 So far, we presented how HHT allows to represent hierarchical territories through time. The HHT ontology also allows to explicitly represent changes that occur between versions, and to describe their nature. Change representation in HHT is strongly based on the TSN ontology in regard of change taxonomy [3]. However,
 
 ![](_page_6_Figure_1.jpeg)
-<!-- Image Description: The image displays a map illustrating territorial changes between 1661-1702 and 1702-1789 (a), and a directed graph (b) modeling these changes using a knowledge graph.  The graph represents territories (A, D) and their versions across time intervals, connected by relationships like "hasVersion", "before", and "after".  Rectangles represent entities (territories, changes, intervals), and arrows show relationships. The graph visualizes the temporal evolution of territories and the composition of composite changes. -->
+<!-- Image Description: The image displays a map illustrating territorial changes between 1661-1702 and 1702-1789 (a), and a directed graph (b) modeling these changes using a knowledge graph. The graph represents territories (A, D) and their versions across time intervals, connected by relationships like "hasVersion", "before", and "after". Rectangles represent entities (territories, changes, intervals), and arrows show relationships. The graph visualizes the temporal evolution of territories and the composition of composite changes. -->
 
-Fig. 3: An arbitrary composite change
+**Figure 3:** An arbitrary composite change
 
 the change description structure is quite different. While TSN-Change relies on a multi-level change genealogy, we distinguish between feature changes, which describe a change regarding a single change, and composite changes which are linked together using a mereology approach.
 
@@ -119,7 +119,7 @@ $$
 $$
 \forall c_s \subset g_{set} \bigcup_{c \in g_{set} \setminus c_s} geometry(c_{before}) \neq \bigcup_{c \in g_{set} \setminus c_s} geometry(c_{after})
 $$
- (3)
+(3)
 
 ∀c ∈ gset∃lversion, level|
 
@@ -133,32 +133,32 @@ $$
 
 HHT further defines subclasses to qualify the type of hht:GeometryRestructuration an area undergoes. They are separated into three categories depending on the type of geometry alteration (split, merge, redistribution) and further separated depending on their preserving the territories identity (continuation change) or not (derivation change). Figure 4 presents examples of these categories.
 
-# 4 Change detection algorithm
+## 4 Change detection algorithm
 
 Building on HHT-Change, we now aim to automatically detect and qualify the changes occurring between the various time slices described in a knowledge graph using HHT to describe territories. A rule based algorithm was implemented in order to achieve this goal. It is important to take into account some particularities of the knowledge graphs on which said algorithm should be applied:
 
 Representing Temporally-Evolving Historical Territories 9
 
 ![](_page_8_Figure_1.jpeg)
-<!-- Image Description: This image illustrates three types of geographic region changes: merge, split, and redistribution.  Each category shows a before-and-after schematic of two or more regions (A, B, C, D) merging, dividing, or reorganizing their boundaries.  Arrows indicate the process (integration, fusion, extraction, scission, rectification, reallocation). The image visually defines and clarifies these spatial transformations, likely for a study of territorial dynamics or similar. -->
+<!-- Image Description: This image illustrates three types of geographic region changes: merge, split, and redistribution. Each category shows a before-and-after schematic of two or more regions (A, B, C, D) merging, dividing, or reorganizing their boundaries. Arrows indicate the process (integration, fusion, extraction, scission, rectification, reallocation). The image visually defines and clarifies these spatial transformations, likely for a study of territorial dynamics or similar. -->
 
-Fig. 4: The various types of hht:GeometryRestructuring
+**Figure 4:** The various types of hht:GeometryRestructuring
 
 - Said knowledge graph should describe the territorial hierarchy only for a specified time period. The Third French Republic dataset used for evalution in section 5.1, for example, describes the French administrative hierarchy from 1870 to 1940. Such time boundaries are essential to properly detect appearances and disappearances. The instances of hht:UnitVersion described in the knowledge graph will have their validity interval truncated to fit in the focus of the knowledge graph, and no knowledge will be represented regarding the status of any territory before and after said time focus. Thus, the algorithm would be erroneous if it detected an appearance for each hht:UnitVersion being valid starting from 1870 and having no previous version in the knowledge graph, as this would be due to the graph focus.
 - Instances of hht:Unit which are member of an elementary level should exist in the knowledge graph across its whole time focus.
 
 The algorithm was designed to be implemented using SHACLRules which rely on SHACL and SPARQL to allow the user to write rules. Resulting implementation is available in the provided GitHub resource.
 
-#### 4.1 Algorithm description
+### 4.1 Algorithm description
 
-| Algorithm 1 Change detection and qualification algorithmic steps                    |
+| Algorithm 1 Change detection and qualification algorithmic steps |
 |-------------------------------------------------------------------------------------|
 | Add the "next version" property linking each version to its chronological successor |
-| Add the feature changes                                                             |
-| Qualify feature changes                                                             |
-| Create composite changes depending on the feature changes                           |
-| Qualify composite changes                                                           |
-|                                                                                     |
+| Add the feature changes |
+| Qualify feature changes |
+| Create composite changes depending on the feature changes |
+| Qualify composite changes |
+| |
 
 Algorithm 1 presents the global steps involved in fully creating and qualifying the changes. This section will further detail how each step is achieved.
 
@@ -179,14 +179,14 @@ It is to be noted that the time focus of the knowledge graph is as of now to be 
 Qualifying feature changes The previous step created a set of hht:Feature-Change that we want to further qualify. Provided a c change, the algorithm will run several comparisons between cbefore and caf ter. For simple attributes such as name, the difference is quite easy to compute. Geometry comparisons however, considering our definition, require more fine grained analysis. Intuitively, a geometry change means that geometry(cbefore) ̸= geometry(caf ter). Furthermore, HHT-Change goes further by defining subclasses to hht:geometryChange, which form a partition of the possible cases:
 
 - A hht:Contraction describes the case where:
-  - geometry(cbefore) ̸⊆ geometry(caf ter)∧geometry(caf ter) ⊆ geometry(cbefore) (6)
+- geometry(cbefore) ̸⊆ geometry(caf ter)∧geometry(caf ter) ⊆ geometry(cbefore) (6)
 
 In more common terms, a contraction describes the case of a loss of a geometry portion. As SPARQL is not designed to carry out set comparisons, it is calculated using cardinality comparisons regarding card(geometry(cbefore)), card(geometry(caf ter)) and card(geometry(cbefore) ∩ geometry(caf ter)). Equation (6) is rephrased as:
 
 $$
 card(geometry(c_{before})) > card(geometry(c_{after})) \land card(geometry(c_{after}))
 $$
-  
+
 = card(geometry(c\_{before}) \cap geometry(c\_{after})) . (7)
 
 This condition can be implemented in SPARQL using several SPARQL COUNT inside the query.
@@ -200,8 +200,8 @@ geometry(cbefore) ⊆ geometry(caf ter)∧geometry(caf ter) ̸⊆ geometry(cbefo
 $$
 card(geometry(c_{before})) < card(geometry(c_{after})) \land card(geometry(c_{before}))
 $$
-  
-= 
+
+=
 $$
 card(geometry(c_{before}) \cap geometry(c_{after}))
 $$
@@ -228,11 +228,11 @@ $$
 
 Adding meaningful geometry Restructurings from feature changes We now aim to add composite changes that will collect several related hht:FeatureChange. As mentioned in section 3.3, as of now, composite changes are only geometry related. This section will tackle how we manage to create hht:Composite-Change which, provided the initial knowledge graph describes all building blocks across the whole graph's time focus, will respect equations (2), (3), (4) and (5). First of all, it is mandatory to identify which hht:FeatureChange subclasses can be involved in a hht:GeometryRestructuring. In addition to hht:GeometryChange, all hht:Appearance, hht:Disppearance and hht:Reappearance induce a remapping of an area, and should thus be aggregated in order to form a coherent hht:GeometryRestructuring. More importantly, if all the hht:UnitVersion are described properly in regard of the building blocks they contain, any single instance of those subtypes of change should be involved in a hht:GeometryRestructuring. Assuming the knowledge graph description of building blocks is time-exhaustive,
 
-#### 12 W. Charles, N. Aussenac-Gilles, and N. Hernandez
+### 12 W. Charles, N. Aussenac-Gilles, and N. Hernandez
 
 any building block b disappearing from the geometry of a territory t1 should appear in another territory t2. Thus, in order to aggregate hht:FeatureChange, the algorithm relies on finding other changes happening at the same time and featuring the adding/removing of the building blocks that are removed/added during a given hht:FeatureChange. In the example in figure 3, d loses part of its geometry to a and c. Starting from the hht:FeatureChange d goes through, we will thus find the changes involving a and c. Same goes for the gains. In order to properly aggregate changes, and considering the possibilities of SHACLRules, we propose algorithm 2 to achieve those steps.
 
-| Algorithm 2 Create a composite change |  |  |  |
+| Algorithm 2 Create a composite change | | | |
 |---------------------------------------|--|--|--|
 |---------------------------------------|--|--|--|
 
@@ -269,12 +269,12 @@ $$
 $$
 (card(g_a) > card(g_b) \land card(g_b \cap g_a) = card(g_b))
 $$
-  
- 
+
+
 $$
 \lor card(g_b) > card(g_a) \land card(g_b \cap g_a) = card(g_a))
 $$
- (16)
+(16)
 
 Those two steps being achieved, OWL inference will manage the qualification in the six final categories.
 
@@ -282,11 +282,11 @@ Those two steps being achieved, OWL inference will manage the qualification in t
 
 As mentioned, the algorithm properly qualifying changes rely on a time-exhaustive description of the geometric building blocks. Thus an extension was implemented to compensate for this. This extension, named HHT-SHACL FDD (for flawed data detection), adds a step after the detection of geometric changes during which geometric changes are scrutinized to determine whether the geometric change is due to an actual building block relocation (in which place said block can be traced to another territory) or to a building block unexpected appearance/disappearance. This extension can be used to avoid erroneous change qualification, and to detect lacking territory knowledge in the graph. Typically, some of the building blocks are bound to evolve across the time focus of the knowledge graph. Sometimes, however this evolution means that they appear/disappear at some time, mainly because they merge/split with another building block. These disappearances/appearances can also be due to data that exists but is missing from the knowledge graph. This will cause invalid detection of geometry changes. The algorithm will report such changes as Incomplete.
 
-# 5 Evaluation
+## 5 Evaluation
 
 Our algorithm was evaluated on several datasets which all had particularities. Tests were carried out using the TopBraid API, which allows to evaluate SHA-CLRules. This section will tackle these evaluations, and their results. All datasets complemented with data description as well as the algorithm results are available online in the git resource. A script is also provided to convert CSV tables to HHT knowledge graphs. Finally, the git resource provides several SPARQL queries, and a query comparison with TSN.
 
-#### 14 W. Charles, N. Aussenac-Gilles, and N. Hernandez
+### 14 W. Charles, N. Aussenac-Gilles, and N. Hernandez
 
 ### 5.1 French Third Republic
 
@@ -300,15 +300,15 @@ To evaluate our algorithm on a larger knowledge graph, it was used to detect cha
 
 <sup>3</sup> https://ec.europa.eu/eurostat/web/nuts/local-administrative-units
 
-#### 5.3 France: Region reform
+### 5.3 France: Region reform
 
 The goal of this evaluation was to test the behaviour of the algorithm when confronted to unproperly formalized data. This dataset was created by combining datasets provided by INSEE. Timeslicing was handled by creating one timeslice for each territory described in the original datasets, meaning that most territories are described as having two versions regardless of any difference between those two versions. As a consequence, in this dataset, Fragmentation is carried out poorly, with some hht:Unit having two temporally-consecutive hht:UnitVersion which describe the same properties. In addition, some building blocks aren't described across the whole timespan. Those inconsistencies with the algorithm's hypothesis lead to flaws in the results. Changes are detected between two versions that are describing the exact same properties, as they should be described as the same version. Geometry changes are detected where they should not, due to building block disappearances. 82 geometry changes are detected, but HHT-SHACL FDD denotes those 82 changes as Incomplete. Despite those erroneous change detections, it is to be noted that the composite changes are still properly aggregated. All the regions's fusions are detected, and qualified as merges.
 
-# 6 Conclusion
+## 6 Conclusion
 
 Currently, the HHT approach allows to represent historical territories, by taking into account multiple overlaying hierarchies, providing a geometry definition that does not rely on knowledge of any vector geometry or surface figure. The evolution of territories can also be represented using an approach based on fluents[17]. This representation was chosen due to its being easily grasped by historians. However, it is important to highlight the high amount of time slices it induces, and the endeavor it requires in order to minimize overslicing. Further work will address the possible use of approaches relying on time stamping properties instead of creating new objects, notably in regard of a possible weight reduction of the final knowledge graph. Another representation dimension that is to be addressed by further work will be the linking of knowledge to the sources it has been extracted from inside the graph. The HHT approach also comes with an algorithm allowing to detect changes occurring for any territory, and aggregating those to reveal composite changes describing a global geometry remapping. Said algorithm is currently limited by the need to describe all the building blocks across the whole time focus of the graph. Though the FDD approach points out inconsistencies in the detected changes, this issue is to be further tackled. Various solutions are currently considered. The first would consist in a naive approach where disappearing/appearing building blocks would simply be ignored. A second possible approach would rely on applying part of the change bridge[13] algorithm by explicitly representing changes occurring at a local level. Finally, a third approach would consist in considering hybrid geometries, with some territories having a defined vector geometry.
 
-# References
+## References
 
 - 1. Batsakis, S., Petrakis, E.G.: Sowl: a framework for handling spatio-temporal information in owl 2.0. In: International Workshop on Rules and Rule Markup Languages for the Semantic Web. pp. 242–249. Springer (2011)
 - 2. Batsakis, S., Petrakis, E.G., Tachmazidis, I., Antoniou, G.: Temporal representation and reasoning in owl 2. Semantic Web 8(6), 981–1000 (2017)

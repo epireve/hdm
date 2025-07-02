@@ -50,7 +50,7 @@ keywords:
 
 # nature human behaviour
 
-# A generative model of memory construction and consolidation
+## A generative model of memory construction and consolidation
 
 Received: 30 May 2023
 
@@ -58,9 +58,9 @@ Accepted: 5 December 2023
 
 Published online: 19 January 2024
 
- [C](http://crossmark.crossref.org/dialog/?doi=10.1038/s41562-023-01799-z&domain=pdf)heck for updates
+[C](http://crossmark.crossref.org/dialog/?doi=10.1038/s41562-023-01799-z&domain=pdf)heck for updates
 
-**Eleanor Spens  1 & Neil Burgess  1,2**
+**Eleanor Spens 1 & Neil Burgess 1,2**
 
 Episodic memories are (re)constructed, share neural substrates with imagination, combine unique features with schema-based predictions and show schema-based distortions that increase with consolidation. Here we present a computational model in which hippocampal replay (from an autoassociative network) trains generative models (variational autoencoders) to (re)create sensory experiences from latent variable representations in entorhinal, medial prefrontal and anterolateral temporal cortices via the hippocampal formation. Simulations show efects of memory age and hippocampal lesions in agreement with previous models, but also provide mechanisms for semantic memory, imagination, episodic future thinking, relational inference and schema-based distortions including boundary extension. The model explains how unique sensory and predictable conceptual elements of memories are stored and reconstructed by efciently combining both hippocampal and neocortical systems, optimizing the use of limited hippocampal storage for new and unusual information. Overall, we believe hippocampal replay training generative models provides a comprehensive account of memory construction, imagination and consolidation.
 
@@ -72,7 +72,7 @@ Generative models capture the probability distributions underlying data, enablin
 
 This builds on existing models of spatial cognition in which recall and imagination of scenes involve the same neural circuits[20](#page-14-10)[–22,](#page-14-11) and is supported by evidence from neuropsychology that damage to the
 
-<sup>1</sup> UCL Institute of Cognitive Neuroscience, University College London, London, UK. 2 UCL Queen Square Institute of Neurology, University College London, London, UK.  e-mail: [eleanor.spens.20@ucl.ac.uk;](mailto:eleanor.spens.20@ucl.ac.uk) [n.burgess@ucl.ac.uk](mailto:n.burgess@ucl.ac.uk)
+<sup>1</sup> UCL Institute of Cognitive Neuroscience, University College London, London, UK. 2 UCL Queen Square Institute of Neurology, University College London, London, UK. e-mail: [eleanor.spens.20@ucl.ac.uk;](mailto:eleanor.spens.20@ucl.ac.uk) [n.burgess@ucl.ac.uk](mailto:n.burgess@ucl.ac.uk)
 
 hippocampal formation (HF) leads to deficits in imagination[23](#page-14-17), episodic future thinking[24](#page-14-18), dreamin[g25](#page-14-19) and daydreaming[26](#page-14-20), as well as by neuroimaging evidence that recall and imagination involve similar neural processes[27](#page-14-21),[28](#page-14-22).
 
@@ -110,7 +110,7 @@ During perception, the generative model provides an ongoing estimate of novelty 
 ![](_page_2_Figure_2.jpeg)
 <!-- Image Description: This image from an academic paper presents a computational model of memory. Panels (a), (e), (f), and (g) are diagrams illustrating information flow between the hippocampus, sensory neocortex, and semantic memory, showing how latent variables represent sensory input and are used to consolidate episodic memories, imagine, and retrieve semantic information. Panels (b) depicts an encoder-decoder architecture, while (c) and (d) show example inputs and corresponding outputs. The diagrams use boxes for neural networks and arrows for information flow, clarifying the model's architecture and function. -->
 
-<span id="page-2-0"></span>**Fig. 1 | Architecture of the basic model. a**, First, the hippocampus rapidly encodes an event, modelled as one-shot memorization in an autoassociative network (an MHN). Then, generative networks are trained on replayed representations from the autoassociative network, learning to reconstruct memories by capturing the statistical structure of experienced events. **b**, A more detailed schematic of the generative network to indicate the multiple layers of, and overlap between, the encoder and decoder (where layers closer to the sensory neocortex overlap more). The generation of a sensory experience, for example, visual imagery, requires the decoder to the sensory neocortex via HF. **c**, Random noise inputs to the MHN (top row) reactivate its memories (bottom row) after 10,000 items from the Shapes3D dataset are encoded, with
+<span id="page-2-0"></span>**Figure 1 | Architecture of the basic model. a**, First, the hippocampus rapidly encodes an event, modelled as one-shot memorization in an autoassociative network (an MHN). Then, generative networks are trained on replayed representations from the autoassociative network, learning to reconstruct memories by capturing the statistical structure of experienced events. **b**, A more detailed schematic of the generative network to indicate the multiple layers of, and overlap between, the encoder and decoder (where layers closer to the sensory neocortex overlap more). The generation of a sensory experience, for example, visual imagery, requires the decoder to the sensory neocortex via HF. **c**, Random noise inputs to the MHN (top row) reactivate its memories (bottom row) after 10,000 items from the Shapes3D dataset are encoded, with
 
 five examples shown. **d**, The generative model (a variational autoencoder) can recall images (bottom row) from a partial input (top row), following training on 10,000 replayed memories sampled from the MHN. **e**, Episodic memory after consolidation: a partial input is mapped to latent variables whose return projections to the sensory neocortex via HF then decode these back into a sensory experience. **f**, Imagination: latent variables are decoded into an experience via HF and return projections to the neocortex. **g**, Semantic memory: a partial input is mapped to latent variables, which capture the 'key facts' of the scene. The bottom rows of **e**–**g** illustrate these functions in a model that has encoded the Shapes3D dataset into latent variables (*v*1, *v*2, *v*3, …, *vn*). Diagrams were created using [BioRender.com](http://BioRender.com).
 
@@ -123,7 +123,7 @@ Consolidation is often considered in terms of fine-grained sensory representatio
 ![](_page_3_Figure_2.jpeg)
 <!-- Image Description: The image depicts a computational model of memory, showing information flow between brain regions. Panel (a) illustrates the interaction between an autoassociative network ("teacher") and a generative network ("student"), involving the hippocampus, entorhinal cortex (EC), and anterior lateral temporal/medial prefrontal cortex (alTL/mPFC). Panels (b) and (c) demonstrate the generative network's processing of novel sensory input, generating predictions based on existing concepts. Panel (d) shows an encoding and recall process where a noisy input is decomposed, processed, and recombined to reconstruct the original event. The diagrams illustrate how these networks interact to encode and retrieve memories. -->
 
-<span id="page-3-0"></span>**Fig. 2 | Architecture of the extended model. a**, Each scene is initially encoded as a combination of predictable conceptual features related to the latent variables of the generative network and unpredictable sensory features that were poorly predicted by the generative network. An MHN (in red) encodes both sensory and conceptual features (with connections to the sensory neocortex and latent variables in EC, respectively), binding them together via memory units. Memories may eventually be learned by the generative model (in blue), but consolidation can be a prolonged process, during which time the generative network provides schemas for reconstruction and the autoassociative network supports new or detailed information not yet captured by these schemas. Multiple generative networks can be trained concurrently, with different networks optimized for different tasks. This includes networks with latent variables in EC, mPFC and alTL,
+<span id="page-3-0"></span>**Figure 2 | Architecture of the extended model. a**, Each scene is initially encoded as a combination of predictable conceptual features related to the latent variables of the generative network and unpredictable sensory features that were poorly predicted by the generative network. An MHN (in red) encodes both sensory and conceptual features (with connections to the sensory neocortex and latent variables in EC, respectively), binding them together via memory units. Memories may eventually be learned by the generative model (in blue), but consolidation can be a prolonged process, during which time the generative network provides schemas for reconstruction and the autoassociative network supports new or detailed information not yet captured by these schemas. Multiple generative networks can be trained concurrently, with different networks optimized for different tasks. This includes networks with latent variables in EC, mPFC and alTL,
 
 each with its own semantic projections. However, in all cases, return projections to the sensory neocortex are via HF. **b**, An illustration of encoding in the extended model. **c**, Encoding 'scenes' from the Shapes3D dataset, with each 'scene' decomposed into unpredicted sensory features (top) and conceptual features linked to the generative network's latent variables (bottom). Novel features (white squares overlaid on the image with varying opacity) are added to each 'scene'. **d**, Recalling 'scenes' (with novel features) from the Shapes3D dataset. First, the input is decomposed; then, the MHN performs pattern completion on both sensory and conceptual features. The conceptual features (which in these simulations are simply the generative network's latent variables) are then decoded into a schema-based prediction, onto which any stored sensory features are overwritten. Diagrams were created using [BioRender.com.](http://BioRender.com)
 
@@ -131,7 +131,7 @@ Furthermore, encoding every sensory detail in the hippocampus would be inefficie
 
 Suppose someone sees an unfamiliar animal in the forest (Fig. [2b\)](#page-3-0). Much of the event might be consistent with an existing forest schema, but the unfamiliar animal would be novel. In the extended model (Fig. [2](#page-3-0) and section 'Combining conceptual and unpredictable sensory features'), the reconstruction error per element of the experience is calculated by the generative model during perception, and elements with high reconstruction error are encoded in the autoassociative network as sensory features, along with conceptual features linked to the generative model's latent variable representation. In other words, each pattern is split into a predictable component (approximating the generative network's prediction for the pattern), plus an unpredictable component (elements with high prediction error). This produces a sparser vector than storing every element in detail, increasing the capacity of the network[42](#page-14-12).
 
-#### Neural substrates of the model
+### Neural substrates of the model
 
 Which brain regions do the components of this model represent? The autoassociative network involves the hippocampus binding together the constituents of a memory in the neocortex, whereas the generative network involves neocortical inputs projecting to latent variable representations in the higher association cortex, which then project back to the neocortex via the HF. The entorhinal (EC), medial prefrontal cortex (mPFC) and anterolateral temporal lobe (alTL) are all prime candidates for the site of latent variable representations.
 
@@ -141,9 +141,9 @@ Which regions constitute the generative network's decoder? The decoder converts 
 
 Multiple generative networks can be trained concurrently from a single autoassociative network through consolidation, with different networks optimized for different tasks. In other words, multiple networks could update their parameters to minimize prediction error on the basis of the same replayed memories. This could consist of a primary VAE with latent variables in the EC, plus additional parallel pathways from the higher sensory cortex to the EC via latent variables in the mPFC or the alTL. (Computationally, the shared connections could be fixed as the alternative pathways are trained.) Note that in all cases, return projections to the sensory neocortex via HF are required to decode latent variables into sensory experiences.
 
-#### Results
+### Results
 
-#### Modelling encoding and recall
+### Modelling encoding and recall
 
 Each new event is encoded as an autoassociative trace in the hippocampus, modelled as an MHN. Two properties of this network are particularly important: memorization occurs with only one exposure, and random inputs to the network retrieve stored memories sampled from the whole set of memories (modelling replay).
 
@@ -154,11 +154,11 @@ In the basic model (Fig. [1a\)](#page-2-0), the prediction error could be calcul
 ![](_page_4_Figure_11.jpeg)
 <!-- Image Description: This image displays results from a machine learning model. (a) shows a graph plotting reconstruction error (red) and decoding accuracy (blue) against epochs, indicating model training progress. (b) demonstrates object decomposition using image examples: input images are decomposed into parts, which are then recombined. (c) showcases reconstructed images, potentially showing the model's ability to generate varied images. (d) shows input-output pairs for shape generation. The overall purpose is to illustrate model performance in terms of reconstruction and shape generation. -->
 
-<span id="page-4-0"></span>**Fig. 3 | Learning, relational inference and imagination in the generative model. a**, Reconstruction error (red) and decoding accuracy (blue) improve during training of the generative model. Decoding accuracy refers to the performance of a support vector classifier trained to output the central object's shape from the latent variables, using 200 examples at the end of each epoch of generative model training. An epoch is one presentation of the training set of 10,000 samples from the hippocampus. **b**, Relational inference as vector arithmetic in the latent space. The three items on the right of each equation are items from the training data. Their latent variable representations are combined as vectors according to the equation, giving the latent variable representation from which the first item is generated. The pair in brackets describes a relation which is applied to the second item to produce the first. In the top row, the object shape changes from a cylinder to a sphere. In the second, the object shape changes from a cylinder to a cube, and the object colour from red to blue. In the third and fourth, more complex transitions change the object colour and shape, wall colour and angle. **c**, Imagining new items via interpolation in latent space. Each row shows points along a line in the latent space between two items from the training data, decoded into images by the generative network's decoder. **d**, Imagining new items from a category. Samples from each of the shape categories of the support vector classifier in **a**are shown.
+<span id="page-4-0"></span>**Figure 3 | Learning, relational inference and imagination in the generative model. a**, Reconstruction error (red) and decoding accuracy (blue) improve during training of the generative model. Decoding accuracy refers to the performance of a support vector classifier trained to output the central object's shape from the latent variables, using 200 examples at the end of each epoch of generative model training. An epoch is one presentation of the training set of 10,000 samples from the hippocampus. **b**, Relational inference as vector arithmetic in the latent space. The three items on the right of each equation are items from the training data. Their latent variable representations are combined as vectors according to the equation, giving the latent variable representation from which the first item is generated. The pair in brackets describes a relation which is applied to the second item to produce the first. In the top row, the object shape changes from a cylinder to a sphere. In the second, the object shape changes from a cylinder to a cube, and the object colour from red to blue. In the third and fourth, more complex transitions change the object colour and shape, wall colour and angle. **c**, Imagining new items via interpolation in latent space. Each row shows points along a line in the latent space between two items from the training data, decoded into images by the generative network's decoder. **d**, Imagining new items from a category. Samples from each of the shape categories of the support vector classifier in **a**are shown.
 
 In the extended model (Fig. [2](#page-3-0) and section 'Combining conceptual and unpredictable sensory features'), prediction error is calculated for each element of an event, determining which sensory details are stored.
 
-#### Modelling semantic memory
+### Modelling semantic memory
 
 Existing semantic memory survives when the hippocampus is lesione[d43–](#page-14-28)[45,](#page-14-29) and hippocampal amnesics can describe remote memories more successfully than recent ones[8](#page-13-5)[,84,](#page-15-24) even if they might not recall them 'episodically'[11.](#page-14-1) This temporal gradient indicates that the semantic component of memories becomes HF-independent. In the model, EC lesions impair all truly episodic recollection since the return projections from the HF are required for the generation of sensory experiences. Here we describe how remote memories could be retrieved 'in semantic form' despite lesions including the hippocampus and the EC.
 
@@ -171,51 +171,51 @@ The latent variable representation of an event in the generative network encodes
 
 experience, but the latent variables themselves could support semantic retrieval. Thus, when the HF (including the EC) is removed, the model can still support retrieval of semantic information (see section 'Modelling brain damage' for details). To show this, we trained models to and contraction. Top row: the noisy input images (from a held-out test set), with an atypically 'zoomed out' or 'zoomed in' view (by 80% and 120% on the left and right, respectively) for three original images. Bottom row: the predicted images for each input image, which are distorted towards the 'typical view' in each case. **f**, Adapted figure from ref. [92,](#page-15-25) showing the distribution of boundary extension vs contraction as a function of the viewpoint of an image. Specifically, the values are the average of 'closer' vs 'further' judgements, assigned −1 and 1, respectively, of an identical stimulus image in comparison with the remembered image (with 900 trials per position). Error bars give the standard error of the mean. Example stimuli are shown at the bottom. **g**, In our model, the VAE increases the estimated size of the central object in atypically 'zoomed out' views compared with the training data, and decreases it in atypically 'zoomed in' views, as in ref. [92](#page-15-25). Two hundred images are used at each 'zoom level'. See **b** for a description of boxplot elements.
 
-predict attributes of each image from its latent vector. Figure [3a](#page-4-0) shows that semantic 'decoding accuracy' increases as training progresses, reflecting the learning of semantic structure as a by-product of learning to reconstruct the sensory input patterns (*r*s(48) = 0.997, *P* < 0.001,
+predict attributes of each image from its latent vector. Figure [3a](#page-4-0) shows that semantic 'decoding accuracy' increases as training progresses, reflecting the learning of semantic structure as a by-product of learning to reconstruct the sensory input patterns (*r*s(48) = 0.997, *P* < 0.001,
 
 ![](_page_6_Figure_2.jpeg)
 <!-- Image Description: The image displays a technical analysis of a model's performance. (a) and (b) show image reconstruction results at different error thresholds, comparing original images to partial inputs, model inputs/outputs, latent vectors, and final outputs. (c) plots reconstruction error and the number of sensory feature units against the error threshold, demonstrating the trade-off between reconstruction accuracy and model complexity. (d) illustrates example reconstructions at different numbers of sensory units. The overall purpose is to visually demonstrate and quantitatively assess the model's ability to reconstruct images based on varying parameters. -->
 
-<span id="page-6-0"></span>**Fig. 5 | Retrieval dependence on reconstruction error threshold and replay in the extended model. a**, The stages of recall are shown from left to right (see Fig. [2d\)](#page-3-0), where each row represents an example scene. Each scene consists of a standard Shapes3D image with the addition of novel features (several white squares overlaid on the image with varying opacity). **b**, Repeating this process with a higher error threshold for encoding (with the same events and partial inputs) means fewer poorly predicted sensory features are stored in the autoassociative MHN, leading to more prototypical recall with increased
+<span id="page-6-0"></span>**Figure 5 | Retrieval dependence on reconstruction error threshold and replay in the extended model. a**, The stages of recall are shown from left to right (see Fig. [2d\)](#page-3-0), where each row represents an example scene. Each scene consists of a standard Shapes3D image with the addition of novel features (several white squares overlaid on the image with varying opacity). **b**, Repeating this process with a higher error threshold for encoding (with the same events and partial inputs) means fewer poorly predicted sensory features are stored in the autoassociative MHN, leading to more prototypical recall with increased
 
 reconstruction error. **c**, Average reconstruction error and number of sensory features (that is, pixels) stored in the autoassociative MHN against the error threshold for encoding. One hundred images are tested and error bars give the s.e.m. **d**, Replay in the extended model. The autoassociative network retrieves memories when random noise is given as input, as shown for three example inputs (upper row). As above, the square images show the poorly predicted sensory features and the rectangles below these display the latent variable representations (lower row).
 
-95% confidence interval (CI) = 0.987, 1.000). While semantic memory is much more complex than simple classification, richer 'semantic' outputs such as verbal descriptions can also be decoded from latent variable representations of images[85,](#page-15-26)[86.](#page-15-27)
+95% confidence interval (CI) = 0.987, 1.000). While semantic memory is much more complex than simple classification, richer 'semantic' outputs such as verbal descriptions can also be decoded from latent variable representations of images[85,](#page-15-26)[86.](#page-15-27)
 
-#### Imagination, episodic future thinking and relational inference
+### Imagination, episodic future thinking and relational inference
 
 Here we model the generation of events that have not been experienced from the generative network's latent variables. Events can be generated either by external specification of latent variables (imagination) or by transforming the latent variable representations of specific events (relational inference). The former is simulated by sampling from categories in the latent space then decoding the results (Fig. [3d](#page-4-0)). The latter is simulated by interpolating between the latent representations of events (Fig. [3c\)](#page-4-0) or by doing vector arithmetic in the latent space (Fig. [3b](#page-4-0)). This illustrates that the model has learnt some conceptual structure to the data, supporting reasoning tasks of the form 'what is to *A*as*B*is to*C*?', and provides a model for the flexible recombination of memories thought to underlie episodic future thinking[24](#page-14-18).
 
-#### Modelling schema-based distortions
+### Modelling schema-based distortions
 
-The schema-based distortions observed in human episodic memory increase over time[6](#page-13-3) and with sleep[52](#page-14-36), suggesting an association with consolidation. Recall by the generative network distorts memories towards prototypical representations. Figure [4a–d](#page-5-0) shows that handwritten digits from the MNIST dataset[87](#page-15-28) 'recalled' by a VAE become more prototypical (MNIST is used for this because each image has a single category). Recalled pairs from the same class become more similar, that is, intra-class variation decreases (paired samples *t*-test *t*(7,839) = 60.523, *P*< 0.001, Cohen's*d* = −0.684, 95% CI = 0.021, 0.022). The pixel space of MNIST digits before and after recall and the latent space of their encodings also show this effect. In summary, recall with a generative network distorts stimuli towards more prototypical representations even when no class information is given during training. As reliance on the generative model increases, so does the level of distortion.
+The schema-based distortions observed in human episodic memory increase over time[6](#page-13-3) and with sleep[52](#page-14-36), suggesting an association with consolidation. Recall by the generative network distorts memories towards prototypical representations. Figure [4a–d](#page-5-0) shows that handwritten digits from the MNIST dataset[87](#page-15-28) 'recalled' by a VAE become more prototypical (MNIST is used for this because each image has a single category). Recalled pairs from the same class become more similar, that is, intra-class variation decreases (paired samples *t*-test *t*(7,839) = 60.523, *P*< 0.001, Cohen's*d* = −0.684, 95% CI = 0.021, 0.022). The pixel space of MNIST digits before and after recall and the latent space of their encodings also show this effect. In summary, recall with a generative network distorts stimuli towards more prototypical representations even when no class information is given during training. As reliance on the generative model increases, so does the level of distortion.
 
 Boundary extension and contraction exemplify this phenomenon. Boundary extension is the tendency to remember a wider field of view than was observed[88,](#page-15-29) while boundary contraction is the opposite[89](#page-15-30). Unusually close-up views appear to cause boundary extension, and unusually far away ones boundary contraction[89,](#page-15-30) although this is debated[90](#page-15-31)[,91](#page-15-32). We modelled this by giving the generative network a range of new scenes that were artificially 'zoomed in' or 'zoomed out' compared with those in its training set; its reconstructions are distorted towards the 'typical view' (Fig. [4e\)](#page-5-0), as in human data. Figure [4g](#page-5-0) shows the change in the object size in memory quantitatively, mirroring the
 
 ![](_page_7_Figure_1.jpeg)
 <!-- Image Description: Figure (a) shows a visual recognition experiment. Hand-drawn figures (house, eyeglasses, number 7) are paired with verbal descriptions (Beehive, Eyeglasses, Seven) in list 1, and then presented in a modified form (stimulus figure) to elicit different verbal descriptions (Hat, Dumbbells, Four) in list 2. Figure (b) displays a model's processing of visual data ("cube" and "sphere"). It shows the original image, partially obscured input, MHS input and output, a decoded latent vector, and the final output. The figure illustrates the model's ability to reconstruct complete images from partial input. -->
 
-<span id="page-7-0"></span>**Fig. 6 | Schema-based distortions: effects of conceptual context in the extended model. a**, Adapted figure from ref. [95](#page-15-35) showing that recall of an ambiguous item (stimulus figure, centre) depends on its context at encoding (word from list 1, left; or list 2, right), as shown by drawing from memory (reproduced figure, far left and far right). **b**, Memory distortions in the extended model, when the original scene (containing an ambiguous blurred shape) is encoded with a given concept (cube, top; sphere, bottom), represented by the latent variables for that class. Then, a partial input is processed by the generative network to produce predicted conceptual features and the sensory features not predicted by the prototype for that concept (in this case, a white square) for input to the autoassociative MHN. However, pattern completion in the MHN reproduces the originally encoded sensory and conceptual features (cube, top; sphere, bottom), and these are recombined to produce the final output, which is distorted towards the encoded conceptual context.
+<span id="page-7-0"></span>**Figure 6 | Schema-based distortions: effects of conceptual context in the extended model. a**, Adapted figure from ref. [95](#page-15-35) showing that recall of an ambiguous item (stimulus figure, centre) depends on its context at encoding (word from list 1, left; or list 2, right), as shown by drawing from memory (reproduced figure, far left and far right). **b**, Memory distortions in the extended model, when the original scene (containing an ambiguous blurred shape) is encoded with a given concept (cube, top; sphere, bottom), represented by the latent variables for that class. Then, a partial input is processed by the generative network to produce predicted conceptual features and the sensory features not predicted by the prototype for that concept (in this case, a white square) for input to the autoassociative MHN. However, pattern completion in the MHN reproduces the originally encoded sensory and conceptual features (cube, top; sphere, bottom), and these are recombined to produce the final output, which is distorted towards the encoded conceptual context.
 
 findings in ref. [92](#page-15-25) (Fig. [4f\)](#page-5-0). (Note that the measure of boundary extension vs contraction used by ref. [92](#page-15-25) is produced by averaging 'closer' vs 'further' judgements of an identical stimulus image in comparison with the remembered image, rather than the drawing-based measure we use, but the two measures are significantly correlated[89](#page-15-30).)
 
-#### Combining conceptual and unpredictable sensory features
+### Combining conceptual and unpredictable sensory features
 
 In the extended model, memories stored in the hippocampal autoassociative network combine conceptual features (derived from the generative network's latent variables) and unpredictable sensory features (those with a high reconstruction error during encoding) (Fig. [2](#page-3-0)). In these simulations, the conceptual features are simply a one-to-one copy of latent variable representations. (Since latent variable representations are not stable as the generative network learns, concepts derived from latent variables seem more likely to be stored than the latent variables themselves, so this is a simplification; see section 'Extended model' for further details.)
 
 Figure [5a,b](#page-6-0) shows the stages of recall in the extended model after encoding with a lower or higher prediction error threshold. After decomposing the input into its predictable (conceptual) and unpredictable (sensory) features, the autoassociative network performs pattern completion on the combined representation. The prototypical (that is, predicted) image corresponding to the retrieved conceptual features must then be obtained by decoding the associated latent variable representation into an experience via the return projections to the sensory neocortex. Next, the predictable and unpredictable elements are recombined, simply by overwriting the prototypical prediction with any unpredictable elements, via the connections from the sensory features to the sensory neocortex. The extended model is therefore able to exploit the generative network to reconstruct the predictable aspects of the event from its latent variables, storing only those sensory details that were poorly predicted in the autoassociative network. Equally, as the generative network improves, sensory features stored in the hippocampus may no longer differ significantly from the initial schematic reconstruction in the sensory neocortex, signalling that the hippocampal representation is no longer needed.
 
-#### Schema-based distortions in the extended model
+### Schema-based distortions in the extended model
 
 The schema-based distortions shown in the basic model result from the generative network and increase with dependence on it, but memory distortions can also have a rapid onset[93](#page-15-33)[,94.](#page-15-34) In the extended model, even immediate recall involves a combination of conceptual and sensory features, and the presence of conceptual features induces distortions before consolidation of that specific memory.
 
-In general, recall is biased towards the 'mean' of the class soon after encoding due to the influence of the conceptual representations (Fig. [5a,b\)](#page-6-0). This is more pronounced when the error threshold for encoding is high, as there is more reliance on the 'prototypical' representations, resulting in the recall of fewer novel features. At a lower error threshold, more sensory detail is encoded, that is, the dimension of the memory trace is higher (*r*s(3) = −1, *P* < 0.001). This results in a lower reconstruction error (*r*s(3) = 1, *P* < 0.001), indicating lower distortion but at the expense of efficiency.
+In general, recall is biased towards the 'mean' of the class soon after encoding due to the influence of the conceptual representations (Fig. [5a,b\)](#page-6-0). This is more pronounced when the error threshold for encoding is high, as there is more reliance on the 'prototypical' representations, resulting in the recall of fewer novel features. At a lower error threshold, more sensory detail is encoded, that is, the dimension of the memory trace is higher (*r*s(3) = −1, *P* < 0.001). This results in a lower reconstruction error (*r*s(3) = 1, *P* < 0.001), indicating lower distortion but at the expense of efficiency.
 
 External context further distorts memory. Reference [95](#page-15-35) asked participants to reproduce ambiguous sketches. A context was established by telling the participants that they would see images from a certain category. After a delay, drawings from memory were distorted to look more like members of the context category. Figure [6b](#page-7-0) shows the result of encoding the same ambiguous image with two different externally provided concepts (a cube in the top row, a sphere in the bottom row), represented by the latent variables for each concept, as opposed to the latent variables predicted by the image itself as in Fig. [5a,b](#page-6-0). During recall, the encoded concept is retrieved in the autoassociative network, determining the prototypical scene reconstructed by the generative network. This biases recall towards the class provided as context, mirroring Fig. [6a](#page-7-0).
 
-We also simulate the Deese–Roediger–McDermott (DRM) tas[k93](#page-15-33),[94](#page-15-34) in the extended model to demonstrate its applicability to non-image stimuli. In the DRM task, participants are shown lists of words that are semantically related to 'lure words' not present in the list; there is a robust finding that false recognition and recall of the lure words occur[93](#page-15-33)[,94.](#page-15-34) In the extended model, gist-based semantic intrusions arise as a consequence of learning the co-occurrence statistics of words. First, the VAE is trained to reconstruct the sets of words in simple storie[s96](#page-15-36) converted to vectors of word counts, representing background knowledge. The system then encodes the experimental lists as the combination of an 'id\_n' term capturing unique spatiotemporal context, and the VAE's latent representation of each word list (respectively analogous to the stimulus-unique pixels and the VAE's latent representation of each image in Fig. [5](#page-6-0)). As in the human data, lure words are often but not always recalled when the system is presented with 'id\_n' (Fig. [7a\)](#page-8-0), since the latent variable representations that generate the words in the list also tend to generate the lure word. The system also forgets some words and produces additional semantic intrusions. In addition, the chance of recalling the lure word is higher for longer lists, as in human data from ref. [97,](#page-15-37) as more related words provide a stronger 'prior' for the lure (Fig. [7b](#page-8-0)) (*r*s(10) = 0.998, *P* < 0.001, 95% CI = 0.982, 1.000).
+We also simulate the Deese–Roediger–McDermott (DRM) tas[k93](#page-15-33),[94](#page-15-34) in the extended model to demonstrate its applicability to non-image stimuli. In the DRM task, participants are shown lists of words that are semantically related to 'lure words' not present in the list; there is a robust finding that false recognition and recall of the lure words occur[93](#page-15-33)[,94.](#page-15-34) In the extended model, gist-based semantic intrusions arise as a consequence of learning the co-occurrence statistics of words. First, the VAE is trained to reconstruct the sets of words in simple storie[s96](#page-15-36) converted to vectors of word counts, representing background knowledge. The system then encodes the experimental lists as the combination of an 'id\_n' term capturing unique spatiotemporal context, and the VAE's latent representation of each word list (respectively analogous to the stimulus-unique pixels and the VAE's latent representation of each image in Fig. [5](#page-6-0)). As in the human data, lure words are often but not always recalled when the system is presented with 'id\_n' (Fig. [7a\)](#page-8-0), since the latent variable representations that generate the words in the list also tend to generate the lure word. The system also forgets some words and produces additional semantic intrusions. In addition, the chance of recalling the lure word is higher for longer lists, as in human data from ref. [97,](#page-15-37) as more related words provide a stronger 'prior' for the lure (Fig. [7b](#page-8-0)) (*r*s(10) = 0.998, *P* < 0.001, 95% CI = 0.982, 1.000).
 
-#### Modelling brain damage
+### Modelling brain damage
 
 Recent episodic memory is impaired following damage to the HF, whereas semantic memory, including the semantic content of remote episodes, appears relatively spared. In the model, the semantic form of a consolidated memory survives damage to the HF due to latent variable representations in the mPFC or the alTL (even if those in the EC are lesioned); Fig. [3a](#page-4-0) demonstrates how semantic recall performance improves with the age of a memory, reflecting the temporal gradient of retrograde amnesia (see section 'Modelling semantic memory'). However, these semantic 'facts' cannot be used to generate an experience 'episodically' without the generative network's decoder, in agreement with multiple trace theory[11](#page-14-1).
 
@@ -227,14 +227,14 @@ In semantic dementia, semantic memory is impaired, and remote episodic memory is
 
 Finally, neuropsychological evidence suggests a distinction between familiarity and recollection, and furthermore a partial dissociation between different tests of familiarity; patients with selective hippocampal damage can exhibit recognition memory deficits in a simple 'yes/no' task with similar foils, but not in a 'forced choice' variant involving choosing the more familiar stimulus from a se[t102.](#page-15-42) This is consistent with the idea that lower prediction error in the neocortical generative network indicates familiarity, but retrieval of unique details from the hippocampus is required for more definitive recognition memory.
 
-#### Discussion
+### Discussion
 
 We have proposed a model of systems consolidation as the training of a generative neural network, which learns to support episodic memory, and also imagination, semantic memory and inference. This occurs through teacher–student learning. The hippocampal 'teacher' rapidly
 
 ![](_page_8_Figure_12.jpeg)
 <!-- Image Description: The image displays two bar charts (a) showing recall scores for associated words given lure words "bread" and "doctor," with the lure words highlighted in red. A lower bar chart (b) is a line graph comparing human and model data on the probability of false recall as a function of the number of studied associates. Error bars are included in the line graph. The charts illustrate the model's performance in predicting word association recall and false recall probabilities. -->
 
-<span id="page-8-0"></span>**Fig. 7 | Modelling the DRM task. a**, First, the VAE is trained to reconstruct simple stories[96](#page-15-36) converted to vectors of word counts, representing background knowledge. The system then encodes the lists as the combination of an 'id\_n' term capturing unique spatiotemporal context, and the VAE's latent variable representation of the word list. In each plot, recalled stimuli when the system is presented with 'id\_n' are shown, with output scores treated as probabilities so that words with a score >0.5 (above dashed lines) are recalled. Words from the stimulus list are shown in blue, and lures in red. See Fig. 1 of Supplementary Information for results for the remaining DRM lists. **b**, The chance of recalling the lure word is higher when longer lists are encoded (blue). Each measurement is averaged across 400 trials (20 random subsets of each of the 20 DRM lists), and error bars give the s.e.m. This qualitatively resembles human data from ref. [97](#page-15-37) (grey).
+<span id="page-8-0"></span>**Figure 7 | Modelling the DRM task. a**, First, the VAE is trained to reconstruct simple stories[96](#page-15-36) converted to vectors of word counts, representing background knowledge. The system then encodes the lists as the combination of an 'id\_n' term capturing unique spatiotemporal context, and the VAE's latent variable representation of the word list. In each plot, recalled stimuli when the system is presented with 'id\_n' are shown, with output scores treated as probabilities so that words with a score >0.5 (above dashed lines) are recalled. Words from the stimulus list are shown in blue, and lures in red. See Figure 1 of Supplementary Information for results for the remaining DRM lists. **b**, The chance of recalling the lure word is higher when longer lists are encoded (blue). Each measurement is averaged across 400 trials (20 random subsets of each of the 20 DRM lists), and error bars give the s.e.m. This qualitatively resembles human data from ref. [97](#page-15-37) (grey).
 
 encodes an event, which may combine unpredictable sensory elements (with connections to and from the sensory cortex) and predictable conceptual elements (with connections to and from latent variable representations in the generative network). After exposure to replayed representations from the 'teacher', the generative 'student' network supports reconstruction of events by forming a schematic representation in the sensory neocortex from latent variables via the HF, with unpredictable sensory elements added from the hippocampus.
 
@@ -276,13 +276,13 @@ Fourth, biological intelligence excels at generalizing from only a small number 
 
 In summary, our proposed model takes inspiration from recent advances in machine learning to capture many of the intriguing phenomena associated with episodic memory, its (re)constructive nature, its relationship to schemas, and consolidation, as well as aspects of imagination, inference and semantic memory.
 
-#### Methods
+### Methods
 
-#### Data
+### Data
 
 In the simulations, images represent events (except for the DRM[93](#page-15-33)[,94](#page-15-34) task stimuli). The Shapes3D dataset[136](#page-16-32) was used throughout, except for the use of MNIST[87](#page-15-28) to explore certain distortions. Note that one MHN was used per dataset, and one generative model was trained per dataset from the corresponding MHN's outputs.
 
-#### Basic model
+### Basic model
 
 In our model, the hippocampus rapidly encodes an event, modelled as one-shot memorization in an autoassociative network (an MHN). Then, generative networks are trained on replayed representations from the autoassociative network, learning to reconstruct memories by capturing the statistical structure of experienced events.
 
@@ -302,31 +302,31 @@ Note that throughout the simulations, the input to recall was a noisy version of
 
 While we used only one modality at a time (imagery for the majority of simulations, text for the DRM task), our model is compatible with the multimodal nature of experience, as multimodal inputs to VAEs are possible, which result in a multimodal latent space[144.](#page-16-39) This could reflect the multimodal nature of concept cells in the hippocampus[61.](#page-15-1)
 
-#### Modelling semantic memory
+### Modelling semantic memory
 
 We modelled semantic memory as the ability to decode latent variables into semantic information without the need to reconstruct the event episodically.
 
-Decoding accuracy was measured by training a support vector machine to classify the central object's shape from the network's latent variables, using 200 examples at the end of each epoch and measuring classification accuracy on a held-out test set. (Notably, there was good performance with only a small amount of training data when decoding the latent variables, compared with decoding alternative representations such as the sensory input or intermediate layer activations, that is, few-shot learning is possible by making use of compressed 'semantic' representations. See Fig. 2 of Supplementary Information.)
+Decoding accuracy was measured by training a support vector machine to classify the central object's shape from the network's latent variables, using 200 examples at the end of each epoch and measuring classification accuracy on a held-out test set. (Notably, there was good performance with only a small amount of training data when decoding the latent variables, compared with decoding alternative representations such as the sensory input or intermediate layer activations, that is, few-shot learning is possible by making use of compressed 'semantic' representations. See Figure 2 of Supplementary Information.)
 
-#### Modelling imagination and inference
+### Modelling imagination and inference
 
 In the generative network, new items can either be generated from externally specified (or randomly sampled) latent variables (imagination), or by transforming the latent variable representations of specific events (relational inference). The former was simulated by sampling from categories in the latent space, then decoding the results (Fig. [3d\)](#page-4-0). The latter was simulated by interpolating between the latent representations of events (Fig. [3c\)](#page-4-0) or by doing vector arithmetic in the latent space (Fig. [3b](#page-4-0)).
 
 Examples of the four different object shapes were generated by Monte Carlo sampling for simplicity, that is, samples from the latent space were classified by the semantic decoding classifier, and examples that activate each category are displayed. (Note that there are many alternative ways to do this, for example, by extracting the decision boundaries from the classifier and sampling within the region corresponding to each class.) Generating imagined scenes from more naturalistic inputs, for example, natural language descriptions, would require a much more sophisticated text to the latent space model, but recent machine learning advances suggest that this is possibl[e145](#page-16-40).
 
-To demonstrate interpolation, each row of Fig. [3c](#page-4-0) shows items generated from latent variables along a line in the latent space between two real items from the training data. To demonstrate vector arithmetic, each equation in Fig. [3b](#page-4-0) shows 'result = vector*A* + (vector*B* − vector*C*)' (reflecting relational inference problems of the form 'what is to *A*as*B*is to*C*?'), where the result is produced by taking the relation between vector*B* and vector*C*, applying that to vector*A*and decoding the result. In other words, the three items on the right of each equation in Fig. [3b](#page-4-0) are real items from the training data. Their latent variable representations are combined as vectors according to the equation shown, giving the latent variable representation from which the first item is generated. Thus, the pair in brackets describes a relation that is applied to the first item on the right to produce the new item on the left of the equation.
+To demonstrate interpolation, each row of Fig. [3c](#page-4-0) shows items generated from latent variables along a line in the latent space between two real items from the training data. To demonstrate vector arithmetic, each equation in Fig. [3b](#page-4-0) shows 'result = vector*A* + (vector*B* − vector*C*)' (reflecting relational inference problems of the form 'what is to *A*as*B*is to*C*?'), where the result is produced by taking the relation between vector*B* and vector*C*, applying that to vector*A*and decoding the result. In other words, the three items on the right of each equation in Fig. [3b](#page-4-0) are real items from the training data. Their latent variable representations are combined as vectors according to the equation shown, giving the latent variable representation from which the first item is generated. Thus, the pair in brackets describes a relation that is applied to the first item on the right to produce the new item on the left of the equation.
 
-#### Modelling schema-based distortions
+### Modelling schema-based distortions
 
 Items recalled by the generative network become more prototypical, a form of schema-based distortion. This can be shown simply in the basic model, using the MNIST digits datase[t87](#page-15-28) to exemplify ten clearly defined classes of items (Fig. [4](#page-5-0)). To show this quantitatively, we calculated the intra-class variation, measured as the mean variance per pixel, within each MNIST class before and after recall, for 5,000 images from the test set. As expected, the intra-class variation was smaller for the recalled items than for the original inputs. (See Supplementary Information for details of the model architecture.)
 
 To visualize this, we projected the pixel and latent spaces before and after recall (of 2,000 images from the MNIST test set) into two dimensions (2D) with uniform manifold approximation and projection (UMAP[\)146,](#page-16-0) a dimensionality reduction method, and colour-coded them by class (Fig. [4c,d\)](#page-5-0). The pixel space of MNIST digits (bottom row) and the latent space of their encodings (top row) showed more compact clusters for the generative network's outputs (Fig. [4d\)](#page-5-0) than for its inputs (Fig. [4c](#page-5-0)).
 
-#### Modelling boundary extension and contraction
+### Modelling boundary extension and contraction
 
 Boundary extension is the tendency to remember a wider field of view than was observed for certain stimul[i88](#page-15-29), while boundary contraction is the tendency to remember a narrower one[89](#page-15-30). Whether boundaries are extended or contracted seems to depend on the perceived distance of the central object, with unusually close-up (that is, 'object-oriented') views causing boundary extension, and unusually far away (that is, 'scene-oriented') views causing boundary contractio[n89](#page-15-30).
 
-We tested boundary extension and contraction in the basic model by giving it a range of artificially 'zoomed in' or 'zoomed out' images, adapted from Shapes3D scenes not seen during training, and observing the outputs. The 'zoomed in' view was produced by removing*n*pixels from the margin. The 'zoomed out' view was produced by extrapolating the pixels at the margin outwards by*n*additional pixels. (In both cases, the new images were then resized to the standard size.) The zoom level is the ratio of the central object size in the output image to the size in the original image, given as a percentage; for example, an image with a zoom level of 80% or a ratio of 0.8 was produced by adding a margin so that the object size is 80% of the original size. As the Shapes3D images are of width and height 64, the number of pixels to add or remove was calculated as 'margin = (32/ratio) − 32'.
+We tested boundary extension and contraction in the basic model by giving it a range of artificially 'zoomed in' or 'zoomed out' images, adapted from Shapes3D scenes not seen during training, and observing the outputs. The 'zoomed in' view was produced by removing*n*pixels from the margin. The 'zoomed out' view was produced by extrapolating the pixels at the margin outwards by*n*additional pixels. (In both cases, the new images were then resized to the standard size.) The zoom level is the ratio of the central object size in the output image to the size in the original image, given as a percentage; for example, an image with a zoom level of 80% or a ratio of 0.8 was produced by adding a margin so that the object size is 80% of the original size. As the Shapes3D images are of width and height 64, the number of pixels to add or remove was calculated as 'margin = (32/ratio) − 32'.
 
 In Fig. [4g,](#page-5-0) the change in object size between the noisy input and output was estimated as follows: first the image was converted to a few colours by*k*-means clustering of pixels. Then, the colour of the central object was determined by finding the predominant colour in a particular central region of the image. A 1D array of pixels corresponding to a vertical line at the horizontal midpoint of the image was processed to identify the fraction of pixels of the central object colour. This enabled us to calculate the change in object size, which we plotted against the degree of 'zoom'. (For this object size estimation approach to work, we filtered the Shapes3D dataset to images where the object colour was different from both the wall and floor colour, and additionally to cubes to minimize shadow.)
 
@@ -334,7 +334,7 @@ Note that the measure of boundary extension vs contraction displayed in Fig. [4f
 
 Figure [4e](#page-5-0) shows a few examples of boundary extension and contraction. In the left- and right-hand images of each set, the margin *n*is chosen such that the central object is 80% and 120% of the original size, respectively.
 
-#### Extended model
+### Extended model
 
 The extended model was designed to capture the fact that memory traces in the hippocampus bind together a mixture of sensory and conceptual elements, with the latter encoded by concept cells[61,](#page-15-1) and the fact that schemas shape the reconstruction of memories even before consolidation, as shown by the rapid onset of schema-based distortion[s93](#page-15-33),[94](#page-15-34).
 
@@ -348,7 +348,8 @@ How did replay work? When the autoassociative network was given random noise, bo
 
 We note that the latent variable representation is not stable as the generative network learns. If some latent variables are stored in the autoassociative network while the VAE continues to change, the quality of the VAE's reconstruction will gradually worsen; this is also a feature of previous model[s42.](#page-14-12) Some degree of degradation may reflect forgetting, but consolidation can be a prolonged process and hippocampal representations can persist in this time. Therefore, we think that concepts derived from latent variables are more likely to be stored than the latent variables themselves, promoting the stability of hippocampal representations. (For example, in humans, language provides a set of relatively persistent concepts, stabilized by the need to communicate.) Projections from the latent variables can classify attributes with only a small amount of training data (see section 'Modelling semantic memory'); we suggest that there could be a two-way mapping between latent variables and concepts, which supports categorization of incoming experience as well as semantic memory. However, for simplicity, the conceptual features were simply a one-to-one copy of latent variable representations in these simulations. It may also be possible to stabilize the latent variable representations by reducing catastrophic forgetting in the generative network, for example, by using generative as well as hippocampal replay[33](#page-14-24)[,119,](#page-16-16)[120,](#page-16-17) with the generative network trained on its own self-generated representations in addition to new memories. This builds on previous research suggesting that certain stages of sleep are optimized to preserve remote memories, while others consolidate new ones[121.](#page-16-18) This could reduce interference of new learning with remote memories in the generative network, as well as make hippocampal representations in the extended model more stable.
 
-#### Modelling schema-based distortions in the extended model
+### Modelling schema-based distortions in the extended model
+
 **Carmichael experiment.**We demonstrated the contextual modulation of memory (as in ref. [95\)](#page-15-35) in the extended model by manipulating the conceptual component of an 'event'. To model an external conceptual context being encoded, the original image was stored in the autoassociative network along with activation of a given concept (a cube or a sphere), represented as the latent variables for that class. While in most simulations the latent variables stored in the MHN were simply the output of the VAE's encoder, here an external context activated the conceptual representation, consistent with activity in the EC, mPFC or alTL driven by extrinsic factors.
 
 During recall, a noisy input was processed by the generative network to produce a predicted conceptual feature and the sensory features not predicted by the prototype for that concept, for input to the autoassociative MHN. Pattern completion in the MHN produced the originally encoded sensory and conceptual features, and these were recombined to produce the final output.
@@ -368,7 +369,7 @@ When the MHN was given 'id\_n' as an input, it retrieved the hippocampal trace c
 
 To test the effect of varying the number of associates, as in ref. [97,](#page-15-37) subsets of the DRM lists were encoded in the way described above. Specifically, to test the probability of lure recall with *n*associates studied,*n*items from each DRM list were encoded. For each list, this was repeated for 20 randomly sampled combinations of*n*items. Once again, recall was tested by giving the system 'id\_n' as an input.
 
-#### Reporting summary
+### Reporting summary
 
 Further information on research design is available in the Nature Portfolio Reporting Summary linked to this article.
 
@@ -378,11 +379,11 @@ The following datasets (all covered by the Creative Commons Attribution 4.0 Lice
 
 MNIST[88](#page-15-29):<https://www.tensorflow.org/datasets/catalog/mnist> Shapes3[D137:](#page-16-33)<https://www.tensorflow.org/datasets/catalog/shapes3d> ROCStories[97](#page-15-37): <https://cs.rochester.edu/nlp/rocstories>
 
-#### Code availability
+### Code availability
 
 Code for all simulations can be found at [https://github.com/ellie-as/](https://github.com/ellie-as/generative-memory) [generative-memory](https://github.com/ellie-as/generative-memory). Some diagrams were created using [BioRender.](http://BioRender.com) [com.](http://BioRender.com)
 
-#### References
+### References
 
 - <span id="page-13-0"></span>1. Tulving, E. How many memory systems are there?*Am. Psychol.* **40**, 385–398 (1985).
 - <span id="page-13-1"></span>2. Marr, D. A theory for cerebral neocortex. *Proc. R. Soc. Lond. B* **176**, 161–234 (1970).
@@ -539,19 +540,20 @@ Code for all simulations can be found at [https://github.com/ellie-as/](https://
 - <span id="page-16-41"></span>147. Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I. & Salakhutdinov, R. Dropout: a simple way to prevent neural networks from overfitting.*J. Mach. Learn. Res.* **15**, 1929–1958 (2014).
 - <span id="page-16-42"></span>148. Chollet, F. et al. *Keras Documentation*(GitHub, 2015).
 
-#### Acknowledgements
+### Acknowledgements
 
 We thank T. Behrens, B. Love and D. Bush for useful discussions, and K. Norman for constructive comments on an earlier version. Funding support for this work was received from a Wellcome Principal Research Fellowship 'Neural mechanisms of memory and prediction: Finding structure in experience' (222457/Z/21/Z) (N.B.), a Wellcome Collaborative Award 'Organising knowledge for flexible behaviour in the prefrontal-hippocampal circuitry' (214314/Z/18/Z) (N.B.), and an ERC advanced grant NEUROMEM (N.B.). The funders had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
 
-#### Author contributions
+### Author contributions
 
 E.S. and N.B. designed the research and wrote the paper. E.S. performed the computational modelling.
 
-#### Competing interests
+### Competing interests
 
 The authors declare no competing interests.
 
 ### Additional information
+
 **Supplementary information**The online version contains supplementary material available at<https://doi.org/10.1038/s41562-023-01799-z>.
 **Correspondence and requests for materials**should be addressed to Eleanor Spens or Neil Burgess.
 **Peer review information** *Nature Human Behaviour*thanks Gido van de Ven and the other, anonymous, reviewer(s) for their contribution to the peer review of this work.
@@ -565,27 +567,27 @@ Corresponding author(s): Eleanor Spens
 
 Last updated by author(s): 17/11/2023
 
-# Reporting Summary
+## Reporting Summary
 
 Nature Portfolio wishes to improve the reproducibility of the work that we publish. This form provides structure for consistency and transparency in reporting. For further information on Nature Portfolio policies, see our Editorial Policies and the Editorial Policy Checklist.
 
 ## Statistics
 
-|     | For all statistical analyses, confirm that the following items are present in the figure legend, table legend, main text, or Methods section.                                                                                                                 |
+| | For all statistical analyses, confirm that the following items are present in the figure legend, table legend, main text, or Methods section. |
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| n/a | Confirmed                                                                                                                                                                                                                                                     |
-|     | The exact sample size (n) for each experimental group/condition, given as a discrete number and unit of measurement                                                                                                                                           |
-|     | A statement on whether measurements were taken from distinct samples or whether the same sample was measured repeatedly                                                                                                                                       |
-|     | The statistical test(s) used AND whether they are one- or two-sided<br>Only common tests should be described solely by name; describe more complex techniques in the Methods section.                                                                         |
-|     | A description of all covariates tested                                                                                                                                                                                                                        |
-|     | A description of any assumptions or corrections, such as tests of normality and adjustment for multiple comparisons                                                                                                                                           |
-|     | A full description of the statistical parameters including central tendency (e.g. means) or other basic estimates (e.g. regression coefficient)<br>AND variation (e.g. standard deviation) or associated estimates of uncertainty (e.g. confidence intervals) |
-|     | For null hypothesis testing, the test statistic (e.g. F, t, r) with confidence intervals, effect sizes, degrees of freedom and P value noted<br>Give P values as exact values whenever suitable.                                                              |
-|     | For Bayesian analysis, information on the choice of priors and Markov chain Monte Carlo settings                                                                                                                                                              |
-|     | For hierarchical and complex designs, identification of the appropriate level for tests and full reporting of outcomes                                                                                                                                        |
-|     | Estimates of effect sizes (e.g. Cohen's d, Pearson's r), indicating how they were calculated                                                                                                                                                                  |
-|     | Our web collection on statistics for biologists contains articles on many of the points above.                                                                                                                                                                |
-|     |                                                                                                                                                                                                                                                               |
+| n/a | Confirmed |
+| | The exact sample size (n) for each experimental group/condition, given as a discrete number and unit of measurement |
+| | A statement on whether measurements were taken from distinct samples or whether the same sample was measured repeatedly |
+| | The statistical test(s) used AND whether they are one- or two-sided<br>Only common tests should be described solely by name; describe more complex techniques in the Methods section. |
+| | A description of all covariates tested |
+| | A description of any assumptions or corrections, such as tests of normality and adjustment for multiple comparisons |
+| | A full description of the statistical parameters including central tendency (e.g. means) or other basic estimates (e.g. regression coefficient)<br>AND variation (e.g. standard deviation) or associated estimates of uncertainty (e.g. confidence intervals) |
+| | For null hypothesis testing, the test statistic (e.g. F, t, r) with confidence intervals, effect sizes, degrees of freedom and P value noted<br>Give P values as exact values whenever suitable. |
+| | For Bayesian analysis, information on the choice of priors and Markov chain Monte Carlo settings |
+| | For hierarchical and complex designs, identification of the appropriate level for tests and full reporting of outcomes |
+| | Estimates of effect sizes (e.g. Cohen's d, Pearson's r), indicating how they were calculated |
+| | Our web collection on statistics for biologists contains articles on many of the points above. |
+| | |
 
 ### Software and code
 
@@ -610,36 +612,36 @@ www.tensorflow.org/datasets/catalog/mnist, 2) Shapes3D (Burgess & Kim, 2018) htt
 
 Policy information about studies with human participants or human data. See also policy information about sex, gender (identity/presentation), and sexual orientation and race, ethnicity and racism.
 
-| Reporting on sex and gender                                              | This is a computational study using only secondary data, with no modelling related to sex and/or gender.                                         |
+| Reporting on sex and gender | This is a computational study using only secondary data, with no modelling related to sex and/or gender. |
 |--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Reporting on race, ethnicity, or<br>other socially relevant<br>groupings | This is a computational study using only secondary data, with no modelling related to race/ethnicity/other socially relevant<br>groupings.       |
-| Population characteristics                                               | The manuscript discusses how several neurological conditions relate to our model, but data relating to these conditions is not<br>used directly. |
-| Recruitment                                                              | Computational study using only secondary data - not applicable.                                                                                  |
-| Ethics oversight                                                         | This study is in accordance with the ethics regulations at the Institute of Cognitive Neuroscience.                                              |
+| Reporting on race, ethnicity, or<br>other socially relevant<br>groupings | This is a computational study using only secondary data, with no modelling related to race/ethnicity/other socially relevant<br>groupings. |
+| Population characteristics | The manuscript discusses how several neurological conditions relate to our model, but data relating to these conditions is not<br>used directly. |
+| Recruitment | Computational study using only secondary data - not applicable. |
+| Ethics oversight | This study is in accordance with the ethics regulations at the Institute of Cognitive Neuroscience. |
 
 Note that full information on the approval of the study protocol must also be provided in the manuscript.
 
-# Field-specific reporting
+## Field-specific reporting
 
 Please select the one below that is the best fit for your research. If you are not sure, read the appropriate sections before making your selection.
 
-|  | Life sciences | Behavioural & social sciences | Ecological, evolutionary & environmental sciences |
+| | Life sciences | Behavioural & social sciences | Ecological, evolutionary & environmental sciences |
 |--|---------------|-------------------------------|---------------------------------------------------|
 |--|---------------|-------------------------------|---------------------------------------------------|
 
 For a reference copy of the document with all sections, see nature.com/documents/nr-reporting-summary-flat.pdf
 
-# Life sciences study design
+## Life sciences study design
 
-|                 | All studies must disclose on these points even when the disclosure is negative.                                                                                                                                          |
+| | All studies must disclose on these points even when the disclosure is negative. |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sample size     | In this computational study, sample sizes sufficient to give statistically significant results were chosen.                                                                                                              |
-| Data exclusions | We did not exclude any outliers in our analysis. Where our analysis was restricted to a subset of a particular dataset, this is stated in the<br>Methods.                                                                |
-| Replication     | The code provided on Github (see above) allows the findings to be replicated.                                                                                                                                            |
-| Randomization   | Randomisation in the usual sense does not apply as this is a computational study using only secondary data. However in several cases we took<br>repeated random samples from datasets to ensure our results were robust. |
-| Blinding        | Computational study using only secondary data - not applicable.                                                                                                                                                          |
+| Sample size | In this computational study, sample sizes sufficient to give statistically significant results were chosen. |
+| Data exclusions | We did not exclude any outliers in our analysis. Where our analysis was restricted to a subset of a particular dataset, this is stated in the<br>Methods. |
+| Replication | The code provided on Github (see above) allows the findings to be replicated. |
+| Randomization | Randomisation in the usual sense does not apply as this is a computational study using only secondary data. However in several cases we took<br>repeated random samples from datasets to ensure our results were robust. |
+| Blinding | Computational study using only secondary data - not applicable. |
 
-# Reporting for specific materials, systems and methods
+## Reporting for specific materials, systems and methods
 
 We require information from authors about some types of materials, experimental systems and methods used in many studies. Here, indicate whether each material, system or method listed is relevant to your study. If you are not sure if a list item applies to your research, read the appropriate section before selecting a response.
 
@@ -647,15 +649,15 @@ We require information from authors about some types of materials, experimental 
 
 ### Methods
 
-| n/a | Involved in the study         |
+| n/a | Involved in the study |
 |-----|-------------------------------|
-|     | Antibodies                    |
-|     | Eukaryotic cell lines         |
-|     | Palaeontology and archaeology |
-|     | Animals and other organisms   |
-|     | Clinical data                 |
-|     | Dual use research of concern  |
-|     | Plants                        |
+| | Antibodies |
+| | Eukaryotic cell lines |
+| | Palaeontology and archaeology |
+| | Animals and other organisms |
+| | Clinical data |
+| | Dual use research of concern |
+| | Plants |
 
 ![](_page_19_Figure_17.jpeg)
 <!-- Image Description: The image is a checklist indicating the methodologies used in a study. Three techniques—ChIP-seq, flow cytometry, and MRI-based neuroimaging—are listed. Each is marked with an "X" in the "not involved" column, indicating none of these methods were used in the research. The table's purpose is to clearly show the techniques excluded from the study's methodology. -->

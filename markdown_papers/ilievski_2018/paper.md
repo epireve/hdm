@@ -64,11 +64,11 @@ Knowledge engineering is the process of creating and maintaining knowledge-produ
 
 • Software and its engineering → Software architectures; • Computing methodologies → Semantic networks; Ontology engineering.
 
-#### KEYWORDS
+### KEYWORDS
 
 knowledge engineering, knowledge graphs, quality attributes, software architectures
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Bradley P. Allen, Filip Ilievski, and Saurav Joshi. 2018. Identifying and Consolidating Knowledge Engineering Requirements. In Proceedings of ACM Conference (Conference'17). ACM, New York, NY, USA, [16](#page-15-0) pages. [https:](https://doi.org/XXXXXXX.XXXXXXX) [//doi.org/XXXXXXX.XXXXXXX](https://doi.org/XXXXXXX.XXXXXXX)
 
@@ -80,7 +80,7 @@ ACM ISBN 978-1-4503-XXXX-X/18/06. . . \$15.00
 
 <https://doi.org/XXXXXXX.XXXXXXX>
 
-# 1 INTRODUCTION
+## 1 INTRODUCTION
 
 Knowledge engineering (KE) is the discipline of building and maintaining processes that produce knowledge. Per [\[31\]](#page-8-0), knowledge can be defined as a set of beliefs that are "(i) true, (ii) certain, (iii) obtained by a reliable process". KE workflows have been popular throughout the evolution of computer science and AI under the intuitive assumption that the reliability of intelligent agents (e.g., chatbots) strongly depends on high-quality knowledge [\[1,](#page-8-1) [6,](#page-8-2) [7,](#page-8-3) [11,](#page-8-4) [12,](#page-8-5) [14,](#page-8-6) [17,](#page-8-7) [19,](#page-8-8) [26,](#page-8-9) [30](#page-8-10)[–32,](#page-8-11) [35\]](#page-8-12). And yet, KE as a discipline has changed considerably since its initial flowering during the period associated with expert systems development in the nineteen-eighties.
 
@@ -95,7 +95,7 @@ Permission to make digital or hard copies of all or part of this work for person
 ![](_page_1_Figure_2.jpeg)
 <!-- Image Description: The image displays a line graph showing the percentage of n-grams related to "expert systems," "ontology," "metadata," and "machine learning" in English books published between 1955 and 2019. This is overlaid with a timeline depicting eras in AI development (Dawn of AI, AI Winter I, Expert Systems Era, AI Winter II, Semantic Web Era, Language Model Era). Below, a network diagram connects these eras to key quality attributes (reliability, efficiency, domain-specificity, etc.) and features associated with each era. The image illustrates the evolution of AI research and its corresponding characteristics over time. -->
 
-Figure 1: Evolving requirements over four eras of the history of knowledge engineering, as witnessed by research that has been responding to the shifting KE landscape [\[1,](#page-8-1) [6,](#page-8-2) [7,](#page-8-3) [11,](#page-8-4) [12,](#page-8-5) [14,](#page-8-6) [17,](#page-8-7) [19,](#page-8-8) [26,](#page-8-9) [30](#page-8-10)[–32,](#page-8-11) [35\]](#page-8-12). We show English language book n-gram occurrence percentages over time for n-grams indicative of each era [\[37\]](#page-8-13). We describe the figure in detail in [section 4.](#page-3-0)
+**Figure 1:** Evolving requirements over four eras of the history of knowledge engineering, as witnessed by research that has been responding to the shifting KE landscape [\[1,](#page-8-1) [6,](#page-8-2) [7,](#page-8-3) [11,](#page-8-4) [12,](#page-8-5) [14,](#page-8-6) [17,](#page-8-7) [19,](#page-8-8) [26,](#page-8-9) [30](#page-8-10)[–32,](#page-8-11) [35\]](#page-8-12). We show English language book n-gram occurrence percentages over time for n-grams indicative of each era [\[37\]](#page-8-13). We describe the figure in detail in [section 4.](#page-3-0)
 
 reference architecture (RA), a key SE artifact that enables technology adoption within a community of practice by capturing design patterns that together provide a flexible framework to build and design software systems. RAs provide numerous advantages, such as interoperability, reduced development costs, improved communication among stakeholders, and the use of best practices, which collectively help overcome barriers such as organizational resistance and lack of expertise [\[23\]](#page-8-14). Although there may be concerns about the learning curve associated with RAs and the need for concrete examples [\[22\]](#page-8-15), the literature agrees that RAs simplify the development process, promote standardization, and facilitate collaboration. By focusing on usability and consolidation, RAs can minimize the learning curve and provide well-documented, application-oriented processes supported by easy-to-use and well-integrated tools. These benefits facilitate the adoption of data analytics in enterprises [\[8,](#page-8-16) [24,](#page-8-17) [29\]](#page-8-18), supporting workflows similar to those in KE.
 
@@ -113,7 +113,7 @@ RA methodologies A method to design a software architecture by [\[25\]](#page-8-
 
 KG [\[40\]](#page-8-28), resulting in specific architectures. This pluralism of architectures, which may or may not adhere to the Semantic Web Stack, as well as the importance of considering a broad set of KE stakeholders (e.g., practitioners beyond academia) have been recognized by Hogan [\[17\]](#page-8-7). Hogan notes that the broad adoption of KE practices and artifacts is hindered by the lack of understanding of users, and the mismatch between existing KE approaches and mainstream SE tools and practices. Ironically, while the field of Semantic Web puts a lot of emphasis on developing artifacts like ontologies and KGs that enable common understanding between humans and machines, it has not caught up on the idea of developing shared architectures through which different concerns can be expressed, negotiated, and resolved among stakeholders for large, complex systems [\[5\]](#page-8-25). We address this critical gap by consolidating the requirements across stakeholders and eras, with the final aim to devise an RA for KE.
 
-#### <span id="page-2-0"></span>3 STAKEHOLDER PROFILES
+### <span id="page-2-0"></span>3 STAKEHOLDER PROFILES
 
 Since an RA is an instrument for reaching a consensus between stakeholders, it is essential to understand their requirements [\[9\]](#page-8-24). We briefly describe the presently addressed needs and pain points (as open challenges) of four stakeholder profiles: a knowledge explorer, a software developer, a data scientist, and a knowledge engineer. While the full accounting of an evaluation of an RA would include profiles of business or organizational stakeholders; for the purpose of this discussion, we focus on these four profiles as useful abstractions of user tasks to drive our understanding of their needs independent of a specific business or organizational application.
 
@@ -127,7 +127,7 @@ evaluation [\[39\]](#page-8-32). Yet, the integration of knowledge structures in
 
 Knowledge engineers build, maintain, and query knowledgebased systems. Consequently, they require efficient and easy-to-use ways to access and modify information systematically. Tools for knowledge engineers support querying (e.g., by graph databases like Graph DB)[2](#page-3-1) or support contributions to knowledge artifacts (e.g., via ontology editors like Protege [\[28\]](#page-8-33)). Pain points include the lack of tools that support the creation of large-scale knowledge artifacts (scalability) [\[12\]](#page-8-5), missing support for manual curation of knowledge (curatability) [\[6\]](#page-8-2), and difficulty in terms of incorporating more sources or modalities of data (extensibility) [\[30\]](#page-8-10).
 
-# <span id="page-3-0"></span>4 A HISTORIOGRAPHICAL APPROACH TO IDENTIFYING KE REQUIREMENTS
+## <span id="page-3-0"></span>4 A HISTORIOGRAPHICAL APPROACH TO IDENTIFYING KE REQUIREMENTS
 
 We argue that a useful way to understand the evolution of stakeholders' requirements for KE is to examine representative literature from its four eras that take a specific position on what those requirements should be. Following mainstream SE practices and inspired by our characterization of stakeholder profiles, in this section, we derive a list of functional requirements (Table [1\)](#page-4-0) and quality attributes (Table [2\)](#page-4-1). Before we present the set of FRs and QAs, we discuss two caveats. First, we note that the FRs and QAs are inherently biased by the authors' knowledge and perspective of prior work. Second, as we aim to be faithful to the perspective of multiple stakeholders, some of the requirements may be interdependent, i.e., they may partially overlap or even contradict each other. We allow for the subjectivity and the dependencies to co-exist at this point.
 
@@ -141,7 +141,7 @@ By the mid-seventies, having been deeply involved in attempting to apply Newell 
 
 purposes of decision support in business enterprise settings. By the early nineteen-nineties, however, Feigenbaum and others acknowledged that the expert systems approach resulted in systems that were brittle and hard to maintain. Without abandoning his requirement that KE is domain-specific in application focus and thus heavily dependent on subject matter expertise, he argued that future knowledge-based systems also be scalable (Q04), globally distributed (Q05), and interoperable with other knowledge bases (Q06) to address these shortcomings [\[12\]](#page-8-5). At that point in time, there was no consensus about how such requirements could be addressed, but in retrospect, one can argue that in [\[12\]](#page-8-5) Feigenbaum anticipated several aspects of what several years later would come to be known as the World Wide Web. As the nineties progressed, efforts were made to provide support for KE best practices (Q07) through the definition of structured methodologies [\[32\]](#page-8-11).
 
-#### 3 Requirements from the Semantic Web era
+### 3 Requirements from the Semantic Web era
 
 With the establishment of the Web and the emergence of Web architectural principles, Berners-Lee argued for a "Web of Data" based on linked data principles, standard ontologies, and data-sharing protocols that not only provided an implementation of Feigenbaum's requirements, but with a single stroke established Web-centric open standards that use W3C semantic web standards (e.g., RDF, SPARQL) (F01) that anyone could adopt [\[7\]](#page-8-3). The subsequent twenty years witnessed the development of a globally federated open linked data "cloud", as well as the refinement of techniques for ontology engineering, i.e., the development and publishing of shared data schemas with semantics using linked data principles. Enterprises in particular found better value propositions for using such techniques toward the improvement of access and discovery of Web content and data, in contrast to the automation of decisionmaking that was the primary value proposition for knowledgebased systems during the expert systems era [\[15\]](#page-8-34). However, while progress was made in building systems based on such principles, the general adoption of specific principles advocated for by the semantic web community by the broader community of software developers and web application designers was slow, leading semantic web researchers to identify additional requirements for broader adoption, such that the core tools and standards used in semantic web application be more developer-friendly (Q08) and more directly aligned with software industry norms (Q09), and that measures be taken to make federated open data more robust to noise in data sources (Q10) [\[17\]](#page-8-7). Additional focus on support for heterogeneous query methods (F02) and support for federated query (F03), and on making access to linked data robust to data catalog incompleteness (Q11) while maintaining the practical benefits of open source and open standards (Q12) led to new requirements towards those ends [\[14,](#page-8-6) [35\]](#page-8-12).
 
@@ -149,70 +149,69 @@ In projects over the last ten years where commercially-useful enterprise KGs hav
 
 <span id="page-3-1"></span><sup>2</sup><https://www.ontotext.com/products/graphdb>
 
-#### <span id="page-4-0"></span>Table 1: Quality attributes for knowledge engineering. We map each of the requirements to the closest category from the software engineering handbook by [Bass et al.](#page-8-25) [\[5\]](#page-8-25).
+### <span id="page-4-0"></span>Table 1: Quality attributes for knowledge engineering. We map each of the requirements to the closest category from the software engineering handbook by [Bass et al.](#page-8-25) [\[5\]](#page-8-25).
 
-| id  | requirement              | ref. | scenario                                                                                           | category         |
+| id | requirement | ref. | scenario | category |
 |-----|--------------------------|------|----------------------------------------------------------------------------------------------------|------------------|
-| Q01 | reliability              | [31] | the knowledge engineering process is reliable, i.e. the knowledge produced can be trusted to       | reliability      |
-|     |                          |      | be true and justified                                                                              |                  |
-| Q02 | efficiency               | [26] | the knowledge produced by the KE process can be applied in a computationally tractable and         | performance      |
-|     |                          |      | efficient manner                                                                                   |                  |
-| Q03 | domain-specificity       | [11] | the KE process is tailored to use cases associated with a specific domain or area of expertise     | maintainability  |
-| Q04 | scalability              | [12] | the knowledge engineering process scales economically with the amount of knowledge pro             | scalability      |
-|     |                          |      | duced (measured in terms of, e.g. rules, triples, nodes, edges, etc.)                              |                  |
-| Q05 | distributivity           | [12] | the knowledge produced by the KE process can be distributed and hosted across multiple sites       | availability     |
-| Q06 | interoperability         | [12] | the knowledge produced by the KE process can be easily shared across sites and applications        | interoperability |
-| Q07 | supports knowledge en    | [32] | the KE process follows methodologies for creating an ontology and elicitation of knowledge         | maintainability  |
-|     | gineering best practices |      | from subject matter experts towards the creation of a knowledge model                              |                  |
-| Q08 | accessibility            | [17] | the barrier to adoption by users of the KE process is low                                          | usability        |
-| Q09 | supports software engi   | [17] | the knowledge engineering process conforms to software industry norms (e.g. the use of agile       | maintainability  |
-|     | neering best practices   |      | methodologies, continuous integration and deployment, version control, automated testing,          |                  |
-|     |                          |      | automated vulnerability scans, etc.)                                                               |                  |
-| Q10 | robustness to noise      | [17] | the KE process is robust in the face of noise and/or adversarial manipulation of source data       | reliability      |
-|     |                          |      | and/or knowledge                                                                                   |                  |
-| Q11 | robustness to missing    | [14] | the knowledge produced by the KE process can be processed and/or accessed in the face of           | reliability      |
-|     | schema                   |      | incomplete schemas and/or knowledge organization systems                                           |                  |
-| Q12 | openness                 | [35] | the components of the KE process are implemented using open source software, with open             | maintainability  |
-|     |                          |      | standards, and the knowledge produced by the knowledge engineering process is openly<br>accessible |                  |
-| Q13 | comprehensiveness        | [19] | all components of an end-to-end KE process (e.g. data ingest/export, data transformation,          | usability        |
-|     |                          |      | inference, knowledge publishing, etc.) are supported                                               |                  |
-| Q14 | customizability          | [19] | the components of the KE process can be modified to support specific use cases                     | usability        |
-| Q15 | modularity               | [19] | the components of the KE process can be selectively composed to suit a specific use case           | maintainability  |
-| Q16 | domain-independence      | [19] | the KE process is generally applicable across a wide range of domains and areas of expertise       | usability        |
-| Q17 | extensibility            | [30] | knowledge extraction from data or natural language performed in the KE process can easily          | maintainability  |
-|     |                          |      | accommodate new sources and modalities of data or natural language                                 |                  |
-| Q18 | curatability             | [6]  | the KE process supports human curation of automatically extracted and/or inferred knowledge        | safety           |
-| Q19 | ethicality               | [6]  | the KE process supports compliance with and enforcement of policies and/or guidelines for          | safety           |
-|     |                          |      | ethical use                                                                                        |                  |
-| Q20 | sustainability           | [6]  | the cost of executing the KE process is economically sustainable for the given use case            | usability        |
-| Q21 | affordability            | [6]  | the cost of access to the KE process is economically affordable for a given user community         | usability        |
-| Q22 | editability              | [1]  | the knowledge produced by the KE process can be feasibly edited by humans                          | maintainability  |
-| Q23 | explainability           | [1]  | the knowledge produced by the KE process provides accountability with respect to its prove         | testability      |
-|     |                          |      | nance and the details of how it was produced (e.g. through human authoring, automated              |                  |
-|     |                          |      | extraction, and/or inference, etc.)                                                                |                  |
+| Q01 | reliability | [31] | the knowledge engineering process is reliable, i.e. the knowledge produced can be trusted to | reliability |
+| | | | be true and justified | |
+| Q02 | efficiency | [26] | the knowledge produced by the KE process can be applied in a computationally tractable and | performance |
+| | | | efficient manner | |
+| Q03 | domain-specificity | [11] | the KE process is tailored to use cases associated with a specific domain or area of expertise | maintainability |
+| Q04 | scalability | [12] | the knowledge engineering process scales economically with the amount of knowledge pro | scalability |
+| | | | duced (measured in terms of, e.g. rules, triples, nodes, edges, etc.) | |
+| Q05 | distributivity | [12] | the knowledge produced by the KE process can be distributed and hosted across multiple sites | availability |
+| Q06 | interoperability | [12] | the knowledge produced by the KE process can be easily shared across sites and applications | interoperability |
+| Q07 | supports knowledge en | [32] | the KE process follows methodologies for creating an ontology and elicitation of knowledge | maintainability |
+| | gineering best practices | | from subject matter experts towards the creation of a knowledge model | |
+| Q08 | accessibility | [17] | the barrier to adoption by users of the KE process is low | usability |
+| Q09 | supports software engi | [17] | the knowledge engineering process conforms to software industry norms (e.g. the use of agile | maintainability |
+| | neering best practices | | methodologies, continuous integration and deployment, version control, automated testing, | |
+| | | | automated vulnerability scans, etc.) | |
+| Q10 | robustness to noise | [17] | the KE process is robust in the face of noise and/or adversarial manipulation of source data | reliability |
+| | | | and/or knowledge | |
+| Q11 | robustness to missing | [14] | the knowledge produced by the KE process can be processed and/or accessed in the face of | reliability |
+| | schema | | incomplete schemas and/or knowledge organization systems | |
+| Q12 | openness | [35] | the components of the KE process are implemented using open source software, with open | maintainability |
+| | | | standards, and the knowledge produced by the knowledge engineering process is openly<br>accessible | |
+| Q13 | comprehensiveness | [19] | all components of an end-to-end KE process (e.g. data ingest/export, data transformation, | usability |
+| | | | inference, knowledge publishing, etc.) are supported | |
+| Q14 | customizability | [19] | the components of the KE process can be modified to support specific use cases | usability |
+| Q15 | modularity | [19] | the components of the KE process can be selectively composed to suit a specific use case | maintainability |
+| Q16 | domain-independence | [19] | the KE process is generally applicable across a wide range of domains and areas of expertise | usability |
+| Q17 | extensibility | [30] | knowledge extraction from data or natural language performed in the KE process can easily | maintainability |
+| | | | accommodate new sources and modalities of data or natural language | |
+| Q18 | curatability | [6] | the KE process supports human curation of automatically extracted and/or inferred knowledge | safety |
+| Q19 | ethicality | [6] | the KE process supports compliance with and enforcement of policies and/or guidelines for | safety |
+| | | | ethical use | |
+| Q20 | sustainability | [6] | the cost of executing the KE process is economically sustainable for the given use case | usability |
+| Q21 | affordability | [6] | the cost of access to the KE process is economically affordable for a given user community | usability |
+| Q22 | editability | [1] | the knowledge produced by the KE process can be feasibly edited by humans | maintainability |
+| Q23 | explainability | [1] | the knowledge produced by the KE process provides accountability with respect to its prove | testability |
+| | | | nance and the details of how it was produced (e.g. through human authoring, automated | |
+| | | | extraction, and/or inference, etc.) | |
 
-#### Table 2: Functional requirements for knowledge engineering.
+### Table 2: Functional requirements for knowledge engineering.
 
-<span id="page-4-1"></span>
 
-| id  | requirement                       | ref. | scenario                                                                                                        |
+| id | requirement | ref. | scenario |
 |-----|-----------------------------------|------|-----------------------------------------------------------------------------------------------------------------|
-| F01 | supports semantic web standards   | [7]  | the KE process supports the use of W3C semantic web standards, including those for knowledge represen           |
-|     |                                   |      | tation (RDF), serializations (e.g. Turtle, JSON-LD, etc.) and querying (SPARQL)                                 |
-| F02 | supports heterogeneous query      | [14] | the knowledge produced by the KE process can be queried using multiple query languages (e.g. SQL, Cypher,       |
-|     |                                   |      | SPARQL, etc.) and query execution strategies (e.g. federated query, centralized query, find-and-follow, etc.)   |
-| F03 | supports federated query          | [35] | the knowledge produced by the KE process can be queried across multiple sites                                   |
-| F04 | imports common data formats       | [19] | the KE process supports import of data and/or knowledge from software industry standard data sources            |
-|     |                                   |      | (e.g. relational databases, RDF data dumps, REST APIs, etc.) and serializations (e.g. CSV, JSON, Parquet, etc.) |
-| F05 | exports common data formats       | [19] | the knowledge engineering process supports export of produced knowledge to software industry standard           |
-|     |                                   |      | data delivery mechanisms (e.g. as serialized data dumps, through publish/subscribe messaging, through           |
-|     |                                   |      | REST APIs, search engine indexes, etc.)                                                                         |
-| F06 | provides user-friendly interfaces | [19] | the knowledge produced by the knowledge engineering process can be accessed and applied through one             |
-|     |                                   |      | or more user-friendly interfaces (e.g. command line interfaces, visual editors and browsers, REST APIs, etc.)   |
-| F07 | schemaless                        | [30] | the knowledge engineering process does not need schemas to be defined to support effective knowledge            |
-|     |                                   |      | extraction from data and/or natural language                                                                    |
-| F08 | automates knowledge extraction    | [30] | knowledge extraction from data or natural language performed in the KE process is automatic and does            |
-|     |                                   |      | not require human labor                                                                                         |
+| F01 | supports semantic web standards | [7] | the KE process supports the use of W3C semantic web standards, including those for knowledge represen |
+| | | | tation (RDF), serializations (e.g. Turtle, JSON-LD, etc.) and querying (SPARQL) |
+| F02 | supports heterogeneous query | [14] | the knowledge produced by the KE process can be queried using multiple query languages (e.g. SQL, Cypher, |
+| | | | SPARQL, etc.) and query execution strategies (e.g. federated query, centralized query, find-and-follow, etc.) |
+| F03 | supports federated query | [35] | the knowledge produced by the KE process can be queried across multiple sites |
+| F04 | imports common data formats | [19] | the KE process supports import of data and/or knowledge from software industry standard data sources |
+| | | | (e.g. relational databases, RDF data dumps, REST APIs, etc.) and serializations (e.g. CSV, JSON, Parquet, etc.) |
+| F05 | exports common data formats | [19] | the knowledge engineering process supports export of produced knowledge to software industry standard |
+| | | | data delivery mechanisms (e.g. as serialized data dumps, through publish/subscribe messaging, through |
+| | | | REST APIs, search engine indexes, etc.) |
+| F06 | provides user-friendly interfaces | [19] | the knowledge produced by the knowledge engineering process can be accessed and applied through one |
+| | | | or more user-friendly interfaces (e.g. command line interfaces, visual editors and browsers, REST APIs, etc.) |
+| F07 | schemaless | [30] | the knowledge engineering process does not need schemas to be defined to support effective knowledge |
+| | | | extraction from data and/or natural language |
+| F08 | automates knowledge extraction | [30] | knowledge extraction from data or natural language performed in the KE process is automatic and does |
+| | | | not require human labor |
 
 of KGs, has led to the need for a finer-grained articulation of what KE should provide to developers.
 
@@ -236,35 +235,35 @@ Per Bass et al. [\[5\]](#page-8-25), architectures should be evaluated for the Q
 
 <span id="page-5-3"></span><sup>5</sup>Note that the sense in which the term "domain" is used in DSSAs is distinct from that assumed in the use of domain-specificity (Q03) and domain-independence (Q15) in the QAs. In the DSSA instance, we take "domain" to refer to the general practice of KE, while in the QAs listed above and the architecture evaluations below, we use this term to refer to the area of knowledge or expertise itself, independent of the practice of KE.
 
-<span id="page-6-0"></span>Table 3: Evaluation of KE architectures by support for QAs. TG corresponds to Tamašauskaite and Groth [ ˙ [33\]](#page-8-38), BC is Bio-Cypher [\[20\]](#page-8-39), and KT is KGTK [\[19\]](#page-8-8). Our 23 QAs are mapped to the nine categories of [\[5\]](#page-8-25).
+<span id="page-6-0"></span>**Table 3:** Evaluation of KE architectures by support for QAs. TG corresponds to Tamašauskaite and Groth [ ˙ [33\]](#page-8-38), BC is Bio-Cypher [\[20\]](#page-8-39), and KT is KGTK [\[19\]](#page-8-8). Our 23 QAs are mapped to the nine categories of [\[5\]](#page-8-25).
 
-| category         | id  | quality attribute           | TG | BC | KT |
+| category | id | quality attribute | TG | BC | KT |
 |------------------|-----|-----------------------------|----|----|----|
-|                  | Q01 | reliability                 | ✓  | ✓  | ✓  |
-| reliability      | Q10 | robustness to noise         | ✓  | ✓  | ✓  |
-|                  | Q11 | robustness<br>to<br>missing | ✓  | -  | ✓  |
-|                  |     | schema                      |    |    |    |
-| performance      | Q02 | efficiency                  | ✓  | ✓  | ✓  |
-|                  | Q03 | domain-specificity          | -  | ✓  | -  |
-|                  | Q07 | supports knowledge engi     | ✓  | -  | -  |
-|                  |     | neering best practices      |    |    |    |
-| maintainability  | Q09 | supports SE best practices  | -  | ✓  | ✓  |
-|                  | Q12 | openness                    | -  | ✓  | ✓  |
-|                  | Q15 | modularity                  | -  | ✓  | ✓  |
-|                  | Q17 | extensibility               | ✓  | ✓  | ✓  |
-|                  | Q22 | editability                 | -  | -  | -  |
-| scalability      | Q04 | scalability                 | ✓  | ✓  | ✓  |
-| availability     | Q05 | distributivity              | ✓  | ✓  | ✓  |
-| interoperability | Q06 | interoperability            | ✓  | ✓  | ✓  |
-|                  | Q08 | accessibility               | -  | ✓  | ✓  |
-|                  | Q13 | comprehensiveness           | ✓  | -  | ✓  |
-|                  | Q14 | customizability             | ✓  | ✓  | ✓  |
-| usability        | Q16 | domain-independence         | ✓  | -  | ✓  |
-|                  | Q20 | sustainability              | -  | ✓  | ✓  |
-|                  | Q21 | affordability               | -  | -  | -  |
-|                  | Q18 | curatability                | -  | -  | -  |
-| safety           | Q19 | ethicality                  | -  | ✓  | ✓  |
-| testability      | Q23 | explainability              | -  | ✓  | ✓  |
+| | Q01 | reliability | ✓ | ✓ | ✓ |
+| reliability | Q10 | robustness to noise | ✓ | ✓ | ✓ |
+| | Q11 | robustness<br>to<br>missing | ✓ | - | ✓ |
+| | | schema | | | |
+| performance | Q02 | efficiency | ✓ | ✓ | ✓ |
+| | Q03 | domain-specificity | - | ✓ | - |
+| | Q07 | supports knowledge engi | ✓ | - | - |
+| | | neering best practices | | | |
+| maintainability | Q09 | supports SE best practices | - | ✓ | ✓ |
+| | Q12 | openness | - | ✓ | ✓ |
+| | Q15 | modularity | - | ✓ | ✓ |
+| | Q17 | extensibility | ✓ | ✓ | ✓ |
+| | Q22 | editability | - | - | - |
+| scalability | Q04 | scalability | ✓ | ✓ | ✓ |
+| availability | Q05 | distributivity | ✓ | ✓ | ✓ |
+| interoperability | Q06 | interoperability | ✓ | ✓ | ✓ |
+| | Q08 | accessibility | - | ✓ | ✓ |
+| | Q13 | comprehensiveness | ✓ | - | ✓ |
+| | Q14 | customizability | ✓ | ✓ | ✓ |
+| usability | Q16 | domain-independence | ✓ | - | ✓ |
+| | Q20 | sustainability | - | ✓ | ✓ |
+| | Q21 | affordability | - | - | - |
+| | Q18 | curatability | - | - | - |
+| safety | Q19 | ethicality | - | ✓ | ✓ |
+| testability | Q23 | explainability | - | ✓ | ✓ |
 
 study its design to evaluate whether it addresses a particular attribute. Table [3](#page-6-0) summarizes the results of this evaluation, where the QAs are grouped in the categories from [\[5\]](#page-8-25).
 
@@ -290,7 +289,7 @@ steps to produce, complete, and store knowledge, which is finally stored in rela
 
 explainable. KGTK's knowledge-creation process stores the intermediate outputs on disk, enabling reproducibility and inspection. Lessons learned We highlight four key lessons from this evaluation. (1) Our 23 derived quality attributes can be effectively applied for a formal assessment and comparison of KE architectures. We propose that future KE developers should keep Q1-23 in mind when devising novel architectures. (2) None of the three architectures ticks all the boxes, yet, their requirement satisfaction aligns well with the focus of the architectures, e.g., KGTK puts a strong focus on usability requirements, whereas BioCypher excels in terms of maintainability. (3) Failing to satisfy a QA comes with a measurable price - e.g., the fact that BioCypher strictly requires a schema makes it non-applicable to use cases without a high-quality schema. Meanwhile, since all architectures fare well on scalability, we expect them to be applicable to large KGs like Wikidata. (4) Certain QAs: editability, curatability, and affordability are missed by all architectures, confirming Hogan's [\[17\]](#page-8-7) argument for better socio-technical integration in KE, which should be addressed in future KE architectures.
 
-# <span id="page-7-0"></span>6 FROM REQUIREMENTS TO A REFERENCE ARCHITECTURE FOR KE?
+## <span id="page-7-0"></span>6 FROM REQUIREMENTS TO A REFERENCE ARCHITECTURE FOR KE?
 
 In our work so far, we identified the needs of various stakeholders and KE eras and consolidated them into quality attributes and functional requirements. We demonstrated the utility of these QAs to test the suitability of current (and future) RAs for KE. The evaluation of three candidate architectures revealed that none of the architectures satisfies the full set of QAs, though the KGTK architecture came the closest. We observed that the three architectures took different approaches to support a certain attribute (e.g., scalability), whereas attributes that relate to human involvement through curation or affordability were generally absent from all three architectures. We proposed that future KE architectures should be evaluated against these 23 QAs and 8 FRs, and they should provide better support for socio-technical requirements.
 
@@ -350,7 +349,7 @@ semantic-aware Big Data systems. Information and software technology 90 (2017), 
 
 ## A APPENDICES
 
-# A.1 Tamašauskaite and Groth's knowledge ˙ graph development process
+## A.1 Tamašauskaite and Groth's knowledge ˙ graph development process
 
 Reliability (Q01) - If the desired knowledge graph is generic, then it covers multiple domains, and is publicly available. Otherwise, if it is domain-specific, then it is commonly used in organizations for their operations. In either case, the data collected from various sources may not be of good quality. After performing the Extract knowledge step from the architecture, the next step is Process Knowledge where one of the sub-steps is Complete Knowledge which focuses on enriching the knowledge in the knowledge graph as well as improving the overall quality. This includes performing reasoning and inference, validating the triples, and optimizing the knowledge graph. Basically, it makes sure that only valid and relevant knowledge is included in the knowledge graph. Additionally, removing nodes that are not relevant to the domain and eliminating conflicts and gaps in the knowledge graph. In summary, the
 
@@ -402,7 +401,7 @@ Editability (Q22) - The Process Knowledge step ensures that the knowledge extrac
 
 Explainability (Q23) - Although each component in the process uses machine learning algorithms that are simple and efficient, incorporating feedback to evaluate the KG, it does not incorporate different stakeholders, or clear documentation steps, and also some of the algorithms might be black-box and non-interpretable. Hence, it does not provide accountability for provenance and the details of how it was produced, it is not explainable.
 
-# A.2 BioCypher
+## A.2 BioCypher
 
 Reliability (Q01) - BioCypher enables the creation of task-specific KG using a modular approach where the KG depends on consistent and comprehensive annotations of major actors in the biomedical community. The automated end-to-end testing of millions of entities and relationships per KG increases trust in the consistency of the data. Additionally, the BioCypher migration is tested end-to-end, including deduplication of entities and relationships as well as verbose information on violations of the desired structure (e.g., due to inconsistencies in the input data). Lastly, during the creation of KG, evidence (which experiment and publication the knowledge is derived from) and provenance (who provided which aspects of the primary data) are always propagated. Hence, the knowledge engineering process is reliable, i.e. the knowledge produced can be trusted to be true and justified.
 
