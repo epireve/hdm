@@ -1,15 +1,21 @@
 ---
-cite_key: "kg2000"
-title: "A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models"
-authors: "Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen"
+cite_key: zhu_2000
+title: A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large
+  Language Models
+authors: Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen
 year: 2000
-doi: "10.1007/978-3-642-15939-8"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-642-15939-8
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Zhu-2025-A-temporal-knowledge-graph-generati"
+original_folder: Zhu-2025-A-temporal-knowledge-graph-generati
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # OPEN

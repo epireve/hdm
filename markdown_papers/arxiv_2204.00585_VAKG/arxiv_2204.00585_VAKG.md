@@ -1,15 +1,21 @@
 ---
-cite_key: "christino2007"
-title: "A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics"
-authors: "L. Christino1,2 , S. Rezaeipour1 , E. Milios, F. Paulovich"
+cite_key: christino_2007
+title: A Theoretical Approach for Structuring and Analysing Knowledge Provenance for
+  Visual Analytics
+authors: L. Christino1,2 , S. Rezaeipour1 , E. Milios, F. Paulovich
 year: 2007
-doi: "10.1111/cgf.13324)"
-date_processed: "2025-07-02"
+doi: 10.1111/cgf.13324)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2204.00585_VAKG"
+original_folder: arxiv_2204.00585_VAKG
 images_total: 9
 images_kept: 9
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # <span id="page-0-1"></span>A Theoretical Approach for Structuring and Analysing Knowledge Provenance for Visual Analytics

@@ -1,15 +1,21 @@
 ---
-cite_key: "arxiv_230302166_towards_a_gml_"
-title: "Towards a GML-Enabled Knowledge Graph Platform"
-authors: "Hussein Abdallah, Essam Mansour"
+cite_key: abdallah_2021
+title: Towards a GML-Enabled Knowledge Graph Platform
+authors: Hussein Abdallah, Essam Mansour
 year: 2021
-doi: "10.1145/3447772)"
-date_processed: "2025-07-02"
+doi: 10.1145/3447772)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2303.02166_Towards_a_GML-Enabled_Knowledge_Graph_Platform"
+original_folder: arxiv_2303.02166_Towards_a_GML-Enabled_Knowledge_Graph_Platform
 images_total: 9
 images_kept: 9
 images_removed: 0
+tags:
+- Data Integration
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 # Towards a GML-Enabled Knowledge Graph Platform

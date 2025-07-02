@@ -1,15 +1,22 @@
 ---
-cite_key: "zloch2019"
-title: "Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation"
-authors: "Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus Stocker, Wolfgang Otto"
+cite_key: castro_2019
+title: 'Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information
+  Representation'
+authors: Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus
+  Stocker, Wolfgang Otto
 year: 2019
-doi: "10.15488/13072"
-date_processed: "2025-07-02"
+doi: 10.15488/13072
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2506.07285_Research_Knowledge_Graphs_the_Shifting_Paradigm_o"
+original_folder: arxiv_2506.07285_Research_Knowledge_Graphs_the_Shifting_Paradigm_o
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation

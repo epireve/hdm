@@ -1,15 +1,19 @@
 ---
-cite_key: "modoni2023"
-title: "ArticleA Human Digital-Twin-Based Framework Driving Human Centricity towards Industry 5.0"
-authors: "Marco Sacco, Advanced Manufacturing, National Research Council"
+cite_key: sacco_2023
+title: ArticleA Human Digital-Twin-Based Framework Driving Human Centricity towards
+  Industry 5.0
+authors: Marco Sacco, Advanced Manufacturing, National Research Council
 year: 2023
-doi: "10.3390/s23136054)"
-date_processed: "2025-07-02"
+doi: 10.3390/s23136054)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "mdpi_res_com_A_Human_Digital-Twin-Based_Framework_Driving_Human_Centricity_towards_Industry_5.0"
+original_folder: mdpi_res_com_A_Human_Digital-Twin-Based_Framework_Driving_Human_Centricity_towards_Industry_5.0
 images_total: 13
 images_kept: 10
 images_removed: 3
+tags:
+- IoT
+- Machine Learning
 ---
 
 

@@ -1,14 +1,17 @@
 ---
-cite_key: "arxiv_arxiv_240808632_a_survey"
-title: "A Survey on Benchmarks of Multimodal Large Language Models"
-authors: "Weiheng Lu, Hao Fei, Meng Luo, Ming Dai, Min Xia, Yizhang Jin, Zhenye Gan, Ding Qi, Chaoyou Fu, Ying Tai, Wankou Yang, Yabiao Wang, Chengjie Wang"
+cite_key: lu_2024
+title: A Survey on Benchmarks of Multimodal Large Language Models
+authors: Weiheng Lu, Hao Fei, Meng Luo, Ming Dai, Min Xia, Yizhang Jin, Zhenye Gan,
+  Ding Qi, Chaoyou Fu, Ying Tai, Wankou Yang, Yabiao Wang, Chengjie Wang
 year: 2024
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2408.08632_A_Survey_on_Benchmarks_of_Multimodal_Large_Language_Models"
+original_folder: arxiv_arxiv_2408.08632_A_Survey_on_Benchmarks_of_Multimodal_Large_Language_Models
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Machine Learning
 ---
 
 # A Survey on Benchmarks of Multimodal Large Language Models

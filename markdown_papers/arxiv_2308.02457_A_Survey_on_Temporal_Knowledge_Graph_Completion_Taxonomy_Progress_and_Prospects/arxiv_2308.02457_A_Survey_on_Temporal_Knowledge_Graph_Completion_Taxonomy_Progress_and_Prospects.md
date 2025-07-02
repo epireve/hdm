@@ -1,14 +1,20 @@
 ---
-cite_key: "typically2009"
-title: "A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects"
-authors: "Jiapu Wang, Boyue Wang, Meikang Qiu, Senior Member, Shirui Pan, Bo Xiong, Heng Liu, Linhao Luo, Tengfei Liu, Yongli Hu, Baocai Yin, Wen Gao"
+cite_key: wang_2009
+title: 'A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects'
+authors: Jiapu Wang, Boyue Wang, Meikang Qiu, Senior Member, Shirui Pan, Bo Xiong,
+  Heng Liu, Linhao Luo, Tengfei Liu, Yongli Hu, Baocai Yin, Wen Gao
 year: 2009
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2308.02457_A_Survey_on_Temporal_Knowledge_Graph_Completion_Taxonomy_Progress_and_Prospects"
+original_folder: arxiv_2308.02457_A_Survey_on_Temporal_Knowledge_Graph_Completion_Taxonomy_Progress_and_Prospects
 images_total: 12
 images_kept: 12
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # A Survey on Temporal Knowledge Graph Completion: Taxonomy, Progress, and Prospects

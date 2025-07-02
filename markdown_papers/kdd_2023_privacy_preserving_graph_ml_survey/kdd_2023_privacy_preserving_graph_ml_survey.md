@@ -1,22 +1,23 @@
 ---
-cite_key: "fu2024b"
-title: "Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey"
-authors: "Dongqi Fu"
+cite_key: fu_2024
+title: 'Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey'
+authors: Dongqi Fu
 year: 2024
-doi: "10.48550/arXiv.2307.04338"
-url: "https://arxiv.org/abs/2307.04338"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2307.04338
+url: https://arxiv.org/abs/2307.04338
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Privacy"
-  - "Graph Machine Learning"
-  - "Data Security"
-  - "Computational Privacy"
-  - "Survey"
-tldr: "Survey of privacy techniques in graph machine learning across data and computation stages"
-date_processed: "2025-07-02"
+- Privacy
+- Graph Machine Learning
+- Data Security
+- Computational Privacy
+- Survey
+tldr: Survey of privacy techniques in graph machine learning across data and computation
+  stages
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "kdd_2023_privacy_preserving_graph_ml_survey"
+original_folder: kdd_2023_privacy_preserving_graph_ml_survey
 images_total: 5
 images_kept: 5
 images_removed: 0

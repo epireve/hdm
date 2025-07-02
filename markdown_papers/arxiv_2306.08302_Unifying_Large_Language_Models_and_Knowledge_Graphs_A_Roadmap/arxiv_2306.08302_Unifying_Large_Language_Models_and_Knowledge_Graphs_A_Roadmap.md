@@ -1,21 +1,23 @@
 ---
-cite_key: "pan2024"
-title: "Unifying Large Language Models and Knowledge Graphs: A Roadmap"
-authors: "Shirui Pan, Senior Member, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu"
+cite_key: pan_2024
+title: 'Unifying Large Language Models and Knowledge Graphs: A Roadmap'
+authors: Shirui Pan, Senior Member, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang,
+  Xindong Wu
 year: 2024
-doi: "10.1109/TKDE.2024.3352100"
-url: "https://ieeexplore.ieee.org/document/10387715/"
-relevancy: "High"
-downloaded: "No"
+doi: 10.1109/TKDE.2024.3352100
+url: https://ieeexplore.ieee.org/document/10387715/
+relevancy: High
+downloaded: 'No'
 tags:
-  - "Large Language Models"
-  - "Knowledge Graphs"
-  - "Natural Language Processing"
-  - "Generative Pre-training"
-tldr: "Comprehensive roadmap for integrating large language models and knowledge graphs addressing their complementary strengths and limitations."
-date_processed: "2025-07-02"
+- Large Language Models
+- Knowledge Graphs
+- Natural Language Processing
+- Generative Pre-training
+tldr: Comprehensive roadmap for integrating large language models and knowledge graphs
+  addressing their complementary strengths and limitations.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2306.08302_Unifying_Large_Language_Models_and_Knowledge_Graphs_A_Roadmap"
+original_folder: arxiv_2306.08302_Unifying_Large_Language_Models_and_Knowledge_Graphs_A_Roadmap
 images_total: 27
 images_kept: 27
 images_removed: 0

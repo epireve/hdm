@@ -1,15 +1,20 @@
 ---
-cite_key: "yang2025b"
-title: "Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs"
-authors: "Jiadong Ren, Shunfu Jin, Yang Liu, Feng Liu, Bach Le"
+cite_key: ren_2025
+title: Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
+authors: Jiadong Ren, Shunfu Jin, Yang Liu, Feng Liu, Bach Le
 year: 2025
-doi: "10.1145/nnnnnnn.nnnnnnn"
-date_processed: "2025-07-02"
+doi: 10.1145/nnnnnnn.nnnnnnn
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2503.21710_Enhancing_Repository-Level_Software_Repair_via_Repository-Aware_Knowledge_Graphs"
+original_folder: arxiv_arxiv_2503.21710_Enhancing_Repository-Level_Software_Repair_via_Repository-Aware_Knowledge_Graphs
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs

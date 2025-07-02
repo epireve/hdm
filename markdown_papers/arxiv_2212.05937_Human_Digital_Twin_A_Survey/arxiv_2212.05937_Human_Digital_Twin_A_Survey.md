@@ -1,14 +1,20 @@
 ---
-cite_key: "linsupsup2003"
-title: "Human Digital Twin: A Survey"
-authors: "Yujia Lin, Liming Chen, Aftab Ali, Christopher Nugent, Cleland Ian, Rongyang Li, Dazhi Gao, Hang Wang, Yajie Wang, Communication Engineering, Xueyuan Street, York Street"
+cite_key: lin_2003
+title: 'Human Digital Twin: A Survey'
+authors: Yujia Lin, Liming Chen, Aftab Ali, Christopher Nugent, Cleland Ian, Rongyang
+  Li, Dazhi Gao, Hang Wang, Yajie Wang, Huansheng Ning
 year: 2003
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2212.05937_Human_Digital_Twin_A_Survey"
+original_folder: arxiv_2212.05937_Human_Digital_Twin_A_Survey
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Healthcare
+- IoT
+- Machine Learning
+- Mental Health
 ---
 
 # Human Digital Twin: A Survey

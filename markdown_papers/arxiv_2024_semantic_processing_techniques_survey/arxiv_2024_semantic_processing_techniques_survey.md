@@ -1,15 +1,20 @@
 ---
-cite_key: "maoa2023"
-title: "A Survey on Semantic Processing Techniques"
-authors: "Rui Maoa, Kai Hec, Xulang Zhangb, Guanyi Chend, Jinjie Nib, Zonglin Yanga, Erik Cambriaa"
+cite_key: maoa_2023
+title: A Survey on Semantic Processing Techniques
+authors: Rui Maoa, Kai Hec, Xulang Zhangb, Guanyi Chend, Jinjie Nib, Zonglin Yanga,
+  Erik Cambriaa
 year: 2023
-doi: "10.5683/SP2/QPOJSI"
-date_processed: "2025-07-02"
+doi: 10.5683/SP2/QPOJSI
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2024_semantic_processing_techniques_survey"
+original_folder: arxiv_2024_semantic_processing_techniques_survey
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
+- Personal Health
 ---
 
 # A Survey on Semantic Processing Techniques

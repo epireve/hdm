@@ -1,22 +1,24 @@
 ---
-cite_key: "kim2024"
-title: "Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes"
-authors: "Taewoon Kim, Michael Cochez"
+cite_key: kim_2024
+title: Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially
+  Observable Markov Decision Processes
+authors: Taewoon Kim, Michael Cochez
 year: 2024
-doi: "10.48550/arXiv.2408.05861"
-url: "https://arxiv.org/abs/2408.05861"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2408.05861
+url: https://arxiv.org/abs/2408.05861
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "POMDP"
-  - "Knowledge Graphs"
-  - "Memory Systems"
-  - "Human-Like AI"
-  - "Cognitive Computing"
-tldr: "AI can learn and utilize long-term memory through knowledge graph-based memory systems in partially observable environments."
-date_processed: "2025-07-02"
+- POMDP
+- Knowledge Graphs
+- Memory Systems
+- Human-Like AI
+- Cognitive Computing
+tldr: AI can learn and utilize long-term memory through knowledge graph-based memory
+  systems in partially observable environments.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "kg_human_memory_systems_pomdp_2024"
+original_folder: kg_human_memory_systems_pomdp_2024
 images_total: 6
 images_kept: 6
 images_removed: 0

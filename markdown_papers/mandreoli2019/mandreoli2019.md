@@ -1,14 +1,24 @@
 ---
-cite_key: "mandreoli2019"
-title: "Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies, and Algorithms"
-authors: "Federica Mandreoli, Scienze Fisiche"
+cite_key: mandreoli_2010
+title: 'Dealing With Data Heterogeneity in a Data Fusion Perspective: Models, Methodologies,
+  and Algorithms'
+authors: Federica Mandreoli, Scienze Fisiche
 year: 2010
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "mandreoli2019"
+original_folder: mandreoli2019
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Biomedical
+- Data Integration
+- Healthcare
+- IoT
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Semantic Web
 ---
 
 # 9

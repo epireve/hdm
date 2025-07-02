@@ -1,14 +1,19 @@
 ---
-cite_key: "wisconsin-madison2023"
-title: "DEPSRAG: Towards Agentic Reasoning and Planning for Software Dependency Management"
-authors: "Mohannad Alhanahnah University of Wisconsin-Madison, USA mohannad@cs.wisc.edu"
+cite_key: wisconsin-madison_2023
+title: 'DEPSRAG: Towards Agentic Reasoning and Planning for Software Dependency Management'
+authors: Mohannad Alhanahnah University of Wisconsin-Madison, USA mohannad@cs.wisc.edu
 year: 2023
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2405.20455_DepsRAG_Towards_Agentic_Reasoning_and_Planning_for_Software_Dependency_Managemen"
+original_folder: arxiv_arxiv_2405.20455_DepsRAG_Towards_Agentic_Reasoning_and_Planning_for_Software_Dependency_Managemen
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Privacy
+- Semantic Web
 ---
 
 <!-- cite_key: wisconsin-madison2023 -->

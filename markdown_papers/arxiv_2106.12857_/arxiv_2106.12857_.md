@@ -1,14 +1,18 @@
 ---
-cite_key: "asprino2019"
-title: "Pattern-based Visualization of Knowledge Graphs"
-authors: "Valentina Presutti 1"
+cite_key: presutti_2019
+title: Pattern-based Visualization of Knowledge Graphs
+authors: Valentina Presutti 1
 year: 2019
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2106.12857_"
+original_folder: arxiv_2106.12857_
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # Pattern-based Visualization of Knowledge Graphs

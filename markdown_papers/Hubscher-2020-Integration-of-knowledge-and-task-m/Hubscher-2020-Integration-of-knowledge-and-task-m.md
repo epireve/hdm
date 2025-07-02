@@ -1,15 +1,19 @@
 ---
-cite_key: "hagenberg2020"
-title: "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment"
-authors: "Gerd Hübscher Hübscher"
+cite_key: hbscher_2020
+title: Integration of Knowledge and Task Management in an Evolving, Communication-intensive
+  Environment
+authors: Gerd Hübscher Hübscher
 year: 2020
-doi: "10.1145/3428757.3429260"
-date_processed: "2025-07-02"
+doi: 10.1145/3428757.3429260
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Hubscher-2020-Integration-of-knowledge-and-task-m"
+original_folder: Hubscher-2020-Integration-of-knowledge-and-task-m
 images_total: 9
 images_kept: 8
 images_removed: 1
+tags:
+- Machine Learning
+- Semantic Web
 ---
 
 

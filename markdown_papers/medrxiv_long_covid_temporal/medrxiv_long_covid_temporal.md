@@ -1,15 +1,28 @@
 ---
-cite_key: "oneilsupsup2022"
-title: "Finding Long-COVID: Temporal Topic Modeling of Electronic Health Records from the N3C and RECOVER Programs"
-authors: "Kenneth J. Wilkins, Hannah E. Davis, Gina S. Assaf, Hannah Wei, Parya Zareie, Evan T. French, Johanna Loomba, Andrea Zhou, Christopher G. Chute, Richard A. Moffitt, Emily R Pfaff, Yun Jae Yoo, Peter Leese, Robert F. Chew, Melissa A. Haendel"
+cite_key: wilkins_2022
+title: 'Finding Long-COVID: Temporal Topic Modeling of Electronic Health Records from
+  the N3C and RECOVER Programs'
+authors: Kenneth J. Wilkins, Hannah E. Davis, Gina S. Assaf, Hannah Wei, Parya Zareie,
+  Evan T. French, Johanna Loomba, Andrea Zhou, Christopher G. Chute, Richard A. Moffitt,
+  Emily R Pfaff, Yun Jae Yoo, Peter Leese, Robert F. Chew, Melissa A. Haendel
 year: 2022
-doi: "10.1093/jamia/ocaa196"
-date_processed: "2025-07-02"
+doi: 10.1093/jamia/ocaa196
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "medrxiv_long_covid_temporal"
+original_folder: medrxiv_long_covid_temporal
 images_total: 14
 images_kept: 14
 images_removed: 0
+tags:
+- Biomedical
+- COVID-19
+- Cancer
+- Electronic Health Records
+- Healthcare
+- Machine Learning
+- Personal Health
+- Semantic Web
+- Temporal
 ---
 
 # Finding Long-COVID: Temporal Topic Modeling of Electronic Health Records from the N3C and RECOVER Programs

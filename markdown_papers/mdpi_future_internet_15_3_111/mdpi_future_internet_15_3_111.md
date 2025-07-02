@@ -1,15 +1,25 @@
 ---
-cite_key: "bajaj2023"
-title: "ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study"
-authors: "Fernando Beltran"
+cite_key: beltran_2023
+title: 'ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool
+  Using Smartwatch Data: A Proof-of-Concept Study'
+authors: Fernando Beltran
 year: 2023
-doi: "10.3390/fi15030111"
-date_processed: "2025-07-02"
+doi: 10.3390/fi15030111
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "mdpi_future_internet_15_3_111"
+original_folder: mdpi_future_internet_15_3_111
 images_total: 7
 images_kept: 3
 images_removed: 4
+tags:
+- COVID-19
+- Decision Support
+- Electronic Health Records
+- Healthcare
+- IoT
+- Machine Learning
+- Mental Health
+- Personalized Medicine
 ---
 
 

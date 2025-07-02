@@ -1,15 +1,20 @@
 ---
-cite_key: "liu2020"
-title: "Web of Scholars: A Scholar Knowledge Graph"
-authors: "Jiaying Liu, Ivan Lee"
+cite_key: liu_2020
+title: 'Web of Scholars: A Scholar Knowledge Graph'
+authors: Jiaying Liu, Ivan Lee
 year: 2020
-doi: "10.1145/3397271.3401405"
-date_processed: "2025-07-02"
+doi: 10.1145/3397271.3401405
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2202.11311_Web_of_Scholars_A_Scholar_Knowledge_Graph"
+original_folder: arxiv_arxiv_2202.11311_Web_of_Scholars_A_Scholar_Knowledge_Graph
 images_total: 3
 images_kept: 2
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 # Web of Scholars: A Scholar Knowledge Graph

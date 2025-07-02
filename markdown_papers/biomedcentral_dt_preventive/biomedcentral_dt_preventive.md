@@ -1,14 +1,23 @@
 ---
-cite_key: "mikaelbensonkise2025"
-title: "Digital twins as global learning health and disease models for preventive and personalized medicine"
-authors: "Firoj Mahmud"
+cite_key: mahmud_2025
+title: Digital twins as global learning health and disease models for preventive and
+  personalized medicine
+authors: Firoj Mahmud
 year: 2025
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "biomedcentral_dt_preventive"
+original_folder: biomedcentral_dt_preventive
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Biomedical
+- Cancer
+- Data Integration
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personalized Medicine
 ---
 
 ![](_page_0_Picture_3.jpeg)

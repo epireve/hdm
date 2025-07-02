@@ -1,22 +1,25 @@
 ---
-cite_key: "chan2024"
-title: "Multi-task Heterogeneous Graph Learning on Electronic Health Records"
-authors: "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+cite_key: chan_2024
+title: Multi-task Heterogeneous Graph Learning on Electronic Health Records
+authors: Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam
+  Road, Diagnostic Radiology
 year: 2024
-doi: "arXiv:2408.07569"
-url: "https://arxiv.org/abs/2408.07569"
-relevancy: "High"
-downloaded: "No"
+doi: arXiv:2408.07569
+url: https://arxiv.org/abs/2408.07569
+relevancy: High
+downloaded: 'No'
 tags:
-  - "Heterogeneous Graph Neural Networks"
-  - "Electronic Health Records"
-  - "Multi-task Learning"
-  - "Healthcare Prediction"
-  - "Causal Inference"
-tldr: "Multi-task learning framework for heterogeneous electronic health record analysis using graph neural networks with causal inference-based denoising for improved healthcare predictions."
-date_processed: "2025-07-02"
+- Heterogeneous Graph Neural Networks
+- Electronic Health Records
+- Multi-task Learning
+- Healthcare Prediction
+- Causal Inference
+tldr: Multi-task learning framework for heterogeneous electronic health record analysis
+  using graph neural networks with causal inference-based denoising for improved healthcare
+  predictions.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "neural_networks_2024_multitask_heterogeneous_graph_ehr"
+original_folder: neural_networks_2024_multitask_heterogeneous_graph_ehr
 images_total: 13
 images_kept: 13
 images_removed: 0

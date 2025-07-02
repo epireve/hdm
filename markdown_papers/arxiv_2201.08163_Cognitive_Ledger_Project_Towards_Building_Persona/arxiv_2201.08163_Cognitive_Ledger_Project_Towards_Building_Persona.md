@@ -1,15 +1,24 @@
 ---
-cite_key: "fig2020"
-title: "Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain"
-authors: "Amir Reza Asadi Humind Labs Tehran"
+cite_key: tehran_2020
+title: 'Cognitive Ledger Project: Towards Building Personal Digital Twins Through
+  Cognitive Blockchain'
+authors: Amir Reza Asadi Humind Labs Tehran
 year: 2020
-doi: "10.1109/MC.2018.2876181."
-date_processed: "2025-07-02"
+doi: 10.1109/MC.2018.2876181.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2201.08163_Cognitive_Ledger_Project_Towards_Building_Persona"
+original_folder: arxiv_2201.08163_Cognitive_Ledger_Project_Towards_Building_Persona
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Blockchain
+- Electronic Health Records
+- Healthcare
+- Machine Learning
+- Personal Health
+- Privacy
+- Semantic Web
 ---
 
 # Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain

@@ -1,22 +1,23 @@
 ---
-cite_key: "lu2024"
-title: "AeonG: An Efficient Built-in Temporal Support in Graph Databases"
-authors: "Dong Wen, Jiamin Hou"
+cite_key: wen_2024
+title: 'AeonG: An Efficient Built-in Temporal Support in Graph Databases'
+authors: Dong Wen, Jiamin Hou
 year: 2024
-doi: "10.14778/3648160.3648187"
-url: "https://www.vldb.org/pvldb/vol17/p1515-lu.pdf"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.14778/3648160.3648187
+url: https://www.vldb.org/pvldb/vol17/p1515-lu.pdf
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Temporal Graphs"
-  - "Graph Databases"
-  - "Storage Optimization"
-  - "Query Performance"
-  - "MVCC"
-tldr: "Efficient temporal graph database with built-in temporal support addressing storage and query performance challenges."
-date_processed: "2025-07-02"
+- Temporal Graphs
+- Graph Databases
+- Storage Optimization
+- Query Performance
+- MVCC
+tldr: Efficient temporal graph database with built-in temporal support addressing
+  storage and query performance challenges.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "vldb_2024_aeong_temporal_graph_databases"
+original_folder: vldb_2024_aeong_temporal_graph_databases
 images_total: 13
 images_kept: 12
 images_removed: 1

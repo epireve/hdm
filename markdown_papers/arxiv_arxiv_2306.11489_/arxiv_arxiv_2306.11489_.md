@@ -1,14 +1,20 @@
 ---
-cite_key: "lab2022"
-title: "Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for Fact-aware Language Modeling"
-authors: "Linyao Yang, Hongyang Chen, Senior Member, Zhao Li, Xiao Ding, Xindong Wu"
+cite_key: yang_2022
+title: 'Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for
+  Fact-aware Language Modeling'
+authors: Linyao Yang, Hongyang Chen, Senior Member, Zhao Li, Xiao Ding, Xindong Wu
 year: 2022
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2306.11489_"
+original_folder: arxiv_arxiv_2306.11489_
 images_total: 10
 images_kept: 10
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for Fact-aware Language Modeling

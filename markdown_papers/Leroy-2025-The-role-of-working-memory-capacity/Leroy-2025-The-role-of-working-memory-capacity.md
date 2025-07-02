@@ -1,15 +1,21 @@
 ---
-cite_key: "leroy2024"
-title: "The role of working memory capacity in the temporal compression of episodic memories: An individual differences approach"
-authors: "Nathan Leroy, Steve Majerus, Arnaud D'Argembeau"
+cite_key: leroy_2024
+title: 'The role of working memory capacity in the temporal compression of episodic
+  memories: An individual differences approach'
+authors: Nathan Leroy, Steve Majerus, Arnaud D'Argembeau
 year: 2024
-doi: "10.1037/xlm0001350"
-date_processed: "2025-07-02"
+doi: 10.1037/xlm0001350
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Leroy-2025-The-role-of-working-memory-capacity"
+original_folder: Leroy-2025-The-role-of-working-memory-capacity
 images_total: 16
 images_kept: 16
 images_removed: 0
+tags:
+- IoT
+- Machine Learning
+- Mental Health
+- Temporal
 ---
 
 # The role of working memory capacity in the temporal compression of episodic memories: An individual differences approach

@@ -1,15 +1,22 @@
 ---
-cite_key: "supsup2017"
-title: "A Context Model for Personal Data Streams ?"
-authors: "Fausto Giunchiglia"
+cite_key: giunchiglia_2017
+title: A Context Model for Personal Data Streams ?
+authors: Fausto Giunchiglia
 year: 2017
-doi: "10.48550/ARXIV.2205.10123"
-date_processed: "2025-07-02"
+doi: 10.48550/ARXIV.2205.10123
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2206.10212_A_Context_Model_for_Personal_Data_Streams"
+original_folder: arxiv_2206.10212_A_Context_Model_for_Personal_Data_Streams
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Mental Health
+- Natural Language Processing
+- Semantic Web
 ---
 
 # A Context Model for Personal Data Streams ?

@@ -1,14 +1,23 @@
 ---
-cite_key: "zuosupsup2023"
-title: "KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enhancement for Medical Diagnosis"
-authors: "Kaiwen Zuo"
+cite_key: zuo_2023
+title: 'KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph
+  Enhancement for Medical Diagnosis'
+authors: Kaiwen Zuo
 year: 2023
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2412.16833_KG4Diagnosis_A_Hierarchical_Multi-Agent_LLM_Framework_with_Knowledge_Graph_Enhancement_for_Medical_D"
+original_folder: arxiv_2412.16833_KG4Diagnosis_A_Hierarchical_Multi-Agent_LLM_Framework_with_Knowledge_Graph_Enhancement_for_Medical_D
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Data Integration
+- Decision Support
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Semantic Web
 ---
 
 # KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enhancement for Medical Diagnosis

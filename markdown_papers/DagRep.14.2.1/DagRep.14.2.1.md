@@ -1,15 +1,24 @@
 ---
-cite_key: "madrid2024"
-title: "1 Executive Summary"
-authors: "SeminarFebruary 4–"
+cite_key: _2024
+title: 1 Executive Summary
+authors: SeminarFebruary 4–
 year: 2024
-doi: "10.4230/DagRep.14.2.1"
-date_processed: "2025-07-02"
+doi: 10.4230/DagRep.14.2.1
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "DagRep.14.2.1"
+original_folder: DagRep.14.2.1
 images_total: 7
 images_kept: 6
 images_removed: 1
+tags:
+- Blockchain
+- Data Integration
+- Federated Learning
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Privacy
+- Semantic Web
 ---
 
 <span id="page-0-0"></span>**David Chaves-Fraga**<sup>∗</sup>**<sup>1</sup> , Oscar Corcho**[∗](#page-0-0)**<sup>2</sup> , Anastasia Dimou**[∗](#page-0-0)**<sup>3</sup> , Maria-Esther Vidal**[∗](#page-0-0)**<sup>4</sup> , Ana Iglesias-Molina**†**<sup>5</sup> , and Dylan Van Assche**[†](#page-0-0)**<sup>6</sup>**-**1 Universidade de Santiago de Compostela, ES. [david.chaves@usc.es](mailto:david.chaves@usc.es)**-**2 Universidad Politécnica de Madrid, ES. [ocorcho@fi.upm.es](mailto:ocorcho@fi.upm.es)**-**3 KU Leuven, BE. [anastasia.dimou@kuleuven.be](mailto:anastasia.dimou@kuleuven.be)**-**4 TIB Hannover, DE. [vidal@l3s.de](mailto:vidal@l3s.de)**-**5 Universidad Politécnica de Madrid, ES. [ana.iglesiasm@upm.es](mailto:ana.iglesiasm@upm.es)**-**6 IDLab Ghent University imec, BE. [Dylan.VanAssche@ugent.be](mailto:Dylan.VanAssche@ugent.be)**-**Abstract**This report documents the program and results of the Dagstuhl Seminar 24061 "Are Knowledge Graphs Ready for the Real World? Challenges and Perspectives". The seminar focused on gaining a better understanding of the open challenges required for the development of Knowledge Graph ecosystems. The seminar focused on four different topics: access control and privacy in decentralized knowledge graphs, knowledge graph construction lifecycle, software methods for improving KG implementation, and a new wave of knowledge engineers and their expected skills. By focusing on these relevant research topics, the seminar aimed to reflect on KGs from a more fundamental computer science perspective. It brought together interdisciplinary researchers from academia and industry to discuss foundations, concepts, and implementations that will pave the way for the next generation of KGs ready for real-world use.

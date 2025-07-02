@@ -1,15 +1,22 @@
 ---
-cite_key: "shaosupsup2023"
-title: "StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs in Streaming Scenarios"
-authors: "Jie Shao, Jiasheng Zhang"
+cite_key: shao_2023
+title: 'StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs
+  in Streaming Scenarios'
+authors: Jie Shao, Jiasheng Zhang
 year: 2023
-doi: "10.1145/3539618.3591772"
-date_processed: "2025-07-02"
+doi: 10.1145/3539618.3591772
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Zhang-2023-Streame-learning-to-update-represen"
+original_folder: Zhang-2023-Streame-learning-to-update-represen
 images_total: 5
 images_kept: 4
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 

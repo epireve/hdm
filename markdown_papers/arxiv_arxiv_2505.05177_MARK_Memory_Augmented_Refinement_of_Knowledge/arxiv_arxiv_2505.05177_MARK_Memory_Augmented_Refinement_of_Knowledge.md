@@ -1,14 +1,20 @@
 ---
-cite_key: "pagefigurejpeg2005"
-title: "MARK: Memory Augmented Refinement of Knowledge"
-authors: "To overcome these challenges"
+cite_key: challenges_2005
+title: 'MARK: Memory Augmented Refinement of Knowledge'
+authors: To overcome these challenges
 year: 2005
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2505.05177_MARK_Memory_Augmented_Refinement_of_Knowledge"
+original_folder: arxiv_arxiv_2505.05177_MARK_Memory_Augmented_Refinement_of_Knowledge
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # MARK: Memory Augmented Refinement of Knowledge

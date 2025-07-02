@@ -1,15 +1,21 @@
 ---
-cite_key: "cities2023"
-title: "Secure Federated Learning With Fully Homomorphic Encryption for IoT Communications"
-authors: "Fakhri Karray"
+cite_key: karray_2023
+title: Secure Federated Learning With Fully Homomorphic Encryption for IoT Communications
+authors: Fakhri Karray
 year: 2023
-doi: "10.1109/JIOT.2023.3302065"
-date_processed: "2025-07-02"
+doi: 10.1109/JIOT.2023.3302065
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Secure_Federated_Learning_With_Fully_Homomorphic_Encryption_for_IoT_Communications"
+original_folder: Secure_Federated_Learning_With_Fully_Homomorphic_Encryption_for_IoT_Communications
 images_total: 8
 images_kept: 8
 images_removed: 0
+tags:
+- Federated Learning
+- Healthcare
+- IoT
+- Machine Learning
+- Privacy
 ---
 
 # Secure Federated Learning With Fully Homomorphic Encryption for IoT Communications

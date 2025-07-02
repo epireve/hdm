@@ -1,15 +1,19 @@
 ---
-cite_key: "education2024"
-title: "Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics"
-authors: "His Majesty, John J Posillico"
+cite_key: majesty_2024
+title: 'Developing a proof-of-concept curriculum foundation model for industry 5.0:
+  A primary data survey of built environment academics'
+authors: His Majesty, John J Posillico
 year: 2024
-doi: "10.1177/09504222231224090"
-date_processed: "2025-07-02"
+doi: 10.1177/09504222231224090
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "posillico-edwards-2024-developing-a-proof-of-concept-curriculum-foundation-model-for-industry-5-0-a-primary-data-survey"
+original_folder: posillico-edwards-2024-developing-a-proof-of-concept-curriculum-foundation-model-for-industry-5-0-a-primary-data-survey
 images_total: 8
 images_kept: 8
 images_removed: 0
+tags:
+- Machine Learning
+- Semantic Web
 ---
 
 # Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics

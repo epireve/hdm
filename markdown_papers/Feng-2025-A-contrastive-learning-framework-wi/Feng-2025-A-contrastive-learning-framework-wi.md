@@ -1,14 +1,22 @@
 ---
-cite_key: "training2024"
-title: "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning"
-authors: "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+cite_key: feng_2024
+title: A contrastive learning framework with dual gates and noise awareness for temporal
+  knowledge graph reasoning
+authors: Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang
 year: 2024
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Feng-2025-A-contrastive-learning-framework-wi"
+original_folder: Feng-2025-A-contrastive-learning-framework-wi
 images_total: 12
 images_kept: 12
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # OPEN

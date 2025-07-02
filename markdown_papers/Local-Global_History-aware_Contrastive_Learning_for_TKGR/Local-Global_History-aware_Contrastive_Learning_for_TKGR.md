@@ -1,22 +1,25 @@
 ---
-cite_key: "chen2023"
-title: "Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning"
-authors: "Wei Chen, Huaiyu Wan, Yuting Wu §∗, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
+cite_key: chen_2023
+title: Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph
+  Reasoning
+authors: Wei Chen, Huaiyu Wan, Yuting Wu ∗, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li,
+  Youfang Lin
 year: 2023
-doi: "https://doi.org/10.48550/arXiv.2312.01601"
-url: "https://arxiv.org/abs/2312.01601"
-relevancy: "High"
-downloaded: "Yes"
+doi: https://doi.org/10.48550/arXiv.2312.01601
+url: https://arxiv.org/abs/2312.01601
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "temporal knowledge graph"
-  - "contrastive learning"
-  - "historical encoding"
-  - "noise resistance"
-  - "TKG reasoning"
-tldr: "Improves temporal knowledge graph reasoning through local-global history-aware contrastive learning with enhanced noise resistance"
-date_processed: "2025-07-02"
+- temporal knowledge graph
+- contrastive learning
+- historical encoding
+- noise resistance
+- TKG reasoning
+tldr: Improves temporal knowledge graph reasoning through local-global history-aware
+  contrastive learning with enhanced noise resistance
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Local-Global_History-aware_Contrastive_Learning_for_TKGR"
+original_folder: Local-Global_History-aware_Contrastive_Learning_for_TKGR
 images_total: 11
 images_kept: 11
 images_removed: 0

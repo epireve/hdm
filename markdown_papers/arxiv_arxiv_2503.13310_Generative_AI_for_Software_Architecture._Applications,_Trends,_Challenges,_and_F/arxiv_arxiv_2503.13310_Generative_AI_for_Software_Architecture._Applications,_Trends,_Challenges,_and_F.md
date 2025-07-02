@@ -1,15 +1,21 @@
 ---
-cite_key: "a2025"
-title: "Generative AI for Software Architecture. Applications, Challenges, and Future Directions"
-authors: "Matteo Esposito, Xiaozhou Li, Sergio Moreschini, Noman Ahmad, Tomas Cerny, Karthik Vaidhyanathan, Valentina Lenarduzzi, Davide Taibi"
+cite_key: esposito_2025
+title: Generative AI for Software Architecture. Applications, Challenges, and Future
+  Directions
+authors: Matteo Esposito, Xiaozhou Li, Sergio Moreschini, Noman Ahmad, Tomas Cerny,
+  Karthik Vaidhyanathan, Valentina Lenarduzzi, Davide Taibi
 year: 2025
-doi: "10.5281/zenodo.15032395"
-date_processed: "2025-07-02"
+doi: 10.5281/zenodo.15032395
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2503.13310_Generative_AI_for_Software_Architecture._Applications,_Trends,_Challenges,_and_F"
+original_folder: arxiv_arxiv_2503.13310_Generative_AI_for_Software_Architecture._Applications,_Trends,_Challenges,_and_F
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Decision Support
+- Machine Learning
+- Privacy
 ---
 
 # Generative AI for Software Architecture. Applications, Challenges, and Future Directions

@@ -1,15 +1,23 @@
 ---
-cite_key: "yangruiunusedu2025"
-title: "Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective"
-authors: "April 28-May"
+cite_key: yang_2025
+title: 'Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with
+  a Global Perspective'
+authors: Rui Yang, Fan Gao, Moritz Blum, Freddy Lecue, Boming Yang, Aosong Feng, Tianwei
+  She, Jinghui Lu, Xinjie Zhao, Sixun Ouyang, Yuang Jiang, Irene Li
 year: 2025
-doi: "10.18653/v1/P19-1470"
-date_processed: "2025-07-02"
+doi: 10.18653/v1/P19-1470
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2024_graphusion_rag_framework_global_perspective"
+original_folder: arxiv_2024_graphusion_rag_framework_global_perspective
 images_total: 12
 images_kept: 12
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective

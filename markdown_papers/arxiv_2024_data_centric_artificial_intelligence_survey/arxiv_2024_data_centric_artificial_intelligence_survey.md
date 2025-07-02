@@ -1,15 +1,22 @@
 ---
-cite_key: "zhanga2014"
-title: "A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods"
-authors: "Yang Zhanga, Hanlei Jina, Dan Menga, Jun Wang1a, Jinghua Tana"
-year: 2014
-doi: "10.1108/eb026526"
-date_processed: "2025-07-02"
+cite_key: zhanga_2024
+title: A Comprehensive Survey on Automatic Text Summarization with Exploration of
+  LLM-Based Methods
+authors: Yang Zhanga, Hanlei Jina, Dan Menga, Jun Wang1a, Jinghua Tana
+year: 2024
+doi: 10.1108/eb026526
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2024_data_centric_artificial_intelligence_survey"
+original_folder: arxiv_2024_data_centric_artificial_intelligence_survey
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Biomedical
+- Healthcare
+- Machine Learning
+- Natural Language Processing
+- Personal Health
 ---
 
 # A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods

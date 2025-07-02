@@ -1,15 +1,25 @@
 ---
-cite_key: "szekelysupsup2014"
-title: "Building and Using a Knowledge Graph to Combat Human Trafficking"
-authors: "Pedro Szekely, Craig A. Knoblock, Jason Slepicka, Andrew Philpot, Amandeep Singh, Chengye Yin, Dipsy Kapoor, Prem Natarajan, Daniel Marcu, Kevin Knight, David Stallard, Subessware S. Karunamoorthy, Rajagopal Bojanapalli, Steven Minton, Brian Amanatullah, Todd Hughes, Mike Tamayo, David Flynt, Rachel Artiss, Fu Chang, Tao Chen, Gerald Hiebel, Lidia Ferreira"
+cite_key: szekely_2014
+title: Building and Using a Knowledge Graph to Combat Human Trafficking
+authors: Pedro Szekely, Craig A. Knoblock, Jason Slepicka, Andrew Philpot, Amandeep
+  Singh, Chengye Yin, Dipsy Kapoor, Prem Natarajan, Daniel Marcu, Kevin Knight, David
+  Stallard, Subessware S. Karunamoorthy, Rajagopal Bojanapalli, Steven Minton, Brian
+  Amanatullah, Todd Hughes, Mike Tamayo, David Flynt, Rachel Artiss, Fu Chang, Tao
+  Chen, Gerald Hiebel, Lidia Ferreira
 year: 2014
-doi: "10.1007/s00778-008-0098-x"
-date_processed: "2025-07-02"
+doi: 10.1007/s00778-008-0098-x
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "szekely15-iswc"
+original_folder: szekely15-iswc
 images_total: 4
 images_kept: 3
 images_removed: 1
+tags:
+- Data Integration
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Building and Using a Knowledge Graph to Combat Human Trafficking

@@ -1,15 +1,22 @@
 ---
-cite_key: "supsup2021"
-title: "SOFTWARE TOOL ARTICLE"
-authors: "Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Keith Jeffery, Peter Thijsse, Christian Pichot, The Netherlands, Environment Agency Austria, British Geological Survey"
+cite_key: farshidi_2021
+title: SOFTWARE TOOL ARTICLE
+authors: Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Keith
+  Jeffery, Peter Thijsse, Christian Pichot, The Netherlands, Environment Agency Austria,
+  British Geological Survey
 year: 2021
-doi: "10.12688/openreseurope.13677.1"
-date_processed: "2025-07-02"
+doi: 10.12688/openreseurope.13677.1
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "zenodo_org_Knowledge_sharing_and_discovery_across_heterogeneous_research_infrastructures."
+original_folder: zenodo_org_Knowledge_sharing_and_discovery_across_heterogeneous_research_infrastructures.
 images_total: 10
 images_kept: 9
 images_removed: 1
+tags:
+- Cloud Computing
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # SOFTWARE TOOL ARTICLE

@@ -1,14 +1,19 @@
 ---
-cite_key: "shaiksupsup2024"
-title: "S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source, Metadata, and Document"
-authors: "Kareem Shaik, Dali Wang, Weijian Zheng, Qinglei Cao, Heng Fan, Peter Schwartz, Yunhe Feng"
+cite_key: shaik_2024
+title: 'S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source,
+  Metadata, and Document'
+authors: Kareem Shaik, Dali Wang, Weijian Zheng, Qinglei Cao, Heng Fan, Peter Schwartz,
+  Yunhe Feng
 year: 2024
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2403.10588_S3LLM_Large-Scale_Scientific_Software_Understandi"
+original_folder: arxiv_2403.10588_S3LLM_Large-Scale_Scientific_Software_Understandi
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
 ---
 
 # S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source, Metadata, and Document

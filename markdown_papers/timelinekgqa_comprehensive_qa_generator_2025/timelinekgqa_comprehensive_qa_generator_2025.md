@@ -1,22 +1,24 @@
 ---
-cite_key: "sun2025b"
-title: "TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal Knowledge Graphs"
-authors: "Qiang Sun"
+cite_key: sun_2025
+title: 'TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal
+  Knowledge Graphs'
+authors: Qiang Sun
 year: 2025
-doi: "arXiv:2501.04343"
-url: "https://arxiv.org/abs/2501.04343"
-relevancy: "High"
-downloaded: "No"
+doi: arXiv:2501.04343
+url: https://arxiv.org/abs/2501.04343
+relevancy: High
+downloaded: 'No'
 tags:
-  - "Temporal Knowledge Graphs"
-  - "Question Answering"
-  - "Timeline Analysis"
-  - "Temporal Reasoning"
-  - "Open Source Tools"
-tldr: "Universal temporal question-answer pair generator for temporal knowledge graphs that provides comprehensive approach to understanding evolving facts and relationships"
-date_processed: "2025-07-02"
+- Temporal Knowledge Graphs
+- Question Answering
+- Timeline Analysis
+- Temporal Reasoning
+- Open Source Tools
+tldr: Universal temporal question-answer pair generator for temporal knowledge graphs
+  that provides comprehensive approach to understanding evolving facts and relationships
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "timelinekgqa_comprehensive_qa_generator_2025"
+original_folder: timelinekgqa_comprehensive_qa_generator_2025
 images_total: 3
 images_kept: 3
 images_removed: 0

@@ -1,15 +1,24 @@
 ---
-cite_key: "akbari2024"
-title: "OPEN ACCESS"
-authors: "Subash Neupane"
+cite_key: neupane_2024
+title: OPEN ACCESS
+authors: Subash Neupane
 year: 2024
-doi: "10.3389/frai.2024.1388479"
-date_processed: "2025-07-02"
+doi: 10.3389/frai.2024.1388479
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "patient_centric_kg_survey_2024"
+original_folder: patient_centric_kg_survey_2024
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Data Integration
+- Digital Health
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Personalized Medicine
+- Semantic Web
 ---
 
 # OPEN ACCESS

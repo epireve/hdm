@@ -1,14 +1,18 @@
 ---
-cite_key: "supbsupcombustion2000"
-title: "nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations"
-authors: "Stefan Kerkemeier, Christos E. Frouzakis, Ananias G. Tomboulides, Paul Fischer, Mathis Bodee"
+cite_key: kerkemeier_2000
+title: 'nekCRF: A next generation high-order reactive low Mach flow solver for direct
+  numerical simulations'
+authors: Stefan Kerkemeier, Christos E. Frouzakis, Ananias G. Tomboulides, Paul Fischer,
+  Mathis Bodee
 year: 2000
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "gnn_heart_failure_prediction_2024"
+original_folder: gnn_heart_failure_prediction_2024
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Machine Learning
 ---
 
 # nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations

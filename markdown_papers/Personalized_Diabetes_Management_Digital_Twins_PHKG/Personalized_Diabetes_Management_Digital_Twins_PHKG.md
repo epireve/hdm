@@ -1,15 +1,26 @@
 ---
-cite_key: "2024"
-title: "ArticlePersonalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach"
-authors: "Fatemeh Sarani Rad , Rasha Hendawi , Xinyi Yang"
+cite_key: rad_2024
+title: 'ArticlePersonalized Diabetes Management with Digital Twins: A Patient-Centric
+  Knowledge Graph Approach'
+authors: Fatemeh Sarani Rad , Rasha Hendawi , Xinyi Yang
 year: 2024
-doi: "10.3390/jpm14040359"
-date_processed: "2025-07-02"
+doi: 10.3390/jpm14040359
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Personalized_Diabetes_Management_Digital_Twins_PHKG"
+original_folder: Personalized_Diabetes_Management_Digital_Twins_PHKG
 images_total: 11
 images_kept: 8
 images_removed: 3
+tags:
+- Biomedical
+- Data Integration
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Personalized Medicine
+- Recommendation System
+- Semantic Web
 ---
 
 ![](_page_0_Figure_0.jpeg)

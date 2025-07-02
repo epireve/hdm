@@ -1,14 +1,18 @@
 ---
-cite_key: "cuisupsup2019"
-title: "Enhancing Sequential Recommendation with Graph Contrastive Learning"
-authors: "Yixin Zhang, Yong Liu, Yonghui Xu, Hao Xiong, Chenyi Lei, Wei He, Lizhen Cui, Chunyan Miao"
+cite_key: zhang_2019
+title: Enhancing Sequential Recommendation with Graph Contrastive Learning
+authors: Yixin Zhang, Yong Liu, Yonghui Xu, Hao Xiong, Chenyi Lei, Wei He, Lizhen
+  Cui, Chunyan Miao
 year: 2019
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "ijcai_2022_enhancing_sequential_recommendation_gnn"
+original_folder: ijcai_2022_enhancing_sequential_recommendation_gnn
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Machine Learning
+- Recommendation System
 ---
 
 # Enhancing Sequential Recommendation with Graph Contrastive Learning

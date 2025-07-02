@@ -1,14 +1,22 @@
 ---
-cite_key: "wu2008"
-title: "A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation"
-authors: "Meng Wang, Fellow, IEEE"
+cite_key: wang_2008
+title: 'A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering
+  to Information-rich Recommendation'
+authors: Meng Wang, Fellow, IEEE
 year: 2008
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2021_survey_accuracy_neural_recommendation"
+original_folder: arxiv_2021_survey_accuracy_neural_recommendation
 images_total: 8
 images_kept: 8
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation

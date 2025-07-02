@@ -1,15 +1,21 @@
 ---
-cite_key: "pittsburgh2024"
-title: "Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices"
-authors: "Usable Privacy, Haozhe Zhou"
+cite_key: privacy_2024
+title: 'Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of
+  Shared Sensing Devices'
+authors: Usable Privacy, Haozhe Zhou
 year: 2024
-doi: "10.1145/3613904.3642897"
-date_processed: "2025-07-02"
+doi: 10.1145/3613904.3642897
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "chi_2024_thingpoll_privacy_iot_negotiation"
+original_folder: chi_2024_thingpoll_privacy_iot_negotiation
 images_total: 9
 images_kept: 8
 images_removed: 1
+tags:
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Privacy
 ---
 
 # <span id="page-0-0"></span>Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices

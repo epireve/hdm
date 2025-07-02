@@ -1,15 +1,22 @@
 ---
-cite_key: "pagepicturejpeg2021"
-title: "A Study on Temporal Knowledge Graph Enrichment"
-authors: "Yu Liu Master of Engineering"
+cite_key: engineering_2021
+title: A Study on Temporal Knowledge Graph Enrichment
+authors: Yu Liu Master of Engineering
 year: 2021
-doi: "10.1007/978-3-030-12079-5_2)"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-030-12079-5_2)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "s4428889_final_thesis"
+original_folder: s4428889_final_thesis
 images_total: 16
 images_kept: 15
 images_removed: 1
+tags:
+- Data Integration
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 

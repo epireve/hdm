@@ -1,15 +1,21 @@
 ---
-cite_key: "hagenberg2022"
-title: "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing"
-authors: "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+cite_key: haindl_2022
+title: Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing
+authors: Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser
 year: 2022
-doi: "10.1145/3510455.3512788"
-date_processed: "2025-07-02"
+doi: 10.1145/3510455.3512788
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2201.04876_Towards_a_Reference_Software_Architecture_for_Human-AI_Teaming_in_Smart_Manufact"
+original_folder: arxiv_arxiv_2201.04876_Towards_a_Reference_Software_Architecture_for_Human-AI_Teaming_in_Smart_Manufact
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 # Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing

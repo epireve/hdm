@@ -1,15 +1,20 @@
 ---
-cite_key: "buckman2019"
-title: "A Survey on Semantic Modeling for Building Energy Management"
-authors: "Miracle Aniakor Vinicius V. Cogo Pedro M. Ferreira"
+cite_key: ferreira_2019
+title: A Survey on Semantic Modeling for Building Energy Management
+authors: Miracle Aniakor Vinicius V. Cogo Pedro M. Ferreira
 year: 2019
-doi: "10.3030/957128"
-date_processed: "2025-07-02"
+doi: 10.3030/957128
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2024_semantic_modeling_building_energy_management_survey"
+original_folder: arxiv_2024_semantic_modeling_building_energy_management_survey
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Healthcare
+- IoT
+- Machine Learning
+- Semantic Web
 ---
 
 # A Survey on Semantic Modeling for Building Energy Management

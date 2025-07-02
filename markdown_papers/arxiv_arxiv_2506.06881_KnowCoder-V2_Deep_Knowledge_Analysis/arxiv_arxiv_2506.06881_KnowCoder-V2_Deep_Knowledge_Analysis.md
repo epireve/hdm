@@ -1,15 +1,22 @@
 ---
-cite_key: "arxiv_arxiv_250606881_knowcode"
-title: "KnowCoder-V2: Deep Knowledge Analysis"
-authors: "Zixuan Li, Wenxuan Liu, Long Bai, Chunmao Zhang, Wei Li, Fenghui Zhang, Quanxin Jin, Ruoyun He, Zhuo Chen, Zhilei Hu, Fei Wang, Bingbing Xu, Xuhui Jiang, Xiaolong Jin, Jiafeng Guo, Xueqi Cheng"
+cite_key: li_2025
+title: 'KnowCoder-V2: Deep Knowledge Analysis'
+authors: Zixuan Li, Wenxuan Liu, Long Bai, Chunmao Zhang, Wei Li, Fenghui Zhang, Quanxin
+  Jin, Ruoyun He, Zhuo Chen, Zhilei Hu, Fei Wang, Bingbing Xu, Xuhui Jiang, Xiaolong
+  Jin, Jiafeng Guo, Xueqi Cheng
 year: 2025
-doi: "10.1016/j.jbi.2012.04.008."
-date_processed: "2025-07-02"
+doi: 10.1016/j.jbi.2012.04.008.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2506.06881_KnowCoder-V2_Deep_Knowledge_Analysis"
+original_folder: arxiv_arxiv_2506.06881_KnowCoder-V2_Deep_Knowledge_Analysis
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Data Integration
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # KnowCoder-V2: Deep Knowledge Analysis

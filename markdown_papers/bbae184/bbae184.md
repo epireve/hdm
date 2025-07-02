@@ -1,22 +1,24 @@
 ---
-cite_key: "yan2024b"
-title: "Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration"
-authors: "Qingjie Liu"
+cite_key: liu_2024
+title: Prior knowledge-guided multilevel graph neural network for tumor risk prediction
+  and interpretation via multi-omics data integration
+authors: Qingjie Liu
 year: 2024
-doi: "10.1093/bib/bbae184"
-url: "https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016"
-relevancy: "Medium"
-downloaded: "No"
+doi: 10.1093/bib/bbae184
+url: https://academic.oup.com/bib/article/doi/10.1093/bib/bbae184/7658016
+relevancy: Medium
+downloaded: 'No'
 tags:
-  - "multi-omics"
-  - "graph neural networks"
-  - "prior knowledge"
-  - "cancer prediction"
-  - "interpretability"
-tldr: "Multilevel graph neural network leveraging prior knowledge for enhanced tumor risk prediction through multi-omics integration"
-date_processed: "2025-07-02"
+- multi-omics
+- graph neural networks
+- prior knowledge
+- cancer prediction
+- interpretability
+tldr: Multilevel graph neural network leveraging prior knowledge for enhanced tumor
+  risk prediction through multi-omics integration
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "bbae184"
+original_folder: bbae184
 images_total: 6
 images_kept: 6
 images_removed: 0

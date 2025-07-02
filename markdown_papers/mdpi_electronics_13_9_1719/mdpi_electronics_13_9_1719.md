@@ -1,15 +1,20 @@
 ---
-cite_key: "yu2052"
-title: "ArticleOntology-Driven Architecture for Managing Environmental, Social, and Governance Metrics"
-authors: "New South Wales"
-year: 2052
-doi: "10.3390/electronics13091719)"
-date_processed: "2025-07-02"
+cite_key: yu_2024
+title: Ontology-Driven Architecture for Managing Environmental, Social, and Governance
+  Metrics
+authors: Mingqin Yu, Fethi A. Rabhi, Madhushi Bandara
+year: 2024
+doi: 10.3390/electronics13091719
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "mdpi_electronics_13_9_1719"
+original_folder: mdpi_electronics_13_9_1719
 images_total: 7
 images_kept: 4
 images_removed: 3
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 

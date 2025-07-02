@@ -1,15 +1,22 @@
 ---
-cite_key: "graph2018"
-title: "Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs"
-authors: "Knowledge graphs, Reusable data, KGBBs to manage"
+cite_key: graphs_2018
+title: 'Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr
+  Knowledge Graphs'
+authors: Knowledge graphs, Reusable data, KGBBs to manage
 year: 2018
-doi: "10.1007/978-3-030-61244-3"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-030-61244-3
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2304.09029_Knowledge_Graph_Building_Blocks_An_easy-to-use_Fr"
+original_folder: arxiv_2304.09029_Knowledge_Graph_Building_Blocks_An_easy-to-use_Fr
 images_total: 26
 images_kept: 26
 images_removed: 0
+tags:
+- Cloud Computing
+- Knowledge Graph
+- Machine Learning
+- Privacy
+- Semantic Web
 ---
 
 # Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs

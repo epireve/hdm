@@ -1,15 +1,21 @@
 ---
-cite_key: "zu2018"
-title: "AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation"
-authors: "Fengyu Li, Yilin Li, Junhao Zhu, Lu Chen, Yanfei Zhang, Jia Zhou"
+cite_key: li_2018
+title: 'AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate
+  biography generation'
+authors: Fengyu Li, Yilin Li, Junhao Zhu, Lu Chen, Yanfei Zhang, Jia Zhou
 year: 2018
-doi: "10.18653/v1/2024.emnlp-main.845"
-date_processed: "2025-07-02"
+doi: 10.18653/v1/2024.emnlp-main.845
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2503.11346_AIstorian_lets_AI_be_a_historian_A_KG-powered_multi-agent_system_for_accurate_biography_generation"
+original_folder: arxiv_2503.11346_AIstorian_lets_AI_be_a_historian_A_KG-powered_multi-agent_system_for_accurate_biography_generation
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Semantic Web
 ---
 
 # AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation

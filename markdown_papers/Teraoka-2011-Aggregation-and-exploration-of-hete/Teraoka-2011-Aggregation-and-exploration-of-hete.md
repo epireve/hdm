@@ -1,14 +1,19 @@
 ---
-cite_key: "teraoka_2011_aggregation_and_e"
-title: "Aggregation and Exploration of Heterogeneous Data Collected from Diverse Information Sources"
-authors: "Teruhiko Teraoka"
+cite_key: teraoka_2011
+title: Aggregation and Exploration of Heterogeneous Data Collected from Diverse Information
+  Sources
+authors: Teruhiko Teraoka
 year: 2011
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Teraoka-2011-Aggregation-and-exploration-of-hete"
+original_folder: Teraoka-2011-Aggregation-and-exploration-of-hete
 images_total: 11
 images_kept: 10
 images_removed: 1
+tags:
+- Data Integration
+- IoT
+- Machine Learning
 ---
 
 

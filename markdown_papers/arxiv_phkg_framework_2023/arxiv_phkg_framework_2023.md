@@ -1,14 +1,26 @@
 ---
-cite_key: "bloorsupsup2018"
-title: "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring"
-authors: "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+cite_key: bloor_2018
+title: Towards a Personal Health Knowledge Graph Framework for Patient Monitoring
+authors: Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu
 year: 2018
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_phkg_framework_2023"
+original_folder: arxiv_phkg_framework_2023
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Biomedical
+- Data Integration
+- Electronic Health Records
+- Healthcare
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Personalized Medicine
+- Semantic Web
 ---
 
 # Towards a Personal Health Knowledge Graph Framework for Patient Monitoring

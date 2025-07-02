@@ -1,15 +1,19 @@
 ---
-cite_key: "carriero2020"
-title: "PATTERN-BASED DESIGN APPLIED TO CULTURAL HERITAGE KNOWLEDGE GRAPHS"
-authors: "Valentina Anita Carriero"
+cite_key: carriero_2020
+title: PATTERN-BASED DESIGN APPLIED TO CULTURAL HERITAGE KNOWLEDGE GRAPHS
+authors: Valentina Anita Carriero
 year: 2020
-doi: "10.6084/m9.figshare.7926599.v1"
-date_processed: "2025-07-02"
+doi: 10.6084/m9.figshare.7926599.v1
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Carriero-2021-Pattern-based-design-applied-to-cul"
+original_folder: Carriero-2021-Pattern-based-design-applied-to-cul
 images_total: 19
 images_kept: 19
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # <span id="page-0-0"></span>PATTERN-BASED DESIGN APPLIED TO CULTURAL HERITAGE KNOWLEDGE GRAPHS

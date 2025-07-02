@@ -1,15 +1,20 @@
 ---
-cite_key: "yu2022"
-title: "Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies"
-authors: "Daniel Dunbar, Semantic Web, Digital Engineering"
+cite_key: dunbar_2022
+title: Driving Digital Engineering Integration and Interoperability Through Semantic
+  Integration of Models with Ontologies
+authors: Daniel Dunbar, Semantic Web, Digital Engineering
 year: 2022
-doi: "10.1002/sys.21592"
-date_processed: "2025-07-02"
+doi: 10.1002/sys.21592
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2206.10454_Microsoft_Word_-_INCOSE_SWTMethodology_v20.docx"
+original_folder: arxiv_2206.10454_Microsoft_Word_-_INCOSE_SWTMethodology_v20.docx
 images_total: 13
 images_kept: 13
 images_removed: 0
+tags:
+- Data Integration
+- Machine Learning
+- Semantic Web
 ---
 
 # Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies

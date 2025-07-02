@@ -1,15 +1,21 @@
 ---
-cite_key: "inc2023"
-title: "Synaptic proteins in neuron-derived extracellular vesicles as biomarkers for Alzheimer's disease: novel methodology and clinical proof of concept"
-authors: "Erez Eitan, Tricia Thornton-Wells, Katya Elgart, Eren Erden, Eve Gershun, Amir Levine, Olga Volpert, Mitra Azadeh, Daniel G. Smith, Dimitrios Kapogiannis"
+cite_key: eitan_2023
+title: 'Synaptic proteins in neuron-derived extracellular vesicles as biomarkers for
+  Alzheimer''s disease: novel methodology and clinical proof of concept'
+authors: Erez Eitan, Tricia Thornton-Wells, Katya Elgart, Eren Erden, Eve Gershun,
+  Amir Levine, Olga Volpert, Mitra Azadeh, Daniel G. Smith, Dimitrios Kapogiannis
 year: 2023
-doi: "10.20517/evcna.2023.13"
-date_processed: "2025-07-02"
+doi: 10.20517/evcna.2023.13
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "oae_2023_synaptic_proteins_alzheimers_biomarkers"
+original_folder: oae_2023_synaptic_proteins_alzheimers_biomarkers
 images_total: 8
 images_kept: 6
 images_removed: 2
+tags:
+- Biomedical
+- Healthcare
+- Machine Learning
 ---
 
 Eitan *et al. Extracell Vesicles Circ Nucleic Acids*2023;4:133-150**DOI:**10.20517/evcna.2023.13**Extracellular Vesicles and**# Circulating Nucleic Acids

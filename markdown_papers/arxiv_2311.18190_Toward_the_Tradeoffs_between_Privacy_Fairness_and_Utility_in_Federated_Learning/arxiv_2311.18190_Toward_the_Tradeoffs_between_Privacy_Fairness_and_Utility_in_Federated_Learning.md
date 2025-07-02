@@ -1,14 +1,18 @@
 ---
-cite_key: "sun2022"
-title: "Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning"
-authors: "Jianhua Li"
+cite_key: li_2022
+title: Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning
+authors: Jianhua Li
 year: 2022
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2311.18190_Toward_the_Tradeoffs_between_Privacy_Fairness_and_Utility_in_Federated_Learning"
+original_folder: arxiv_2311.18190_Toward_the_Tradeoffs_between_Privacy_Fairness_and_Utility_in_Federated_Learning
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Federated Learning
+- Machine Learning
+- Privacy
 ---
 
 # Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning

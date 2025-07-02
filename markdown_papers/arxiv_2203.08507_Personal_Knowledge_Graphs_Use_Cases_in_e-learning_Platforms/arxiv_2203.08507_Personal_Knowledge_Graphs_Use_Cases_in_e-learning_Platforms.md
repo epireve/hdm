@@ -1,15 +1,24 @@
 ---
-cite_key: "ilkouhttpsorcidorg---2022b"
-title: "arXiv:2203.08507v1 [cs.IR] 16 Mar 2022"
-authors: "Eleni Ilkou"
+cite_key: ilkou_2022
+title: arXiv:2203.08507v1 [cs.IR] 16 Mar 2022
+authors: Eleni Ilkou
 year: 2022
-doi: "10.1145/nnnnnnn.nnnnnnn"
-date_processed: "2025-07-02"
+doi: 10.1145/nnnnnnn.nnnnnnn
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2203.08507_Personal_Knowledge_Graphs_Use_Cases_in_e-learning_Platforms"
+original_folder: arxiv_2203.08507_Personal_Knowledge_Graphs_Use_Cases_in_e-learning_Platforms
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- COVID-19
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Privacy
+- Recommendation System
+- Semantic Web
 ---
 
 <!-- cite_key: ilkouhttpsorcidorg---2022b -->

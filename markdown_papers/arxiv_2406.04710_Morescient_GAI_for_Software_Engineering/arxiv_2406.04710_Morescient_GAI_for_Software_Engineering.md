@@ -1,15 +1,20 @@
 ---
-cite_key: "allamanis2021"
-title: "Morescient GAI for Software Engineering (Extended Version)"
-authors: "Additional Key Words, Marcus Kessel"
+cite_key: words_2021
+title: Morescient GAI for Software Engineering (Extended Version)
+authors: Additional Key Words, Marcus Kessel
 year: 2021
-doi: "10.1145/3359591.3359735"
-date_processed: "2025-07-02"
+doi: 10.1145/3359591.3359735
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2406.04710_Morescient_GAI_for_Software_Engineering"
+original_folder: arxiv_2406.04710_Morescient_GAI_for_Software_Engineering
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Semantic Web
 ---
 
 # Morescient GAI for Software Engineering (Extended Version)

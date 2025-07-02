@@ -1,15 +1,25 @@
 ---
-cite_key: "s2024"
-title: "OPEN ACCESS"
-authors: "Citation:Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J"
+cite_key: s_2024
+title: OPEN ACCESS
+authors: Citation:Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J
 year: 2024
-doi: "10.1371/journal.pone.0286120)"
-date_processed: "2025-07-02"
+doi: 10.1371/journal.pone.0286120)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "plos_blockchain_dt"
+original_folder: plos_blockchain_dt
 images_total: 15
 images_kept: 14
 images_removed: 1
+tags:
+- Blockchain
+- Cloud Computing
+- Electronic Health Records
+- Healthcare
+- IoT
+- Machine Learning
+- Personal Health
+- Personalized Medicine
+- Privacy
 ---
 
 

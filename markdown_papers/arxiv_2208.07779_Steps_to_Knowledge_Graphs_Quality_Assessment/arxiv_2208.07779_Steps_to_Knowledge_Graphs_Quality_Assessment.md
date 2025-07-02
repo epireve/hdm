@@ -1,15 +1,20 @@
 ---
-cite_key: "2012"
-title: "Steps to Knowledge Graphs Quality Assessment"
-authors: "Elwin Huaman"
+cite_key: huaman_2012
+title: Steps to Knowledge Graphs Quality Assessment
+authors: Elwin Huaman
 year: 2012
-doi: "10.3233/SW-170275"
-date_processed: "2025-07-02"
+doi: 10.3233/SW-170275
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2208.07779_Steps_to_Knowledge_Graphs_Quality_Assessment"
+original_folder: arxiv_2208.07779_Steps_to_Knowledge_Graphs_Quality_Assessment
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Privacy
+- Semantic Web
 ---
 
 # Steps to Knowledge Graphs Quality Assessment

@@ -1,15 +1,21 @@
 ---
-cite_key: "schultes2022"
-title: "FAIR Digital Twins for Data-Intensive Research"
-authors: "Erik Schultes, Marco Roos, Luiz Olavo Bonino da Silva Santos, Giancarlo Guizzardi, Jildau Bouwman, Thomas Hankemeier, Arie Baak, Barend Mons"
+cite_key: schultes_2022
+title: FAIR Digital Twins for Data-Intensive Research
+authors: Erik Schultes, Marco Roos, Luiz Olavo Bonino da Silva Santos, Giancarlo Guizzardi,
+  Jildau Bouwman, Thomas Hankemeier, Arie Baak, Barend Mons
 year: 2022
-doi: "10.3389/fdata.2022.883341/full)"
-date_processed: "2025-07-02"
+doi: 10.3389/fdata.2022.883341/full)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "frontiersin_org_FAIR_Digital_Twins_for_Data-Intensive_Research"
+original_folder: frontiersin_org_FAIR_Digital_Twins_for_Data-Intensive_Research
 images_total: 14
 images_kept: 14
 images_removed: 0
+tags:
+- Healthcare
+- Machine Learning
+- Privacy
+- Semantic Web
 ---
 
 ![](_page_0_Picture_2.jpeg)

@@ -1,21 +1,22 @@
 ---
-cite_key: "arxiv2023"
-title: "Named Entity Resolution in Personal Knowledge Graphs"
-authors: "Additional Key Words"
+cite_key: words_2023
+title: Named Entity Resolution in Personal Knowledge Graphs
+authors: Additional Key Words
 year: 2023
-doi: "arXiv:2307.12173"
-url: "https://arxiv.org/abs/2307.12173"
-relevancy: "High"
-downloaded: "No"
+doi: arXiv:2307.12173
+url: https://arxiv.org/abs/2307.12173
+relevancy: High
+downloaded: 'No'
 tags:
-  - "Entity Resolution"
-  - "Personal Knowledge Graphs"
-  - "Cross-Source Matching"
-  - "Data Integration"
-tldr: "Comprehensive analysis of entity resolution challenges specific to personal knowledge graphs."
-date_processed: "2025-07-02"
+- Entity Resolution
+- Personal Knowledge Graphs
+- Cross-Source Matching
+- Data Integration
+tldr: Comprehensive analysis of entity resolution challenges specific to personal
+  knowledge graphs.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2307.12173_arXiv_reCAPTCHA"
+original_folder: arxiv_2307.12173_arXiv_reCAPTCHA
 images_total: 4
 images_kept: 4
 images_removed: 0

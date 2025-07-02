@@ -1,15 +1,21 @@
 ---
-cite_key: "songsupsup2019"
-title: "Temporal reasoning for timeline summarisation in social media"
-authors: "Jiayu Song, Mahmud Akhter, Maria Liakata"
+cite_key: song_2019
+title: Temporal reasoning for timeline summarisation in social media
+authors: Jiayu Song, Mahmud Akhter, Maria Liakata
 year: 2019
-doi: "10.3115/V1/P14-2082)"
-date_processed: "2025-07-02"
+doi: 10.3115/V1/P14-2082)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "temporal_cognitive_arxiv_2501.00152_Temporal_reasoning_for_timeline_summarisation_in_social_media"
+original_folder: temporal_cognitive_arxiv_2501.00152_Temporal_reasoning_for_timeline_summarisation_in_social_media
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Machine Learning
+- Mental Health
+- Natural Language Processing
+- Semantic Web
+- Temporal
 ---
 
 # Temporal reasoning for timeline summarisation in social media

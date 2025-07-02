@@ -1,15 +1,22 @@
 ---
-cite_key: "cudr-mauroux2020"
-title: "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline"
-authors: "Philippe Cudré-Mauroux"
+cite_key: cudr-mauroux_2020
+title: 'Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline'
+authors: Philippe Cudré-Mauroux
 year: 2020
-doi: "10.3233/SW-190371"
-date_processed: "2025-07-02"
+doi: 10.3233/SW-190371
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "hitzler-et-al-2020-leveraging-knowledge-graphs-for-big-data-integration-the-xi-pipeline"
+original_folder: hitzler-et-al-2020-leveraging-knowledge-graphs-for-big-data-integration-the-xi-pipeline
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Cloud Computing
+- Data Integration
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 <!-- cite_key: cudr-mauroux2020 -->

@@ -1,15 +1,19 @@
 ---
-cite_key: "xie2022b"
-title: "PAPER • OPEN ACCESS"
-authors: "A Romli, R Mohamed -"
+cite_key: romli_2022
+title: PAPER • OPEN ACCESS
+authors: A Romli, R Mohamed -
 year: 2022
-doi: "10.1088/1755-1315/1101/9/092010)"
-date_processed: "2025-07-02"
+doi: 10.1088/1755-1315/1101/9/092010)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Xie-2022-Enabling-building-digital-twin-onto"
+original_folder: Xie-2022-Enabling-building-digital-twin-onto
 images_total: 6
 images_kept: 4
 images_removed: 2
+tags:
+- Data Integration
+- Machine Learning
+- Semantic Web
 ---
 
 

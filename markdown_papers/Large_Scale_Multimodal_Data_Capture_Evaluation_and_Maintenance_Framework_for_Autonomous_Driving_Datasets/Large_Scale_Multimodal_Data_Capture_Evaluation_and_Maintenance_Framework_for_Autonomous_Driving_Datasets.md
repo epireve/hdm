@@ -1,14 +1,18 @@
 ---
-cite_key: "jitter2017"
-title: "Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets"
-authors: "Nitheesh K. Lakshminarayana Intel"
+cite_key: intel_2017
+title: Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for
+  Autonomous Driving Datasets
+authors: Nitheesh K. Lakshminarayana Intel
 year: 2017
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Large_Scale_Multimodal_Data_Capture_Evaluation_and_Maintenance_Framework_for_Autonomous_Driving_Datasets"
+original_folder: Large_Scale_Multimodal_Data_Capture_Evaluation_and_Maintenance_Framework_for_Autonomous_Driving_Datasets
 images_total: 13
 images_kept: 13
 images_removed: 0
+tags:
+- IoT
+- Machine Learning
 ---
 
 # Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets

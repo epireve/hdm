@@ -1,15 +1,19 @@
 ---
-cite_key: "methodology2024"
-title: "Corresponding author:"
-authors: "Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad de Ciencias de la Ingeniería, Universidad Austral de Chile"
+cite_key: uzctegui_2024
+title: 'Corresponding author:'
+authors: Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad
+  de Ciencias de la Ingeniería, Universidad Austral de Chile
 year: 2024
-doi: "10.1177/03064190231200397"
-date_processed: "2025-07-02"
+doi: 10.1177/03064190231200397
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "medina-uzcategui-et-al-2023-development-of-a-proof-of-concept-prototype-amid-limited-face-to-face-interactions-a-case"
+original_folder: medina-uzcategui-et-al-2023-development-of-a-proof-of-concept-prototype-amid-limited-face-to-face-interactions-a-case
 images_total: 10
 images_kept: 9
 images_removed: 1
+tags:
+- COVID-19
+- Machine Learning
 ---
 
 Original article

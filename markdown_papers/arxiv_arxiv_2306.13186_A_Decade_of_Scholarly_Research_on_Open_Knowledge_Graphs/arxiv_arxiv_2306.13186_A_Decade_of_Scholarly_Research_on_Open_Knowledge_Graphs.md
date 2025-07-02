@@ -1,15 +1,22 @@
 ---
-cite_key: "turki2013"
-title: "A Decade of Scholarly Research on Open Knowledge Graphs"
-authors: "Houcemeddine Turki, Abraham Toluwase Owodunni, Mohamed Ali Hadj Taieb, Fabrice Bile, Mohamed Ben Aouicha"
+cite_key: turki_2013
+title: A Decade of Scholarly Research on Open Knowledge Graphs
+authors: Houcemeddine Turki, Abraham Toluwase Owodunni, Mohamed Ali Hadj Taieb, Fabrice
+  Bile, Mohamed Ben Aouicha
 year: 2013
-doi: "10.1007/978-3-540-88564-1"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-540-88564-1
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2306.13186_A_Decade_of_Scholarly_Research_on_Open_Knowledge_Graphs"
+original_folder: arxiv_arxiv_2306.13186_A_Decade_of_Scholarly_Research_on_Open_Knowledge_Graphs
 images_total: 11
 images_kept: 11
 images_removed: 0
+tags:
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # A Decade of Scholarly Research on Open Knowledge Graphs

@@ -1,15 +1,23 @@
 ---
-cite_key: "budhdeo2021"
-title: "Scoping review of knowledge graph applications in biomedical and healthcare sciences"
-authors: "Sanjay Budhdeo"
+cite_key: budhdeo_2021
+title: Scoping review of knowledge graph applications in biomedical and healthcare
+  sciences
+authors: Sanjay Budhdeo
 year: 2021
-doi: "10.3389/fgene.2020.610798"
-date_processed: "2025-07-02"
+doi: 10.3389/fgene.2020.610798
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "medrxiv_kg_scoping_review"
+original_folder: medrxiv_kg_scoping_review
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Biomedical
+- Cancer
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 It is made available under a [CC-BY-NC-ND 4.0 International license](http://creativecommons.org/licenses/by-nc-nd/4.0/) .

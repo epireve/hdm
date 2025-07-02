@@ -1,14 +1,21 @@
 ---
-cite_key: "jeon2020"
-title: "QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated Learning"
-authors: "Md Jueal Mia, M. Hadi Amini, Senior Member, IEEE"
+cite_key: mia_2020
+title: 'QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated
+  Learning'
+authors: Md Jueal Mia, M. Hadi Amini, Senior Member, IEEE
 year: 2020
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2411.05260_QuanCrypt-FL_Quantized_Homomorphic_Encryption_with_Pruning_for_Secure_Federated_Learning"
+original_folder: arxiv_2411.05260_QuanCrypt-FL_Quantized_Homomorphic_Encryption_with_Pruning_for_Secure_Federated_Learning
 images_total: 11
 images_kept: 11
 images_removed: 0
+tags:
+- Blockchain
+- Federated Learning
+- IoT
+- Machine Learning
+- Privacy
 ---
 
 # QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated Learning

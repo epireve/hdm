@@ -1,15 +1,22 @@
 ---
-cite_key: "paris2024"
-title: "Research Trends for the Interplay between Large Language Models and Knowledge Graphs"
-authors: "Soror Sahri Universit, Morteza Ezzabady Universit, Nandana Mihindukulasooriya, Hanieh Khorashadizadeh"
+cite_key: universit_2024
+title: Research Trends for the Interplay between Large Language Models and Knowledge
+  Graphs
+authors: Soror Sahri Universit, Morteza Ezzabady Universit, Nandana Mihindukulasooriya,
+  Hanieh Khorashadizadeh
 year: 2024
-doi: "10.1007/978-3-540-76888-3"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-540-76888-3
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "llm_kg_research_trends_2024"
+original_folder: llm_kg_research_trends_2024
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Research Trends for the Interplay between Large Language Models and Knowledge Graphs

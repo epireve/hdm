@@ -1,14 +1,20 @@
 ---
-cite_key: "pengsupsup2021"
-title: "Knowledge Graphs: Opportunities and Challenges"
-authors: "Ciyuan Peng, Mehdi Naseriparsa, Francesco Osborne, Computing Technologies"
+cite_key: peng_2021
+title: 'Knowledge Graphs: Opportunities and Challenges'
+authors: Ciyuan Peng, Mehdi Naseriparsa, Francesco Osborne, Computing Technologies
 year: 2021
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2303.13948_Knowledge_Graphs_Opportunities_and_Challenges"
+original_folder: arxiv_2303.13948_Knowledge_Graphs_Opportunities_and_Challenges
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 # Knowledge Graphs: Opportunities and Challenges

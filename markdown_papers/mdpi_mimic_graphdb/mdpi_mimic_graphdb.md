@@ -1,15 +1,24 @@
 ---
-cite_key: "2023"
-title: "ArticleCapturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB"
-authors: "Bader Aldughayfiq, Farzeen Ashfaq"
+cite_key: aldughayfiq_2023
+title: 'ArticleCapturing Semantic Relationships in Electronic Health Records Using
+  Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB'
+authors: Bader Aldughayfiq, Farzeen Ashfaq
 year: 2023
-doi: "10.3390/healthcare11121762)"
-date_processed: "2025-07-02"
+doi: 10.3390/healthcare11121762)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "mdpi_mimic_graphdb"
+original_folder: mdpi_mimic_graphdb
 images_total: 14
 images_kept: 10
 images_removed: 4
+tags:
+- Electronic Health Records
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Privacy
+- Semantic Web
 ---
 
 

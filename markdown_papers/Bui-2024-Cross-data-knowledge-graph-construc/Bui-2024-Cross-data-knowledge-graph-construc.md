@@ -1,22 +1,24 @@
 ---
-cite_key: "bui2024"
-title: "Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT"
-authors: "Bao Ho, Oanh Tran, Long Nguyen, Phuong Nguyen, Thang Bui"
+cite_key: ho_2024
+title: 'Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering
+  System: A Case Study at HCMUT'
+authors: Bao Ho, Oanh Tran, Long Nguyen, Phuong Nguyen, Thang Bui
 year: 2024
-doi: "10.1145/3643479.3662055"
-url: "https://arxiv.org/abs/2404.09296"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.1145/3643479.3662055
+url: https://arxiv.org/abs/2404.09296
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Knowledge Graphs"
-  - "LLM"
-  - "Educational QA"
-  - "Intent Discovery"
-  - "Neo4J"
-tldr: "Knowledge graph-augmented LLM system for educational question answering with open intent discovery"
-date_processed: "2025-07-02"
+- Knowledge Graphs
+- LLM
+- Educational QA
+- Intent Discovery
+- Neo4J
+tldr: Knowledge graph-augmented LLM system for educational question answering with
+  open intent discovery
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Bui-2024-Cross-data-knowledge-graph-construc"
+original_folder: Bui-2024-Cross-data-knowledge-graph-construc
 images_total: 6
 images_kept: 6
 images_removed: 0

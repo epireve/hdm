@@ -1,15 +1,22 @@
 ---
-cite_key: "miller2021"
-title: "FOCUS ARTICLE"
-authors: "Prantika Chakraborty, Fundamental Concepts"
+cite_key: chakraborty_2021
+title: FOCUS ARTICLE
+authors: Prantika Chakraborty, Fundamental Concepts
 year: 2021
-doi: "10.1002/widm.1513"
-date_processed: "2025-07-02"
+doi: 10.1002/widm.1513
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "WIREs Data Min   Knowl - 2023 - Chakraborty - A comprehensive survey of personal knowledge graphs"
+original_folder: WIREs Data Min   Knowl - 2023 - Chakraborty - A comprehensive survey
+  of personal knowledge graphs
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Recommendation System
+- Semantic Web
 ---
 
 # FOCUS ARTICLE

@@ -1,22 +1,25 @@
 ---
-cite_key: "anokhin2024"
-title: "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents"
-authors: "Petr Anokhin, Nikita Semenov, Artyom Sorokin, Dmitry Evseev, Mikhail Burtsev, Evgeny Burnaev"
+cite_key: anokhin_2024
+title: 'AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM
+  Agents'
+authors: Petr Anokhin, Nikita Semenov, Artyom Sorokin, Dmitry Evseev, Mikhail Burtsev,
+  Evgeny Burnaev
 year: 2024
-doi: "10.48550/arXiv.2407.04363"
-url: "https://arxiv.org/abs/2407.04363"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2407.04363
+url: https://arxiv.org/abs/2407.04363
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "LLM Agents"
-  - "Episodic Memory"
-  - "Knowledge Graphs"
-  - "Memory Architecture"
-  - "Temporal Modeling"
-tldr: "LLM agents can develop structured memory representations through knowledge graph world models with episodic memory integration."
-date_processed: "2025-07-02"
+- LLM Agents
+- Episodic Memory
+- Knowledge Graphs
+- Memory Architecture
+- Temporal Modeling
+tldr: LLM agents can develop structured memory representations through knowledge graph
+  world models with episodic memory integration.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arigraph_kg_world_models_episodic_memory_2024"
+original_folder: arigraph_kg_world_models_episodic_memory_2024
 images_total: 16
 images_kept: 16
 images_removed: 0

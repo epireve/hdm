@@ -1,14 +1,17 @@
 ---
-cite_key: "technology2024b"
-title: "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction"
-authors: "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
+cite_key: du_2024
+title: 'CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property
+  Prediction'
+authors: Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei
 year: 2024
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2024_ctgnn_crystal_transformer_gnn"
+original_folder: arxiv_2024_ctgnn_crystal_transformer_gnn
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Machine Learning
 ---
 
 # CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction

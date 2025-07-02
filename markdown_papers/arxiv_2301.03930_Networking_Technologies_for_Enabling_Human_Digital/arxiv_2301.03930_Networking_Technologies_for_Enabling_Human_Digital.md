@@ -1,14 +1,25 @@
 ---
-cite_key: "twin2020"
-title: "Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey"
-authors: "Xuemin (Sherman) Shen, Fellow, IEEE"
+cite_key: shen_2020
+title: 'Networking Architecture and Key Supporting Technologies for Human Digital
+  Twin in Personalized Healthcare: A Comprehensive Survey'
+authors: Xuemin (Sherman) Shen, Fellow, IEEE
 year: 2020
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2301.03930_Networking_Technologies_for_Enabling_Human_Digital"
+original_folder: arxiv_2301.03930_Networking_Technologies_for_Enabling_Human_Digital
 images_total: 19
 images_kept: 19
 images_removed: 0
+tags:
+- Blockchain
+- COVID-19
+- Cloud Computing
+- Federated Learning
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Mental Health
+- Personalized Medicine
 ---
 
 # Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey

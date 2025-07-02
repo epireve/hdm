@@ -1,15 +1,17 @@
 ---
-cite_key: "new2023"
-title: "A human digital twin for the M‑Machine"
-authors: "Jami Aho"
+cite_key: aho_2023
+title: A human digital twin for the M‑Machine
+authors: Jami Aho
 year: 2023
-doi: "10.1007/s44163-024-00164-x"
-date_processed: "2025-07-02"
+doi: 10.1007/s44163-024-00164-x
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Saariluoma-2024-A-human-digital-twin-for-the-m-mach"
+original_folder: Saariluoma-2024-A-human-digital-twin-for-the-m-mach
 images_total: 11
 images_kept: 9
 images_removed: 2
+tags:
+- Machine Learning
 ---
 
 # Research

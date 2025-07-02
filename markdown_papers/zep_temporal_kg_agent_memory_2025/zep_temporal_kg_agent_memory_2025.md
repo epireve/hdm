@@ -1,23 +1,24 @@
 ---
-cite_key: "rasmussen2025"
-title: "ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY"
-authors: "Preston Rasmussen Zep AI"
+cite_key: ai_2025
+title: 'ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY'
+authors: Preston Rasmussen Zep AI
 year: 2025
-doi: "10.48550/arXiv.2501.13956"
-url: "https://arxiv.org/abs/2501.13956"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2501.13956
+url: https://arxiv.org/abs/2501.13956
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Temporal Knowledge Graph"
-  - "AI Agent Memory"
-  - "Enterprise AI"
-  - "Knowledge Integration"
-  - "Machine Learning"
-  - "Dynamic Data"
-tldr: "Temporal knowledge graph architecture that outperforms existing memory systems for AI agents with 94.8% performance and 90% latency reduction."
-date_processed: "2025-07-02"
+- Temporal Knowledge Graph
+- AI Agent Memory
+- Enterprise AI
+- Knowledge Integration
+- Machine Learning
+- Dynamic Data
+tldr: Temporal knowledge graph architecture that outperforms existing memory systems
+  for AI agents with 94.8% performance and 90% latency reduction.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "zep_temporal_kg_agent_memory_2025"
+original_folder: zep_temporal_kg_agent_memory_2025
 images_total: 0
 images_kept: 0
 images_removed: 0

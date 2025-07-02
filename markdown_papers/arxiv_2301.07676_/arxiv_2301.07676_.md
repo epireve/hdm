@@ -1,14 +1,20 @@
 ---
-cite_key: "laboratory2017"
-title: "A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research"
-authors: "Martin Doerr"
+cite_key: doerr_2017
+title: A Workflow Model for Holistic Data Management and Semantic Interoperability
+  in Quantitative Archival Research
+authors: Martin Doerr
 year: 2017
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2301.07676_"
+original_folder: arxiv_2301.07676_
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Data Integration
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research

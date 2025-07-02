@@ -1,22 +1,24 @@
 ---
-cite_key: "lairgi2024"
-title: "iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models"
-authors: "Pierre CLÉAU"
+cite_key: clau_2024
+title: 'iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models'
+authors: Pierre CLÉAU
 year: 2024
-doi: "arXiv:2409.03284"
-url: "https://arxiv.org/abs/2409.03284"
-relevancy: "High"
-downloaded: "Yes"
+doi: arXiv:2409.03284
+url: https://arxiv.org/abs/2409.03284
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Incremental Knowledge Graph Construction"
-  - "Large Language Models"
-  - "Zero-shot Learning"
-  - "Entity Resolution"
-  - "Unstructured Data Processing"
-tldr: "Incremental, topic-independent knowledge graph construction method using large language models that addresses semantic entity and relation duplication challenges without requiring post-processing."
-date_processed: "2025-07-02"
+- Incremental Knowledge Graph Construction
+- Large Language Models
+- Zero-shot Learning
+- Entity Resolution
+- Unstructured Data Processing
+tldr: Incremental, topic-independent knowledge graph construction method using large
+  language models that addresses semantic entity and relation duplication challenges
+  without requiring post-processing.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "itext2kg_incremental_construction_2024"
+original_folder: itext2kg_incremental_construction_2024
 images_total: 3
 images_kept: 3
 images_removed: 0

@@ -1,15 +1,20 @@
 ---
-cite_key: "unknown2024b"
-title: "Agents in Software Engineering: Survey, Landscape, and Vision"
-authors: "Yanlin Wang, Wanjun Zhong, Yanxian Huang, Ensheng Shi, Min Yang, Jiachi Chen, Zibin Zheng, Hui Li, Yuchi Ma, Qianxiang Wang"
+cite_key: wang_2024
+title: 'Agents in Software Engineering: Survey, Landscape, and Vision'
+authors: Yanlin Wang, Wanjun Zhong, Yanxian Huang, Ensheng Shi, Min Yang, Jiachi Chen,
+  Zibin Zheng, Hui Li, Yuchi Ma, Qianxiang Wang
 year: 2024
-doi: "10.1145/3591300)"
-date_processed: "2025-07-02"
+doi: 10.1145/3591300)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2409.09030_Agents_in_Software_Engineering_Survey,_Landscape,_and_Vision"
+original_folder: arxiv_arxiv_2409.09030_Agents_in_Software_Engineering_Survey,_Landscape,_and_Vision
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Cloud Computing
+- Machine Learning
+- Natural Language Processing
 ---
 
 # Agents in Software Engineering: Survey, Landscape, and Vision

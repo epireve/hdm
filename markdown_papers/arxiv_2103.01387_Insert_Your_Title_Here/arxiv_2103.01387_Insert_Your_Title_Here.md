@@ -1,15 +1,20 @@
 ---
-cite_key: "kocaguneli2011"
-title: "On a Factorial Knowledge Architecture for Data Science-powered Software Engineering ∗"
-authors: "Maxwell3 datasets respectively;"
+cite_key: respectively_2011
+title: On a Factorial Knowledge Architecture for Data Science-powered Software Engineering
+  ∗
+authors: Maxwell3 datasets respectively;
 year: 2011
-doi: "10.1371/journal.pone.0021101."
-date_processed: "2025-07-02"
+doi: 10.1371/journal.pone.0021101.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2103.01387_Insert_Your_Title_Here"
+original_folder: arxiv_2103.01387_Insert_Your_Title_Here
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Cloud Computing
+- Machine Learning
+- Semantic Web
 ---
 
 # On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>

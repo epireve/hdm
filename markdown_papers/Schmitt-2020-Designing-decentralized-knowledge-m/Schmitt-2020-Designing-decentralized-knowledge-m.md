@@ -1,15 +1,22 @@
 ---
-cite_key: "idpage--spanearl2019"
-title: "The current issue and full text archive of this journal is available on Emerald Insight at: https://www.emerald.com/insight/0368-492X.htm"
-authors: "Kybernetes Vol"
+cite_key: vol_2019
+title: 'The current issue and full text archive of this journal is available on Emerald
+  Insight at: https://www.emerald.com/insight/0368-492X.htm'
+authors: Kybernetes Vol
 year: 2019
-doi: "10.1108/K-03-2019-0215"
-date_processed: "2025-07-02"
+doi: 10.1108/K-03-2019-0215
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Schmitt-2020-Designing-decentralized-knowledge-m"
+original_folder: Schmitt-2020-Designing-decentralized-knowledge-m
 images_total: 6
 images_kept: 5
 images_removed: 1
+tags:
+- Blockchain
+- Federated Learning
+- Machine Learning
+- Mental Health
+- Semantic Web
 ---
 
 <!-- cite_key: idpage--spanearl2019 -->
