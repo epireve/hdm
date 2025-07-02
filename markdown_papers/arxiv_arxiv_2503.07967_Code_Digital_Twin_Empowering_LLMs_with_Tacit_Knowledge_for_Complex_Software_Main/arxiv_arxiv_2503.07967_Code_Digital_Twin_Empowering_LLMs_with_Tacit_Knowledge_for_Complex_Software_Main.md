@@ -1,8 +1,10 @@
+<!-- cite_key: challenges2021 -->
+
 XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MINGWEI LIU, Sun Yat-sen University, China YILING LOU, Fudan University, China YIJIAN WU, Fudan University, China
 
 While large language models (LLMs) have demonstrated promise in software engineering tasks like code completion and generation, their support for the maintenance of complex software systems remains limited. These models often struggle with understanding the tacit knowledge embedded in systems, such as responsibility allocation and collaboration across different modules. To address this gap, we introduce the concept and framework of Code Digital Twin, a conceptual representation of tacit knowledge that captures the concepts, functionalities, and design rationales behind code elements, co-evolving with the software. A code digital twin is constructed using a methodology that combines knowledge extraction from both structured and unstructured sources—such as source code, documentation, and change histories—leveraging LLMs, static analysis tools, and human expertise. This framework can empower LLMs for software maintenance tasks such as issue localization and repository-level code generation by providing tacit knowledge as contexts. Based on the proposed methodology, we explore the key challenges and opportunities involved in the continuous construction and refinement of code digital twin.
 
-## 1 Introduction
+# 1 Introduction
 
 Recent advancements in large language models (LLMs) have demonstrated their impressive capabilities in software engineering (SE) tasks, such as code completion, bug detection, and software documentation. These models excel at understanding and generating code, streamlining development cycles, and assisting developers with routine tasks. Leveraging vast amounts of public domain data, LLMs have notably improved productivity and code quality in simpler, well-defined software systems.
 
@@ -40,7 +42,7 @@ In summary, LLMs are insufficient to support the development and maintenance of 
 
 A code digital twin is a conceptual representation of tacit knowledge that encapsulates the concepts, functionalities, and design rationales behind code elements, co-evolving with the software. It enables efficient and effective software maintenance by providing on-demand, integrated insights at various granularities. Figure [1](#page-2-0) provides an overview of the code digital twin's construction process and its application paradigm.
 
-## 3.1 Definition
+## 1 Definition
 
 Key terminologies in the code digital twin framework are defined as follows:
 
@@ -58,7 +60,7 @@ Code Digital Twin. This model integrates key knowledge elements and their relati
 - Rationale-Centric Explanations. Detailed explanatory rationales linked to the artifact-oriented backbone knowledge, supporting in-depth understanding of the system and decision-making.
 - Artifact-Knowledge Reflection and Co-Evolution. The backbone knowledge and explanatory rationales evolve alongside the software artifacts, ensuring continuous alignment.
 
-## 3.2 Methodology
+## 2 Methodology
 
 We propose a methodology for realizing the code digital twin, including principles and guidelines from a conceptualization and knowledgefication perspective.
 
@@ -77,7 +79,7 @@ We propose a methodology for realizing the code digital twin, including principl
 
 3.2.3 Co-Evolution and Incremental Update. The pipeline must support incremental updates to maintain alignment with the real-time status of the software artifacts and related assets. As the software evolves, the knowledge and representation within the code digital model are updated synchronously.
 
-# 3.3 Application and Impact
+# 3 Application and Impact
 
 The code digital twin enables intelligent applications for complex software systems, categorized into three modes of collaboration between developers, LLMs, and the digital twin:
 
@@ -91,7 +93,7 @@ Overall, the code digital twin will revolutionize the management and evolution o
 
 To implement the code digital twin framework, we outline the following research agenda and identify actionable challenges and opportunities.
 
-# 4.1 Synergistic Knowledge Representation
+# 1 Synergistic Knowledge Representation
 
 The goal is to develop a scalable framework for representing complex software knowledge in a digital twin model. This framework should integrate structured representations to organize code, design decisions, documentation, and historical changes, alongside unstructured representations for richer context. It should emphasize higher-level relationships and adapt to software changes. The key challenges and opportunities are outlined below:
 
@@ -100,7 +102,7 @@ The goal is to develop a scalable framework for representing complex software kn
 - Integrating Structured and Unstructured Knowledge. Combining structured data (e.g., code, class hierarchies) with unstructured data (e.g., documentation, design rationale) into a unified model is complex. Actionable research should focus on creating hybrid models that integrate knowledge graphs with NLP-driven text extraction, enabling both automated LLM reasoning and human interpretation for software development and maintenance.
 - Managing Ambiguity and Knowledge Versioning. Handling uncertain or evolving knowledge, such as design decision trade-offs, is a major challenge. Research should focus on using techniques like probabilistic reasoning and knowledge versioning to address ambiguity, ensuring the digital twin remains adaptable and coherent as the software evolves.
 
-# 4.2 Automatic Construction Pipeline
+# 2 Automatic Construction Pipeline
 
 The goal is to establish an efficient, accurate, and cost-effective pipeline for automatically extracting and structuring knowledge from software artifacts. This pipeline should integrate with the digital twin, ensuring continuous updates as the software system evolves. The key challenges and actionable opportunities are outlined below:
 
@@ -108,7 +110,7 @@ The goal is to establish an efficient, accurate, and cost-effective pipeline for
 - Scalability and Efficiency of the Pipeline. Scaling the extraction pipeline for large, complex software systems while maintaining accuracy and speed is challenging. Focus on implementing distributed processing to enable parallel extraction and transformation of large data sets. Additionally, leverage incremental learning and batch processing to ensure scalability without compromising extraction quality over time.
 - Adapting to Evolving Software Artifacts. Ensuring the extraction pipeline adapts to frequent software updates, including changes to code and documentation, is a key challenge. Implement real-time synchronization techniques to capture and integrate these changes into the digital twin as they occur, maintaining accurate and up-to-date knowledge representation.
 
-## 4.3 Human-in-the-Loop Knowledge Accumulation
+## 3 Human-in-the-Loop Knowledge Accumulation
 
 The goal is to leverage human input, through crowdsourcing and expertise, to enhance and update the digital twin. This approach fills gaps, ensures completeness, and creates a feedback loop where human insights complement automated knowledge extraction. Integrating human expertise makes the digital twin more dynamic, accurate, and reflective of real-world systems. The key challenges and opportunities are outlined below:
 
@@ -117,7 +119,7 @@ The goal is to leverage human input, through crowdsourcing and expertise, to enh
 
 • Maintaining Knowledge Completeness Over Time. As software systems evolve, keeping the accumulated knowledge up-to-date is challenging. Research should focus on developing automated tools for real-time synchronization with evolving software systems and establishing periodic reviews to identify and address knowledge gaps, ensuring the digital twin stays relevant and current.
 
-## 4.4 Integration with Large Language Models
+## 4 Integration with Large Language Models
 
 The goal of integrating the code digital twin with LLMs is to improve software development through intelligent collaboration, problem-solving, and predictive analysis. This integration combines the deep context in the digital twin with the language processing capabilities of LLMs to enhance software maintenance, issue resolution, and decision-making. The challenges and opportunities are outlined below:
 
@@ -125,7 +127,7 @@ The goal of integrating the code digital twin with LLMs is to improve software d
 - Context-Aware Development Co-pilot. Balancing developer autonomy with LLM-driven suggestions is challenging, especially in modeling the semantics of code (from the digital twin) and the developer's intentions (e.g., design exploration or issue localization). A promising solution is to develop semantic retrieval techniques that extract relevant knowledge snippets from the code digital twin to support task completion.
 - Autonomous Development Auto-pilot. Enabling LLMs to autonomously manage software tasks (e.g., bug fixing, refactoring) while adhering to project goals and design principles is a key challenge. Unchecked autonomy could lead to violations of system invariants or inefficient solutions. To address this, research should focus on integrating development tools (e.g., static analyzers, linters) with the code digital twin, ensuring real-time validation and contextual guidance for LLMs or LLM-based agents to support autonomous decision-making and maintain alignment with project objectives.
 
-## 4.5 Co-Evolution of Code Digital Twin
+## 5 Co-Evolution of Code Digital Twin
 
 The goal of a co-evolving twin is to ensure that the code digital twin remains an up-to-date, relevant, and dynamic representation of the evolving software system. This involves continuous synchronization with the codebase, incorporating developer feedback, adapting to system changes, and maintaining high-quality and consistent knowledge. Below are the key challenges and opportunities:
 

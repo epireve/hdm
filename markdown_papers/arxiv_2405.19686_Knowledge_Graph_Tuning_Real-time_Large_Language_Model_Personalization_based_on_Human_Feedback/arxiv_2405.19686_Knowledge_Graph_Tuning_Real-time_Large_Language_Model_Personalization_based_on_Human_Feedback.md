@@ -1,3 +1,5 @@
+<!-- cite_key: sun2024 -->
+
 # Knowledge Graph Tuning: Real-time Large Language Model Personalization based on Human Feedback
 
 Jingwei Sun<sup>∗</sup> , Zhixu Du<sup>∗</sup> , Yiran Chen Department of Electrical and Computer Engineering Duke University Durham, NC 27705 {jingwei.sun, zhixu.du, yiran.chen}@duke.edu
@@ -18,7 +20,7 @@ Large language models (LLM) have shown increasing power on various NLP tasks [\[
 
 Several technologies are applicable to personalize the LLM, including Parameter Efficient Finetuning (PEFT) [\[Ding et al., 2023\]](#page-10-5), Knowledge Editing (KE) [\[Geva et al., 2020,](#page-10-6) [Dai et al., 2022,](#page-10-7) [Meng et al.,](#page-11-3) [2022\]](#page-11-3), and in-context learning [\[Brown et al., 2020\]](#page-10-1). Nevertheless, these methodologies are often plagued by low efficiency, poor interpretability, or a combination of both drawbacks. PEFT and KE require back-propagation to optimize the model parameters. Back-propagation incurs unacceptable GPU memory and computational costs for the daily use of LLMs, especially for on-device applications where the onboard resources are limited. The high computational overhead also makes it difficult to realize real-time personalization. In addition to the low efficiency, these parameter-based methods also lack interpretability. Modifying the model parameters to satisfy the user's personalized need for the current query may lead to corruption in model parameters, adversely affecting the responses to other queries. This adjustment fails to meet the long-term needs of users who rely on the accumulation of extensive personalized knowledge during interactions with large language models (LLMs). Incontext learning has higher interpretability and does not need back-propagation, but its computational overhead, memory cost, and response latency increase drastically with the length of the reference context. Therefore, it is neither efficient nor scalable for long-term use by users.
 
-Knowledge graphs (KGs) [\[Speer et al., 2017,](#page-11-4) [Sap et al., 2019\]](#page-11-5), which store factual knowledge in a structured format, are increasingly integrated into LLMs to enhance the inference with external knowledge [\[Chang et al., 2021,](#page-10-8) [Xu et al., 2021,](#page-12-2) [Yao et al., 2022,](#page-12-3) [Song et al., 2021\]](#page-11-6) and are becoming a standard component of LLM systems. In this paper, we propose a new paradigm of model personalization by tuning the KGs based on user feedback. Our proposed method, Knowledge Graph Tuning (KGT), extracts the personalized knowledge triples from the query and the user's feedback. Instead of optimizing the LLM parameters, KGT optimizes the KGs based on the extracted personalized factual knowledge. We formulate the training objective based on the *evidence lower bound (ELBO)* and derive an optimization goal of achieving a *high personalized knowledge retrieval probability* and a *high knowledge-enhanced reasoning probability*. We propose a heuristic optimization algorithm to finetune the KG by adding and removing knowledge triples without touching the model parameters, significantly improving computational and memory efficiency. Additionally, the added and removed knowledge triples are comprehensible to humans, ensuring the method's interpretability.
+Knowledge graphs (KGs) [\[Speer et al., 2017,](#page-11-4) [Sap et al., 2019\]](#page-11-5), which store factual knowledge in a structured format, are increasingly integrated into LLMs to enhance the inference with external knowledge [\[Chang et al., 2021,](#page-10-8) [Xu et al., 2021,](#page-12-2) [Yao et al., 2022,](#page-12-3) [Song et al., 2021\]](#page-11-6) and are becoming a standard component of LLM systems. In this paper, we propose a new paradigm of model personalization by tuning the KGs based on user feedback. Our proposed method, Knowledge Graph Tuning (KGT), extracts the personalized knowledge triples from the query and the user's feedback. Instead of optimizing the LLM parameters, KGT optimizes the KGs based on the extracted personalized factual knowledge. We formulate the training objective based on the *evidence lower bound (ELBO)*and derive an optimization goal of achieving a*high personalized knowledge retrieval probability*and a*high knowledge-enhanced reasoning probability*. We propose a heuristic optimization algorithm to finetune the KG by adding and removing knowledge triples without touching the model parameters, significantly improving computational and memory efficiency. Additionally, the added and removed knowledge triples are comprehensible to humans, ensuring the method's interpretability.
 
 We conduct experiments on multiple datasets using SOTA pre-trained LLMs. The results demonstrate that KGT significantly improves personalization performance compared with baselines while reducing the latency and GPU memory cost by up to 84% and 77%, respectively. By proposing KGT, we offer an effective, efficient, and interpretable solution for realizing real-time LLM personalization during human-LLM interactions. We summarize our contributions as follows:
 
@@ -47,7 +49,7 @@ This section introduces our method, KGT (Knowledge Graph Tuning), which enables 
 
 <span id="page-3-0"></span>Figure 2: The overview of KGT. The LLM extracts the posterior distribution of the personalized knowledge triples Q(z|q, a) from the human-LLM interaction. The personalized triples are utilized to optimize the KG to achieve two goals: The model can (1) retrieve the personalized triples with high probability and (2) generate the user's feedback with the retrieved triples in high confidence.
 
-#### <span id="page-3-2"></span>4.1 Knowledge Graph Tuning
+### <span id="page-3-2"></span>4.1 Knowledge Graph Tuning
 
 Recently, many techniques have been developed to efficiently finetune or personalize the pre-trained LLM parameters based on the user's data [\[Ding et al., 2023,](#page-10-5) [Geva et al., 2020,](#page-10-6) [Brown et al., 2020\]](#page-10-1). Instead of finetuning the model parameters, we modify the user's KG to inject personalized knowledge into the LLM.
 
@@ -126,7 +128,7 @@ $$
 \mathcal{L} = \mathcal{L}_{\text{retrieve}} + \mathcal{L}_{\text{reasoning}} = -\frac{1}{K} \sum_{z \in \mathcal{H}(q, a, K)} \log \left[ P_{\theta, \mathcal{G}} \left( a | q, z \right) P_{\theta, \mathcal{G}} \left( z | q \right) \right]. \tag{7}
 $$
 
-#### 4.3 Optimization Algorithm
+#### 3 Optimization Algorithm
 
 Unlike finetuning the model parameters with gradient descent, KGT is achieved by adding and removing the knowledge triples to and from the KG. For a triple z and a KG G, we have two operations: 1. G ⊕ z ≜ G ∪ {z}; 2. G ⊖ z ≜ G \ {z}. Because we focus on real-time model personalization, we formulate the optimization in the online learning setting where the optimization algorithm only has access to the user's current query q<sup>t</sup> at time t and feedback at. The trivial solution to this query is that we remove all the triples in G that are probably retrieved based on qt, which are the triples starting with eq. Then we add the triple z ∗ from H(qt, at, K) with the highest reasoning probability Pθ,<sup>G</sup> (at|qt, z<sup>∗</sup> ) into G. In this case, Pθ,<sup>G</sup> (z ∗ |qt) = 1 and the loss is minimized over (qt, at). However, this greedy solution will potentially hurt the other queries due to removing too much knowledge from the KG. Following the example in Section [4.1,](#page-3-2) the greedy solution will not only remove the triple (Dog, Enjoy, Meat), but also remove other triples starting from the entity Dog such as (Dog, Is, Animal). The removed triples might be general or personalized factual knowledge that is essential to the other queries.
 
@@ -136,9 +138,9 @@ We propose a heuristic optimization algorithm based on two principles: 1. The co
 
 We evaluate KGT in terms of personalization performance and efficiency compared with the baselines. The experiments are conducted on a server with eight A100 GPUs.
 
-#### 5.1 Experimental Setup
+### 1 Experimental Setup
 
-Datasets To evaluate the effectiveness of KGT on personalizing the LLM, we conduct experiments in the setting where the user provides answers that conflict with the common factual knowledge that LLM learned from the pre-training dataset. We evaluate KGT on two datasets: *CounterFact* [\[Meng](#page-11-3) [et al., 2022\]](#page-11-3) dataset and *CounterFactExtension* dataset we create based on *PARALLEL* dataset [\[Elazar](#page-10-13) [et al., 2021\]](#page-10-13) utilizing GPT-4 [\[OpenAI, 2024\]](#page-11-14). The details about our dataset can be found in Appendix [B](#page-13-1) Both datasets consist of query-answer pairs involving factual knowledge that conflicts with reality. To evaluate the real-time model personalization in practice, we sequentially input
+Datasets To evaluate the effectiveness of KGT on personalizing the LLM, we conduct experiments in the setting where the user provides answers that conflict with the common factual knowledge that LLM learned from the pre-training dataset. We evaluate KGT on two datasets: *CounterFact*[\[Meng](#page-11-3) [et al., 2022\]](#page-11-3) dataset and*CounterFactExtension*dataset we create based on*PARALLEL*dataset [\[Elazar](#page-10-13) [et al., 2021\]](#page-10-13) utilizing GPT-4 [\[OpenAI, 2024\]](#page-11-14). The details about our dataset can be found in Appendix [B](#page-13-1) Both datasets consist of query-answer pairs involving factual knowledge that conflicts with reality. To evaluate the real-time model personalization in practice, we sequentially input
 
 #### Algorithm 1 Knowledge Graph Tuning based on User Feedback
 
@@ -152,13 +154,13 @@ Output: Optimized KG G.
 
 Baselines and Configurations We compare KGT with fine-tunning (FT), ROME [\[Meng et al.,](#page-11-3) [2022\]](#page-11-3), Knowledge editing (KE) [\[De Cao et al., 2021\]](#page-10-10), Knowledge neurons (KN) [\[Dai et al., 2022\]](#page-10-7), and MEND [\[Mitchell et al., 2022\]](#page-11-11). For all baselines, we test several specifications of layers to edit and report the best results for each baseline. For FT, we follow previous arts [\[Meng et al., 2022\]](#page-11-3) to execute full fine-tuning on a single layer. For KN, we specify a subset of all layers as candidates of knowledge neurons to reduce the search space for large models. And baseline results where no knowledge is edited, are referred to as 'no edit'. We conduct experiments on GPT2-xl [\[Radford et al.,](#page-11-15) [2019\]](#page-11-15), Llama2-7B [\[Touvron et al., 2023\]](#page-11-16), and Llama3-8B [\[AI, 2024\]](#page-10-14). We equip each model with a KG, ConceptNet [\[Speer et al., 2017\]](#page-11-4), to enhance the inference. K in Equation [\(3\)](#page-4-1) is set as five for experiments.
 
-Metrics We utilize two metrics to evaluate the performance of personalization: (1) *Efficacy Score* [\[Meng et al., 2022\]](#page-11-3), measuring the success rate of personalization using the training queryanswer pairs directly. If the model generates the user's personalized answer with a higher probability than the answer before tuning, the model is considered successful for that pair. (2) *Paraphrase Score* [\[Meng et al., 2022\]](#page-11-3), indicating the model's ability to accurately recall personalized knowledge in paraphrased forms. This assesses its personalization capacity while mitigating the impact of overfitting to specific contexts within the training dataset.
+Metrics We utilize two metrics to evaluate the performance of personalization: (1)*Efficacy Score*[\[Meng et al., 2022\]](#page-11-3), measuring the success rate of personalization using the training queryanswer pairs directly. If the model generates the user's personalized answer with a higher probability than the answer before tuning, the model is considered successful for that pair. (2)*Paraphrase Score*[\[Meng et al., 2022\]](#page-11-3), indicating the model's ability to accurately recall personalized knowledge in paraphrased forms. This assesses its personalization capacity while mitigating the impact of overfitting to specific contexts within the training dataset.
 
-#### 5.2 Personalization Performance
+#### 2 Personalization Performance
 
-We evaluate the setting that the user only provides the answer a as the feedback, and the model will extract the relations and construct H (q, a, K). The results on *CounterFact* dataset are shown in Table [1.](#page-7-0) It is shown that KGT outperforms the baselines significantly in both efficacy and paraphrase scores. Specifically, using Llama3-8B, KGT improves efficacy by more than 39%, 41%, 55%, 45%, 43%, and 61% on efficacy compared with FT, KE, KN, MEND, and no-edit, respectively. For paraphrase score, KGT outperforms by more than 36%, 32%, 46%, 37%, 33%, 34% compared with FT, KE, KN, MEND, and no-edit, respectively, on Llama3-8B. It is also observed that the results of KGT on Llama3 are better than Llama2. Our analysis is that Llama3 is more powerful in understanding and following instructions, which makes knowledge enhancement from the KG more effective. Such an improvement suggests that KGT will achieve better performance when the pre-trained LLMs are more and more powerful.
+We evaluate the setting that the user only provides the answer a as the feedback, and the model will extract the relations and construct H (q, a, K). The results on*CounterFact*dataset are shown in Table [1.](#page-7-0) It is shown that KGT outperforms the baselines significantly in both efficacy and paraphrase scores. Specifically, using Llama3-8B, KGT improves efficacy by more than 39%, 41%, 55%, 45%, 43%, and 61% on efficacy compared with FT, KE, KN, MEND, and no-edit, respectively. For paraphrase score, KGT outperforms by more than 36%, 32%, 46%, 37%, 33%, 34% compared with FT, KE, KN, MEND, and no-edit, respectively, on Llama3-8B. It is also observed that the results of KGT on Llama3 are better than Llama2. Our analysis is that Llama3 is more powerful in understanding and following instructions, which makes knowledge enhancement from the KG more effective. Such an improvement suggests that KGT will achieve better performance when the pre-trained LLMs are more and more powerful.
 
-<span id="page-7-0"></span>Table 1: Results on *CounterFact* dataset when the user only provides the answers to the queries as feedback.
+<span id="page-7-0"></span>Table 1: Results on*CounterFact*dataset when the user only provides the answers to the queries as feedback.
 
 |         | GPT2         |              | Llama2-7B    |              | Llama3-8B    |              |
 |---------|--------------|--------------|--------------|--------------|--------------|--------------|
@@ -171,9 +173,9 @@ We evaluate the setting that the user only provides the answer a as the feedback
 | no edit | 35.87%       | 29.74%       | 30.58%       | 28.21%       | 33.52%       | 52.16%       |
 | KGT     | 91.77%±1.37% | 91.75%±1.84% | 91.1%±1.43%  | 83.86%±1.03% | 94.58%±0.96% | 86.89%±1.37% |
 
-KGT also shows significant improvement compared with the baselines on *CounterFactExtension*, and the results are shown in Table [2.](#page-7-1) Specifically, KGT improves efficacy by more than 31%, 34%, 51%, 42%, 48%, and 54% on efficacy when adopting Llama3-8B compared with FT, KE, KN, MEND, and no-edit, respectively. For paraphrase score on Llama3-8B, KGT outperforms by more than 27%, 35%, 41%, 36%, 44%, and 42% compared with FT, KE, KN, MEND, and no-edit, respectively.
+KGT also shows significant improvement compared with the baselines on*CounterFactExtension*, and the results are shown in Table [2.](#page-7-1) Specifically, KGT improves efficacy by more than 31%, 34%, 51%, 42%, 48%, and 54% on efficacy when adopting Llama3-8B compared with FT, KE, KN, MEND, and no-edit, respectively. For paraphrase score on Llama3-8B, KGT outperforms by more than 27%, 35%, 41%, 36%, 44%, and 42% compared with FT, KE, KN, MEND, and no-edit, respectively.
 
-<span id="page-7-1"></span>Table 2: Results on *CounterFactExtend* dataset when the user only provides the answers to the queries as feedback.
+<span id="page-7-1"></span>Table 2: Results on *CounterFactExtend*dataset when the user only provides the answers to the queries as feedback.
 
 |         | GPT2         |              | Llama2-7B    |              | Llama3-8B    |              |
 |---------|--------------|--------------|--------------|--------------|--------------|--------------|
@@ -188,9 +190,9 @@ KGT also shows significant improvement compared with the baselines on *CounterFa
 
 The improvement in both efficacy and paraphrase rates demonstrates that KGT outperforms the baseline in personalization performance significantly.
 
-#### 5.3 Efficiency Comparison
+#### 3 Efficiency Comparison
 
-In addition to the personalization performance, we also evaluate KGT's efficiency in terms of latency and GPU memory cost. The method must achieve low latency and low GPU memory cost to realize real-time personalization in practice under the setting with limited computational resources. KGT can improve the time and GPU memory cost efficiency because it only requires inference, which is far more efficient than back-propagation. For latency, we test the average time that our method and the baselines require to complete the personalization for one query-answer pair. The latency results on *CounterFact* data are shown in Table [3.](#page-8-0) The results demonstrate that KGT achieves the shortest latency in most cases. Notably, Llama3 requires less time on several baselines than Llama2 and GPT2 because we stop training once the loss converges. The results on the GPU memory cost can also be found in Table [3.](#page-8-0) The memory cost is reduced significantly because only the inference is required for KGT. Specifically, KGT reduces 57%, 56%, 77%, 63%, and 62% GPU memory cost when adopting Llama3-8B compared with FT, KE, KN, and MEND, respectively.
+In addition to the personalization performance, we also evaluate KGT's efficiency in terms of latency and GPU memory cost. The method must achieve low latency and low GPU memory cost to realize real-time personalization in practice under the setting with limited computational resources. KGT can improve the time and GPU memory cost efficiency because it only requires inference, which is far more efficient than back-propagation. For latency, we test the average time that our method and the baselines require to complete the personalization for one query-answer pair. The latency results on*CounterFact*data are shown in Table [3.](#page-8-0) The results demonstrate that KGT achieves the shortest latency in most cases. Notably, Llama3 requires less time on several baselines than Llama2 and GPT2 because we stop training once the loss converges. The results on the GPU memory cost can also be found in Table [3.](#page-8-0) The memory cost is reduced significantly because only the inference is required for KGT. Specifically, KGT reduces 57%, 56%, 77%, 63%, and 62% GPU memory cost when adopting Llama3-8B compared with FT, KE, KN, and MEND, respectively.
 
 |        | GPT2    |         |         | Llama2-7B |         | Llama3-8B |  |
 |--------|---------|---------|---------|-----------|---------|-----------|--|
@@ -202,19 +204,19 @@ In addition to the personalization performance, we also evaluate KGT's efficienc
 | MEND   | 11036MB | 0.86s   | 35166MB | 1.98s     | 42428MB | 1.40s     |  |
 | KGT    | 6686MB  | 0.16s   | 13516MB | 0.14s     | 15904MB | 0.15s     |  |
 
-<span id="page-8-0"></span>Table 3: Results of latency and GPU memory costs on *CounterFact* dataset when the user only provides the answers to the queries as feedback.
+<span id="page-8-0"></span>Table 3: Results of latency and GPU memory costs on*CounterFact*dataset when the user only provides the answers to the queries as feedback.
 
-#### 5.4 Ablation Study
+#### 4 Ablation Study
 
-#### 5.4.1 Does User Need to Provide Feedback of Relations?
+#### 4.1 Does User Need to Provide Feedback of Relations?
 
 We also conduct experiments under the setting where the user also provides feedback on relations r between e<sup>q</sup> and e<sup>a</sup> under the query's context. We utilize GPT-4 to mimic the user and extract the relations to construct H (q, a, K). We use the same instruction template in Section [4.2](#page-4-2) for the GPT-4 to conduct relation extraction. The compared results with and without the user's feedback of relations are shown in Figure [3.](#page-8-1) It is shown that KGT achieves similar performance if the user provides feedback on the relations in addition to the answer. Notably, utilizing the relations extracted by the LLM θ can even achieve higher performance on efficacy and paraphrase rates in most cases. Our analysis is that when extracting relations using the LLM θ, KGT implicitly distills knowledge from the model to the knowledge triples, which might benefit the model inference more than human feedback on relations. Thus, in practice, the user will only need to provide the personalized answer to a query as feedback to KGT.
 
 ![](_page_8_Figure_5.jpeg)
 
-<span id="page-8-1"></span>Figure 3: Compared results on *CounterFact* dataset with and without user feedback on relations.
+<span id="page-8-1"></span>Figure 3: Compared results on*CounterFact*dataset with and without user feedback on relations.
 
-#### 5.4.2 Effect of the Size of Query Set
+#### 4.2 Effect of the Size of Query Set
 
 We also evaluate the effect of the query set size on the personalization performance. We conduct experiments on the CounterF act dataset with the Llama3-8B model and evaluate KGT and baselines with query sets of different sizes. The results are shown in Figure [4.](#page-9-0) It is shown that when the size of the query set increases, the performance of baselines degrades dramatically, while KGT can preserve high performance. This compared result illustrates that KGT can be scaled to a large amount of personalized knowledge. This scalability is crucial for meeting the long-term needs of users who require the accumulation of extensive personalized knowledge when using LLMs.
 
@@ -224,14 +226,14 @@ We propose an approach, KGT, that personalizes models by optimizing external kno
 
 <span id="page-9-0"></span>![](_page_9_Figure_0.jpeg)
 
-Figure 4: Compared results on *CounterFact* dataset using Llama3-8B with different query set sizes.
+Figure 4: Compared results on*CounterFact*dataset using Llama3-8B with different query set sizes.
 
 H(q, a, K). However, the existing state-of-the-art LLMs already meet KGT's requirements for this capability, and future LLMs will possess even stronger abilities to follow instructions.
 
 ## References
 
 - <span id="page-10-14"></span>Meta AI. Introducing meta llama 3: The most capable openly available llm to date. [https:](https://ai.meta.com/blog/meta-llama-3/) [//ai.meta.com/blog/meta-llama-3/](https://ai.meta.com/blog/meta-llama-3/), 2024.
-- <span id="page-10-9"></span>Yejin Bang, Samuel Cahyawijaya, Nayeon Lee, Wenliang Dai, Dan Su, Bryan Wilie, Holy Lovenia, Ziwei Ji, Tiezheng Yu, Willy Chung, et al. A multitask, multilingual, multimodal evaluation of chatgpt on reasoning, hallucination, and interactivity. *arXiv preprint arXiv:2302.04023*, 2023.
+- <span id="page-10-9"></span>Yejin Bang, Samuel Cahyawijaya, Nayeon Lee, Wenliang Dai, Dan Su, Bryan Wilie, Holy Lovenia, Ziwei Ji, Tiezheng Yu, Willy Chung, et al. A multitask, multilingual, multimodal evaluation of chatgpt on reasoning, hallucination, and interactivity.*arXiv preprint arXiv:2302.04023*, 2023.
 - <span id="page-10-1"></span>Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. *Advances in neural information processing systems*, 33:1877–1901, 2020.
 - <span id="page-10-8"></span>Ting-Yun Chang, Yang Liu, Karthik Gopalakrishnan, Behnam Hedayatnia, Pei Zhou, and Dilek Hakkani-Tur. Incorporating commonsense knowledge graph in pretrained models for social commonsense tasks. *arXiv preprint arXiv:2105.05457*, 2021.
 - <span id="page-10-7"></span>Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, and Furu Wei. Knowledge neurons in pretrained transformers. In Smaranda Muresan, Preslav Nakov, and Aline Villavicencio, editors, *Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pages 8493–8502, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long.581. URL [https://aclanthology.org/2022.](https://aclanthology.org/2022.acl-long.581) [acl-long.581](https://aclanthology.org/2022.acl-long.581).
@@ -277,17 +279,17 @@ We provide the derivation of the retrieve loss. By approximating the Q(z) with Q
 $$
 \mathcal{L}_{\text{retrieve}} = D_{KL}(Q(z)||P_{\theta,G}(z|q)) = D_{KL}(Q(z|q,a)||P_{\theta,G}(z|q))
 $$
-  
+
 \n
 $$
 = \mathbb{E}_{z \sim Q(z|q,a)} [\log Q(z|q,a) - \log P_{\theta,G}(z|q)]
 $$
-  
+
 \n
 $$
 = -\mathbb{E}_{z \sim Q(z|q,a)} \log P_{\theta,G}(z|q) + \mathbb{E}_{z \sim Q(z|q,a)} \log Q(z|q,a)
 $$
-  
+
 \n
 $$
 = -\mathbb{E}_{z \sim Q(z|q,a)} \log P_{\theta,G}(z|q) + \text{CONST},
@@ -311,15 +313,13 @@ $$
 
 where the CONST is omitted in the optimization.
 
-## <span id="page-13-1"></span>B Details on the *CounterFactExtension* Dataset
+## <span id="page-13-1"></span>B Details on the *CounterFactExtension*Dataset
+*CounterFactExtension*is a dataset that extends the*CounterFact*with 27737 additional samples. Specifically,*CounterFactExtension*is on the task of knowledge editing for*Efficacy*and*Paraphrase*evaluation. Likewise,*CounterFactExtension*is crafted to identify the differences between minor adjustments in the vocabulary used by the model and substantial, widespread shifts in the foundational factual knowledge.
+*CounterFactExtension*is built on knowledge pairs processed by Dai et al. [\[Dai et al., 2022\]](#page-10-7) based on PARAREL dataset [\[Elazar et al., 2021\]](#page-10-13). Specifically, for each knowledge pair, we employ GPT-4 to extract the subject, relation, and the true target, t = (s, r, o<sup>∗</sup> ), and generate a counterfactual target, o c . Further, a generation prompt (generated by GPT-4) is also provided for the*Paraphrase* evaluation. Finally, we manually check each sample and the generation to ensure the correctness.
 
-*CounterFactExtension* is a dataset that extends the *CounterFact* with 27737 additional samples. Specifically, *CounterFactExtension* is on the task of knowledge editing for *Efficacy* and *Paraphrase* evaluation. Likewise, *CounterFactExtension* is crafted to identify the differences between minor adjustments in the vocabulary used by the model and substantial, widespread shifts in the foundational factual knowledge.
+### B.1 Dataset Samples
 
-*CounterFactExtension* is built on knowledge pairs processed by Dai et al. [\[Dai et al., 2022\]](#page-10-7) based on PARAREL dataset [\[Elazar et al., 2021\]](#page-10-13). Specifically, for each knowledge pair, we employ GPT-4 to extract the subject, relation, and the true target, t = (s, r, o<sup>∗</sup> ), and generate a counterfactual target, o c . Further, a generation prompt (generated by GPT-4) is also provided for the *Paraphrase* evaluation. Finally, we manually check each sample and the generation to ensure the correctness.
-
-#### B.1 Dataset Samples
-
-```
+```text
 1 {
 2 " case_id ": 0,
 3 " requested_rewrite ": {
@@ -338,9 +338,9 @@ where the CONST is omitted in the optimization.
 16 ]
 17 },
 18 {
-```
+```text
 
-```
+```text
 19 " case_id ": 25585,
 20 " requested_rewrite ": {
 21 " prompt ": "{} maintains diplomatic relations with "
@@ -359,4 +359,4 @@ where the CONST is omitted in the optimization.
              Ukraine and "
 33 ]
 34 },
-```
+```text

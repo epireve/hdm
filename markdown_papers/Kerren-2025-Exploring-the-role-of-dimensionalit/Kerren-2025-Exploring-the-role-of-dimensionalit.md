@@ -1,4 +1,6 @@
-## Opinion
+<!-- cite_key: retrieval2021 -->
+
+# Opinion
 
 # Exploring the role of dimensionality transformation in episodic memory
 
@@ -38,9 +40,7 @@ UK
 
 kerren@cbs.mpg.de (C. Kerrén) and b.griffiths.1@bham.ac.uk (B.J. Griffiths). @ X: [@CKerren](https://twitter.com/CKerren) (C. Kerrén) and bsky: [@ckerren.bsky.social](https://bluesky.com/ckerren.bsky.social) (C. Kerrén) and [@benjamingriffiths.bsky.social](https://bluesky.com/benjamingriffiths.bsky.social) (B.J. Griffiths).
 
-![](_page_1_Picture_0.jpeg)
-
-<span id="page-1-0"></span>![](_page_1_Picture_1.jpeg)
+<span id="page-1-0"></span>
 
 processed by different brain regions and across time. While the neural state space can have as many dimensions as recorded neurons/electrodes (e.g., 1 million dimensions from 1 million simultaneously recorded neurons [[11\]](#page-10-0)) and/or structure of a task (e.g., number of different experimental conditions), the correlated nature of neuronal activity (among other factors) is constrained by a lowdimensional neural manifold, where changes in the high-dimensional neural state space often reflect changes along a smaller number of latent variables. This neural manifold effectively reduces the complexity of the neural state space by focussing on the most significant patterns of variability in the data. The challenge of dimensionality transformation across regions and time is to identify the optimal number of dimensions required to balance robustness, efficiency, and flexibility to solve tasks effectively [[12](#page-10-0),[13\]](#page-10-0). For instance, when there is a need for fine-grained classification, a highdimensional representation may help distinguish variables [[8\]](#page-10-0). By contrast, if the same feature is shared across multiple tasks or stimuli (e.g., a shared context between conditions), a lowdimensional geometry for this feature may reduce computational load by reducing redundant representations (Box 1).
 
@@ -76,8 +76,6 @@ Neural oscillations: rhythmic fluctuations in neural activity that can be observ
 
 Representation: entities representing or signifying other entities, typically external to the mind. This premise suggests that information from the external environment is processed by the brain, encoded within some states, and subsequently influences behaviour in progressively more complex manners. State space: multidimensional space where each dimension represents a variable or the activity of a neuron, and
 
-![](_page_2_Picture_1.jpeg)
-
 suboptimal representation of task-relevant information [[13,15\]](#page-10-0). Similarly, in human fMRI, the dimensionality of a visual representation corresponds to the number of stimulus features that are attended to [\[7](#page-10-0),[19\]](#page-10-0). Notably, dimensionality can fluctuate within a trial [[9\]](#page-10-0) and across brain regions [20–[23](#page-10-0)]. These studies suggest that dimensionality transformation is a dynamic, task-driven phenomenon with a rapid onset after the event has been experienced.
 
 Critically, this concept extends to episodic memory encoding and retrieval (Figure 1) (e.g., [[6](#page-10-0)]). During encoding, dimensionality reduction can integrate responses to low-level features ('is it green?', 'is it large?', 'is it static?') into a high-level feature ('is it a tree?'), which is easy to store. Conversely, retrieval can involve dimensionality reconstruction, using high-level dimensions ('was it a tree?', 'were we in Hyde Park?') to activate lower-level sensory features related to the concept of a tree to help the vivid recollection of a past event. Notably, empirical evidence suggests that dimensionality transformations are critical to the effective operation of the memory system (e.g., [\[24](#page-10-0)]). Next, we explore how representational and dimensionality transformations unfold in episodic memory.
@@ -100,7 +98,7 @@ cortical areas that show selective responses to one modality of sensory input, s
 
 Figure 1. Dimensionality transformation across mnemonic stages. During perception, we hypothesise that neural representations need to be reduced to adhere to the finite number of neurons in the associative regions of the medial temporal lobe. This process is illustrated here as a sequence of images. Initially, a detailed image of a tree is surrounded by various elements, such as birds and other trees. Subsequently, images show a progressive reduction in detail. The final image depicts a simple outline of the original tree, symbolising a low-dimensional representation of the initial complex image. We propose that a low-dimensional representation of an event is stored in associative regions, such as the hippocampus. This reduced dimensional representation requires significantly less storage capacity compared with a high-dimensional one, thereby enabling the memory system to store a greater quantity of information. During retrieval, the low-dimensional code must be expanded, which occurs through interaction with cortical regions to reconstruct the memory. However, due to the initial reduction, the original event can never be fully reconstructed. This is depicted in the trees having fewer details and being distorted compared with the original images during perception. The polar plots symbolise that the number of dimension changes as a function of processing steps and time, from perception to storage and later retrieval.
 
-<span id="page-3-0"></span>![](_page_3_Picture_0.jpeg)
+<span id="page-3-0"></span>
 
 culminating in the hippocampus, the endpoint of cortical hierarchy, where memories are stored [[25](#page-10-0)–33]. During visual perception, basic low-level features are processed in early sensory regions before higher-level abstract features emerge in higher-order areas, such as the inferior temporal cortex [\[34](#page-10-0)–41] and hippocampus [[20,42](#page-10-0)]. Importantly, this process involves transformation of the dimensions of the representation. A well-established example of this is place cells, where complex sensory information about the external world can be represented by single hippocampal cells [[20\]](#page-10-0) (outside of spatial navigation; e.g., [\[43](#page-10-0)]).
 
@@ -118,8 +116,6 @@ A key challenge in dimensionality reduction is ensuring that findings reflect ac
 
 Finally, extracted dimensions can reconstruct the original data, assessing the informativeness of retained dimensions. For linear methods, such as PCA, inverse transformations or cross-validated PCA [\[125\]](#page-12-0) can be used. For nonlinear methods, reverse mapping via nonparametric regression can be applied [[126](#page-12-0)]. Correlating original and recovered data quantifies information loss during dimensionality reduction.
 
-![](_page_4_Picture_1.jpeg)
-
 ### Oscillatory underpinnings of reduction and reconstruction
 
 How can memory-related dimensionality transformation be implemented in the brain? We propose that rhythmic fluctuations in neural activity, known as neural oscillations, may have a key role by facilitating the interaction of multiple stimulus dimensions and integrating them into a new, transformed represe ntation.
@@ -134,8 +130,6 @@ Alternatively, compression and reconstruction may be implemented by distinct gam
 
 Altogether, this provides a framework for how oscillatory activity supports both dimensionality reduction and dimensionality expansion in episodic memory. While there are many threads of evidence to implicate oscillatory-driven information transfer across the cortex and its benefit for memory, direct support for this framework will need to come from new research documenting how gamma oscillations influence memory-related changes in dimensionality.
 
-![](_page_5_Picture_0.jpeg)
-
 ## Evolutionary insights into memory-related dimensionality transformation
 
 A key argument of this opinion is that dimensionality transformations supporting episodic memory occur through multiple processing steps transmitting information from the sensory periphery to the hippocampus. This implies that the extent of dimensionality transformations depends on the complexity of information-processing steps, which can be quantified in units of 'synaptic distance', representing the processing distance between perception and memory. Although testing this hypothesis in a single species is challenging, an evolutionary perspective offers a unique opportunity to examine how dimensionality transformations vary with the processing distance between perception and memory [[74\]](#page-11-0).
@@ -148,11 +142,9 @@ Although tract-tracing methods are infeasible in humans, fMRI connectivity metho
 
 An important question is how changes in corticohippocampal interactions are reflected in dimensionality transformations. Existing behavioural evidence suggests that direct projections from sensory regions to the hippocampal system are associated with more veridical and less transformed sensory representations ([Figure 2](#page-6-0)B). For example, in the visual domain, rats are more
 
-![](_page_6_Picture_1.jpeg)
-
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
 
-#### **Trends in Cognitive Cognitive Sciences Sciences**
+### Trends in Cognitive Cognitive Sciences Sciences
 
 Figure 2. Evolutionary changes in memory-related dimensionality transformations. (A) Cross-species differences in cortical unimodal and transmodal input to the parahippocampal region. The percentage of cortical input is calculated within each species separately. In the rat, all cortical unimodal and transmodal areas project to the parahippocampal region; in the human, almost no direct unimodal associations with the parahippocampal region exist. Note that, in humans, anatomical connectivity was estimated indirectly using fMRI. Adapted, with permission, from [[84](#page-11-0)]. (B) The hypothesised differences in the degree of representational reduction with minimal reduction indicates the highest sensorial precision and maximum reduction indicates the lowest sensorial precision. Rodents show least representational reduction and humans the most, with nonhuman primates as intermediary. (C) Frequency, waveform, and temporal evolution of neural oscillations are mostly preserved across mammals, allowing cross-species examination of dimensionality transformations using electrophysiology. Adapted, with permission, from [[89](#page-11-0)].
 
@@ -161,8 +153,6 @@ prone to view-centred manipulations of a target object compared with nonhuman pr
 Although cross-species differences in memory are challenging to study [\[88\]](#page-11-0) due to inherent variations in sensory perception and decision-making strategies, this direction offers an exciting hypothesis space for examining the effects of cortical hierarchy on mnemonic representations (Figure 2C; see Outstanding questions). This becomes particularly interesting because the frequency, waveform, and temporal evolution of neural oscillations are mostly preserved across mammals investigated to date [\[89\]](#page-11-0) (Figure 2D).
 
 These findings indicate that the neuroanatomical foundation for constructing episodic memories in the human brain differs significantly from that in other species [[84](#page-11-0)]. Thus, the human hippocampal formation likely receives highly processed transmodal input that is more abstract than the input processed by the hippocampi of other species. This results in unique human episodic memories better described in terms of latent states [[90\]](#page-11-0), which lack high-dimensional sensory details [\[91\]](#page-11-0). Importantly, this implies that human episodic memory primarily operates through reconstruction,
-
-![](_page_7_Picture_0.jpeg)
 
 requiring the re-expansion of stored events. In other words, human neuroanatomy may require dimensionality transformation to encode and retrieve episodic memories. How this impacts the translation of episodic memory research across species remains to be seen.
 
@@ -181,8 +171,6 @@ In short, dimensionality transformation could provide an explanation for the des
 ### Alternative accounts and falsifying the hypothesis
 
 Our proposal aligns with similar theories that suggest that the hippocampus uses lowdimensional representations as pointers or keys to the content or value representation in cortical regions, such as the Hippocampal Index, Complementary Learning Systems, and pattern separation/completion [\[6,](#page-10-0)[100](#page-11-0)–103]. Critically, however, we distinguish ourselves from these frameworks by viewing dimensionality transformation not as a single computation accomplished by the hippocampus [\[103](#page-11-0)] or other medial temporal regions [[6\]](#page-10-0), but as a series of computations that unfold across the cortical hierarchy. We can distinguish these ideas in a simple empirical test: if dimensionality transformation arises in the hippocampus [[103\]](#page-11-0) or other medial temporal region [[6\]](#page-10-0), one would expect to see little-to-no dimensionality transformation anywhere in the neocortex, but instead a single step-like change from the neocortex to hippocampus/medial temporal lobe. By contrast, if dimensionality transformation progressively unfolds along the cortical hierarchy (as we propose here), the dimensionality of a stimulus should steadily decrease from every region
-
-![](_page_8_Picture_1.jpeg)
 
 <span id="page-8-0"></span>between early sensory regions and the hippocampus. Such an experiment would present key insights into how dimensionality transformation unfolds in the brain.
 
@@ -216,11 +204,9 @@ What is the optimal level of reduction for memory formation: does too much reduc
 
 What is the relative importance of oscillatory power and oscillatory frequency for dimensionality transformation? Can an increase in power without a shift in frequency accomplish reduction, or does reduction rely on both phenomena co-occurring?
 
-![](_page_9_Picture_0.jpeg)
-
 ## Trends in Cognitive Sciences
 
-#### Box 3. Dimensionality transformation beyond episodic memory
+### Box 3. Dimensionality transformation beyond episodic memory
 
 While we focussed in the main text on dimensionality transformation in episodic memory, dimensionality transformation may also play a significant role in several other cognitive domains.
 
@@ -251,8 +237,6 @@ In summary, we emphasise here the importance of dimensionality transformation in
 The authors would like to thank Andrej Bicanski, Paul Muhle-Karbe, and Sander Van Bree for their constructive input and discussions on this work. C.K., D.R., and C.F.D. are supported by the Max Planck Society. B.J.G. is supported by a Leverhulme Trust Early Career Fellowship (ECF-2021-628).
 
 Can deep neural networks be used to identify the number of relevant dimensions in an encoded image and allow assessment of the capability of the brain to perform dimensionality transformation for encoding, storage, and retrieval?
-
-![](_page_10_Picture_1.jpeg)
 
 #### <span id="page-10-0"></span>Declaration of interests
 
@@ -372,8 +356,6 @@ The authors declare no competing interests.
 - 103. [Yassa, M.A. and Stark, C.E.L. \(2011\) Pattern separation in the](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0515)  hippocampus. [Trends Neurosci.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0515) 34, 515–525
 - 104. Andermane, N. et al. [\(2021\) Forgetting across a hierarchy of ep](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0520)[isodic representations.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0520) Curr. Opin. Neurobiol. 67, 50–57
 - 105. Hanslmayr, S. et al. [\(2019\) Modulating human memory via en](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0525)[trainment of brain oscillations.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0525) Trends Neurosci. 42, 485–499
-
-![](_page_12_Picture_1.jpeg)
 
 - <span id="page-12-0"></span>106. Loewenstein, Y. et al. [\(2015\) Predicting the dynamics of net](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0530)[work connectivity in the neocortex.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0530) J. Neurosci. 35, 12535
 - 107. Chandra, S. et al. (2025) Episodic and associative memory from spatial scaffolds in the hippocampus. Nature, Published online January 15, 2025. <https://doi.org/10.1038/s41586-024-08392-y>

@@ -1,14 +1,16 @@
+<!-- cite_key: prahlad2025 -->
+
 # Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph
 
 Deeksha Prahlad Arizona State University Tempe, AZ, United States dprahlad@asu.edu
 
 Chanhee Lee Arizona State University Tempe, AZ, United States chanheel@asu.edu
 
-#### Abstract
+## Abstract
 
 The advent of large language models (LLMs) has allowed numerous applications, including the generation of queried responses, to be leveraged in chatbots and other conversational assistants. Being trained on a plethora of data, LLMs often undergo high levels of over-fitting, resulting in the generation of extra and incorrect data, thus causing hallucinations in output generation. One of the root causes of such problems is the lack of timely, factual, and personalized information fed to the LLM. In this paper, we propose an approach to address these problems by introducing retrieval augmented generation (RAG) using knowledge graphs (KGs) to assist the LLM in personalized response generation tailored to the users. KGs have the advantage of storing continuously updated factual information in a structured way. While our KGs can be used for a variety of frequently updated personal data, such as calendar, contact, and location data, we focus on calendar data in this paper. Our experimental results show that our approach works significantly better in understanding personal information and generating accurate responses compared to the baseline LLMs using personal data as text inputs, with a moderate reduction in response time.
 
-#### CCS Concepts
+### CCS Concepts
 
 • Computing methodologies → Natural language generation; Discourse, dialogue and pragmatics; Information extraction.
 
@@ -120,7 +122,7 @@ Listing [1](#page-2-2) shows an example of calendar items from our dataset. Our 
 
 Listing 1: Example calendar data in JSON format.
 
-```
+```text
 " AlexCalendar2024 ": {
 " January ": [
   { " event ": " Catch - up with Friends " , " date ":
@@ -130,7 +132,7 @@ Listing 1: Example calendar data in JSON format.
   { " event ": " Family Dinner " , " date ":
         "2024 -01 -20" , " time ": "18:00 - 20:00" }
 ]}
-```
+```text
 
 ## <span id="page-2-0"></span>4 Evaluation
 
@@ -216,7 +218,7 @@ Table 3: Precision, Recall, and F1 scores for ROUGE-1, ROUGE-2, and ROUGE-L acro
 
 improve the execution time, enabling high-quality smart responses using smaller LLMs that can run on the local device. This approach forms the basis for on-device LLM, where we have continuously changing data. The knowledge database can be utilized to store and update the data on time. This reduces the risk of sending personal information to the cloud. We plan on increasing the ability of smaller models to perform well on unseen data. Building a knowledge graph eliminates the need to send sensitive data to the LLM provider.
 
-#### Acknowledgments
+### Acknowledgments
 
 This work was supported in part by the NSF I/UCRC for Intelligent, Distributed, Embedded Applications and Systems (IDEAS) and from NSF grant #2231620. This work was supported in part by ATTO Research Co., Ltd.
 

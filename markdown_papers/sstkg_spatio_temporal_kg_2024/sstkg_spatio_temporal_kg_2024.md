@@ -1,3 +1,5 @@
+<!-- cite_key: yang2024 -->
+
 # SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding
 
 Ruiyi Yang ruiyi.yang@student.unsw.edu.au
@@ -12,7 +14,7 @@ Hao Xue hao.xue1@unsw.edu.au University of New South Wales Sydney, NSW, Australi
 
 Knowledge graphs (KGs) have been increasingly employed for link prediction and recommendation using real-world datasets. However, the majority of current methods rely on static data, neglecting the dynamic nature and the hidden spatio-temporal attributes of real-world scenarios. This often results in suboptimal predictions and recommendations. Although there are effective spatio-temporal inference methods, they face challenges such as scalability with large datasets and inadequate semantic understanding, which impede their performance. To address these limitations, this paper introduces a novel framework - Simple Spatio-Temporal Knowledge Graph (SSTKG), for constructing and exploring spatio-temporal KGs. To integrate spatial and temporal data into KGs, our framework exploited through a new 3-step embedding method. Output embeddings can be used for future temporal sequence prediction and spatial information recommendation, providing valuable insights for various applications such as retail sales forecasting and traffic volume prediction. Our framework offers a simple but comprehensive way to understand the underlying patterns and trends in dynamic KG, thereby enhancing the accuracy of predictions and the relevance of recommendations. This work paves the way for more effective utilization of spatio-temporal data in KGs, with potential impacts across a wide range of sectors.
 
-#### KEYWORDS
+### KEYWORDS
 
 Knowledge graph, Spatio-temporal data, Time series forecasting
 
@@ -52,19 +54,19 @@ In this paper, a novel framework - Simple Spatio-Temporal Knowledge Graph (SSTKG
 
 #### 2 RELATED WORK
 
-#### 2.1 Spatio-Temporal Data Prediction
+#### 1 Spatio-Temporal Data Prediction
 
 In the early stages, methods are based on statistical knowledge, or using machine learning, such as Autoregressive Integrated Moving Average (ARIMA) [\[36\]](#page-8-11), Support Vector Regression (SVR) [\[19\]](#page-8-18), Critical Support Vector Machine (CSVM) [\[27\]](#page-8-19) These methods focus more on numerical data. Although they consider number series to be related to time, they are unable to capture enough spatio-temporal dependencies. More recently, researchers have begun to consider more complex methods, thanks to the emergence of deep learning. Long Short-Term Memory (LSTM) networks [\[15\]](#page-8-20): It's a type of Recurrent Neural Networks(RNNs) outperforming other RNNs particularly in learning long-term dependencies. Gated Recurrent Unit (GRU) RNNs [\[7\]](#page-8-21) can capture dependencies of different time scales, controling the information flow from the previous activation when computing the new. [\[8\]](#page-8-22). Temporal Convolutional Networks(TCNs) [\[2\]](#page-8-23) can effectively capture temporal features with an architecture of sequence modeling, causal convolutions, dilated convolutions, and residual connections. Based on TCN, Multivariable Temporal Convolutional Networks (M-TCN) [\[29\]](#page-8-24) allows a model for multivariable time series prediction.
 
 The above models are efficient in handling temporal patterns inside sequences, however, sensors collecting data may also be spatially related, which is omitted by the above models. Graph Neural Networks(GNNs) [\[41\]](#page-8-25) are neural models that capture the dependence of graphs via message passing between nodes of graphs. Based on that, Temporal Graph Convolutional Network (T-GCN) [\[40\]](#page-8-26) is combined with the GCN and the GRU. By using GCN to learn topological structures to learn spatial dependence and using GRU to learn temporal patterns. Moreover, Spatio-Temporal Graph Convolutional Networks (ST-GCN) [\[38\]](#page-8-27) utilizes graph CNNs for extracting spatial features, and gated CNNs for extracting temporal features. A spatio-temporal convolutional block is used to fuse the above two patterns. The fusion of deep learning models leads to a great fit for spatio-temporal data. spatio-temporal GNNs can simultaneously model spatial and temporal information [\[10\]](#page-8-28), and dealing with real-world related works like Traffic flow prediction [\[11,](#page-8-29) [37,](#page-8-30) [35\]](#page-8-31), Next POI recommendation [\[17\]](#page-8-32), Crime prediction [\[18\]](#page-8-33), Weather forecasting [\[21\]](#page-8-34) and Human action recognition [\[33\]](#page-8-35).
 
-#### 2.2 Knowledge Graph for prediction
+#### 2 Knowledge Graph for prediction
 
 2.2.1 Static KGs for Prediction. Since KGs have a unified structure, based on their embeddings or paths, they can be used to predict potential links hidden in established datasets. For static data, KGs can assist and accelerate drug discovery [\[39\]](#page-8-36) in the medical field, and they also perform well on fake news detection [\[9\]](#page-8-37) by finding the shortest path between facts.
 
 2.2.2 Temporal KGs/STKGs for Prediction. Dynamic data, typically sourced from sensors, can also be transferred into structured entities and shaped into temporal KGs(TKGs) or STKGs. Embeddings encompassing distinct spatial or temporal information are compared to determine the entities that would appear in certain time points under certain locations. Since dynamic KGs capture time relationships between entities in events, temporal predictions like the time of natural disasters [\[14\]](#page-8-38) could be achieved. STKGs also help in spatial predictions, by modeling trajectories data, users' mobility patterns or activities can be predicted [\[31,](#page-8-39) [5\]](#page-8-13).
 
-#### 2.3 Knowledge Graph for recommendation
+#### 3 Knowledge Graph for recommendation
 
 Apart from prediction, knowledge graphs are also widely used for recommendation. While prediction works (sequence prediction, event prediction, POI prediction, etc.) are highly related to the dynamic nature of entities evolution over time, large proportions of recommendation systems on KG are related to the structure of KG (like entity properties or relation properties), which are related to graph algorithms (path searching) or embedding techniques.
 
@@ -97,7 +99,7 @@ While the aforementioned methodologies have registered good performances in desi
 
 #### 3 METHODOLOGY
 
-#### 3.1 Preliminaries and method overview
+#### 1 Preliminaries and method overview
 
 The STKG problem is defined as: An optimal STKG should accommodate the dynamic nature of data, adapting to changes in entities' attributes influenced by time and location, facilitating the completion and enhancement of KG after construction, and predicting forthcoming attributes and relationships for entities. Table [1](#page-2-0) summarizes notations used in the paper as well as their meanings.
 
@@ -129,7 +131,7 @@ Leveraging this SSTKG framework, entities are directly extracted from structured
 
 <span id="page-3-0"></span>
 $$
-p_{e_0} * Record_{e_0}(t) = \sum_{i=1}^{n} I_{(e_i, e_0)} Record_{e_i}(t)
+p_{e_0} *Record_{e_0}(t) = \sum_{i=1}^{n} I_{(e_i, e_0)} Record_{e_i}(t)
 $$
  (1)
 
@@ -137,7 +139,7 @@ Fitting Equation [\(1\)](#page-3-0) is seen as a regression process, where 1-p i
 
 <span id="page-3-1"></span>
 $$
-W_{(e_i,e_0)} = \frac{OverallRecord(e_i)}{OverallRecord(e_0)} * log(1 + \frac{\sum_{j=i}^{n} Distance(e_j,e_0)}{n * Distance(e_i,e_0)})
+W_{(e_i,e_0)} = \frac{OverallRecord(e_i)}{OverallRecord(e_0)}* log(1 + \frac{\sum_{j=i}^{n} Distance(e_j,e_0)}{n *Distance(e_i,e_0)})
 $$
  (2)
 
@@ -149,7 +151,7 @@ $$
 
 <span id="page-3-3"></span>
 $$
-I_{(e_i,e_0)} = regressionFactor * W_{(e_i,e_0)}
+I_{(e_i,e_0)} = regressionFactor* W_{(e_i,e_0)}
 $$
 \n(4)
 
@@ -191,7 +193,7 @@ Ensure: Quadratic relation set
 
 <span id="page-3-6"></span>
 $$
-e_{i\_static} = e_{i\_category} * \phi(overall\_records)
+e_{i\_static} = e_{i\_category} *\phi(overall\_records)
 $$
  (5)
 
@@ -208,18 +210,18 @@ $$
 In Embedding quantifies the influence that an entity receives from its associated entities, reflecting the cumulative impact of these relationships on the entity. Analogously, in the formation of the SSTKG, the embedding is viewed as an aggregate of the entity's inherent influence and the influences exerted by its associated entities. Shown in Equation [\(8\)](#page-4-0), p is the weight shown in Equation [\(3\)](#page-3-2). On vector space it is represented in Equation [\(9\)](#page-4-1).
 
 $$
-p_i * e_{i\_out}^t = e_{i\_in}^t \tag{7}
+p_i* e_{i\_out}^t = e_{i\_in}^t \tag{7}
 $$
 
 <span id="page-4-0"></span>
 $$
-\mathbf{e}_{\mathbf{i\_in}}^{\mathbf{t}} = \Sigma_j F(Influence_{(i,j)} * \mathbf{e}_{\mathbf{j\_out}}^{\mathbf{t}})
+\mathbf{e}_{\mathbf{i\_in}}^{\mathbf{t}} = \Sigma_j F(Influence_{(i,j)} *\mathbf{e}_{\mathbf{j\_out}}^{\mathbf{t}})
 $$
  (8)
 
 <span id="page-4-1"></span>
 $$
-\mathbf{e}_{\mathbf{i\_in}}^{\mathbf{t}} = \Sigma_j (Influence_{(i,j)} * \mathbf{e}_{\mathbf{j\_record}}^{\mathbf{t}} + \mathbf{e}_{\mathbf{j\_static}})
+\mathbf{e}_{\mathbf{i\_in}}^{\mathbf{t}} = \Sigma_j (Influence_{(i,j)}* \mathbf{e}_{\mathbf{j\_record}}^{\mathbf{t}} + \mathbf{e}_{\mathbf{j\_static}})
 $$
 (9)
 
@@ -229,7 +231,7 @@ Let <sup>0</sup> represent a set of out embeddings of entities that have potenti
 
 <span id="page-4-2"></span>
 $$
-f_{p1}(x) = f_1(e_0, R, E_0, t) = ||p_{e_0} * e_{0\_out}^t - e_{0\_in}^t||_2^2
+f_{p1}(x) = f_1(e_0, R, E_0, t) = ||p_{e_0} *e_{0\_out}^t - e_{0\_in}^t||_2^2
 $$
  (10)
 
@@ -243,7 +245,7 @@ Embedding is replaced in <sup>2</sup> (0, , 0, ) with another random entity that
 
 <span id="page-4-5"></span>
 $$
-f_{p2}(x) = f_{p2}(e_0, R, E_0, t) = ||p_{e_0} * e_{0\_out}^t - \Sigma_i R_i * e_{i\_out}^t||_2^2 \quad (12)
+f_{p2}(x) = f_{p2}(e_0, R, E_0, t) = ||p_{e_0}* e_{0\_out}^t - \Sigma_i R_i *e_{i\_out}^t||_2^2 \quad (12)
 $$
 
 <span id="page-4-6"></span>
@@ -256,7 +258,7 @@ In (0, , 0, ) one related entity's influence is replaced to average. The second 
 
 #### 4 MODEL PROPERTIES
 
-#### 4.1 Efficiency and Speed
+#### 1 Efficiency and Speed
 
 The proposed model is designed with computational efficiency in mind. It requires less computational resources compared to traditional models, thereby enabling faster construction of the STKG. This feature is particularly beneficial in scenarios where rapid knowledge graph construction is crucial. Here is the test result of constructing and optimizing an SSTKG using the Spend-Ohio dataset mentioned in Section [5.1,](#page-5-0) with 100 training epochs.
 
@@ -295,11 +297,11 @@ The proposed model is designed with computational efficiency in mind. It require
 | end while<br>27:                                                           |   |
 | 28: end for                                                                |   |
 
-#### 4.2 Inference Patterns
+#### 2 Inference Patterns
 
 By using the embedding model in Section [3.3,](#page-3-5) a certain entity's temporal record is predicted using its related entities' records. Based on Equation [\(8\)](#page-4-0), trained static embedding of related entities and their current temporal records are used to compute the target entity's out-embedding. Therefore, final temporal records are decoded from out embedding as well as the static embedding, since for the trained embeddings, influence∈ are obtained, while having related entities' records on time slot 1, the out/in embeddings for <sup>0</sup> is inferred based on Equation [\(8\)](#page-4-0) and [\(9\)](#page-4-1). Subsequently, the referred \_ is decoded in accordance with Equation [\(6\)](#page-3-7).
 
-#### 4.3 Interpretability
+#### 3 Interpretability
 
 Another significant advantage of SSTKG is its interpretability. The simple structure and the numerical representation of relationships make it easier to understand the underlying patterns and insights captured by the STKG. This interpretability enhances the model's usability, especially in applications where understanding the reasoning behind predictions is important.
 
@@ -317,12 +319,12 @@ embeddings that incorporate an entity's spatio-temporal data, such that the embe
 
 <span id="page-5-1"></span>
 $$
-p_i * e_{i\_in}^t = \sum_j \psi(e_{i\_static}, e_{i\_records}^t) * Influence_{j,i} \qquad (14)
+p_i* e_{i\_in}^t = \sum_j \psi(e_{i\_static}, e_{i\_records}^t) *Influence_{j,i} \qquad (14)
 $$
 
 <span id="page-5-2"></span>
 $$
-p_i * e_{i\_in}^t = \Sigma_j e_{j\_static} * \Omega(e_{i\_records}^t, Influence_{j,i})
+p_i* e_{i\_in}^t = \Sigma_j e_{j\_static} * \Omega(e_{i\_records}^t, Influence_{j,i})
 $$
  (15)
 
@@ -341,7 +343,7 @@ Thus, from the final result, training the embedding serves to refine the process
 
 Two datasets are used to evaluate the performance of SSTKG. The first one is Spend-Ohio data from January 2022 to April 2023, collected by Safegraph, containing many Ohio stores' geographical and categorical information, as well as the selling records counted by day. Figure [3](#page-5-4) represent entities' distribution in forms of heatmap. The second one is Traffic Volume of Transport for New South Wales (TFNSW) data, which encompasses the traffic volume from a collection of permanent traffic counters and classifiers in Sydney, with data collated since 2008 on an hourly basis. Locations of these counters have been further categorized based on their respective suburbs. Table [3](#page-5-5) presents the size of the two datasets. Notably, the 'distance' attribute represents the distance threshold employed during SSTKG construction as per Algorithm [1.](#page-3-4) The attributes used in processed Spend-Ohio and TFNSW data are shown in Table [4.](#page-5-6)
 
-#### 5.2 Evaluation
+#### 2 Evaluation
 
 The accuracy rate for a prediction in the study is quantified using ACCn metric, which is defined as, if the predicted value falls within a specific range of the real value, it is deemed accurate. The range
 
@@ -421,13 +423,13 @@ $$
 
 To benchmark the performance of our model (SSTKG), several established models are used for comparison: (1) Support Vector Regression Machine(SVR). (2)Long Short-Term Memory (LSTM) network. (3) Gated Recurrent Unit(GRU) [\[7\]](#page-8-21). (4) TGCN [\[40\]](#page-8-26), the fusion of GCN and GRU. (5) STGCN [\[38\]](#page-8-27) which combines two TCNs and one GCN.
 
-#### 5.3 Case study
+#### 3 Case study
 
 In order to validate the interpretability of the proposed model, a case study was conducted using the Spend-Ohio data in 2023- 1. Specific stores served as exemplars. Following the knowledge graph construction and training of the influences and embeddings, the distance thresholds were adjusted to modify the quantity of entities deemed related in the knowledge graph. Three groups of entities near the center store are chosen, and prediction records after removing each of them are prepared and analyzed. By repeating the construction process with these variations, differences in outcomes aim to elucidate the model's explainability.
 
 #### 6 RESULT
 
-#### 6.1 Experiment Results
+#### 1 Experiment Results
 
 6.1.1 Safegraph: Spend-Ohio dataset. In Spend-Ohio dataset, the first 25 days are used to construct and train the SSTKG for monthly data, while the rest data is used for testing(which is 6 days, 3 days, and 6 days in the three subsets). To help compare and reduce the effect of null values, when calculating the RMS and RSD, the score's
 
@@ -456,11 +458,11 @@ selling records is normalized to a range of (0,20). The results are shown in Tab
 
 6.1.2 TFNSW dataset. In TFNSW data, two separate experiments were done. The first one used the hourly data collected 24/7. 40 weeks' data were used to train, and then a 24-hour prediction in the following days was generated. In the second experiment, hourly records were added to daily ones, then the daily records were used to train. It is similar to the scale in the Spend-Ohio dataset. Similarly, the traffic volume was also normalized to (0,20). The accuracy result (acc10 and acc15) and the RMS and RSD for normalized data are shown in Table [6.](#page-6-3)
 
-#### 6.2 Result analysis
+#### 2 Result analysis
 
 Notably, from the results, the prediction of T-GCN, ST-GCN, and SSTKG are consistently outperformed the SVR, GRU and LSTM models. This is because these three models only focus on temporal record correlations while failing to consider spatial relations. SSTKG, as well as T-GCN and ST-GCN, model both spatial and temporal characteristics to ensure the data effectiveness, which are more suitable for datasets. SSTKG, in particular, demonstrates the ability to balance and integrate spatial-tempoal dimensions. Is outperformed T-GCN. Its performance is noteworthy, especially in acc@15 and RSD metrics on the Spend-Ohio dataset. It outshines others in acc@15, RMS, and RSD for the hourly predictions in the TFNSW dataset, and acc@10 and RMS metrics in daily predictions.
 
-#### 6.3 Interpretability: case study
+#### 3 Interpretability: case study
 
 To demonstrate the interpretability of the SSTKG model, this section presents a detailed case study involving a specific entity in the Spend-Ohio dataset. A full type service restaurant is selected carefully and set as the center entity (placekey: 225-222@63j-xxx-xxx; NAICS:722511). The sample is selected due to following reasons: 1. Completeness of records: The selected stores as well as linked entities have complete records in all parts of Spend-Ohio dataset. 2. General category: The selected sample belongs to full type
 

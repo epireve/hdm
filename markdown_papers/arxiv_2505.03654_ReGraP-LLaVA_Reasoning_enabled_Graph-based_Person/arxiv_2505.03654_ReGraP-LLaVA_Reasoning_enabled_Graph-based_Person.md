@@ -1,23 +1,22 @@
+<!-- cite_key: xiangsupsup2023 -->
+
 # ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and Vision Assistant
 
 Yifan Xiang<sup>1</sup> , Zhenxi Zhang<sup>1</sup> , Bin Li1<sup>∗</sup> , Yixuan Weng<sup>2</sup> , Shoujun Zhou<sup>1</sup> , Yangfan He<sup>3</sup> , Keqin Li<sup>4</sup> , <sup>1</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences
 
 <sup>2</sup>School of Engineering, Westlake University <sup>3</sup>University of Minnesota – Twin Cities <sup>4</sup>University of Toronto xyf20040227@outlook.com, {zx.zhang3, b.li2, sj.zhou}@siat.ac.cn, wengsyx@gmail.com, he000577@umn.edu, keqin157@gmail.com
 
-### Abstract
+## Abstract
 
 Multimodal Large Language Models (MLLMs) have demonstrated remarkable performance across a wide range of multimodal tasks. Recent advances in personalized MLLMs enable effective capture of user-specific concepts, supporting both recognition of personalized concepts and contextual captioning. However, humans typically explore and reason over relations among objects and individuals, transcending surface-level information to achieve more personalized and contextual understanding. To this end, existing methods may face three main limitations: (1) Their training data lacks multi-object sets in which relations among objects are learnable, (2) Existing models often neglect the connections between different personalized concepts, thereby failing to perform reasoning over them, (3) Their experiments mainly focus on a single personalized concept, where evaluations are limited to recognition and captioning tasks. To address the limitations, (i) We present a new dataset named ReGraP, consisting of 120 sets of personalized knowledge. Each set includes images, Knowledge Graphs (KGs), and Chain-of-Thought Question-Answering (CoT QA) pairs derived from the KGs, enabling more structured and sophisticated reasoning pathways. (ii) We propose Reasoning enabled Graphbased Personalized Large Language and Vision Assistant (ReGraP-LLaVA), an MLLM trained with the corresponding KGs and CoT QA pairs, where soft and/or hard graph prompting methods are designed to align KGs within the model's semantic space. (iii) We establish the ReGraP Benchmark, which contains diverse task types: Multiple-Choice, Fill-in-the-blank, True/False, and Descriptive questions in both open- and closed-ended settings. The proposed benchmark is designed to evaluate the relational reasoning and knowledge-connection capability of personalized MLLMs. We conduct experiments on the proposed ReGraP-LLaVA and other competitive MLLMs. Results show that the proposed model not only learns personalized knowledge but also performs relational reasoning in responses, achieving the best performance compared with the competitive methods. Codes and datasets are released at: https://github.com/xyfyyds/ReGraP.
 
 ### 1 Introduction
 
-Achievements in MLLMs [\[1,](#page-9-0) [2,](#page-9-1) [3,](#page-9-2) [4\]](#page-9-3) have demonstrated robust capabilities in image analysis, and user prompts are employed to enable initial personalization for handling queries such as "*What is*
-
-<sup>∗</sup>Corresponding Author.
+Achievements in MLLMs [\[1,](#page-9-0) [2,](#page-9-1) [3,](#page-9-2) [4\]](#page-9-3) have demonstrated robust capabilities in image analysis, and user prompts are employed to enable initial personalization for handling queries such as "*What is*<sup>∗</sup>Corresponding Author.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
 
 Figure 1: The comparison between ReGraP-LLaVA and other personalized MLLMs.
-
 *<Tom> doing in this picture?*" and "*Could you find <my headphone> in this image?*". Consequently, to advance beyond the constraints of user-prompt based personalization [\[5,](#page-9-4) [6\]](#page-9-5), recent approaches [\[5,](#page-9-4) [7,](#page-9-6) [8,](#page-9-7) [9\]](#page-9-8) introduce personalized concepts (e.g., a personal item or a specific individual) into models, yielding satisfactory performance on recognition and simple QA tasks. For example, Yo'LLaVA [\[5\]](#page-9-4) introduces new tokens for representing personalized concepts to LLaVA [\[2\]](#page-9-1), achieving remarkable experimental results on personalized recognition and captioning while preserving the model's original conversational capabilities, which is the state-of-the-art approach in the personalization of MLLMs.
 
 However, existing personalized MLLMs exhibit limitations. As illustrated in Figure [1](#page-1-0) (a), promptbased personalized MLLMs rely on user prompts as the sole source of personalized knowledge. This dependency leads to degraded performance when handling low-quality prompts and complicated tasks [\[5,](#page-9-4) [6\]](#page-9-5). Meanwhile, training-based personalized MLLMs (e.g. Yo'LLaVA) in Figure [1](#page-1-0) (b) mainly focus on concept-learning level, overlooking the human-like process of constructing a knowledge network among different items and leveraging the relations for contextual understanding [\[10,](#page-9-9) [11\]](#page-9-10).
@@ -28,7 +27,7 @@ Consider the query: "*Who can help Bocchi in lyric writing?*". Addressing it req
 - RQ2: Given a dataset in RQ1, can we develop a personalized MLLM whose training framework aligns with the KGs, enabling it to learn and reason over the personalized knowledge?
 - RQ3: Given a personalized MLLM in RQ2, can we evaluate its relational reasoning and knowledge connection capability, particularly for personalized queries that expect contextual responses?
 
-In this paper, to address RQ1, we present a new dataset, ReGraP, consisting of 120 independent sets of personalized knowledge. The dataset is constructed through a data generation pipeline that builds KGs based on the images and personalized knowledge (see Figure [1](#page-1-0) left) and subsequently derives Chain-of-Thoughts Question-Answering pairs (CoT QA pairs) from the KGs. The answers in CoT QA pairs incorporate comprehensive reasoning steps. To address RQ2, we propose ReGraP-LLaVA, a novel MLLM built on LLaVA and trained using the ReGraP dataset, incorporating images, CoT QA pairs, and KGs in its training framework. To align the graph-based structure of KGs with the token-based input paradigm of LLaVA, we transform the KGs into embeddings using Graph Neural Networks (GNNs) and projection modules which serves as a "soft-prompt" method, and convert KGs into sequences of relational descriptions and tokenize them through reasoning tokenizers by introducing new *entity tokens* and *relation tokens* which serves as a "hard prompt" method. ReGraP- LLaVA showcases the capability to capture personalized knowledge and utilize it for relational reasoning. To address RQ3, we establish the ReGraP benchmark to assess models' reasoning and knowledge-connection capabilities, rather than restricting the evaluation to basic recognition or general captioning tasks. This benchmark spans multiple-choice, fill-in-the-blank, true/false, and descriptive questions, covering both open- and closed-ended settings. Experimental results show that ReGraP-LLaVA achieves high performance on both basic tasks evaluating personalized knowledge acquisition and difficult tasks requiring relational reasoning over learned knowledge.
+In this paper, to address RQ1, we present a new dataset, ReGraP, consisting of 120 independent sets of personalized knowledge. The dataset is constructed through a data generation pipeline that builds KGs based on the images and personalized knowledge (see Figure [1](#page-1-0) left) and subsequently derives Chain-of-Thoughts Question-Answering pairs (CoT QA pairs) from the KGs. The answers in CoT QA pairs incorporate comprehensive reasoning steps. To address RQ2, we propose ReGraP-LLaVA, a novel MLLM built on LLaVA and trained using the ReGraP dataset, incorporating images, CoT QA pairs, and KGs in its training framework. To align the graph-based structure of KGs with the token-based input paradigm of LLaVA, we transform the KGs into embeddings using Graph Neural Networks (GNNs) and projection modules which serves as a "soft-prompt" method, and convert KGs into sequences of relational descriptions and tokenize them through reasoning tokenizers by introducing new *entity tokens*and*relation tokens*which serves as a "hard prompt" method. ReGraP- LLaVA showcases the capability to capture personalized knowledge and utilize it for relational reasoning. To address RQ3, we establish the ReGraP benchmark to assess models' reasoning and knowledge-connection capabilities, rather than restricting the evaluation to basic recognition or general captioning tasks. This benchmark spans multiple-choice, fill-in-the-blank, true/false, and descriptive questions, covering both open- and closed-ended settings. Experimental results show that ReGraP-LLaVA achieves high performance on both basic tasks evaluating personalized knowledge acquisition and difficult tasks requiring relational reasoning over learned knowledge.
 
 Contributions. In summary, our main contributions are:
 
@@ -85,7 +84,7 @@ To align knowledge graphs with MLLMs, we adopt both soft prompts in Figure [3](#
 
 Figure 3: The framework of ReGraP-LLaVA. The left side shows the framework to soft prompt graphs, and the right side shows the framework to hard prompt graphs.
 
-#### 4.1 Soft-Prompting LLM with Graph.
+#### 1 Soft-Prompting LLM with Graph.
 
 This method employs a GNN module in conjunction with a projection layer, implemented as a multilayer perceptron (MLP), for encoding the subgraph into embeddings that are aligned with the vector space of the LLM. To prepare the graph for GNN processing, nodes and relations are first converted into one-hot encoded vectors, constructing a graph g, whose nodes are personalized concepts and their attributes, and edges are relations between the concepts and attributes. The graph g is firstly passed through the GNN to compute the graph embedding H<sup>g</sup> = GNN(g), which provides a representation of the personalized knowledge in the subgraph. To align the embedding with the same word embedding space of MLLM, we then apply a MLP projection layer to convert H<sup>g</sup> to Hˆ which has the same dimensionality as the word embedding space in the language model, formulated as:
 
@@ -104,11 +103,11 @@ $$
 
 Next, Xemb is concatenated with the graph embeddings Hˆ to form the new instruction embedding token sequence Xnew i , denoted as Xnew <sup>i</sup> <sup>=</sup> <sup>X</sup>emb <sup>+</sup> <sup>H</sup>ˆ. Following the original LLaVA architecture, Xnew i is concatenated with the visual embedding tokens encoded from the image input via the vision encoder and projector, and the sequence is processed following the original LLaVA training pipeline.
 
-#### 4.2 Hard-Prompting LLM with Graph.
+#### 2 Hard-Prompting LLM with Graph.
 
-While embedding a graph directly into vector representations aligns it with word embedding space, knowledge in a graph can also be represented by natural language, which may serve as a more learnable and interpretable prompt for MLLMs. Inspired by recent studies [\[5,](#page-9-4) [7\]](#page-9-6) that learnable tokens can efficiently capture personalized concepts, we introduce new *reasoning tokens* to represent personalized knowledge. These tokens enable the subgraph to be expressed as a prompt sequence that integrates the newly added tokens, thereby allowing the model to learn the reasoning processes.
+While embedding a graph directly into vector representations aligns it with word embedding space, knowledge in a graph can also be represented by natural language, which may serve as a more learnable and interpretable prompt for MLLMs. Inspired by recent studies [\[5,](#page-9-4) [7\]](#page-9-6) that learnable tokens can efficiently capture personalized concepts, we introduce new*reasoning tokens*to represent personalized knowledge. These tokens enable the subgraph to be expressed as a prompt sequence that integrates the newly added tokens, thereby allowing the model to learn the reasoning processes.
 
-Specifically, a subgraph can be represented as a collection of continuous relational triples, formulated as g = {(E<sup>i</sup> , r<sup>i</sup> , Ei+1)} N <sup>i</sup>=1, where each triple consists of a head entity E<sup>i</sup> , a relation r<sup>i</sup> , and a tail entity Ei+1. Here, E<sup>i</sup> denotes personalized concepts and their attributes, r<sup>i</sup> denotes relations, and N denotes the total number of relations in the subgraph. The triples are sequentially connected. For entities, we utilize their names as the new-added *entity tokens* and {<Relationi>} N <sup>i</sup>=1 as the new-added *relation tokens*. Hereby, the prompt to describe the graph is: "<E1> *and* <E2> *share a* <Relation1>*,...,*<E<sup>N</sup> > *and* <EN+1> *share a* <Relation<sup>N</sup> >. <E1> *is <desc.>,...,*<Relation1> *is <desc.>....*" Here, E<sup>i</sup> are the names of the entities, and *<desc.>* represents a short natural language description. Given a graph, there are N *relation tokens* and N + 1 *entity tokens*, collectively referred to as *reasoning tokens*, which are learned to embed structural information of the graph. These reasoning tokens are introduced as new entries to the tokenizer, effectively transforming it into a reasoning tokenizer. Subsequently, the final classification head matrix Wc×<sup>n</sup> of the language model is expanded by 2N + 1, resulting in an updated matrix Wc×(n+2N+1), to accommodate the additional vocabulary introduced by reasoning tokens. Thus, the new trainable parameters are:
+Specifically, a subgraph can be represented as a collection of continuous relational triples, formulated as g = {(E<sup>i</sup> , r<sup>i</sup> , Ei+1)} N <sup>i</sup>=1, where each triple consists of a head entity E<sup>i</sup> , a relation r<sup>i</sup> , and a tail entity Ei+1. Here, E<sup>i</sup> denotes personalized concepts and their attributes, r<sup>i</sup> denotes relations, and N denotes the total number of relations in the subgraph. The triples are sequentially connected. For entities, we utilize their names as the new-added*entity tokens*and {<Relationi>} N <sup>i</sup>=1 as the new-added*relation tokens*. Hereby, the prompt to describe the graph is: "<E1> *and*<E2>*share a* <Relation1>*,...,*<E<sup>N</sup> > *and*<EN+1>*share a*<Relation<sup>N</sup> >. <E1>*is <desc.>,...,*<Relation1> *is <desc.>....*" Here, E<sup>i</sup> are the names of the entities, and *<desc.>*represents a short natural language description. Given a graph, there are N*relation tokens*and N + 1*entity tokens*, collectively referred to as *reasoning tokens*, which are learned to embed structural information of the graph. These reasoning tokens are introduced as new entries to the tokenizer, effectively transforming it into a reasoning tokenizer. Subsequently, the final classification head matrix Wc×<sup>n</sup> of the language model is expanded by 2N + 1, resulting in an updated matrix Wc×(n+2N+1), to accommodate the additional vocabulary introduced by reasoning tokens. Thus, the new trainable parameters are:
 
 $$
 \boldsymbol{\theta}_{new} = \{ \langle E_1 \rangle, \ldots, \langle E_{N+1} \rangle, \langle Relation_1 \rangle, \ldots, \langle Relation_N \rangle, W_{(:,n+2N+1)} \}.
@@ -173,7 +172,7 @@ We feed raw personalized knowledge and CoT QA pairs in the ReGraP dataset separa
 
 Table [2](#page-6-1) presents the accuracy results for each task across all evaluated models. ReGraP-LLaVA outperforms all baselines across most tasks, with the exception of simple descriptive QA, where LLaVA-13B (Prompt) achieves the highest accuracy of 1.000, followed by ours with a close third at 0.975. Moreover, LLaVA (CoT), trained on CoT QA pairs of ReGraP dataset, ranks second in 5 out of 8 task types, further demonstrating that training models with our data can improve the performance. Numerically, our model achieves a large weighted improvement of 5.3% comparing to the best finetuning-based model, LLaVA (CoT), and 8.8% comparing to the best prompt-based model, GPT-4o (Prompt). In contrast, Yo'LLaVA, with its low computational overhead, performs well on simple tasks (e.g., basic recognition) but fails to capture complicated relational knowledge and reasoning processes due to limited learnable parameters.
 
-To validate generalization beyond our own benchmark, we evaluate our model with Yo'LLaVA and MyVLM [\[9\]](#page-9-8) on using their datasets under identical settings. We prompt models with "Can you see *<concept name>* in this image?" for recognition tasks and "Caption this image in a short sentence." for captioning tasks. For captioning tasks, a response is considered correct if it includes the personalized concept and its meaning aligns with the content of the image. The evaluation includes both positive (concept-present) and negative (concept-absent) samples, where for negative samples, the correct answer is expected to be a denial (e.g., "no"). Table [3](#page-7-2) shows the results. ReGraP-LLaVA showcases clear advantages in both positive tasks and comparable accuracy in negative tasks. The slightly lower accuracy in the negative recognition task may caused by few negative or counterfactual examples in training data, which makes our model more challenging to say "no" confidently.
+To validate generalization beyond our own benchmark, we evaluate our model with Yo'LLaVA and MyVLM [\[9\]](#page-9-8) on using their datasets under identical settings. We prompt models with "Can you see *<concept name>*in this image?" for recognition tasks and "Caption this image in a short sentence." for captioning tasks. For captioning tasks, a response is considered correct if it includes the personalized concept and its meaning aligns with the content of the image. The evaluation includes both positive (concept-present) and negative (concept-absent) samples, where for negative samples, the correct answer is expected to be a denial (e.g., "no"). Table [3](#page-7-2) shows the results. ReGraP-LLaVA showcases clear advantages in both positive tasks and comparable accuracy in negative tasks. The slightly lower accuracy in the negative recognition task may caused by few negative or counterfactual examples in training data, which makes our model more challenging to say "no" confidently.
 
 #### <span id="page-7-0"></span>6.2 Open-ended QA
 
@@ -235,7 +234,7 @@ In this work, we leverage knowledge graphs and CoT QA pairs to enhance the reaso
 
 ### References
 
-- <span id="page-9-0"></span>[1] Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang, et al. Qwen technical report. *arXiv preprint arXiv:2309.16609*, 2023.
+- <span id="page-9-0"></span>[1] Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang, et al. Qwen technical report.*arXiv preprint arXiv:2309.16609*, 2023.
 - <span id="page-9-1"></span>[2] Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee. Visual instruction tuning. *Advances in neural information processing systems*, 36:34892–34916, 2023.
 - <span id="page-9-2"></span>[3] Gemini Team, Rohan Anil, Sebastian Borgeaud, Jean-Baptiste Alayrac, Jiahui Yu, Radu Soricut, Johan Schalkwyk, Andrew M Dai, Anja Hauth, Katie Millican, et al. Gemini: a family of highly capable multimodal models. *arXiv preprint arXiv:2312.11805*, 2023.
 - <span id="page-9-3"></span>[4] Deyao Zhu, Jun Chen, Xiaoqian Shen, Xiang Li, and Mohamed Elhoseiny. Minigpt-4: Enhancing vision-language understanding with advanced large language models. In *ICLR*, 2024.
@@ -304,7 +303,7 @@ Figure 6: The human evaluation results. The numbers are the counts of each case.
 
 ### <span id="page-13-0"></span>C Evaluation on the quality of CoT QA pairs
 
-In this section, we evaluate the quality of the CoT QA pairs using both human annotators and LLMs. The evaluation is conducted across four questions: (1) *Does the answer address the question*, (2) *"Is the reasoning correct in logic?"*, (3) *Does the answer demonstrate step-by-step reasoning that leads to the correct conclusion*, and (4) *Is the overall quality of the response satisfactory*, which are denoted as "accuracy", "logic", "reason" and "quality" separately. For the evaluation, we randomly sample 200 CoT QA pairs, each of which is independently assessed across the above criteria. Evaluators are instructed to provide binary judgments (*Yes* or *No*) for each question. The LLMs employed for evaluation include GPT-4o-2024-11-20, Qwen-Max-2025-01-25, Grok-3, and Deepseek-R1. Table [7](#page-13-2) presents the evaluation results. Notably, all LLMs except GPT-4o consistently response "Yes" across all questions, reflecting a strong alignment with their preferences. For the "reason" criterion, GPT-4o occasionally provides a "No" judgment, and it explains that these answers reveal the conclusion at the start rather than arriving at it after step-by-step reasoning. The same reason also appears in other evaluations and leads to an assignment of "No". Nevertheless, both GPT-4o and humans acknowledge the overall quality of these QA pairs, suggesting that this judgment pertains to the formats rather than a deficiency in its content or correctness. Table [8](#page-13-3) shows the qualitative example of this case.
+In this section, we evaluate the quality of the CoT QA pairs using both human annotators and LLMs. The evaluation is conducted across four questions: (1) *Does the answer address the question*, (2) *"Is the reasoning correct in logic?"*, (3) *Does the answer demonstrate step-by-step reasoning that leads to the correct conclusion*, and (4) *Is the overall quality of the response satisfactory*, which are denoted as "accuracy", "logic", "reason" and "quality" separately. For the evaluation, we randomly sample 200 CoT QA pairs, each of which is independently assessed across the above criteria. Evaluators are instructed to provide binary judgments (*Yes*or*No*) for each question. The LLMs employed for evaluation include GPT-4o-2024-11-20, Qwen-Max-2025-01-25, Grok-3, and Deepseek-R1. Table [7](#page-13-2) presents the evaluation results. Notably, all LLMs except GPT-4o consistently response "Yes" across all questions, reflecting a strong alignment with their preferences. For the "reason" criterion, GPT-4o occasionally provides a "No" judgment, and it explains that these answers reveal the conclusion at the start rather than arriving at it after step-by-step reasoning. The same reason also appears in other evaluations and leads to an assignment of "No". Nevertheless, both GPT-4o and humans acknowledge the overall quality of these QA pairs, suggesting that this judgment pertains to the formats rather than a deficiency in its content or correctness. Table [8](#page-13-3) shows the qualitative example of this case.
 
 <span id="page-13-2"></span>
 
@@ -399,7 +398,7 @@ Table 10: Comparison of benchmark designs between Yo'LLaVA and ReGraP.
 
 In this section, we present qualitative examples that showcase ReGraP-LLaVA's question-answering capabilities. Table [32,](#page-33-0) Table [33,](#page-34-0) Table [34,](#page-35-0) Table [35,](#page-36-0) Table [36,](#page-37-0) and Table [37](#page-38-0) provide the questions and model's answers in detail. The responses demonstrate that ReGraP-LLaVA effectively learns personalized knowledge and accurately utilizes it to handle user queries across different types of questions. The model is able to provide detailed analyses of images and leverage the corresponding learned knowledge to generate contextually appropriate and comprehensive answers.
 
-### <span id="page-15-0"></span>I Discussion on errors and deviations
+## <span id="page-15-0"></span>I Discussion on errors and deviations
 
 Due to the inherent stochasticity in both the training and inference processes of MLLMs, we conduct a robustness analysis to evaluate the stability and reliability of our results. The main concern is whether repeated training runs with the same data and experimental settings introduce variability in the model's outputs. We select five personalized knowledge sets and train five models independently from scratch for each set. Subsequently, we prompt each model with the same image and a query corresponding to its associated personalized concept: "Give a short description on <*concept name*> in this image.". We assess whether generated outputs exhibit semantic consistency across models trained on the same training set. Encouragingly, the outputs remain semantically consistent across models, confirming the robustness of our training pipeline. Table [11](#page-16-0) presents qualitative examples.
 
@@ -423,7 +422,7 @@ ReGraP-LLaVA is not without limitations. First, due to the inherent hallucinatio
 
 Table 12: Qualitative example of limitation. The response from ReGraP-LLaVA is very detailed and shows that the model learns the personalized knowledge well. However, user may just need a short answer (e.g., "yes" or "no"), instead of a long paragraph.
 
-### <span id="page-18-0"></span>Prompts of the Relation-Graph Builder
+## <span id="page-18-0"></span>Prompts of the Relation-Graph Builder
 
 ### """
 
@@ -475,7 +474,7 @@ You are a Reference Answer Generator, your job is to generate a reference answer
 
 Table 18: Prompts of Reference Answer Generation
 
-#### <span id="page-20-1"></span>Prompts of Open-ended Assessment
+### <span id="page-20-1"></span>Prompts of Open-ended Assessment
 
 # """
 
@@ -483,9 +482,9 @@ You are a strict and objective evaluator. Your task is to assess the quality of 
 
 ![](_page_20_Figure_7.jpeg)
 
-#### <anime\_cup>
+## <anime\_cup>
 
-<span id="page-21-0"></span>![](_page_21_Picture_1.jpeg)
+<span id="page-21-0"></span>
 
 Objects: cup is the single object, its lid, character on the cup, spoon and corresponding attributes of these items help construct the knowledge graph.
 
@@ -523,7 +522,7 @@ Table 20: The training example of <anime\_cup>
 
 #### <anime\_calendar>
 
-<span id="page-22-0"></span>![](_page_22_Picture_1.jpeg)
+<span id="page-22-0"></span>
 
 Objects: The object is a wooden calendar featuring an anime character (Nijika) with yellow hair on top, movable date blocks, and bilingual (English and Chinese) words. It has a cuboid structure and serves both functional (read the dates) and decorative (anime style) purposes.
 
@@ -567,7 +566,7 @@ Table 21: The training example of <anime\_calendar>
 
 #### <ROG\_mouse>
 
-<span id="page-23-0"></span>![](_page_23_Picture_1.jpeg)
+<span id="page-23-0"></span>
 
 Objects: The object is a mouse primarily designed for gaming, and its brand is the ASUS Republic of Gamers (ROG). It features a compact, ergonomic design with customizable RGB lighting, wireless connectivity, and a smooth plastic body, optimized for precision and comfort.
 
@@ -615,7 +614,7 @@ Table 22: The training example of <ROG\_mouse>
 
 #### <bocchi\_the\_rock>
 
-<span id="page-24-0"></span>![](_page_24_Picture_1.jpeg)
+<span id="page-24-0"></span>
 
 Objects: The four members of Kessoku Band: Bocchi, Ryo, Nijika, and Kita. Each member has unique features (e.g., Bocchi's pink hair and shyness). Together, their attributes and relations, (e.g., schools, instruments, roles, and interpersonal relations) construct the knowledge graph that reflects both personal attributes and collaborative dynamics within the band.
 
@@ -669,7 +668,7 @@ A: As the leader, Nijika acts as the emotional anchor of Kessoku Band. She encou
 
 ### <electronic\_workspace>
 
-<span id="page-25-0"></span>![](_page_25_Picture_1.jpeg)
+<span id="page-25-0"></span>
 
 Objects: The workspace includes a Filco mechanical keyboard, a Philips monitor, an Asus ROG laptop, an Asus ROG wireless mouse, and Bose headphones. Their brands, connection types (wired/wireless), and physical arrangement form the knowledge graph, reflecting the user's focus on performance, ergonomic setup, and clean desk aesthetics.
 
@@ -723,7 +722,7 @@ Table 24: The training example of <electronic\_workspace>
 
 #### <girls\_band\_cry>
 
-<span id="page-26-0"></span>![](_page_26_Picture_1.jpeg)
+<span id="page-26-0"></span>
 
 Objects: The group TOGENASHI from Girls Band Cry features Nina, Momoka, Subaru, Tomo, and Rupa. Their distinct personalities, fashion styles, musical roles, and interpersonal relationships together form a comprehensive knowledge graph, showing how their individual characteristics and emotional bonds drive the band's identity and collective growth.
 

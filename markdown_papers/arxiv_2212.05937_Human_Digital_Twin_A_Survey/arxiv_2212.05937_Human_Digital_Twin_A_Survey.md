@@ -1,3 +1,5 @@
+<!-- cite_key: linsupsup2003 -->
+
 # Human Digital Twin: A Survey
 
 Yujia Lin<sup>1</sup> , Liming Chen<sup>2</sup>† , Aftab Ali<sup>2</sup> , Christopher Nugent<sup>2</sup> , Cleland Ian<sup>2</sup> , Rongyang Li<sup>1</sup> , Dazhi Gao<sup>1</sup> , Hang Wang<sup>1</sup> , Yajie Wang<sup>1</sup> and Huansheng Ning1\*
@@ -18,7 +20,7 @@ wangyajie9@163.com;
 
 †These authors contributed equally to this work.
 
-#### Abstract
+## Abstract
 
 Digital twin has recently attracted growing attention, leading to intensive research and applications. Along with this, a new research area, dubbed as "human digital twin" (HDT), has emerged. Similar to the conception of digital twin, HDT is referred to as the replica of a physical-world human in the digital world. Nevertheless, HDT is much more complicated and delicate compared to digital twins of any physical systems and processes, due to humans' dynamic and evolutionary nature, including physical, behavioral, social, physiological, psychological, cognitive, and biological dimensions. Studies on HDT are limited, and the research is still in its infancy. In this paper, we first examine the inception, development, and application of the digital twin concept, providing a context within which we formally define and characterize HDT based on the similarities and differences between digital twin and HDT. Then we conduct an extensive literature review on HDT research, analyzing underpinning technologies and establishing typical frameworks in which the core HDT
 
@@ -75,7 +77,7 @@ The overall structure of the paper takes the form of seven sections, including t
 
 # <span id="page-3-0"></span>2 Related Review Works
 
-# 2.1 The Concept and Evolution of Digital Twin
+# 1 The Concept and Evolution of Digital Twin
 
 Apollo program launched by the National Aeronautics and Space Administration (NASA) in the 1970s can be regarded as the germination of digital twin (DT), which is the first program to use the concept of "twins" [\[9\]](#page-30-1). They constructed two identical space vehicles, the one on earth was used to predict the situation of the other one in space. Although this program is not a complete digital twin system, researchers realized the importance of constructing physical twins [\[10\]](#page-30-2)
 
@@ -101,7 +103,7 @@ Table [2](#page-4-0) lead us to the conclusion that most previous work and appli
 
 heart disease. Subsequently, the term DT has been extended to humans using the term "human digital twin (HDT)".
 
-### 2.2 The Emergence and Vision of Human Digital Twin
+## 2 The Emergence and Vision of Human Digital Twin
 
 Human digital twin (HDT) is an incarnation in the digital world of a human in the physical world. Shengli et al. [\[21\]](#page-31-1) defined it as a model or database which records human current and historic data. Firstly, human information obtained continuously through various smart sensors (e.g., wearable devices, smartphones, and GPS), is transferred to the digital world consecutively. Secondly, the database is updated according to the recorded information. Thirdly, the HDT model analyzes the current and historic data to extract meaningful insights. Finally, it provides feedback information (e.g., diagnoses, predictions, and other suggestions) to the human. Miller et al. [\[26\]](#page-31-6) further refined the definition of HDT. They pointed out that a human in the physical world may be an individual, who could be characterized as a model, or a group of humans with common attributes, which could be summarized into eight categories of human attributes, including physical, physiological, perceptual performance, cognitive performance, personality characteristics, emotional state, ethical stance, and behavior. The HDT they defined includes both first principles models which are based on fundamental understanding and statistical models, which are both modeled using various attributes from an individual or a human class [\[27\]](#page-31-7). Recently, HDT are widely used in various domains, including precision medicine [\[6\]](#page-29-4)[\[28\]](#page-31-8)[\[29\]](#page-31-9)[\[30\]](#page-31-10)[\[31\]](#page-32-0), fitness management [\[32\]](#page-32-1), industrial production [\[33\]](#page-32-2)[\[34\]](#page-32-3)[\[35\]](#page-32-4)[\[36\]](#page-32-5)[\[1\]](#page-29-0)[\[37\]](#page-32-6)[\[38\]](#page-32-7)[\[39\]](#page-32-8).
 
@@ -113,7 +115,7 @@ Regarding the HDT model design, the HDT model is more complicitly designed than 
 
 # <span id="page-6-0"></span>3 The State-of-Art of Human Digital Twin
 
-## 3.1 Overview of the Literature
+## 1 Overview of the Literature
 
 With the increasing importance of digitalization and the trends of IoT, big data, cloud computing, edge computing and AI, more researchers began focusing on HDT. The popularity of HDT continues to increase, and the application of HDT has great potential in engineering, aviation, education, medicine and a wide variety of other domains.
 
@@ -135,7 +137,7 @@ In order to establish a clear structure of existing literature we decide to clar
 
 HDT originated from adding human resources in the industry domain. The earliest publications did not mention the term "human digital twin", instead using other terms like "digital twin for employees" or "digital athlete". Various human attributes were used to develop DT models for employees, which is helpful to the coordination between workers and the system. Graessler et al. [\[44\]](#page-33-2) developed the DT, combining the integration of human resources with the task assumption of computer systems, communicating and coordinating between employees and production systems, and acting as the representative of employees in the digital world. the authors optimized the DT for employees [\[45\]](#page-33-3), used it for the task of assembly station, and demonstrated the impact of human integration in the production system and production control system. HDT not only appeared in the industry domain, but also emerged from the sports domain. Garon et al. [\[46\]](#page-33-4) overviewed the virtual world and the legal framework regulating content ownership, and discussed the legal issues of avatar actors and digital athletes in the sports domain. Baskaran et al. recognized assembly operations from real-world vehicle assembly factories and created digital twin models of the human body in the Siemens Tecnomatix suite, and this is where the term "human digital twin" first appeared in the literature [\[39\]](#page-32-8). This research started with simulating various human body models to find the limitations of performing assembly tasks based on gender, weight and height. Furthermore, the research also introduced a mobile robot DT, which provided help for human in the physical world to perform assembly operations. Finally, the research evaluated the results from process time and joint ergonomics, and revealed the limitations of the combined DT modeling of human and robot cooperation.
 
-# 3.2 Categorization of the Literature
+# 2 Categorization of the Literature
 
 The organization of HDT is categorized as follows:
 
@@ -145,7 +147,7 @@ The organization of HDT is categorized as follows:
 
 Table [4.](#page-9-0) shows the detailed description of each category and typical examples of each literature classification.
 
-# 3.3 Typical Frameworks of Existing HDT
+# 3 Typical Frameworks of Existing HDT
 
 Through the above research, we discuss the organization of three related publication categories, including the framework with the application model category. Next, the structure of HDT and their application in system design, development and operation will be presented in this subsection. The existing frameworks of HDTS could be analyzed from the following two typical examples.
 
@@ -225,7 +227,7 @@ One of the contributions of this paper is the proposed HDTS framework with the s
 
 methods, development status, advantages and disadvantages in the functional block of HDTS in this section.
 
-## 5.1 Sensing \Perception
+## 1 Sensing \Perception
 
 Sensing is the basis of HDTS. The sensor is used to sensing the properties, parameters and actions of the entities and their surrounding in the physical world [\[21\]](#page-31-1), and efficiently provides data to the HDT of the design object [\[62\]](#page-34-9). The ubiquitous data acquisition technology has dramatically improved the perception ability of the physical world. The development of advancements in hardware (e.g., GPS, smartphone, wearable devices) has made the modeling and analysis of HDT possible [\[47\]](#page-33-5).
 
@@ -237,9 +239,9 @@ One of the reasons HDT was introduced in healthcare is so that a thorough and on
 
 and expertise. However, both of them did not describe the method to measure these data in detail. Generally, the kinematic data (time, position, posture, etc.) collected by sensors are widely used in industrial production. Bilberg et al. [\[69\]](#page-35-2) adopted a Kinect sensor to monitor human location and optimized robot trajectories to reduce collisions with people. Peruzzini et al. [\[72\]](#page-35-3) investigated the available technologies for monitoring user experience and created a framework to monitor human health through physiological data. Shen et al. [\[73\]](#page-35-4) trained the HDT model by using wearable sensors collecting physiological data to identify workload severity. Greco et al. [\[34\]](#page-32-3) used the sensors to monitor the human's kinematic motion when they were working. The model simulated by these data can be well evaluated for muscle groups fatigue of the worker, so that support assessments in work or rest schedule.
 
-# 5.2 Human Body \Organs Modeling
+# 2 Human Body \Organs Modeling
 
-### 5.2.1 Human organs modeling
+## 2.1 Human organs modeling
 
 The tumor domain is the main application area of organ modeling (e.g., heart, cardiovascular and liver) of HDT. For tumor research, traditional technology can only cultivate specific tumors in vitro in the physical world, but this method cannot represent the patient's actual situation. Each modelled organ can represent the original tumour patient, which allows for simulation of an appropriate treatment plan on the HDT modelled organ. This is the main benefit of HDT organ modelling technology.
 
@@ -255,25 +257,25 @@ Martine et al. [\[25\]](#page-31-5) proposed the Cardio Twin, a human heart HDT.
 
 <span id="page-17-0"></span>Table 6 The analysis of human digital twin modeling for organs
 
-### 5.2.2 Human body modeling
+### 2.2 Human body modeling
 
 HDT is a digital avatar of a physical human and can describe the physical human body in an all-around way in the digital world. Physical body modeling vividly presents the human body shape and appearance in HDT.
 
 Some studies on modeling the basic information of the human body, including height, weight, and physical proportions, provided various novel schemas for body shape modeling in HDT. Firstly, parametric modeling is the most commonly used paradigm for constructing the human body shape in HDT [\[76\]](#page-36-0). For example, Cheng et al. [\[76\]](#page-36-0) developed a parametric 3D modeling approach based on the background difference and the human contours separation. By improving the GoogleNet network model, they obtained both front and side views of the human body. After inputting the actual human contour, they reconstructed the human body in 3D. Secondly, the RGB-D sequences data is essential for human body modeling in HDT. Hesse et al. [\[77\]](#page-36-1) proposed a statistical 3D Skinned Multi-Infant Linear body model, providing a new way to build the infant body shape and movement properly. Their model had fewer input data requirements and could implement human body shape modeling based on incomplete, low-quality RGB-D sequences data, reducing the data acquisition cost. Zuo et al. [\[78\]](#page-36-2) developed a texture mapping method to reconstruct 3D human models based on sparse RGB-D images and successfully applied it to the personalized customization of the human body model with an error of several millimeters. Thirdly, 3D scans and 2D images can also be used to model human body shapes in HDT. Tong et al. [\[79\]](#page-36-3) presented a scanning system based on multiple Kinects for constructing the human body shape, which has been applied to 3D human animation and virtual try-on. Compared with the traditional 3D scanning camera, their system took less time to generate a more realistic human body for every user. Xu et al. [\[80\]](#page-36-4) proposed a critical point-based method, including KPhub-PC and KPhub-I, for estimating the high-fidelity human body model. Their method constructed the human body based on the raw human body scans and human body 2D images by KPhub-PC and KPhub-I, respectively. In addition, some researchers have mapped the human's face onto HDT by modeling technologies. Liu et al. [\[81\]](#page-36-5) developed a novel 3D face modeling method that combined face alignment with 3D face reconstruction, using the contour of the face in the 2D image by the regression algorithm. Lin et al. [\[82\]](#page-36-6) presented a reliable scheme for facial editing in video construction, further improved the generative adversarial network (GAN) so that the naturally edited face can be fused back into the video, and effectively reduced identity loss and semantic entanglement. Chu et al. [\[83\]](#page-36-7) developed a parametric face modeling framework, which gathered a large amount of data related to face parameters, then used the Kriging method to characterize the facial parameters and 3D facial synthesis. We describe the results of the above methods, which offer not only technical support for the 3D modeling of the human face, but also provide feasible solutions for various applications in HDT, such as face recognition and identity authentication.
 
-### 5.3 Human Behavior Modeling
+### 3 Human Behavior Modeling
 
 HDT behavior modeling aims to build a human behavior model in the digital world to simulate human behavior in all aspects, making HDT's behavior close to human behavior. Researchers collect human behaviors in the physical world,
 
 and endow HDT models with corresponding behaviors in the virtual world [\[84\]](#page-36-8). These behaviors include not only HDT behaviors but also interactive behaviors. According to the different modeling angles of behavioral models, we investigate behavioral models from the aspects of activity modeling, social interaction modeling, and lifestyle modeling, and study how different behaviors are modeled in HDT behavior modeling from different modeling perspectives.
 
-### 5.3.1 Activity modeling
+### 3.1 Activity modeling
 
 Activity modeling refers to modeling human physical activities by HDT, such as facial expression changes, running, and jumping. It is the basis of HDT behavior modeling, and the other behaviors below are extensions or combinations of these behaviors. At the same time, this is also the most basic behavioral feature of "humans" in HDT.
 
 Wang et al. [\[85\]](#page-36-9) presented an approach to extract a 3D facial model from an image using a shape regression network. This method obtained high-quality 3D model pictures at minimal cost, and achieved high-accuracy facial modeling. Although this method is not strictly HDT, it is also the theoretical basis for constituting HDT. Razzaq et al. [\[86\]](#page-36-10) used Convolutional Neural Networks (CNN) to build HDT models of students' and teachers' facial expressions and behaviors for remote teaching and classroom supervision. This method was born out of face modeling, and on this basis, the recognition of facial expressions was added, which had higher practicability. However, the limitation of this method was that only using CNN as a modeling tool may reduce generalization, and the deployment cost was raised by the requirement of the participation of a large amount of facial expression data and the requirements on sample quality. Trobinger et al. [\[87\]](#page-36-11) collected information from doctors and patients using multi-modal sensors, and established a DT of patients using motion equations. The patient's activities and facial expressions were identified through motion analysis and support vector machines to help doctors diagnose patients remotely. This method can quickly and accurately establish a patient's HDT model, but it cannot further learn from the patient's historical records and medical conditions, which has certain limitations. Similarly, in the medical domain, Chen et al. [\[56\]](#page-34-7) used a 3D visualization system to build a model of knee joint motion and supported the analysis of motion trajectories to achieve real-time motion tracking. The above two methods model human motion, which is more complicated than a single part. Therefore, both these studies established a complete set of HDT models, from data collection to model presentation, which has higher usability and sets a reference standard for future HDT tasks.
 
-### 5.3.2 Social interaction modeling
+### 3.2 Social interaction modeling
 
 The social interaction model is a way to achieve interaction between HDT models, and try to simulate a classic mode of human interaction in the physical world. It requires the participation of two or more HDT in the virtual world, and they need to have interfaces that can communicate with each other [\[26\]](#page-31-6). It can be divided into traditional social interaction models and online social interaction models.
 
@@ -281,7 +283,7 @@ Traditional social interaction is the interaction between HDT and HDT through li
 
 Online social interaction modeling is another way to achieve social interaction between HDT. It is abstracted from traditional social networking. Online social networking is to communicate through online social platforms and communicate in a more accessible way. Compared with traditional social methods, online socialization is more flexible and learnable. Jianshan Sun et al. [\[89\]](#page-37-1) observed users' online published content and preferences. They used the pretrained Glove-vector model [\[90\]](#page-37-2) to transform the textinto the word vecto, built the user-likes matrix through singular value decomposition (SVD) techniques [\[91\]](#page-37-3) and formalized personality as an HDT model. The method of this human behavior HDT model was a multitask learning depth neural network model to predict the user's personality through these two sources of data representation, which could improve the accuracy of personality prediction. In this study, Deep Neural Networks (DNN) outperformed the standard ML algorithm, and the best performance came from combining document and like vectors obtained with SVD.
 
-### 5.3.3 Lifestyle modeling
+### 3.3 Lifestyle modeling
 
 Lifestyle modelling incorporates all of the human behaviours that take place throughout the course of a day into the HDT model by translating how people live in the physical world. This modeling method integrates the above two behaviors and has higher abstraction and universality.
 
@@ -291,7 +293,7 @@ a hybrid model to simulate ischemic stroke, combining formula-based modeling wit
 
 # <span id="page-21-0"></span>6 Human Digital Twin Application
 
-## 6.1 Healthcare Domain
+## 1 Healthcare Domain
 
 Healthcare is defined as a broad concept covering precision medicine [\[93\]](#page-37-5), smart medicine, sports, health, nursing and rehabilitation [\[94\]](#page-37-6) etc. Healthcare refers to people's health in all aspects (e.g., physical, psychological, social levels), with the goal of "putting the individual in a state of wellbeing". One healthcare domain problem is the lack of real-time information interaction [\[93\]](#page-37-5). Another problem is that due to the complex structure of the human body and the constant changes in the state of the human, it is difficult to extract accurate molecular data [\[5\]](#page-29-3). A further issue is that different chronic diseases have a prolonged course, are frequently recurrent, progress slowly, and are expensive and difficult to detect and manage. In addition, the world is facing the problem of an aging population, so it is necessary to consider more intelligent life monitoring for the elderly [\[95\]](#page-37-7)[\[63\]](#page-34-12)[\[96\]](#page-37-8)[\[6\]](#page-29-4). HDT technology offers new opportunities for healthcare. It has been widely used in precision medicine and sports medicine domain [\[62\]](#page-34-9). It seamlessly connected the physical world and digital world, effectively integrated information [\[97\]](#page-37-9), provided real-time monitoring of patient body data [\[98\]](#page-38-0), enabled more real-time relevant medical responses [\[94\]](#page-37-6), and improved resource utilization rate [\[93\]](#page-37-5). Researchers also achieved predictive maintenance for the elderly [\[96\]](#page-37-8) by combining HDT with healthcare, providing more accurate and faster services for elderly healthcare [\[6\]](#page-29-4). Furthermore, HDT is expected to achieve better disease prediction, disease diagnosis, disease treatment, continuous monitoring, medical assessment, and risk assessment without interfering with patients' daily activities [\[93\]](#page-37-5)[\[5\]](#page-29-3).
 
@@ -299,13 +301,13 @@ In the precision medicine domain, each person has their precision digital HDT mo
 
 In the sports medicine domain, HDT model not only digitizes the information related to the human body, but also constructs the human body structure with high fidelity. Various sports-related options, such as sports plans and diet, can be tested and taught on the HDT model, which dramatically reduces the risk of sports training. As a result, HDT offers a highly integrated simulation system for use in sports medicine. By creating appropriate datasets and developing appropriate simulation models, HDT model can simulate the behavior of human body and its subsystems, enabling continuous monitoring of human and prediction of their future state. Barricelli et al. [\[32\]](#page-32-1) established the SmartFit framework to monitor the physical condition of athletes. It built a digital model of the athletes' bodies after inpit utting the behavior of athletes for several consecutive days, to analyze athletes' states and judge if their future exercise and diet plans are optimal. This HDT model concentrated on the behaviour of athletes and their professional conduct; social behaviour or grouping athletes for greater accuracy were not considered. However, it gave the HDT model the capacity to learn and had a high usage value. Alekseyev et al. [\[100\]](#page-38-2) introduced a method to research mobile information and measurement systems for constructing personal dynamic portraits of the human body reflecting human movement in different domains of activity study portraits, and proposed a personalized system for assessing the recovery of the patient's walking skills. This HDT system tracked patients' tendencies based on assessments of temporal characteristics of walking technique, to improve motor skills during rehabilitation.
 
-# 6.2 Industry Domain
+# 2 Industry Domain
 
 Under the trend of Industry 4.0, HDT has been given more significance. Researchers started using HDT in intelligent factories to improve productivity and production efficiency. Pires et al. [\[3\]](#page-29-1) discussed the significance and challenges of HDT. Locklin et al. [\[33\]](#page-32-2) analyzed the feasibility of HDT in the industry. They argued that HDT could adjust its relationship with the physical world at a lower cost, as natural as employee job transfers.
 
 HDT is assigned various forms and tasks within the manufacturing industry. Because the majority of human self-behavior expansion in the manufacturing domain is the expansion of some occupational knowledge and behaviour, namely professional behaviour, researchers focus more on the expansion of human social behaviour and human self-behavior. Montini et al. [\[38\]](#page-32-7) proposed a meta-model of factory HDT, including human psychological, physiological and behavioral aspects, which provided a reference for building a unique HDT model. Greco et al. [\[34\]](#page-32-3) used HDT to debug human-computer interaction equipment. They took into account not only common misbehaviour but also unconscious misbehaviour when modelling misbehaviour in professional behaviour in manufacturing. By studying industry errors and using them to predict misclassification, they were able to model human error behaviour by accurately capturing actual error operations. This helped mechanical designers anticipate the potential effects of their equipment due to errors in behaviour and increased the equipment's reliability. Sun et al. [\[35\]](#page-32-4) also adopted a similar method and improved assembly quality and efficiency by constructing HDT model to debug high-precision models. Baskaran et al. [\[39\]](#page-32-8) designed HDT in automotive assembly domain to test the possible impact and labor feasibility of various solutions. Ariansyah et al. [\[37\]](#page-32-6) built HDT models by collecting human fatigue data to allocate production operations work and decision-making better. Al Assadi et al. [\[36\]](#page-32-5) implemented a personnel management system for the automatic training and placement of workers by modeling employees' behavior and professional behavior. Sharotry et al. [\[1\]](#page-29-0) modeled the behavior of people carrying heavy objects and judged the risk of injury by the degree of muscle fatigue and the standard of carrying movements. They built the model by collecting the data of each joint of the person during handling and evaluating the person's physical state, and added a DT module to establish HDT model through the learning of various fatigue data to ensure the correctness of the operator's handling work. This method also focused on human self-behavior and professional behavior. However, it did not realize the steps from "general" to "specialized", because it just learned the average value of human beings through a large number of samples and made judgments with more remarkable universality. Nevertheless, it may not play a role in applying extreme cases.
 
-## 6.3 Daily Life (General) Domain
+## 3 Daily Life (General) Domain
 
 The indicators of the HDT model in the digital world should be as close as possible to human characteristics to help and guide people to work and learn better by simulating the components of the physical world. The social attributes of HDT are expected to be high. Toshima et al. [\[101\]](#page-38-3) took HDT as a simulation model similar to human's internal and external self to assist in completing daily tasks. In order to predict user weight and combine it with BMI indexes, Caballero et al. [\[102\]](#page-38-4) created an HDT model, modelled the data obtained from the body weight sensors of people, described an algorithm for filtering and predicting human body weight, proposed various thresholds based on gender to filter possible error values. When the user was predicted to be underweight, overweight or heavier, the HDT model can provide coping suggestions on time.
 
@@ -317,7 +319,7 @@ With the development of IoT technology, HDT is expected to achieve widely used i
 
 In the above research work, technology issues related to the development of HDT are the challenges that have received the most attention in the literature. With the rapid development of advanced technology (e.g., AI, IoT, 5G \6G, Cloud Computing), significant progress has been made in designing HDT. Nevertheless, various challenges remain, such as data heterogeneity, data transmission and real-time interaction. After constructing an HDT, various social issues with the application of HDT in the physical world cannot be ignored. We mainly discuss three social issues, one is HDT regulation, another is ethics and privacy, the third one is trust and transparency. Finally, owing to human unique thinking and cognition, machine intelligence and cognitive simulation could be considered to optimize HDT.
 
-## 7.1 Technology Issues
+## 1 Technology Issues
 
 In the aspect of data heterogeneity, HDT involves the storage and analysis of various information related to the human, such as social attributes, physical behavior, physiological signals, and so on [\[104\]](#page-38-6). This information is not only presented in different forms (e.g., pictures, text, audio, etc.), but also
 
@@ -327,7 +329,7 @@ Data is crucial for the intended success of the HDT in the aspect of data transm
 
 In terms of real-time interaction, 5G technology helps HDT to address the problem of real-time interaction because the development of 5G \6G networks has added the additional potential for precise real-time data collection and access [\[112\]](#page-39-3). Due to its high reliable connection, high speed and low delay, 5G systems have been widely applied and deployed in various countries [\[113\]](#page-39-4). 5G is the critical technology for realizing remote real-time interaction. Various experiments verification show that the 5G video transmission delay is 49ms, which well meets the needs of real-time interaction for low delay. Although it is not widely used in the infancy stage of HDT, similarly, it can draw on the experience of the video transmission protocol based on 5G communication [\[114\]](#page-39-5) in the domain of real-time unmanned aerial vehicle video transmission. 5G has realized the gigabit speed, greater capacity and ultra-low latency, while 6G will use more advanced radio equipment and various radio waves, and can provide ultra-high speed and huge capacity in a short distance. Holographic telepresence is an essential application of 6G [\[113\]](#page-39-4). It will allow people to communicate with the authentic 3D model of objects, bring people an immersive real-time 3D experience, and elevate human communication to a new level. With the support of holographic communication technology, the real-time and high mobility characteristic of HDT can be fully realized in the future [\[113\]](#page-39-4).
 
-## 7.2 Social Issues
+## 2 Social Issues
 
 At the initial stage of HDT, researchers pay more attention to the study of HDT core technology and application, however, far too little attention has been paid to the open social issues in the physical world. Thus, we notice the limitation and discuss the open issues related to the development of HDT from three terms: HDT social regulation, privacy and ethics, and trust and dependence.
 
@@ -339,7 +341,7 @@ data privacy and HDT ownership, ethical issues arose. The first problem is how t
 
 In terms of trust and dependence, we investigate the existing modes of human attitudes toward AI, which may be available for reference to study HDT. On the one hand, the European Commission's High Level Expert Group adopted the position that human should establish trust relations with AI and cultivate trustworthy AI [\[121\]](#page-40-1). On the other hand, Ryan et al. [\[122\]](#page-40-2) proposed that AI cannot be trusted, because it does not have an emotional state or can be responsible for its behavior with the emotional and normative account requirements of trust. AI meets all the requirements of rational trust, but it is not human trust, but a form of dependence. From the above two opposite views on AI trust, we summarize three points of HDT trust. (i) Multi-modal and multi-source data are used in the construction of HDT, which involves various users' privacy information. Only by protecting the ethics and privacy rights of users from infringement can make it possible to establish users' trust in HDT. (ii) Improving computing power can significantly improve the HDT model accuracy. The HDT compute capacity requirements can be approached through High-Performance Computing (HPC) [\[123\]](#page-40-3) and Quantum Computation [\[124\]](#page-40-4). Cloud/Edge computing can further improve real-time computing by combining distributed computing with central computing [\[125\]](#page-40-5). Furthermore, the evaluation method also should be considered, and it is crucial to evaluate the prediction results to judge the classifier error and provide the reliability of the calculated recommendations [\[32\]](#page-32-1). (iii) Establish a simple, operable and intelligible interactive interface. Maeyer et al. [\[126\]](#page-40-6) emphasized the design of human-computer interface should be based on the important premise that users can easily understand and operate. Braun et al. [\[49\]](#page-33-7) advised paying more attention to human-computer interfaces between human and HDT, strengthening human control of HDT and protecting people's freedom from being infringed. Fuller et al. [\[128\]](#page-40-7) advised explaining the HDT framework from the foundational level to help user get a deeper understanding.
 
-## 7.3 Human Thinking and Cognition Issues
+## 3 Human Thinking and Cognition Issues
 
 Human thinking and cognition are uniquely human characteristics, which greatly help people solve information-processing problems. Most of human information processing process is subconscious. Thus, it is not easy to understand people's thoughts clearly [\[129\]](#page-40-8). Aiming to make machines better serve human and improve their work efficiency, researchers devote themselves to studying machine intelligence. Originally, Turing et al. [\[130\]](#page-40-9)[\[131\]](#page-40-10) proposed imitating human thinking through computer programs. Turing machine was first used for mathematicians processing information. It imitated human thinking, neither bionic artifacts nor imitating biological structures [\[130\]](#page-40-9)[\[132\]](#page-40-11). After Turing, various researchers began to study whether programs could ever be really intelligent, creative or even conscious [\[133\]](#page-41-0). These studies have identified it is necessary to consider the cognitive simulation block when designing HDT system, to analyze the results of human behavior and performance in the process of processing information and improve prediction accuracy.
 

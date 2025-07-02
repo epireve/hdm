@@ -1,3 +1,5 @@
+<!-- cite_key: arxiv2024 -->
+
 # A Survey on Temporal Knowledge Graph: Representation Learning and Applications
 
 Li Caia,b, Xin Mao<sup>a</sup> , Yuhao Zhou<sup>a</sup> , Zhaoguang Long<sup>a</sup> , Changxu Wu<sup>c</sup> , Man Lana,<sup>∗</sup>
@@ -18,7 +20,7 @@ Keywords: Temporal knowledge graph, Representation learning, Knowledge reasoning
 
 Email addresses: lcai2020@stu.ecnu.edu.com (Li Cai), xmao@stu.ecnu.edu.cn (Xin Mao), 51265900018@stu.ecnu.edu.cn (Yuhao Zhou), 51265901014@stu.ecnu.edu.cn (Zhaoguang Long), wuchangxu@tsinghua.edu.cn (Changxu Wu), mlan@cs.ecnu.edu.cn (Man Lan)
 
-## 1. Introduction
+## Introduction
 
 Knowledge graphs (KGs) describe the real world with structured facts. A fact consists of two entities and a relation connecting them, which can be formally represented as a triple (head, relation, tail), and an instance of a fact is (Barack Obama, make statement, Iran). Knowledge graph representation learning (KGRL) [\[33\]](#page-28-0) seeks to learn the low-dimentional vector embeddings of entities and relations and use these embeddings for downstream tasks such as information retrieval [\[16\]](#page-26-0), question answering [\[29\]](#page-28-1), and recommender systems [\[2\]](#page-24-0).
 
@@ -36,9 +38,9 @@ This paper comprehensively summarizes the current research of TKGRL and its rela
 
 The remainder of this paper is organized as follows: Chapter 2 introduces the background of temporal knowledge graphs, including definitions, datasets, and evaluation metrics. Chapter 3 summarizes various temporal knowledge graph representation learning methods, including transformation-based methods, decomposition-based methods, graph neural networks-based methods, capsule network-based methods, autoregression-based methods, temporal point processbased methods, interpretability-based methods, language model methods, fewshot learning methods and others. Chapter 4 introduces the related applications of the temporal knowledge graph, such as temporal knowledge graph reasoning, entity alignment between temporal knowledge graphs, and question answering over temporal knowledge graphs. Chapter 5 highlights the future directions of Temporal Knowledge Graph Representation Learning (TKGRL), encompassing Scalability, Interpretability, Information Fusion, and the Integration of Large Language Models. Chapter 6 gives a conclusion of this paper.
 
-## 2. Background
+## Background
 
-## 2.1. Problem Formulation
+## 1. Problem Formulation
 
 A temporal knowledge graph is a directed multi-relational graph containing structured facts. It is usually expressed as G = (E, R, T, F), where E, R, and T are the sets of entities, relations, and timestamps, respectively, and F ⊂ E × R × E × T is the set of all possible facts. A fact f is denoted as (h, r, t, τ ), where h, r, t, and τ are the head entity, relation, tail entity, and timestamp, respectively.
 
@@ -50,7 +52,7 @@ Take Figure [1](#page-1-0) for example, where the entity set E contains (Barack 
 
 TKGRL aims to effectively learn low-dimensional vector representations of entities h, t, relations r, and timestamps τ for downstream tasks such as knowledge reasoning, entity alignment and question answering (as shown in Figure [2\)](#page-3-0).
 
-## 2.2. Datasets
+## 2. Datasets
 
 There are four commonly used datasets for temporal knowledge graph representation learning.
 
@@ -81,7 +83,7 @@ GeoNames. YAGO integrates WordNet's word definitions with Wikipedia's classifica
 
 The datasets of TKGs often require unique data processing methods for different downstream applications. Table [1](#page-4-0) presents the statistics of datasets for various tasks of TKGs. In knowledge reasoning tasks, datasets are typically divided into different training sets, validation sets, and test sets based on task type (interpolation and extrapolation). In entity alignment tasks, as the same entites in the real world need to be aligned between different KGs, a dataset always includes two temporal knowledge graphs that must be learned simultaneously. For question answering tasks, the datasets not only include temporal knowledge graphs used to search for answers but also include temporal-related questions (which have not been showed here).
 
-## 2.3. Evaluation Metrics
+## 3. Evaluation Metrics
 
 The evaluation metrics for verifying the performance of TKGRL are MRR (mean reciprocal rank) and Hit@k.
 
@@ -107,7 +109,7 @@ $$
 
 where the |S| and rank<sup>i</sup> are the same as above, I(·) is the indicator function (If the condition (rank<sup>i</sup> ≤ k) is true, the function value is 1, otherwise 0). Typically, k is 1, 3, 5 or 10. Hit@1 represents the percentage that the first-rank predicted result is the correct answer, equivalent to the Accuracy. Hit@10 represents the percentage of the top ten predictions containing correct answers. The higher the Hit@k, the better the performance.
 
-## 3. Temporal Knowledge Graph Representation Learning Methods
+## Temporal Knowledge Graph Representation Learning Methods
 
 Compared to KGs, TKGs contain additional timestamps, which are taken into account in the construction of TKGRL methods. These methods can be broadly categorized into transformation-based, decomposition-based, graph neural networks-based, and capsule network-based approaches. Additionally, temporal knowledge graphs can be viewed as sequences of snapshots captured at different timestamps or events that occur over continuous time, and can be learned using autoregressive and temporal point process techniques. Moreover, some methods prioritize interpretability, language model, and few-shot learning. Thus, based on the core technologies employed by TKGRL methods, we group them into the following categories: transformation-based methods,
 
@@ -137,7 +139,7 @@ decomposition-based methods, graph neural networks-based methods, capsule networ
 
 The notations in these methods are varied, and we define our notations to describe them uniformly. We use lower-case letters to denote scalars, bold lowercase letters to denote vectors, bold upper-case letters to denote matrices, bold calligraphy upper-case letters to denote order 3 tensors, and bold script uppercase letters to denote order 4 tensors. The main notations and their descriptions are listed in table [2.](#page-6-0)
 
-## 3.1. Transformation-based Methods
+## 1. Transformation-based Methods
 
 In the transformation-based method, timestamps or relations are regarded as the transformation between entities. The representation learning of TKGs is carried out by integrating temporal information or mapping entities and relations to temporal hyperplanes based on the existing KGRL methods. There are translation-based transformations and rotation-based transformations.
 
@@ -157,7 +159,7 @@ ChronoR [\[58\]](#page-31-3) proposes a model with a k-dimensional rotation tran
 
 RotateQVS [\[9\]](#page-25-1) utilizes a hypercomplex (quaternion) vector space ( H<sup>d</sup> , q = a + bi + cj + dk, a, b, c, d ∈ R d ) to represent entities, relations, and timestamps. The time-specific entity representations are learned through temporal rotation transformations in 3D space, where the mapping function is denoted as h<sup>τ</sup> = τ hτ <sup>−</sup><sup>1</sup> , t<sup>τ</sup> = τ tτ <sup>−</sup><sup>1</sup> , and the score function is defined as ∥h<sup>τ</sup> + r − t<sup>τ</sup> ∥2.
 
-## 3.2. Decomposition-based Methods
+## 2. Decomposition-based Methods
 
 The main task of representation learning is to learn the low-dimensional vector representation of the knowledge graph. Tensor decomposition has three applications: dimension reduction, missing data completion, and implicit relation mining, which meet the needs of knowledge graph representation learning. The knowledge graph consists of triples and can be represented by an order 3 tensor. For the temporal knowledge graph, the additional temporal information can be represented by an order 4 tensor, and each tensor dimension is the head entity, relation, tail entity, and timestamp, respectively. Tensor decomposition includes Canonical Polyadic (CP) decomposition [\[30\]](#page-28-5) and Tucker decomposition [\[69\]](#page-33-2).
 
@@ -177,7 +179,7 @@ composition technique, and CP decomposition is its particular case. Tucker decom
 
 TuckERT [\[64\]](#page-32-0) proposes an order 4 tensor decomposition model based on Tucker decomposition. The model is fully expressive and effective for temporal knowledge graph completion. The score function is ⟨M; h, r, t, τ ⟩, where M is an order 4 tensor.
 
-## 3.3. Graph Neural Networks-based Methods
+## 3. Graph Neural Networks-based Methods
 
 Graph Neural Networks (GNN) [\[60\]](#page-32-1) have powerful structure modeling ability. The entity can enrich its representation with the attribute feature and the global structure feature by GNN. Typical graph neural networks include Graph Convolutional Networks (GCN) [\[38\]](#page-29-4) and Graph Attention Networks (GAT) [\[72\]](#page-33-4). GCN gets the representation of nodes by aggregating neighbor embeddings, and GAT uses a multi-head attention mechanism to get the representation of nodes by aggregating weighted neighbor embedding. The knowledge graph is a kind of graph that has different relations. The relation-aware graph neural networks are developed to learn the representations of entities in the knowledge graph. Relational Graph Convolutional Networks (R-GCN) [\[61\]](#page-32-2) is a graph neural network model for relational data. It learns the representation for each relation and obtains entity representation by aggregating neighborhood information under different relation representations. Temporal knowledge graphs have additional temporal information, and some methods enhance the representation of entities by a time-aware mechanism.
 
@@ -189,7 +191,7 @@ DEGAT [\[74\]](#page-33-5) proposes a dynamic embedding graph attention network.
 
 T <sup>2</sup>TKG[\[84\]](#page-35-1), or Latent relations Learning method for Temporal Knowledge Graph reasoning, is a novel approach that addresses the limitations of existing methods in explicitly capturing intra-time and inter-time latent relations for accurate prediction of future facts in Temporal Knowledge Graphs. It first employs a Structural Encoder (SE) to capture representations of entities at each timestamp, encoding their structural information. Then, it introduces a Latent Relations Learning (LRL) module to mine and exploit latent relations both within the same timestamp (intra-time) and across different timestamps (inter-time). Finally, the method fuses the temporal representations obtained from SE and LRL to enhance entity prediction tasks.
 
-## 3.4. Capsule Network-based Methods
+## 4. Capsule Network-based Methods
 
 CapsNet is first proposed for computer vision tasks to solve the problem that CNN needs lots of training data and cannot recognize the spatial transformation of targets. The capsule network is composed of multiple capsules, and one capsule is a group of neurons. The capsules in the lowest layer are called primary capsules, usually implemented by convolution layers to detect the presence and pose of a particular pattern (such as eyes, nose, or mouth). The capsules in the higher level are called routing capsules, which are used to detect more complex patterns (such as faces). The output of a capsule is a vector whose length represents the probability that the pattern is present and whose orientation represents the pose of the pattern.
 
@@ -201,7 +203,7 @@ BiQCap [\[85\]](#page-35-2) utilizes biquaternions in hypercomplex space (H<sup>
 
 DuCape [\[86\]](#page-35-3) represents entities, relations, and time using dual quaternions in hypercomplex space (H<sup>d</sup> , q = q<sup>0</sup> + q1ξ, q<sup>0</sup> = a0+ b0i + c0j + d0k, q<sup>1</sup> = a<sup>1</sup> + b1i + c1j + d1k, a0, b0, c0, d0, a1, b1, c1, d<sup>1</sup> ∈ R d ). Dual quaternions enable modeling of both rotation and translation operations simultaneously. The model first transforms the head entity through relations and timestamps in the dual quaternion space, where the representation is close to that of the tail entity. The scoring function is ∥h ⊙ r ⊙ τ − t∥. The learned representations are then inputted into the capsule network to obtain the final representation.
 
-## 3.5. Autoregression-based Methods
+## 5. Autoregression-based Methods
 
 The representation learning methods based on autoregression consider that the above methods cannot model the evolution of the temporal knowledge graph over time, so they cannot predict the knowledge graph in the future. It assumes that the knowledge graph of time τ can be inferred from the knowledge graph of last time and samples the temporal knowledge graph G according to the timestamp to obtain a series of subgraphs (or snapshots) {G1, G2, ..., G<sup>T</sup> }. Each subgraph contains the facts of the TKG at a timestamp. By modeling the subgraphs recurrently, the autoregression-based methods learn the evolutional representations of entities and relations to infer the facts G<sup>T</sup> +1 in the future.
 
@@ -215,7 +217,7 @@ TiRGN [\[43\]](#page-29-5) argues that the above methods can only capture the lo
 
 Cen [\[44\]](#page-29-6) believes that modeling historical facts with fixed time steps could not discover the complex evolutional patterns that vary in length. It proposes a complex evolutional network that use the evolution unit in RE-GCN as a sequence encoder to learn the representations of entities in each subgraph and utilizes the CNN as the decoder to obtain the feature maps of historical snapshots with different length. The curriculum learning strategy is used to learn the complex evolution pattern with different lengths of historical facts from short to long and automatically select the optimal maximum length to promote the prediction.
 
-## 3.6. Temporal Point Process-based Methods
+## 6. Temporal Point Process-based Methods
 
 The autoregression-based methods sample the TKG into discrete snapshots according to a fixed time interval, which cannot effectively model the facts with irregular time intervals. Temporal point process (TPP) [\[12\]](#page-25-3) is a stochastic process composed of a series of events in a continuous time domain. The representation learning methods based on TPP regard the TKG as a list of events changing continuously with time and formalize it as (G, O), where G is the initialized TKG at time τ0, O is a series of observed events (h, r, t, τ ). At any time τ > τ0, the TKG can be updated by the events before time τ . The TPP can be characterized by conditional intensity function λ(τ ). Given the historical events before a timestamp, if we can find a conditional intensity function to characterize them, then we can Predict whether the events will occur in the future with a conditional density and when the events will occur with an expectation.
 
@@ -225,7 +227,7 @@ GHNN [\[27\]](#page-27-2) believes that the Hawkes process [\[28\]](#page-28-6) 
 
 EvoKG [\[57\]](#page-31-5) argues that the above methods based on TPP lack to model the evolving network structure, and the methods based on autoregression lack to model the event time. It proposes a model jointly modeling the evolving network structure and event time. First, it uses an extended R-GCN and RNN to learn the time-evolving structural representations of entities and relations and utilizes an MLP with softmax to model the conditional probability of event triple. Then, it uses the same framework to learn the time-evolving temporal representations and adopts the TPP based on conditional density estimation with a mixture of log-normal distributions to model the event time. Finally, it jointly trains the two tasks and predicts the event and time in the future.
 
-## 3.7. Interpretability-based Methods
+## 7. Interpretability-based Methods
 
 The aforementioned methods has resulted in a lack of interpretability and transparency in the generated results. As a result, we categorize interpretabilitybased methods as a separate category to underscore the crucial role of interpretability in developing reliable and transparent models. These methods aim to provide explanations for the predictions made by the models. Two popular types of such methods are subgraph reasoning-based and reinforcement learning-based approaches.
 
@@ -239,7 +241,7 @@ CluSTeR [\[45\]](#page-30-3) proposes a two-stage reasoning strategy to predict 
 
 TITer [\[65\]](#page-32-4) directly uses the temporal path-based reinforcement learning model to learn the representations of the TKG and reasons for future facts. It adds temporal edges to connect each historical snapshot of the TKG. The agent starts from the head entity of the query, transitions to the new node according to the policy network, and searches for the answer node. The method designs a time-shaped reward based on Dirichlet distribution to guide the model learning.
 
-## 3.8. Language Model
+## 8. Language Model
 
 In the domain of TKG, the rapid development of language models has prompted researchers to explore their application for predictive tasks. The current methodologies employing language models in the TKG domain predominantly encompass two distinct approaches: In-Context Learning and Supervised Fine-Tuning.
 
@@ -251,7 +253,7 @@ Supervised Fine-Tuning ECOLA [\[25\]](#page-27-4) proposes a joint learning mode
 
 Frameworks such as GenTKG [\[47\]](#page-30-4) and Chain of History [\[50\]](#page-30-5) adopt retrieval augmented generation method for prediction. They utilize specific strategies to retrieve historical facts with high temporal relevance and logical coherence. Subsequently, these frameworks apply supervised fine-tuning language models to predict the future based on the retrieved historical facts. The input of the language model comprises historical facts and prediction queries, with the model outputting forecasted results. The authors have constructed a bespoke dataset of instructional data, which is utilized to train the language model, resulting in exemplary performance.
 
-## 3.9. Few-shot Learning Methods
+## 9. Few-shot Learning Methods
 
 Few-shot learning (FSL) [\[76\]](#page-34-3) is a type of machine learning problems that deals with the problem of learning new concepts or tasks from only a few examples. FSL has applications in a variety of domains, including computer vision [\[36\]](#page-28-8), natural language processing [\[77\]](#page-34-4), and robotics [\[49\]](#page-30-6), where data may be scarce or expensive to acquire. In TKGs, some entities and relations are only exist in a limited number of facts, and new entities and relations emerge over time. The latest TKGRL models now have the ability to perform FSL [\[8\]](#page-25-5), which is essential for better representing these limited data. Due to the differences in handling data and learning methods for few entities and few relations, we will introduce them separately.
 
@@ -265,7 +267,7 @@ Few Relations TR-Match [\[22\]](#page-27-6) identifies that most relations in TK
 
 MTKGE [\[10\]](#page-25-6) recognizes that TKGs are subject to the emergence of unseen entities and relations over time. To address this challenge, the authors propose a meta-learning-based temporal knowledge graph extrapolation model. The proposed approach includes a Relative Position Pattern Graph (RPPG) to construct several position patterns, a Temporal Sequence Pattern Graph (TSPG) to learn different temporal sequence patterns, and a Graph Convolutional Network (GCN) module for extrapolation. This model leverages metalearning techniques to adapt to new data and extract useful information from the existing TKG. The proposed MTKGE framework represents an important advancement in TKGRL by introducing a novel approach to knowledge graph extrapolation.
 
-## 3.10. Other Methods
+## 10. Other Methods
 
 Other methods leverage the unique characteristics of TKGs to learn entity, relation, and timestamp representations. For instance, One approach explores the repetitive patterns of TKG and learns a more expressive representation using the copy-generation patterns. Alternatively, other methods employ various geometric and algorithmic techniques to capture the structural properties of TKGs and learn effective representations.
 
@@ -332,15 +334,15 @@ h <sup>r</sup>(h,t|τ) = h + b<sup>t</sup> + τ r , t <sup>r</sup>(h,t|τ) = t+ 
 
 TGeomE [\[80\]](#page-34-7) moves beyond the use of complex or hypercomplex spaces for TKGRL and instead proposes a novel geometric algebra-based embedding approach. This method utilizes multivector representations and performs fourthorder tensor factorization of TKGs while also introducing a new linear temporal regularization for time representation learning. The proposed TGeomE approach can naturally model temporal relations and enhance the performance of TKGRL models.
 
-## 3.11. Summary
+## 11. Summary
 
 In this section, we divide the TKGRL methods into ten categories and introduce the core technologies of these methods in detail. Table [3](#page-18-0) shows the summary of the methods, including the representation space, the encoder for mapping the entities and relations to the vector space, and the decoder for predicting the answer.
 
-## 4. Applications of Temporal Knowledge Graph
+## Applications of Temporal Knowledge Graph
 
 By introducing temporal information, TKG can express the facts in the real world more accurately, improve the quality of knowledge graph representation learning, and answer temporal questions more reliably. It is helpful for the applications such as reasoning, entity alignment, and question answering.
 
-## 4.1. Temporal Knowledge Graph Reasoning
+## 1. Temporal Knowledge Graph Reasoning
 
 TKGRL methods are widely used in temporal knowledge graph reasoning (TKGR) tasks which automatically infers new facts by learning the existing facts in the KG. TKGR usually has three subtasks: entity prediction, relation prediction, and time prediction. Entity prediction is the basic task of link prediction, which can be expressed as two queries (?, r, t, τ ) and (h, r, ?, τ ). Relation prediction and time prediction can be expressed as (h, ?, t, τ ) and (h, r, t, ?), respectively.
 
@@ -348,13 +350,13 @@ TKGR can be divided into two categories based on when the predictions of facts o
 
 Several methods have been proposed for Temporal Knowledge Graph Completion (TKGC) including transformation-based, decomposition-based, graph neural networks-based, capsule Network-based, and other geometric methods. These techniques aim to address the problem of missing facts in TKGs by leveraging various mathematical models and neural networks. In contrast, predicting future facts in TKGs requires a different approach that can model the temporal evolution of the graph. Autoregression-based, temporal point process-based, and few-shot learning methods are commonly used for this task. Interpretability-based methods are used to increase the reliability of prediction results. These techniques provide evidence to support predictions, helping to establish trust and improving the overall quality of predictions made by the model. To further enhance the performance of TKGRL, semantic augmentation technology can be employed to improve the quality and quantity of semantic information of TKGs. Utilizing entity and relation names, as well as textual descriptions of fact associations, can enrich their representation and promote the development of downstream tasks of TKGs. In addition, large language models (LLMs) for natural language processing (NLP) can facilitate the acquisition of rich semantic information about entities and relations, further augmenting the performance of TKGRL models.
 
-## 4.2. Entity Alignment Between Temporal Knowledge Graphs
+## 2. Entity Alignment Between Temporal Knowledge Graphs
 
 Entity alignment (EA) aims to find equivalent entities between different KGs, which is important to promote the knowledge fusion between multi-source and multi-lingual KGs. Defining G<sup>1</sup> = (E1, R1, T1, F1) and G<sup>2</sup> = (E2, R2, T2, F2) to be two TKGs, S = {(e1<sup>i</sup> , e2<sup>j</sup> )|e1<sup>i</sup> ∈ E1, e2<sup>j</sup> ∈ E2} is the set of alignment seeds between G<sup>1</sup> and G2. EA seeks to find new alignment entities according to the alignment seeds S. The methods of EA between TKGS mainly adopt the GNN-based model.
 
 Currently, exploring the entity alignment (EA) between Temporal Knowledge Graphs (TKGs) is an active area of research. TEA-GNN [\[81\]](#page-34-0) was the first method to incorporate temporal information via a time-aware attention Graph Neural Network (GNN) to enhance EA. TREA [\[82\]](#page-34-2) utilizes a temporal relational attention GNN to integrate relational and temporal features of entities for improved EA performance. STEA [\[7\]](#page-25-7) identifies that the timestamps in many TKGs are uniform and proposes a simple GNN-based model with a temporal information matching mechanism to enhance EA. Initially, the structure and relation features of an entity are fused together to generate the entity embedding. Then, the entity embedding is updated using GNN aggregation from neighborhood. Finally, the entity embedding is obtained by concatenating the embedding of each layer of the GNN. STEA not only updates the representation of entities but also calculates time similarity by considering associated timestamps. The method combines both the similarities of entity embeddings and the similarities of entity timestamps to obtain aligned entities. Overall, STEA offers an effective way of improving entity representation in TKGs and provides a reliable solution for aligning entities over time.
 
-## 4.3. Question Answering Over Temporal Knowledge Graphs
+## 3. Question Answering Over Temporal Knowledge Graphs
 
 Question answering over KG (KGQA) aims to answer natural language questions based on KG. The answer to the question is usually an entity in the KG. In order to answer the question, one-hop or multi-hop reasoning is required on the KG. Question answering over TKG (TKGQA) aims to answer temporal natural language questions based on TKG, the answer to the question is entity or timestamp in the TKG, and the reasoning on TKG is more complex than it on KG.
 
@@ -362,11 +364,11 @@ Research on TKGQA is in progress. CRONKGQA [\[59\]](#page-31-2) release a new da
 
 TSQA [\[63\]](#page-32-5) argues existing TKGQA methods haven't explore the implicit temporal feature in TKGs and temporal questions. It proposes a time sensitive question answering model which consists of a time-aware TKG encoder and a time-sensitive question answering module. The time-aware TKG encoder uses TComplEx with time-order constraints to obtain the representations of entities and timestamps. The time-sensitive question answering module first decomposes the question into entities and a temporal expression. It uses the entities to extract the neighbor graph to reduce the search space of timestamps and answer entities. The temporal expression is fed into the BERT to learn the temporal question representations. Finally, entity and temporal question representations are combined to estimate the time and predict the entity with contrastive learning.
 
-## 5. Future Directions
+## Future Directions
 
 Despite the significant progress made in TKGRL research, there remain several important future directions. These include addressing scalability challenges, improving interpretability, incorporating information from multiple modalities, and leveraging large language models to enhance the ability of representing dynamic and evolving TKGs.
 
-## 5.1. Scalability
+## 1. Scalability
 
 The current datasets available for TKG are insufficient in size compared to real-world knowledge graphs. Moreover, TKGRL methods tend to prioritize improving task-specific performance and often overlook the issue of scalability. Therefore, there is a pressing need for research on effective methods of learning TKG representations that can accommodate the growing demand for data. A possible avenue for future research in this field is to investigate various strategies for enhancing the scalability of TKGRL models.
 
@@ -376,7 +378,7 @@ Another approach is to use sampling techniques to reduce the size of the knowled
 
 Overall, addressing issues related to scalability will be critical for advancing the state-of-the-art in temporal knowledge graph research and enabling practical applications in real-world scenarios.
 
-## 5.2. Interpretability
+## 2. Interpretability
 
 The enhancement of interpretability is a crucial research direction, as it allows for better understanding of how model outputs are derived and ensures the reliability and applicability of the model's results. Despite the availability of interpretable methods, developing more interpretable models and techniques for temporal knowledge graphs remains a vital research direction.
 
@@ -386,7 +388,7 @@ In addition, researchers could explore the use of visualization techniques to he
 
 By making TKGRL more interpretable, we can gain greater insights into complex real-world phenomena, support decision-making processes, and ensure that these models are useful for practical applications.
 
-## 5.3. Information Fusion
+## 3. Information Fusion
 
 Most TKGRL methods only utilize the structural information of TKGs, with few models incorporating textual information of entities and relations. However, text data contains rich features that can be leveraged to enhance TKGs' representation. Therefore, effectively fusing various features of TKGs, including entity feature, relation feature, time feature, structure feature and textual feature, represents a promising future research direction.
 
@@ -396,7 +398,7 @@ Another approach is to use attention mechanisms to dynamically weight the import
 
 In general, information fusion is a powerful tool in TKGRL that can help researchers improve the accuracy and reliability of the model by combining information from multiple sources. However, it is essential to carefully weigh the benefits and costs of using different fusion techniques, depending on the specific dataset and research goals.
 
-## 5.4. Incorporating Large Language Models
+## 4. Incorporating Large Language Models
 
 Recent advances in natural language processing, such as the development of large language models (LLMs) [\[87\]](#page-35-5) has been largely advanced by both academia and industry. A notable achievement in the field of LLMs is the introduction of ChatGPT [1](#page-23-0) , a highly advanced AI chatbot. Developed using LLMs, ChatGPT has generated significant interest and attention from both the research community and society at large. ChatGPT uses the generative pre-trained transformer (GPT) such as GPT-4 [\[56\]](#page-31-6), have led to significant improvements in various natural language tasks. LLMs have been shown to be highly effective at capturing complex semantic relationships between words and phrases, and they may be able to provide valuable insights into the meaning and context of entities and relations in a knowledge graph. Efficiently combining LLMs with TKGRL is an novel research direction for the future.
 
@@ -406,7 +408,7 @@ Another potential approach is to use LLMs to generate textual descriptions of en
 
 Aboveall, incorporating LLMs into TKGRL has the potential to significantly improve the accuracy and effectiveness of these models, and it is an exciting area for future research. However, it is essential to carefully consider the challenges and limitations of using LLMs, such as computational complexity and potential bias in the pre-trained data.
 
-## 6. Conclusion
+## Conclusion
 
 Temporal knowledge graphs (TKGs) provide a powerful framework for representing and analyzing complex real-world phenomena that evolve over time. Temporal knowledge graph representation learning (TKGRL) is an active area of research that investigates methods for automatically extracting meaningful representations from TKGs.
 

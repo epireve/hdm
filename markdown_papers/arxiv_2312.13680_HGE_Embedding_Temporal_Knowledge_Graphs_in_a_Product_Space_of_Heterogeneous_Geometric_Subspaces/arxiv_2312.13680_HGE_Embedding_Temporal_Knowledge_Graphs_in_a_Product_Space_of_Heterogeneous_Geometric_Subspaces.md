@@ -1,24 +1,26 @@
+<!-- cite_key: pan2021 -->
+
 # HGE: Embedding Temporal Knowledge Graphs in a Product Space of Heterogeneous Geometric Subspaces
 
 Jiaxin Pan,<sup>1</sup> Mojtaba Nayyeri, <sup>1</sup> Yinan Li <sup>1</sup> Steffen Staab 1,2
 
 <sup>1</sup> University of Stuttgart, Stuttgart, Germany <sup>2</sup> University of Southampton, Southampton, United Kingdom jiaxin.pan@ki.uni-stuttgart.de, mojtaba.nayyeri@ki.uni-stuttgart.de, yinan9721@gmail.com, steffen.staab@ki.uni-stuttgart.de
 
-#### Abstract
+## Abstract
 
 Temporal knowledge graphs represent temporal facts (s, p, o, τ ) relating a subject s and an object o via a relation label p at time τ , where τ could be a time point or time interval. Temporal knowledge graphs may exhibit static temporal patterns at distinct points in time and dynamic temporal patterns between different timestamps. In order to learn a rich set of static and dynamic temporal patterns and apply them for inference, several embedding approaches have been suggested in the literature. However, as most of them resort to single underlying embedding spaces, their capability to model all kinds of temporal patterns was severely limited by having to adhere to the geometric property of their one embedding space. We lift this limitation by an embedding approach that maps temporal facts into a product space of several heterogeneous geometric subspaces with distinct geometric properties, i.e. Complex, Dual, and Split-complex spaces. In addition, we propose a temporal-geometric attention mechanism to integrate information from different geometric subspaces conveniently according to the captured relational and temporal information. Experimental results on standard temporal benchmark datasets favorably evaluate our approach against state-of-the-art models.
 
 ### 1 Introduction
 
-Knowledge Graphs (KGs) (Hogan et al. 2021) model facts in real-world applications as directed edge-labeled graphs. Temporal KGs (TKGs) include timestamps to their facts in order to model the temporal validity of facts. Depending on the representational model, timestamps may represent time points or time intervals. For instance, a quadruple *(Boris Johnson, IsPrimeministerOf, UK, [2019, 2022])* in a TKG represents the fact that Boris Johnson is the prime minister of UK between 2019 and 2022.
+Knowledge Graphs (KGs) (Hogan et al. 2021) model facts in real-world applications as directed edge-labeled graphs. Temporal KGs (TKGs) include timestamps to their facts in order to model the temporal validity of facts. Depending on the representational model, timestamps may represent time points or time intervals. For instance, a quadruple *(Boris Johnson, IsPrimeministerOf, UK, [2019, 2022])*in a TKG represents the fact that Boris Johnson is the prime minister of UK between 2019 and 2022.
 
-Relations in temporal knowledge graphs may exhibit various structural temporal patterns. In the left part of Figure 1, *(Charles III, marriedWith, Camilla, 2005)* and *(Camilla, marriedWith, Charles III, 2005)* forms a symmetrical structure in time. In the middle part, at first *(Elizabeth Bowes-Lyon, hasChild, Elizabeth II, 1926)* and then *(Elizabeth II, hasChild, Charles III, 1948)*. The transition of *hasChild* relation through *Elizabeth II* forms a hierarchy structure in
+Relations in temporal knowledge graphs may exhibit various structural temporal patterns. In the left part of Figure 1,*(Charles III, marriedWith, Camilla, 2005)*and*(Camilla, marriedWith, Charles III, 2005)*forms a symmetrical structure in time. In the middle part, at first*(Elizabeth Bowes-Lyon, hasChild, Elizabeth II, 1926)*and then*(Elizabeth II, hasChild, Charles III, 1948)*. The transition of *hasChild*relation through*Elizabeth II*forms a hierarchy structure in
 
 ![](_page_0_Figure_9.jpeg)
 
-Figure 1: Unit spheres in their corresponding spaces. All points on the orange hyperplanes have the same distance to their origin. Different spaces favor different temporal patterns: Left: Unit circle represented in Complex space (top) is suitable for representing periodicities and for inferencing with 'periodic' logical temporal patterns, e.g. symmetry (bottom). Middle: Minkowskian unit circle in Splitcomplex space (top) is suitable for representing a temporal hierarchy formed by *Make statement*. Right: Galilean unit circle represented in Dual space (top) is suitable for representing temporal star patterns (bottom).
+Figure 1: Unit spheres in their corresponding spaces. All points on the orange hyperplanes have the same distance to their origin. Different spaces favor different temporal patterns: Left: Unit circle represented in Complex space (top) is suitable for representing periodicities and for inferencing with 'periodic' logical temporal patterns, e.g. symmetry (bottom). Middle: Minkowskian unit circle in Splitcomplex space (top) is suitable for representing a temporal hierarchy formed by*Make statement*. Right: Galilean unit circle represented in Dual space (top) is suitable for representing temporal star patterns (bottom).
 
-TKGs. In the right part, *Charles III*, *Visit Malta*, *France, Belgium*, *USA* etc at different timestamps, forming a star structure over time. Moreover, as *Charles III* shows, the structures which entities are involved in temporal knowledge graphs may evolve over time. How to preserve different relational structural patterns and how to capture evolving temporal patterns for entities is a fundamental challenge in TKGEs.
+TKGs. In the right part, *Charles III*, *Visit Malta*, *France, Belgium*, *USA*etc at different timestamps, forming a star structure over time. Moreover, as*Charles III*shows, the structures which entities are involved in temporal knowledge graphs may evolve over time. How to preserve different relational structural patterns and how to capture evolving temporal patterns for entities is a fundamental challenge in TKGEs.
 
 Existing embedding approaches such as TeRO, Rotate-QVS, and TLT-KGE(Xu et al. 2020; Chen et al. 2022; Zhang et al. 2022) resorted to single underlying embedding spaces, such as Complex space or Quaternion space to model symmetric patterns by the rotations on a unit hypersphere. Other works (Chami et al. 2020; Balazevic, Allen, and Hospedales
 
@@ -26,7 +28,7 @@ Copyright © 2024, Association for the Advancement of Artificial Intelligence (w
 
 2019; Montella, Barahona, and Heinecke 2021; Han et al. 2020) use hyperbolic space to preserve hierarchical patterns in temporal KGs. However, their capability to model all kinds of structural patterns was severely limited by having to adhere to the geometric properties of their one embedding space. (Han et al. 2020) has shown the advantage of using multiple geometric subspaces (spherical, hyperbolic, etc) in different dimensions to preserve heterogeneous structural patterns in temporal KGs. However, it ignores the evolution of structural patterns between entities and requires a manual selection of subspaces dimension. How to integrate suitable subsets of geometries to model different relational structural patterns as well as capturing evolutionary temporal patterns between entities remain an open problem in these approaches.
 
-In this paper, we address these problems by introducing a new product space covering various geometric subspaces namely a) complex, b) split-complex and c) dual spaces with a *temporal relational attention mechanism* and a *temporal geometric attention mechanism* to model both structural and evolutionary temporal patterns. Figure 1 illustrates the spaces and some corresponding patterns. a) Consider the left part of Figure 1: In the complex space, Euclidean unit circles are induced by circular rotations. Thus, points on the circle establish periodicities and various logical temporal patterns, e.g. relations that are symmetry in time (Xu et al. 2020). Circular rotations are modeled by circular sine and cosine functions in the complex space. b) Consider the middle part of Figure 1: In the split-complex space, a Minkowskian unit circle is induced through hyperbolic rotation, where points on the circle can be mapped using hyperbolic sine and cosine. Thus, the split-complex space can capture a temporal hierarchy, e.g. children must be born after their parents. c) Consider the right part of Figure 1: In the dual space, a Galilean unit circle is induced by the rotation that maps points on the circle using Galilean sine and cosine. Points on the induced circle (two parallel lines) are equidistant to the center, making it useful for modeling star-shaped subgraphs.
+In this paper, we address these problems by introducing a new product space covering various geometric subspaces namely a) complex, b) split-complex and c) dual spaces with a*temporal relational attention mechanism*and a*temporal geometric attention mechanism*to model both structural and evolutionary temporal patterns. Figure 1 illustrates the spaces and some corresponding patterns. a) Consider the left part of Figure 1: In the complex space, Euclidean unit circles are induced by circular rotations. Thus, points on the circle establish periodicities and various logical temporal patterns, e.g. relations that are symmetry in time (Xu et al. 2020). Circular rotations are modeled by circular sine and cosine functions in the complex space. b) Consider the middle part of Figure 1: In the split-complex space, a Minkowskian unit circle is induced through hyperbolic rotation, where points on the circle can be mapped using hyperbolic sine and cosine. Thus, the split-complex space can capture a temporal hierarchy, e.g. children must be born after their parents. c) Consider the right part of Figure 1: In the dual space, a Galilean unit circle is induced by the rotation that maps points on the circle using Galilean sine and cosine. Points on the induced circle (two parallel lines) are equidistant to the center, making it useful for modeling star-shaped subgraphs.
 
 The combination of these three spaces together with their geometries and corresponding operators allows for capturing diverse logical and structural patterns such as relational symmetry in time, temporal hierarchy patterns, and temporal star patterns. Which geometry should be preferred in a specific case, however, needs to be learned. For this purpose, we provide a temporal geometric attention mechanism to select the preferred geometries for a given relation and time. Moreover, to deal with the evolution of patterns between entities, we propose the temporal-relational attention mechanism to balance static embedding and time-evolving embedding. We compare our TKGE model, heterogeneous geometric embedding (HGE), to TKGE methods in Complex space such as TComplEx (Lacroix, Obozinski, and Usunier 2020), TeRo (Xu et al. 2020), TLT-KGE (Zhang et al. 2022) and find that our model obtains better results for link prediction tasks in TKGs. In summary, the key contributions of this paper are as follows:
 
@@ -38,11 +40,7 @@ The combination of these three spaces together with their geometries and corresp
 
 ### 2 Preliminaries
 
-Definition 1 (Time Interval). *Let* T *be the set of closed intervals on the real line* R*. For a time interval* τ = [m, n] ∈ T, τ ⊆ R*, with* m, n ∈ τ, m ≤ n *it holds that* ∀t ∈ R : m ≤ t ≤ n ⇒ t ∈ τ *.*
-
-Definition 2 (Temporal Knowledge Graph). *Let* V *be a set of vertices,* R *be a set of relation labels,* T *be the set of all time intervals,* G ⊆ V × R × V × T*, then a temporal fact* (s, p, o, τ ) ∈ G *with subject* s*, object* o *and relation label* p *is valid during time interval* τ *. A temporal knowledge graph* TKG = (V, R, G) *defines a set of temporal facts. In addition, we denote* G<sup>i</sup> *as* i*-th snapshot of the TKG*
-
-We re-use Allen's interval calculus to express relations between time intervals (Allen 1983). It defines 13 possible relations between two time intervals such that these relations are exhaustive and pairwise disjoint. For example, Allen relation Contains(τ1, τ2) holds between two time intervals τ<sup>1</sup> = [m1, n1], τ<sup>2</sup> = [m2, n2] if m<sup>1</sup> < m<sup>2</sup> < n<sup>2</sup> < n1. Following (Singh et al. 2023), we refer to the 13 relations of Allen interval calculus as *Allen relations* and the relation in temporal knowledge graphs as *KG relations*. Appendix A describes the details of 13 Allen relations.
+Definition 1 (Time Interval).*Let*T*be the set of closed intervals on the real line* R*. For a time interval* τ = [m, n] ∈ T, τ ⊆ R*, with*m, n ∈ τ, m ≤ n*it holds that*∀t ∈ R : m ≤ t ≤ n ⇒ t ∈ τ*.*Definition 2 (Temporal Knowledge Graph).*Let*V*be a set of vertices,*R*be a set of relation labels,*T*be the set of all time intervals,* G ⊆ V × R × V × T*, then a temporal fact*(s, p, o, τ ) ∈ G*with subject* s*, object*o*and relation label*p*is valid during time interval*τ*. A temporal knowledge graph*TKG = (V, R, G)*defines a set of temporal facts. In addition, we denote*G<sup>i</sup>*as* i*-th snapshot of the TKG*We re-use Allen's interval calculus to express relations between time intervals (Allen 1983). It defines 13 possible relations between two time intervals such that these relations are exhaustive and pairwise disjoint. For example, Allen relation Contains(τ1, τ2) holds between two time intervals τ<sup>1</sup> = [m1, n1], τ<sup>2</sup> = [m2, n2] if m<sup>1</sup> < m<sup>2</sup> < n<sup>2</sup> < n1. Following (Singh et al. 2023), we refer to the 13 relations of Allen interval calculus as*Allen relations*and the relation in temporal knowledge graphs as*KG relations*. Appendix A describes the details of 13 Allen relations.
 
 # 3 Embedding Model in Heterogeneous Geometric Subspaces
 
@@ -52,7 +50,7 @@ To capture heterogeneous structural and logical patterns in a temporal KG, we pr
 
 Figure 2: An illustration for the HGE. At first, entities, relations and timestamps in temporal knowledge graphs are represented in heterogeneous geometric subspaces: 1) complex space, 2) split-complex space, 3) dual space respectively. Based on the static relation embedding ps, and dynamic relation embedding pc, temporal relational attention learns hybrid relation embedding pst based on each relation's changing frequencies. Temporal geometric attention incorporates embeddings in geometric subspaces into a product space by pst, which decides the suitable geometry for each relation. Finally, the scoring function is performed on the embeddings learned in the product space.
 
-#### 3.1 Embeddings in Geometric Subspaces
+## 1 Embeddings in Geometric Subspaces
 
 We aim to embed the elements of a temporal knowledge graph (entities, relations, and times) into a d dimensional product space M = M<sup>1</sup> × . . . × M<sup>d</sup> where each M<sup>i</sup> is a Complex, Dual or Split-complex space, i.e. M<sup>i</sup> ∈ {C, S, D}. For a given fact (s, p, o, τ ) ∈ G, we use the mappings f<sup>e</sup> : E −→ M<sup>i</sup> , f<sup>r</sup> : R −→ M<sup>i</sup> , f<sup>τ</sup> : T −→ M<sup>i</sup> to assign d dimensional vectors to each element of a TKG as s<sup>M</sup><sup>i</sup> , p<sup>M</sup><sup>i</sup> , o<sup>M</sup><sup>i</sup> , τ<sup>M</sup><sup>i</sup> respectively.
 
@@ -63,7 +61,7 @@ Complex Vector Space Complex numbers (Harkin and Harkin 2004; Helzer 2000) allow
 $$
 s_{\mathbb{C}} = s_{\mathbb{C}a} + s_{\mathbb{C}b}i, p_{\mathbb{C}} = p_{\mathbb{C}a} + p_{\mathbb{C}b}i,
 $$
-  
+
 \n
 $$
 o_{\mathbb{C}} = o_{\mathbb{C}a} + o_{\mathbb{C}b}i, \tau_{\mathbb{C}} = \tau_{\mathbb{C}a} + \tau_{\mathbb{C}b}i
@@ -84,23 +82,23 @@ Dual Vector Space Dual numbers (Angeles 1998; Helzer 2000) are similar to Comple
 $$
 s_{\mathbb{D}} = s_{\mathbb{D}a} + s_{\mathbb{D}b}\epsilon, p_{\mathbb{D}} = p_{\mathbb{D}a} + p_{\mathbb{D}b}\epsilon,
 $$
-  
+
 \n
 $$
 o_{\mathbb{D}} = o_{\mathbb{D}a} + o_{\mathbb{D}b}\epsilon, \tau_{\mathbb{D}} = \tau_{\mathbb{D}a} + \tau_{\mathbb{D}b}\epsilon
 $$
 \n(3)
 
-#### 3.2 Embeddings in Attention-based Product Space
+### 2 Embeddings in Attention-based Product Space
 
-How to fuse information from different subspaces into a product space efficiently remains a challenging task in the knowledge graph embedding task. Existing work (Han et al. 2020) assigns different dimensions d<sup>i</sup> for each subspace Mi , where Pd<sup>i</sup> = d, and calculates their individual loss which will be aggregated subsequently to a total loss. Such a stacking strategy requires the manual selection of suitable d<sup>i</sup> numbers for every new task and consumes huge computation resources to reach optimal d<sup>i</sup> decision. To capture suitable geometries from various subspaces efficiently, we introduce an attention-based product space. Rather than stacking ad hoc vectors for each subspace, our method reuses vectors for every subspace and aggregates *Scoring Vectors* of subspaces by relational and temporal information.
+How to fuse information from different subspaces into a product space efficiently remains a challenging task in the knowledge graph embedding task. Existing work (Han et al. 2020) assigns different dimensions d<sup>i</sup> for each subspace Mi , where Pd<sup>i</sup> = d, and calculates their individual loss which will be aggregated subsequently to a total loss. Such a stacking strategy requires the manual selection of suitable d<sup>i</sup> numbers for every new task and consumes huge computation resources to reach optimal d<sup>i</sup> decision. To capture suitable geometries from various subspaces efficiently, we introduce an attention-based product space. Rather than stacking ad hoc vectors for each subspace, our method reuses vectors for every subspace and aggregates *Scoring Vectors*of subspaces by relational and temporal information.
 
 Real and Imaginary Vector Sharing Existing methods (Han et al. 2020) assigns different vectors for each subspaces. However, pre-experiments in Appendix C illustrate that although their geometric interpretations are diverse, real and imaginary vectors in different subspaces are almost unanimous when trained to optimal settings with the same embedding sizes. Accordingly, we share the real and imaginary vectors between all subspaces as follows:
 
 $$
 \{\cdot\}_{Ca} = \{\cdot\}_{Sa} = \{\cdot\}_{Da}
 $$
-  
+
 $$
 \{\cdot\}_{Cb} = \{\cdot\}_{Sb} = \{\cdot\}_{Db}
 $$
@@ -108,10 +106,10 @@ $$
 
 where {.} ∈ {s, p, o, τ}. With the reusing strategy, our method avoids the manual selection of subspace dimensions and saves embedding space. If not specified, we use s = [sa, sb], p = [p<sup>a</sup> , p<sup>b</sup> ], o = [oa, ob] and τ = [τ <sup>a</sup>, τ <sup>b</sup>] to represent embeddings a generic geometric subspace in the following section for simplicity.
 
-Temporal-relational Attention Relations in TKGs may exhibit different frequencies of change varying from fully static to quickly changing behavior (Lacroix, Obozinski, and Usunier 2020). For example, the relation *capitalOf* is not changing often over time, while the relation *isPresidentOf* exhibits more frequent changes. Therefore, for each relation p, we provide two vectors p<sup>s</sup> , p<sup>c</sup> ∈ M. The first captures the static behavior and the second captures the dynamic behavior by multiplication with time embedding τ <sup>τ</sup> . We provide a temporal attention mechanism to emphasize static or dynamic behavior depending on the characteristics of the relation:
+Temporal-relational Attention Relations in TKGs may exhibit different frequencies of change varying from fully static to quickly changing behavior (Lacroix, Obozinski, and Usunier 2020). For example, the relation*capitalOf*is not changing often over time, while the relation*isPresidentOf*exhibits more frequent changes. Therefore, for each relation p, we provide two vectors p<sup>s</sup> , p<sup>c</sup> ∈ M. The first captures the static behavior and the second captures the dynamic behavior by multiplication with time embedding τ <sup>τ</sup> . We provide a temporal attention mechanism to emphasize static or dynamic behavior depending on the characteristics of the relation:
 
 $$
-\boldsymbol{p}_{s\tau} = \alpha_{\tau} \left( \boldsymbol{p}_{c} * \boldsymbol{\tau}_{\tau} \right) + \alpha_{s} \boldsymbol{p}_{s} (\alpha_{\tau}, \alpha_{s}) = \text{Softmax} \left( \mathbf{w}_{p} \left( \boldsymbol{p}_{c} * \boldsymbol{\tau}_{\tau} \right), \mathbf{w}_{p} \boldsymbol{p}_{s} \right)
+\boldsymbol{p}_{s\tau} = \alpha_{\tau} \left( \boldsymbol{p}_{c}* \boldsymbol{\tau}_{\tau} \right) + \alpha_{s} \boldsymbol{p}_{s} (\alpha_{\tau}, \alpha_{s}) = \text{Softmax} \left( \mathbf{w}_{p} \left( \boldsymbol{p}_{c} *\boldsymbol{\tau}_{\tau} \right), \mathbf{w}_{p} \boldsymbol{p}_{s} \right)
 $$
 (5)
 
@@ -122,42 +120,42 @@ Scoring Vectors from Subspaces We take all values in each subspace for entities,
 $$
 c_{\mathbb{C}} = \langle (s_a p_{s\tau a} - s_b p_{s\tau b}) + (s_a p_{s\tau b} + s_b p_{s\tau a})i, o_a + i o_b \rangle
 $$
-  
+
 \n
 $$
 = (s_a p_{s\tau a} o_a - s_b p_{s\tau b} o_a - s_a p_{s\tau b} o_b - s_b p_{s\tau a} o_b) +
 $$
-  
+
 \n
 $$
 (s_a p_{s\tau a} o_b - s_b p_{s\tau b} o_b + s_a p_{s\tau b} o_a + s_b p_{s\tau a} o_a)i,
 $$
-  
+
 \n
 $$
 c_{\mathbb{S}} = \langle (s_a p_{s\tau a} + s_b p_{s\tau b}) + (s_a p_{s\tau b} + s_b p_{s\tau a})j, o_a + j o_b \rangle
 $$
-  
+
 \n
 $$
 = (s_a p_{s\tau a} o_a + s_b p_{s\tau b} o_a + s_a p_{s\tau b} o_b + s_b p_{s\tau a} o_b) +
 $$
-  
+
 \n
 $$
 (s_a p_{s\tau a} o_b + s_b p_{s\tau b} o_b + s_a p_{s\tau b} o_a + s_b p_{s\tau a} o_a)j,
 $$
-  
+
 \n
 $$
 c_{\mathbb{D}} = \langle (s_a p_{s\tau a}) + (s_a p_{s\tau b} + s_b p_{s\tau a})\epsilon, o_a + \epsilon o_b \rangle
 $$
-  
+
 \n
 $$
 = (s_a p_{s\tau a} o_a) + (s_a p_{s\tau a} o_b + s_a p_{s\tau b} o_a + s_b p_{s\tau a} o_a)j.
 $$
-  
+
 \n(6)
 
 Temporal-geometric Attention Scoring vectors represent distinctive geometric information captured by each subspace. We propose a temporal-geometric attention mechanism to integrate them based on current relational and time information.
@@ -176,55 +174,34 @@ It's worth noting that new geometric subspaces could be easily incorporated into
 
 ### 4 Theoretical Analysis on Temporal Patterns
 
-Knowledge graphs exhibit *patterns*. A *structural pattern* is a regularity in the graph, e.g. a tree as given in the middle of Figure 1, that may or may not allow for logical conclusions, but which may be hard to represent in some embedding methods. A *logical pattern* represents a rule that allows for concluding new facts when applied to given facts. For instance, *(Charles,marriedWith,Camilla)* implies *(Camilla,marriedWith,Charles)* because *married-With* is symmetric.
+Knowledge graphs exhibit*patterns*. A *structural pattern*is a regularity in the graph, e.g. a tree as given in the middle of Figure 1, that may or may not allow for logical conclusions, but which may be hard to represent in some embedding methods. A*logical pattern*represents a rule that allows for concluding new facts when applied to given facts. For instance,*(Charles,marriedWith,Camilla)*implies*(Camilla,marriedWith,Charles)*because*married-With*is symmetric.
 
-Embeddings for temporal knowledge graphs must account for temporal facts including time components and express corresponding *temporal patterns*. Four kinds of logical patterns, *symmetric, inverse, asymmetric* and *evolve* are mostly considered and studied in existing TKGE models (Chen et al. 2022; Xu et al. 2020). However, their definitions either neglect time information or merely consider patterns
+Embeddings for temporal knowledge graphs must account for temporal facts including time components and express corresponding*temporal patterns*. Four kinds of logical patterns, *symmetric, inverse, asymmetric*and*evolve*are mostly considered and studied in existing TKGE models (Chen et al. 2022; Xu et al. 2020). However, their definitions either neglect time information or merely consider patterns
 
 <sup>1</sup> Similar to previous work(Xu et al. 2020; Lacroix, Obozinski, and Usunier 2019), we adopt conjugate on o<sup>i</sup> to increase the performance in experiments.
 
-when facts happen at the same time. We generalize and go beyond these approaches and consider *static temporal patterns* and *dynamic temporal patterns*. If a structural or a logical temporal pattern holds *regardless of time information* as in traditional knowledge graphs, we call it a *static temporal pattern*. If a structural or a logical temporal pattern represents or draws conclusions *using time information*, we call it a *dynamic temporal pattern*.
+when facts happen at the same time. We generalize and go beyond these approaches and consider*static temporal patterns*and*dynamic temporal patterns*. If a structural or a logical temporal pattern holds *regardless of time information*as in traditional knowledge graphs, we call it a*static temporal pattern*. If a structural or a logical temporal pattern represents or draws conclusions *using time information*, we call it a *dynamic temporal pattern*.
 
 In the following, we will formally define a few temporal patterns. For simplicity, we only illustrate the occasion when τ is a time interval. However, it's convenient to extend the following definitions when τ is a time point. Examples of each definition are indicated after "//".
 
-#### 4.1 Static Logical Temporal Patterns
+#### 1 Static Logical Temporal Patterns
 
-Definition 3. *A temporal relation* p *is symmetric at all points in time iff* ∀s, o, τ : (s, p, o, τ ) → (o, p, s, τ )*. // marriedWith*
+Definition 3. *A temporal relation*p*is symmetric at all points in time iff* ∀s, o, τ : (s, p, o, τ ) → (o, p, s, τ )*. // marriedWith*
 
-*A temporal relation* p *is anti-symmetric at all points in time iff* ∀s, o, τ : (s, p, o, τ ) → ¬(o, p, s, τ ). *// locatedIn*
+*A temporal relation*p*is anti-symmetric at all points in time iff*∀s, o, τ : (s, p, o, τ ) → ¬(o, p, s, τ ).*// locatedIn*Definition 4.*A temporal relation*p<sup>1</sup>*is the inverse of temporal relation*p<sup>2</sup>*at all points in time iff* ∀s, o, τ : (s, p1, o, τ ) → (o, p2, s, τ )*. // advises, advisedBy*#### 2 Dynamic Logical Temporal Patterns
 
-Definition 4. *A temporal relation* p<sup>1</sup> *is the inverse of temporal relation* p<sup>2</sup> *at all points in time iff* ∀s, o, τ : (s, p1, o, τ ) → (o, p2, s, τ )*. // advises, advisedBy*
+Definition 5.*A temporal relation*p*is temporal symmetric iff* ∀s, o, τ<sup>1</sup> : ∃τ<sup>2</sup> : (s, p, o, τ1) → (o, p, s, τ2)*. // consults A temporal relation*p*is temporal anti-symmetric*
 
-#### 4.2 Dynamic Logical Temporal Patterns
+*iff*∀s, o : ∃τ<sup>1</sup> : (s, p, o, τ1) → ∀τ2¬(o, p, s, τ2).*// arrest*Definition 6.*A relation*p<sup>1</sup>*at time*τ<sup>1</sup>*is the temporal inverse of relation*p<sup>2</sup>*at time*τ<sup>2</sup>
+*iff* ∀s, o : ∃τ1, τ<sup>2</sup> : (s, p1, o, τ1) → (o, p2, s, τ2)*. // invitesToVisit, Visit*Definition 7.*Relation*p<sup>1</sup>*evolves into relation*p<sup>2</sup>*iff* ∀s, o : ∃τ1, τ<sup>2</sup> : P recedes(τ1, τ2) & (s, p1, o, τ1) → (s, p2, o, τ2)*. // engagedWith, marriedWith*#### Definition 8.*Relation*p*is temporary in time*
 
-Definition 5. *A temporal relation* p *is temporal symmetric iff* ∀s, o, τ<sup>1</sup> : ∃τ<sup>2</sup> : (s, p, o, τ1) → (o, p, s, τ2)*. // consults A temporal relation* p *is temporal anti-symmetric*
-
-*iff* ∀s, o : ∃τ<sup>1</sup> : (s, p, o, τ1) → ∀τ2¬(o, p, s, τ2). *// arrest*
-
-Definition 6. *A relation* p<sup>1</sup> *at time* τ<sup>1</sup> *is the temporal inverse of relation* p<sup>2</sup> *at time* τ<sup>2</sup>
-
-*iff* ∀s, o : ∃τ1, τ<sup>2</sup> : (s, p1, o, τ1) → (o, p2, s, τ2)*. // invitesToVisit, Visit*
-
-Definition 7. *Relation* p<sup>1</sup> *evolves into relation* p<sup>2</sup> *iff* ∀s, o : ∃τ1, τ<sup>2</sup> : P recedes(τ1, τ2) & (s, p1, o, τ1) → (s, p2, o, τ2)*. // engagedWith, marriedWith*
-
-#### Definition 8. *Relation* p *is temporary in time*
-
-*iff* ∀s, o, τ<sup>1</sup> : (s, p, o, τ1) → ∃τ0, τ<sup>2</sup> : P recedes(τ0, τ1) & P recedes(τ1, τ2) & ¬(s, p, o, τ0) & ¬(s, p, o, τ2)*. // worksFor*
-
-#### 4.3 Modeling Temporal Patterns
+*iff* ∀s, o, τ<sup>1</sup> : (s, p, o, τ1) → ∃τ0, τ<sup>2</sup> : P recedes(τ0, τ1) & P recedes(τ1, τ2) & ¬(s, p, o, τ0) & ¬(s, p, o, τ2)*. // worksFor*#### 3 Modeling Temporal Patterns
 
 We present a theoretical analysis corresponding to the ability of our method in modeling various temporal patterns introduced in 4 as follows: (See details in Appendix F)
 
-Proposition 1. *HGE can model (anti-)symmetry and temporal (anti-)symmetry in Definitions 3 and 5.*
+Proposition 1.*HGE can model (anti-)symmetry and temporal (anti-)symmetry in Definitions 3 and 5.*Proposition 2.*HGE can model inverse and temporal inverse patterns in Definitions 4 and 6.*Proposition 3.*HGE can model evolves pattern in Definition 7.*Proposition 4.*HGE can model temporary relations in Definition 8.*### 5 Experiments
 
-Proposition 2. *HGE can model inverse and temporal inverse patterns in Definitions 4 and 6.*
-
-Proposition 3. *HGE can model evolves pattern in Definition 7.*
-
-Proposition 4. *HGE can model temporary relations in Definition 8.*
-
-### 5 Experiments
-
-#### 5.1 Experimental Settings
+#### 1 Experimental Settings
 
 Dataset To evaluate the effectiveness of the proposed attention-based product space embedding, we perform the link prediction task on four popular temporal knowledge graph benchmark datasets, i.e. ICEWS14 (Garcia-Duran, Dumanciˇ c, and Niepert 2018), ICEWS05-15 (Garcia- ´ Duran, Dumanciˇ c, and Niepert 2018), GDELT (Trivedi ´ et al. 2017) and Wikidata12k (Lacroix, Obozinski, and Usunier 2020). ICEWS14 and ICEWS05-15 are two subset datasets from the Integrated Conflict EarlyWarning System (ICEWS)(Lautenschlager, Shellman, and Ward 2015), which contain news facts in 2014 and between 2005 and 2015 respectively. The Global Database of Events, Language, and Tone (GDELT) is a large knowledge graph that describes facts about human behaviors. We adopt the same data subset as (Gao et al. 2020), which uses the subset of facts from April 1, 2015 to March 31, 2016. Compared to other datasets, GDELT contains fewer temporal relations but more quadruples, which makes it the densest dataset concerning temporal information. Wikidata12k is a subset of wikidata dump (Erxleben et al. 2014). It represents the time information τ ∈ T as time intervals, in which m or n could be empty, referring to intervals (−∞, n] or [m, ∞). Table 5 summarises the statistics of four datasets.
 
@@ -240,7 +217,7 @@ ski, and Usunier 2019). When m or n is empty, we set it as the first or last tim
 
 To have a fair comparison, we set entity and relation embedding dimension sizes as reported in the original papers. For TeRo-based models, we set the dimension size of d as 500 on four benchmark datasets. For TComplEx-based, TNTComplEx-based, and TLT-KGE-based models, we set the dimension size of d as 1200, 1200, 1500 and 2000 on ICEWS14, ICEWS05-15, GDELT and Wikidata12k respectively. The training epoch is set to 200. We adopt the same regularizer, loss function, and negative sampling size as reported in the original papers<sup>3</sup> .
 
-#### 5.2 HGE's Performance Comparison
+#### 2 HGE's Performance Comparison
 
 We evaluate HGE's performance gain on four datasets. Table 1 shows the performances of the original backbones and backbones plugged with HGE on time point datasets ICEWS14, ICEWS05-15, and GDELT. From Table 1, we have the following observations:
 
@@ -252,13 +229,13 @@ We evaluate HGE's performance gain on four datasets. Table 1 shows the performan
 
 Table 2 shows link prediction results on the time interval dataset. With HGE, all metrics get improvement, reflecting HGE could boost the performance of backbones on different kinds of TKGs.
 
-#### 5.3 Ablation Study
+#### 3 Ablation Study
 
 We conduct ablation study experiments on backbone TNT-ComplEx to investigate the effectiveness of each compo-
 
 ![](_page_5_Figure_11.jpeg)
 
-Figure 3: A case study of HGE model. We omit some entities connected to France by relation r<sup>1</sup> which forms a temporal star structure for brevity. r<sup>1</sup> stands for *intent to cooperate* relation and r<sup>2</sup> stands for *consult* relation. Time information is shown in ids.
+Figure 3: A case study of HGE model. We omit some entities connected to France by relation r<sup>1</sup> which forms a temporal star structure for brevity. r<sup>1</sup> stands for*intent to cooperate*relation and r<sup>2</sup> stands for*consult*relation. Time information is shown in ids.
 
 #### nent. From Table 3, we have the following observations:
 
@@ -268,9 +245,8 @@ Figure 3: A case study of HGE model. We omit some entities connected to France b
 
 (iii) We find that the temporal-geometric attention mechanism is more effective on ICEWS14 and ICEWS05-15 datasets. Compared to GDELT, they contain more relation types and thus provide a wider variety of relational structural patterns in the datasets. This illustrates the importance of introducing heterogeneous geometric spaces in HGE to represent the diverse structure in temporal knowledge graphs.
 
-#### 5.4 Case Study
-
-*Intent to cooperate* relation forms a temporal-star structure in TKGs as the head entity could express this attitude to multiple tail entities. In Figure 3, on account of the query (Barack Obama, intent to cooperate, ?, 153), complex space predicts the wrong answer *Angela Merkel* as it supposes a symmetric instance exists for *(Angela Merkel,* r1*, Barack Obama, 105)*. Split-complex space predicts the wrong answer *Japan* to form a hierarchy path between *Angela Merkel, Barack Obama* and *Japan*. Dual space predicts the correct answer *Poland* as it has been the object entity in the temporal star structure formed by *France*. Given that *Barack Obama* consults *Japan* recently, HGE chooses the correct answer *Poland* with the help of the temporal-geometric attention mechanism.
+#### 4 Case Study
+*Intent to cooperate*relation forms a temporal-star structure in TKGs as the head entity could express this attitude to multiple tail entities. In Figure 3, on account of the query (Barack Obama, intent to cooperate, ?, 153), complex space predicts the wrong answer*Angela Merkel*as it supposes a symmetric instance exists for*(Angela Merkel,* r1*, Barack Obama, 105)*. Split-complex space predicts the wrong answer *Japan*to form a hierarchy path between*Angela Merkel, Barack Obama*and*Japan*. Dual space predicts the correct answer *Poland*as it has been the object entity in the temporal star structure formed by*France*. Given that *Barack Obama*consults*Japan*recently, HGE chooses the correct answer*Poland*with the help of the temporal-geometric attention mechanism.
 
 <sup>3</sup>The code, details of training and appendix are provided in https://github.com/NacyNiko/HGE
 
@@ -338,7 +314,7 @@ This research was funded by the German Research Foundation (DFG) via grant agree
 
 ### References
 
-Abboud, R.; Ceylan, I.; Lukasiewicz, T.; and Salvatori, T. 2020. Boxe: A box embedding model for knowledge base completion. *Advances in Neural Information Processing Systems*, 33: 9649–9661.
+Abboud, R.; Ceylan, I.; Lukasiewicz, T.; and Salvatori, T. 2020. Boxe: A box embedding model for knowledge base completion.*Advances in Neural Information Processing Systems*, 33: 9649–9661.
 
 Allen, J. F. 1983. Maintaining knowledge about temporal intervals. *Communications of the ACM*, 26(11): 832–843.
 
@@ -435,14 +411,14 @@ Similarly, we represent s, p, o, τ in Dual space and Splitcomplex space as:
 $$
 s_{\mathbb{D}} = e_s + t^e_\tau \epsilon, p_{\mathbb{C}} = r_p + t^r_\tau \epsilon, o_{\mathbb{C}} = e_o + t^e_\tau \epsilon,
 $$
-  
+
 \n
 $$
 s_{\mathbb{S}} = e_s + t^e_\tau j, p_{\mathbb{S}} = r_p + t^r_\tau j, o_{\mathbb{S}} = e_o + t^e_\tau j,
 $$
 \n(11)
 
-For temporal relational attention, we adopt r<sup>p</sup> and rcompr in Equation 12 of original paper as p<sup>s</sup> , and p<sup>c</sup> ∗ τ <sup>τ</sup> respectively, where rcompr = r<sup>p</sup> \* tcompr.
+For temporal relational attention, we adopt r<sup>p</sup> and rcompr in Equation 12 of original paper as p<sup>s</sup> , and p<sup>c</sup> ∗ τ <sup>τ</sup> respectively, where rcompr = r<sup>p</sup> \*tcompr.
 
 # C Embeddings in Complex, Dual and Split-Complex Subpaces
 
@@ -455,7 +431,7 @@ $$
 
 We concat the real part and imaginary part of one entity when calculating the cosine similarity. From Figure 5, we could find out that in every sub-graph, the values on the diagonal, which represent the cosine similarity between entity embeddings of the same entity on different geometric subspace, are always the highest in a row and exceed 0.95. Therefore, although their geometric interpretations are diverse, real and imaginary vectors in different subspaces are almost unanimous when trained to optimal settings.
 
-### D Dataset Overview
+## D Dataset Overview
 
 Dataset statistics are described in Table 5.
 
@@ -465,9 +441,9 @@ We calculate the occurrence of each temporal pattern introduced in Section 4 to 
 
 ### F Modeling Various Temporal Patterns
 
-Proposition 5. *HGE can model (anti-)symmetry patterns introduced in Definitions 3 and 5.*
+Proposition 5.*HGE can model (anti-)symmetry patterns introduced in Definitions 3 and 5.*
 
-*Proof.* Let p be a relation with temporal symmetry. One condition for modeling this pattern is S(s, p, o, τ ¯ ) = S(o, p, s, τ ¯ ). For simplicity of representation, we use p<sup>t</sup> = psτ . Without loss of generality, we assume that we have only a one-dimensional split-complex vector. Therefore, we have the following equality to fulfill temporal symmetry:
+*Proof.*Let p be a relation with temporal symmetry. One condition for modeling this pattern is S(s, p, o, τ ¯ ) = S(o, p, s, τ ¯ ). For simplicity of representation, we use p<sup>t</sup> = psτ . Without loss of generality, we assume that we have only a one-dimensional split-complex vector. Therefore, we have the following equality to fulfill temporal symmetry:
 
 $$
 (s_a p_{ta}o_a + s_b p_{tb}o_a - s_a p_{tb}o_b - s_b p_{ta}o_b) =
@@ -494,9 +470,9 @@ Table 4: Real examples and statistics of each pattern in the train set of ICEWS1
 |                   | (South Korea, reject judicial cooperation, Japan, 2014-07-18) |         |            |             |
 |                   |                                                               |         |            |             |
 
-#### Proposition 6. *HGE can model inverse patterns introduced in Definitions 4 and 6.*
+#### Proposition 6.*HGE can model inverse patterns introduced in Definitions 4 and 6.*
 
-*Proof.* Let temporal relation p<sup>1</sup> be the inverse of the temporal relation p<sup>2</sup> at all time points (4). One condition to model this pattern is to fulfill S(s, p1, o, τ ¯ ) = S(o, p2, s, τ ¯ ). Without loss of generality, we assume that we have only a onedimensional split-complex vector. Therefore, we have the following equality to fulfill temporal inverse relationships:
+*Proof.*Let temporal relation p<sup>1</sup> be the inverse of the temporal relation p<sup>2</sup> at all time points (4). One condition to model this pattern is to fulfill S(s, p1, o, τ ¯ ) = S(o, p2, s, τ ¯ ). Without loss of generality, we assume that we have only a onedimensional split-complex vector. Therefore, we have the following equality to fulfill temporal inverse relationships:
 
 $$
 (s_a p_{1ta}o_a + s_b p_{1tb}o_a - s_a p_{1tb}o_b - s_b p_{1ta}o_b) =
@@ -507,14 +483,14 @@ $$
 
 If we set p1ta = p2ta, p1tb = −p2tb, the above equality holds. This means there exist assignments for embeddings of entities, relations, and times that fulfill the encoding of temporal inverse patterns. Our proof can be generalized to d dimensional product space by adding one dimension per each grounded atom. For the pattern in 6, the proof procedes likewise. The only difference is that the time embedding will be different at the two times τ1, τ<sup>2</sup> to hold p1ta = p2ta, p1tb = −p2tb.
 
-Proposition 7. *Let us assume that relation* p<sup>1</sup> *evolve to relation* p<sup>2</sup> *as formalized in 7. HGE can model this pattern.*
+Proposition 7.*Let us assume that relation*p<sup>1</sup>*evolve to relation*p<sup>2</sup>*as formalized in 7. HGE can model this pattern.*
 
-*Proof.* Given that p<sup>1</sup> evolves to p2, and also given the two times τ<sup>1</sup> and τ<sup>2</sup> with τ<sup>1</sup> ≺≤ τ2, to model the pattern, we need to have S(s, p1, o, τ ¯ <sup>1</sup>) = S(s, p2, o, τ ¯ <sup>2</sup>). Without loss of generality, we assume that we have only a onedimensional split-complex vector. Then, we must fulfill the following equality:
+*Proof.*Given that p<sup>1</sup> evolves to p2, and also given the two times τ<sup>1</sup> and τ<sup>2</sup> with τ<sup>1</sup> ≺≤ τ2, to model the pattern, we need to have S(s, p1, o, τ ¯ <sup>1</sup>) = S(s, p2, o, τ ¯ <sup>2</sup>). Without loss of generality, we assume that we have only a onedimensional split-complex vector. Then, we must fulfill the following equality:
 
 $$
 (s_a p_{1t_1a}o_a + s_b p_{1t_1b}o_a - s_a p_{1t_1b}o_b - s_b p_{1t_1a}o_b) =
 $$
-  
+
 $$
 (s_a p_{2t_2a}o_a + s_b p_{2t_2b}o_a - s_a p_{2t_2b}o_b - s_b p_{2t_2a}o_b).
 $$
@@ -532,9 +508,9 @@ Table 5: Statistics for ICEWS14, ICEWS05-15, GDELT and Wikidata12k.
 | Validation | 8,941   | 46,275     | 341,961   | 4,062       |
 | Test       | 8,963   | 46,092     | 341,961   | 4,062       |
 
-Proposition 8. *Let* p *be a temporary relation in time as defined in 8. HGE can model this relation.*
+Proposition 8.*Let*p*be a temporary relation in time as defined in 8. HGE can model this relation.*
 
-*Proof.* Let p be a temporary relation as in 8. To follow this pattern in the embedding space, for a given grounded atom (s, p, o, τ1), there exist τ0, τ<sup>2</sup> and also the embedding vectors for s, p, o, τ0, τ1, τ<sup>2</sup> such that we have S(s, p, o, τ ¯ <sup>1</sup>) ̸= S(s, p, o, τ ¯ <sup>2</sup>) and S(s, p, o, τ ¯ <sup>1</sup>) ̸= S(s, p, o, τ ¯ <sup>0</sup>) as one possible condition to fulfill the pattern. Similar to the previous proofs, let us assume that we have only a one-dimensional split-complex vector. To fulfill the first condition (the second one will be similar), we have
+*Proof.*Let p be a temporary relation as in 8. To follow this pattern in the embedding space, for a given grounded atom (s, p, o, τ1), there exist τ0, τ<sup>2</sup> and also the embedding vectors for s, p, o, τ0, τ1, τ<sup>2</sup> such that we have S(s, p, o, τ ¯ <sup>1</sup>) ̸= S(s, p, o, τ ¯ <sup>2</sup>) and S(s, p, o, τ ¯ <sup>1</sup>) ̸= S(s, p, o, τ ¯ <sup>0</sup>) as one possible condition to fulfill the pattern. Similar to the previous proofs, let us assume that we have only a one-dimensional split-complex vector. To fulfill the first condition (the second one will be similar), we have
 
 $$
 (s_a p_{t_1 a} o_a + s_b p_{t_1 b} o_a - s_a p_{t_1 b} o_b - s_b p_{t_1 a} o_b) \neq (s_a p_{t_2 a} o_a + s_b p_{t_2 b} o_a - s_a p_{t_2 b} o_b - s_b p_{t_2 a} o_b).
@@ -564,15 +540,13 @@ Figure 5: Cosine similarity scores between entity embeddings from different geom
 
 We consider symmetric patterns belonging to structural patterns too and define two other types of temporal structural patterns:
 
-Definition 9. *Relation* p *forms a temporal star of size* n ∈ N *iff* ∀s : ∃o1, τ<sup>1</sup> . . . , on, τ<sup>n</sup> : P recedes(τ1, τ2) & . . . & P recedes(τ(n − 1), τn) & (s, p, o1, τ1) & (s, p, o2, τ2) & . . . & (s, p, on, τn)*.*
-
-Definition 10. *A relation* p *forms a temporal hierarchy iff* ∀v1, v2, v3, τ1, τ<sup>2</sup> : (v1, p, v2, τ1) & (v2, p, v3, τ2) → τ<sup>1</sup> ≺ τ2
+Definition 9.*Relation*p*forms a temporal star of size*n ∈ N*iff* ∀s : ∃o1, τ<sup>1</sup> . . . , on, τ<sup>n</sup> : P recedes(τ1, τ2) & . . . & P recedes(τ(n − 1), τn) & (s, p, o1, τ1) & (s, p, o2, τ2) & . . . & (s, p, on, τn)*.*Definition 10.*A relation*p*forms a temporal hierarchy iff* ∀v1, v2, v3, τ1, τ<sup>2</sup> : (v1, p, v2, τ1) & (v2, p, v3, τ2) → τ<sup>1</sup> ≺ τ2
 
 We investigate if heterogeneous geometric subspaces could represent different kinds of structural patterns. We extract 3 subsets for static symmetry, temporal hierarchy, and temporal star structural patterns from the test set of ICEWS14 and ICEWS05-15. Four variants of TNTComplEx+HGE model are tested in these subsets: 1) complex: only complex space is used. 2) split-complex: only splitcomplex space is used. 3) dual: only dual space is used. 4) HGE: the full model with three heterogeneous subspaces.
 
 Table 6 shows that models using complex space perform best on static symmetric structural patterns. Models using split-complex space performs best on temporal hierarchy pattern while models using dual space perform best on temporal star pattern. This observation supports our core assumption that multiple geometric spaces may benefit temporal knowledge graph representation. Moreover, TNTComplEx+HGE performs better than all variants with single geometric spaces, demonstrating that the proposed product space with temporal geometric attention mechanism could integrate the advantages of individual subspaces.
 
-### I HGE's Time and Space Usage
+## I HGE's Time and Space Usage
 
 As HGE reuses vectors for different geometric subspaces, the increased parameters to implement an HGE module will be 2|R| ∗ d, which is the attention weights for two proposed attention mechanisms. We demonstrate the HGE's efficiency by comparing the number of parameters and running times of the original backbone with HGE-extended backbones. All models are trained with 200 epochs and we calculate the average running time of training epochs for each model. From Table 7, we observe that with the same embedding dimension d=1200 for entities and relations, the increased number of parameters and running time are rather moderate for HGE-extensions. Specifically, when TNTComplEx is extended by HGE, its performance is comparable to TLT-KGE with only half as many parameters and a shorter running time. Even if we decrease d of TNTComplEx+HGE to 1100, it still outperforms backbone TNTComplEx(d=1200) with fewer parameter numbers. This demonstrates that HGE's improvements do not come from the increased number of parameters, but rather from its representational approach.
 

@@ -1,4 +1,6 @@
-#### A Context Model for Personal Data Streams ?
+<!-- cite_key: supsup2017 -->
+
+# A Context Model for Personal Data Streams ?
 
 Fausto Giunchiglia[0000 −0002 −5903 <sup>−</sup>6150], Xiaoyue Li B[0000 −0002 −0100 −0016] , Matteo Busso[0000 −0002 −3788 <sup>−</sup>0203], and Marcelo Rodas-Britez[0000 −0002 −7607 −7587]
 

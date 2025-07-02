@@ -1,10 +1,12 @@
+<!-- cite_key: kim2024 -->
+
 # Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes
 
 Taewoon Kim<sup>1</sup> , Vincent Franc¸ois-Lavet<sup>1</sup> , Michael Cochez<sup>1</sup> ,
 
 > <sup>1</sup>Vrije Universiteit Amsterdam {t.kim, vincent.francoislavet, m.cochez}@vu.nl
 
-#### Abstract
+## Abstract
 
 Humans observe only part of their environment at any moment but can still make complex, long-term decisions thanks to our long-term memory. To test how an AI can learn and utilize its long-term memory, we have developed a partially observable Markov decision processes (POMDP) environment, where the agent has to answer questions while navigating a maze. The environment is completely knowledge graph (KG) based, where the hidden states are dynamic KGs. A KG is both human- and machine-readable, making it easy to see what the agents remember and forget. We train and compare agents with different memory systems, to shed light on how human brains work when it comes to managing its own memory. By repurposing the given learning objective as learning a memory management policy, we were able to capture the most likely hidden state, which is not only interpretable but also reusable. The code is open-sourced at [https://github.com/humemai/agent-room-env-v2-lstm.](https://github.com/humemai/agent-room-env-v2-lstm)
 
@@ -24,7 +26,7 @@ The contributions of this paper are as follows.
 
 # 2 Background
 
-### 2.1 A Machine With Human-Like Memory Systems
+## 1 A Machine With Human-Like Memory Systems
 
 Recent advances in cognitive science and AI have inspired the development of machines with memory systems inspired by human memory. Kim et al. [\(Kim et al. 2022,](#page-9-6) [2023\)](#page-9-7) introduced an agent model that explicitly incorporates both semantic and episodic memory, demonstrating that such an agent outperforms those with only one type of long-term memory. Their environment is designed to challenge the agent's ability to encode, store, and retrieve memories effectively.
 
@@ -34,7 +36,7 @@ To computationally model memory, Kim et al. [\(Kim et al.](#page-9-6) [2022,](#p
 
 KGs are advantageous because they are both human- and machine-readable, facilitating the structured encoding, storing, and retrieving of information.
 
-### 2.2 Reinforcement Learning (RL) in Partially Observable Markov Decision Process (POMDP)
+### 2 Reinforcement Learning (RL) in Partially Observable Markov Decision Process (POMDP)
 
 RL is useful when supervision of every action is not feasible, such as in memory management. Solving an RL problem is often formalized as a Markov Decision Process (MDP) or a Partially Observable MDP (POMDP), which account for partial observability.
 
@@ -56,7 +58,7 @@ A simple way to mitigate this computational expense, especially in the era of de
 
 # 3 Methodology
 
-### 3.1 The Rooms Environment
+## 1 The Rooms Environment
 
 The Rooms Environment provides a simulation for evaluating AI agents with long-term memory. Unlike the previous work, this environment consists of multiple interconnected rooms, each containing various types of objects. Static objects, such as beds and tables, remain fixed in their locations and do not move. Independent objects, like Bob and Alice, move between rooms according to probabilistic rules that dictate their movements. Dependent objects, which cannot move by themselves, may be transported by independent objects with a certain probability that depends on the current state of the room. Finally, the agent represents the RL agent that navigates between rooms based on its exploration policy. This configuration allows for the study of how agents manage and utilize long-term memory to make decisions in a dynamic and partially observable environment.
 
@@ -80,7 +82,7 @@ The environment randomly samples a triple from its current hidden state and turn
 
 The Rooms environment is highly configurable, allowing for a wide range of experimental setups. Researchers can adjust various parameters such as the question frequency, the total number of questions, the number of rooms, the room layout, the number and types of objects, and the number of steps per episode, etc. This flexibility enables the creation of diverse scenarios and difficulty levels.
 
-# 3.2 Agents and Their Learning Objectives
+# 2 Agents and Their Learning Objectives
 
 Baseline The baseline agent utilizes the history of the past τ observations, denoted as h (τ) <sup>t</sup> = (ot−τ+1, . . . , ot), to represent the current estimated state sˆt. This approach is the most straightforward method. For the question-answering function f qa, the agent employs a simple strategy: use the most recent relevant memory to answer the question. This strategy assumes that the most recent observation contains the most accurate and relevant information for the question.
 
@@ -88,7 +90,7 @@ In this setup, solving the POMDP involves optimizing the exploration policy π e
 
 HumemAI The agent with human-like memory systems (hereinafter HumemAI) introduces a function, f mm, "the memory management function". This agent has a memory system Mt, which includes both short-term and longterm memory components, Mshort t and Mlong t , respectively. The long-term memory is further divided into episodic (Mepisodic t ) and semantic (Msemantic t ).
 
-f mm first transfers the current partial observation to the short-term memory system by adding the relation qualifier *current time* along with its value: Mshort <sup>t</sup> = o<sup>t</sup> ∪ {current time: t}. For example, (Agent, atLocation, Home Office) at t = 42 becomes (Agent, atLocation, Home Office, {current time: 42}). The function then determines whether this short-term memory should be (1) moved to the episodic part of the long-term memory, (2) moved to the semantic part, or (3) forgotten. If option (1) is selected, the short-term memory is stored in the episodic memory as (Agent, atLocation, Home Office, {timestamp: 42}). If (2) is chosen, it is stored as (Agent, atLocation, Home Office, {strength: 1}).
+f mm first transfers the current partial observation to the short-term memory system by adding the relation qualifier *current time*along with its value: Mshort <sup>t</sup> = o<sup>t</sup> ∪ {current time: t}. For example, (Agent, atLocation, Home Office) at t = 42 becomes (Agent, atLocation, Home Office, {current time: 42}). The function then determines whether this short-term memory should be (1) moved to the episodic part of the long-term memory, (2) moved to the semantic part, or (3) forgotten. If option (1) is selected, the short-term memory is stored in the episodic memory as (Agent, atLocation, Home Office, {timestamp: 42}). If (2) is chosen, it is stored as (Agent, atLocation, Home Office, {strength: 1}).
 
 The "strength" term indicates the generalizability of this memory in the semantic memory system, with higher values representing repeated additions of the same memory. We also introduce an exponentially decaying factor for each semantic memory to ensure that all memories gradually weaken over time, allowing for continuous adaptation. The decaying of semantic memory is well studied in cognitive science [\(Rogers and Friedman 2008;](#page-9-9) [Milberg et al. 1999;](#page-9-10) [Silveri et al. 2018;](#page-9-11) [Catricala et al. 2015\)](#page-8-5). `
 
@@ -108,7 +110,7 @@ The learning process involves two distinct phases. First, we focus on learning �
 
 An advantage of this two-phase approach is that the human-like long-term memory can effectively capture the most likely snapshot of the environment (the most likely hidden state). This enables the agent to make well-informed decisions on exploration and question-answering.
 
-### 3.3 The Learning Algorithm
+## 3 The Learning Algorithm
 
 Given the discrete nature of the action spaces for both the baseline and the HumemAI agents, we opt for a value-based RL algorithm [\(Watkins and Dayan 1992\)](#page-10-1), i.e., DDQN [\(Hasselt, Guez, and Silver 2016\)](#page-9-12) instead of the vanilla DQN [\(Mnih et al. 2013\)](#page-9-13), to avoid the overestimation of state-action values. On top of that, we decouple
 
@@ -202,25 +204,22 @@ This research was (partially) funded by the Hybrid Intelligence Center, a 10-yea
 
 # References
 
-<span id="page-7-2"></span>Anderson, J. R. 2007. *How Can the Human Mind Occur in the Physical Universe?* Oxford University Press. ISBN 9780195324259.
+<span id="page-7-2"></span>Anderson, J. R. 2007.*How Can the Human Mind Occur in the Physical Universe?*Oxford University Press. ISBN 9780195324259.
 
-#### <span id="page-8-6"></span>Algorithm 1: A forward pass to compute the Q-values
+## <span id="page-8-6"></span>Algorithm 1: A forward pass to compute the Q-values
 
 Input: A memory system M; the maximum qualifier value for normalization, max val; the learnable parameters including the embedding matrix E, scaling factors for the relation qualifiers s, and θ LSTM, θ MLP , θ key , θ query , θ value . Output: The Q-values.
 
-#### 1: Step 1: Convert Memory System to KGE
+### 1: Step 1: Convert Memory System to KGE
 
 - 2: for all memory type i ∈ {short, episodic, semantic} do
 - 3: KGE(M(i) ) ← [] // initialize as an empty list
 - 4: M(i) sorted ← M(i) sorted by qualifier value.
 
-5: **for all** 
-$$
+5:**for all**$$
 (h, r, t, key-value pair) \in M_{sorted}^{(i)}
 $$
- **do**
-
-- 6: normalized ← value
+**do**- 6: normalized ← value
 - max val 7: Append E[h] + E[r] + E[t] + (E[key] × normalized × s[key]) to KGE(M(i) )
 - 8: end for
 - 9: end for
@@ -237,7 +236,7 @@ $$
 - 16:
 - 17: Step 3: Compute Attention Weights 18: Q, K,V ← QueryNet(H), KeyNet(H), ValueNet(H) 19: A ← softmax(QK<sup>T</sup> ) 20: 21: Step 4: Attention-weighted Summation 22: vmem ← ( P i (AV )i,:) T 23: 24: Step 5: Calculate Q-values 25: Q(M, a) ← MLP(vmem, a; θ MLP) 26: 27: return Q(M, a)
 
-<span id="page-8-0"></span>Artuso, C.; and Palladino, P. 2019. Long-term memory effects on working memory updating development. *PLOS ONE*, 14: e0217697.
+<span id="page-8-0"></span>Artuso, C.; and Palladino, P. 2019. Long-term memory effects on working memory updating development.*PLOS ONE*, 14: e0217697.
 
 <span id="page-8-3"></span>Bellman, R. 1957. A Markovian Decision Process. *Journal of Mathematics and Mechanics*, 6(5): 679–684.
 

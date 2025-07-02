@@ -1,3 +1,5 @@
+<!-- cite_key: azeroualdzhweumailtoazeroualdzhweu2019 -->
+
 Information Services & Use 39 (2019) 105–122 105 DOI [10.3233/ISU-180030](http://dx.doi.org/10.3233/ISU-180030) IOS Press
 
 # Solving problems of research information heterogeneity during integration – using the European CERIF and German RCD standards as examples
@@ -28,7 +30,7 @@ Keywords: Research information management systems (RIMS), current research infor
 
 This article is published online with Open Access and distributed under the terms of the Creative Commons Attribution Non-Commercial License (CC BY-NC 4.0).
 
-#### **1. Introduction**
+## 1. Introduction
 
 To meet reporting requirements, streamline and simplify administrative processes, and at the same time increase the internal and external transparency of research, universities and research institutions started to implement research information management systems (henceforth RIMS).<sup>1</sup> A RIMS is a database or a federated information system, in which research activities and results of universities, research institutions and researchers can be collected, integrated and analyzed [5]. RIMS support the optimization of business processes in the entire research management. The data has to be recorded only once in the RIMS but can be used multiple times, as well as made available for a variety of application[s.](#page-1-0)
 
@@ -49,24 +51,17 @@ For this reason, the objective of the present paper is to examine two research q
 
 The paper is based on empirical studies and literature overview. Possible solutions will be presented and discussed.
 
-## **2. Overview of research information**
+## 2. Overview of research information
 
-Universities and research institutions have a large variety of information on research equipment, activities, services and output. Along with teaching, research is a central part of the universities' mission. Information about research activities and achievements are relevant to all stakeholders in the academic ecosystem, for different purposes. For this reason, information on research performance and achievements should be available as reliably, fast and seamlessly as possible [2]. Research information is *metadata* from
+Universities and research institutions have a large variety of information on research equipment, activities, services and output. Along with teaching, research is a central part of the universities' mission. Information about research activities and achievements are relevant to all stakeholders in the academic ecosystem, for different purposes. For this reason, information on research performance and achievements should be available as reliably, fast and seamlessly as possible [2]. Research information is *metadata*from
 
-- *Employees*
-- *Funded projects*
-- *Publications*
-- *Patents*
-- *Research awards*
-- *Doctorates and habilitations*
-- *Cooperation partners*
-- *etc.*
+-*Employees*-*Funded projects*-*Publications*-*Patents*-*Research awards*-*Doctorates and habilitations*-*Cooperation partners*-*etc.*
 
 The information on scientific activities and results is collected, maintained and published in a variety of forms by universities and research institutes, and internal and external stakeholders have often difficulty to identify and get it. To make the process of collecting, integrating, storing and presenting of the research information more efficient, universities and research institutions are in need for enhanced solutions and professional approaches to their research activities. Research information management systems (RIMS) constitute a new challenge for universities and research institutions to ensure effective data usage and management, e.g. to facilitate administrative processes and significantly reduce the burden of internal and external reporting.
 
 Figure 1 presents a synthetic overview on the integration of research information from several data sources into a RIMS.
 
-## **3. Stand[ar](#page-3-0)dization for the exchange of research information**
+## 3. Stand[ar](#page-3-0)dization for the exchange of research information
 
 Management of research information has become an important issue for universities, research institutions, funding and government organizations. There is an increasing demand to collect, integrate and analyze research information into RIMS for a variety of reasons. Different standardized exchange formats have been developed to support RIMS and foster their interoperability, such as the European CERIF data model (Common European Research Information Format) managed by the European organization
 
@@ -78,7 +73,7 @@ euroCRIS, or the German Research Core Dataset (RCD) definitional standard for di
 
 The European format for electronic data storage CERIF [20] has been developed since 1991. It is a data model and metadata format for information objects in the field of science, which allows to describe information on the entire research process (persons, organizations, projects, funding programs, facilities, equipment, services, events, indicators and measurements, etc.) and to relate them to each other (see Fig. 2).
 
-The German Research Core Dataset or RCD (*Kerndatensatz Forschung* or KDSF in German) is a definitional standard for the collection, provision and exchange of research information, and German institutions started to implement it so far on a voluntary basis. Designed as a definition and reporting stan[da](#page-4-0)rd for research information, the RCD has been initiated by the German Council of Science and Humanities and the German Federal Ministry of Education and Research (BMBF). Its objective is to standardize the definition and structuring of research information, to improve data quality, to simplify the work and report process, and to increase the interoperability (comparability) of research information (see Fig. 3).
+The German Research Core Dataset or RCD (*Kerndatensatz Forschung*or KDSF in German) is a definitional standard for the collection, provision and exchange of research information, and German institutions started to implement it so far on a voluntary basis. Designed as a definition and reporting stan[da](#page-4-0)rd for research information, the RCD has been initiated by the German Council of Science and Humanities and the German Federal Ministry of Education and Research (BMBF). Its objective is to standardize the definition and structuring of research information, to improve data quality, to simplify the work and report process, and to increase the interoperability (comparability) of research information (see Fig. 3).
 
 The RCD defines the core data that is to be kept in an aggregated form by all German universities and non-university research institutions for various documentation and reporting processes. These include the areas of (a) researchers employed by the institutions, (b) young researchers, (c) third-party funded proj[ec](#page-4-1)ts, (d) patents and spin-offs, (f) publications and (f) research infrastructures (see [12] for details on the structure and logic of the RCD). To make the data compliant with international standards, the technical RCD data model was developed on the basis of the CERIF format.
 
@@ -100,7 +95,7 @@ A joint EUNIS-euroCRIS study showed that nearly one half of European RIMS have i
 
 The main commercial RIMS, PURE (Elsevier) and Conve[ri](#page-5-1)s (Clarivate) initially have been developed by two German and Danish start-ups with the CERIF format and are, of course, still compliant with CERIF, similar to the widely used open software DSpace-CRIS. For instance, the University of Hong Kong's RIMS called "The HUK Scholars Hub"<sup>4</sup> is a DSpace-CRIS project compliant with CERIF.
 
-## **4. Problems of integrating research informa[ti](#page-5-2)on**
+## 4. Problems of integrating research informa[ti](#page-5-2)on
 
 Information integration is an intrinsic feature of RIMS because research information must be collected from various internal and external sources (e.g. information systems for human resources, financial budgets, libraries, institutional repositories etc.) [28]. Many institutions complain frequently that the research information they need cannot be found in the RIMS. Too often the data is scattered throughout the institution in various data stores and locations. Even if employees have access to the data they need, it is often difficult to process the data because of heterogeneous and non-compliant formats. The integration of RIMS into the existing heterogeneous system landscape of an institution requires the development of interfaces to allow an exchange of information between the systems; therefore RIMS should be designed as an integral part of administrative software for institution administration [11] and a platform for data integration.
 
@@ -118,7 +113,7 @@ Another problem for institutions is the distribution of data which is usually di
 
 Information integration is the creation of a frontend. Complex analysis and requests for heterogeneous data are necessary in order to provide the institutions with valuable information and data. This information is fundamental to decision-making and the dissemination of research. In addition to solve the problems presented here, high demands are placed on the IT solutions, especially with regard to interoperability, durability and security of the application.
 
-# **5. General requirements for data quality**
+# 5. General requirements for data quality
 
 In addition to the integration problems of research information mentioned above, the data to be integrated itself must also meet some requirements. Information integration only makes sense when the following questions have been clarified and answered:
 
@@ -131,7 +126,7 @@ In addition to the integration problems of research information mentioned above,
 
 These questions illustrate one important aspect upstream of research information integration. Collecting research information is a sensitive process. The data sources should be controlled in order to guarantee their reliability and credibility, and the collected data needs continuous monitoring and control, e.g. through updating or deleting outdated and older data or information.
 
-## **6. Data quality during integration of research information**
+## 6. Data quality during integration of research information
 
 The integration of different information systems plays a significant but often neglected role in the area of database research like RIMS. For integrating and providing information, the data quality must always be ensured. Narrow data can cause the institutions to be poorly represented on the outside. The quality problems of research information can lead to inappropriate decision making and in some cases, even jeopardize the existence of the institutions.
 
@@ -141,17 +136,13 @@ This section will focus on the methods, processes and techniques of information 
 
 Fig. 4. Implementing the ETL process steps in RIMS [8].
 
-## *6.1. Definition of information integration*
+##*6.1. Definition of information integration*
 
 Information integration is used as a synonym for the term data integration, which refers to the integration of the data that comes from different data sources, usually with different data structures and formats. The term information integration is defined very differently in the literature e.g. in [10] and [15]. In this paper, information integration is defined as the "*correct, complete, and efficient aggregation of data and content of heterogeneous sources into a consistent and structured set of information for effective interpretation by users and applications*" [26]. The goal of information integration is to add value from the combined data or information. More generally, information integration includes terms such as information fusion or data consolidation.
 
-## *6.2. Integration methods and processes for research information management systems*
+## *6.2. Integration methods and processes for research information management systems*Data sources and data structures are generally heterogeneous. This means there are many different and unknown data formats and source systems as well as data quality defects. Before loading the research information into RIMS, this information must first be selected, then prepared and transferred. These challenges can be met with an Extraction, Transformation and Loading (ETL) process. The goal of the ETL process is to clean and standardize the information or data from its different structures in order to permanently store it in the RIMS [3]. The ETL process in the context of RIMS is illustrated in Fig. 4.
 
-Data sources and data structures are generally heterogeneous. This means there are many different and unknown data formats and source systems as well as data quality defects. Before loading the research information into RIMS, this information must first be selected, then prepared and transferred. These challenges can be met with an Extraction, Transformation and Loading (ETL) process. The goal of the ETL process is to clean and standardize the information or data from its different structures in order to permanently store it in the RIMS [3]. The ETL process in the context of RIMS is illustrated in Fig. 4.
-
-## *6.2.1. Extraction of research information*
-
-The extraction phase is used to select and replicate research information from various heteroge[ne](#page-7-0)ous and operative source systems. The question is which research information is being read from the data sources and imported into the work area. For this purpose, formal rules can be created for the connection of the source system with the RIMS as well as for the transmission of the information. With a large data volume of RIMS, it is advantageous to compress the data to be transformed. However, it has to be checked whether penetration options or data export procedures exist from the operative systems. A connection of the source systems must be ensured via a clearly defined interface, which is accessed by the extraction process. An interface can be, for example, a table view or an exported table subtraction as a file. The selected data is transferred from the source systems to the staging area, where the data is cleaned and transformed.
+##*6.2.1. Extraction of research information*The extraction phase is used to select and replicate research information from various heteroge[ne](#page-7-0)ous and operative source systems. The question is which research information is being read from the data sources and imported into the work area. For this purpose, formal rules can be created for the connection of the source system with the RIMS as well as for the transmission of the information. With a large data volume of RIMS, it is advantageous to compress the data to be transformed. However, it has to be checked whether penetration options or data export procedures exist from the operative systems. A connection of the source systems must be ensured via a clearly defined interface, which is accessed by the extraction process. An interface can be, for example, a table view or an exported table subtraction as a file. The selected data is transferred from the source systems to the staging area, where the data is cleaned and transformed.
 
 <span id="page-8-0"></span>
 
@@ -164,9 +155,7 @@ The extraction phase is used to select and replicate research information from v
 
 Table 1 The sub-processes of the transformation phase [21,22]
 
-## *6.2.2. Transformation of research information*
-
-The transformation gradually unifies the previously extracted research information. This step is responsible for the homogenization of the data and it should be seen as an important step in the ETL process. The transformation process has the task of preparing the data for the loading process and cleaning it up in order to convert the data extracts into a uniform internal format. Erroneous data sources make the cleaning indispensable. Contaminated data is tracked and corrected by plausibility checks. This data cleaning can be done in four successive sub-processes (see Table 1) and is decisive for the data quality in RIMS.
+##*6.2.2. Transformation of research information*The transformation gradually unifies the previously extracted research information. This step is responsible for the homogenization of the data and it should be seen as an important step in the ETL process. The transformation process has the task of preparing the data for the loading process and cleaning it up in order to convert the data extracts into a uniform internal format. Erroneous data sources make the cleaning indispensable. Contaminated data is tracked and corrected by plausibility checks. This data cleaning can be done in four successive sub-processes (see Table 1) and is decisive for the data quality in RIMS.
 
 Since the RIMS obtains its information or data from several heterogeneous sources, the data must be converted into a uniform internal format. For this, the following transformations, which can be summarized under the term of "data migration", are required [7,[8\]](#page-8-0):
 
@@ -196,22 +185,20 @@ These so-called errors or problem areas should be eliminated in order to achieve
 
 Fig. 5. Integrating quality improvement methods in RIMS.
 
-#### *6.2.3. Loading of research information*
-
-In the final step of the ETL process, the filtered, harmonized, aggregated and enriched data from the staging area is transferred to the RIMS. If the RIMS is filled for the first time, it is called initialization. The load must be efficient to minimize source downtime and ensure the quality of the data so that they can be kept fully and consistently within the RIMS despite possible source changes.
+###*6.2.3. Loading of research information*In the final step of the ETL process, the filtered, harmonized, aggregated and enriched data from the staging area is transferred to the RIMS. If the RIMS is filled for the first time, it is called initialization. The load must be efficient to minimize source downtime and ensure the quality of the data so that they can be kept fully and consistently within the RIMS despite possible source changes.
 
 An important part of data integration for examining data quality in RIMS is the transformation phase of the ETL process. If erroneous data is identified as part of the integration of research information, it must be corrected accordingly, leading to the phase of four methods, i.e. data cleaning, data transformation, data harmonization and data merging (or data fusion). Figure 5 illustrates the different methods of data integration in RIMS.
 
-(1) *Cleaning the research information* is about identifying and removing errors and inconsistencies in data to improve and enhance their quality [2]. The cleaning is necessary because operational systems do not necessarily always contain correct data. The causes of the data errors in the RIMS can be very diverse, for example incorrect input by the user, system errors or evaluation of the systems. To correct the error types, not only a check of the data structure but also a semantic (content wise) check is possible. Semantic errors result from incorrect content relationships between multiple fields, such as between the zip code and the location.
+(1)*Cleaning the research information*is about identifying and removing errors and inconsistencies in data to improve and enhance their quality [2]. The cleaning is necessary because operational systems do not necessarily always contain correct data. The causes of the data errors in the RIMS can be very diverse, for example incorrect input by the user, system errors or evaluation of the systems. To correct the error types, not only a check of the data structure but also a semantic (content wise) check is possible. Semantic errors result from incorrect content relationships between multiple fields, such as between the zip code and the location.
 
 Data cleaning is essential in data integration and is the only way to get high-quality research information. In addition, the cleaning allows the RIMS to have a unified view of the research information that is an important aspect of making the right decision. The clean data provide the basis for the next stage, the transformation of research information.
 
-(2) *Transforming research information:* All research information from the various internal and external data sources is translated into a uniform format suitable for data analysis. Due to different data sources, often multiple or inconsistent representations of individual objects and attributes arise. For example, the identification keys for examination units from different data sources may be incompatible. Different datasets often have different author IDs for identifying the individual publication data. It is then necessary to determine "related" author IDs by matching the identification data of the publications. This can be done on the basis of common structural features, for example by features of the authors (name, title, publication year, etc.).
+(2)*Transforming research information:*All research information from the various internal and external data sources is translated into a uniform format suitable for data analysis. Due to different data sources, often multiple or inconsistent representations of individual objects and attributes arise. For example, the identification keys for examination units from different data sources may be incompatible. Different datasets often have different author IDs for identifying the individual publication data. It is then necessary to determine "related" author IDs by matching the identification data of the publications. This can be done on the basis of common structural features, for example by features of the authors (name, title, publication year, etc.).
 
 Now that the research information is in the required format and quality, it will need to be harmonized in the next step, which will bring the research information into a consistent structure.
 
-- (3) *Harmonization of research information* is necessary when information from different source systems is used together. In the heterogeneous source systems, different keys or characteristics are often used for the same facts or properties. For example, the key for gender is represented differently in three systems {M, F}, {M, W} and as {0, 1}. The aim of the data harmonization in this example is therefore to bring the same facts on a common key. Only when there is transformed and harmonized research information, it is possible to merge it in the next step.
-- (4) *Merging of research information* is needed before meaningful information can be obtained through targeted analysis of the data. The merger ensures that research information from multiple datasets is available in an adjusted, transformed and harmonized form and aggregated into a common database. By merging research information, matching data items with contexts are recognized and presented in a consistent data structure. This is to be ensured by the preceding steps of transforming and harmonizing the data.
+- (3)*Harmonization of research information*is necessary when information from different source systems is used together. In the heterogeneous source systems, different keys or characteristics are often used for the same facts or properties. For example, the key for gender is represented differently in three systems {M, F}, {M, W} and as {0, 1}. The aim of the data harmonization in this example is therefore to bring the same facts on a common key. Only when there is transformed and harmonized research information, it is possible to merge it in the next step.
+- (4)*Merging of research information*is needed before meaningful information can be obtained through targeted analysis of the data. The merger ensures that research information from multiple datasets is available in an adjusted, transformed and harmonized form and aggregated into a common database. By merging research information, matching data items with contexts are recognized and presented in a consistent data structure. This is to be ensured by the preceding steps of transforming and harmonizing the data.
 
 In summary, the datasets of individual systems have to be adjusted, transformed, harmonized and merged in order to obtain a consistent database. All these methods serve to ensure a high-quality database and they are essential for achieving and maintaining maximum data quality in RIMS [1,2]. An example may illustrate the procedure of data integration in the context of RIMS. Figure 6 illustrates the original data as delivered through the interface of the source system. The data includes integrated personnel data from a CERIF and RCD data model into RIMS. Because more and more data is being generated and stored by scientific institutions every day, this data contains information about persons, such as name, address, gender, date of birth, publication data, project data and patient [d](#page-11-0)ata, etc. Personal data is also important pieces of information when databases are deduplicated and when data sets are linked or integrated and no unique entity identifiers are available [14]. For example, personal names of authors are strongly influenced by a person's cultural background and in certain situations people change their name (for example, after marriage) or names are often written in different spellings [14]. All these problems make matching personal data more difficult than matching common texts [13,27].
 
@@ -221,9 +208,7 @@ The example is presented in a personnel list for the identification of data reco
 
 In this example, the missing zip code is determined based on the addresses and added as a separate field. Cleaning rounds off the content by comparing the information with external content comparison and dynamically expanding and optimizing it with attributes. Transformation and matching promote consistency because related entries within or across systems can be automatically recognized and then linked, tuned, or merged.
 
-#### 116 *O. Azeroual et al. / Solving problems of research information heterogeneity during integration*
-
-<span id="page-11-0"></span>
+#### 116*O. Azeroual et al. / Solving problems of research information heterogeneity during integration*<span id="page-11-0"></span>
 
 | xml version="1.0" encoding="UTF-8"?                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -328,13 +313,9 @@ The merger transforms the reconciled data into a comprehensive dataset. In this 
 
 After standardizing and merging the research information in a RIMS, they can be used as an integrated database for targeted data analysis. The ultimate goal of data analysis in institutions is to extract understandable and useful research information from the multitude of heterogeneous data.
 
-## *6.3. Integration techniques for research information management systems*
+##*6.3. Integration techniques for research information management systems*In the information integration phase, the research information as well as the schemes from the source systems in the RIMS are adapted to the quality requirements of the user. The techniques of information integration are summarized under the term schema management and deal with the handling of heterogeneous schemes. The task of schema integration is to merge local, heterogeneous schemas into a single and global schema. In addition, there are various integration techniques to structure the schema integration. In the context of RIMS, it is particularly important to consider the schema matching and schema mapping.
 
-In the information integration phase, the research information as well as the schemes from the source systems in the RIMS are adapted to the quality requirements of the user. The techniques of information integration are summarized under the term schema management and deal with the handling of heterogeneous schemes. The task of schema integration is to merge local, heterogeneous schemas into a single and global schema. In addition, there are various integration techniques to structure the schema integration. In the context of RIMS, it is particularly important to consider the schema matching and schema mapping.
-
-## *6.3.1. Schema matching*
-
-Schema matching precedes schema mapping. The schema matcher should search for heterogeneous source systems for matching information units. The search can be done by using similar attribute names,
+##*6.3.1. Schema matching*Schema matching precedes schema mapping. The schema matcher should search for heterogeneous source systems for matching information units. The search can be done by using similar attribute names,
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
 
@@ -344,17 +325,15 @@ data structure or similar data. Using various methods (e.g. instance-based match
 
 The following Fig. 7 demonstrates a simple example of the schema matching of two relational schemas of the RCD and CERIF data model. The goal is to identify the attributes that both share the same concept.
 
-## *6.3.2. Schema mapping*
-
-After schema mat[ch](#page-13-0)ing follows the schema mapping. The data elements from the source systems are mapped to the target elements to describe the relationships between the two systems. Schema mapping can also be automated based on the attribute name or data structure. Under certain circumstances, the necessary data transformation must be derived from this.
+##*6.3.2. Schema mapping*After schema mat[ch](#page-13-0)ing follows the schema mapping. The data elements from the source systems are mapped to the target elements to describe the relationships between the two systems. Schema mapping can also be automated based on the attribute name or data structure. Under certain circumstances, the necessary data transformation must be derived from this.
 
 Figure 8 shows an example of how the mapping of a CERIF and RCD XML schema occurs within the RIMS integration.
 
-#### **7. Concl[us](#page-14-0)ions and outlook**
+### 7. Concl[us](#page-14-0)ions and outlook
 
 Undoubtedly, the research information management systems (RIMS) lead to a more targeted and faster supply of information and are increasingly becoming a strategic success factor in the research ecosystem. Increasing volume, velocity and variety of relevant information and increasing demands on research decisions challenge the performance and reliability of research management and related systems. The core problem, however, is not the design of RIMS and its acceptance by decision-makers. The main question
 
-#### *O. Azeroual et al. / Solving problems of research information heterogeneity during integration* 119
+####*O. Azeroual et al. / Solving problems of research information heterogeneity during integration*119
 
 <span id="page-14-0"></span>![](_page_14_Figure_1.jpeg)
 
@@ -374,13 +353,13 @@ Institutions should implement the ETL processes as early as possible in order to
 
 Fig. 9. Supporting workflow diagram.
 
-# **Acknowledgements**
+# Acknowledgements
 
 This work has been funded by the German Center for Higher Education Research and Science Studies (DZHW) and by the German Federal Ministry of Education and Research (BMBF) in the context of the project "Helpdesk to facilitate implementation of the Research Core Dataset" (project period: 2017-2019; grant number: KDS2016).
 
-## **References**
+## References
 
-- [1] O. Azeroual and M. Abuosba, Improving the data quality in the research information systems, *Int. J. Comput. Sci. Inf. Secur.* **15**(11) (2017), 82–86.
+- [1] O. Azeroual and M. Abuosba, Improving the data quality in the research information systems,*Int. J. Comput. Sci. Inf. Secur.* **15**(11) (2017), 82–86.
 - [2] O. Azeroual, G. Saake and M. Abuosba, Data quality measures and data cleansing for research information systems, *J. Digit. Inf. Manag.* **16**(1) (2018), 12–21.
 - [3] O. Azeroual, G. Saake and E. Schallehn, Analyzing data quality issues in research information systems via data profiling, *Int. J. Inf. Manag.* **41**(8) (2018), 50–56.
 - [4] O. Azeroual, G. Saake and J. Wastl, Data measurement in research information systems: metrics for the evaluation of data quality, *Scientometrics* **115**(3) (2018), 1271–1290.
@@ -402,17 +381,15 @@ This work has been funded by the German Center for Higher Education Research and
 - [19] J. Ilva, Towards reliable data counting the Finnish open access publications, in: *CRIS2016: 13th International Conference [on Current Research Information Systems, St Andr](https://www.eurocris.org/cerif/main-features-cerif)ews, Scotland 9–11 June, 2016*.
 - [20] K. Jeffery, N. Houssos, B. Jörg and A. Asserson, Research information management: The CERIF approach, *Int. J. Metadata Semant. Ontol.* **9**(1) (2014), 5–14.
 - [21] H.-G. Kemper, H. Baars and W. Mehanna, *Business Intelligence Grundlagen und praktische Anwendungen, Eine Einführung in die IT-basierte Managementunterstützung. 3. überarbeitete und erweiterte Auflage*. View + Teubner Verlag, Springer Fachmedien, Wiesbaden, 2010.
-- [22] V. Köppen, G. Saake and K.-U. Sattler, *Data Warehouse Technologien. 2. Auflage* MITP-Verlag, 2014.
+- [22] V. Köppen, G. Saake and K.-U. Sattler, *Data Warehouse Technologien. 2. Auflage*MITP-Verlag, 2014.
 - [23] Kerndatensatz Forschung, Entity-Relationship-Modell des Kerndatensatz Forschung, available online at https://kerndatensatz-forschung.de/version1/technisches\_datenmodell/ER-Modell.html, accessed 13 December 2018.
-- [24] U. Leser and F. Naumann, *Informationsintegration, Architektur und Methoden zur Integration verteilter und heterogener Datenquellen. 1. Auflage* dpunkt–Verlag, 2007.
-- [25] A.M. Mugabushaka and T. Papazoglou, Information systems of research funding agencies in the "era of the big data". The case study of the research information system of the European Research Council, in: *CRIS2012: 11th International [Conference on Current Research Information Systems,](https://kerndatensatz-forschung.de/version1/technisches) [Prague, Czech Republic, 6–9 Ju](https://kerndatensatz-forschung.de/version1/technisches_datenmodell/ER-Modell.html)ne, 2012*.
+- [24] U. Leser and F. Naumann,*Informationsintegration, Architektur und Methoden zur Integration verteilter und heterogener Datenquellen. 1. Auflage*dpunkt–Verlag, 2007.
+- [25] A.M. Mugabushaka and T. Papazoglou, Information systems of research funding agencies in the "era of the big data". The case study of the research information system of the European Research Council, in:*CRIS2012: 11th International [Conference on Current Research Information Systems,](https://kerndatensatz-forschung.de/version1/technisches) [Prague, Czech Republic, 6–9 Ju](https://kerndatensatz-forschung.de/version1/technisches_datenmodell/ER-Modell.html)ne, 2012*.
 - [26] F. Naumann, Informationsintegration: Schema Mapping. Vorlesung, Humboldt Universität zu Berlin, 2006. Available online at https://www.informatik.hu-berlin.de/de/forschung/gebiete/wbi/ii/folien/InfoInt\_15\_SchemaMapping.ppt/ at\_download/file, accessed 25 December 2018.
 - [27] F. Patman and P. Thompson, Names: A new frontier in text mining, in: *Intelligence and Security Informatics, ISI 2003*, H. Chen, R. Miranda, D.D. Zeng, C. Demchak, J. Schroeder and T. Madhusudan (eds),Lecture Notes in Computer Science, Vol. 2665, Springer, Berlin, Heidelberg, 2003, pp. 27–38.
 - [28] C. Quix and [M. Jarke, Information integration in research information systems, in:](https://www.informatik.hu-berlin.de/de/forschung/gebiete/wbi/ii/folien/InfoInt) *CRI[S2014: 12th International](https://www.informatik.hu-berlin.de/de/forschung/gebiete/wbi/ii/folien/InfoInt_15_SchemaMapping.ppt/at_download/file) [Conference on Cu](https://www.informatik.hu-berlin.de/de/forschung/gebiete/wbi/ii/folien/InfoInt_15_SchemaMapping.ppt/at_download/file)rrent Research Information Systems, Rome, Italy, 13–15 May, 2014*.
 - [29] L. Ribeiro, P. de Castro and M. Mennielli, *EUNIS EUROCRIS joint survey on CRIS and IR. Final report*, Paris: ERAI EUNIS Research and Analysis Initiative, 2016.
 
-#### 122 *O. Azeroual et al. / Solving problems of research information heterogeneity during integration*
-
-- [30] S. Spaccapietra, C. Parent and Y. Dupont, Model independent assertions for integration of heterogeneous schemas, *The VLDB J.* **1**(1) (1992), 81–126.
+### 122 *O. Azeroual et al. / Solving problems of research information heterogeneity during integration*- [30] S. Spaccapietra, C. Parent and Y. Dupont, Model independent assertions for integration of heterogeneous schemas,*The VLDB J.* **1**(1) (1992), 81–126.
 - [31] M. Stempfhuber, Information quality in the context of CRIS and CERIF, in: *CRIS2008: 9th International Conference on Current Research Information Systems, Maribor, Slovenia, 5–7 June, 2008*.
 - [32] S. Wu, B. Stvilia and D.J. Lee, Readers, personal record managers, and community members: An exploratory study of researchers' participation in online research information management systems, *J. Libr. Metadata.* **17**(2) (2017), 57–90.

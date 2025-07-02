@@ -1,3 +1,5 @@
+<!-- cite_key: qin2024 -->
+
 # Multi-behavior Session-based Recommendation via Graph Reinforcement Learning
 
 Sichuan Normal University
@@ -6,7 +8,7 @@ Shuo Qin shuoqin@stu.sicnu.edu.cn Lin Feng<sup>B</sup> fenglin@sicnu.edu.cn Ling
 
 Editors: Berrin Yanıko˘glu and Wray Buntine
 
-### Abstract
+## Abstract
 
 Multi-behavior session-based recommendation (MBSBR) is a critical task in e-commerce and online advertising. By modeling these multiple behaviors, models can better capture the user intent and make more effective recommendations. However, existing models face the challenge of incompletely differentiating between different behavior types, which hinders their ability to fully capture the different tendencies exhibited by each behavior. In addition, most existing multi-behavior methods focus only on predicting a single target behavior and fail to achieve a unified model for predicting the next user-item interaction across multiple behavior types.
 
@@ -14,7 +16,7 @@ To address these limitations, we introduce reinforcement learning to the multi-b
 
 Keywords: Session-based Recommendation; Multi-behavior Recommendation; Graph Neural Network; Deep Reinforcement Learning.
 
-### 1. Introduction
+### Introduction
 
 Session-based recommendation (SBR) is an approach to recommendation systems that considers a user's previous interactions within a session to generate personalized recommendations. It is widely used in e-commerce, music and video streaming platforms, and other online services where users interact with the system over a series of sessions. SBR systems that use a sequence of user interactions (e.g. clicks, views, or purchases) within a session can deliver personalized and relevant recommendations, thereby increasing user engagement and satisfaction. With the advancement of deep learning techniques, various neural networkbased models (e.g. [\(Chung et al.,](#page-13-0) [2014;](#page-13-0) [Vaswani et al.,](#page-14-0) [2017;](#page-14-0) [Scarselli et al.,](#page-14-1) [2008\)](#page-14-1)) have been developed to capture users' short-term intentions, with promising results. Despite the significant progress in the field of SBR, most existing methods e.g. [\(Kang and McAuley,](#page-14-2) [2018\)](#page-14-2), [\(Wu et al.,](#page-15-0) [2019\)](#page-15-0) primarily focus on modeling user preferences using a single type of interactive behavior sequence. These approaches overlook the intricate patterns of behavior transitions that naturally occur in user sessions containing multiple behavior interactions. Although a few models have made efforts to incorporate multi-behavior information, they still face two major limitations.
 
@@ -35,21 +37,21 @@ The main contributions of paper can be summarized as follows.
   - We propose Multi-behavior Graph Reinforcement Learning Network (MB-GRL), a novel method that combines graph neural networks and reinforcement learning to capture user preferences at both the item and behavior level.
   - To evaluate the effectiveness of MB-GRL, we conduct extensive experiments on two benchmark datasets and compare our results with other methods. Our experimental results demonstrate the superiority of our approach in terms of recommendation performance.
 
-# 2. Related Work
+# Related Work
 
-#### 2.1. Session-based Recommendation
+## 1. Session-based Recommendation
 
 Recent developments in recommendation have led to a renewed interest in session-based recommendation. From its early days, these models include the following: [\(Hidasi et al.,](#page-14-4) [2015\)](#page-14-4) adopts the GRU-based RNN for session-based recommendations. [\(Li et al.,](#page-14-5) [2017\)](#page-14-5) designed a hybrid encoder with an attention mechanism to model the user's sequential behavior and capture the current session information. Meanwhile, some models used GNN-based methods for session-based recommendation. [\(Wu et al.,](#page-15-0) [2019\)](#page-15-0) considered session sequences as graphstructured data, combined RNN to capture complex transitions of elements. [\(Xu et al.,](#page-15-2) [2019\)](#page-15-2) used GNN and self-attention mechanism for session-based recommendation. [\(Wang](#page-15-3) [et al.,](#page-15-3) [2020c\)](#page-15-3) considered global session information to better inferring the user preference of the current session. [\(Yu et al.,](#page-15-4) [2020\)](#page-15-4) promoted the representability of the recommender model.
 
-#### 2.2. Reinforcement Learning for Recommendation
+### 2. Reinforcement Learning for Recommendation
 
 Reinforcement Learning(RL) has achieved great performance in session-based recommendation. [\(Xin et al.,](#page-15-5) [2020\)](#page-15-5) proposes two frameworks namely Self-Supervised Q Learning (SQN) and Self-Supervised Actor-Critic (SAC) for recommendation. [\(Wang et al.,](#page-14-6) [2020a\)](#page-14-6) formalizes the sequential recommendation task as a Markov Decision Process and uses state representation, reward function and learning algorithm. [\(Zhou et al.,](#page-15-6) [2020\)](#page-15-6) via knowledge graph enhanced reinforcement learning method to solve the recommendation problem. [\(Deng et al.,](#page-13-1) [2021\)](#page-13-1) uses two action selection strategies to reduce the candidate action space. [\(Guo et al.,](#page-13-2) [2022\)](#page-13-2) proposes RL-ISN, which consists of a basic cross-domain recommender and a reinforcement learning-based domain filter to share account cross domain sequential recommendation. Therefore, we inspired these methods and design a new model that uses session information and combine with reinforcement learning.
 
-#### 2.3. Multi-behavior Recommendation
+#### 3. Multi-behavior Recommendation
 
 Multi-behavior recommendation typically employs either collaborative filtering or graph neural network-based models to capture the user-item interaction characteristics from multiple types of behaviors [\(Gao et al.,](#page-13-3) [2019;](#page-13-3) [Jin et al.,](#page-14-7) [2020;](#page-14-7) [Xia et al.,](#page-15-7) [2021a\)](#page-15-7). [\(Wang et al.,](#page-14-3) [2020b\)](#page-14-3) first proposed learning global item-item relations using GNNs and integrating the embedding of the target and auxiliary behaviors of the current session via gating mechanisms. [\(Yu et al.,](#page-15-1) [2022\)](#page-15-1) aimed to capture potentially useful patterns of multi-behavior transitions at the feature and item levels. Meanwhile, [\(Xia et al.,](#page-15-8) [2021b\)](#page-15-8) uses the meta-learning paradigm to distill multi-behavior relationships and capture personalized high-order collaborative effects. Some multi-behavior recommendation methods focus on fine-grained interactions that occur within a session. To capture such interactions,[\(Meng et al.,](#page-14-8) [2020\)](#page-14-8) uses the sequence of item-operation pairs and employs knowledge embedding to obtain better session representations. [\(Qiao and Wang,](#page-14-9) [2022\)](#page-14-9) considers both user micro-behaviors and original interests for session-based recommendation, and learns item embedding from both item-level and operation-level to capture user intent.
 
-### 3. Preliminary
+### Preliminary
 
 MBSBR systems aim to predict the user's next action or behavior based on their previous interactions within the same session, taking into account the different types of behavior exhibited by the user. Here we give a formulation of this problem as a blow.
 
@@ -71,15 +73,15 @@ $$
 
 where θ ∈ R <sup>d</sup> denotes policy parameters. Note that the expectation is taken over trajectories τ = (s0, a0, s1, . . .), which are obtained by performing actions according to the target policy: , a<sup>t</sup> ∼ πθ(·|st), st+1 ∼ P(·|s<sup>t</sup> , at).
 
-### 4. Methodology
+### Methodology
 
-#### 4.1. Session Graph Augmentation Layer (module A)
+#### 1. Session Graph Augmentation Layer (module A)
 
-### 4.1.1. Constructing Session Graphs
+### 1.1. Constructing Session Graphs
 
 To represent a session sequence s as a directed graph, we use G<sup>s</sup> = (Vs, Es), where each node in V<sup>s</sup> represents an item vs,i in the sequence. The edges in E<sup>s</sup> are defined as (vs,i−1, vs,i), indicating that the user interacted with item vs,i after vs,i−<sup>1</sup> in session s. Note that some items may appear multiple times in the sequence, so we assign a normalized weight to each edge, calculated as the frequency of that edge divided by the out-degree of its starting node. This normalization helps ensure that highly repeated items do not dominate the session graph representation.
 
-# 4.1.2. Node Vectors Updating
+# 1.2. Node Vectors Updating
 
 Next, we present how to obtain latent feature vectors of nodes via graph neural network. We first convert each item v ∈ V into a unified low-dimensional latent space, and the node vector v ∈ R <sup>d</sup> and v 0 is the initial node feature in our model. For vs,i in session s, given by the adjacency matrices As,i, the information propagation at k layers GCN between different nodes can be formalized as:
 
@@ -99,7 +101,7 @@ $$
 $$
 \n(3)
 
-#### 4.2. Session Representation and Recommendation Layer (module B)
+## 2. Session Representation and Recommendation Layer (module B)
 
 We have tried several ways to extract a session representation that includes both the longterm preference and the current interest of the session. Inspired by [\(Wu et al.,](#page-15-0) [2019\)](#page-15-0), we have found that the soft-attention mechanism already achieves comparable performance while maintaining low complexity. After feeding all session graphs into the gated graph neural networks, we obtain the vectors of all nodes. Then, to represent each session as an embedding vector h<sup>s</sup> ∈ R d .The soft-attention mechanism can be formalized as:
 
@@ -129,7 +131,7 @@ L_{SRR}(\mathbf{p}) = -\sum_{i=1}^{m} y_i log(\mathbf{p}_i) + (1 - y_i) log(1 - 
 $$
 \n(8)
 
-#### 4.3. Behavior-focused Reinforcement Learning layer (module C)
+### 3. Behavior-focused Reinforcement Learning layer (module C)
 
 We incorporate a soft-attention mechanism to extract the state representation from the item sequence. Let s<sup>t</sup> denote the state representation of session s at time t. The soft-attention mechanism is computed as follows:
 
@@ -211,7 +213,7 @@ To improve the stability of the learning, we use a double deep q-network (DDQN) 
 | until<br>converge                                                                           |
 |                                                                                             |
 
-### 5. Experiment
+### Experiment
 
 In this section, we conduct extensive experiments on multi-behavior session-based recommendation to evaluate the performance of our model by answering the following three research questions:
 
@@ -219,9 +221,9 @@ In this section, we conduct extensive experiments on multi-behavior session-base
 - RQ2: How do the key modules of our models affect model performance?
 - RQ3: How does the setting of hyperparameters affect the effectiveness of our model?
 
-#### 5.1. Experimental Setup
+#### 1. Experimental Setup
 
-# 5.1.1. Datasets
+# 1.1. Datasets
 
 We evaluate the proposed method on two public benchmark datasets, namely Yoochoose[1](#page-7-1) and RetailRocket[2](#page-7-2) . The Yoochoose dataset is derived from RecSys Changllenge 2015 and
 
@@ -245,7 +247,7 @@ contains a stream of user actions on an e-commerce website over a period of six 
 
 For a fair comparison, follow [\(Xin et al.,](#page-15-5) [2020\)](#page-15-5) and [Liu et al.](#page-14-11) [\(2022\)](#page-14-11) we filter out all sessions whose length is less than 3 and items that are interacted with less than 3 times. then we sample 200k sessions from the Yoochoose dataset. Finally, we have 1,110,965 clicks and 43,946 purchases over 26702 items in Yoochoose dataset, while 1,176,680 clicks and 57,269 purchases over 70852 items in RetailRocket. The statistics of the datasets are summarized in Table 1.We randomly divide the two datasets into training set, validation machine and test set according to the ratio of [0.8, 0.1, 0.1].
 
-# 5.1.2. Baseline Models
+# 1.2. Baseline Models
 
 To demonstrate the superior performance of ousr model, we compared it to the following representative methods for MBSBR:
 
@@ -301,7 +303,7 @@ For original methods GRU4REC, SASRec, SR-GNN and GC-SAN, they are designed for t
 
 We use the original forms of signal-behavior models and reinforcement learning model for experiments. For MGNN-SPred, we do not split the session sequence into target and
 
-### MB-GRL
+## MB-GRL
 
 | models | purchase |       |       |        |         |         |       | click |       |        |         |         |  |
 |--------|----------|-------|-------|--------|---------|---------|-------|-------|-------|--------|---------|---------|--|
@@ -315,18 +317,18 @@ We use the original forms of signal-behavior models and reinforcement learning m
 
 auxiliary sequences, but use a single chronological sequence of items. In addition, we use a GRU instead of a gated mechanism to update the session representation obtained by mean pooling to reduces the influence of previous modifications. We also modified MBGCN, retaining only its item-item graph neural network component and removing the user-related module, to align with the SBR task definition and reform the item-item edges with the same behavior within a session.
 
-# 5.1.3. Implementation Details
+# 1.3. Implementation Details
 
 Following [\(Xin et al.,](#page-15-5) [2020\)](#page-15-5), we use the last 10 items leading up to the target time and pad shorter sequences as needed. Our models are trained using the Adam optimizer, with a mini-batch size of 256. The item embedding size is set to 64, and we initialize all parameters using a Gaussian distribution with a mean of 0 and a standard deviation of 0.1. We set the learning rate to 0.01 for the RC15 dataset and 0.005 for the RetailRocket dataset. we define the fixed behavioral rewards for our models. Specifically, we assign a click reward of 0.2 and a purchase reward of 1.0. During the hyper-parameter tuning process, we conduct experiments on the validation set to select the optimal values. We find that a discount factor γ of 0.3 and a Graph Neural Network (GNN) depth K of 1 yield the best results. To ensure a fair comparison with other models, we keep the parameters consistent. In particular, the hidden state size of GRU4Rec is set to 64. Following the original paper, we configure SASRec with 1 head in self-attention and we stack 4 self-attention blocks in GC-SAN.
 
-# 5.1.4. Evaluation Metrics
+# 1.4. Evaluation Metrics
 
 We evaluate the performance of all models using the follow widely used metrics:
 
 - Hit Ration (HR@K) is a widely used measure of predictive accuracy. It indicates the proportion of correctly recommended items among the top-K items.
 - Normalized Discounted Cumulative Gain (NDCG@K) is a measure of the effectiveness of a ranking system that taking into account the position of relevant items in the ranked list. It is based on the idea that items that are higher in the ranking should be given more credit than items that are lower in the ranking.
 
-#### 5.2. Overall Comparison (RQ1)
+## 2. Overall Comparison (RQ1)
 
 The results of the comparisons on two datasets are reported in Table [2.](#page-9-0) The following significant observations can be made.
 
@@ -334,7 +336,7 @@ The results of the comparisons on two datasets are reported in Table [2.](#page-
 - Our model can distinguish the different tendencies of different behavior types. Unlike other single-behavior models, such as SR-GNN or SASRec, MB-GRL excels in all behavior types. This shows the advantage of the BF-RL layer, which can learn the different intention strengths of different behavior types by assigning different rewards for each behavior type. However, SR-GNN, GC-SAN, and others cannot capture these differences and treat all items with different interaction types equally.
 - Our model achieves competitive performance among the multi-behavioral approaches. Compared to other multi-behavior models such as MBGCN and MGNN-SPred, our model outperforms them. For MGNN-SPred, it uses the multiplexed behavior data in a simplified way, which may cause the loss of information in the original data. For MBGCN, the structure removed to meet the requirements of the SBR task limits the ability to capture the contextual relationship of items in a session.
 
-#### 5.3. Ablation Study (RQ2)
+### 3. Ablation Study (RQ2)
 
 In our ablation studies, we evaluated our model under different settings:
 
@@ -346,7 +348,7 @@ By examining the performance of our model under these ablation settings, we gain
 
 ![](_page_12_Figure_1.jpeg)
 
-#### 5.4. Hyper-parameters Study (RQ3)
+#### 4. Hyper-parameters Study (RQ3)
 
 <span id="page-12-0"></span>Figure 2: MB-GRL with different discount factors on Yoochoose. (a) represent the performance change for purchase behavior prediction; (b) represent the performance change for click behavior prediction.
 
@@ -354,7 +356,7 @@ Effect of Discount Factor. In this section, we show how the discount factor affe
 
 Effect of Reward Settings. To evaluate the effect of the RL reward setting on model performance, we run experiments with different values of the ratio rp/r<sup>c</sup> between the purchase and click rewards. Figure [3](#page-13-4) shows the results of the HR@20 and NDCG@20 metrics on the Yoochoose dataset. We observe that the model performance improves as the ration increases, indicating that the RL head is effectively guiding the model to focus on the desired rewards. However, when the ration becomes too high, the performance deteriorates. This may be due to the instability of the TD updates caused by the large reward discrepancy.
 
-### 6. Conclusion
+### Conclusion
 
 This paper introduces reinforcement learning to the multi-behavior conversational recommendation task and proposes a novel method called MB-GRL. Our method combines the advantages of graph neural networks and deep reinforcement learning to address the limitations of current models in predicting the next user-item interaction across multiple behavior
 

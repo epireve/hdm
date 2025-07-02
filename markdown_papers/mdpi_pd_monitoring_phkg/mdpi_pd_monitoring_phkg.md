@@ -1,36 +1,25 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: zafeiropoulos2024 -->
 
-![](_page_0_Picture_1.jpeg)
 
-# *Article* **Evaluating Ontology-Based PD Monitoring and Alerting in Personal Health Knowledge Graphs and Graph Neural Networks**
 
-**Nikolaos Zafeiropoulos, Pavlos Bitilis [,](https://orcid.org/0000-0003-0548-6268) George E. Tsekouras and Konstantinos Kotis [\\*](https://orcid.org/0000-0001-7838-9691)**
+# *Article*Evaluating Ontology-Based PD Monitoring and Alerting in Personal Health Knowledge Graphs and Graph Neural Networks
+**Nikolaos Zafeiropoulos, Pavlos Bitilis [,](https://orcid.org/0000-0003-0548-6268) George E. Tsekouras and Konstantinos Kotis [\\*](https://orcid.org/0000-0001-7838-9691)**Intelligent Systems Laboratory, Department of Cultural Technology and Communication, University of the Aegean, 81100 Mytilene, Greece; cti22009@aegean.gr (N.Z.); pavlos.bitilis@aegean.gr (P.B.); gtsek@aegean.gr (G.E.T.)
+**\***Correspondence: kotis@aegean.gr; Tel.: +30-6974822712
+**Abstract:**In the realm of Parkinson's Disease (PD) research, the integration of wearable sensor data with personal health records (PHR) has emerged as a pivotal avenue for patient alerting and monitoring. This study delves into the complex domain of PD patient care, with a specific emphasis on harnessing the potential of wearable sensors to capture, represent and semantically analyze crucial movement data and knowledge. The primary objective is to enhance the assessment of PD patients by establishing a robust foundation for personalized health insights through the development of Personal Health Knowledge Graphs (PHKGs) and the employment of personal health Graph Neural Networks (PHGNNs) that utilize PHKGs. The objective is to formalize the representation of related integrated data, unified sensor and PHR data in higher levels of abstraction, i.e., in a PHKG, to facilitate interoperability and support rule-based high-level event recognition such as patient's missing dose or falling. This paper, extending our previous related work, presents the Wear4PDmove ontology in detail and evaluates the ontology within the development of an experimental PHKG. Furthermore, this paper focuses on the integration and evaluation of PHKG within the implementation of a Graph Neural Network (GNN). This work emphasizes the importance of integrating PD-related data for monitoring and alerting patients with appropriate notifications. These notifications offer health experts precise and timely information for the continuous evaluation of personal health-related events, ultimately contributing to enhanced patient care and well-informed medical decision-making. Finally, the paper concludes by proposing a novel approach for integrating personal health KGs and GNNs for PD monitoring and alerting solutions.
+**Keywords:**ontology; knowledge graphs; Graph Neural Networks; Parkinson's Disease
 
-Intelligent Systems Laboratory, Department of Cultural Technology and Communication, University of the Aegean, 81100 Mytilene, Greece; cti22009@aegean.gr (N.Z.); pavlos.bitilis@aegean.gr (P.B.); gtsek@aegean.gr (G.E.T.)
-
-**\*** Correspondence: kotis@aegean.gr; Tel.: +30-6974822712
-
-**Abstract:** In the realm of Parkinson's Disease (PD) research, the integration of wearable sensor data with personal health records (PHR) has emerged as a pivotal avenue for patient alerting and monitoring. This study delves into the complex domain of PD patient care, with a specific emphasis on harnessing the potential of wearable sensors to capture, represent and semantically analyze crucial movement data and knowledge. The primary objective is to enhance the assessment of PD patients by establishing a robust foundation for personalized health insights through the development of Personal Health Knowledge Graphs (PHKGs) and the employment of personal health Graph Neural Networks (PHGNNs) that utilize PHKGs. The objective is to formalize the representation of related integrated data, unified sensor and PHR data in higher levels of abstraction, i.e., in a PHKG, to facilitate interoperability and support rule-based high-level event recognition such as patient's missing dose or falling. This paper, extending our previous related work, presents the Wear4PDmove ontology in detail and evaluates the ontology within the development of an experimental PHKG. Furthermore, this paper focuses on the integration and evaluation of PHKG within the implementation of a Graph Neural Network (GNN). This work emphasizes the importance of integrating PD-related data for monitoring and alerting patients with appropriate notifications. These notifications offer health experts precise and timely information for the continuous evaluation of personal health-related events, ultimately contributing to enhanced patient care and well-informed medical decision-making. Finally, the paper concludes by proposing a novel approach for integrating personal health KGs and GNNs for PD monitoring and alerting solutions.
-
-**Keywords:** ontology; knowledge graphs; Graph Neural Networks; Parkinson's Disease
-
-# **1. Introduction**
+# 1. Introduction
 
 In the landscape of Parkinson's Disease (PD) research, the fusion of wearable sensor data with personal health records (PHR) has emerged as a pivotal avenue, promising to enhance patient monitoring and alerting capabilities.
 
 This study delves into the intricate domain of PD patient care, with a specific emphasis on harnessing the potential of wearable sensors to capture, represent, and semantically analyze PD patient's movement data and domain knowledge. The primary objective is to elevate the assessment of PD patients by establishing a robust foundation for personalized health insights through the development of Personal Health Knowledge Graphs (PHKGs) [\[1–](#page-30-0)[3\]](#page-30-1). Additionally, a personal health Graph Neural Network (PHGNN) is developed leveraging the PHKG to formalize the representation of related sensors and PHR integrated/unified data at a higher level of abstraction [\[4\]](#page-30-2). This paper, as an extension of our previous related work [\[5\]](#page-30-3), provides a detailed exploration of the Wear4PDmove ontology and evaluates its integration within the development of an experimental PHKG [\[5\]](#page-30-3). Furthermore, the focus is on integrating PHKG within PHGNN implementations, emphasizing the importance of comprehensive PD-related data integration for effective patient
-
-![](_page_0_Picture_11.jpeg)
-
-**Citation:** Zafeiropoulos, N.; Bitilis, P.; Tsekouras, G.E.; Kotis, K. Evaluating Ontology-Based PD Monitoring and Alerting in Personal Health Knowledge Graphs and Graph Neural Networks. *Information* **2024**, *15*, 100. [https://doi.org/10.3390/](https://doi.org/10.3390/info15020100) [info15020100](https://doi.org/10.3390/info15020100)
+**Citation:**Zafeiropoulos, N.; Bitilis, P.; Tsekouras, G.E.; Kotis, K. Evaluating Ontology-Based PD Monitoring and Alerting in Personal Health Knowledge Graphs and Graph Neural Networks.*Information* **2024**, *15*, 100. [https://doi.org/10.3390/](https://doi.org/10.3390/info15020100) [info15020100](https://doi.org/10.3390/info15020100)
 
 Academic Editor: Ryutaro Ichise
 
 Received: 2 January 2024 Revised: 3 February 2024 Accepted: 6 February 2024 Published: 8 February 2024
 
-![](_page_0_Picture_15.jpeg)
-
-**Copyright:** © 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
+**Copyright:**© 2024 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license [\(https://](https://creativecommons.org/licenses/by/4.0/) [creativecommons.org/licenses/by/](https://creativecommons.org/licenses/by/4.0/) 4.0/).
 
 monitoring and alerting. To achieve this goal, we have implemented a rule-based notification mechanism on specific features from PHKG with two different levels of notification (medium and high). These notifications provide health experts with precise and timely information and contribute to the continuous evaluation of PD patient-related events. This ultimately enhances patient care by facilitating well-informed time and life-critical medical decision-making.
 
@@ -40,7 +29,7 @@ The motivation stems from the need to enhance the monitoring, assessment and ale
 
 The key contribution of the work presented in this paper, extending our previous related work, is:
 
-- *Experimental PHKG*: Evaluation of the Wear4PDmove ontology within the development of an experimental PHKG, showcasing its practical applicability.
+-*Experimental PHKG*: Evaluation of the Wear4PDmove ontology within the development of an experimental PHKG, showcasing its practical applicability.
 - *PHKG integration with GNNs*: Emphasis on the integration of PHKG within GNN implementations, elucidating its pivotal role in advancing PD monitoring and alerting solutions.
 - *Precision in PD Monitoring*: Addressing specific demands in PD monitoring through the precision offered by the Wear4PDmove ontology.
 - *Enhanced Data Analysis with GNNs*: Implementation of GNNs to facilitate enhanced analysis of complex medical data.
@@ -58,13 +47,11 @@ The structure of this paper is as follows: Section [2](#page-2-0) provides essen
 
 ontology, providing insights into potential challenges and avenues for future research. Finally, Section [7](#page-24-0) concludes the paper and outlines plans for future research.
 
-#### <span id="page-2-0"></span>**2. Background Knowledge**
+## <span id="page-2-0"></span>2. Background Knowledge
 
 This section presents key concepts spanning symbolic artificial intelligence (AI) and ontological frameworks, Knowledge Graphs (KG), PHKG, and Neurosymbolic AI [\[8\]](#page-30-6). Symbolic AI, epitomized by ontologies, forms the cornerstone of logical reasoning and knowledge representation, laying the groundwork for understanding/capturing complex relationships within healthcare data. KGs, through their capacity to organize and contextualize information, offer reasoning capabilities that result in valuable insights. We extend this paradigm to the case of PHKG, interlinking and reasoning with diverse health-related datasets. The emergence of Neurosymbolic AI, coupling KGs with neural networks into GNNs, signifies a novel approach to decoding intricate medical data. This collective exposition establishes the essential backdrop for our subsequent in-depth exploration and contributions in the following sections.
 
-#### *2.1. Symbolic AI and Ontology Engineering*
-
-Symbolic AI, encompassing logical reasoning, knowledge representation, and rulebased systems, constitutes a multifaceted approach to artificial intelligence. At its core, logical reasoning forms the basis of AI systems, employing several types of mathematical logic to support deductive reasoning and decision-making mechanisms. Knowledge representation involves the explicit portrayal of information using symbols, rules, and relationships [\[9\]](#page-30-7). This structured representation allows systems to comprehend intricate datasets effectively and manipulate them.
+### *2.1. Symbolic AI and Ontology Engineering*Symbolic AI, encompassing logical reasoning, knowledge representation, and rulebased systems, constitutes a multifaceted approach to artificial intelligence. At its core, logical reasoning forms the basis of AI systems, employing several types of mathematical logic to support deductive reasoning and decision-making mechanisms. Knowledge representation involves the explicit portrayal of information using symbols, rules, and relationships [\[9\]](#page-30-7). This structured representation allows systems to comprehend intricate datasets effectively and manipulate them.
 
 In Internet of Things (IoT) environments, ensuring interoperability is challenging due to the heterogeneous nature of data from devices like health and fitness trackers. Proprietary formats and lack of common terms often lead to certain challenges related to communication protocols and data formats [\[10\]](#page-30-8). Overcoming these challenges requires adopting common syntax and semantics for IoT-generated data. The Semantic Web of Things (SWoT) technology has emerged as a solution to mitigate such data and information heterogeneity. Semantics, dealing with meaning and truth, are harnessed through the Resource Description Framework (RDF) for semantically annotated linked data [\[11\]](#page-30-9). Semantic models and standards, such as the Semantic Sensor Network (SSN) [\[12\]](#page-30-10), Sensor, Observation, Sample, and Actuator (SOSA) [\[13\]](#page-30-11), Smart Applications Reference Ontology (SAREF) [\[14\]](#page-30-12), and Data Analytics for Health and Connected Care (DAHCC) ontology [\[15\]](#page-30-13), address the challenge of bridging sensor data heterogeneity. The Parkinson Movement Disease Ontology (PMDO) [\[16\]](#page-30-14) specifically caters to Parkinson's Disease, organizing information into neurological findings, treatment plans, and evaluation instruments. Utilizing SW technologies, particularly RDF data modeling, facilitates semantic interoperability in IoT-enabled health devices [\[17\]](#page-30-15).
 
@@ -72,45 +59,33 @@ Ontologies play a key role in semantic modeling, explaining object behavior and 
 
 Considering symbolic AI, the development of rule-based systems is commonplace, where sets of logical rules govern the system's behavior [\[19\]](#page-30-17). These rules, derived from datadriven learning strategies, serve as the guiding principles for drawing conclusions from given inputs. Technologies like RDF and OWL [\[20\]](#page-30-18), often employed alongside Symbolic AI methodologies, play a crucial role in effective implementation.
 
-#### *2.2. Knowledge Graphs*
-
-KG serves as a structured and interconnected representation of information, adopting a graph format to represent real-world entities, their attributes, and their relationships [\[21\]](#page-30-19). This semantic framework enhances understanding and facilitates reasoning. KGs feature a graph structure comprising nodes (representing entities) and edges (representing relationships), allowing the depiction of complex inter-entity connections. By incorporating Linked Data (LD) principles, KGs interconnect with external sources of information, thereby enhancing the comprehensiveness of information [\[22\]](#page-30-20). Their scalability accommodates vast datasets with efficient traversal and retrieval capabilities.
+####*2.2. Knowledge Graphs*KG serves as a structured and interconnected representation of information, adopting a graph format to represent real-world entities, their attributes, and their relationships [\[21\]](#page-30-19). This semantic framework enhances understanding and facilitates reasoning. KGs feature a graph structure comprising nodes (representing entities) and edges (representing relationships), allowing the depiction of complex inter-entity connections. By incorporating Linked Data (LD) principles, KGs interconnect with external sources of information, thereby enhancing the comprehensiveness of information [\[22\]](#page-30-20). Their scalability accommodates vast datasets with efficient traversal and retrieval capabilities.
 
 KG applications include semantic search (e.g., Google search), recommendation systems, data integration, and support for knowledge-based AI. RDF is fundamental to KGs, using triples (subject-predicate-object) to express statements. SPARQL (SPARQL Protocol and RDF Query Language) [\[23\]](#page-30-21) facilitates the querying and manipulation of RDF data within a KG.
 
-#### *2.3. PHKG*
-
-In the evolving landscape of healthcare informatics, the development and utilization of PHKGs have emerged as instrumental components for advancing personalized medicine. A PHKG represents a structured and interconnected knowledge base that combines diverse personal health data, ranging from clinical records to sensor-derived information, with the aim of fostering a holistic understanding of an individual's health profile [\[24\]](#page-31-0). The conceptual underpinning of a PHKG draws from the principles of the Semantic Web (SW) and LD standards, facilitating the creation of a comprehensive framework that transcends traditional health record silos.
+####*2.3. PHKG*In the evolving landscape of healthcare informatics, the development and utilization of PHKGs have emerged as instrumental components for advancing personalized medicine. A PHKG represents a structured and interconnected knowledge base that combines diverse personal health data, ranging from clinical records to sensor-derived information, with the aim of fostering a holistic understanding of an individual's health profile [\[24\]](#page-31-0). The conceptual underpinning of a PHKG draws from the principles of the Semantic Web (SW) and LD standards, facilitating the creation of a comprehensive framework that transcends traditional health record silos.
 
 Central to the efficacy of a PHKG is the integration of various application and domainspecific ontologies, which serve as formalized structures defining relationships and hierarchies of entities within the graph. Specifically, in the context of PD, a well-defined ontology, such as the Wear4PDmove ontology, plays a pivotal role in ensuring precision and specificity in representing and reasoning with PD-related data. The semantic richness afforded by these ontologies not only aids in the interoperability of diverse health data sources but also forms the basis for rule-based event recognition, enabling timely and contextually relevant medical interventions [\[25\]](#page-31-1). As wearable sensor technology becomes increasingly prevalent in health monitoring, the synergy of ontologically structured data within a PHKG stands as a promising paradigm for tailoring healthcare insights to the unique nuances of an individual's health journey [\[2\]](#page-30-22).
 
-#### *2.4. Neurosymbolic AI and GNNs*
-
-Neurosymbolic AI is a powerful interdisciplinary approach at the intersection of symbolic reasoning and neural network-based learning, aiming to harness the logical strengths and explicit knowledge representation of symbolic methods and the pattern recognition capabilities of neural networks (NNs). This hybrid model seamlessly integrates symbolic reasoning, often associated with rule-based systems, with subsymbolic learning, utilizing neural networks for effective pattern recognition [\[26\]](#page-31-2). One of its distinguishing features is the capability to create interpretable and explainable AI models by leveraging explicit rule-based representations from symbolic components. A key subset, GNNs, excels in processing graph-structured data by capturing intricate dependencies and interactions among entities (nodes) connected by relationships (edges). GNNs use a message-passing mechanism, allowing nodes to iteratively exchange information and aggregate insights, deepening their understanding of the graph's structure.
+####*2.4. Neurosymbolic AI and GNNs*Neurosymbolic AI is a powerful interdisciplinary approach at the intersection of symbolic reasoning and neural network-based learning, aiming to harness the logical strengths and explicit knowledge representation of symbolic methods and the pattern recognition capabilities of neural networks (NNs). This hybrid model seamlessly integrates symbolic reasoning, often associated with rule-based systems, with subsymbolic learning, utilizing neural networks for effective pattern recognition [\[26\]](#page-31-2). One of its distinguishing features is the capability to create interpretable and explainable AI models by leveraging explicit rule-based representations from symbolic components. A key subset, GNNs, excels in processing graph-structured data by capturing intricate dependencies and interactions among entities (nodes) connected by relationships (edges). GNNs use a message-passing mechanism, allowing nodes to iteratively exchange information and aggregate insights, deepening their understanding of the graph's structure.
 
 In diverse applications, neurosymbolic AI and GNNs play a crucial role. In drug discovery, they combine expert knowledge with GNN-driven insights to accelerate the identification of potential drug candidates [\[27\]](#page-31-3). In healthcare, these models enhance the interpretability of medical decision-making by providing explanations for diagnoses through the integration of symbolic medical knowledge with learned patterns from patient data [\[28\]](#page-31-4). Social network analysis benefits from GNNs' ability to capture relationships and influence patterns within graphs, further enriched by incorporating symbolic reasoning for a comprehensive understanding of social structures.
 
 In the context of PD research, data analysis assumes a pivotal role, leveraging Machine Learning (ML) and Deep Learning (DL) techniques for comprehensive exploration. Datasets, including electronic health records (EHRs), patient-reported outcomes, and imaging data, play a crucial role in understanding PD's mechanisms. The integration of KGs and GNNs emerges as a significant advancement, organizing PD-related information and excelling in tasks like patient classification and disease progression prediction. The application of ML, GNNs, and DL contributes to uncovering hidden patterns, enhancing treatment modalities, and refining therapeutic strategies in PD research.
 
-#### <span id="page-4-0"></span>**3. Related Work**
+#### <span id="page-4-0"></span>3. Related Work
 
 In the realm of PD research, a comprehensive understanding relies on the exploration of various domains, including ontologies, PHKGs, and GNNs. This section delves into state-of-the-art research, examining the pivotal role of ontologies in structuring PD-related knowledge, the application of PHKGs for personalized health insights, and the advancements brought by GNNs in analyzing complex medical data. Each sub-section within this segment unfolds the landscape of relevant studies, providing insights into the contributions, methodologies, and findings that have shaped the understanding of PD through ontological frameworks, KGs, and NN approaches.
 
-#### *3.1. Ontologies for PD*
-
-An ontology in the health domain serves as a framework for organizing and adding meaning to health-related data and information that is shared across different applications, services, and systems. Such ontologies play a crucial role in representing, integrating, and sharing health-related knowledge in a standardized and widely accepted format that can be understood by both humans, such as doctors and patients, and software agents. Younesi et al. [\[1\]](#page-30-0) have developed the PD Ontology (PDON) as a standardized vocabulary and definition system for PD and its associated symptoms, treatments, and clinical studies. The ontology has been built using standard ontology development life cycle stages such as requirements gathering, conceptualization, implementation, and evaluation. PDON is designed to support interoperability and data sharing in the PD research community and includes a subclass-based taxonomic hierarchy that spans from molecular to clinical concepts. The evaluations have demonstrated that PDON can answer specific PD-related questions and improve the accuracy and consistency of data annotation and analysis.
+####*3.1. Ontologies for PD*An ontology in the health domain serves as a framework for organizing and adding meaning to health-related data and information that is shared across different applications, services, and systems. Such ontologies play a crucial role in representing, integrating, and sharing health-related knowledge in a standardized and widely accepted format that can be understood by both humans, such as doctors and patients, and software agents. Younesi et al. [\[1\]](#page-30-0) have developed the PD Ontology (PDON) as a standardized vocabulary and definition system for PD and its associated symptoms, treatments, and clinical studies. The ontology has been built using standard ontology development life cycle stages such as requirements gathering, conceptualization, implementation, and evaluation. PDON is designed to support interoperability and data sharing in the PD research community and includes a subclass-based taxonomic hierarchy that spans from molecular to clinical concepts. The evaluations have demonstrated that PDON can answer specific PD-related questions and improve the accuracy and consistency of data annotation and analysis.
 
 The Parkinson's Movement Disorder Ontology (PMDO) [\[29\]](#page-31-5) is a significant ontology for PD created by movement disorder specialists. The PMDO encompasses three major categories: neurological observations, treatment plans, and tools used to evaluate various aspects of PD. This ontology is a valuable asset for researchers and clinicians to label, share, and consolidate data related to PD and other movement disorders, as it offers a uniform terminology for these conditions. Overall, the PMDO is an important resource for the PD research community that can facilitate data sharing and interoperability and aid in standardizing the analysis and interpretation of PD-related information. PMDO is a more up-to-date resource than PDON, as the latter was last updated in 2016. Both ontologies are accessible through NCBO BioPortal [\[30\]](#page-31-6), providing researchers and clinicians with standardized vocabularies for annotating and sharing PD-related data. While both the PMDO and PDON ontologies provide a standardized vocabulary and definitions for various aspects of PD and related movement disorders, neither ontology contains specific conceptualizations for representing knowledge extracted from data collected via wearable sensors. This is a limitation of both ontologies, as the use of wearable sensors is becoming increasingly common in PD monitoring and clinical care. Wearable sensors provide a way to collect objective and quantitative data on PD symptoms and motor function on a daily basis outside of a clinical setting.
 
-#### *3.2. PHKGs for PD*
-
-Recent studies have investigated the advantages of PHKGs in advancing smart health applications. A representative example is the IoT Semantic Annotations System (IoT-SAS) [\[31\]](#page-31-7), which processes real-time sensor stream data, integrating semantic annotations to deliver immediate health information to citizens, especially concerning air pollution and weather conditions. Another study [\[32\]](#page-31-8) utilized data from multiple IoT fitness vendors to establish a context-aware resource graph linked to health-related ontologies. Through a web portal, they facilitated the integration, sharing, and analysis of diverse IoT health and fitness data. Additionally, [\[33\]](#page-31-9) proposed an OWL-based integration, combining ontologies to model health data and Web of Things (WoT) services, successfully creating a machine-understandable and cross-system reusable resource graph by linking health and home environment data. Notably, despite semantic annotation exploration in related work, there is a notable gap as no studies have developed PHKGs integrating real-time sensor data from wearables and other PHR sources for monitoring and alerting in PD patients.
+####*3.2. PHKGs for PD*Recent studies have investigated the advantages of PHKGs in advancing smart health applications. A representative example is the IoT Semantic Annotations System (IoT-SAS) [\[31\]](#page-31-7), which processes real-time sensor stream data, integrating semantic annotations to deliver immediate health information to citizens, especially concerning air pollution and weather conditions. Another study [\[32\]](#page-31-8) utilized data from multiple IoT fitness vendors to establish a context-aware resource graph linked to health-related ontologies. Through a web portal, they facilitated the integration, sharing, and analysis of diverse IoT health and fitness data. Additionally, [\[33\]](#page-31-9) proposed an OWL-based integration, combining ontologies to model health data and Web of Things (WoT) services, successfully creating a machine-understandable and cross-system reusable resource graph by linking health and home environment data. Notably, despite semantic annotation exploration in related work, there is a notable gap as no studies have developed PHKGs integrating real-time sensor data from wearables and other PHR sources for monitoring and alerting in PD patients.
 
 Ontologies offer a means to explicitly represent unified knowledge related to sensor and PHR data, supporting knowledge creation through semantic inferencing. While advancements have occurred in semantic models for healthcare monitoring, there remains untapped potential for developing or extending existing models, particularly those focused on rules-based high-level event recognition for PD monitoring and alerting.
 
-# *3.3. GNNs for PD*
-
-GNNs rapidly advance PD research through robust data analysis, handling patientreported outcomes, imaging data, and EHRs. Integrated into knowledge graphs, GNNs unveil intricate patterns, offering insights into PD's mechanisms. Progress in GNNs for PD diagnosis, particularly Deep Learning models analyzing imaging data, shows potential for detection and prognosis. These advancements aim to enhance patient well-being and alleviate PD-related healthcare burdens, holding promise for future exploration and improved understanding.
+#*3.3. GNNs for PD*GNNs rapidly advance PD research through robust data analysis, handling patientreported outcomes, imaging data, and EHRs. Integrated into knowledge graphs, GNNs unveil intricate patterns, offering insights into PD's mechanisms. Progress in GNNs for PD diagnosis, particularly Deep Learning models analyzing imaging data, shows potential for detection and prognosis. These advancements aim to enhance patient well-being and alleviate PD-related healthcare burdens, holding promise for future exploration and improved understanding.
 
 # • Graph Convolutional Networks (GCNs)
 
@@ -144,15 +119,14 @@ By combining graph-based representations and generative models, GGNs offer a pow
 
 The integration of graph-based representations with reinforcement learning enhances the precision of treatment choices for PD patients, resulting in improved outcomes. Notable applications of deep reinforcement learning networks in the medical field include predicting brain tumor locations using a deep Q-network (DQN) [\[49\]](#page-31-25), a method for medical image semantic segmentation, and a recommendation system for antihypertensive medications for patients with hypertension and type 2 diabetes [\[50\]](#page-31-26).
 
-#### <span id="page-6-0"></span>**4. The Wear4PDmove Ontology**
+## <span id="page-6-0"></span>4. The Wear4PDmove Ontology
 
 The ontology proposed in this work represents knowledge related to the monitoring of PD patients' movement and to the integration of such data with PHR data towards supporting real-time recognition of events such as a missing dose event, eventually triggering the appropriate alerting. Wear4PDmove is an ontology that reuses and extends other ontologies, including DAHCC, SOSA, SAREF, and PMDO (Figure [1\)](#page-7-0). The imported ontologies extend the capabilities of Wear4PDmove ontology by providing the necessary
 
 <span id="page-7-0"></span>![](_page_7_Figure_2.jpeg)
 
 concepts and relationships to model real-world data and knowledge related to PD patients' monitoring and alerting. concepts and relationships to model real-world data and knowledge related to PD patients' monitoring and alerting.
-
-**Figure 1.** Wear4PDmove ontology key concepts and the reused vocabularies. **Figure 1.** Wear4PDmove ontology key concepts and the reused vocabularies.
+**Figure 1.**Wear4PDmove ontology key concepts and the reused vocabularies.**Figure 1.**Wear4PDmove ontology key concepts and the reused vocabularies.
 
 DAHCC ontology provides concepts and relationships to model the data analytics process in healthcare applications. SOSA ontology provides a formal model for representing sensors, observations, samples, and actuators and their relationships. SAREF ontology is used to model smart appliances and their features, enabling interoperability among them. PMDO is an ontology for modeling patient medical devices. Importing these ontologies into the core Wear4PDmove ontology allows us to model complex scenarios involving smart devices, sensors, and medical devices in the healthcare domain. Our ontology can be used to support tasks such as monitoring patients, detecting low-level events (e.g., tremors), and providing recommendations for healthcare professionals. DAHCC ontology provides concepts and relationships to model the data analytics process in healthcare applications. SOSA ontology provides a formal model for representing sensors, observations, samples, and actuators and their relationships. SAREF ontology is used to model smart appliances and their features, enabling interoperability among them. PMDO is an ontology for modeling patient medical devices. Importing these ontologies into the core Wear4PDmove ontology allows us to model complex scenarios involving smart devices, sensors, and medical devices in the healthcare domain. Our ontology can be used to support tasks such as monitoring patients, detecting low-level events (e.g., tremors), and providing recommendations for healthcare professionals.
 
@@ -162,7 +136,7 @@ To achieve an agile, human-centered, collaborative, and iterative ontology devel
 
 developing new modules, mappings, and updates to evaluate conceptualizations. The primary aim of exploiting the ontology is to support decision-making and analysis in the PD domain while continuously evaluating and refining it based on feedback from knowledge workers and domain experts.
 
-## *4.1. Specification*
+##*4.1. Specification*
 
 Wear4PDmove ontology aims to semantically integrate heterogeneous data, such as dynamic/stream data (collected from wearables) and static/historical data (stored in PHR databases), in order to represent personal health knowledge in the form of a KG (i.e., PHKG), supporting health apps' reasoning capabilities for high-level event recognition (e.g., 'missing dose' or 'patient fall' event). The Wear4PDmove ontology meets the following specific requirements:
 
@@ -174,7 +148,7 @@ Wear4PDmove ontology aims to semantically integrate heterogeneous data, such as 
 
 Based on these requirements, a set of competency questions (CQs) has been formulated in consultation with domain experts. The concise listing of these questions is provided below, and their detailed definitions, as outlined in Table [1,](#page-8-0) are further presented in Appendix [A.](#page-25-0) These CQs have been subsequently translated into SPARQL queries during the evaluation phase.
 
-<span id="page-8-0"></span>**Table 1.** Competency Questions (CQs) and their definitions.
+<span id="page-8-0"></span>**Table 1.**Competency Questions (CQs) and their definitions.
 
 | CQ ID | Definition of CQ                                                                                                                                                                            |
 |-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -189,9 +163,7 @@ Based on these requirements, a set of competency questions (CQs) has been formul
 | CQ9   | What are the observations that encompass both tremor and bradykinesia attributes for the upper limb, along with their<br>corresponding timestamps?                                          |
 | CQ10  | Which observations in the Wear4PDmove ontology exhibit both tremor and bradykinesia attributes for the upper limb<br>within a specific timestamp range and trigger a notification?          |
 
-#### *4.2. Conceptualization*
-
-Following the specification of the aim and requirements of the ontology and the generation of the competency questions, the subsequent phase involves the conceptualization of the related ontology. This phase is based on the implementation of potential scenarios that are shaped from the input of knowledge workers in collaboration with domain experts, with the goal of refining different versions of the ontology that support those scenarios, ensuring the effective implementation of an agreed and shared final version.
+###*4.2. Conceptualization*Following the specification of the aim and requirements of the ontology and the generation of the competency questions, the subsequent phase involves the conceptualization of the related ontology. This phase is based on the implementation of potential scenarios that are shaped from the input of knowledge workers in collaboration with domain experts, with the goal of refining different versions of the ontology that support those scenarios, ensuring the effective implementation of an agreed and shared final version.
 
 The Wear4PDmove ontology is encoded in OWL using Protégé 5.5. The latest version is publicly available at <https://i-lab.aegean.gr/kotis/Ontologies/Wear4PDmove/Onto-v1.0.0/>
 
@@ -232,8 +204,7 @@ The Wear4PDmove ontology is encoded in OWL using Protégé 5.5. The latest versi
 | w4pd:hasFatigue                                                                | false;                                                                                        |
 | w4pd:hasDysphagia                                                              | false:                                                                                        |
 | w Andrhae Ready kinicia Off Jones Limp - false                                 |                                                                                               |
-
-**Figure 2.** Example of RDF triples representing related knowledge of a PD patient observation. **Figure 2.** Example of RDF triples representing related knowledge of a PD patient observation.
+**Figure 2.**Example of RDF triples representing related knowledge of a PD patient observation.**Figure 2.**Example of RDF triples representing related knowledge of a PD patient observation.
 
 The example includes information about the accelerometer sensor used to observe wearable acceleration in PD patients, the patient and patient movement features of interest, the PD patient observation, and the properties observed during the observation (Bradykinesia of upper limp, tremor, and wearable acceleration). It also includes additional information, such as the result time of the observation. The example includes information about the accelerometer sensor used to observe wearable acceleration in PD patients, the patient and patient movement features of interest, the PD patient observation, and the properties observed during the observation (Bradykinesia of upper limp, tremor, and wearable acceleration). It also includes additional information, such as the result time of the observation.
 
@@ -243,7 +214,7 @@ The relevant prefixes/namespaces used for the implementation of the ontology are
 
 PREFIX rdf: [<http://www.w3.org/1999/02/22-rdf-syntax-ns#>](http://www.w3.org/1999/02/22-rdf-syntax-ns#) PREFIX owl: [<http://www.w3.org/2002/07/owl#>](http://www.w3.org/2002/07/owl#) PREFIX rdfs: [<http://www.w3.org/2000/01/rdf-schema#>](http://www.w3.org/2000/01/rdf-schema#) PREFIX xsd: [<http://www.w3.org/2001/XMLSchema#>](http://www.w3.org/2001/XMLSchema#) PREFIX w4pd: [<http://w3id.org/Wear4PDmove/onto#>](http://w3id.org/Wear4PDmove/onto#) PREFIX saref: [<https://saref.etsi.org/core/>](https://saref.etsi.org/core/) PREFIX sosa: [<http://www.w3.org/ns/sosa/>](http://www.w3.org/ns/sosa/).
 
-#### *4.3. Evaluation*
+####*4.3. Evaluation*
 
 In this phase, we evaluate the Wear4PDmove ontology, which represents the third phase of the HCOME methodology. According to this phase, a list of selective representative SPARQL queries was meticulously designed for the evaluation of the Wear4PDmoveOnto in Protege 5.5. Additionally, a set of scenario-based SWRL rules were thoughtfully implemented and assessed within the same environment.
 
@@ -251,13 +222,11 @@ Following this initial phase of ontology evaluation, we advance into a pivotal s
 
 It is worth highlighting that the data used to populate the ontology for evaluation purposes comprise synthetic example data, which is distinct from data generated by real sensors. These synthetic examples exclusively serve the purpose of evaluating the ontology's performance. The significance of this phase is underlined by the presentation of its results in Section [5,](#page-10-0) emphasizing its pivotal role in the ontology engineering methodology. Furthermore, we want to draw attention to the inclusion of code snippets for each query, as detailed in Appendix [C.](#page-27-0)
 
-#### <span id="page-10-0"></span>**5. Evaluating the Ontology in PHKGs and PHGNNs**
+#### <span id="page-10-0"></span>5. Evaluating the Ontology in PHKGs and PHGNNs
 
 In this section, we focus on the evaluation of the Wear4PDmove ontology within the framework of PHKGs and GNNs. Section [5.1](#page-10-1) provides insights into the experimental setup and data used for the evaluation, followed by a detailed examination of the ontology using Protégé 5.5 [\[55\]](#page-32-3). Additionally, we explore an alternative implementation of the ontology and the PHKG using RDFlib/Python [\[56\]](#page-32-4). Moving on to Section [5.2,](#page-15-0) we introduce the application of PHGNNs using both the GAT and GCN approaches.
 
-### <span id="page-10-1"></span>*5.1. Experiments Setup and Data*
-
-To ensure diverse and comprehensive datasets for our experiments, we employed two distinct methods for creating patient data. The first method involves utilizing a Pythonbased data generator service specifically designed for patient information [\[57\]](#page-32-5). This service ensures the generation of realistic and representative observations, simulating various scenarios that might occur in a clinical setting. In the second method, we leveraged the Mockaroo tool as a supplementary approach. Mockaroo provides a versatile platform for generating synthetic data [\[58\]](#page-32-6), allowing for the customization of attributes and characteristics to mimic real-world scenarios. Simulated observations were collected from three virtual patients for a specific time of the day, with each patient assigned 60 observations per hour (i.e., one for every minute). These two methods enrich and diversify the dataset, enhancing the robustness of our experimental evaluations.
+### <span id="page-10-1"></span>*5.1. Experiments Setup and Data*To ensure diverse and comprehensive datasets for our experiments, we employed two distinct methods for creating patient data. The first method involves utilizing a Pythonbased data generator service specifically designed for patient information [\[57\]](#page-32-5). This service ensures the generation of realistic and representative observations, simulating various scenarios that might occur in a clinical setting. In the second method, we leveraged the Mockaroo tool as a supplementary approach. Mockaroo provides a versatile platform for generating synthetic data [\[58\]](#page-32-6), allowing for the customization of attributes and characteristics to mimic real-world scenarios. Simulated observations were collected from three virtual patients for a specific time of the day, with each patient assigned 60 observations per hour (i.e., one for every minute). These two methods enrich and diversify the dataset, enhancing the robustness of our experimental evaluations.
 
 In Table [2,](#page-11-0) a snapshot of the above-mentioned data recorded for a patient at a specific moment is presented, representing one of the 60 observations at a given time. The table presents various characteristics, each providing valuable insights into the patient's condition. The attributes, their descriptions, and corresponding values have been randomly selected from a comprehensive record, offering a glimpse into the diverse aspects monitored during the observation period.
 
@@ -292,25 +261,23 @@ In Table [2,](#page-11-0) a snapshot of the above-mentioned data recorded for a 
 
 The data in Table [2](#page-11-0) represents a comprehensive set of features that have been meticulously extracted and compiled through a prior preprocessing phase [\[6\]](#page-30-4). It is important to note that several of these properties, such as hasTremor, have been computed by the smart watch application at lower levels of abstraction. This means they are derived from more granular data or calculations, signifying a deeper level of analysis and processing involved in their determination. Additionally, it is important to emphasize that some of these properties are intricately linked to movement data, representing dynamic streams of information, while others are associated with PHR data, which typically encompasses static or longitudinal health-related information. This clear distinction underscores the multifaceted nature of the dataset, encompassing both dynamic and static facets of patient health, making it a valuable resource for a comprehensive understanding of the studied domain.
 
-# 5.1.1. Wear4PDmove in Protégé OE Environment
+# 1.1. Wear4PDmove in Protégé OE Environment
 
 To exploit and evaluate the engineered ontology, the competency questions were transformed to SPARQL queries and executed on the inferred knowledge represented using as input (a) a PHR database (patient information) and (b) a CSV file of sensor data gathered from a smartwatch during experimentation with PD patients. Using the Pellet reasoner [\[59\]](#page-32-7) and the Snap SPARQL plugin [\[60\]](#page-32-8), the inferred knowledge was queried to obtain observations related to the 'missing dose' high-level event. The source files of the ontology, the example SPARQL (numbered as Qx in Appendix [C\)](#page-27-0) queries, and the SWRL rules can be accessed at <https://github.com/KotisK/Wear4PDmove/v1.0.0/> (accessed on 1 January 2024).
 
 In the context of the Wear4PDmove ontology, the following SWRL rules are defined to detect missing dose high-level events based on the low-level events of tremor or bradykinesia identified in patients and generate notifications to doctors about possible missing doses of medication. These events are represented as Boolean data types, indicating their presence or absence. The values of these events are generated through the analysis of raw sensor data, which is performed within an API. It is important to note that the development of this API is part of another ongoing research project.
 
 Below, we describe the rules for recognizing and notifying doctors of missing dose events in PD patients.
-
 *Rule 1*: This rule states that if a tremor (low-level event) has been observed for a PD patient after a dosing event, then a missing dose event (high-level event) is recognized, and a notification is sent to the doctor (through the sendNotification function). The rule automatically classifies instances of PD patient observations as "PD patient Missing Dose Event Observations".
 
 *SWRL Rule (Bradykinisia)*: Observation(?obs), 'has bradykinisia of upper limp'(?obs, true), 'observed property'(?obs, 'Bradykinisia Upper Limp for PDpatient'), 'observation after dosing'(?obs, true) -> 'send notification'('Missing Dose Notification', true), 'PD patient Missing Dose Event Observation'(?obs)
 
-*Rule 2:* Similar to Rule 1, this rule is used for the recognition of missing dose (high-level event) based on the identified low-level event of bradykinesia in the upper limb of PD patients. If an observation is made for bradykinesia of the upper limb after a dosing event, and bradykinesia is detected (hasBradykinisiaOfUpperLimp), then a missing dose event is recognized, and a notification is sent to the doctor through the sendNotification function.
-
+*Rule 2:*Similar to Rule 1, this rule is used for the recognition of missing dose (high-level event) based on the identified low-level event of bradykinesia in the upper limb of PD patients. If an observation is made for bradykinesia of the upper limb after a dosing event, and bradykinesia is detected (hasBradykinisiaOfUpperLimp), then a missing dose event is recognized, and a notification is sent to the doctor through the sendNotification function.
 *SWRL Rule (Tremor)*: Observation(?obs), 'observed property'(?obs, 'Tremor for PDpatient'), 'observation after dosing'(?obs, true), 'has tremor'(?obs, true) -> 'send notification'('Missing Dose Notification', true), 'PD patient Missing Dose Event Observation'(?obs)
 
 These rules are defined for the purpose of identifying possible missed medication doses in PD patients and notifying their doctors in a timely manner. However, the effectiveness of these rules in a clinical setting would need to be evaluated through testing and validation. The accuracy of the observations, the sensitivity and specificity of the rules, and the usability of the notifications would need to be assessed. This evaluation process would require collaboration between domain experts and data scientists and may involve collecting and analyzing real-world patient data.
 
-#### 5.1.2. Wear4PDmove and RDFlib/Python Implementation
+## 1.2. Wear4PDmove and RDFlib/Python Implementation
 
 In the ontology construction phase, we meticulously detailed the connections with recommended classes and features that form the Wear4PDmove ontology. To achieve this, we utilized the Protégé 5.5 tool, a widely recognized ontology engineering tool, as already mentioned in the previous section. Protégé 5.5, with its intuitive and user-friendly interface, facilitated the modeling and editing of ontologies using the OWL. The entities, classes, and relationships within our ontology were meticulously defined and structured during this phase, ensuring a comprehensive representation of PD domain knowledge. It is noteworthy that our project can be seamlessly run in a Google Colab environment using Python. This provides an additional layer of accessibility and convenience for users, allowing them to engage with the ontology and its interconnected components.
 
@@ -329,7 +296,7 @@ In the context of ontology development, the specification of the "import" relati
 
 <span id="page-13-0"></span>![](_page_13_Figure_2.jpeg)
 
-**Figure 3.** Knowledge Graph integrating the Wear4PDmove ontology. **Figure 3.** Knowledge Graph integrating the Wear4PDmove ontology.
+**Figure 3.**Knowledge Graph integrating the Wear4PDmove ontology.**Figure 3.** Knowledge Graph integrating the Wear4PDmove ontology.
 
 The visualization of this interconnectedness, as depicted in the lower right corner in a star schem[a o](#page-13-0)f Figure 3, signifies the imported ontologies in our ontology. This portrayal reinforces the autonomy of the ontology by illustrating its independence from the broader elements of the ontological structure. Furthermore, the star schema serves as a representation of metadata, emphasizing the role of this ontology as a self-contained entity with clear import relationships, contributing to a more comprehensible and organized ontology landscape. The visualization of this interconnectedness, as depicted in the lower right corner in a star schema of Figure 3, signifies the imported ontologies in our ontology. This portrayal reinforces the autonomy of the ontology by illustrating its independence from the broader elements of the ontological structure. Furthermore, the star schema serves as a representation of metadata, emphasizing the role of this ontology as a self-contained entity with clear import relationships, contributing to a more comprehensible and organized ontology landscape.
 
@@ -339,7 +306,7 @@ A devised mechanism implemented through the RDFlib library orchestrates the extr
 
 output of this process yields a dataset comprising timestamped observations, the received observations values, and the corresponding notification outputs.
 
-<span id="page-14-0"></span>**Table 3.** Examples of observations related to Bradykinisia and Tremor low-level events.
+<span id="page-14-0"></span>**Table 3.**Examples of observations related to Bradykinisia and Tremor low-level events.
 
 | Records                    | hasBradykinisiaOfUpperLimp | hasTremor |
 |----------------------------|----------------------------|-----------|
@@ -353,7 +320,7 @@ output of this process yields a dataset comprising timestamped observations, the
 | PD-patient-Observation-302 | False                      | False     |
 | PD-patient-Observation-303 | False                      | False     |
 
-To achieve this, a SPARQL query is executed to construct a query structure (CON-TSTRUCT). Notably, this approach replaces the SWRL (Semantic Web Rule Language) since the owlready2 package does not support this feature. Following the SPARQL query, triples associated with the identified observations, namely hasBradykinisia and hastTremor are constructed (Figure [4\)](#page-14-1). *Information* **2024**, *15*, x FOR PEER REVIEW 16 of 34 *Information* **2024**, *15*, x FOR PEER REVIEW 16 of 34
+To achieve this, a SPARQL query is executed to construct a query structure (CON-TSTRUCT). Notably, this approach replaces the SWRL (Semantic Web Rule Language) since the owlready2 package does not support this feature. Following the SPARQL query, triples associated with the identified observations, namely hasBradykinisia and hastTremor are constructed (Figure [4\)](#page-14-1).*Information* **2024**, *15*, x FOR PEER REVIEW 16 of 34 *Information* **2024**, *15*, x FOR PEER REVIEW 16 of 34
 
 <span id="page-14-1"></span>
 
@@ -362,7 +329,7 @@ To achieve this, a SPARQL query is executed to construct a query structure (CON-
 |        | CONSTRUCT {<br>?obs onto:hasTremor ?hasTremor ;<br>onto:hasBradykinisiaOfUpperLimp ?hasBradykinisia<br>$}$ WHERE $\{$<br>?obs onto:hasTremor ?hasTremor .<br>?obs onto:hasBradykinisiaOfUpperLimp ?hasBradykinisia .<br>ŀ                                                                                                                                                                                                                                                                                                                                     |  |  |  |  |  |
 |        | Run Query                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |  |  |  |  |  |
 
-**Figure 4.** SPARQL query in the Python environment. **Figure 4.** SPARQL query in the Python environment. **Figure 4.** SPARQL query in the Python environment.
+**Figure 4.**SPARQL query in the Python environment.**Figure 4.**SPARQL query in the Python environment.**Figure 4.**SPARQL query in the Python environment.
 
 <span id="page-14-2"></span>In Figure 4, triples serve as the foundation for assessing alerts using IF-THEN rules. It's important to emphasize that these rules are formulated within the Python environment, leveraging its capabilities for dynamic and programmatically driven rule creation (Figure 5). This approach ensures a flexible and adaptable system for assessing alerts and making informed decisions based on the identified observations. In Figure [4,](#page-14-1) triples serve as the foundation for assessing alerts using IF-THEN rules. It's important to emphasize that these rules are formulated within the Python environment, leveraging its capabilities for dynamic and programmatically driven rule creation (Figure [5\)](#page-14-2). This approach ensures a flexible and adaptable system for assessing alerts and making informed decisions based on the identified observations. In Figure 4, triples serve as the foundation for assessing alerts using IF-THEN rules. It's important to emphasize that these rules are formulated within the Python environment, leveraging its capabilities for dynamic and programmatically driven rule creation (Figure 5). This approach ensures a flexible and adaptable system for assessing alerts and making informed decisions based on the identified observations.
 
@@ -376,8 +343,7 @@ To achieve this, a SPARQL query is executed to construct a query structure (CON-
 | 5              | http://w3id.org/Wear4PDmove/onto#PD-patient-Observation-102 | http://w3id.org/Wear4PDmove/onto#hasBradykinisiaOfUpperLimp | false  |
 | 6              | http://w3id.org/Wear4PDmove/onto#PD-patient-Observation-301 | http://w3id.org/Wear4PDmove/onto#hasBradykinisiaOfUpperLimp | false  |
 | $\overline{7}$ | http://w3id.org/Wear4PDmove/onto#PD-patient-Observation-203 | http://w3id.org/Wear4PDmove/onto#hasTremor                  | true   |
-
-**Figure 5.** Resulting triples from the CONSTRUCT query. **Figure 5.** Resulting triples from the CONSTRUCT query. such as symptoms, treatments, and PHR data. Together, GAT's attention mechanisms and **Figure 5.** Resulting triples from the CONSTRUCT query.
+**Figure 5.**Resulting triples from the CONSTRUCT query.**Figure 5.**Resulting triples from the CONSTRUCT query. such as symptoms, treatments, and PHR data. Together, GAT's attention mechanisms and**Figure 5.** Resulting triples from the CONSTRUCT query.
 
 The use of the Python programming language enhances the overall interaction and editing capabilities of the ontology, adapting to modern technological advancements and the evolving landscape of ontology development. Python complements, rather than replaces, the functionality provided by tools like Protégé. This complementary approach of using both Python and Protégé for ontology engineering not only empowers the derivation of meaningful insights and conclusions from the ontology but also encompasses visualization differences. Other frameworks, such as the JENA Apache framework, exist, which add further versatility to ontology management.
 
@@ -385,7 +351,7 @@ The use of the Python programming language enhances the overall interaction and 
 
 In this work, we aim to explore how a GAT network processes graph-structured data effectively. The GAT network is powerful because of its attention mechanisms, which enable it to capture intricate relationships hidden in the data, providing us with a nuanced perspective on the underlying patterns. GCN complements GAT's capabilities by processing graph-structured data through its convolutional layers. Like GAT, GCN excels in handling nodes and edges representing various entities and relationships within the KG, such as symptoms, treatments, and PHR data. Together, GAT's attention mechanisms and GCN's convolutional approach enable a comprehensive analysis of the intricate relationships in the data.
 
-To embed KG into GNNs, nodes and edges from the KG should be represented in the graph structure used by the PHGNN models. Nodes represent various entities (like symptoms, treatments, and PHR data), while edges represent relationships. To accomplish that task, we create a graph-based library called DGL (Deep Graph Library) to load our data and use them for training a GNN model to perform binary classification regarding two different alert labels, namely, 'medium' and 'high'. These alerts are triggered by employing specific features (*hasTremor* and *hasBradykinisia*) related to tremor and bradykinesia, respectively. The "medium" alert is activated when one of these features indicates a positive result. The "high" alert is activated when both features signal a positive outcome. We also evaluate the model accuracy for each level. This algorithm represents the practical implementation of our approach, showcasing how GNN is embedded in our system to handle and classify data effectively. In summary, our approach involves feature extraction from the ontology, data organization, and the application of GNN to classify alert levels.
+To embed KG into GNNs, nodes and edges from the KG should be represented in the graph structure used by the PHGNN models. Nodes represent various entities (like symptoms, treatments, and PHR data), while edges represent relationships. To accomplish that task, we create a graph-based library called DGL (Deep Graph Library) to load our data and use them for training a GNN model to perform binary classification regarding two different alert labels, namely, 'medium' and 'high'. These alerts are triggered by employing specific features (*hasTremor*and*hasBradykinisia*) related to tremor and bradykinesia, respectively. The "medium" alert is activated when one of these features indicates a positive result. The "high" alert is activated when both features signal a positive outcome. We also evaluate the model accuracy for each level. This algorithm represents the practical implementation of our approach, showcasing how GNN is embedded in our system to handle and classify data effectively. In summary, our approach involves feature extraction from the ontology, data organization, and the application of GNN to classify alert levels.
 
 More specifically, the selection and implementation of these two algorithms was made considering the following:
 
@@ -417,11 +383,11 @@ Based on all of the above, Figure [6](#page-16-0) presents a general architectur
 
 <span id="page-16-0"></span>![](_page_16_Figure_10.jpeg)
 
-**Figure 6.** Personal Health Graph Neural Network (PHGNN) architecture. **Figure 6.** Personal Health Graph Neural Network (PHGNN) architecture.
+**Figure 6.**Personal Health Graph Neural Network (PHGNN) architecture.**Figure 6.**Personal Health Graph Neural Network (PHGNN) architecture.
 
-# 5.2.1. GNNs (GAT Approach)
+# 2.1. GNNs (GAT Approach)
 
-In the quest to derive meaningful metrics from GNN approaches tailored for patients with PD, we adopt a systematic and structured methodology. The initial phase entails the installation of the DGL package and the incorporation of the PyTorch library, establishing a robust foundation for subsequent tasks. *Information* **2024**, *15*, x FOR PEER REVIEW 19 of 34
+In the quest to derive meaningful metrics from GNN approaches tailored for patients with PD, we adopt a systematic and structured methodology. The initial phase entails the installation of the DGL package and the incorporation of the PyTorch library, establishing a robust foundation for subsequent tasks.*Information* **2024**, *15*, x FOR PEER REVIEW 19 of 34
 
 > Moving forward, the data preparation stage involves the extraction of features from the ontology, systematically saving them in a CSV file. To enrich the dataset, two additional fields are introduced, representing distinct alert levels—'medium' and 'high'. These alerts are generated through a decision support system embedded within the service, leveraging ontology-driven rules. mechanisms, excels in capturing intricate relationships within the data, providing a nuanced perspective on the underlying patterns. In this study, we conducted a series of experiments employing a GNN approach for
 
@@ -435,13 +401,13 @@ In the quest to derive meaningful metrics from GNN approaches tailored for patie
 
 <span id="page-17-0"></span>
 
-**Figure 7.** Model performance metrics for medium and high alert predictions across training epochs, including loss and accuracy values. **Figure 7.** Model performance metrics for medium and high alert predictions across training epochs, including loss and accuracy values.
+**Figure 7.**Model performance metrics for medium and high alert predictions across training epochs, including loss and accuracy values.**Figure 7.**Model performance metrics for medium and high alert predictions across training epochs, including loss and accuracy values.
 
 The provided results in Figure 8 detail the metric loss for Medium Alert based on exported outcomes from the GAT algorithm. The results vary across different configurations of hidden features (4, 8, and 16) and training epochs (100 to 500). The loss values, representing the dissimilarity between predicted and actual values during training, gen-The ascending trend observed in the Accuracy metric further reinforces the system's competence. The consistent increase from 77.78% to 84.55% over the epochs implies an augmentation in the overall correctness of the predictions. This suggests that the GNN
 
 model effectively learned and adapted to the intricate relationships within the patient data, showcasing a promising capability to identify instances of missed medication doses.
 
-The provided results in Figure [8](#page-18-0) detail the metric loss for Medium Alert based on exported outcomes from the GAT algorithm. The results vary across different configurations of hidden features (4, 8, and 16) and training epochs (100 to 500). The loss values, representing the dissimilarity between predicted and actual values during training, generally decrease as the number of epochs increases. Notably, the configuration with 8 hidden features and 500 epochs achieves the lowest loss, indicating optimal performance for the Medium Alert classification. This trend suggests that the model progressively improves its predictive capabilities over successive training iterations. Overall, these results reflect the effectiveness of the GAT algorithm in learning representations for Medium Alert classification, with specific configurations demonstrating superior performance. *Information* **2024**, *15*, x FOR PEER REVIEW 20 of 34
+The provided results in Figure [8](#page-18-0) detail the metric loss for Medium Alert based on exported outcomes from the GAT algorithm. The results vary across different configurations of hidden features (4, 8, and 16) and training epochs (100 to 500). The loss values, representing the dissimilarity between predicted and actual values during training, generally decrease as the number of epochs increases. Notably, the configuration with 8 hidden features and 500 epochs achieves the lowest loss, indicating optimal performance for the Medium Alert classification. This trend suggests that the model progressively improves its predictive capabilities over successive training iterations. Overall, these results reflect the effectiveness of the GAT algorithm in learning representations for Medium Alert classification, with specific configurations demonstrating superior performance.*Information* **2024**, *15*, x FOR PEER REVIEW 20 of 34
 
 <span id="page-18-0"></span>![](_page_18_Figure_3.jpeg)
 
@@ -467,15 +433,14 @@ In Table 4, the GNN performance metrics showcase the accuracy, precision, recall
 |                                                                                                    | 400    | 0.8777   | 0.9489                                                                                        | 0.8234 | 0.8817             |
 | training iterations for High Alert classifications.                                                | 500    | 0.8908   | 0.9508                                                                                        | 0.8259 | 0.8840             |
 
-<span id="page-19-0"></span>**Table 4.** GNN performance metrics across epochs with different hidden layers (medium alert).
+<span id="page-19-0"></span>**Table 4.**GNN performance metrics across epochs with different hidden layers (medium alert).
 
 <span id="page-19-1"></span>The presented results in Figure [9](#page-19-1) detail the metric loss for High Alert based on exported outcomes from the GAT algorithm. The configurations encompass varying numbers of hidden features (4, 8, and 16) and training epochs (100 to 500). Across these configurations, the loss consistently diminishes with increasing epochs, underscoring the model's improving predictive prowess. Particularly noteworthy is the configuration employing 8 hidden features and 500 epochs, showcasing the most noteworthy performance with the lowest loss, affirming its efficacy in High Alert classification. This pattern underscores the GAT algorithm's adeptness in refining its predictive capabilities over successive training iterations for High Alert classifications. 4, 8, and 16 for predicting high-level alerts reveals notable trends in performance metrics. The outcomes illustrate a consistent improvement in accuracy, precision, recall, and F1 score as the number of hidden features increases. Particularly, employing eight hidden layers showcases the model's efficacy in discerning intricate relationships within the data for robust high-alert classification. Across epochs, accuracy steadily ascends from 77.78% to 89.55%, underscoring the algorithm's proficiency in high alert prediction. Precision, recall, and F1-score similarly exhibit positive trajectories, reaching their zenith at 16 hidden layers. This underscores the effectiveness of a more profound architecture in capturing and leveraging complex data patterns for accurate and reliable high-alert predictions.
 
 ![](_page_19_Figure_5.jpeg)
 
 ![](_page_19_Figure_6.jpeg)
-
-**Table 5.** GNN [p](#page-20-0)erformance metrics across epochs with different hidden layers (high alert). **Hidden Features Epochs Accuracy Precision Recall F1-Score** 100 0.7778 0.9217 0.8102 0.8624 200 0.81 0.9288 0.8118 0.8664 300 0.8215 0.9314 0.8148 0.8692 In Table 5, examining the application of the GAT algorithm with hidden layers set at 4, 8, and 16 for predicting high-level alerts reveals notable trends in performance metrics. The outcomes illustrate a consistent improvement in accuracy, precision, recall, and F1-score as the number of hidden features increases. Particularly, employing eight hidden layers showcases the model's efficacy in discerning intricate relationships within the data for
+**Table 5.**GNN [p](#page-20-0)erformance metrics across epochs with different hidden layers (high alert).**Hidden Features Epochs Accuracy Precision Recall F1-Score** 100 0.7778 0.9217 0.8102 0.8624 200 0.81 0.9288 0.8118 0.8664 300 0.8215 0.9314 0.8148 0.8692 In Table 5, examining the application of the GAT algorithm with hidden layers set at 4, 8, and 16 for predicting high-level alerts reveals notable trends in performance metrics. The outcomes illustrate a consistent improvement in accuracy, precision, recall, and F1-score as the number of hidden features increases. Particularly, employing eight hidden layers showcases the model's efficacy in discerning intricate relationships within the data for
 
 robust high-alert classification. Across epochs, accuracy steadily ascends from 77.78% to 89.55%, underscoring the algorithm's proficiency in high alert prediction. Precision, recall, and F1-score similarly exhibit positive trajectories, reaching their zenith at 16 hidden layers. This underscores the effectiveness of a more profound architecture in capturing and leveraging complex data patterns for accurate and reliable high-alert predictions.
 
@@ -497,13 +462,13 @@ robust high-alert classification. Across epochs, accuracy steadily ascends from 
 |                 | 400    | 0.83     | 0.9297    | 0.8183 | 0.8705   |
 |                 | 500    | 0.8255   | 0.9291    | 0.8179 | 0.8700   |
 
-<span id="page-20-0"></span>**Table 5.** GNN performance metrics across epochs with different hidden layers (high alert).
+<span id="page-20-0"></span>**Table 5.**GNN performance metrics across epochs with different hidden layers (high alert).
 
 In conclusion, while the results indicate promising performance with the GNN architecture, rigorous validation, exploration of model interpretability, and consideration of potential overfitting are imperative for ensuring the reliability and applicability of the model in diverse and real-world scenarios. Further investigations, including hyperparameter tuning and exploration of alternative architectures, are warranted to optimize the model's performance. Understanding the interpretability of the model and uncovering learned representations within the hidden layers contribute to a more comprehensive understanding of its decision-making process.
 
-#### 5.2.2. GNNs (GCN Approach)
+## 2.2. GNNs (GCN Approach)
 
-This section implements a GCN for node classification using PyTorch Geometric. The primary goal is to analyze a graph structure based on input data from a CSV file. The dataset is loaded into a Pandas DataFrame, where the 'source' and 'target' columns are used to create edges for the graph. Nodes are represented by random features, forming the initial node features tensor (denoted as **x**). The PyTorch Geometric library is leveraged to create a data object that encapsulates the graph structure.
+This section implements a GCN for node classification using PyTorch Geometric. The primary goal is to analyze a graph structure based on input data from a CSV file. The dataset is loaded into a Pandas DataFrame, where the 'source' and 'target' columns are used to create edges for the graph. Nodes are represented by random features, forming the initial node features tensor (denoted as**x**). The PyTorch Geometric library is leveraged to create a data object that encapsulates the graph structure.
 
 The GCN model is defined as a PyTorch neural network, with two GCN layers (conv1 and conv2). These layers are applied successively to the input graph data. The activation function ReLU is used between the layers to introduce non-linearity. The overall goal of the GCN is to learn node representations that capture the graph structure and can be used for downstream tasks. The script includes a training loop where the GCN model is trained using a MSE loss function. The model parameters are updated through backpropagation using the Adam optimizer. The training process is repeated for a specified number of epochs, and the training loss is printed for each epoch.
 
@@ -517,7 +482,7 @@ indicating effective learning and convergence. The decreasing loss implies that 
 
 <span id="page-21-0"></span>
 
-**Figure 10.** Model training progress: Loss values over epochs for different hidden channels. **Figure 10.** Model training progress: Loss values over epochs for different hidden channels.
+**Figure 10.**Model training progress: Loss values over epochs for different hidden channels.**Figure 10.** Model training progress: Loss values over epochs for different hidden channels.
 
 Interpreting the results, the decreasing loss signifies the model's ability to capture underlying patterns in the data, enhancing its predictive accuracy for medium alert notifications. The choice of the number of hidden channels appears crucial, with 32 hidden channels outperforming the 16 hidden channel configuration. Interpreting the results, the decreasing loss signifies the model's ability to capture underlying patterns in the data, enhancing its predictive accuracy for medium alert notifications. The choice of the number of hidden channels appears crucial, with 32 hidden channels outperforming the 16 hidden channel configuration.
 
@@ -527,7 +492,7 @@ curacy and predictive power in the context of the provided graph-structured data
 
 different hidden channel configurations (n = 16 and n = 32) specifically for medium alert notifications. Three key metrics—MSE, MAE, and R2—are reported. In Table [6,](#page-21-1) the plot table presents performance metrics for the GCN algorithm with different hidden channel configurations (n = 16 and n = 32) specifically for medium alert notifications. Three key metrics—MSE, MAE, and R2—are reported.
 
-<span id="page-21-1"></span>**Hidden Channels n = 16 n = 32 Table 6.** Comparison of regression model performance metrics for different hidden channels.
+<span id="page-21-1"></span>**Hidden Channels n = 16 n = 32 Table 6.**Comparison of regression model performance metrics for different hidden channels.
 
 | Mean Squared Error (MSE)  | 0.2044 | 0.2045                                                                                 |
 |---------------------------|--------|----------------------------------------------------------------------------------------|
@@ -544,7 +509,7 @@ Interpreting the results, the choice of hidden channels (16 or 32) does not sign
 
 In conclusion, the performance metrics indicate comparable predictive accuracy between the GCN models with 16 and 32 hidden channels for medium alert notifications. However, the low R<sup>2</sup> values emphasize the need for further refinement and exploration to better capture the underlying patterns in the data.
 
-#### <span id="page-22-0"></span>**6. Discussion: Limitations and Open Issues**
+### <span id="page-22-0"></span>6. Discussion: Limitations and Open Issues
 
 A noteworthy limitation lies in sustaining the relevance of the Wear4PDmove ontology amid the rapid evolution of technologies and healthcare practices. Continuous efforts are essential to ensure alignment with the latest advancements. While leveraging third-party ontologies enhances comprehensiveness, potential challenges regarding compatibility and alignment with evolving standards necessitate careful attention.
 
@@ -564,16 +529,16 @@ complexity of the computations can become a bottleneck, impacting both training 
 
 In conclusion, the challenges of overfitting in the context of GNNs, specifically when using GAT and GCN with varying numbers of hidden layers, are:
 
-- 1. **Overfitting in Deeper Architectures**:
+- 1.**Overfitting in Deeper Architectures**:
   - Overfitting is a common issue in machine learning where a model learns the training data too well, including its noise and outliers, rather than learning the underlying patterns. This results in poor generalization to new, unseen data.
   - In PHGNNs, as with other neural networks, adding more hidden layers can lead to a more complex model. While this can initially seem beneficial, as it might allow the model to learn more intricate patterns in the training data, it can also increase the risk of overfitting.
 
-# 2. **GAT with 8 Hidden Layers vs. 16 and 32 Layers**:
+# GAT with 8 Hidden Layers vs. 16 and 32 Layers:
 
 - The choice of 8 hidden layers in GAT as being better compared to 16 and 32 layers can be attributed to this concern of overfitting. With eight layers, the GAT model is likely complex enough to capture relevant patterns and relationships in the data but not so complex that it starts to memorize the training data excessively.
 - In contrast, GAT models with 16 or 32 layers may become too specialized for the training data, losing their ability to generalize well. This is especially pertinent in GNNs, where the graph structure can lead to intricate and nuanced data patterns that are easy to overfit.
 
-#### 3. **Comparison of GAT with 8 Layers to GCN with 32 Layers**:
+## Comparison of GAT with 8 Layers to GCN with 32 Layers:
 
 - Similarly, when comparing GAT with 8 layers to GCN with 32 layers, the same principle applies. Despite the inherent differences in how GAT and GCN process and learn from graph-structured data, the risk of overfitting with an increased number of layers is a common concern.
 - GAT with fewer layers (eight in this case) might strike a more effective balance between learning capability and generalizability. It is capable of learning important features and patterns from the graph data without becoming overly specialized to the training dataset.
@@ -583,21 +548,18 @@ Another limitation involves the sensitivity of GNNs to graph structure variation
 
 Expanding on the discussion of limitations in the use of PHGNNs, it is essential to address the potential risk of overfitting, especially when dealing with models incorporating a higher number of hidden layers. While deeper architectures may offer improved performance on the training data, there is a risk that the model becomes too specialized and fails to generalize well to new, unseen data. This phenomenon, known as overfitting, can hinder the model's overall effectiveness. Therefore, striking a balance and considering the trade-offs between the number of hidden layers and the risk of overfitting becomes crucial in optimizing the performance of GNNs like GAT and GCN. In summary, balancing model complexity and generalizability in PHGNNs is crucial. It suggests that a GAT with eight hidden layers may offer a more optimal balance compared to higher-layered GAT and GCN models, potentially leading to better performance on unseen data due to reduced overfitting.
 
-#### <span id="page-24-0"></span>**7. Conclusions**
+### <span id="page-24-0"></span>7. Conclusions
 
 In this paper, the research outcomes conducted in the domain of knowledge-based PD monitoring and alerting have been presented, leveraging wearable sensor technology, advanced semantic data analysis techniques, and GNNs—particularly employing GAT and GCN algorithms. The primary objective was to enhance the landscape of PD patient care through a multifaceted approach to knowledge representation and reasoning, culminating in the creation and evaluation of a robust PHKG. This PHKG, which combines movement data, clinical records, and health information, shows our dedication to understanding PD patients' health comprehensively. Our methodological advancements include the extension of the Wear4PDmove ontology to address the specificity demanded by PD monitoring and the strategic implementation of PHGNNs for nuanced analysis of complex medical data.
 
 By using wearable technology thoughtfully, including various wearable devices and applications, we showcased real-time health monitoring with a focus on recognizing important events. The semantic enrichment of movement data facilitated formal and explicit data annotation, promoting interoperability and data interlinking. Our work contributes not only to the precision and practicality of PD monitoring but also offers tangible advancements in patient-centric solutions. By exploring the intricacies of PHGNNs, we also demonstrated an approach towards improved analysis of complex medical data, contributing valuable insights to the PD research landscape. The culmination of our efforts is a step forward in advancing the monitoring and alerting of PD.
 
-**Author Contributions:** Conceptualization, N.Z., P.B., G.E.T. and K.K.; methodology, N.Z. and K.K.; software, N.Z.; validation, N.Z., P.B., G.E.T. and K.K.; formal analysis, N.Z., P.B., G.E.T. and K.K.; investigation, N.Z., P.B. and K.K.; resources, N.Z.; data curation, N.Z. and K.K.; writing—original draft preparation, N.Z., P.B., G.E.T. and K.K.; writing—review and editing, N.Z., G.E.T. and K.K.; visualization, N.Z.; supervision, G.E.T. and K.K.; project administration, K.K.; All authors have read and agreed to the published version of the manuscript.
+**Author Contributions:**Conceptualization, N.Z., P.B., G.E.T. and K.K.; methodology, N.Z. and K.K.; software, N.Z.; validation, N.Z., P.B., G.E.T. and K.K.; formal analysis, N.Z., P.B., G.E.T. and K.K.; investigation, N.Z., P.B. and K.K.; resources, N.Z.; data curation, N.Z. and K.K.; writing—original draft preparation, N.Z., P.B., G.E.T. and K.K.; writing—review and editing, N.Z., G.E.T. and K.K.; visualization, N.Z.; supervision, G.E.T. and K.K.; project administration, K.K.; All authors have read and agreed to the published version of the manuscript.
+**Funding:**This research received no external funding.
+**Data Availability Statement:**Samples of the datasets used in this research, including the CSV data, RDF syntax, and the Wear4PDmoveOnto ontology, can be accessed online through our GitHub repository <https://github.com/KotisK/Wear4PDmove> (accessed on 1 January 2024). The semantically annotated datasets, along with the implementation of PHKG and GNNs for the evaluation presented in this paper, are available from [https://github.com/KotisK/Wear4Pdmove/tree/master/PHKG-](https://github.com/KotisK/Wear4Pdmove/tree/master/PHKG-GNN4Evaluation)[GNN4Evaluation](https://github.com/KotisK/Wear4Pdmove/tree/master/PHKG-GNN4Evaluation) (accessed on 1 January 2024).
+**Conflicts of Interest:**The authors declare no conflicts of interest.
 
-**Funding:** This research received no external funding.
-
-**Data Availability Statement:** Samples of the datasets used in this research, including the CSV data, RDF syntax, and the Wear4PDmoveOnto ontology, can be accessed online through our GitHub repository <https://github.com/KotisK/Wear4PDmove> (accessed on 1 January 2024). The semantically annotated datasets, along with the implementation of PHKG and GNNs for the evaluation presented in this paper, are available from [https://github.com/KotisK/Wear4Pdmove/tree/master/PHKG-](https://github.com/KotisK/Wear4Pdmove/tree/master/PHKG-GNN4Evaluation)[GNN4Evaluation](https://github.com/KotisK/Wear4Pdmove/tree/master/PHKG-GNN4Evaluation) (accessed on 1 January 2024).
-
-**Conflicts of Interest:** The authors declare no conflicts of interest.
-
-#### **Abbreviations**
+#### Abbreviations
 
 | Acronym | Description                                                    |
 |---------|----------------------------------------------------------------|
@@ -652,7 +614,7 @@ By using wearable technology thoughtfully, including various wearable devices an
 | TAM   | Triple Access Memory                            |
 | UMLS  | Unified Medical Language System                 |
 
-# <span id="page-25-0"></span>**Appendix A**
+# <span id="page-25-0"></span>Appendix A
 
 CQ 1. What are the activities performed by specific patients? This question aims to retrieve all activities that are performed by patients. The objective is to analyze and monitor their behavior and the progress of their disease/symptoms.
 
@@ -674,33 +636,29 @@ CQ 9. What are the observations in the Wear4PDmove ontology that encompass both 
 
 CQ 10. Which observations in the Wear4PDmove ontology exhibit both tremor and bradykinesia attributes for the upper limb within a specific timestamp range, and should trigger a notification? The objective of this SPARQL query is to construct a new RDF graph by extracting observations that possess specific attributes (tremor and bradykinesia) for the upper limb from the Wear4PDmove ontology. Additionally, the query identifies observations within a specified timestamp range and includes a flag (sendNotification) to determine if these observations meet the criteria for triggering a notification.
 
-#### <span id="page-26-0"></span>**Appendix B**
+## <span id="page-26-0"></span>Appendix B
 
-### *Ontology key classes*
-
-- (a) **w4pd:AlertingNotification**: subClassOf saref:ActuatingFunction, representing the type of alerting notification in the domain of web-based applications. Specifically, the actuating function refers to a set of operations or instructions that are carried out to trigger a particular event or process in response to a specific condition. This class is typically used in the development of smart devices and IoT (Internet of Things) applications, where it plays a crucial role in enabling automated and intelligent functionalities.
+###*Ontology key classes*- (a)**w4pd:AlertingNotification**: subClassOf saref:ActuatingFunction, representing the type of alerting notification in the domain of web-based applications. Specifically, the actuating function refers to a set of operations or instructions that are carried out to trigger a particular event or process in response to a specific condition. This class is typically used in the development of smart devices and IoT (Internet of Things) applications, where it plays a crucial role in enabling automated and intelligent functionalities.
 - (b) **w4pd:DailyDosagePlan**: subClassOf w4pd:MedicalPrescription, representing a daily dosage plan. This implies that a medical prescription is a type of plan that outlines the daily dosages of medication that a patient should take, including the type of medication, the dosage, and the frequency. The medical prescription can include additional properties or constraints specific to the medical context.
 - (c) **w4pd:Diagnosis**: subClassOf w4pd:PersonalHealthRecord, representing specific diagnosis of a disease such as PD, included in patient personal health record.
 - (d) **w4pd:MedicalPrescription**: subClassOf w4pd:PersonalHealthRecord, representing a medical prescription created by a healthcare provider for a specific patient and diagnosis.
 - (e) **w4pd:NotifyDoctor**: subClassOf w4pd:AlertingNotification, representing a notification sent to a doctor to alert about a specific patient's health condition.
 - (f) **w4pd:PD\_Patient**: subClassOf w4pd:Patient, representing a patient diagnosed with PD.
 - (g) **w4pd:PersonalHealthRecord**: This class represents a personal health record containing health-related information about a specific patient.
-- (h) **w4pd:SketchingActivity** and w4pd:WalkingActivity: subClassOf mdo:Activitiesof-DailyLiving, representing activities of daily living that a PD patient may perform, including sketching and walking.
+- (h) **w4pd:SketchingActivity**and w4pd:WalkingActivity: subClassOf mdo:Activitiesof-DailyLiving, representing activities of daily living that a PD patient may perform, including sketching and walking.
 
-- (i) **w4pd:SmartWatch**: subClassOf saref:OnBodyWearable, representing an on-body wearable device such as a smartwatch used for monitoring the health status of a PD patient.
+- (i)**w4pd:SmartWatch**: subClassOf saref:OnBodyWearable, representing an on-body wearable device such as a smartwatch used for monitoring the health status of a PD patient.
 - (j) **pmdo:BradykinesiaofUpperLimb**: Representing a common motor symptom of PD, characterized by a slowness and difficulty in initiating and completing movements of the upper limbs, affecting daily activities such as writing, dressing, and eating.
 - (k) **mdo:Tremor**: Representing a cardinal motor symptom of PD, characterized by rhythmic, involuntary, and oscillatory movements of a body part.
 
-#### *Ontology key properties*
-
-- (a) **w4pd:hasBradykinisiaOfUpperLimp**: A Boolean data property that specifies whether the patient has bradykinesia of the upper limb or not.
+#### *Ontology key properties*- (a)**w4pd:hasBradykinisiaOfUpperLimp**: A Boolean data property that specifies whether the patient has bradykinesia of the upper limb or not.
 - (b) **w4pd:hasTremor**: A Boolean data property that specifies whether the patient has a tremor or not.
 - (c) **w4pd:hasRigidity**: A Boolean data property that specifies whether the patient has Rigidity or not. It refers to stiffness or inflexibility of the muscles that can make it difficult for patients to move freely.
 - (d) **w4pd:hasPosturalInstability**: A Boolean data property that specifies whether the patient has postural instability, or a decreased ability to maintain balance while standing or walking.
 - (e) **w4pd:hasFreezingOfGait**: A Boolean data property that refers to a sudden inability to move the legs while walking, which can cause patients to feel as if their feet are glued to the ground.
 - (f) **w4pd:hasAkinesia**: A Boolean data property that refers to a difficulty in initiating movement or a reduced ability to perform voluntary movements.
-- (g) **w4pd:hasDepression** and **w4pd:hasAnxiety**: Boolean data properties that refer to depression and anxiety, common non-motor symptoms associated with PD.
-- (h) **w4pd:hasSleepDisturbances** and **w4pd:hasFatigue**: Boolean data properties that refer to sleep disturbances and fatigue, also common non-motor symptoms associated with PD.
+- (g) **w4pd:hasDepression**and**w4pd:hasAnxiety**: Boolean data properties that refer to depression and anxiety, common non-motor symptoms associated with PD.
+- (h) **w4pd:hasSleepDisturbances**and**w4pd:hasFatigue**: Boolean data properties that refer to sleep disturbances and fatigue, also common non-motor symptoms associated with PD.
 - (i) **w4pd:hasDysphagia**: A Boolean data property that refers to difficulty swallowing, which can lead to choking or aspiration pneumonia.
 - (j) **w4pd:consistsOf**: An object property in the domain of PHR, which denotes that a particular health record is composed of multiple components or sub-records, each of which can be semantically described.
 - (k) **w4pd:hasDosageTime**: An object property representing the time at which a dose of a medication is taken, which can be used for monitoring and alerting purposes.
@@ -709,7 +667,7 @@ CQ 10. Which observations in the Wear4PDmove ontology exhibit both tremor and br
 - (n) **w4pd:performs**: An object property (inverse of w4pd:isPerformedBy), which indicates that a patient performs an activity (such as an ADL), is used to model and infer information about the activities performed by a particular patient.
 - (o) **w4pd:recordBelongsToPatient**: An object property (inverse of w4pd:hasPersonal-HealthRecord) representing that a PHR belongs to a particular patient, which can be used to retrieve patient-specific health data from their record.
 
-# <span id="page-27-0"></span>**Appendix C**
+# <span id="page-27-0"></span>Appendix C
 
 Q1. Retrieves all activities performed by all PD patients. It uses the RDF type property to identify instances of PD patients and the performs property to identify activities that they have performed. This query can be used to assess the completeness of the ontology by checking whether all activities performed by PD patients are represented in the ontology.
 
@@ -717,7 +675,7 @@ SELECT ?activity ?patient WHERE { ?patient rdf:type w4pd:PD\_Patient; w4pd:perfo
 
 }
 
-Q2. Retrieves the patient who performs a specific activity (e.g., SketchingActivity-01). It uses the *performs* property to identify instances of the activity performed by a patient. This query can be used to evaluate the ability of the ontology to retrieve specific information about patients and their activities.
+Q2. Retrieves the patient who performs a specific activity (e.g., SketchingActivity-01). It uses the *performs*property to identify instances of the activity performed by a patient. This query can be used to evaluate the ability of the ontology to retrieve specific information about patients and their activities.
 
 SELECT ?patient
 
@@ -847,15 +805,15 @@ FILTER (?timestamp >= "2022-08-04T12:42:12.150Z"ˆˆxsd:dateTime && ?timestamp <
 
 }
 
-# <span id="page-30-23"></span>**Appendix D**
+# <span id="page-30-23"></span>Appendix D
 
 # hasBradykinisiaOfUpperLimp rels = list(core\_ontology.hasBradykinisiaOfUpperLimp.get\_relations()) print(rels)
 
 # hasTremor rels = list(core\_ontology.hasTremor.get\_relations()) print(rels)
 
-# **References**
+# References
 
-- <span id="page-30-0"></span>1. Younesi, E.; Malhotra, A.; Gündel, M.; Scordis, P.; Kodamullil, A.T.; Page, M.; Müller, B.; Springstubbe, S.; Wüllner, U.; Scheller, D.; et al. PDON: Parkinson's disease ontology for representation and modeling of the Parkinson's disease knowledge domain. *Theor. Biol. Med. Model.* **2015**, *12*, 20. [\[CrossRef\]](https://doi.org/10.1186/s12976-015-0017-y) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/26395080)
+- <span id="page-30-0"></span>1. Younesi, E.; Malhotra, A.; Gündel, M.; Scordis, P.; Kodamullil, A.T.; Page, M.; Müller, B.; Springstubbe, S.; Wüllner, U.; Scheller, D.; et al. PDON: Parkinson's disease ontology for representation and modeling of the Parkinson's disease knowledge domain.*Theor. Biol. Med. Model.* **2015**, *12*, 20. [\[CrossRef\]](https://doi.org/10.1186/s12976-015-0017-y) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/26395080)
 - <span id="page-30-22"></span>2. Gyrard, A.; Gaur, M.; Shekarpour, S.; Thirunarayan, K.; Sheth, A. Personalized Health Knowledge Graph. *CEUR Workshop Proc.* **2018**, *2317*, 5. [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/34690624)
 - <span id="page-30-1"></span>3. Shirai, S.; Seneviratne, O.; McGuinness, D.L. Applying Personal Knowledge Graphs to Health (Version 1). *arXiv* **2021**, arXiv:2104.07587. [\[CrossRef\]](https://doi.org/10.48550/ARXIV.2104.07587)
 - <span id="page-30-2"></span>4. Zafeiropoulos, N.; Bitilis, P.; Tsekouras, G.E.; Kotis, K. Graph Neural Networks for Parkinson's Disease Monitoring and Alerting. *Sensors* **2023**, *23*, 8936. [\[CrossRef\]](https://doi.org/10.3390/s23218936) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/37960634)

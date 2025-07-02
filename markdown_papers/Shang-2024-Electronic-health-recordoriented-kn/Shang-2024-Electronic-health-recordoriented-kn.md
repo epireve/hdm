@@ -1,3 +1,5 @@
+<!-- cite_key: security2024 -->
+
 Original Paper
 
 # Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study
@@ -12,33 +14,24 @@ Yong Shang1\* , PhD; Yu Tian2,3\* , PhD; Kewei Lyu 2,3 , PhD; Tianshu Zhou<sup>1
 
 <sup>4</sup>Kidney Disease Center, The First Affiliated Hospital, Zhejiang University School of Medicine, Hangzhou, China
 
-\* these authors contributed equally
+\*these authors contributed equally
+**Corresponding Author:**Jingsong Li, PhD Research Center for Data Hub and Security Zhejiang Laboratory No.1 Kechuang Avenue, Zhongtai Sub-District, Yuhang District Hangzhou, 310000 China Phone: 86 0571 58005162 Email: [ljs@zju.edu.cn](mailto:ljs@zju.edu.cn)
 
-**Corresponding Author:**
+##*Abstract*
 
-Jingsong Li, PhD Research Center for Data Hub and Security Zhejiang Laboratory No.1 Kechuang Avenue, Zhongtai Sub-District, Yuhang District Hangzhou, 310000 China Phone: 86 0571 58005162 Email: [ljs@zju.edu.cn](mailto:ljs@zju.edu.cn)
+**Background:**The medical knowledge graph provides explainable decision support, helping clinicians with prompt diagnosis and treatment suggestions. However, in real-world clinical practice, patients visit different hospitals seeking various medical services, resulting in fragmented patient data across hospitals. With data security issues, data fragmentation limits the application of knowledge graphs because single-hospital data cannot provide complete evidence for generating precise decision support and comprehensive explanations. It is important to study new methods for knowledge graph systems to integrate into multicenter, information-sensitive medical environments, using fragmented patient records for decision support while maintaining data privacy and security.
+**Objective:**This study aims to propose an electronic health record (EHR)–oriented knowledge graph system for collaborative reasoning with multicenter fragmented patient medical data, all the while preserving data privacy.
+**Methods:**The study introduced an EHR knowledge graph framework and a novel collaborative reasoning process for utilizing multicenter fragmented information. The system was deployed in each hospital and used a unified semantic structure and Observational Medical Outcomes Partnership (OMOP) vocabulary to standardize the local EHR data set. The system transforms local EHR data into semantic formats and performs semantic reasoning to generate intermediate reasoning findings. The generated intermediate findings used hypernym concepts to isolate original medical data. The intermediate findings and hash-encrypted patient identities were synchronized through a blockchain network. The multicenter intermediate findings were collaborated for final reasoning and clinical decision support without gathering original EHR data.
+**Results:**The system underwent evaluation through an application study involving the utilization of multicenter fragmented EHR data to alert non-nephrology clinicians about overlooked patients with chronic kidney disease (CKD). The study covered 1185 patients in nonnephrology departments from 3 hospitals. The patients visited at least two of the hospitals. Of these, 124 patients were identified as meeting CKD diagnosis criteria through collaborative reasoning using multicenter EHR data, whereas the data from individual hospitals alone could not facilitate the identification of CKD in these patients. The assessment by clinicians indicated that 78/91 (86%) patients were CKD positive.
+**Conclusions:**The proposed system was able to effectively utilize multicenter fragmented EHR data for clinical application. The application study showed the clinical benefits of the system with prompt and comprehensive decision support.
 
-## *Abstract*
+###*(J Med Internet Res 2024;26:e54263)*doi: [10.2196/54263](http://dx.doi.org/10.2196/54263)
 
-**Background:** The medical knowledge graph provides explainable decision support, helping clinicians with prompt diagnosis and treatment suggestions. However, in real-world clinical practice, patients visit different hospitals seeking various medical services, resulting in fragmented patient data across hospitals. With data security issues, data fragmentation limits the application of knowledge graphs because single-hospital data cannot provide complete evidence for generating precise decision support and comprehensive explanations. It is important to study new methods for knowledge graph systems to integrate into multicenter, information-sensitive medical environments, using fragmented patient records for decision support while maintaining data privacy and security.
-
-**Objective:** This study aims to propose an electronic health record (EHR)–oriented knowledge graph system for collaborative reasoning with multicenter fragmented patient medical data, all the while preserving data privacy.
-
-**Methods:** The study introduced an EHR knowledge graph framework and a novel collaborative reasoning process for utilizing multicenter fragmented information. The system was deployed in each hospital and used a unified semantic structure and Observational Medical Outcomes Partnership (OMOP) vocabulary to standardize the local EHR data set. The system transforms local EHR data into semantic formats and performs semantic reasoning to generate intermediate reasoning findings. The generated intermediate findings used hypernym concepts to isolate original medical data. The intermediate findings and hash-encrypted patient identities were synchronized through a blockchain network. The multicenter intermediate findings were collaborated for final reasoning and clinical decision support without gathering original EHR data.
-
-**Results:** The system underwent evaluation through an application study involving the utilization of multicenter fragmented EHR data to alert non-nephrology clinicians about overlooked patients with chronic kidney disease (CKD). The study covered 1185 patients in nonnephrology departments from 3 hospitals. The patients visited at least two of the hospitals. Of these, 124 patients were identified as meeting CKD diagnosis criteria through collaborative reasoning using multicenter EHR data, whereas the data from individual hospitals alone could not facilitate the identification of CKD in these patients. The assessment by clinicians indicated that 78/91 (86%) patients were CKD positive.
-
-**Conclusions:** The proposed system was able to effectively utilize multicenter fragmented EHR data for clinical application. The application study showed the clinical benefits of the system with prompt and comprehensive decision support.
-
-### *(J Med Internet Res 2024;26:e54263)* doi: [10.2196/54263](http://dx.doi.org/10.2196/54263)
-
-### **KEYWORDS**
+### KEYWORDS
 
 knowledge graph; electronic health record; ontology; data fragmentation; data privacy; knowledge graphs; visualization; ontologies; data science; privacy; security; collaborative; collaboration; kidney; CKD; nephrology; EHR; health record; hypernym; encryption; encrypt; encrypted; decision support; semantic; vocabulary; blockchain
 
-### *Introduction*
-
-The fragmentation of patient data across multiple hospitals adversely impacts health care quality. In practice, patients visit different hospitals for various medical services. Previous studies have indicated that up to 26.5% of patients from a hospital have visited other institutions in the past 12 months [[1-](#page-17-0)[3\]](#page-17-1). These visits result in fragmented patient data across different hospitals within various electronic health record (EHR) systems [[2](#page-17-2)[,4-](#page-17-3)[6\]](#page-17-4). Because of the sensitivity of medical data, sharing information between hospitals encounters obstacles related to data privacy and security [\[7](#page-17-5)]. As a result, EHR data in each hospital are often incomplete, making collaboration difficult.
+###*Introduction*The fragmentation of patient data across multiple hospitals adversely impacts health care quality. In practice, patients visit different hospitals for various medical services. Previous studies have indicated that up to 26.5% of patients from a hospital have visited other institutions in the past 12 months [[1-](#page-17-0)[3\]](#page-17-1). These visits result in fragmented patient data across different hospitals within various electronic health record (EHR) systems [[2](#page-17-2)[,4-](#page-17-3)[6\]](#page-17-4). Because of the sensitivity of medical data, sharing information between hospitals encounters obstacles related to data privacy and security [\[7](#page-17-5)]. As a result, EHR data in each hospital are often incomplete, making collaboration difficult.
 
 The missing information from outside the local institution cannot provide clinicians with complete clinical evidence during routine practice. This potentially affects decision-making and harms health care quality in several aspects [\[2](#page-17-2),[8-](#page-17-6)[10](#page-17-7)]:
 
@@ -50,30 +43,27 @@ The missing information from outside the local institution cannot provide clinic
 The missing information could adversely affect patients in nearly 50% of cases. Much of the needed data can be found outside local hospitals [[9\]](#page-17-8). Thus, utilizing multicenter fragmented EHR data for comprehensive decision support is essential while maintaining data privacy.
 
 The knowledge graph stands as an explainable artificial intelligence method applicable across numerous domains. Using knowledge graphs to enhance semantic relationships within EHR data and execute deductive reasoning aids in producing understandable results within clinical practice [\[11](#page-17-9)]. Recent research on EHR-based knowledge graphs highlights the benefits of integrating medical knowledge into clinical applications ([Textbox 1\)](#page-1-0).
+**Textbox 1.**Benefits of integrating medical knowledge into clinical applications.
 
-**Textbox 1.** Benefits of integrating medical knowledge into clinical applications.
-
-#### **1. Generating medical knowledge graphs from electronic health record data**
+#### 1. Generating medical knowledge graphs from electronic health record data
 
 - Li et al [\[12\]](#page-17-10) have introduced systematic methodologies for the semiautomatic construction of medical knowledge graphs using electronic health record (EHR) data. Entity recognition and occurrence-based algorithms play pivotal roles in relation to extraction and ranking.
 - Hong et al [[13](#page-17-11)] have introduced a clinical knowledge extraction technique using sparse embedding regression with multicenter EHR data. The embedding vectors derived from multicenter EHR data enhance the robustness of knowledge and facilitate the identification of data set heterogeneity.
 
-### **2. Knowledge graph–based EHR query**
+### 2. Knowledge graph–based EHR query
 
 - Thukral et al [\[14\]](#page-17-12) have pioneered a method to convert tabular format EHR data into a knowledge graph representation, thereby enriching the semantic relationships among EHR data elements. This approach enables the execution of complex data queries using the easily interpretable SPARQL language.
 - Xiao et al [[15\]](#page-17-13) used Ontology-Based Data Access to establish a virtual fast health care interoperability resources–based knowledge graph derived from Observational Medical Outcomes Partnership (OMOP) EHR data. This approach facilitates data interoperability with exceptional efficiency and generality.
 - Although these studies greatly enhance data interoperability, they do not incorporate decision support functions.
 
-#### **3. EHR knowledge graph–based clinical decision support**
+#### 3. EHR knowledge graph–based clinical decision support
 
 - Carvalho et al [[16](#page-17-14)] integrated EHR data with knowledge graph embeddings to develop a machine learning model for predicting intensive care unit readmissions. The knowledge embedded within EHR data serves as a feature for model training, resulting in improved predictive performance.
 - Liu et al [\[17](#page-18-0)] introduced a heterogeneous similarity graph neural network approach for diagnosing predictions based on graph-formatted EHR data. The heterogeneous EHR graph undergoes normalization into multiple homogeneous graphs, which are then fused into a graph neural network to enhance prediction accuracy.
 
 Although the methods described in [Textbox 1](#page-1-0) have shown enhanced performance, the model lacks both explainability and generality. In our previous studies, we introduced an EHR-oriented knowledge graph system, leveraging medical information often overlooked or underutilized by clinicians.
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
-
-This system aimed to offer decision support for diseases spanning multiple departments [[18\]](#page-18-1). Specifically, it aided nonnephrology clinicians in identifying patients at risk of chronic kidney disease (CKD) who had been overlooked for extended periods. By transcending traditional knowledge
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**This system aimed to offer decision support for diseases spanning multiple departments [[18\]](#page-18-1). Specifically, it aided nonnephrology clinicians in identifying patients at risk of chronic kidney disease (CKD) who had been overlooked for extended periods. By transcending traditional knowledge
 
 barriers, the system tapped into previously underutilized information to facilitate the early detection of diseases crossing departmental boundaries.
 
@@ -81,9 +71,7 @@ Our previous work focused solely on cross-departmental data within a single hosp
 
 Collaborative research networks such as the Observational Health Data Sciences and Informatics (OHDSI) offer valuable insights into addressing this issue [\[27](#page-18-8),[28\]](#page-18-9). These networks use local analysis results from various institutions, aggregating models, or summarizations to enhance generalizability and mitigate bias. Collaborative research does not necessarily require the centralization of original data, thus ensuring data security. Axfors et al [[29](#page-18-10)] and Baigent et al [\[30\]](#page-18-11) showcased meta-analyses by incorporating results from multiple randomized control trials and providing additional insights through summarization. Noman et al [[31\]](#page-18-12) and Tian et al [[32\]](#page-18-13) introduced collaborative methods using federated learning and multivariate aggregation to enhance model accuracy and generalizability. Such collaborative research only necessitates the collection of local
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
-
-analysis results and has demonstrated significant clinical value through the utilization of multicenter data sources.
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**analysis results and has demonstrated significant clinical value through the utilization of multicenter data sources.
 
 Taking inspiration from collaborative research, this study introduces an EHR-oriented knowledge graph system designed to effectively harness multicenter fragmented patient EHR data while safeguarding data security. Implemented within each hospital, the system conducts local reasoning based on local EHR data and generates intermediate reasoning results. Through a distribution module, the intermediate results are formulated as an online subgraph with encrypted identities, facilitating multicenter collaboration and alignment. A blockchain network synchronizes the findings across centers, and the collaborated patient clinical evidence is used for final reasoning, enabling comprehensive CDS. Importantly, the original data remain within the local institute to uphold data security. The main contribution of the study is as follows:
 
@@ -93,11 +81,9 @@ Taking inspiration from collaborative research, this study introduces an EHR-ori
 
 An application study was conducted to evaluate the system's effectiveness in assisting clinicians in detecting undiagnosed CKD in patients who visited multiple hospitals. The system successfully issued timely CKD warnings, a capability not supported by data from a single hospital alone.
 
-## *Methods*
+##*Methods*### EHR-Oriented Knowledge Graph System for Multicenter Collaboration
 
-### **EHR-Oriented Knowledge Graph System for Multicenter Collaboration**
-
-### *Overall System Architecture*
+###*Overall System Architecture*
 
 This study presents an EHR-oriented knowledge graph system designed for multicenter collaboration using fragmented patient information. The overall system architecture is depicted in [Figure 1.](#page-3-0) The proposed system uses structured EHR data following the Observational Medical Outcomes Partnership (OMOP) common data model (CDM) for semantic reasoning and clinical applications [\[33](#page-18-14)]. The semantic organization of EHR data within the knowledge graph adheres to the structure outlined in the OMOP CDM. The system consists of 3 main components: (1) the local EHR knowledge graph component, which conducts semantic reasoning on local EHR data to generate independent clinical findings; (2) the distribution component, which manages the distribution of intermediate reasoning results and patient alignment for multicenter
 
@@ -105,21 +91,15 @@ collaboration; and (3) the blockchain component, which establishes a secure netw
 
 The system is deployed in hospitals, where it conducts local reasoning on local EHR data. The distribution component and blockchain network collaborate on intermediate reasoning results without exposing original data for privacy concerns. Subsequently, fragmented patient information from multiple hospitals is used to generate comprehensive CDS with complete clinical evidence.
 
-<span id="page-3-0"></span>**Figure 1.** The architecture of the EHR-oriented knowledge graph system. (1) The local EHR knowledge graph system performs local reasoning based on local EHR data. (2) The distribution component creates online subgraphs with intermediate reasoning findings to synchronize across hospitals without sharing original EHR data. (3) The blockchain network supports the collaborative process. CDS: clinical decision support; CP-ABE: ciphertext-policy attribute–based encryption. EHR: electronic health record; OMOP: Observational Medical Outcomes Partnership; RDF: resource description framework.
+<span id="page-3-0"></span>**Figure 1.**The architecture of the EHR-oriented knowledge graph system. (1) The local EHR knowledge graph system performs local reasoning based on local EHR data. (2) The distribution component creates online subgraphs with intermediate reasoning findings to synchronize across hospitals without sharing original EHR data. (3) The blockchain network supports the collaborative process. CDS: clinical decision support; CP-ABE: ciphertext-policy attribute–based encryption. EHR: electronic health record; OMOP: Observational Medical Outcomes Partnership; RDF: resource description framework.
 
 ![](_page_3_Figure_6.jpeg)
 
-### *The Local EHR Knowledge Graph Component*
+###*The Local EHR Knowledge Graph Component*The local EHR knowledge graph component offers the capability to leverage local EHR data for semantic reasoning and CDS generation. This component has been adapted from our previous study [[18\]](#page-18-1). The EHR Data Conversion Module is responsible for transforming EHR data into resource description framework (RDF)–type triples to enable semantic querying and reasoning. The module conducts an analysis of the EHR database and aligns table concepts with the entities within the knowledge graph ontology. Within the EHR knowledge graph, EHR data and clinical knowledge entities undergo a semantic transformation, organized under a unified top-level ontology structure. Semantic triples are used within the EHR knowledge graph to represent the clinical information pertaining to each patient. The Semantic Reasoning Module offers rule-based reasoning capabilities on the local knowledge graph to generate CDS-related findings. Additionally, the module establishes an EHR pathway for each patient to facilitate the collaboration of multicenter information. This involves connecting intermediate findings from multiple centers along a virtual timeline using semantic relationships, ultimately contributing to the final reasoning process for CDS. The Visualization and Explanation Module furnishes clinicians with a visualized timeline, aiding in their comprehension of critical medical information and evidence pertinent to the CDS.
 
-The local EHR knowledge graph component offers the capability to leverage local EHR data for semantic reasoning and CDS generation. This component has been adapted from our previous study [[18\]](#page-18-1). The EHR Data Conversion Module is responsible for transforming EHR data into resource description framework (RDF)–type triples to enable semantic querying and reasoning. The module conducts an analysis of the EHR database and aligns table concepts with the entities within the knowledge graph ontology. Within the EHR knowledge graph, EHR data and clinical knowledge entities undergo a semantic transformation, organized under a unified top-level ontology structure. Semantic triples are used within the EHR knowledge graph to represent the clinical information pertaining to each patient. The Semantic Reasoning Module offers rule-based reasoning capabilities on the local knowledge graph to generate CDS-related findings. Additionally, the module establishes an EHR pathway for each patient to facilitate the collaboration of multicenter information. This involves connecting intermediate findings from multiple centers along a virtual timeline using semantic relationships, ultimately contributing to the final reasoning process for CDS. The Visualization and Explanation Module furnishes clinicians with a visualized timeline, aiding in their comprehension of critical medical information and evidence pertinent to the CDS.
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**To support the collaboration of local reasoning results, the generated findings are transformed into hypernym concept expressions to isolate original EHR data (eg, using "abnormal blood potassium" to represent reasoning findings from hyperkalemia diagnosis, blood potassium test results, or treatment medicines). Other hospitals will learn about the abnormality but not the original examination data or prescriptions. During the construction of the knowledge graph, candidate hypernym concepts are selected based on hierarchical relationships and the cosine similarity of their leaf nodes. Clinical experts review and adjust these candidate hypernym concepts to ensure information accuracy. The identified findings are automatically transformed into hypernym expressions during the knowledge graph reasoning process. Additional technical details are in [Multimedia Appendix 1](#page-16-0).
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
-
-To support the collaboration of local reasoning results, the generated findings are transformed into hypernym concept expressions to isolate original EHR data (eg, using "abnormal blood potassium" to represent reasoning findings from hyperkalemia diagnosis, blood potassium test results, or treatment medicines). Other hospitals will learn about the abnormality but not the original examination data or prescriptions. During the construction of the knowledge graph, candidate hypernym concepts are selected based on hierarchical relationships and the cosine similarity of their leaf nodes. Clinical experts review and adjust these candidate hypernym concepts to ensure information accuracy. The identified findings are automatically transformed into hypernym expressions during the knowledge graph reasoning process. Additional technical details are in [Multimedia Appendix 1](#page-16-0).
-
-### *The Distribution Component*
-
-The distribution component facilitates collaborative reasoning between multicenter EHR knowledge graph systems. It extracts intermediate reasoning results and visit pathway information, encrypts patient identities, and builds an online subgraph to synchronize local patient findings with other institutions. As shown in [Figure 2](#page-4-0), patient identities are hash encrypted for multicenter patient alignment. The hash codes of patient identities are compared to align the same patient across different hospitals, allowing multicenter findings for the same patient to
+###*The Distribution Component*The distribution component facilitates collaborative reasoning between multicenter EHR knowledge graph systems. It extracts intermediate reasoning results and visit pathway information, encrypts patient identities, and builds an online subgraph to synchronize local patient findings with other institutions. As shown in [Figure 2](#page-4-0), patient identities are hash encrypted for multicenter patient alignment. The hash codes of patient identities are compared to align the same patient across different hospitals, allowing multicenter findings for the same patient to
 
 be matched. Medical data nodes are prohibited from being distributed and are not used for online subgraph construction. Intermediate reasoning findings, represented by hypernym concepts, are extracted to build the online subgraph. This allows the transfer of a patient's clinical evidence without exposing original EHR data. Other hospitals receive the online subgraph to collaborate on multicenter clinical evidence by loading intermediate findings of the aligned patients. If access control is required, the online subgraph can be encrypted using ciphertext policy attribute–based encryption.
 
@@ -127,69 +107,52 @@ be matched. Medical data nodes are prohibited from being distributed and are not
 
 ![](_page_4_Figure_5.jpeg)
 
-### *The Blockchain Network Component*
+###*The Blockchain Network Component*The blockchain network component establishes a blockchain node and manages the blockchain network. It securely synchronizes locally generated online subgraphs with other systems and delivers acquired triples from other hospitals to the local system, supporting the collaborative reasoning process. A requirement of the collaborative reasoning process is broadcast through the blockchain network, allowing each node to receive the process's series number. The blockchain method was chosen because it is a proven approach for synchronizing data in distributed systems and is already used in medical domain studies [\[34](#page-18-15),[35](#page-18-16)]. All actions on the blockchain are logged and traceable. In this study, we used Golang [[36\]](#page-18-17) and libp2p [[37\]](#page-18-18) for blockchain platform construction, with proof of stake as the consensus mechanism.
 
-The blockchain network component establishes a blockchain node and manages the blockchain network. It securely synchronizes locally generated online subgraphs with other systems and delivers acquired triples from other hospitals to the local system, supporting the collaborative reasoning process. A requirement of the collaborative reasoning process is broadcast through the blockchain network, allowing each node to receive the process's series number. The blockchain method was chosen because it is a proven approach for synchronizing data in distributed systems and is already used in medical domain studies [\[34](#page-18-15),[35](#page-18-16)]. All actions on the blockchain are logged and traceable. In this study, we used Golang [[36\]](#page-18-17) and libp2p [[37\]](#page-18-18) for blockchain platform construction, with proof of stake as the consensus mechanism.
+### Multicenter Collaboration Settings of the EHR-Oriented Knowledge Graph System
 
-### **Multicenter Collaboration Settings of the EHR-Oriented Knowledge Graph System**
-
-### *Deployment Overview*
+###*Deployment Overview*
 
 The EHR knowledge graph systems are deployed in each hospital and connected through a blockchain network for collaborative reasoning. [Figure 3](#page-5-0) illustrates the multicenter collaboration setting of the system. The EHR knowledge graph system is implemented in local hospitals and uses local EHR data sets for reasoning without exposing the original EHR data. Participating hospitals generate intermediate reasoning results, represented by hypernym concepts to isolate them from the original data, and use hash-encrypted identities to build online subgraphs. The sponsoring hospital receives the online subgraphs via the blockchain network and conducts patient alignment by comparing identity hash codes. For every patient, a comprehensive clinical pathway is established by amalgamating local evidence and intermediate reasoning outcomes from participating hospitals. A conclusive summary reasoning process utilizes the entirety of patient data to furnish clinicians with comprehensive CDS. Throughout this process, the original EHR data remain preserved within the local systems.
 
 ![](_page_4_Picture_11.jpeg)
 
-<span id="page-5-0"></span>**Figure 3.** Setting of the EHR knowledge graph system in the multicenter environment. The participating hospitals perform local reasoning and pass the intermediate reasoning results through generated subgraphs. The sponsoring hospital performs local reasoning based on local EHR data and acquired intermediate findings to generate a comprehensive CDS for application. CDS: clinical decision support; EHR: electronic health record; KG: knowledge graph.
+<span id="page-5-0"></span>**Figure 3.**Setting of the EHR knowledge graph system in the multicenter environment. The participating hospitals perform local reasoning and pass the intermediate reasoning results through generated subgraphs. The sponsoring hospital performs local reasoning based on local EHR data and acquired intermediate findings to generate a comprehensive CDS for application. CDS: clinical decision support; EHR: electronic health record; KG: knowledge graph.
 
 ![](_page_5_Figure_3.jpeg)
 
-### *Patient Information Model*
-
-<span id="page-5-1"></span>The EHR data within an OMOP CDM–based data table undergo transformation into RDF-type triples, thereby adopting a patient-centric information model suitable for querying and semantic reasoning. The structure of this patient information model is depicted on the left side of [Figure 4.](#page-5-1) It is a 3-level, patient-visit-treatment semantic structure. It models each patient's EHR data into a semantic clinical trajectory, facilitating patient-level querying and reasoning. The patient information model transmutes table-based EHR data into semantic graphs, enabling semantic reasoning, with each data element linking to its corresponding knowledge nodes.
-
-**Figure 4.** The semantic structure of the RDF-type patient EHR data. In the local EHR knowledge graph, a patient-visit-treatment structure defines the semantic structure of EHR information. In the online subgraph, the structure contains only patient nodes with hash identity, virtual visit nodes with visit dates, and virtual finding nodes with finding types and positive labels. EHR: electronic health record; RDF: resource description framework.
+###*Patient Information Model*<span id="page-5-1"></span>The EHR data within an OMOP CDM–based data table undergo transformation into RDF-type triples, thereby adopting a patient-centric information model suitable for querying and semantic reasoning. The structure of this patient information model is depicted on the left side of [Figure 4.](#page-5-1) It is a 3-level, patient-visit-treatment semantic structure. It models each patient's EHR data into a semantic clinical trajectory, facilitating patient-level querying and reasoning. The patient information model transmutes table-based EHR data into semantic graphs, enabling semantic reasoning, with each data element linking to its corresponding knowledge nodes.
+**Figure 4.**The semantic structure of the RDF-type patient EHR data. In the local EHR knowledge graph, a patient-visit-treatment structure defines the semantic structure of EHR information. In the online subgraph, the structure contains only patient nodes with hash identity, virtual visit nodes with visit dates, and virtual finding nodes with finding types and positive labels. EHR: electronic health record; RDF: resource description framework.
 
 ![](_page_5_Figure_8.jpeg)
 
-### *The Online Subgraph*
+###*The Online Subgraph*The online subgraph serves as a streamlined patient information model designed for online synchronization among multiple EHR knowledge graph systems. The ontology structure of the online subgraph is illustrated in the right section of [Figure 4](#page-5-1). The entities within the online subgraph mirror those within the local EHR knowledge graph, focusing solely on information pertinent to collaborative reasoning to conserve network resources. Each patient entity comprises solely hash-encrypted identity values for patient alignment. Virtual visit nodes exclusively feature visit dates to denote visit records from other hospitals. Similarly, virtual clinical finding nodes harbor intermediate reasoning outcomes tailored for collaborative reasoning purposes.
 
-The online subgraph serves as a streamlined patient information model designed for online synchronization among multiple EHR knowledge graph systems. The ontology structure of the online subgraph is illustrated in the right section of [Figure 4](#page-5-1). The entities within the online subgraph mirror those within the local EHR knowledge graph, focusing solely on information pertinent to collaborative reasoning to conserve network resources. Each patient entity comprises solely hash-encrypted identity values for patient alignment. Virtual visit nodes exclusively feature visit dates to denote visit records from other hospitals. Similarly, virtual clinical finding nodes harbor intermediate reasoning outcomes tailored for collaborative reasoning purposes.
+### The Multicenter Collaborative Reasoning Process
 
-### **The Multicenter Collaborative Reasoning Process**
-
-### *Purpose*
+###*Purpose*
 
 The multicenter collaborative reasoning process delineates a systematic interaction protocol for multicenter systems to engage in collaborative CDS reasoning. Illustrated in [Figure 5,](#page-6-0) the process encompasses multiple steps, including preparing the reasoning cohort, aligning patients, defining the reasoning data period, and conducting semantic reasoning. This procedural framework ensures the efficacy and efficiency of collaborative reasoning endeavors.
 
-<span id="page-6-0"></span>**Figure 5.** The overall process of collaborative reasoning. (1) All the centers identify patients meeting the cohort entry criteria. (2) The sponsoring center aligns patients by hash-encrypted identities. (3) The system creates a complete visit pathway with cohort entry findings for each patient to determine the ROIs for further reasoning. (4) Each center performs semantic reasoning and generates intermediate findings based on local EHR data. (5) The intermediate reasoning findings from multiple hospitals are collaborated for final decisions. CDS: clinical decision support; EHR: electronic health record; ROI: region of interest.
+<span id="page-6-0"></span>**Figure 5.**The overall process of collaborative reasoning. (1) All the centers identify patients meeting the cohort entry criteria. (2) The sponsoring center aligns patients by hash-encrypted identities. (3) The system creates a complete visit pathway with cohort entry findings for each patient to determine the ROIs for further reasoning. (4) Each center performs semantic reasoning and generates intermediate findings based on local EHR data. (5) The intermediate reasoning findings from multiple hospitals are collaborated for final decisions. CDS: clinical decision support; EHR: electronic health record; ROI: region of interest.
 
 ![](_page_6_Figure_9.jpeg)
 
-### *Initiation Protocol*
+###*Initiation Protocol*To initiate a collaborative reasoning process, the local system first executes the initiation protocol as a preparatory step. This protocol is tailored for the local system to delineate the reasoning cohort. The process identifies initial clinical evidence to determine whether a patient needs to join the collaborative reasoning. Unrelated patients are ruled out to save resources. The initiation protocol varies from one disease to another.
 
-To initiate a collaborative reasoning process, the local system first executes the initiation protocol as a preparatory step. This protocol is tailored for the local system to delineate the reasoning cohort. The process identifies initial clinical evidence to determine whether a patient needs to join the collaborative reasoning. Unrelated patients are ruled out to save resources. The initiation protocol varies from one disease to another.
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**For example, in an application concerning unconsidered CKD warnings based on multicenter EHR data, the initiation protocol mandates each local system to ascertain whether a patient possesses kidney function test results but has not undergone nephrology visits. If this criterion is met, the patient becomes eligible to participate in the collaborative reasoning process. Subsequently, the local system generates virtual visit nodes containing abnormal kidney function findings for synchronization and collaborative analysis.
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
+###*Patient Alignment*The patient alignment process is facilitated by the distribution component of the system. Patients are aligned by comparing hash-encrypted identities between local patient nodes and the received online subgraphs. Sensitive patient identities undergo hash encryption, ensuring that matching can be accomplished solely using ciphertext. This approach prevents the leakage of privacy information during data transmission and alignment. The distribution component maintains a table that records the mappings between matched patient node uniform resource identifiers. The records within the table serve as the foundation for mapping intermediate findings in subsequent steps. Subsequently, the reasoning outcomes pertaining to the matched patient are integrated into the local EHR knowledge graph system to facilitate collaborative reasoning.
 
-For example, in an application concerning unconsidered CKD warnings based on multicenter EHR data, the initiation protocol mandates each local system to ascertain whether a patient possesses kidney function test results but has not undergone nephrology visits. If this criterion is met, the patient becomes eligible to participate in the collaborative reasoning process. Subsequently, the local system generates virtual visit nodes containing abnormal kidney function findings for synchronization and collaborative analysis.
-
-### *Patient Alignment*
-
-The patient alignment process is facilitated by the distribution component of the system. Patients are aligned by comparing hash-encrypted identities between local patient nodes and the received online subgraphs. Sensitive patient identities undergo hash encryption, ensuring that matching can be accomplished solely using ciphertext. This approach prevents the leakage of privacy information during data transmission and alignment. The distribution component maintains a table that records the mappings between matched patient node uniform resource identifiers. The records within the table serve as the foundation for mapping intermediate findings in subsequent steps. Subsequently, the reasoning outcomes pertaining to the matched patient are integrated into the local EHR knowledge graph system to facilitate collaborative reasoning.
-
-### *Region of Interest Designation*
-
-The region of interest (ROI) delineates the disease-related observation period within the patient's EHR data, specifying a temporal window for collaborative reasoning. The sponsoring hospital consolidates the results of the initiation protocol reasoning to identify observation periods relevant to disease risks. Collaborative reasoning concentrates on EHR data within this designated period to ensure efficient analysis and excludes irrelevant noise information.
+###*Region of Interest Designation*The region of interest (ROI) delineates the disease-related observation period within the patient's EHR data, specifying a temporal window for collaborative reasoning. The sponsoring hospital consolidates the results of the initiation protocol reasoning to identify observation periods relevant to disease risks. Collaborative reasoning concentrates on EHR data within this designated period to ensure efficient analysis and excludes irrelevant noise information.
 
 The sponsoring hospital initially obtains visits and clinical findings related to the initiation protocol from other hospitals. Subsequently, the local EHR knowledge graph system constructs a multicenter visit timeline incorporating significant clinical findings. Following this, the system engages in semantic reasoning to ascertain the periods during which the patient's data are pertinent to the disease and require additional collaborative reasoning for CDS. The ROIs are delineated and transmitted to other hospitals. Any nonrelated periods are subsequently excluded to optimize efficiency and conserve computing resources.
 
-### *Local Reasoning Process*
-
-Throughout the collaborative reasoning process, the local reasoning process assumes responsibility for leveraging the local EHR data within the local knowledge graph. Its primary task involves generating atomic, independent clinical findings conducive to synchronization. The generated clinical findings exclusively present conclusions derived from EHR data. Intermediate findings use higher-level concepts to extract reasoning results from the original data, with the selection of these concepts being determined by domain experts and medical professionals. Other hospitals solely receive intermediate reasoned conclusions and are not provided with the corresponding original data or informed about the methodology used to derive the findings. For instance, the identification of abnormal blood potassium might be reasoned based on hyperkalemia, measurement results, or treatment medications, yet the other hospitals remain unaware of the specific source behind the reasoned findings.
+###*Local Reasoning Process*Throughout the collaborative reasoning process, the local reasoning process assumes responsibility for leveraging the local EHR data within the local knowledge graph. Its primary task involves generating atomic, independent clinical findings conducive to synchronization. The generated clinical findings exclusively present conclusions derived from EHR data. Intermediate findings use higher-level concepts to extract reasoning results from the original data, with the selection of these concepts being determined by domain experts and medical professionals. Other hospitals solely receive intermediate reasoned conclusions and are not provided with the corresponding original data or informed about the methodology used to derive the findings. For instance, the identification of abnormal blood potassium might be reasoned based on hyperkalemia, measurement results, or treatment medications, yet the other hospitals remain unaware of the specific source behind the reasoned findings.
 
 The Reasoning Module conducts rule-based semantic reasoning, analyzing diagnoses, medical test results, procedures, and prescriptions separately at each visit to produce independent clinical findings. These findings are then converted into hypernym representation, aligning with semantic relationships within the knowledge graph, to facilitate multicenter collaboration. For instance, a <abnormal kidney function> node might represent a <estimated glomerular filtration rate at g3b stage> node within the knowledge graph.
 
-### *The Multicenter Distribution and Summarization*
+###*The Multicenter Distribution and Summarization*
 
 The sponsoring hospital conducts summarization reasoning, drawing upon intact clinical evidence to generate final CDS responses. An illustration outlining the distribution and summarization process is provided in [Figure 6](#page-8-0).
 
@@ -199,65 +162,54 @@ In instances where decision support necessitates evidence beyond the scope of se
 
 ![](_page_7_Picture_15.jpeg)
 
-<span id="page-8-0"></span>**Figure 6.** (A) Local systems generate intermediate reasoning results and collaborate by a blockchain network. (B) The multicenter collaborated findings support CDS reasoning and provide explainable results to clinicians. CDS: clinical decision support; EHR: electronic health record.
+<span id="page-8-0"></span>**Figure 6.**(A) Local systems generate intermediate reasoning results and collaborate by a blockchain network. (B) The multicenter collaborated findings support CDS reasoning and provide explainable results to clinicians. CDS: clinical decision support; EHR: electronic health record.
 
 ![](_page_8_Figure_3.jpeg)
 
-### **Application to Unconsidered CKD Detection Through Fragmented EHR Data**
+### Application to Unconsidered CKD Detection Through Fragmented EHR Data
 
-### *Background*
-
-An application study assesses the performance and clinical value of the proposed system. The EHR knowledge graph system conducts collaborative reasoning on patients'fragmented EHR data to identify their CKD-related risks, which were challenging to recognize using data from individual hospitals alone.
+###*Background*An application study assesses the performance and clinical value of the proposed system. The EHR knowledge graph system conducts collaborative reasoning on patients'fragmented EHR data to identify their CKD-related risks, which were challenging to recognize using data from individual hospitals alone.
 
 CKD is a prevalent chronic disorder associated with various complications and has seen a significant increase in prevalence in recent decades [[39\]](#page-19-1). Epidemiological research indicates that the prevalence of CKD in China stands at 10.8%, yet only 12.5% of impacted individuals are aware of their condition [[40\]](#page-19-2). The
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
-
-early detection of CKD relies on nonnephrology clinicians; however, it is particularly challenging because early-stage CKD often exhibits fewer symptoms. However, insufficient CKD knowledge among nonnephrology clinicians may result in the oversight of CKD-related risks during routine practice. Moreover, the extended monitoring required for the chronic progression of abnormal kidney function presents challenges for clinicians in timely identifying CKD [[41,](#page-19-3)[42](#page-19-4)]. Patients frequently seek care at multiple hospitals or clinics over a period, resulting in fragmented renal function test results and a disjointed disease history spread across different institutions. For nonnephrology clinicians with access solely to single-center data, identifying overlooked CKD becomes challenging. This situation can lead to delayed diagnosis, the necessity for repeated tests, and potentially inappropriate treatment. Combining
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**early detection of CKD relies on nonnephrology clinicians; however, it is particularly challenging because early-stage CKD often exhibits fewer symptoms. However, insufficient CKD knowledge among nonnephrology clinicians may result in the oversight of CKD-related risks during routine practice. Moreover, the extended monitoring required for the chronic progression of abnormal kidney function presents challenges for clinicians in timely identifying CKD [[41,](#page-19-3)[42](#page-19-4)]. Patients frequently seek care at multiple hospitals or clinics over a period, resulting in fragmented renal function test results and a disjointed disease history spread across different institutions. For nonnephrology clinicians with access solely to single-center data, identifying overlooked CKD becomes challenging. This situation can lead to delayed diagnosis, the necessity for repeated tests, and potentially inappropriate treatment. Combining
 
 fragmented test results and clinical findings while ensuring data security can facilitate the timely identification of CKD [[43\]](#page-19-5).
 
-### *Application Study Design*
-
-In the application study, our system was deployed across 3 tertiary A-level hospitals in Hangzhou: the First Affiliated Hospital, College of Medicine, Zhejiang University (FAHZU); Zhejiang Hospital; and the Affiliated Hospital of Hangzhou Normal University (AHHNU). FAHZU is a comprehensive hospital providing a wide range of general care services. Zhejiang Hospital and AHHNU specialize in providing focused care services. By combining these hospitals, the focus is on addressing the needs of patients who seek care at multiple health care facilities for various types of medical services.
+###*Application Study Design*In the application study, our system was deployed across 3 tertiary A-level hospitals in Hangzhou: the First Affiliated Hospital, College of Medicine, Zhejiang University (FAHZU); Zhejiang Hospital; and the Affiliated Hospital of Hangzhou Normal University (AHHNU). FAHZU is a comprehensive hospital providing a wide range of general care services. Zhejiang Hospital and AHHNU specialize in providing focused care services. By combining these hospitals, the focus is on addressing the needs of patients who seek care at multiple health care facilities for various types of medical services.
 
 <span id="page-9-0"></span>The study conducted collaborative reasoning on fragmented medical information from patients who had visited multiple hospitals, aiming to detect overlooked CKD without necessitating the gathering of original EHR data. The study concentrated on patients in nonnephrology departments and leveraged CKD-related information typically overlooked by nonnephrology clinicians. This approach aimed to facilitate early detection of CKD risks. As illustrated in [Figure 7](#page-9-0), the collaborative reasoning mainly focused on 2 types of patients meeting the CKD diagnosis criteria [\(Textbox 2](#page-9-1)).
 
 A disease-specific local ontology for CKD and semantic reasoning rules were developed based on clinical practice guidelines and CKD management studies [\[44](#page-19-6)[-47](#page-19-7)]. Medical experts from the kidney department of FAHZU contributed to the creation of the ontology and semantic rules to ensure accuracy and clinical functionality. The systems analyzed local test results related to kidney function and identified abnormal findings, along with occurrences of visits. Primary CKD–related evidence is detailed in [Multimedia Appendix 2](#page-17-15).
-
-**Figure 7.** The multicenter data group focuses on the early detection of unconsidered CKD using collaborated evidence from multiple hospitals. The transferred group focuses on unconsidered CKD warning at the first visit in the transferred hospital by collaborating evidence from previous hospital visits. CKD: chronic kidney disease.
+**Figure 7.**The multicenter data group focuses on the early detection of unconsidered CKD using collaborated evidence from multiple hospitals. The transferred group focuses on unconsidered CKD warning at the first visit in the transferred hospital by collaborating evidence from previous hospital visits. CKD: chronic kidney disease.
 
 ![](_page_9_Figure_9.jpeg)
 
 <span id="page-9-1"></span>![](_page_9_Figure_10.jpeg)
 
-### **1. Detection through the combination of information from multiple hospitals**
+### 1. Detection through the combination of information from multiple hospitals
 
 These patients' chronic kidney disease (CKD)–related data are dispersed across multiple hospitals, and only collaborative reasoning that integrates findings from multiple centers can promptly identify CKD. The collaboration of clinical findings could fulfill the 3-month monitoring criteria for chronic development. (This group is labeled the "Multicenter Data Group" in the "Results" section.)
 
-### **2. Detection by bridging the information gap between hospitals**
+### 2. Detection by bridging the information gap between hospitals
 
 These patients fulfilled the CKD diagnosis criteria during previous visits to one hospital but were overlooked by clinicians. Subsequently, when transferred to another hospital without access to their prior data, health care providers neglected the patients'CKD risks for an extended period. (This group is labeled the "Transferred Group" in the "Results" section.)
 
-### *Evaluation and Data Source*
+###*Evaluation and Data Source*The evaluation of the application study encompasses the following aspects of clinical value and system performance:
 
-The evaluation of the application study encompasses the following aspects of clinical value and system performance:
-
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
-
-First, the system's capacity to identify overlooked patients with CKD using multicenter EHR data within a secure environment is assessed. Nephrology experts evaluate the reasoning outcomes by examining the comprehensive multicenter EHR data to
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**First, the system's capacity to identify overlooked patients with CKD using multicenter EHR data within a secure environment is assessed. Nephrology experts evaluate the reasoning outcomes by examining the comprehensive multicenter EHR data to
 
 determine whether the patients have been confirmed as CKD positive. The assessment involved identifying patients who had subsequent EHR data regarding kidney function after the date recorded in the EHR when the knowledge graph identified the patients as meeting the CKD criteria. In essence, the assessment process utilizes EHR data both from the knowledge graph used for reasoning and subsequent EHR data used as "labels." As the study cohort lacks CKD diagnosis labels, it is crucial to incorporate additional data beyond the utilization of the knowledge graph to ensure the patients truly exhibit CKD positivity "in the future." Relying solely on identical data for assessment merely evaluates whether the system adheres to guideline-based rules and generates appropriate outputs. The selected subset, augmented with additional data, facilitates a more comprehensive assessment and supports the subsequent evaluation aspects.
 
-Second, the advantages offered by collaborative reasoning in terms of discovery lead time, risk coverage, and potential test reduction are evaluated. Discovery lead time highlights the system's capability for early CKD detection, suggesting its potential to mitigate delayed diagnoses. The lead time *t* lead(M) of the multicenter data group is computed as the difference between the date *t*CDS of the visit where the knowledge graph system identified patients meeting the CKD diagnosis criteria and the date *t*diagnosis of the assessment when clinicians diagnosed CKD using single-hospital EHR data for these patients, as in the following equation:
+Second, the advantages offered by collaborative reasoning in terms of discovery lead time, risk coverage, and potential test reduction are evaluated. Discovery lead time highlights the system's capability for early CKD detection, suggesting its potential to mitigate delayed diagnoses. The lead time*t*lead(M) of the multicenter data group is computed as the difference between the date*t*CDS of the visit where the knowledge graph system identified patients meeting the CKD diagnosis criteria and the date *t*diagnosis of the assessment when clinicians diagnosed CKD using single-hospital EHR data for these patients, as in the following equation:
 
-#### *t* lead(M)=*t*diagnosis – *t*CDS**(1)**
+#### *t* lead(M)=*t*diagnosis – *t*CDS(1)
 
-For patients in the transferred group, the lead time *t* lead(*T*) is calculated as the difference between the date *t* transfer of the first visit to the transferred hospital and the date *t*diagnosis of the assessment when clinicians diagnose CKD using EHR data from the transferred hospital, as in the following equation:
+For patients in the transferred group, the lead time *t* lead(*T*) is calculated as the difference between the date *t*transfer of the first visit to the transferred hospital and the date*t*diagnosis of the assessment when clinicians diagnose CKD using EHR data from the transferred hospital, as in the following equation:
 
-#### *t* lead(T)=*t*diagnosis – *t* transfer**(2)**
+#### *t* lead(T)=*t*diagnosis – *t*transfer(2)
 
-The risk coverage demonstrates the system's capability to furnish abundant evidence of CKD for explanation and review by clinicians. Collaborative reasoning yields CKD-related risks *r* from multiple-hospital EHR data within a 3-month window at the ROI (*t*ROI). As a baseline, single-hospital reasoning provides risks using EHR data from the latest 3 months (*t*3*<sup>m</sup>*) as a comparative baseline. The risk coverage *cov* is calculated as a comparison as follows:
+The risk coverage demonstrates the system's capability to furnish abundant evidence of CKD for explanation and review by clinicians. Collaborative reasoning yields CKD-related risks*r* from multiple-hospital EHR data within a 3-month window at the ROI (*t*ROI). As a baseline, single-hospital reasoning provides risks using EHR data from the latest 3 months (*t*3*<sup>m</sup>*) as a comparative baseline. The risk coverage *cov*is calculated as a comparison as follows:
 
 $$
 cov = \frac{\sum_{t_{ROI}} r}{\sum_{t_{sm}} r} \quad (3)
@@ -269,19 +221,19 @@ Lastly, the visualization and explanation of decision support were emphasized. A
 
 The application study used EHR data from March 2008 to November 2020, provided by FAHZU, Zhejiang Hospital, and AHHNU. The study cohort comprised patients who had visited at least two of these hospitals. Cohort patients were selected and aligned using hash-encrypted identities. Patients with at least one decreased kidney function test result were included in the cohort. Patients who had either a nephrology visit or a kidney disease diagnosis record during the observation period were excluded. The EHR data, initially in the OMOP CDM format, were converted into the local EHR knowledge graph system.
 
-### **Ethics Approval**
+### Ethics Approval
 
 The study was approved by the Clinical Research Ethics Committee of FAHZU (approval number 2020-330) and was exempt from informed consent for the following reasons: (1) the identity information of the data was either removed or encrypted before utilization; (2) the study did not involve commercial interests, and the data were not publicly disclosed; and (3) the data were used solely for system evaluation, and the study did not impact the health status of the patients.
 
-## *Results*
+##*Results*
 
-### **Study Cohort Characteristics**
+### Study Cohort Characteristics
 
 The cohort for multicenter reasoning of unconsidered patients with CKD included individuals from FAHZU, Zhejiang Hospital, and AHHNU, spanning from March 2008 to November 2020. All patients had visit records at FAHZU as well as visit records at either Zhejiang Hospital or AHHNU. Patients with a test record of an estimated glomerular filtration rate lower than 60 mL/min or a urine albumin-to-creatinine ratio higher than 30 mg/g were included in the cohort. Exclusion criteria were having a diagnosis record of any kidney disease or having a visit record from the kidney department. The cohort comprised a total of 1185 patients. [Table 1](#page-11-0) presents the characteristics of the patients at the time of cohort entry.
 
 ![](_page_10_Picture_17.jpeg)
 
-<span id="page-11-0"></span>**Table 1.** Characteristics of the study cohort.
+<span id="page-11-0"></span>**Table 1.**Characteristics of the study cohort.
 
 | Characteristics                               | Values         |
 |-----------------------------------------------|----------------|
@@ -323,11 +275,11 @@ The cohort for multicenter reasoning of unconsidered patients with CKD included 
 
 <sup>a</sup>The percentages were calculated based on the 1137 patients who had a specific visit department at the cohort entry visit. In total, the cohort included visits to 39 different departments.
 
-### **Multicenter Reasoning of Unconsidered CKD**
+### Multicenter Reasoning of Unconsidered CKD
 
 The evaluation study results are presented in [Table 2](#page-12-0). The EHR knowledge graph systems performed collaborative reasoning across the 3 hospitals and identified 124 patients who met the CKD diagnosis criteria based on the combination of multicenter
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**
 
 medical information. In the multicenter data group, 69 patients met the CKD diagnosis criteria through the collaborative reasoning of fragmented EHR data. The data from either hospital alone would not support the diagnostic criteria for CKD. In the transferred group, 55 patients met the CKD diagnostic criteria during early visits to one hospital, but their CKD positivity was
 
@@ -357,7 +309,7 @@ A total of 91 patients were assessed by nephrology clinicians. These patients we
 
 <sup>d</sup>The CKD of patients in this group was overlooked at one hospital, and the information regarding their CKD risk did not transfer to another hospital during subsequent visits.
 
-### **Advantages of Multicenter Reasoning**
+### Advantages of Multicenter Reasoning
 
 [Table 3](#page-13-0) presents the benefits of collaborative reasoning compared with single-hospital data analysis, encompassing discovery lead time, risk coverage comparison, and duplicate examination reduction. The discovery lead time and potential examination reduction are calculated based on subsequent EHR data following the data used in the reasoning process. The discovery lead time demonstrated that the system could identify CKD risks early on, long before clinical assessment. By leveraging multicenter fragmented medical information, the system delivered timely CDSs for cross-departmental clinicians. Consequently, it has the potential to reduce delayed or missed diagnoses during routine practice and address information gaps stemming from data fragmentation and security issues.
 
@@ -367,7 +319,7 @@ The potential examination reduction suggests that collaborative reasoning can ef
 
 ![](_page_12_Picture_16.jpeg)
 
-<span id="page-13-0"></span>**Table 3.** Discovery lead time and comparison between multicenter collaborative reasoning and single-center data analysis.
+<span id="page-13-0"></span>**Table 3.**Discovery lead time and comparison between multicenter collaborative reasoning and single-center data analysis.
 
 | Variables                       | Multicenter data group | Transferred group |  |  |
 |---------------------------------|------------------------|-------------------|--|--|
@@ -384,16 +336,15 @@ The potential examination reduction suggests that collaborative reasoning can ef
 <sup>b</sup>Test reduction refers to the additional tests required for clinicians to assess chronic kidney disease based solely on single-hospital data, compared with using multicenter collaborative reasoning.
 
 <span id="page-13-1"></span><sup>c</sup>Using single-center reasoned chronic kidney disease–related risks as the baseline.
-
-**Figure 8.** (A) Identified CKD-related risks of the Multicenter Data Group. (B) Identified CKD-related risks of the Transferred Group. The collaborative reasoning identified more CKD-related risk identification, while single-hospital reasoning missed some clinical evidence during decision support. AKI: acute kidney injury; BUN: blood urea nitrogen; CKD: chronic kidney disease; UA: uric acid; UP: urinary protein.
+**Figure 8.**(A) Identified CKD-related risks of the Multicenter Data Group. (B) Identified CKD-related risks of the Transferred Group. The collaborative reasoning identified more CKD-related risk identification, while single-hospital reasoning missed some clinical evidence during decision support. AKI: acute kidney injury; BUN: blood urea nitrogen; CKD: chronic kidney disease; UA: uric acid; UP: urinary protein.
 
 ![](_page_13_Figure_8.jpeg)
 
-### **Visualization and Explanation of CDS Results**
+### Visualization and Explanation of CDS Results
 
 The user interface depicted in [Figure 9](#page-14-0) showcases an example of an overlooked patient with CKD identified by the system. At the top of the page, patient information and a table format of local EHR data are presented for review. On the lower part of the page, a graphical timeline illustrates the patient's medical pathway, accompanied by reasoning footage providing an
 
-[XSL](http://www.w3.org/Style/XSL)•FO **[RenderX](http://www.renderx.com/)**
+[XSL](http://www.w3.org/Style/XSL)•FO**[RenderX](http://www.renderx.com/)**
 
 explanation of the CDS for overlooked CKD. Additional interfaces can be found in [Multimedia Appendix 4](#page-17-17).
 
@@ -401,7 +352,7 @@ The patient with ID 11046406 visited FAHZU in April 2019, May 2019, and May 2020
 
 remote findings are distinguished by different filling styles. The local EHR data revealed abnormal estimated glomerular filtration rate test results and several CKD-related risks during that period. Findings from other hospitals indicated abnormal kidney function and several additional CKD-related risks. The system aggregated these findings and concluded that the patient met the CKD diagnosis criteria, exhibiting several significant risk factors. The reasoning footage and essential risks within the ROI are listed beneath the timeline for review. Despite the limited information provided by the remote system, it aids clinicians in identifying abnormalities and making targeted inquiries.
 
-<span id="page-14-0"></span>**Figure 9.** The system interface with information timeline and the reasoning footage for clinicians to review (translated version).
+<span id="page-14-0"></span>**Figure 9.**The system interface with information timeline and the reasoning footage for clinicians to review (translated version).
 
 | Overview<br><b>Patient Lists</b>                              |                                                                                                                                         |                    | Legend of the risk timeline            |                      |                                     |
 |---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------------------------|----------------------|-------------------------------------|
@@ -421,7 +372,7 @@ remote findings are distinguished by different filling styles. The local EHR dat
 
 ![](_page_14_Figure_8.jpeg)
 
-### **Principal Findings**
+### Principal Findings
 
 In this study, we introduced an EHR-oriented knowledge graph system designed for use in a medical information-sensitive environment. The proposed framework enables knowledge graph systems to collaborate on clinical evidence across multiple hospitals, facilitating comprehensive CDS without the need for model aggregation. Several studies have highlighted the significance of addressing data fragmentation in clinical decision-making for improving health care outcomes [\[19](#page-18-2),[48\]](#page-19-8). Our proposed pilot framework was designed to address this issue and was implemented in a real-world application scenario. The application demonstrated that the system could identify chronic disease risks using multicenter fragmented information, a capability that single-hospital reasoning alone cannot achieve.
 
@@ -437,7 +388,7 @@ The study's main concepts revolve around distributed local reasoning and the col
 
 While the application study concentrated on unconsidered CKD warning, the proposed system can be adapted to other application domains for various clinical purposes. For instance, leveraging multicenter information aids in the sensitive and precise identification of type 2 diabetes, while collaborative reasoning offers risk warnings for general practitioners, and so forth. We are committed to further enhancing the proposed system to ensure its reliability and security in real-world applications. Implementing a more implicit collaboration method would foster better system adoption, particularly in data-sensitive environments.
 
-### **Limitations**
+### Limitations
 
 This study has its limitations. When deploying the system across an extensive network of hospitals and clinics, communication
 
@@ -445,53 +396,53 @@ This study has its limitations. When deploying the system across an extensive ne
 
 efficiency may encounter bottlenecks. Additionally, the network and computational resource costs may escalate due to patient alignment and semantic reasoning of numerous subgraphs. To address these challenges, further systematic design and application of the Hyperledger method could facilitate the widespread deployment of the system. Furthermore, the patient alignment process relies on unique identifiers, which may pose challenges when unique citizen IDs are absent in the records. To enhance system adoption, alternative approaches using nonunique identifiers for similar patient alignment are necessary [[4\]](#page-17-3).
 
-### **Comparison With Prior Work**
+### Comparison With Prior Work
 
 In this study, we introduced a framework for knowledge graph systems to collaborate on multicenter fragmented clinical evidence to generate comprehensive CDS without sharing original data. First, our method focuses on collaborating local reasoning findings rather than original EHR data. By contrast, existing studies on patient record completion primarily concentrate on securely sharing EHR data through blockchain and selective encryption, encountering challenges related to data privacy and property rights [\[50](#page-19-10),[51\]](#page-19-11). Second, our proposed framework leverages multicenter fragmented information during the CDS application phase. Previous studies on using multicenter EHR data primarily focus on enlarging the model training set through federated learning to enhance model performance. However, these methods often fall short in addressing incomplete patient information from single centers when models are applied in daily practices [[31,](#page-18-12)[32](#page-18-13),[52\]](#page-19-12). Third, our proposed method uses knowledge graphs for explainable CDS and conducts local reasoning for local clinical findings. Current multicenter knowledge graph studies predominantly emphasize federated embedding learning, which trains embedding models without centralizing diverse knowledge graphs to ensure data security [[25](#page-18-6)[,26](#page-18-7)]. However, these methods also encounter challenges related to data incompleteness during model application.
 
 To our knowledge, only a few studies have addressed the collaboration of fragmented medical information during CDS in practical settings. We introduced a pilot framework and reported clinical application results demonstrating the value of using multicenter fragmented information for CDS. This approach may assist nonnephrology clinicians in identifying patients with CKD risks in advance.
 
-### **Conclusions**
+### Conclusions
 
 This study introduced an EHR-oriented knowledge graph system for collaborative CDS. The research demonstrated that the system effectively leverages fragmented patient EHR data from multiple hospitals, enabling the generation of CDS with intact clinical evidence without the need to share original data, thus addressing security and privacy concerns. The application study showcased a valuable scenario of detecting overlooked CKD using multicenter clinical information. Patients derived benefits from collaborative CDS for early-stage chronic disease warnings, all while safeguarding data security, an aspect unsupported by single-hospital data.
 
-### **Acknowledgments**
+### Acknowledgments
 
 This work was supported by the National Key Research and Development Program of China (grant 2022YFC2504605), the Preferred Funding Program of Postdoctoral Research of Zhejiang Province (grant ZJ2023066), the National Natural Science Foundation of China (grant 82172069), the Key Research Project of Zhejiang Lab Grants (grant 2022ND0AC01), and the Fundamental Research Funds for the Central Universities (grant 226-2023-00050). Generative artificial intelligence was not used in any portion of the manuscript.
 
-### **Data Availability**
+### Data Availability
 
 The data used in the study are from and stored in 3 different hospitals. Because of the multicenter origin of the data, access to the data requires further approval from these hospitals and is not publicly available. Please contact the corresponding author to make reasonable requests on the data access.
 
-### **Authors' Contributions**
+### Authors' Contributions
 
 <span id="page-16-0"></span>YS and YT conceptualized and designed the study. YS, KL, and TZ contributed to the system design and development. JC and PZ provided expert assessments for the study. YS and YT drafted the manuscript. All authors critically edited the manuscript. JL approved the final version of the manuscript.
 
-### **Conflicts of Interest**
+### Conflicts of Interest
 
 None declared.
 
-### **Multimedia Appendix 1**
+### Multimedia Appendix 1
 
 Additional technical details of the proposed system. [[DOCX File , 310 KB-Multimedia Appendix 1\]](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app1.docx&filename=6f2fba58a705eb8d54e3cb24b870ca3b.docx)
 
 ![](_page_16_Picture_19.jpeg)
 
-### <span id="page-17-15"></span>**Multimedia Appendix 2**
+### <span id="page-17-15"></span>Multimedia Appendix 2
 
 The process of identifying patient with unconsidered CKD warning signs and primary primary evidence related to CKD. CKD: chronic kidney disease.
 
 <span id="page-17-16"></span>[[DOCX File , 159 KB-Multimedia Appendix 2\]](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app2.docx&filename=363f3c23c17f59dfe5e25b19c59a2992.docx)
 
-### **Multimedia Appendix 3**
+### Multimedia Appendix 3
 
 <span id="page-17-17"></span>The performance and resource consumption of the blockchain network. [[DOCX File , 16 KB](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app3.docx&filename=6319b410d4510673137c3c535c66e0fc.docx)-[Multimedia Appendix 3\]](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app3.docx&filename=6319b410d4510673137c3c535c66e0fc.docx)
 
-### **Multimedia Appendix 4**
+### Multimedia Appendix 4
 
 Additional user interfaces of the proposed system. [[DOCX File , 2590 KB](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app4.docx&filename=92b7cde8c90c5cfb1eeac6957144ab8c.docx)-[Multimedia Appendix 4\]](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app4.docx&filename=92b7cde8c90c5cfb1eeac6957144ab8c.docx)
 
-### <span id="page-17-0"></span>**References**
+### <span id="page-17-0"></span>References
 
 - <span id="page-17-2"></span>1. Kern LM, Grinspan Z, Shapiro JS, Kaushal R. Patients' use of multiple hospitals in a major US city: implications for population management. Popul Health Manag. Apr 2017;20(2):99-102. [[FREE Full text](https://europepmc.org/abstract/MED/27268133)] [doi: [10.1089/pop.2016.0021](http://dx.doi.org/10.1089/pop.2016.0021)] [Medline: [27268133](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&list_uids=27268133&dopt=Abstract)]
 - <span id="page-17-1"></span>2. Bourgeois FC, Olson KL, Mandl KD. Patients treated at multiple acute health care facilities: quantifying information fragmentation. Arch Intern Med. Dec 13, 2010;170(22):1989-1995. [doi: [10.1001/archinternmed.2010.439](http://dx.doi.org/10.1001/archinternmed.2010.439)] [Medline: [21149756](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&list_uids=21149756&dopt=Abstract)]
@@ -548,12 +499,10 @@ Additional user interfaces of the proposed system. [[DOCX File , 2590 KB](https:
 - 51. Chelladurai U, Pandian S. A novel blockchain based electronic health record automation system for healthcare. J Ambient Intell Human Comput. Mar 23, 2021;13(1):693-703. [doi: [10.1007/s12652-021-03163-3\]](http://dx.doi.org/10.1007/s12652-021-03163-3)
 - 52. Guo K, Chen T, Ren S, Li N, Hu M, Kang J. Federated learning empowered real-time medical data processing method for smart healthcare. IEEE/ACM Trans Comput Biol Bioinform. Jun 23, 2022:e1. (forthcoming). [doi: [10.1109/TCBB.2022.3185395\]](http://dx.doi.org/10.1109/TCBB.2022.3185395) [Medline: [35737631\]](http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=PubMed&list_uids=35737631&dopt=Abstract)
 
-### **Abbreviations**
-
-**AHHNU:** Affiliated Hospital of Hangzhou Normal University **CDM:** common data model **CDS:** clinical decision support **CKD:** chronic kidney disease **EHR:** electronic health record **FAHZU:** First Affiliated Hospital, College of Medicine, Zhejiang University **FKGE:** Federated Knowledge Graphs Embedding **OHDSI:** Observational Health Data Sciences and Informatics **OMOP:** Observational Medical Outcomes Partnership **RDF:** resource description framework **ROI:** region of interest
+### Abbreviations
+**AHHNU:**Affiliated Hospital of Hangzhou Normal University**CDM:**common data model**CDS:**clinical decision support**CKD:**chronic kidney disease**EHR:**electronic health record**FAHZU:**First Affiliated Hospital, College of Medicine, Zhejiang University**FKGE:**Federated Knowledge Graphs Embedding**OHDSI:**Observational Health Data Sciences and Informatics**OMOP:**Observational Medical Outcomes Partnership**RDF:**resource description framework**ROI:**region of interest
 
 ![](_page_19_Picture_19.jpeg)
-
 *Edited by T de Azevedo Cardoso; submitted 03.11.23; peer-reviewed by S Ding, Z Wang; comments to author 30.11.23; revised version received 02.02.24; accepted 16.05.24; published 05.07.24 Please cite as: Shang Y, Tian Y, Lyu K, Zhou T, Zhang P, Chen J, Li J Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study J Med Internet Res 2024;26:e54263 URL: <https://www.jmir.org/2024/1/e54263> doi: [10.2196/54263](http://dx.doi.org/10.2196/54263) PMID:*
 
 ©Yong Shang, Yu Tian, Kewei Lyu, Tianshu Zhou, Ping Zhang, Jianghua Chen, Jingsong Li. Originally published in the Journal of Medical Internet Research (https://www.jmir.org), 05.07.2024. This is an open-access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work, first published in the Journal of Medical Internet Research (ISSN 1438-8871), is properly cited. The complete bibliographic information, a link to the original publication on https://www.jmir.org/, as well as this copyright and license information must be included.

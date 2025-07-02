@@ -1,3 +1,5 @@
+<!-- cite_key: ag2014 -->
+
 # TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs
 
 Yushan Liu1,2, Yunpu Ma1,2, Marcel Hildebrandt<sup>1</sup> , Mitchell Joblin<sup>1</sup> , Volker Tresp1,2
@@ -6,7 +8,7 @@ Yushan Liu1,2, Yunpu Ma1,2, Marcel Hildebrandt<sup>1</sup> , Mitchell Joblin<sup
 
 <sup>2</sup>Ludwig Maximilian University of Munich, Geschwister-Scholl-Platz 1, 80539 Munich, Germany
 
-#### Abstract
+## Abstract
 
 Conventional static knowledge graphs model entities in relational data as nodes, connected by edges of specific relation types. However, information and knowledge evolve continuously, and temporal dynamics emerge, which are expected to influence future situations. In temporal knowledge graphs, time information is integrated into the graph by equipping each edge with a timestamp or a time range. Embeddingbased methods have been introduced for link prediction on temporal knowledge graphs, but they mostly lack explainability and comprehensible reasoning chains. Particularly, they are usually not designed to deal with link forecasting – event prediction involving future timestamps. We address the task of link forecasting on temporal knowledge graphs and introduce TLogic, an explainable framework that is based on temporal logical rules extracted via temporal random walks. We compare TLogic with state-of-the-art baselines on three benchmark datasets and show better overall performance while our method also provides explanations that preserve time consistency. Furthermore, in contrast to most state-ofthe-art embedding-based methods, TLogic works well in the inductive setting where already learned rules are transferred to related datasets with a common vocabulary.
 
@@ -14,13 +16,13 @@ Conventional static knowledge graphs model entities in relational data as nodes,
 
 Knowledge graphs (KGs) structure factual information in the form of triples (es, r, eo), where e<sup>s</sup> and e<sup>o</sup> correspond to entities in the real world and r to a binary relation, e. g., *(Anna, born in, Paris)*. This knowledge representation leads to an interpretation as a directed multigraph, where entities are identified with nodes and relations with edge types. Each edge (es, r, eo) in the KG encodes an observed fact, where the source node e<sup>s</sup> corresponds to the subject entity, the target node e<sup>o</sup> to the object entity, and the edge type r to the predicate of the factual statement.
 
-Some real-world information also includes a temporal dimension, e. g., the event *(Anna, born in, Paris)* happened on a specific date. To model the large amount of available event data that induce complex interactions between entities over time, temporal knowledge graphs (tKGs) have been introduced. Temporal KGs extend the triples to quadruples (es, r, eo, t) to integrate a timestamp or time range t, where t
+Some real-world information also includes a temporal dimension, e. g., the event *(Anna, born in, Paris)*happened on a specific date. To model the large amount of available event data that induce complex interactions between entities over time, temporal knowledge graphs (tKGs) have been introduced. Temporal KGs extend the triples to quadruples (es, r, eo, t) to integrate a timestamp or time range t, where t
 
 <span id="page-0-0"></span>![](_page_0_Figure_10.jpeg)
 
-Figure 1: A subgraph from the dataset ICEWS14 with the entities *Angela Merkel, Barack Obama, France*, and *China*. The timestamps are displayed in the format yy/mm/dd. The dotted blue line represents the correct answer to the query *(Angela Merkel, consult, ?, 2014/08/09)*. Previous interactions between *Angela Merkel* and *Barack Obama* can be interpreted as an explanation for the prediction.
+Figure 1: A subgraph from the dataset ICEWS14 with the entities*Angela Merkel, Barack Obama, France*, and *China*. The timestamps are displayed in the format yy/mm/dd. The dotted blue line represents the correct answer to the query *(Angela Merkel, consult, ?, 2014/08/09)*. Previous interactions between *Angela Merkel*and*Barack Obama*can be interpreted as an explanation for the prediction.
 
-indicates the time validity of the static event (es, r, eo), e. g., *(Angela Merkel, visit, China, 2014/07/04)*. Figure [1](#page-0-0) visualizes a subgraph from the dataset ICEWS14 as an example of a tKG. In this work, we focus on tKGs where each edge is equipped with a single timestamp.
+indicates the time validity of the static event (es, r, eo), e. g.,*(Angela Merkel, visit, China, 2014/07/04)*. Figure [1](#page-0-0) visualizes a subgraph from the dataset ICEWS14 as an example of a tKG. In this work, we focus on tKGs where each edge is equipped with a single timestamp.
 
 One of the common tasks on KGs is link prediction, which finds application in areas such as recommender systems [\(Hildebrandt et al. 2019\)](#page-7-0), knowledge base completion [\(Nguyen et al. 2018a\)](#page-7-1), and drug repurposing [\(Liu et al.](#page-7-2) [2021\)](#page-7-2). Taking the additional temporal dimension into account, it is of special interest to forecast events for future timestamps based on past information. Notable real-world applications that rely on accurate event forecasting are, e. g., clinical decision support, supply chain management, and extreme events modeling. In this work, we address link forecasting on tKGs, where we consider queries (es, r, ?, t) for a timestamp t that has not been seen during training.
 
@@ -51,22 +53,22 @@ Let [n] := {1, 2, . . . , n}.
 
 Temporal knowledge graph Let E denote the set of entities, R the set of relations, and T the set of timestamps.
 
-A *temporal knowledge graph* (tKG) is a collection of facts G ⊂ E × R × E × T , where each fact is represented by a quadruple (es, r, eo, t). The quadruple (es, r, eo, t) is also called link or edge, and it indicates a connection between the subject entity e<sup>s</sup> ∈ E and the object entity e<sup>o</sup> ∈ E via the relation r ∈ R. The timestamp t ∈ T implies the occurrence of the event (es, r, eo) at time t, where t can be measured in units such as hour, day, and year.
+A *temporal knowledge graph*(tKG) is a collection of facts G ⊂ E × R × E × T , where each fact is represented by a quadruple (es, r, eo, t). The quadruple (es, r, eo, t) is also called link or edge, and it indicates a connection between the subject entity e<sup>s</sup> ∈ E and the object entity e<sup>o</sup> ∈ E via the relation r ∈ R. The timestamp t ∈ T implies the occurrence of the event (es, r, eo) at time t, where t can be measured in units such as hour, day, and year.
 
 For two timestamps t and tˆ, we denote the fact that t occurs earlier than tˆby t < tˆ. If additionally, t could represent the same time as tˆ, we write t ≤ tˆ.
 
 We define for each edge (es, r, eo, t) an inverse edge (eo, r<sup>−</sup><sup>1</sup> , es, t) that interchanges the positions of the subject and object entity to allow the random walker to move along the edge in both directions. The relation r <sup>−</sup><sup>1</sup> ∈ R is called the inverse relation of r.
 
-Link forecasting The goal of the *link forecasting* task is to predict new links for future timestamps. Given a query with a previously unseen timestamp (es, r, ?, t), we want to
+Link forecasting The goal of the*link forecasting*task is to predict new links for future timestamps. Given a query with a previously unseen timestamp (es, r, ?, t), we want to
 
 identify a ranked list of object candidates that are most likely to complete the query. For subject prediction, we formulate the query as (eo, r−<sup>1</sup> , ?, t).
 
-Temporal random walk A *non-increasing temporal random walk* W of length l ∈ N from entity el+1 ∈ E to entity e<sup>1</sup> ∈ E in the tKG G is defined as a sequence of edges
+Temporal random walk A*non-increasing temporal random walk*W of length l ∈ N from entity el+1 ∈ E to entity e<sup>1</sup> ∈ E in the tKG G is defined as a sequence of edges
 
 $$
 ((e_{l+1}, r_l, e_l, t_l), (e_l, r_{l-1}, e_{l-1}, t_{l-1}), \ldots, (e_2, r_1, e_1, t_1))
 $$
-  
+
 with  $t_l \ge t_{l-1} \ge \cdots \ge t_1$ , (1)
 
 where (ei+1, r<sup>i</sup> , e<sup>i</sup> , ti) ∈ G for i ∈ [l].
@@ -75,7 +77,7 @@ A non-increasing temporal random walk complies with time constraints so that the
 
 Temporal logical rule Let E<sup>i</sup> and T<sup>i</sup> for i ∈ [l+1] be variables that represent entities and timestamps, respectively. Further, let r1, r2, . . . , r<sup>l</sup> , r<sup>h</sup> ∈ R be fixed.
 
-A *cyclic temporal logical rule* R of length l ∈ N is defined as
+A*cyclic temporal logical rule*R of length l ∈ N is defined as
 
 $$
 ((E_1,r_h,E_{l+1},T_{l+1}) \leftarrow \wedge_{i=1}^l (E_i,r_i,E_{i+1},T_i))
@@ -92,9 +94,9 @@ The left-hand side of R is called the rule head, with r<sup>h</sup> being the he
 
 The replacement of the variables E<sup>i</sup> and T<sup>i</sup> by constant terms is called grounding or instantiation. For example, a grounding of the temporal rule
 
-((E1, *consult*, E2, T2) ← (E1, *discuss by telephone*, E2, T1))
+((E1,*consult*, E2, T2) ← (E1, *discuss by telephone*, E2, T1))
 
-is given by the edges *(Angela Merkel, discuss by telephone, Barack Obama, 2014/07/22)* and *(Angela Merkel, consult, Barack Obama, 2014/08/09)* in Figure [1.](#page-0-0) Let rule grounding refer to the replacement of the variables in the entire rule and body grounding refer to the replacement of the variables only in the body, where all groundings must comply with the temporal constraints in [\(2\)](#page-2-0).
+is given by the edges *(Angela Merkel, discuss by telephone, Barack Obama, 2014/07/22)*and*(Angela Merkel, consult, Barack Obama, 2014/08/09)*in Figure [1.](#page-0-0) Let rule grounding refer to the replacement of the variables in the entire rule and body grounding refer to the replacement of the variables only in the body, where all groundings must comply with the temporal constraints in [\(2\)](#page-2-0).
 
 In many domains, logical rules are frequently violated so that confidence values are determined to estimate the probability of a rule's correctness. We adapt the standard confidence to take timestamp values into account. Let (r1, r2, . . . , r<sup>l</sup> , rh) be the relations in a rule R. The body support is defined as the number of body groundings, i. e., the number of tuples (e1, . . . , el+1, t1, . . . , tl) such that (e<sup>i</sup> , r<sup>i</sup> , ei+1, ti) ∈ G for i ∈ [l] and t<sup>i</sup> ≤ ti+1 for i ∈ [l − 1]. The rule support is defined as the number of body groundings such that there exists a timestamp tl+1 > t<sup>l</sup> with (e1, rh, el+1, tl+1) ∈ G. The confidence of the rule R, denoted by conf(R), can then be obtained by dividing the rule support by the body support.
 
@@ -111,7 +113,7 @@ Parameters: Rule lengths L ⊂ N, number of temporal random walks n ∈ N, trans
 - 5: According to transition distribution d, sample a temporal random walk W of length l + 1 with tl+1 > t<sup>l</sup> . . See [\(4\)](#page-3-0).
 - 6: Transform walk W to the corresponding temporal logical rule R. . See [\(5\)](#page-3-1).
 
-7: Estimate the confidence of rule 
+7: Estimate the confidence of rule
 $$
 R
 $$
@@ -131,7 +133,7 @@ r
 
 We introduce TLogic, a rule-based link forecasting framework for tKGs. TLogic first extracts temporal walks from the graph and then lifts these walks to a more abstract, semantic level to obtain temporal rules that generalize to new data. The application of these rules generates answer candidates, for which the body groundings in the graph serve as explicit and human-readable explanations. Our framework consists of the components rule learning and rule application. The pseudocode for rule learning is shown in Algorithm [1](#page-2-1) and for rule application in Algorithm [2.](#page-3-2)
 
-#### Rule Learning
+## Rule Learning
 
 As the first step of rule learning, temporal walks are extracted from the tKG G. For a rule of length l, a walk of length l + 1 is sampled, where the additional step corresponds to the rule head.
 
@@ -187,7 +189,7 @@ For every relation r ∈ R, we sample n ∈ N temporal walks for a set of prespe
 
 It is possible to learn rules only for a single relation or a set of specific relations of interest. Explicitly learning rules for all relations is especially effective for rare relations that would otherwise only be sampled with a small probability. The learned rules are not specific to the graph from which
 
-#### <span id="page-3-2"></span>Algorithm 2: Rule application
+### <span id="page-3-2"></span>Algorithm 2: Rule application
 
 Input: Test query q = (e q , r<sup>q</sup> , ?, t<sup>q</sup> ), temporal logical rules T R, temporal knowledge graph G.
 
@@ -207,7 +209,7 @@ $$
 - 6: for c ∈ C(R) do
 - 7: Calculate score f(R, c). . See [\(6\)](#page-3-3).
 
-8: 
+8:
 $$
 \mathcal{C} \leftarrow \mathcal{C} \cup \{(c, f(R, c))\}
 $$
@@ -234,7 +236,7 @@ Let B(R, c) be the set of body groundings of rule R that start at entity e q and
 $$
 f(R, c) = a \cdot \text{conf}(R) + (1 - a) \cdot \exp(-\lambda(t^q - t_1(\mathcal{B}(R, c)))) \tag{6}
 $$
-  
+
 with  $\lambda > 0$  and  $a \in [0, 1]$ .
 
 The intuition for this choice of f is that candidates generated by high-confidence rules should receive a higher score. Adding a dependency on the timeframe of the rule grounding is based on the observation that the existence of edges in a rule become increasingly probable with decreasing time difference between the edges. We choose the exponential distribution since it is commonly used to model interarrival times of events. The time difference t <sup>q</sup> − t1(B(R, c)) is always non-negative for a future timestamp value t q , and with the assumption that there exists a fixed mean, the exponential distribution is also the maximum entropy distribution for such a time difference variable. The exponential distribution is rescaled so that both summands are in the range [0, 1].
@@ -256,11 +258,11 @@ In case there are no rules for the query relation r q , or if there are no match
 
 # Experiments
 
-#### Datasets
+## Datasets
 
 We conduct experiments on the dataset Integrated Crisis Early Warning System[1](#page-4-0) (ICEWS), which contains information about international events and is a commonly used benchmark dataset for link prediction on tKGs. We choose the subsets ICEWS14, ICEWS18, and ICEWS0515, which include data from the years 2014, 2018, and 2005 to 2015, respectively. Since we consider link forecasting, each dataset is split into training, validation, and test set so that the timestamps in the training set occur earlier than the timestamps in the validation set, which again occur earlier than the timestamps in the test set. To ensure a fair comparison, we use the split provided by [Han et al.](#page-7-15) [\(2021\)](#page-7-15)[2](#page-4-1) . The statistics of the datasets are summarized in the supplementary material.
 
-#### Experimental Setup
+### Experimental Setup
 
 For each test instance (e q s , r<sup>q</sup> , e<sup>q</sup> o , t<sup>q</sup> ), we generate a list of candidates for both object prediction (e q s , r<sup>q</sup> , ?, t<sup>q</sup> ) and subject prediction (e q o ,(r q ) −1 , ?, t<sup>q</sup> ). The candidates are ranked by decreasing scores, which are calculated according to [\(7\)](#page-4-2).
 
@@ -276,7 +278,7 @@ Baseline methods We compare TLogic[3](#page-4-3) with the state-ofthe-art baseli
 
 The results of the experiments are displayed in Table [1.](#page-5-0) TLogic outperforms all baseline methods with respect to the metrics MRR, hits@3, and hits@10. Only xERTE performs better than Tlogic for hits@1 on the datasets ICEWS18 and ICEWS0515.
 
-Besides a list of possible answer candidates with corresponding scores, TLogic can also provide temporal rules and body groundings in form of walks from the graph that support the predictions. Table [2](#page-6-0) presents three exemplary rules with high confidences that were learned from ICEWS14. For the query *(Angela Merkel, consult, ?, 2014/08/09)*, two
+Besides a list of possible answer candidates with corresponding scores, TLogic can also provide temporal rules and body groundings in form of walks from the graph that support the predictions. Table [2](#page-6-0) presents three exemplary rules with high confidences that were learned from ICEWS14. For the query*(Angela Merkel, consult, ?, 2014/08/09)*, two
 
 <span id="page-4-0"></span><sup>1</sup> <https://dataverse.harvard.edu/dataverse/icews>
 
@@ -325,7 +327,7 @@ We observe that the exponential distribution leads to more rules of length 3 tha
 | 0.570      | (Merkel, consult, Obama, 14/08/09) | (Merkel, discuss by telephone, Obama, 14/07/22)                                                                                            |
 | 0.500      | (Merkel, consult, Obama, 14/08/09) | (Merkel, express intent to meet, Obama, 14/05/02)<br>∧ (Obama, consult−1<br>, Merkel, 14/07/18) ∧ (Merkel, consult−1<br>, Obama, 14/07/29) |
 
-<span id="page-6-1"></span>Table 2: Three exemplary rules from the dataset ICEWS14 and two walks for the query *(Angela Merkel, consult, ?, 2014/08/09)* that lead to the correct answer *Barack Obama*. The timestamps are displayed in the format yy/mm/dd.
+<span id="page-6-1"></span>Table 2: Three exemplary rules from the dataset ICEWS14 and two walks for the query *(Angela Merkel, consult, ?, 2014/08/09)*that lead to the correct answer*Barack Obama*. The timestamps are displayed in the format yy/mm/dd.
 
 | Gtrain    | Gtest   | Model             | MRR              | h@1              | h@3              | h@10             |
 |-----------|---------|-------------------|------------------|------------------|------------------|------------------|

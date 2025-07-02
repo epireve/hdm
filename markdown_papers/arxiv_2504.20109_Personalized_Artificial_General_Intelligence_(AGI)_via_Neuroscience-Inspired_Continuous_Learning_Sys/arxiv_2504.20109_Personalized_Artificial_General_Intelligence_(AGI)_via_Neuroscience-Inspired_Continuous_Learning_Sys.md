@@ -1,3 +1,5 @@
+<!-- cite_key: guptasupasup2021 -->
+
 # Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems
 
 Rajeev Gupta<sup>a</sup> , Suhani Gupta<sup>b</sup> , Ronak Parikh<sup>c</sup> , Divya Gupta<sup>d</sup> , Amir Javaheri<sup>e</sup> , Jairaj Singh Shaktawat<sup>f</sup>
@@ -30,7 +32,7 @@ We would like to thank Ronav Gupta, Founder and President of IGNITE Pathways, fo
 
 Additionally, we acknowledge the use of GPT-4 for assistance with refining language and structure throughout the drafting process, and MidJourney's diffusion-based image generation model for support in generating illustrative conceptual figures. These tools supported clarity and visualization while preserving the integrity and originality of the ideas presented.
 
-## 1. Introduction
+## Introduction
 
 Artificial General Intelligence (AGI) is often envisioned as an AI system with versatile, human-like cognitive abilities that can learn and adapt over a lifetime. One critical aspect of human intelligence is continuous learning, the ability to accumulate knowledge and skills over time without forgetting previously learned abilities. For AI to approach human-level adaptability, it must learn continually from new experiences, personalize to specific users or environments, and do so efficiently under real-world constraints. Achieving this on edge devices (such as humanoids, IoT gadgets, and autonomous robots) is particularly challenging due to limited computational resources and the need for on-device processing (for privacy, latency, or reliability reasons). Current AI systems, however, typically learn in static offline training phases and are then deployed as fixed models that do not evolve. When confronted with novel situations, they often require complete retraining or cloud-based updates, which is impractical for lifelong personalization [\[1\]](#page-39-0).
 
@@ -44,9 +46,9 @@ In the following sections, we first review the state-of-the-art in continual lea
 
 A methodology for evaluating the proposed system is outlined, including potential datasets and benchmarks to assess continual learning performance and adaptability. We include conceptual figures to illustrate the architecture and key mechanisms for clarity. In the discussion, we address practical challenges such as catastrophic forgetting, memory efficiency, and the scalability of the approach as the system learns more over time. We also describe application scenarios where such an on-device continual learning AGI would be valuable, from autonomous humanoids that learn in dynamic environments to robots and mobile assistants that personalize to user behaviors. Finally, we summarize the key findings and highlight future research directions toward realizing neuroscience-guided lifelong learning in AGI systems on the edge.
 
-## 2. Literature Review
+## Literature Review
 
-## 2.1. Continuous Learning and Catastrophic Forgetting in AI
+## 1. Continuous Learning and Catastrophic Forgetting in AI
 
 Traditional machine learning models are trained on fixed datasets and do not naturally handle sequential learning of multiple tasks. In contrast, a continual learning (or lifelong learning) paradigm involves learning a stream of tasks or data distributions over time. A well-known pitfall in this setting is catastrophic forgetting, when learning new tasks causes a model to lose performance on previously learned tasks. Early studies by Goodfellow et al. [\[3\]](#page-39-2) provided empirical evidence of catastrophic forgetting in neural networks, showing that after sequential training, models tend to "forget" how to perform earlier tasks. They found that no standard optimization could completely eliminate forgetting, though techniques like dropout mitigated it to some extent. This highlighted the stability–plasticity dilemma: the need to learn new information (plasticity) while retaining old knowledge (stability).
 
@@ -60,7 +62,7 @@ A recent and comprehensive empirical survey by Mai et al. (2021) [\[10\]](#page-
 
 Dynamic architecture methods tackle continuous learning by expanding or reconfiguring the model's architecture to accommodate new knowledge. One example is Progressive Neural Networks [\[11\]](#page-40-0), which allocate a new neural network column for each task and leverage lateral connections to previously learned features. This completely avoids interference by design (each task uses its own parameters), but the model grows linearly with the number of tasks, which is not feasible for edge deployment. Later work has aimed for more compact expansion: Dynamic Expandable Networks [\[12\]](#page-40-1) grow neural units only as needed based on loss improvement, and PackNet [\[13\]](#page-40-2) uses iterative pruning to free up network capacity for new tasks, "packing" multiple tasks into a single model by assigning disjoint parameter subsets. Such approaches connect to neuroscience via concepts of neurogenesis (adding neurons) and synaptic pruning (removing connections), which we will discuss in depth later. Recent research in lifelong learning accelerators emphasizes the value of reconfigurable architectures that can add neurons or synapses to learn new knowledge while preserving old knowledge in-place [\[1\]](#page-39-0). For example, adding "extra" neurons or layers to a network for new information can mitigate forgetting by isolating new learning to those additions. These dynamic expansion methods increase model size by allocating more parameters (e.g., an entire "column" per task in Progressive Neural Networks), and even more efficient approaches like Dynamic Expandable Networks still grow two to three fold over multiple tasks. For instance, a base network of 1.6 million parameters can balloon to over 16 million parameters (10×) when learning 10 tasks with Progressive Neural Networks, an obvious non-starter for edge devices with limited memory. Although methods such as PackNet mitigate parameter growth by pruning and reusing weights, they introduce storage overheads for pruning masks. Consequently, any approach that relies on adding neurons or layers is generally not feasible in memory-constrained or edge scenarios.
 
-## 2.2. Neuroscience-Inspired AI Approaches
+## 2. Neuroscience-Inspired AI Approaches
 
 Neuroscience has long been a source of inspiration for AI, from the early days of neural networks (inspired by brain neurons) to current research in lifelong learning. Neuroscience-inspired AI can refer both to algorithms that incorporate brain-like mechanisms and to hardware that emulates neural processes (neuromorphic computing). Here we focus on algorithmic inspirations relevant to continual learning and personalization.
 
@@ -72,7 +74,7 @@ Neuromorphic computing is another facet of neuroscience-inspired AI, targeting t
 
 Additionally, the concept of memory consolidation during sleep has inspired algorithms that simulate an "offline" phase (which could be when the edge device is idle or charging) to replay memories or reorganize knowledge, similar to how the brain consolidates learning during sleep cycles.
 
-## 2.3. Edge AI Deployment and Model Compression
+## 3. Edge AI Deployment and Model Compression
 
 Deploying AGI-like capabilities on edge devices comes with constraints in model size, compute, and energy. Modern state-of-the-art AI models, especially in natural language or vision, are far too large for direct on-device use and are typically trained on powerful cloud servers. To enable on-device inference, researchers employ model compression and efficiency techniques.
 
@@ -88,11 +90,11 @@ Another promising approach for efficient inference is the use of early-exit netw
 
 In summary, the literature suggests that achieving continuous learning on the edge will require a combination of techniques: strategies to prevent forgetting, mechanisms inspired by the brain's efficiency, and rigorous model compression. Next, we discuss specific neuroscience principles in detail and how they can contribute to a human-like continuous learning system.
 
-## 3. Neuroscience Principles for Human-Like Learning in AI
+## Neuroscience Principles for Human-Like Learning in AI
 
 The human brain exhibits several properties that are key to its ability to learn continually and efficiently. Here we highlight four such principles: Synaptic Pruning, Hebbian Plasticity, Sparse Coding, and Dual Memory Systems, describing their biological role and their implications for AI.
 
-## 3.1. Synaptic Pruning
+## 1. Synaptic Pruning
 
 During development and learning, brains not only form new synaptic connections but also eliminate a substantial number of existing synapses. Synaptic pruning is a process by which unused or weaker connections are removed, resulting in a more efficient and specialized network. In humans, synaptic pruning is especially prominent in early childhood and adolescence; it is estimated that roughly 50% of synapses in some brain regions are pruned during adolescence [\[26\]](#page-41-5). By removing synapses that are no longer frequently used, the brain reduces metabolic cost and noise, effectively "decluttering" neural circuits [\[27\]](#page-41-6). Pruning ensures that critical connections (those repeatedly used) are preserved and strengthened, while redundant pathways are cleared out (see Figure [1\)](#page-9-0).
 
@@ -108,7 +110,7 @@ In the context of AI, synaptic pruning inspires methods to simplify neural netwo
 
 As noted earlier, Golkar et al. [\[23\]](#page-41-2) demonstrated that allowing a small amount of controlled forgetting of old tasks (through pruning) can prevent much larger uncontrolled forgetting during future training. Essentially, by pruning weights that encoded some old task details, the model accepts a minor performance hit on that task but gains flexibility to master new tasks without overlapping with old weights.
 
-## 3.2. Hebbian Plasticity
+## 2. Hebbian Plasticity
 
 Donald Hebb's famous principle, often paraphrased as "neurons that fire together, wire together", captures the idea that the coincidence of activity in connected neurons tends to strengthen their connection (see Figure [3\)](#page-10-1). This Hebbian plasticity is considered a fundamental mechanism for associative learning: how we learn that two events or stimuli are related.
 
@@ -140,7 +142,7 @@ Likewise, the concept of fast weights [\[17\]](#page-40-6) uses Hebbian updates 
 
 <span id="page-12-0"></span>Figure 5: Hebbian Plasticity and Rapid Personalization.
 
-## 3.3. Sparse Coding
+## 3. Sparse Coding
 
 The brain is highly sparsely active: at any given moment, only a small fraction of neurons in a region fire strongly, while most remain relatively quiet. This sparse coding improves efficiency and reduces overlap between representations. By activating a unique (sparse) combination of neurons for each concept or stimulus, the brain minimizes interference, i.e., two different memories will have less overlap in active neurons, reducing the chance they disrupt each other. Sparse representations also carry information in which neurons are active, not just the magnitude, increasing the representational capacity for a given number of neurons (see Figure [6\)](#page-13-0). Empirical studies in neuroscience, such as recordings from the visual and auditory cortices, have found evidence of sparse firing patterns, e.g., a given cortical neuron might respond strongly only to a very specific stimulus feature and remain dormant otherwise. This supports Barlow's efficient coding hypothesis that the brain aims to represent information with minimal redundancy.
 
@@ -156,7 +158,7 @@ Moreover, the previously mentioned mixture-of-experts model (GLaM) is an example
 
 One can imagine a continual learning system that develops separate "expert modules" for different contexts the agent encounters (e.g., work vs. home, or indoor vs. outdoor for a robot), and a gating mechanism (possibly learned or context-driven) ensures only the relevant ones activate. This way, knowledge is compartmentalized, and adding a new context would mean recruiting a new sparse set of neurons (or an expert) without disturbing the others.
 
-## 3.4. Dual Memory Systems (Fast and Slow Learning)
+## 4. Dual Memory Systems (Fast and Slow Learning)
 
 Biological cognition relies on multiple memory systems. A prominent theory is the dual-memory (complementary learning) system comprising the hippocampus (fast learning, episodic memory) and the neocortex (slow learning, semantic memory). The hippocampus can rapidly encode new experiences (within one or a few exposures) and is capable of recalling specific episodes (e.g., what you ate for dinner last night), but these memories are initially fragile. The cortex, on the other hand, gradually accumulates structured knowledge (like abstract concepts and skills) over repeated exposures and sleep cycles, integrating across experiences (see Figure [8\)](#page-14-1).
 
@@ -182,11 +184,11 @@ The dual memory concept directly tackles catastrophic forgetting: the long-term 
 
 The principles discussed above not only highlight core mechanisms behind human learning but also provide a scaffold for developing AGI systems with similar capabilities. In the next section, we describe how these principles are operationalized into a coherent architecture.
 
-## 4. Proposed Architecture for Personalized AGI on the Edge
+## Proposed Architecture for Personalized AGI on the Edge
 
 Drawing on the insights above, we propose an AI architecture with a Tri-Memory Continual Learning system tailored for deployment on resourceconstrained edge devices, such as humanoid robots powered by an NVIDIA Jetson platform. The overarching goal is to realize concurrent inference and real-time training while minimizing computational overhead. By integrating Hebbian-like learning rules with error-driven backpropagation, the model continuously adapts to new information, prunes rarely used pathways, and maintains essential knowledge across short-term, long-term, and permanent memory modules. This design not only aligns with the biological principles of selective forgetting and retention but also offers a practical pathway toward personalized AGI, where an embodied agent can evolve and specialize its cognitive functions in real-world environments.
 
-## 4.1. Motivations and Key Concepts
+## 1. Motivations and Key Concepts
 
 Modern humanoids, robots, and other edge devices must process continuous data streams in real time, despite having only modest on-board computing and limited access to off-device resources. Drawing on principles of Hebbian plasticity and Dual-Memory Theory, our approach is designed to enable continuous learning with selective forgetting, much like synaptic adjustments observed in the human brain.
 
@@ -206,7 +208,7 @@ This is consistent with a dual-memory (or, in our expanded case, trimemory) syst
 
 Overall, our architecture combines neuroscientific insights, like Hebbianlike local updates for immediate adaptation, synaptic pruning for resource management, microsleep offsets for lightweight continuous decay, and offline replay for consolidating indispensable skills, to sustain robust yet efficient continual learning on the edge. By deferring more costly processes (e.g., pruning, replay training) to offline or nightly sessions, the system remains agile and power-thrifty during active hours, fostering the development of Personalized AGI in embodied devices with stringent resource constraints.
 
-## 4.2. Tri-Memory System: STM, LTM, and PM
+## 2. Tri-Memory System: STM, LTM, and PM
 
 A central component of our approach is the Tri-Memory Continual Learning design, which extends beyond the familiar dual-memory framework by introducing a dedicated Permanent Memory (PM) module (see Figure [10\)](#page-19-0). This architecture is inspired by neuroscience concepts in which memory formation and consolidation occur at multiple timescales, reflecting a spectrum from rapidly encoded transients to deeply ingrained skills. By partitioning the model's parameters across three distinct tiers: Short-Term Memory (STM), Long-Term Memory (LTM), and Permanent Memory (PM), the system aligns with the brain's capacity to capture new experiences quickly, consolidate what proves repeatedly useful, and permanently preserve core competencies.
 
@@ -232,7 +234,7 @@ Sparse Distributed Representation: Each network uses sparse coding principles so
 
 This echoes the MoE idea from GLaM [\[24\]](#page-41-3), but adapted for resourceconstrained edge devices. The gating could use context features to choose which expert to use for a given input, ensuring modularity and preserving previous capabilities.
 
-## 4.3. Microsleeps for Lightweight Decay
+## 3. Microsleeps for Lightweight Decay
 
 In biologically inspired frameworks, short rest periods, microsleeps, offer opportunities to enact small but beneficial housekeeping operations. In our implementation, microsleeps occur at periodic intervals or after a set number of inferences; each interval typically spans milliseconds to seconds, depending on the application's latency tolerance (see Figure [12\)](#page-21-0).
 
@@ -276,7 +278,7 @@ This rehearsal process consolidates newly formed representations while reinforci
 
 Through these processes, the model balances adaptivity with stability. The offline pruning step enforces sparse coding, a neuroscientific principle that fosters computational efficiency, while replay-based rehearsal consolidates essential competencies into LTM or PM.
 
-## 4.5. Hybrid Learning: Hebbian and Error-Driven Updates
+## 5. Hybrid Learning: Hebbian and Error-Driven Updates
 
 In addition to determining what knowledge is retained, the architecture also addresses how it is encoded through hybrid learning mechanisms. To unify local correlation-based plasticity with global performance optimization, the system employs both Hebbian-like and error-driven weight adjustments.
 
@@ -284,7 +286,7 @@ Whenever two neurons co-activate in a beneficial manner, as indicated by usage c
 
 In parallel, error-driven (gradient-based) learning is applied selectively during microsleeps (for negligible micro-corrections) or more extensively in offline windows (for thorough fine-tuning). This approach complements Hebbian plasticity by aligning the network with task objectives, effectively integrating local correlation signals with global performance requirements (see Figure [15\)](#page-25-0).
 
-## 4.6. Timeline of Operations
+## 6. Timeline of Operations
 
 A typical operational cycle in our Tri-Memory system unfolds as shown in Figure [16.](#page-26-0) The key phases are:
 
@@ -302,23 +304,23 @@ A typical operational cycle in our Tri-Memory system unfolds as shown in Figure 
 - 4. Micro-Rehearsal: The system momentarily revisits a few examples in its replay buffer, both recent and representative older examples, to reinforce important skills. A short backpropagation-based update corrects any drift caused by new data, ensuring stable performance over extended periods.
 - 5. Stable Operation with Dynamic Restructuring: Over time, important weights are reinforced and remain in the model (often migrating from STM to LTM or PM), while unimportant pathways are pruned. This cyclic process ensures that the network stays dynamically optimized for the tasks at hand.
 
-## 4.7. Implementation Details and Considerations
+## 7. Implementation Details and Considerations
 
 Because all weights remain non-negative in this architecture (thanks in part to ReLU-like activation functions) the pruning threshold is straightforward to manage, and negative weight handling is unnecessary.
 
 Further efficiency arises from hardware-level support for sparse matrix multiplication: once weights are pruned to zero, the effective size of the network shrinks, reducing forward-pass latency and energy consumption. This makes the architecture highly suitable for deployment on edge platforms with hardware acceleration for sparse computation, such as NVIDIA Jetson or similar embedded AI chips.
 
-## 5. Conceptual Evaluation and Design Feasibility
+## Conceptual Evaluation and Design Feasibility
 
 The proposed architecture for Personalized AGI is designed to operate under real-world constraints such as limited compute, memory, and energy, particularly on edge devices. While no empirical results are presented, this section offers a comprehensive conceptual evaluation. We examine the system's design tradeoffs, feasibility on edge platforms, and potential benefits compared to existing continual learning methods. We also discuss realistic application scenarios to illustrate how the system would operate in practice, and we conclude with open research questions for future exploration.
 
-## 5.1. Theoretical Comparison with Existing Architectures
+## 1. Theoretical Comparison with Existing Architectures
 
 Table [1](#page-29-0) summarizes a conceptual comparison between our architecture and representative methods across continual learning, edge deployment, and brain-inspired AI. The evaluation is based on properties such as memory efficiency, catastrophic forgetting mitigation, suitability for on-device learning, and modularity for future scalability.
 
 Our approach uniquely combines dynamic memory allocation, lightweight Hebbian updates, nightly consolidation, and modular design, all of which mirror efficient learning strategies observed in biological brains. Unlike many prior systems that mitigate forgetting at the cost of scalability or edge deployment, our framework maintains bounded model size through pruning and selective memory retention, making it inherently suited for constrained environments.
 
-## 5.2. Architectural Tradeoffs: Efficiency, Plasticity, and Scalability
+## 2. Architectural Tradeoffs: Efficiency, Plasticity, and Scalability
 
 The Tri-Memory framework addresses the stability–plasticity dilemma by design. STM handles rapid on-the-fly learning, LTM retains useful patterns through rehearsal, and PM safeguards mission-critical knowledge. The microsleep-based global decay mechanism allows continuous learning without aggressive compute use, while the separation of learning timescales prevents interference.
 
@@ -355,7 +357,7 @@ However, the model still entails tradeoffs:
 
 Importantly, this architecture is hardware-aware. It assumes integration with sparse matrix acceleration and low-power compute primitives available in platforms like NVIDIA Jetson, EdgeTPUs, or even emerging neuromorphic chips. The system is built for adaptability without expanding beyond the constraints of edge-device infrastructure.
 
-## 5.3. Application Scenarios as Design Validation
+## 3. Application Scenarios as Design Validation
 
 Three previously discussed scenarios illustrate the conceptual feasibility of this architecture:
 
@@ -365,7 +367,7 @@ Three previously discussed scenarios illustrate the conceptual feasibility of th
 
 In each case, continual learning is essential, not a bonus. The system is viable because it performs selective memory consolidation, contextual expert activation, and energy-aware housekeeping, all modeled after neurobiological learning systems.
 
-## 5.4. Open Questions and Future Research Directions
+## 4. Open Questions and Future Research Directions
 
 While the framework offers a promising foundation for Personalized AGI on the edge, several open challenges and research opportunities remain:
 
@@ -377,11 +379,11 @@ While the framework offers a promising foundation for Personalized AGI on the ed
 
 Exploring these directions will allow this conceptual framework to evolve into a fully implemented system capable of robust, personalized AGI functionality across a wide range of devices and domains.
 
-## 6. Discussion
+## Discussion
 
 Developing a personalized AGI for edge deployment raises several challenges and open questions. In this section, we discuss how our approach addresses some of these challenges and where difficulties remain. Key issues include catastrophic forgetting, memory and computation efficiency, scalability to AGI-level knowledge, and the broader implications of running a continually learning system on the edge.
 
-## 6.1. Mitigating Catastrophic Forgetting
+## 1. Mitigating Catastrophic Forgetting
 
 Catastrophic forgetting is the central issue in continual learning. Our architecture tackles forgetting through multiple layers: using a Tri-Memory System (so new information first goes into STM-Learner instead of directly overwriting LTM knowledge, and ultimately preserving in Permanent Memory (PM) for critical knowledge), employing replay of past data during STM training, and applying synaptic consolidation during LTM updates. Together, these create a robust "memory stability" net.
 
@@ -389,7 +391,7 @@ In practice, there may still be scenarios of forgetting. For instance, if the re
 
 One associated challenge is concept drift. If the environment or user behavior changes gradually (over months), the AI must update its knowledge. This is not forgetting per se, but rather revising what was previously learned. Our model handles concept drift by treating it as new data that conflicts with old; the consolidation process would then adjust the LTM representations to accommodate the new concept (which might look like forgetting the old concept, but actually it's intentional replacement). Catastrophic forgetting is only a problem if the model unintentionally loses information it still needed; distinguishing that from purposeful replacement is the key. Future research could enhance the system's ability to autonomously judge what knowledge to keep vs. overwrite, possibly by monitoring usage frequency of certain memory items or receiving user feedback.
 
-## 6.2. Memory Efficiency and Model Size Management
+## 2. Memory Efficiency and Model Size Management
 
 A continual learning system intended to operate on edge devices must carefully manage its memory and computational resources. Our architecture addresses this challenge by enforcing sparsity, applying regular pruning, and leveraging the structured design of the Tri-Memory System. The use of sparse coding ensures that only a subset of neurons are active for any given task, reducing interference and computational load. Over time, synaptic pruning reclaims capacity from rarely used connections, enabling the model to remain compact even as it accumulates new knowledge. This dynamic makes it possible for the system to scale over months or years without uncontrolled growth.
 
@@ -397,21 +399,21 @@ Rather than attempting to store everything, the model uses a bounded, selective 
 
 Importantly, we envision a world where humanoid agents have access to online specialized models, analogous to how humans read books or take courses when they need to learn something new. If a robot or AI assistant encounters a task beyond its current expertise, like learning a new language or understanding how to operate a B212 helicopter, it connects to a domain-specific model available online to acquire and internalize that knowledge. This mirrors how humans seek out specialized resources to learn. The model thus remains efficient on-device while still being capable of substantial knowledge expansion when needed, creating a fluid and human-like pathway to lifelong learning and specialization.
 
-## 6.3. Scalability toward AGI-level Knowledge
+## 3. Scalability toward AGI-level Knowledge
 
 A true AGI needs to know and do an extremely broad range of things, far beyond the basic benchmarks. As the knowledge base grows, ensuring it remains coherent is hard. If the AGI learns many disconnected tasks, will the LTM-Net end up fragmented into many experts that don't share useful information? We hope that transfer learning will occur and the system will find commonalities and compress knowledge. We included consolidation to merge new info with old, but consolidation could be more intelligent by doing global reorganizations of knowledge (analogous to how humans sometimes have an insight that connects two domains).
 
 Current continual learning lacks this kind of creative reorganization. It mostly preserves or adds but doesn't globally refactor knowledge. Advancing that might be necessary for an AGI to remain efficient and general. This leans into research on representation learning and knowledge graphs within neural nets.
 
-## 6.4. Privacy Considerations
+## 4. Privacy Considerations
 
 Deploying a continually learning AGI on a personal device solves privacy considerations. Since learning happens on-device, user data (their behavior, conversations, etc.) need not be sent to the cloud for training, preserving privacy by design. Personalized models are kept locally. This aligns with emerging privacy-preserving AI trends.
 
-## 6.5. Use Case Discussion
+## 5. Use Case Discussion
 
 Let's reflect on the earlier application scenarios with the perspective of our architecture and discuss any specific challenges:
 
-## 6.5.1. Personal Humanoid Assistant
+## 5.1. Personal Humanoid Assistant
 
 Imagine a humanoid robot in a home or office that assists with daily tasks. Initially, it comes with basic skills (navigation, object recognition, speech understanding trained from a generic AGI model). As it spends time with its user, it continually learns the user's routines, preferences, and environment. It learns the floor plan of the house by exploration (mapping each room, locating furniture), learns the faces and names of family members and regular visitors, and even picks up the user's particular way of giving instructions.
 
@@ -419,7 +421,7 @@ If the user says, "Can you get me my medication?", the robot through experience 
 
 Thanks to synaptic pruning and modular learning, the robot doesn't become bogged down as it learns dozens of tasks. It streamlines its neural pathways, removing irrelevant ones. The continuous learning enables true personalization: this robot adapts to this household in a unique way, making it far more useful than a one-size-fits-all programmed robot. It's personality can be shaped by the household, learning the level of formality or humor the users prefer in interactions.
 
-## 6.5.2. Mobile Personal Assistant (Smartphone AI)
+## 5.2. Mobile Personal Assistant (Smartphone AI)
 
 A smartphone-based AI assistant could handle tasks like predictive text, scheduling, information retrieval, and entertainment recommendations in a highly personalized way. For instance, the assistant learns the user's writing style and slang to better predict text and even auto-complete sentences as the user would phrase them. It also learns the user's interests by observing which news they read or which music they skip, refining its recommendations daily.
 
@@ -429,7 +431,7 @@ The continual learning architecture must fit in the phone's limited memory: this
 
 These scenarios demonstrate a couple of applications where on-device continual learning can make AI far more effective and tailored. They also stress different aspects: some demand ultra-low power operation, others realtime learning, others long-term consistency. A generalized architecture like ours aims to be adaptable to these needs, though specific tuning would be needed per scenario.
 
-## 6.6. Future Improvements
+## 6. Future Improvements
 
 While our proposed solution makes strides, there's room for improvement and further research:
 
@@ -443,7 +445,7 @@ While many pieces of the puzzle are in place (thanks to extensive research in co
 
 While empirical evaluation remains a future step, this framework provides a biologically grounded and system-level perspective to inform the development of on-device AGI.
 
-## 7. Conclusion
+## Conclusion
 
 This paper explores the vision of Personalized AGI via Neuroscience-Inspired Continuous Learning Systems, charting a path toward AI systems that learn and adapt throughout their lifetime while operating on edge devices. We began with a survey of the literature in continual learning, highlighting how the AI community has tackled catastrophic forgetting and the emerging intersection with neuroscience principles. We examined how concepts like synaptic consolidation (from neuroscience) map onto algorithms like EWC and SI, how memory replay in AI is analogous to the brain's experience replay, and how structural plasticity (growing or pruning neurons) provides a route to lifelong model adaptation. This review underscores that no single technique is sufficient; instead, a combination of strategies, like the brain's multifaceted approach, is needed.
 
@@ -503,8 +505,6 @@ In conclusion, achieving personalized AGI on the edge is a complex, multidiscipl
 
 # Author biographies
 
-![](_page_43_Picture_1.jpeg)
-
 Rajeev Gupta is an entrepreneur with extensive experience in AI strategy, risk modeling, and intelligent systems. He is the Co-Founder of Cowbell, where he leads innovation at the intersection of AI and Risk. Rajeev is also passionate about robotics, with a strong interest in applying AI to enable real-world autonomy.
 
 ![](_page_43_Picture_3.jpeg)
@@ -518,8 +518,6 @@ Ronak Parikh is an AI Engineer based in New York with experience in deep learnin
 ![](_page_43_Picture_7.jpeg)
 
 Dr. Divya Gupta is the Medical Director of the JFK Neuroscience Sleep Center at HMH. A neurologist with deep expertise in neuroscience and sleep medicine, her understanding of neuroplasticity, memory consolidation, and synaptic pruning directly informed the biological foundations of this paper's continual learning framework.
-
-![](_page_44_Picture_0.jpeg)
 
 Amir Javaheri is the Head of Data Science and AI at Cowbell, where he leads initiatives in LLMs and applied AI. His work focuses on building scalable AI systems and translating research into robust, production-ready solutions. His expertise shaped the practical implementation considerations in this paper's architecture.
 

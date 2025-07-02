@@ -1,14 +1,14 @@
-# **Temporal Reasoning in AI Systems**
+<!-- cite_key: a2013 -->
 
-**Abhishek Sharma**
+# Temporal Reasoning in AI Systems
 
-3840 Far West Blvd, Austin, TX 78731 abhishek81@gmail.com
+**Abhishek Sharma**3840 Far West Blvd, Austin, TX 78731 abhishek81@gmail.com
 
-#### **Abstract**
+## Abstract
 
 Commonsense temporal reasoning at scale is a core problem for cognitive systems. The correct inference of the duration for which fluents hold is required by many tasks, including natural language understanding and planning. Many AI systems have limited deductive closure because they cannot extrapolate information correctly regarding existing fluents and events. In this study, we discuss the knowledge representation and reasoning schemes required for robust temporal projection in the Cyc Knowledge Base. We discuss how events can start and end risk periods for fluents. We then use discrete survival functions, which represent knowledge of the persistence of facts, to extrapolate a given fluent. The extrapolated intervals can be truncated by temporal constraints and other types of commonsense knowledge. Finally, we present the results of experiments to demonstrate that these methods obtain significant improvements in terms of Q/A performance.
 
-## **Introduction and Motivatio[n](#page-0-0)**
+## Introduction and Motivatio[n](#page-0-0)
 
 Modern cognitive systems are expected to reason about a complex and dynamic world. Commonsense temporal reasoning plays an important role in reasoning about a continuously changing environment. Since even the largest knowledge bases (KBs) lack complete knowledge of the outside world, cognitive systems must employ heuristic reasoning and estimate how long a given state is likely to persist. For example, if Fred falls down and sprains his ankle, he is expected to be in pain for a short while. If Fred's younger brother was born in 2013, it is to be expected that he will start to walk and talk within a few years. How can an AI system with incomplete information reason about these events? How long do facts persist? How do individuals change over time and what factors are relevant for understanding inter-individual differences? What events are expected to occur and when do they occur? What changes their probabilities of occurrence?
 
@@ -18,23 +18,23 @@ In this study, we use techniques from discrete time survival analysis to answer 
 
 This paper is organized as follows. We start by discussing related work. Then we provide a brief introduction to the Cyc Knowledge Base (Cyc KB). Next, we discuss our temporal projection algorithm and the knowledge representation it requires. We conclude by discussing our experimental results and plans for future research.
 
-## **Related Work**
+## Related Work
 
 In AI, the problem of temporal projection has been studied in the context of the frame problem [Hanks & McDermott 1986]. The use of survival functions for temporal projection in AI was initiated by [Dean & Kanazawa 1988] and it was extended by other researchers [Tawfik & Neufeld 2000]. Issues related to temporal abstraction in the medical domain were discussed in [Shahar 1997] and temporal-semantic properties were introduced in [Shoham 1987]. However, none of these addressed the problem in the context of improving Q/A performance of large-scale cognitive systems. The work presented in the present study is closest to that discussed by [Lenat 1998] and [Singer & Willet 2003]. Previous studies have developed probabilistic models for temporal and probabilistic reasoning [Hanks & McDermott 1993], but few researchers have focused on discussing knowledge-representation and reasoning issues that would help large logic-based AI systems to perform robust temporal projection and answer a wide range of answers.
 
-## **Background**
+## Background
 
-In this section, we summarize the key conventions used by Cyc [Lenat & Guha 1990, Matuszek *et al.* 2006]. Cyc represents concepts as collections. Each collection is a kind or type of thing, the instances of which share a certain property, attribute, or feature. For example, *Cat* is a collection of all cats, and only cats. Collections are arranged hierarchically by the *genls* relation. *(genls <sub> <super>)* means that anything that is an instance of <sub> is also an instance of <super>. Predicates are also arranged in hierarchies. (*genlPreds* <s> <g>) means that <g> is a generalization of <s>. The collection *Situation* is an important part of Cyc's ontology. Each instance of *Situation* is a state or event that comprises one or more objects with certain properties or certain relations with each other. *Event* and *StaticSituation* are notable specializations of *Situation*. In Cyc, contexts are represented as *microtheories*. Each microtheory groups a set of assertions together that share some common assumptions. The time dimension of contexts can be specified [Lenat 1998]. For example, the following sentence represents the fact that Tony Greig was a cricketer between 1972 and 1977.
+In this section, we summarize the key conventions used by Cyc [Lenat & Guha 1990, Matuszek*et al.*2006]. Cyc represents concepts as collections. Each collection is a kind or type of thing, the instances of which share a certain property, attribute, or feature. For example,*Cat*is a collection of all cats, and only cats. Collections are arranged hierarchically by the*genls*relation.*(genls <sub> <super>)* means that anything that is an instance of <sub> is also an instance of <super>. Predicates are also arranged in hierarchies. (*genlPreds*<s> <g>) means that <g> is a generalization of <s>. The collection*Situation*is an important part of Cyc's ontology. Each instance of*Situation*is a state or event that comprises one or more objects with certain properties or certain relations with each other.*Event*and*StaticSituation*are notable specializations of*Situation*. In Cyc, contexts are represented as *microtheories*. Each microtheory groups a set of assertions together that share some common assumptions. The time dimension of contexts can be specified [Lenat 1998]. For example, the following sentence represents the fact that Tony Greig was a cricketer between 1972 and 1977.
 
 Monadic microtheory[1](#page-1-0) : PeopleDataMt Time dimension:
 
- (TimeIntervalInclusiveFn (YearFn 1972) (YearFn 1977)) Sentence: (isa TonyGreig-Cricketer Cricketer) In Cyc, instances of *TimeDependentCollection* and *TimeDependentRelation* can be used to represent fluents.
+ (TimeIntervalInclusiveFn (YearFn 1972) (YearFn 1977)) Sentence: (isa TonyGreig-Cricketer Cricketer) In Cyc, instances of *TimeDependentCollection*and*TimeDependentRelation*can be used to represent fluents.
 
-Each instance of *TimeDependentCollection* is a collection
+Each instance of*TimeDependentCollection*is a collection
 
-where the membership changes over time. For example, *Professor* is a time-dependent collection, whereas *Integer* is not. Similarly, *TimeDependentRelation* is the collection of all relations such that nothing remains in their eternal extensions. For example, *'owns'* and *'likesAsFriend'* are time-dependent relations. Inference and learning in Cycbased systems can be guided by several heuristics [Sharma et al 2016, Sharma & Goolsbey 2017, Sharma & Goolsbey 2019, Sharma & Forbus 2010, Forbus et al 2009].
+where the membership changes over time. For example,*Professor*is a time-dependent collection, whereas*Integer*is not. Similarly,*TimeDependentRelation*is the collection of all relations such that nothing remains in their eternal extensions. For example,*'owns'*and*'likesAsFriend'*are time-dependent relations. Inference and learning in Cycbased systems can be guided by several heuristics [Sharma et al 2016, Sharma & Goolsbey 2017, Sharma & Goolsbey 2019, Sharma & Forbus 2010, Forbus et al 2009].
 
-## **Risk Periods and Discrete-Time Survival Analysis**
+## Risk Periods and Discrete-Time Survival Analysis
 
 Let us assume that T<sup>0</sup> was the last time point when fluent P was known to be true and no events are known to have occurred that affect the persistence of P[2](#page-1-1) . If we lack perfect knowledge, we need to extrapolate and find a reasonable assessment of whether P would be true at time T0+∆. Systems that use probabilistic logic might compute and use Prob (holds (P, T0+∆)) directly. Other systems that use traditional forward and backward inference might compute Prob (holds (P, t)) for different values of t, and derive an interval ([T1, T2]) around T<sup>0</sup> in which the fluent P is highly likely to be true. If we assert that P is true in [T1, T2], this assertion can participate in forward and backward inference in the same manner as any other assertion in the K[B](#page-1-2)<sup>3</sup> .
 
@@ -48,7 +48,7 @@ Consider the following sentences:
 |------------------------------|--------|
 | (isa Fred MicrosoftEmployee) | … (A3) |
 
-Let us assume that A1, A2, and A3 were true in the year 1990, and we need to find the likelihood of their being true in the year 1992. Since the state represented by A1 is terminated by a death event, we have to find the probability of the occurrence of a death event in the time interval 1990–1992. Similarly, the likelihood of the truth of A2 in 1992 depends on Fred's age and on the duration for which he has been married. Therefore, the process of computing these likelihoods involves the following steps. (a) **Identification of the starting points of** *risk periods* **when a state could be terminated**: Since states can be terminated as soon as they are started, this starting point is specified by the event that initiates the state. For example, the starting points of the risk periods for A1, A2, and A3 are given by the birth date, the wedding date, and the hiring date, respectively. This knowledge can be
+Let us assume that A1, A2, and A3 were true in the year 1990, and we need to find the likelihood of their being true in the year 1992. Since the state represented by A1 is terminated by a death event, we have to find the probability of the occurrence of a death event in the time interval 1990–1992. Similarly, the likelihood of the truth of A2 in 1992 depends on Fred's age and on the duration for which he has been married. Therefore, the process of computing these likelihoods involves the following steps. (a)**Identification of the starting points of** *risk periods* **when a state could be terminated**: Since states can be terminated as soon as they are started, this starting point is specified by the event that initiates the state. For example, the starting points of the risk periods for A1, A2, and A3 are given by the birth date, the wedding date, and the hiring date, respectively. This knowledge can be
 
 <span id="page-1-0"></span><sup>1</sup> A monadic microtheory is a temporally or otherwise unqualified microtheory.
 
@@ -68,12 +68,12 @@ represented in the following format: (eventTypeStartsRolePlayersRiskPeriodForSta
 
  (isa Fred Divorced) (DayFn 1 (MonthFn July (YearFn 1988)))) ….(A6) Assertions such as A6 can be derived for each of Fred's weddings.
 
-(b) **Specification of the** *hazard function*: Given the starting point of the risk period, we can calculate the probability that a state-terminating event would occur in a given time interval. Let us divide continuous time into a sequence of time intervals (0, t1], (t1, t2], ..., and so forth, and let (tj-1, tj] be the *j* th time interval. Then, if T is the discrete random variable that indicates the time interval during which a state terminating event occurs, then the discrete hazard, hj, is the conditional probability that a randomly selected individual will experience the stateterminating event in the *j* th time interval, given that he/she has not experienced it in preceding time intervals [Singer & Willett 1993, Singer & Willett 2003]:
+(b) **Specification of the** *hazard function*: Given the starting point of the risk period, we can calculate the probability that a state-terminating event would occur in a given time interval. Let us divide continuous time into a sequence of time intervals (0, t1], (t1, t2], ..., and so forth, and let (tj-1, tj] be the *j*th time interval. Then, if T is the discrete random variable that indicates the time interval during which a state terminating event occurs, then the discrete hazard, hj, is the conditional probability that a randomly selected individual will experience the stateterminating event in the*j*th time interval, given that he/she has not experienced it in preceding time intervals [Singer & Willett 1993, Singer & Willett 2003]:
 
  h<sup>j</sup> = Pr ( T = j | T ≥ j) ...(E1) Thus, it follows that:
 
-Pr(T > k) = (1-h<sub>1</sub>)(1-h<sub>2</sub>)...(1-h<sub>k</sub>)  
-= 
+Pr(T > k) = (1-h<sub>1</sub>)(1-h<sub>2</sub>)...(1-h<sub>k</sub>)
+=
 $$
 \prod (1-hj)
 $$
@@ -89,7 +89,7 @@ Figure 1: Likelihood of truth of sentences of type (isa <ins> Cricketer) as a fu
 
 Given sentences like A6, we will find the last known starting point of risk period. Then expression E2 can be
 
-used to calculate the likelihood that sentences such as A1, A2, and A3 persist at the time T0+∆. An example of such survival likelihoods (estimated by Cyc) is shown in Figure 1. We see that the professional career of cricketers starts ending when they are in their mid-30s, and virtually all of them retire before they are 45 years old. Each instance of the time-dependent collection and relations will potentially require different types of distributions and parameter values. Given the type of these distributions and the values of their associated parameter values, Cyc will use them automatically to extrapolate fluents. However, some distributions can be specified more easily if we use the following temporal semantic properties. (a) **Initial Collections**: In CycL, an instance, COL, of InitialCollection is defined such that any instance of COL starts as an instance of it, and if the instance changes so it is no longer an instance, it can never become an instance again. "NeverSchooled" and "FemaleInfant" are instances of InitialCollection. Thus, if (isa Tom NeverSchooled) was true on January 1, 1980, Cyc would use the property of the initial collection and assert that Tom was an instance of that collection from his birth until January 1, 1980. (b) **Terminal Collection**: Similarly, in CycL, an instance, COL, of TerminalNonInitialCollection, is a collection such that when a thing becomes an instance of COL, it must remain so while it exists. The collection "HumanAdult" and "Graduate" are examples of terminal collection. (c) **Bidirectional Projection**: In some cases, fluents persist as long as the individual exist[s](#page-2-1) 5 (e.g., FemaleHuman). Cyc's temporal projection module uses these properties.
+used to calculate the likelihood that sentences such as A1, A2, and A3 persist at the time T0+∆. An example of such survival likelihoods (estimated by Cyc) is shown in Figure 1. We see that the professional career of cricketers starts ending when they are in their mid-30s, and virtually all of them retire before they are 45 years old. Each instance of the time-dependent collection and relations will potentially require different types of distributions and parameter values. Given the type of these distributions and the values of their associated parameter values, Cyc will use them automatically to extrapolate fluents. However, some distributions can be specified more easily if we use the following temporal semantic properties. (a)**Initial Collections**: In CycL, an instance, COL, of InitialCollection is defined such that any instance of COL starts as an instance of it, and if the instance changes so it is no longer an instance, it can never become an instance again. "NeverSchooled" and "FemaleInfant" are instances of InitialCollection. Thus, if (isa Tom NeverSchooled) was true on January 1, 1980, Cyc would use the property of the initial collection and assert that Tom was an instance of that collection from his birth until January 1, 1980. (b) **Terminal Collection**: Similarly, in CycL, an instance, COL, of TerminalNonInitialCollection, is a collection such that when a thing becomes an instance of COL, it must remain so while it exists. The collection "HumanAdult" and "Graduate" are examples of terminal collection. (c) **Bidirectional Projection**: In some cases, fluents persist as long as the individual exist[s](#page-2-1) 5 (e.g., FemaleHuman). Cyc's temporal projection module uses these properties.
 
 How does this analysis change when we know other facts that affect the persistence of a given sentence? In the present study, we consider two ways in which this change might occur.
 
@@ -142,13 +142,13 @@ Hazard functions can also be used to infer the persistence of time-dependent pre
 
 rates. Therefore, we need to specify hazard functions for handling sentences where an instance of a certain collection appears in a given argument position in a predicate<sup>8</sup> [.](#page-3-2) If the known specific conditions are not satisfied for a given assertion, then we must employ generic hazard functions that apply to a given predicate.
 
-## **Event Calculus in Temporal Projection**
+## Event Calculus in Temporal Projection
 
 The inferences made by the methods discussed above are non-monotonic in nature. When contradictory information arrives, we can use methods based on both event calculus and survival analysis to maintain a consistent KB. Let us start with the basics of event calculus. Briefly, fluents are considered true at a time point if they have been initiated by an event previously, but have not been terminated in the meantime. Similarly, a fluent is false if it has been terminated previously but has not been initiated in the meantime [Miller & Shanahan 2002]. In Cyc, domaindependent axioms are written to derive sentences such as the following, which represent knowledge about situations that start and end time intervals for fluents.
 
 (situationStartsIntervalForSentence s f) …(A15) (situationEndsIntervalForSentence t g) …(A16)
 
-The first sentence above denotes that situation *s* starts a time interval during which the fluent *f* holds. The core persistence axiom employed in simplified event calculus is as follows [Sadri & Kowalski 1995].
+The first sentence above denotes that situation *s*starts a time interval during which the fluent*f*holds. The core persistence axiom employed in simplified event calculus is as follows [Sadri & Kowalski 1995].
 
 |  |  |                     | Holds(P, T) ← Happens (E1, T1) and Initiates (E1, P) and |            |  |
 |--|--|---------------------|----------------------------------------------------------|------------|--|
@@ -181,7 +181,6 @@ happens(E1, T1), Initiates (E1, P) and ~∃E2 such that (happens (E2, T2) and T1
 happens(E1, T1), Terminates (E1, P) and ~∃E2 such that (happens (E2, T2) and T < T2 < T1 and Terminates (E2, P)). …(C3)
 
 Conditions C1, C2 and C3 help us identify events that are most temporally proximate to P. When all known events end intervals for the given fluent, we use C3 to choose the closest event and create an interval that extends backwards from it (step 3). If the intervals created by these events do not subsume T, then the truth of P at T is unlikely to be related to their occurrence and step 4 is executed. In step 4, we use the hazard functions and create a time interval [T5, T6]. In step 5, we look at different constraints that might be applicable and we truncate the interval if necessary.
-
 **Non-survival Analysis-related Vocabulary**: Although survival analysis provides a natural framework for temporal projection, some fluents are less amenable to monotonically decreasing persistence likelihoods. For example, consider the following sentence:
 
 (isa BillClinton UnitedStatesPresident) …(A17) It is plausible to infer that a sentence such as A17 would be true for four years from the inauguration date of the president. To handle these cases, we can derive sentences such as A17.
@@ -221,17 +220,17 @@ forward from the event. If T is subsumed by [T5, T6]
 - 4. Use hazard functions to create a time interval [T5, T6] that subsumes T.
 - 5. If applicable, use temporal constraints to truncate [T5, T6]. Return the resulting time interval.
 
-#### **Figure 2: Algorithm used for temporal projection.**
+### Figure 2: Algorithm used for temporal projection.
 
-**Learning:** How can we learn the parameters of the probability distributions discussed above? We recall that the definitions of hazard functions are reliant on identifying the time interval during which the state terminating event occurs. Therefore, the task of learning the hazard functions requires information in the following format [Singer & Willet 2003].
+**Learning:**How can we learn the parameters of the probability distributions discussed above? We recall that the definitions of hazard functions are reliant on identifying the time interval during which the state terminating event occurs. Therefore, the task of learning the hazard functions requires information in the following format [Singer & Willet 2003].
 
-(i) **A time period variable,** *j*: We need to divide the time period since the start of the risk period into intervals with a suitable length. The time period variable specifies the time period *j* of the record. For example, let us consider sentence A11. Fred's birth event starts the risk period and intervals with a length of one year are suitable for estimating the likelihood of its persistence. Therefore, the
+(i)**A time period variable,** *j*: We need to divide the time period since the start of the risk period into intervals with a suitable length. The time period variable specifies the time period *j*of the record. For example, let us consider sentence A11. Fred's birth event starts the risk period and intervals with a length of one year are suitable for estimating the likelihood of its persistence. Therefore, the
 
 <span id="page-4-0"></span><sup>9</sup> In Figure 2, the intervals created by hazard functions are such that if T lies in the interval then Prob(holds(P, T)) > ɑ, where ɑ is an input to the algorithm.
 
 <span id="page-4-1"></span><sup>10</sup> For fluents involving US presidents, assassination, impeachment or resignation events will terminate intervals for sentences such as A17.
 
-fourth year of Fred's life would correspond to the fourth time interval in our dataset. (ii) **Values of covariates in each time interval**: For each time interval, *j*, we need to obtain the value of the covariate (i.e., the truth of sentences such as A10) in that time interval for the given individual. (iii) **Value of EVENT(***i, j***)**: The variable EVENT(*i, j*) indicates whether the state terminating event for individual *i* occurred during the time period *j*. Given a set of such records, the likelihood of observing the data is given as follows.
+fourth year of Fred's life would correspond to the fourth time interval in our dataset. (ii)**Values of covariates in each time interval**: For each time interval, *j*, we need to obtain the value of the covariate (i.e., the truth of sentences such as A10) in that time interval for the given individual. (iii) **Value of EVENT(***i, j***)**: The variable EVENT(*i, j*) indicates whether the state terminating event for individual *i*occurred during the time period*j*. Given a set of such records, the likelihood of observing the data is given as follows.
 
 L = ∏<sup>i</sup> ∏<sup>j</sup> h(tij) EVENT(i,j) (1-h(tij)) (1-EVENT(i, j))
 
@@ -252,37 +251,35 @@ The values of the hazard functions can be calculated by minimizing L.
 | Total     | M1   | 7333     | 39%       |                              |
 |           | M2   | 7333     | 58%       | 49%                          |
 
-#### **Table 1: Experimental Results**
+#### Table 1: Experimental Results
 
-## **Experimental Evaluation**
+## Experimental Evaluation
 
 To assess the validity of these concepts, we conducted a set of experiments. Five query sets were selected based on the availability of temporally qualified ground facts and their relevance to temporal projection. Every query was in the form: "Sentence s was (will be) true at time T"[11](#page-5-0), where s was a fully bound fluent of the type '(isa <ins> <col>)'. For each of these query sets, we measured the Q/A performance in two modes, as follows. **Mode M1**: In this mode, we aimed to simulate the performance of a traditional reasoning system with no temporal projection module. In addition to simply looking up the KB and using the predicate generalization hierarchy, the inference engine performed a temporal subsumption[12](#page-5-1) test during reasoning. **Mode M2**: In the second mode, in addition to the reasoning done in mode M1, we enabled temporal projection methods discussed in this paper. The results of these experiments are shown in Table 1. We see that there has been significant improvement in Q/A performance in all query sets[13](#page-5-2). The overall improvement in performance with respect to M1 is 49%. The results are statistically significant (p < 0.05).
 
-## **Conclusions and Discussion**
+## Conclusions and Discussion
 
 Commonsense temporal reasoning is a core problem for cognitive systems. To improve commonsense reasoning in general and Q/A performance in particular, modern AI systems must find better ways to reason about how long facts persist. In this study, we proposed different types of knowledge representation schemes, which may help such systems to perform robust temporal projection. The specification of risk periods and hazard functions facilitates the calculation of plausible intervals for fluents. Temporal constraints help to limit intervals and the presence of covariates can scale the parameters of the hazard functions. Event calculus can be integrated with survival analysis to alleviate some of the problems caused by incomplete knowledge. Experiments on a set of over 7000 queries shows that the methods proposed here lead to 49% improvement in Q/A performance on average.
 
 Our results suggest the following future areas of research. First, we have found that in the case of many time dependent collections (e.g., Entertainer, Singer), once people enter these states; the fluent persists until the end of their active life. Therefore, we would like to reason about when individuals are likely to enter a given state, and how they might make transitions among states. Previous research into multi-state processes might be relevant in this context [Crowder 2012]. Second, we would like to extend this research to ensure that we can reason about recurrent and periodic events (e.g., sleeping or going to a grocery store). Finally, the capability to reason about probabilistic effects of events, and estimating the likelihood of event occurrence in a given time interval would be very useful for further improving the results shown in Table 1.
 
-## **References**
+## References
 
 Crowder, M. 2012. *Multivariate Survival Analysis and Competing Risks*. CRC Press.
 
 Dean, T. and Kanazawa, K.. 1988. Probabilistic Temporal Reasoning, *Proceedings of AAAI*, pp. 524-528.
 
-Hanks, S. and McDermott, D. 1986. Default Reasoning, Nonmonotonic logics and the Frame Problem, *Proceedings of the AAAI,* pp. 328-334*.* 
-
-<span id="page-5-0"></span><sup>11</sup> We included a query only when it could not be answered easily by considering the lifespan of individuals. For instance, a query like "Was John McCarthy a professor in the year 1850?" would be excluded from our experiments. On the other hand, a query like "Was Marvin Minsky a professor in the year 1984?" would be included in our query sets.
+Hanks, S. and McDermott, D. 1986. Default Reasoning, Nonmonotonic logics and the Frame Problem, *Proceedings of the AAAI,* pp. 328-334*.*<span id="page-5-0"></span><sup>11</sup> We included a query only when it could not be answered easily by considering the lifespan of individuals. For instance, a query like "Was John McCarthy a professor in the year 1850?" would be excluded from our experiments. On the other hand, a query like "Was Marvin Minsky a professor in the year 1984?" would be included in our query sets.
 
 <span id="page-5-1"></span><sup>12</sup> A sentence s is considered true during interval T1 if it is known to be true during interval T2, and T2 subsumes T1.
 
 <span id="page-5-2"></span><sup>13</sup> The number of queries in query sets is different due to non-uniform distribution of facts in KB. For example, Cyc KB knows much more about movie actors than about cricketers.
 
-Hanks, S. and McDermott, D. 1993. Modeling a Dynamic and Uncertain World I: Symbolic and Probabilistic Reasoning about Change. *Artificial Intelligence,* Vol. 43.
+Hanks, S. and McDermott, D. 1993. Modeling a Dynamic and Uncertain World I: Symbolic and Probabilistic Reasoning about Change.*Artificial Intelligence,*Vol. 43.
 
-Kowalski, R. 1992. Database Updates in the Event Calculus. *Journal of Logic Programming,* 12, pp. 12-146.
+Kowalski, R. 1992. Database Updates in the Event Calculus.*Journal of Logic Programming,*12, pp. 12-146.
 
-Kowalski, R. and Sergot, M. 1986. A Logic-based Calculus of Events, *New Generation Computing*, Vol. 4, pp. 67-94.
+Kowalski, R. and Sergot, M. 1986. A Logic-based Calculus of Events,*New Generation Computing*, Vol. 4, pp. 67-94.
 
 Lenat D. and Guha, R. V. 1990 *Building Large Knowledge-Based Systems: Representation and Inference in the Cyc Project*. Addison Wesley.
 
@@ -294,15 +291,13 @@ Miller, R. and Shanahan, M. 2002. Some Alternative Formulations of the Event Cal
 
 McDermott, D. 1982. A Temporal Logic for Reasoning About Processes and Plans. *Cognitive Science*, 6, pp. 101-155.
 
-Sadri, F. and Kowalski, R. 1995. Variants of the Event Calculus. *Proc. of ICLP.* 
-
-Shahar, Y. 1997. A Framework for Knowledge-Based Temporal Abstraction, *Artificial Intelligence*, 90 (1-2), pp. 79-133.
+Sadri, F. and Kowalski, R. 1995. Variants of the Event Calculus. *Proc. of ICLP.*Shahar, Y. 1997. A Framework for Knowledge-Based Temporal Abstraction,*Artificial Intelligence*, 90 (1-2), pp. 79-133.
 
 Shoham, Y. 1987. Temporal Logics in AI: Semantical and Ontological Considerations, *Artif. Intell*., 33(1), pp. 89-104.
 
-Singer, J. D. and Willett, J. B., 1993. It's about time: Using Discrete-Time Survival Analysis to Study Duration and Timing of Events, *Jl. of Educational Statistics,* pp. 155-195.
+Singer, J. D. and Willett, J. B., 1993. It's about time: Using Discrete-Time Survival Analysis to Study Duration and Timing of Events, *Jl. of Educational Statistics,*pp. 155-195.
 
-Singer, J. D. and Willett, J. B., 2003. *Applied Longitudinal Data Analysis: Modeling Change and Event Occurrence*. Oxford University Press.
+Singer, J. D. and Willett, J. B., 2003.*Applied Longitudinal Data Analysis: Modeling Change and Event Occurrence*. Oxford University Press.
 
 Sharma, A. and Forbus, K. D.. 2010. Modeling the Evolution of Knowledge and Reasoning in Learning Systems, AAAI Fall Symposium Series.
 

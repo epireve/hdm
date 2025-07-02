@@ -1,4 +1,6 @@
-# **Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective**
+<!-- cite_key: yangruiunusedu2025 -->
+
+# Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective
 
 Rui Yang Duke-NUS Medical School Singapore yang\_rui@u.nus.edu
 
@@ -28,9 +30,7 @@ Irene Li University of Tokyo Tokyo, Japan ireneli@ds.itc.u-tokyo.ac.jp
 
 Knowledge Graphs (KGs) are crucial in the field of artificial intelligence and are widely used in downstream tasks, such as questionanswering (QA). The construction of KGs typically requires significant effort from domain experts. Large Language Models (LLMs) have recently been used for Knowledge Graph Construction (KGC). However, most existing approaches focus on a local perspective, extracting knowledge triplets from individual sentences or documents, missing a fusion process to combine the knowledge in a global KG. This work introduces Graphusion, a zero-shot KGC framework from free text. It contains three steps: in Step 1, we extract a list of seed entities using topic modeling to guide the final KG includes the most relevant entities; in Step 2, we conduct candidate triplet extraction using LLMs; in Step 3, we design the novel fusion module that provides a global view of the extracted knowledge, incorporating entity merging, conflict resolution, and novel triplet discovery. Results show that Graphusion achieves scores of 2.92 and 2.37 out of 3 for entity extraction and relation recognition, respectively. Moreover, we showcase how Graphusion could be applied to the Natural Language Processing (NLP) domain and validate it in an educational scenario. Specifically, we introduce TutorQA, a new expert-verified benchmark for QA, comprising six tasks and a total of 1,200 QA
 
-*WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia*
-
-© 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN TBD <https://doi.org/TBD>
+*WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia*© 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN TBD <https://doi.org/TBD>
 
 pairs. Using the Graphusion-constructed KG, we achieve a significant improvement on the benchmark, for example, a 9.2% accuracy improvement on sub-graph completion.
 
@@ -38,13 +38,13 @@ pairs. Using the Graphusion-constructed KG, we achieve a significant improvement
 
 • Information systems → Language models; Extraction, transformation and loading; Database utilities and tools.
 
-### Keywords
+## Keywords
 
 Retrieval Augmented Generation, Knowledge Graphs, Question-Answering
 
 ### ACM Reference Format:
 
-Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao, Aosong Feng, Sixun Ouyang, Moritz Blum, Tianwei She, Yuang Jiang, Freddy Lecue, Jinghui Lu, and Irene Li. 2025. Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective. In *Proceedings of (WWW '25, NLP4KGC).* ACM, New York, NY, USA, [21](#page-20-0) pages.<https://doi.org/TBD>
+Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao, Aosong Feng, Sixun Ouyang, Moritz Blum, Tianwei She, Yuang Jiang, Freddy Lecue, Jinghui Lu, and Irene Li. 2025. Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective. In*Proceedings of (WWW '25, NLP4KGC).*ACM, New York, NY, USA, [21](#page-20-0) pages.<https://doi.org/TBD>
 
 ### Introduction
 
@@ -90,7 +90,7 @@ We now introduce our Graphusion framework for constructing scientific KGs, shown
 
 Problem Definition A is defined as a set of triplets = {(ℎ , , ) | ℎ , ∈ , ∈ , = 1, 2, . . . , }, where is the set of entities, is the set of possible relations, and is the total number of triplets in the . The task of zero-shot KGC involves taking a set of free text and generating a list of triplets (ℎ, , ) spanning a KG. Optionally, there is an expert-annotated KG, , as input, in order to provide existing knowledge. In our setting, the number of triplets of is much larger than . We select the domain to be NLP, so the entities are limited to NLP entities, with other entity types such as people, and organizations not being our focus. Referring to previous works [\[27\]](#page-8-17), we define 7 relations types: Prerequisite\_of, Used\_for, Compare, Conjunction, Hyponym\_of, Evaluate\_for and Part\_of. We will now describe the three steps of the pipeline in detail.
 
-### Step 1: Seed Entity Generation
+## Step 1: Seed Entity Generation
 
 Extracting domain-specific entities using LLMs under a zero-shot setting is highly challenging due to the absence of predefined entity lists. This process is not only resource-intensive but also tends to generate a large number of irrelevant entities, or entities with a bad granularity, thereby compromising the quality of extraction. To address these issues, we adopt a seed entity generation approach for efficiently extracting in-domain entities from free text [\[17\]](#page-8-24). Specifically, we utilize BERTopic [\[11\]](#page-8-25) for topic modeling to identify representative entities for each topic. These representative entities serve as seed entities, denoted as . The initialized seed entities ensure high relevance in entity extraction and provide certain precision for subsequent triplet extraction.
 
@@ -115,9 +115,9 @@ The triplets extracted in the previous step provide a local view rather than a g
 
 Optionally, if there is an expert-annotated KG available, we will also query a sub-graph, marked as E − G. Moreover, we conduct a dynamic retrieval of again from the free text ({background}), to help LLMs to have a better understanding on how to resolve the conflicted triplets. This key fusion step focuses on three parts: 1) entity merging: merge semantically similar entities, i.e., NMT vs neural machine translation; 2) conflict resolution: for each entity pair, resolve any conflicts and choose the best one; and 3) novel triplet inference: propose new triplet from the background text. We utilize the following Fusion Prompt:
 
-```
+```text
 Please fuse two sub-knowledge graphs
-```
+```text
 
 about the entity: {entity}. Graph 1: {LLM-KG} Graph 2: {E-G}
 
@@ -127,10 +127,10 @@ about the entity: {entity}. Graph 1: {LLM-KG} Graph 2: {E-G}
 - 3. Only one relation is allowed between two entities. If a conflict exists, read the ### Background to help you keep the correct relation...
 - 4. Once step 3 is done, consider every possible entity pair not covered in step 2. For example, take an entity from Graph 1, and match it with a entity from Graph 2. Then, please refer to ### Background to summarize new triplets.
 
-```
-### Background:
+```text
+## Background:
 {background}
-```
+```text
 
 {Relation Definition}
 
@@ -150,7 +150,7 @@ Baseline We compare with a local graph model (GPT-4o Local), which equals to the
 
 feed the collected abstracts into GraphRAG to build the indexing pipelines. Specifically, we employ GPT-4o as the base LLM. In the query phase, we ask GraphRAG the relation between the given entity pairs.
 
-Evaluation Metrics The automatic evaluation of our scientific KGC approach is challenging, due to the lack of ground truth graphs matching our setting. Therefore, we conduct a human evaluation of the constructed KG. For each model, we randomly sample 100 triplets and ask experts to assess both *entity quality* and *relation quality*, providing ratings on a scale from 1 (bad) to 3 (good). Entity quality measures the relevance and specificity of the extracted entities, while relation quality evaluates the logical accuracy of the relation between entities. We provide the annotators with the following guidelines:
+Evaluation Metrics The automatic evaluation of our scientific KGC approach is challenging, due to the lack of ground truth graphs matching our setting. Therefore, we conduct a human evaluation of the constructed KG. For each model, we randomly sample 100 triplets and ask experts to assess both*entity quality*and*relation quality*, providing ratings on a scale from 1 (bad) to 3 (good). Entity quality measures the relevance and specificity of the extracted entities, while relation quality evaluates the logical accuracy of the relation between entities. We provide the annotators with the following guidelines:
 
 1. Entity Quality *Excellent (3 points)*: Both entities are highly relevant and specific to the domain. At an appropriate level of detail, neither too broad nor too specific. For example, an entity could be introduced by a lecture slide page, or a whole lecture, or possibly have a Wikipedia page. *Acceptable (2 points)*: Entity is somewhat relevant, or granularity is acceptable. *Poor (1 point)*: Entity is at an inappropriate level of detail, too broad or too specific.
 
@@ -238,27 +238,21 @@ TutorQA consists of six categories, encompassing a total of 1,200 QA pairs that 
 
 TutorQA Tasks We design different difficulty levels of the questions and divide them into 6 tasks. We summarize the tasks and provide example data in Fig [4.](#page-6-0) More data statistics and information can be found in the supplementary materials.
 
-*Task 1: Relation Judgment* The task is to assess whether a given triplet, which connects two entities with a relation, is accurate.
+*Task 1: Relation Judgment*The task is to assess whether a given triplet, which connects two entities with a relation, is accurate.
+*Task 2: Prerequisite Prediction*The task helps students by mapping out the key entities they need to learn first to understand a complex target topic.
 
-*Task 2: Prerequisite Prediction* The task helps students by mapping out the key entities they need to learn first to understand a complex target topic.
-
-### <span id="page-6-0"></span>Task 1: Relation Judgment Question: In the field of Natural Language Processing, I have come across the concepts of Penn Treebank and first-order logic. Considering the relation of Hyponym-Of, which establishes a hierarchical relationship where one entity is a more specific version or subtype of another, would it be accurate to say that the concept "Penn Treebank" is a hyponym of "first-order logic"? Answer: No. Evaluation: Accuracy Task 2: Prerequisite Prediction Question: In the domain of Natural Language Processing, I want to learn about Meta-Learning, what concepts should I learn first? Answer: probabilities, optimization, machine learning resources, loss function Evaluation: Similarity Score Task 3: Path Searching Question: In the domain of Natural Language Processing, I know about the concept of optimization, now I want to learn about the concept of neural language modeling, what concept path should I follow? Answer: optimization, machine learning resources, semi-supervised learning, neural networks, neural language modeling Evaluation: Similarity Score Task 4: Subgraph Completion Question: Given the following triplets constituting a sub-graph, please infer the relationship between "story ending generation" and "natural language generation." Triplets: story ending generation - Is-a-Prerequisite-of - sentiment control; sentence generation - Is-a-Prerequisite-of - NLG; natural language generation - Conjunction - natural language understanding Relationships Types: Compare, Part-of,Hyponym-Of ... Answer: Hyponym-Of Evaluation: Accuracy Task 5: Clustering Question: Given the concept PCA, can you provide some similar concepts? Please provide some similar concepts. Answer: Canonical Correlation Analysis, matrix factorization, linear discriminant analysis, singular value decomposition; maximum likelihood estimation. Evaluation: Hit Rate Task 6: Idea Hamster Question: I already know about sentiment analysis, social media analysis, sentence simplification, text summarization, citation networks. In the domain of Natural Language Processing, what potential project can I work on? Give me a possible idea. Show me the title and project description. Answer: (open ended)
+## <span id="page-6-0"></span>Task 1: Relation Judgment Question: In the field of Natural Language Processing, I have come across the concepts of Penn Treebank and first-order logic. Considering the relation of Hyponym-Of, which establishes a hierarchical relationship where one entity is a more specific version or subtype of another, would it be accurate to say that the concept "Penn Treebank" is a hyponym of "first-order logic"? Answer: No. Evaluation: Accuracy Task 2: Prerequisite Prediction Question: In the domain of Natural Language Processing, I want to learn about Meta-Learning, what concepts should I learn first? Answer: probabilities, optimization, machine learning resources, loss function Evaluation: Similarity Score Task 3: Path Searching Question: In the domain of Natural Language Processing, I know about the concept of optimization, now I want to learn about the concept of neural language modeling, what concept path should I follow? Answer: optimization, machine learning resources, semi-supervised learning, neural networks, neural language modeling Evaluation: Similarity Score Task 4: Subgraph Completion Question: Given the following triplets constituting a sub-graph, please infer the relationship between "story ending generation" and "natural language generation." Triplets: story ending generation - Is-a-Prerequisite-of - sentiment control; sentence generation - Is-a-Prerequisite-of - NLG; natural language generation - Conjunction - natural language understanding Relationships Types: Compare, Part-of,Hyponym-Of ... Answer: Hyponym-Of Evaluation: Accuracy Task 5: Clustering Question: Given the concept PCA, can you provide some similar concepts? Please provide some similar concepts. Answer: Canonical Correlation Analysis, matrix factorization, linear discriminant analysis, singular value decomposition; maximum likelihood estimation. Evaluation: Hit Rate Task 6: Idea Hamster Question: I already know about sentiment analysis, social media analysis, sentence simplification, text summarization, citation networks. In the domain of Natural Language Processing, what potential project can I work on? Give me a possible idea. Show me the title and project description. Answer: (open ended)
 
 ### Figure 4: TutorQA tasks: We present a sample data instance and the corresponding evaluation metric for each task. Note: Task 6 involves open-ended answers, which are evaluated through human assessment.
-
-*Task 3: Path Searching* This task helps students identify a sequence of intermediary entities needed to understand a new target entity by charting a path from the graph.
-
-*Task 4: Sub-graph Completion* The task involves expanding the KG by identifying hidden associations between entities in a subgraph.
-
-*Task 5: Similar Entities* The task requires identifying entities linked to a central idea to deepen understanding and enhance learning, aiding in the creation of interconnected curriculums.
-
-*Task 6: Idea Hamster* The task prompts participants to develop project proposals by applying learned entities to real-world contexts, providing examples and outcomes to fuel creativity.
+*Task 3: Path Searching*This task helps students identify a sequence of intermediary entities needed to understand a new target entity by charting a path from the graph.
+*Task 4: Sub-graph Completion*The task involves expanding the KG by identifying hidden associations between entities in a subgraph.
+*Task 5: Similar Entities*The task requires identifying entities linked to a central idea to deepen understanding and enhance learning, aiding in the creation of interconnected curriculums.
+*Task 6: Idea Hamster*The task prompts participants to develop project proposals by applying learned entities to real-world contexts, providing examples and outcomes to fuel creativity.
 
 Scientific Knowledge Graph Question Answering To address TutorQA tasks, we first utilize the Graphusion framework to construct an NLP KG. Then we design a framework for the interaction between the LLM and the graph, which includes two steps: command query and answer generation. In the command query stage, an LLM independently generates commands to query the graph upon receiving the query, thereby retrieving relevant paths. During the answer generation phase, these paths are provided to the LLM as contextual prompts, enabling it to perform QA.
 
-Evaluation Metrics *Accuracy* We report the accuracy score for Task 1 and Task 4, as they are binary classification tasks.
-
-*Similarity score* For Tasks 2 and 3, the references consist of a list of entities. Generally, LLMs demonstrate creativity by answering with novel entities, which are often composed of more contemporary and fresh words, even though they might not exactly match the words in the graph. Consequently, conventional evaluation metrics like keyword matching are unsuitable for these tasks. To address this, we propose the *similarity score*. This metric calculates the semantic
+Evaluation Metrics*Accuracy*We report the accuracy score for Task 1 and Task 4, as they are binary classification tasks.
+*Similarity score*For Tasks 2 and 3, the references consist of a list of entities. Generally, LLMs demonstrate creativity by answering with novel entities, which are often composed of more contemporary and fresh words, even though they might not exactly match the words in the graph. Consequently, conventional evaluation metrics like keyword matching are unsuitable for these tasks. To address this, we propose the*similarity score*. This metric calculates the semantic
 
 similarity between the entities in the predicted list and the ground truth list . Specifically, as shown in Eq [1,](#page-3-2) for an entity from the predicted list, and an entity from the ground truth list, we calculate the cosine similarity between their embeddings achieved from pre-trained BERT model [\[7\]](#page-8-28). We then average these similarity scores to obtain the similarity score.
 
@@ -268,9 +262,8 @@ $$
 
 By averaging the similarity scores, the final score provides a comprehensive measure of the overall semantic alignment between the predicted and ground truth entities.
 
-*Hit Rate* For Task 5, we employ the classical Hit Rate metric, expressed as a percentage. This measure exemplifies the efficiency of LLM at retrieving and presenting relevant entities in its output as compared to a provided list of target entities.
-
-*Expert Evaluation* In Task 6, where open-ended answers are generated without gold-standard responses, we resort to expert evaluation for comparative analysis between baseline results and our model. Despite available LLM-centric metrics like G-Eval [\[25\]](#page-8-35), the specific evaluation needs of this task warrant distinct criteria, particularly examining the persuasive and scientifically sound elements of generated project proposals. Four evaluation criteria, rated on a 1-5 scale, are employed: *Entity Relevancy*: the project's alignment with the query entities. *Entity Coverage*: the extent to which the project encompasses the query entities. *Project Convincity*: the persuasiveness and practical feasibility of the project. *Scientific Factuality*: the scientific accuracy of the information within the project.
+*Hit Rate*For Task 5, we employ the classical Hit Rate metric, expressed as a percentage. This measure exemplifies the efficiency of LLM at retrieving and presenting relevant entities in its output as compared to a provided list of target entities.
+*Expert Evaluation*In Task 6, where open-ended answers are generated without gold-standard responses, we resort to expert evaluation for comparative analysis between baseline results and our model. Despite available LLM-centric metrics like G-Eval [\[25\]](#page-8-35), the specific evaluation needs of this task warrant distinct criteria, particularly examining the persuasive and scientifically sound elements of generated project proposals. Four evaluation criteria, rated on a 1-5 scale, are employed:*Entity Relevancy*: the project's alignment with the query entities. *Entity Coverage*: the extent to which the project encompasses the query entities. *Project Convincity*: the persuasiveness and practical feasibility of the project. *Scientific Factuality*: the scientific accuracy of the information within the project.
 
 Experimental Results Our analysis in Tab. [5](#page-7-0) compares the results based on Graphusion and two baselines, including GPT-4o
 
@@ -313,7 +306,7 @@ Table 4: Case study on TutorQA Task 6: LLaMA, GPT-4o, and our pipeline with cons
 
 ### Table 5: Results for TutorQA evaluations across various tasks.
 
-zero-shot (zs) and GPT-4o with RAG (RAG). Our method with the Graphusion constructed KG shows significant improvements across Tasks 1 to 6 over the baselines. Specifically, Task 6 is evaluated by two NLP experts, with a Kappa score of 0.67, which suggests substantial agreement. The results indicate that our pipeline exhibits a marginally superior performance, particularly in the expert evaluation of *Convincity* and *Factuality*. This suggests that our method might be better at generating content that is not only factually accurate but also presents it in a more persuasive way to the reader. Compared to the base RAG framework, the Graphusion-generated KGs lead to better performance, particularly in Task 4 and 5, where a global understanding is essential. This improvement highlights the critical role of our core fusion step in addressing complex QA.
+zero-shot (zs) and GPT-4o with RAG (RAG). Our method with the Graphusion constructed KG shows significant improvements across Tasks 1 to 6 over the baselines. Specifically, Task 6 is evaluated by two NLP experts, with a Kappa score of 0.67, which suggests substantial agreement. The results indicate that our pipeline exhibits a marginally superior performance, particularly in the expert evaluation of *Convincity*and*Factuality*. This suggests that our method might be better at generating content that is not only factually accurate but also presents it in a more persuasive way to the reader. Compared to the base RAG framework, the Graphusion-generated KGs lead to better performance, particularly in Task 4 and 5, where a global understanding is essential. This improvement highlights the critical role of our core fusion step in addressing complex QA.
 
 Case Study: Task 6 (Expanded relevant entities in the answer) To further understand how KGs could help in advanced educational scenarios, we present a case study on Task 6 in Tab. [4.](#page-7-1) The posed question incorporates five entities (highlighted in blue), with the task being to formulate a feasible project proposal. Although LLaMA offers a substantial project description, its content and relevance to the highlighted entities (marked in orange) are somewhat lacking. In contrast, GPT-4o not only references the queried entities but also provides detailed insights (highlighted in purple) on their potential utility within the project, such as the role of neural question
 
@@ -329,64 +322,61 @@ In this work, we proposed the Graphusion to construct scientific KGs from free t
 
 ### References
 
-- <span id="page-8-11"></span>[1] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report. *arXiv preprint arXiv:2303.08774* (2023).
-- <span id="page-8-12"></span>[2] Kian Ahrabian, Xinwei Du, Richard Delwin Myloth, Arun Baalaaji Sankar Ananthan, and Jay Pujara. 2023. PubGraph: A Large-Scale Scientific Knowledge Graph. *arXiv preprint arXiv:2302.02231* (2023).
-- <span id="page-8-27"></span>[3] Mikel Artetxe, Gorka Labaka, and Eneko Agirre. 2018. Unsupervised Statistical Machine Translation. In *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing*. Association for Computational Linguistics, Brussels, Belgium.
-- <span id="page-8-7"></span>[4] Jinheon Baek, Alham Fikri Aji, and Amir Saffari. 2023. Knowledge-Augmented Language Model Prompting for Zero-Shot Knowledge Graph Question Answering. *ArXiv* abs/2306.04136 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:259095910) [259095910](https://api.semanticscholar.org/CorpusID:259095910)
-- <span id="page-8-2"></span>[5] Antoine Bosselut, Hannah Rashkin, Maarten Sap, Chaitanya Malaviya, Asli Celikyilmaz, and Yejin Choi. 2019. COMET: Commonsense Transformers for Automatic Knowledge Graph Construction. In *Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics*, Anna Korhonen, David Traum, and Lluís Màrquez (Eds.). Association for Computational Linguistics, Florence, Italy, 4762–4779.<https://doi.org/10.18653/v1/P19-1470>
-- <span id="page-8-8"></span>[6] Salvatore M. Carta, Alessandro Giuliani, Lee Cecilia piano, Alessandro Sebastian Podda, Livio Pompianu, and Sandro Gabriele Tiddia. 2023. Iterative Zero-Shot LLM Prompting for Knowledge Graph Construction. *ArXiv* abs/2307.01128 (2023).<https://api.semanticscholar.org/CorpusID:259316469>
-- <span id="page-8-28"></span>[7] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In *North American Chapter of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:52967399>
-- <span id="page-8-10"></span>[8] Darren Edge, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, and Jonathan Larson. 2024. From Local to Global: A Graph RAG Approach to Query-Focused Summarization. *ArXiv* abs/2404.16130 (2024). <https://api.semanticscholar.org/CorpusID:269363075>
-- <span id="page-8-1"></span>[9] Fan Gao, Hang Jiang, Rui Yang, Qingcheng Zeng, Jinghui Lu, Moritz Blum, Tianwei She, Yuang Jiang, and Irene Li. 2024. Evaluating large language models on wikipedia-style survey generation. In *Findings of the Association for Computational Linguistics ACL 2024*. 5405–5418.
-- <span id="page-8-20"></span>[10] Cristian D. González-Carrillo, Felipe Restrepo-Calle, Jhon Jairo Ramírez-Echeverry, and Fabio A. González. 2021. Automatic Grading Tool for Jupyter Notebooks in Artificial Intelligence Courses. *Sustainability* (2021). [https:](https://api.semanticscholar.org/CorpusID:243477284) [//api.semanticscholar.org/CorpusID:243477284](https://api.semanticscholar.org/CorpusID:243477284)
-- <span id="page-8-25"></span>[11] Maarten R. Grootendorst. 2022. BERTopic: Neural topic modeling with a class-based TF-IDF procedure. *ArXiv* abs/2203.05794 (2022). [https://api.](https://api.semanticscholar.org/CorpusID:247411231) [semanticscholar.org/CorpusID:247411231](https://api.semanticscholar.org/CorpusID:247411231)
-- <span id="page-8-30"></span>[12] Aditya Grover and Jure Leskovec. 2016. node2vec: Scalable feature learning for networks. In *Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining*. 855–864.
-- <span id="page-8-23"></span>[13] Yann Hicke, Anmol Agarwal, Qianou Ma, and Paul Denny. 2023. ChaTA: Towards an Intelligent Question-Answer Teaching Assistant using Open-Source LLMs. *ArXiv* abs/2311.02775 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:265033489) [265033489](https://api.semanticscholar.org/CorpusID:265033489)
-- <span id="page-8-31"></span>[14] Felix Hill, Antoine Bordes, Sumit Chopra, and Jason Weston. 2015. The Goldilocks Principle: Reading Children's Books with Explicit Memory Representations. *CoRR* abs/1511.02301 (2015). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:14915449) [14915449](https://api.semanticscholar.org/CorpusID:14915449)
-- <span id="page-8-5"></span>[15] Pengcheng Jiang, Cao Xiao, Adam Richard Cross, and Jimeng Sun. 2023. Graph-Care: Enhancing Healthcare Predictions with Personalized Knowledge Graphs. In *The Twelfth International Conference on Learning Representations*.
-- <span id="page-8-13"></span>[16] Aparna Kalla, R Shailesh, S. Preetha, Snehal Chandra, and Sudeepa Roy. 2023. Scientific Knowledge Graph Creation and Analysis. *2023 IEEE 8th International Conference for Convergence in Technology (I2CT)* (2023), 1–5. [https://api.](https://api.semanticscholar.org/CorpusID:258870236) [semanticscholar.org/CorpusID:258870236](https://api.semanticscholar.org/CorpusID:258870236)
-- <span id="page-8-24"></span>[17] Yuhe Ke, Rui Yang, and Nan Liu. 2024. Comparing Open-Access Database and Traditional Intensive Care Studies Using Machine Learning: Bibliometric Analysis Study. *Journal of Medical Internet Research* 26 (2024), e48330.
-- <span id="page-8-14"></span>[18] Anh Le-Tuan, Carlos Franzreb, Sonja Schimmler, and Manfred Hauswirth. 2022. Towards Building Live Open Scientific Knowledge Graphs. *Companion Proceedings of the Web Conference 2022* (2022). [https://api.semanticscholar.org/](https://api.semanticscholar.org/CorpusID:248347985) [CorpusID:248347985](https://api.semanticscholar.org/CorpusID:248347985)
-- <span id="page-8-0"></span>[19] Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen tau Yih, Tim Rocktäschel, Sebastian Riedel, and Douwe Kiela. 2020. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. *ArXiv* abs/2005.11401 (2020). <https://api.semanticscholar.org/CorpusID:218869575>
+- <span id="page-8-11"></span>[1] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report. *arXiv preprint arXiv:2303.08774*(2023).
+- <span id="page-8-12"></span>[2] Kian Ahrabian, Xinwei Du, Richard Delwin Myloth, Arun Baalaaji Sankar Ananthan, and Jay Pujara. 2023. PubGraph: A Large-Scale Scientific Knowledge Graph.*arXiv preprint arXiv:2302.02231*(2023).
+- <span id="page-8-27"></span>[3] Mikel Artetxe, Gorka Labaka, and Eneko Agirre. 2018. Unsupervised Statistical Machine Translation. In*Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing*. Association for Computational Linguistics, Brussels, Belgium.
+- <span id="page-8-7"></span>[4] Jinheon Baek, Alham Fikri Aji, and Amir Saffari. 2023. Knowledge-Augmented Language Model Prompting for Zero-Shot Knowledge Graph Question Answering. *ArXiv*abs/2306.04136 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:259095910) [259095910](https://api.semanticscholar.org/CorpusID:259095910)
+- <span id="page-8-2"></span>[5] Antoine Bosselut, Hannah Rashkin, Maarten Sap, Chaitanya Malaviya, Asli Celikyilmaz, and Yejin Choi. 2019. COMET: Commonsense Transformers for Automatic Knowledge Graph Construction. In*Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics*, Anna Korhonen, David Traum, and Lluís Màrquez (Eds.). Association for Computational Linguistics, Florence, Italy, 4762–4779.<https://doi.org/10.18653/v1/P19-1470>
+- <span id="page-8-8"></span>[6] Salvatore M. Carta, Alessandro Giuliani, Lee Cecilia piano, Alessandro Sebastian Podda, Livio Pompianu, and Sandro Gabriele Tiddia. 2023. Iterative Zero-Shot LLM Prompting for Knowledge Graph Construction. *ArXiv*abs/2307.01128 (2023).<https://api.semanticscholar.org/CorpusID:259316469>
+- <span id="page-8-28"></span>[7] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In*North American Chapter of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:52967399>
+- <span id="page-8-10"></span>[8] Darren Edge, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, and Jonathan Larson. 2024. From Local to Global: A Graph RAG Approach to Query-Focused Summarization. *ArXiv*abs/2404.16130 (2024). <https://api.semanticscholar.org/CorpusID:269363075>
+- <span id="page-8-1"></span>[9] Fan Gao, Hang Jiang, Rui Yang, Qingcheng Zeng, Jinghui Lu, Moritz Blum, Tianwei She, Yuang Jiang, and Irene Li. 2024. Evaluating large language models on wikipedia-style survey generation. In*Findings of the Association for Computational Linguistics ACL 2024*. 5405–5418.
+- <span id="page-8-20"></span>[10] Cristian D. González-Carrillo, Felipe Restrepo-Calle, Jhon Jairo Ramírez-Echeverry, and Fabio A. González. 2021. Automatic Grading Tool for Jupyter Notebooks in Artificial Intelligence Courses. *Sustainability*(2021). [https:](https://api.semanticscholar.org/CorpusID:243477284) [//api.semanticscholar.org/CorpusID:243477284](https://api.semanticscholar.org/CorpusID:243477284)
+- <span id="page-8-25"></span>[11] Maarten R. Grootendorst. 2022. BERTopic: Neural topic modeling with a class-based TF-IDF procedure.*ArXiv*abs/2203.05794 (2022). [https://api.](https://api.semanticscholar.org/CorpusID:247411231) [semanticscholar.org/CorpusID:247411231](https://api.semanticscholar.org/CorpusID:247411231)
+- <span id="page-8-30"></span>[12] Aditya Grover and Jure Leskovec. 2016. node2vec: Scalable feature learning for networks. In*Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining*. 855–864.
+- <span id="page-8-23"></span>[13] Yann Hicke, Anmol Agarwal, Qianou Ma, and Paul Denny. 2023. ChaTA: Towards an Intelligent Question-Answer Teaching Assistant using Open-Source LLMs. *ArXiv*abs/2311.02775 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:265033489) [265033489](https://api.semanticscholar.org/CorpusID:265033489)
+- <span id="page-8-31"></span>[14] Felix Hill, Antoine Bordes, Sumit Chopra, and Jason Weston. 2015. The Goldilocks Principle: Reading Children's Books with Explicit Memory Representations.*CoRR*abs/1511.02301 (2015). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:14915449) [14915449](https://api.semanticscholar.org/CorpusID:14915449)
+- <span id="page-8-5"></span>[15] Pengcheng Jiang, Cao Xiao, Adam Richard Cross, and Jimeng Sun. 2023. Graph-Care: Enhancing Healthcare Predictions with Personalized Knowledge Graphs. In*The Twelfth International Conference on Learning Representations*.
+- <span id="page-8-13"></span>[16] Aparna Kalla, R Shailesh, S. Preetha, Snehal Chandra, and Sudeepa Roy. 2023. Scientific Knowledge Graph Creation and Analysis. *2023 IEEE 8th International Conference for Convergence in Technology (I2CT)*(2023), 1–5. [https://api.](https://api.semanticscholar.org/CorpusID:258870236) [semanticscholar.org/CorpusID:258870236](https://api.semanticscholar.org/CorpusID:258870236)
+- <span id="page-8-24"></span>[17] Yuhe Ke, Rui Yang, and Nan Liu. 2024. Comparing Open-Access Database and Traditional Intensive Care Studies Using Machine Learning: Bibliometric Analysis Study.*Journal of Medical Internet Research*26 (2024), e48330.
+- <span id="page-8-14"></span>[18] Anh Le-Tuan, Carlos Franzreb, Sonja Schimmler, and Manfred Hauswirth. 2022. Towards Building Live Open Scientific Knowledge Graphs.*Companion Proceedings of the Web Conference 2022*(2022). [https://api.semanticscholar.org/](https://api.semanticscholar.org/CorpusID:248347985) [CorpusID:248347985](https://api.semanticscholar.org/CorpusID:248347985)
+- <span id="page-8-0"></span>[19] Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen tau Yih, Tim Rocktäschel, Sebastian Riedel, and Douwe Kiela. 2020. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.*ArXiv*abs/2005.11401 (2020). <https://api.semanticscholar.org/CorpusID:218869575>
 - <span id="page-8-6"></span>[20] Irene Li, Vanessa Yan, Tianxiao Li, Rihao Qu, and Dragomir R. Radev. 2021. Unsupervised Cross-Domain Prerequisite Chain Learning using Variational Graph
 
-Autoencoders. In *Annual Meeting of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:234334083>
+Autoencoders. In*Annual Meeting of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:234334083>
 
 - <span id="page-8-3"></span>[21] Irene Li and Boming Yang. 2023. NNKGC: Improving Knowledge Graph Completion with Node Neighborhoods. In *Proceedings of the Workshop on Deep Learning for Knowledge Graphs (DL4KG 2023) co-located with the 21th International Semantic Web Conference (ISWC 2023), Athens, November 6-10, 2023 (CEUR Workshop Proceedings, Vol. 3559)*, Mehwish Alam and Michael Cochez (Eds.). CEUR-WS.org.<https://ceur-ws.org/Vol-3559/paper-6.pdf>
-- <span id="page-8-15"></span>[22] Irene Z Li, Alexander R. Fabbri, Swapnil Hingmire, and Dragomir R. Radev. 2020. R-VGAE: Relational-variational Graph Autoencoder for Unsupervised Prerequisite Chain Learning. *ArXiv* abs/2004.10610 (2020). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:216056469) [org/CorpusID:216056469](https://api.semanticscholar.org/CorpusID:216056469)
-- <span id="page-8-34"></span>[23] Irene Z Li, Vanessa Yan, and Dragomir R. Radev. 2021. Efficient Variational Graph Autoencoders for Unsupervised Cross-domain Prerequisite Chains. *ArXiv* abs/2109.08722 (2021).<https://api.semanticscholar.org/CorpusID:237571655>
-- <span id="page-8-19"></span>[24] Qian Li, Zhuo Chen, Cheng Ji, Shiqi Jiang, and Jianxin Li. 2024. LLM-based Multi-Level Knowledge Generation for Few-shot Knowledge Graph Completion. *Proceedings of the Thirty-ThirdInternational Joint Conference on Artificial Intelligence* (2024).<https://api.semanticscholar.org/CorpusID:271494703>
-- <span id="page-8-35"></span>[25] Yang Liu, Dan Iter, Yichong Xu, Shuo Wang, Ruochen Xu, and Chenguang Zhu. 2023. G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment. In *Conference on Empirical Methods in Natural Language Processing*. [https:](https://api.semanticscholar.org/CorpusID:257804696) [//api.semanticscholar.org/CorpusID:257804696](https://api.semanticscholar.org/CorpusID:257804696)
-- <span id="page-8-21"></span>[26] Qingyu Lu, Baopu Qiu, Liang Ding, Liping Xie, and Dacheng Tao. 2023. Error Analysis Prompting Enables Human-Like Translation Evaluation in Large Language Models: A Case Study on ChatGPT. *ArXiv* abs/2303.13809 (2023). <https://api.semanticscholar.org/CorpusID:257756967>
-- <span id="page-8-17"></span>[27] Yi Luan, Luheng He, Mari Ostendorf, and Hannaneh Hajishirzi. 2018. Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction. *ArXiv* abs/1808.09602 (2018). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:52118895) [org/CorpusID:52118895](https://api.semanticscholar.org/CorpusID:52118895)
-- <span id="page-8-32"></span>[28] Chaitanya Malaviya, Subin Lee, Sihao Chen, Elizabeth Sieber, Mark Yatskar, and Dan Roth. 2023. ExpertQA: Expert-Curated Questions and Attributed Answers. *ArXiv* abs/2309.07852 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:261823130) [261823130](https://api.semanticscholar.org/CorpusID:261823130)
-- <span id="page-8-33"></span>[29] Andrew Lan Nigel Fernandez, Alexander Scarlatos. 2024. SyllabusQA: A Course Logistics Question Answering Dataset. *ArXiv* abs/2403.14666 (2024). [https:](https://api.semanticscholar.org/CorpusID:268667283) [//api.semanticscholar.org/CorpusID:268667283](https://api.semanticscholar.org/CorpusID:268667283)
-- <span id="page-8-4"></span>[30] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying Large Language Models and Knowledge Graphs: A Roadmap. *IEEE Trans. Knowl. Data Eng.* 36, 7 (2024), 3580–3599. [https://doi.org/10.1109/](https://doi.org/10.1109/TKDE.2024.3352100) [TKDE.2024.3352100](https://doi.org/10.1109/TKDE.2024.3352100)
-- <span id="page-8-29"></span>[31] Bryan Perozzi, Rami Al-Rfou, and Steven Skiena. 2014. DeepWalk: Online Learning of Social Representations. In *Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining* (New York, New York, USA) *(KDD '14)*. ACM, New York, NY, USA, 701–710. [https:](https://doi.org/10.1145/2623330.2623732) [//doi.org/10.1145/2623330.2623732](https://doi.org/10.1145/2623330.2623732)
-- <span id="page-8-36"></span>[32] Pengcheng Qiu, Chaoyi Wu, Xiaoman Zhang, Weixiong Lin, Haicheng Wang, Ya Zhang, Yanfeng Wang, and Weidi Xie. 2024. Towards building multilingual language model for medicine. *Nature Communications* 15, 1 (2024), 8384.
-- <span id="page-8-18"></span>[33] Justin T. Reese, Deepak R. Unni, Tiffany J. Callahan, Luca Cappelletti, Vida Ravanmehr, Seth Carbon, Tommaso Fontana, Hannah Blau, Nicolas Matentzoglu, Nomi L. Harris, Monica C. Munoz-Torres, Peter N. Robinson, marcin p. joachimiak, and Chris J. Mungall. 2020. KG-COVID-19: A Framework to Produce Customized Knowledge Graphs for COVID-19 Response. *Patterns* 2 (2020). <https://api.semanticscholar.org/CorpusID:221191594>
-- <span id="page-8-22"></span>[34] Dominic Seyler, Mohamed Yahya, and Klaus Berberich. 2015. Generating Quiz Questions from Knowledge Graphs. *Proceedings of the 24th International Conference on World Wide Web* (2015). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:7522972) [7522972](https://api.semanticscholar.org/CorpusID:7522972)
-- <span id="page-8-9"></span>[35] Jiawei Sheng, Shu Guo, Zhenyu Chen, Juwei Yue, Lihong Wang, and Tingwen Liu. 2022. Challenging the Assumption of Structure-based embeddings in Fewand Zero-shot Knowledge Graph Completion. In *International Conference on Language Resources and Evaluation*. [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:252376765) [252376765](https://api.semanticscholar.org/CorpusID:252376765)
+- <span id="page-8-15"></span>[22] Irene Z Li, Alexander R. Fabbri, Swapnil Hingmire, and Dragomir R. Radev. 2020. R-VGAE: Relational-variational Graph Autoencoder for Unsupervised Prerequisite Chain Learning. *ArXiv*abs/2004.10610 (2020). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:216056469) [org/CorpusID:216056469](https://api.semanticscholar.org/CorpusID:216056469)
+- <span id="page-8-34"></span>[23] Irene Z Li, Vanessa Yan, and Dragomir R. Radev. 2021. Efficient Variational Graph Autoencoders for Unsupervised Cross-domain Prerequisite Chains.*ArXiv*abs/2109.08722 (2021).<https://api.semanticscholar.org/CorpusID:237571655>
+- <span id="page-8-19"></span>[24] Qian Li, Zhuo Chen, Cheng Ji, Shiqi Jiang, and Jianxin Li. 2024. LLM-based Multi-Level Knowledge Generation for Few-shot Knowledge Graph Completion.*Proceedings of the Thirty-ThirdInternational Joint Conference on Artificial Intelligence*(2024).<https://api.semanticscholar.org/CorpusID:271494703>
+- <span id="page-8-35"></span>[25] Yang Liu, Dan Iter, Yichong Xu, Shuo Wang, Ruochen Xu, and Chenguang Zhu. 2023. G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment. In*Conference on Empirical Methods in Natural Language Processing*. [https:](https://api.semanticscholar.org/CorpusID:257804696) [//api.semanticscholar.org/CorpusID:257804696](https://api.semanticscholar.org/CorpusID:257804696)
+- <span id="page-8-21"></span>[26] Qingyu Lu, Baopu Qiu, Liang Ding, Liping Xie, and Dacheng Tao. 2023. Error Analysis Prompting Enables Human-Like Translation Evaluation in Large Language Models: A Case Study on ChatGPT. *ArXiv*abs/2303.13809 (2023). <https://api.semanticscholar.org/CorpusID:257756967>
+- <span id="page-8-17"></span>[27] Yi Luan, Luheng He, Mari Ostendorf, and Hannaneh Hajishirzi. 2018. Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction.*ArXiv*abs/1808.09602 (2018). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:52118895) [org/CorpusID:52118895](https://api.semanticscholar.org/CorpusID:52118895)
+- <span id="page-8-32"></span>[28] Chaitanya Malaviya, Subin Lee, Sihao Chen, Elizabeth Sieber, Mark Yatskar, and Dan Roth. 2023. ExpertQA: Expert-Curated Questions and Attributed Answers.*ArXiv*abs/2309.07852 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:261823130) [261823130](https://api.semanticscholar.org/CorpusID:261823130)
+- <span id="page-8-33"></span>[29] Andrew Lan Nigel Fernandez, Alexander Scarlatos. 2024. SyllabusQA: A Course Logistics Question Answering Dataset.*ArXiv*abs/2403.14666 (2024). [https:](https://api.semanticscholar.org/CorpusID:268667283) [//api.semanticscholar.org/CorpusID:268667283](https://api.semanticscholar.org/CorpusID:268667283)
+- <span id="page-8-4"></span>[30] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying Large Language Models and Knowledge Graphs: A Roadmap.*IEEE Trans. Knowl. Data Eng.*36, 7 (2024), 3580–3599. [https://doi.org/10.1109/](https://doi.org/10.1109/TKDE.2024.3352100) [TKDE.2024.3352100](https://doi.org/10.1109/TKDE.2024.3352100)
+- <span id="page-8-29"></span>[31] Bryan Perozzi, Rami Al-Rfou, and Steven Skiena. 2014. DeepWalk: Online Learning of Social Representations. In*Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining*(New York, New York, USA)*(KDD '14)*. ACM, New York, NY, USA, 701–710. [https:](https://doi.org/10.1145/2623330.2623732) [//doi.org/10.1145/2623330.2623732](https://doi.org/10.1145/2623330.2623732)
+- <span id="page-8-36"></span>[32] Pengcheng Qiu, Chaoyi Wu, Xiaoman Zhang, Weixiong Lin, Haicheng Wang, Ya Zhang, Yanfeng Wang, and Weidi Xie. 2024. Towards building multilingual language model for medicine. *Nature Communications*15, 1 (2024), 8384.
+- <span id="page-8-18"></span>[33] Justin T. Reese, Deepak R. Unni, Tiffany J. Callahan, Luca Cappelletti, Vida Ravanmehr, Seth Carbon, Tommaso Fontana, Hannah Blau, Nicolas Matentzoglu, Nomi L. Harris, Monica C. Munoz-Torres, Peter N. Robinson, marcin p. joachimiak, and Chris J. Mungall. 2020. KG-COVID-19: A Framework to Produce Customized Knowledge Graphs for COVID-19 Response.*Patterns*2 (2020). <https://api.semanticscholar.org/CorpusID:221191594>
+- <span id="page-8-22"></span>[34] Dominic Seyler, Mohamed Yahya, and Klaus Berberich. 2015. Generating Quiz Questions from Knowledge Graphs.*Proceedings of the 24th International Conference on World Wide Web*(2015). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:7522972) [7522972](https://api.semanticscholar.org/CorpusID:7522972)
+- <span id="page-8-9"></span>[35] Jiawei Sheng, Shu Guo, Zhenyu Chen, Juwei Yue, Lihong Wang, and Tingwen Liu. 2022. Challenging the Assumption of Structure-based embeddings in Fewand Zero-shot Knowledge Graph Completion. In*International Conference on Language Resources and Evaluation*. [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:252376765) [252376765](https://api.semanticscholar.org/CorpusID:252376765)
 - <span id="page-8-37"></span>[36] Deshraj Yadav Taranjeet Singh. 2023. Embedchain: The Open Source RAG Framework. [https://github.com/embedchain/embedchain.](https://github.com/embedchain/embedchain)
-- <span id="page-8-38"></span>[37] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. 2023. Llama 2: Open foundation and fine-tuned chat models. *arXiv preprint arXiv:2307.09288* (2023).
-- <span id="page-8-16"></span>[38] Denny Vrandeciˇ c and Markus Krötzsch. 2014. Wikidata: a free collaborative ´ knowledgebase. *Commun. ACM* 57, 10 (sep 2014), 78–85. [https://doi.org/10.](https://doi.org/10.1145/2629489) [1145/2629489](https://doi.org/10.1145/2629489)
-- <span id="page-8-26"></span>[39] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Huai hsin Chi, F. Xia, Quoc Le, and Denny Zhou. 2022. Chain of Thought Prompting Elicits Reasoning in Large Language Models. *ArXiv* abs/2201.11903 (2022). <https://api.semanticscholar.org/CorpusID:246411621>
+- <span id="page-8-38"></span>[37] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. 2023. Llama 2: Open foundation and fine-tuned chat models. *arXiv preprint arXiv:2307.09288*(2023).
+- <span id="page-8-16"></span>[38] Denny Vrandeciˇ c and Markus Krötzsch. 2014. Wikidata: a free collaborative ´ knowledgebase.*Commun. ACM*57, 10 (sep 2014), 78–85. [https://doi.org/10.](https://doi.org/10.1145/2629489) [1145/2629489](https://doi.org/10.1145/2629489)
+- <span id="page-8-26"></span>[39] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Huai hsin Chi, F. Xia, Quoc Le, and Denny Zhou. 2022. Chain of Thought Prompting Elicits Reasoning in Large Language Models.*ArXiv*abs/2201.11903 (2022). <https://api.semanticscholar.org/CorpusID:246411621>
 
-- <span id="page-9-8"></span>[40] Ying Xu, Dakuo Wang, Mo Yu, Daniel Ritchie, Bingsheng Yao, Tongshuang Sherry Wu, Zheng Zhang, Toby Jia-Jun Li, Nora Bradford, Branda Sun, Tran Bao Hoang, Yisi Sang, Yufang Hou, Xiaojuan Ma, Diyi Yang, Nanyun Peng, Zhou Yu, and Mark Warschauer. 2022. Fantastic Questions and Where to Find Them: FairytaleQA – An Authentic Dataset for Narrative Comprehension. In *Annual Meeting of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:247762948>
+- <span id="page-9-8"></span>[40] Ying Xu, Dakuo Wang, Mo Yu, Daniel Ritchie, Bingsheng Yao, Tongshuang Sherry Wu, Zheng Zhang, Toby Jia-Jun Li, Nora Bradford, Branda Sun, Tran Bao Hoang, Yisi Sang, Yufang Hou, Xiaojuan Ma, Diyi Yang, Nanyun Peng, Zhou Yu, and Mark Warschauer. 2022. Fantastic Questions and Where to Find Them: FairytaleQA – An Authentic Dataset for Narrative Comprehension. In*Annual Meeting of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:247762948>
 - <span id="page-9-1"></span>[41] Rui Yang, Haoran Liu, Edison Marrese-Taylor, Qingcheng Zeng, Yuhe Ke, Wanxin Li, Lechao Cheng, Qingyu Chen, James Caverlee, Yutaka Matsuo, and Irene Li. 2024. KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques. In *Proceedings of the 23rd Workshop on Biomedical Natural Language Processing*, Dina Demner-Fushman, Sophia Ananiadou, Makoto Miwa, Kirk Roberts, and Junichi Tsujii (Eds.). Association for Computational Linguistics, Bangkok, Thailand, 155–166. [https://doi.org/10.](https://doi.org/10.18653/v1/2024.bionlp-1.13) [18653/v1/2024.bionlp-1.13](https://doi.org/10.18653/v1/2024.bionlp-1.13)
-- <span id="page-9-0"></span>[42] Rui Yang, Yilin Ning, Emilia Keppo, Mingxuan Liu, Chuan Hong, Danielle S Bitterman, Jasmine Chiat Ling Ong, Daniel Shu Wei Ting, and Nan Liu. 2024. Retrieval-Augmented Generation for Generative Artificial Intelligence in Medicine. *arXiv preprint arXiv:2406.12449* (2024).
-- <span id="page-9-5"></span>[43] Rui Yang, Ting Fang Tan, Wei Lu, Arun James Thirunavukarasu, Daniel Shu Wei Ting, and Nan Liu. 2023. Large language models in health care: Development, applications, and challenges. *Health Care Science* 2, 4 (2023), 255–263.
-- <span id="page-9-2"></span>[44] Rui Yang, Qingcheng Zeng, Keen You, Yujie Qiao, Lucas Huang, Chia-Chun Hsieh, Benjamin Rosand, Jeremy Goldwasser, Amisha Dave, Tiarnan Keenan, et al. 2024. Ascle—A Python Natural Language Processing Toolkit for Medical Text Generation: Development and Evaluation Study. *Journal of Medical Internet Research* 26 (2024), e60601.
-- <span id="page-9-3"></span>[45] Yichi Zhang, Zhuo Chen, Wen Zhang, and Hua zeng Chen. 2023. Making Large Language Models Perform Better in Knowledge Graph Completion. *ArXiv* abs/2310.06671 (2023).<https://api.semanticscholar.org/CorpusID:263830580>
-- <span id="page-9-6"></span>[46] Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, and Toby Jia-Jun Li. 2023. VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping. *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology* (2023). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:258179241) [org/CorpusID:258179241](https://api.semanticscholar.org/CorpusID:258179241)
-- <span id="page-9-4"></span>[47] Yuqi Zhu, Xiaohan Wang, Jing Chen, Shuofei Qiao, Yixin Ou, Yunzhi Yao, Shumin Deng, Huajun Chen, and Ningyu Zhang. 2023. LLMs for Knowledge Graph Construction and Reasoning: Recent Capabilities and Future Opportunities. *ArXiv* abs/2305.13168 (2023).<https://api.semanticscholar.org/CorpusID:258833039>
-- <span id="page-9-7"></span>[48] Brian Zylich, Adam Viola, Brokk Toggerson, Lara Al-Hariri, and Andrew S. Lan. 2020. Exploring Automated Question Answering Methods for Teaching Assistance. *Artificial Intelligence in Education* 12163 (2020), 610 – 622. [https:](https://api.semanticscholar.org/CorpusID:220364751) [//api.semanticscholar.org/CorpusID:220364751](https://api.semanticscholar.org/CorpusID:220364751)
+- <span id="page-9-0"></span>[42] Rui Yang, Yilin Ning, Emilia Keppo, Mingxuan Liu, Chuan Hong, Danielle S Bitterman, Jasmine Chiat Ling Ong, Daniel Shu Wei Ting, and Nan Liu. 2024. Retrieval-Augmented Generation for Generative Artificial Intelligence in Medicine. *arXiv preprint arXiv:2406.12449*(2024).
+- <span id="page-9-5"></span>[43] Rui Yang, Ting Fang Tan, Wei Lu, Arun James Thirunavukarasu, Daniel Shu Wei Ting, and Nan Liu. 2023. Large language models in health care: Development, applications, and challenges.*Health Care Science*2, 4 (2023), 255–263.
+- <span id="page-9-2"></span>[44] Rui Yang, Qingcheng Zeng, Keen You, Yujie Qiao, Lucas Huang, Chia-Chun Hsieh, Benjamin Rosand, Jeremy Goldwasser, Amisha Dave, Tiarnan Keenan, et al. 2024. Ascle—A Python Natural Language Processing Toolkit for Medical Text Generation: Development and Evaluation Study.*Journal of Medical Internet Research*26 (2024), e60601.
+- <span id="page-9-3"></span>[45] Yichi Zhang, Zhuo Chen, Wen Zhang, and Hua zeng Chen. 2023. Making Large Language Models Perform Better in Knowledge Graph Completion.*ArXiv*abs/2310.06671 (2023).<https://api.semanticscholar.org/CorpusID:263830580>
+- <span id="page-9-6"></span>[46] Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, and Toby Jia-Jun Li. 2023. VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.*Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*(2023). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:258179241) [org/CorpusID:258179241](https://api.semanticscholar.org/CorpusID:258179241)
+- <span id="page-9-4"></span>[47] Yuqi Zhu, Xiaohan Wang, Jing Chen, Shuofei Qiao, Yixin Ou, Yunzhi Yao, Shumin Deng, Huajun Chen, and Ningyu Zhang. 2023. LLMs for Knowledge Graph Construction and Reasoning: Recent Capabilities and Future Opportunities.*ArXiv*abs/2305.13168 (2023).<https://api.semanticscholar.org/CorpusID:258833039>
+- <span id="page-9-7"></span>[48] Brian Zylich, Adam Viola, Brokk Toggerson, Lara Al-Hariri, and Andrew S. Lan. 2020. Exploring Automated Question Answering Methods for Teaching Assistance.*Artificial Intelligence in Education*12163 (2020), 610 – 622. [https:](https://api.semanticscholar.org/CorpusID:220364751) [//api.semanticscholar.org/CorpusID:220364751](https://api.semanticscholar.org/CorpusID:220364751)
 
 ### Zero-shot Link Prediction Prompts
-
-*LP Prompt.*
-
-We have two {domain} related entities: A: {entity\_1} and B: {entity\_2}.
+*LP Prompt.*We have two {domain} related entities: A: {entity\_1} and B: {entity\_2}.
 
 Do you think learning {entity\_1} will help in understanding {entity\_2}?
 
@@ -399,9 +389,7 @@ Hints:
 
 {Additional Information}
 
-### *LP Prompt With Chain-of-Thought.*
-
-We have two {domain} related entities: A: {entity\_1} and B: {entity\_2}.
+###*LP Prompt With Chain-of-Thought.*We have two {domain} related entities: A: {entity\_1} and B: {entity\_2}.
 
 Assess if learning {entity\_1} is a prerequisite for understanding {entity\_2}.
 
@@ -413,9 +401,7 @@ Employ the Chain of Thought to detail your reasoning before giving a final answe
 - # Draw a Conclusion: Based on your analysis, decide if understanding A is a necessary prerequisite for understanding B.
 - # Provide a Clear Answer: After detailed reasoning, conclude with a distinct answer : <result>YES</result> if understanding A is a prerequisite for understanding B, or <result>NO</result> if it is not.
 
-### *Extraction Prompt.*
-
-### Instruction: You are a domain expert in natural language processing, and now you are building a knowledge graph in this domain.
+###*Extraction Prompt.*### Instruction: You are a domain expert in natural language processing, and now you are building a knowledge graph in this domain.
 
 Given a context (### Content), and a query entity (### entity), do the following:
 
@@ -435,10 +421,7 @@ We define 7 types of the relations:
 - 4. You can also extract triplets from the extracted entities, and the query entity may not be necessary in the triplets.
 - 5. Your answer should ONLY contain a list of triplets, each triplet is in this format: (entity, relation, entity). For example: "(entity, relation, entity) (entity, relation, entity)." No numbering and other explanations are needed.
 - 6. If ### Content is empty, output None.
-
-*Fusion Prompt.*
-
-### Instruction: You are a knowledge graph builder. Now please fuse two sub-knowledge graphs about the entity "{entity}".
+*Fusion Prompt.*### Instruction: You are a knowledge graph builder. Now please fuse two sub-knowledge graphs about the entity "{entity}".
 
 Graph 1: {LLM-KG} Graph 2: {E-G}
 
@@ -464,7 +447,7 @@ Hint: the relation types and their definition. You can use it to do Step 3. We d
 
 Output the new merged data by listing the triplets. Your answer should ONLY contain triplets in this format: (entity, relation, entity). No other explanations or numbering are needed. Only triplets, no intermediate results.
 
-```
+```text
 Link Prediction with Doc.
 We have two {domain} related entities: A: {entity_1} and B: {entity_2}.
 Do you think learning {entity_1} will help in understanding {entity_2}?
@@ -503,11 +486,9 @@ Hints:
 And here are related contents to help:
 {Wikipedia introductory paragraph of {entity_1}}
 {Wikipedia introductory paragraph of {entity_2}}
-```
+```text
 
-### *GraphRAG's Prompt Tuning for Entity/Relationship Extraction.*
-
--Goal-
+###*GraphRAG's Prompt Tuning for Entity/Relationship Extraction.*-Goal-
 
 Given a text document that is potentially relevant to this activity, first identify all the entities needed from the text in order to capture the information and ideas in the text. Next, introduce each relation concept by defining the relation, and then report all relationships among the identified entities according to the predefined relations. These predefined relations and seed entities include:
 
@@ -534,14 +515,14 @@ Given a text document that is potentially relevant to this activity, first ident
 - Format each relationship as ("relationship"{tuple\_delimiter}<source\_entity>{tuple\_delimiter}< target\_entity>{tuple\_delimiter}<relationship\_type>{tuple\_delimiter}<relationship\_strength >)
 - Return output: Provide the list of all entities and relationships identified in steps 1 and 2. Use {record\_delimiter} as the list delimiter. When finished, output { completion\_delimiter}.
 
-```
+```text
 ######################
 -Real Data-:
 ######################
 text: {input_text}
 ######################
 output:
-```
+```text
 
 ### Graphusion Case Study: Entity Extraction
 
@@ -606,7 +587,7 @@ Table 8: Comparison of the effect of finetuning: Results on NLP domain.
 
 Figure 5: Link Prediction Ablation Study: Comparison of models with external data.
 
-### TutorQA
+## TutorQA
 
 ### Benchmark Details
 
@@ -626,7 +607,7 @@ Table 9: TutorQA data statistics comparison: The answers in T1 are only "True" o
 
 ### GraphRAG Results
 
-We extend the results in Tab. [5](#page-7-0) by adding GraphRAG as a baseline, the full version of the evaluation is shown in Tab. [10.](#page-17-0) Based on the established indexing pipelines in knowledge graph construction, we utilize GraphRAG's query engine with the local search method to directly ask the questions in TutorQA. Notably, the performance of GraphRAG appears less satisfactory, which may be due to an evaluation approach that is not well-suited for GraphRAG's results. For example, in Task 5, GraphRAG produces concepts with very broad or specific terms with a bad granularity, such as *predict sentiment, emotion cause pair extraction, emotional support conversation*. This observation holds across other tasks, where achieving higher scores requires a more granular concept list. This indicates the critical importance of Step 1, which involves generating a well-defined seed concept, in the Graphusion pipeline.
+We extend the results in Tab. [5](#page-7-0) by adding GraphRAG as a baseline, the full version of the evaluation is shown in Tab. [10.](#page-17-0) Based on the established indexing pipelines in knowledge graph construction, we utilize GraphRAG's query engine with the local search method to directly ask the questions in TutorQA. Notably, the performance of GraphRAG appears less satisfactory, which may be due to an evaluation approach that is not well-suited for GraphRAG's results. For example, in Task 5, GraphRAG produces concepts with very broad or specific terms with a bad granularity, such as*predict sentiment, emotion cause pair extraction, emotional support conversation*. This observation holds across other tasks, where achieving higher scores requires a more granular concept list. This indicates the critical importance of Step 1, which involves generating a well-defined seed concept, in the Graphusion pipeline.
 
 | Setting   | T1    | T2    | T3    | T4    | T5    |
 |-----------|-------|-------|-------|-------|-------|

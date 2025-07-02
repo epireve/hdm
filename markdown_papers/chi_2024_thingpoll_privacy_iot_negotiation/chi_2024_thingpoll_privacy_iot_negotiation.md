@@ -1,3 +1,5 @@
+<!-- cite_key: pittsburgh2024 -->
+
 # <span id="page-0-0"></span>Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices
 
 [Haozhe Zhou](https://orcid.org/1234-5678-xxxx) haozhezh@cs.cmu.edu Carnegie Mellon University Pittsburgh, PA, United States
@@ -6,11 +8,11 @@
 
 [Yuvraj Agarwal](https://orcid.org/1234-5678-xxxx) yuvraj@cs.cmu.edu Carnegie Mellon University Pittsburgh, PA, United States
 
-#### ABSTRACT
+## ABSTRACT
 
 To address privacy concerns with the Internet of Things (IoT) devices, researchers have proposed enhancements in data collection transparency and user control. However, managing privacy preferences for shared devices with multiple stakeholders remains challenging. We introduced ThingPoll, a system that helps users negotiate privacy configurations for IoT devices in shared settings. We designed ThingPoll by observing twelve participants verbally negotiating privacy preferences, from which we identified potentially successful and inefficient negotiation patterns. ThingPoll bootstraps a preference model from a custom crowdsourced privacy preferences dataset. During negotiations, ThingPoll strategically scaffolds the process by eliciting users' privacy preferences, providing helpful contexts, and suggesting feasible configuration options. We evaluated ThingPoll with 30 participants negotiating the privacy settings of 4 devices. Using ThingPoll, participants reached an agreement in 97.5% of scenarios within an average of 3.27 minutes. Participants reported high overall satisfaction of 83.3% with ThingPoll as compared to baseline approaches.
 
-#### CCS CONCEPTS
+### CCS CONCEPTS
 
 • Security and privacy → Privacy protections; • Computer systems organization → Sensor networks.
 
@@ -25,8 +27,6 @@ Haozhe Zhou, Mayank Goel, and Yuvraj Agarwal. 2024. Bring Privacy To The Table: 
 #### 1 INTRODUCTION
 
 Sensor-laden Internet of Things (IoT) devices have become increasingly pervasive. These devices pose significant privacy risks because they can measure and collect a wide array of data, including sensitive information such as identity, facial features, and voice [\[52,](#page-16-0)
-
-![](_page_0_Picture_14.jpeg)
 
 This work is licensed under a [Creative Commons Attribution International](https://creativecommons.org/licenses/by/4.0/) [4.0 License.](https://creativecommons.org/licenses/by/4.0/)
 
@@ -53,19 +53,19 @@ In summary, we make the following key contributions:
 
 # 2 RELATED WORKS AND INITIAL DESIGN CONSIDERATIONS
 
-#### 2.1 Privacy Challenges of Incidental Users
+## 1 Privacy Challenges of Incidental Users
 
 Several studies highlight users' unawareness of data collected by IoT devices and inability to voice their preference [\[68,](#page-16-4) [69,](#page-16-5) [108,](#page-17-8) [110\]](#page-17-3). A bystander's perception of privacy is closely linked to the context of the shared environment, such as the social relationships between the incidental user and homeowner, device location, and the perception of its processing power [\[25,](#page-15-3) [108,](#page-17-8) [110\]](#page-17-3). Studies have highlighted the need to take context into account when estimating incidental user privacy preferences. Importantly, the process of making privacy decisions can be exhausting for the user as they have to navigate technical intricacies [\[39,](#page-15-10) [93,](#page-17-9) [96\]](#page-17-10). The situations worsens when they have to make decisions every time they enter a shared IoT space and with the additional social pressure [\[20\]](#page-15-11). Consequently, it is crucial to aim for efficiency and minimize user burden in designing systems that assist incidental users' privacy management.
 
 Several studies have also provided evidence of the cooperative nature of guests and homeowners in resolving privacy tension, especially when in close social relationships. Marky et al. suggest that most owners are comfortable with adjusting their smart home devices for visitors, while guests hope to be informed about the sensor data collection [\[69\]](#page-16-5). Similarly, Cobb et al. showed that most homeowners are willing to turn off devices to make guests feel more comfortable, provided they live together or have close relationships [\[25\]](#page-15-3). Moreover, guests become more comfortable with allowing data collection if provided information and their consent is sought [\[67,](#page-16-11) [100\]](#page-17-0). These findings indicate that guests and homeowners are likely willing to cooperate to find acceptable IoT device privacy configurations.
 
-#### 2.2 Multi-User IoT Systems
+### 2 Multi-User IoT Systems
 
 Several research teams have built systems for IoT device management for multi-user use cases. Zeng et al. [\[115\]](#page-17-11) designed an app that managed access for multiple users based on roles and notified relevant users when a device is being controlled. Similarly, Kratos [\[94\]](#page-17-12) focuses on resolving conflicting demands of multiple users through policy negotiation based on user priorities and roles indicated by pre-defined policy profiles. HiveMind [\[58\]](#page-16-6) gathers preference votes from multiple users in public spaces and dynamically adjusts actuator configurations in public spaces to optimize for the overall utility. Similarly, Chaki et al. [\[21\]](#page-15-12) present a framework based on the Analytic Hierarchy Process (AHP) using pre-defined priorities of contextual factors for multi-user smart homes. However, these systems are not tailored for privacy management and do not enable users to share and mediate concerns.
 
 Prior work has also explored providing privacy notifications and controls to incidental users for IoT sensors. IoT Personal Privacy Assistant [\[28\]](#page-15-0) is a mobile app that notifies users of nearby IoT devices and allows users to opt in or out of data collection. TEO [\[116\]](#page-17-6) provides ephemeral shared ownership to IoT sensor data for incidental users of AirBNBs using cryptographic mechanisms. Similarly, Spacelord [\[12\]](#page-15-7) allows incidental users to set shared devices to temporarily run only user-trusted software while the untrusted code and configurations are removed. However, these systems do not inherently support negotiations between incidental users and owners of the device upon conflicting preferences.
 
-#### 2.3 Negotiation for Privacy Preference
+#### 3 Negotiation for Privacy Preference
 
 Using negotiation as a technique to mediate privacy preferences has been studied in a few contexts such as social media, mobile apps, and IoT. For example, Baarslag et al. [\[10\]](#page-15-13) studied negotiation for mobile app permissions. Further, Filipczuk et al. [\[41\]](#page-15-14) extended the negotiation model to integrate the uncertainty of user preferences in user-service negotiation. Similarly, Alanezi et al. [\[4\]](#page-15-15) proposed an automatic negotiation mechanism that automatically finds a consensus on device configuration based on pre-defined privacy policies. However, these methods are limited to bilateral negotiation, where an agent representing the user proposes offers to the opponent to maximize the user's benefits. In addition, several works explored multi-party privacy preference conflict resolution and negotiation solutions on social media [\[98,](#page-17-13) [99,](#page-17-14) [102\]](#page-17-15). Recently, Ogunniye and Kökciyan [\[80\]](#page-16-12) proposed a method to resolve privacy conflicts using an ontology of contextual integrity. ELVIRA [\[74,](#page-16-13) [75\]](#page-16-14) is an agentbased system that recommends explainable solutions to multi-user
 
@@ -77,7 +77,7 @@ privacy conflicts. Similarly, PARCCART [\[30\]](#page-15-16) focuses on building
 
 Researchers have studied IoT privacy negotiation behaviors and perceptions. The work closest to our use case is by Alshehri et al. [\[7\]](#page-15-17), in which 460 crowd workers were surveyed to understand guest and homeowner negotiation behaviors with a digital agent. Their results verified that social relationships and roles can influence the negotiation process. Apart from this, Wang et al. [\[105\]](#page-17-16) conducted a vignette study with 867 participants, suggesting the privacy sensitivity of the IoT device is significantly associated with AirBnB visitors' tendency to negotiate their privacy preference with the hosts. Although these studies shed light on the nuances of negotiation, they are still insufficient to translate into a clear blueprint for a negotiation system and investigate how an actual negotiation system may benefit users.
 
-# 2.4 Social, Psychological, and Political Views on Negotiation
+# 4 Social, Psychological, and Political Views on Negotiation
 
 It is widely accepted that negotiation can be viewed as distributive or integrative depending on the objective [\[104\]](#page-17-17). In distributive negotiation, the outcome is achieved within a zero-sum game, while in integrative negotiation, greater overall benefits can be achieved through finding mutual interests [\[104\]](#page-17-17). Mixed-motive negotiation can have both distributive and integrative components [\[2\]](#page-14-0). The nature of the negotiation influences the modeling approaches [\[57\]](#page-16-15) as well as the negotiator's behavior, such as more cooperation in integrative than in distributive negotiation [\[97\]](#page-17-18).
 
@@ -87,7 +87,7 @@ Another dimension to consider is justice. Justice not only serves as an ethical 
 
 Moreover, many personal characteristics are shown to affect the negotiation process and outcomes. Barry & Friedman [\[15\]](#page-15-19) studied the impact of personality traits on negotiations and discovered that agreeableness and extraversion may harm the negotiator's individual gain in distributive negotiations. Beersma et al. [\[19\]](#page-15-20) discovered that prosocial groups tend to achieve better joint outcomes, possibly due to enhanced levels of trust and reduced contentious behavior within these groups. Fehr et al. [\[38\]](#page-15-21) examined the evolutionary evidence supporting altruistic punishment and cooperation in brain neural circuits. These findings highlight the need to account for users' unique mental states in designing effective negotiation systems while also cautioning against unfairly exploiting altruistic or agreeable individuals.
 
-#### 2.5 Summary of Initial Design Implications
+## 5 Summary of Initial Design Implications
 
 Based on the literature review, including privacy challenges for incidental users of IoT, multi-user IoT systems, privacy negotiations, and political, social, and psychological aspects of negotiation studies, we summarize three initial design implications:
 
@@ -97,7 +97,7 @@ Implication ○2 : Negotiations needs to be time efficient and low effort.
 
 Implication ○3 : Negotiations should ensure respectful and fair treatment of users and provide information transparency.
 
-#### 3 METHODOLOGY
+### 3 METHODOLOGY
 
 We followed an iterative design process, as summarized in Figure [1.](#page-2-0) We first conducted a formative study to inform the design of the negotiation system, ThingPoll, and finally conducted a summative study. All human-subject studies are approved by our institution's IRB. In this section, we describe an overview of our methodology for designing, building, and evaluating ThingPoll.
 
@@ -128,7 +128,7 @@ RQ2(b) How does the negotiation approach compare to baseline non-negotiation app
 
 We conducted a study to observe how humans behave when negotiating smart home privacy configurations and inform the design of ThingPoll.
 
-#### 4.1 Study Design
+## 1 Study Design
 
 We based the verbal negotiation task on two smart home devices, with specifications summarized in Table [1.](#page-3-0) Participants were arranged into groups of 3 and assigned one of two roles: homeowner or guest. According to where the participant's preferences are on the
 
@@ -144,11 +144,11 @@ privacy-functionality[1](#page-0-0) spectrum, we assigned the role of the homeow
 
 Based on participant availability, we conducted this study either on-site or on a video call. We started the study by asking the homeowner to configure the devices in a hypothetical home. Next, we asked them to imagine two guests visiting their smart homes with two IoT devices, for which they would need to negotiate their preferred privacy configurations. The participants were free to structure their verbal communication and negotiation as they wished. The researchers observed and audio-recorded the process without interrupting the participants unless they needed assistance to understand the device's behavior or deviated from the task. We limited the negotiation time to 15 minutes for two devices to prevent stressing participants. We compensated all participants with \$5 USD for their time.
 
-#### 4.2 Participants
+### 2 Participants
 
 We recruited 12 participants (4 groups) from our institution's student community (demographics in Table [2\)](#page-3-1), who owned and used at least one smart home device to ensure all participants had basic knowledge and experience with them.
 
-#### 4.3 Findings
+#### 3 Findings
 
 Among the four groups, only one group completed negotiations for both devices, while other groups spent most of their time on the first device, leaving insufficient time for the second one. We transcribed the audio recordings and coded each part of the conversation by extending the previous coding method [\[31,](#page-15-22) [49,](#page-16-20) [50,](#page-16-21) [82,](#page-16-22) [86\]](#page-16-23) to better suit the IoT privacy-functionality negotiation domain. Overall, we discovered seven distinct types of negotiation behaviors, as shown in Table [3.](#page-4-1) Participants spent the majority of their time expressing and explaining their preferences (27.7% and 47.1%, respectively).
 
@@ -181,7 +181,7 @@ Table 4: Verbal Negotiation Time Across 4 Groups
 
 concern, expressing the concern is understood, alleviating the concern, expressing concern is resolved. Of these, expressing privacy concern (45.5%), alleviating privacy concern (16.7%), expressing no privacy concern (10.6%) account for the majority of preference explanation time.
 
-#### 4.4 Observations and Discussion
+#### 4 Observations and Discussion
 
 Lengths and Timing of Explanation. Although detailed explanations can help the negotiator win distributive benefits [\[81\]](#page-16-24), it is a time-consuming process [\[49,](#page-16-20) [107\]](#page-17-21). Consistent with these claims, we observed explaining one's preference was the biggest time sink during a negotiation. However, such an explanation is not always needed if everyone would easily approve of this user's opinion. For instance, at the beginning of the conversation, one user in Group 2 spent 89 seconds explaining their discomfort with storing raw audio data. It turned out that both the homeowner and the other guest shared or understood their concern.
 
@@ -191,7 +191,7 @@ Time to Move Forward. We observed that sometimes participants spent extra time r
 
 Managing Preference. Sometimes participants lost track of each other's preferences. For instance, in Group 3, a guest mentioned their preference for functionality to be off. The conversation was then dominated by the other two participants, who reached an agreement to keep that functionality on. At this point, the first guest restated their concern and the negotiation continued longer. Mediator and Discussion Lead. We observed that Group 4 showed a distinct pattern of negotiation, where the homeowner played the role of a mediator. The homeowner first solicited everyone's preference, and each user answered this question in one or two sentences without explaining any reasons. Then the homeowner said, 'yeah, I think we can turn off personalized music' when knowing one guest was uncomfortable, and the other was flexible on this. Then, the group was able to move on to discuss other concerns. As prior work shows, an effective mediator can promote conflict resolution by shaping the negotiation process and prioritizing negotiation issues [\[18,](#page-15-24) [62,](#page-16-26) [83\]](#page-16-27). This might be one of the reasons why Group 4 finished negotiation the quickest.
 
-#### 4.5 Summary of Additional Design Implications
+#### 5 Summary of Additional Design Implications
 
 In additiotn to the three insights from prior research, we here summarize the new insights for designing a negotiation system specifically for shared IoT devices:
 
@@ -201,19 +201,19 @@ Implication ○6 : Unconstrained negotiation may favor outspoken users, leading 
 
 #### <span id="page-4-0"></span>5 THINGPOLL SYSTEM DESIGN IDEATION
 
-#### 5.1 System-Mediated Negotiation
+#### 1 System-Mediated Negotiation
 
 Based on prior research and our observations, a system-mediated approach is promising to meet the aforementioned goals of negotiation (Implication ○1 ∼ ○4 ) and alleviates cognitive burden in managing and reasoning users' preference (Implication ○5 ). The mediator role may reduce the burden of expressing preference and making concessions [\[85\]](#page-16-28), and possibly alleviate social pressure. In addition, it may improve procedural justice by providing everyone opportunities to voice their preferences (Implication ○3 and ○6 ), thereby improving satisfaction with the outcomes [\[87\]](#page-16-29). Creating integrative value and optimizing for joint gain requires an accurate understanding of each user's preferences and mutual interests [\[29,](#page-15-25) [35\]](#page-15-26). Prior work has established privacy profiles in IoT to predict the user's preference [\[5,](#page-15-8) [33,](#page-15-9) [60,](#page-16-9) [64,](#page-16-10) [76\]](#page-16-2). Furthermore, to resolve conflicts, some users will have to change their initial preferences, suggesting the need to solicit user's preferences and mutual interests and update all users' preferences during negotiation.
 
-#### 5.2 Structured User-System Interaction
+#### 2 Structured User-System Interaction
 
 Another consideration is user interaction with the system, such that it is intuitive and effortless (Implication ○2 ). Based on our observation from Study 1 and prior works, users explain preferences typically around functionality-privacy trade-offs. Thus, we believe that a structured interaction can sufficiently express most of the reasons for preferences, making the negotiation more goaloriented (Implication ○4 ) and enable equalized expression power (Implication ○6 ). In addition, as we observed in Study 1, users specifically consider the other person's opinion when making a concession. Thus, we decided to include the needs and the rationale of other users when making a configuration suggestion, as useful context, similar to a face-to-face interaction. We believe that revealing the consequences and benefits to the other user promotes empathy and facilitates concessions due to the improved motivation of prosocial behavior [\[17,](#page-15-27) [26\]](#page-15-28).
 
-#### 5.3 Assumptions
+#### 3 Assumptions
 
 We have assumed that achieving joint gains and resolving conflicts efficiently are the primary goals of negotiation around the privacy settings of IoT devices. However, other values in real-world negotiations, such as enhancing social intimacy or enjoying engaging conversations, may be neglected. We also assume a certain level of trust that users have in our system. Our proposed design should be viewed as one possible pathway among many that meet the specific needs and dynamics observed in IoT privacy negotiations.
 
-#### 5.4 Summary of Design Goals
+#### 4 Summary of Design Goals
 
 In summary, we outline the following high-level design goals for a negotiation system:
 
@@ -223,7 +223,7 @@ Design ○1 : The system should mediate and direct the negotiation process to op
 
 Based on the insights and our design goals, we developed ThingPoll, a privacy negotiation system for IoT devices in shared spaces. We start with an overview of the negotiation workflow from a user's perspective. Next, we describe our profile modeling approach and user preference estimation. Finally, we describe our negotiation model from an algorithmic perspective.
 
-#### 6.1 Negotiation Workflow Overview
+#### 1 Negotiation Workflow Overview
 
 The overall workflow of ThingPoll is shown in Figure [2.](#page-6-0) Thing-Poll mediates the negotiation process (Design ○1 ) by strategically querying specific users to understand their preferences or to suggest likely acceptable configurations to everyone.
 
@@ -336,7 +336,7 @@ At each round, the system finds an optimal privacy query based on and compares i
 
 # <span id="page-10-0"></span>7 STUDY 2: EVALUATION OF PRACTICALITY AND EFFICIENCY OF THINGPOLL
 
-#### 7.1 Study Procedure
+## 1 Study Procedure
 
 The study gathers subjective and objective measures of ThingPoll's performance and learns the distribution of perceptions of privacy in a shared smart home environment. We gain insights into user experiences, including the workload, perceived advantages and disadvantages of the approach, and the users' willingness to adopt such negotiation apps in real life. The user study was conducted in two phases: Profile Generation and Multi-User Negotiation. Thirty participants completed the two phases of this study and we summarized their demographics in Table. [6.](#page-10-1) None of these participants were in the verbal negotiation study.
 
@@ -374,13 +374,13 @@ The study began by asking the homeowners to configure the devices to a setup the
 
 Figure 5: Empirical Evaluation of User Workload Using ThingPoll: (a) User Time Consumption on Completing Negotiation; (b) User Average Response Time of Each Action in Negotiation; (c) NASA Task Load Index (TLX)
 
-#### 7.2 Negotiation Workload
+### 2 Negotiation Workload
 
 The average time to complete the negotiation of all four sensor devices was 786 seconds (13.1 minutes, = 337 seconds). The fastest group spent only 218 seconds (3.6 minutes), while the slowest group spent 1357 seconds (22 minutes). Fig. [5a](#page-11-0) shows the breakdown of the time consumption for each of the four devices in one session, including the completion time and active time. The completion time is the time it takes either reach an agreement or give up. Since ThingPoll takes synchronized responses from users, users often need to wait for other users' responses before moving on. Thus, we define active time as the time elapsed between when the system shares new information with the user and when the user submits a response. Compared to completion time, active time is a more precise indicator of the effort that a user spends on processing the received information and making a decision. We observed a strong learning effect. Negotiations for first device took more time ( = 288.3, = 176.7) and had a larger standard deviation in time to finish than for the other three devices ( = 165.1, = 108.9). We verified this learning effect by measuring response times, as shown in Fig. [5b.](#page-11-0) The response time measures the time it takes for a user to respond to a single action.
 
 We used the NASA Task Load Index (TLX) [\[45\]](#page-16-32) with a 7-point Likert scale to measure the workload levels for the participants. Here, we show the results for Mental Demand, Temporal Demand, Effort, and Frustration levels in Fig. [5c.](#page-11-0) The value selected on each task load measurement is scaled from 0 to 100. Overall, ThingPoll demonstrates high usability and low workload for most participants. Most participants believed ThingPoll imposes a low physical workload ( = 24.6), and most users do not feel frustrated ( = 26.7) or rushed ( = 31.2) in completing the task. Nevertheless, a few participants believed this process was mentally demanding ( = 44.3). We believe the mental demand is due to understanding the technical details of the data collection, envisioning a hypothetical scenario, and resolving conflict.
 
-#### 7.3 Negotiation Outcomes using ThingPoll
+#### 3 Negotiation Outcomes using ThingPoll
 
 In this section, we focus on analyzing the outcomes of negotiation in terms of satisfaction and meeting users' demands for privacy and functionality in shared sensing spaces. We investigate the preferences on functionality and privacy are affected by users' roles.
 
@@ -406,7 +406,7 @@ Majority Vote Approach (MV). This approach has a higher overall satisfaction rat
 
 Veto Vote Approach (VV). This approach is the most strict approach that biases the decision towards maximizing privacy protection. Thus, this approach gets high satisfaction in protecting users' privacy (73.3%). On the other hand, due to its strictness, it also has the lowest satisfaction rating on preserving functionalities (43.3%), especially for homeowners (10%).
 
-#### 7.4 Negotiation Experience using ThingPoll
+#### 4 Negotiation Experience using ThingPoll
 
 According to users, the biggest advantage of the Negotiation Approach compared to the rest is the ability for users to voice their preferences, regardless of being in the minority or majority. The drawback is that the effort it takes to finish the negotiation is less predictable beforehand. As G14 mentioned, 'overall, it is good to
 
@@ -428,7 +428,7 @@ Some users indicated that anonymity might make negotiations more effective. For 
 
 In this section, we discussed the broader implications of the study that may affect or inspire future research and development of privacy tools for shared sensing devices.
 
-#### 8.1 Variability in Opinions and Behaviors
+#### 1 Variability in Opinions and Behaviors
 
 Power of Owners. Feedback from participants has shown a divide: while some homeowners believe they should have the final say, others believe in prioritizing the comfort of their guests. Some guest users also believe they should be obligated to follow the homeowner's setup. The exact acceptable balance and ethical boundaries of power distribution still remain an open question.
 
@@ -436,7 +436,7 @@ Social Awkwardness. We observed that the perceived social awkwardness of negotia
 
 Preference Flexibility. In alignment with previous work [\[25,](#page-15-3) [67,](#page-16-11) [69,](#page-16-5) [100\]](#page-17-0), we observed most users are willing to consider other people's opinions and be cooperative. While some participants were steadfast in their privacy views, others demonstrated flexibility and a willingness to concede. Consequently, the system must navigate between fairness, which might cause the process to become inefficient due to being stopped by the steadfast user, and efficiency, which risks exploiting altruistic users. The exact balance between the two, however, is more open-ended and can vary given different situations and contexts.
 
-#### 8.2 Acceptability and Practicality of Negotiation
+#### 2 Acceptability and Practicality of Negotiation
 
 A system-mediated negotiation system is a promising direction to manage multi-user privacy configurations. Yet, systems like ThingPoll face several practical challenges to encourage broader acceptance. This subsection outlines key issues concerning the acceptance and practicality of ThingPoll.
 
@@ -444,7 +444,7 @@ Cognitive Load of Negotiation Making privacy decisions is often demanding for in
 
 Negotiation and Context The contextual integrity theory suggests that privacy expectations and norms are inherently contextdependent, varying with the social setting, the nature of collected information, etc. [\[1,](#page-14-1) [8,](#page-15-31) [9,](#page-15-32) [70,](#page-16-36) [78,](#page-16-37) [80\]](#page-16-12). Moreover, negotiation is also inherently influenced by context, such as power, social relationships, interpersonal trust, time constraints, as well as traits and capabilities of the participating individuals [\[14,](#page-15-33) [44,](#page-16-38) [51,](#page-16-39) [61,](#page-16-40) [92,](#page-17-19) [95,](#page-17-25) [106,](#page-17-20) [117\]](#page-17-26). ThingPoll models context that affects both individual privacy decisions and negotiation among guests and homeowners. For other application scenarios, it is important to adjust the system based on context that may affect privacy decisions and negotiation behaviors. Compatibility and Interoperability In the deployment of a negotiation solution to manage shared device privacy, the interface between the negotiation system and the existing IoT device ecosystem needs to be established. Although many industrial and standardization efforts have been made to enhance interoperability among IoT devices [\[27,](#page-15-34) [79,](#page-16-41) [89\]](#page-16-42), for privacy negotiation specifically, it is essential to have each smart sensing device provide detailed privacy requirements and configurable privacy settings through a unified communication protocol and accessible to incidental users.
 
-#### 8.3 Future Directions for Negotiation Systems
+#### 3 Future Directions for Negotiation Systems
 
 Having discussed the practicality concerns, we now delve into specific features that could refine the negotiation system based on the feedback and observations of participants using ThingPoll.
 
@@ -460,7 +460,7 @@ Optional Opt-Out Negotiation. Given that many users either do not care about pri
 
 Explanability. ThingPoll was designed to make its suggestions relatable by revealing how decisions align with users' preferences and identifying the benefiting user. However, the decision process itself, including the preference prediction and searching of configuration and queries, is concealed from users. Future work may consider integrating explainability into the negotiation system to enhance decision transparency and trust [\[74,](#page-16-13) [75\]](#page-16-14). Simultaneously, it is critical to limit the amount of information and cognitive load.
 
-#### 8.4 Assumptions and Limitations
+#### 4 Assumptions and Limitations
 
 Awareness of Privacy Risk. Our research operated under the assumption that all participants make well-informed choices regarding their privacy preferences. Yet, due to a lack of comprehensive knowledge, users often might select preferences that deviate from their true desires or best interests if they were fully informed [\[16,](#page-15-37) [84\]](#page-16-44). Enhancing the public's privacy awareness and knowledge has historically proven challenging across various digital platforms, including mobile systems [\[6\]](#page-15-38), web browsing [\[42\]](#page-15-39), and even IoT [\[52\]](#page-16-0). While enhancing privacy awareness and knowledge represents a distinct challenge outside the scope of this research project, we believe it is an essential step to protect the privacy of incidental users.
 
@@ -630,7 +630,7 @@ Still, the user can to a suggestion that deviates from the user's initial prefer
 $$
 P_u(\text{concede } \omega_i \wedge \neg \text{ prefer } \omega_i) =
 $$
-  
+
 $$
 \sum_{I_u \in L_0} \sum_{C_u \in L_+} p_{I_u}(I_u | \omega_i, x_i) \cdot p_{C_u}(C_u | \omega_i, x_i, I_u)
 $$
@@ -711,8 +711,8 @@ $$
 $$
 EG(\pi, p) = \sum_{t=1}^{T} P(\omega^{(t)}) \cdot (G_p(\omega^{(t)}) - k(t))
 $$
-  
-+ 
+
++
 $$
 (1 - \sum_{t=1}^{T} P(\omega^{(t)})) \cdot (-k(T))
 $$
@@ -773,7 +773,7 @@ If asking a query is more beneficial, the system sends the optimal privacy query
 
 The negotiation process continues until an agreement or any users give up negotiation to cancel the event if they find the process too frustrating.
 
-#### B POST-STUDY QUESTIONNAIRE
+## B POST-STUDY QUESTIONNAIRE
 
 (1) Please rate your satisfaction with the outcome of the negotiation.
 

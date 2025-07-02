@@ -1,8 +1,10 @@
-## The current issue and full text archive of this journal is available on Emerald Insight at: https://www.emerald.com/insight/0368-492X.htm
+<!-- cite_key: idpage--spanearl2019 -->
+
+# The current issue and full text archive of this journal is available on Emerald Insight at: https://www.emerald.com/insight/0368-492X.htm
 
 K 49,1
 
-22
+
 
 Received 31 March 2019 Revised 11 July 2019 Accepted 15 July 2019
 
@@ -22,8 +24,6 @@ Research limitations/implications – Although the prototype development is stil
 
 Conflicts of interest: The author declares no conflict of interest other than to deliver a viable PKMS termed 'Knowcations®'.
 
-![](_page_0_Picture_14.jpeg)
-
 Kybernetes Vol. 49 No. 1, 2020 pp. 22-46 Emerald Publishing Limited 0368-492X DOI [10.1108/K-03-2019-0215](http://dx.doi.org/10.1108/K-03-2019-0215)
 
 <sup>©</sup> Ulrich Schmitt. Published by Emerald Publishing Limited. This article is published under the Creative Commons Attribution (CC BY 4.0) licence. Anyone may reproduce, distribute, translate and create derivative works of this article (for both commercial and non-commercial purposes), subject to full attribution to the original publication and authors. The full terms of this licence may be seen at http://creativecommons.org/licences/by/4.0/legalcode
@@ -36,13 +36,13 @@ Keywords Innovation, Personal knowledge management, Knowledge management, Genera
 
 Paper type Research paper
 
-## 1. The interdependence of personal and collective generativity
+## The interdependence of personal and collective generativity
 
 "Organizing for constant change in distributed digital ecosystems is a rich field for research" [\(Eck, 2018,](#page-21-0) p. 19) where novel insightful perspectives may gain considerable attention quickly. A case in point is the notion of Generativity which has been originally defined by [Erikson \(1950\)](#page-21-1) as the seventh stage of his eight-stage model of psychosocial development concerned with establishing and guiding the next generation. Recently, it has stimulated discourses in technology, innovation and knowledge management research embarking on individual and collective generative capacities (including outside-the-box thinking), as well as generative fits (based on creating enabling technological environments) [\(Avital and Te](#page-21-2)'Eni, 2009, pp. 2-5).
 
 As knowledge workers and their leaders display a more intensive propensity toward harvesting, storing, generating and leveraging both existing and novel knowledge (re) sources ([Heisig, 2014](#page-22-0)), generativity concerns are likely to be of vital interest. At the same time, the familiar information scarcity has been replaced by an accelerating abundance, digital opportunity and innovation divides are widening and a lack of creative responses is impairing the wider personal and collective development in society.
 
-#### 1.1 The rationale for generativity from the knowledge management perspective
+### 1 The rationale for generativity from the knowledge management perspective
 
 Erikson's (1950) psycho-social progressive multi-stage model entails a step-by-step-heuristic where resolving the challenges of prior levels equips individuals with essential resources to successfully acquire new skills and capabilities for navigating their further development. The same logics and logistics are appropriate for generative organizational interventions where instilling virtues of trust, autonomy, initiative, productivity, self-actualization, (self-) transcendence and legacy building become crucial for collective performances, institutionally and societally. Generativity, hence, can be a vital concern to allow for enabling layers of a solid foundation to guide and fine-tune the aspirations of knowledge creation and management.
 
@@ -58,7 +58,7 @@ and effectiveness of knowledge workers, [Pollard \(2008](#page-23-1), p. 98) urg
 
 While such a shift has been argued for from many diverse but fragmented perspectives (to be exemplified further), it has still not been holistically responded to as is vital for a transdisciplinary, complex and "wicked" task of this nature. Fittingly, [Levy \(2011,](#page-22-1) p. 105, pp. 115-116, p. 127) reframes its objective as the need for a decentralizing KM revolution aiming to give more power and autonomy to individuals and self-organized groups and envisions its configuration as bottom-up interactions of autonomous personal knowledge management (PKM) capacities and devices meant to facilitate distributed processes of creative conversations and collective intelligence in support of emerging consolidated social knowledge management (KM) structures which in turn feed back to the individual community members. Realizing such a vision ensures that KMS affordances would no longer remain off-limits for supporting individuals and entrepreneurs, as well as fosters the portability and mobility of their personal knowledge and skills.
 
-#### 1.2 The objectives of this article and the methodologies applied
+#### 2 The objectives of this article and the methodologies applied
 
 With the experience of creating prior KM applications for personal use, recent technological advances of development platforms and cloud-based services motivated the author to initiate a design science research (DSR) and prototyping project to follow-up on the conceptual and technological needs for such a personal knowledge management system (PKMS).
 
@@ -66,9 +66,9 @@ Typically, multiple diverse milestones along a DRS project's longitudinal stream
 
 Good DSR practice also implies that relevant existing, as well as emerging, research findings, methodologies and practices should be scrutinized to potentially integrate them for continuous thorough design evaluation and knowledge dissemination. Accordingly, this article aims to further quality-assess/assure the PKMS concept and design by applying the recently emerging notion of generativity. As this notion is to be explored in more detail (Section 3), the ground is prepared for evaluating the generative fit of the PKM concept, system and supporting educational agenda (Section 4). The article's contributions are, thus, to further test the PKMS's theory effectiveness in both of its personal and institutional settings, to synthesize the psychological roots of generativity with their technological interpretations, to respond to calls of the generativity-related sources cited for reflecting on their proposed notions and methodologies and for furnishing more complex but illustrational generative and KM-related examples for the benefit of designers and knowledge workers.
 
-24
 
-## 2. The role of digital artifacts and technological progress related to generativity concepts
+
+## The role of digital artifacts and technological progress related to generativity concepts
 
 An individual interacts (as cognitive system) with the outside world in a dual role as informee and informer, as depicted in [Figure 1.](#page-1-0) "Far from being an empty vat, an informee already holds various types of knowledge structures" which may ease or obstruct the integration of an informant's new knowledge into the informee's knowledge base (input). Its resultant navigability, entropy and productivity (coherence) might be considerably affected and so may also be the informee's "ability to generate new cognitive artefacts" (generativity) (Oltet[eanu, 2015](#page-23-3), p. 2).
 
@@ -90,7 +90,7 @@ This persisting fixation on the outdated book-age paradigm also still compels us
 
 K 49,1
 
-26
+
 
 including publications and unreported 'back stage' work" [\(Star, 2010,](#page-24-2) pp. 606-607) and may have potentially offered a wealth of information but has been discarded because of perceived insignificance or page restrictions, forcing others to re-spend the energy and to start over. Digital structural reuse and referencing would allow the sharing of related content beyond what is usually disseminated by digitally emulating printed media; [Bush \(1945\)](#page-21-6) refers to this gap as the scaffolding (Section 3.3).
 
@@ -98,13 +98,13 @@ Regrettably, entropy and "negative" generativity are also accelerating among the
 
 This section has exemplified that generative phenomena may result in unsustainable outcomes by fostering undesirable entropic proliferation in KM systems. Creating awareness of these negative effects is a first step to better design, effectively monitor and purposefully manage KMS environments to proactively prevent harming wastefulness. The PKMS design, as pointed out in Section 4, incorporates the negentropic means to tackle both, the information redundancy as well as the transdisciplinary disconnects alluded to. In the next section the focus shifts to the more resourceful aspects of generative notions.
 
-## 3. Generativity concepts able to facilitate the decentralization of knowledge management systems
+## Generativity concepts able to facilitate the decentralization of knowledge management systems
 
 As argued, technological change and progress are triggered by inquisitive and appreciative humans in pursuit of superior affordances rooted in systemic and relational innovations (focus on social relevance), cultural shifts (focus on adapting and innovating), process (focus on effectiveness) and/or product innovations (focus on utility gaps and chances) [\(Garon, 2012\)](#page-21-10).
 
 However, in increasingly volatile, uncertain, complex and ambiguous environments, the diverse types of artifacts distinguished in the previous section have to be also groomed for sustainable generative effectiveness in dynamic contexts. Evolutionary fitness characteristics to adhere to have been put forward [\(Table I](#page-5-0)), which address process fitness attributes (e.g. decomposability, malleability, openness and anti-fragility) for social generativity, as well as resonance fitness attributes (e.g. novelty, interestingness and elegance), for informational generativity ([Table 1A](#page-5-0)) [\(Gill and Hevner, 2013;](#page-22-7) [Schmitt and Gill, 2019\)](#page-24-4). The nature of these generativity classifications is to be further explored in the following subsections.
 
-#### 3.1 Technical generativity
+### 1 Technical generativity
 
 Technical generativity is defined as the "capacity of a technology or a system to be malleable by diverse groups of actors in unanticipated ways" (Eck et al.[, 2015](#page-21-11), p. 2 based on [Zittrain,](#page-24-5) 2006, 2008). To portray the breadth of the emerging field of generative artifacts, Eck et al. used the diverse interpretations of this generic definition to position 14 illustrative examples from information system literature according to their primary ([Table 1B\)](#page-5-0) and
 
@@ -140,7 +140,7 @@ Ability of a distributed community to engage collectively in producing novel con
 
 Acting individually and freely, the engaging agents' micro-behaviors and effects may over time result in emerging behaviors, effects and patterns at the macro level. Attributable to the collectivity as a whole, they may result in micro-macro-micro feedback to produce selforganization and synchronization by affecting the subsequent agents' micro-states. As, however, observing their collectivity is not always possible, agents might need to be guided by "some necessitating, global and self-produced information" deriving from the collectivity [\(Mella, 2017](#page-22-9)) which is, for example, one of the roles of the personal knowledge management for development (PKM4D) framework to be presented in Section 4.5 and depicted in [Figure 4](#page-11-0) as well as the PKMS's educational agenda (Section 4.9).
 
-## 3.2 Generative relationships and social generativity facilitating the practices of change and innovation
+## 2 Generative relationships and social generativity facilitating the practices of change and innovation
 
 In complementing the generative technical perspective of artifacts and systems, social generativity focuses on generative relationships between human agents and their potential for initiating change and innovation. As drivers of the underlying practices, [Figure 2](#page-6-0) depicts the mutually complementing, generic iterative sequences of Usher's notion of cumulative synthesis (CS) (2013, p. 65) and Lane's theory of exaptive bootstrapping (EB) (2011, pp. 7-8).
 
@@ -160,7 +160,7 @@ As instances from the generative potential of relationships, any new relational 
 
 As shown in Section 4, the PKMS adheres to Usher's notion of CS as well as Lane's theory of EB.
 
-#### 3.3 (Informational) Generativity heritage and creation heritages
+### 3 (Informational) Generativity heritage and creation heritages
 
 Focusing on engineering and industrial innovation, [Carvajal Pérez](#page-21-12) et al. (2018) promote the idea of "Creation Heritages" or "Generative Heritages" to use known objects in the "elaboration of still unknown objects." Their aim is not only to transfer knowledge resources but also the capacities to use them – their "creative spirit" – for eliciting generative gains in the form of identifying gaps (turning unknown unknowns into known unknowns, filling gaps [turning known unknowns into known knowns], sharing object structures, progress principles, creative reasoning, usage metrics, value criteria and desires as well as creating new objects and designs).
 
@@ -168,11 +168,11 @@ The generative heritage, hence, embodies elements available for object structure
 
 Credit for such a generative heritage approach has also to be bestowed on [Bush \(1945\)](#page-21-6). With his idea of the Memex, he envisioned an intimate supplement to an individual's Decentralized knowledge management
 
-29
+
 
 memory. Based on associative indexing, it was meant to facilitate the storing, recalling, studying and sharing of the "inherited knowledge of the ages," as well as the logging of one's own ideas and trails of interests, which can all be effortlessly shared with the Memexes of others. Fostering transparency by affording the forward/backward tracking of the collective relations and trails captured, the accumulating generative heritage of a Memex would have enabled knowledge-and-experience-enriched scholarship as – as Bush put it – any "inheritance from the master becomes, not only his additions to the world's record, but for his disciples [or informees] the entire scaffolding by which they were erected" [\(Bush,](#page-21-6) [1945](#page-21-6), pp. 1-10). As a still unfulfilled vision, Bush's Memex embodies – as to be further argued in Section 4 – the closest ancestor of the proposed PKMS concept and design.
 
-## 3.4 Generative design, collectives and learning
+## 4 Generative design, collectives and learning
 
 "In the final 'generative' instance, a community's generative and innovative capacity depends on its actors' ongoing discourses and on their interpretation and use of [the respective] artefacts" ([Bygstad, 2017,](#page-21-13) p. 183). Avital and Te'eni, hence, stress that sound generative designs depend on appropriately combining generative technologies with generative collectives in support of users and developer communities (including multidisciplinary approaches as well as shared standards and work practices). Their generative-capacity-fit approach (Section 1) is meant to assist systems designers in the respective tasks to create platforms that "enhance creativity, unleash unconventional design, promote innovation, and are instrumental in revitalizing our epistemic stance" [\(Avital and Te](#page-21-2)'Eni, 2009, pp. 2, 7, 10).
 
@@ -182,15 +182,15 @@ Interpreted as "outcome of the interaction between knowledgeable people and flex
 
 Accordingly, traditional adaptive learning (coping with environmental changes or adjusting existing practices, policies, products or services) need to be complemented by generative learning (creating disruptive innovative change involving new meanings, insights and perspectives) including non-linear feedback, self-direction-and-organization and action logic [\(Yorks and Nicolaides, 2013,](#page-24-10) pp. 4-5). Appropriately, Levy not only envisages the decentralizing KM revolution but also stresses the need for the "sustainable growth of autonomous capacities in PKM" as "one of the most important functions of teaching" as well as the "need for a personal discipline for collection, filtering and creative
 
-30
+
 
 connection (among data, among people, and between people and data flows)" ([Levy, 2011](#page-22-1), pp. 115-116).
 
-## 4. Personal knowledge management in pursuit of generative outcomes
+## Personal knowledge management in pursuit of generative outcomes
 
 This section demonstrates how the generative notions presented relate and are applied to the PKMS design objectives, concepts and affordances. In the first instance, the PKMS's DPE depicts the technological system elements to refer to the meta-artifacts discussed (Section 4.1 referring to Section 2.0). The DPE-visualization is also cross-referencing the conceptual design aligned to the Three-Worlds and SECI models to reflect on the key challenges (Section 4.2 referring to Section 2.0) to determine appropriate approaches (Section 4.3 referring to Section 2.0) and workflows (Section4.4 referring to Section 2.0). The resolution incorporates a PKM4D framework which resembles the logic of Erikson's multistage-model (Section 4.5 referring to Section 1.1), the use of generative social relationships (Section4.6 referring to Section 3.2), generative heritages as well as associative indexing and integrity (Section 4.7 referring to Section 3.3). The affordances offered are then aligned to the technical generativity attributes (Section 4.8 referring to Section 3.1), followed by referring to the PKMS's educational agenda (Section 4.9 referring to Section 3.4).
 
-## 4.1 Personal knowledge management system's digital platform ecosystem
+## 1 Personal knowledge management system's digital platform ecosystem
 
 [Figure 3](#page-9-0) depicts the PKMS as a DPE, one of the meta-artifacts referred to in Section 2. It affords a central service structure arranged as an iterative workflow cycle following [Levy](#page-22-1)'s [\(2011\)](#page-22-1) envisaged decentralizing configuration (as described in Section 1.1): PKMS community members [knowledge worker] through their PKMS devices [technology] are capturing, exploring or creating specifically formatted content (memes) at various levels of granularity (memeplexes) to be voluntarily shared and centrally curated in a repository [ideosphere] from where it feeds back in the form of accessible conversations, resources or assets [extelligence] to the PKMS community [society] to be (potentially generatively) used in
 
@@ -204,7 +204,7 @@ personal and local contexts. Synergetic interactions with external organizationa
 
 K
 
-32
+
 
 The top-right area of [Figure 4](#page-11-0) depicts the meta-concept of the PKMS closely aligned to Popper'[s \(1978\)](#page-23-4) notion which differentiates reality into Three Worlds (marked #1 in [Figure 4](#page-11-0)): The physical world:
 
@@ -226,13 +226,13 @@ By affording the metaphor of a living organism, the "selfish" meme perspective[\
 
 Either need to be encoded in inanimate durable world:1 vectors (such as buildings, machines, products, software, storage devices, books, great art, or major myths) spreading at times unchanged for millennia, or to succeed in competing for a living host's world:2 limited attention span (such as people, teams, corporations, or economies) to be [subjectively and tacitly] memorized (internalization) until forgotten, codified (externalization) in further [concrete] world:1 objects [(via objective abstract world:3 objects)] or spread by the spoken word to other hosts' world:2 brains (socialization) with the potential to mutate into new variants or form symbiotic relationships (combination) with other memes (memeplexes) to mutually support each other's fitness and to replicate together [\(Schmitt, 2018b\)](#page-23-7).
 
-## 4.3 Conceptual design and personal knowledge management system ecosystems to complement current knowledge creation models and affordances
+## 3 Conceptual design and personal knowledge management system ecosystems to complement current knowledge creation models and affordances
 
 As the SECI model maps the real world of knowledge creation and "virtual" memes seem, as alluded to, well equipped to generatively flourish in SECI's ba-spaces of engagement, the PKMS concept aims to create a digital counterpart of this habitat within its memetic repository termed "Ideosphere" as a tangible analogy of Popper's abstract World:3 and a complement to the SECI model.
 
 [Figure 4](#page-11-0) (#3) demonstrates how the Three Worlds and the SECI's stock and flows have been instrumental to synthesize distinct interacting PKMS ecosystems: [knowledge worker], [technology], [ideosphere], [extelligence] and [society] as referred to in Section 4.1 and [Figure 3](#page-9-0) to reflect on knowledge stocks as well as [institutions] and four further sub-categories to reflect on knowledge flows. Each ecosystem can be uniquely defined based on its key properties, structures and processes and, hence, facilitate investigating its specific barriers and fixations as well as the designation of distinct objectives and affordances in support of the generative agenda.
 
-## 4.4 Personal knowledge management system ecosystems and affordances to determine the personal knowledge management system workflow
+## 4 Personal knowledge management system ecosystems and affordances to determine the personal knowledge management system workflow
 
 In contrast to the SECI workflow (#2), the PKMS workflow depicted in [Figure 4](#page-11-0) (#4) embodies a further flow (presented as rectangle in the column [ideoshere ecosystem: formation]) and stock (circle in the column [ideoshere ecosystem: enactment]), and it also follows an alternative path:
 
@@ -240,12 +240,12 @@ In contrast to the SECI workflow (#2), the PKMS workflow depicted in [Figure 4](
 - Imbedding space: Memes found useful, might be subjected to collection, comprehension, (re-)composition, capturing and secure storing in an individual's PKMS device as original or mutated versions to facilitate personal sense-making.
 - Collating space: Captured memes may be related to other stored memes to form symbiotic relationships to mutually support each other's fitness and to replicate together as memeplexes and knowledge assets for creative work, authorship, classification and voluntary sharing.
 
-34
+
 
 - Encompassing space: Memes or knowledge assets voluntarily shared are aggregated and curated in a "World Heritage of Memes Repository" (WHOMER) to eliminate redundancies and consolidate traceabilities for managing entropy and associative integrity.
 - Effectuating space: WHOMER curating options provide support for creating e-learning assets and citation/reputation metrics to ease collective content access, understanding, retention and re-use.
 
-## 4.5 Personal knowledge management system for development personal knowledge management for development framework and its resemblance with Erikson's psycho-social multi-stage-model
+## 5 Personal knowledge management system for development personal knowledge management for development framework and its resemblance with Erikson's psycho-social multi-stage-model
 
 The vertical positions of the PKMS stocks and flows (#4) are aligned to the rows of the columns (#5-8) displayed on the right-hand side of [Figure 4.](#page-11-0) The six main ecosystems are restated (#5) and are further qualified by their key challenges and fixations (#6 in the same column) which are currently inhibiting the emergence of PKMS-like affordances. The ecosystems' prior workflow-induced left-to-right sequence (#3) has been substituted by a deviating bottom-up order to reflect the PKM4D priorities.
 
@@ -257,13 +257,13 @@ The inhibitors and demotivators column (#8) indicate the negative consequences i
 
 The same applies on the aggregate societal level of the various opportunity divides currently discussed (e.g. access, digital, learning, knowledge and innovation). The PKM4D framework, thus, facilitates self-reflection and the prioritization of personal targets as well as intervention levels [scaping, sight setting, socializing, striving, systemizing and scaling, as exemplified by the PKMS assessment ([Schmitt, 2016a\)](#page-23-8)] in the individual, organizational and societal generative capacity development contexts of opportunity divides and knowledge societies.
 
-#### 4.6 Social generativity, generative relationships and structural holes
+### 6 Social generativity, generative relationships and structural holes
 
 PKMSs' internal workings are following the CS and EB principles presented in Section 3.2 by affording the memetic representing, categorizing and combining of any explicable physical, virtual and intangible entity. The metaphor of "building blocks of know-how, skills and technology" alluded to in Section 4.2 [\(Koch, 2013](#page-22-14)) implies generativity by
 
 K 49,1
 
-36
+
 
 combining known captured old and/or newly explicated memes to create novel knowledge, but it is not confined to the physical properties of Lego bricks [as the archetype of the combination logic ([Hatchuel](#page-22-17) et al., 2018, p. 7)] as any meme's content can also be modified and/or further qualified.
 
@@ -271,7 +271,7 @@ Lane's five agent characteristics [\(Figure 1](#page-1-0), right column) exempli
 
 There is, of course, also the possibility that potentially beneficial ties do not exist [referred to as structural holes [\(Burt, 2004\)](#page-21-16)]; the theories of organizational learning and knowledge creation, for example, "have been pursued as independent themes for almost two decades" [\(Brix, 2017](#page-21-17), p. 113). In these contexts, a PKMS user may adopt the virtual equivalent of Burt'[s \(2015,](#page-21-18) p. 149) cocktail party hostess who introduces guests with assumed common interests to each other. While the guests in the real world may choose to ignore this kind of knowledge brokering (reinforcing any existing structural hole in the process), a shared link set by a PKMS user to indicate the proximity of any complementing or contentious memes authored by others remains noticeable.
 
-## 4.7 Informational generativity and creation heritage and the role of associative indexing and integrity
+## 7 Informational generativity and creation heritage and the role of associative indexing and integrity
 
 One key motivation for Bush to envisage the Memex over seven decades ago (discussed in Section 3.3) was the "growing mountain of research" and the increasing evidence of "being bogged down" as "specialization extends" paired with the observation that "professionally our methods of transmitting and reviewing the results of research are generations old and by now are totally inadequate for their purpose" [\(Bush, 1945,](#page-21-6) pp. 1-2). [Nielsen \(2011\)](#page-22-19), Sixtysix years later, confirmed this sorry state and urged using today's online realities for removing barriers that prevent potential contributors from engaging in a wider sharing, faster diffusion and more rapid iterative improvement of their ideas, sources, data, work-inprogress, preprints and/or code. Although digitization had brought some relief, scholarly research management platforms were still operating on high-granular document-centricity and pre-informed search-indexed retrieval. All these observations are still pertinent as referred to in Section 2.0.
 
@@ -283,7 +283,7 @@ accumulate (via usage and classifications) while their content may evolve (via n
 
 As anything explicable is also expressible, combinable and curatable in a standardized memetic format, linked distinctive memes of diverse disciplines are able to materialize as a single unified negentropic transdisciplinary knowledge repository (WHOMER).
 
-#### 4.8 The relevance of the fitness characteristics and technical generativity attributes (3.1)
+### 8 The relevance of the fitness characteristics and technical generativity attributes (3.1)
 
 [Table I](#page-5-0) in Section 3.1 itemizes a total of 26 generativity-related attributes across four models labeled A, B, C and D. This section describes some of the PKMS's key features and affordances fitting these attributes (to be inserted in the text in italics followed by ABCD in superscript to reference its model in [Table I\)](#page-5-0). Although each attribute applies more wildly, for this accounting purpose they have been aligned to the most appropriate ecosystem and are likewise incorporated in [Figure 4](#page-11-0) (#10, bottom line). The results show not only that all attributes are relevant, but also that all PKMS workflow phases exhibit generative outcomes.
 
@@ -313,7 +313,7 @@ The effects of the "negative" generativity alluded to (Section 2) give rise to s
 
 Decentralized knowledge management
 
-39
+
 
 4.9 The personal knowledge management system concept's educational agenda (3.4) Learning assets are special instances of knowledge asset and instrumental in the LMS/PLE context mentioned in Sections 4.1 and 4.8. Currently, the KM-related content covered in the PKMS publications has already been captured in their meme-based representations (over 40 articles in excess of several hundred cited external sources) are repurposed to create LMS learning assets/units, further to be supported by leveraging analogies, metaphors, visuals, maps, frameworks, concepts and schemes ([Schmitt, 2019c](#page-23-10)).
 
@@ -321,9 +321,9 @@ Once the respective e-learning content has been covered by a learner, the repurp
 
 The current KM e-learning design-in-work also envisages non-linear course delivery based on 3D-topologies as navigation/interaction spaces to allow learners suitable choices of how to kick off and commence their study paths [\(Schmitt and Gill, 2019,](#page-24-4) p. 10). And, in case any of these learning assets is shared across different LMS e-learning courses (owing to its multi-disciplinary relevance), non-linear transdisciplinary learning experiences can be further enhanced by offering options to leap into entirely different course worlds ([Schmitt,](#page-23-7) [2018b](#page-23-7)).
 
-#### 5. Discussion and conclusions
+#### Discussion and conclusions
 
-#### 5.1 Summary and discussion of findings
+#### 1 Summary and discussion of findings
 
 The article set out to review the current generativity discourse deemed relevant to knowledge management. The respective generative models and attributes have then been cross-referenced to the workflows and digital ecosystems of a novel PKM concept and system currently under development. It illustrated that the current shortcomings (especially in the context of knowledge entropy and fragmentation) need to be addressed in a holistic and systemic manner to impact the wicked problem space of current opportunity divides and unsustainable wanting KM practices. The PKMS DSR and prototype development presented are attempting such an endeavor.
 
@@ -333,7 +333,7 @@ Generativity, in these contexts, facilitates creating new knowledge (that needs 
 
 capacities which may be extended to consolidate mutually beneficial collective actions with OKMSs for organizational performance as well as with LMS for educational interventions [\(Schmitt, 2015](#page-23-11)).
 
-## 5.2 Research originality and implications
+## 2 Research originality and implications
 
 As acknowledged by the reviewers, the article provides new insights and generates new knowledge by presenting a holistic framework and systemic KM perspective relevant for both individuals and organizations. In this context, it is among the first to attend to the transdisciplinary integration of the well-established psychological notions of generativity into its newer digital and systemic dimensions concerning knowledge management. As complex concepts and dynamics from diverse research domains are synthesized and considered from several perspectives, the shortcomings and fixations of current KM structures and the advantageous affordances of the novel personal KM approach informing the DSR and prototyping undertaking are made transparent. The aim, however, is not to replace but complement traditional organizational KM approaches to foster a fruitful coevolution as reinforced by the synergies between the SECI and SICEE cycles. The adopted and adapted generativity concepts and their semantic capacity to furnish new meanings demonstrate that this approach opens new directions for KM research as well as for applications in practice.
 
@@ -341,7 +341,7 @@ Given knowledge workers' motivation to write personal career script for bringing
 
 The emerging denser networks explicated (meme-to-meme, meme-to-peer and peer-topeer) reduce structural holes and establish the PKMS as a knowledge broker among diverse disciplines as well as among developed and emerging economies or educational and research centers with currently unevenly distributed resources. Opportunity divides can, hence, be addressed "allowing and potentiating access to an agora of human collective intelligence (WHOMER as tangible instantiation of Popper's World:3), to cutting-edge studies, projects, events and so forth" (Vatam[anescu](#page-24-15) et al., 2018).
 
-## 5.3 Research limits and future avenues
+## 3 Research limits and future avenues
 
 After completing the test phase of the prototype, its transformation into a viable PKMS device application and a cloud-based WHOMER server is estimated to take 12 months. However, to ultimately succeed, the design of a meta-artifact needs to meet aspects of feasibility, suitability and acceptability:
 
@@ -352,7 +352,7 @@ After completing the test phase of the prototype, its transformation into a viab
   - A publication-in-press ([Schmitt, 2019b\)](#page-23-12) has followed up on the PKMS's suitability and potential impact by positively benchmarking it against 12 objective criteria (listed as #11 in [Figure 4\)](#page-11-0) defining disruptive innovations and general-purpose technologies [\(Cantner and Vannuccini, 2012\)](#page-21-21). It argues that a dominant KMS design does not yet exist (allowing a PKMS-like innovation to meet unsatisfied demand) and stresses the PKMS's potential for innovation spawning (easing the inventing of new artifacts and processes). As a key feature of technical generativity, the latter refers to a system's capacity to be malleable in unanticipated ways (Section 3.1). While some of the related technical intricacies have already been addressed ([Schmitt, 2017b\)](#page-23-13), a further paper is planned to assess how the PKMS concept compares to, can make use of and add to semantic Web technologies.
     - To foster acceptability in addition to its appealing affordances, the disruptive PKMS approach adopts a counterbalancing "emergent innovation" strategy by easing the complex tensions between the radically new and established already familiar perspectives and structures ([Peschl and Fundneider, 2013](#page-23-14)) as exemplified by the SECI-SICEE synergies described. A further publication has followed up on these commonalities by amalgamating the PKMS not only with the SECI workflows but also 11 further complementing renowned knowledge creation models in a threedimensional dynamic "public-transport-like" map [\(Schmitt, 2019a](#page-23-5)). While PKMS particularities in the context of entrepreneurial growth stages have been addressed [\(Schmitt, 2018a](#page-23-0)), papers planned will focus on the particular benefits for transdisciplinarians, on crafting a desirable sustainability vision and on comparing the meme-based test-database of all PKMS publications (with their references and citations) against their representation in Google Scholar and ResearchGate.
 
-#### Notes
+### Notes
 
 - <span id="page-20-1"></span>1. In its more recent interpretation as an internet meme, its dynamic propagation in Web and mass media environments may result in "viral" or "fallout" attention patterns and copies of content and links followed by declining interest and searches [\(Perissi](#page-23-15) et al., 2018). Memes in the PKMS repository stay, instead, unique but their content may evolve (into new memes).
 - <span id="page-20-2"></span>2. As a bridge between disciplinary divides and/or a transitional state between ill-structured and not yet well-structured representations (e.g. standards or infrastructure), boundary objects afford diverse social actors a shared collaborative space of common understanding but interpretative flexibility tailorable to local use and/or disciplinary contexts ([Star, 2010](#page-24-2)).
@@ -361,7 +361,7 @@ After completing the test phase of the prototype, its transformation into a viab
 
 <span id="page-20-0"></span>Andreas, S.N.L.U.C., Nicolas, S.R.J.M. and Devaurs, W.J.K.D. (2010), "Annex 4: Identifying knowledge development – a context-aware approach for analyzing knowledge processes", in Herder, E. and Marenzi, I. (Eds), Trends in Connecting learners - First Research and Technology Scouting Report (Annex), pp. 40-58.
 
-42
+
 
 - <span id="page-21-2"></span>Avital, M. and Te'Eni, D. (2009), "From generative fit to generative capacity: exploring an emerging dimension of information systems design and task performance", Information Systems Journal, Vol. 19 No. 4, pp. 345-367.
 - <span id="page-21-4"></span>Baskerville, R., Baiyere, A., Gregor, S., Hevner, A. and Rossi, M. (2018), "Design science research contributions: Finding a balance between artefact and theory", Journal of the Association for Information Systems, Vol. 19 No. 5, pp. 358-376.
@@ -389,7 +389,7 @@ After completing the test phase of the prototype, its transformation into a viab
 
 Decentralized knowledge management
 
-43
+
 
 <span id="page-22-20"></span><span id="page-22-15"></span><span id="page-22-7"></span>
 
@@ -441,7 +441,7 @@ Decentralized knowledge management
 - <span id="page-23-12"></span>Schmitt, U. (2019b), "Personal knowledge management technologies as decentralized, radical, disruptive innovation", 20th European Conference on Knowledge Management. 5-6 September, Lisbon.
 - <span id="page-23-10"></span>Schmitt, U. (2019c), "Interoperability of managing knowledge and learning processes for sustainable Eeducation", Next Generation Computing Applications (NextComp), 2019 2nd International Conference on 2019 September 19-21, Mauritius.
 
-45
+
 
 <span id="page-24-12"></span><span id="page-24-4"></span>
 

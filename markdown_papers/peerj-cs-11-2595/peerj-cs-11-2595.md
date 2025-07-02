@@ -1,3 +1,5 @@
+<!-- cite_key: malaysia2024 -->
+
 A temporal knowledge graph reasoning model based on recurrent encoding and contrastive learning
 
 Weitong Liu[1,](#page-0-0)[2](#page-0-1), Khairunnisa Hasikin[3](#page-0-2) , Anis Salwa Mohd Khairuddin[2](#page-0-1) , Meizhen Liu[1,](#page-0-0)[2](#page-0-1) and Xuechen Zhao[1](#page-0-0)
@@ -62,7 +64,7 @@ Contrastive learning has been broadly utilized across several territories, such 
 
 # PRELIMINARIES
 
-#### Relational graph convolutional network
+## Relational graph convolutional network
 
 To adapt GCNs for relational data, the relational graph convolutional network (R-GCN) was developed. R-GCN effectively aggregate local neighborhood information with effect. It is a model that can be used for message passing.
 
@@ -74,7 +76,7 @@ $$
 
 where N<sup>r</sup> <sup>i</sup> denotes neighboring nodes with r-type edges connected to node i. ci;<sup>r</sup> is a constant and it is broadly used to represent the in degree of node i. Wð Þ<sup>l</sup> <sup>r</sup> and Wð Þ<sup>l</sup> <sup>0</sup> are learnable parameters. l denotes the number of layers. hð Þ<sup>l</sup> <sup>i</sup> denotes the embedding representation of node i in layer l. Wð Þ<sup>l</sup> <sup>0</sup> <sup>h</sup>ð Þ<sup>l</sup> <sup>i</sup> denotes self-connection.
 
-#### Contrastive learning
+### Contrastive learning
 
 The learning framework of contrastive learning is based on discriminative representation of contrastive thinking, primarily used for unsupervised or self-supervised representation learning. The notion of contrastive learning is to compare a given sample with similar positive samples and dissimilar negative samples ([Chen et al., 2020](#page-17-12)). The use of contrastive learning model and loss function, representations corresponding to positive samples are closer in the representation space, whereas representations corresponding to negative samples are further away in the representation space. In contrastive learning, a small batch of randomly selected N samples is used to obtain enhanced samples. Given a pair of positive samples (i, j), optimize the following loss function using the original and augmented samples.
 
@@ -95,7 +97,7 @@ The intention of TKG extrapolation is to forecast missing subject entity or obje
 
 The prevailing focus in contemporary research on temporal knowledge graph reasoning lies in extrapolation knowledge graph reasoning, aimed at forecasting future events in the ground of historical occurrences. The proposed TRCL model addresses the task of extrapolation relationship reasoning. To facilitate comprehension, this work introduces the key notations, followed by a systematic presentation of each component of the model. The flow chart of the proposed TRCL framework is displayed in [Fig. 1.](#page-6-0)
 
-### Model overview of the proposed TRLC model
+## Model overview of the proposed TRLC model
 
 The TRLC model proposed in this article consists of four modules. The first module takes the sequential information of k snapshots before the current timestamp t as input to the recurrent encoder, obtaining the embedding of entities and relations. The second module is to establish a global historical matrix, with the aim of integrating all repeated historical information into knowledge graph reasoning. The third module is to use the loss function of contrastive learning to diminish the effect of irrelevant historical information on the model's prediction of future events. The fourth module uses a time decoder to capture periodic information, and ultimately this module can obtain the predicted results for each entity. The entire framework of the proposed TRLC model is shown in [Fig. 2](#page-6-1).
 
@@ -172,7 +174,7 @@ $$
 
 where M denotes the size of the batch. t denotes the temperature parameter. Referring to the CENET model, we set it to 1. Q qð Þ represents the query m corresponding to the value of Iq in the set M, except for query q. The aim of <sup>L</sup>cl is to make the query representations of the same variety closer.
 
-#### Time decoder
+### Time decoder
 
 ### The periodic and non-periodic events
 
@@ -198,7 +200,7 @@ After obtaining the representation of entity hs;<sup>t</sup> and relationship rt
 $$
 m_c^n = \sum_{\tau=0}^{K-1} w_c(\tau, 0) \hat{h}_{s,t}(n+\tau) + w_c(\tau, 0) \hat{r}_t(n+\tau) + w_c(\tau, 0) \hat{T}_t^p(n+\tau) + w_c(t, 0) \hat{T}_t^{np}(n+\tau)
 $$
-(12)  
+(12)
 $$
 M_c = \{ m_c^i | i \in [0, d-1] \}
 $$
@@ -243,7 +245,7 @@ Note that the loss function <sup>L</sup>cl of contrastive learning and the loss 
 
 # RESULTS AND DISCUSSIONS
 
-#### Experimental setup
+## Experimental setup
 
 This article uses four datasets to appraise the TRCL models on entity forecast task, including ICEWS14, ICEWS18, ICEWS05-15 ([Lautenschlager, Shellman & Ward, 2015](#page-17-14)) and GDELT ([Leetaru & Schrodt, 2013](#page-18-13)). These four datasets are widely used for TKG extrapolation. ICEWS14, ICEWS18, and ICEWS05-15 are three subsets of Integrated Crisis Early Warning System (ICEWS). ICEWS contains a large number of political events with timestamps. GDELT is a sub-class of the Global Database of Events, Language datasets, which is also an event set containing temporal information.
 

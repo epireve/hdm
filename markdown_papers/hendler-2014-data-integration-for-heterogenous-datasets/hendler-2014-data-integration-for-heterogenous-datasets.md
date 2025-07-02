@@ -1,3 +1,5 @@
+<!-- cite_key: here2012 -->
+
 # DATA INTEGRATION FOR HETEROGENOUS DATASETS
 
 ## James Hendler
@@ -17,8 +19,6 @@ With the advent of the big data movement, there is need to harness the technique
 For other users, however, the situation is often different. For large companies, the large investment in data warehouses typically provides a starting place for data analytics with respect to current practices. However, as new techniques for analysis might become usable or new opportunities emerge, companies may want to explore their data in ways that were not planned for in the original design of their data collections. These companies are increasingly looking at how they might integrate their structured data holdings with those of others and to explore links to both internal and external unstructured data sources. For nonprofits, small companies, and others trying to get a benefit from big data, access to data outside their own control is even more crucial. Figure 1 provides a few examples of the sorts of data that many organizations are trying to come to terms with, across a wide variety of industries and sectors.
 
 The ability to federate data across datasets, catalogs, domains, and cultures can provide data users with the ability to find,
-
-![](_page_0_Picture_14.jpeg)
 
 <sup>\*</sup>For example, the Sloan Foundation–funded Deep Carbon Observation supports over 1100 scientists from approximately 450 organizations around the world engaged in about 275 projects and field studies.
 
@@ -86,8 +86,6 @@ Although these sorts of faceted browsers have become more ubiquitous on open dat
 FIG. 2. A simple example integrating U.S. and Chinese data with an intermediary dataset.
 
 ![](_page_2_Picture_18.jpeg)
-
-![](_page_3_Picture_1.jpeg)
 
 FIG. 3. The U.S. Data.gov and many other government web sites provide faceted browsers for searching through large dataset catalogs based on metadata features.
 
@@ -221,8 +219,6 @@ promising direction that is currently being explored actively is taking the info
 ''OTHER KINDS OF PROBLEMS THAT OFTEN SHOW UP IN INTEGRATED DATA INCLUDE MISSING DATA, IMPROPERLY ENTERED DATA, OR OTHER COMMON 'DIRTY DATA' PROBLEMS.''
 
 ![](_page_8_Picture_17.jpeg)
-
-![](_page_9_Picture_1.jpeg)
 
 ![](_page_9_Figure_2.jpeg)
 

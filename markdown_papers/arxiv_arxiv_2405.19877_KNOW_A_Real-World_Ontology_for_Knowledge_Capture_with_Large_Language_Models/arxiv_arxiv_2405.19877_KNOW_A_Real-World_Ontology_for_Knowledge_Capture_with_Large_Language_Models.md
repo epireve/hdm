@@ -1,8 +1,10 @@
+<!-- cite_key: happiness2024 -->
+
 # KNOW–A Real-World Ontology for Knowledge Capture with Large Language Models
 
 Arto Bendiken Haltia, Inc. arto@haltia.ai
 
-### Abstract
+## Abstract
 
 We present KNOW–the Knowledge Navigator Ontology for the World–the first ontology designed to capture everyday knowledge to augment large language models (LLMs) in real-world generative AI use cases such as personal AI assistants. Our domain is human life, both its everyday concerns and its major milestones. We have limited the initial scope of the modeled concepts to only established human universals: spacetime (places, events) plus social (people, groups, organizations). The inclusion criteria for modeled concepts are pragmatic, beginning with universality and utility. We compare and contrast previous work such as Schema.org and Cyc–as well as attempts at a synthesis of knowledge graphs and language models–noting how LLMs already encode internally much of the commonsense tacit knowledge that took decades to capture in the Cyc project. We also make available code-generated software libraries for the 12 most popular programming languages, enabling the direct use of ontology concepts in software engineering. We emphasize simplicity and developer experience in promoting AI interoperability.
 
@@ -12,13 +14,13 @@ We present KNOW–the Knowledge Navigator Ontology for the World–the first ont
 
 While not yet widely known in industry, the neuro-symbolic approach to artificial intelligence (AI)–in particular, the union of large language models (LLMs) and knowledge graphs (KGs)–has in academia already established itself as the most promising state-of-the-art pathway towards building practical, trustworthy, explainable, and interoperable AI systems. We will briefly outline the promise of the neuro-symbolic synthesis and explain why common ontologies are needed for reliability and interoperability.
 
-#### 1.1 Why LLMs Need KGs
+#### 1 Why LLMs Need KGs
 
 Despite limited successes with prototypes which escaped the lab, over the course of the next several years industry attempts to deploy standalone LLMs in production will be increasingly frustrated by the limitations and deficiencies of said models: the limited context window and its poor scaling characteristics, the lack of introspectability and justifiability, the propensity towards hallucinations, as well as ultimately the implicit and static nature of the very knowledge encoded during pre-training and the difficulty of amending it afterwards.
 
 These various problems can be mitigated or solved by a hybrid approach where the LLM accesses and manipulates a symbolic knowledge base where facts are captured and represented in explicit form.
 
-#### 1.2 Why KGs Need LLMs
+#### 2 Why KGs Need LLMs
 
 Conversely, large language models do already encode internally much of the commonsense tacit knowledge that in previous decades proved the most formidable challenge to symbolic approaches of knowledge representation and AI. Until recently, any toddler ultimately knew more about the nature and causal structure of our physical and social worlds
 
@@ -26,7 +28,7 @@ than any computer. The ambition of the decades-long Cyc project [\[Lenat and Guh
 
 An LLM's "knowledge soup"–a large reservoir of loosely organized encyclopedic knowledge [\[Sowa, 1990\]](#page-4-1)–is quantitatively derived from statistical distributions in an LLM's pre-training dataset and after training is implicitly encoded in the billions of weights that constitute the model [\[Templeton et al., 2024\]](#page-4-2). As mentioned, it is not particularly introspectable nor is it even consistent, but it is nonetheless useful: it largely sidesteps the need to explicitly represent and encode truly basic tenets of the world, such as that the noon sky is blue, that the arrow of gravity points downwards, and that humans tend to live in families and build housing to seek shelter from the elements.
 
-### 1.3 The Neuro-Symbolic Synthesis
+### 3 The Neuro-Symbolic Synthesis
 
 In this way, neural networks in the form of LLMs provide the missing ingredient for a hybrid that realizes long-standing visions for symbolic AI beyond narrow expert system use cases. And conversely, the explicit knowledge representation in KGs complements and enables LLMs to transcend their limitations and ultimately be safely deployed in real-world use cases beyond technology demos.
 
@@ -88,17 +90,17 @@ It is our intention to continue, through open-source community contributions, to
 
 We compare and contrast previous work including Schema.org and Cyc.
 
-#### 5.1 Schema.org
+## 1 Schema.org
 
 The previous ontology nearest to our endeavor is undoubtedly Schema.org [\[Guha et al., 2016\]](#page-4-7), and we make sure to map our concepts (classes and properties) to corresponding Schema.org concepts where possible. Though there is inevitably some overlap, the two projects have different focuses and ultimately different audiences.
 
-Whereas Schema.org grew out of microdata (structured data markup on web pages) and thus focuses on describing *things* such as creative works, KNOW is specifically designed for neuro-symbolic uses and focuses on describing *life*, beginning with social relationships.
+Whereas Schema.org grew out of microdata (structured data markup on web pages) and thus focuses on describing *things*such as creative works, KNOW is specifically designed for neuro-symbolic uses and focuses on describing*life*, beginning with social relationships.
 
 For example, during the first decade of the Schema.org initiative, it seems nobody has as yet needed to describe family relationships in greater detail than parent/child and sibling. KNOW, on the other hand, directly includes properties for father/mother, brother/sister, uncle/aunt, nephew/niece, and so on–materializing these most important personal relationships explicitly, without the need for graph traversal nor entailment at the point of lookup.
 
 KNOW also differs in its insistence on modeling the world in a commonsense, everyday manner. We are not concerned with "correct" taxonomy, but merely pragmatic taxonomy, leading to a relatively flat class hierarchy. A further difference is due to our support for code generation, described in a previous section.
 
-### 5.2 Cyc (OpenCyc, ResearchCyc)
+### 2 Cyc (OpenCyc, ResearchCyc)
 
 In seeking to model commonsense knowledge, our most esteemed predecessor is the already mentioned Cyc project. The differences, though, are also clear. For one, we don't aspire to be an upper ontology; for another, the expressiveness of our ontology is merely the description logics of OWL, not the undecidable higher-order logic (HOL) used in Cyc.
 
@@ -112,7 +114,7 @@ The ontology is developed using an open-source ethos and a public, collaborative
 
 <span id="page-3-1"></span><sup>3</sup>And other programming languages on the Java Virtual Machine (JVM) platform.
 
-#### 6.1 Base IRI and Prefix
+## 1 Base IRI and Prefix
 
 The base IRI for the ontology is https://know.dev/, and our recommended prefix for CURIE construction is know. The base IRI has been designed to be memorable in support of our emphasis on developer experience. In Turtle format:
 

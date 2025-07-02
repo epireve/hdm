@@ -1,18 +1,17 @@
-![](_page_0_Picture_1.jpeg)
+<!-- cite_key: francescoosborneopenacuk2023 -->
 
-# **Knowledge Graphs: Opportunities and Challenges**
 
-**Ciyuan Peng1 · Feng Xia<sup>2</sup> · Mehdi Naseriparsa3 · Francesco Osborne4**
 
-Accepted: 9 March 2023 / Published online: 3 April 2023 © The Author(s) 2023
+# Knowledge Graphs: Opportunities and Challenges
 
-### **Abstract**
+**Ciyuan Peng1 · Feng Xia<sup>2</sup> · Mehdi Naseriparsa3 · Francesco Osborne4**Accepted: 9 March 2023 / Published online: 3 April 2023 © The Author(s) 2023
+
+## Abstract
 
 With the explosive growth of artifcial intelligence (AI) and big data, it has become vitally important to organize and represent the enormous volume of knowledge appropriately. As graph data, knowledge graphs accumulate and convey knowledge of the real world. It has been well-recognized that knowledge graphs efectively represent complex information; hence, they rapidly gain the attention of academia and industry in recent years. Thus to develop a deeper understanding of knowledge graphs, this paper presents a systematic overview of this feld. Specifcally, we focus on the opportunities and challenges of knowledge graphs. We frst review the opportunities of knowledge graphs in terms of two aspects: (1) AI systems built upon knowledge graphs; (2) potential application felds of knowledge graphs. Then, we thoroughly discuss severe technical challenges in this feld, such as knowledge graph embeddings, knowledge acquisition, knowledge graph completion, knowledge fusion, and knowledge reasoning. We expect that this survey will shed new light on future research and the development of knowledge graphs.
-
 **Keywords** Knowledge graphs · Artifcial intelligence · Graph embedding · Knowledge engineering · Graph learning
 
-\* Feng Xia f.xia@ieee.org
+\*Feng Xia f.xia@ieee.org
 
 > Ciyuan Peng ciyuan.p@outlook.com
 
@@ -25,7 +24,7 @@ Francesco Osborne francesco.osborne@open.ac.uk
 - <sup>3</sup> Global Professional School, Federation University Australia, Ballarat 3353, VIC, Australia
 - <sup>4</sup> Knowledge Media Institute, The Open University, Milton Keynes MK7 6AA, UK
 
-### **1 Introduction**
+### 1 Introduction
 
 Knowledge plays a vital role in human existence and development. Learning and representing human knowledge are crucial tasks in artifcial intelligence (AI) research. While humans are able to understand and analyze their surroundings, AI systems require additional knowledge to obtain the same abilities and solve complex tasks in realistic scenarios (Ji et al. [2021](#page-27-0)). To support these systems, we have seen the emergence of many approaches for representing human knowledge according to diferent conceptual models. In the last decade, knowledge graphs have become a standard solution in this space, as well as a research trend in academia and industry (Kong et al. [2022](#page-27-1)).
 
@@ -37,7 +36,7 @@ Therefore, knowledge graphs have seized great opportunities by improving the qua
 
 To deeply understand the development of knowledge graphs, this survey extensively analyzes knowledge graphs in terms of their opportunities and challenges. Firstly, we discuss the opportunities of knowledge graphs in terms of two aspects: AI systems whose performance is signifcantly improved by knowledge graphs and application felds that beneft from knowledge graphs. Then, we analyze the challenges of knowledge graphs by considering the limitations of knowledge graph technologies. The main contributions of this paper are as follows:
 
-- *Survey on knowledge graphs*: We conduct a comprehensive survey of existing knowledge graph studies. In particular, this work thoroughly analyzes the advancements in knowledge graphs in terms of state-of-the-art technologies and applications.
+-*Survey on knowledge graphs*: We conduct a comprehensive survey of existing knowledge graph studies. In particular, this work thoroughly analyzes the advancements in knowledge graphs in terms of state-of-the-art technologies and applications.
 - *Knowledge graph opportunities*: We investigate potential opportunities for knowledge graphs in terms of knowledge graph-based AI systems and application felds that utilize knowledge graphs. Firstly, we examine the benefts of knowledge graphs for AI systems, including recommender systems, question-answering systems, and information retrieval. Then, we discuss the far-reaching impacts of knowledge graphs on human
 
 society by describing current and potential knowledge graph applications in various felds (e.g., education, scientifc research, social media, and medical care).
@@ -46,17 +45,17 @@ society by describing current and potential knowledge graph applications in vari
 
 The rest of the paper is organized as follows. Section [2](#page-2-0) provides an overview of knowledge graphs, including the defnitions and the categorization of existing research on knowledge graphs. To examine the opportunities of knowledge graphs, Section [3](#page-5-0) and Section [4](#page-12-0) introduce relevant AI systems and application felds, respectively. Section [5](#page-16-0) details the challenges of knowledge graphs based on the technologies. Finally, we conclude this paper in Section [6](#page-24-0).
 
-### <span id="page-2-0"></span>**2 Overview**
+### <span id="page-2-0"></span>2 Overview
 
 In this section, the defnition of knowledge graphs is provided frst. Then, we categorize signifcant state-of-the-art research in this area.
 
-#### **2.1 What Are Knowledge Graphs?**
+#### 2.1 What Are Knowledge Graphs?
 
 A knowledge base is a typical data set that represents real-world facts and semantic relations in the form of triplets. When the triplets are represented as a graph with edges as relations and nodes as entities, it is considered a knowledge graph. Generally, the knowledge graph and knowledge base are regarded as the same concept and are used interchangeably. In addition, the schema for a knowledge graph can be defned as an ontology, which shows the properties of a specifc domain and how they are related. Therefore, one essential stage of knowledge graph construction is ontology construction.
 
-In 2012, Google frst put forward Knowledge Graph by introducing their knowledge base called *Google Knowledge Graph* (Ehrlinger and Wöß [2016\)](#page-26-2). Afterward, many knowledge graphs are introduced and adopted such as:
+In 2012, Google frst put forward Knowledge Graph by introducing their knowledge base called *Google Knowledge Graph*(Ehrlinger and Wöß [2016\)](#page-26-2). Afterward, many knowledge graphs are introduced and adopted such as:
 
-- *DBpedia*, a knowledge graph that intends to discover semantically meaningful information form Wikipedia and convert it into an efective well-structured ontological knowledge base in DBpedia (Auer et al. [2007](#page-25-2)).
+-*DBpedia*, a knowledge graph that intends to discover semantically meaningful information form Wikipedia and convert it into an efective well-structured ontological knowledge base in DBpedia (Auer et al. [2007](#page-25-2)).
 - *Freebase*, a knowledge graph which is built upon multiple sources that provides a structured and global resource of information (Bollacker et al. [2008](#page-25-3)).
 - *Facebook's entity graph*, a knowledge graph that converts the unstructured content of the user profles into meaningful structured data (Ugander et al. [2011](#page-29-1)).
 - *Wikidata*, a cross-lingual document-oriented knowledge graph which supports many sites and services such as Wikipedia (Vrandečić and Krötzsch [2014\)](#page-29-2).
@@ -68,64 +67,62 @@ In 2012, Google frst put forward Knowledge Graph by introducing their knowledge 
 
 • *WordNet*, a lexical knowledge base measuring the semantic similarity between words. The knowledge base contains a number of hierarchical concept graphs to analyse the semantic similarity (Pedersen et al. [2004\)](#page-28-1).
 
-A knowledge graph is a directed graph composed of nodes and edges, where one node indicates an entity (a real object or abstract concept), and the edge between the two nodes conveys the semantic relation between the two entities (Bordes et al. [2011\)](#page-25-4). Resource Description Framework (RDF) and Labeled Property Graphs (LPGs) are two typical ways to represent and manage knowledge graphs (Färber et al. [2018;](#page-26-3) Baken [2020](#page-25-5)). The fundamental unit of a knowledge graph is the triple *(subject, predicate, object)* (or *(head, relation, tail)*), i.e., *(Bill Gates, founderOf, Microsoft)*. Since the relation is not necessarily symmetric, the direction of a link matters. Therefore, a knowledge graph can also be seen as a directed graph in which the head entities point to the tail entities via the relation's edge.
+A knowledge graph is a directed graph composed of nodes and edges, where one node indicates an entity (a real object or abstract concept), and the edge between the two nodes conveys the semantic relation between the two entities (Bordes et al. [2011\)](#page-25-4). Resource Description Framework (RDF) and Labeled Property Graphs (LPGs) are two typical ways to represent and manage knowledge graphs (Färber et al. [2018;](#page-26-3) Baken [2020](#page-25-5)). The fundamental unit of a knowledge graph is the triple *(subject, predicate, object)*(or*(head, relation, tail)*), i.e., *(Bill Gates, founderOf, Microsoft)*. Since the relation is not necessarily symmetric, the direction of a link matters. Therefore, a knowledge graph can also be seen as a directed graph in which the head entities point to the tail entities via the relation's edge.
 
 Fig. [1](#page-3-0) depicts an example of a simple knowledge graph. As shown in Fig. [1](#page-3-0), nodes *e*<sup>1</sup> and *e*2 darkened in color are connected by relation *r*1, which goes from *e*1 to *e*2. Therefore, *e*1, *e*2, and *r*1 can form the triplet (*e*1,*r*1, *e*2), in which *e*1 and *e*2 are the head and tail entities, respectively.
 
-### **2.2 Current Research on Knowledge Graphs**
+### 2.2 Current Research on Knowledge Graphs
 
 In recent years, knowledge graphs have gained extensive research interest. Plenty of studies have focused on exploring knowledge graphs. This paper conducts a comprehensive survey on knowledge graphs and lists seven important categories of current research on this topic. Fig. [2](#page-4-0) illustrates a schema of the most popular research lines regarding knowledge graphs. Among them, AI systems are services that utilize knowledge graphs for their foundation, and application felds are domains where knowledge graphs reach. These two research lines are listed for discussing the opportunities of knowledge graphs. Another fve research lines are fve main knowledge graph technologies corresponding to fve tasks. In this paper, we introduce these fve technologies and emphasize their limitations to give useful insights into the major challenges of the knowledge graphs.
 
 ![](_page_4_Figure_1.jpeg)
 
-<span id="page-4-0"></span>**Fig. 2** Research on knowledge graphs
+<span id="page-4-0"></span>**Fig. 2**Research on knowledge graphs
 
-# **2.2.1 Knowledge Graph Embedding**
+# 2.2.1 Knowledge Graph Embedding
 
 Knowledge graph embedding is one of the central research issues. This task aims to map entities and relations of a knowledge graph to a low-dimensional vector space so that it captures the semantics and the structure of the knowledge graph efciently (Dai et al. [2020b](#page-26-1)). Then, the obtained feature vectors can be efectively learned by machine learning models. Three main triplet fact-based embedding methods are as follows: (a) tensor factorizationbased, (b) translation-based, and (c) neural network-based methods (Dai et al. [2020b](#page-26-1)).
 
-# **2.2.2 Knowledge Acquisition**
+# 2.2.2 Knowledge Acquisition
 
 Knowledge acquisition, which focuses on modeling and constructing knowledge graphs, is another crucial research direction of knowledge graph study. Typically, the knowledge is imported from structured sources by employing mapping languages, such as R2RML (Rodriguez-Muro and Rezk [2015](#page-28-2)). Furthermore, the knowledge could be extracted from unstructured documents (e.g., news, research papers, and patents) by adopting relation, entity, or attribute extraction methods (Liu et al. [2020](#page-27-4); Yu et al. [2020;](#page-30-0) Yao et al. [2019\)](#page-30-1).
 
-# **2.2.3 Knowledge Graph Completion**
+# 2.2.3 Knowledge Graph Completion
 
 Although there are many methods for constructing knowledge graphs, it is still unfeasible to create comprehensive representations of all the knowledge in a feld. Most knowledge graphs still lack a good number of entities and relationships. Thereby, signifcant eforts have been made for completing knowledge graphs. Knowledge graph completion aims to improve the quality of knowledge graphs by predicting additional relationships and entities. The frst task typically adopts link prediction techniques to generate triplets and then assigns the triplets plausibility scores (Ji et al. [2021](#page-27-0)). The second task employs entity prediction methods for obtaining and integrating further information from external sources.
 
-## **2.2.4 Knowledge Fusion**
+## 2.2.4 Knowledge Fusion
 
 Knowledge fusion is also an important research direction that focuses on capturing knowledge from diferent sources and integrating it into a knowledge graph (Nguyen et al. [2020\)](#page-28-3). The knowledge fusion approaches are useful for both generating and completing knowledge graphs. Recently, entity alignment has been the primary method for implementing knowledge fusion tasks.
 
-### **2.2.5 Knowledge Reasoning**
+### 2.2.5 Knowledge Reasoning
 
 Tremendous research eforts have focused on reasoning to enrich the knowledge graphs, which aims to infer new facts based on existing data (Minervini et al. [2020\)](#page-27-5). In particular, new relations between two unconnected entities are inferred, forming new triplets. Also, by reasoning out the false facts, knowledge reasoning has the ability to identify erroneous knowledge. The main methods for knowledge reasoning include logic rule-based, distributed representation-based, and neural network-based methods (Chen et al. [2020b](#page-25-6)).
 
-# **2.2.6 AI Systems**
+# 2.2.6 AI Systems
 
 Nowadays, knowledge graphs are widely utilized by AI systems (Liang et al. [2022](#page-27-6)), such as recommenders, question-answering systems, and information retrieval tools. Typically, the richness of information within knowledge graphs enhances the performance of these solutions. Therefore, many studies have focused on taking advantage of knowledge graphs to improve AI systems' performance.
 
-## **2.2.7 Application Fields**
+## 2.2.7 Application Fields
 
 Knowledge graphs have numerous applications in various felds, including education, scientifc research, social media, and medical care (Li et al. [2020b\)](#page-27-7). A variety of intelligent applications are required to improve the standard of human life.
 
 Difering from other works, this paper focuses on surveying the opportunities and challenges of knowledge graphs. In particular, knowledge graphs meet great opportunities by improving the quality of AI services and being applied in various felds. On the contrary, this paper regards the limitations of knowledge graph technologies as the challenges. Therefore, we will discuss the technical limitations regarding knowledge graph embeddings, knowledge acquisition, knowledge graph completion, knowledge fusion, and knowledge reasoning.
 
-# <span id="page-5-0"></span>**3 Knowledge Graphs for AI Systems**
+# <span id="page-5-0"></span>3 Knowledge Graphs for AI Systems
 
 This section explains the opportunities by analyzing the advantages that knowledge graphs bring for improving the functionalities of AI Systems. Specifcally, there are a couple of systems, including recommender systems, question-answering systems, and information retrieval tools (Guo et al. [2020;](#page-26-4) Zou [2020](#page-31-0)), which utilize knowledge graphs for their input data and beneft the most from knowledge graphs. In addition to these systems, other AI systems, such as image recognition systems (Chen et al. [2020a\)](#page-25-7), have started to consider the characteristic of knowledge graphs. However, the application of knowledge graphs in these systems is not widespread. Moreover, these systems do not directly optimize performance by utilizing knowledge graphs as input data. Therefore, the advantages that knowledge graphs bring for recommender systems, question-answering systems, and information retrieval tools are discussed in detail to analyze the opportunities of knowledge graphs. Typically, these solutions greatly beneft from adopting knowledge graphs that ofer
 
 high-quality representations of the domain knowledge. Table [1](#page-7-0) presents a summary of the AI systems that we will discuss below.
 
-### **3.1 Recommender Systems**
+## 3.1 Recommender Systems
 
 With the continuous development of big data, we observe the exponential growth of information. In the age of information explosion, it becomes challenging for people to receive valid and reliable information (Shokeen and Rana [2020](#page-29-3); Monti et al. [2021;](#page-27-8) Gómez et al. [2022\)](#page-26-5). Specifcally, online users may feel confused when they want to select some items they are interested in among thousands of choices. To tackle this issue, we saw the emergence of several recommender systems to provide users with more accurate information. Typically, recommender systems learn the preference of target users for a set of items (Wan et al. [2020;](#page-29-4) Zheng and Wang [2022](#page-31-1)) and produce a set of suggested items with similar characteristics. Recommender systems are fruitful solutions to the information explosion problem and are employed in various felds for enhancing user experience (Quijano-Sánchez et al. [2020\)](#page-28-4).
 
-### **3.1.1 Traditional Recommender Systems**
+### 3.1.1 Traditional Recommender Systems
 
 There are two traditional methods for developing recommender systems, including content-based and collaborative fltering-based (CF-based) methods. Sun et al. ([2019\)](#page-29-5) and Guo et al. ([2020\)](#page-26-4) have compared and summarised these two approaches.
-
-**3.1.1.1 Content‑Based Recommender Systems** The content-based recommender systems frst analyze the content features of items (e.g., descriptions, documents). These items are previously scored by the target users (Guo et al. [2020;](#page-26-4) Xia et al. [2014b](#page-30-2)). Then, the recommender systems learn the user interests by employing machine learning models. Thus, these systems are able to efectively recommend trending items to the target users according to their preferences. Some recommender systems utilize the content of the original query result to discover highly-related items for the users that may interest them (Naseriparsa et al. [2019a\)](#page-27-9). These systems employ machine learning techniques or statistical measures such as correlation to compute the highly-similar items to those that are visited by the users (Naseriparsa et al. [2019b](#page-28-5)). Another group of content-based recommender systems employs lexical references such as dictionaries to utilize semantic relationships of the user query results to recommend highly semantically-related items to the users that may directly satisfy their information needs (Naseriparsa et al. [2018](#page-27-10); Sun et al. [2017\)](#page-29-6).
-
+**3.1.1.1 Content‑Based Recommender Systems**The content-based recommender systems frst analyze the content features of items (e.g., descriptions, documents). These items are previously scored by the target users (Guo et al. [2020;](#page-26-4) Xia et al. [2014b](#page-30-2)). Then, the recommender systems learn the user interests by employing machine learning models. Thus, these systems are able to efectively recommend trending items to the target users according to their preferences. Some recommender systems utilize the content of the original query result to discover highly-related items for the users that may interest them (Naseriparsa et al. [2019a\)](#page-27-9). These systems employ machine learning techniques or statistical measures such as correlation to compute the highly-similar items to those that are visited by the users (Naseriparsa et al. [2019b](#page-28-5)). Another group of content-based recommender systems employs lexical references such as dictionaries to utilize semantic relationships of the user query results to recommend highly semantically-related items to the users that may directly satisfy their information needs (Naseriparsa et al. [2018](#page-27-10); Sun et al. [2017\)](#page-29-6).
 **3.1.1.2 CF‑Based Recommender Systems** CF-based recommender systems suggest items to the users based on the information of user-item interaction (Chen et al. [2020c](#page-25-8)). CFbased recommender systems infer the user preference by clustering similar users instead of extracting the features of the items (Wang et al. [2019a](#page-29-7)). However, we face data sparsity and cold start problems in traditional CF-based systems. In general, users can only rate a few items among a large number of items, which leads to preventing many items from receiving appropriate feedback. Therefore, the recommender systems do not efectively learn user preferences accurately because of data sparsity (Bai et al. [2019](#page-25-9); Xia et al. [2014a\)](#page-30-3). On the other hand, the cold start problem makes it even more difcult to make recommendations when the items or users are new because there is no historical data or ground truth. Moreover, because abundant user information is required for achieving efective recommenda-
 
 | AI Systems      | Approaches                                                                        | Techniques on knowledge graphs                                                                                                 |
@@ -149,7 +146,7 @@ There are two traditional methods for developing recommender systems, including 
 
 tions, CF-based recommender systems face privacy issues. How to achieve personalized recommendations while protecting the privacy of users is still an unsolved problem.
 
-#### **3.1.2 Knowledge Graph‑Based Recommender Systems**
+#### 3.1.2 Knowledge Graph‑Based Recommender Systems
 
 To address inherent problems of traditional approaches, the community has produced several hybrid recommender systems, which consider both item features and the distribution of user scores. Most of these solutions adopt knowledge graphs for representing and interlinking items (Palumbo et al. [2020](#page-28-6)). Specifcally, Knowledge graph-based recommender systems integrate knowledge graphs as auxiliary information and leverage users and items networks to learn the relationships of items-users, items-items, and users-users (Palumbo et al. [2018\)](#page-28-7).
 
@@ -159,7 +156,7 @@ Recently, a great deal of research has been conducted to utilize knowledge graph
 
 ![](_page_8_Figure_2.jpeg)
 
-<span id="page-8-0"></span>**Fig. 3** An example of knowledge graph-based recommender system
+<span id="page-8-0"></span>**Fig. 3**An example of knowledge graph-based recommender system
 
 recommendations and allows the presentation of the recommended results in a more explainable manner. Wang et al. ([2019c](#page-30-5)) also applied multi-task knowledge graph representation (MKR) for recommendation tasks. MKR models knowledge graphs based on the user-item interaction. It is worth noting that MKR focuses on the structural information of knowledge graphs for learning the latent user-item interaction. Sun et al. ([2020\)](#page-29-0) proposed a Multi-modal Knowledge Graph Attention Network (MKGAT) for achieving precise recommendations. MKGAT constructs knowledge graphs based on two aspects: (1) it enriches entity information by extracting the information of the neighbor entities; (2) it scores the triplets to construct the reasoning relations. Finally, they applied knowledge graphs that are enriched with structured data to recommender systems.
 
@@ -169,11 +166,11 @@ Many studies have utilized ontological knowledge base information to improve ret
 
 Compared with the traditional recommender systems, knowledge graph-based recommender systems have the following advantages:
 
-- *Better Representation of Data:* Generally, the traditional recommender systems suffer from data sparsity issues because users usually have experience with only a small number of items. However, the rich representation of entities and their connections in knowledge graphs alleviate this issue.
-- *Alleviating Cold Start Issues:* It becomes challenging for traditional recommender systems to make recommendations when there are new users or items in the data set. In knowledge graph-based recommender systems, information about new items and users can be obtained through the relations between entities within knowledge graphs. For example, when a new Science-Fiction movie such as "Tenet" is added to the data set of a movie recommender system that employs knowledge graphs, the information about "Tenet" can be gained by its relationship with the genre Science-Fiction (gaining triplet *(Tenet, has genre of, Sci-Fi)*).
+-*Better Representation of Data:*Generally, the traditional recommender systems suffer from data sparsity issues because users usually have experience with only a small number of items. However, the rich representation of entities and their connections in knowledge graphs alleviate this issue.
+-*Alleviating Cold Start Issues:*It becomes challenging for traditional recommender systems to make recommendations when there are new users or items in the data set. In knowledge graph-based recommender systems, information about new items and users can be obtained through the relations between entities within knowledge graphs. For example, when a new Science-Fiction movie such as "Tenet" is added to the data set of a movie recommender system that employs knowledge graphs, the information about "Tenet" can be gained by its relationship with the genre Science-Fiction (gaining triplet*(Tenet, has genre of, Sci-Fi)*).
 - *The Explainability of Recommendation:* Users and the recommended items are connected along with the links in knowledge graphs. Thereby, the reasoning process can be easily illustrated by the propagation of knowledge graphs.
 
-#### **3.2 Question–Answering Systems**
+#### 3.2 Question–Answering Systems
 
 Question answering is one of the most central AI services, which aims to search for the answers to natural language questions by analyzing the semantic meanings (Dimitrakis et al. [2020;](#page-26-9) Das et al. [2022](#page-26-10)). The traditional question-answering systems match the textual questions with the answers in the unstructured text database. In the search process, the semantic relationship between the question and answer is analyzed; then, the system matches the questions and answers with the maximum semantic similarity. Finally, the system outputs the answer. However, the answers are obtained by fltrating massive unstructured data, which deteriorates the efciency of the traditional question-answering systems due to analyzing an enormous search space. To solve this issue, a lot of research focuses on employing structured data for question answering, particularly knowledge graph-based question-answering systems (Singh et al. [2020](#page-29-12); Qiu et al. [2020](#page-28-9)).
 
@@ -181,7 +178,7 @@ The sophisticated representation of information in knowledge graphs is a natural
 
 There are two main types of questions in this space: simple and multi-hop questions, respectively. Simple questions are answered only by referring to a single triplet, while multi-hop questions require combining multiple entities and relations. Focusing on simple questions, Huang et al. [\(2019](#page-26-6)) proposed a knowledge graph embedding-based questionanswering system (KEQA). They translated the question and its corresponding answer into a single triplet. For instance, the question " Which flm acted by Leonardo" and one of its answers "Inception" can be expressed as the following triplet: (*Leonard*, *act*, *Inception*). Then, the head entity, relation, and tail entity of the triplet are represented by a vector matrix in the embedding space for learning the question-answer information. Considering
 
-<span id="page-10-0"></span>**Fig. 4** The illustration of knowledge graph based questionanwsering systems
+<span id="page-10-0"></span>**Fig. 4**The illustration of knowledge graph based questionanwsering systems
 
 ![](_page_10_Figure_3.jpeg)
 
@@ -191,10 +188,10 @@ Bauer et al. ([2018\)](#page-25-10) focused on multi-hop questions and proposed 
 
 Compared to the traditional question answering, the advantages of knowledge graphbased question-answering systems can be summarized as follows:
 
-- *Increased Efciency:* Instead of searching for answers from massive textual data, which may contain a large volume of useless data items, knowledge graph-based questionanswering systems focus only on entities with relevant properties and semantics. Therefore, they reduce the search space signifcantly and extract the answers efectively and efciently.
-- *Multi-hop Question Answering:* The answers can be more complex and sophisticated than the ones produced with traditional methods since facts and concepts from knowledge graphs can be combined via multi-hop question answering.
+-*Increased Efciency:*Instead of searching for answers from massive textual data, which may contain a large volume of useless data items, knowledge graph-based questionanswering systems focus only on entities with relevant properties and semantics. Therefore, they reduce the search space signifcantly and extract the answers efectively and efciently.
+-*Multi-hop Question Answering:*The answers can be more complex and sophisticated than the ones produced with traditional methods since facts and concepts from knowledge graphs can be combined via multi-hop question answering.
 
-#### **3.3 Information Retrieval**
+#### 3.3 Information Retrieval
 
 Information retrieval enables retrieval systems to match end-user queries with relevant documents, such as web pages (Liu et al. [2019](#page-27-12)). Traditional information retrieval systems index the documents according to the user queries and return the matched documents to the users (Hersh [2021](#page-26-11)). Nevertheless, index processing is complex and requires plenty of time because of the massiveness and diversity of documents. As a result, traditional information retrieval faces the challenge of inaccurate search results and potentially low efciency. Also, since search engines have limitations with respect to text interpretation ability, keyword-based text search usually outputs limited results. Thus, to address these problems, many modern search engines take advantage of knowledge graphs (Bounhas et al. [2020](#page-25-1); Zheng et al. [2020\)](#page-31-2). Knowledge graph-based information retrieval introduces a new research direction that takes advantage of knowledge graphs for improving the performance of search engines and the explainability of the results.
 
@@ -204,15 +201,15 @@ Knowledge graphs can also support methods for query expansion, which is able to 
 
 Compared to traditional information retrieval, the knowledge graph-based information retrieval has the following advantages:
 
-- *Semantic Representation of Items:* Items are represented according to a formal and interlinked model that supports semantic similarity, reasoning, and query expansion. This typically allows the system to retrieve more relevant items and makes the system more interpretable.
-- *High Search Efciency:* Knowledge graph-based information retrieval can use the advanced representation of the items to reduce the search space signifcantly (e.g., discarding documents that use the same terms with diferent meanings), resulting in improved efciency.
-- *Accurate Retrieval Results:* In knowledge graph-based information retrieval, the correlation between query and documents is analyzed based on the relations between entities in the knowledge graph. This is more accurate than fnding the similarities between queries and documents.
+-*Semantic Representation of Items:*Items are represented according to a formal and interlinked model that supports semantic similarity, reasoning, and query expansion. This typically allows the system to retrieve more relevant items and makes the system more interpretable.
+-*High Search Efciency:*Knowledge graph-based information retrieval can use the advanced representation of the items to reduce the search space signifcantly (e.g., discarding documents that use the same terms with diferent meanings), resulting in improved efciency.
+-*Accurate Retrieval Results:*In knowledge graph-based information retrieval, the correlation between query and documents is analyzed based on the relations between entities in the knowledge graph. This is more accurate than fnding the similarities between queries and documents.
 
-### <span id="page-12-0"></span>**4 Applications and Potentials**
+### <span id="page-12-0"></span>4 Applications and Potentials
 
 In this section, we discuss the applications and potentials of knowledge graphs in four domains: education, scientifc research, social networks, and health/medical care. Although some researchers try to take advantage of knowledge graphs to develop benefcial applications in other domains such as fnance (Cheng et al. [2022a\)](#page-25-0), the knowledge graph-based intelligent service in these areas is relatively obscure and still needs to be explored. Therefore, this section mainly focuses on education, scientifc research, social networks, and medical care to summarize the opportunities of knowledge graphs. Table [2](#page-13-0) presents several recent applications of knowledge graphs that make contributions to these felds.
 
-#### **4.1 Education**
+#### 4.1 Education
 
 Education is of great importance to the development of human society. Many studies have focused on deploying intelligent applications to improve the quality of education (Bai et al. [2021;](#page-25-11) Wang et al. [2020c](#page-29-13)). Specifcally, in the age of big data, data processing becomes a challenging task because of the complex and unstructured educational data. Thereby, intelligent educational systems tend to apply structured data, such as knowledge graphs. Several knowledge graph-based applications support the educational process, focusing in particular on data processing and knowledge dissemination (Yao et al. [2020\)](#page-30-9).
 
@@ -241,13 +238,13 @@ Ofine school teaching and online learning are two essential parts of education, 
 |                         | COVID-KG(Yuan et al. 2021)                                              | Multimedia knowledge graph construction                                   | Drug discovery                                                  |
 |                         |                                                                         |                                                                           |                                                                 |
 
-### **4.2 Scientifc Research**
+### 4.2 Scientifc Research
 
 A variety of knowledge graphs focus on supporting the scientifc process and assisting researchers in exploring research knowledge and identifying relevant materials (Xia et al. [2016\)](#page-30-13). They typically describe documents (e.g., research articles, patents), actors (e.g., authors, organizations), entities (e.g., topics, tasks, technologies), and other contextual information (e.g., projects, funding) in an interlinked manner. For instance, Microsoft Academic Graph (MAG) (Wang et al. [2020a](#page-29-15)) is a heterogeneous knowledge graph. MAG contains the metadata of more than 248M scientifc publications, including citations, authors, institutions, journals, conferences, and felds of study. The AMiner Graph (Zhang et al. [2018\)](#page-31-3) is the corpus of more than 200M publications generated and used by the AMiner system[1](#page-14-0) . The Open Academic Graph (OAG)[2](#page-14-1) is a massive knowledge graph that integrates Microsoft Academic Graph and AMiner Graph. AceKG (Wang et al. [2018c\)](#page-29-16) is a large-scale knowledge graph that provides 3 billion triples of academic facts about papers, authors, felds of study, venues, and institutes, as well as the relations among them. The Artifcial Intelligence Knowledge Graph (AI-KG) (Dessì et al. [2020\)](#page-26-15) [3](#page-14-2) describes 800K entities (e.g., tasks, methods, materials, metrics) extracted from the 330K most cited articles in the feld of AI. The Academia/Industry Dynamics Knowledge Graph (AIDA KG) (Angioni et al. [2021\)](#page-25-16) [4](#page-14-3) describes 21M publications and 8M patents according to the research topics drawn from the Computer Science Ontology (Salatino et al. [2020](#page-28-12)) and 66 industrial sectors (e.g., automotive, fnancial, energy, electronics).
 
 In addition to constructing academic knowledge graphs, many researchers also take advantage of knowledge graphs to develop various applications benefcial to scientifc research. Chi et al. ([2018\)](#page-25-14) proposed a scientifc publication management model to help nonresearchers learn methods for sustainability from research thinking. They built a knowledge graph-based academic network to manage scientifc entities. The scientifc entities, including researchers, papers, journals, and organizations, are connected regarding their properties. For the convenience of researchers, many scientifc knowledge graph-based recommender systems, including citation recommendation, collaboration recommendation, and reviewer recommendation, are put forward (Shao et al. [2021\)](#page-28-13). For instance, Yong et al. ([2021\)](#page-30-11) designed a knowledge graph-based reviewer assignment system to achieve precise matching of reviewers and papers. Particularly, they matched knowledge graphs and recommendation rules to establish a rule engine for the recommendation process.
 
-#### **4.3 Social Networks**
+#### 4.3 Social Networks
 
 With the rapid growth of social media such as Facebook and Twitter, online social networks have penetrated human life and bring plenty of benefts such as social relationship establishment and convenient information acquisition (Li et al. [2020a;](#page-27-15) Hashemi and Hall [2020\)](#page-26-16). Various social knowledge graphs are modeled and applied to analyze the critical information from the social network. These knowledge graphs are usually constituted based
 
@@ -267,7 +264,7 @@ In addition, people's activities on social media reveal social relationships. Fo
 
 One of the biggest problems in this space is fake news (Zhang et al. [2019a\)](#page-30-16). Online social media has become the principal platform for people to consume news. Therefore, a considerable amount of research has been done for fake news detection (Choi et al. [2020;](#page-25-17) Meel and Vishwakarma [2020](#page-27-16)). Most recently, Mayank et al. [\(2021](#page-27-13)) exploited a knowledge graph-based model called DEAP-FAKED to detect fake news on social media. Specifcally, DEAP-FAKED learns news content and identifes existing entities in the news as the nodes of the knowledge graph. Afterward, a GNN-based technique is applied to encode the entities and detect anomalies that may be linked with fake news.
 
-#### **4.4 Health/Medical Care**
+#### 4.4 Health/Medical Care
 
 With medical information explosively growing, medical knowledge analysis plays an instrumental role in diferent healthcare systems. Therefore, research focuses on integrating medical information into knowledge graphs to empower intelligent systems to understand and process medical knowledge quickly and correctly (Li et al. [2020b](#page-27-7)). Recently, a variety of biomedical knowledge graphs have become available. Therefore, many medical care applications exploit knowledge graphs. For instance, Zhang et al. [\(2020a](#page-31-4)) presented a Health Knowledge Graph Builder (HKGB) to build medical knowledge graphs with clinicians' expertise.
 
@@ -279,25 +276,25 @@ Secondly, although many healthcare platforms aim to provide accurate medical inf
 
 Lastly, drug discovery, such as drug repurposing and drug-drug interaction prediction, has been a research trend for intelligent healthcare in recent years. Benefting from the rich entity information (e.g., the ingredients of a drug) and relationship information (e.g., the interaction of drugs) in medical knowledge graphs, drug discovery based on knowledge graphs is one of the most reliable approaches (MacLean [2021\)](#page-27-18). Lin et al. [\(2020](#page-27-14)) presented an end-to-end framework called KGNN (Knowledge Graph Neural Network) for drug-drug interaction prediction. The main idea of KGNN is to mine the relations between drugs and their potential neighborhoods in medical knowledge graphs. It frst exploits the topological information of each entity; then, it aggregates all the neighborhood information from the local receptive entities to extract both semantic relations and high-order structures. Wang et al. [\(2020e\)](#page-29-18) developed a knowledge discovery framework called COVID-KG to generate COVID-19-related drug repurposing reports. They frst constructed multimedia knowledge graphs by extracting medicine-related entities and their relations from images and texts. Afterward, they utilized the constructed knowledge graphs to generate drug repurposing reports.
 
-### <span id="page-16-0"></span>**5 Technical Challenges**
+### <span id="page-16-0"></span>5 Technical Challenges
 
 Although knowledge graphs ofer fantastic opportunities for various services and applications, many challenges are yet to be addressed (Noy et al. [2019\)](#page-28-14). Specifcally, the limitations of existing knowledge graph technologies are the key challenges for promoting the development of knowledge graphs (Hogan et al. [2021\)](#page-26-0). Therefore, this section discusses the challenges of knowledge graphs in terms of the limitations of fve topical knowledge graph technologies, including knowledge graph embeddings, knowledge acquisition, knowledge graph completion, knowledge fusion, and knowledge reasoning.
 
-# **5.1 Knowledge Graph Embeddings**
+# 5.1 Knowledge Graph Embeddings
 
 The aim of knowledge graph embeddings is to efectively represent knowledge graphs in a low-dimensional vector space while still preserving the semantics (Xia et al. [2021;](#page-30-17) Vashishth et al. [2020](#page-29-19)). Firstly, the entities and relations are embedded into a dense dimensional space in a given knowledge graph, and a scoring function is defned to measure the plausibility of each fact (triplet). Then, the plausibility of the facts is maximized to obtain the entity and relation embeddings (Chaudhri et al. [2022;](#page-25-18) Sun et al. [2022\)](#page-29-20). The representation of knowledge graphs brings various benefts to downstream tasks. The three main types of triplet fact-based knowledge graph embedding approaches are tensor factorization-based, translation-based, and neural network-based methods (Rossi et al. [2021\)](#page-28-15).
 
-## **5.1.1 Tensor Factorization‑Based Methods**
+## 5.1.1 Tensor Factorization‑Based Methods
 
-The core idea of tensor factorization-based methods is transforming the triplets in the knowledge graph into a 3D tensor (Balažević et al. [2019\)](#page-25-19). As Fig [5](#page-21-0) presents, the tensor X ∈ *Rm*<sup>×</sup>*m*×*<sup>n</sup>* , where *m* and *n* indicate the number of entity and relation, respectively, contains *n* slices, and each slice corresponds to one relation type. If the condition X*ijk* = 1 is met, the triplet (*ei* ,*rk*, *ej* ), where *e* and *r* denote entity and relation, respectively, exists in the knowledge graph. Otherwise, if X*ijk* = 0, there is no such a triplet in the knowledge graph. Then, the tensor is represented by the embedding matrices that consist of the vectors of entities and relations.
+The core idea of tensor factorization-based methods is transforming the triplets in the knowledge graph into a 3D tensor (Balažević et al. [2019\)](#page-25-19). As Fig [5](#page-21-0) presents, the tensor X ∈*Rm*<sup>×</sup>*m*×*<sup>n</sup>*, where*m*and*n*indicate the number of entity and relation, respectively, contains*n* slices, and each slice corresponds to one relation type. If the condition X*ijk* = 1 is met, the triplet (*ei* ,*rk*, *ej*), where*e*and*r* denote entity and relation, respectively, exists in the knowledge graph. Otherwise, if X*ijk* = 0, there is no such a triplet in the knowledge graph. Then, the tensor is represented by the embedding matrices that consist of the vectors of entities and relations.
 
-### **5.1.2 Translation‑Based Methods**
+### 5.1.2 Translation‑Based Methods
 
-Translation-based methods exploit the scoring function, which is based on translation invariance. Translation invariance interprets the distance between the vectors of the two words, which is represented by the vector of their semantic relationships (Mikolov et al. [2013](#page-27-19)). Bordes et al. [\(2013\)](#page-25-20) frstly utilized the translation invariance-based scoring functions to measure the embedding results. They creatively proposed the TransE model, which translates all the entities and relations of a knowledge graph into a continuous and low vector space. Specifcally, the vectors of the head and tail entities in a triplet are connected by the vector of their relation. Consequently, in the vector space, the semantic meaning of every triplet is preserved. Formally, given a triplet (*head*, *relation*, *tail*), the embedding vectors of the head entity, relation, and tail entity are **h**, **r**, and **t**, respectively. In the vector space, the plausibility of the triplet (**h**, **r**, **t**) is computed by the translation invariance-based scoring function to ensure it follows the geometric principle: **h** + **r** ≈ **t**.
+Translation-based methods exploit the scoring function, which is based on translation invariance. Translation invariance interprets the distance between the vectors of the two words, which is represented by the vector of their semantic relationships (Mikolov et al. [2013](#page-27-19)). Bordes et al. [\(2013\)](#page-25-20) frstly utilized the translation invariance-based scoring functions to measure the embedding results. They creatively proposed the TransE model, which translates all the entities and relations of a knowledge graph into a continuous and low vector space. Specifcally, the vectors of the head and tail entities in a triplet are connected by the vector of their relation. Consequently, in the vector space, the semantic meaning of every triplet is preserved. Formally, given a triplet (*head*, *relation*, *tail*), the embedding vectors of the head entity, relation, and tail entity are **h**, **r**, and **t**, respectively. In the vector space, the plausibility of the triplet (**h**, **r**, **t**) is computed by the translation invariance-based scoring function to ensure it follows the geometric principle: **h**+**r**≈**t**.
 
 After TransE, a lot of related extensions, such as TransH (Wang et al. [2014](#page-30-18)) and TransR (Lin et al. [2015](#page-27-20)), are continually proposed to improve the performance of the Translationbased knowledge graph embeddings.
 
-### **5.1.3 Neural Network‑Based Methods**
+### 5.1.3 Neural Network‑Based Methods
 
 Nowadays, deep learning has become a popular tool that is utilized for knowledge graph embeddings, and a considerable amount of research proposes to employ neural networks to represent the triplets of knowledge graphs (Dai et al. [2020a\)](#page-25-21). In this section, we discuss three representative works, including SME, ConvKB, and R-GCN, to briefy introduce neural network-based knowledge graph embeddings.
 
@@ -315,15 +312,15 @@ f_r(h,t) = ((\mathbf{W}_{h1}\mathbf{h}) \circ (\mathbf{W}_{h2}\mathbf{r}) + \mat
 $$
  (2)
 
-Here **W** ∈ ℝ*d*×*d* denotes the weight matrix, **b** indicates the bias vector. **h**, **r**, and **t** are the embedding vectors of head entity, relation, and tail entity, respectively.
+Here **W** ∈ ℝ*d*×*d*denotes the weight matrix,**b**indicates the bias vector.**h**, **r**, and **t** are the embedding vectors of head entity, relation, and tail entity, respectively.
 
 ConvKB (Nguyen et al. [2017](#page-28-16)) utilizes a convolutional neural network (CNN) to conduct knowledge graph embeddings. ConvKB represents each triplet (*h*, *r*, *t*) as a three-row matrix **A**, which is input to a convolution layer to obtain feature maps. Afterward, the feature maps are concatenated as a vector, and then a score is calculated to estimate the confdence of the triplet. The scoring function is as follows:
 
 $$
-f_r(h,t) = O(g(\mathbf{A} * \Omega))\mathbf{w},\tag{3}
+f_r(h,t) = O(g(\mathbf{A} *\Omega))\mathbf{w},\tag{3}
 $$
 
-where *O* signifes the concatenation operator, *g*(⋅) is the ReLU activation function, **A** ∗ Ω indicates the convolution operation of matrix **A** by using the flters in the set Ω, **w** ∈ ℝ<sup>3</sup>*d* is a weight vector.
+where*O*signifes the concatenation operator,*g*(⋅) is the ReLU activation function, **A**∗ Ω indicates the convolution operation of matrix**A**by using the flters in the set Ω,**w** ∈ ℝ<sup>3</sup>*d*is a weight vector.
 
 R-GCN (Schlichtkrull et al. [2018](#page-28-17)) is an improvement of graph neural networks (GNNs). R-GCN represents knowledge graphs by providing relation-specifc transformation. Its forward propagation is calculated as follows:
 
@@ -331,9 +328,9 @@ $$
 h_k^{(l+1)} = \sigma \bigg( \sum_{r \in R} \sum_{i \in N_k^r} \frac{1}{n_{k,r}} W_i^{(l)} h_i^{(l)} + W_k^{(l)} h_k^{(l)} \bigg), \tag{4}
 $$
 
-where *h*(*l*+1) *k* is the hidden state of the entity *k* in *l*-th layer, *N<sup>r</sup> k* denotes a neighbor collection of entity *k* and relation *<sup>r</sup>* <sup>∈</sup> *<sup>R</sup>*, *nk*,*r* is the normalization process, *W*(*l*) *i* and *W*(*l*) *<sup>k</sup>* are the weight matrices.
+where*h*(*l*+1) *k*is the hidden state of the entity*k*in*l*-th layer, *N<sup>r</sup> k*denotes a neighbor collection of entity*k*and relation*<sup>r</sup>*<sup>∈</sup>*<sup>R</sup>*, *nk*,*r*is the normalization process,*W*(*l*) *i*and*W*(*l*) *<sup>k</sup>*are the weight matrices.
 
-#### **5.1.4 Limitations of Existing Methods**
+#### 5.1.4 Limitations of Existing Methods
 
 The existing methods for generating knowledge graph embeddings still sufer several severe limitations. Many established methods only consider surface facts (triplets) of knowledge graphs. However, additional information, such as entity types and relation paths, are ignored, which can further improve the embedding accuracy. The performance of most traditional methods that do not consider the additional information is unsatisfactory. Table [3](#page-20-0) lists the embedding methods, which do not consider the additional information. In Table [3](#page-20-0), the performance evaluation is based on the link prediction and triplet classifcation tasks. The metrics that are for evaluation results are hit rate at 10 (Hits@10) and accuracy. As Table [3](#page-20-0) presents, only a few models have impressive results, including the results of QuatE (90%), RMNN (89.9%), and KBGAN (89.2%). Recently, some researchers have started to combine additional information with a knowledge graph to improve the efciency of embedding models. For example, Guo et al. [\(2015](#page-26-18)) take advantage of additional entity type information, which is the semantic category of each entity, to obtain the correlation between the entities and to tackle the data sparsity issue. Therefore, knowledge graphs
 
@@ -343,7 +340,7 @@ General additional information can not adequately represent the semantic meaning
 
 To the best of our knowledge, complex relation path remains an open research problem (Peng et al. [2021\)](#page-28-18). For example, the inherent relations, referring to the indirect relationships between two unconnected entities, are not represented efectively. Although the inherent relations between the entities can be explored based on the chain of relationships in knowledge graphs, the inherent relations are complex and multiple. Therefore, it is not straightforward to represent these relations efectively.
 
-#### **5.2 Knowledge Acquisition**
+#### 5.2 Knowledge Acquisition
 
 Knowledge acquisition is a critical step for combining data from diferent sources and generating new knowledge graphs. The knowledge is extracted from both structured and unstructured data. Three main methods of knowledge acquisition are relation extraction, entity extraction, and attribute extraction (Fu et al. [2019\)](#page-26-19). Here, attribute extraction can be regarded as a special case of entity extraction. Zhang et al. [\(2019b](#page-30-19)) took advantage of knowledge graph embeddings and graph convolution networks to extract long-tail relations. Shi et al. ([2021\)](#page-29-21) proposed entity set expansion to construct large-scale knowledge graphs.
 
@@ -387,17 +384,17 @@ Multi-modal knowledge graph construction is regarded as another challenging issu
 
 symbols, which could result in the poor capability of machines to understand our real world (Zhu et al. [2022b\)](#page-31-6). Therefore, many researchers focus on multi-modal knowledge graphs with various entities, such as texts and images. The construction of multi-modal knowledge graphs requires the exploration of entities with diferent modalities, which makes the knowledge acquisition tasks complicated and inefcient.
 
-#### **5.3 Knowledge Graph Completion**
+#### 5.3 Knowledge Graph Completion
 
 Knowledge graphs are often incomplete, i.e., missing several relevant triplets and entities (Zhang et al. [2020a\)](#page-31-7). For instance, in Freebase, one of the most well-known knowledge graphs, more than half of person entities do not have information about their birthplaces and parents. Generally, semi-automated and human leveraging mechanisms, which can be applied to ensure the quality of knowledge graphs, are essential tools for the evaluation of knowledge graph completion. Specifcally, human supervision is currently considered the gold standard evaluation in knowledge graph completion (Ballandies and Pournaras [2021\)](#page-25-26).
 
-Knowledge graph completion aims to expand existing knowledge graphs by adding new triplets using techniques for link prediction (Wang et al. [2020b](#page-29-25); Akrami et al. [2020](#page-24-1)) and entity prediction (Ji et al. [2021](#page-27-0)). These approaches typically train a machine learning model on a knowledge graph to assess the plausibility of new candidate triplets. Then, they add the candidate triplets with high plausibility to the knowledge graph. For example, for an incomplete triplet *(Tom, friendOf, ?)*, it is possible to assess the range of tails and return the more plausible ones to enrich the knowledge graph. These models successfully utilized knowledge graphs in many diferent domains, including digital libraries (Yao et al. [2017\)](#page-30-22), biomedical (Harnoune et al. [2021](#page-26-23)), social media (Abu-Salih [2021](#page-24-2)), and scientifc research (Nayyeri et al. [2021\)](#page-28-22). Some new methods are able to process fuzzy knowledge graphs in which each triple is associated with a confdence value (Chen et al. [2019\)](#page-25-27).
+Knowledge graph completion aims to expand existing knowledge graphs by adding new triplets using techniques for link prediction (Wang et al. [2020b](#page-29-25); Akrami et al. [2020](#page-24-1)) and entity prediction (Ji et al. [2021](#page-27-0)). These approaches typically train a machine learning model on a knowledge graph to assess the plausibility of new candidate triplets. Then, they add the candidate triplets with high plausibility to the knowledge graph. For example, for an incomplete triplet*(Tom, friendOf, ?)*, it is possible to assess the range of tails and return the more plausible ones to enrich the knowledge graph. These models successfully utilized knowledge graphs in many diferent domains, including digital libraries (Yao et al. [2017\)](#page-30-22), biomedical (Harnoune et al. [2021](#page-26-23)), social media (Abu-Salih [2021](#page-24-2)), and scientifc research (Nayyeri et al. [2021\)](#page-28-22). Some new methods are able to process fuzzy knowledge graphs in which each triple is associated with a confdence value (Chen et al. [2019\)](#page-25-27).
 
-However, most current knowledge graph completion methods only focus on extracting triplets from a closed-world data source. That means the generated triplets are new, but the entities or relations in the triplets need to already exist in the knowledge graph. For example, for the incomplete triplet *(Tom, friendOf, ?)*, predicting the triplet *(Tom, friendOf,*  *Jerry)* is only possible if the entity *Jerry* is already in the knowledge graph. Because of this limitation, these methods cannot add new entities and relations to the knowledge graph. To tackle this issue, we are starting to see the emergence of open-world techniques for knowledge graph completion that extracts potential objects from outside of the existing knowledge bases. For instance, the ConMask model (Shi and Weninger [2018\)](#page-28-23) has been proposed to predict the unseen entities in knowledge graphs. However, methods for open-world knowledge graph completion still sufer from low accuracy. The main reason is that the data source is usually more complex and noisy. In addition, the similarity of the predicted new entities to the existing entities can mislead the results. In other words, two similar entities are regarded as connected entities, while they may not have a direct relationship.
+However, most current knowledge graph completion methods only focus on extracting triplets from a closed-world data source. That means the generated triplets are new, but the entities or relations in the triplets need to already exist in the knowledge graph. For example, for the incomplete triplet *(Tom, friendOf, ?)*, predicting the triplet *(Tom, friendOf,*  *Jerry)*is only possible if the entity*Jerry*is already in the knowledge graph. Because of this limitation, these methods cannot add new entities and relations to the knowledge graph. To tackle this issue, we are starting to see the emergence of open-world techniques for knowledge graph completion that extracts potential objects from outside of the existing knowledge bases. For instance, the ConMask model (Shi and Weninger [2018\)](#page-28-23) has been proposed to predict the unseen entities in knowledge graphs. However, methods for open-world knowledge graph completion still sufer from low accuracy. The main reason is that the data source is usually more complex and noisy. In addition, the similarity of the predicted new entities to the existing entities can mislead the results. In other words, two similar entities are regarded as connected entities, while they may not have a direct relationship.
 
 Knowledge graph completion methods assume knowledge graphs are static and fail to capture the dynamic evolution of knowledge graphs. To obtain accurate facts over time, temporal knowledge graph completion, which considers the temporal information refecting the validity of knowledge, has emerged. Compared to static knowledge graph completion, temporal knowledge graph completion methods integrate timestamps into the learning process. Hence, they explore the time-sensitive facts and improve the link prediction accuracy signifcantly. Although temporal knowledge graph completion methods have shown brilliant performance, they still face serious challenges. Because these models consider time information would be less efcient (Shao et al. [2022](#page-28-24)), the key challenge of temporal knowledge graph completion is how to efectively incorporate timestamps of facts into the learning models and properly capture the temporal dynamics of facts.
 
-#### **5.4 Knowledge Fusion**
+#### 5.4 Knowledge Fusion
 
 Knowledge fusion aims to combine and integrate knowledge from diferent data sources. It is often a necessary step for the generation of knowledge graphs (Nguyen et al. [2020](#page-28-3); Smirnov and Levashova [2019](#page-29-26)). The primary method of knowledge fusion is entity alignment or ontology alignment (Ren et al. [2021](#page-28-25)), which aims to match the same entity from multiple knowledge graphs (Zhao et al. [2020](#page-31-8)). Achieving efcient and accurate knowledge graph fusion is a challenging task because of the complexity, variety, and large volume of data available today.
 
@@ -409,27 +406,25 @@ contextual information. Only a few works have focused on solving this issue. For
 
 In addition, many knowledge fusion methods only focus on matching entities with the same modality and ignore multi-modal scenes in which knowledge is presented in diferent forms. Specifcally, entity alignment considering only single-modality knowledge graph scenario has insignifcant performance because it can not fully refect the relationships of entities in the real world (Cheng et al. [2022b\)](#page-25-28). Recently, to solve this issue, some studies have proposed multi-modal knowledge fusion, which matches the same entities having diferent modalities and generates a multi-modal knowledge graph. For example, HMEA (Guo et al. [2021\)](#page-26-25) aligns entities with multiple forms by mapping multi-modal representations into hyperbolic space. Although many researchers have worked on multi-modal knowledge fusion, it is still a critical task. Multi-modal knowledge fusion mainly aims to fnd equivalent entities by integrating their multi-modal features (Cheng et al. [2022b](#page-25-28)). Nevertheless, how to efciently incorporate the features having multiple modalities is still a tricky issue facing current methods.
 
-#### **5.5 Knowledge Reasoning**
+#### 5.5 Knowledge Reasoning
 
-The goal of knowledge reasoning is to infer new knowledge, such as the implicit relations between two entities (Liu et al. [2021;](#page-27-27) Wang et al. [2019b\)](#page-30-4), based on existing data. For a given knowledge graph, wherein there are two unconnected entities *h* and *t*, denoted as *h*, *t* ∈ *G*, here *G* means the knowledge graph, knowledge reasoning can fnd out the potential relation *r* between these entities and form a new triplet (*h*, *r*, *t*). The knowledge reasoning methods are mainly categorized into logic rule-based (De Meester et al. [2021\)](#page-26-26), distributed representation-based (Chen et al. [2020b](#page-25-6)), and neural network-based methods (Xiong et al. [2017](#page-30-24)). Logic rule-based knowledge reasoning aims to discover knowledge according to the random walk and logic rules, while distributed representation-based knowledge reasoning embeds entities and relations into a vector space to obtain distributed representation (Chen et al. [2020b](#page-25-6)). Neural network-based knowledge reasoning method utilizes neural networks to infer new triplets given the body of knowledge in the graph (Xian et al. [2019](#page-30-25)).
+The goal of knowledge reasoning is to infer new knowledge, such as the implicit relations between two entities (Liu et al. [2021;](#page-27-27) Wang et al. [2019b\)](#page-30-4), based on existing data. For a given knowledge graph, wherein there are two unconnected entities*h*and*t*, denoted as *h*, *t*∈*G*, here *G*means the knowledge graph, knowledge reasoning can fnd out the potential relation*r* between these entities and form a new triplet (*h*, *r*, *t*). The knowledge reasoning methods are mainly categorized into logic rule-based (De Meester et al. [2021\)](#page-26-26), distributed representation-based (Chen et al. [2020b](#page-25-6)), and neural network-based methods (Xiong et al. [2017](#page-30-24)). Logic rule-based knowledge reasoning aims to discover knowledge according to the random walk and logic rules, while distributed representation-based knowledge reasoning embeds entities and relations into a vector space to obtain distributed representation (Chen et al. [2020b](#page-25-6)). Neural network-based knowledge reasoning method utilizes neural networks to infer new triplets given the body of knowledge in the graph (Xian et al. [2019](#page-30-25)).
 
 There are two tasks in knowledge reasoning: single-hop prediction and multi-hop reasoning (Ren et al. [2022\)](#page-28-26). Single-hop prediction predicts one element of a triplet for the given two elements, while multi-hop reasoning predicts one or more elements in a multihop logical query. In other words, in the multi-hop reasoning scenario, fnding the answer to a typical question and forming new triplets requires the prediction and imputation of multiple edges and nodes. Multi-hop reasoning achieves a more precise formation of triplets when compared with the single-hop prediction. Therefore, multi-hop reasoning has attracted more attention and become a critical need for the development of knowledge graphs in recent years. Although many works have been done, multi-hop reasoning over knowledge graphs remains largely unexplored. Notably, multi-hop reasoning on massive knowledge graphs is one of the challenging tasks (Zhu et al. [2022\)](#page-31-10). For instance, most recent studies focus on multi-hop reasoning over knowledge graphs, which have only 63K entities and 592K relations. The existing models can't learn the training set efectively for a massive knowledge graph that has more than millions of entities. Moreover, multi-hop reasoning needs to traverse multiple relations and intermediate entities in the knowledge graph, which could lead to exponential computation cost (Zhang et al. [2021\)](#page-31-11). Therefore, it is still a daunting task to explore multi-hop knowledge reasoning.
 
 Besides, the verifcation of inferred new knowledge is also a critical issue. Knowledge reasoning enriches existing knowledge graphs and brings benefts to the downstream tasks (Wan et al. [2021\)](#page-30-26). However, the inferred new knowledge is sometimes uncertain, and the veracity of new triplets needs to be verifed. Furthermore, the conficts between new and existing knowledge should be detected. To address these problems, some research has proposed multi-source knowledge reasoning (Zhao et al. [2020](#page-31-8)) that detects erroneous knowledge and conficting knowledge. Overall, more attention should be paid to multi-source knowledge reasoning and erroneous knowledge reduction.
 
-### <span id="page-24-0"></span>**6 Conclusions**
+### <span id="page-24-0"></span>6 Conclusions
 
 Knowledge graphs have played an instrumental role in creating many intelligent services and applications for various felds. In this survey, we provided an overview of knowledge graphs in terms of opportunities and challenges. We frst introduced the defnitions and existing research directions regarding knowledge graphs to provide an introductory analysis of knowledge graphs. Afterward, we discussed AI systems that take advantage of knowledge graphs. Then, we presented some representative knowledge graph applications in several felds. Furthermore, we analyzed the limitations of current knowledge graph technologies, which lead to severe technical challenges. We expect this survey to spark new ideas and insightful perspectives for future research and development activities involving knowledge graphs.
 
-**Funding** Open Access funding enabled and organized by CAUL and its Member Institutions.
+**Funding**Open Access funding enabled and organized by CAUL and its Member Institutions.
 
-### **Declarations**
+### Declarations
+**Confict of interest**The authors declare that they have no competing fnancial interests or personal relationships that could have appeared to infuence the work reported in this paper.
+**Open Access**This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativecommons.org/licenses/by/4.0/.](http://creativecommons.org/licenses/by/4.0/)
 
-**Confict of interest** The authors declare that they have no competing fnancial interests or personal relationships that could have appeared to infuence the work reported in this paper.
-
-**Open Access** This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativecommons.org/licenses/by/4.0/.](http://creativecommons.org/licenses/by/4.0/)
-
-## **References**
+## References
 
 <span id="page-24-2"></span><span id="page-24-1"></span>Abu-Salih B (2021) Domain-specifc knowledge graphs: a survey. J Netw Comput Appl 185(103):076 Akrami F, Saeef MS, Zhang Q et al (2020) Realistic re-evaluation of knowledge graph completion methods: an experimental study. In: Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data, pp 1995–2010
 
@@ -616,5 +611,4 @@ Knowledge graphs have played an instrumental role in creating many intelligent s
 - <span id="page-31-9"></span>Zhu G, Iglesias CA (2018) Exploiting semantic similarity for named entity disambiguation in knowledge graphs. Expert Syst Appl 101:8–24
 - <span id="page-31-6"></span>Zhu X, Li Z, Wang X et al (2022b) Multi-modal knowledge graph construction and application: a survey. arXiv preprint [arXiv:2202.05786](http://arxiv.org/abs/2202.05786)
 - <span id="page-31-0"></span>Zou X (2020) A survey on application of knowledge graph. J Phys Conf Ser 1487(012):016
-
 **Publisher's Note** Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afliations.

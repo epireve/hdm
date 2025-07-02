@@ -1,3 +1,5 @@
+<!-- cite_key: yan2024 -->
+
 # Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation
 
 [Bo Yan](https://orcid.org/0000-0003-1750-3803) Beijing University of Posts and Telecommunications Beijing, China boyan@bupt.edu.cn
@@ -24,7 +26,7 @@ WWW '24, May 13–17, 2024, Singapore, Singapore
 
 • Security and privacy → Privacy-preserving protocols; • Information systems → Social recommendation.
 
-#### KEYWORDS
+### KEYWORDS
 
 federated recommendation, heterogeneous information network, privacy-preserving, differential privacy
 
@@ -70,13 +72,13 @@ Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendati
 
 In this paper, we conduct HIN-based FedRec for implicit feedback. Let and denote the user set and item set. We give the related concepts as follows.
 
-#### 2.1 Heterogeneous Information Network
+#### 1 Heterogeneous Information Network
 
 Definition 2.1. Heterogeneous Information Network (HIN) [\[34\]](#page-8-28). A HIN = ( , ) consists of an object set and a link set . It is also associated with an object type mapping function : → A and a link type mapping function : → R. A and R are the predefined sets of object and link types, where |A| + |R| > 2.
 
 Definition 2.2. Meta-path. Given a HIN with object types A and link types R, a meta-path can be denoted as a path in the form of <sup>1</sup> 1 −−→ 2 2 −−→ · · · −−→ +<sup>1</sup> , where ∈ A and ∈ R. Meta-path describes a composite relation = <sup>1</sup> ◦<sup>2</sup> ◦ ... ◦ between object <sup>1</sup> and +<sup>1</sup> , where ◦ denotes the composition operator on relations. Then given a node and a meta-path , the meta-path based neighbors N of are the nodes connecting with via the meta-path . In a HIN, the rich semantics between two objects can be captured by multiple meta-paths.
 
-#### 2.2 Privacy Definition
+#### 2 Privacy Definition
 
 Definition 2.3. Private HIN. A private HIN = (, ) is defined as a subgraph of . It is associated with an object type mapping function : → A and a link type mapping function : → R , where R ⊂ R is the set of private link types. A user-level private HIN contains a user ∈ and its interacted item set ⊂ . The link set exists between and denoting personally private interactions.
 
@@ -94,7 +96,7 @@ Definition 2.6. -Semantic Guided Interaction Privacy. Given a semantic guided ad
 
  is called the privacy budget that controls the strength of privacy protection. It is obvious that if a perturbation algorithm satisfies these definitions, the attacker is hard to distinguish the user's highorder pattern as well as the true interacted items.
 
-#### 2.3 Task Formulation
+#### 3 Task Formulation
 
 Based on the above preliminaries, we define our task as follows:
 
@@ -104,7 +106,7 @@ Definition 2.7. HIN-based FedRec. Given user-level private HINs G = { 1 ,<sup>2<
 
 In this section, we give a detailed introduction to the proposed model FedHGNN. We first give an overview of FedHGNN. Then we present two main modules of FedHGNN, the semantic-preserving user-item interaction publishing and heterogeneous graph neural networks (HGNN) for recommendation. Finally, we give a privacy analysis of the proposed publishing process.
 
-#### 3.1 Overview of FedHGNN
+#### 1 Overview of FedHGNN
 
 Different from existing FedRec systems that only utilize user-item interactions, FedHGNN also incorporates HINs into user and item modeling, which can largely alleviate the cold-start issue caused by data sparsity. Besides, as a core component of FedHGNN, the semantic-preserving user-item publishing mechanism recovers semantics with rigorous privacy guarantees, which can be applied to all meta-path based FedRec systems technically. We present the overall framework of FedHGNN in Figure [2.](#page-3-0) As can be seen, it mainly includes two steps, i.e., user-item interaction publishing and HGNN-based federated training. At the user-item interaction publishing step, each client perturbs local interactions using our two-stage perturbation mechanism and then uploads the perturbed results to the server. After the server receives local interactions from all clients, it can form an integral perturbed HIN, which is then distributed to each client to recover the meta-path based semantics. Note that the publishing step is only conducted once in the whole federated training process. At the federated training step, clients collaboratively train a global recommendation model based on recovered neighbors, which performs node-level neighbor aggregations followed by semantic-level aggregations. Then a ranking loss is adapted to optimize embedding and model parameters. At
 
@@ -114,7 +116,7 @@ Figure 2: The overall framework of FedHGNN
 
 each communication round, each participating client locally trains the model and uploads the embedding and model gradients to the server for aggregations. To further protect privacy when uploading gradients, we apply local differential privacy (LDP) to the uploaded gradients. Besides, following previous work [\[22,](#page-8-24) [39\]](#page-8-26), we also utilize pseudo interacted items during local training.
 
-# 3.2 Semantic-preserving User-item Interactions Publishing
+# 2 Semantic-preserving User-item Interactions Publishing
 
 To recover the semantics of the centralized HIN (obtaining the meta-path based neighbors), directly uploading the adjacency list to the server can not satisfy the privacy definition because the user-item interactions are exposed. To address this, we first present a naive solution based on random response (RR) [\[6\]](#page-8-27) and illustrate its defects of direct applications to our task. Then we give detailed introductions of our proposed two-stage perturbation mechanism for user-item interaction publishing. As depicted in Figure [3,](#page-3-1) it first perturbs the user-related shared HINs and then perturbs the user-item interactions within selected shared HINs, which not only achieves semantic-preserving but also satisfies the defined privacy. Random response (RR). As many homogeneous graph metrics publishing [\[11,](#page-8-29) [27,](#page-8-30) [35,](#page-8-31) [43\]](#page-8-32), a straw-man approach is directly utilizing RR [\[6\]](#page-8-27) to perturb each user's adjacency list , i.e., the user flips each bit of with probability = 1 1+ . However, this naive strategy faces both privacy and utility limitations. For privacy, although it satisfies the -semantic guided interaction privacy, it can not achieve our -semantic privacy goal. As for utility, it has been theoretically proved that RR would make a graph denser [\[27\]](#page-8-30). Unfortunately, there exists perturbation enlargement phenomenon [\[48\]](#page-8-33) in the HGNNs, i.e., introducing more edges may harm the HGNN's performance, which is also confirmed in our latter experiments. Besides, RR fails to accommodate the semantic-preserving since it perturbs all bits of . We can only perturb the semantic guided item set to preserve semantics but this will expose the user's
 
@@ -130,8 +132,8 @@ User-related shared HIN perturbation. Based on the above analysis, we propose a 
 $$
 q(g, u, G_s) = sim(G_s, G_s^u)
 $$
-  
-= 
+
+=
 $$
 \max_{G'_s \in G_s^u} \left\{ \frac{1}{2} (cos(e_{G_s}, e_{G'_s}) + 1) \right\},
 $$
@@ -155,7 +157,7 @@ The above selection process is repeated |G | times without replacement to ensure
 
 User-item interaction perturbation. After obtaining the perturbed ˜ (w.r.t. <sup>G</sup>˜ ), we can extract a semantic guided item set . The user-item interaction perturbation is conducted within the rather than the whole item set. Since our -semantic guided interaction privacy is defined within the , ignoring the items outside of has no effect on privacy guarantees. Besides, it also avoids introducing more irrelevant items and reduces the communication cost. In light of the user-related shared HIN having been perturbed in the first stage, we can directly apply RR to perturb . However, in HIN-based recommendations, the size of is still large due to the relatively small number of shared HINs, thus introducing more irrelevant items.
 
-Inspired by [\[11\]](#page-8-29), we propose a user-item interaction perturbation mechanism, which performs degree-preserving RR (DPRR) [\[11\]](#page-8-29) on each of semantic guided item set. Specifically, given user and G˜ , we can split semantic guided item set into |G˜ | subsets. For each subset , we use a adjacency list = ( 1 , . . . , | | ) ∈ | 
+Inspired by [\[11\]](#page-8-29), we propose a user-item interaction perturbation mechanism, which performs degree-preserving RR (DPRR) [\[11\]](#page-8-29) on each of semantic guided item set. Specifically, given user and G˜ , we can split semantic guided item set into |G˜ | subsets. For each subset , we use a adjacency list = ( 1 , . . . , | | ) ∈ |
 
 {0, 1} to denote the user-item interactions. DPRR perturbs each bit of by first applying RR and then with probability to keep a result of 1 (a user-item interaction) unchanged. Thus the probability of each bit being perturbed to 1 is:
 
@@ -174,7 +176,7 @@ $$
 
 In practice, the will be further clipped to [0, 1] to form probability. Note that the subset may not contain user-item interactions due to the perturbation on the shared HINs, in which case =0. That is, we abandon a part of the interacted items, leading to semantic losses. Instead of that, we randomly select some items within so that the total degree is equal to the true degree . We argue that in this way the semantics of user-item interactions are preserved in light of our shared HIN selection mechanism.
 
-# 3.3 Heterogeneous Graph Neural Networks for Recommendation
+# 3 Heterogeneous Graph Neural Networks for Recommendation
 
 Given a recovered meta-path, our HGNN first utilizes node-level attention to learn the weights of different neighbors under the meta-path. Then the weighted aggregated embeddings are fed into a semantic-level attention to aggregate embeddings under different meta-paths. Following this process, we give an illustration of obtaining user embeddings, and item embeddings are the same.
 
@@ -213,7 +215,7 @@ $$
 
 where is the positive items set and ∉ is the negative item which is uniformly sampled.
 
-#### 3.4 Privacy Analysis
+## 4 Privacy Analysis
 
 In this section, we give an analysis of our proposed semanticpreserving user-item interactions publishing, which satisfies both 1-semantic privacy and 2-semantic guided interaction privacy.
 
@@ -256,9 +258,9 @@ $$
 
 The subsequent flipping operation can be viewed as post-processing on the ˜ , thus the whole perturbation also achieving 2-semantic guided interaction privacy. □
 
-#### 4 EXPERIMENTS
+### 4 EXPERIMENTS
 
-#### 4.1 Experimental Setup
+#### 1 Experimental Setup
 
 Datasets. We employ four real HIN datasets, including two academic datasets (ACM and DBLP) and two E-commerce datasets (Yelp and Douban Book), where the basic information is summarized in
 
@@ -277,7 +279,7 @@ Baselines. Following [\[39\]](#page-8-26), we compare FedHGNN with two kinds of 
 
 Implementation Details. For all the baselines, the node features are randomly initialized and the hidden dimension is set to 64. We tune other hyper-parameters to report the best performance. We keep the available heterogeneous information (e.g., meta-paths) the same for all HIN-based methods. We modify the loss function to be the BPR loss as the same with ours. In FedHGNN, the learning rate is set as 0.01, <sup>1</sup> and <sup>2</sup> are all set as 1. For each dataset, we first perform item clustering based on shared knowledge so that each item only belongs to one shared HIN. The number of shared HIN (number of clustering) is set as 20 for all datasets. The batch size (the number of participated clients in each round) is set as 32. For LDP and pseudo-interacted items, we set the hyper-parameters as the same with [\[22\]](#page-8-24). Following [\[24\]](#page-8-25), we apply the leave-one-out strategy for evaluation and use HR@K and NDCG@K as metrics. We will also provide an implementation based on GammaGL [\[21\]](#page-8-40).
 
-#### 4.2 Overall Performance
+#### 2 Overall Performance
 
 Table [2](#page-6-0) shows the overall results of all baselines on four datasets. The following findings entail from Table [2:](#page-6-0) (1) FedHGNN outperforms all the FedRec models by a big margin (up to 34% in HR@10 and 42% in NDCG@10), which demonstrates the effectiveness of our model. Surprisingly, FedHGNN also outperforms several centralized models (notably non-HIN based methods, e.g., NGCF), indicating the significance of utilizing rich semantics of HIN in FedRec. We also assume the perturbation can be seen as an effective data augmentation to alleviate cold-start issues. Since we find the interactions of some inactive users slightly increase after perturbation. (2) Among centralized baselines, HIN-based methods perform better, especially on sparse datasets (e.g., DBLP), owing to introducing
 
@@ -312,7 +314,7 @@ To have an in-depth analysis of our two-stage perturbation mechanism, we conduct
 
 From the table, we have several findings: (1) The performance of FedHGNN is even superior to the model without perturbation in ACM and DBLP, and removing the first-stage perturbation (+SDPRR) can achieve better results. In contrast, +DPRR obtains worse results, indicating that the main factor for improving the FedHGNN is the DPRR on each semantic guided adjacency list. Considering the relatively sparse datasets and a slight increment of some inactive user's interactions after the SDPRR, we conclude that SDPRR has the ability to tackle data sparsity in recommendations since it augments data in a semantic-preserving manner meanwhile keeping data diversity. (2) Pure RR and DPRR perform poorly since they perturb user-item interactions randomly without considering semantic preserving. Pure RR performs even worse due to it making a graph denser and causing perturbation enlargements [\[48\]](#page-8-33). DPRR preserves degrees but fails to preserve user-item interaction patterns. Thus we can draw a conclusion that semantic-preserving requires both degree-preserving and feature-preserving. Perturbation within the semantic guided item set (+SRR and +SDPRR) performs much better, which further verifies our conclusion. (3) Adding first-stage perturbation will harm the performance but is necessary, otherwise we can't protect the user's high-order patterns. Thanks to our designed similarity-based EM, the user's high-order patterns are maximum preserved and the performance has not decreased dramatically. Note that FedHGNN also outperforms +ESDPRR<sup>∗</sup> , indicating we should keep the diversity of user-item interactions after EM, i.e., the interacted items should exist in each selected shared HIN.
 
-#### 4.4 Parameter Analysis
+#### 4 Parameter Analysis
 
 In this section, we investigate the impacts of some significant parameters in FedHGNN, including the number of shared HINs, as well as the privacy budgets 1 and 2.
 
@@ -517,6 +519,6 @@ Since we only perturb edges (user-item interactions), the number of nodes is unc
 | Yelp        | 11187   | 11                | 0.001      |
 | Douban Book | 17083   | 150               | 0.009      |
 
-#### E CONVERGENCE ANALYSIS
+## E CONVERGENCE ANALYSIS
 
 Following [\[2\]](#page-8-52), we give convergence analysis in Figure [6,](#page-10-3) which shows the convergence plots of different FedRec models in ACM and Douban Book datasets. We visualize HR@10 on different communication rounds. It can be observed that our FedHGNN converges rapidly with better results, and we conjecture that by utilizing the recovered semantics, FedHGNN can rapidly capture the user-item interaction patterns. Also, the communication cost of each round of FedHGNN is moderate compared to baselines. Therefore, although some baselines achieve faster convergence (e.g., FedMF and SemiDFEGL), considering the relatively large improvements in performance, it's acceptable of the trade-off between communication cost and utility in FedHGNN.

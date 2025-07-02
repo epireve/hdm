@@ -1,3 +1,5 @@
+<!-- cite_key: sowiski2020 -->
+
 # Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future
 
 Piotr Sowiński 1 ,2[0000 −0002 −2543 <sup>−</sup>9461], Ignacio Lacalle3[0000 −0002 −6002 −4050] , Rafael Vaño3[0000 −0003 −2372 <sup>−</sup>6253], Carlos E. Palau3[0000 −0002 −3795 <sup>−</sup>5404], Maria Ganzha 1 ,2[0000 −0001 −7714 <sup>−</sup>4844], and Marcin Paprzycki2[0000 −0002 −8069 −2152]
@@ -60,7 +62,7 @@ Despite these recent advances, it should be stressed that at this time, the WebA
 
 In the guiding example, it can be stipulated that the company would use Wasm to build a universal module that can work on any platform. Interfacing with the network and the machine learning accelerators would be done via WASI. Client-specific code would be implemented and composed with the Wasm Component Model. The complete deployment would be then orchestrated via wasmCloud. However, WebAssembly by itself does not solve all challenges. Additionally, a new SE methodology and toolset would be needed to adapt the company's processes. Let us look into these issues in more detail in the following subsections.
 
-## 2.2 Software Engineering Process Acceleration and Automation
+## 2 Software Engineering Process Acceleration and Automation
 
 Accelerating software development and maintenance has been the focus of software engineering for decades [\[54,](#page-19-5)[47\]](#page-18-4). Although much was achieved in terms of methodologies, tools, and industry practices, the constantly increasing complexity of software processes still requires more innovation. Inefficient processes can be found across the entire software lifecycle, with frequent miscommunication, lack of traceability, and monolithic changes that are hard to manage. For example, in requirements analysis, miscommunication between the stakeholders and the technical teams is common. In the code writing phase, the teams often lack precise information on what to implement and what the user really needs. Meanwhile, in code maintenance, it is hard to avoid regressions due to partial or poorly understood bug fixes, or cascading dependencies that make on-the-fly modifications very challenging (if not impossible) to automate.
 
@@ -80,7 +82,7 @@ autonomous coding agents [\[71\]](#page-20-5), they rely heavily on black-box, u
 
 In the guiding example, the fall detection application will get more complex over time, making it increasingly difficult to maintain. For each new platform, introducing additional CI/CD configuration will be required. It would also be very challenging (or impossible) to automate adaptations to changing client requirements, or to automate security vulnerability patching (which is one of the most important forms of necessary software maintenance).
 
-## 2.3 Software Modeling
+## 3 Software Modeling
 
 The increasing complexity and dynamicity of modern software pose a major challenge for software vendors. Nowadays, applications are composed of hundreds of software modules and libraries. As such, modeling the intricate web of implemented features, requirements, code, and dependencies is a slow and laborious task. At the same time, the application as a whole must evolve rapidly, to make sure that the ever-shifting demands of the stakeholders are met, and to stay relevant in the very competitive market. Not being able to efficiently manage this growing complexity can lead to wasted resources (e.g., developer time, electricity), security issues, bloated applications, or delays in integrating software components. Conversely, an accurate, representative model of the application and its requirements could drastically accelerate development and maintenance, and serve as a reliable ground truth for both the developers and the automated tools.
 
@@ -126,7 +128,7 @@ Dynamicity and complexity are a major technical challenge, with performance bein
 
 An initial assessment of ontologies that could potentially be used as part of the WT meta-model, points to: SBSON (dependency management) [\[17\]](#page-17-11), ontologies developed in the MOST project (Software Engineering) [\[48\]](#page-18-9), the Software Description Ontology [\[22\]](#page-17-12), or ontologies developed in the Software Process Deployment and Evaluation Framework project [\[59\]](#page-19-13). Not only strictly softwarerelated ontologies are relevant here, though. Ontologies dedicated to, for example, tracking energy use, environmental footprint, work management, and more could be integrated into the WebAssembly Twin, depending on the specific use cases. In the guiding example, for example, it would be useful to include an ontology of workplace safety such as OSHDO-Core [\[35\]](#page-18-15), to represent regulatory and client requirements. Moreover, as noted earlier, standardized ontologies related to IoT and sensor networks, such as SOSA/SSN [\[51\]](#page-19-9) or SAREF [\[21\]](#page-17-13) are likely to be used.
 
-#### <span id="page-12-0"></span>3.2 Modular Pluggable Connectors
+### <span id="page-12-0"></span>3.2 Modular Pluggable Connectors
 
 Current software engineering practices involve the use of many diverse tools and processes, such as IDEs, CI/CD systems, code repositories, design tools, and methodologies (DevOps/DevSecOps). These solutions are of tremendous, proven value and must be exploited effectively in the proposed approach. This is done with the Modular Pluggable Connectors – a set of composable functionality blocks. MPCs, built upon a shared open specification and API, flexibly cover the needs of modifying and reading the WT, interfacing with the aforementioned existing SE tools, and interacting with the user (see Figure [3](#page-13-1) for more specific examples).
 

@@ -1,6 +1,8 @@
+<!-- cite_key: zhangsupsup2023 -->
+
 EDITED BY Tjalf Ziemssen, University Hospital Carl Gustav Carus, Germany
 
-#### REVIEWED BY
+# REVIEWED BY
 
 Paraskevi Papadopoulou, American College of Greece, Greece Karthik Seetharam, West Virginia State University, United States
 
@@ -8,11 +10,11 @@ Paraskevi Papadopoulou, American College of Greece, Greece Karthik Seetharam, We
 
 RECEIVED 09 November 2023 ACCEPTED 15 January 2024 PUBLISHED 26 January 2024
 
-#### CITATION
+## CITATION
 
 Zhang Y, Qin G, Aguilar B, Rappaport N, Yurkovich JT, Pflieger L, Huang S, Hood L and Shmulevich I (2024) A framework towards digital twins for type 2 diabetes. Front. Digit. Health 6:1336050. doi: [10.3389/fdgth.2024.1336050](https://doi.org/10.3389/fdgth.2024.1336050)
 
-#### COPYRIGHT
+### COPYRIGHT
 
 © 2024 Zhang, Qin, Aguilar, Rappaport, Yurkovich, Pflieger, Huang, Hood and Shmulevich. This is an open-access article distributed under the terms of the [Creative](http://creativecommons.org/licenses/by/4.0/) [Commons Attribution License \(CC BY\). The](http://creativecommons.org/licenses/by/4.0/) [use, distribution or reproduction in other](http://creativecommons.org/licenses/by/4.0/) [forums is permitted, provided the original](http://creativecommons.org/licenses/by/4.0/) [author\(s\) and the copyright owner\(s\) are](http://creativecommons.org/licenses/by/4.0/) [credited and that the original publication in](http://creativecommons.org/licenses/by/4.0/) [this journal is cited, in accordance with](http://creativecommons.org/licenses/by/4.0/) [accepted academic practice. No use,](http://creativecommons.org/licenses/by/4.0/) [distribution or reproduction is permitted](http://creativecommons.org/licenses/by/4.0/) [which does not comply with these terms.](http://creativecommons.org/licenses/by/4.0/)
 
@@ -28,7 +30,7 @@ Methods: Here, we introduce a digital twin framework for type 2 diabetes (T2D) t
 
 Results and discussion: Our findings not only reaffirm known targetable disease components but also spotlight novel ones, unveiled through this integrated approach. The versatile components presented in this study can be incorporated into a digital twin system, enhancing our grasp of diseases and propelling the advancement of precision medicine.
 
-#### KEYWORDS
+## KEYWORDS
 
 digital twin, type 2 diabetes, knowledge graph, machine learning, precision medicine
 
@@ -46,7 +48,7 @@ Here, we introduce a framework for a T2D DT designed to continuously monitor pat
 
 ### 2 Materials and methods
 
-#### 2.1 Dataset description and processing
+#### 1 Dataset description and processing
 
 In this study we used the Arivale dataset, described in detail in ([14](#page-8-0), [15](#page-8-0)). Briefly, the Arivale dataset includes longitudinal data from ∼5,000 deeply phenotyped individuals undergoing a wellness program. These data include comprehensive self-reported data coupled with multiomic data (proteomics, metabolomics, clinical labs). The process of collecting multiomic and clinical data in Arivale has been described in the existing literature ([15](#page-8-0)).
 
@@ -70,7 +72,7 @@ TABLE 1 Table of sample characteristics. This table shows descriptive statistics
 
 remaining proteomic or clinical features. Imputation with missforest ([18\)](#page-8-0) (implemented in the python missingpy package) was performed to fill in missing values for the remaining metabolomic features. Subjects with values for clinical variables above certain thresholds (HbA1c>12, glucose >200, insulin >60) were removed. In total, this resulted in 1,131 subjects with data at 6 months, of which 639 had results at 1 year.
 
-### 2.2 Machine learning models
+### 2 Machine learning models
 
 An important component of a digital twin system is the implementation of predictive models that, given current and historical data, predicts the system's future state. To implement this aspect of the digital twin, we constructed machine learning models to predict the changes in T2D-related clinical outcome variables using clinical and multiomic data.
 
@@ -86,7 +88,7 @@ convert this into a classification problem, we designed a binary classification 
 
 We tested a variety of machine learning models for these tasks, including various linear models as well as nonlinear models for regression and classification such as random forests and support vector machines. All of the regression models and classification models are shown in [Supplementary Table 4](#page-8-0).
 
-### 2.3 Graph analysis
+### 3 Graph analysis
 
 Considering the importance of interpretability in healthcare digital twins and the ability to select highly predictive features based on regression model weights, we aimed to discern the relationships among these highly weighted features and their connection to the disease processes in T2D and CKD. To <span id="page-4-0"></span>TABLE 2 Description of the feature sets used in predicting clinical trajectories. All feature sets include the baseline feature as one of the variables.
 
@@ -106,7 +108,7 @@ In our knowledge graph analyses, we applied Steiner tree approximation [\(20\)](
 
 ### 3 Results
 
-### 3.1 Predicting clinical trajectories
+### 1 Predicting clinical trajectories
 
 As described in the Methods section, we trained various classification and regression machine learning models to predict the clinical trajectory of T2D-related variables. Results and metrics for all of the tasks are shown in [Supplementary Table 2.](#page-8-0) Comparing the results across different models, we found that LassoCV models for regression and L1-regularized logistic regression models for classification tended to give the best predictions. In most cases, treating the prediction as a binary classification problem led to performance results that had lower variance across the cross-validation runs, especially at 1 year, and a clearer differentiation in the performance between the different feature sets.
 
@@ -133,7 +135,7 @@ TABLE 3 Table of changes in the clinical variables at 6 months and 1 year. The "
 
 <span id="page-5-0"></span>clinical variables often fluctuate. However, despite the noise, significant predictions of short-term changes were possible with clinical, proteomic, and metabolomic data.
 
-### 3.2 Exploring predictive models using knowledge graphs
+### 2 Exploring predictive models using knowledge graphs
 
 While predictive models are one key component of a digital twin, another key component is the interpretability of the predictions. The linear models we used provide weights for all features, and the highest-weighted features for the dHbA1c and deGFR (delta-HbA1c and delta-eGFR) 6-month predictors are shown in Supplementary [Figures 1,](#page-2-0)[2](#page-3-0). However, in a highdimensional multiomic setting, it might be difficult to understand the significance of individual features. Leveraging the knowledge graph's rich connections might aid us in understanding.
 

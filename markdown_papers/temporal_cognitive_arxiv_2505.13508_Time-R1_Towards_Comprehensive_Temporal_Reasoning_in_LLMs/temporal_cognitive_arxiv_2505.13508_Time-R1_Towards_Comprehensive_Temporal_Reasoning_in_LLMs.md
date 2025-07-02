@@ -1,12 +1,14 @@
+<!-- cite_key: penalties2016 -->
+
 # Time-R1: Towards Comprehensive Temporal Reasoning in LLMs
 
-### Zijia Liu, Peixuan Han, Haofei Yu, Haoru Li, Jiaxuan You
+## Zijia Liu, Peixuan Han, Haofei Yu, Haoru Li, Jiaxuan You
 
 Siebel School of Computing and Data Science, University of Illinois at Urbana-Champaign {zliu331,jiaxuan}@illinois.edu
 
 # Abstract
 
-Large Language Models (LLMs) demonstrate impressive capabilities but lack robust temporal intelligence, struggling to integrate reasoning about the past with predictions and plausible generations of the future. Meanwhile, existing methods typically target isolated temporal skills, such as question answering about past events or basic forecasting, and exhibit poor generalization, particularly when dealing with events beyond their knowledge cutoff or requiring creative foresight. To address these limitations, we introduce *Time-R1*, the first framework to endow a moderate-sized (3B-parameter) LLM with comprehensive temporal abilities: understanding, prediction, and creative generation. Our approach features a novel three-stage development path; the first two constitute a *reinforcement learning (RL) curriculum* driven by a meticulously designed dynamic rule-based reward system. This framework progressively builds (1) foundational temporal understanding and logical event-time mappings from historical data, (2) future event prediction skills for events beyond its knowledge cutoff, and finally (3) enables remarkable generalization to creative future scenario generation without any fine-tuning. Strikingly, experiments demonstrate that Time-R1 outperforms models over 200 times larger, including the state-of-the-art 671B DeepSeek-R1, on highly challenging future event prediction and creative scenario generation benchmarks. This work provides strong evidence that thoughtfully engineered, progressive RL fine-tuning allows smaller, efficient models to achieve superior temporal performance, offering a practical and scalable path towards truly time-aware AI. To foster further research, we also release *Time-Bench*, a large-scale multi-task temporal reasoning dataset derived from 10 years of news data, and our series of *Time-R1* checkpoints.[1](#page-0-0)
+Large Language Models (LLMs) demonstrate impressive capabilities but lack robust temporal intelligence, struggling to integrate reasoning about the past with predictions and plausible generations of the future. Meanwhile, existing methods typically target isolated temporal skills, such as question answering about past events or basic forecasting, and exhibit poor generalization, particularly when dealing with events beyond their knowledge cutoff or requiring creative foresight. To address these limitations, we introduce *Time-R1*, the first framework to endow a moderate-sized (3B-parameter) LLM with comprehensive temporal abilities: understanding, prediction, and creative generation. Our approach features a novel three-stage development path; the first two constitute a *reinforcement learning (RL) curriculum*driven by a meticulously designed dynamic rule-based reward system. This framework progressively builds (1) foundational temporal understanding and logical event-time mappings from historical data, (2) future event prediction skills for events beyond its knowledge cutoff, and finally (3) enables remarkable generalization to creative future scenario generation without any fine-tuning. Strikingly, experiments demonstrate that Time-R1 outperforms models over 200 times larger, including the state-of-the-art 671B DeepSeek-R1, on highly challenging future event prediction and creative scenario generation benchmarks. This work provides strong evidence that thoughtfully engineered, progressive RL fine-tuning allows smaller, efficient models to achieve superior temporal performance, offering a practical and scalable path towards truly time-aware AI. To foster further research, we also release*Time-Bench*, a large-scale multi-task temporal reasoning dataset derived from 10 years of news data, and our series of *Time-R1*checkpoints.[1](#page-0-0)
 
 # 1 Introduction
 
@@ -16,7 +18,7 @@ Large Language Models (LLMs) have achieved remarkable success across a spectrum 
 
 module representation of time; the static nature of their training corpora [\[12\]](#page-14-6), which inevitably become outdated; and the non-chronological training process [\[13\]](#page-14-7), where temporal information across different periods is processed concurrently rather than sequentially, hindering the development of robust logical mappings between events and their corresponding times.
 
-While existing research aims to enhance temporal reasoning—for instance, Zhao *et al.* [\[13\]](#page-14-7) aligned LLM knowledge to target times, Kim *et al.* [\[9\]](#page-14-3) improved temporal consistency, and Yuan *et al.* [\[5\]](#page-14-0) focused on future event prediction, with other works exploring representation methods [\[14,](#page-14-8) [15\]](#page-14-9)—these efforts often target isolated skills. They typically fall short of endowing LLMs with unified, comprehensive temporal intelligence that spans past understanding, future prediction, and creative, time-anchored generation, especially for events beyond their knowledge cutoffs [\[13,](#page-14-7) [5\]](#page-14-0).
+While existing research aims to enhance temporal reasoning—for instance, Zhao*et al.*[\[13\]](#page-14-7) aligned LLM knowledge to target times, Kim*et al.*[\[9\]](#page-14-3) improved temporal consistency, and Yuan*et al.* [\[5\]](#page-14-0) focused on future event prediction, with other works exploring representation methods [\[14,](#page-14-8) [15\]](#page-14-9)—these efforts often target isolated skills. They typically fall short of endowing LLMs with unified, comprehensive temporal intelligence that spans past understanding, future prediction, and creative, time-anchored generation, especially for events beyond their knowledge cutoffs [\[13,](#page-14-7) [5\]](#page-14-0).
 
 In this paper, we aim to bridge this gap by equipping a single 3B-parameter model with compre-
 
@@ -34,15 +36,15 @@ release Time-R1, a series of high-performing and continuously updatable temporal
 
 # 2 Related Work
 
-Temporal Reasoning in LLMs. While adept at many complex tasks [\[17,](#page-14-11) [20\]](#page-14-14), LLMs struggle significantly with temporal reasoning—understanding time and event interrelations—a faculty crucial for comprehensive world understanding and interaction [\[4,](#page-13-2) [21,](#page-14-15) [6\]](#page-14-1). Recent studies increasingly target these deficiencies, often focusing on specific temporal facets. For example, some efforts aim to improve temporal accuracy by aligning LLM knowledge with a target time for time-sensitive questions [\[13\]](#page-14-7). Meantime, some investigate methods for better integrating temporal information into model representations [\[14\]](#page-14-8), while others explore leveraging external knowledge sources or structured representations like temporal graphs to augment LLM capabilities [\[15\]](#page-14-9). However, LLMs exhibit particularly poor generalization when reasoning about the future, especially for events beyond their knowledge cutoff or tasks requiring creative foresight. Consequently, robust methods for direct, challenging future event prediction or creative scenario generation remain scarce in the literature. While some initiatives explore future event prediction and forecasting (e.g., Yuan *et al.* [\[5\]](#page-14-0) employed instruction tuning to predict event occurrences from past contexts), comprehensive approaches addressing the full spectrum of complex and creative future-oriented reasoning are largely underdeveloped.
+Temporal Reasoning in LLMs. While adept at many complex tasks [\[17,](#page-14-11) [20\]](#page-14-14), LLMs struggle significantly with temporal reasoning—understanding time and event interrelations—a faculty crucial for comprehensive world understanding and interaction [\[4,](#page-13-2) [21,](#page-14-15) [6\]](#page-14-1). Recent studies increasingly target these deficiencies, often focusing on specific temporal facets. For example, some efforts aim to improve temporal accuracy by aligning LLM knowledge with a target time for time-sensitive questions [\[13\]](#page-14-7). Meantime, some investigate methods for better integrating temporal information into model representations [\[14\]](#page-14-8), while others explore leveraging external knowledge sources or structured representations like temporal graphs to augment LLM capabilities [\[15\]](#page-14-9). However, LLMs exhibit particularly poor generalization when reasoning about the future, especially for events beyond their knowledge cutoff or tasks requiring creative foresight. Consequently, robust methods for direct, challenging future event prediction or creative scenario generation remain scarce in the literature. While some initiatives explore future event prediction and forecasting (e.g., Yuan *et al.*[\[5\]](#page-14-0) employed instruction tuning to predict event occurrences from past contexts), comprehensive approaches addressing the full spectrum of complex and creative future-oriented reasoning are largely underdeveloped.
 
-Reinforcement Learning in LLMs. Reinforcement learning (RL) has recently attracted attention due to its scalability and enhanced generalization capabilities. Building on policy optimization algorithms like PPO [\[18\]](#page-14-12), reinforcement learning from human feedback (RLHF) — the first application of RL to large language models — has become a standard paradigm for aligning LLMs with desired behaviors [\[22,](#page-15-0) [23\]](#page-15-1). Recent advances aim to simplify or improve this process: Direct Preference Optimization (DPO) [\[24\]](#page-15-2) and Simple Preference Optimization (SimPO) [\[25\]](#page-15-3) replace the conventional RL loop with more direct optimization of preference-based rewards, eliminating the need for a separate reward model or reference policy. Other methods are tailored specifically for LLMs; for instance, Group Regularized Policy Optimization (GRPO) [\[19\]](#page-14-13) introduces a group-based reward formulation in place of a single critic, achieving more stable training and better generalization. Likewise, Ahmadian *et al.* [\[26\]](#page-15-4) revisit classic policy gradient techniques [\[27\]](#page-15-5) to propose RLOO (REINFORCE-Leave-One-Out), an online RL algorithm that refines LLM policies with reduced variance and cost. These RL-driven approaches have demonstrated notable gains in LLM reasoning capabilities. In particular, GRPO and related strategies have yielded state-of-the-art performance on complex reasoning tasks including mathematical problem solving [\[19,](#page-14-13) [28\]](#page-15-6), search engine interaction and knowledge retrieval [\[29,](#page-15-7) [30\]](#page-15-8), code generation tasks [\[31\]](#page-15-9) and others [\[32](#page-15-10)[–34\]](#page-15-11). Despite these successes, the application of reinforcement learning to temporally-grounded reasoning remains underexplored. This gap suggests an opportunity to leverage RL methods to develop unified, time-sensitive reasoning abilities in future LLMs.
+Reinforcement Learning in LLMs. Reinforcement learning (RL) has recently attracted attention due to its scalability and enhanced generalization capabilities. Building on policy optimization algorithms like PPO [\[18\]](#page-14-12), reinforcement learning from human feedback (RLHF) — the first application of RL to large language models — has become a standard paradigm for aligning LLMs with desired behaviors [\[22,](#page-15-0) [23\]](#page-15-1). Recent advances aim to simplify or improve this process: Direct Preference Optimization (DPO) [\[24\]](#page-15-2) and Simple Preference Optimization (SimPO) [\[25\]](#page-15-3) replace the conventional RL loop with more direct optimization of preference-based rewards, eliminating the need for a separate reward model or reference policy. Other methods are tailored specifically for LLMs; for instance, Group Regularized Policy Optimization (GRPO) [\[19\]](#page-14-13) introduces a group-based reward formulation in place of a single critic, achieving more stable training and better generalization. Likewise, Ahmadian*et al.* [\[26\]](#page-15-4) revisit classic policy gradient techniques [\[27\]](#page-15-5) to propose RLOO (REINFORCE-Leave-One-Out), an online RL algorithm that refines LLM policies with reduced variance and cost. These RL-driven approaches have demonstrated notable gains in LLM reasoning capabilities. In particular, GRPO and related strategies have yielded state-of-the-art performance on complex reasoning tasks including mathematical problem solving [\[19,](#page-14-13) [28\]](#page-15-6), search engine interaction and knowledge retrieval [\[29,](#page-15-7) [30\]](#page-15-8), code generation tasks [\[31\]](#page-15-9) and others [\[32](#page-15-10)[–34\]](#page-15-11). Despite these successes, the application of reinforcement learning to temporally-grounded reasoning remains underexplored. This gap suggests an opportunity to leverage RL methods to develop unified, time-sensitive reasoning abilities in future LLMs.
 
 # 3 Method
 
 This section details the Time-R1 methodology for enhancing LLM temporal capabilities via Reinforcement Learning (RL) fine-tuning. We introduce a novel three-stage training framework (Section [3.2\)](#page-4-0) guided by a dynamic, rule-based reward system (Section [3.3\)](#page-5-0). We first outline the underlying RL optimization setup using Group Relative Policy Optimization (GRPO) (Section [3.1\)](#page-2-0) before detailing these core framework and reward components.
 
-### <span id="page-2-0"></span>3.1 Reinforcement Learning Fine-tuning for Temporal Reasoning
+## <span id="page-2-0"></span>3.1 Reinforcement Learning Fine-tuning for Temporal Reasoning
 
 Our approach employs reinforcement learning (RL) to fine-tune a Large Language Model (LLM) for complex temporal reasoning tasks. The core process involves interaction between the LLM policy and a rule-based environment. Given a prompt x detailing a specific temporal task, the LLM, parameterized by θ, generates an output sequence y autoregressively according to its current policy πθ(y | x) = Q<sup>|</sup>y<sup>|</sup> <sup>t</sup>=1 πθ(y<sup>t</sup> | x, y<t).
 
@@ -84,9 +86,9 @@ To empirically evaluate the effectiveness of our proposed methodology (outlined 
 
 ### <span id="page-4-1"></span>3.2.1 Stage 1 - Comprehension: Foundational Temporal Understanding via RL Fine-tuning
 
-Objective. The primary goal of this initial stage is to establish a robust foundation for temporal comprehension within the LLM. We aim to instill the ability to interpret fundamental temporal relationships between events and their corresponding times by fine-tuning the model using historical news data from *before* its knowledge cutoff date.
+Objective. The primary goal of this initial stage is to establish a robust foundation for temporal comprehension within the LLM. We aim to instill the ability to interpret fundamental temporal relationships between events and their corresponding times by fine-tuning the model using historical news data from *before*its knowledge cutoff date.
 
-Dataset. We construct a specialized dataset derived from a large corpus of New York Times (NYT) news articles [\[36\]](#page-15-13) (over 200,000) spanning eight years, from January 2016 to December 2023. We extract the headline h and abstract a of the news article to represent each event E, *i.e.*, E = (h, a). Details can be found in Appendix [B.1.](#page-18-0)
+Dataset. We construct a specialized dataset derived from a large corpus of New York Times (NYT) news articles [\[36\]](#page-15-13) (over 200,000) spanning eight years, from January 2016 to December 2023. We extract the headline h and abstract a of the news article to represent each event E,*i.e.*, E = (h, a). Details can be found in Appendix [B.1.](#page-18-0)
 
 Subtasks. From this corpus, we curate data instances tailored to four specific and fundamental temporally-focused and logic-based subtasks [\[37,](#page-15-14) [38\]](#page-15-15): (1) Timestamp Inference: Infer the specific date t (*e.g.*, 2023-12) associated with a described event E. (2) Time-Difference Estimation: Estimate the temporal gap ∆t (*e.g.*, 14 months) between two described events, E<sup>1</sup> and E2. (3) Event Ordering: Determine the correct chronological sequence C (*e.g.*, Event order: 2-1-3) of three events E1, E<sup>2</sup> and E<sup>3</sup> presented out of order. (4) Masked Time Entity Completion: Fill in a masked temporal expression M<sup>e</sup> (*i.e.*, <Year> and <Month>) within a given event description E′ .
 
@@ -102,7 +104,7 @@ Task. In this stage, the model predicts the specific date t for a news event E b
 
 Initializing the model with the checkpoint θ<sup>1</sup> obtained from Stage 1, we continue the fine-tuning process using GRPO on post-cutoff news while carefully controlling the information availability to simulate a true "future prediction" scenario. After training, this stage addresses the challenge that LLMs normally cannot generalize to events post-training [\[39\]](#page-16-0) and results in another model checkpoint, θ2, specialized in future event time prediction.
 
-### 3.2.3 Stage 3 - Generation: Creative Future Scenario Generation and Evaluation
+### 2.3 Stage 3 - Generation: Creative Future Scenario Generation and Evaluation
 
 Objective. In the final stage, we pivot from training to application – aiming to leverage the logical and predictive capabilities instilled in Stages 1 and 2 to enable the fine-tuned model to directly generate plausible, diverse, and temporally coherent future scenarios. This moves beyond predicting specific event times to creatively generating descriptions of hypothetical events given a specific future date.
 
@@ -227,7 +229,7 @@ This gradual tightening of the reward function encourages the model to refine it
 
 Importantly, this dynamic α adjustment schedule is employed strictly during the Stage 1 training process. For all evaluations performed on the test datasets (across all stages where applicable), we consistently use a fixed decay coefficient α = 0.1 for all samples to ensure stable and comparable assessment of model performance.
 
-### 3.3.4 Final Reward Calculation.
+### 3.4 Final Reward Calculation.
 
 In summary, the total score R(x, y) for a given task is computed by summing the relevant accuracy score and bonuses, then subtracting penalties introduced above. Thus, Equation [\(5\)](#page-6-1) can be further expressed as:
 
@@ -239,11 +241,11 @@ Aggregating the potential minimum and maximum values of these components yields 
 
 # <span id="page-8-0"></span>4 Experiments
 
-### 4.1 Datasets.
+## 1 Datasets.
 
 We utilize the datasets constructed from the New York Times (NYT) as described in Section [3.2.](#page-4-0)
 
-### 4.2 Baselines
+### 2 Baselines
 
 To rigorously evaluate the performance of Time-R1, we compare it against two categories of six baseline models: (1) Instruction-Tuned LLMs of Varying Scales: Qwen2.5-3B-Instruct (the base model for Time-R1), Qwen2.5-7B-Instruct [\[42\]](#page-16-3) and Llama-3.1-8B-Instruct [\[43\]](#page-16-4) (mediumscale models), and DeepSeek-V3-0324-671B [\[44\]](#page-16-5) (an extra-large generalist foundation model). (1) Specialized Reasoning LLMs: DeepSeek-Distill-Qwen-32B (a larger model with a strong emphasis on reasoning), and DeepSeek-R1-671B [\[17\]](#page-14-11) (recognized for its state-of-the-art performance on a
 
@@ -255,7 +257,7 @@ Implementation. All our experiments build upon Qwen2.5-3B-Instruct [\[42\]](#pag
 
 Hyperparameters. Key hyperparameters for the GRPO optimization include KL coefficient β = 0.001, and K = 5 rollout responses per prompt for group-normalized advantage estimation. The full configuration details can be found at Appendix [A.](#page-17-0)
 
-### 4.4 Main Results
+### 4 Main Results
 
 We now present the core experimental results, evaluating the performance of Time-R1 across its training stages against the established baselines. We specifically report on the performance of the model checkpoint after Stage 1 (θ1) for foundational tasks and the checkpoint after Stage 2 (θ2) for future prediction and scenario generation.
 
@@ -285,7 +287,7 @@ model's adherence to response consistency and diversity for this task steadily i
 
 To validate the contribution of our reward design, we include an ablation model, Time-R1-Fixed-Reward (θ ′ 1 ), which was trained using a static, strict reward function. As shown in Figure [3,](#page-9-0) the full Time-R1 model consistently outperforms this ablation variant, underscoring the importance of the dynamic curriculum, which will be analyzed further in Section [4.5.1.](#page-11-0)
 
-### 4.4.2 Stage 2: Future Event Time Prediction
+### 4.2 Stage 2: Future Event Time Prediction
 
 Stage 2 equips models to predict event timing post-knowledge cutoff (2023). We assess our full pipeline and Stage 1's impact by evaluating two variants: Time-R1 (θ2, 3B) (full curriculum, Section [3.2\)](#page-4-0) and an ablation model, Time-R1- S2-Direct (θ ′ 2 , 3B) (Stage 2 fine-tuning only, from base Qwen2.5-3B-Instruct, omitting Stage 1). Performance is compared against baselines for August 2024 - February 2025 predictions.
 
@@ -303,7 +305,7 @@ handling post-cutoff data.Our primary model, Time-R1 (θ2, 3B), achieves the hig
 |--------------------|----------------|----------------|------------------|-----------------|----------------|----------------|----------------------------------|---------------------|
 | Avg. Total Score ↑ | 0.6036         | 0.6226         | 0.6015           | 0.5997          | 0.7036         | 0.7503         | 0.7331                           | 0.7780              |
 
-### 4.4.3 Stage 3: Creative Scenario Generation Quality
+### 4.3 Stage 3: Creative Scenario Generation Quality
 
 Finally, we evaluate model generalization to generating plausible future scenarios—a task without explicit fine-tuning. Table [3](#page-11-2) presents AvgMaxSim scores, quantifying the semantic plausibility of generated news scenarios against real news events (August 2024 - February 2025). Results demonstrate Time-R1 (θ2, 3B)'s strong generalization capability. It achieves the highest overall AvgMaxSim score, surpassing all baseline models, including the very large DeepSeek-V3-0324- 671B and DeepSeek-R1-671B. Monthly scores for Time-R1 (θ2, 3B) also reveal consistently strong performance. This Stage 3 success, achieved without direct training on generation, underscores the S1+S2 curriculum's effectiveness in building robust, transferable temporal reasoning. These capabilities are significant for addressing research gaps in challenging future prediction and generation tasks and demonstrate practical application value. Our ablation model, Time-R1-S2-Direct (θ ′ 2 , 3B), also performs commendably, outperforming some baselines (further discussion in Section [4.5.2\)](#page-12-1).
 
@@ -321,7 +323,7 @@ Finally, we evaluate model generalization to generating plausible future scenari
 | ′<br>Time-R1-S2-Direct (θ<br>, 3B)<br>2 | 47.93    | 47.89                        | 47.11 | 47.95 | 48.29 | 46.05 | 50.69 | 47.52 |
 | Time-R1 (θ2, 3B)                        | 48.90    | 47.75                        | 48.29 | 49.81 | 48.77 | 49.03 | 50.81 | 47.83 |
 
-### 4.5 Ablation Studies
+### 5 Ablation Studies
 
 ### <span id="page-11-0"></span>4.5.1 Impact of Dynamic Reward Mechanism
 
@@ -341,7 +343,7 @@ Notably, Time-R1-S2-Direct (θ ′ 2 , 3B) still demonstrated commendable perfor
 
 This section delves into a detailed analysis of our proposed methodology, focusing on the impact of our reasoning process on response length, and the challenges standard LLMs face in advanced temporal tasks. Our findings provide empirical evidence supporting the benefits of specialized training regimes for comprehensive temporal intelligence in LLMs. Additional discussion on implementation settings (*e.g.*, KL loss coefficients), as well as more generated examples like those shown in Figure [1,](#page-1-0) is available in Appendices [D](#page-20-0) and [E.](#page-21-0)
 
-### 5.1 Reasoning Process Matters, Not Just Response Length
+## 1 Reasoning Process Matters, Not Just Response Length
 
 Developing effective LLMs requires not only accuracy but also efficient and concise responses. Unnecessarily long outputs can signify a less refined reasoning process and increase computational overhead. Our investigation reveals that our dynamic reward mechanism (Section [3.3.3\)](#page-7-0) achieves both higher accuracy and greater conciseness.
 
@@ -426,7 +428,7 @@ In this work, we introduced Time-R1, a 3B-parameter language model achieving com
 
 This appendix provides further details on the experimental setup and hyperparameter configurations used for the Reinforcement Learning (RL) fine-tuning of Time-R1, complementing the summary in Section [4.3](#page-9-1) of the main paper. Our experiments were conducted using the veRL framework [\[45\]](#page-16-6).
 
-### A.1 General Setup and Key Hyperparameters
+## A.1 General Setup and Key Hyperparameters
 
 <span id="page-17-1"></span>The base Large Language Model (LLM) for all our experiments is Qwen2.5-3B-Instruct. The RL fine-tuning was performed using 4 NVIDIA A6000 GPUs. Key hyperparameters for the Group Relative Policy Optimization (GRPO) algorithm and the overall training process are summarized in Table [4.](#page-17-1)
 
@@ -473,7 +475,7 @@ These tailored configurations allowed for progressive and adaptive learning, ens
 
 This appendix provides further details on the datasets used for training and evaluating Time-R1, supplementing the descriptions in Sections [3.2.1](#page-4-1) and [3.2.2.](#page-4-2)
 
-### <span id="page-18-0"></span>B.1 New York Times (NYT) Corpus Curation
+## <span id="page-18-0"></span>B.1 New York Times (NYT) Corpus Curation
 
 The primary data source for our research is a corpus constructed from New York Times articles, utilizing publicly available information accessed via the NYT Archive API[2](#page-18-2) . For each article, we extracted key fields including the headline, abstract, publication date, and the "news desk" (thematic section).
 
@@ -524,7 +526,7 @@ Overall, these detailed learning dynamics from Stage 1 highlight the efficacy of
 
 This appendix elaborates on specific implementation settings, focusing on the impact of the KL loss coefficient on model response length and the overall stability of our training framework with respect to various hyperparameter changes. These details supplement the primary configurations presented in Table [4.](#page-17-1)
 
-### D.1 Impact of KL Loss Coefficient on Response Length
+## D.1 Impact of KL Loss Coefficient on Response Length
 
 The Group Relative Policy Optimization (GRPO) objective function, as defined in Equation [\(3\)](#page-3-1), incorporates a KL divergence term DKL[πθ(·|x)||πref (·|x)] scaled by a coefficient β. This term penalizes deviations of the current policy π<sup>θ</sup> from a reference policy πref , encouraging smoother and more stable policy updates. The magnitude of β directly influences the strength of this regularization.
 
@@ -550,7 +552,7 @@ Across these diverse hyperparameter modifications, we observed that the performa
 
 This appendix presents additional generated examples from our Time-R1 model, supplementing Figure [1](#page-1-0) and further illustrating its capabilities across Stage 1 (Comprehension), Stage 2 (Prediction), and Stage 3 (Generation). These examples showcase the model's structured reasoning process (within <think>...</think> tags) and its final outputs (within <answer>...</answer> tags), alongside ground truth information and achieved scores. The detailed prompts used to elicit these responses are available in Appendix [I.](#page-25-0) Our analysis highlights how Time-R1 demonstrates comprehensive temporal reasoning by effectively understanding context, making logical inferences, and generating plausible future-oriented content.
 
-### E.1 Example: Stage 1 - Timestamp Inference
+## E.1 Example: Stage 1 - Timestamp Inference
 
 This example demonstrates Time-R1's ability to infer the publication date of a news article by reasoning about the real-world events mentioned.
 
@@ -652,7 +654,7 @@ This appendix provides the detailed structure and content of the prompts used to
 
 instructions directing the model to first articulate its reasoning process within '<think>...</think>' tags, followed by the final answer encapsulated in '<answer>...</answer>' tags. This structured approach aims to enhance the robustness of the model's reasoning and the interpretability of its outputs. The specific prompts for each task are detailed in the following subsections.
 
-### I.1 Prompt for Timestamp Inference
+## I.1 Prompt for Timestamp Inference
 
 The Timestamp Inference task is one of the four fundamental temporal tasks in Stage 1 (Comprehension). It requires the model to infer the specific month and year (formatted as YYYY-MM) of an event based on its provided news headline and abstract. The detailed prompt given to the model for this task, including system messages, user input structure with placeholders for event details, and specific output formatting requirements, is shown in Figure [8.](#page-26-0)
 
@@ -673,7 +675,7 @@ The Time-Difference Estimation task is part of Stage 1 (Comprehension). It requi
 
 The Event Ordering task, also a component of Stage 1 (Comprehension), challenges the model to determine the correct chronological sequence of three distinct events (E1, E2, E3) presented out of order. Similar to other Stage 1 tasks, the model is prompted to first infer the date of each event before determining their order. The prompt structure for this task is presented in Figure [10.](#page-28-0)
 
-#### <span id="page-27-0"></span>**Prompt for Time-Difference Estimation Task**
+#### <span id="page-27-0"></span>Prompt for Time-Difference Estimation Task
 
 "<|im\_start|>system\n" "You are a helpful assistant. You first think about the reasoning process in your mind and then provide the user with the answer.\n" "<|im\_end|>\n" "<|im\_start|>user\n" "Please carefully read the following two news article information:\n" "News article 1:\n" f"Headline: {event1['headline']}\n" f"Abstract: {event1['abstract']}\n" "News article 2:\n" f"Headline: {event2['headline']}\n" f"Abstract: {event2['abstract']}\n" "For the purpose of this inference, assume that the two events described in the articles definitely occur. " "Based on the information provided and your general knowledge, determine the specific occurrence date for each event and then calculate the month difference between these two dates.\n" "- You can recall the events related to these two and their occurrence dates to help you infer.\n" "- Provide your answer in the following format:\n" " 'Event 1: YYYY-MM, Event 2: YYYY-MM. Month difference: XX.'\n" "- Do not output 'No event' under any circumstances. Always provide your best inferred dates, even if the information is ambiguous.\n" "- Show your reasoning process in <think> </think> tags, and return the final answer on a new line in <answer> </answer> tags, for example <answer>Event 1: 2023-01, Event 2: 2021-11. Month difference: 14.</answer>.\n" "Your answer must strictly follow the above format.\n" "<|im\_end|>\n" "<|im\_start|>assistant\n" "Let me carefully review all the relevant details and systematically work through the reasoning process.\n" "<think>"
 
@@ -691,7 +693,7 @@ The Future Event Time Prediction task constitutes Stage 2 (Prediction) of our fr
 
 The Creative Future Scenario Generation task is the focus of Stage 3 (Generation). In this stage, the model leverages capabilities developed previously to generate plausible, hypothetical news event descriptions or headlines for a specified future date and thematic category (*e.g.*, Business, Technology). This task evaluates the model's ability to creatively imagine coherent future events. The prompt used to guide this generative process is presented in Figure [13.](#page-31-0)
 
-#### <span id="page-28-0"></span>**Prompt for Event Ording Task**
+#### <span id="page-28-0"></span>Prompt for Event Ording Task
 
 "<|im\_start|>system\n"
 
@@ -743,7 +745,7 @@ f"Abstract: {event3['abstract']}\n"
 
 Figure 10: Prompt for the Event Ordering task.
 
-#### <span id="page-29-0"></span>**Prompt for Masked Time Entity Completion Task**
+#### <span id="page-29-0"></span>Prompt for Masked Time Entity Completion Task
 
 "<|im\_start|>system\n"
 
@@ -790,7 +792,7 @@ December.</answer>.\n"
 
 Figure 11: Prompt for the Masked Time Entity Completion task.
 
-#### <span id="page-30-0"></span>**Prompt for Future Event Prediction Task**
+#### <span id="page-30-0"></span>Prompt for Future Event Prediction Task
 
 "<|im\_start|>system\n"
 
@@ -830,7 +832,7 @@ f"Abstract: {event['abstract']}\n"
 
 Figure 12: Prompt for the Future Event Time Prediction task.
 
-### <span id="page-31-0"></span>**Prompt for Creative Future Scenario Generation Task**
+### <span id="page-31-0"></span>Prompt for Creative Future Scenario Generation Task
 
 "<|im\_start|>system\n"
 

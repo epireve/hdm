@@ -1,3 +1,5 @@
+<!-- cite_key: yue2035 -->
+
 # <span id="page-0-1"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI
 
 Xiang Yue\*† , Yuansheng Ni\*, Kai Zhang\*, Tianyu Zheng\*, Ruoqi Liu, <sup>2</sup>Ge Zhang, <sup>3</sup>Samuel Stevens, <sup>2</sup>Dongfu Jiang, <sup>2</sup>Weiming Ren, <sup>4</sup>Yuxuan Sun, Cong Wei, <sup>3</sup>Botao Yu, <sup>5</sup>Ruibin Yuan, <sup>2</sup>Renliang Sun, <sup>7</sup>Ming Yin, Boyuan Zheng, <sup>4</sup>Zhenzhu Yang, <sup>6</sup>Yibo Liu, <sup>4</sup>Wenhao Huang, Huan Sun\*, <sup>3</sup>Yu Su\*† , Wenhu Chen\*†
@@ -10,13 +12,11 @@ Xiang Yue\*† , Yuansheng Ni\*, Kai Zhang\*, Tianyu Zheng\*, Ruoqi Liu, <sup>2<
 
 <span id="page-0-0"></span>Figure 1. Overview of the MMMU dataset. MMMU presents four challenges: 1) comprehensiveness: 11.5K college-level problems across six broad disciplines and 30 college subjects; 2) highly heterogeneous image types; 3) interleaved text and images; 4) expert-level perception and reasoning rooted in deep subject knowledge.
 
-### Abstract
+## Abstract
 
-*We introduce* MMMU*: a new benchmark designed to evaluate multimodal models on massive multi-discipline tasks demanding college-level subject knowledge and deliberate reasoning.* MMMU *includes 11.5K meticulously collected multimodal questions from college exams, quizzes, and textbooks, covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering. These questions span 30 subjects and 183 subfields, comprising 30 highly heterogeneous image types, such as charts, diagrams, maps, tables, music sheets, and chemical structures. Unlike existing benchmarks,* MMMU *focuses on advanced perception and reasoning with domain-specific knowledge, challenging models to perform tasks akin to those faced by experts. The evaluation of 28 open-source LMMs as well as the proprietary GPT-4V(ision) and Gemini highlights the substantial* *challenges posed by* MMMU*. Even the advanced GPT-4V and Gemini Ultra only achieve accuracies of 56% and 59% respectively, indicating significant room for improvement. We believe* MMMU *will stimulate the community to build nextgeneration multimodal foundation models towards expert artificial general intelligence.*
+*We introduce* MMMU*: a new benchmark designed to evaluate multimodal models on massive multi-discipline tasks demanding college-level subject knowledge and deliberate reasoning.*MMMU*includes 11.5K meticulously collected multimodal questions from college exams, quizzes, and textbooks, covering six core disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering. These questions span 30 subjects and 183 subfields, comprising 30 highly heterogeneous image types, such as charts, diagrams, maps, tables, music sheets, and chemical structures. Unlike existing benchmarks,*MMMU*focuses on advanced perception and reasoning with domain-specific knowledge, challenging models to perform tasks akin to those faced by experts. The evaluation of 28 open-source LMMs as well as the proprietary GPT-4V(ision) and Gemini highlights the substantial* *challenges posed by* MMMU*. Even the advanced GPT-4V and Gemini Ultra only achieve accuracies of 56% and 59% respectively, indicating significant room for improvement. We believe*MMMU*will stimulate the community to build nextgeneration multimodal foundation models towards expert artificial general intelligence.*### Introduction
 
-### 1. Introduction
-
-Rapid advances in large language models (LLMs) [\[13,](#page-8-0) [59,](#page-10-0) [74\]](#page-10-1) have sparked broad discussions on the controversial concept of artificial general intelligence (AGI), often used to describe AI systems that perform on par or surpass humans at most tasks [\[1,](#page-8-1) [7,](#page-8-2) [21,](#page-8-3) [32,](#page-9-0) [53,](#page-10-2) [57\]](#page-10-3). Candid and constructive discussions on AGI have been challenging due to a lack of shared operationalizable definitions. In an attempt to remedy this, Morris et al. [\[57\]](#page-10-3) propose a leveled taxonomy for AGI that centers around both *generality* (or breadth) and *performance* (or depth). In the suggested taxonomy, Level 3, or *Expert AGI*, marks a critical milestone. It denotes an
+Rapid advances in large language models (LLMs) [\[13,](#page-8-0) [59,](#page-10-0) [74\]](#page-10-1) have sparked broad discussions on the controversial concept of artificial general intelligence (AGI), often used to describe AI systems that perform on par or surpass humans at most tasks [\[1,](#page-8-1) [7,](#page-8-2) [21,](#page-8-3) [32,](#page-9-0) [53,](#page-10-2) [57\]](#page-10-3). Candid and constructive discussions on AGI have been challenging due to a lack of shared operationalizable definitions. In an attempt to remedy this, Morris et al. [\[57\]](#page-10-3) propose a leveled taxonomy for AGI that centers around both*generality*(or breadth) and*performance*(or depth). In the suggested taxonomy, Level 3, or*Expert AGI*, marks a critical milestone. It denotes an
 
 <sup>\*</sup>Core Contributors. See the Author Contribution Statement for details. †B: {yue.149,su.809}@osu.edu; wenhuchen@uwaterloo.ca
 
@@ -26,7 +26,7 @@ Figure 2. Sampled MMMU examples from each discipline. The questions and images n
 
 AI system that reaches "at least 90th percentile of skilled adults" in a broad range of tasks, thus starting to achieve "the substitution threshold for machine intelligence in lieu of human labor" for many industries, leading to significant risks of job displacement and economic disruption. Therefore, it is of both intellectual and societal importance to closely monitor the progress towards Expert AGI.
 
-How to create benchmarks for measuring Expert AGI? Since the definition is based on comparison with *skilled adults*, a natural starting point is college-level exams for different disciplines, because those are designed to evaluate *skilled adults* specialized in each discipline. This strategy has been successfully adopted in benchmarks such as MMLU [\[25\]](#page-9-1) and AGIEval [\[92\]](#page-11-0), but only text-based questions are considered, while human experts are capable of solving multimodal problems. Meanwhile, large multimodal models (LMMs) that can understand both text and images have been making a major stride towards more general AI [\[9,](#page-8-4) [16,](#page-8-5) [35,](#page-9-2) [44,](#page-9-3) [80\]](#page-11-1). These LMMs have consistently excelled in existing multimodal benchmarks [\[3,](#page-8-6) [24,](#page-8-7) [33,](#page-9-4) [40,](#page-9-5) [47,](#page-9-6) [69,](#page-10-4) [83,](#page-11-2) [86\]](#page-11-3). For instance, CogVLM [\[77\]](#page-10-5) achieves 85% on VQA-v2 [\[24\]](#page-8-7), 92% on ScienceQA-IMG [\[50\]](#page-10-6), and 93% on RefCOCO [\[30\]](#page-9-7). However, most existing multimodal benchmarks focus on commonsense/daily knowledge rather than expert-level domain knowledge and advanced reasoning. The closest one to our goal is ScienceQA [\[50\]](#page-10-6). While it covers diverse disciplines (breadth), the majority of the questions are at the elementary to the middle school level, thus falling short in depth for benchmarking Expert AGI.
+How to create benchmarks for measuring Expert AGI? Since the definition is based on comparison with *skilled adults*, a natural starting point is college-level exams for different disciplines, because those are designed to evaluate *skilled adults*specialized in each discipline. This strategy has been successfully adopted in benchmarks such as MMLU [\[25\]](#page-9-1) and AGIEval [\[92\]](#page-11-0), but only text-based questions are considered, while human experts are capable of solving multimodal problems. Meanwhile, large multimodal models (LMMs) that can understand both text and images have been making a major stride towards more general AI [\[9,](#page-8-4) [16,](#page-8-5) [35,](#page-9-2) [44,](#page-9-3) [80\]](#page-11-1). These LMMs have consistently excelled in existing multimodal benchmarks [\[3,](#page-8-6) [24,](#page-8-7) [33,](#page-9-4) [40,](#page-9-5) [47,](#page-9-6) [69,](#page-10-4) [83,](#page-11-2) [86\]](#page-11-3). For instance, CogVLM [\[77\]](#page-10-5) achieves 85% on VQA-v2 [\[24\]](#page-8-7), 92% on ScienceQA-IMG [\[50\]](#page-10-6), and 93% on RefCOCO [\[30\]](#page-9-7). However, most existing multimodal benchmarks focus on commonsense/daily knowledge rather than expert-level domain knowledge and advanced reasoning. The closest one to our goal is ScienceQA [\[50\]](#page-10-6). While it covers diverse disciplines (breadth), the majority of the questions are at the elementary to the middle school level, thus falling short in depth for benchmarking Expert AGI.
 
 To this end, we introduce MMMU: a comprehensive benchmark designed for college-level multi-discipline multimodal understanding and reasoning. It features problems sourced from college exams, quizzes, and textbooks spanning six common disciplines: Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, and Tech & Engineering. MMMU consists of 11.5K carefully selected multimodal questions, which cover 30 diverse subjects and 183 subfields, thus meeting the breadth goal. Moreover, many problems within MMMU require expert-level reasoning, such as applying "Fourier Transform" or "Equilibrium Theory" to derive the solution, thus meeting the depth goal. MMMU also presents two unique challenges absent in current benchmarks [\(Figure 1\)](#page-0-0). Firstly, it covers diverse image formats, from visual scenes like photographs and paintings to diagrams and tables, testing the perceptual capabilities of LMMs. Secondly, MMMU features interleaved text-image inputs. A model needs to jointly understand the images and text, which often requires recalling deep subject knowledge, and conducting complex reasoning based on the understanding and knowledge to reach a solution.
 
@@ -41,9 +41,9 @@ We evaluate 28 open-source LMMs as well as the advanced proprietary LMMs such as
 - In disciplines such as Art & Design and Humanities & Social Science, where visual data is less complex, models exhibit higher performance. In contrast, Business, Science, Health & Medicine, and Tech & Engineering, which present more complex visual data and require intricate reasoning, see relatively lower model performance.
 - Our error analysis on 150 error cases of GPT-4V reveals that 35% of errors are perceptual, 29% stem from a lack of knowledge, and 26% are due to flaws in the reasoning process. These findings underscore the challenges of the MMMU benchmark and point towards areas needing further research and model enhancement.
 
-Our aim with MMMU is to push the boundaries of what LMMs can achieve. We believe it will prove instrumental in developing next-generation multimodal foundation models and monitoring the progress towards Expert AGI. We shall caution that MMMU is not a *sufficient* test for Expert AGI, as per the definition [\[57\]](#page-10-3), because there lacks a direct mapping between performance on MMMU and "90th percentile of skilled adults," nor are college exams the only tasks an AGI shall tackle. However, we believe it should be *necessary* for an Expert AGI to achieve strong performance on MMMU to demonstrate their broad and deep subject knowledge as well as expert-level understanding and reasoning capabilities.
+Our aim with MMMU is to push the boundaries of what LMMs can achieve. We believe it will prove instrumental in developing next-generation multimodal foundation models and monitoring the progress towards Expert AGI. We shall caution that MMMU is not a*sufficient*test for Expert AGI, as per the definition [\[57\]](#page-10-3), because there lacks a direct mapping between performance on MMMU and "90th percentile of skilled adults," nor are college exams the only tasks an AGI shall tackle. However, we believe it should be*necessary*for an Expert AGI to achieve strong performance on MMMU to demonstrate their broad and deep subject knowledge as well as expert-level understanding and reasoning capabilities.
 
-### 2. Related Work
+### Related Work
 
 Multimodal Pre-Training. In recent years, rapid progress has been made in multimodal pre-training, which aims to jointly encode vision and language in a fusion model. LXMERT [\[71\]](#page-10-8), UNITER [\[10\]](#page-8-8), VinVL [\[87\]](#page-11-4), Oscar [\[37\]](#page-9-8), VilBert [\[49\]](#page-9-9), and VLP [\[93\]](#page-11-5) are among the earliest work to train universal vision-language models to tackle many multimodal tasks. This work relies on pre-trained visual representations like Faster RCNN features [\[67\]](#page-10-9) to minimize the training sample complexity. Later on, CLIP [\[66\]](#page-10-10), ALIGN [\[29\]](#page-9-10), SimVLM [\[78\]](#page-11-6), CoCa [\[85\]](#page-11-7), Flamingo [\[2\]](#page-8-9), BLIP-2 [\[35\]](#page-9-2), and Fuyu [\[6\]](#page-8-10) (inter alia) have been proposed to train visual representation using ViT [\[18\]](#page-8-11) from scratch with massive amount of web data. These models have achieved great success on existing VQA and captioning tasks, which require less knowledge and reasoning.
 
@@ -51,9 +51,9 @@ Multimodal Instruction Tuning. Inspired by opensource instruction-tuned LLMs lik
 
 LMM Benchmarks. With the surge of multi-modal pretraining and instruction tuning, the prior single-task evaluation benchmarks like VQA [\[3,](#page-8-6) [24\]](#page-8-7), OK-VQA [\[52\]](#page-10-12), MSCOCO [\[40\]](#page-9-5), GQA [\[27\]](#page-9-16), etc., have become insufficient to holistically evaluate LMMs' general multimodal perception and reasoning abilities. Therefore, numerous all-round benchmarks have been established to assess different facets of LMMs. These benchmarks cover a wide spectrum of specific skills of LMMs, from Optical Character Recognition (OCR) as seen in the study by [\[48\]](#page-9-17), to adversarial robustness [\[91\]](#page-11-14) and hallucination [\[15,](#page-8-16) [42\]](#page-9-18), e.g., POPE [\[38\]](#page-9-19) and HaELM [\[76\]](#page-10-13). More holistic evaluations have been conducted as well, such as LAMM [\[83\]](#page-11-2), LVLM-eHub [\[79\]](#page-11-15), SEED [\[33\]](#page-9-4), MMBench [\[47\]](#page-9-6), and MM-Vet [\[86\]](#page-11-3). These benchmarks still largely focus on relatively basic perception abilities without requiring expert-level domain knowledge and deliberate reasoning. More recently, MathVista [\[51\]](#page-10-14) presents a collection of visually challenging questions; however, its scope is limited exclusively to the mathematical domain. MMMU is highly different from these benchmarks by collecting more difficult expert-level problems that cover 30 different subjects and require nuanced perception, recalling domain-specific knowledge to perform stepby-step reasoning to derive the solution. In line with the motivation of our study, concurrently, GAIA [\[53\]](#page-10-2) introduces 466 questions that test fundamental abilities of models such as reasoning, multimodality handling, or tool use.
 
-### 3. The MMMU Benchmark
+### The MMMU Benchmark
 
-### 3.1. Overview of MMMU
+### 1. Overview of MMMU
 
 We introduce the Massive Multi-discipline Multimodal Understanding and Reasoning (MMMU) benchmark, a novel benchmark meticulously curated to assess the expert-level multimodal understanding capability of foundation models across a broad scope of tasks. Covering 30 subjects across 6 disciplines, including Art, Business, Health & Medicine, Science, Humanities & Social Science, and Tech & Engineering, and over 183 subfields. The detailed subject coverage and statistics are detailed in [Figure 7.](#page-13-0) The questions in our benchmark were manually collected by a team of
 
@@ -68,9 +68,9 @@ We introduce the Massive Multi-discipline Multimodal Understanding and Reasoning
 | Open Questions                       | 689 (5.97%)    |
 | Questions with an Explanation        | 2035 (17.62%)  |
 | Image in the Question                | 11264 (97.52%) |
-| * Images at the beginning            | 2006 (17.81%)  |
-| * Images in the middle               | 4159 (36.92%)  |
-| * Images at the end                  | 5679 (50.42%)  |
+|* Images at the beginning            | 2006 (17.81%)  |
+| *Images in the middle               | 4159 (36.92%)  |
+|* Images at the end                  | 5679 (50.42%)  |
 | Image in Options                     | 389 (3.37%)    |
 | Example with Multiple Images         | 854 (7.39%)    |
 | Average question length              | 59.33          |
@@ -85,13 +85,13 @@ MMMU, constituting 11.5K questions, is divided into a few-shot development set, 
 
 Our MMMU benchmark introduces four key challenges to multimodal foundation models, as detailed in [Figure 1.](#page-0-0) Among these, we particularly highlight the challenge stemming from the requirement for both expert-level visual perceptual abilities and deliberate reasoning with subjectspecific knowledge. This challenge is vividly illustrated through our tasks, which not only demand the processing of various heterogeneous image types but also necessitate a model's adeptness in using domain-specific knowledge to deeply understand both the text and images and to reason. This goes significantly beyond basic visual perception, calling for an advanced approach that integrates advanced multimodal analysis with domain-specific knowledge.
 
-### 3.2. Data Curation Process
+### 2. Data Curation Process
 
 Data Collection. Our benchmark collection takes three stages. Firstly, we go through the common university majors to decide what subjects should be included in our benchmark. The selection is based on the principle that visual inputs should be commonly adopted in the subjects to provide valuable information. Through this principle, we rule out a few subjects like law and linguistics because it is difficult to find enough relevant multimodal problems in these subjects. Consequently, we select 30 subjects from six different disciplines. In the second stage, we recruit over 50 university students, including co-authors, specializing in these majors as annotators to assist in question collection. They collect multimodal questions from major textbooks and online resources, creating new questions based on their expertise where necessary. The annotators are instructed to adhere to copyright and license regulations, avoiding data from sites prohibiting copy and redistribution. Given the arising data contamination concerns of foundation models, the annotators are advised to select questions without immediately available answers, such as those with answers in separate documents or at the end of textbooks. This process results in a diverse collection of 13K questions from various sources. The detailed annotation protocol is in Appendix A. Data Quality Control. To further control the quality of our data, we perform two steps of data cleaning. In the first stage, lexical overlap and source URL similarity are employed to identify potential duplicate problems. These suspected duplicates were then reviewed by the authors to identify and eliminate any duplications. The second stage involves distributing the problems among different co-authors for format and typo checking. This step requires authors to ensure adherence to a standardized format, undertaking necessary corrections where deviations are found. In the third and final stage, the authors categorize the problems into four difficulty levels: very easy, easy, medium, and hard. Approximately 10% of the problems, classified as very easy and not aligning with our design criteria due to their simplistic nature, are excluded from the benchmark. This rigorous process plays a crucial role in maintaining the quality and difficulty of the problem set.
 
-### 3.3. Comparisons with Existing Benchmarks
+### 3. Comparisons with Existing Benchmarks
 
-To further distinguish the difference between MMMU and other existing ones, we elaborate the benchmark details in [Figure 3.](#page-4-0) From the *breadth* perspective, the prior benchmarks are heavily focused on daily knowledge and common sense. The covered image format is also limited. Our benchmark aims to cover college-level knowledge with 30 image formats including diagrams, tables, charts, chemical structures, photos, paintings, geometric shapes, music sheets, medical images, etc. In the *depth* aspect, the previous benchmarks normally require commonsense knowledge or simple physical or temporal reasoning. In contrast, our benchmark requires deliberate reasoning with college-level subject knowledge.
+To further distinguish the difference between MMMU and other existing ones, we elaborate the benchmark details in [Figure 3.](#page-4-0) From the *breadth*perspective, the prior benchmarks are heavily focused on daily knowledge and common sense. The covered image format is also limited. Our benchmark aims to cover college-level knowledge with 30 image formats including diagrams, tables, charts, chemical structures, photos, paintings, geometric shapes, music sheets, medical images, etc. In the*depth*aspect, the previous benchmarks normally require commonsense knowledge or simple physical or temporal reasoning. In contrast, our benchmark requires deliberate reasoning with college-level subject knowledge.
 
 <span id="page-4-2"></span><span id="page-4-0"></span>
 
@@ -112,13 +112,13 @@ To further distinguish the difference between MMMU and other existing ones, we e
 
 Figure 3. The comparison between MMMU and other existing benchmarks. MMMU excels in both its breadth to cover a wide range of disciplines and its depth to test LMMs' reasoning abilities. In the image format, V means visual input, OC means optical characters, MC means multi-choice. Repurposed means the benchmark is a compilation of prior datasets.
 
-### 4. Experiments
+### Experiments
 
-We evaluate various models including LLMs and LMMs. In each type, we consider both closed- and open-source models. Our evaluation is conducted under a *zero-shot* setting to assess the capability of models to generate accurate answers without fine-tuning or few-shot demonstrations on our benchmark. For all models, we use the default prompt provided by each model for multi-choice or open QA, if available. If models do not provide prompts for task types in MMMU, we conduct prompt engineering on the validation set and use the most effective prompt for the zero-shot setup in the main experiments. We also report the few-shot results of some selected models in the Appendix. All experiments are conducted with NVIDIA A100 GPUs.
+We evaluate various models including LLMs and LMMs. In each type, we consider both closed- and open-source models. Our evaluation is conducted under a*zero-shot*setting to assess the capability of models to generate accurate answers without fine-tuning or few-shot demonstrations on our benchmark. For all models, we use the default prompt provided by each model for multi-choice or open QA, if available. If models do not provide prompts for task types in MMMU, we conduct prompt engineering on the validation set and use the most effective prompt for the zero-shot setup in the main experiments. We also report the few-shot results of some selected models in the Appendix. All experiments are conducted with NVIDIA A100 GPUs.
 
-### 4.1. Baselines
+### 1. Baselines
 
-LMMs. We consider various large multimodal models. By default, for each model family, we use the latest, largest, and best-performing available checkpoint to date. *(i)* Kosmos2 [\[63\]](#page-10-15) is pre-trained to ground fine-grained visual objects with texts and to follow instructions. With only 1.6B model size, Kosmos2 is able to achieve comparable or better performance with Flamingo-9B [\[2\]](#page-8-9) on VQA and captioning tasks. *(ii)* LLaMA-Adapter2 [\[20\]](#page-8-14) fine-tunes Llama [\[74\]](#page-10-1) in a parameter-efficient way and utilizes visual encoder CLIP [\[66\]](#page-10-10) and modular experts such as Optical Character Recognition (OCR) to capture more image information for later better visual understanding. *(iii)* BLIP-2 [\[35\]](#page-9-2) introduces light-weight learnable visual queries to bridge the frozen CLIP ViT [\[66\]](#page-10-10) and FLAN-T5 [\[14\]](#page-8-12). *(iv)* Starting from the parameters from BLIP-2, InstructBLIP [\[16\]](#page-8-5) is further fine-tuned with visual instruction tuning data for better zero-shot generalization capabilities. *(v)* LLaVA-1.5 [\[44\]](#page-9-3) linearly projects the visual embedding into word embedding space of Vicuna [\[12\]](#page-8-13), thus equipping the LLM with visual abilities. *(vi)* As an open-source alternative to Flamingo [\[2\]](#page-8-9), OpenFlamingo [\[4\]](#page-8-15) has close performance on most vision-language tasks. *(vii)* CogVLM [\[77\]](#page-10-5) concatenates image and text in the input embedding space and adds trainable visual layers in textual Transformer blocks to deeply align two modalities. It has been reported to achieve very promising performance on existing VQA benchmarks recently. *(viii)* Fuyu [\[6\]](#page-8-10) projects the patches of the input image into text embedding space. *(ix)* Qwen-VL [\[5\]](#page-8-17) introduces a set of trainable query embeddings and singlelayer cross-attention module to bridge the modalities, supporting interleaved image-text input. *(x)* Otter [\[34\]](#page-9-13) is finetuned with diverse instruction-tuning data and able to perform in-context learning. *(xi)* MiniGPT-4 [\[94\]](#page-11-8) is built upon Vicuna [\[12\]](#page-8-13) and designs a linear modality projection layer for visual understanding abilities. *(xii)* mPLUG-Owl2 [\[82\]](#page-11-11) designs a modality-adaptive module to unify vision and language while preserving their distinct properties of them.
+LMMs. We consider various large multimodal models. By default, for each model family, we use the latest, largest, and best-performing available checkpoint to date.*(i)*Kosmos2 [\[63\]](#page-10-15) is pre-trained to ground fine-grained visual objects with texts and to follow instructions. With only 1.6B model size, Kosmos2 is able to achieve comparable or better performance with Flamingo-9B [\[2\]](#page-8-9) on VQA and captioning tasks.*(ii)*LLaMA-Adapter2 [\[20\]](#page-8-14) fine-tunes Llama [\[74\]](#page-10-1) in a parameter-efficient way and utilizes visual encoder CLIP [\[66\]](#page-10-10) and modular experts such as Optical Character Recognition (OCR) to capture more image information for later better visual understanding.*(iii)*BLIP-2 [\[35\]](#page-9-2) introduces light-weight learnable visual queries to bridge the frozen CLIP ViT [\[66\]](#page-10-10) and FLAN-T5 [\[14\]](#page-8-12).*(iv)*Starting from the parameters from BLIP-2, InstructBLIP [\[16\]](#page-8-5) is further fine-tuned with visual instruction tuning data for better zero-shot generalization capabilities.*(v)*LLaVA-1.5 [\[44\]](#page-9-3) linearly projects the visual embedding into word embedding space of Vicuna [\[12\]](#page-8-13), thus equipping the LLM with visual abilities.*(vi)*As an open-source alternative to Flamingo [\[2\]](#page-8-9), OpenFlamingo [\[4\]](#page-8-15) has close performance on most vision-language tasks.*(vii)*CogVLM [\[77\]](#page-10-5) concatenates image and text in the input embedding space and adds trainable visual layers in textual Transformer blocks to deeply align two modalities. It has been reported to achieve very promising performance on existing VQA benchmarks recently.*(viii)*Fuyu [\[6\]](#page-8-10) projects the patches of the input image into text embedding space.*(ix)*Qwen-VL [\[5\]](#page-8-17) introduces a set of trainable query embeddings and singlelayer cross-attention module to bridge the modalities, supporting interleaved image-text input.*(x)*Otter [\[34\]](#page-9-13) is finetuned with diverse instruction-tuning data and able to perform in-context learning.*(xi)*MiniGPT-4 [\[94\]](#page-11-8) is built upon Vicuna [\[12\]](#page-8-13) and designs a linear modality projection layer for visual understanding abilities.*(xii)* mPLUG-Owl2 [\[82\]](#page-11-11) designs a modality-adaptive module to unify vision and language while preserving their distinct properties of them.
 
 Text-only LLMs. For text-only LLMs, we consider the most capable ones including GPT-4 and several open-source LLMs, Llama2-7B [\[74\]](#page-10-1), FLAN-T5-XXL and Vicuna-13B, which are adopted as the text encoder or decoder in the selected LMMs. To determine if an external image-to-text tool can enhance these LLMs' performance on MMMU, we deploy OCR by MMOCR[1](#page-4-1) or captioning by LLaVA-1.5 to provide the recognized text information to text-only LLMs. Human Experts. We involve 90 college senior students, selected to represent a wide range of experts in the corresponding 30 subjects (3 student experts per subject). These students were tasked with completing the 30 questions in their corresponding subjects (900 validation questions in total). The students were allowed to consult their textbooks
 
@@ -171,7 +171,7 @@ but were prohibited from searching the Internet for answers.
 
 Evaluation. We adopt micro-averaged accuracy as the evaluation metric. For both open and multiple-choice questions, we design systematic, rule-based evaluation pipelines. Specifically, to mitigate the potential influence of any intermediate generations (e.g., reasoning steps, calculations) in the long response, we construct robust regular expressions and develop response-processing workflows. These are employed to extract key phrases, such as numbers and conclusion phrases, from the long responses for accurate answer matching. If there is no valid answer in the model's response, we perform random selection as a remedy for multiple-choice questions or consider the response incorrect for open questions. For reference, we add Random Choice and Frequent Choice baselines: the former randomly selects an option, while the latter selects the most frequent option within each specific subject of the validation set, based on its frequency of occurrence in that subject.
 
-### 4.2. Main Results
+### 2. Main Results
 
 In this section, we present a comprehensive comparison of different LLMs and LMMs using the MMMU benchmark, detailed in [Table 2.](#page-5-0) We summarize our key findings as follows: Challenging Nature of **MMMU**: The benchmark poses significant challenges to current models. The Best human expert achieves a validation accuracy of 88.6%, significantly outperforming all the models reported in the table. This demonstrates the still-existing gap between human expertise and the performance of current models on the MMMU benchmark. This reflects the benchmark's rigorous standards.
 
@@ -185,7 +185,7 @@ Effectiveness of OCR and Captioning Enhancements: The application of OCR and cap
 
 The MMMU benchmark underscores both the progress and the challenges in multimodal understanding and reasoning. While GPT-4V leads in performance, the overall results indicate substantial room for improvement, especially in domains with complex visual input and heavy reasoning with subject knowledge.
 
-### 4.3. Analysis on Images Types and Difficulties
+### 3. Analysis on Images Types and Difficulties
 
 Different Image Types. We compare the performance of various models across top frequent image types in [Fig](#page-6-0)[ure 4.](#page-6-0) Across all types, GPT-4V consistently outperforms the other models by a huge margin. Open-source models demonstrate relatively strong performance in categories like Photos and Paintings, which are more frequently seen during training. However, for less common image categories like Geometric shapes, Music sheets and Chemical struc-
 
@@ -206,9 +206,9 @@ tures, all models obtain very low scores (some are close to random guesses). Thi
 
 Different Difficulty Levels. [Table 3](#page-6-1) compares the performance of selected models across three difficulty levels. GPT-4V demonstrates a significantly higher proficiency, with a success rate of 76.1%, compared to opensource models in the "Easy" category. When it comes to the "Medium" category, while the gap narrows, GPT-4V still leads at 55.6%. The further diminishing performance gap in the "Hard" category across models indicates that as the complexity of tasks increases, the advantage of more advanced models like GPT-4V almost disappears. This might reflect a current limitation in handling expert-level challenging queries even for the most advanced models.
 
-### 5. Error Analysis and Future Work
+### Error Analysis and Future Work
 
-In this section, we delve into the analysis of errors by GPT-4V, a pivotal aspect for understanding its operational capabilities and limitations. This analysis serves not only to identify the model's current shortcomings but also to guide future enhancements in its design and training. We meticulously examine 150 randomly sampled error instances from GPT-4V's predictions. These instances are analyzed by expert annotators who identify the *root causes of mispredictions* based on their knowledge and the golden explanations if available. The distribution of these errors is illustrated in Figure [5,](#page-7-0) and a selection of 100 notable cases, along with detailed analyses, is included in the Appendix.
+In this section, we delve into the analysis of errors by GPT-4V, a pivotal aspect for understanding its operational capabilities and limitations. This analysis serves not only to identify the model's current shortcomings but also to guide future enhancements in its design and training. We meticulously examine 150 randomly sampled error instances from GPT-4V's predictions. These instances are analyzed by expert annotators who identify the *root causes of mispredictions*based on their knowledge and the golden explanations if available. The distribution of these errors is illustrated in Figure [5,](#page-7-0) and a selection of 100 notable cases, along with detailed analyses, is included in the Appendix.
 
 Perceptual Errors (35%): Perceptual errors, forming the bulk of the inaccuracies in the GPT-4V model, are categorized into two types: basic perceptual errors and domainspecific perceptual errors. Basic perceptual errors, as depicted in [Figure 6,](#page-7-1) occur when the model accurately processes and understands the given information but fails in elementary visual interpretation, such as misjudging the sequence described as "from left to right, top to bottom." On the other hand, domain-specific perceptual errors occur due to the lack of knowledge. As we analyze the root cause, we classify such errors as lack of knowledge (see analysis below). Additionally, GPT-4V often exhibits a bias towards
 
@@ -228,9 +228,9 @@ Other Errors: The remaining errors include Textual Understanding Error (6%), Rej
 
 Figure 6. A basic perceptual error, easy for humans but challenging for GPT-4V. More examples can be found in the Appendix.
 
-In summary, our error analysis underlines the challenges posed by MMMU and highlights areas for further research in visual perception, knowledge representation, reasoning abilities, and multimodal joint understanding. 1) *Interplay of language and vision*: language can aid in making visual understanding more explainable, while also leading models to hallucinate. 2) *Challenges in grounding*: tasks involving grounding or referring to specific elements within a visual input remain challenging, even for sophisticated models like GPT-4V. 3) *Complex reasoning is still challenging*: models still fail in complex reasoning scenarios involving lengthy reasoning chains or extensive calculations.
+In summary, our error analysis underlines the challenges posed by MMMU and highlights areas for further research in visual perception, knowledge representation, reasoning abilities, and multimodal joint understanding. 1)*Interplay of language and vision*: language can aid in making visual understanding more explainable, while also leading models to hallucinate. 2) *Challenges in grounding*: tasks involving grounding or referring to specific elements within a visual input remain challenging, even for sophisticated models like GPT-4V. 3) *Complex reasoning is still challenging*: models still fail in complex reasoning scenarios involving lengthy reasoning chains or extensive calculations.
 
-### 6. Conclusion
+### Conclusion
 
 The introduction of MMMU marks a significant step towards evaluating the capabilities of LMMs in the context of Expert AGI. By assessing both basic perceptual skills and complex reasoning abilities across various professional domains, MMMU provides a comprehensive benchmark that aligns with the expectations of skilled adults in these fields.
 
@@ -249,9 +249,9 @@ MMMU, like any benchmark, has limitations despite its comprehensive nature. The 
 - <span id="page-8-4"></span>[9] Xi Chen, Josip Djolonga, Piotr Padlewski, Basil Mustafa, Soravit Changpinyo, Jialin Wu, Carlos Riquelme Ruiz, Sebastian Goodman, Xiao Wang, Yi Tay, et al. Pali-x: On scaling up a multilingual vision and language model. *arXiv preprint arXiv:2305.18565*, 2023. [2](#page-1-0)
 - <span id="page-8-8"></span>[10] Yen-Chun Chen, Linjie Li, Licheng Yu, Ahmed El Kholy, Faisal Ahmed, Zhe Gan, Yu Cheng, and Jingjing Liu. Uniter: Universal image-text representation learning. In *European Conference on Computer Vision*, pages 104–120, 2020. [3](#page-2-0)
 - <span id="page-8-19"></span>[11] Zhe Chen, Jiannan Wu, Wenhai Wang, Weijie Su, Guo Chen, Sen Xing, Zhong Muyan, Qinglong Zhang, Xizhou Zhu, Lewei Lu, et al. Internvl: Scaling up vision foundation models and aligning for generic visual-linguistic tasks. *arXiv preprint arXiv:2312.14238*, 2023. [6,](#page-5-1) [15,](#page-14-1) [16,](#page-15-0) [17,](#page-16-0) [18,](#page-17-0) [19,](#page-18-0) [20,](#page-19-0) [21](#page-20-0)
-- <span id="page-8-13"></span>[12] Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. Vicuna: An open-source chatbot impressing gpt-4 with 90%\* chatgpt quality, 2023. [3,](#page-2-0) [5,](#page-4-2) [6,](#page-5-1) [15,](#page-14-1) [16,](#page-15-0) [17,](#page-16-0) [18,](#page-17-0) [19,](#page-18-0) [20,](#page-19-0) [21](#page-20-0)
+- <span id="page-8-13"></span>[12] Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. Vicuna: An open-source chatbot impressing gpt-4 with 90%\*chatgpt quality, 2023. [3,](#page-2-0) [5,](#page-4-2) [6,](#page-5-1) [15,](#page-14-1) [16,](#page-15-0) [17,](#page-16-0) [18,](#page-17-0) [19,](#page-18-0) [20,](#page-19-0) [21](#page-20-0)
 
-- <span id="page-8-0"></span>[13] Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, et al. Palm: Scaling language modeling with pathways. *arXiv preprint arXiv:2204.02311*, 2022. [1](#page-0-1)
+- <span id="page-8-0"></span>[13] Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, et al. Palm: Scaling language modeling with pathways.*arXiv preprint arXiv:2204.02311*, 2022. [1](#page-0-1)
 - <span id="page-8-12"></span>[14] Hyung Won Chung, Le Hou, Shayne Longpre, Barret Zoph, Yi Tay, William Fedus, Eric Li, Xuezhi Wang, Mostafa Dehghani, Siddhartha Brahma, et al. Scaling instruction-finetuned language models. *arXiv preprint arXiv:2210.11416*, 2022. [3,](#page-2-0) [5,](#page-4-2) [6,](#page-5-1) [15,](#page-14-1) [16,](#page-15-0) [17,](#page-16-0) [18,](#page-17-0) [19,](#page-18-0) [20,](#page-19-0) [21](#page-20-0)
 - <span id="page-8-16"></span>[15] Chenhang Cui, Yiyang Zhou, Xinyu Yang, Shirley Wu, Linjun Zhang, James Zou, and Huaxiu Yao. Holistic analysis of hallucination in gpt-4v (ision): Bias and interference challenges. *arXiv preprint arXiv:2311.03287*, 2023. [3,](#page-2-0) [8](#page-7-2)
 - <span id="page-8-5"></span>[16] Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng Huat Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale Fung, and Steven Hoi. Instructblip: Towards generalpurpose vision-language models with instruction tuning. *arXiv preprint arXiv:2305.06500*, 2023. [2,](#page-1-0) [3,](#page-2-0) [5,](#page-4-2) [6,](#page-5-1) [7,](#page-6-2) [15,](#page-14-1) [16,](#page-15-0) [17,](#page-16-0) [18,](#page-17-0) [19,](#page-18-0) [20,](#page-19-0) [21](#page-20-0)
@@ -381,11 +381,11 @@ Supplementary Material
 
 # <span id="page-13-1"></span>A. Subject Distribution
 
-<span id="page-13-0"></span>![](_page_13_Picture_1.jpeg)
+<span id="page-13-0"></span>
 
 Figure 7. MMMU contains 11.5K multimodal questions covering six broad disciplines, 30 subjects, and 183 subfields.
 
-### <span id="page-14-2"></span><span id="page-14-1"></span>B. Breakdown Results on Different Subjects
+## <span id="page-14-2"></span><span id="page-14-1"></span>B. Breakdown Results on Different Subjects
 
 In this appendix, we show the main results and breakdown results of different models on each discipline and subject.
 
@@ -975,15 +975,12 @@ Table 10. Tech & Engineering results of different models on the MMMU validation 
 
 Table 11. Table index of case study figures by subjects with associated (error) categories.
 
-<span id="page-24-0"></span>![](_page_24_Picture_0.jpeg)
+<span id="page-24-0"></span>
 
-# **Art: Visual Arts**
+# Art: Visual Arts
 
-**Question:** The artist's use of color and neutral tones helps convey primarily which of the following themes? <image 1>
-
-**Option:**
-
-(A) the inequities of societies
+**Question:**The artist's use of color and neutral tones helps convey primarily which of the following themes? <image 1>
+**Option:**(A) the inequities of societies
 
 (B) the innocence of youth
 
@@ -994,28 +991,22 @@ Table 11. Table index of case study figures by subjects with associated (error) 
 ![](_page_24_Picture_8.jpeg)
 
 <image 1>
+**GPT-4V:**The artist's use of color and neutral tones in this picture, along with the chosen imagery, helps convey the theme of "the inequities of societies" (A). The contrast between the small child laboring to pull the rickshaw and the larger, relaxed adults taking a selfie is a stark commentary on social and economic disparities. The neutral background emphasizes the subjects, drawing the viewer's attention to the inequality presented within the scene.
 
-**GPT-4V:** The artist's use of color and neutral tones in this picture, along with the chosen imagery, helps convey the theme of "the inequities of societies" (A). The contrast between the small child laboring to pull the rickshaw and the larger, relaxed adults taking a selfie is a stark commentary on social and economic disparities. The neutral background emphasizes the subjects, drawing the viewer's attention to the inequality presented within the scene.
-
-### **Ground Truth: (A) the inequities of societies**
-
-**Explanation:** The work depicts a small boy pulling a rickshaw in which two adults are seated. The boy, the rickshaw, and the background are all depicted with shades of gray and black. By contrast, the couple in the rickshaw is depicted in full color. Even without this use of color, the work would convey a theme of inequity because a little boy is pulling two adults, who seem to represent Western culture. The color contrast underscores the theme because one culture is depicted as bright, happy, and colorful, while the other is depicted as small and drab.
+## Ground Truth: (A) the inequities of societies
+**Explanation:**The work depicts a small boy pulling a rickshaw in which two adults are seated. The boy, the rickshaw, and the background are all depicted with shades of gray and black. By contrast, the couple in the rickshaw is depicted in full color. Even without this use of color, the work would convey a theme of inequity because a little boy is pulling two adults, who seem to represent Western culture. The color contrast underscores the theme because one culture is depicted as bright, happy, and colorful, while the other is depicted as small and drab.
 
 > Figure 8. A sample correct case of Art (subfield: Visual Arts). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-25-0"></span>![](_page_25_Picture_0.jpeg)
+<span id="page-25-0"></span>
+**Ground Truth: (C) Photo 3**Figure 9. A sample correct case of Art (subfield: Photography). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Ground Truth: (C) Photo 3**
+<span id="page-26-0"></span>
 
-Figure 9. A sample correct case of Art (subfield: Photography). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+# Art: Fine Arts
+**Question:**A main function of castles was to provide a defense against invaders. This was achieved by several devices, including water-filled moats and barbicans, high stone walls surrounding the castle. Another such device was battlements (or crenellations). These were alternating sections of wall, called merlons, and openings, called embrasures. The embrasures were used for firing arrows. They also permitted boulders to be dropped on attackers attempting to scale the castle walls. If you were going to write an alternate caption for <image 1>, you might note that this castle was equipped with
 
-<span id="page-26-0"></span>![](_page_26_Picture_0.jpeg)
-
-# **Art: Fine Arts**
-
-**Question:** A main function of castles was to provide a defense against invaders. This was achieved by several devices, including water-filled moats and barbicans, high stone walls surrounding the castle. Another such device was battlements (or crenellations). These were alternating sections of wall, called merlons, and openings, called embrasures. The embrasures were used for firing arrows. They also permitted boulders to be dropped on attackers attempting to scale the castle walls. If you were going to write an alternate caption for <image 1>, you might note that this castle was equipped with
-
-### **Option:**
+## Option:
 
 - (A) a barbican and a moat.
 - (B) merlons but not embrasures.
@@ -1025,16 +1016,13 @@ Figure 9. A sample correct case of Art (subfield: Photography). [Back to List of
 ![](_page_26_Picture_8.jpeg)
 
 <image 1>
+**GPT-4V:**The correct alternate caption for the image based on the provided information would be: (C) a moat and crenellations.
 
-**GPT-4V:** The correct alternate caption for the image based on the provided information would be: (C) a moat and crenellations.
+### Error Category: Perceptual Error
+**Error Reason:**GPT-4V fails to interpret the image. Based on the image and the explanation, the analysis should be 'we cannot actually see if there is a moat or not'. However, GPT-4V incorrectly thinks there's a moat and gives a wrong answer.
 
-#### **Error Category: Perceptual Error**
-
-**Error Reason:** GPT-4V fails to interpret the image. Based on the image and the explanation, the analysis should be 'we cannot actually see if there is a moat or not'. However, GPT-4V incorrectly thinks there's a moat and gives a wrong answer.
-
-### **Ground Truth: (D) a barbican and battlements.**
-
-**Explanation:** We can see that the castle has outer walls with battlements on top, but we cannot actually see if there is a moat or not.
+### Ground Truth: (D) a barbican and battlements.
+**Explanation:**We can see that the castle has outer walls with battlements on top, but we cannot actually see if there is a moat or not.
 
 Figure 10. A sample error case of Art (subfield: Fine Arts). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1042,13 +1030,10 @@ Figure 10. A sample error case of Art (subfield: Fine Arts). Error category: Per
 
 Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-28-0"></span>![](_page_28_Picture_0.jpeg)
+<span id="page-28-0"></span>
 
-# **Art Theory: Art Criticism**
-
-**Question:** What is NOT exhibited in the painting? <image 1> **Option:**
-
-(A) hierarchical scale
+# Art Theory: Art Criticism
+**Question:**What is NOT exhibited in the painting? <image 1>**Option:**(A) hierarchical scale
 
 (B) graphic representation of horror and despair
 
@@ -1059,8 +1044,7 @@ Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to
 ![](_page_28_Picture_7.jpeg)
 
 <image 1>
-
-**GPT-4V:** Based on the painting provided:
+**GPT-4V:**Based on the painting provided:
 
 - (A) hierarchical scale This technique, where figures or objects are represented in varying sizes to indicate their relative importance or position in the narrative, is evident in the painting. The central figures are larger and more pronounced, while secondary figures and elements are smaller or placed in the background.
 - (B) graphic representation of horror and despair This is clearly exhibited in the painting. The expressions on the faces of the figures, their body language, and the overall chaotic scene depict horror and despair.
@@ -1068,16 +1052,13 @@ Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to
 - (D) use of sharply contrasting light and shade The painting employs a technique known as chiaroscuro, where light and shade are used to give depth, volume, and a three-dimensional effect to the subjects. This is evident in the way light falls on certain figures, highlighting them, while others are in shadow.
 - Given these observations, the correct answer is:
 - (A) hierarchical scale.
-
 **Ground Truth: (A) hierarchical scale**
 
 Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Art Theory: Art History**
+# Art Theory: Art History
 
-<span id="page-29-0"></span>**Question:** The original placement of this painting was **Option:**
-
-- (A) in the Prado Museum in Madrid, showing a willingness to be compared to great Spanish painters of the past
+<span id="page-29-0"></span>**Question:**The original placement of this painting was**Option:**- (A) in the Prado Museum in Madrid, showing a willingness to be compared to great Spanish painters of the past
 - (B) in the cathedral in Madrid, indicating a desire to find acceptance with the Catholic Church
 - (C) in the study of King Philip IV, challenging him to consider the multitude of interpretations the painting represents
 - (D) in the reception room at the Royal Palace in Madrid, where the portraits of the royal family would be viewable by visiting dignitaries
@@ -1085,26 +1066,18 @@ Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back 
 ![](_page_29_Picture_6.jpeg)
 
 <image 1>
+**GPT-4V:**This painting is "Las Meninas" by Diego Velázquez. The original placement of this painting was**(A) in the Prado Museum in Madrid**, showing a willingness to be compared to great Spanish painters of the past.
 
-**GPT-4V:** This painting is "Las Meninas" by Diego Velázquez. The original placement of this painting was **(A) in the Prado Museum in Madrid**, showing a willingness to be compared to great Spanish painters of the past.
+## Error Category: Lack of knowledge
 
-### **Error Category: Lack of knowledge**
+**Error Reason:**GPT-4V successfully recognizes that the painting is Las Meninas (1656), painted by Velazquez, showcasing its perceptual ability. However, it does not know the fact that the work was placed in the study of King Philip IV. GPT-4V suggests that the painting was placed in Prado Museum in Madrid, and even provides a reason to support this answer, which is the willingness to be compared to great Spanish painters in the past. This shows some reasoning ability. However, the original placement is a piece of factual knowledge; the reasoning was based on incorrect knowledge and it led to a wrong answer. This behavior illustrates that GPT-4V lacks specific art knowledge.
+**Ground Truth: (C) in the study of King Philip IV, challenging him to consider the multitude of interpretations the painting represents**Figure 13. A sample error case of Art Theory (subfield: Art History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Error Reason:** GPT-4V successfully recognizes that the painting is Las Meninas (1656), painted by Velazquez, showcasing its perceptual ability. However, it does not know the fact that the work was placed in the study of King Philip IV. GPT-4V suggests that the painting was placed in Prado Museum in Madrid, and even provides a reason to support this answer, which is the willingness to be compared to great Spanish painters in the past. This shows some reasoning ability. However, the original placement is a piece of factual knowledge; the reasoning was based on incorrect knowledge and it led to a wrong answer. This behavior illustrates that GPT-4V lacks specific art knowledge.
+<span id="page-30-0"></span>
 
-**Ground Truth: (C) in the study of King Philip IV, challenging him to consider the multitude of interpretations the painting represents**
-
-Figure 13. A sample error case of Art Theory (subfield: Art History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-30-0"></span>![](_page_30_Picture_0.jpeg)
-
-# **Design : Industrial Design**
-
-**Question:** In the Robie House Dining room, what design elements were used to create a 'room within a room' vibe? <image 1>
-
-**Option:**
-
-(A) Tall backs of chairs and lamps at the corners of dining tables
+# Design : Industrial Design
+**Question:**In the Robie House Dining room, what design elements were used to create a 'room within a room' vibe? <image 1>
+**Option:**(A) Tall backs of chairs and lamps at the corners of dining tables
 
 (B) Low-back chairs and pendant lights in the center
 
@@ -1115,18 +1088,14 @@ Figure 13. A sample error case of Art Theory (subfield: Art History). Error cate
 ![](_page_30_Picture_8.jpeg)
 
 <image 1>
-
-**GPT-4V:** Based on the image you've provided of the Robie House Dining room, the design elements used to create a 'room within a room' vibe are:(A) Tall backs of chairs and lamps at the corners of dining tables.
-
+**GPT-4V:**Based on the image you've provided of the Robie House Dining room, the design elements used to create a 'room within a room' vibe are:(A) Tall backs of chairs and lamps at the corners of dining tables.
 **Ground Truth: (A) Tall backs of chairs and lamps at the corners of dining tables**
 
 Figure 14. A sample correct case of Design (subfield: Industrial Design). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Design: Design History**
+# Design: Design History
 
-<span id="page-31-0"></span>**Question:** The painting <image 1> reflects contemporary culture primarily through the mapping of **Option:**
-
-(A) consumerism and national identities
+<span id="page-31-0"></span>**Question:**The painting <image 1> reflects contemporary culture primarily through the mapping of**Option:**(A) consumerism and national identities
 
 (B) flight paths and time intervals
 
@@ -1137,26 +1106,20 @@ Figure 14. A sample correct case of Design (subfield: Industrial Design). [Back 
 ![](_page_31_Picture_6.jpeg)
 
 <image 1>
+**GPT-4V:**The painting (<image 1>) appears to be a complex and abstract representation with various lines, patterns, and colors. Based on the visual elements in the painting:(D) information systems on the Internetseems to be the most fitting description. The interconnected lines and vibrant, diverse patterns might suggest the vastness and complexity of information systems on the Internet. However, art interpretation can be subjective, and different viewers may see different meanings in the same piece.
 
-**GPT-4V:** The painting (<image 1>) appears to be a complex and abstract representation with various lines, patterns, and colors. Based on the visual elements in the painting:(D) information systems on the Internetseems to be the most fitting description. The interconnected lines and vibrant, diverse patterns might suggest the vastness and complexity of information systems on the Internet. However, art interpretation can be subjective, and different viewers may see different meanings in the same piece.
+## Error Category: Perceptual Error
+**Error Reason:**The model failed to recognize and interpret the symbolic elements of national flags present in the image, which are key indicators of 'consumerism and national identities', leading to an incorrect answer.
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** The model failed to recognize and interpret the symbolic elements of national flags present in the image, which are key indicators of 'consumerism and national identities', leading to an incorrect answer.
-
-### **Ground Truth: (D) information systems on the Internet**
-
-**Explanation:** The painting reflects contemporary culture's consumerism and national identities through its visual elements that evoke the commercial marketplace and specific country symbols. Bright colors and recognizable patterns may suggest mass-produced goods and advertising, a common commentary on consumer culture in contemporary art. Additionally, abstract representations of flags, national colors, or iconic images could signify different countries' identities, illustrating the global interconnectedness of consumerism where products and brands cross borders and adapt to local cultures. The painting's complexity and layering mirror the saturated, interconnected nature of our globalized world, where the flow of consumer goods and cultural symbols creates a vibrant, dynamic map of modern life.
+### Ground Truth: (D) information systems on the Internet
+**Explanation:**The painting reflects contemporary culture's consumerism and national identities through its visual elements that evoke the commercial marketplace and specific country symbols. Bright colors and recognizable patterns may suggest mass-produced goods and advertising, a common commentary on consumer culture in contemporary art. Additionally, abstract representations of flags, national colors, or iconic images could signify different countries' identities, illustrating the global interconnectedness of consumerism where products and brands cross borders and adapt to local cultures. The painting's complexity and layering mirror the saturated, interconnected nature of our globalized world, where the flow of consumer goods and cultural symbols creates a vibrant, dynamic map of modern life.
 
 Figure 15. A sample error case of Design (subfield: Design History). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Design: Design History**
+# Design: Design History
 
-<span id="page-32-0"></span>![](_page_32_Picture_1.jpeg)
-
-**Question:** The double-tiered columns allowed for all of the following EXCEPT (<image 1>) **Option:**
-
-(A) barrel-vaulted roofing
+<span id="page-32-0"></span>
+**Question:**The double-tiered columns allowed for all of the following EXCEPT (<image 1>)**Option:**(A) barrel-vaulted roofing
 
 (B) decorative rhythm and repetition
 
@@ -1166,24 +1129,19 @@ Figure 15. A sample error case of Design (subfield: Design History). Error categ
 ![](_page_32_Picture_7.jpeg)
 
 <image 1>
+**GPT-4V:**The double-tiered columns in the image provided would allow for: (A) barrel-vaulted roofing (B) decorative rhythm and repetition (C) a higher roof to make up for the short columns. However, the double-tiered columns would not directly affect: (D) the entrance of light and air into the hall. So the correct answer is (D) the entrance of light and air into the hall.
 
-**GPT-4V:** The double-tiered columns in the image provided would allow for: (A) barrel-vaulted roofing (B) decorative rhythm and repetition (C) a higher roof to make up for the short columns. However, the double-tiered columns would not directly affect: (D) the entrance of light and air into the hall. So the correct answer is (D) the entrance of light and air into the hall.
+## Error Category: Lack of Knowledge
+**Error Reason:**The error reason is a lack of specific subject knowledge: the incorrect response suggests that double-tiered columns would not affect the entrance of light and air, which is not necessarily true. Architecturally, double-tiered columns do not prevent light and air from entering; such features are more influenced by the building's windows and overall design rather than the column structure itself. The correct answer should be that double-tiered columns would not allow for barrel-vaulted roofing, as the Mezquita features flat ceilings above the arches.
 
-### **Error Category: Lack of Knowledge**
-
-**Error Reason:** The error reason is a lack of specific subject knowledge: the incorrect response suggests that double-tiered columns would not affect the entrance of light and air, which is not necessarily true. Architecturally, double-tiered columns do not prevent light and air from entering; such features are more influenced by the building's windows and overall design rather than the column structure itself. The correct answer should be that double-tiered columns would not allow for barrel-vaulted roofing, as the Mezquita features flat ceilings above the arches.
-
-### **Ground Truth**: **(A) barrel-vaulted roofing**
-
+### Ground Truth: (A) barrel-vaulted roofing
 **Explanation**: The double-tiered columns depicted in the image, characteristic of Islamic architecture like that found in the Mosque-Cathedral of Córdoba, are not designed to support a barrel-vaulted roof; instead, they serve other purposes. These arches create a visually striking pattern of rhythm and repetition, elevate the roofline by stacking arches, which compensates for the shorter columns, and contribute to the structure's stability. However, they are not related to the entrance of light and air, which is typically managed by windows, nor are they structurally supportive of a barrelvaulted roof, as their design and construction cater to a flat roofing system. Hence, the correct answer is "barrel-vaulted roofing," as it is the element not facilitated by the double-tiered columns.
 
 Figure 16. A sample error case of Design (subfield: Design History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-33-0"></span>![](_page_33_Figure_0.jpeg)
 
-**Ground Truth: (A) <image 1>**
-
-![](_page_33_Figure_2.jpeg)
+**Ground Truth: (A) <image 1>**![](_page_33_Figure_2.jpeg)
 
 <span id="page-34-0"></span>
 
@@ -1191,32 +1149,21 @@ Figure 16. A sample error case of Design (subfield: Design History). Error categ
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
 | Question: Choose the name for the following interval. <image 1=""/><br>Option:<br>(A) Perfect 6th<br>(B) Compound perfect 4th<br>(C) Major 6th<br>(D) Minor 6th<br><image 1=""/><br>GPT-4V:<br>The interval shown in the image is a "major 6th." It spans from the first note, F, to the<br>second note, D. In a standard diatonic scale, the interval from F to D is a sixth, and since the key<br>signature does not indicate any flats or sharps that would alter the D, it remains a major sixth. The<br>options "perfect 6th" and "compound perfect 4th" do not exist in music theory as "perfect" is used<br>for unison, 4th, 5th, and octave intervals. A "minor 6th" would require the D to be flattened, which |  |
 | is not the case here.<br>Error Category: Perceptual Error, Lack of knowledge<br>Error Reason: The model immediately recognized it as a 6th interval, but got confused whether it's<br>a major 6th or a minor 6th. A closer look at the response reveals that the model failed to recognize<br>the starting and ending notes of the interval. The first note is actually G, but the model mistook it<br>for the adjacent not F. The second note is Eb, and the model might have simply deduced that it was<br>D based on the assumption of major 6th + F. Additionally, the model's mistaken identification of a<br>compound perfect 4th indicates a lack of subject knowledge.                                          |  |
-
-**Ground Truth: (D) Minor 6th**
-
-Figure 18. A sample error case of Music (subfield: Music). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+**Ground Truth: (D) Minor 6th**Figure 18. A sample error case of Music (subfield: Music). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-35-0"></span>![](_page_35_Figure_0.jpeg)
 
 #### <image 1>
+**GPT-4V:**In response to your inquiry, I examined the provided image for the presence of a compound minor third interval in the right-hand part starting from bar 13. A compound minor third, or a tenth, combines an octave (twelve semitones) with a minor third (three semitones), totaling fifteen semitones. Upon inspection, I found that bar 17 doesn't have this interval in the right-hand part. Bars 14 and 15 do contain intervals, but I'm uncertain if any are a compound minor third. I can't confirm the presence of this interval in bars 28 and 29, as they're not visible in the image. Bar 18 also requires checking for this interval. Unfortunately, I can't process the image visually to provide the exact bar number of the specified interval.
 
-**GPT-4V:** In response to your inquiry, I examined the provided image for the presence of a compound minor third interval in the right-hand part starting from bar 13. A compound minor third, or a tenth, combines an octave (twelve semitones) with a minor third (three semitones), totaling fifteen semitones. Upon inspection, I found that bar 17 doesn't have this interval in the right-hand part. Bars 14 and 15 do contain intervals, but I'm uncertain if any are a compound minor third. I can't confirm the presence of this interval in bars 28 and 29, as they're not visible in the image. Bar 18 also requires checking for this interval. Unfortunately, I can't process the image visually to provide the exact bar number of the specified interval.
+#### Error Category: Perceptual Error
+**Error Reason:**Surprisingly, the model fails to find the corresponding bar number based on the relative location of labeled bars. This is a simple visual inference task for humans.
+**Ground Truth: (A) 28 and 29**Figure 19. A sample error case of Music (subfield: Music). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-#### **Error Category: Perceptual Error**
+<span id="page-36-0"></span>
 
-**Error Reason:** Surprisingly, the model fails to find the corresponding bar number based on the relative location of labeled bars. This is a simple visual inference task for humans.
-
-**Ground Truth: (A) 28 and 29**
-
-Figure 19. A sample error case of Music (subfield: Music). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-36-0"></span>![](_page_36_Picture_0.jpeg)
-
-# **Accounting : Investment**
-
-**Question:** Consider the three stocks in the following table. Pt represents price at time t, and Qt represents shares outstanding at time t. Stock C splits two for one in the last period. Calculate the rate of return on a price-weighted index of the three stocks for the first period ( t 0 to t 1). **Option:**
-
-### (A) 4.17%
+# Accounting : Investment
+**Question:**Consider the three stocks in the following table. Pt represents price at time t, and Qt represents shares outstanding at time t. Stock C splits two for one in the last period. Calculate the rate of return on a price-weighted index of the three stocks for the first period ( t 0 to t 1).**Option:**## (A) 4.17%
 
 (B) 4.03%
 
@@ -1229,20 +1176,18 @@ Figure 19. A sample error case of Music (subfield: Music). Error category: Perce
 |   | 100   | 200   | 110 | 200 | 55 | 400     |
 
 <image 1>
+**GPT-4V:**To calculate the rate of return on a price-weighted index of the three stocks for the first period (t0 to t1), follow these steps: Calculate the initial index value at t0. Calculate the index value at t1. Compute the rate of return using the two index values.
 
-**GPT-4V:** To calculate the rate of return on a price-weighted index of the three stocks for the first period (t0 to t1), follow these steps: Calculate the initial index value at t0. Calculate the index value at t1. Compute the rate of return using the two index values.
+Initial Index Value at t0: Price-weighted index value at 0 = (0() + 0() + 0()) / 3 = (90 + 50 + 100) / 3 = 80 Index Value at t1: Price-weighted index value at 1 = (1() + 1() + 1()) / 3 = (95 + 45 + 110) / 3 = 83.33 Rate of Return: Rate of Return = (Index Value at t1 - Index Value at t0) / Index Value at t0 = (83.33 − 80) / 80 = 0.041625 = 4.1625% Therefore, the rate of return on a price-weighted index of the three stocks for the first period is approximately 4.17%. The correct answer is:**(A) 4.17%**
 
-Initial Index Value at t0: Price-weighted index value at 0 = (0() + 0() + 0()) / 3 = (90 + 50 + 100) / 3 = 80 Index Value at t1: Price-weighted index value at 1 = (1() + 1() + 1()) / 3 = (95 + 45 + 110) / 3 = 83.33 Rate of Return: Rate of Return = (Index Value at t1 - Index Value at t0) / Index Value at t0 = (83.33 − 80) / 80 = 0.041625 = 4.1625% Therefore, the rate of return on a price-weighted index of the three stocks for the first period is approximately 4.17%. The correct answer is: **(A) 4.17%**
-
-**Ground Truth: (A)** . % **Explanation:** At t = 0, the value of the index is: (90 + 50 + 100)/3 = 80. At = 1, the value of the index is: (95 + 45 + 110)/3 = 83.333. The rate of return is: (83.333/80) − 1 = 4.17%
+**Ground Truth: (A)**. %**Explanation:** At t = 0, the value of the index is: (90 + 50 + 100)/3 = 80. At = 1, the value of the index is: (95 + 45 + 110)/3 = 83.333. The rate of return is: (83.333/80) − 1 = 4.17%
 
 > Figure 20. A sample correct case of Accounting (subfield: Investment). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Accounting: Financial Accounting**
+# Accounting: Financial Accounting
 
-<span id="page-37-0"></span>**Question:** From the following Company Y adjusted trial balance, what is the retained earnings to be reported?<image 1>
-
-**Option:** (A) \$17,800 (B) \$16,800 (C) \$15,550 (D) \$12,280
+<span id="page-37-0"></span>**Question:**From the following Company Y adjusted trial balance, what is the retained earnings to be reported?<image 1>
+**Option:**(A) \$17,800 (B) \$16,800 (C) \$15,550 (D) \$12,280
 
 | <b>Adjusted Trial Balance</b> |              |          |  |  |
 |-------------------------------|--------------|----------|--|--|
@@ -1263,8 +1208,7 @@ Initial Index Value at t0: Price-weighted index value at 0 = (0() + 0() + 0()) /
 |                               | 126,100      | 126,100  |  |  |
 
 <image 1>
-
-**GPT-4V:** To calculate the retained earnings to be reported for Company Y from the adjusted trial balance, we need to consider the following components:
+**GPT-4V:**To calculate the retained earnings to be reported for Company Y from the adjusted trial balance, we need to consider the following components:
 
 1. Beginning Retained Earnings: This would be the retained earnings balance at the start of the period. However, since it is not provided, we can assume it is included in the current retained earnings figure in the trial balance or that this is the first year of operation, and as such, it would be zero.
 
@@ -1278,41 +1222,34 @@ Net Income: Service Revenue (\$74,000) - (Insurance Expense \$5,600 + Salaries E
 
 Less Dividends: \$8,000. Retained Earnings to be Reported = Beginning Retained Earnings (if not given, assumed to be included in the trial balance) + Net Income - Dividends. The trial balance shows Retained Earnings as \$6,000. Assuming this is the beginning balance and adding the net income less dividends: Retained Earnings to be Reported = \$6,000 + \$21,600 - \$8,000 = \$19,600. There is no answer matching the option.
 
-### **Error Category: Perceptual Error**
+## Error Category: Perceptual Error
+**Error Reason:**GPT-4V understands the question and can know how to calculate the Retained Earnings to be Reported. Most of the calculation process is correct. However, in the final steps, GPT-4V wrongly extracts the number of Retained Earnings from the table image (should be \$4,200 instead of \$6,000).
+**Ground Truth: (A) \$17,800**Figure 21. A sample error case of Accounting (subfield: Financial Accounting). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Error Reason:** GPT-4V understands the question and can know how to calculate the Retained Earnings to be Reported. Most of the calculation process is correct. However, in the final steps, GPT-4V wrongly extracts the number of Retained Earnings from the table image (should be \$4,200 instead of \$6,000).
+<span id="page-38-0"></span>
 
-**Ground Truth: (A) \$17,800**
+# Economics : Econometrics
+**Question:**Figure 1 displays the number of cases of Melanoma (Mt) in the male population of a US State, from 1936 to 1972. Figure 2 shows the Spanish Industrial Production Index (IPIt), from January 1975 to March 2001. <image 1> <image 2> According to figures 1 and 2, which of the following statements is FALSE:
 
-Figure 21. A sample error case of Accounting (subfield: Financial Accounting). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-38-0"></span>![](_page_38_Picture_0.jpeg)
-
-# **Economics : Econometrics**
-
-**Question:** Figure 1 displays the number of cases of Melanoma (Mt) in the male population of a US State, from 1936 to 1972. Figure 2 shows the Spanish Industrial Production Index (IPIt), from January 1975 to March 2001. <image 1> <image 2> According to figures 1 and 2, which of the following statements is FALSE:
-
-#### **Option:**
+## Option:
 
 - (A) IPIt displays a strong seasonality
 - (B) Both time series are mean stationary
 - (C) Both time series display a trending behavior
 
 ![](_page_38_Figure_7.jpeg)
+**GPT-4V:**Based on the provided figures:(A) IPIt displays a strong seasonality. - This statement appears to be TRUE. Figure 2 shows consistent and repeating peaks and valleys for the Spanish Industrial Production Index (IPIt), indicative of seasonality.(B) Both time series are mean stationary. - This statement appears to be FALSE. A mean stationary time series would have a constant mean (average) over time. Both figures show a changing mean over the given time frames, particularly Figure 1 where the mean value for Melanoma cases appears to be increasing over time.(C) Both time series display a trending behavior. - This statement appears to be TRUE. Figure 1 shows an upward trend in the number of Melanoma cases over time, and Figure 2 displays fluctuations but also an overall upward trend in the Industrial Production Index. Therefore, the FALSE statement is: (B) Both time series are mean stationary.
 
-**GPT-4V:** Based on the provided figures:(A) IPIt displays a strong seasonality. - This statement appears to be TRUE. Figure 2 shows consistent and repeating peaks and valleys for the Spanish Industrial Production Index (IPIt), indicative of seasonality.(B) Both time series are mean stationary. - This statement appears to be FALSE. A mean stationary time series would have a constant mean (average) over time. Both figures show a changing mean over the given time frames, particularly Figure 1 where the mean value for Melanoma cases appears to be increasing over time.(C) Both time series display a trending behavior. - This statement appears to be TRUE. Figure 1 shows an upward trend in the number of Melanoma cases over time, and Figure 2 displays fluctuations but also an overall upward trend in the Industrial Production Index. Therefore, the FALSE statement is: (B) Both time series are mean stationary.
-
-#### **Ground Truth: (B) Both time series are mean stationary.**
+### Ground Truth: (B) Both time series are mean stationary.
 
 Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-39-0"></span>![](_page_39_Picture_0.jpeg)
+<span id="page-39-0"></span>
 
-# **Economics: Macroeconomics**
+# Economics: Macroeconomics
+**Question:**Question below is based on the production possibilities of two nations that can produce both crepes and paper. <image 1> Which of the following statements is true of these production possibilities?
 
-**Question:** Question below is based on the production possibilities of two nations that can produce both crepes and paper. <image 1> Which of the following statements is true of these production possibilities?
-
-### **Option:**
+## Option:
 
 (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.
 
@@ -1329,28 +1266,22 @@ Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to
 | a. Housing construction<br>b. Health care<br>c. Gold mining<br>d. Steel production | (i) Deep recession: falling inflation, interest rates, and GDP<br>(ii) Superheated economy: rapidly rising GDP, increasing inflation<br>and interest rates<br>(iii) Healthy expansion: rising GDP, mild inflation, low<br>unemployment<br>(iv) Stagflation: falling GDP, high inflation |
 
 <image 1>
-
-**GPT-4V:** To determine which nation has a comparative advantage in producing a particular good, we need to calculate the opportunity cost for each good in both nations. Opportunity cost is calculated as the amount of the other good that has to be given up to produce one unit of a particular good. Opportunity cost for Nation X: For 1 crepe, Nation X gives up producing 3 units of paper. So, opportunity cost of 1 crepe = 3 paper. For 1 paper, Nation X gives up producing 1/3 unit of crepe. So, opportunity cost of 1 paper = 1/3 crepe. Opportunity cost for Nation Y:For 1 crepe, Nation Y gives up producing 5 units of paper. So, opportunity cost of 1 crepe = 5 paper. For 1 paper, Nation Y gives up producing 1/5 unit of crepe. So, opportunity cost of 1 paper = 1/5 crepe. Comparing opportunity costs: Nation X has a lower opportunity cost (1/3 < 1/5) in producing paper than Nation Y. So, Nation X has a comparative advantage in producing paper. Nation Y has a lower opportunity cost (5 > 3) in producing crepes than Nation X. So, Nation Y has a comparative advantage in producing crepes. Given this, the statement:
+**GPT-4V:**To determine which nation has a comparative advantage in producing a particular good, we need to calculate the opportunity cost for each good in both nations. Opportunity cost is calculated as the amount of the other good that has to be given up to produce one unit of a particular good. Opportunity cost for Nation X: For 1 crepe, Nation X gives up producing 3 units of paper. So, opportunity cost of 1 crepe = 3 paper. For 1 paper, Nation X gives up producing 1/3 unit of crepe. So, opportunity cost of 1 paper = 1/3 crepe. Opportunity cost for Nation Y:For 1 crepe, Nation Y gives up producing 5 units of paper. So, opportunity cost of 1 crepe = 5 paper. For 1 paper, Nation Y gives up producing 1/5 unit of crepe. So, opportunity cost of 1 paper = 1/5 crepe. Comparing opportunity costs: Nation X has a lower opportunity cost (1/3 < 1/5) in producing paper than Nation Y. So, Nation X has a comparative advantage in producing paper. Nation Y has a lower opportunity cost (5 > 3) in producing crepes than Nation X. So, Nation Y has a comparative advantage in producing crepes. Given this, the statement:
 
 (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.is the correct answer.
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** Although GPT-4V correctly identifies the numbers in the table, it fails to correctly attribute these numbers to the correct objects for production. For example, when calculating the opportunity cost of Nation X, GPT-4V makes the mistake that nation X can either produce 3 units of crepe or 9 units of piece. But in fact, according to the table, nation X can produce 3 units of paper or 9 units of crepe. This error leads to the incorrect calculation of opportunity cost and the incorrect answer.
-
-**Ground Truth: (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.**
-
-Figure 23. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+### Error Category: Perceptual Error
+**Error Reason:**Although GPT-4V correctly identifies the numbers in the table, it fails to correctly attribute these numbers to the correct objects for production. For example, when calculating the opportunity cost of Nation X, GPT-4V makes the mistake that nation X can either produce 3 units of crepe or 9 units of piece. But in fact, according to the table, nation X can produce 3 units of paper or 9 units of crepe. This error leads to the incorrect calculation of opportunity cost and the incorrect answer.
+**Ground Truth: (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.**Figure 23. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-40-0"></span>![](_page_40_Figure_0.jpeg)
 
 Figure 24. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-41-0"></span>![](_page_41_Picture_0.jpeg)
+<span id="page-41-0"></span>
 
-# **Finance: Corporate Finance**
-
-**Question:** Spike Equino is the CEO of a private medical equipment company that is proposing to sell 100,000 shares of its stock in an open auction. Suppose the company receives the bids in the following table. <image 1> What will be the company's total receipts (\$) from the sale if the auction is a uniform price auction?
+# Finance: Corporate Finance
+**Question:**Spike Equino is the CEO of a private medical equipment company that is proposing to sell 100,000 shares of its stock in an open auction. Suppose the company receives the bids in the following table. <image 1> What will be the company's total receipts (\$) from the sale if the auction is a uniform price auction?
 
 | <b>Shares</b> | <b>Price</b>                             |
 |---------------|------------------------------------------|
@@ -1365,18 +1296,17 @@ Figure 24. A sample error case of Economics (subfield: Macroeconomics). Error ca
 | 30,000        | 61                                       |
 
 <image 1>
-
 **GPT-4V:** In a uniform price auction, all successful bidders pay the same price per share, which is the lowest price at which the entire quantity can be sold. To determine this price, we need to accumulate the bids starting from the highest price until the total number of shares reaches or exceeds the quantity being sold (100,000 shares in this case). Using the given table: 20,000 shares at \$8010,000 shares at \$7815,000 shares at \$7325,000 shares at \$7010,000 shares at \$698,000 shares at \$6714,000 shares at \$6615,000 shares at \$6530,000 shares at \$61. Accumulating the shares: 20,000 shares (total: 20,000) 10,000 shares (total: 30,000) 15,000 shares (total: 45,000) 25,000 shares (total: 70,000) 10,000 shares (total: 80,000) 8,000 shares (total: 88,000) 14,000 shares (total: 102,000). We can see that after accumulating the first 7 bids, we exceed the 100,000 shares being sold. Therefore, the price that every successful bidder will pay is \$66 per share (which is the lowest bid price that allows the company to sell all 100,000 shares). To calculate the company's total receipts from the sale: 100,000 shares × \$66/share = \$6,600,000.
 
 The company's total receipts from the sale will be \$6,600,000.
 
-### **Ground Truth: \$6600000**
+## Ground Truth: \$6600000
 
 Figure 25. A sample correct case of Finance (subfield: Corporate Finance). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Finance : Financial Marketing**
+# Finance : Financial Marketing
 
-<span id="page-42-0"></span>**Question:** <image 1> Which point designates the optimal portfolio of risky assets? **Option:** (A) Point E
+<span id="page-42-0"></span>**Question:**<image 1> Which point designates the optimal portfolio of risky assets?**Option:**(A) Point E
 
 - (B) Point F
 - (C) Point G
@@ -1385,68 +1315,54 @@ Figure 25. A sample correct case of Finance (subfield: Corporate Finance). [Back
 ![](_page_42_Figure_5.jpeg)
 
 <image 1>
+**GPT-4V:**The optimal portfolio of risky assets is the one that provides the highest expected return for a given level of risk. On the Capital Market Line (CML) or Capital Allocation Line (CAL) depicted in the graph, this is represented by the tangent point where the CAL touches the efficient frontier (the curve of possible portfolios).From the graph provided, Point F is where the CAL is tangent to the efficient frontier, which means Point F designates the optimal portfolio of risky assets. The answer is: (B) Point F.
 
-**GPT-4V:** The optimal portfolio of risky assets is the one that provides the highest expected return for a given level of risk. On the Capital Market Line (CML) or Capital Allocation Line (CAL) depicted in the graph, this is represented by the tangent point where the CAL touches the efficient frontier (the curve of possible portfolios).From the graph provided, Point F is where the CAL is tangent to the efficient frontier, which means Point F designates the optimal portfolio of risky assets. The answer is: (B) Point F.
-
-### **Error Category: Reasoning Error**
-
-**Error Reason:** GPT-4V accurately identifies point F as the optimal portfolio of risky assets in the given problem and applies the correct theoretical framework in its reasoning. However, it overlooks an important aspect of point E, which also lies on the Capital Allocation Line (CAL) and is situated at the CAL's rightmost end. Given that point E offers a higher expected return while maintaining the same Sharpe ratio as point F, it should be considered more optimal than point F. This oversight in GPT-4V's analysis leads to an incorrect conclusion, as it fails to adequately assess the significance of point E in the context of portfolio optimization.
-
+## Error Category: Reasoning Error
+**Error Reason:**GPT-4V accurately identifies point F as the optimal portfolio of risky assets in the given problem and applies the correct theoretical framework in its reasoning. However, it overlooks an important aspect of point E, which also lies on the Capital Allocation Line (CAL) and is situated at the CAL's rightmost end. Given that point E offers a higher expected return while maintaining the same Sharpe ratio as point F, it should be considered more optimal than point F. This oversight in GPT-4V's analysis leads to an incorrect conclusion, as it fails to adequately assess the significance of point E in the context of portfolio optimization.
 **Ground Truth: (A) Point E**
 
 Figure 26. A sample error case of Finance (subfield: Financial Marketing). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Manage: Cost Management**
+### Manage: Cost Management
 
-<span id="page-43-0"></span>**Question:** Eastern Chemical Company produces three products. The operating results of the current year are: <image 1> The firm sets the target price of each product at 150% of the product's total manufacturing cost. It appears that the firm was able to sell Product C at a much higher price than the target price of the product and lost money on Product B. Tom Watson, CEO, wants to promote Product C much more aggressively and phase out Product B. He believes that the information suggests that Product C has the greatest potential among the firm's three products because the actual selling price of Product C was almost 50% higher than the target price, while the firm was forced to sell Product B at a price below the target price. Both the budgeted and actual factory overhead for the current year are \$510,000. The actual units sold for each product also are the same as the budgeted units. The firm uses direct labor dollars to assign manufacturing overhead costs. The direct materials and direct labor costs per unit for each product are: <image 2> The controller noticed that not all products consumed factory overhead similarly. Upon further investigation, she identified the following usage of factory overhead during the year: <image 3> Determine the manufacturing cost per unit for Product A using the volume-based method
+<span id="page-43-0"></span>**Question:**Eastern Chemical Company produces three products. The operating results of the current year are: <image 1> The firm sets the target price of each product at 150% of the product's total manufacturing cost. It appears that the firm was able to sell Product C at a much higher price than the target price of the product and lost money on Product B. Tom Watson, CEO, wants to promote Product C much more aggressively and phase out Product B. He believes that the information suggests that Product C has the greatest potential among the firm's three products because the actual selling price of Product C was almost 50% higher than the target price, while the firm was forced to sell Product B at a price below the target price. Both the budgeted and actual factory overhead for the current year are \$510,000. The actual units sold for each product also are the same as the budgeted units. The firm uses direct labor dollars to assign manufacturing overhead costs. The direct materials and direct labor costs per unit for each product are: <image 2> The controller noticed that not all products consumed factory overhead similarly. Upon further investigation, she identified the following usage of factory overhead during the year: <image 3> Determine the manufacturing cost per unit for Product A using the volume-based method
 
 | <image 1=""/> |  |               |  |  |  | <image 2=""/> |  |  |
 |---------------|--|---------------|--|--|--|---------------|--|--|
 |               |  |               |  |  |  |               |  |  |
 |               |  |               |  |  |  |               |  |  |
 |               |  | <image 3=""/> |  |  |  |               |  |  |
-
-**GPT-4V:** To determine the manufacturing cost per unit for Product A using the volume-based method, we'll follow these steps: Calculate the total overhead rate. Calculate the total manufacturing cost for Product A. Calculate the manufacturing cost per unit for Product A.1. Calculate the total overhead rate: Overhead rate = Total Factory Overhead / Total Direct Labor Dollars. Using the information given: Total Factory Overhead = \$510,000, Direct labor cost for: Product A = \$20.00, Product B = \$12.00, Product C = \$10.00. Sales Quantity: Product A = 1,000 units, Product B = 5,000 units, Product C = 500 units. Total Direct Labor Dollars = (Product A direct labor cost per unit × Product A Sales Quantity) + (Product B direct labor cost per unit × Product B Sales Quantity) + (Product C direct labor cost per unit × Product C Sales Quantity) = (\$20.00 × 1,000) + (\$12.00 × 5,000) + (\$10.00 × 500)= \$20,000 + \$60,000 + \$5,000= \$85,000
+**GPT-4V:**To determine the manufacturing cost per unit for Product A using the volume-based method, we'll follow these steps: Calculate the total overhead rate. Calculate the total manufacturing cost for Product A. Calculate the manufacturing cost per unit for Product A.1. Calculate the total overhead rate: Overhead rate = Total Factory Overhead / Total Direct Labor Dollars. Using the information given: Total Factory Overhead = \$510,000, Direct labor cost for: Product A = \$20.00, Product B = \$12.00, Product C = \$10.00. Sales Quantity: Product A = 1,000 units, Product B = 5,000 units, Product C = 500 units. Total Direct Labor Dollars = (Product A direct labor cost per unit × Product A Sales Quantity) + (Product B direct labor cost per unit × Product B Sales Quantity) + (Product C direct labor cost per unit × Product C Sales Quantity) = (\$20.00 × 1,000) + (\$12.00 × 5,000) + (\$10.00 × 500)= \$20,000 + \$60,000 + \$5,000= \$85,000
 
 Overhead Rate:= Total Factory Overhead / Total Direct Labor Dollars= \$510,000 / \$85,000 = \$6 per direct labor dollar2. Calculate the total manufacturing cost for Product A:Manufacturing cost = Direct Materials + Direct Labor + Overhead. Using the information given for Product A:Direct Materials = \$50.00, Direct Labor = \$20.00, Overhead = Overhead Rate × Direct Labor= \$6 × \$20.00= \$120.00Total Manufacturing Cost for Product A:= Direct Materials + Direct Labor + Overhead= \$50.00 + \$20.00 + \$120.00= \$190.003. Calculate the manufacturing cost per unit for Product A:Since the actual units sold for each product are the same as the budgeted units, we can use the given sales quantity for Product A:Manufacturing Cost Per Unit for Product A:= Total Manufacturing Cost for Product A / Product A Sales Quantity= \$190,000 units= \$0.19 per unit (This seems too low, there might be an error in our calculations or in the given data.).
 
 However, since we're asked for the manufacturing cost per unit, \$190.00 is the correct manufacturing cost per unit for Product A using the volume-based method.
-
 **Ground Truth: \$190**
 
 Figure 27. A sample correct case of Manage (subfield: Cost Management). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 ![](_page_44_Figure_0.jpeg)
 
-<span id="page-44-0"></span>**Question:** Look at the situation in the <image 1>. You are traveling on a plane with a small child. The cabin is depressurized and the oxygen mask falls from the ceiling. Which of these pictures shows the reconciliation of egoism and other-isms (the order is from left to right, top to bottom)?
-
-**Option:**
-
-(A) 1
+<span id="page-44-0"></span>**Question:**Look at the situation in the <image 1>. You are traveling on a plane with a small child. The cabin is depressurized and the oxygen mask falls from the ceiling. Which of these pictures shows the reconciliation of egoism and other-isms (the order is from left to right, top to bottom)?
+**Option:**(A) 1
 
 (B) 2 (C) 3
 
 ![](_page_44_Figure_5.jpeg)
 
 <image 1>
+**GPT-4V:**The image shows three situations on a plane when the oxygen mask falls: The adult puts on the mask first while the child watches (egoism).The adult puts the mask on the child first while struggling for breath. Both the adult and the child share the mask. The reconciliation of egoism and other-isms would be a situation where both the individual's needs and the needs of others are considered and addressed. Therefore, the correct answer is: (C) 3
 
-**GPT-4V:** The image shows three situations on a plane when the oxygen mask falls: The adult puts on the mask first while the child watches (egoism).The adult puts the mask on the child first while struggling for breath. Both the adult and the child share the mask. The reconciliation of egoism and other-isms would be a situation where both the individual's needs and the needs of others are considered and addressed. Therefore, the correct answer is: (C) 3
+### Error Category: Perceptual Error
+**Error Reason:**GPT-4V recalled the right knowledge and made the right reasoning, but it failed to correctly map the IDs to the corresponding illustrations in the figure, which is not explicitly marked in the figure but is only described in text (the order is from left to right, top to bottom).
+**Ground Truth: (B) 2**Figure 28. A sample error case of Manage (subfield: Management Models). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Error Category: Perceptual Error**
+<span id="page-45-0"></span>
 
-**Error Reason:** GPT-4V recalled the right knowledge and made the right reasoning, but it failed to correctly map the IDs to the corresponding illustrations in the figure, which is not explicitly marked in the figure but is only described in text (the order is from left to right, top to bottom).
+# Marketing: Market Research
+**Question:**A golf instructor is interested in determining if her new technique for improving players' golf scores is effective. She takes four (4) new students. She records their 18-hole scores before learning the technique and then after having taken her class. She conducts a hypothesis test. The data are as Table 10.27. <image 1>
 
-**Ground Truth: (B) 2**
-
-Figure 28. A sample error case of Manage (subfield: Management Models). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-45-0"></span>![](_page_45_Picture_0.jpeg)
-
-# **Marketing: Market Research**
-
-**Question:** A golf instructor is interested in determining if her new technique for improving players' golf scores is effective. She takes four (4) new students. She records their 18-hole scores before learning the technique and then after having taken her class. She conducts a hypothesis test. The data are as Table 10.27. <image 1>
-
-#### **Option:**
+## Option:
 
 (A) a test of two independent means
 
@@ -1461,18 +1377,16 @@ Figure 28. A sample error case of Manage (subfield: Management Models). Error ca
 | <b>Table 10.27</b>      |                                          |                                          |                                          |                                          |
 
 <image 1>
-
-**GPT-4V:** Based on the data provided in Table 10.27, the golf instructor is comparing the mean scores of her students before and after taking her class. She is interested in determining if there's a significant difference in the mean scores of the same students before and after learning her new technique. Given this, the most appropriate statistical test to use in this scenario would be:(A) a test of two independent means.
-
+**GPT-4V:**Based on the data provided in Table 10.27, the golf instructor is comparing the mean scores of her students before and after taking her class. She is interested in determining if there's a significant difference in the mean scores of the same students before and after learning her new technique. Given this, the most appropriate statistical test to use in this scenario would be:(A) a test of two independent means.
 **Ground Truth: (A) a test of two independent means**
 
 Figure 29. A sample correct case of Marketing (subfield: Market Research). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Marketing: Market Research**
+# Marketing: Market Research
 
-<span id="page-46-0"></span>**Question:** The graph in <image 1> displays the sample sizes and percentages of people in different age and gender groups who were polled concerning their approval of Mayor Ford's actions in office. The total number in the sample of all the age groups is 1,045. Out of the males and females, what percent are males?
+<span id="page-46-0"></span>**Question:**The graph in <image 1> displays the sample sizes and percentages of people in different age and gender groups who were polled concerning their approval of Mayor Ford's actions in office. The total number in the sample of all the age groups is 1,045. Out of the males and females, what percent are males?
 
-### **Option:**
+## Option:
 
 (A) 44.8%
 
@@ -1485,8 +1399,7 @@ Figure 29. A sample correct case of Marketing (subfield: Market Research). [Back
 ![](_page_46_Figure_8.jpeg)
 
 ![](_page_46_Figure_9.jpeg)
-
-**GPT-4V:** To find the percentage of males in the sample: First, we'll identify the number of males and females from the graph:
+**GPT-4V:**To find the percentage of males in the sample: First, we'll identify the number of males and females from the graph:
 
 Males = 52, Females = 63, Sum of males and females = 52 + 63 = 115
 
@@ -1498,19 +1411,15 @@ Percentage of males = (Number of males / Total number of males and females) × 1
 
 = 45.22% The closest answer to 45.22% from the given options is:(B) 45.5%
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** GPT-4V misunderstands the percentage of male and female as the number of samples.
-
+### Error Category: Perceptual Error
+**Error Reason:**GPT-4V misunderstands the percentage of male and female as the number of samples.
 **Ground Truth: (C) 45.7%**
 
 Figure 30. A sample error case of Marketing (subfield: Market Research). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Biology: Physiology**
+# Biology: Physiology
 
-<span id="page-47-0"></span>**Question:** The patient is a post-mature newborn. What is the most likely diagnosis? <image 1> **Option:**
-
-- (A) Vision may be restored with concave lens and refractive surgery
+<span id="page-47-0"></span>**Question:**The patient is a post-mature newborn. What is the most likely diagnosis? <image 1>**Option:**- (A) Vision may be restored with concave lens and refractive surgery
 - (B) Vision may be restored with convex lens and refractive surgery
 - (C) This condition often occurs in elderly people
 - (D) This phenomenon can not be fixed by LASIK (laser-assisted in situ keratomileusis) surgery
@@ -1518,24 +1427,16 @@ Figure 30. A sample error case of Marketing (subfield: Market Research). Error c
 ![](_page_47_Picture_7.jpeg)
 
 <image 1>
-
-**GPT-4V:** The image depicts a case of myopia, or nearsightedness. In myopia, light entering the eye is focused in front of the retina rather than directly on it, which results in distant objects appearing blurred. Given the choices:(A) Vision may be restored with concave lens and refractive surgery - This is correct. A concave lens can help to spread out the light rays so that they can focus on the retina correctly. Additionally, refractive surgeries like LASIK can help correct myopia.(B) Vision may be restored with convex lens and refractive surgery - This is incorrect. Convex lenses are used for hyperopia or farsightedness, not myopia.(C) This condition often occurs in elderly people - This is not necessarily true. Myopia can begin in childhood and progress into adulthood. It is not limited to elderly people.(D) This phenomenon can not be fixed by LASIK (laser-assisted in situ keratomileusis) surgery - This is incorrect. LASIK is one of the common surgeries used to correct myopia.So, the true statement is:
+**GPT-4V:**The image depicts a case of myopia, or nearsightedness. In myopia, light entering the eye is focused in front of the retina rather than directly on it, which results in distant objects appearing blurred. Given the choices:(A) Vision may be restored with concave lens and refractive surgery - This is correct. A concave lens can help to spread out the light rays so that they can focus on the retina correctly. Additionally, refractive surgeries like LASIK can help correct myopia.(B) Vision may be restored with convex lens and refractive surgery - This is incorrect. Convex lenses are used for hyperopia or farsightedness, not myopia.(C) This condition often occurs in elderly people - This is not necessarily true. Myopia can begin in childhood and progress into adulthood. It is not limited to elderly people.(D) This phenomenon can not be fixed by LASIK (laser-assisted in situ keratomileusis) surgery - This is incorrect. LASIK is one of the common surgeries used to correct myopia.So, the true statement is:
 
 (A) Vision may be restored with concave lens and refractive surgery.
+**Ground Truth: (A) Vision may be restored with concave lens and refractive surgery**Figure 31. A sample correct case of Biology (subfield: Physiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Ground Truth: (A) Vision may be restored with concave lens and refractive surgery**
+<span id="page-48-0"></span>
 
-Figure 31. A sample correct case of Biology (subfield: Physiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-48-0"></span>![](_page_48_Picture_0.jpeg)
-
-# **Biology: Genetics**
-
-**Question:** Consider the figure <image 1> for ABC hypothesis. If wild type Arabidopsis were transformed with a chimeric gene consisting of an A class promoter fused to a B class coding sequence, which of the following arrangements (inner to outer) would be predicted?
-
-**Option:**
-
-(A) Ca, St, St, St.
+# Biology: Genetics
+**Question:**Consider the figure <image 1> for ABC hypothesis. If wild type Arabidopsis were transformed with a chimeric gene consisting of an A class promoter fused to a B class coding sequence, which of the following arrangements (inner to outer) would be predicted?
+**Option:**(A) Ca, St, St, St.
 
 - (B) Ca, St, Se, Se.
 - (C) Ca, St, Se, Pe.
@@ -1545,8 +1446,7 @@ Figure 31. A sample correct case of Biology (subfield: Physiology). [Back to Lis
 ![](_page_48_Picture_9.jpeg)
 
 <image 1>
-
-**GPT-4V:** The ABC model is a classic model for understanding flower development. This model stipulates that: A-class genes alone specify sepals. A-class and B-class genes together specify petals. B-class and C-class genes together specify stamens. C-class genes alone specify carpels. Given the information, if a wild type Arabidopsis were transformed with a chimeric gene consisting of an A class promoter fused to a B class coding sequence, then the B class gene would be expressed where normally only the A class gene would be active. Here's how the flower would develop according to the modified ABC model: Whorl 1 (outermost): Normally A class genes would specify sepals, but with the B class coding sequence under the A class promoter, it would be A+B which specifies petals.
+**GPT-4V:**The ABC model is a classic model for understanding flower development. This model stipulates that: A-class genes alone specify sepals. A-class and B-class genes together specify petals. B-class and C-class genes together specify stamens. C-class genes alone specify carpels. Given the information, if a wild type Arabidopsis were transformed with a chimeric gene consisting of an A class promoter fused to a B class coding sequence, then the B class gene would be expressed where normally only the A class gene would be active. Here's how the flower would develop according to the modified ABC model: Whorl 1 (outermost): Normally A class genes would specify sepals, but with the B class coding sequence under the A class promoter, it would be A+B which specifies petals.
 
 Whorl 2: A + B class genes together specify petals, and this remains unchanged.
 
@@ -1560,29 +1460,23 @@ Pe, Pe, St, Ca The closest match to the given options would be:
 
 (D) Ca, St, Pe, Se.
 
-### **Error Category: Reasoning Error**
+## Error Category: Reasoning Error
+**Error Reason:**GPT-4V correctly interprets the image. However, it does not correctly reason about the relationship between a 'coding sequence' and a 'class promoter'. This prevents it from correctly predicting the answer for Whorl 1 and Whorl 2.
+**Ground Truth: (B) Ca, St, Se, Se.**Figure 32. A sample error case of Biology (subfield: Genetics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Error Reason:** GPT-4V correctly interprets the image. However, it does not correctly reason about the relationship between a 'coding sequence' and a 'class promoter'. This prevents it from correctly predicting the answer for Whorl 1 and Whorl 2.
+<span id="page-49-0"></span>
 
-**Ground Truth: (B) Ca, St, Se, Se.**
+# Biology: Genetics
+**Question:**Based on <image 1> if a Hox 13 gene in a mouse was replaced with a Hox 1 gene, which of the following will be the most likely outcome?
 
-Figure 32. A sample error case of Biology (subfield: Genetics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-49-0"></span>![](_page_49_Picture_0.jpeg)
-
-# **Biology: Genetics**
-
-**Question:** Based on <image 1> if a Hox 13 gene in a mouse was replaced with a Hox 1 gene, which of the following will be the most likely outcome?
-
-- **Option:** (A) The mouse may develop one head and one tail
+-**Option:**(A) The mouse may develop one head and one tail
 - (B) The mouse may develop two heads and no tail
 - (C) The mouse may develop no head and two tails
 
 ![](_page_49_Picture_6.jpeg)
 
 <image 1>
-
-**GPT-4V:** The Hox genes are a group of related genes that control the body plan of an embryo along the anterior-posterior (head-tail) axis. These genes determine where limbs and other body segments will grow in a developing fetus.
+**GPT-4V:**The Hox genes are a group of related genes that control the body plan of an embryo along the anterior-posterior (head-tail) axis. These genes determine where limbs and other body segments will grow in a developing fetus.
 
 In the image provided, you appear to reference a mouse with a head and a tail, with what seems to be color-coding or sequencing perhaps representing the Hox genes.
 
@@ -1595,26 +1489,15 @@ Hox 13 genes are typically expressed in posterior regions, like the tail.
 Given this information, if a Hox 13 gene in a mouse was replaced with a Hox 1 gene, the posterior region where the tail would normally develop would now be getting instructions to develop anterior structures.
 
 Therefore, the most likely outcome is:
+**(C) The mouse may develop no head and two tails.**## Error Category: Reasoning Error
+**Error Reason:**GPT-4V accurately interpreted the image and correctly recalled that "Hox 1 genes are typically expressed in anterior regions of the body, such as the head. Hox 13 genes are typically expressed in posterior regions, like the tail." The model also correctly processed most of the intermediate reasoning steps. However, the concluding statement "The mouse may develop no head and two tails" does not logically follow from the prior step: "the posterior region where the tail would normally develop would now be getting instructions to develop anterior structures."
+**Ground Truth: (B) The mouse may develop two heads and no tail**Figure 33. A sample error case of Biology (subfield: Genetics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**(C) The mouse may develop no head and two tails.**
+<span id="page-50-0"></span>
 
-### **Error Category: Reasoning Error**
-
-**Error Reason:** GPT-4V accurately interpreted the image and correctly recalled that "Hox 1 genes are typically expressed in anterior regions of the body, such as the head. Hox 13 genes are typically expressed in posterior regions, like the tail." The model also correctly processed most of the intermediate reasoning steps. However, the concluding statement "The mouse may develop no head and two tails" does not logically follow from the prior step: "the posterior region where the tail would normally develop would now be getting instructions to develop anterior structures."
-
-**Ground Truth: (B) The mouse may develop two heads and no tail**
-
-Figure 33. A sample error case of Biology (subfield: Genetics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-50-0"></span>![](_page_50_Picture_0.jpeg)
-
-# **Biology: Evolution**
-
-**Question:** The diagram in <image 1> represents a section of undisturbed layers of sedimentary rock in New York State and shows the location of fossils of several closely related species. According to currently accepted evolutionary theory, which is the most probable assumption about species A, B and C?
-
-**Option:**
-
-- (A) Species B is more abundant than species C
+# Biology: Evolution
+**Question:**The diagram in <image 1> represents a section of undisturbed layers of sedimentary rock in New York State and shows the location of fossils of several closely related species. According to currently accepted evolutionary theory, which is the most probable assumption about species A, B and C?
+**Option:**- (A) Species B is more abundant than species C
 - (B) Species A and B are genetically identical
 - (C) Both species A and C are descended from species B
 - (D) Species B descended from species A
@@ -1625,24 +1508,19 @@ Figure 33. A sample error case of Biology (subfield: Genetics). Error category: 
 | Species B and A |                       |
 | Species B       |                       |
 | <b>Species</b>  |                       |
+**GPT-4V:**The diagram depicts layers of sedimentary rock with fossils of different species. In sedimentary rock layers, the oldest layers are at the bottom and the youngest layers are at the top. Based on this, the order of appearance of the species from oldest to youngest is: Species C → Species B → Species A (and then A continues to exist with B). Given this order and the choices provided, the most probable assumption according to currently accepted evolutionary theory is: (D) Species B descended from species A.
 
-**GPT-4V:** The diagram depicts layers of sedimentary rock with fossils of different species. In sedimentary rock layers, the oldest layers are at the bottom and the youngest layers are at the top. Based on this, the order of appearance of the species from oldest to youngest is: Species C → Species B → Species A (and then A continues to exist with B). Given this order and the choices provided, the most probable assumption according to currently accepted evolutionary theory is: (D) Species B descended from species A.
-
-### **Error Category: Reasoning Error**
-
-**Error Reason:** GPT-4V correctly understands the evolutionary order of A, B and C (C → B → A). But D is a contradiction of this timeline order.
-
+## Error Category: Reasoning Error
+**Error Reason:**GPT-4V correctly understands the evolutionary order of A, B and C (C → B → A). But D is a contradiction of this timeline order.
 **Ground Truth: (E) Species C existed before species B**
 
 Figure 34. A sample error case of Biology (subfield: Evolution). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <sup>&</sup>lt;image 1>
 
-### **Chemistry: Organic Chemistry**
+### Chemistry: Organic Chemistry
 
-<span id="page-51-0"></span>**Question:** The configuration at C-2 and C-3 of the compound given: <image 1> **Option:**
-
-- (A) 2R, 3S
+<span id="page-51-0"></span>**Question:**The configuration at C-2 and C-3 of the compound given: <image 1>**Option:**- (A) 2R, 3S
 - (B) 2S, 3R
 - (C) 2S, 3S
 - (D) 2R, 3R
@@ -1650,9 +1528,7 @@ Figure 34. A sample error case of Biology (subfield: Evolution). Error category:
 ![](_page_51_Figure_6.jpeg)
 
 <image 1>
-
-**GPT-4V:** To determine the configuration (R or S) of a chiral center, we follow the Cahn-Ingold-Prelog (CIP) priority rules: Assign priorities based on atomic number. The atom bonded to the chiral center with the highest atomic number gets the highest priority (1). If two atoms have the same atomic number, consider the atoms they are bonded to in order to determine priority. Orient the molecule so that the atom or group with the lowest priority (4) is pointing away (in the background). Observe the order of groups 1-2-3: If the order is clockwise, the configuration is R. If the order is counterclockwise, the configuration is S. Let's determine the configuration for the two chiral centers: For C-2: Attached groups and their atomic numbers: CH3 (Carbon = 6)Cl (Chlorine = 17)H (Hydrogen = 1)C2H5 (Carbon = 6, but this will have higher priority than CH3 because the subsequent carbons in the chain will be used for breaking the tie). Priority order: ClC2H5CH3H. With the H pointing to the background, the order is 1 (Cl) to 2 (C2H5) to 3 (CH3), which is clockwise. So, the configuration at C-2 is R. For C-3: Attached groups and their atomic numbers: H (Hydrogen = 1)Cl (Chlorine = 17)CH3 (Carbon = 6)C2H5 (Carbon = 6, but like before, C2H5 will have higher priority than CH3). Priority order: ClC2H5CH3H. With the H pointing to the background, the order is 1 (Cl) to 2 (C2H5) to 3 (CH3), which is counterclockwise. So, the configuration at C-3 is S. Therefore, the correct configuration for the compound is: 2R, 3S. So, the answer is (A) 2R, 3S.
-
+**GPT-4V:**To determine the configuration (R or S) of a chiral center, we follow the Cahn-Ingold-Prelog (CIP) priority rules: Assign priorities based on atomic number. The atom bonded to the chiral center with the highest atomic number gets the highest priority (1). If two atoms have the same atomic number, consider the atoms they are bonded to in order to determine priority. Orient the molecule so that the atom or group with the lowest priority (4) is pointing away (in the background). Observe the order of groups 1-2-3: If the order is clockwise, the configuration is R. If the order is counterclockwise, the configuration is S. Let's determine the configuration for the two chiral centers: For C-2: Attached groups and their atomic numbers: CH3 (Carbon = 6)Cl (Chlorine = 17)H (Hydrogen = 1)C2H5 (Carbon = 6, but this will have higher priority than CH3 because the subsequent carbons in the chain will be used for breaking the tie). Priority order: ClC2H5CH3H. With the H pointing to the background, the order is 1 (Cl) to 2 (C2H5) to 3 (CH3), which is clockwise. So, the configuration at C-2 is R. For C-3: Attached groups and their atomic numbers: H (Hydrogen = 1)Cl (Chlorine = 17)CH3 (Carbon = 6)C2H5 (Carbon = 6, but like before, C2H5 will have higher priority than CH3). Priority order: ClC2H5CH3H. With the H pointing to the background, the order is 1 (Cl) to 2 (C2H5) to 3 (CH3), which is counterclockwise. So, the configuration at C-3 is S. Therefore, the correct configuration for the compound is: 2R, 3S. So, the answer is (A) 2R, 3S.
 **Ground Truth: (A) 2R, 3S**
 
 Figure 35. A sample correct case of Chemistry (subfield: Organic Chemistry). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
@@ -1661,9 +1537,9 @@ Figure 35. A sample correct case of Chemistry (subfield: Organic Chemistry). [Ba
 
 Figure 36. A sample correct case of Chemistry (subfield: Organic Chemistry). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Chemistry: Inorganic Chemistry**
+# Chemistry: Inorganic Chemistry
 
-<span id="page-53-0"></span>**Question:** Which of the following Lewis (electron-dot) structures is/are wrong? <image 1> **Option:** (A) (a) (B) (a) and (d) (C) (a) and (b) (D) (d) and (e)
+<span id="page-53-0"></span>**Question:**Which of the following Lewis (electron-dot) structures is/are wrong? <image 1>**Option:**(A) (a) (B) (a) and (d) (C) (a) and (b) (D) (d) and (e)
 
 | $\circ = \circ = \circ$<br>$\blacksquare$<br>$\blacksquare$ | <br>н                 | ี :∘—่่ง—่อ<br>$\cdots$<br>J | <br>:a:<br>$H_{\text{max}}$ |                        |
 |-------------------------------------------------------------|-----------------------|------------------------------|-----------------------------|------------------------|
@@ -1673,22 +1549,17 @@ Figure 36. A sample correct case of Chemistry (subfield: Organic Chemistry). [Ba
 | <image 1=""/> |  |  |  |
 |---------------|--|--|--|
 |---------------|--|--|--|
+**GPT-4V:**Let's analyze each of the Lewis structures:(a) SO₂: The structure shows sulfur with a double bond to each oxygen atom. Each oxygen atom has two lone pairs, and sulfur has no lone pairs. This is the correct Lewis structure for SO₂.(b) NH₃: The structure shows nitrogen with a single bond to each of the three hydrogen atoms and one lone pair on nitrogen. This is the correct Lewis structure for NH₃.(c) NO₂⁺: The structure shows nitrogen with a double bond to one oxygen and a single bond to the other oxygen. The single bonded oxygen has three lone pairs, while the double bonded oxygen has two lone pairs. This results in the nitrogen having a positive charge. This is the correct Lewis structure for NO₂⁺.(d) NH₄Cl: The structure shows the ammonium ion (NH₄⁺) with nitrogen having four single bonds to four hydrogen atoms, and there's no lone pair on nitrogen. However, chlorine is shown with a single bond to a hydrogen atom, which is incorrect. Chlorine should not be bonded to hydrogen in this structure. Instead, NH₄⁺ and Cl⁻ are present as ions, and they are attracted to each other through ionic bonding.(e) NH₄Cl: This structure shows the correct ionic representation with the ammonium ion (NH₄⁺) and the chloride ion (Cl⁻) as separate entities. Based on the analysis, the incorrect Lewis structure is: (d) NH₄Cl. The correct answer is: (D) (d) and (e)
 
-**GPT-4V:** Let's analyze each of the Lewis structures:(a) SO₂: The structure shows sulfur with a double bond to each oxygen atom. Each oxygen atom has two lone pairs, and sulfur has no lone pairs. This is the correct Lewis structure for SO₂.(b) NH₃: The structure shows nitrogen with a single bond to each of the three hydrogen atoms and one lone pair on nitrogen. This is the correct Lewis structure for NH₃.(c) NO₂⁺: The structure shows nitrogen with a double bond to one oxygen and a single bond to the other oxygen. The single bonded oxygen has three lone pairs, while the double bonded oxygen has two lone pairs. This results in the nitrogen having a positive charge. This is the correct Lewis structure for NO₂⁺.(d) NH₄Cl: The structure shows the ammonium ion (NH₄⁺) with nitrogen having four single bonds to four hydrogen atoms, and there's no lone pair on nitrogen. However, chlorine is shown with a single bond to a hydrogen atom, which is incorrect. Chlorine should not be bonded to hydrogen in this structure. Instead, NH₄⁺ and Cl⁻ are present as ions, and they are attracted to each other through ionic bonding.(e) NH₄Cl: This structure shows the correct ionic representation with the ammonium ion (NH₄⁺) and the chloride ion (Cl⁻) as separate entities. Based on the analysis, the incorrect Lewis structure is: (d) NH₄Cl. The correct answer is: (D) (d) and (e)
-
-### **Error Category: Perceptual Error, Reasoning Error**
-
-**Error Reason:** For choice (a), GPT-4V incorrectly recognizes the carbon atom as a sulfur atom, and even if it was a sulfur atom, there would be two electrons near the sulfur atom. Therefore, the Lewis structure in choice (a) is completely wrong and should be one of the final answers. For choice (e), even though the model correctly decides that it is correct, it still chooses a wrong option that contains (e).
-
+## Error Category: Perceptual Error, Reasoning Error
+**Error Reason:**For choice (a), GPT-4V incorrectly recognizes the carbon atom as a sulfur atom, and even if it was a sulfur atom, there would be two electrons near the sulfur atom. Therefore, the Lewis structure in choice (a) is completely wrong and should be one of the final answers. For choice (e), even though the model correctly decides that it is correct, it still chooses a wrong option that contains (e).
 **Ground Truth: (B) (a) and (d)**
 
 Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Error category: Perceptual Error, Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 ![](_page_54_Figure_0.jpeg)
 
-<span id="page-54-0"></span>**Question:** <image> Which point corresponds to a sublimation/deposition equilibrium? **Option:**
-
-![](_page_54_Figure_2.jpeg)
+<span id="page-54-0"></span>**Question:**<image> Which point corresponds to a sublimation/deposition equilibrium?**Option:**![](_page_54_Figure_2.jpeg)
 
 (B) 3
 
@@ -1697,24 +1568,16 @@ Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Err
 (E) 8
 
 ![](_page_54_Figure_6.jpeg)
+**GPT-4V:**The graph provided is a phase diagram, which illustrates the conditions (in terms of pressure and temperature) under which different phases of a substance coexist in equilibrium. In such a diagram: The line between the solid and gas regions represents the sublimation/deposition equilibrium, where a substance can transition directly between the solid and gaseous states. The line between the solid and liquid regions represents the melting/freezing equilibrium. The line between the liquid and gas regions represents the boiling/condensation equilibrium. From the image provided, point (B) 3 is on the line between the solid and gas regions, representing the sublimation/deposition equilibrium. So, the correct answer is: (B) 3.
 
-**GPT-4V:** The graph provided is a phase diagram, which illustrates the conditions (in terms of pressure and temperature) under which different phases of a substance coexist in equilibrium. In such a diagram: The line between the solid and gas regions represents the sublimation/deposition equilibrium, where a substance can transition directly between the solid and gaseous states. The line between the solid and liquid regions represents the melting/freezing equilibrium. The line between the liquid and gas regions represents the boiling/condensation equilibrium. From the image provided, point (B) 3 is on the line between the solid and gas regions, representing the sublimation/deposition equilibrium. So, the correct answer is: (B) 3.
+### Error Category: Lack of Knowledge
+**Error Reason:**The model correctly describes the knowledge, but due to the lack of knowledge about the phase diagram, it thinks point 3 is the one on the line between the solid and gas regions, while the correct one is point 8.
+**Ground Truth: (B) 3**Figure 38. A sample error case of Chemistry (subfield: Inorganic Chemistry). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Error Category: Lack of Knowledge**
+<span id="page-55-0"></span>
 
-**Error Reason:** The model correctly describes the knowledge, but due to the lack of knowledge about the phase diagram, it thinks point 3 is the one on the line between the solid and gas regions, while the correct one is point 8.
-
-**Ground Truth: (B) 3**
-
-Figure 38. A sample error case of Chemistry (subfield: Inorganic Chemistry). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-55-0"></span>![](_page_55_Picture_0.jpeg)
-
-# **Geography: Human Geography**
-
-**Question:** The circled areas on <image 1> are all areas which **Option:**
-
-- (A) are under the control of al-Qaeda from 2001 to present
+# Geography: Human Geography
+**Question:**The circled areas on <image 1> are all areas which**Option:**- (A) are under the control of al-Qaeda from 2001 to present
 - (B) were under the control of the U.S.-led military coalition as of 2003
 - (C) are home to the Kurdish peoples
 - (D) are production zones of proven oil reserves
@@ -1723,16 +1586,14 @@ Figure 38. A sample error case of Chemistry (subfield: Inorganic Chemistry). Err
 ![](_page_55_Figure_8.jpeg)
 
 <image 1>
-
-**GPT-4V:** Based on the provided map, the circled areas seem to align with regions that: (D) are production zones of proven oil reserves.Many of the circled areas are in regions known for their significant oil reserves, such as parts of Saudi Arabia, Iraq, and other parts of the Middle East.
-
+**GPT-4V:**Based on the provided map, the circled areas seem to align with regions that: (D) are production zones of proven oil reserves.Many of the circled areas are in regions known for their significant oil reserves, such as parts of Saudi Arabia, Iraq, and other parts of the Middle East.
 **Ground Truth: (D) are production zones of proven oil reserves**
 
 Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Geography: Physical Geography**
+# Geography: Physical Geography
 
-<span id="page-56-0"></span>**Question:** Which weather does 11 represent in <image 1>? **Option**:
+<span id="page-56-0"></span>**Question:**Which weather does 11 represent in <image 1>?**Option**:
 
 - (A) Boreal forest climate
 - (B) Moist subtropical climate
@@ -1743,25 +1604,18 @@ Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back
 
 <image 1>
 
-**GPT-4V:** The image appears to be a climate zone map. The zone labeled "11" corresponds to regions such as northern Canada and parts of Russia. Based on the options provided, zone "11" would represent:
+**GPT-4V:**The image appears to be a climate zone map. The zone labeled "11" corresponds to regions such as northern Canada and parts of Russia. Based on the options provided, zone "11" would represent:
 
 (D) Tundra climate.
 
-### **Error Category: Reasoning Error**
+## Error Category: Reasoning Error
+**Error Reason:**GPT-4V correctly summarize that the zone labeled "11" corresponds to regions such as northern Canada and parts of Russia, which is a correct interpretation of the map. However, GPT-4V wrongly gets the conclusion that zone "11" would be Tundra climate based on the observation.
+**Ground Truth: (A) Boreal forest climate**Figure 40. A sample error case of Geography (subfield: Physical Geography). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Error Reason:** GPT-4V correctly summarize that the zone labeled "11" corresponds to regions such as northern Canada and parts of Russia, which is a correct interpretation of the map. However, GPT-4V wrongly gets the conclusion that zone "11" would be Tundra climate based on the observation.
+<span id="page-57-0"></span>
 
-**Ground Truth: (A) Boreal forest climate**
-
-Figure 40. A sample error case of Geography (subfield: Physical Geography). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-57-0"></span>![](_page_57_Picture_0.jpeg)
-
-# **Geography: Physical Geography**
-
-**Question:** What are satellite 1, 2, 3 in <image 1>? **Option:**
-
-- (A) Terra, Aqua, Landsat 7
+# Geography: Physical Geography
+**Question:**What are satellite 1, 2, 3 in <image 1>?**Option:**- (A) Terra, Aqua, Landsat 7
 - (B) Aqua, Terra, Landsat 7
 - (C) Landsat 7, Aqua, Terra
 - (D) Landsat 7, Terra, Aqua
@@ -1769,78 +1623,61 @@ Figure 40. A sample error case of Geography (subfield: Physical Geography). Erro
 ![](_page_57_Picture_7.jpeg)
 
 <image 1>
+**GPT-4V:**The satellites labeled in the image as:Landsat 7, Aqua, Terra So, the correct option is: (C) Landsat 7, Aqua, Terra
 
-**GPT-4V:** The satellites labeled in the image as:Landsat 7, Aqua, Terra So, the correct option is: (C) Landsat 7, Aqua, Terra
-
-### **Error Category: Perceptual Error, Reasoning Error**
-
-**Error Reason:** GPT-4V fails to match the cartoon image with the real satellites. Additionally, Landsat 7 is in a different path while Terra and Aqua are both in the 705 path. So 3 definitely represents Landsat 7. GPT-4V ignores the hint provided in the diagram. Given the fact that GPT-4V doesn't provide a detailed explanation of its choice, it might be a perceptual error because of wrongly matching the cartoon image with the real satellites or a reasoning error due to ignorance of the path hint.
-
+## Error Category: Perceptual Error, Reasoning Error
+**Error Reason:**GPT-4V fails to match the cartoon image with the real satellites. Additionally, Landsat 7 is in a different path while Terra and Aqua are both in the 705 path. So 3 definitely represents Landsat 7. GPT-4V ignores the hint provided in the diagram. Given the fact that GPT-4V doesn't provide a detailed explanation of its choice, it might be a perceptual error because of wrongly matching the cartoon image with the real satellites or a reasoning error due to ignorance of the path hint.
 **Ground Truth: (A) Terra, Aqua, Landsat 7**
 
 Figure 41. A sample error case of Geography (subfield: Physical Geography). Error category: Perceptual Error, Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Math: Calculus**
+### Math: Calculus
 
-<span id="page-58-0"></span>**Question:** <image 1>The region bounded by the graph as shown above. Choose an integral expression that can be used to find the area of R.
-
-**Option:**
-
-(A) <sup>∫</sup> <sup>−</sup> !.# \$ (B) <sup>∫</sup> <sup>−</sup> !.# \$ (C) <sup>∫</sup> <sup>−</sup> % \$ (D) <sup>∫</sup> <sup>−</sup> % \$
+<span id="page-58-0"></span>**Question:**<image 1>The region bounded by the graph as shown above. Choose an integral expression that can be used to find the area of R.
+**Option:**(A) <sup>∫</sup> <sup>−</sup> !.# \$ (B) <sup>∫</sup> <sup>−</sup> !.# \$ (C) <sup>∫</sup> <sup>−</sup> % \$ (D) <sup>∫</sup> <sup>−</sup> % \$
 
 ![](_page_58_Figure_4.jpeg)
-
-**GPT-4V:** To determine the integral expression to find the area of R, we need to observe which curve is above the other in the region R. From the given graph, for the region R, f(x) (the curve represented by = & − 6% + 8 ) is above g(x) (the curve represented by = ! % % + 2). The interval over which we're integrating is from x=0 to the point where the two curves intersect, which seems to be before x=2 (based on the graph). So, the upper limit of the integral is not 2. Given the options, the only possible upper limit is x=1.5. Thus, the integral expression to find the area of R is: <sup>∫</sup> <sup>−</sup> !.# \$ The correct choice is: (A) <sup>∫</sup> <sup>−</sup> !.# \$
-
-**Ground Truth: (A)** <sup>∫</sup> <sup>−</sup> . 
+**GPT-4V:**To determine the integral expression to find the area of R, we need to observe which curve is above the other in the region R. From the given graph, for the region R, f(x) (the curve represented by = & − 6% + 8 ) is above g(x) (the curve represented by = ! % % + 2). The interval over which we're integrating is from x=0 to the point where the two curves intersect, which seems to be before x=2 (based on the graph). So, the upper limit of the integral is not 2. Given the options, the only possible upper limit is x=1.5. Thus, the integral expression to find the area of R is: <sup>∫</sup> <sup>−</sup> !.# \$ The correct choice is: (A) <sup>∫</sup> <sup>−</sup> !.# \$
+**Ground Truth: (A)** <sup>∫</sup> <sup>−</sup> .
 
 > Figure 42. A sample correct case of Math (subfield: Calculus). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Math: Graph Theory**
+# Math: Graph Theory
 
-<span id="page-59-0"></span>**Question:** Consider <image 1> on the torus, with its faces labeled A through H. Give a colouring of the faces of with four colours so that faces meeting along an edge have different colours. Is such colouring possible with only three colours?
+<span id="page-59-0"></span>**Question:**Consider <image 1> on the torus, with its faces labeled A through H. Give a colouring of the faces of with four colours so that faces meeting along an edge have different colours. Is such colouring possible with only three colours?
 
-#### **Option:**
+## Option:
 
 (A) Yes
 
 (B) No
 
 ![](_page_59_Figure_5.jpeg)
+**GPT-4V:**To solve the problem, we can start by attempting to color the diagram with three colors and see if it's possible to do so without having two adjacent faces of the same color. Let's label our three colors as Red, Green, and Blue (for the sake of this explanation).We can begin by coloring face A with Red. Adjacent to A are B and C, so let's color B with Green and C with Blue. D is adjacent to both B and C, so it must be Red. E is adjacent to A, D, and B. Since A and D are Red and B is Green, E should be Blue. F is adjacent to C, D, and E. D is Red, E is Blue, so F should be Green. G is adjacent to D, F, and A. D is Red, F is Green, so G should be Blue. Lastly, H is adjacent to B, E, and F. B is Green, E is Blue, and F is Green. So H can be colored Red. From this coloring, it seems that we can color the diagram with three colors such that no two adjacent faces have the same color. Hence, the answer is:(A) Yes.
 
-**GPT-4V:** To solve the problem, we can start by attempting to color the diagram with three colors and see if it's possible to do so without having two adjacent faces of the same color. Let's label our three colors as Red, Green, and Blue (for the sake of this explanation).We can begin by coloring face A with Red. Adjacent to A are B and C, so let's color B with Green and C with Blue. D is adjacent to both B and C, so it must be Red. E is adjacent to A, D, and B. Since A and D are Red and B is Green, E should be Blue. F is adjacent to C, D, and E. D is Red, E is Blue, so F should be Green. G is adjacent to D, F, and A. D is Red, F is Green, so G should be Blue. Lastly, H is adjacent to B, E, and F. B is Green, E is Blue, and F is Green. So H can be colored Red. From this coloring, it seems that we can color the diagram with three colors such that no two adjacent faces have the same color. Hence, the answer is:(A) Yes.
-
-#### **Error Category: Perceptual Error**
-
+### Error Category: Perceptual Error
 **Error Reason:** GPT-4V encounters an issue in the third step of reasoning, when it concludes, "D is adjacent to both B and C, so it must be Red." The problem begins at this point because, according to the image, D is actually adjacent to A, B, and C. The error should be identified at this step, but the model recognizes incomplete information, believing that D is only adjacent to B and C, which leads to a series of subsequent incorrect deductions.
 
-#### **Ground Truth: (B) No**
+#### Ground Truth: (B) No
 
 Figure 43. A sample error case of Math (subfield: Graph Theory). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-60-0"></span>![](_page_60_Figure_0.jpeg)
 
-AB and CD are parallel, m∠AOB = m∠COD, but we've just shown that m∠AOB is 52°, which means that our diagram or understanding has an inconsistency because m∠COD is given as 84°.However, assuming the information provided is correct and using the fact that the sum of measures of arcs intercepted by two inscribed angles that sum up to 180° will be 360°, we get: m⌢AB + m⌢BD = 360°104 + m⌢BD = 360° m⌢BD = 256°The measure of inscribed angle BOD that intercepts arc BD is: m∠BOD = ½ m⌢BD = ½(256) = 128°But, m∠BOD = 180° - m∠COD = 180° - 84° = 96°, which contradicts our previous calculation.Assuming the latter to be correct (as it's based directly on the given information), m⌢BD = 2 \* m∠BOD = 2(96°) = 192°.Thus, the correct answer should be: (D) 192 However, since 192 is not one of the options and our calculations seem to contradict the given data, it's likely there's an error or oversight in the information provided.
+AB and CD are parallel, m∠AOB = m∠COD, but we've just shown that m∠AOB is 52°, which means that our diagram or understanding has an inconsistency because m∠COD is given as 84°.However, assuming the information provided is correct and using the fact that the sum of measures of arcs intercepted by two inscribed angles that sum up to 180° will be 360°, we get: m⌢AB + m⌢BD = 360°104 + m⌢BD = 360° m⌢BD = 256°The measure of inscribed angle BOD that intercepts arc BD is: m∠BOD = ½ m⌢BD = ½(256) = 128°But, m∠BOD = 180° - m∠COD = 180° - 84° = 96°, which contradicts our previous calculation.Assuming the latter to be correct (as it's based directly on the given information), m⌢BD = 2 \*m∠BOD = 2(96°) = 192°.Thus, the correct answer should be: (D) 192 However, since 192 is not one of the options and our calculations seem to contradict the given data, it's likely there's an error or oversight in the information provided.
 
-#### **Error Category: Textual Understanding Error**
+#### Error Category: Textual Understanding Error
+**Error Reason:**GPT-4V does not correctly understand the symbols and terminology in mathematics or geometry. In this question, it incorrectly interprets m ⌢ AB = 104 as the measure of an inscribed angle, when the correct interpretation should be the measure of an arc or a central angle. Therefore, the angle represented in the question, ∠AOB, is 104 degrees, and ∠COD is 168 degrees. Since the concept is confused right from the start, GPT4-V does not derive the correct answer in the subsequent calculations. The key to the question is to determine the angle of BOD, which is equal to the angle AOC by using the condition of parallel lines. Then, by subtracting the two given angles from 360 degrees and dividing by two, we can obtain the correct answer.
+**Ground Truth: (B) 44**Figure 44. A sample error case of Math (subfield: Geometry). Error category: Textual Understanding Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Error Reason:** GPT-4V does not correctly understand the symbols and terminology in mathematics or geometry. In this question, it incorrectly interprets m ⌢ AB = 104 as the measure of an inscribed angle, when the correct interpretation should be the measure of an arc or a central angle. Therefore, the angle represented in the question, ∠AOB, is 104 degrees, and ∠COD is 168 degrees. Since the concept is confused right from the start, GPT4-V does not derive the correct answer in the subsequent calculations. The key to the question is to determine the angle of BOD, which is equal to the angle AOC by using the condition of parallel lines. Then, by subtracting the two given angles from 360 degrees and dividing by two, we can obtain the correct answer.
+<span id="page-61-0"></span>
 
-**Ground Truth: (B) 44**
-
-Figure 44. A sample error case of Math (subfield: Geometry). Error category: Textual Understanding Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-61-0"></span>![](_page_61_Picture_0.jpeg)
-
-### **Math: Calculus**
-
-**Question:** A thin-walled cone-shaped cup (Fig. 16-4) is to hold 36 ! of water when full. What dimensions will minimize the amount of material needed for the cup?
-
-**Option:** (A) = 3 2 , ℎ = 6 (B) = 3 3 , ℎ = 4 (C) = 3 2 , ℎ = 4 (D) = 2 6 , ℎ = 6
+### Math: Calculus
+**Question:**A thin-walled cone-shaped cup (Fig. 16-4) is to hold 36 ! of water when full. What dimensions will minimize the amount of material needed for the cup?
+**Option:**(A) = 3 2 , ℎ = 6 (B) = 3 3 , ℎ = 4 (C) = 3 2 , ℎ = 4 (D) = 2 6 , ℎ = 6
 
 ![](_page_61_Figure_4.jpeg)
-
-**GPT-4V:** Given that the volume V of the cone-shaped cup is 36 ! when it's full, the formula for the volume of a cone is:
+**GPT-4V:**Given that the volume V of the cone-shaped cup is 36 ! when it's full, the formula for the volume of a cone is:
 
  = " ! #ℎ. From the given volume, we can set up the equation: " ! #ℎ = 36. From which, #ℎ = <sup>108</sup>. (1) <sup>ℎ</sup> <sup>=</sup> "\$% &! . Next, the surface area S of the cone (which does not include the base since it's a cup) is given by: S = . Where l is the slant height of the cone.
 
@@ -1848,21 +1685,21 @@ Using the Pythagoras theorem for the right triangle formed by the radius, height
 
 The differentiation and solving for r would be complex. Instead, we can substitute the given r and h values from options (A) to (D) into the volume equation to see which one satisfies = 36 . The option that satisfies this and also minimizes S would be our answer. #
 
-(A) For 
+(A) For
 $$
 r = 3\sqrt{2}
 $$
- and  $h = 6$ :  $V = \frac{1}{3}\pi (3\sqrt{2})^2$  (6) = 36 $\pi$ 
+ and  $h = 6$ :  $V = \frac{1}{3}\pi (3\sqrt{2})^2$  (6) = 36 $\pi$
 
 (B) For <sup>=</sup> <sup>3</sup> <sup>3</sup> and <sup>ℎ</sup> <sup>=</sup> <sup>4</sup>: <sup>=</sup> " ! 3 3 # 4 ≠ 36 #
 
 (C) For <sup>=</sup> <sup>3</sup> <sup>2</sup> and <sup>ℎ</sup> <sup>=</sup> <sup>4</sup>: <sup>=</sup> " ! 3 2 4 ≠ 36
 
-(D) For 
+(D) For
 $$
 r = 2\sqrt{3}
 $$
- and  $h = 6$ :  $V = \frac{1}{3}\pi (2\sqrt{3})^2 (6) = 36\pi$ 
+ and  $h = 6$ :  $V = \frac{1}{3}\pi (2\sqrt{3})^2 (6) = 36\pi$
 
 From options (A) and (D) which satisfy the volume, the surface area for each needs to be calculated: (A) = (3 2) (3 2)#+6#. (D) = 2 3 2 3 # + 6#.
 
@@ -1870,25 +1707,20 @@ Comparing the two surface areas, we can determine which one is minimal.
 
 However, without doing the calculations, it's hard to definitively say which one is the minimal surface area. For practical purposes, the answer could be either (A) or (D) based on the volume, and one would need to compute the surface areas to confirm.
 
-### **Error Category: Reasoning Error**
-
-**Error Reason:** The volume formula seems to be correct. The errors are made during the symbol computation.
-
-**Ground Truth: (A)** = **,** =
+### Error Category: Reasoning Error
+**Error Reason:**The volume formula seems to be correct. The errors are made during the symbol computation.
+**Ground Truth: (A)**=**,** =
 
 Figure 45. A sample error case of Math (subfield: Calculus). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-62-0"></span>![](_page_62_Picture_0.jpeg)
+<span id="page-62-0"></span>
 
 Figure 46. A sample correct case of Physics (subfield: Classical Mechanics). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Physics: Optics**
+# Physics: Optics
 
-<span id="page-63-0"></span>**Question:** A narrow beam of monochromatic light enters a lens parallel to the optic axis, as shown in the accompanying diagram. Which arrow best represents the direction of the light after leaving the lens?
-
-**Option:**
-
-(A) arrow A
+<span id="page-63-0"></span>**Question:**A narrow beam of monochromatic light enters a lens parallel to the optic axis, as shown in the accompanying diagram. Which arrow best represents the direction of the light after leaving the lens?
+**Option:**(A) arrow A
 
 (B) arrow B
 
@@ -1901,7 +1733,6 @@ Figure 46. A sample correct case of Physics (subfield: Classical Mechanics). [Ba
 ![](_page_63_Figure_8.jpeg)
 
 <image 1>
-
 **GPT-4V**: The given diagram depicts a converging lens (a double convex lens) and a parallel beam of monochromatic light entering it. For a converging lens, parallel rays of light that are parallel to the optic axis will be refracted in such a way that they will converge or meet at the focal point on the other side of the lens. In the provided diagram, the ray is converging towards a point after passing through the lens. Among the given options:
 
 (A) arrow A
@@ -1916,21 +1747,20 @@ Figure 46. A sample correct case of Physics (subfield: Classical Mechanics). [Ba
 
 The direction that best represents where the light will converge after leaving the lens is (C) arrow C.
 
-#### **Error Category: Perceptual Error**
+## Error Category: Perceptual Error
 
-**Error Reason:** GPT-4Vcorrectly identifies the theory behind the reflection of a converging lens. However, when choosing the correct arrows in the diagram, it chooses arrow C instead of arrow E that converging to the focal point. This is due the perceptual error of GPT-4V on the direction of arrows, demonstrating the lacking ability in the sense of direction in the image.
+**Error Reason:**GPT-4Vcorrectly identifies the theory behind the reflection of a converging lens. However, when choosing the correct arrows in the diagram, it chooses arrow C instead of arrow E that converging to the focal point. This is due the perceptual error of GPT-4V on the direction of arrows, demonstrating the lacking ability in the sense of direction in the image.
 
-#### **Ground Truth: (E) arrow E**
-
+### Ground Truth: (E) arrow E
 **Explanation:** A horizontal beam approaching a converging lens bends and converges through the focal point
 
 Figure 47. A sample error case of Physics (subfield: Optics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Basic Medical Science: Pathophysiology**
+# Basic Medical Science: Pathophysiology
 
-<span id="page-64-0"></span>**Question:** At which level, in the photograph, do the primary vestibular axons enter the brain stem? <image 1>
+<span id="page-64-0"></span>**Question:**At which level, in the photograph, do the primary vestibular axons enter the brain stem? <image 1>
 
-### **Option:**
+## Option:
 
 (A) The caudal medulla.
 
@@ -1943,36 +1773,25 @@ Figure 47. A sample error case of Physics (subfield: Optics). Error category: Pe
 ![](_page_64_Picture_7.jpeg)
 
 <image 1>
-
-**GPT-4V:** The image you provided appears to be of the brainstem and related structures. Based on your question, you are referring to the point where the primary vestibular axons enter the brainstem. The primary vestibular axons enter the brainstem at the level of the pontomedullary junction. Therefore, the correct answer is: (B) The pontomedullary junction.
-
-**Ground Truth: (B) The pontomedullary junction.**
-
-Figure 48. A sample correct case of Basic Medical Science (subfield: Pathophysiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+**GPT-4V:**The image you provided appears to be of the brainstem and related structures. Based on your question, you are referring to the point where the primary vestibular axons enter the brainstem. The primary vestibular axons enter the brainstem at the level of the pontomedullary junction. Therefore, the correct answer is: (B) The pontomedullary junction.
+**Ground Truth: (B) The pontomedullary junction.**Figure 48. A sample correct case of Basic Medical Science (subfield: Pathophysiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-65-0"></span>![](_page_65_Figure_0.jpeg)
 
-# **Basic Medical Science: Cardiovascular Physiology**
-
-**Question:** <image 1> The diagram shows the front view of a human heart. Letters P, Q, R and S indicate the different chambers of the heart. Which of the following shows the sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart? **Option:**
-
-(A) R-S-P-Q (B) Q-S-R-P (C) P-R-Q-S (D) S-R-P-Q
+# Basic Medical Science: Cardiovascular Physiology
+**Question:**<image 1> The diagram shows the front view of a human heart. Letters P, Q, R and S indicate the different chambers of the heart. Which of the following shows the sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart?**Option:**(A) R-S-P-Q (B) Q-S-R-P (C) P-R-Q-S (D) S-R-P-Q
 
 ![](_page_65_Figure_4.jpeg)
+**GPT-4V:**The sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart is : Right atrium, Right ventricle, Left atrium, Left ventricle. Looking at the given options, the correct sequence is:(D) S-R-P-Q
 
-**GPT-4V:** The sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart is : Right atrium, Right ventricle, Left atrium, Left ventricle. Looking at the given options, the correct sequence is:(D) S-R-P-Q
-
-### **Error Category: Perceptual Error**
-
+## Error Category: Perceptual Error
 **Error Reason:** The model has the correct knowledge, but it failed to correctly understand the image and map the letters to the right structures (e.g., P is right atrium so it should be the first in the sequence).
 
-### **Ground Truth: (C) P-R-Q-S**
+### Ground Truth: (C) P-R-Q-S
 
 Figure 49. A sample error case of Basic Medical Science (subfield: Cardiovascular Physiology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-66-0"></span>**Question:** The patient is a post-mature newborn. What is the most likely diagnosis? <image 1> **Option:**
-
-- (A) Transient tachypnea of the newborn
+<span id="page-66-0"></span>**Question:**The patient is a post-mature newborn. What is the most likely diagnosis? <image 1>**Option:**- (A) Transient tachypnea of the newborn
 - (B) Congenital lobar emphysema
 - (C) Hyaline membrane disease
 - (D) Meconium aspiration syndrome
@@ -1980,16 +1799,15 @@ Figure 49. A sample error case of Basic Medical Science (subfield: Cardiovascula
 ![](_page_66_Picture_6.jpeg)
 
 <image 1>
-
 **GPT-4V:** Based on the image provided, which appears to be a chest X-ray, and the information that the patient is a post-mature newborn, the most suggestive diagnosis is: (D) Meconium aspiration syndrome. Post-mature newborns are at an increased risk of passing meconium (the baby's first stool) into the amniotic fluid before birth or during labor. If the baby breathes the meconiumstained amniotic fluid into their lungs, it can cause a blockage of the airways, leading to meconium aspiration syndrome. The chest X-ray of a newborn with meconium aspiration syndrome might show patchy or streaky areas on the lungs. However, it's important to consult with a pediatric radiologist or neonatologist for a definitive diagnosis based on clinical findings and the entire clinical picture.
 
-#### **Ground Truth: (D) Meconium aspiration syndrome**
+#### Ground Truth: (D) Meconium aspiration syndrome
 
 Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-67-0"></span>**Question:** A 19-year-old man goes to his physician for a routine check-up. The physical examination is normal except that his stool is positive for occult blood. A colonoscopy is performed and there are over 100 lesions of the colonic mucosa and biopsy of one shows findings seen here microscopically <image 1>. Which of the following is the most likely diagnosis?
+<span id="page-67-0"></span>**Question:**A 19-year-old man goes to his physician for a routine check-up. The physical examination is normal except that his stool is positive for occult blood. A colonoscopy is performed and there are over 100 lesions of the colonic mucosa and biopsy of one shows findings seen here microscopically <image 1>. Which of the following is the most likely diagnosis?
 
-### **Option:**
+### Option:
 
 - (A) Hereditary non-polyposis colon carcinoma
 - (B) Hyperplastic polyps
@@ -2000,20 +1818,17 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 ![](_page_67_Picture_8.jpeg)
 
 <image 1>
+**GPT-4V:**The image provided appears to be a histological section of colonic mucosa. Given the clinical scenario of a 19-year-old man with over 100 lesions of the colonic mucosa and the histological findings provided, the most likely diagnosis is: (E) Familial polyposis coli. Familial adenomatous polyposis (FAP), also known as familial polyposis coli, is an autosomal dominant inherited condition characterized by the development of numerous adenomatous polyps in the colon and rectum. If left untreated, there's a nearly 100% chance of developing colon cancer by middle age.
 
-**GPT-4V:** The image provided appears to be a histological section of colonic mucosa. Given the clinical scenario of a 19-year-old man with over 100 lesions of the colonic mucosa and the histological findings provided, the most likely diagnosis is: (E) Familial polyposis coli. Familial adenomatous polyposis (FAP), also known as familial polyposis coli, is an autosomal dominant inherited condition characterized by the development of numerous adenomatous polyps in the colon and rectum. If left untreated, there's a nearly 100% chance of developing colon cancer by middle age.
-
-### **Ground Truth: (E) Familial polyposis coli**
-
-**Explanation:** A. HNPCC has fewer polyps and the age of presentation is older. Mismatch repair genes are involved. B. Hyperplastic polyps are small and few. They are just focal exaggerations of the colonic mucosa. C. Ulcerative colitis leads to mucosal ulceration with residual islands of mucosa called "pseudopolyps". D. Peutz-Jehgers syndrome has the appearance of hamartomatous polyps in the bowel, and they are not so numerous. E. The small polypoid circumscribed tubular adenoma on a stalk seen here is benign, but persons with germline inheritance of the APC gene are at risk for development of colonic adenocarcinoma by their teens or 20's.
+### Ground Truth: (E) Familial polyposis coli
+**Explanation:**A. HNPCC has fewer polyps and the age of presentation is older. Mismatch repair genes are involved. B. Hyperplastic polyps are small and few. They are just focal exaggerations of the colonic mucosa. C. Ulcerative colitis leads to mucosal ulceration with residual islands of mucosa called "pseudopolyps". D. Peutz-Jehgers syndrome has the appearance of hamartomatous polyps in the bowel, and they are not so numerous. E. The small polypoid circumscribed tubular adenoma on a stalk seen here is benign, but persons with germline inheritance of the APC gene are at risk for development of colonic adenocarcinoma by their teens or 20's.
 
 > Figure 51. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-68-0"></span>![](_page_68_Picture_0.jpeg)
+<span id="page-68-0"></span>
+**Question:**<image 1> This 79-year-old woman was driving her car when she had the sudden onset of a severe headache. She pulled in to a service station and stopped the car. Then she slumped over the wheel. She was taken to the emergency room, where she remained comatose and died hours later. This gross appearance is found at autopsy. Which of the following is the most likely diagnosis?
 
-**Question:** <image 1> This 79-year-old woman was driving her car when she had the sudden onset of a severe headache. She pulled in to a service station and stopped the car. Then she slumped over the wheel. She was taken to the emergency room, where she remained comatose and died hours later. This gross appearance is found at autopsy. Which of the following is the most likely diagnosis?
-
-#### **Option:**
+#### Option:
 
 - (A) Subdural hematoma
 - (B) Thromboembolization with cerebral infarction
@@ -2024,18 +1839,13 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 ![](_page_68_Picture_9.jpeg)
 
 <image 1>
+**GPT-4V:**The image appears to show a brain with blood prominently spread around it. Given the clinical scenario provided - a sudden severe headache followed by rapid unconsciousness and death - the most consistent diagnosis with the presentation and gross appearance at autopsy is: (D) Ruptured berry aneurysm. A ruptured berry aneurysm (also called a saccular aneurysm) can cause a subarachnoid hemorrhage, which would present with sudden severe headache and can rapidly lead to death if not treated. The hemorrhage can be seen as the spread of blood over the surface of the brain in the image. The other options do not fit as closely with the clinical scenario and gross appearance.
+**Ground Truth: (D) Ruptured berry aneurysm**Figure 52. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**GPT-4V:** The image appears to show a brain with blood prominently spread around it. Given the clinical scenario provided - a sudden severe headache followed by rapid unconsciousness and death - the most consistent diagnosis with the presentation and gross appearance at autopsy is: (D) Ruptured berry aneurysm. A ruptured berry aneurysm (also called a saccular aneurysm) can cause a subarachnoid hemorrhage, which would present with sudden severe headache and can rapidly lead to death if not treated. The hemorrhage can be seen as the spread of blood over the surface of the brain in the image. The other options do not fit as closely with the clinical scenario and gross appearance.
+<span id="page-69-0"></span>
+**Question:**A 41-year-old woman has noted a vaginal discharge persisting for 3 weeks. On pelvic examination her ectocervix is erythematous. Cervical biopsies are taken and on microscopic examination reveal the appearance seen here <image 1>. Which of the following is the most likely diagnosis?
 
-**Ground Truth: (D) Ruptured berry aneurysm**
-
-Figure 52. A sample correct case of Clinical Medicine (subfield: Pathology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-69-0"></span>![](_page_69_Picture_0.jpeg)
-
-**Question:** A 41-year-old woman has noted a vaginal discharge persisting for 3 weeks. On pelvic examination her ectocervix is erythematous. Cervical biopsies are taken and on microscopic examination reveal the appearance seen here <image 1>. Which of the following is the most likely diagnosis?
-
-### **Option:**
+### Option:
 
 - (A) Human papillomavirus infection
 - (B) Ingestion of chili peppers
@@ -2046,26 +1856,22 @@ Figure 52. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 ![](_page_69_Figure_9.jpeg)
 
 <image 1>
+**GPT-4V:**The image provided appears to be a microscopic view of cervical tissue with a characteristic appearance. The histopathological features seen here are suggestive of koilocytes, which are squamous epithelial cells with a perinuclear clearing (halo) and irregular, raisin-like nuclei. Koilocytes are a hallmark of human papillomavirus (HPV) infection. Based on the provided image and clinical information, the most likely diagnosis is: (A) Human papillomavirus infection.
 
-**GPT-4V:** The image provided appears to be a microscopic view of cervical tissue with a characteristic appearance. The histopathological features seen here are suggestive of koilocytes, which are squamous epithelial cells with a perinuclear clearing (halo) and irregular, raisin-like nuclei. Koilocytes are a hallmark of human papillomavirus (HPV) infection. Based on the provided image and clinical information, the most likely diagnosis is: (A) Human papillomavirus infection.
+### Error Category: Perceptual Error
+**Error Reason:**GPT-4V incorrectly interprets the details of the image. The image contains "the inflammatory cell population of mononuclear cells, mainly small round lymphocytes" and "squamous metaplasia", while GPT-4V identifies them as "koilocytes".
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** GPT-4V incorrectly interprets the details of the image. The image contains "the inflammatory cell population of mononuclear cells, mainly small round lymphocytes" and "squamous metaplasia", while GPT-4V identifies them as "koilocytes".
-
-### **Ground Truth: (E) Chronic inflammation**
-
-**Explanation:** A. HPV produces viral cytopathic effect such as koilocytotic change and atypical changes in the squamous epithelial cells. It can drive the process to dysplasia and to carcinoma. HPV by itself does not produce significant inflammation. B. The capsaicin in chili tends to irritate nerve endings to produce the hot burning sensation, as a local effect in oral cavity. It is not systemic. Capsaicin has been used to treat dyspareunia with vulvar vestibulitis, probably by affecting nerveending mediated sensation, and there is no significant degree of inflammation. C. Diabetes mellitus may increase the risk for infections, but by itself does not explain the inflammation seen here. D. Tuberculosis of the genital tract is rare; mycobacterial infections tend to produce granulomatous inflammation. E. This is a chronic inflammatory process, based upon the inflammatory cell population of mononuclear cells, mainly small round lymphocytes. There is also some hemorrhage. The squamous epithelium is normal, though if this were endocervix, it would represent squamous metaplasia.
+### Ground Truth: (E) Chronic inflammation
+**Explanation:**A. HPV produces viral cytopathic effect such as koilocytotic change and atypical changes in the squamous epithelial cells. It can drive the process to dysplasia and to carcinoma. HPV by itself does not produce significant inflammation. B. The capsaicin in chili tends to irritate nerve endings to produce the hot burning sensation, as a local effect in oral cavity. It is not systemic. Capsaicin has been used to treat dyspareunia with vulvar vestibulitis, probably by affecting nerveending mediated sensation, and there is no significant degree of inflammation. C. Diabetes mellitus may increase the risk for infections, but by itself does not explain the inflammation seen here. D. Tuberculosis of the genital tract is rare; mycobacterial infections tend to produce granulomatous inflammation. E. This is a chronic inflammatory process, based upon the inflammatory cell population of mononuclear cells, mainly small round lymphocytes. There is also some hemorrhage. The squamous epithelium is normal, though if this were endocervix, it would represent squamous metaplasia.
 
 Figure 53. A sample error case of Clinical Medicine (subfield: Pathology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-70-0"></span>![](_page_70_Picture_0.jpeg)
+<span id="page-70-0"></span>
 
-# **Clinical Medicine: Heart Disease**
+# Clinical Medicine: Heart Disease
+**Question:**A 38-year-old man comes to the physician because of recurrent palpitations over the past 2 months. He says that he was diagnosed with a minor heart defect during childhood but does not remember the details and has not had regular medical follow-up examinations since. Physical examination shows a heart murmur. Cardiac catheterization is performed, and hemodynamic results show <image 1>. Which of the following is the most likely diagnosis?
 
-**Question:** A 38-year-old man comes to the physician because of recurrent palpitations over the past 2 months. He says that he was diagnosed with a minor heart defect during childhood but does not remember the details and has not had regular medical follow-up examinations since. Physical examination shows a heart murmur. Cardiac catheterization is performed, and hemodynamic results show <image 1>. Which of the following is the most likely diagnosis?
-
-#### **Option:**
+## Option:
 
 (A) Mitral stenosis
 
@@ -2083,24 +1889,21 @@ Figure 53. A sample error case of Clinical Medicine (subfield: Pathology). Error
 | <b>Ascending Aorta</b> | 99                    | 155/70           |
 
 <image 1>
+**GPT-4V:**Based on the provided hemodynamic results: The oxygen saturation of 75% in the right atrium, right ventricle, and pulmonary trunk, followed by a jump to 99% in the left atrium, left ventricle, and ascending aorta, suggests the presence of a left-to-right shunt, where oxygenated blood is mixing with deoxygenated blood. The pressure readings are also indicative. The normal pressure in the left atrium is usually around 10 mm Hg, while the pressure in the left ventricle during systole (contraction) can go up to 120 mm Hg or more and during diastole (relaxation) drops significantly. The given pressure for the left ventricle is 165/45 mm Hg, which is significantly high during systole. Meanwhile, the pressure in the ascending aorta is 155/70 mm Hg, which is closer to normal systolic pressure but has an elevated diastolic pressure. These findings indicate that blood is flowing back from the left ventricle to the left atrium during ventricular systole, which is consistent with mitral regurgitation. During mitral regurgitation, the mitral valve doesn't close tightly, allowing blood to flow backward in the heart. This can cause symptoms like palpitations and can be associated with a heart murmur on physical examination. Thus, the most likely diagnosis based on the provided data is: (B) Mitral regurgitation.
 
-**GPT-4V:** Based on the provided hemodynamic results: The oxygen saturation of 75% in the right atrium, right ventricle, and pulmonary trunk, followed by a jump to 99% in the left atrium, left ventricle, and ascending aorta, suggests the presence of a left-to-right shunt, where oxygenated blood is mixing with deoxygenated blood. The pressure readings are also indicative. The normal pressure in the left atrium is usually around 10 mm Hg, while the pressure in the left ventricle during systole (contraction) can go up to 120 mm Hg or more and during diastole (relaxation) drops significantly. The given pressure for the left ventricle is 165/45 mm Hg, which is significantly high during systole. Meanwhile, the pressure in the ascending aorta is 155/70 mm Hg, which is closer to normal systolic pressure but has an elevated diastolic pressure. These findings indicate that blood is flowing back from the left ventricle to the left atrium during ventricular systole, which is consistent with mitral regurgitation. During mitral regurgitation, the mitral valve doesn't close tightly, allowing blood to flow backward in the heart. This can cause symptoms like palpitations and can be associated with a heart murmur on physical examination. Thus, the most likely diagnosis based on the provided data is: (B) Mitral regurgitation.
+### Error Category: Lack of Knowledge
+**Error Reason:**GPT4-V successfully understands the question and the given table. However, due to the lack of specific knowledge about "This backflow decreases diastolic pressure in the aorta (N = 60-90 mm Hg)" and "systolic pressure in both the ascending aorta...is increased", GPT4-V interprets "the pressure in the ascending aorta as 155/70 mm Hg, which is closer to normal systolic pressure but has an elevated diastolic pressure", and fails to identify the diagnosis of "aortic regurgitation".
 
-### **Error Category: Lack of Knowledge**
-
-**Error Reason:** GPT4-V successfully understands the question and the given table. However, due to the lack of specific knowledge about "This backflow decreases diastolic pressure in the aorta (N = 60-90 mm Hg)" and "systolic pressure in both the ascending aorta...is increased", GPT4-V interprets "the pressure in the ascending aorta as 155/70 mm Hg, which is closer to normal systolic pressure but has an elevated diastolic pressure", and fails to identify the diagnosis of "aortic regurgitation".
-
-#### **Ground Truth: (C) Aortic value regurgitation**
-
+#### Ground Truth: (C) Aortic value regurgitation
 **Explanation:** Aortic valve regurgitation causes a backward flow from the aorta during diastole. This backflow decreases diastolic pressure in the aorta (N = 60-90 mm Hg) and increases diastolic pressure in the left ventricle (N = 5-12 mm Hg). This regurgitant blood combines with blood from the left atrium to fill the left ventricle, which results in an increased preload and a subsequent increase in stroke volume. As a result, the systolic pressure in both the ascending aorta (N = 90-140 mm Hg) and in the left ventricle (N = 90-140 mm Hg) is increased. Oxygen saturation and right heart pressures are normal in aortic regurgitation.
 
 Figure 54. A sample error case of Clinical Medicine (subfield: Heart Disease). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Diagnostics and Laboratory Medicine : Radiology**
+# Diagnostics and Laboratory Medicine : Radiology
 
-<span id="page-71-0"></span>**Question:** The 40-year-old man has been walking unsteadily for several years. CT performance is as shown in <image 1>. The possible diagnosis is?
+<span id="page-71-0"></span>**Question:**The 40-year-old man has been walking unsteadily for several years. CT performance is as shown in <image 1>. The possible diagnosis is?
 
-### **Option:**
+## Option:
 
 (A) Neurofibromatosis type I
 
@@ -2111,20 +1914,13 @@ Figure 54. A sample error case of Clinical Medicine (subfield: Heart Disease). E
 ![](_page_71_Picture_7.jpeg)
 
 <image 1>
+**GPT-4V:**I'm not a doctor, but based on the CT image provided and the description: The image seems to show a cerebellar anomaly with the absence of the vermis and an enlarged posterior fossa cyst communicating with the fourth ventricle. These findings are suggestive of (C) Dandy-Walker syndrome. However, it's crucial to consult with a medical professional for a definitive diagnosis and medical advice.
+**Ground Truth: (C) Dandy-Walker syndrome**Figure 55. A sample correct case of Diagnostics and Laboratory Medicine (subfield: Radiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**GPT-4V:** I'm not a doctor, but based on the CT image provided and the description: The image seems to show a cerebellar anomaly with the absence of the vermis and an enlarged posterior fossa cyst communicating with the fourth ventricle. These findings are suggestive of (C) Dandy-Walker syndrome. However, it's crucial to consult with a medical professional for a definitive diagnosis and medical advice.
+<span id="page-72-0"></span>
 
-**Ground Truth: (C) Dandy-Walker syndrome**
-
-Figure 55. A sample correct case of Diagnostics and Laboratory Medicine (subfield: Radiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-72-0"></span>![](_page_72_Picture_0.jpeg)
-
-# **Diagnostics and Laboratory Medicine: Neuropathology**
-
-**Question:** What is the anatomic space occupied by the lesion? <image 1> **Option:**
-
-- (A) Intraparenchymal
+# Diagnostics and Laboratory Medicine: Neuropathology
+**Question:**What is the anatomic space occupied by the lesion? <image 1>**Option:**- (A) Intraparenchymal
 - (B) Subdural space
 - (C) Subarachnoid space
 - (D) Epidural space
@@ -2132,30 +1928,26 @@ Figure 55. A sample correct case of Diagnostics and Laboratory Medicine (subfiel
 ![](_page_72_Picture_7.jpeg)
 
 <image 1>
-
-**GPT-4V:** Based on the image provided, it's challenging to definitively determine the anatomic space occupied by the lesion without more context. However, the appearance and patterns shown resemble patterns often seen in subarachnoid hemorrhages or lesions.
+**GPT-4V:**Based on the image provided, it's challenging to definitively determine the anatomic space occupied by the lesion without more context. However, the appearance and patterns shown resemble patterns often seen in subarachnoid hemorrhages or lesions.
 
 Therefore, the most likely answer is:
 
 (C) Subarachnoid space.
 
-### **Error Category: Perceptual Error**
+## Error Category: Perceptual Error
+**Error Reason:**GPT-4V fails to interpret the image correctly. The image shows "the dura can be seen in the top right of the image", but GPT-4V cannot correctly identify it.
 
-**Error Reason:** GPT-4V fails to interpret the image correctly. The image shows "the dura can be seen in the top right of the image", but GPT-4V cannot correctly identify it.
-
-### **Ground Truth: (B) Subdural space**
-
-**Explanation:** The dura can be seen in the top right of the image. Organization into thin subdural membranes containing thin-walled vessels often is associated with rebleeding of subdural hemorrhages as seen here.
+### Ground Truth: (B) Subdural space
+**Explanation:**The dura can be seen in the top right of the image. Organization into thin subdural membranes containing thin-walled vessels often is associated with rebleeding of subdural hemorrhages as seen here.
 
 Figure 56. A sample error case of Diagnostics and Laboratory Medicine (subfield: Neuropathology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-73-0"></span>![](_page_73_Picture_0.jpeg)
+<span id="page-73-0"></span>
 
-# **Diagnostics and Laboratory Medicine: Ophthalmic Pathology**
+# Diagnostics and Laboratory Medicine: Ophthalmic Pathology
+**Question:**This intraocular tumor is from a 55-year-old man. Which of the following statements BEST describes the lesion. <image 1>
 
-**Question:** This intraocular tumor is from a 55-year-old man. Which of the following statements BEST describes the lesion. <image 1>
-
-### **Option:**
+## Option:
 
 (A) This tumor is a classic epithelioid choroidal melanoma with necrosis
 
@@ -2168,8 +1960,7 @@ Figure 56. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 ![](_page_73_Picture_8.jpeg)
 
 <image 1>
-
-**GPT-4V:** Based on the image provided and without the ability to perform further clinical or pathological tests, it's challenging to provide a definitive diagnosis. However, I can offer an analysis based on the image and the choices provided:
+**GPT-4V:**Based on the image provided and without the ability to perform further clinical or pathological tests, it's challenging to provide a definitive diagnosis. However, I can offer an analysis based on the image and the choices provided:
 
 (A) Choroidal melanoma is a malignant tumor that arises from the pigmented cells of the choroid, which is a part of the uveal tract of the eye. Epithelioid melanoma cells are large with abundant cytoplasm and prominent nucleoli. Necrosis may be present, and if the image shows large epithelioid cells with these features, then this choice could be considered.
 
@@ -2179,10 +1970,8 @@ Figure 56. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 
 (D) Making a prognosis solely based on an image can be challenging. Even if the tumor appears to be completely excised with clear margins in the image, other factors, such as tumor size, type, location, and potential metastasis, would play a role in determining the prognosis. Based on the image and the details provided, I cannot make a definitive choice. However, it's crucial to collaborate with a pathologist or an ocular oncologist for a comprehensive evaluation and diagnosis.
 
-### **Error Category: Reject to Answer**
-
-**Error Reason:** GPT-4V refuses to answer this question without further clinical or pathological tests.
-
+### Error Category: Reject to Answer
+**Error Reason:**GPT-4V refuses to answer this question without further clinical or pathological tests.
 **Ground Truth: (C) This tumor may represent the most common type of intraocular neoplasm, and requires further work-up to distinguish it from melanoma.**
 
 Figure 57. A sample error case of Diagnostics and Laboratory Medicine (subfield: Ophthalmic Pathology). Error category: Reject to Answer
@@ -2195,37 +1984,32 @@ Figure 58. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 
 [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Pharmacy : Pharmaceutical Microbiology**
+# Pharmacy : Pharmaceutical Microbiology
 
-<span id="page-75-0"></span>**Question:** The antibiotic efrotomycin is produced by Streptomyces lactamdurans. S. lactamdurans was grown in 40,000 liters of medium. The medium consisted of glucose, maltose, soybean oil, (NH4)2SO4, NaCl, KH2PO4, and Na2HPO4. The culture was aerated and maintained at 28°C. The following results were obtained from analyses of the culture medium during cell growth: <image 1>, <image 2> Is efrotomycin a primary or secondary metabolite?
+<span id="page-75-0"></span>**Question:**The antibiotic efrotomycin is produced by Streptomyces lactamdurans. S. lactamdurans was grown in 40,000 liters of medium. The medium consisted of glucose, maltose, soybean oil, (NH4)2SO4, NaCl, KH2PO4, and Na2HPO4. The culture was aerated and maintained at 28°C. The following results were obtained from analyses of the culture medium during cell growth: <image 1>, <image 2> Is efrotomycin a primary or secondary metabolite?
 
-#### **Option:**
+## Option:
 
 - (A) Primary
 - (B) Secondary
 - (C) None of them
 
 ![](_page_75_Figure_6.jpeg)
-
-**GPT-4V:** To determine whether efrotomycin is a primary or secondary metabolite, we need to look at the production pattern of the antibiotic in relation to the growth of the organism, S. lactamdurans. A primary metabolite is typically produced during the active growth phase of the organism, while a secondary metabolite is produced after the active growth phase, often during the stationary phase or when nutrients in the medium become limited. From the provided graphs:
+**GPT-4V:**To determine whether efrotomycin is a primary or secondary metabolite, we need to look at the production pattern of the antibiotic in relation to the growth of the organism, S. lactamdurans. A primary metabolite is typically produced during the active growth phase of the organism, while a secondary metabolite is produced after the active growth phase, often during the stationary phase or when nutrients in the medium become limited. From the provided graphs:
 
 In the first image, we see that lipids (potentially representing cell biomass) increase and then plateau. The oxygen consumption increases and starts to decline, which might indicate the end of the active growth phase.
 
 In the second image, glucose (a primary nutrient) is consumed rapidly during the initial phase of growth. The "Log number of cells" (representing cell growth) increases rapidly and then plateaus, indicating the end of the active growth phase. Efrotomycin production starts increasing after the log phase of cell growth has plateaued.
 
 Given these observations, efrotomycin starts to be produced after the active growth phase of the organism, which is characteristic of secondary metabolites. So, the answer is: (B) secondary.
+**Ground Truth: (B) Secondary**Figure 59. A sample correct case of Pharmacy (subfield: Pharmaceutical Microbiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**Ground Truth: (B) Secondary**
+<span id="page-76-0"></span>
 
-Figure 59. A sample correct case of Pharmacy (subfield: Pharmaceutical Microbiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+# Pharmacy: Pharmacology and Drug Synthesis
+**Question:**The following synthetic scheme <image 1> has been used to synthesize raltegravir. If you wanted to create a number of analogues, which substituent <image 2> could be varied most efficiently using this synthesis?
 
-<span id="page-76-0"></span>![](_page_76_Picture_0.jpeg)
-
-# **Pharmacy: Pharmacology and Drug Synthesis**
-
-**Question:** The following synthetic scheme <image 1> has been used to synthesize raltegravir. If you wanted to create a number of analogues, which substituent <image 2> could be varied most efficiently using this synthesis?
-
-### **Option:**
+## Option:
 
 (A) The type of substituent A on the aromatic ring
 
@@ -2236,8 +2020,7 @@ Figure 59. A sample correct case of Pharmacy (subfield: Pharmaceutical Microbiol
 ![](_page_76_Figure_8.jpeg)
 
 <image 1> <image 2>
-
-**GPT-4V:** Given the synthetic scheme provided, let's analyze each option:
+**GPT-4V:**Given the synthetic scheme provided, let's analyze each option:
 
 (A) The type of substituent A on the aromatic ring: In the second image, substituent A is located on the aromatic ring. Since this is present at the end of the molecule, it might be relatively easy to vary it, as it doesn't interfere with the rest of the synthesis.
 
@@ -2247,15 +2030,13 @@ Figure 59. A sample correct case of Pharmacy (subfield: Pharmaceutical Microbiol
 
 (D) The length of the chain D between the amide and the aromatic ring: Changing the length of chain D would require altering the length of the carbon chain in the precursor molecule. This change could be achieved by selecting different precursors with varied chain lengths.
 
-Thus, **(A) The type of substituent A on the aromatic ring** seems to be the most efficiently varied using this synthesis. The aromatic ring can be easily subjected to a variety of substitution reactions to achieve analogues with different substituents without disturbing the rest of the molecule.
+Thus,**(A) The type of substituent A on the aromatic ring**seems to be the most efficiently varied using this synthesis. The aromatic ring can be easily subjected to a variety of substitution reactions to achieve analogues with different substituents without disturbing the rest of the molecule.
 
-### **Error Category: Lack of Knowledge**
+### Error Category: Lack of Knowledge
+**Error Reason:**GPT-4V successfully understands the images and text. However, due to the lack of specific knowledge about "The synthesis is most efficient for creating analogues with a variety of heterocyclic rings", GPT-4V assumes "substituent A is located on the aromatic ring, which is at the end of the molecule, and it might be relatively easy to vary it, as it doesn't interfere with the rest of the synthesis" and subsequently makes an incorrect prediction.
 
-**Error Reason:** GPT-4V successfully understands the images and text. However, due to the lack of specific knowledge about "The synthesis is most efficient for creating analogues with a variety of heterocyclic rings", GPT-4V assumes "substituent A is located on the aromatic ring, which is at the end of the molecule, and it might be relatively easy to vary it, as it doesn't interfere with the rest of the synthesis" and subsequently makes an incorrect prediction.
-
-### **Ground Truth: (C) The type of heterocyclic ring C present**
-
-**Explanation:** It is possible to use this synthesis to create analogues where all the positions indicated are modified as described. However, the synthesis is most efficient for creating analogues with a variety of heterocyclic rings. That is because the reaction sequence could be carried out on large scale to produce a supply of the penultimate structure. Analogues could then be created in one step by reacting this structure with different heterocyclic acid chlorides. If the synthetic scheme was used to create analogues at the other positions indicated, then more reactions will be needed. For example, varying the type of alkyl substituent present at position B would involve carrying out the complete synthesis for each analogue.
+### Ground Truth: (C) The type of heterocyclic ring C present
+**Explanation:**It is possible to use this synthesis to create analogues where all the positions indicated are modified as described. However, the synthesis is most efficient for creating analogues with a variety of heterocyclic rings. That is because the reaction sequence could be carried out on large scale to produce a supply of the penultimate structure. Analogues could then be created in one step by reacting this structure with different heterocyclic acid chlorides. If the synthetic scheme was used to create analogues at the other positions indicated, then more reactions will be needed. For example, varying the type of alkyl substituent present at position B would involve carrying out the complete synthesis for each analogue.
 
 Figure 60. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synthesis). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -2269,19 +2050,17 @@ blood pressure in the context of Norepinephrine and Tyramine. Here's a breakdown
 
 Given the traces in the image: Before the administration of Unknown W, both Norepinephrine and Tyramine increase blood pressure. In the presence of Unknown W, Norepinephrine still increases blood pressure, but Tyramine no longer has this effect. The drug that fits this pattern is Phenelzine. In the presence of an MAOI, Norepinephrine would still exert its direct effect, but Tyramine, which typically induces the release of stored catecholamines, would result in an amplified effect due to the blocked degradation of norepinephrine. The lack of a hypertensive response to Tyramine in the second trace suggests that its conversion to norepinephrine might have been blocked, consistent with the action of an MAOI. Thus, the correct answer is: (B) phenelzine.
 
-### **Error Category: Lack of Knowledge**
-
-**Error Reason:** GPT-4V lacks knowledge about the interaction between Cocaine and Tyramine. While it correctly recalls information about Phenelzine, it appears the lack of other plausible options leads to a reasoning error (which could be deemed as hallucination), as it strives to select the most plausible option from the ones given, and then justifies that selection. Therefore, the root cause remains a lack of knowledge.
-
+### Error Category: Lack of Knowledge
+**Error Reason:**GPT-4V lacks knowledge about the interaction between Cocaine and Tyramine. While it correctly recalls information about Phenelzine, it appears the lack of other plausible options leads to a reasoning error (which could be deemed as hallucination), as it strives to select the most plausible option from the ones given, and then justifies that selection. Therefore, the root cause remains a lack of knowledge.
 **Ground Truth: (A) cocaine**
 
 Figure 61. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synthesis). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Public Health: Epidemiology**
+# Public Health: Epidemiology
 
-<span id="page-78-0"></span>**Question:** An outbreak of gastrointestinal disease occurred 24-36 hours after people had attended a wedding. Of the 203 attendees (including the bride and groom), 200 completed questionnaires, and 50 reported illness compatible with the case definition. Tabulated food consumption histories are presented in the table below. The most appropriate measure of association for these data is the:
+<span id="page-78-0"></span>**Question:**An outbreak of gastrointestinal disease occurred 24-36 hours after people had attended a wedding. Of the 203 attendees (including the bride and groom), 200 completed questionnaires, and 50 reported illness compatible with the case definition. Tabulated food consumption histories are presented in the table below. The most appropriate measure of association for these data is the:
 
-#### **Option:**
+## Option:
 
 (A) Attributable risk percent
 
@@ -2297,18 +2076,16 @@ Figure 61. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synt
 | Sushi               | 10 (91%)                  |      | 11    | 40 (21%)                          | 149  | 189                                      |  |
 
 <image 1>
+**GPT-4V:**Based on the information provided, you're trying to determine the relationship between the consumption of a particular food item and the risk of developing gastrointestinal disease among wedding attendees. In this type of scenario, where you are comparing the risk of disease between those exposed (ate the food) and those not exposed (did not eat the food), the appropriate measure of association is the:(D) Risk ratio (also known as relative risk).The risk ratio compares the risk of disease in the exposed group to the risk of disease in the unexposed group.
 
-**GPT-4V:** Based on the information provided, you're trying to determine the relationship between the consumption of a particular food item and the risk of developing gastrointestinal disease among wedding attendees. In this type of scenario, where you are comparing the risk of disease between those exposed (ate the food) and those not exposed (did not eat the food), the appropriate measure of association is the:(D) Risk ratio (also known as relative risk).The risk ratio compares the risk of disease in the exposed group to the risk of disease in the unexposed group.
-
-### **Ground Truth: (B) Chi-square**
+### Ground Truth: (B) Chi-square
 
 Figure 62. A sample correct case of Public Health (subfield: Epidemiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-79-0"></span>![](_page_79_Picture_0.jpeg)
+<span id="page-79-0"></span>
 
-# **Public Health: Epidemiology**
-
-**Question:** In February 2014, the New England Journal of Medicine published in the same issue two epidemiological trials (field trials) of inactivated EV71 vaccine conducted by scholars in China respectively. One of the studies was from Jiangsu Province, China, and the study design was a randomised, double-blind, placebo-controlled, multicentre trial (phase III trial), which included a total of 10,077 healthy children aged 6-35 months. The primary outcome indicator was the incidence of EV71-related hand, foot and mouth disease or herpangina, according to the 0- and 28-day immunisation schedule, using block (one group of 10 persons) randomisation, with a 1:1 allocation of study participants to EV71 vaccine or placebo, and follow-up monitoring for 12 months, and the results were shown in the table below. <image 1>The incidence density(/1000 person years) of hand, foot and mouth disease in placebo group was
+# Public Health: Epidemiology
+**Question:**In February 2014, the New England Journal of Medicine published in the same issue two epidemiological trials (field trials) of inactivated EV71 vaccine conducted by scholars in China respectively. One of the studies was from Jiangsu Province, China, and the study design was a randomised, double-blind, placebo-controlled, multicentre trial (phase III trial), which included a total of 10,077 healthy children aged 6-35 months. The primary outcome indicator was the incidence of EV71-related hand, foot and mouth disease or herpangina, according to the 0- and 28-day immunisation schedule, using block (one group of 10 persons) randomisation, with a 1:1 allocation of study participants to EV71 vaccine or placebo, and follow-up monitoring for 12 months, and the results were shown in the table below. <image 1>The incidence density(/1000 person years) of hand, foot and mouth disease in placebo group was
 
 | Option: |  |
 |---------|--|
@@ -2322,28 +2099,22 @@ Figure 62. A sample correct case of Public Health (subfield: Epidemiology). [Bac
 
 | <image 1=""/> |  |  |  |
 |---------------|--|--|--|
-
-**GPT-4V:** To find the incidence density (per 1000 person years) of hand, foot, and mouth disease in the placebo group, we need to calculate the rate of new cases of the disease per 1000 person years of observation. From the table:
+**GPT-4V:**To find the incidence density (per 1000 person years) of hand, foot, and mouth disease in the placebo group, we need to calculate the rate of new cases of the disease per 1000 person years of observation. From the table:
 
 Number of new cases of EV71-related hand, foot, and mouth disease or herpangina in placebo group = 94Total person years observed for placebo group = 4873.0 person years. Incidence density = (Number of new cases / Total person years observed) x 1000Incidence density = (.0) x 1000 = 19.3. Therefore, the incidence density (/1000 person years) of hand, foot and mouth disease in placebo group is:(C) 19.3
 
-### **Error Category: Textual Understanding Error**
+## Error Category: Textual Understanding Error
+**Error Reason:** The question asked for the incidence density (/1000 person-years) of hand, foot, and mouth disease in the placebo group, which should have been correctly calculated as (90/4873 \* 1000 = 18.5). However, GPT-4 erroneously extracted the data for EV71-related hand, foot, and mouth disease or herpangina (94/4873 \*1000=19.3), leading to an incorrect final answer.
 
-**Error Reason:** The question asked for the incidence density (/1000 person-years) of hand, foot, and mouth disease in the placebo group, which should have been correctly calculated as (90/4873 \* 1000 = 18.5). However, GPT-4 erroneously extracted the data for EV71-related hand, foot, and mouth disease or herpangina (94/4873 \* 1000=19.3), leading to an incorrect final answer.
-
-### **Ground Truth: (A) 18.5**
+### Ground Truth: (A) 18.5
 
 Figure 63. A sample error case of Public Health (subfield: Epidemiology). Error category: Textual Understanding Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-80-0"></span>![](_page_80_Picture_0.jpeg)
+<span id="page-80-0"></span>
 
-# **Public Health: Epidemiology**
-
-**Question:** A maternal and child health facility wanted to evaluate the effectiveness of two methods of screening for cervical intraepithelial neoplasia (CIN I-III), electronic colposcopy and cervical liquid-based cytology (TCT). 600 gynaecological outpatient cases were examined by both methods, and all cases were confirmed with cervical histopathology (the gold standard) at the same time. The results of all examinations were summarised in the table. <image 1>The false positive rate of the serial test was
-
-**Option:**
-
-(A) 0.95
+# Public Health: Epidemiology
+**Question:**A maternal and child health facility wanted to evaluate the effectiveness of two methods of screening for cervical intraepithelial neoplasia (CIN I-III), electronic colposcopy and cervical liquid-based cytology (TCT). 600 gynaecological outpatient cases were examined by both methods, and all cases were confirmed with cervical histopathology (the gold standard) at the same time. The results of all examinations were summarised in the table. <image 1>The false positive rate of the serial test was
+**Option:**(A) 0.95
 
 (B) 0.51
 
@@ -2361,8 +2132,7 @@ Figure 63. A sample error case of Public Health (subfield: Epidemiology). Error 
 | Total                    |     | 100              |          |          | 500  |              |
 
 <image 1>
-
-**GPT-4V:** To determine the false positive rate of the serial test (both electronic colposcopy and TCT positive) for detecting cervical intraepithelial neoplasia (CIN I-III), we can use the following formula: False Positive Rate (FPR) = False Positives / (False Positives + True Negatives) False Positives (FP): These are the cases where both tests are positive (+, +) but the patient does not actually have cervical lesions. From the table:
+**GPT-4V:**To determine the false positive rate of the serial test (both electronic colposcopy and TCT positive) for detecting cervical intraepithelial neoplasia (CIN I-III), we can use the following formula: False Positive Rate (FPR) = False Positives / (False Positives + True Negatives) False Positives (FP): These are the cases where both tests are positive (+, +) but the patient does not actually have cervical lesions. From the table:
 
 Patients with non-cervical lesions and both tests positive = 25So, FP = 25True Negatives (TN): These are the cases where both tests are positive (+, +) and the patient actually has cervical lesions, combined with the cases where both tests are negative (-, -) but the patient does not have cervical lesions.
 
@@ -2378,21 +2148,19 @@ FPR = 25 / (25 + 315)
 
 FPR = 0.0735 or 7.35%. The value closest to 7.35% is 0.075. So, the correct answer is:\n(C) 0.75
 
-### **Error Category: Lack of Knowledge**
+## Error Category: Lack of Knowledge
+**Error Reason:**The correct identification of False Positives (FP) was indeed 25, but there was a mistake in calculating True Negatives (TN). TNs are cases that are actually negative and also test negative. GPT-4 incorrectly used True Positives (TP) in calculating TN. Moreover, the question pertained to a series test, meaning a diagnosis of positive was made only if both electronic colposcopy and TCT (ThinPrep Cytologic Test) were positive. However, GPT-4 considered a positive diagnosis if either one of these tests was positive, which led to an error in the count of TN. The correct calculation should be 25/(10+220+25+245) = 0.05.
 
-**Error Reason:** The correct identification of False Positives (FP) was indeed 25, but there was a mistake in calculating True Negatives (TN). TNs are cases that are actually negative and also test negative. GPT-4 incorrectly used True Positives (TP) in calculating TN. Moreover, the question pertained to a series test, meaning a diagnosis of positive was made only if both electronic colposcopy and TCT (ThinPrep Cytologic Test) were positive. However, GPT-4 considered a positive diagnosis if either one of these tests was positive, which led to an error in the count of TN. The correct calculation should be 25/(10+220+25+245) = 0.05.
-
-### **Ground Truth: (D) 0.05**
+### Ground Truth: (D) 0.05
 
 Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-81-0"></span>![](_page_81_Picture_0.jpeg)
+<span id="page-81-0"></span>
 
-# **History: European History**
+# History: European History
+**Question:**This cartoon is best understood in the context of which of the following events? <image 1>
 
-**Question:** This cartoon is best understood in the context of which of the following events? <image 1>
-
-#### **Option:**
+## Option:
 
 - (A) Treaty of Brest-Litovsk
 - (B) Tripartite Pact
@@ -2402,24 +2170,18 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 ![](_page_81_Picture_8.jpeg)
 
 <image 1>
+**GPT-4V:**The cartoon is best understood in the context of: (D) The Munich Conference.
 
-**GPT-4V:** The cartoon is best understood in the context of: (D) The Munich Conference.
-
-### **Ground Truth: (D) The Munich Conference**
-
-**Explanation:** Germany invaded Austria in 1938 before setting its sights on the Sudetenland of Czechoslovakia. At the Munich Conference of 1938, which included Hitler, Mussolini, and Prime Minister Neville Chamberlain of England, Hitler was given the Sudetenland, without the consent of Czechoslovakia, in return for the promise to cease his expansionist activities. The cartoon shows Hitler placing Austria in his bag, which would set this cartoon right at the time of the Munich Conference. Choice (D) is correct. The Treaty of Brest-Litovsk was a World War I era treaty that set the stage for Russia's exit from the war. Eliminate (A). The Tripartite Pact signed by Germany, Italy, and Japan did not occur until two years after this cartoon was created. Eliminate (B). The Anti-Comintern Pact signed between Germany, Italy, and Japan focused on a mutual defense against Russia and had nothing to do with Austria. Eliminate (C).
+### Ground Truth: (D) The Munich Conference
+**Explanation:**Germany invaded Austria in 1938 before setting its sights on the Sudetenland of Czechoslovakia. At the Munich Conference of 1938, which included Hitler, Mussolini, and Prime Minister Neville Chamberlain of England, Hitler was given the Sudetenland, without the consent of Czechoslovakia, in return for the promise to cease his expansionist activities. The cartoon shows Hitler placing Austria in his bag, which would set this cartoon right at the time of the Munich Conference. Choice (D) is correct. The Treaty of Brest-Litovsk was a World War I era treaty that set the stage for Russia's exit from the war. Eliminate (A). The Tripartite Pact signed by Germany, Italy, and Japan did not occur until two years after this cartoon was created. Eliminate (B). The Anti-Comintern Pact signed between Germany, Italy, and Japan focused on a mutual defense against Russia and had nothing to do with Austria. Eliminate (C).
 
 > Figure 65. A sample correct case of History (subfield: European History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-82-0"></span>![](_page_82_Picture_0.jpeg)
+<span id="page-82-0"></span>
 
-# **History: World History**
-
-**Question:** A historian researching the economic history of Eurasia in the period circa 600-1450 c.e. would most likely find the two tables (<image 1> and <image 2>) useful as a source of information about which of the following?
-
-**Option:**
-
-- (A) The diffusion of cultural traditions along Eurasian trade routes
+# History: World History
+**Question:**A historian researching the economic history of Eurasia in the period circa 600-1450 c.e. would most likely find the two tables (<image 1> and <image 2>) useful as a source of information about which of the following?
+**Option:**- (A) The diffusion of cultural traditions along Eurasian trade routes
 - (B) The spread of technological innovations across regions in Eurasia
 - (C) The geographic extent of the monetization of Eurasian economies
 - (D) The extent to which government economic policies in Eurasia in the period 600-1450 represented a continuity of earlier policies
@@ -2438,22 +2200,17 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 |                                                                                                          |                                                  |                        |                                                                                                                       |                                      |
 
 <image 1> <image 2>
-
-**GPT-4V:** The tables provide information on the origin of coins found in buried caches in different regions and their approximate dates. This kind of information indicates where coins from different regions and time periods ended up, which suggests patterns of trade or movement of goods, services, and people. Given the options:(A) The diffusion of cultural traditions along Eurasian trade routes: While the movement of coins can suggest trade routes and interactions between different regions, it does not directly provide information about the diffusion of cultural traditions. (B) The spread of technological innovations across regions in Eurasia: The tables do not specifically address technological innovations. (C) The geographic extent of the monetization of Eurasian economies: The presence of coins from various regions in different locations suggests areas where money was being used in trade and therefore indicates the extent of monetization. (D) The extent to which government economic policies in Eurasia in the period 600-1450 represented a continuity of earlier policies: The tables show where coins from different periods were found, but they do not specifically provide information on government policies or whether those policies represented continuity. Given the information in the tables, the best answer would be:
-
+**GPT-4V:**The tables provide information on the origin of coins found in buried caches in different regions and their approximate dates. This kind of information indicates where coins from different regions and time periods ended up, which suggests patterns of trade or movement of goods, services, and people. Given the options:(A) The diffusion of cultural traditions along Eurasian trade routes: While the movement of coins can suggest trade routes and interactions between different regions, it does not directly provide information about the diffusion of cultural traditions. (B) The spread of technological innovations across regions in Eurasia: The tables do not specifically address technological innovations. (C) The geographic extent of the monetization of Eurasian economies: The presence of coins from various regions in different locations suggests areas where money was being used in trade and therefore indicates the extent of monetization. (D) The extent to which government economic policies in Eurasia in the period 600-1450 represented a continuity of earlier policies: The tables show where coins from different periods were found, but they do not specifically provide information on government policies or whether those policies represented continuity. Given the information in the tables, the best answer would be:
 **(C) The geographic extent of the monetization of Eurasian economies.**
 
-**Ground Truth: (C) The geographic extent of the monetization of Eurasian economies.**
+**Ground Truth: (C) The geographic extent of the monetization of Eurasian economies.**Figure 66. A sample correct case of History (subfield: World History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-Figure 66. A sample correct case of History (subfield: World History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+<span id="page-83-0"></span>
 
-<span id="page-83-0"></span>![](_page_83_Picture_0.jpeg)
+# History: Modern History
+**Question:**In the political cartoon, the United States is seen as fulfilling which of the following roles?<image 1>
 
-# **History: Modern History**
-
-**Question:** In the political cartoon, the United States is seen as fulfilling which of the following roles?<image 1>
-
-#### **Option**:
+## Option:
 
 - (A) Oppressor
 - (B) Imperialist
@@ -2461,26 +2218,22 @@ Figure 66. A sample correct case of History (subfield: World History). [Back to 
 - (D) Isolationist
 
 ![](_page_83_Picture_8.jpeg)
+**GPT-4V:**Based on the political cartoon, the United States is seen as fulfilling the role of: (B) Imperialist.
 
-**GPT-4V:** Based on the political cartoon, the United States is seen as fulfilling the role of: (B) Imperialist.
+### Error Category: Perceptual Error
+**Error Reason:**GPT-4V wrongly interprets the image, because it doesn't correctly interpret the contradiction between the comics on the top half and the bottom half. The perspective of the cartoonist is that the United States has been a savior to the nations brought under its control, saving them from poverty or oppression and bringing them trade, prosperity, and democratic governments. This mistake also indicates that GPT-4V holds some wrong political beliefs.
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** GPT-4V wrongly interprets the image, because it doesn't correctly interpret the contradiction between the comics on the top half and the bottom half. The perspective of the cartoonist is that the United States has been a savior to the nations brought under its control, saving them from poverty or oppression and bringing them trade, prosperity, and democratic governments. This mistake also indicates that GPT-4V holds some wrong political beliefs.
-
-### **Ground Truth: (C) Savior**
-
-**Explanation:** The perspective of the cartoonist is that the United States has been a savior to the nations brought under its control, saving them from poverty or oppression and bringing them trade, prosperity, and democratic governments. Although one might be tempted to cast the United States in the role of imperialist (B), the purpose of the cartoon is to highlight the positive transformation of the people due to their "rescue" by the United States, rather than the benefits to the United States. Because the cartoon claims the people are better off for having been "rescued" by the United States, the United States is not seen as an oppressor (A). Since isolationists do not support foreign intervention, (D) cannot be the correct answer.
+### Ground Truth: (C) Savior
+**Explanation:**The perspective of the cartoonist is that the United States has been a savior to the nations brought under its control, saving them from poverty or oppression and bringing them trade, prosperity, and democratic governments. Although one might be tempted to cast the United States in the role of imperialist (B), the purpose of the cartoon is to highlight the positive transformation of the people due to their "rescue" by the United States, rather than the benefits to the United States. Because the cartoon claims the people are better off for having been "rescued" by the United States, the United States is not seen as an oppressor (A). Since isolationists do not support foreign intervention, (D) cannot be the correct answer.
 
 Figure 67. A sample error case of History (subfield: Modern History). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-84-0"></span>![](_page_84_Picture_0.jpeg)
+<span id="page-84-0"></span>
 
-# **History: World History**
+# History: World History
+**Question:**British economic interactions with India during the time span covered in the chart above would have been chiefly concerned with which of the following commodities? <image 1>
 
-**Question:** British economic interactions with India during the time span covered in the chart above would have been chiefly concerned with which of the following commodities? <image 1>
-
-# **Option:**
+# Option:
 
 - (A) Cotton
 - (B) Spices
@@ -2496,24 +2249,19 @@ Figure 67. A sample error case of History (subfield: Modern History). Error cate
 | WORLD<br>TOTAL                              | 329.417 |                               | 371.369 |                               | 1.101.369 |                               |
 
 <image 1>
+**GPT-4V:**The correct answer would be:(D) Opium. During the time span covered in the chart (1600- 1870), the British economic interactions with India were heavily influenced by the opium trade. The British East India Company established a monopoly on the opium trade and exported opium to China, leading to the Opium Wars with China. This was a significant aspect of Britain's economic engagement with India during this period.
 
-**GPT-4V:** The correct answer would be:(D) Opium. During the time span covered in the chart (1600- 1870), the British economic interactions with India were heavily influenced by the opium trade. The British East India Company established a monopoly on the opium trade and exported opium to China, leading to the Opium Wars with China. This was a significant aspect of Britain's economic engagement with India during this period.
+## Error Category: Lack of Knowledge
+**Error Reason:**This question calls for knowledge related to the stimulus material. Understanding the importance of Indian cotton as a trade commodity is key to contextualizing this question. However, GPT-4V doesn't know that.
 
-### **Error Category: Lack of Knowledge**
-
-**Error Reason:** This question calls for knowledge related to the stimulus material. Understanding the importance of Indian cotton as a trade commodity is key to contextualizing this question. However, GPT-4V doesn't know that.
-
-### **Ground Truth: (A) Cotton**
-
+### Ground Truth: (A) Cotton
 **Explanation:** Likewise, this question calls for knowledge related to the stimulus material. Understanding the importance of Indian cotton as a trade commodity is key to contextualizing this question.
 
 Figure 68. A sample error case of History (subfield: World History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Literature: Contemporary Literature**
+# Literature: Contemporary Literature
 
-<span id="page-85-0"></span>**Question:** Which of the following options best relates to the title 'Ancestor' <image 1> **Option:**
-
-(A) The danger of letting go of a dream.
+<span id="page-85-0"></span>**Question:**Which of the following options best relates to the title 'Ancestor' <image 1>**Option:**(A) The danger of letting go of a dream.
 
 (B) The father is compared to a gypsy.
 
@@ -2524,20 +2272,15 @@ Figure 68. A sample error case of History (subfield: World History). Error categ
 ![](_page_85_Picture_6.jpeg)
 
 <image 1>
+**GPT-4V:**The image depicts what seems to be an old illustration with the title "A Gipsy Family" and is described as a facsimile of a woodcut. Given the choices provided: (A) The danger of letting go of a dream.(B) The father is compared to a gypsy. (C) A mother tells her son to stop whining. (D) These women want their children to be educated. Option (B) "The father is compared to a gypsy." appears to best relate to the title and content of the image.
+**Ground Truth: (B) The father is compared to a gypsy.**Figure 69. A sample correct case of Literature (subfield: Contemporary Literature). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-**GPT-4V:** The image depicts what seems to be an old illustration with the title "A Gipsy Family" and is described as a facsimile of a woodcut. Given the choices provided: (A) The danger of letting go of a dream.(B) The father is compared to a gypsy. (C) A mother tells her son to stop whining. (D) These women want their children to be educated. Option (B) "The father is compared to a gypsy." appears to best relate to the title and content of the image.
+<span id="page-86-0"></span>
 
-**Ground Truth: (B) The father is compared to a gypsy.**
+# Literature: Comparative Literature
+**Question:**Refer to the image, which term best matches the given set of characteristics?
 
-Figure 69. A sample correct case of Literature (subfield: Contemporary Literature). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-86-0"></span>![](_page_86_Picture_0.jpeg)
-
-# **Literature: Comparative Literature**
-
-**Question:** Refer to the image, which term best matches the given set of characteristics?
-
-#### **Option:**
+## Option:
 
 - (A) Common elements in horror stories
 - (B) Literary elements in horror
@@ -2547,26 +2290,21 @@ Figure 69. A sample correct case of Literature (subfield: Contemporary Literatur
 ![](_page_86_Picture_8.jpeg)
 
 <image 1>
+**GPT-4V:**Based on the description <image 1>, the term that best matches the given set of characteristics is:
 
-**GPT-4V:** Based on the description <image 1>, the term that best matches the given set of characteristics is:
+### (D) Intensity.
 
-### **(D) Intensity.**
+### Error Category: Perceptual Error
+**Error Reason:**GPT-4V did not capture the expressions of the characters in the painting or the chopping action of the person on the far left, focusing instead only on the muscles and movements of the character on the far right. As a result, GPT-4V failed to recognize the elements were terrifying.
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** GPT-4V did not capture the expressions of the characters in the painting or the chopping action of the person on the far left, focusing instead only on the muscles and movements of the character on the far right. As a result, GPT-4V failed to recognize the elements were terrifying.
-
-### **Ground Truth: (A) Common elements in horror stories**
+### Ground Truth: (A) Common elements in horror stories
 
 Figure 70. A sample error case of Literature (subfield: Comparative Literature). Error category: Perceptual Error
 
-<span id="page-87-0"></span>![](_page_87_Picture_0.jpeg)
+<span id="page-87-0"></span>
 
-# **Sociology: Sociology Theory**
-
-**Question:** For the person in <image 1>, what is the root of everything social? **Option:**
-
-- (A) Collective Effervescence
+# Sociology: Sociology Theory
+**Question:**For the person in <image 1>, what is the root of everything social?**Option:**- (A) Collective Effervescence
 - (B) Society
 - (C) The Economy
 - (D) Religion
@@ -2574,43 +2312,37 @@ Figure 70. A sample error case of Literature (subfield: Comparative Literature).
 ![](_page_87_Picture_7.jpeg)
 
 <image 1>
-
-**GPT-4V:** For Émile Durkheim, one of the founding figures in sociology, the root of everything social could be argued to be "Collective Effervescence," a term he coined. This concept refers to the moments of communal passion and ecstasy that occur during group rituals and events, which Durkheim believed were the basis for the solidarity of social groups and ultimately for society itself. It's a foundational element in his theory on the formation of religions and societies.
+**GPT-4V:**For Émile Durkheim, one of the founding figures in sociology, the root of everything social could be argued to be "Collective Effervescence," a term he coined. This concept refers to the moments of communal passion and ecstasy that occur during group rituals and events, which Durkheim believed were the basis for the solidarity of social groups and ultimately for society itself. It's a foundational element in his theory on the formation of religions and societies.
 
 The correct answer to the question, considering Emile Durkheim's sociological theories, is "Religion." Durkheim viewed religion as a fundamental social institution that is central to the formation and sustenance of societies. He believed that religious beliefs and rituals play a critical role in creating social cohesion and collective conscience.
 
-### **Ground Truth: (D) Religion**
-
+## Ground Truth: (D) Religion
 **Explanation:** Durkheim believed that religion is the root of everything social. He argued that religion provides the framework and moral values that bind individuals together and create social cohesion. Through religious rituals and beliefs, people experience a sense of collective effervescence, a heightened state of group solidarity and shared emotions. This collective effervescence reinforces social norms, strengthens social bonds, and gives individuals a sense of belonging to a larger community. Therefore, Durkheim viewed religion as the foundation of social order and the driving force behind societal cohesion.
 
 > Figure 71. A sample correct case of Sociology (subfield: Sociology Theory). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Sociology: Comparative Literature**
+# Sociology: Comparative Literature
 
-<span id="page-88-0"></span>**Question:** People holds view in <image 1> argue that crime is linked primarily to \_\_\_?\_\_\_\_. **Option:**
-
-- (A) Power
+<span id="page-88-0"></span>**Question:**People holds view in <image 1> argue that crime is linked primarily to \_\_\_?\_\_\_\_.**Option:**- (A) Power
 - (B) Master status
 - (C) Family values
 - (D) Wealth
 
 ![](_page_88_Picture_6.jpeg)
+**GPT-4V:**The diagram you provided outlines the concept of Symbolic Interactionism, which is a sociological perspective that focuses on the ways in which individuals interact and communicate through symbols. Given the choices provided and the context of Symbolic Interactionism, the most appropriate answer is: (B) Master status. Master status refers to a social position that is the primary identifying characteristic of an individual. It dominates other statuses and thereby determines a person's general position in society. In the context of crime, some symbolic interactionists might argue that an individual's master status (e.g., being labeled as a "criminal") could influence their interactions and how they are perceived by others in society.
 
-**GPT-4V:** The diagram you provided outlines the concept of Symbolic Interactionism, which is a sociological perspective that focuses on the ways in which individuals interact and communicate through symbols. Given the choices provided and the context of Symbolic Interactionism, the most appropriate answer is: (B) Master status. Master status refers to a social position that is the primary identifying characteristic of an individual. It dominates other statuses and thereby determines a person's general position in society. In the context of crime, some symbolic interactionists might argue that an individual's master status (e.g., being labeled as a "criminal") could influence their interactions and how they are perceived by others in society.
-
-#### **Error Category: Reasoning Error**
-
+## Error Category: Reasoning Error
 **Error Reason:** The answer Master status fails to find the root cause of conducting crimes. Essentially, an individual who grows up in a poor neighbourhood with high rates of drug use, violence, teenage delinquency, and deprived parenting is more likely to become a criminal than an individual from a wealthy neighbourhood with a good school system and families who are involved positively in the community. Therefore, the primary/core reason is wealth. The answer is D.
 
-#### **Ground Truth: (D) Wealth**
+### Ground Truth: (D) Wealth
 
 Figure 72. A sample error case of Sociology (subfield: Comparative Literature). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Psychology: Biological Psychology**
+### Psychology: Biological Psychology
 
-<span id="page-89-0"></span>**Question:** Described by the psychologist B. F. Skinner, operant conditioning posits that learning can be understood by the interaction between reinforcers and stimuli. Studies from both comparative and human psychology have supported Skinner's initial findings and expanded upon them. The following figure shows a hypothetical example of various operant conditioning trials. During these trials, when a rat pressed a bar (as indicated by the hash mark on the graph), the behavior was reinforced by the presentation of a food pellet. The reinforcement schedule differs in each cell of the figure. Time is displayed on the x-axis and cumulative responses (bar presses) is displayed on the y-axis. ([image 1]) Imagine that you are watching a rat complete one of the tasks in the figure above. The rat is pressing the bar at a very high rate and takes a short break from pressing the bar each time the food pellet is delivered. What type of reinforcement schedule are you MOST likely watching?
+<span id="page-89-0"></span>**Question:**Described by the psychologist B. F. Skinner, operant conditioning posits that learning can be understood by the interaction between reinforcers and stimuli. Studies from both comparative and human psychology have supported Skinner's initial findings and expanded upon them. The following figure shows a hypothetical example of various operant conditioning trials. During these trials, when a rat pressed a bar (as indicated by the hash mark on the graph), the behavior was reinforced by the presentation of a food pellet. The reinforcement schedule differs in each cell of the figure. Time is displayed on the x-axis and cumulative responses (bar presses) is displayed on the y-axis. ([image 1]) Imagine that you are watching a rat complete one of the tasks in the figure above. The rat is pressing the bar at a very high rate and takes a short break from pressing the bar each time the food pellet is delivered. What type of reinforcement schedule are you MOST likely watching?
 
-#### **Option:**
+#### Option:
 
 - (A) variable-interval
 - (B) variable-ratio
@@ -2618,18 +2350,17 @@ Figure 72. A sample error case of Sociology (subfield: Comparative Literature). 
 - (D) fixed-ratio
 
 ![](_page_89_Figure_7.jpeg)
-
 **GPT-4V:** The graph corresponds to operant conditioning schedules. The pattern of high-rate bar pressing and short breaks after reinforcement suggests a Fixed Ratio schedule, shown in the top left quadrant. Here, reinforcement is given after a set number of responses, which is reflected in the steep inclines followed by drops on the graph. The rat's behavior—rapid pressing until receiving a pellet, then pausing—matches this schedule, indicating it understands that a specific number of presses leads to a reward, thus causing the observed high response rate followed by a break.
 
-#### **Ground Truth: (D) fixed-ratio**
+#### Ground Truth: (D) fixed-ratio
 
 Figure 73. A sample correct case of Psychology (subfield: Biological Psychology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Psychology: Clinical Psychology**
+# Psychology: Clinical Psychology
 
-<span id="page-90-0"></span>**Question:** Guided meditation and deep-breathing exercises have long been used as effective techniques for stress reduction. The mechanism of action for this non-pharmacologic intervention is not entirely known, but scientists believe that the act of focusing one's thoughts and deep bellybreathing both serve to somehow inhibit the stress response activated by the hypothalamicpituitary-adrenal axis. Irritable Bowel Syndrome (IBS) is a disorder that causes a range of abdominal discomfort and bowel irregularities, but unlike bowel diseases with similar symptoms, there are no physical abnormalities; rather, the disorder appears to be the physical manifestation of psychological triggers. The current standard non-pharmacologic treatment for IBS is cognitive behavior therapy (CBT). CBT treats IBS sufferers by treating the emotional and psychological triggers that cause physical symptoms. In an attempt to determine if meditation is as beneficial as CBT for treating IBS, a recent six-month study was conducted on female IBS sufferers. Eligible participants had active IBS symptoms for at least three months during the past year. Participants with and without a diagnosed anxiety disorder were recruited to participate in this study. Subjects were randomly assigned to one of three groups: a CBT group, a guided-meditation group, and a notreatment group. Approximately 65% of the participants had an anxiety disorder, and these subjects were roughly equally represented in each of the three groups. The results of this study, measured by percent reduction of IBS symptoms after treatment, are summarized in Figure 1. <image 1> Based on the results of this study, what can be most reasonably concluded about the efficacy of CBT for IBS sufferers who do not have an anxiety disorder?
+<span id="page-90-0"></span>**Question:**Guided meditation and deep-breathing exercises have long been used as effective techniques for stress reduction. The mechanism of action for this non-pharmacologic intervention is not entirely known, but scientists believe that the act of focusing one's thoughts and deep bellybreathing both serve to somehow inhibit the stress response activated by the hypothalamicpituitary-adrenal axis. Irritable Bowel Syndrome (IBS) is a disorder that causes a range of abdominal discomfort and bowel irregularities, but unlike bowel diseases with similar symptoms, there are no physical abnormalities; rather, the disorder appears to be the physical manifestation of psychological triggers. The current standard non-pharmacologic treatment for IBS is cognitive behavior therapy (CBT). CBT treats IBS sufferers by treating the emotional and psychological triggers that cause physical symptoms. In an attempt to determine if meditation is as beneficial as CBT for treating IBS, a recent six-month study was conducted on female IBS sufferers. Eligible participants had active IBS symptoms for at least three months during the past year. Participants with and without a diagnosed anxiety disorder were recruited to participate in this study. Subjects were randomly assigned to one of three groups: a CBT group, a guided-meditation group, and a notreatment group. Approximately 65% of the participants had an anxiety disorder, and these subjects were roughly equally represented in each of the three groups. The results of this study, measured by percent reduction of IBS symptoms after treatment, are summarized in Figure 1. <image 1> Based on the results of this study, what can be most reasonably concluded about the efficacy of CBT for IBS sufferers who do not have an anxiety disorder?
 
-### **Option:**
+## Option:
 
 (A) CBT is more effective than no treatment and more effective than meditation.
 
@@ -2640,22 +2371,21 @@ Figure 73. A sample correct case of Psychology (subfield: Biological Psychology)
 ![](_page_90_Figure_7.jpeg)
 
 <image 1>
+**GPT-4V:**Based on Figure 1: For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction. Thus, for IBS sufferers who do not have an anxiety disorder, CBT is more effective than both meditation and no treatment. The answer is:**(A) CBT is more effective than no treatment and more effective than meditation**.
 
-**GPT-4V:** Based on Figure 1: For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction. Thus, for IBS sufferers who do not have an anxiety disorder, CBT is more effective than both meditation and no treatment. The answer is: **(A) CBT is more effective than no treatment and more effective than meditation**.
-
-#### **Error Category: Perceptual Error**
+### Error Category: Perceptual Error
 
 **Error Reason:** Based on the description from GPT-4V: "For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction." It appears that GPT-4v misinterpreted the black bars in the plot as the "Non-Anxiety Disorder" group. However, the actual "Non-Anxiety Disorder" group is represented by the gray bars as shown in the legend.
 
-#### **Ground Truth: (C) CBT is not as effective as meditation.**
+#### Ground Truth: (C) CBT is not as effective as meditation.
 
 Figure 74. A sample error case of Psychology (subfield: Clinical Psychology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Agriculture : Plant Biodiversity and Biotechnology**
+# Agriculture : Plant Biodiversity and Biotechnology
 
-<span id="page-91-0"></span>**Question:** An ein4 mutant never binds ethylene. In the presence of ethylene what phenotype will be observed for the seedling triple response in this ein4 mutant?<image 1>
+<span id="page-91-0"></span>**Question:**An ein4 mutant never binds ethylene. In the presence of ethylene what phenotype will be observed for the seedling triple response in this ein4 mutant?<image 1>
 
-### **Option:**
+## Option:
 
 - (A) Seedlings will become de-etiolated.
 - (B) Seedlings will grow towards the light.
@@ -2666,20 +2396,16 @@ Figure 74. A sample error case of Psychology (subfield: Clinical Psychology). Er
 ![](_page_91_Figure_8.jpeg)
 
 <image 1>
+**GPT-4V:**The image shows a schematic representation of the ethylene signaling pathway in plants. In a typical situation, when ethylene binds to its receptor (ETR1, ERS1, ERS2), it prevents the receptor from activating CTR1, which in turn allows the downstream signaling pathway to proceed, leading to the activation of EIN2, EIN3, and the ethylene response (seedling triple response).In the case of the ein4 mutant, which cannot bind ethylene, the pathway from the ethylene receptor to the downstream components would not be initiated. Since EIN4 is presumably an ethylene receptor like ETR1 and the mutant form of EIN4 cannot bind ethylene, this means that the receptor cannot turn off the CTR1, leading to the inhibition of the seedling triple response due to the constitutive activation of CTR1.Therefore, the correct answer is:(D) CTR1 will be activated and inhibit the seedling triple response. This is because in the ein4 mutant, ethylene cannot bind to EIN4 to inhibit CTR1, thus CTR1 remains active and the signaling pathway is off, preventing the seedling triple response.
 
-**GPT-4V:** The image shows a schematic representation of the ethylene signaling pathway in plants. In a typical situation, when ethylene binds to its receptor (ETR1, ERS1, ERS2), it prevents the receptor from activating CTR1, which in turn allows the downstream signaling pathway to proceed, leading to the activation of EIN2, EIN3, and the ethylene response (seedling triple response).In the case of the ein4 mutant, which cannot bind ethylene, the pathway from the ethylene receptor to the downstream components would not be initiated. Since EIN4 is presumably an ethylene receptor like ETR1 and the mutant form of EIN4 cannot bind ethylene, this means that the receptor cannot turn off the CTR1, leading to the inhibition of the seedling triple response due to the constitutive activation of CTR1.Therefore, the correct answer is:(D) CTR1 will be activated and inhibit the seedling triple response. This is because in the ein4 mutant, ethylene cannot bind to EIN4 to inhibit CTR1, thus CTR1 remains active and the signaling pathway is off, preventing the seedling triple response.
-
-#### **Ground Truth: (D) CTR1 will be activated and inhibit the seedling triple response.**
+### Ground Truth: (D) CTR1 will be activated and inhibit the seedling triple response.
 
 Figure 75. A sample correct case of Agriculture (subfield: Plant Biodiversity and Biotechnology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-92-0"></span>![](_page_92_Picture_0.jpeg)
+<span id="page-92-0"></span>
 
-# **Agriculture: Animal Anatomy**
-
-**Question:** <image 1> According to where the arrow points, choosing the matching term: **Option:**
-
-- (A) Long pastern bone
+# Agriculture: Animal Anatomy
+**Question:**<image 1> According to where the arrow points, choosing the matching term:**Option:**- (A) Long pastern bone
 - (B) Coffin bone
 - (C) Short pastern
 - (D) Navicular bone, one bone per digit, located at the interphalangeal joint
@@ -2687,34 +2413,30 @@ Figure 75. A sample correct case of Agriculture (subfield: Plant Biodiversity an
 ![](_page_92_Picture_7.jpeg)
 
 <image 1>
+**GPT-4V:**The arrow in the image is pointing to the lower part of the horse's leg, specifically to the bone known as the "short pastern" or the "second phalanx". This is the bone located between the long pastern bone (first phalanx) and the coffin bone (third phalanx) in the anatomy of a horse's leg. Therefore, the correct matching term for where the arrow points is: (C): "short pastern"
 
-**GPT-4V:** The arrow in the image is pointing to the lower part of the horse's leg, specifically to the bone known as the "short pastern" or the "second phalanx". This is the bone located between the long pastern bone (first phalanx) and the coffin bone (third phalanx) in the anatomy of a horse's leg. Therefore, the correct matching term for where the arrow points is: (C): "short pastern"
+## Error Category: Perceptual Error
+**Error Reason:**GPT 4V give the incorrect interpretation of the visual content in the image. Despite having the capability to "see" the image, the model incorrectly identified the part of the bone indicated by the arrow as the short pastern bone when it is actually the long pastern bone. This perceptual error could lead to subsequent reasoning errors because an incorrect initial interpretation affects the entire reasoning process that leads to the conclusion. Since the model initially misidentified the bone, all subsequent explanations and reasoning were built on this incorrect basis.
 
-### **Error Category: Perceptual Error**
-
-**Error Reason:** GPT 4V give the incorrect interpretation of the visual content in the image. Despite having the capability to "see" the image, the model incorrectly identified the part of the bone indicated by the arrow as the short pastern bone when it is actually the long pastern bone. This perceptual error could lead to subsequent reasoning errors because an incorrect initial interpretation affects the entire reasoning process that leads to the conclusion. Since the model initially misidentified the bone, all subsequent explanations and reasoning were built on this incorrect basis.
-
-### **Ground Truth: (A) Long pastern bone**
+### Ground Truth: (A) Long pastern bone
 
 Figure 76. A sample error case of Agriculture (subfield: Animal Anatomy). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-93-0"></span>![](_page_93_Figure_0.jpeg)
+**GPT-4V:**The layer indicated by the arrow in the image is the uppermost layer of the leaf and is typically known for its protective qualities and prevention of water loss. The correct term for this layer is:(D) waxy cuticle.
 
-**GPT-4V:** The layer indicated by the arrow in the image is the uppermost layer of the leaf and is typically known for its protective qualities and prevention of water loss. The correct term for this layer is:(D) waxy cuticle.
-
-#### **Error Category: Perceptual Error**
-
+#### Error Category: Perceptual Error
 **Error Reason:** GPT-4V recognized the importance of the uppermost layer's role in protection and water loss prevention but failed to correctly identify the visual signals indicating that the arrow was pointing to the guard cells, which are not the waxy cuticle. The reasoning process was flawed because the model did not correctly link the visual information with the correct biological structure.
 
-#### **Ground Truth: (C) Guard cells**
+#### Ground Truth: (C) Guard cells
 
 Figure 77. A sample error case of Agriculture (subfield: Plant Physiology). Error category: Perceptual Error. [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Agriculture: Plant Physiology**
+# Agriculture: Plant Physiology
 
-<span id="page-94-0"></span>**Question:** In soy, this stem/root diseases manifests as a brown pit. favored by drought conditions. Choosing the matching term: <image 1>
+<span id="page-94-0"></span>**Question:**In soy, this stem/root diseases manifests as a brown pit. favored by drought conditions. Choosing the matching term: <image 1>
 
-### **Option:**
+## Option:
 
 - (A) Stalk rot
 - (B) Stem rust
@@ -2724,22 +2446,20 @@ Figure 77. A sample error case of Agriculture (subfield: Plant Physiology). Erro
 ![](_page_94_Picture_8.jpeg)
 
 <image 1>
+**GPT-4V:**The image shows symptoms that are consistent with (D) charcoal rot. This disease often manifests as brown pitting on the stem and root and is favored by drought conditions.
 
-**GPT-4V:** The image shows symptoms that are consistent with (D) charcoal rot. This disease often manifests as brown pitting on the stem and root and is favored by drought conditions.
-
-### **Error Category: Perceptual Error**
-
+### Error Category: Perceptual Error
 **Error Reason:** GPT 4V maybe solely relied on the text to make a judgment instead of synthesizing the visual cues with the textual description provided in the question. The text mentioned "a brown pit" and conditions "favored by drought", which led the model to incorrectly infer the disease as charcoal rot. However, based on the visual symptoms displayed in the image, the disease aligns more closely with brown stem rot. This type of error highlights a shortfall in the model's capability to use visual signals to identify and differentiate between similar plant diseases.
 
-### **Ground Truth: (C) Brown stem rot**
+### Ground Truth: (C) Brown stem rot
 
 Figure 78. A sample error case of Agriculture (subfield: Plant Physiology). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Architecture and Engineering: Surveying and Mapping**
+# Architecture and Engineering: Surveying and Mapping
 
-<span id="page-95-0"></span>**Question:** Two consecutive photographs were taken with a camera of focal length 200 mm mounted on an airplane flying at a height of 1500 m. The overlap was exactly 60% and the size of prints was 250 mm 250 mm. The flying height was same in case of both the exposures and the flight was balanced so that there was no drift. The ground was flat and was 250 m above the mean sea level. Determine the scale of the photograph and the length of the air base.<image 1>
+<span id="page-95-0"></span>**Question:**Two consecutive photographs were taken with a camera of focal length 200 mm mounted on an airplane flying at a height of 1500 m. The overlap was exactly 60% and the size of prints was 250 mm 250 mm. The flying height was same in case of both the exposures and the flight was balanced so that there was no drift. The ground was flat and was 250 m above the mean sea level. Determine the scale of the photograph and the length of the air base.<image 1>
 
-### **Option:**
+## Option:
 
 - (A) The scale of the photographs is 1 cm = 62.5 m; Air base = 625 m
 - (B) The scale of the photographs is 1 cm = 64.5 m; Air base = 625 m
@@ -2747,8 +2467,7 @@ Figure 78. A sample error case of Agriculture (subfield: Plant Physiology). Erro
 - (D) The scale of the photographs is 1 cm = 68.5 m; Air base = 625 m
 
 ![](_page_95_Figure_7.jpeg)
-
-**GPT-4V:** Given: Focal length, f = 200 mm Flight height, H = 1500 m, Size of the prints = 250 mm x 250 mm, Ground height = 250 m, above mean sea level Overlap = 60%. To determine the scale of the photograph and the length of the air base, we can use the following formulas: Photo Scale (S): = /( − ℎ) . Where: S = Photo Scale, f = Focal length, H = Flight height, h = Ground height. Air Base (B): Given the overlap is 60%, it means that 40% of the length is new coverage. B = 0.4L Where: L = Length of the photograph on the ground. First, let's determine the photo scale (S): = /( − ℎ), = 200/(1500 − 250), = 200/1250. S = 0.16mm/m. To convert this into cm and m: = 0.16/1×1/10, S = 0.016 cm/m. To find the ground equivalent for 1 cm in the
+**GPT-4V:**Given: Focal length, f = 200 mm Flight height, H = 1500 m, Size of the prints = 250 mm x 250 mm, Ground height = 250 m, above mean sea level Overlap = 60%. To determine the scale of the photograph and the length of the air base, we can use the following formulas: Photo Scale (S): = /( − ℎ) . Where: S = Photo Scale, f = Focal length, H = Flight height, h = Ground height. Air Base (B): Given the overlap is 60%, it means that 40% of the length is new coverage. B = 0.4L Where: L = Length of the photograph on the ground. First, let's determine the photo scale (S): = /( − ℎ), = 200/(1500 − 250), = 200/1250. S = 0.16mm/m. To convert this into cm and m: = 0.16/1×1/10, S = 0.016 cm/m. To find the ground equivalent for 1 cm in the
 
 photograph: 1 ℎ = 1/0.016 = 62.5. So, the scale of the photograph is 1 cm = 62.5 m. Next, to determine the air base (B): B = 0.4L Given the size of the prints is 250 mm (or 0.25 m), this
 
@@ -2757,16 +2476,15 @@ represents the length of the photo on the ground:
 = 0.25×62.5/ = 15.625, = 0.4×15.625 = 6.25, B = 625 m
 
 Based on the calculations, the correct option is: (A) The scale of the photographs is 1 cm = 62.5 m; Air base = 625 m.
-
 **Ground Truth: (A) The scale of the photographs is 1 cm = 62.5 m; Air base = 625 m**
 
 Figure 79. A sample correct case of Architecture and Engineering (subfield: Surveying and Mapping). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Architecture and Engineering: Structural Engineering**
+# Architecture and Engineering: Structural Engineering
 
-<span id="page-96-0"></span>**Question:** Compute the horizontal displacement of joint B produced by the 240-kN load in Figure P8.10. For all bars, area = 2400 !and E = 200 GPa.
+<span id="page-96-0"></span>**Question:**Compute the horizontal displacement of joint B produced by the 240-kN load in Figure P8.10. For all bars, area = 2400 !and E = 200 GPa.
 
-### **Option:**
+## Option:
 
 - (A) 2.657 mm
 - (B) 3.657 mm
@@ -2774,22 +2492,18 @@ Figure 79. A sample correct case of Architecture and Engineering (subfield: Surv
 - (D) 5.657 mm
 
 ![](_page_96_Figure_7.jpeg)
-
 **GPT-4V:** To solve for the horizontal displacement of joint B due to the 240-kN load, we'll employ the method of joints and consider the effect of the force on the truss members, along with using the formula for the elongation/contraction of axially loaded members. The formula to calculate elongation or contraction in an axially loaded member is: <sup>δ</sup> <sup>=</sup> "# \$%, where P is the axial force in the member, L is the length of the member, A is the cross-sectional area of the member, and E is the modulus of elasticity. Given: A = 2400 mm!and E = 200 Gpa = 200 × 10& ' ((!. First, let's find the forces in the members by applying the method of joints at joint A and joint D. At Joint A: There are two non-collinear unknown member forces, making it a solvable joint. Let's solve for AB and AF. ∑ ) = 0, \*+ 45° − \*- = 0. ∑ . = 0, \*+ 45° = 0. \*+ = 0 and \*- = 0. At Joint D: There's a 240-kN downward force applied. Let's find DC and DE. ∑ ) = 0, /0 45° + /1 − 240 = 0. 1 /1 = 240 − /0 45° . ∑ . = 0, /0 45° = 0. /0 = 0 . From (1), /1 = 240 kN. Compute the elongation in the members: For DE (in tension, elongation): <sup>δ</sup>/1 <sup>=</sup> 2"#×4"# \*×1 <sup>=</sup> !56×76\$×8666 !566×!66×76\$ <sup>=</sup> 8. Considering the geometry of the truss, the horizontal component of the elongation at DE is: δ<sup>+</sup> = δ/1 45° ≈ 5.657. Thus, the answer is: **(D) 5.657 mm**.
 
-#### **Ground Truth: (D) 5.657 mm**
+### Ground Truth: (D) 5.657 mm
 
 Figure 80. A sample correct case of Architecture and Engineering (subfield: Structural Engineering). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-97-0"></span>![](_page_97_Picture_0.jpeg)
+<span id="page-97-0"></span>
 
-# **Architecture and Engineering: Civil Engineering**
+# Architecture and Engineering: Civil Engineering
 
-**Question:** The data shown below were obtained by time-lapse photography on a highway. Use regression analysis to fit these data to the Greenshields model and determine, the jam density. <image 1>
-
-**Option:**
-
-(A) kj=110 veh/mi
+**Question:**The data shown below were obtained by time-lapse photography on a highway. Use regression analysis to fit these data to the Greenshields model and determine, the jam density. <image 1>
+**Option:**(A) kj=110 veh/mi
 
 (B) kj=111 veh/mi
 
@@ -2805,96 +2519,83 @@ Figure 80. A sample correct case of Architecture and Engineering (subfield: Stru
 | 55.0         | 15               |
 
 <image 1>
+**GPT-4V:**To determine the jam density using the Greenshields model, we'll employ a linear regression approach on the data provided. The Greenshields model relates speed (u) and density (k) using the equation: = !"# − !"#/\$"!×, where !"# is the maximum speed (which occurs when density k is zero) and \$"! is the jam density. From this equation, we can derive a linear relationship: = !"# − !"#/\$"!×. If we rearrange the terms, it looks like: = −!"#/\$"!× + !"#.Here, the term −!"#/\$"! is the slope of the line, and !"# is the y-intercept. We'll now use the data provided to determine the slope and y-intercept using regression analysis, from which we can then derive \$"!. Let's compute the regression parameters: Given data points: Speed (u): 14.2, 24.1, 30.3, 40.1, 50.6, 55.0; Density (k): 85, 70, 55, 41, 20, 15. Using regression analysis on this data, the equation of the line relating speed and density would be: u = mk + c, where m is the slope and c is the y-intercept. By comparing this to the Greenshields model equation, we can deduce: = − !"#/\$"!, = !"#. From the given data: !"# = 55.0(from the highest speed value). Using the above equation for m: \$"! = −!"#/. Once we determine the slope m using the regression analysis, we can solve for \$"!. For the purpose of this exercise, I will not be calculating the slope using the regression formula directly (as that would be computationally intensive), but based on the linear relationship implied by the data, the jam density \$"! would be slightly greater than the highest density value provided (85 veh/km). Using this logic, the closest option from the choices given is: kj = 110 \, veh/mi. Therefore, the answer would be: (A) kj = 110 veh/mi.
 
-**GPT-4V:** To determine the jam density using the Greenshields model, we'll employ a linear regression approach on the data provided. The Greenshields model relates speed (u) and density (k) using the equation: = !"# − !"#/\$"!×, where !"# is the maximum speed (which occurs when density k is zero) and \$"! is the jam density. From this equation, we can derive a linear relationship: = !"# − !"#/\$"!×. If we rearrange the terms, it looks like: = −!"#/\$"!× + !"#.Here, the term −!"#/\$"! is the slope of the line, and !"# is the y-intercept. We'll now use the data provided to determine the slope and y-intercept using regression analysis, from which we can then derive \$"!. Let's compute the regression parameters: Given data points: Speed (u): 14.2, 24.1, 30.3, 40.1, 50.6, 55.0; Density (k): 85, 70, 55, 41, 20, 15. Using regression analysis on this data, the equation of the line relating speed and density would be: u = mk + c, where m is the slope and c is the y-intercept. By comparing this to the Greenshields model equation, we can deduce: = − !"#/\$"!, = !"#. From the given data: !"# = 55.0(from the highest speed value). Using the above equation for m: \$"! = −!"#/. Once we determine the slope m using the regression analysis, we can solve for \$"!. For the purpose of this exercise, I will not be calculating the slope using the regression formula directly (as that would be computationally intensive), but based on the linear relationship implied by the data, the jam density \$"! would be slightly greater than the highest density value provided (85 veh/km). Using this logic, the closest option from the choices given is: kj = 110 \, veh/mi. Therefore, the answer would be: (A) kj = 110 veh/mi.
-
-### **Error Category: Reasoning Error**
-
-**Error Reason:** The model correctly recalls the knowledge, but doesn't calculate it and directly gives the answer that it thinks is the closest one, which is incorrect.
-
+## Error Category: Reasoning Error
+**Error Reason:**The model correctly recalls the knowledge, but doesn't calculate it and directly gives the answer that it thinks is the closest one, which is incorrect.
 **Ground Truth: (B) kj=111 veh/mi**
 
 Figure 81. A sample error case of Architecture and Engineering (subfield: Civil Engineering). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Computer Science: Data Structure and Algorithm**
+### Computer Science: Data Structure and Algorithm
 
-<span id="page-98-0"></span>**Question:** Suppose we run Dijkstra's single source shortest-path algorithm on the following edge weighted directed graph with vertex P as the source. In what order do the nodes get included into the set of vertices for which the shortest path distances are finalized?<image 1>
-
-**Option:**
-
-(A) P, Q, R, S, T, U (B) P, Q, R, U, S, T (C) P, Q, R, U, S, T (D) P, Q, T, R, U, S
+<span id="page-98-0"></span>**Question:**Suppose we run Dijkstra's single source shortest-path algorithm on the following edge weighted directed graph with vertex P as the source. In what order do the nodes get included into the set of vertices for which the shortest path distances are finalized?<image 1>
+**Option:**(A) P, Q, R, S, T, U (B) P, Q, R, U, S, T (C) P, Q, R, U, S, T (D) P, Q, T, R, U, S
 
 ![](_page_98_Figure_4.jpeg)
-
-**GPT-4V:** To determine the order in which the nodes are included using Dijkstra's algorithm, we will start with vertex P and then repeatedly select the vertex with the smallest distance that hasn't been included yet. Initialize distances: makefile Copy code P = 0, Q = ∞, R = ∞, S = ∞, T = ∞, U = ∞, Begin with source vertex P:P to Q = 1P to S = 4P to T = 7Now, the smallest distance is for Q. So, Q is the next vertex. For Q:P to Q to R = 2P to Q to S = 5 (But, P to S is 4, so this is not considered)P to Q to T = 7 (Same as P to T, so this is not updated)Now, the smallest distance among the remaining vertices is for R. So, R is the next vertex. For R:P to Q to R to U = 3P to Q to R to S = 4 (But, P to S is already 4)Now, the smallest distance among the remaining vertices is for U. So, U is the next vertex. For U:P to Q to R to U to S = 5 (But, P to S is already 4)The remaining vertices are S and T. Between them, S has the smallest distance. So, S is the next vertex. For S:P to S to T = 6 (But, P to T is already 7 and P to Q to T is also 7)Now, only T remains. So, T is the last vertex. The final order is:, P, Q, R, U, S, T. The correct option is:(B) P, Q, R, U, S, T.
-
+**GPT-4V:**To determine the order in which the nodes are included using Dijkstra's algorithm, we will start with vertex P and then repeatedly select the vertex with the smallest distance that hasn't been included yet. Initialize distances: makefile Copy code P = 0, Q = ∞, R = ∞, S = ∞, T = ∞, U = ∞, Begin with source vertex P:P to Q = 1P to S = 4P to T = 7Now, the smallest distance is for Q. So, Q is the next vertex. For Q:P to Q to R = 2P to Q to S = 5 (But, P to S is 4, so this is not considered)P to Q to T = 7 (Same as P to T, so this is not updated)Now, the smallest distance among the remaining vertices is for R. So, R is the next vertex. For R:P to Q to R to U = 3P to Q to R to S = 4 (But, P to S is already 4)Now, the smallest distance among the remaining vertices is for U. So, U is the next vertex. For U:P to Q to R to U to S = 5 (But, P to S is already 4)The remaining vertices are S and T. Between them, S has the smallest distance. So, S is the next vertex. For S:P to S to T = 6 (But, P to T is already 7 and P to Q to T is also 7)Now, only T remains. So, T is the last vertex. The final order is:, P, Q, R, U, S, T. The correct option is:(B) P, Q, R, U, S, T.
 **Ground Truth: (B) P, Q, R, U, S, T**
 
 Figure 82. A sample correct case of Computer Science (subfield: Data Structure and Algorithm). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Computer Science: Compiler Principle**
+# Computer Science: Compiler Principle
 
-<span id="page-99-0"></span>**Question:** <image 1> shows a DFA. Is it minimal?
+<span id="page-99-0"></span>**Question:**<image 1> shows a DFA. Is it minimal?
 
-### **Option:**
+## Option:
 
 - (A) Yes
 - (B) No
 - (C) Not sure
 
 ![](_page_99_Figure_6.jpeg)
+**GPT-4V:**To determine whether a DFA (Deterministic Finite Automaton) is minimal, we generally follow a process to minimize the DFA and see if it results in a DFA with fewer states than the original. However, without more details regarding the acceptance criteria for each state (like which states are accepting and which are not), we can't definitively determine minimality from the diagram alone. But, let's try to infer some information from the given diagram: There's no unreachable state from the start state; every state can be reached. There's no state with identical transitions for the given inputs which could suggest merging. However, one thing to note is that two states are equivalent (and can be merged) if they have the same transitions on every input to the same set of states, and they are either both accepting or both non-accepting. Without knowing which states are accepting, we can't definitively say if the DFA is minimal or not. Therefore, the answer is: (C) not sure.
 
-**GPT-4V:** To determine whether a DFA (Deterministic Finite Automaton) is minimal, we generally follow a process to minimize the DFA and see if it results in a DFA with fewer states than the original. However, without more details regarding the acceptance criteria for each state (like which states are accepting and which are not), we can't definitively determine minimality from the diagram alone. But, let's try to infer some information from the given diagram: There's no unreachable state from the start state; every state can be reached. There's no state with identical transitions for the given inputs which could suggest merging. However, one thing to note is that two states are equivalent (and can be merged) if they have the same transitions on every input to the same set of states, and they are either both accepting or both non-accepting. Without knowing which states are accepting, we can't definitively say if the DFA is minimal or not. Therefore, the answer is: (C) not sure.
+### Error Category: Perceptual Error, Lack of Knowledge
+**Error Reason:**GPT-4V chooses the wrong answer of "not sure", because it does not know "which states are accepting". However, those states are denoted by a double circle. So, there might be two reasons why GPT-4V makes the mistake: (1) it made a perceptual error and failed to recognize the double circle or missed this important visual signal in the image; (2) it might have recognized there is a double circle in the graph, but failed to connect it with the concept of "accept state", due to lack of specific subject knowledge. Apart from this, the model recalled relevant knowledge and applied it to derive most steps correctly.
 
-### **Error Category: Perceptual Error, Lack of Knowledge**
-
-**Error Reason:** GPT-4V chooses the wrong answer of "not sure", because it does not know "which states are accepting". However, those states are denoted by a double circle. So, there might be two reasons why GPT-4V makes the mistake: (1) it made a perceptual error and failed to recognize the double circle or missed this important visual signal in the image; (2) it might have recognized there is a double circle in the graph, but failed to connect it with the concept of "accept state", due to lack of specific subject knowledge. Apart from this, the model recalled relevant knowledge and applied it to derive most steps correctly.
-
-#### **Ground Truth: (A) Yes**
+#### Ground Truth: (A) Yes
 
 Figure 83. A sample error case of Computer Science (subfield: Compiler Principle). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-100-0"></span>![](_page_100_Figure_0.jpeg)
 
 <image 1>
+**GPT-4V:**The image depicts a timeline representation of various transactions over time across two CPUs (CPU1 and CPU2). Interleaved processing occurs when two transactions are processed alternately, meaning that one starts, then the other starts before the first one finishes, and then the first one might resume, and so on. From the given image: Transaction A on CPU1 starts and finishes without being interleaved with any other transaction. Transaction B on CPU1 starts after A finishes and completes without being interleaved with any other transaction. Transaction A on CPU2 starts and finishes without any interleaving. Transaction B on CPU2 starts after A finishes and completes without being interleaved with any other transaction. Transaction C on CPU1 starts and finishes without any interleaving. Transaction D on CPU2 starts and finishes without any interleaving. So, based on the provided options: (A) A and B: These are sequential on both CPUs, not interleaved. (B) B and C: These are sequential, not interleaved. (C) C and D: These are on separate CPUs and are not interleaved with each other. (D) None of the other answers. The correct answer is: (D) None of the other answers.
 
-**GPT-4V:** The image depicts a timeline representation of various transactions over time across two CPUs (CPU1 and CPU2). Interleaved processing occurs when two transactions are processed alternately, meaning that one starts, then the other starts before the first one finishes, and then the first one might resume, and so on. From the given image: Transaction A on CPU1 starts and finishes without being interleaved with any other transaction. Transaction B on CPU1 starts after A finishes and completes without being interleaved with any other transaction. Transaction A on CPU2 starts and finishes without any interleaving. Transaction B on CPU2 starts after A finishes and completes without being interleaved with any other transaction. Transaction C on CPU1 starts and finishes without any interleaving. Transaction D on CPU2 starts and finishes without any interleaving. So, based on the provided options: (A) A and B: These are sequential on both CPUs, not interleaved. (B) B and C: These are sequential, not interleaved. (C) C and D: These are on separate CPUs and are not interleaved with each other. (D) None of the other answers. The correct answer is: (D) None of the other answers.
-
-#### **Error Category: Perceptual Error**
-
+#### Error Category: Perceptual Error
 **Error Reason:** GPT-4V recalls the correct knowledge "Interleaved processing occurs when two transactions are processed alternately, meaning that one starts, then the other starts before the first one finishes, and then the first one might resume, and so on." However, it fails to interpret the image w.r.t. transaction A and B: "Transaction A on CPU1 starts and finishes without being interleaved with any other transaction. Transaction B on CPU1 starts after A finishes and completes without being interleaved with any other transaction. Transaction A on CPU2 starts and finishes without any interleaving. Transaction B on CPU2 starts after A finishes and completes without being interleaved with any other transaction." The figure intends to illustrate transaction A and B being processed concurrently on one CPU in an interleaved fashion. These two processes have nothing to do with the CPU1 and CPU2 shown on the right side of the figure. On the perception level, the model made a wrong connection by saying the first appearance of transaction A is on CPU1 and the second appearance is on CPU2 (and the same for transaction B). With that said, the figure is indeed a non-trivial one to interpret and a model might need to know some subject-specific convention to interpret it correctly.
 
-#### **Ground Truth: (A) A and B**
+#### Ground Truth: (A) A and B
 
 Figure 84. A sample error case of Computer Science (subfield: Operating System). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 ![](_page_101_Figure_0.jpeg)
 
-<span id="page-101-0"></span>**Question:** Is the one shown in above figure a minimal DFA? <image 1> **Option**: (A) Yes (B) No
+<span id="page-101-0"></span>**Question:**Is the one shown in above figure a minimal DFA? <image 1>**Option**: (A) Yes (B) No
 
 ![](_page_101_Figure_2.jpeg)
 
 <image 1>
 
-**GPT-4V:** To determine if the given DFA (Deterministic Finite Automaton) is minimal, we need to check if there are any equivalent states that can be merged. Equivalent states are states from which for every input string, the automaton ends in either an accepting state or a non-accepting state for both states in question. The given DFA has 5 states labeled 0 through 4. To check for equivalent states: We start by marking pairs of states where one is an accepting state and the other is not. In this DFA, however, there's no indication of which states are accepting and which are not, so we'll assume all states are relevant for now. Next, for each pair of states (i, j), we check if for any input (a or b), the transitions δ(i, a) and δ(j, a), and δ(i, b) and δ(j, b) lead to the same state or already marked pair of states. If not, we mark the pair (i, j).In the given DFA:
+**GPT-4V:**To determine if the given DFA (Deterministic Finite Automaton) is minimal, we need to check if there are any equivalent states that can be merged. Equivalent states are states from which for every input string, the automaton ends in either an accepting state or a non-accepting state for both states in question. The given DFA has 5 states labeled 0 through 4. To check for equivalent states: We start by marking pairs of states where one is an accepting state and the other is not. In this DFA, however, there's no indication of which states are accepting and which are not, so we'll assume all states are relevant for now. Next, for each pair of states (i, j), we check if for any input (a or b), the transitions δ(i, a) and δ(j, a), and δ(i, b) and δ(j, b) lead to the same state or already marked pair of states. If not, we mark the pair (i, j).In the given DFA:
 
 For state 0: δ(0, a) = 1 and δ(0, b) = 4 For state 1: δ(1,a) = 2 and δ(1,b)=0 For state 2: δ(2,a) = 3 and δ(2,b) = 0 For state 3: δ(3, a) = 4 and δ(3, b) = 0 For state 4: δ(4, a) = 3 and δ(4, b) = 1
 
 Upon inspection, it seems that: State 2 and State 4: Both move to state 3 on input 'a', but they differ on input 'b'. So, they are not equivalent. State 1 and State 3: Both move to state 0 on input 'b', but they differ on input 'a'. So, they are not equivalent. State 3 and State 4: Both move to state 0 on input 'b', but they differ on input 'a'. So, they are not equivalent. No pairs of states seem to be equivalent in the given DFA. Therefore, the DFA appears to be minimal.
 
-#### **Error Category: Perceptual Error**
-
+#### Error Category: Perceptual Error
 **Error Reason:** δ(0, b) = 2 instead of 4, and δ(1, b) != 0. The model fails to ground on the image.
 
-#### **Ground Truth: (B) No**
+#### Ground Truth: (B) No
 
 Figure 85. A sample error case of Computer Science (subfield: Compiler Principle). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Electronics: Signal Processing**
+### Electronics: Signal Processing
 
-<span id="page-102-0"></span>**Question:** The circuit shown in Fig 1 of <image 1> is in the steady state at t = 0- with the switch in position 1. At t = 0, the switch is thrown to position 2. Use Laplace transforms to formulate an expression for !()for any source "().
+<span id="page-102-0"></span>**Question:**The circuit shown in Fig 1 of <image 1> is in the steady state at t = 0- with the switch in position 1. At t = 0, the switch is thrown to position 2. Use Laplace transforms to formulate an expression for !()for any source "().
 
-#### **Option:**
+#### Option:
 
 - (A) (3 + 15 + 3" # )/(\$ + 6 + 8) (B) (3 + 18 + 3" # )/(\$ + 6 + 8)
 - (C) (3 + 18 + 3" # )/(\$ + 4 + 8)
@@ -2903,8 +2604,7 @@ Figure 85. A sample error case of Computer Science (subfield: Compiler Principle
 ![](_page_102_Figure_6.jpeg)
 
 <image 1>
-
-**GPT-4V:** To find !()using Laplace transforms for the circuit, we'll follow these steps: 1. Find the initial conditions. 2. Apply the Laplace transforms to the circuit. 3. Solve for !().
+**GPT-4V:**To find !()using Laplace transforms for the circuit, we'll follow these steps: 1. Find the initial conditions. 2. Apply the Laplace transforms to the circuit. 3. Solve for !().
 
 1. Initial Conditions
 
@@ -2917,20 +2617,17 @@ When the switch is moved to position 2 at t = 0, the circuit can be analyzed in 
 Substituting the equations derived above and solving for !() , we get: ! = (3 + 18 + 3" # )/(\$ + 6 + 8)
 
 So, the correct answer is: (B) (3 + 18 + 3" # )/(\$ + 6 + 8)
-
-**Ground Truth: (B)** ( + + )/( + + )
+**Ground Truth: (B)**( + + )/( + + )
 
 Figure 86. A sample correct case of Electronics (subfield: Signal Processing). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-103-0"></span>![](_page_103_Picture_0.jpeg)
+<span id="page-103-0"></span>
 
-### **Electronics : Signal Processing**
-
-**Question:** A balanced set of three-phase voltages is connected to an unbalanced set of Y-connected impedances as shown in <image1>. The following values are known !" = 212∠90∘, !\$ = 10 + 0 Ω, "% = 212∠−150∘, "\$ = 10 + 10 Ω, &" = 212∠ −30<sup>∘</sup> , %\$ = 0 − 20 Ω. Find the magnitude of current "!".
+### Electronics : Signal Processing
+**Question:**A balanced set of three-phase voltages is connected to an unbalanced set of Y-connected impedances as shown in <image1>. The following values are known !" = 212∠90∘, !\$ = 10 + 0 Ω, "% = 212∠−150∘, "\$ = 10 + 10 Ω, &" = 212∠ −30<sup>∘</sup> , %\$ = 0 − 20 Ω. Find the magnitude of current "!".
 
 ![](_page_103_Figure_3.jpeg)
-
-**GPT-4V:** To find the magnitude of the line current "!" , we need to find the phase current "' . The phase current can be found using Ohm's Law: = ( ) . Given: !" = 212∠90∘, "% = 212∠ −150<sup>∘</sup> , %! = 212∠ −30<sup>∘</sup> ; !\$ = 10 + 0 Ω , "\$ = 10 + 10 Ω , %\$ = 0 − 20 Ω . Since it is a star (Y) connection, the line-to-neutral voltage for phase b is "\$. And: "\$ = "% − %!. Given that: "% = 212∠ −150<sup>∘</sup> , %! = 212∠ −30<sup>∘</sup> . Using the phasor method for subtraction: "\$ = 212∠ −150<sup>∘</sup> −212∠ −30∘. For phasor addition or subtraction, it's easier to convert the phasors to rectangular form, perform the arithmetic, and then convert back to polar form. "% = 212 (−150∘) + (212 (−150∘)) *,* %! = 212 (30∘) + (212 (30∘)) . Subtracting the two phasors: "% = "% − %! + ("% − %!). Once "' is calculated in rectangular form, convert it to polar form to get its magnitude and angle.
+**GPT-4V:**To find the magnitude of the line current "!" , we need to find the phase current "' . The phase current can be found using Ohm's Law: = ( ) . Given: !" = 212∠90∘, "% = 212∠ −150<sup>∘</sup> , %! = 212∠ −30<sup>∘</sup> ; !\$ = 10 + 0 Ω , "\$ = 10 + 10 Ω , %\$ = 0 − 20 Ω . Since it is a star (Y) connection, the line-to-neutral voltage for phase b is "\$. And: "\$ = "% − %!. Given that: "% = 212∠ −150<sup>∘</sup> , %! = 212∠ −30<sup>∘</sup> . Using the phasor method for subtraction: "\$ = 212∠ −150<sup>∘</sup> −212∠ −30∘. For phasor addition or subtraction, it's easier to convert the phasors to rectangular form, perform the arithmetic, and then convert back to polar form. "% = 212 (−150∘) + (212 (−150∘))*,*%! = 212 (30∘) + (212 (30∘)) . Subtracting the two phasors: "% = "% − %! + ("% − %!). Once "' is calculated in rectangular form, convert it to polar form to get its magnitude and angle.
 
 Now, using Ohm's Law for phase b:
 
@@ -2940,18 +2637,16 @@ $$
 
 Again, convert "\$ to rectangular form and then back to polar form to get its magnitude and angle. In a Y-connected system, the line current is equal to the phase current for that phase: "!" = "\$. The magnitude of "!" is equal to the magnitude of "\$. To provide a numerical value, we would have to go through the above calculations. Would you like me to proceed with that?
 
-#### **Error Category: Reject to Answer**
-
+#### Error Category: Reject to Answer
 **Error Reason:** GPT-4V's reasoning steps are correct, however, it does not want to involve the complex computation, therefore, it rejects to answer.
 
-#### **Ground Truth: 14.54**
+#### Ground Truth: 14.54
 
 Figure 87. A sample error case of Electronics (subfield: Signal Processing). Error category: Reject to Answer [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Energy and Power: Fluid Mechanics**
+# Energy and Power: Fluid Mechanics
 
-<span id="page-104-0"></span>**Question:** Some experimental values of \$\\mu \$ of helium at 1 atm are as follows: . <image 1> Fit these values to a Power-law.
-
+<span id="page-104-0"></span>**Question:**Some experimental values of \$\\mu \$ of helium at 1 atm are as follows: . <image 1> Fit these values to a Power-law.
 **Option:** (A) !" ≈ 1.505#\$ − 5(° /200)&.() (B) !" ≈ 2.505#\$ − 5(° /200)&.\*) (C) !" ≈ 1.505#\$ − 5(° /200)&.\*)
 
 | $T, \, {}^{\circ}K$ :<br>$\mu$ , kg/m·s: 1.50E-5 2.43E-5 3.20E-5 3.88E-5 4.50E-5 5.08E-5 | 200 | 400 | 600 | 800 | 1000 | 1200 |
@@ -2962,41 +2657,31 @@ Figure 87. A sample error case of Electronics (subfield: Signal Processing). Err
 
 **GPT-4V:** To fit the given values to a Power-law, we'll use the form: = (+), where C and k are constants to be determined. We can take the logarithm of both sides to transform this equation to a linear form: ln = ln + (). Now, let's choose two points from the given data to solve for C and k. Using the data points (T, ) = (200 K, 1.50E-5) and (400 K, 2.43E-5): For the first point: ln(1.50E-5) = ln(C) + k \ln(200) (1). For the second point: ln(2.43E-5) = ln(C) + kln(400) (2). Subtracting (1) from (2) to eliminate C, we get: ln ( 2.43E-5/1.50E-5)=kln2. From this, we can solve for k. Once we have k, we can use either (1) or (2) to solve for C. After solving for k and C, we can use these values to see which option (A, B, or C) fits the power-law. Let's calculate k and C. k =ln(2.43E-5/1.50E-5)/ln2≈ ln1.62/ln2 ≈ 0.68. Plugging this value of k into (1): ln(1.50E-5) = lnC + 0.68ln200. Solving for C: C≈1.505E-5. The relation becomes: !" ≈ 1.505#\$ − 5,, where K ≈ 0.68. From the options given, this matches with: (C) !" ≈ 1.505#\$ − 5(° /200)&.\*) . So, option (C) is
 
-**Ground Truth: (C)** ≈ . # − (° /).
+**Ground Truth: (C)**≈ . # − (° /).
 
 the correct choice.
 
 Figure 88. A sample correct case of Energy and Power (subfield: Fluid Mechanics). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-<span id="page-105-0"></span>![](_page_105_Picture_0.jpeg)
+<span id="page-105-0"></span>
 
-### **Energy and Power: Thermodynamics**
-
-**Question:** A piston-cylinder device contains helium gas initially at 100 kPa, 10°C, and 0.2 m^3. The helium is now compressed in a polytropic process (! = ) to 700 kPa and 290°C. Determine the heat loss or gain during this process..<image 1> **Option:**
-
-(A) "# = −5.553 (B) "# = −6.553 (C) "# = −7.553
+## Energy and Power: Thermodynamics
+**Question:**A piston-cylinder device contains helium gas initially at 100 kPa, 10°C, and 0.2 m^3. The helium is now compressed in a polytropic process (! = ) to 700 kPa and 290°C. Determine the heat loss or gain during this process..<image 1>**Option:**(A) "# = −5.553 (B) "# = −6.553 (C) "# = −7.553
 
 ![](_page_105_Picture_4.jpeg)
 
 <image 1>
+**GPT-4V:**Given the nature of this problem, we'll use the first law of thermodynamics for a closed system undergoing a process: Δ = "# − "#, where Δ = Change in internal energy, "# = Heat transfer during the process, and "# = Work done by the system during the process. From the given image, we can infer that the process is polytropic and is described by the equation: ! = . For a polytropic process involving an ideal gas: "# = (## − "")/(1 − ). Given: "=100kPa, " = 0.2\$, " = 10° , #=700kPa, # = 290° . To find #, we use the polytropic relationship: "" !/# = # !. The value of n can be determined using the temperatures and the ideal gas law: ""/" = ##/#. Once # is known, the work "# can be determined using the equation for polytropic work. The change in internal energy Δ for an ideal gas like helium is only a function of temperature and can be determined using: Δ = &(# − "), where & = Specific heat at constant volume for helium (approximately 3.12 kJ/kgAK), and m = Mass of the helium. Mass can be determined using the ideal gas law: = ""/", where R is the specific gas constant for helium, approximately 2.0831 kJ/kgAK. Finally, using the first law of thermodynamics: "# = Δ + "#=. The given options for "# are in kJ, so we need to ensure that all values used in calculations are consistent with this unit. To determine "#, we will: Calculate the mass m of helium, determine # using the polytropic relationship, calculate the work "#, determine the change in internal energy Δ, and use the first law to calculate "#. Now, let's plug in the values and solve: Calculate mass: = ""/" = 100 ∗ 0.2\$/(2.0831/ A ∗ (10 + 273)) ≈ 0.0271 . Determine # using the given temperatures and the ideal gas relationship (this is iterative and requires more involved math). Calculate the work "# using the polytropic equation. Determine the change in internal energy: Δ = &(# − ") ≈ 23.75. Use the first law: "# = Δ + "#. Now, without the exact value for "# (which requires the iterative determination of V\_2 and n), it's hard to provide an exact answer. However, considering the given options, you can solve for "# using the above steps. If you have the value for n or more specific data, please provide it, and I can assist further.
 
-**GPT-4V:** Given the nature of this problem, we'll use the first law of thermodynamics for a closed system undergoing a process: Δ = "# − "#, where Δ = Change in internal energy, "# = Heat transfer during the process, and "# = Work done by the system during the process. From the given image, we can infer that the process is polytropic and is described by the equation: ! = . For a polytropic process involving an ideal gas: "# = (## − "")/(1 − ). Given: "=100kPa, " = 0.2\$, " = 10° , #=700kPa, # = 290° . To find #, we use the polytropic relationship: "" !/# = # !. The value of n can be determined using the temperatures and the ideal gas law: ""/" = ##/#. Once # is known, the work "# can be determined using the equation for polytropic work. The change in internal energy Δ for an ideal gas like helium is only a function of temperature and can be determined using: Δ = &(# − "), where & = Specific heat at constant volume for helium (approximately 3.12 kJ/kgAK), and m = Mass of the helium. Mass can be determined using the ideal gas law: = ""/", where R is the specific gas constant for helium, approximately 2.0831 kJ/kgAK. Finally, using the first law of thermodynamics: "# = Δ + "#=. The given options for "# are in kJ, so we need to ensure that all values used in calculations are consistent with this unit. To determine "#, we will: Calculate the mass m of helium, determine # using the polytropic relationship, calculate the work "#, determine the change in internal energy Δ, and use the first law to calculate "#. Now, let's plug in the values and solve: Calculate mass: = ""/" = 100 ∗ 0.2\$/(2.0831/ A ∗ (10 + 273)) ≈ 0.0271 . Determine # using the given temperatures and the ideal gas relationship (this is iterative and requires more involved math). Calculate the work "# using the polytropic equation. Determine the change in internal energy: Δ = &(# − ") ≈ 23.75. Use the first law: "# = Δ + "#. Now, without the exact value for "# (which requires the iterative determination of V\_2 and n), it's hard to provide an exact answer. However, considering the given options, you can solve for "# using the above steps. If you have the value for n or more specific data, please provide it, and I can assist further.
-
-### **Error Category: Reasoning Error**
-
-**Error Reason:** Reasoning error 1 (calculation): The formula of m is correct but the calculation is wrong: = ""/" ≈ 0.0271 . Reasoning error 2 (unit conversion T: The formula of Δ is correct but the unit conversion of T is wrong: Δ = &(# − ") ≈ 23.75 . Reasoning error 3 (calculation order): The final answer Q is to be calculated based on W, W is to be calculated based on # and n, n is to be calculated based on #. GPT4-V fails to calculate these variables in a correct order # → → → , thus it is unable to provide the answer.
-
-**Ground Truth: (B) \_12=−6.553**
-
-Figure 89. A sample error case of Energy and Power (subfield: Thermodynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
+### Error Category: Reasoning Error
+**Error Reason:**Reasoning error 1 (calculation): The formula of m is correct but the calculation is wrong: = ""/" ≈ 0.0271 . Reasoning error 2 (unit conversion T: The formula of Δ is correct but the unit conversion of T is wrong: Δ = &(# − ") ≈ 23.75 . Reasoning error 3 (calculation order): The final answer Q is to be calculated based on W, W is to be calculated based on # and n, n is to be calculated based on #. GPT4-V fails to calculate these variables in a correct order # → → → , thus it is unable to provide the answer.
+**Ground Truth: (B) \_12=−6.553**Figure 89. A sample error case of Energy and Power (subfield: Thermodynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-106-0"></span>
 
-# **Materials: Materials Science**
-
-**Question:** Below are shown, for five metals, reduction reactions and standard electrode potential values. Which of these metals is the least reactive? <image 1>
-
-**Option:** (A)Au
+# Materials: Materials Science
+**Question:**Below are shown, for five metals, reduction reactions and standard electrode potential values. Which of these metals is the least reactive? <image 1>
+**Option:**(A)Au
 
 (B) Cu
 
@@ -3008,56 +2693,49 @@ Figure 89. A sample error case of Energy and Power (subfield: Thermodynamics). E
 
 | <image 1=""/> |  |  |
 |---------------|--|--|
+**GPT-4V:**The reactivity of a metal is inversely related to its standard electrode potential. The metal with the highest positive standard electrode potential will be the least reactive. From the provided table:Au³⁺ + 3 e⁻ -> Au has a standard electrode potential of +1.420 V, Cu²⁺ + 2 e⁻ -> Cu has a standard electrode potential of +0.340 V, Ni²⁺ + 2 e⁻ -> Ni has a standard electrode potential of −0.250 V, Fe²⁺ + 2 e⁻ -> Fe has a standard electrode potential of −0.440 V, Na⁺ + e⁻ -> Na has a standard electrode potential of −2.924 V. The highest positive standard electrode potential is for Au, which is +1.420 V. So, the least reactive metal is: (A) Au.
 
-**GPT-4V:** The reactivity of a metal is inversely related to its standard electrode potential. The metal with the highest positive standard electrode potential will be the least reactive. From the provided table:Au³⁺ + 3 e⁻ -> Au has a standard electrode potential of +1.420 V, Cu²⁺ + 2 e⁻ -> Cu has a standard electrode potential of +0.340 V, Ni²⁺ + 2 e⁻ -> Ni has a standard electrode potential of −0.250 V, Fe²⁺ + 2 e⁻ -> Fe has a standard electrode potential of −0.440 V, Na⁺ + e⁻ -> Na has a standard electrode potential of −2.924 V. The highest positive standard electrode potential is for Au, which is +1.420 V. So, the least reactive metal is: (A) Au.
-
-### **Ground Truth: (A) Au**
-
+## Ground Truth: (A) Au
 **Explanation:** Since Au has the most positive standard electrode potential, it is the least reactive metal
 
 > Figure 90. A sample correct case of Materials (subfield: Materials Science). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-![](_page_107_Picture_0.jpeg)
+<span id="page-107-0"></span>**Question:**The rectangular plate is deformed into the shape of a parallelogram shown by the dashed lines. Determine the average shear strain !" at corners A and B. <image 1>
 
-<span id="page-107-0"></span>**Question:** The rectangular plate is deformed into the shape of a parallelogram shown by the dashed lines. Determine the average shear strain !" at corners A and B. <image 1>
-
-#### **Option:**
+### Option:
 
 (A) 0.0292 rad, 0.0292 rad (B) 0.0292 rad, 0.0125 rad (C) 0.0125 rad, 0.0292 rad (D) 0.0125 rad, 0.0125 rad
 
 ![](_page_107_Figure_4.jpeg)
 
 <image 1>
+**GPT-4V:**To determine the average shear strain !" , we use the formula: !" <sup>=</sup> #" #! Where: <sup>=</sup> change in the y-direction, = change in the x-direction. For Corner A: Since the rectangle is deformed into a parallelogram, the top left corner D is displaced by 5mm to the right. Thus, the shear strain at point <sup>A</sup> due to this horizontal displacement is: !" <sup>=</sup> #" #! . Given: <sup>=</sup> <sup>0</sup> (There's no vertical displacement at A), <sup>=</sup> <sup>5</sup>mm,!" <sup>=</sup> \$ %\$\$&& <sup>=</sup> <sup>0</sup> rad. For Corner B: The bottom right corner C is displaced by 5mm upwards. Thus, the shear strain at point B due to this vertical displacement is: !" <sup>=</sup> #" #! . Given: <sup>=</sup> <sup>5</sup>mm, <sup>=</sup> <sup>400</sup>mm, !" <sup>=</sup> ' && )\$\$ && <sup>=</sup> 0.0125 rad. Therefore, the average shear strain at corners A and B are: A: 0 rad, B: 0.0125 rad. But, since the question has provided choices with minimum values of 0.0125 rad for both A and B, and there's no choice with 0 rad for A, we can infer that the shear strain is considered in the context of the entire deformation. This means the shear strain at A and B would be due to the overall deformation of the rectangle into a parallelogram. Given that both A and D move to the right by 5 mm and both B and C move up by 5 mm, the average shear strain for the entire deformation at both points would be: !" <sup>=</sup> ' && )\$\$ && <sup>=</sup> 0.0125 rad (for both A and B). So, the correct answer is:**(D) 0.0125 rad, 0.0125 rad**.
 
-**GPT-4V:** To determine the average shear strain !" , we use the formula: !" <sup>=</sup> #" #! Where: <sup>=</sup> change in the y-direction, = change in the x-direction. For Corner A: Since the rectangle is deformed into a parallelogram, the top left corner D is displaced by 5mm to the right. Thus, the shear strain at point <sup>A</sup> due to this horizontal displacement is: !" <sup>=</sup> #" #! . Given: <sup>=</sup> <sup>0</sup> (There's no vertical displacement at A), <sup>=</sup> <sup>5</sup>mm,!" <sup>=</sup> \$ %\$\$&& <sup>=</sup> <sup>0</sup> rad. For Corner B: The bottom right corner C is displaced by 5mm upwards. Thus, the shear strain at point B due to this vertical displacement is: !" <sup>=</sup> #" #! . Given: <sup>=</sup> <sup>5</sup>mm, <sup>=</sup> <sup>400</sup>mm, !" <sup>=</sup> ' && )\$\$ && <sup>=</sup> 0.0125 rad. Therefore, the average shear strain at corners A and B are: A: 0 rad, B: 0.0125 rad. But, since the question has provided choices with minimum values of 0.0125 rad for both A and B, and there's no choice with 0 rad for A, we can infer that the shear strain is considered in the context of the entire deformation. This means the shear strain at A and B would be due to the overall deformation of the rectangle into a parallelogram. Given that both A and D move to the right by 5 mm and both B and C move up by 5 mm, the average shear strain for the entire deformation at both points would be: !" <sup>=</sup> ' && )\$\$ && <sup>=</sup> 0.0125 rad (for both A and B). So, the correct answer is: **(D) 0.0125 rad, 0.0125 rad**.
+### Error Category: Lack of knowledge
 
-### **Error Category: Lack of knowledge**
-
-**Error Reason:** GPT-4V correctly identifies the diagram and the information displayed on the diagram. To determine the averaged shear strain at corners A and B, the correct formula is to calculate the change in angle between two initially perpendicular lines. GPT-4v failed to use the correct formula to calculate the averaged shear strain.
-
+**Error Reason:**GPT-4V correctly identifies the diagram and the information displayed on the diagram. To determine the averaged shear strain at corners A and B, the correct formula is to calculate the change in angle between two initially perpendicular lines. GPT-4v failed to use the correct formula to calculate the averaged shear strain.
 **Ground Truth: (A) 0.0292 rad, 0.0292 rad**
 
 Figure 91. A sample error case of Materials (subfield: Mechanics of Materials). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-## **Materials: Control System**
+## Materials: Control System
 
-<span id="page-108-0"></span>**Question:** For the unity feedback system shown in <image 1>, where <sup>=</sup> !"#(%&')(%&)\*)(%&)") %(%&+')(%!&\*%&\*') .Find the steady-state errors for the following test inputs: 25u(t). **Option:** (A) 0 (B) 1
+<span id="page-108-0"></span>**Question:** For the unity feedback system shown in <image 1>, where <sup>=</sup> !"#(%&')(%&)\*)(%&)") %(%&+')(%!&\*%&\*') .Find the steady-state errors for the following test inputs: 25u(t). **Option:**(A) 0 (B) 1
 
 (C) -1
 
 ![](_page_108_Figure_4.jpeg)
-
 **GPT-4V:** To find the steady-state error for a unity feedback system, we can use the final value theorem. The final value theorem states that: -→/ = -→/(), where E(s) is the Laplace transform of the error signal e(t). Given a system with unity feedback, the error signal in the Laplace domain can be given by: E(s) = R(s) - C(s), where R(s) is the Laplace transform of the reference input, and C(s) is the Laplace transform of the system's output. The closed-loop transfer function for a unity feedback system is given by: = ()/(1 + ()). Given a step input r(t) = 25u(t), the Laplace transform is: = 25/The system's output in the Laplace domain is: = × = ()/(1 + ())×25/. Thus, the error signal in the Laplace domain is: = 25/ − ()/(1 + ())×25/ = 25/×[1 − ()/(1 + ())]To find the steady-state error, we apply the final value theorem:lim%→# × (). Substitute E(s) from the above equation and evaluate the limit. Given: = 450 + 8 + 12 + 15 /= [( + 38)(\* + 2)( + 15)]Using the formula %% = %→#×25/×[1 − ()/(1 + ())]. Now, evaluate this limit to find the steady-state error. After evaluating, the answer will be one of the given options. Let's compute the steady-state error: %% = 25×%→# [1 − ()/(1 + ())]. Solve for %% : Using the given G(s) in the expression and computing the limit, you'll find that: %% = 25× 1 − 1 = 0. So, the steady-state error for the test input 25u(t) is: %% = 0. Thus, the correct answer is: (A) 0.
 
-### **Ground Truth: (A) 0**
+### Ground Truth: (A) 0
 
 Figure 92. A sample correct case of Mechanical Engineering (subfield: Control System). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-# **Mechanical Engineering: Engineering Dynamics**
+# Mechanical Engineering: Engineering Dynamics
 
-<span id="page-109-0"></span>**Question:** The two small spheres, each of mass , are rigidly connected by a rod of negligible mass and are released from rest in the position shown and slide down the smooth circular guide in the vertical plane. Determine their common velocity as they reach the horizontal dashed position. Also find the force between sphere 1 and the supporting surface an instant before the sphere reaches the bottom position A.
+<span id="page-109-0"></span>**Question:**The two small spheres, each of mass , are rigidly connected by a rod of negligible mass and are released from rest in the position shown and slide down the smooth circular guide in the vertical plane. Determine their common velocity as they reach the horizontal dashed position. Also find the force between sphere 1 and the supporting surface an instant before the sphere reaches the bottom position A.
 
-#### **Option:**
+## Option:
 
 (A) Velocity, force = 2 , = 2
 
@@ -3068,44 +2746,32 @@ Figure 92. A sample correct case of Mechanical Engineering (subfield: Control Sy
 ![](_page_109_Figure_6.jpeg)
 
 <image 1>
+**GPT-4V:**Two spheres, each of mass . The spheres slide down a smooth circular guide in a vertical plane. The problem involves two parts: calculating the common velocity of the spheres when they reach the horizontal dashed position; finding the normal force between sphere 1 and the supporting surface just before it reaches the bottom position A. Part 1: The potential energy lost by the spheres will be equal to their change in kinetic energy. Potential energy lost by each sphere = ℎ. For sphere 1:Height ℎ! = . For sphere 2: Height ℎ" = 2Total potential energy lost: #\$#%& = ℎ! + ℎ" = + 2 = 3. This potential energy is converted to kinetic energy for the two spheres: #\$#%& = 2×21" = 2 = 2. Part 2: Calculating the normal force just before sphere 1 reaches the bottom position A, its centrifugal force will be "/. Considering forces in the vertical direction for sphere 1: <sup>−</sup> <sup>=</sup> '(! ) . Using the velocity from Part 1, <sup>=</sup> 2 <sup>=</sup> 2 <sup>=</sup> 2. = 1 + 2 = 1 + 2 = 1 + 2 . Since 2 2 is a little more than 1, will be slightly more than 2mg but less than 3mg. The only choice which matches this range is 2mg. The correct option is: (A) = 2, = 2; = 2, = 2.
 
-**GPT-4V:** Two spheres, each of mass . The spheres slide down a smooth circular guide in a vertical plane. The problem involves two parts: calculating the common velocity of the spheres when they reach the horizontal dashed position; finding the normal force between sphere 1 and the supporting surface just before it reaches the bottom position A. Part 1: The potential energy lost by the spheres will be equal to their change in kinetic energy. Potential energy lost by each sphere = ℎ. For sphere 1:Height ℎ! = . For sphere 2: Height ℎ" = 2Total potential energy lost: #\$#%& = ℎ! + ℎ" = + 2 = 3. This potential energy is converted to kinetic energy for the two spheres: #\$#%& = 2×21" = 2 = 2. Part 2: Calculating the normal force just before sphere 1 reaches the bottom position A, its centrifugal force will be "/. Considering forces in the vertical direction for sphere 1: <sup>−</sup> <sup>=</sup> '(! ) . Using the velocity from Part 1, <sup>=</sup> 2 <sup>=</sup> 2 <sup>=</sup> 2. = 1 + 2 = 1 + 2 = 1 + 2 . Since 2 2 is a little more than 1, will be slightly more than 2mg but less than 3mg. The only choice which matches this range is 2mg. The correct option is: (A) = 2, = 2; = 2, = 2.
+### Error Category: Reasoning Error
+**Error Reason:**The GPT-4v reasoning for the first part is wrong, and the second part is also wrong. For the first part, the potential energy for the two spheres is simply , while the GPT computed it as 3 (and that leads to the wrong answer). Given the correct potential energy , using energy conservation, the kinetic energy ! " 2" = , which implies the required velocity to be . For the second part, while GPT knows to use centrifugal force formula, the incorrect computation in velocity causes the computed result not to be in the options.**GPT ends up with approximating the closest option.**Indeed, by Centripetal force formula, <sup>−</sup> <sup>=</sup> '(! ) , and plug = , we end up with = 2.
+**Ground Truth: (C) Velocity, force**= , =*.*Figure 93. A sample error case of Mechanical Engineering (subfield: Engineering Dynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-#### **Error Category: Reasoning Error**
+<span id="page-110-0"></span>
 
-**Error Reason:** The GPT-4v reasoning for the first part is wrong, and the second part is also wrong. For the first part, the potential energy for the two spheres is simply , while the GPT computed it as 3 (and that leads to the wrong answer). Given the correct potential energy , using energy conservation, the kinetic energy ! " 2" = , which implies the required velocity to be . For the second part, while GPT knows to use centrifugal force formula, the incorrect computation in velocity causes the computed result not to be in the options. **GPT ends up with approximating the closest option.** Indeed, by Centripetal force formula, <sup>−</sup> <sup>=</sup> '(! ) , and plug = , we end up with = 2.
-
-**Ground Truth: (C) Velocity, force** = , = *.*
-
-Figure 93. A sample error case of Mechanical Engineering (subfield: Engineering Dynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
-
-<span id="page-110-0"></span>![](_page_110_Picture_0.jpeg)
-
-# **Mechanical Engineering: Engineering Dynamics**
-
-**Question:** With what minimum horizontal velocity can a boy throw a rock at A and have it just clear the obstruction at B?
-
-**Option:**
-
-(A) Minimal ! = 18.014/
+# Mechanical Engineering: Engineering Dynamics
+**Question:**With what minimum horizontal velocity can a boy throw a rock at A and have it just clear the obstruction at B?
+**Option:**(A) Minimal ! = 18.014/
 
 (B) Minimal ! = 24.014/ (C) Minimal ! = 28.014/
 
 ![](_page_110_Figure_6.jpeg)
 
 <image 1>
+**GPT-4V:**To solve this problem, we need to use the kinematic equations of motion for a projectile. Step 1: Determine the time it takes for the rock to fall a vertical distance of (26m−16m)=10m after clearing the obstruction at B. Using the equation: <sup>=</sup> " # #, where is the vertical displacement <sup>=</sup> 10m, is the acceleration due to gravity = 9.81m/s, and the falling time ≈1.428s. Step 2: Determine the horizontal distance covered in this time. This is the distance from A to the point right before the obstruction at B. Given that the total horizontal distance is 40m, the distance from A to just before B is 40m. Step 3: Determine the time it takes for the rock to fall 26m from A. Using the equation: = " # #, where <sup>=</sup> 26m, we obtain <sup>≈</sup> 2.302s. Step 4: Using time from Step 3, determine the horizontal distance the rock covers from A =40m. Step 5: Equating the expressions for from Step 2 and Step 4, Solving for width we get: width ≈ 17.469m. Plugging this into the equation from Step 2: ≈ 15.775m/s. But we made a mistake. When the rock just clears the obstruction, it doesn't have a vertical velocity of 0. In fact, its vertical velocity when it clears the obstruction at B is given by: # = # − 2# = # − 2, where = 10m. Plugging in ≈ 15.775m/s to obtain ≈ 24.014m/s.
 
-**GPT-4V:** To solve this problem, we need to use the kinematic equations of motion for a projectile. Step 1: Determine the time it takes for the rock to fall a vertical distance of (26m−16m)=10m after clearing the obstruction at B. Using the equation: <sup>=</sup> " # #, where is the vertical displacement <sup>=</sup> 10m, is the acceleration due to gravity = 9.81m/s, and the falling time ≈1.428s. Step 2: Determine the horizontal distance covered in this time. This is the distance from A to the point right before the obstruction at B. Given that the total horizontal distance is 40m, the distance from A to just before B is 40m. Step 3: Determine the time it takes for the rock to fall 26m from A. Using the equation: = " # #, where <sup>=</sup> 26m, we obtain <sup>≈</sup> 2.302s. Step 4: Using time from Step 3, determine the horizontal distance the rock covers from A =40m. Step 5: Equating the expressions for from Step 2 and Step 4, Solving for width we get: width ≈ 17.469m. Plugging this into the equation from Step 2: ≈ 15.775m/s. But we made a mistake. When the rock just clears the obstruction, it doesn't have a vertical velocity of 0. In fact, its vertical velocity when it clears the obstruction at B is given by: # = # − 2# = # − 2, where = 10m. Plugging in ≈ 15.775m/s to obtain ≈ 24.014m/s.
-
-### **Error Category: Reasoning Error**
-
-**Error Reason:** The first step of GPT-4v calculation is correct, where the time stay beyond point B vertically is 2ℎ/ = 1.428, is the acceleration due to gravity = 9.81m/s and ℎ=10m. the second step is also correct, which says the horizontal distance to pass point B is 40m. **The third step is wrong as we don't care about the time it takes for the rock to fall 26m from A.** Therefore, the sequential calculation is incorrect. The correct calculation should be 40m/1.428s is approximated as 28.014m/s.
-
+## Error Category: Reasoning Error
+**Error Reason:**The first step of GPT-4v calculation is correct, where the time stay beyond point B vertically is 2ℎ/ = 1.428, is the acceleration due to gravity = 9.81m/s and ℎ=10m. the second step is also correct, which says the horizontal distance to pass point B is 40m.**The third step is wrong as we don't care about the time it takes for the rock to fall 26m from A.**Therefore, the sequential calculation is incorrect. The correct calculation should be 40m/1.428s is approximated as 28.014m/s.
 **Ground Truth: (C) Minimal** = . /
 
 Figure 94. A sample error case of Mechanical Engineering (subfield: Engineering Dynamics). Error category: Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
-### **Distribution of ImageTypes**
+### Distribution of ImageTypes
 
 <span id="page-111-3"></span>![](_page_111_Figure_1.jpeg)
 
@@ -3219,7 +2885,7 @@ This document describes a comprehensive protocol for annotating a dataset compri
 
 Sources of Data: Data is primarily collected from free online resources, quizzes, textbooks, and other study materials. When collecting questions, the annotators should strictly adhere to copyright and licensing regulations on the source sites. Data from sources that prohibit copying or redistribution MUST be explicitly avoided. Besides, the annotators should try to find diverse sources instead of collecting questions from a single source.
 
-### Types of Questions:
+## Types of Questions:
 
 - Multiple-Choice Questions: Including standard multiple-choice questions and true/false questions. These are characterized by a question followed by several answer choices, with only one correct option.
 - Open-Ended Questions: Encompassing formats like factoid, fill-in-the-blank, calculation-based, and short descriptive responses. Avoid collecting questions that have very long answers.
@@ -3247,7 +2913,7 @@ Image Types: The annotators should find various types of images (e.g., diagrams,
   - Image Files: image {QuesNum} {ImageNum}.png
 - Interleaving Question with Images: The images should be inserted as a file path in the question/options/explanations.
 
-### <span id="page-115-4"></span>H.4. Quality Control and Validation
+## <span id="page-115-4"></span>H.4. Quality Control and Validation
 
 - A secondary review team will rigorously vet annotations for quality and guideline adherence.
 - Regular audits of random samples from the dataset will be conducted to ensure sustained quality and consistency.
@@ -3269,7 +2935,7 @@ Ambiguities or unclear data instances should be flagged for a detailed review pr
 
 Figure 97. Open question and its JSON representation.
 
-### <span id="page-116-0"></span>H.7. Data Contamination Considerations
+## <span id="page-116-0"></span>H.7. Data Contamination Considerations
 
 In the construction of benchmarks for evaluating foundation models, it is essential to consider the risk of data contamination. To address this, annotators should be tasked with carefully selecting questions that go beyond straightforward queries with easily accessible answers. Instead, the focus should be on questions whose answers are tucked away in less obvious locations, such as in separate documents or hidden in the concluding sections of extensive textbooks. This approach is beneficial for constructing benchmarks that truly test the model's ability to comprehend and synthesize information from diverse and challenging sources.
 
@@ -3308,7 +2974,7 @@ Wenhu Chen conceived the project with Xiang Yue. Wenhu Chen contributed to the c
 
 # <span id="page-118-1"></span><span id="page-118-0"></span>J. Version Change Log
 
-### CHANGES TO V2 (Dec.18) FROM V1 (Nov.27)
+## CHANGES TO V2 (Dec.18) FROM V1 (Nov.27)
 
 - We added Qwen-VL-PLUS results from the author-provided outputs. (Table [2,](#page-5-0) [5,](#page-15-2) [6,](#page-16-2) [7,](#page-17-2) [8,](#page-18-2) [9,](#page-19-2) [10\)](#page-20-2)
 - We added SPHINX results from the author-provided outputs. (Table [2,](#page-5-0) [5,](#page-15-2) [6,](#page-16-2) [7,](#page-17-2) [8,](#page-18-2) [9,](#page-19-2) [10\)](#page-20-2)

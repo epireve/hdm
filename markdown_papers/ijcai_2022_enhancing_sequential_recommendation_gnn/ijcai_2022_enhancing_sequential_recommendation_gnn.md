@@ -1,3 +1,5 @@
+<!-- cite_key: cuisupsup2019 -->
+
 # Enhancing Sequential Recommendation with Graph Contrastive Learning
 
 Yixin Zhang<sup>1</sup><sup>∗</sup> , Yong Liu<sup>3</sup><sup>∗</sup> , Yonghui Xu<sup>2</sup>† , Hao Xiong<sup>5</sup> , Chenyi Lei<sup>5</sup> , Wei He<sup>1</sup> ,
@@ -34,11 +36,11 @@ experiments on public datasets demonstrate that GCL4SR consistently achieve bett
 
 In this section, we review the most relevant existing methods in sequential recommendation and self-supervised learning.
 
-### 2.1 Sequential Recommendation
+## 1 Sequential Recommendation
 
 In the literature, Recurrent Neural Networks (RNN) are usually applied to build sequential recommendation systems. For example, GRU4Rec [\[Hidasi](#page-7-7) *et al.*, 2016] treats users' behavior sequences as time series data and uses a multi-layer GRU structure to capture the sequential patterns. Moreover, some works, *e.g.*, NARM [Li *et al.*[, 2017\]](#page-7-4) and DREAM [Yu *[et al.](#page-7-8)*, [2016\]](#page-7-8), combine attention mechanisms with GRU structures to learn users' dynamic representations. Simultaneously, Convolutional Neural Networks (CNN) have also been explored for sequential recommendation. Caser [\[Tang and Wang,](#page-7-9) [2018\]](#page-7-9) is a representative method that uses both horizontal and vertical convolutional flters to extract users' sequential behavior patterns. Recently, SASRec [\[Kang and McAuley,](#page-7-10) [2018\]](#page-7-10) and BERT4Rec [Sun *et al.*[, 2019\]](#page-7-11) only utilize selfattention mechanisms to model users' sequential behaviors. Beyond that, HGN [Ma *et al.*[, 2019\]](#page-7-12) models users' dynamic preferences using hierarchical gated networks. Along another line, Graph Neural Networks (GNN) have been explored to model complex item transition patterns. For instance, SR-GNN [Wu *et al.*[, 2019\]](#page-7-13) converts sequences to graph structure data and employs the gated graph neural network to perform information propagation on the graph. GC-SAN [\[Xu](#page-7-5) *et al.*[, 2019\]](#page-7-5) dynamically builds a graph for each sequence and models the local dependencies and long-range dependencies between items by combining GNN and self-attention mechanism. In addition, GCE-GNN [Wang *et al.*[, 2020\]](#page-7-14) builds the global graph and local graph to model global item transition patterns and local item transition patterns, respectively.
 
-### 2.2 Self-supervised Learning
+### 2 Self-supervised Learning
 
 Self-supervised learning is an emerging unsupervised learning paradigm, which has been successfully applied in computer vision [\[Jing and Tian, 2020\]](#page-7-15) and natural language processing [\[Devlin](#page-6-1) *et al.*, 2019]. There are several recent works applying self-supervised learning techniques in recommendation tasks. For example, [Zhou *et al.*[, 2020\]](#page-7-2) maximizes the mutual information among attributes, items, and sequences by different self-supervised optimization objectives. [\[Xie](#page-7-3) *et al.*[, 2021\]](#page-7-3) maximizes the agreement between two augmented views of the same interaction sequence through a contrastive learning objective. [Wu *et al.*[, 2021\]](#page-7-16) proposes a joint learning framework based on both the contrastive learning objective and recommendation objective. Moreover, in [Wei *et al.*[, 2021\]](#page-7-17), contrastive learning is used to solve the cold-start recommendation problem. In [\[Zhang](#page-7-6) *et al.*, 2022], a diffusion-based graph contrastive learning method is developed to improve the recommendation performance based on users' implicit feedback. Additionally, self-supervised
 
@@ -69,9 +71,9 @@ Figure 2: The framework of the proposed GCL4SR model.
 
 Figure [2](#page-2-0) shows the overall framework of GCL4SR. Observe that GCL4SR has the following main components: 1) graph augmented sequence representation learning, 2) user-specifc gating, 3) basic sequence encoder, and 4) prediction layer. Next, we introduce the details of each component.
 
-### 4.1 Graph Augmented Sequence Representation Learning
+## 1 Graph Augmented Sequence Representation Learning
 
-#### Graph-based Augmentation
+### Graph-based Augmentation
 
 Given the weighted transition graph G, we frst construct two augmented graph views for an interaction sequence S through data augmentation. The motivation is to create comprehensively and realistically rational data via certain transformations on the original sequence. In this work, we use the effcient neighborhood sampling method used in [\[Hamilton](#page-6-3) *et al.*[, 2017\]](#page-6-3) to generate the augmented graph views from a large transition graph for a given sequence. Specifcally, we treat each node v ∈ S as a central node and interatively sample its neighbors in G by empirically setting the sampling depth M to 2 and the sampling size N at each step to 20. In the sampling process, we uniformly sample nodes without considering the edge weights, and then preserve the edges between the sampled nodes and their weights in G. For a particular sequence S, after employing the graph-based augmentation, we can obtain two augmented graph views G ′ <sup>S</sup> = (V ′ S , E′ S , A ′ S ) and G ′′ <sup>S</sup> = (V ′′ S , E′′ S , A ′′ S ). Here, V ′ S , E ′ S , and A ′ S are the set of nodes, the set of edges, and the adjacency matrix of G ′ S , respectively. Note that G ′ S and G ′′ S are subgraphs of G, and the adjacency matrix A ′ S and A ′′ S store the normalized weights of edges defned in Eq. [\(1\)](#page-1-1).
 
@@ -83,7 +85,7 @@ Following [\[Hassani and Khasahmadi, 2020\]](#page-6-0), two graph neural networ
 $$
 \mathbf{a}_{v_i}^{(t)} = \text{Aggregate}^{(t)} \big( \{ \mathbf{h}_{v_j}^{(t-1)} : v_j \in N_{v_i}' \} \big),
 $$
-  
+
 $$
 \mathbf{h}_{v_i}^{(t)} = \text{Combine}^{(t)} \big( \mathbf{a}_{v_i}^{(t)}, \mathbf{h}_{v_i}^{(t-1)} \big),
 $$
@@ -101,7 +103,7 @@ $$
 
 where z ′ S and z ′′ <sup>S</sup> ∈ R 1×d are obtained by performing mean pooling on H ′ S and H ′′ S respectively, cos(·, ·) is the cosine similarity function, and τ is a hyper-parameter that is empirically set to 0.5 in the experiments.
 
-### 4.2 User-specifc Gating
+### 2 User-specifc Gating
 
 As each individual user may only be interested in some specifc properties of items, the global context information should be user-specifc. Following [Ma *et al.*[, 2019\]](#page-7-12), we design the following user-specifc gating mechanism to capture the global context information tailored to the user's personalized preferences,
 
@@ -129,15 +131,15 @@ $$
 $$
  (6)
 
-### 4.3 Basic Sequence Encoder
+### 3 Basic Sequence Encoder
 
 Besides the graph augmented representations of a sequence, we also employ traditional sequential model to encode users' interaction sequences. Specifcally, we choose SAS-Rec [\[Kang and McAuley, 2018\]](#page-7-10) as the backbone model, which stacks the Transformer encoder [\[Vaswani](#page-7-21) *et al.*, 2017] to model the user interaction sequences. Given the node representation H<sup>ℓ</sup>−<sup>1</sup> at the (ℓ − 1)-th layer, the output of Transformer encoder at the ℓ-th layer is as follows,
 
 $$
 \mathbf{H}^{\ell} = FFN\big(Concat(head_1, ..., head_h)\mathbf{W}^h\big),
 $$
-  
-head<sub>i</sub> =  $Attention\big(\mathbf{H}^{\ell-1}\mathbf{W}_i^Q, \mathbf{H}^{\ell-1}\mathbf{W}_i^K, \mathbf{H}^{\ell-1}\mathbf{W}_i^V\big), (7)$ 
+
+head<sub>i</sub> =  $Attention\big(\mathbf{H}^{\ell-1}\mathbf{W}_i^Q, \mathbf{H}^{\ell-1}\mathbf{W}_i^K, \mathbf{H}^{\ell-1}\mathbf{W}_i^V\big), (7)$
 
 where F F N(·) denotes the feed-forward network, h represents the number of heads, W<sup>Q</sup> i ,W<sup>K</sup> i ,W<sup>V</sup> <sup>i</sup> ∈ R d×d/h , and W<sup>h</sup> ∈ R d×d are the projection matrices. Specifcally, we use the shared embedding E (0) <sup>S</sup> with learnable position encoding as the initial state H<sup>0</sup> . Here, the Residual Network, Dropout, and Layer Normalization strategies are omitted in the formula for convenience. Then, the attention mechanism is defned as,
 
@@ -148,7 +150,7 @@ $$
 
 where Q, K, and V denote the queries, keys, and values respectively, and <sup>√</sup> d is the scaling factor.
 
-### 4.4 Prediction Layer
+### 4 Prediction Layer
 
 We concatenate the representations Q ′ S and Q ′′ S obtained from the augmented graph views and the embeddings at the last layer of the Transformer encoder H<sup>ℓ</sup> as follows,
 
@@ -165,7 +167,7 @@ $$
 
 where yˆ (S) ∈ R 1×|V | , and the j-th element of yˆ (S) denotes the interaction probability of the j-th item.
 
-### 4.5 Multi Task Learning
+### 5 Multi Task Learning
 
 Sequential recommendation aims to predict the next item that the user u would like to interact with, based on her interaction sequence S<sup>u</sup> (Here, we include the subscript u for clear discussion). Following [\[Tang and Wang,](#page-7-9) [2018\]](#page-7-9), we split the sequence S<sup>u</sup> = {v 1 u , v<sup>2</sup> u , · · · , v |Su| <sup>u</sup> } into a set of subsequences and target labels as follows: {(S 1:1 u , v<sup>2</sup> u ),(S 1:2 u , v<sup>3</sup> u ), · · · ,(S 1:|Su|−1 <sup>u</sup> , v |Su| <sup>u</sup> )}, where |Su| denotes the length of Su, S 1:k−1 <sup>u</sup> = {v 1 u , v<sup>2</sup> u , · · · , v<sup>k</sup>−<sup>1</sup> <sup>u</sup> }, and v k u is the target label of S 1:k−1 u . Then, we formulate the following main learning objective based on cross-entropy,
 
@@ -199,7 +201,7 @@ where λ<sup>1</sup> and λ<sup>2</sup> are hyper-parameters. The optimization p
 
 In this section, we perform extensive experiments to evaluate the performance of the proposed GCL4SR method.
 
-### 5.1 Experimental Settings
+## 1 Experimental Settings
 
 Datasets. The experiments are conducted on the Amazon review dataset [\[He and McAuley, 2016\]](#page-6-4) and Goodreads review dataset [Wan *et al.*[, 2019\]](#page-7-22). For Amazon dataset, we use two 5-core subsets for experimental evaluations: "Home and Kitchen" and "Cell Phones and Accessories" (respectively denoted by Home and Phones). For Goodreads dataset, we choose users' rating behaviors in "Poetry" and "Comics Graphic" categories for evaluation. Following [\[Zhou](#page-7-2) *et al.*, [2020\]](#page-7-2), we treat each rating as an implicit feedback record. For each user, we then remove duplicated interactions and sort her historical items by the interaction timestamp chronologically to obtain the user interaction sequence. To guarantee each user/item has enough interactions, we only keep the "5-core" subset of each dataset, by iteratively removing the users and items that have less than 5 interaction records. Table [1](#page-4-1) summarizes the statistics of experimental datasets.
 
@@ -244,7 +246,7 @@ Implementation Details. All the evaluation methods are implemented by PyTorch [P
 
 Table 2: The performance achieved by different methods. The best results are in boldface, and the second best results are underlined.
 
-### 5.2 Performance Comparison
+### 2 Performance Comparison
 
 The performance comparison results are summarized in Table [2.](#page-5-0) Overall, GCL4SR outperforms all baseline methods on all datasets, in terms of almost all evaluation metrics.
 
@@ -252,7 +254,7 @@ Compared with RNN and CNN based models (*e.g.*, GRU4Rec and Caser), the models b
 
 Moreover, CL4SRec, S<sup>3</sup> -Rec, and GCL4SR usually outperform their backbone structure SASRec. This demonstrates that the self-supervised learning objectives can help improve sequential recommendation performance. In addition, GCL4SR achieves better results than CL4SRec and S<sup>3</sup> - Rec. This is because that CL4SRec and S<sup>3</sup> -Rec augment the sequence representation by the auxiliary learning objectives that only exploit the local context in each individual sequence. However, GCL4SR augments the sequence representation using subgraphs of the transition graph built based on sequences of all users, which can provide both local and global context for learning sequence representations.
 
-### 5.3 Ablation Study
+### 3 Ablation Study
 
 To study the importance of each component of GCL4SR, we consider the following GCL4SR variants for evaluation: 1) GCL4SRw/o G: we remove the graph contrastive learning loss by setting λ<sup>1</sup> to 0 in Eq. [\(12\)](#page-4-0); 2) GCL4SRw/o GM: we remove both the graph contrastive learning loss and the MMD loss by setting λ<sup>1</sup> and λ<sup>2</sup> to 0 in Eq. [\(12\)](#page-4-0); 3) GCL4SRw/o W: we remove the edge weights of the augmented graph views when performing GCN operations at the frst layer of the shared GNNs used in graph contrastive learning.
 
@@ -273,7 +275,7 @@ Table 3: The performance achieved by GCL4SR variants and SAS-Rec on Poetry and P
 
 that GCL4SRw/o GM outperforms the backbone model SAS-Rec in terms of HR@20, on both datasets. This indicates the context in the global transition graph can help improve sequential recommendation performance. By including the MMD loss, GCL4SRw/o G achieves better performance than GCL4SRw/o GM. By further combining the graph contrastive learning loss, GCL4SR outperforms GCL4SRw/o G, in terms of N@20, on both datasets. These observations demonstrate that both the MMD loss and graph contrastive learning loss can help learn better item and sequence representations for sequential recommendation. Moreover, GCL4SR outperforms GCL4SRw/o W in terms of all metrics. This observation indicates that the transition frequency between items across all sequences can help distinguish the importance of neighboring items for better sequential recommendation performance.
 
-### 5.4 Parameter Sensitivity Study
+### 4 Parameter Sensitivity Study
 
 We also perform experiments to study the impacts of three hyper-parameters: the sampling depth M and sampling size N used in graph-based augmentation, and the embedding dimension d. Figure [3](#page-6-5) shows the performance of GCL4SR with respect to different settings of M, N, and d on Poetry and Phones datasets. As shown in Figure [3\(](#page-6-5)a), larger sampling size tends to produce better recommendation performance. For the sampling depth, we can notice the best settings for M are 4 and 3 on Poetry and Phones datasets, respectively. In addition, the best performance is achieved by setting d to 64 and 96 on Poetry and Phones datasets, respectively.
 
@@ -295,7 +297,7 @@ Figure 3: The performance trends of GCL4SR with respect to different settings of
 
 Table 4: The performance of HGN, GRU4Rec, SASRec, and GCL4SR with different basic sequence encoders.
 
-### 5.5 Impacts of Sequence Encoders
+### 5 Impacts of Sequence Encoders
 
 To further investigate the effectiveness of the graph augmented sequence representation learning module, we employ other structures to build the basic sequence encoder. Specifcally, we consider the following settings of GCL4SR for experiments: 1) GCL4SR-GRU: we use the GRU4Rec as the backbone structure to build the basic sequence encoder; 2) GCL4SR-HGN: we use HGN as the backbone structure to build the basic sequence encoder; 3) GCL4SR-SAS: The default model that uses SASRec as the backbone structure to build the sequence encoder.
 

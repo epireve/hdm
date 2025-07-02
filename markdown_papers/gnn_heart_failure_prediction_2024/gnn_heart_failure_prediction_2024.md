@@ -1,3 +1,5 @@
+<!-- cite_key: supbsupcombustion2000 -->
+
 # nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations
 
 Stefan Kerkemeier<sup>a</sup> , Christos E. Frouzakis<sup>b</sup> , Ananias G. Tomboulides<sup>c</sup> , Paul Fischer<sup>d</sup> , Mathis Bodee,<sup>∗</sup>
@@ -82,11 +84,11 @@ In reactive low Mach number compressible flows, flow and chemistry are tightly c
 $$
 \nabla \cdot \mathbf{v} = Q_T
 $$
-  
+
 $$
 Q_T := -\frac{1}{\rho} \frac{D\rho}{Dt} = \frac{1}{T} \frac{DT}{Dt} + \sum_{k=1}^{N} \frac{\overline{W}}{W_k} \frac{DY_k}{Dt} - \frac{1}{p_0} \frac{dp_0}{dt}
 $$
-  
+
 (3)
 
 where D/Dt denotes the material derivative and W the mean molecular weight. The momentum equation for the velocity v is given by
@@ -108,11 +110,11 @@ splitting method [\[22\]](#page-8-14). The resulting semi-discrete coupled syste
 
 nekRS has been validated through comparisons with nek5000 and the method of manufactured solutions. Consequently, this section focuses on the reactive low Mach number flow support introduced by nekCRF.
 
-#### 3.1 Homogeneous variable-volume autoignition
+### 1 Homogeneous variable-volume autoignition
 
 The first test case validates the integration of reaction source terms within a time-varying volume, where the thermodynamic pressure is also subject to variation. A homogeneous stoichiometric H2 air mixture initially at 780 K and 1 atm is compressed in an adiabatic, closed domain mimicking an internal combustion engine of bore 92 mm, stroke 86 mm operating at 500 rpm and compression ratio of 3. The piston kinematics are imposed in the movement of the lower surface in the nekCRF model, which tracks the mesh motion using the arbitrary Lagrangian-Eulerian formulation of [\[23\]](#page-8-15). The piston kinematics are also imposed on a variable-volume batch reactor model implemented and solved using Chemkin [\[24\]](#page-8-16). Chemical kinetics are described by the detailed reaction mechanism of Li et al. [\[25\]](#page-8-17). The temporal evolution of temperature and YOH of the two solutions are compared in Fig. [1,](#page-2-3) showing the autoignition resulting from the mixture compression. The relative error in the ignition delay time defined by the time of maximum YOH with respect to the Chemkin solution is 0.02%.
 
-#### 3.2 Laminar planar premixed flame
+#### 2 Laminar planar premixed flame
 
 In contrast to the previous case, this test includes spatial gradients and incorporates both advection and diffusion terms in addition to the reactive source term. A planar premixed H2-air flame is considered for a lean mixture (equivalence ratio ϕ = 0.6) at T<sup>u</sup> = 298 K and p = 5 atm. Using a Cantera-based [\[20\]](#page-8-12) freely-propagating, premixed flat flame solver and the Li et al. [\[25\]](#page-8-17) reaction mechanism, the laminar flame speed and thickness are found to be S<sup>L</sup> = 51.437 cm/s and δ<sup>f</sup> = (T<sup>b</sup> − Tu)/ max(dT /dx) = 7.516 × 10<sup>−</sup><sup>2</sup> mm, respectively. The 1-D Cantera solution is interpolated on the spectral element mesh for a domain with length equal to L = 200δ<sup>f</sup> and height H = δ<sup>f</sup> , where the flame is placed at x = 130δ<sup>f</sup> . The velocity is set to Uin = S<sup>L</sup> at the inflow, where Dirichlet boundary conditions (BC) are imposed on temperature and species mass fractions. Zero-Neumann BC are considered at the outflow, while the remaining boundaries are periodic. The discretization uses a non-uniform grid with element of size h = δ<sup>f</sup> around the flame increasing up to h = 25δ<sup>f</sup> towards the in- and outflow; the solution on each element is approximated using p = 7th order polynomials. Figure [2](#page-3-0) shows that the flame structure computed with the new solver is in very good agreement with the profiles obtained with Cantera and LAVp.
 
@@ -138,7 +140,7 @@ In this section, the performance is initially assessed by comparing nekCRF with 
 
 It is noteworthy that the reported thermochemistry timings are approximately twice as fast compared to running CVODE with default settings and without the customized Jacobian-vector product and linear solver modifications discussed in Section [2.](#page-1-1) This speedup is primarily due to using a difference quotient perturbation factor about 100 times smaller than the default and a relaxed linear convergence safety factor of 0.5 instead of 0.05 for each Newton iteration.
 
-#### 4.1 Comparison to LAVp
+### 1 Comparison to LAVp
 
 To compare the performance, the case presented in Section [3.3](#page-3-1) is evaluated using LAVp on the LUMI-C HPC system at the CSC IT Center for Science in Finland. It is important to recognize that the reported speedup factors are generally influenced by specific implementation details, hardware setup, and problem size. Initial microbench-
 
@@ -162,7 +164,7 @@ Table 1: Speedup factors compared to LAVp.
 
 The maximum achievable speedup per compute unit (CU) was measured to be Smax = 22. In this scenario, both codes handle a large local problem size, which minimizes the impact of caching effects on the CPU. However, when considering the maximum throughput Rmax = 1/(nCU · t) of each solver, where nCU is the number of compute units (24 GPUs for nekCRF and 300 CPUs using all available cores for LAVp), the speedup reduces to 14 due to caching effects. Notably, R0.5, the speedup at 50% of Rmax, utilizing 480 GPUs on JUWELS Booster and 2000 CPUs on LUMI, offers a different perspective. This strong scaling use case demonstrates that while nekCRF remains faster on a GPU-based system, its competitive advantage diminishes as communication overhead becomes more significant.
 
-#### 4.2 Strong scaling
+#### 2 Strong scaling
 
 To stress test strong scaling, the investigation focuses on the configuration outlined in Section [3.3,](#page-3-1) employing a refined mesh with approximately doubled resolution in each spatial direction and a two times smaller outer timestep. The refinement leads to a case with E = 4.1 million spectral elements and 18 billion DOFs. Computations are conducted across a range of N=50 to 800 compute nodes (85% of the JSC system size), with the lower limit determined by the available GPU memory. However, the focus here is on up to 600 nodes, as the parallel efficiency η for larger node counts becomes smaller than 50%.
 

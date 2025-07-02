@@ -1,3 +1,5 @@
+<!-- cite_key: sun2025b -->
+
 # TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal Knowledge Graphs
 
 [Qiang Sun](https://orcid.org/0000-0002-4445-0025)
@@ -49,7 +51,7 @@ Question answering over temporal knowledge graphs (TKGs) is crucial for understa
 
 knowledge graph, temporal knowledge graph, question answering
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Qiang Sun, Sirui Li, Du Huynh, Mark Reynolds, and Wei Liu. 2024. TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal Knowledge Graphs. In Proceedings of The Web Conference 2025 (WWW). ACM, New York, NY, USA, [4](#page-3-0) pages.<https://doi.org/XXXXXXX.XXXXXXX>
 

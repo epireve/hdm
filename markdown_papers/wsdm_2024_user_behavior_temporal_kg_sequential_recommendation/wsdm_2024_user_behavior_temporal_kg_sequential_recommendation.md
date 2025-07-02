@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: hu2024b -->
+
+
 
 # User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation
 
@@ -18,7 +20,7 @@ Knowledge Graphs (KGs) enhance recommendations by providing external connectivit
 
 # CCS CONCEPTS
 
-#### • Information systems → Recommender systems.
+## • Information systems → Recommender systems.
 
 <sup>∗</sup>Work done when the author is a research intern at Huawei Noah's Ark Lab, Singapore. †Min-Yen Kan and Rui Zhang are corresponding authors.
 
@@ -30,7 +32,7 @@ WSDM '24, March 4th-8th, 2024, Mérida, Yucatán, Mexico © 2024 Copyright held 
 
 Sequential Recommendation, Knowledge Graph
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Hengchang Hu, Wei Guo, Xu Liu, Yong Liu, Ruiming Tang, Rui Zhang, and Min-Yen Kan. 2024. User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation. In Proceedings of the 17th ACM International Conference on Web Search and Data Mining (WSDM '24), March 4–8, 2024, Merida, Mexico. ACM, New York, NY, USA, [10](#page-9-0) pages. [https:](https://doi.org/10.1145/3616855.3635762) [//doi.org/10.1145/3616855.3635762](https://doi.org/10.1145/3616855.3635762)
 
@@ -97,7 +99,7 @@ to a series of snapshots, G : {G 1 , ..., G }, documenting finegrained relations
 
 In summary, for temporal knowledge modeling (as depicted in Figure [2\)](#page-2-0), we introduce time-aware properties of entities into G and a new type of relation (referred to as interest transition) into G . These properties and relations are derived from user behavior statistics within the time frame , serving as hard constraints for distilling time-specific relevant knowledge. It's worth noting that in the previous examples, we used year as the time interval length ( − 1, ) for easier understanding. However, the time window length can be dynamically set. As the time window expands, the granularity of the partitioned snapshots becomes coarser. The total time span and the number of time windows partitioned can vary.
 
-#### 3.2 Static Pretraining on TKG
+#### 2 Static Pretraining on TKG
 
 The static knowledge denotes fixed relationships E between entities. Given its high connectivity and computational demand in real scenarios, we use a structurally simple graph encoder (i.e., static encoder) for its modeling. This encoder takes -dimensional entity embeddings E ∈ R × (randomly initialized) as input, processing them with a graph neural network. Designed for modeling varied relations in knowledge graphs, its propagation function for each entity node is as follows:
 
@@ -121,14 +123,14 @@ $$
 \mathcal{L}_{tkg}^{pre} = \sum_{(v_i, r, v_j), y} y \log(f(v_i, r, v_j)) + (1 - y) \log(1 - f(v_i, r, v_j)) \tag{2}
 $$
 
-#### 3.3 Temporal Tuning on TKG
+#### 3 Temporal Tuning on TKG
 
 In addition to static knowledge, we leverage temporal fine-tuning to integrate temporal knowledge. Following [\[52\]](#page-9-10), we establish dynamic entity embeddings E ∈ R ×× to effectively represent entities/relations' evolution, storing unique parameters for each time. Each time's entity embedding is initialized by static entity embeddings E = E . As shown in Figure [3](#page-3-0) (b), a temporal encoder processes the embedding E at each time frame , yielding a temporal hidden state. We use gated knowledge evolution units to ensure dynamic continuity between temporal hidden states, while the temporal decoder generates predictions for the next time frame + 1 based on temporal knowledge.
 
 3.3.1 Temporal Encoder. Compared to static knowledge, temporal knowledge in each time frame is more streamlined, allowing for detailed modeling in relation to the two dynamics. With the dual perspectives of temporal knowledge, we introduce the temporal encoder to selectively propagate through them. Entities with popular neighbors are likely to have popular traits; and transition relations between entities foster new item connections. Both factors play a crucial role in determining the probability of being relevant knowledge for predicting user preferences. In G , popular property perceptions are relayed via original relations, while G propagates transition data using the new relation. Since their modeling objectives differ, we employ differentiated aggregation for them. Specifically, the propagation function for node at time is:
 
 $$
-\begin{aligned} (l+1) &:= RReLU\left(\mathbf{W}_{\text{self}}\mathbf{h}_{v,t}^{(I)} + \alpha_{v,t} * \sum_{v' \in \mathcal{N}_{v,t}^{r^T}} \mathbf{W}_{r^T,t}(\mathbf{h}_{v',t}^{(I)} + \mathbf{r}^T) \right) \\ &+ (1 - \alpha_{v,t}) * \sum_{r=1}^R \sum_{v' \in \mathcal{N}_{n,t}^r} \mathbf{W}_{r,t} \mathbf{h}_{v',t}^{(I)} \right) \end{aligned} \tag{3}
+\begin{aligned} (l+1) &:= RReLU\left(\mathbf{W}_{\text{self}}\mathbf{h}_{v,t}^{(I)} + \alpha_{v,t} *\sum_{v' \in \mathcal{N}_{v,t}^{r^T}} \mathbf{W}_{r^T,t}(\mathbf{h}_{v',t}^{(I)} + \mathbf{r}^T) \right) \\ &+ (1 - \alpha_{v,t})* \sum_{r=1}^R \sum_{v' \in \mathcal{N}_{n,t}^r} \mathbf{W}_{r,t} \mathbf{h}_{v',t}^{(I)} \right) \end{aligned} \tag{3}
 $$
 
 N , and <sup>N</sup> , denote object neighbors linked to node through relations and in G and G , respectively. h ′ + r conveys the translational relation [\[3\]](#page-8-17) from neighbor ′ via edge . The representation vector of is consistent across snapshots, which mainly governs the effect of item transitions in entity temporal fine-tuning. To sidestep the dying ReLU issue [\[24\]](#page-8-18), we adopt RReLU [\[55\]](#page-9-11) as our activation function. The ∗ symbolizes the Hadamard product, while , ∈ R 1× , a selection gate, regulates how node is influenced by the two views at time . It is further detailed as:
@@ -206,7 +208,7 @@ $$
 
 In order to better adapt the entity embeddings to SR, we don't freeze the dynamic entity embeddings, allowing them to be further fine-tuned. Finally, the ultimate objective is to minimize the loss between the predicted value ˆ and the true label .
 
-#### 3.5 Complexity Analysis
+#### 5 Complexity Analysis
 
 Time complexity. Our TKG-SRec is a streamlined two-phase framework optimized for lightweight TKGs use. The enhanced entity embedding is directly applicable for online inference, making its time complexity equivalent to basic SR models. For training, the two-phase approach simplifies integration with a lower complexity ( + |E | + 2 ′ |E |), in contrast to the joint training's ( (|E | + 2 ′ |E |)). Here, is the maximum sequence length, is the user number, |E | and |E | are the average edge numbers of static relations and temporal relations in each snapshot. Most training time centers on the temporal knowledge evolution training with |E | + 2 ′ |E |. The parameter influences time granularity and training complexity. Nonetheless, real-world TKGs' vastness necessitates a balance.
 
@@ -222,7 +224,7 @@ Evaluation Protocol. Following standard SR settings [\[15,](#page-8-27) [18\]](#
 
 Baselines. To verify the effectiveness of our proposed TKG-SRec, we compare it with two groups of models. (A) Sequential recommender baselines include Caser [\[35\]](#page-8-29) using vertical and horizontal CNNs to model short-term sequences (limited to the last 15 items to avoid gradient explosion); GRU4Rec [\[13\]](#page-8-2), SASRec [\[18\]](#page-8-4), and BERT4Rec [\[34\]](#page-8-5) utilizing GRU, Transformer, and BERT model to capture sequential patterns in user interaction histories; FMLP [\[66\]](#page-9-6) employing MLPs instead of multi-head attention in the Transformer framework for improved filtering; CL4SRec [\[54\]](#page-9-14) introducing sequence-based contrastive learning with unsupervised techniques; DuoRec [\[26\]](#page-8-30) further advancing contrastive embedding training with dropout masks and sample selection. (B) KG-based recommender baselines include KGAT [\[49\]](#page-9-2) capturing high-order item relationships using attention to weigh entity neighbors; GRU4RK extending GRU4Rec with dual GRUs for item and entity embeddings (which is pretrained using TransE [\[3\]](#page-8-17)); KSR [\[17\]](#page-8-11) combining a GRU-based system with knowledge-augmented memory networks. 271 WSDM'24, March 4-8, 2024, Merida, Mexico Hengchang Hu et al.
 
-#### 4.1 Overall Recommendation accuracy
+#### 1 Overall Recommendation accuracy
 
 Table [1](#page-6-0) shows results from various models across four datasets. Our TKG-SRec outperforms other baselines, with relative improvements in brackets. Overall, this suggests that our work successfully distilled more useful dynamic knowledge for the SR task. Among the runner-up baselines, SASRec and FMLP are notable as effective
 
@@ -232,7 +234,7 @@ When compared to the standard SR models, the models that incorporates additional
 
 Interestingly, we observed that the impact of TKG-SRec's improvement is less pronounced on the ML-1M dataset compared to other datasets. This is attributed to the smaller ratio of temporal relations (|E |) to static relations (|E |), with ML-1M having a ratio of 0.6M/4M, whereas datasets like Amazon-Books have a ratio of 0.4M/1M. Consequently, less information is derived from temporal properties and more from static ones.
 
-#### 4.2 Ablation Study
+#### 2 Ablation Study
 
 In this section, we conduct a series of experiments to better understand the design rationality of our proposed framework.
 
@@ -316,7 +318,7 @@ the original approach. We adapted SASRec and FMLP following the approach outline
 
 From the results in Table [3,](#page-6-2) we observe that the GRU variant benefits the most from dynamic entity embedding, consistently delivering substantial improvements. SASRec also demonstrates improvement with fine-grained entity embeddings. However, it appears that the TKG's contribution to enhancing the FMLP is relatively marginal, with its performance even slightly declining on the ML-100K dataset. We interpret this as a result of our method's underlying principle as a noise filter and a remover of irrelevant knowledge, similar to filter-based models that operate filtering at the feature level. This characteristic leads to a modest enhancement of the FMLP, particularly in smaller datasets like ML-100K, where the limited size of the KG curtails the impact of knowledge filtering.
 
-### 4.3 Effectiveness of Popularity-Based Statistics
+### 3 Effectiveness of Popularity-Based Statistics
 
 In this study, popularity-based statistics are perceived as a means of noise reduction, emphasizing behavior patterns with higher confidence. In this section, we scrutinized the utility of using popularity as a statistic feature in SR for knowledge distillation. We gauged
 
@@ -324,7 +326,7 @@ the relevance of the distilled knowledge from the KG by examining the relatednes
 
 We observed that TransE and RGCN derived entity embeddings failed to clearly correlate item order distance and embedding relatedness, revealing a gap in KG and SR information and that traditional approaches fail to distill relevant knowledge from TKG. Contrarily, our KEN offers less related embeddings for distant sequence items. With increasing KG size, the correlation between order distance and embedding similarity strengthens, despite more fluctuations in Amazon-Books. This underlines the difficulty of preserving KG's static structural information while distilling information to optimize SR, especially for larger KGs with more complex structures.
 
-#### 4.4 Parameter Sensitivity
+#### 4 Parameter Sensitivity
 
 We first analyze the sensitivity of KEN to the number of GCN layers in both static Knowledge Graph encoder and temporal Knowledge Graph encoder ′ . In the sensitivity test, we fix other hyperparameters but only vary the combination of and ′ . As shown in Table [4,](#page-7-0) we find that the model performs poorly when both and ′ are equal to 4. It is because a large number of graph convolution layers would mix too many information from neighbors, which would over-cover the origin entity properties. TKG-SRec achieves the best performance when and ′ are 1 or 2 in the four datasets.
 

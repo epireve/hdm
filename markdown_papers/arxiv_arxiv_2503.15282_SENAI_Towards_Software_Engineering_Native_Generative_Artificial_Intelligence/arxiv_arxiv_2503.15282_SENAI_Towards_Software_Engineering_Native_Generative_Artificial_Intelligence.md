@@ -1,10 +1,12 @@
+<!-- cite_key: saadhttpsorcidorg---2017 -->
+
 # SENAI: Towards Software Engineering Native Generative Artificial Intelligence
 
 [Mootez Saad](https://orcid.org/0009-0008-8159-3632)
 
 Dalhouise University Halifax, Canada mootez@dal.ca
 
-#### [Neil Ernst](https://orcid.org/0000-0001-5992-2366)
+## [Neil Ernst](https://orcid.org/0000-0001-5992-2366)
 
 University of Victoria Victoria, Canada nernst@uvic.ca
 
@@ -12,7 +14,7 @@ University of Victoria Victoria, Canada nernst@uvic.ca
 
 University of Murcia Murcia, Spain joseantonio.hernandez6@um.es
 
-#### [Dániel Varró](https://orcid.org/0000-0002-8790-252X)
+### [Dániel Varró](https://orcid.org/0000-0002-8790-252X)
 
 Linköping University Linköping, Sweden daniel.varro@liu.se
 
@@ -68,7 +70,7 @@ In this paper, we first start by providing a brief overview of the steps involve
 
 This section provides background knowledge by presenting current practices used to pre-train and evaluate llms for code generation.
 
-#### 2.1 Pre-training of LLMs (of Code)
+### 1 Pre-training of LLMs (of Code)
 
 2.1.1 Pre-training objectives: llms are typically trained on extensive text-based datasets such as The Pile [\[11\]](#page-4-11) and FineWeb [\[24\]](#page-4-12) that include source code and question-answer discussions involving code snippets. Language models of code are trained specifically using source code [\[8\]](#page-4-13). Pre-training objectives enable them to learn patterns, structures, and semantics of code to predict code-related properties and to generate code effectively. Common pre-training objectives include next-token prediction, used by models such as gpt [\[26\]](#page-4-14), where the model predicts the next word based on previous words, modeling language in a left-to-right manner.
 
@@ -84,7 +86,7 @@ However, treating code as a stream of tokens ignores its inherent syntactic and 
 
 While the aforementioned models show good results in various code intelligence tasks, they still operate primarily at the function or file level. However, real-world scenarios involve complex dependencies with interactions between different parts of the codebase. By confining the pre-training phase to isolated code snippets, models may perform suboptimally when code generation necessitates repository-level knowledge. Recognizing this limitation, recent approaches, such as StarCoder 2 [\[20\]](#page-4-3) and DeepSeek-Coder [\[13\]](#page-4-20), have begun to include repository-level contextual information during the pre-training stage.
 
-# 2.2 Benchmarks and Evaluation
+# 2 Benchmarks and Evaluation
 
 In this section, we cover some of the metrics used to quantify performance of llms of code. Second, we list a non-comprehensive list of benchmarks used to evaluate these models systematically.
 
@@ -100,7 +102,7 @@ So far, llms are conceived as "(natural) language" models, and hence natural lan
 
 Native software models are grounded in se and can adhere to se principles and software systems. We need se native large language models because the existing AI models overlook the essential se knowledge encapsulated in the form of principles and best practices to make software maintainable, scalable, robust, and reliable.
 
-# 3.1 Evaluation Strategy
+# 1 Evaluation Strategy
 
 The evaluation process needs to be adapted to gauge the extent to which the models, old and new, grasp se knowledge.
 
@@ -110,7 +112,7 @@ These new benchmarks would present tasks that require the model to demonstrate g
 
 3.1.2 Model understanding. Investigating the se knowledge these models internalize is an important step towards native se models. Currently, probing methods such as linear classifier probes [\[14,](#page-4-27) [22\]](#page-4-28) are employed to investigate the information language models have internalized during pre-training. These probes analyze the model's hidden representations to determine whether specific properties or concepts are encoded in a way that can be extracted via simple classifiers. While valuable, this approach has limitations in capturing the full extent of a model's understanding, especially regarding complex and abstract se concepts.
 
-#### <span id="page-2-0"></span>Table 1: Bloom's Taxonomy Levels and Corresponding Potential Assessment Questions
+## <span id="page-2-0"></span>Table 1: Bloom's Taxonomy Levels and Corresponding Potential Assessment Questions
 
 | Level      | Assessment strategy                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -125,11 +127,11 @@ The emergence of instruction-based language models, which allow for more flexibl
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
 
-#### Figure 1: Overview of the vision of seNAI, incorporating software engineering knowledge into the training and evaluation process of large language models.
+### Figure 1: Overview of the vision of seNAI, incorporating software engineering knowledge into the training and evaluation process of large language models.
 
 can highlight specific areas where the model excels or underperforms. For instance, a model might effectively recall definitions but struggle with applying principles in code refactoring tasks. Identifying such gaps is crucial for guiding further pre-training and improvement. In Table [1,](#page-2-0) we present an example of a survey that can be used to examine to what extent a model internalizes foundational concepts, notably, cohesion and coupling.
 
-#### 3.2 Enriching LLMs with se knowledge
+#### 2 Enriching LLMs with se knowledge
 
 To transform language models into truly se-grounded tools, it is important to extend their training beyond the generation of syntactically correct and functionally accurate code. While these attributes are foundational, they do not encompass the full spectrum of se practices that ensure code is maintainable, scalable, and aligned with sound design principles. To achieve this deeper integration, we propose several strategies on which we elaborate on blow.
 

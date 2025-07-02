@@ -1,3 +1,5 @@
+<!-- cite_key: chen2020 -->
+
 # A Survey on Collaborative Mechanisms Between Large and Small Language Models
 
 Yi Chen1,2, JiaHao Zhao1,2, HaoHao Han1,2
@@ -12,19 +14,19 @@ Large Language Models (LLMs) deliver powerful AI capabilities but face deploymen
 
 ## 1 Introduction
 
-### 1.1 Research Background and Motivation
+### 1 Research Background and Motivation
 
 In recent years, Large Language Models (LLMs) have achieved breakthrough progress in fields such as natural language processing, code generation, and intelligent question answering [\(Brown, Mann, Ryder, et al.,](#page-31-0) [2020;](#page-31-0) [OpenAI,](#page-33-0) [2023\)](#page-33-0). However, as the scale of model parameters continues to grow, their consumption of computing resources, energy costs, and deployment expenses have also risen significantly. Particularly in edge scenarios requiring low latency and high privacy, such as smartphones, IoT devices, and edge servers, the traditional cloud-based LLM inference model faces serious feasibility challenges [\(Zhou, X. Lin, and Qian,](#page-35-0) [2024\)](#page-35-0). Concurrently, Small Language Models (SLMs) are widely used in resource-constrained devices due to their lightweight structure, fast inference speed, and ease of deployment [\(Gao, K. Zhu,](#page-31-1) [and Z. Liu,](#page-31-1) [2025\)](#page-31-1). Against this backdrop, the collaborative mechanism between large and small language models has gradually become an important research direction in both industry and academia. It aims to leverage the powerful capabilities of LLMs and the high efficiency of SLMs through intelligent collaboration, building a more intelligent, efficient, and reliable inference system.
 
-## 1.2 Definition and Scope of Large-Small Model Collaboration
+## 2 Definition and Scope of Large-Small Model Collaboration
 
 Broadly speaking, large-small model collaboration refers to a mechanism where LLMs and SLMs work together within a system, complementing each other's strengths. This paradigm can be divided into several sub-directions, such as pipeline collaboration, parallel collaboration, conditional triggered inference, and knowledge distillation [\(F. Wang, L. Zhang, and Jian](#page-34-0) Hu, [2024;](#page-34-0) [Gao, K. Zhu, and Z. Liu,](#page-31-1) [2025\)](#page-31-1). Pipeline collaboration is a sequential execution mode where the output of one model serves as the input for another [\(F. Wang, L. Zhang,](#page-34-0) [and Jian Hu,](#page-34-0) [2024\)](#page-34-0). Since SLMs typically offer higher efficiency, they are often used for preliminary processing or generating candidate results, which are then passed to LLMs for more complex reasoning or knowledge integration [\(Gao, K. Zhu, and Z. Liu,](#page-31-1) [2025\)](#page-31-1). In the Cascade Speculative Decoding framework, an SLM generates draft responses, while an LLM performs verification and correction in parallel, thereby improving response speed [\(J. Chen, X.](#page-31-2) [Liu, and He,](#page-31-2) [2023\)](#page-31-2). In terms of conditional inference, research has proposed using confidence scores to determine whether to invoke an LLM, thus achieving on-demand activation [\(Gupta,](#page-32-0) [Rajbhandari, and D. Zhao,](#page-32-0) [2023\)](#page-32-0). Furthermore, knowledge distillation allows the knowledge from an LLM to be compressed and transferred to an SLM through training, enhancing the latter's ability to model complex tasks while retaining its computational advantages [\(J. Gu,](#page-31-3) [Yanan Ren, and Y. Lin,](#page-31-3) [2024\)](#page-31-3). These studies constitute the core scope of large-small model collaboration and provide a theoretical and practical foundation for building energy-efficient AI systems.
 
-## 1.3 The Rise of On-Device Large Models and Its Impetus for Collaboration Research
+## 3 The Rise of On-Device Large Models and Its Impetus for Collaboration Research
 
 The emergence of on-device large language models is propelling research into collaborative mechanisms to a new stage. In recent years, with improvements in chip performance and the maturation of model compression techniques, several tech giants have begun deploying proprietary large models on terminals. In 2024, Apple integrated an on-device language model with approximately 3 billion parameters into its "Apple Intelligence" system to handle some natural language tasks locally, while complex requests are delegated to cloud-based models (Inc., [2024\)](#page-32-1). Similarly, Huawei introduced a lightweight version of its Pangu large model into its HarmonyOS intelligent assistant, enabling hybrid edge-cloud inference [\(Technologies,](#page-33-1) [2024\)](#page-33-1). This architecture prompts researchers to delve deeper into questions such as: How can the task boundaries between LLMs and SLMs be allocated more effectively? How can computation offloading and dynamic routing be managed between the edge and the cloud? How can collaboration mechanisms improve overall energy efficiency and response quality? Related challenges include model selection strategies, edge-cloud communication overhead, privacy protection mechanisms, and multi-model fusion accuracy [\(Q. Zhang, Y. Sun, and T.](#page-34-1) Liu, [2025\)](#page-34-1). Therefore, studying the collaboration mechanisms of large and small models is not only a hot topic for theoretical exploration but also a key technological path for intelligent terminals moving towards localized, high-performance, and low-power AI inference.
 
-### 1.4 Structure and Contributions of This Paper
+### 4 Structure and Contributions of This Paper
 
 This paper first provides an introduction, outlining the research background, motivation, and the definition and scope of large-small model collaboration. Next, it elaborates on related concepts and foundations, including the characteristics, advantages, and limitations of large and small language models, as well as the basis and necessity for their collaboration. The third section delves into the mechanisms and architectures of large-small model collaboration, classifying and introducing modes such as pipeline, hybrid/routing, auxiliary/enhancement, knowledge distillation-driven, and integration/fusion, and analyzes the key technologies for implementing collaboration. Subsequently, driven by on-device requirements, it discusses the application scenarios of collaborative mechanisms, categorized by real-time low-latency inference, privacy sensitivity, task-specific customization, offline/weak network environments, and energy constraints. Finally, it presents current challenges and open questions, looks ahead to future development trends, and summarizes the research significance, value, and reflections of the entire paper.
 
@@ -32,15 +34,15 @@ This paper first provides an introduction, outlining the research background, mo
 
 Before delving into the collaborative mechanisms between Large Language Models (LLMs) and Small Language Models (SLMs), it is necessary to systematically review the basic concepts, structural characteristics, advantages, and limitations of these two types of models. They exhibit significant differences in model capabilities, resource consumption, deployment scenarios, and research paths. It is precisely this heterogeneity that forms the fundamental motivation for research on model collaboration.
 
-### 2.1 Large Language Models
+### 1 Large Language Models
 
-#### 2.1.1 Definition, Architecture, and Characteristics
+#### 1.1 Definition, Architecture, and Characteristics
 
 Large Language Models (LLMs) typically refer to language understanding and generation models with parameter scales in the billions or more. Their architectures are mostly based on the Transformer framework, employing autoregressive (e.g., GPT series) or masked language modeling strategies (e.g., BERT, T5) for pre-training (raffel2020exploring; [Brown, Mann,](#page-31-0) [Ryder, et al.,](#page-31-0) [2020;](#page-31-0) [OpenAI,](#page-33-0) [2023\)](#page-33-0). These models learn language structure, knowledge representation, and reasoning patterns from massive unsupervised corpora, enabling deep modeling of natural language text and supporting generalization to various downstream tasks.
 
 From an architectural perspective, LLMs usually consist of tens to hundreds of Transformer layers, each containing multi-head attention mechanisms, feed-forward networks, residual connections, and normalization operations. As the number of model parameters increases, their capabilities do not grow linearly but exhibit certain "emergent phenomena." That is, once the model scale exceeds a certain threshold, they automatically demonstrate more complex abilities such as language understanding, mathematical reasoning, and multimodal interaction (wei2022emergent; [Gao, K. Zhu, and Z. Liu,](#page-31-1) [2025\)](#page-31-1). This non-linear performance leap has become an important clue in the current exploration of artificial general intelligence.
 
-#### 2.1.2 Advantages and Limitations
+#### 1.2 Advantages and Limitations
 
 LLMs possess unparalleled advantages in general language modeling. They exhibit strong generalization capabilities and can perform various natural language processing tasks through prompts or in-context learning, including question answering, translation, summarization, code generation, and knowledge retrieval, demonstrating potential for zero-shot and few-shot learning. LLMs have deep semantic understanding and long-text modeling capabilities, preserving contextual logic and structural integrity. Through fine-tuning or reinforcement learning (such as RLHF), their behavior and alignment with human preferences can be further optimized.
 
@@ -48,15 +50,15 @@ However, the limitations of LLMs cannot be ignored. Firstly, resource consumptio
 
 the uncontrollable nature of data during pre-training, models may exhibit factual errors, bias amplification, and hallucination risks, increasing the safety and ethical costs in practical applications [\(Q. Zhang, Y. Sun, and T. Liu,](#page-34-1) [2025\)](#page-34-1). The closed-source deployment of LLMs and the reliance on cloud platforms for large model calls also raise concerns about data privacy and compliance [\(Zhou, X. Lin, and Qian,](#page-35-0) [2024\)](#page-35-0).
 
-## 2.2 Small Language Models
+## 2 Small Language Models
 
-#### 2.2.1 Definition and Characteristics
+### 2.1 Definition and Characteristics
 
 Small Language Models (SLMs) refer to models with parameter scales ranging from millions to a few hundred million. Their design goal is to balance language modeling capabilities with deployment efficiency, significantly reducing computational overhead and hardware requirements while ensuring basic language understanding capabilities. Structurally, SLMs are often compressed versions of large models, employing fewer Transformer layers, smaller hidden dimensions, and fewer attention heads, while streamlining the computation flow in the inference path as much as possible [\(J. Gu, Yanan Ren, and Y. Lin,](#page-31-3) [2024;](#page-31-3) Inc., [2024\)](#page-32-1).
 
 Compared to LLMs, SLMs are more suitable for deployment on platforms with limited computing resources, such as edge devices, mobile terminals, and browser plugins. Their characteristics, including fast inference speed, low energy consumption, and flexible deployment, make them key components for achieving localized, low-latency human-computer interaction. In application scenarios like voice assistants, text input methods, and intelligent customer service, small models can respond quickly to user requests, protect user privacy, and reduce reliance on networks and the cloud.
 
-#### 2.2.2 Advantages, Limitations, and Typical Construction Methods
+#### 2.2 Advantages, Limitations, and Typical Construction Methods
 
 The prominent advantages of small models are reflected in their lightweight nature, high efficiency, and deployment-friendliness. On the one hand, due to their compact structure, they can perform inference on ordinary CPUs or low-power devices without relying on high-performance GPUs, significantly reducing operational costs. On the other hand, SLMs typically possess good task adaptability and can achieve performance optimization in specific scenarios through fine-tuning or distillation. Furthermore, keeping data processing local helps enhance user privacy protection capabilities, meeting the requirements of certain industries with high compliance demands.
 
@@ -64,13 +66,13 @@ However, it is undeniable that SLMs still have significant gaps compared to LLMs
 
 Currently, the mainstream construction methods for SLMs can be categorized into three types: First, knowledge distillation, which compresses the capabilities of large models into small models using a teacher-student framework, such as DistilGPT and TinyLLaMA; second, building lightweight models from scratch through independent training on medium-scale corpora, such as MiniBERT and ALBERT; third, pruning, quantization, or low-rank decomposition based on existing model architectures to compress size while retaining some original performance [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024\)](#page-34-0). These methods collectively promote the widespread application of small models in industrial deployment and provide a technical reserve for subsequent research on collaborative mechanisms.
 
-## 2.3 Foundation and Necessity of Collaboration Between Large and Small Language Models
+## 3 Foundation and Necessity of Collaboration Between Large and Small Language Models
 
-## 2.3.1 Technical Foundation for Collaboration: Complementarity of Capabilities and Characteristics
+## 3.1 Technical Foundation for Collaboration: Complementarity of Capabilities and Characteristics
 
 Large Language Models (LLMs) and Small Language Models (SLMs) exhibit significant differences in capabilities, architecture, and deployment characteristics, forming a natural technical foundation for collaboration.
 
-### 2.3.2 Complementarity of Capability Boundaries
+### 3.2 Complementarity of Capability Boundaries
 
 The advantages of large models include strong contextual understanding, logical reasoning, and multi-task generalization capabilities (e.g., GPT-4 achieves over 90% accuracy on complex tasks like mathematical reasoning and code generation), but they rely on massive training data (trillion-level parameters, hundred-billion-level corpora) and high computational power support (single inference cost is about 0.1−1).
 
@@ -78,17 +80,17 @@ Conversely, the advantages of small models lie in their smaller parameter count 
 
 Collaboration essentially involves the large model acting as the "brain" for complex decisionmaking, while the small model serves as the "nerve endings" for lightweight interaction, forming a "central processor + edge node" division of labor system.
 
-#### 2.3.3 Transferability of Architecture and Training
+#### 3.3 Transferability of Architecture and Training
 
 This can be achieved through points like knowledge distillation techniques and Parameter-Efficient Fine-Tuning (PEFT). Knowledge distillation techniques, using methods like Soft Labels and intermediate layer feature transfer (e.g., FitNets), allow large models to transfer implicit knowledge (such as semantic representation, reasoning logic) into training signals for small models. This enables small models to inherit the core capabilities of large models while remaining lightweight (e.g., TinyBERT achieves 96% of BERT's performance on the GLUE benchmark with 75% fewer parameters).
 
 Parameter-Efficient Fine-Tuning, through techniques like LoRA and QLoRA, allows small models to perform localized fine-tuning based on the pre-trained parameters of large models, quickly adapting to specific tasks (e.g., in medical Q&A scenarios, the accuracy of small models increased by 20% after fine-tuning). This forms a collaborative training paradigm of "large model foundation + small model specialization."
 
-#### 2.3.4 Adaptability of Deployment Scenarios
+#### 3.4 Adaptability of Deployment Scenarios
 
 In terms of adaptability, collaboration between cloud and edge can be utilized. Large models rely on high-compute cloud servers (requiring tens of GB of VRAM) and are suitable for handling batch complex tasks (e.g., text generation, multi-turn dialogue). Small models can be deployed on low-compute devices (e.g., Raspberry Pi, mobile phone chips) and are responsible for real-time interaction and local data preprocessing (e.g., speech recognition, preliminary user intent analysis). The two communicate via APIs or lightweight protocols (e.g., gRPC) to enable data flow.
 
-## 2.3.5 Necessity of Collaboration: An Inevitable Choice Driven by Real-world Needs
+## 3.5 Necessity of Collaboration: An Inevitable Choice Driven by Real-world Needs
 
 In the collaboration process between large and small models, addressing real-world needs is essential. Issues to consider include computational cost constraints, real-time requirements, handling of certain hierarchical tasks, and multimodality, among others.
 
@@ -102,11 +104,11 @@ SLMs often handle the front-end tasks in a model pipeline, such as input underst
 
 ## 3 Collaboration Mechanisms and Architectures for Large and Small Models
 
-### 3.1 Classification of Collaboration Modes
+### 1 Classification of Collaboration Modes
 
 Based on the interaction methods and information flow between LLMs and SLMs, their collaboration modes can be classified into pipeline, hybrid/routing, auxiliary/enhancement, knowledge distillation-driven, and integration/fusion collaboration.
 
-#### 3.1.1 Pipeline Collaboration
+#### 1.1 Pipeline Collaboration
 
 Pipeline collaboration is a sequential execution mode where the output of one model serves as the input for another [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024\)](#page-34-0). Since SLMs typically offer higher efficiency, they are often used for executing preliminary processing or generating candidate results, which are then passed to LLMs for more complex reasoning or knowledge integration [\(Gao, K. Zhu, and Z. Liu,](#page-31-1) [2025\)](#page-31-1).
 
@@ -122,7 +124,7 @@ The key to pipeline collaboration lies in reasonably dividing tasks and designin
 
 communication protocols and the type of information exchanged must be carefully considered to ensure seamless and effective collaboration. Pipeline collaboration typically leverages the efficiency of SLMs for preliminary processing or context collection, offloading computationally intensive and knowledge-dependent tasks to LLMs, thereby striking a balance between speed and accuracy.
 
-#### 3.1.2 Hybrid/Routing Collaboration
+#### 1.2 Hybrid/Routing Collaboration
 
 Hybrid or routing collaboration refers to using a mechanism (usually called a router) to decide which model (LLM or SLM) should handle a specific input or sub-task [\(Xinyuan Wang et al.,](#page-34-4) [2025;](#page-34-4) [W. Zheng et al.,](#page-34-5) [2025;](#page-34-5) [Lv et al.,](#page-32-2) [2025\)](#page-32-2). The routing decision is typically based on task complexity, domain, cost, required latency, or other predefined criteria.
 
@@ -140,7 +142,7 @@ Cascading is a common routing strategy that first attempts to process input usin
 
 Intelligent routing requires a mechanism capable of accurately assessing input features and the capabilities of available models to make optimal decisions. The router needs to understand the complexity of the task, the domain of the query, and the specific strengths and weaknesses of each LLM and SLM in the system. This might involve training a separate model to predict performance or using heuristic methods based on query features. Balancing cost, latency, and quality is a key consideration when designing routing mechanisms. More powerful models typically come with higher costs and latency, so the routing strategy must weigh these factors according to the application's needs. For real-time applications, latency might be the most critical factor, potentially prioritizing faster (but possibly less accurate) SLMs for certain query types. For tasks requiring high accuracy, the system might route to a more powerful (and more expensive) LLM. Routing strategies need to be configurable to meet different performance objectives.
 
-#### 3.1.3 Auxiliary/Enhancement Collaboration
+#### 1.3 Auxiliary/Enhancement Collaboration
 
 In auxiliary or enhancement collaboration, one model (either LLM or SLM) assists another to improve its performance or capabilities [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024;](#page-34-0) [Shao et al.,](#page-33-3) [2025;](#page-33-3) [Jennifer Hu and Frank,](#page-32-4) [2024\)](#page-32-4).
 
@@ -156,7 +158,7 @@ The Collab-RAG framework demonstrates an application of auxiliary collaboration,
 
 Auxiliary collaboration allows for a division of labor based on the inherent strengths of each model type, potentially improving overall performance compared to using either model alone. LLMs excel at understanding complex instructions and possess broad knowledge, while SLMs may be more specialized and efficient on certain specific tasks. By having them assist each other, the system can leverage the LLM's understanding to guide the SLM, or use the SLM's specialized knowledge to inform the LLM's reasoning. Designing effective auxiliary mechanisms requires careful consideration of how the models can best complement each other and the communication methods used for this interaction. Simply having one model feed its output to another might not be the most effective approach. Assistance might involve providing specific types of information, guiding the reasoning process, or offering feedback on the other model's performance. Communication needs to be tailored to the specific assistance being provided.
 
-#### 3.1.4 Knowledge Distillation-Driven Collaboration
+#### 1.4 Knowledge Distillation-Driven Collaboration
 
 Knowledge Distillation (KD) is a key technique used to transfer knowledge and capabilities from a large, often proprietary teacher model (LLM) to a smaller, more efficient student model (SLM) [\(X. Xu et al.,](#page-34-9) [2024;](#page-34-9) [W. Xu et al.,](#page-34-3) [2024\)](#page-34-3).
 
@@ -164,7 +166,7 @@ KD involves multiple aspects, including the type of knowledge (output probabilit
 
 Knowledge distillation is a critical mechanism for enabling LLM-level intelligence to be deployed in resource-constrained environments by creating smaller, more efficient models. While LLMs offer superior performance, their size and computational requirements limit their applicability in many practical scenarios. KD allows us to transfer the knowledge learned by these large models into smaller models that can be deployed on edge devices or used in applications with strict latency requirements. The success of knowledge distillation depends on several factors, including the choice of teacher and student models, the quality and quantity of distillation data, and the specific distillation techniques employed. Different LLMs have different strengths, and the choice of teacher model will influence the type of knowledge transferred. The distillation data should be representative of the tasks the student model will perform. Selecting the appropriate distillation algorithm and tuning its parameters are also crucial for achieving optimal performance.
 
-#### 3.1.5 Integration/Fusion Collaboration
+#### 1.5 Integration/Fusion Collaboration
 
 Integration or fusion collaboration refers to combining the architectures or outputs of LLMs and SLMs into a unified system to leverage their complementary strengths in a more tightly coupled manner [\(Naveed et al.,](#page-33-4) [2023;](#page-33-4) [Subramanian, Elango, and Gungor,](#page-33-5) [2025;](#page-33-5) [Lv et al.,](#page-32-2) [2025;](#page-32-2) [X. Dong et al.,](#page-31-7) [2024;](#page-31-7) [F. Wan et al.,](#page-34-10) [2024\)](#page-34-10).
 
@@ -172,7 +174,7 @@ Hymba is a hybrid architecture, shown in Figure [4,](#page-11-0) which integrate
 
 Integration collaboration offers the potential to create more powerful and versatile AI systems by deeply combining the strengths of different model types at the architectural level. Model fusion provides a cost-effective way to create more powerful models without extensive retraining by combining the knowledge and capabilities of existing pre-trained models. However, effectively fusing models with different architectures and ensuring the resulting model retains desired properties remain challenging.
 
-### 3.2 Key Technologies for Implementing Collaboration
+### 2 Key Technologies for Implementing Collaboration
 
 To effectively implement collaboration between LLMs and SLMs, the following key technologies are required:
 
@@ -180,7 +182,7 @@ To effectively implement collaboration between LLMs and SLMs, the following key 
 
 <span id="page-11-0"></span>Figure 4: Overall architecture of the Hymba model
 
-#### 3.2.1 Task Allocation and Intelligent Routing
+#### 2.1 Task Allocation and Intelligent Routing
 
 In heterogeneous LLM-SLM systems, task allocation faces numerous challenges, requiring consideration of task complexity, required knowledge, computational resources, latency constraints, and cost [\(Varangot-Reille et al.,](#page-34-6) [2025\)](#page-34-6). The main goal is to intelligently assign system input tasks to the most appropriate model for processing.
 
@@ -190,7 +192,7 @@ Self-reinforcing routing optimization utilizes reinforcement learning to progres
 
 Intelligent routing mechanisms can dynamically assign tasks to the most suitable model based on predefined criteria or learned policies. This includes routing based on query difficulty, performance prediction, and cost awareness [\(Xinyuan Wang et al.,](#page-34-4) [2025;](#page-34-4) [Mohammadshahi,](#page-32-7) [Shaikh, and Yazdani,](#page-32-7) [2024\)](#page-32-7). Smaller, faster models can be used for initial intent detection, routing requests to more specialized or larger models [\(Guha et al.,](#page-32-8) [2024\)](#page-32-8). Effective task allocation and routing are crucial for optimizing the performance and efficiency of collaborative LLM-SLM systems, ensuring each task is handled by the most appropriate model. Developing robust and adaptive routing mechanisms requires a deep understanding of each model's capabilities and the characteristics of the tasks being processed. This might involve creating benchmarks to evaluate model performance on different task types and designing routing strategies that can adapt to changing conditions.
 
-#### 3.2.2 Inter-Model Communication and Interface Design
+#### 2.2 Inter-Model Communication and Interface Design
 
 Seamless and efficient communication between LLMs and SLMs is crucial in collaborative environments.
 
@@ -204,19 +206,19 @@ Through probability distribution sharing, models can communicate uncertainty at 
 
 This involves different communication methods, such as passing text-based prompts and responses, sharing intermediate representations (like embeddings, hidden states), or using specialized APIs for inter-model communication [\(King et al.,](#page-32-9) [2024;](#page-32-9) [Pozdniakov et al.,](#page-33-6) [2024;](#page-33-6) [Woźniak et al.,](#page-34-13) [2024\)](#page-34-13). Designing standardized interfaces that allow different models to interact effectively, regardless of their underlying architecture, is also an important consideration. Additionally, challenges related to ensuring data consistency and format compatibility between models need to be addressed. The efficiency and effectiveness of collaboration are directly influenced by the degree of communication and information exchange between models. Well-designed interfaces and communication protocols are essential for achieving seamless interaction. The choice of communication methods and interface design should be tailored to the specific collaboration mode and the type of information being exchanged. Pipeline collaboration might only require passing final outputs, whereas more tightly integrated models may benefit from sharing intermediate representations.
 
-#### 3.2.3 Model Fusion and Result Integration
+#### 2.3 Model Fusion and Result Integration
 
 Model fusion refers to merging the architectures or parameters of LLMs and SLMs to create a superior model, including techniques like weight averaging, knowledge fusion, ensemble learning, probability distribution-based fusion, model stacking, and mixture-of-experts models [\(Tang, Jun Wang, and Su,](#page-33-7) [2024;](#page-33-7) [F. Wan et al.,](#page-34-10) [2024;](#page-34-10) [Yang et al.,](#page-34-14) [2024;](#page-34-14) [Mavromatis, P.](#page-32-10) [Karypis, and G. Karypis,](#page-32-10) [2024;](#page-32-10) [Z. Wang et al.,](#page-34-15) [2025;](#page-34-15) [Shi et al.,](#page-33-8) [2024\)](#page-33-8).
 
 Result integration refers to combining the outputs of collaborative models. Common methods include simple averaging, weighted averaging, majority voting, or using another model to combine the outputs. Additionally, handling potential inconsistencies or conflicts in the outputs of different models is necessary. Model fusion and result integration are crucial for creating unified systems that can leverage the distinct strengths and knowledge of multiple models. The choice of technique depends on the specific goals of the collaboration and the characteristics of the involved models. Evaluating the effectiveness of model fusion and result integration requires careful consideration of appropriate metrics and benchmarks to assess the performance of the combined system.
 
-#### 3.2.4 State Synchronization and Context Management
+#### 2.4 State Synchronization and Context Management
 
 In collaborative LLMs and SLMs, especially in multi-turn dialogues or sequential tasks, maintaining a consistent state and managing context is crucial. This involves synchronizing the internal states (memory, attention weights) of the collaborating models and managing and sharing contextual information between them [\(Subramanian, Elango, and Gungor,](#page-33-5) [2025;](#page-33-5) [F.](#page-34-0) [Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024;](#page-34-0) [Naveed et al.,](#page-33-4) [2023;](#page-33-4) [Mojarradi et al.,](#page-33-9) [2024\)](#page-33-9), for example, using shared memory modules or passing context along with input. Additionally, challenges related to handling long context scenarios and ensuring contextual coherence across multiple interactions need to be addressed.
 
 Maintaining state consistency and effectively managing context are essential for ensuring coherent and meaningful interactions in collaborative LLM-SLM systems, especially for tasks involving multiple steps or turns. The complexity of state synchronization and context management increases with the number of collaborating models and the length of interactions. Developing scalable and efficient techniques to handle these aspects is an ongoing research challenge.
 
-### 3.2.5 Dynamic Resource Scheduling and Optimization
+### 2.5 Dynamic Resource Scheduling and Optimization
 
 In collaborative LLM-SLM systems, especially when dealing with dynamic workloads and changing resource demands, efficiently allocating and managing computational resources (such as GPU memory, processing time) is a significant challenge [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024\)](#page-34-0).
 
@@ -226,7 +228,7 @@ Dynamic resource scheduling techniques can adjust resource allocation based on t
 
 With the rapid development of Large Language Models (LLMs), the demand for their application in diverse scenarios is growing. However, the high computational resource requirements of LLMs conflict significantly with the limited computing capabilities of edge devices. Small Language Models (SLMs), due to their lightweight and efficient characteristics, offer a potential solution to this contradiction. This section analyzes typical application scenarios where LLMs and SLMs collaborate, driven by actual on-device needs.
 
-## 4.1 Real-time Low-Latency Inference Scenarios
+## 1 Real-time Low-Latency Inference Scenarios
 
 Real-time low-latency inference is a core requirement of edge computing, especially in applications needing immediate responses, such as wearable/IoT voice assistants and industrial equipment anomaly detection. The collaboration between LLMs and SLMs significantly reduces inference latency and improves user experience and system efficiency through model optimization and edge-cloud collaborative frameworks.
 
@@ -258,7 +260,7 @@ To tackle this challenge, researchers have proposed the "Speculative Decoding" m
 
 Models like WinCLIP and AnomalyGPT are specifically optimized for industrial anomaly detection scenarios. Through the collaboration of on-device SLMs and cloud-based LLMs, they achieve dual optimization of accuracy and real-time performance [\(Y. Zheng et al.,](#page-35-1) [2025\)](#page-35-1). This paradigm demonstrates significant value in high-risk industrial scenarios such as chemical production and power transmission.
 
-## 4.2 Privacy-Sensitive and Local Data Scenarios
+## 2 Privacy-Sensitive and Local Data Scenarios
 
 In scenarios involving sensitive data, such as personal knowledge base retrieval on mobile terminals and medical image pre-screening, local data processing is key to protecting privacy. The collaboration of LLMs and SLMs meets the needs for privacy protection and data security through local deployment and efficient inference.
 
@@ -274,7 +276,7 @@ Zheng et al. [\(Y. Zheng et al.,](#page-35-1) [2025\)](#page-35-1) proposed a "h
 
 Medical domain-specific models like BioMistral [\(Lan et al.,](#page-32-14) [2019\)](#page-32-14) and PathChat [\(Lu et al.,](#page-32-15) [2024\)](#page-32-15) adopt similar architectures. On-device SLMs process basic medical data and perform initial screening, while cloud LLMs provide more specialized diagnostic advice. This collaborative mode protects patient privacy while also improving the accessibility of medical services, especially in remote areas and resource-limited medical institutions.
 
-### 4.3 Task-Specific Customization and Personalization Scenarios
+### 3 Task-Specific Customization and Personalization Scenarios
 
 Through fine-tuning and adapter techniques, LLMs and SLMs can be customized for specific tasks, meeting the personalized needs of individuals and enterprises, such as personal writing assistants and internal corporate knowledge management.
 
@@ -288,7 +290,7 @@ Under this framework, enterprises can deploy SLMs on internal servers to handle 
 
 The enterprise-grade customized SLM solution developed through collaboration between SoftBank and Aizip further proves the value of this approach [\(Aizip,](#page-30-1) [2024\)](#page-30-1). SLMs finetuned with domain-specific data are deployed within the enterprise environment, capable of handling unique enterprise tasks with accuracy comparable to cloud LLMs 100 times larger, while significantly reducing latency and costs [\(Aizip,](#page-30-1) [2024\)](#page-30-1).
 
-### 4.4 Offline or Weak Network Environment Scenarios
+### 4 Offline or Weak Network Environment Scenarios
 
 In environments with no network or unstable network connectivity, the local operation of LLMs and SLMs provides crucial support, applicable to scenarios like ocean-going vessels, forest inspection drones, and emergency command at disaster sites.
 
@@ -302,7 +304,7 @@ To address this, researchers developed a "Resilient Collaboration" framework. Un
 
 A successful case is a multi-agent collaborative system used in earthquake rescue. This system integrates offline-deployed small language models and remote large language models, enabling rescue personnel to receive basic decision support even during network outages, and immediately access more comprehensive analysis once the network recovers [\(Jayant et al.,](#page-32-20) [2024\)](#page-32-20). Experiments show that this resilient collaboration solution offers significantly better decision support capabilities in extreme environments compared to single-model solutions.
 
-### 4.5 Energy-Constrained and Green AI Scenarios
+### 5 Energy-Constrained and Green AI Scenarios
 
 In energy-constrained scenarios, SLMs and optimized LLMs meet the needs of edge devices through low-power design, such as keyboard prediction on ultra-low power terminals and driving safety prompts in in-vehicle systems.
 
@@ -322,9 +324,9 @@ Several automakers have begun adopting similar "Green AI" solutions, using local
 
 The collaboration between Large Language Models (LLMs) and Small Language Models (SLMs) aims to combine the strengths of both: the powerful general capabilities and knowledge scope of LLMs, and the efficiency, low latency, and low cost of SLMs on specific tasks. However, achieving perfect collaboration is not straightforward and faces numerous challenges and unresolved open questions. This section delves into these challenges, focusing primarily on collaboration efficiency and system overhead, inter-model consistency and compatibility, robustness and optimality of task allocation strategies, training and maintenance of collaborative systems, evaluation metrics and benchmarking, and related security, privacy, and ethical issues.
 
-### 5.1 Collaboration Efficiency and System Overhead
+### 1 Collaboration Efficiency and System Overhead
 
-#### 5.1.1 Latency of Task Routing Decisions
+#### 1.1 Latency of Task Routing Decisions
 
 Although LLM-SLM collaboration aims to enhance overall efficiency, the collaboration process itself can introduce new overheads, potentially negatively impacting system performance. Key challenges lie in the latency of task routing decisions, the cost of inter-model communication, and the complexity management of the overall system.
 
@@ -334,7 +336,7 @@ SLMs are favored for their low inference latency, especially suitable for edge d
 
 A core paradox exists: the primary motivation for using SLMs is often to reduce latency, yet the mechanism for effectively choosing when to use an SLM (i.e., the router) itself introduces latency. The router's latency becomes a critical factor; if it is too high, the net latency reduction from collaboration (SLM latency + router latency vs. LLM latency) diminishes. This presents an open research challenge: developing near-zero-latency routing mechanisms or demonstrating that routing overhead is consistently negligible compared to the LLM-SLM latency difference. \*\*Open Issues:\*\* Develop ultra-low-latency routing mechanisms; quantify the trade-offs between routing complexity/accuracy and latency; design systems capable of masking routing latency through parallel processing.
 
-#### 5.1.2 Cost of Inter-Model Communication
+#### 1.2 Cost of Inter-Model Communication
 
 In collaborative systems, especially in edge-cloud scenarios (SLM runs locally, LLM in the cloud), data transfer between models (e.g., queries, intermediate results, context, model outputs) incurs communication costs and latency. This is particularly challenging for real-time applications or when handling large amounts of data.
 
@@ -342,9 +344,9 @@ Cloud-edge collaboration is a common pattern to balance privacy/latency (on-devi
 
 While edge-cloud collaboration leverages the efficiency of local SLMs and the power of cloud LLMs, the communication channel itself can become a bottleneck, limiting the overall responsiveness and cost-effectiveness of the system. The design of collaboration protocols and the nature of task decomposition are critical for managing communication overhead. Optimizing communication content and timing is an open challenge. \*\*Open Issues:\*\* Design communication-efficient collaboration protocols; develop techniques for compressing intermediate representations exchanged between models; quantify the impact of network conditions on collaborative system performance.
 
-### 5.2 Inter-Model Consistency and Compatibility
+### 2 Inter-Model Consistency and Compatibility
 
-## 5.2.1 Ensuring Consistency in Output Style and Knowledge Scope Across Different Models
+## 2.1 Ensuring Consistency in Output Style and Knowledge Scope Across Different Models
 
 LLMs and SLMs are often trained on different datasets or fine-tuned for different purposes, which can lead them to exhibit distinct writing styles, tones, or response formats. When different models contribute to the same output or dialogue, ensuring a consistent user experience requires mechanisms to align or manage these stylistic differences.
 
@@ -352,7 +354,7 @@ Consistency is considered a fundamental aspect of LLM trustworthiness. Technique
 
 Collaboration inherently risks stylistic clashes. In the CoGenesis framework, if the SLM handles personal details while the LLM handles the broader narrative [\(Kaiyan Zhang, Jianyu](#page-34-2) [Wang, Hua, et al.,](#page-34-2) [2024\)](#page-34-2), the combined output might feel disjointed unless specific alignment techniques are employed. This necessitates standardizing styles during training/fine-tuning or developing sophisticated output fusion techniques. Since LLMs and SLMs often have different training histories and objectives, this leads to potentially divergent output styles, tones, and formats. In collaborative systems, different models might generate parts of the final output. Combining outputs from stylistically different models can result in an inconsistent and jarring user experience. Ensuring consistency requires explicit effort, either through joint training/fine-tuning for style alignment [\(C. Xu et al.,](#page-34-16) [n.d.\)](#page-34-16), or through post-processing/fusion techniques [\(Pei et al.,](#page-33-16) [2025\)](#page-33-16). This adds complexity to system design and evaluation. \*\*Open Issues:\*\* Develop robust metrics for evaluating stylistic consistency across different models; create efficient techniques for real-time style alignment or transfer in collaborative generation; understand the trade-offs between stylistic consistency and other objectives like factual accuracy or creativity.
 
-#### 5.2.2 Alignment of Model Knowledge Scope and Factual Consistency
+### 2.2 Alignment of Model Knowledge Scope and Factual Consistency
 
 Due to differences in training data and model capacity, LLMs and SLMs possess different knowledge bases. LLMs typically have broader knowledge but may hallucinate or contain outdated information; SLMs may have more specialized, potentially up-to-date domain knowledge but lack breadth. Ensuring factual consistency and resolving knowledge conflicts when models collaborate is a significant hurdle.
 
@@ -364,7 +366,7 @@ When LLMs and SLMs possess conflicting information (due to different training cu
 
 This necessitates research into robust knowledge fusion and conflict resolution mechanisms in LLM-SLM collaborative systems. \*\*Open Issues:\*\* Develop effective knowledge fusion techniques for LLM-SLM outputs; create dynamic conflict resolution mechanisms based on source reliability or context; ensure traceability of information sources in collaborative outputs; align knowledge updates across collaborating models.
 
-### 5.3 Evaluation Metrics and Benchmarking
+### 3 Evaluation Metrics and Benchmarking
 
 Comprehensively evaluating the performance of LLM-SLM collaborative systems is complex, requiring measurement not only of the quality of the final results but also consideration of multiple dimensions like efficiency and cost. Currently, the field lacks standardized testing platforms and datasets, making comparison between different collaborative strategies and measurement of progress difficult.
 
@@ -374,11 +376,11 @@ The challenges of LLMOps extend beyond deploying single models to include data p
 
 The increased number of components in collaborative systems means increased monitoring complexity and more potential failure points. Each model (LLM, SLM), the routing mechanism, and the communication links between them need to be monitored for performance, resource consumption, error rates, and drift. Correlating logs and metrics from different components to diagnose system-wide issues can be highly challenging. Monitoring and debugging tools specifically designed for this distributed, heterogeneous model environment are needed. Collaborative systems have more components (LLM, SLM, router) than single-model systems. Each component is a potential point of failure and needs individual monitoring for health, performance (latency, throughput), resource usage, and output quality. Additionally, the interactions between components need monitoring, such as data flow, API call success rates, and communication latency. When problems arise (e.g., overall response quality degrades), pinpointing which component or interaction is faulty can be complex, requiring sophisticated logging, tracing, and root cause analysis capabilities. This significantly increases deployment and operational complexity. \*\*Open Issues:\*\* Develop standardized deployment patterns and best practices for LLM-SLM collaborative systems; create comprehensive monitoring frameworks capable of tracking request flows and performance metrics across multiple models; design automated anomaly detection and fault diagnosis tools for collaborative systems; research how to effectively manage and update individual components in distributed model deployments.
 
-### 5.4 Security, Privacy, and Ethical Issues
+### 4 Security, Privacy, and Ethical Issues
 
 While offering potential advantages, LLM-SLM collaborative systems may also introduce or amplify risks related to security, privacy, and ethics. The flow of data between different models, the collaborative decision-making process, and the inherent flaws of the models themselves can all be sources of these problems.
 
-#### 5.4.1 Privacy Risks of Data Flow Between Different Models
+#### 4.1 Privacy Risks of Data Flow Between Different Models
 
 When data, especially data containing sensitive user information, flows between local SLMs and cloud LLMs (or even between different LLMs), the risk of privacy leakage increases.
 
@@ -386,7 +388,7 @@ Using cloud API calls for LLMs is common due to resource constraints, which inhe
 
 While cloud-edge collaboration distributes data processing, it also creates more nodes for data transfer or processing, potentially increasing the attack surface for privacy breaches if not carefully designed. LLM-SLM collaboration often involves data flow between models, possibly across trust boundaries (e.g., device-to-cloud). LLMs, if handling sensitive user data, pose privacy risks. On-device SLMs are often used to mitigate these risks by keeping sensitive data local. However, the collaboration itself might require sharing some information (intermediate results, context summaries) that could inadvertently leak private details. Ensuring that shared information is sufficiently anonymized or generalized while still being useful for collaboration is a significant challenge. This requires careful design of data flow protocols and potentially the adoption of privacy-enhancing technologies (PETs) within the collaborative framework. \*\*Open Issues:\*\* Develop privacy-preserving data sharing protocols for LLM-SLM collaboration; formalize privacy guarantees in hybrid systems; investigate the trade-offs between privacy preservation and collaborative performance; audit data flows to identify potential leakage points.
 
-## 5.4.2 Potential Bias Amplification or Security Vulnerabilities in Collaborative Systems
+## 4.2 Potential Bias Amplification or Security Vulnerabilities in Collaborative Systems
 
 Individual LLMs and SLMs may carry biases from their training data. When these models collaborate, these biases could be amplified, or new, emergent biases could arise due to interaction dynamics. Ensuring fairness and mitigating bias in the combined system is more complex than for individual models.
 
@@ -400,11 +402,11 @@ Each additional model and communication link in a collaborative system potential
 
 ## 6 Future Trends
 
-## 6.1 Smarter and More Adaptive Collaboration Frameworks
+## 1 Smarter and More Adaptive Collaboration Frameworks
 
 The collaboration between Large Language Models (LLMs) and Small Language Models (SLMs) is evolving from preset, static interaction modes towards intelligent frameworks capable of dynamically learning, adapting, and optimizing their collaboration strategies. The core of this trend lies in endowing collaborative systems with greater autonomy, enabling them to adjust flexibly based on task characteristics, data changes, and environmental feedback, rather than relying solely on fixed rules or manual configuration. Future collaborative frameworks will increasingly leverage advanced machine learning techniques, such as reinforcement learning and meta-learning, to achieve dynamic policy adjustments and efficient self-optimization.
 
-## 6.1.1 Dynamic Collaboration Strategies Based on Reinforcement Learning
+## 1.1 Dynamic Collaboration Strategies Based on Reinforcement Learning
 
 Reinforcement Learning (RL) provides a powerful paradigm for training agents to make optimal decisions in complex dynamic environments. In LLM-SLM collaboration, RL can be used to learn policies for task allocation, resource management, and interaction protocols to maximize system performance, operational efficiency, or other predefined objectives.
 
@@ -414,7 +416,7 @@ RL is also being applied to optimize collaboration strategies in specific task s
 
 These developments collectively reveal an important trend: RL is driving the shift in collaboration modes from "pre-programmed" to "learning-based." Initial LLM-SLM collaborations often relied on simple, rule-based routing logic. However, as demonstrated by frameworks like CITER, RL can optimize token-level routing decisions based on complex factors like quality and cost, which is far more dynamic and granular than static rules. Works like SmallPlan and Collab-RAG further show that RL can adapt collaboration strategies to specific tasks (e.g., path planning, RAG) and even improve collaborative components (like SLM query decomposers) based on LLM feedback. The ReMA framework pushes RL application to a higher level, enabling hierarchical meta-cognitive and reasoning collaboration. This signifies that RL is not just automating decision processes but teaching the system how to collaborate effectively, driven by data, allowing it to adapt to task nuances and the strengths/weaknesses of different models.
 
-#### 6.1.2 Dynamic Collaboration Strategies Based on Meta-Learning
+### 1.2 Dynamic Collaboration Strategies Based on Meta-Learning
 
 Meta-Learning, or "learning to learn," aims to train models capable of rapidly adapting to new tasks or environments using minimal new data. In LLM-SLM collaboration, meta-learning can be used to develop adaptive routing strategies or collaboration mechanisms that generalize better to different downstream tasks or changing data distributions.
 
@@ -422,7 +424,7 @@ Although explicit applications of meta-learning to LLM-SLM collaboration are sti
 
 These explorations suggest that meta-learning holds promise for addressing the challenge of rapid adaptation in collaborative frameworks. Collaborative systems need to work effectively across diverse tasks and domains. Retraining complex RL policies for each new task would be costly and inefficient. Meta-learning explicitly trains for rapid adaptation by exposing the learning algorithm to a distribution of tasks during meta-training. Therefore, future research will likely delve deeper into leveraging meta-learning to train the "router" or "coordinator" in LLM-SLM systems, enabling them to quickly configure effective collaboration strategies for unseen new tasks using only a few samples. This would not only significantly reduce the deployment cost and time for LLM-SLM systems in new applications, making them more versatile, but also implies the potential for systems to learn how to learn to collaborate.
 
-### 6.2 Deep Fusion of Model Capabilities
+### 2 Deep Fusion of Model Capabilities
 
 Currently, the collaboration between Large Language Models (LLMs) and Small Language Models (SLMs) is moving beyond simple task routing or pipeline processing towards deeper integration of capabilities. Future trends focus not only on optimizing task allocation but also on exploring interactions between models at finer granularities, potentially even at the neural layer level within the models. The goal is to construct shared understanding or representation spaces, thereby achieving a true fusion of capabilities.
 
@@ -436,11 +438,11 @@ The DeepMLF model [\(Georgiou, Katsouros, Avrithis, et al.,](#page-31-16) [2025\
 
 These explorations suggest that the boundaries between LLMs and SLMs might become "softer." Black-box input/output interactions limit the bandwidth and type of information exchangeable between models, as internal representations (activations, hidden states) often contain rich, nuanced information lost in the final output. DeepMLF's success highlights the benefits of deep, multi-layer fusion within a single model, a principle extensible to inter-model collaboration. If an SLM specializes in extracting specific syntactic features, these features (as activations) could be fed directly into relevant layers of an LLM processing the same text for a semantic task, thus enriching the LLM's input at a deeper level. Future research will likely focus on exploring ways to "graft" or "connect" SLMs and LLMs at specific layers, perhaps using adapter modules or learned gating mechanisms to control information flow. This could lead to efficient and powerful hybrid models where SLM strengths (e.g., specialized feature extraction) are deeply integrated into the LLM's broader reasoning process. However, this also presents significant architectural and training challenges, requiring careful alignment of internal representations.
 
-### 6.3 Collaboration in Multimodal and Embodied Intelligence
+### 3 Collaboration in Multimodal and Embodied Intelligence
 
 The collaboration between Large Language Models (LLMs) and Small Language Models (SLMs) is expanding from the purely textual domain into more complex and richer areas of multimodal understanding (integrating vision, speech, etc.) and embodied intelligence (e.g., robots, virtual agents interacting with environments). In these emerging fields, LLM-SLM collaboration will play a crucial role in addressing diverse computational needs and specialized processing tasks.
 
-## 6.3.1 Collaboration of Large and Small Models Integrating Multimodal Information like Vision and Speech
+## 3.1 Collaboration of Large and Small Models Integrating Multimodal Information like Vision and Speech
 
 As AI systems increasingly need to process and understand information from multiple modalities, LLM-SLM collaboration becomes essential for effectively managing the different computational demands and specialized processing pipelines for text, images, audio, and other data types. Multimodal data presents unique challenges in terms of data volume, feature extraction, and fusion. LLM-SLM collaboration can efficiently allocate these tasks, with SLMs handling high-throughput, lower-level modality processing, while LLMs focus on high-level cross-modal reasoning and generation.
 
@@ -448,7 +450,7 @@ Existing research envisions LLM agents incorporating "large-small model collabor
 
 These trends point towards a "specialized processor" model: In multimodal scenarios, SLMs will likely act as efficient encoders/decoders for specific modalities or as early fusion modules. A vision SLM processes visual input, an audio SLM handles auditory input, and these specialized SLMs feed compact, informative representations to a core LLM that performs crossmodal understanding, reasoning, and generates multimodal responses (perhaps with the help of SLM decoders). This architecture promises more scalable and cost-effective MLLMs, enabling richer human-computer interactions. It also allows for potentially updating or improving modality-specific SLMs independently without retraining the entire MLLM.
 
-## 6.3.2 Application of Large-Small Model Collaboration in Robots and Embodied Agents
+## 3.2 Application of Large-Small Model Collaboration in Robots and Embodied Agents
 
 Embodied agents (like robots) operate in dynamic real-world environments, requiring real-time perception, decision-making, and action capabilities. LLM-SLM collaboration is well-suited to meet these demands: LLMs provide high-level reasoning and planning, while SLMs handle low-level control, sensor data processing, and rapid reactions on resource-constrained robot hardware.
 
@@ -464,7 +466,7 @@ This survey systematically reviews and discusses the collaborative mechanisms an
 
 Although research on LLM-SLM collaboration has made significant progress and shown great potential, it still faces numerous challenges. These challenges primarily concentrate on: collaboration efficiency and system overhead, where task routing decisions and intermodel communication may introduce additional latency and costs; inter-model consistency and compatibility, concerning how to ensure uniformity in output style, knowledge scope, and factual accuracy across different models; evaluation metrics and benchmarking for collaborative systems, highlighting the lack of standardized testing platforms and metrics capable of comprehensively measuring collaborative effectiveness, efficiency, and cost; and security, privacy, and ethics, addressing the privacy risks associated with data flow between models, as well as potential bias amplification and security vulnerabilities in collaborative systems. These challenges indicate directions for future research.
 
-### 7.1 Research Significance and Value
+### 1 Research Significance and Value
 
 Research into the collaborative mechanisms between large and small language models holds profound theoretical significance and broad application value. The core value of collaboration lies in its ability to significantly reduce the demand for computational resources, decrease inference latency, and lower operational costs without substantially sacrificing performance. This enables advanced AI capabilities, previously inaccessible due to high resource barriers, to be deployed on more edge devices and embedded systems, thereby promoting the popularization and democratization of AI technology, benefiting a wider range of users and industries.
 
@@ -476,7 +478,7 @@ With growing concern over AI energy consumption, LLM-SLM collaboration contribut
 
 In summary, the collaboration between large and small language models is not only an effective strategy for addressing current AI technology challenges but also a key driving force for stimulating AI application innovation and expanding the boundaries of AI capabilities.
 
-### 7.2 Reflections and Outlook
+### 2 Reflections and Outlook
 
 Looking ahead, research on the collaborative mechanisms between large and small language models will continue to deepen towards directions that are smarter, more integrated, and more broadly applicable.
 

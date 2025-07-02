@@ -1,3 +1,5 @@
+<!-- cite_key: clark2001 -->
+
 # Knowledge Patterns
 
 Peter Clark 1 , John Thompson 1 , and Bruce Porter 2
@@ -6,7 +8,7 @@ Peter Clark 1 , John Thompson 1 , and Bruce Porter 2
 
 Summary. This Chapter describes a new technique, called "knowledge patterns", for helping construct axiom-rich, formal ontologies, based on identifying and explicitly representing recurring patterns of knowledge (theory schemata) in the ontology, and then stating how those patterns map onto domain-specific concepts in the ontology. From a modeling perspective, knowledge patterns provide an important insight into the structure of a formal ontology: rather than viewing a formal ontology simply as a list of terms and axioms, knowledge patterns views it as a collection of abstract, modular theories (the "knowledge patterns") plus a collection of modeling decisions stating how different aspects of the world can be modeled using those theories. Knowledge patterns make both those abstract theories and their mappings to the domain of interest explicit, thus making modeling decisions clear, and avoiding some of the ontological confusion that can otherwise arise. In addition, from a computational perspective, knowledge patterns provide a simple and computationally efficient mechanism for facilitating knowledge reuse. We describe the technique and an application built using them, and then critique its strengths and weaknesses. We conclude that this technique enables us to better explicate both the structure and modeling decisions made when constructing a formal axiom-rich ontology.
 
-## 10.1 Introduction
+## 1 Introduction
 
 At its heart, ontological engineering is a modeling endeavor. In a formal ontology, in particular, the knowledge engineer attempts to identify concepts and axioms which reflect (to a certain approximation) the real-world phenomena which he/she is interested in. A common observation is that, when doing this, one often finds oneself repeating structurally similar patterns of axioms. For example, when formalizing an ontology about a space science experiment (called KB-PHaSE [1]), we found that axioms about connectivity in electrical circuits, and about connectivity in optical systems, had substan-
 
@@ -20,11 +22,11 @@ As another example, consider the various formal ontologies of time, with axioms 
 
 It might seem that this type of reuse could also be achieved using normal inheritance mechanisms (e.g., asserting "a bank account isa container", or "time isa line"). However, this works poorly in two situations: when the abstract theory applies to a specific theory in more than one way, and when only a selected portion of the abstract theory is applicable. In the next Section, we discuss in detail an example to illustrate these problems, and subsequently describe the knowledge pattern approach, and how it overcomes these limitations. We conclude that this technique enables us to better modularize axiom-rich ontologies and reuse their general theories.
 
-## 10.2 The Limitations of Inheritance
+## 2 The Limitations of Inheritance
 
 Consider constructing an ontology about computers, including formal axioms to define the meaning of the terms and relations used in that ontology. We might include relations in the ontology such as ram size (the amount of RAM a computer has), expansion slots (the number of expansion slots a computer has), free slots (the number of free slots a computer has), etc., and formalize the meaning of these terms using axioms such as the following, here expressed in Prolog<sup>3</sup> :
 
-```
+```text
 % "Available RAM is the total RAM minus the occupied RAM."
    available_ram(Computer,A) :-
        isa(Computer,computer),
@@ -35,19 +37,19 @@ Consider constructing an ontology about computers, including formal axioms to de
 . % of slots minus the number filled."
    free_slots(Computer,N) :-
        isa(Computer,computer),
-```
+```text
 
 The two axioms above are syntactically different, yet they both instantiate the same general axiom, which we could explicate as:
 
 expansion\_slots(Computer,X), occupied\_slots(Computer,O),
 
-```
+```text
 FREE_SPACE(X,S) :-
     isa(X,CLASS),
     CAPACITY(X,C),
     OCCUPIED_SPACE(X,O),
     S is C - O.
-```
+```text
 
 N is X - O.
 
@@ -59,33 +61,33 @@ The axioms for available ram and free slots are instantiations of this axiom jus
 
 This is typically done with inheritance. The knowledge engineer encodes an explicit theory of containers at a high-level node in a taxonomy, then its axioms are automatically added to more specific theories at nodes lower in the taxonomy. One axiom in our container theory might be:
 
-```
+```text
 free_space(Container,F) :-
     isa(Container,container),
     capacity(Container,C),
     occupied_space(Container,O),
     F is C - O.
-```
+```text
 
 To use inheritance to import this axiom into our computer theory, we assert that computers are containers and that ram size is a special case (a 'subslot,' in the terminology of frame systems) of the capacity relation:
 
-```
+```text
 % "Computers are containers."4
 subclass of(computer,container).
 % "RAM size is a measure of capacity."
 capacity(X,Y) :-
         isa(X,computer),
         ram size(X,Y).
-```
+```text
 
 However, this becomes problematic here as there is a second notion of "computers as containers" in our original axioms, namely computers as containers of expansion cards. If we map this notion onto our computer theory in the same way, by adding the axiom:
 
-```
+```text
 % "Number of expansion slots is a measure of capacity"
 capacity(X,Y) :-
         isa(X,computer),
         expansion slots(X,Y).
-```
+```text
 
 then the resulting representation captures that a computer has two capacities (memory capacity and slot capacity), but loses the constraints among their relations. Consequently, memory capacity may be used to compute the number of free expansion slots, and slot capacity may be used to compute available RAM. This illustrates how the general container theory can be "overlaid"
 
@@ -99,7 +101,7 @@ This problem might be avoided in various ways. We could insist that a general th
 
 Another pseudo-solution is to parameterize the container theory, by adding an argument to the container axioms to denote the type of thing contained, to distinguish different applications of the container theory. With the changes italicized, our axioms become:
 
-```
+```text
 % "Free space for content-type T = capacity for T - occupied T."
 free space(Container,ContentType,F) :-
   isa(Container,container),
@@ -109,7 +111,7 @@ free space(Container,ContentType,F) :-
 % "ram size denotes a computer's RAM capacity."
 capacity(X,ram,Y) :-
   isa(X,computer),
-```
+```text
 
 ram size(X,Y).
 
@@ -119,19 +121,19 @@ A second limitation of inheritance is that it copies axioms (from a general theo
 
 These two problems arise because inheritance is being misused, not because it is somehow "buggy." When we say "A computer is a container," we mean "A computer (or some aspect of it, such as its memory) can be modeled as a container." Inheritance is designed to transfer axioms through the isa relation, not the can-be-modeled-as relation. Nevertheless, knowledge engineers often conflate these relations, probably because inheritance has been the only approach available to them. This leads to endless (and needless) debates on the placement of abstract concepts in taxonomies. For example, where should container be placed in a taxonomy with respect to object, substance, process and so on? Almost anything can be thought of as a container in some way, and if we pursue this route, we are drawn into debating these modeling decisions as if they were issues of some objective reality. This was a recurrent problem in our earlier work on the Botany Knowledge-Base [2], where general theories used as models (such as connector and interface) sit uncomfortably high in the taxonomy. The same issue arises in other ontologies. For example, product is placed just below individual in Cyc [3] and place is just below physical-object in Mikrokosmos [4].
 
-## 10.3 Knowledge Patterns
+## 3 Knowledge Patterns
 
 Our approach for handling these situations is conceptually simple but architecturally significant because it enables us to better modularize a knowledgebase. We define a pattern as a first-order theory whose axioms are not part of the target knowledge-base, but can be incorporated via a renaming of their non-logical symbols.
 
 A theory acquires its status as a pattern by the way it is used, rather than by having some intrinsic property. First, the knowledge engineer implements the pattern as an explicit, self-contained theory. For example, the container theory would include the axiom:
 
-```
+```text
 free_space(Container,F) :-
     isa(Container,container),
     capacity(Container,C),
     occupied_space(Container,O),
     F is C - O.
-```
+```text
 
 Second, using terminology from category theory [5], the knowledge engineer defines a morphism for each intended application of this pattern in the target knowledge-base. A morphism is a consistent<sup>5</sup> mapping of the pattern's nonlogical symbols, or signature, to terms in the knowledge-base, specifying how the pattern should be transformed. Finally, when the knowledge base is loaded, morphed copies of this pattern are imported, one for each morphism. In our example, there are two morphisms for this pattern:
 
@@ -139,7 +141,7 @@ Second, using terminology from category theory [5], the knowledge engineer defin
 
 <sup>5</sup> Two examples of inconsistent mappings are: (i) mapping a symbol twice, e.g., {A->X,A->Y}, (ii) mapping a function f to g, where g's signature as specified by the mapping conflicts with g's signature as already defined in the target KB, e.g., {f->g,A->X,B->Y}, where f : A → B in the source pattern but g is already in the target and does not have signature g : X → Y.
 
-```
+```text
 container -> computer
          capacity -> ram_size
          free_space -> available_ram
@@ -150,7 +152,7 @@ isa -> isa and
          free_space -> free_slots
          occupied_space -> occupied_slots
          isa -> isa
-```
+```text
 
 (The reason for mapping a symbol to itself, e.g., the last line in these morphisms, is explained in the next paragraph). When these morphisms are applied, two copies of the container pattern are created, corresponding to the two ways, described above, in which computers are modeled as containers.
 
@@ -168,7 +170,7 @@ Fig. 10.1. A knowledge pattern is created by abstracting the structure of a theo
 
 Fig. 10.2. A knowledge pattern is applied by specifying a mapping from symbols in the pattern to symbols in the target ontology of interest.
 
-## 10.4 Using Patterns for Building a Knowledge-Base
+## 4 Using Patterns for Building a Knowledge-Base
 
 We encountered the limitations of inheritance and developed the approach of knowledge patterns while building KB-PHaSE, a prototype knowledge-based system for training astronauts to perform a space payload experiment called PHaSE (Physics of Hard Spheres Experiment). PHaSE involves projecting a laser beam through various colloidal suspensions of tiny spheres in liquids, to study the transitions among solid, liquid, and glass (not gas) states in microgravity. KB-PHaSE trains the astronaut in three ways. First, it provides a simple, interactive simulator in which the astronaut can step through the normal procedure of the experiment. Second, it introduces simulated faults to train the astronaut to recover from problems. Finally, it supports exploratory learning in which the astronaut can browse concepts in the knowledge-base and ask questions using a form-based interface. All three tasks use the underlying knowledge-base to infer: properties of the current experimental state, valid next actions, and answers to user's questions. The prototype was built as a small demonstrator, rather than for in-service use, to provide input to Boeing and NASA's Space Station Training Program. Details of KB-PHaSE are presented in [1] and the question-answering technology is described in [6].
 
@@ -188,7 +190,7 @@ By separating these theories as modular entities, they are available for reuse. 
 
 Fig. 10.4. Another knowledge pattern used in KB-PHaSE.
 
-## 10.5 The Semantics of Knowledge Patterns
+## 5 The Semantics of Knowledge Patterns
 
 A knowledge pattern is incorporated into a knowledge base by a syntactic process of symbol renaming (morphing). As the process is syntactic, it might seem difficult to provide semantics for the morphing process itself. However, we can take some steps towards this by considering the result of morphing to be logically equivalent to adding the knowledge pattern directly into the knowledge base, along with some mapping axioms relating knowledge base terms to that knowledge pattern<sup>7</sup> . If we can do this, then those mapping axioms will have defined the semantics of what the morphing operation has
 
@@ -242,7 +244,7 @@ Hence, in this case, the mapping axioms provide the semantics of what the morphi
 
 As this alternative approach is equivalent to morphing knowledge patterns, why not simply use it, rather than morphing? This is a valid, alternative approach to applying knowledge patterns, and achieves many of the same goals (namely to make the abstract theories explicit, and to make explicit the modeling decisions about how they apply to real-world phenomena). The tradeoffs are largely computational, the mapping approach being more complex to implement and computationally more expensive at run-time, but also having the advantage that the knowledge pattern itself is then an explicit part of the final KB (rather than the KB containing only morphed copies of that pattern).
 
-## 10.6 Related Work
+## 6 Related Work
 
 There are several important areas of pattern-related work, differing in the type of reusable knowledge they encode and the way they encode it.
 
@@ -266,7 +268,7 @@ Note that patterns are not an essential prerequisite for building a knowledgebas
 
 general abstractions, as we have described. Patterns do not enable better reasoning, rather they are to help reuse.
 
-## 10.7 Summary
+## 7 Summary
 
 Ontological engineering is fundamentally a modeling endeavor. In this Chapter, we have described a knowledge engineering technique aimed at helping in this endeavor, by making recurring theory schemata, or knowledge patterns, explicit, and available for manipulation. From a computational perspective, knowledge patterns provide a simple and computationally efficient mechanism for facilitating knowledge reuse. From a modeling perspective, knowledge patterns also provide an important insight into the process of ontological engineering, namely that it is not simply about "writing axioms", but also involves recognizing that the "computational clockwork" of one or more abstract theories seem to behave (to a reasonable approximation) in the same way as some system of objects in the world, and hence can be used to describe it. Knowledge patterns make both those abstract theories and their mappings to the domain of interest explicit, thus making modeling decisions clear, and avoiding some of the ontological confusion that can otherwise arise.
 

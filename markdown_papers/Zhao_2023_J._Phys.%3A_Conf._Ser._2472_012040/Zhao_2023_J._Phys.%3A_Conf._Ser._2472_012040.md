@@ -1,6 +1,8 @@
-![](_page_0_Picture_1.jpeg)
+<!-- cite_key: lu2023 -->
 
-#### **PAPER • OPEN ACCESS**
+
+
+# PAPER • OPEN ACCESS
 
 # A SysML-centric integration framework for helicopter fuel system development
 
@@ -29,7 +31,7 @@ H Zhao1\*, W K Wu<sup>1</sup> , X M Hu<sup>1</sup> , Y Q Guo<sup>1</sup> , C Zha
 
 Abstract. Data and model exchange between SysML (Systems Modeling Language) Modeling tools and other system development tools is a critical aspect of Model-Based Systems Engineering (MBSE). This paper introduces an application of the SysML-centric integration framework, which allows integrating multi-disciplinary engineering models into a SysML Modeling environment. A design practice of helicopter fuel system is then presented to illustrate how to combine the external simulation models within the SysML Models to explore the performance and verify corresponding requirements. In this case, FMI (Functional Mockup Interface) based co-simulation creates a bridge between SysML Modeling tools and simulation tools in the SysML-centric integration framework. According to the practice, we believe it will significantly improve model consistency and traceability to provide early evaluation of concepts during conceptual design phase.
 
-#### 1. Introduction
+## Introduction
 
 The Object Management Group (OMG) SysML has been widely accepted in systems engineering applications to support the analysis, specification, design, verification, and validation of complex systems [1][2]. As the conceptual digital reflection of physical systems, SysML models now not only describe system architecture, behaviors, and states but also can be executed to simulate the concept design. During the system development process, fidelity is a crucial factor, which may limit the potential value of SysML models. However, SysML can easily describe systems' functional operations and logical architectures, but is not easy to perform mathematical or physical performance calculations [3]. The engineers usually draw support from the commercial simulation software (such as AMESim, Matlab-Simulink, Dymola, etc.) to evaluate system behaviour, performance, physical characteristics [4][5][6].
 
@@ -45,7 +47,7 @@ Content from this work may be used under the terms of theCreative Commons Attrib
 
 integrate the simulation model into the SysML modeling software in order to verify the MoPs (Measures of performance). Finally, we will give a brief conclusion and weigh up the relative merits of the model/data exchange approaches.
 
-#### 2. SysML-centric integration framework
+### SysML-centric integration framework
 
 An integration environment of system development should support the engineers to develop systems from concept design through the final verification and validation. It should be capable of integrating typical development tools, including SysML modeling tools, design tools, simulation and analysis tools, test tools, etc [7].
 
@@ -57,9 +59,9 @@ Figure 1. SysML- centric integration framework.
 
 Model/data exchange in the SysML-centric integration framework can be achieved through several exchange mechanisms like file-based exchange, API (Application Program Interface)-based exchange, model transformations between SysML and Modelica, FMI-based co-simulation, etc. FMI is a widely accepted standard to support both model exchange and co-simulation of models expressed as Ordinary Differential Equations (ODEs) [9][10]. It also shows the benefits of reusing components and their relations as partial models to improve model consistency and traceability, as well as the integration of simulation to provide early evaluation of concepts [11][12]. FMI builds a standardized bridge to connect SysML tools and simulation tools, as well as the design and simulation process. It combines the advantages of these two different domains to provide a new way to develop complex cyberphysical systems more efficiently [13][14].
 
-## 3. Helicopter fuel system development
+## Helicopter fuel system development
 
-### 3.1. Problem description
+### 1. Problem description
 
 Helicopter fuel system is a complex system that combines many components, complicated interactions with other systems, various requirements from stakeholders, a trade-off between price and cost, etc. Fuel system functions and performance need to be verified separately on aircraft, system, and equipment level tests through numerical simulations, laboratory or flight tests. With the constantly increasing complexity and integration level of helicopter fuel system, traditional design and verification approaches are becoming insufficient to cope with upcoming new challenges.
 
@@ -130,7 +132,7 @@ In which,
 
 n represents the total number of fuel tanks.
 
-#### 3.2. Solution
+#### 2. Solution
 
 3.2.1. Black box modeling. Fuel system inherits requirements from aircraft level requirements and captures requirements from airworthiness regulations and other stakeholders' needs.
 
@@ -195,7 +197,7 @@ FMI has built a bridge between SysML modeling tools and simulation tools, which 
 
 enables engineers to reuse various physical simulation models established by commercial simulation software to the maximum.
 
-### 4. Conclusion
+### Conclusion
 
 Model/data exchange is a critical aspect of the SysML-centric integration framework. There are also some other integration ideas, such as exporting SysML block as FMU and integrating it into the simulation model [15]. However, the SysML-centric integration is proved to be a more reasonable approach for complex system analysis and traceability. It also shows the benefits of reusing multidomain model libraries and the potential for improved and expanded commercial and open-source tool support.
 

@@ -1,6 +1,8 @@
+<!-- cite_key: wang2022 -->
+
 # Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus
 
-Yue Wang<sup>1</sup> , Yao Wan<sup>2</sup> , Lu Bai<sup>3</sup> , Lixin Cui<sup>1</sup> , Zhuo Xu<sup>1</sup> , Ming Li<sup>4</sup> Philip S. Yu<sup>5</sup> , *Fellow, IEEE* and Edwin R Hancock<sup>6</sup> , *Fellow, IEEE*
+Yue Wang<sup>1</sup> , Yao Wan<sup>2</sup> , Lu Bai<sup>3</sup> , Lixin Cui<sup>1</sup> , Zhuo Xu<sup>1</sup> , Ming Li<sup>4</sup> Philip S. Yu<sup>5</sup> , *Fellow, IEEE*and Edwin R Hancock<sup>6</sup> ,*Fellow, IEEE*
 
 **Abstract**—To alleviate the challenges of building Knowledge Graphs (KG) from scratch, a more general task is to enrich a KG using triples from an open corpus, where the obtained triples contain noisy entities and relations. It is challenging to enrich a KG with newly harvested triples while maintaining the quality of the knowledge representation. This paper proposes a system to refine a KG using information harvested from an additional corpus. To this end, we formulate our task as two coupled sub-tasks, namely join event extraction (JEE) and knowledge graph fusion (KGF). We then propose a Collaborative Knowledge Graph Fusion Framework to allow our sub-tasks to mutually assist one another in an alternating manner. More concretely, the explorer carries out the JEE supervised by both the ground-truth annotation and an existing KG provided by the supervisor. The supervisor then evaluates the triples extracted by the explorer and enriches the KG with those that are highly ranked. To implement this evaluation, we further propose a Translated Relation Alignment Scoring Mechanism to align and translate the extracted triples to the prior KG. Experiments verify that this collaboration can both improve the performance of the JEE and the KGF.
 
@@ -8,23 +10,20 @@ Yue Wang<sup>1</sup> , Yao Wan<sup>2</sup> , Lu Bai<sup>3</sup> , Lixin Cui<sup>
 
 ✦
 
-## **1 INTRODUCTION**
+## 1 INTRODUCTION
 
-K NOWLEDGE graphs, which are a structurally organized form of information, have supported a variety of downstream tasks, including recommender systems [\[1\]](#page-11-0), NLP tasks [\[2\]](#page-11-1), question answering [\[3\]](#page-11-2), [\[4\]](#page-11-3), and entitylinking [\[5\]](#page-11-4). Existing open source knowledge graphs such as Wikidata [\[6\]](#page-11-5), WordNet [\[7\]](#page-11-6) and Freebase [\[8\]](#page-11-7) contain billions of Resource Description Framework (RDF) triples [\[9\]](#page-11-8) in the form of *(subject, relation, object)* relations, where both the *subject* and *object* represent the named entities [\[10\]](#page-11-9), and the *relation* models the relationship between these two named entities. However, since open source knowledge graphs are designed for general purposes, they contain only limited factuaL knowledge for particular tasks [\[11\]](#page-11-10) in restricted domais such as finance or medicine. To adapt to multiple domains, it is crucial to construct high-quality domain specific knowledge graphs.
+K NOWLEDGE graphs, which are a structurally organized form of information, have supported a variety of downstream tasks, including recommender systems [\[1\]](#page-11-0), NLP tasks [\[2\]](#page-11-1), question answering [\[3\]](#page-11-2), [\[4\]](#page-11-3), and entitylinking [\[5\]](#page-11-4). Existing open source knowledge graphs such as Wikidata [\[6\]](#page-11-5), WordNet [\[7\]](#page-11-6) and Freebase [\[8\]](#page-11-7) contain billions of Resource Description Framework (RDF) triples [\[9\]](#page-11-8) in the form of *(subject, relation, object)*relations, where both the*subject*and*object*represent the named entities [\[10\]](#page-11-9), and the*relation*models the relationship between these two named entities. However, since open source knowledge graphs are designed for general purposes, they contain only limited factuaL knowledge for particular tasks [\[11\]](#page-11-10) in restricted domais such as finance or medicine. To adapt to multiple domains, it is crucial to construct high-quality domain specific knowledge graphs.
 
 In order to construct new knowledge graphs from unstructured textual sources, existing work mainly consists of several pipelined sub-tasks, e.g., named entity recognition [\[12\]](#page-11-11), relation extraction [\[13\]](#page-11-12) or relation alignment [\[14\]](#page-11-13). These methods are designed as separate subtasks and not as a unified system [\[15\]](#page-11-14). Thus they do not fully address the issue of how to effectively leverage the information hidden in the connections between the subtasks [\[16\]](#page-11-15) to improve the quality of a knowledge graph built from a text corpus. To this end, recent work has combined named entity recognition with relation extraction as a single jointevent-extraction [\[17\]](#page-11-16) task that can jointly obtain the entities and relations from text sources. However, since the current work does not focus on the resulting process to build an integrated knowledge graph from the extracted results, there still exists much scope for constructing a high-quality domain-oriented knowledge graph from test documents.
 
 Knowledge graph fusion [\[15\]](#page-11-14), [\[18\]](#page-11-17), [\[19\]](#page-11-18) is a possible route by which to construct a knowledge graph from the extracted event factors in an open corpus. Early work applied the traditional data fusion method [\[20\]](#page-11-19) while considering only fusing the data under a global or compatible data schema [\[21\]](#page-11-20). This work evaluates the quality of data by checking whether or not a triple is contained in the extended set of a ground-truth knowledge graph [\[22\]](#page-11-21). However, this type of method may ignore the implications of knowledge that is indirectly contained in the ground-truth knowledge graph. It may thus discard many meaningful triples from different and potentially valuable sources. In order to overcome this problem, recent knowledge graph embedding [\[23\]](#page-11-22) methods have leveraged network embedding technology [\[24\]](#page-11-23) to infer the possibilities of the existence of triples in a given knowledge graph. This is done by representing the triples as latent vectors [\[25\]](#page-11-24), [\[26\]](#page-11-25), [\[27\]](#page-12-0). Specifically, with the representation vectors of the triples to hand, these methods use statistical models [\[28\]](#page-12-1) or neural networks [\[29\]](#page-12-2), [\[30\]](#page-12-3) to predict plausible scores for the potential triples.
 
 Although much existing work discusses the potential triple evaluation problem for the knowledge graph fusion task, little considers generating the candidate triples from
-
-*Yue Wang, Lu Bai (*∗*Corresponding Author: bailucs@cufe.edu.cn), Lixin Cui, and Zhuo Xu are with* <sup>1</sup>*Central University of Finance and Economics, Beijing, China. Yao Wan is with* <sup>2</sup>*College of Computer Science and Technology at Huazhong University of Science and Technology (HUST), Wuhan, China. Lu Bai is with* <sup>3</sup>*School of Artificial Intelligence, Beijing Normal University, Beijing, China. Ming Li is with* <sup>4</sup> *the Key Laboratory of Intelligent Education Technology and Application of Zhejiang Province, Zhejiang Normal University, Jinhua, China. Philip S. Yu is with* <sup>5</sup>*Department of Computer Science, University of Illinois at Chicago, US. Edwin R. Hancock is with* <sup>6</sup>*Department of Computer Science, University of York, UK. This work is supported by the National Natural Science Foundation of China under Grants T2122020, 61976235, and 61602535. This work is also supported in part by NSF under grants III-1526499, III-1763325, III-1909323, and CNS-1930941.*
-
-![](_page_1_Figure_1.jpeg)
+*Yue Wang, Lu Bai (*∗*Corresponding Author: bailucs@cufe.edu.cn), Lixin Cui, and Zhuo Xu are with* <sup>1</sup>*Central University of Finance and Economics, Beijing, China. Yao Wan is with* <sup>2</sup>*College of Computer Science and Technology at Huazhong University of Science and Technology (HUST), Wuhan, China. Lu Bai is with* <sup>3</sup>*School of Artificial Intelligence, Beijing Normal University, Beijing, China. Ming Li is with*<sup>4</sup>*the Key Laboratory of Intelligent Education Technology and Application of Zhejiang Province, Zhejiang Normal University, Jinhua, China. Philip S. Yu is with* <sup>5</sup>*Department of Computer Science, University of Illinois at Chicago, US. Edwin R. Hancock is with* <sup>6</sup>*Department of Computer Science, University of York, UK. This work is supported by the National Natural Science Foundation of China under Grants T2122020, 61976235, and 61602535. This work is also supported in part by NSF under grants III-1526499, III-1763325, III-1909323, and CNS-1930941.*![](_page_1_Figure_1.jpeg)
 
 <span id="page-1-0"></span>Fig. 1. In a collaborative knowledge graph fusion process, an explorer and a supervisor collaborate to create an enriched knowledge graph by extending a prior knowledge graph with RDF triples extracted from open text sources. Since the extracted RDF triples contain entities or relations that are not aligned to the prior knowledge graph, this process requires interaction mechanisms (translate the extracted results to the knowledge graph RDF triples and guide the explorer with meaningful entity pairs) between the explorer and the supervisor. To simplify the problem, we suppose both the explorer and supervisor share the same entity types (Geographical/Social/Political Entities (GPE), Persons (PER), Weapons (WEA), Organizations (ORG), Vehicles (VEH), etc.) and the extracted trigger mentions (killed, rained down, etc.) by the explorer belong to the trigger types (Life, Conflict, etc.) by following the definitions in the ACE 2005 corpus [\[31\]](#page-12-4). Then the core problem becomes to align the trigger mentions obtained by the explorer to the relations in the knowledge graph of the supervisor.
 
-open text sources and linking candidate generation with the evaluation process to automatically. fuse the obtained triples to a prior knowledge graph. The main challenges that hinder progress in this direction are routed in the following shortcomings in the knowledge extraction and a knowledge graph fusion tasks. (1) *Difficulties in aligning RDF triples*. Since open text sources may contain relations outside the scope of a prior knowledge graph, it is a challenge to align the relations from the open texts to those in the knowledge graph. Although current work discusses the entity alignment [\[32\]](#page-12-5) between sources, little focusses on relation alignment. This leads to the difficulty of aligning the extracted RDF triples from the text sources to a prior knowledge graph. (2) *Difficulties maintaining knowledge graph quality*. Merging the unaligned RDF triples from the open text sources to a knowledge graph can mislead the knowledge graph embedding model and may result in unreliable plausible scores for potential triples. Moreover, a misleading knowledge graph can result in the the extractor relying on low-quality triples. This may further lower the quality of the knowledge graph. (3) *Difficulties sharing knowledge between sub-tasks.* Without a reliable way of aligning the RDF triples, it becomes difficult to share knowledge between the subtasks (e.g. event extraction and knowledge fusion). This leads to error propagation [\[33\]](#page-12-6) between sub-tasks and thus degrade the performance for each sub-task.
+open text sources and linking candidate generation with the evaluation process to automatically. fuse the obtained triples to a prior knowledge graph. The main challenges that hinder progress in this direction are routed in the following shortcomings in the knowledge extraction and a knowledge graph fusion tasks. (1)*Difficulties in aligning RDF triples*. Since open text sources may contain relations outside the scope of a prior knowledge graph, it is a challenge to align the relations from the open texts to those in the knowledge graph. Although current work discusses the entity alignment [\[32\]](#page-12-5) between sources, little focusses on relation alignment. This leads to the difficulty of aligning the extracted RDF triples from the text sources to a prior knowledge graph. (2) *Difficulties maintaining knowledge graph quality*. Merging the unaligned RDF triples from the open text sources to a knowledge graph can mislead the knowledge graph embedding model and may result in unreliable plausible scores for potential triples. Moreover, a misleading knowledge graph can result in the the extractor relying on low-quality triples. This may further lower the quality of the knowledge graph. (3) *Difficulties sharing knowledge between sub-tasks.*Without a reliable way of aligning the RDF triples, it becomes difficult to share knowledge between the subtasks (e.g. event extraction and knowledge fusion). This leads to error propagation [\[33\]](#page-12-6) between sub-tasks and thus degrade the performance for each sub-task.
 
 To address the aforementioned limitations, in this paper, we formulate a new method that combines event extraction (extractor) with knowledge graph fusion as a Collaborative Knowledge Graph Fusion process. Specifically, we propose a unified framework to build a domain-oriented knowledge graph by enriching an open-source knowledge graph with knowledge extracted automatically from a text corpus. Since our new method provides a mechanism to share the knowledge between sub-tasks, our enriched knowledge graph grows larger by incorporating facts of knowledge from the texts. In addition, the new method also leverages the enriched knowledge graph to assist our event extraction sub-task to obtain more reliable entities and relations from documents.
 
@@ -44,21 +43,20 @@ In summary, our main contributions are as follows:
 
 The remainder of this paper is organized as follows. In Section [2,](#page-2-0) we introduce the preliminaries concerning the joint event extraction and knowledge graph fusion processes and then also formalize the problem of knowledge graph fusion with an open corpus. Section [3](#page-3-0) presents in detail our proposed framework and fusion mechanism. Section [4](#page-6-0) verifies the effectiveness of our model and compares it with recent methods on real-world datasets. Section [5](#page-10-0) summarizes recent related work. Finally, we conclude this paper in Section [6](#page-11-26) where we offer suggestions for further work in this direction.
 
-## <span id="page-2-0"></span>**2 PRELIMINARIES**
+## <span id="page-2-0"></span>2 PRELIMINARIES
 
 Our overall objective is knowledge graph fusion with an open corpus. This task consists of a joint event extraction (JEE) step to extract knowledge triples from unstructured texts and a knowledge graph fusion (KGF) step to evaluate and enrich the extracted triples from the JEE step for a prior or exsiting Knowledge Graph (KG). We elaborate the notation for the JEE and KG, and formalize our problem in the following subsections.
 
-#### **2.1 Knowledge Graphs**
+### 2.1 Knowledge Graphs
 
 A Knowledge Graph (KG) [\[34\]](#page-12-7) is represented as a set of factual (RDF) triples referring to specific topics. Formally, we define a knowledge graph G in the structure G = hE, R, Ti, where E is a set of entities, R is a set of relations and T is the set of the RDF triples. For example, G<sup>1</sup> = hE1, R1, T1i is a knowledge graph of capital city relationships with the entity set E<sup>1</sup> = {T okyo, Beijing, Japan, China}, the relation set R<sup>1</sup> = {capital of} and the triple set T<sup>1</sup> = {hT okyo, capital of, Japani,hBeijing, capital of, Chinai}. Since a human-composed document does not contain such structural information such as the entities, relationships or triples, to build a KG from a corpus, we require to extract the triples from the texts.
 
-### **2.2 Joint Event Extraction**
+### 2.2 Joint Event Extraction
 
 Event extraction is a technique to extract the structural information such as entities or relations [\[12\]](#page-11-11) from a given corpus. This requires applying sub-tasks such as Named Entity Recognition (NER) and Relation Extraction (RE). Traditional methods train separate multi-label classifiers to distinguish the labels for the tokens (both for the entity and text relation mentions) in sentences. In order to improve the accuracy of the extraction process, recent work leverages the pipelined method to classify the relationship first and then identify the entities with roles centered around the determined relation. However, since these methods invoke their sub-processes separately, they feedback weakly from the entity identification task to the preceding tasks. As a result they may suffer from limitations caused by errorpropagation [\[35\]](#page-12-8).
 
 To this end, we use a universal sequence-to-sequence (Seq2Seq) framework [\[16\]](#page-11-15) to simultaneously extract the entities and relations from a text corpus.
-
-**Seq2Seq Joint-Event-Extraction (JEE).** Let the text corpus D be a set of sentences, where D = {s1, s2, s3, . . .} (∀s ∈ D, s = {w1, w2, w3, . . . , wm}, where wis are tokens). Let A = A<sup>E</sup> S A<sup>R</sup> be a combined tag set with predefined types for tokens, where A<sup>E</sup> and A<sup>R</sup> are the sets of the predefined entity and text relation mention types respectively. Then the aim of JEE is to find an optimal map Y<sup>Θ</sup><sup>1</sup> : s → Π<sup>M</sup> <sup>i</sup>=0A, (∀s ∈ D), where Π is the Cartesian product, M is the maximum length for the sentences in D, Θ<sup>1</sup> is the vector for the learned parameters.
+**Seq2Seq Joint-Event-Extraction (JEE).**Let the text corpus D be a set of sentences, where D = {s1, s2, s3, . . .} (∀s ∈ D, s = {w1, w2, w3, . . . , wm}, where wis are tokens). Let A = A<sup>E</sup> S A<sup>R</sup> be a combined tag set with predefined types for tokens, where A<sup>E</sup> and A<sup>R</sup> are the sets of the predefined entity and text relation mention types respectively. Then the aim of JEE is to find an optimal map Y<sup>Θ</sup><sup>1</sup> : s → Π<sup>M</sup> <sup>i</sup>=0A, (∀s ∈ D), where Π is the Cartesian product, M is the maximum length for the sentences in D, Θ<sup>1</sup> is the vector for the learned parameters.
 
 In this form, our JEE process transforms a sentence into a tag sequence with the tags in the combined tag set A. The loss function for the Seq2Seq JEE is computed as a crossentropy function, as follows:
 
@@ -68,12 +66,11 @@ $$
 $$
  (1)
 
-With the mapped tag sequence optimized by the loss function in Equation [1,](#page-3-1) we obtain the annotated tag sequences for the sentences in a corpus. In this manner, the entity and relation mentions for a sentence are extracted together. Consequently, we generate RDF triples based on their extracted mentions and use these triples as the candidate triples for KG enrichment. In order to simplify the discussion, we use the term Y<sup>Θ</sup><sup>1</sup> as a joint operation that combines both the mapping from sentences to label sequences and the RDF generation process. Therefore, YΘ<sup>1</sup> (D) refers to a set of RDF triples and we refer to it as the *extractor map* in the following sections.
+With the mapped tag sequence optimized by the loss function in Equation [1,](#page-3-1) we obtain the annotated tag sequences for the sentences in a corpus. In this manner, the entity and relation mentions for a sentence are extracted together. Consequently, we generate RDF triples based on their extracted mentions and use these triples as the candidate triples for KG enrichment. In order to simplify the discussion, we use the term Y<sup>Θ</sup><sup>1</sup> as a joint operation that combines both the mapping from sentences to label sequences and the RDF generation process. Therefore, YΘ<sup>1</sup> (D) refers to a set of RDF triples and we refer to it as the*extractor map*in the following sections.
 
-#### <span id="page-3-3"></span>**2.3 Knowledge Graph Fusion with an Open Corpus**
+#### <span id="page-3-3"></span>2.3 Knowledge Graph Fusion with an Open Corpus
 
 Knowledge Graph Fusion [\[18\]](#page-11-17) is the task of constructing a unified knowledge graph from different data sources. Traditional knowledge graph fusion aims to integrate several knowledge graphs into one knowledge graph, and we formalize this task as follows:
-
 **Knowledge Graph Fusion (KGF).** Given two prior knowledge graphs G<sup>1</sup> = hE1, R1, T1i and G<sup>2</sup> = hE2, R2, T2i, suppose both G<sup>1</sup> and G<sup>2</sup> are used under the same RDF schema to build a new knowledge graph G<sup>0</sup> = hE<sup>0</sup> , R<sup>0</sup> , T<sup>0</sup> i, where T <sup>0</sup> = T<sup>1</sup> S ∆T and ∆T is the set of triples of G<sup>2</sup> with the top-K plausible scores fG<sup>1</sup> (i, r, t) (∀(i, r, t) ∈ G2). This score is computed as
 
 $$
@@ -82,7 +79,7 @@ $$
 
 where the function Sim gives the similarity between two triples. The plausibility score of a triple evaluates the consistency of this triple with an existing or prior knowledge graph. Since it is inefficient to compute the plausibility score by traversing all the triples of a knowledge graph, mainstream work applies the Knowledge Graph Embedding (KGE) [\[23\]](#page-11-22) method for this evaluation. Specifically, these methods generate the vector representations for triples and compute the similarities between triples through their vector similarities. Recent methods represent the knowledge triple as latent vectors by following the ideas introduced in the translation based embedding model (TransE) [\[28\]](#page-12-1).
 
-**Knowledge Graph Embedding (KGE).** Given a KB G = hE, R, Ti, suppose (i, r, j) is a triple from T, then the loss is
+**Knowledge Graph Embedding (KGE).**Given a KB G = hE, R, Ti, suppose (i, r, j) is a triple from T, then the loss is
 
 <span id="page-3-2"></span>
 $$
@@ -103,8 +100,7 @@ where e is an embedding that maps any entity or relation to an R <sup>h</sup> ve
 Therefore, with a trained embedding e based on the given prior knowledge graph G1, the plausibility of a triple (i, r, j) from G<sup>2</sup> to G<sup>1</sup> can be evaluated by computing the Euclidean distance d(e<sup>i</sup> + er, e<sup>j</sup> ).
 
 As discussed in the Introduction, our objective is to build a knowledge graph fusion system using open text sources. This task is different from the aforementioned knowledge graph fusion and it means we require to: (1) extract the RDF triples from a given corpus D and (2) fuse the extracted triples to a knowledge graph G. Specifically, we formalize this problem as the following.
-
-**Open Knowledge Graph Fusion (OKGF).** Given a prior knowledge graph G = hE, R, Ti, a corpus D and an extractor map YΘ<sup>1</sup> , suppose YΘ<sup>1</sup> (D) is a set of extracted triples from a corpus D. Then with a trainable scoring function f(∗) and embedding map e, the objective of OKGF is to find the optimal subset ∆T from YΘ<sup>1</sup> (D) that minimizes the following loss function:
+**Open Knowledge Graph Fusion (OKGF).**Given a prior knowledge graph G = hE, R, Ti, a corpus D and an extractor map YΘ<sup>1</sup> , suppose YΘ<sup>1</sup> (D) is a set of extracted triples from a corpus D. Then with a trainable scoring function f(∗) and embedding map e, the objective of OKGF is to find the optimal subset ∆T from YΘ<sup>1</sup> (D) that minimizes the following loss function:
 
 $$
 \mathcal{L}_{OKGF} = -\sum_{\substack{(i,r,j) \in T \cup \Delta T, \\ (i',r,j') \in N}} ||\gamma + f_G(i,r,j)) - f_G(i',r,j')||, \tag{5}
@@ -114,21 +110,20 @@ where N is the corresponding negative triple set for the positive triples t from
 
 This task links the JEE and the KGF processes together. However, it is a combinatorial optimization problem that exhaustively checks all the possible subsets ∆T from YΘ<sup>1</sup> (D). The newly discovered noisy entities and relations from the open corpus exacerbate the problem. Therefore, it is difficult to obtain the global optimal solution. To this end, we propose a heuristic collaborative knowledge graph fusion framework to connect the JEE and KGF subtasks to fuse an open corpus to obtain a prior knowledge graph. Our framework approaches open knowledge graph fusion from two directions, namely 1) our model guides the JEE process with a prior knowledge graph and 2) it selectively enriches the prior knowledge graph with the extracted results from the JEE process. This requires a careful design of both the JEE supervision mechanism with a prior knowledge graph and an effective "translation-and-evaluation" method to fuse the extracted results into the prior knowledge graph. We elaborate the details in the next section.
 
-## <span id="page-3-0"></span>**3 OUR PROPOSED METHOD**
+## <span id="page-3-0"></span>3 OUR PROPOSED METHOD
 
 In this section, we introduce the Collaborative Knowledge Graph Fusion framework to address knowledge graph fusion with an open corpus.
 
-#### **3.1 Overview**
+### 3.1 Overview
 
 To emulate a human-like collaborative process for our task, we propose a system with two processes, namely 1) an explorer process and 2) a supervisor process. In the explorer process, the system uses the proposed Benchmark-based Supervision Mechanism to assist the JEE task to extract the triples while guided by a supervisor (the benchmarks discovered by the supervisor from a prior KG). In the supervisor process, the system applies the proposed Relation Alignment-based Knowledge Graph Fusion module to selectively accept the extracted triples to be added to the prior KG. These two processes alternate to simultaneously extract knowledge triples and enrich a prior KG with highquality. Figure [2](#page-5-0) illustrates the architecture of our system. The details for the proposed processes are given in the following subsections.
 
-#### <span id="page-4-5"></span>**3.2 The Explorer: Benchmark-based Supervision JEE**
+#### <span id="page-4-5"></span>3.2 The Explorer: Benchmark-based Supervision JEE
 
 In Figure [2,](#page-5-0) our explorer process implements the JEE task. To ensure the explorer is guided by the supervisor we introduce a Benchmark-based Supervision Layer. In this work, we apply the Seq2Seq JEE as the basic extraction process and use BERT [\[36\]](#page-12-9) as the sequence-to-sequence encoder. This JEE module can be substituted by any alternative JEE model if necessary.
 
 Intuitively, during the exploratory period, an explorer receives examples from a supervisor and attempts to leverage the knowledge in these examples to facilitate better exploration. In our work, the explorer process extracts the triples from an open corpus based on a prior KG maintained by a supervisor. Since the open corpus may contain unaligned relations and extra entities that are not contained in the prior KG, it requires a relatively flexible method rather than strict supervision to guide the explorer. To this end, we introduce the Benchmark-based Supervision Mechanism.
-
-**Benchmark-based Supervision Mechanism.** Given a prior KG, G = hE, R, Ti, let the benchmarks be a positive set of entity pairs P <sup>+</sup> and a negative set of entity pairs P <sup>−</sup>, where P <sup>+</sup> = {(i, j)|(i, ∗, j) ∈ T, ∀i, j ∈ E}, and P <sup>−</sup> = {(i, j)|(i, ∗, j) ∈/ T, ∀i, j ∈ E}. Then the Benchmarkbased Supervision Mechanism can be described as the task to minimize a loss function extended from the BPR loss [\[37\]](#page-12-10)
+**Benchmark-based Supervision Mechanism.**Given a prior KG, G = hE, R, Ti, let the benchmarks be a positive set of entity pairs P <sup>+</sup> and a negative set of entity pairs P <sup>−</sup>, where P <sup>+</sup> = {(i, j)|(i, ∗, j) ∈ T, ∀i, j ∈ E}, and P <sup>−</sup> = {(i, j)|(i, ∗, j) ∈/ T, ∀i, j ∈ E}. Then the Benchmarkbased Supervision Mechanism can be described as the task to minimize a loss function extended from the BPR loss [\[37\]](#page-12-10)
 
 <span id="page-4-0"></span>
 $$
@@ -162,21 +157,19 @@ $$
 $$
 
 where α is the weight for the benchmark-based supervision.
+**Candidate Triple Set.**With the aforementioned explorer process, our system simultaneously extracts the entity and relation mentions (or triggers). Then, we generate all RDF triples exhaustively based on the extracted mentions. The results are treated as the candidate triple set T 0 for subsequent processing steps.
 
-**Candidate Triple Set.** With the aforementioned explorer process, our system simultaneously extracts the entity and relation mentions (or triggers). Then, we generate all RDF triples exhaustively based on the extracted mentions. The results are treated as the candidate triple set T 0 for subsequent processing steps.
-
-#### <span id="page-4-6"></span>**3.3 The Supervisor: Relation Alignment-based OKGF**
+#### <span id="page-4-6"></span>3.3 The Supervisor: Relation Alignment-based OKGF
 
 Our supervisor process enriches the prior KG with the optimal subset of the candidate triples from the explorer process. This requires a scoring function to measure the plausibilities for triples trained by the prior KG. The process for a supervisor to evaluate the quality of the discovery is similar to that adopted by the explorer. As is discussed in Section [2.3,](#page-3-3) one of the challenges to implementing this task is that the relation mentions from the candidate triples may not be unaligned to the relations in the prior KG. In order to address this issue, we propose the Translated Relation Alignment Score (TRAS). This score facilitates the alignment of the relations between the candidate triples and the existing relations in the prior KG. After aligning the relations, our system translates the candidate triples to the aligned candidate triples. It then ranks the aligned candidate triples by considering the semantic information residing in the prior KG. The highly-ranked triples are integrated into the prior KG to generate an enriched KG. We expand the details of this process in the remainder of this section.
-
-**Translated Relation Alignment Score (TRAS).** Given two KGs G<sup>1</sup> = hE1, R1, T1i and G<sup>2</sup> = hE2, R2, T2i sets (T<sup>1</sup> T T2 = φ). Then the TRAS score s(r1, r2) between two relation r<sup>1</sup> and r<sup>2</sup> (∀r<sup>1</sup> ∈ R1, ∀r<sup>2</sup> ∈ R2) is computed as follows
+**Translated Relation Alignment Score (TRAS).**Given two KGs G<sup>1</sup> = hE1, R1, T1i and G<sup>2</sup> = hE2, R2, T2i sets (T<sup>1</sup> T T2 = φ). Then the TRAS score s(r1, r2) between two relation r<sup>1</sup> and r<sup>2</sup> (∀r<sup>1</sup> ∈ R1, ∀r<sup>2</sup> ∈ R2) is computed as follows
 
 <span id="page-4-3"></span>
 $$
 s(r_1, r_2) = \gamma s_m(r_1, r_2) + (1 - \gamma) s_e(r_1, r_2), \qquad (10)
 $$
 
-where sm(r1, r2) is the text mention similarity between r<sup>1</sup> and r2, γ is the weight of the text mention similarity. The quantity se(r1, r2) is the **translated relation similarity** between two relations (r<sup>1</sup> and r2) which can be computed as follows
+where sm(r1, r2) is the text mention similarity between r<sup>1</sup> and r2, γ is the weight of the text mention similarity. The quantity se(r1, r2) is the**translated relation similarity**between two relations (r<sup>1</sup> and r2) which can be computed as follows
 
 <span id="page-4-1"></span>
 $$
@@ -189,9 +182,7 @@ $$
 <span id="page-5-0"></span>Fig. 2. The "Collaborative Knowledge Graph Fusion" framework for the Knowledge Graph Fusion with Open Corpus task. Our framework consists of two alternative running processes: 1) an explorer process carries on the Joint-Event-Extraction (JEE) task and 2) a supervisor process aligns and merges the extracted triples to a prior knowledge graph. Our system first embeds the texts to the latent vectors of tokens and then optimizes the forward scores for the explorer process. After training the JEE model, our system extracts the triples T 0 from the open texts. Then, our system treats them as candidate triples and enriches them to the prior KG by referring the proposed Translate Relation Alignment Score (TRAS). The enriched KG and the trained KGE likelihood scoring function helps to sample the top positive and negative entity pairs for the explorer process in return.
 
 where Sim(∗, ∗) can be any similarity function between two vectors. In this paper, we use the Cosine similarity for this task. Generally, the summed entity embedding difference in Equation [11](#page-4-1) represents the embedding vector for a given relation. As a result, Equation [11](#page-4-1) computes the proximity between two relations in different KGs by considering the entities adjacent to them.
-
-**Aligned Triple Set.** Our system ranks the relation pairs between the candidate triples from T 0 and the triples in the prior KG using their TRAS scores. As a result, our system translates the candidate triples from the JEE process to an aligned triple set with the same relation set in the prior KG. The aligned triple set is denoted by ∆T.
-
+**Aligned Triple Set.**Our system ranks the relation pairs between the candidate triples from T 0 and the triples in the prior KG using their TRAS scores. As a result, our system translates the candidate triples from the JEE process to an aligned triple set with the same relation set in the prior KG. The aligned triple set is denoted by ∆T.
 **Knowledge Graph Embedding (KGE) Triple Likelihood.** After generating the aligned candidate triple set from the extracted triples, the supervisor ranks the candidate triples and merges the top-ranked triples to the current prior KG. To this end, we use a Knowledge Graph Embedding (KGE) Triple likelihood to perform the ranking task for triples. This function represents the action of the supervisor and it is implemented using a Convolutional Neural Network (CNN) [\[39\]](#page-12-12) based model to map the triples to an R 1 score. Formally, given a KG G = hE, R, Ti. The KGE triple likelihood fG(i, r, j) (∀(i, j) ∈ E, ∀r ∈ R) is computed as follows
 
 <span id="page-5-2"></span>
@@ -238,11 +229,11 @@ Optimizing this loss function maximizes the difference between the positive and 
 
 The sampled positive and negative entity pairs are used directly as the benchmarks to supervise the explorer process (cf. Equation [6\)](#page-4-0). This simulates the way in which the supervisor provides the key examples to the explorer for the exploration task.
 
-#### **3.4 The Complete Process and Discussion**
+#### 3.4 The Complete Process and Discussion
 
 The complete Collaborative Knowledge Graph Fusion process is described in the Algorithm [2.](#page-6-1) We initialize the
 
-**Algorithm 2:** Collaborative Knowledge Graph Fusion Algorithm
+**Algorithm 2:**Collaborative Knowledge Graph Fusion Algorithm
 
 |    | Data: A prior KG G = hE, R, Ti, a corpus D and a     |
 |----|------------------------------------------------------|
@@ -279,34 +270,30 @@ The complete Collaborative Knowledge Graph Fusion process is described in the Al
 |    | 19 end                                               |
 
 embeddings for all tokens in the corpus with pre-trained features (BERT [\[36\]](#page-12-9) in this paper, but alternative methods could potentially be used if necessary). These embeddings are then used in the supervisor process to infer the positive or negative entity pair sets using a prior knowledge graph. Next, the obtained positive and negative entity pair sets are used to supervise the explorer process. Then the JEE model in the explorer process extracts improved entities and relations to enrich the prior knowledge graph. The supervisor adds the top-K ranked aligned candidate triples in using beam search.
-
-**Discussion and Analysis.** Our model links event extraction and knowledge graph fusion together as a single process. This alternative process enhance the performance of both of the aforementioned tasks and also results a high quality enriched KG. The main reasons for these improvements are twofold. First, with more useful knowledge implications (evaluated extracted triples from the corpus) for a given knowledge graph, the semantic relationships between its entities are improved. As a result, the performance of the knowledge graph embedding with the enriched knowledge graph is also improved. Second, the accuracies for the entity and relation extraction tasks are also improved with
+**Discussion and Analysis.**Our model links event extraction and knowledge graph fusion together as a single process. This alternative process enhance the performance of both of the aforementioned tasks and also results a high quality enriched KG. The main reasons for these improvements are twofold. First, with more useful knowledge implications (evaluated extracted triples from the corpus) for a given knowledge graph, the semantic relationships between its entities are improved. As a result, the performance of the knowledge graph embedding with the enriched knowledge graph is also improved. Second, the accuracies for the entity and relation extraction tasks are also improved with
 
 the help of the enriched knowledge graph.
 
-## **3.5 Negative Triple Sampling and Training**
+## 3.5 Negative Triple Sampling and Training
 
 <span id="page-6-1"></span>Many existing methods use the randomized head or tail entity replaced triples from the positive triple set as the negative samples [\[40\]](#page-12-13). To further improve the quality of the negative samples in Line 11 of Algorithm [2,](#page-6-1) we treat the output of random sampled negative triples as the candidate set and then further use the KGE triple likelihood to measure their likelihoods. The final negative samples set in Line 11 of Algorithm [2](#page-6-1) are the top-ranked samples from the candidate set based on the KGE triple likelihood scores.
 
-## <span id="page-6-0"></span>**4 EXPERIMENTS AND ANALYSIS**
+## <span id="page-6-0"></span>4 EXPERIMENTS AND ANALYSIS
 
 In this section, we aim to address the following research questions:
 
-- **RQ1:** Can a system in the proposed Collaborative Knowledge Graph Fusion framework successfully improve both the performances for the JEE and KGE tasks?
-- **RQ2:** Are the automatically extracted and translated triples valuable or suitable for the target KG?
-- **RQ3:** What is the generalizability of a system with the proposed Collaborative Knowledge Graph Fusion framework representation across different realworld corpora and KGs?
+-**RQ1:**Can a system in the proposed Collaborative Knowledge Graph Fusion framework successfully improve both the performances for the JEE and KGE tasks?
+-**RQ2:**Are the automatically extracted and translated triples valuable or suitable for the target KG?
+-**RQ3:**What is the generalizability of a system with the proposed Collaborative Knowledge Graph Fusion framework representation across different realworld corpora and KGs?
 
 We also perform ablation analysis to investigate the effect of each module of the model, as well as a qualitative analysis of detailed examples.
 
-### **4.1 Datasets**
+### 4.1 Datasets
 
 Since our system consists of the optimization processes of a JEE task and a KGF task, our dataset contains several real-world corpora for the JEE task and also two public Knowledge Graphs (KG) for the KGF task.
-
-**The corpora.** ACE 2005 [\[31\]](#page-12-4) is a widely used dataset to test the performances for the event extraction models. WebNLG is a corpus used for a challenge of natural language generation [\[41\]](#page-12-14). CoNLL is a Spanish news corpus from [\[42\]](#page-12-15). We create the NYT and CoNLL datasets[1](#page-7-0) by preprocessing the original NYT [\[43\]](#page-12-16) and CoNLL [\[42\]](#page-12-15) corpora with the CoreNLP[2](#page-7-1) . This preprocessing includes annotating the triggers and entities from the sentences.
-
-**The Knowledge Graphs.** In order to implement the benchmark-based supervision mechanism at the explorer process, we preprocess the WN18 and FB15k-237 [\[28\]](#page-12-1) as the prior KGs in our tasks. Since the entities in each KG are encoded as the inner IDs, we map these IDs to the real entity mentions by the corresponding mapping files. Further, since freebase API depressed, we map the entity IDs in FB15k-237 to the URLs on the Wikidata[3](#page-7-2) ) and then crawl the Wikidata titles to create the real entity mentions.
-
-**Preprocessing Details.** To implement a complete "Collaborative Knowledge Graph Fusion" framework, we preprocess the datasets to obtain the training sets and the testing sets for the supervisor and explorer respectively. The details of these preprocessed datasets are list in the following Tables.
+**The corpora.**ACE 2005 [\[31\]](#page-12-4) is a widely used dataset to test the performances for the event extraction models. WebNLG is a corpus used for a challenge of natural language generation [\[41\]](#page-12-14). CoNLL is a Spanish news corpus from [\[42\]](#page-12-15). We create the NYT and CoNLL datasets[1](#page-7-0) by preprocessing the original NYT [\[43\]](#page-12-16) and CoNLL [\[42\]](#page-12-15) corpora with the CoreNLP[2](#page-7-1) . This preprocessing includes annotating the triggers and entities from the sentences.
+**The Knowledge Graphs.**In order to implement the benchmark-based supervision mechanism at the explorer process, we preprocess the WN18 and FB15k-237 [\[28\]](#page-12-1) as the prior KGs in our tasks. Since the entities in each KG are encoded as the inner IDs, we map these IDs to the real entity mentions by the corresponding mapping files. Further, since freebase API depressed, we map the entity IDs in FB15k-237 to the URLs on the Wikidata[3](#page-7-2) ) and then crawl the Wikidata titles to create the real entity mentions.
+**Preprocessing Details.**To implement a complete "Collaborative Knowledge Graph Fusion" framework, we preprocess the datasets to obtain the training sets and the testing sets for the supervisor and explorer respectively. The details of these preprocessed datasets are list in the following Tables.
 
 TABLE 1 Summary of the Corpora for the Explorer (JEE) Process
 
@@ -325,13 +312,10 @@ TABLE 2 Summary of the KGs for the Supervisor (KGF) Process
 | WN18  | Seed triples    | 526     | 68    | 2,042 | 311    |
 |       | Testing triples | 129     | 68    | 730   | 113    |
 
-#### **4.2 Comparison Baselines**
+#### 4.2 Comparison Baselines
 
 We provide the baselines on both the JEE and the KGF tasks. The performance of KGF is evaluated by the link prediction performance of the trained knowledge graph embedding.
-
-**JEE baselines.**
-
-- StagedMaxEnt [\[35\]](#page-12-8) and TwoStageBeam [\[44\]](#page-12-17) are classic pipe-lined framework methods to extract the event factors jointly.
+**JEE baselines.**- StagedMaxEnt [\[35\]](#page-12-8) and TwoStageBeam [\[44\]](#page-12-17) are classic pipe-lined framework methods to extract the event factors jointly.
 - Reranking [\[35\]](#page-12-8) is the statistical state-of-the-art joint event extraction method.
 - Seq2Seq [\[45\]](#page-12-18) is a Joint Event Extraction (JEE) model with the Sequence-to-Sequence framework. Our experiments use the universal Sequence-to-Sequence framework implementation from [\[16\]](#page-11-15).
 - Seq2Seq<sup>∗</sup> [\[45\]](#page-12-18) is the extended Seq2Seq model with the Glove [\[46\]](#page-12-19) pre-trained features.
@@ -343,17 +327,16 @@ We provide the baselines on both the JEE and the KGF tasks. The performance of K
 - Joint3EE [\[47\]](#page-12-20) is an embedding-based method to extract the entities, event triggers and arguments together.
 - Benchmark-based Supervision JEE (BJEE) is the joint model proposed in our paper. Our model supervised by the benchmark entity pairs sampled from a given knowledge graph. It is the explorer process in Sec [3.2.](#page-4-5) The subscripts in the experimental results are the names of the given knowledge graphs.
 
-#### **KGF baselines.**
+#### KGF baselines.
 
 - TransE [\[28\]](#page-12-1) is a classic statistical KGF model. It assumes that a relation of a triple can be represented as the difference between the head and tail entity vectors of that triples. It trains the latent vectors for all the triples based on the aforementioned assumption.
 - ConvE [\[29\]](#page-12-2) is a KGF method to concatenate the vectors for entities to create a matrix to represent the triples. It applies the convolutional neural network to capture the proximity between entities in a triple.
 - Supervisor is the method proposed in our paper. It is the supervisor process in Sec [3.3](#page-4-6) that iteratively enriches its training knowledge triples with the extracted result from the explorer process.
 
-#### **4.3 Evaluation Metrics**
+#### 4.3 Evaluation Metrics
 
 To compare the JEE and KGF tasks, we provide two families of metrics for them respectively.
-
-**Supervisor process (KGF task).** In the KGF task, we apply the MRR, Hit@10, Hit@20 and Hit@30 as the metrics to measure the performance of a model to predict or judge the possibility of a triple.
+**Supervisor process (KGF task).**In the KGF task, we apply the MRR, Hit@10, Hit@20 and Hit@30 as the metrics to measure the performance of a model to predict or judge the possibility of a triple.
 
 The MRR (Mean Reciprocal Rank, MRR) is computed by Equation in our work.
 
@@ -366,10 +349,9 @@ where Tˆ is the testing triple set for the testing process.
 Hit@n is the ratio of the positive triples that contains in the top-n ranked triples (n = 10, 20, 30 in our experiment) by our models towards the testing triple set Tˆ.
 
 Since our system requires to run on the JEE and KGF tasks alternatively, in order to improve the efficiency we presampled the positive and negative triples from the testing triples and wrote them to files. Our evaluation on the performances of the KGF tasks are based on these pre-sampled triples.
+**Explorer process (JEE task).**The performance of JEE is measured by the Precision, Recall, and the F1-scores for the triggers, the entities, and the arguments. The Precision is measured by the ratio of the correct tags output by a model from all the tokens in a corpus and the Recall is the ratio of the predefined tags contains in the output tags of a model.
 
-**Explorer process (JEE task).** The performance of JEE is measured by the Precision, Recall, and the F1-scores for the triggers, the entities, and the arguments. The Precision is measured by the ratio of the correct tags output by a model from all the tokens in a corpus and the Recall is the ratio of the predefined tags contains in the output tags of a model.
-
-#### **4.4 Prototype System and Implementation Details**
+#### 4.4 Prototype System and Implementation Details
 
 We implement a prototype system with the proposed Collaborative Knowledge Graph Fusion framework with Pytorch. This system consists of an explorer process that
 
@@ -413,13 +395,13 @@ performs the Joint-Event-Extraction (JEE) task to extract the triples from a cor
 
 In order to create a fair comparison platform, all the sequence-to-sequence encoders were implemented based on a BERT [\[36\]](#page-12-9) of 768 hidden dimensions. Since our framework requires two alternative processes, we use an Adam optimizer [\[48\]](#page-12-21) with 1e-3 learning rate and 30 epochs to train the explorer process for non-BERT models and all the BERT-based models (include our own) are trained with 2e-5 learning rate and 30 epochs. We apply an Adadelta [\[49\]](#page-12-22) optimizer with 1e-1 learning rate and 20 epochs to train the supervisor process. The rounds of the Collaborative Knowledge Graph Fusion framework are set to 8 for all our models. Both the weights for the benchmark-based supervision and the mention similarity ( α and γ) set to 0.5 in the prototype system. Besides, this prototype system runs on a Linux machine with 4 NVIDIA 2080TI GPUs.
 
-### **4.5 Comparison on the JEE task**
+### 4.5 Comparison on the JEE task
 
 We compare our model with the others on the standard event extraction dataset ACE 2005. The results of the event trigger and argument extractions are shown in the Table [3.](#page-8-0) We observe that, the performances on all related subtasks of our model are superior to the other alternatives. We further compare the performance of the entity mention detection of our model with other methods, where our result also excels the other methods (in Table [4\)](#page-8-1). All these results verify that effectiveness of the proposed supervisorexplorer mechanism boosts the performance of the JEE process. Besides, we find that, due to the sequence-tosequence (seq2seq) uniform framework, the performances on the argument identification and classification tasks of the seq2seq-framework models are significant improved.
 
 To validate the universality of our method, we compare the overall extraction performances for the proposed JEE models guided by FB15K and WN18 knowledge graphs on all mentioned real-world datasets in the Table [5.](#page-9-0) Since many methods do not consider these datasets, we only report the results of our implemented methods in this experiment. We can observe that the proposed method extracts better mentiones (both the event argument and trigger mentions) than the other non-knowledge-base-guided methods. Further, an interesting thing is that, although the CONLL is a Spanish corpus, the performances of the event extraction tasks on it can still be boosted by the proposed framework with the English-written knowledge graphs (FB15K and WN18). The reason is that many proper nouns are shared by both Spanish and English, and the semantic structure of them might also help the event extraction in Spanish. All the results in this experiment verify that the proposed Collaborative Knowledge Graph Fusion framework effectively boosts the performance of the JEE processes.
 
-#### **4.6 Comparison on the KGF task**
+#### 4.6 Comparison on the KGF task
 
 We compare the performance of our method with the other KGF models on the triple prediction task in this experiment. This experiment conducts in the following way. The classic models TransE and ConvE are directly trained on the training set of the knowledge graph FB15K. The supervisor of our model is trained with an enriched training set that is obtained through the proposed Supervisorexplorer Collaborative Learning process. All models are tested with the same testing set of FB15K. The results of the supervisor model are obtained by alternatively run the
 
@@ -467,7 +449,7 @@ TABLE 7 Comparison on the KGF task on the FB15K.
 
 observe that with the enriched triples, the performance of our KGF model is improved. This verifies that the obtained triples from our Collaborative Knowledge Graph Fusion framework bring useful information to predict the potential knowledge triples in a knowledge graph and the quality of the seed knowledge graph is enhanced.
 
-#### **4.7 Ablation Analysis**
+#### 4.7 Ablation Analysis
 
 Since we use BERT [\[36\]](#page-12-9) as the sequence-to-sequence encoder for our model, we compare the experimental results of our models (BJEEwn18 and BJEEf b15k) with the pure BERT [\[36\]](#page-12-9) model (with the same hidden dimensions) in Table [3,](#page-8-0) Table [4](#page-8-1) and Table [5.](#page-9-0) We observe that, with the proposed benchmarkbased supervision mechanism, our results significantly outperform the pure BERT after the iterative learning process between the supervisor and explorer. To further discuss the influence of the iterative process, we also provide an experiment to compare the overall JEE performances with different iterative rounds in Figure [3.](#page-9-2) From this figure, the overall JEE performance is improving with the iterative round increasing. This shows that the iterative process between the explorer and supervisor of our model indeed helps the overall performance of the JEE tasks.
 
@@ -475,7 +457,7 @@ Since we use BERT [\[36\]](#page-12-9) as the sequence-to-sequence encoder for o
 
 <span id="page-9-2"></span>![](_page_9_Figure_13.jpeg)
 
-#### **4.8 Sensitivity Analysis**
+#### 4.8 Sensitivity Analysis
 
 In order to further analyze the details of the proposed Collaborative Knowledge Graph Fusion framework, we provide several experiments to study the performance of our system with different forms of the teacher or explorer processes.
 
@@ -493,7 +475,7 @@ Figure [5](#page-10-1) gives the performances of our system with a fixed explore
 
 The two aforementioned experiments indicates that, the overall performance of a system with the SSL framework might be boosted by improving the explorer process, and the improvement of this overall performance is limit with the same explorer under different supervisors.
 
-#### **4.9 Case study: Translate and Align the Triples**
+#### 4.9 Case study: Translate and Align the Triples
 
 As is introduced in Algorithm [2,](#page-6-1) the explorer process of our system extracts new triples from the given corpus (ACE 2005) and generates a mapper to align the relations of these extracted triples to the relations in the knowledge graph (FB15K). Then, with the aligned relation mapper, our prototype system translates all the extracted triples in the forms of the target knowledge graph. In the last step, the explorer process ranks these translated triples with the trained KGE likelihood function from the supervisor and submits the top triples to the supervisor.
 
@@ -503,31 +485,31 @@ We pick some top-ranked aligned and translated triples from the ACE 2005 corpus 
 
 score provides a possible way for the fully-automatically knowledge graph fusion of the future works.
 
-## <span id="page-10-0"></span>**5 RELATED WORKS**
+## <span id="page-10-0"></span>5 RELATED WORKS
 
 In this section, we survey the related works to ours from the perspectives of joint event extraction, knowledge graph fusion and open information extraction.
 
-#### **5.1 Joint Event Extraction**
+### 5.1 Joint Event Extraction
 
 Joint event extraction (JEE) aims to obtain the named entities, trigger mentions and relations simultaneously from a given corpus. Many recent works apply the pipe-lined method to achieve this task. That is to train a series of classifiers for the aforementioned sub-tasks and classify the mentions in sentences as different triggers at first. Then, with the classified triggers to identify the entity mentions or relations. StagedMaxEnt [\[35\]](#page-12-8) and TwoStageBeam [\[44\]](#page-12-17) are such kind pipe-lined systems. Reranking [\[35\]](#page-12-8) is the state-ofthe-art statistical pipe-lined method for the JEE task.
 
 Most neural network models apply the embedding method to capture the latent semantic relationships between sentence tokens and try to train different classifiers for different sub-tasks. Joint3EE [\[47\]](#page-12-20) is a such model with the multitask learning framework. However, since the separate training for different classifiers increases the sparsity of the efficient samples to each single classifier, the performance improvement of these methods are limited. The sequenceto-sequence methods [\[16\]](#page-11-15) train a neural network model to match a sentence in forms of a token sequence to a tag sequence. This kind of method focuses all sub-tasks to a single classifier and thus further improves the performance with the limited training data.
 
-#### **5.2 Knowledge Graph Fusion**
+#### 5.2 Knowledge Graph Fusion
 
 Knowledge graph fusion [\[18\]](#page-11-17) is a task to fuse a knowledge graph with other data sources. Many KGF systems apply an "enumerate-and-rank" framework [\[26\]](#page-11-25) to complete a knowledge graph. That is, to train a classifier based on a given knowledge graph and identify the possible triples from a series of candidate triples. Usually, such classifer is based on the knowledge graph embedding (KGE) [\[50\]](#page-12-23) method. The TransE [\[28\]](#page-12-1) is a classic KGE method to learn the embedding vectors to represent the triples in a knowledge graph. Recently, many works apply the neural network method to improve the performance of the KGE task. ConvE [\[29\]](#page-12-2) is a neural network KGE model with the convolutional neural network modules. As far as we know, none of the existing methods considers to link the JEE task to the KGE to create an automatically Knowledge Graph Fusion with Open Corpus.
 
-#### **5.3 Open Information Extraction (Open IE)**
+#### 5.3 Open Information Extraction (Open IE)
 
 Open Information Extraction (Open IE) [\[51\]](#page-12-24) is another way to generate structural information from text sources. The traditional methods [\[52\]](#page-12-25), [\[53\]](#page-12-26) get the new relation facts to form a KG based on the hand-crafted patterns. Recent works [\[54\]](#page-12-27), [\[55\]](#page-12-28) apply the neural relation extraction methods to directly generate relational facts from a given corpus and integrate them to an existing KG. During the integration process, these works trained a classifier to judge the correctness of the obtained relations according to the given KG. However, although the current Open IE works extract relational facts (triples) directly from text sources, few of them discuss that how to automatically merge the obtained facts to create a uniform and high-quality KG.
 
-## <span id="page-11-26"></span>**6 CONCLUSION AND FUTURE WORK**
+## <span id="page-11-26"></span>6 CONCLUSION AND FUTURE WORK
 
 This paper has proposed a novel Collaborative Knowledge Graph Fusion framework to integrate the joint event extraction and the knowledge graph fusion tasks together. The implemented prototype system with the proposed framework could both extract the entity and trigger mentions and enrich the extracted mentions to a knowledge graph in the form of the knowledge graph triple (entity-relation-entity). To this end, we propose the benchmark-based supervision mechanism to guide the event extraction process of our system with a given knowledge graph and our system also merges the extracted triples to the target knowledge graph by referring the proposed Translated Relation Alignment Score. We test our prototype system on several real-world corpora and knowledge graphs. The experimental results show that our method improves the performances of both the event extraction and knowledge graph fusion processes after the alternatively training. Moreover, the aligned and translated relations from our system also show good interpretability about the improvements of the performances. Our future work is to align the triples directly with their semantic meanings to further improve the performance of our model.
 
-## **REFERENCES**
+## REFERENCES
 
-- <span id="page-11-0"></span>[1] X. Wang, X. He, Y. Cao, M. Liu, and T. Chua, "KGAT: knowledge graph attention network for recommendation," in *Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, KDD 2019, Anchorage, AK, USA, August 4-8, 2019*, A. Teredesai, V. Kumar, Y. Li, R. Rosales, E. Terzi, and G. Karypis, Eds. ACM, 2019, pp. 950–958.
+- <span id="page-11-0"></span>[1] X. Wang, X. He, Y. Cao, M. Liu, and T. Chua, "KGAT: knowledge graph attention network for recommendation," in*Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, KDD 2019, Anchorage, AK, USA, August 4-8, 2019*, A. Teredesai, V. Kumar, Y. Li, R. Rosales, E. Terzi, and G. Karypis, Eds. ACM, 2019, pp. 950–958.
 - <span id="page-11-1"></span>[2] K. Annervaz, S. B. R. Chowdhury, and A. Dukkipati, "Learning beyond datasets: Knowledge graph augmented neural networks for natural language processing," in *Proceedings of NAACL-HLT*, 2018, pp. 313–322.
 - <span id="page-11-2"></span>[3] A. Talmor and J. Berant, "The web as a knowledge-base for answering complex questions," in *Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, Volume 1 (Long Papers)*, M. A. Walker, H. Ji, and A. Stent, Eds. Association for Computational Linguistics, 2018, pp. 641–651.
 - <span id="page-11-3"></span>[4] S. Hu, L. Zou, J. X. Yu, H. Wang, and D. Zhao, "Answering natural language questions by subgraph matching over knowledge graphs," *IEEE Transactions on Knowledge and Data Engineering*, vol. 30, no. 5, pp. 824–837, 2018.
@@ -588,48 +570,40 @@ This paper has proposed a novel Collaborative Knowledge Graph Fusion framework t
 - <span id="page-12-27"></span>[54] L. Cui, F. Wei, and M. Zhou, "Neural open information extraction," in *Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics, ACL 2018, Melbourne, Australia, July 15- 20, 2018, Volume 2: Short Papers*, I. Gurevych and Y. Miyao, Eds. Association for Computational Linguistics, 2018, pp. 407–413.
 - <span id="page-12-28"></span>[55] B. D. Trisedya, G. Weikum, J. Qi, and R. Zhang, "Neural relation extraction for knowledge base enrichment," in *Proceedings of the 57th Conference of the Association for Computational Linguistics, ACL 2019, Florence, Italy, July 28- August 2, 2019, Volume 1: Long Papers*, A. Korhonen, D. R. Traum, and L. Marquez, Eds. Association for ` Computational Linguistics, 2019, pp. 229–240.
 
-#### IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. 14, NO. 8, AUGUST 2020 14
+### IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. 14, NO. 8, AUGUST 2020 14
 
-![](_page_13_Picture_1.jpeg)
-
-**Yue Wang** received the Ph.D. degree from Sichuan University, Sichuan, China. He was a postdoctor of Peking University, Beijing, China. He is now an Associate Professor at Central University of Finance and Economics, Beijing, China. He has published more than 30 journal and conference papers, including TKDE, WWWJ, Science China: Information Science, IJ-CAI, ICDM, IEEE BigData etc. His current research interests include data mining and machine learning.
+**Yue Wang**received the Ph.D. degree from Sichuan University, Sichuan, China. He was a postdoctor of Peking University, Beijing, China. He is now an Associate Professor at Central University of Finance and Economics, Beijing, China. He has published more than 30 journal and conference papers, including TKDE, WWWJ, Science China: Information Science, IJ-CAI, ICDM, IEEE BigData etc. His current research interests include data mining and machine learning.
 
 ![](_page_13_Picture_3.jpeg)
-
 **Ming Li** is currently a "Shuang Long Scholar" Distinguished Professor at the Key Laboratory of Intelligent Education Technology and Application of Zhejiang Province, Zhejiang Normal University, China. He received his PhD degree from the Department of Computer Science and IT at La Trobe University, Australia. He completed two Postdoctoral Fellowship positions with the Department of Mathematics and Statistics, La Trobe University, Australia, and the Department of Information Technology in Education, South
 
 China Normal University, China, respectively. He has published in toptier journals and conferences, including Artificial Intelligence, IEEE TCYB, IEEE TII, ACM TMOS, NeurIPS, ICML. He, as a leading guest editor, organized a special issue "*Deep Neural Networks for Graphs: Theory, Models, Algorithms and Applications*" in IEEE TNNLS. He is a PC member at ICML, AAAI, NeurIPS, ICLR, AJCAI, KDD, and an Associated Editor of Neural Networks.
 
 ![](_page_13_Picture_6.jpeg)
 
-**Philip S. Yu** received received the B.S. degree in electrical engineering from National Taiwan University, the M.S. and Ph.D. degrees in EE from Stanford University, and the MBA degree from New York University. He is currently a Distinguished Professor of computer science with the University of Illinois at Chicago (UIC), and holds the Wexler Chair in information technology. He has published more than 970 papers in refereed journals and conferences. He holds or has applied for over 300 US patents. He was a
+**Philip S. Yu**received received the B.S. degree in electrical engineering from National Taiwan University, the M.S. and Ph.D. degrees in EE from Stanford University, and the MBA degree from New York University. He is currently a Distinguished Professor of computer science with the University of Illinois at Chicago (UIC), and holds the Wexler Chair in information technology. He has published more than 970 papers in refereed journals and conferences. He holds or has applied for over 300 US patents. He was a
 
 member of the Steering Committee of the IEEE Data Engineering and the IEEE Conference on Data Mining. He is a Fellow of the ACM and the IEEE. He is on the Steering Committee of the ACM Conference on Information and Knowledge Management. He received the ACM SIGKDD 2016 Innovation Award for his influential research and scientific contributions on mining, fusion, and anonymization of big data, the IEEE Computer Society's 2013 Technical Achievement Award for "pioneering and fundamentally innovative contributions to the scalable indexing, querying, searching, mining, and anonymization of big data", and the Research Contributions Award from ICDM 2003, for his pioneering contributions to the field of data mining. He also received the ICDM 2013 10-year Highest-Impact Paper Award, and the EDBT Test of Time Award (2014). He has received several IBM honors, including two IBM Outstanding Innovation Awards, an Outstanding Technical Achievement Award, two Research Division Awards, and the 94th plateau of Invention Achievement Awards. He was the Editor-in-Chief of the IEEE Transactions on Knowledge and Data Engineering (2001-2004).
 
 ![](_page_13_Picture_9.jpeg)
-
-**Edwin R. Hancock** received the B.Sc., Ph.D., and D.Sc. degrees from the University of Durham, Durham, UK. He is currently an Emeritus Professor with the Department of Computer Science, University of York, York, UK. He has published over 200 journal articles and 650 conference papers. Prof. Hancock was a recipient of the Royal Author Biography Society Wolfson Research Merit Award in 2009, the Pattern Recognition Society Medal in 1991, the BMVA Distinguished Fellowship in 2016 and the IAPR
+**Edwin R. Hancock**received the B.Sc., Ph.D., and D.Sc. degrees from the University of Durham, Durham, UK. He is currently an Emeritus Professor with the Department of Computer Science, University of York, York, UK. He has published over 200 journal articles and 650 conference papers. Prof. Hancock was a recipient of the Royal Author Biography Society Wolfson Research Merit Award in 2009, the Pattern Recognition Society Medal in 1991, the BMVA Distinguished Fellowship in 2016 and the IAPR
 
 Piere Devijver Award in 2018. He is a fellow of the IAPR, IEEE, the Royal Astronomical Society, the Institute of Physics, the Institute of Engineering and Technology, and the British Computer Society. He was named Distinguished Fellow by the British Machine Vision Association. He has also received best paper prizes at CAIP 2001, ACCV 2002, ICPR in 2006 and 2018, BMVC 20 07, ICIAP in 2009 and 2015. He is currently Editor-in-Chief of the journal Pattern Recognition, and was founding Editor-in-Chief of IET Computer Vision from 2006 until 2012. He has also been a member of the editorial boards of the journals IEEE Transactions on Pattern Analysis and Machine Intelligence, Pattern Recognition, Computer Vision and Image Understanding, Image and Vision Computing, and the International Journal of Complex Networks. He has been Conference Chair for BMVC in 1994 and Program Chair in 2016, Track Chair for ICPR in 2004 and 2016 and Area Chair at ECCV 2006 and CVPR in 2008 and 2014, and in 1997 established the EMMCVPR workshop series. He was Second Vice President of the International Association of Pattern Recognition (2016-2018). He is currently an IEEE Computer Society Distinguished Visitor (2021-2023).
 
 ![](_page_13_Picture_12.jpeg)
-
-**Yao Wan** received his Ph.D degree from the College of Computer Science, Zhejiang University, Hangzhou, China, in 2019. He is currently a lecturer of the College of Computer Science and Technology, Huazhong University of Science and Technology. He has been a visiting student of University of Technology Sydney and University of Illinois at Chicago in 2016 and 2018, respectively. His research interests lie in the synergy between artificial intelligence and software engineering, especially natural lan-
+**Yao Wan**received his Ph.D degree from the College of Computer Science, Zhejiang University, Hangzhou, China, in 2019. He is currently a lecturer of the College of Computer Science and Technology, Huazhong University of Science and Technology. He has been a visiting student of University of Technology Sydney and University of Illinois at Chicago in 2016 and 2018, respectively. His research interests lie in the synergy between artificial intelligence and software engineering, especially natural lan-
 
 guage processing, programming languages, software engineering, and machine learning.
 
 ![](_page_13_Picture_15.jpeg)
-
-**Lu Bai** received the Ph.D. degree from the University of York, UK, and both the B.Sc. and M.Sc degrees from Macau University of Science and Technology, Macau SAR, China. He was a recipient of the National Award for Outstanding Self-Financed Chinese Students Study Aboard by China Scholarship Council in 2015, and the Best Paper Awards of the International Conferences ICIAP 2015 (Eduardo Caianello Best Student Paper Award) and ICPR 2018. He is now a Professor in School of Artificial Intelligence, Beijing
+**Lu Bai**received the Ph.D. degree from the University of York, UK, and both the B.Sc. and M.Sc degrees from Macau University of Science and Technology, Macau SAR, China. He was a recipient of the National Award for Outstanding Self-Financed Chinese Students Study Aboard by China Scholarship Council in 2015, and the Best Paper Awards of the International Conferences ICIAP 2015 (Eduardo Caianello Best Student Paper Award) and ICPR 2018. He is now a Professor in School of Artificial Intelligence, Beijing
 
 Normal University, Beijing, China, Beijing, China. He has published more than 80 journal and conference papers, including TPAMI, TNNLS, TCYB, PR, ICML, IJCAI, ECML-PKDD, ICDM, etc. His current research interests include pattern recognition, machine learning, and financial data analysis. He is currently a member of the editorial board of the journal Pattern Recognition
 
 ![](_page_13_Picture_18.jpeg)
-
-**Lixin Cui** received the Ph.D. degree from the University of Hong Kong, HKSAR, China, and both the B.Sc. and M.Sc. degrees from Tianjin University, Tianjin, China. She is now an Associate Professor at Central University of Finance and Economics, Beijing, China. She was the recipient of the Outstanding Paper Awards of the International Conference IEEE IEEM 2019, the Best Student Paper Awards of the International Conferences APIEMS 2011 and WCE 2011. She is currently an Associate Editor of Pat-
+**Lixin Cui**received the Ph.D. degree from the University of Hong Kong, HKSAR, China, and both the B.Sc. and M.Sc. degrees from Tianjin University, Tianjin, China. She is now an Associate Professor at Central University of Finance and Economics, Beijing, China. She was the recipient of the Outstanding Paper Awards of the International Conference IEEE IEEM 2019, the Best Student Paper Awards of the International Conferences APIEMS 2011 and WCE 2011. She is currently an Associate Editor of Pat-
 
 tern Recognition Journal. She has published more than 40 journal and conference papers, including TPAMI, TFS, TCYB, TNNLS, PR, WWWJ, IJCAI, ECML-PKDD, etc. Her current research interests include machine learning, deep learning, and their applications in Fintech problems. She is currently a member of the editorial board of the journal Pattern Recognition.
 
 ![](_page_13_Picture_21.jpeg)
-
 **Zhuo Xu** received the B.Sc. degrees from Central University of Finance and Economics. He is now an graduate explorer in Central University of Finance and Economics, Beijing, China.

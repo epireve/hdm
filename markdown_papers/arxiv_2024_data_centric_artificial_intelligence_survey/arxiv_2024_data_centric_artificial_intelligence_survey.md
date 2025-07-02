@@ -1,18 +1,15 @@
+<!-- cite_key: zhanga2014 -->
+
 # A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods
 
 Yang Zhanga,b, Hanlei Jina,b, Dan Menga,b, Jun Wang1a,b, Jinghua Tana,b
 
-*<sup>a</sup>Southwestern University of Finance and Economics, Chengdu, China <sup>b</sup>Email Addresses, wangjun1987@swufe.edu.cn, 595915575@qq.com,*
-
-#### Abstract
+*<sup>a</sup>Southwestern University of Finance and Economics, Chengdu, China <sup>b</sup>Email Addresses, wangjun1987@swufe.edu.cn, 595915575@qq.com,*## Abstract
 
 The exponential growth of textual content on the internet, alongside vast archives of news articles, scientific papers, legal documents, and other domains, has made Automatic Text Summarization (ATS) increasingly important. ATS aims to create concise and accurate summaries, significantly reducing the effort required to process large volumes of text. Originating in the 1950s, ATS has evolved through several technical shifts, moving from statistical models to machine learning and deep learning approaches, and more recently, to pre-trained models. Previous surveys have focused on conventional ATS methods, which are often constrained by predefined generative paradigms. However, the advent of Large Language Models (LLMs) has introduced a paradigm-flexible approach to summarization. With their superior generative capabilities, in-context learning, and few-shot learning abilities, LLMs have demonstrated remarkable improvements in coherence, fluency, and overall summarization quality. In this survey, we provide a comprehensive review of both conventional ATS approaches and the latest advancements in LLM-based methods. Additionally, we propose a novel retrieval algorithm designed to efficiently collect relevant papers, which could be adapted for use in other types of surveys. Our contributions are threefold: (1) offering an up-to-date survey of ATS, (2) reviewing the latest LLM-based summarization methods, and (3) introducing a new retrieval algorithm for paper collection.
+*Keywords:*Automatic Summarization, Large Language Models, Natural Language Processing
 
-*Keywords:*
-
-Automatic Summarization, Large Language Models, Natural Language Processing
-
-#### 1. Introduction
+### Introduction
 
 The exponential growth of the World Wide Web has led to an overwhelming surge in textual data across various domains, including news articles, websites, user reviews, blogs, and social media. Additionally, vast text archives are available in specialized fields such as books, scholarly papers, legal documents, and biomedical records. This rapid expansion of data has far outpaced the ability of individuals to search, read, and process all relevant information. To address this challenge, the field of Automatic Text Summarization (ATS) has emerged, leveraging methods from multiple research areas such as Natural Language Processing (NLP) and Information Retrieval (IR), alongside advanced techniques like Machine Learning (ML), Deep Learning (DL), and Large Language Models (LLMs). ATS enables users to efficiently grasp the key ideas within texts, significantly reducing the time and effort required for document reading and comprehension.
 
@@ -32,9 +29,9 @@ In this study, our objective is to provide a comprehensive survey of ATS techniq
 
 The remainder of this paper is organized as follows: Section [2](#page-1-1) provides an overview of the background of Automatic Text Summarization (ATS), including its categorization and prior surveys. Section [3](#page-3-0) defines key concepts in ATS and outlines the paper collection methodology. Section [4](#page-5-0) details the data acquisition methods used in the ATS pipeline. Summarization modeling approaches are discussed in Section [6.](#page-10-0) Section [7](#page-16-0) describes evaluation metrics for summarization, and Section [8](#page-18-0) highlights ATS-based applications. Finally, Section [9](#page-18-1) explores future directions in ATS.
 
-#### 2. Background of Automatic Text Summarization
+#### Background of Automatic Text Summarization
 
-#### *2.1. History of Automatic Text Summarization*
+####*2.1. History of Automatic Text Summarization*
 
 The field of Automatic Text Summarization (ATS) has evolved significantly over the past several decades. We can structure its development into distinct eras, each marked by advancements in technology and methods.
 
@@ -66,29 +63,21 @@ LLM-based summarization methods can be broadly categorized into three key approa
 
 The field of Automatic Text Summarization (ATS) has undergone a development path across several distinct eras, from early statistical approaches to the advent of Large Language Models (LLMs). Conventional ATS approaches are constrained by a fixed summarization paradigm, either extractive or abstractive. The emergence of LLMs represents a significant breakthrough, offering a flexible, paradigm-agnostic approach that surpasses previous limitations in both extractive and abstractive summarization. As the field continues to evolve, we anticipate that LLM-based methods will not only refine and enhance summarization capabilities but will also pave the way for more adaptive, scalable, and efficient solutions. Future research will likely focus on further improving the interpretability, scalability, and domain adaptability of these models, cementing their role as the foundation for next-generation ATS systems.
 
-#### <span id="page-2-0"></span>*2.2. Categorization of Automatic Text Summarization*
-
-Automatic Text Summarization (ATS) systems are conventionally classified as "Extractive", "Abstractive", and "Hybrid" based on their generation paradigms. Extractive methods focus on selecting original sentences or phrases from the input text to create summaries, while abstractive approaches generate new sentences that convey the same meaning but differ from the original text. Hybrid methods combine both techniques. Conventional methods are inflexible, as they are specifically designed and trained to perform either extraction or abstractive tasks. In contrast, approaches based on Large Language Models (LLMs) unify summarization tasks within a generative framework, where both extractive and abstractive summarization can be achieved by prompting the LLM to directly generate the summarized text. Examples include having LLMs extract key information from the original text[\[67,](#page-21-17) [68\]](#page-21-18), reading the original text and generating a summary[\[69,](#page-21-19) [70\]](#page-21-20), and using hybrid methods[\[71,](#page-21-21) [72\]](#page-21-22).
+#### <span id="page-2-0"></span>*2.2. Categorization of Automatic Text Summarization*Automatic Text Summarization (ATS) systems are conventionally classified as "Extractive", "Abstractive", and "Hybrid" based on their generation paradigms. Extractive methods focus on selecting original sentences or phrases from the input text to create summaries, while abstractive approaches generate new sentences that convey the same meaning but differ from the original text. Hybrid methods combine both techniques. Conventional methods are inflexible, as they are specifically designed and trained to perform either extraction or abstractive tasks. In contrast, approaches based on Large Language Models (LLMs) unify summarization tasks within a generative framework, where both extractive and abstractive summarization can be achieved by prompting the LLM to directly generate the summarized text. Examples include having LLMs extract key information from the original text[\[67,](#page-21-17) [68\]](#page-21-18), reading the original text and generating a summary[\[69,](#page-21-19) [70\]](#page-21-20), and using hybrid methods[\[71,](#page-21-21) [72\]](#page-21-22).
 
 In this survey, we classify Automatic Text Summarization (ATS) systems into two major categories: Conventional ATS Methods and LLM-based ATS Methods. The first category encompasses conventional summarization approaches, including extractive, abstractive, and hybrid methods, which adhere strictly to their designated paradigms. In contrast, the second category includes the latest summarization techniques based on Large Language Models (LLMs), which demonstrate adaptability across various generation paradigms, enabling them to flexibly produce coherent summaries regardless of traditional constraints.
 
-## *2.2.1. Conventional ATS Methods*
-
-ATS methods are conventionally categorized as extractive, abstractive, or hybrid. Extractive methods extract key phrases from the text, while abstractive methods rephrase or synthesize content based on semantic understanding. Hybrid methods combine these approaches. These methods are often inflexible, constrained by their paradigms, and require manual feature engineering and task-specific training.
+##*2.2.1. Conventional ATS Methods*ATS methods are conventionally categorized as extractive, abstractive, or hybrid. Extractive methods extract key phrases from the text, while abstractive methods rephrase or synthesize content based on semantic understanding. Hybrid methods combine these approaches. These methods are often inflexible, constrained by their paradigms, and require manual feature engineering and task-specific training.
 
 - Extractive Methodsselects important sentences or phrases directly from the original document to form a summary. It identifies key components in the text and uses them to create a coherent output [\[73\]](#page-21-23). Techniques include unsupervised methods, such as calculating and ranking the statistical importance of words and sentences, and supervised methods, which train machine learning or deep learning models to classify text as "summary" or "nonsummary."
 - Abstractive Methods generates summaries by producing new sentences that may not appear in the original text. This can be achieved through structured methods, like tree or graph-based models, or generative approaches, such as sequence-to-sequence (seq2seq) architectures using RNNs [\[74\]](#page-21-24) or Transformers [\[75\]](#page-21-25). Pre-trained models often enhance these methods, enabling more flexible and human-like summary generation.
 - Hybrid Methods combines extractive and abstractive approaches. Typically, a hybrid ATS system uses an extractive model to identify key sentences, followed by an abstractive model to refine or rewrite the extracted content. This process can take two forms: a simpler "Extractive to Shallow Abstractive" approach or a more sophisticated "Extractive to Abstractive" approach with a specifically trained abstractive model [\[76\]](#page-21-26).
 
-#### *2.2.2. LLM-based Methods*
-
-Large Language Models (LLMs) differ from conventional ATS methods, which are constrained by pre-designed generation paradigms and limited training data. LLMs are pre-trained on vast datasets using extensive neural architectures, granting them superior generative capabilities. They can produce highly coherent and fluent text and, through in-context and few-shot learning, adaptively generate summaries in both extractive and abstractive styles based on task requirements [\[70,](#page-21-20) [77\]](#page-21-27).
+###*2.2.2. LLM-based Methods*Large Language Models (LLMs) differ from conventional ATS methods, which are constrained by pre-designed generation paradigms and limited training data. LLMs are pre-trained on vast datasets using extensive neural architectures, granting them superior generative capabilities. They can produce highly coherent and fluent text and, through in-context and few-shot learning, adaptively generate summaries in both extractive and abstractive styles based on task requirements [\[70,](#page-21-20) [77\]](#page-21-27).
 
 LLM-based ATS methods face challenges such as accurately following summarization instructions, incorporating task-specific knowledge, and addressing issues like "hallucinations." To improve their performance, three key research directions have emerged: (1) Prompt Engineering, which focuses on designing effective prompts, templates, and examples to guide LLMs in generating accurate and task-specific summaries; (2) Fine-tuning, which adapts LLMs with domain-specific data to enhance their understanding and the relevance of generated summaries; and (3) Knowledge Distillation, which extracts knowledge from LLMs to train smaller, specialized models for specific summarization tasks.
 
-## *2.3. Related Surveys on ATS*
-
-Several ATS surveys have been published over the years, generally adopting a technical categorization approach by classifying ATS methods as either "extractive" or "abstractive", which are summarizaed in Table [1.](#page-4-0) For instance, studies like [\[79,](#page-21-28) [80\]](#page-21-29) focus on "extractive" methods, which select key sentences or paragraphs from the original documents to form concise summaries. These surveys cover techniques such as term frequency, statistical models, and supervised learning approaches. Similarly, [\[12\]](#page-20-1) highlights extractive methods that rely on neural models. In contrast, research like [\[13,](#page-20-2) [14\]](#page-20-3) explores abstractive summarization methods, documenting the transition from early statistical and rule-based techniques to the latest advancements in neural language models. Additionally, [\[76\]](#page-21-26) provides a comprehensive review of both extractive and abstractive approaches.
+##*2.3. Related Surveys on ATS*Several ATS surveys have been published over the years, generally adopting a technical categorization approach by classifying ATS methods as either "extractive" or "abstractive", which are summarizaed in Table [1.](#page-4-0) For instance, studies like [\[79,](#page-21-28) [80\]](#page-21-29) focus on "extractive" methods, which select key sentences or paragraphs from the original documents to form concise summaries. These surveys cover techniques such as term frequency, statistical models, and supervised learning approaches. Similarly, [\[12\]](#page-20-1) highlights extractive methods that rely on neural models. In contrast, research like [\[13,](#page-20-2) [14\]](#page-20-3) explores abstractive summarization methods, documenting the transition from early statistical and rule-based techniques to the latest advancements in neural language models. Additionally, [\[76\]](#page-21-26) provides a comprehensive review of both extractive and abstractive approaches.
 
 Another line of surveys focuses on domain-specific ATS techniques, addressing summarization tasks for different content fields. For instance, survey works such as [\[93,](#page-22-0) [87,](#page-22-1) [94\]](#page-22-2) review specialized methodologies designed for legal document summarization, while [\[91\]](#page-22-3) offers a comprehensive review of methods for summarizing multiple documents. [\[90\]](#page-22-4) focuses on summarizing dialogue and conversational texts, and [\[95\]](#page-22-5) provides an overview of methods for summarizing micro-blog content. Collectively, these surveys contribute to a nuanced understanding of ATS by illustrating how summarization techniques adapt to different content domains.
 
@@ -96,11 +85,7 @@ In addition to summarizing conventional extractive and abstractive methods, this
 
 ## <span id="page-3-0"></span>3. Definition and Literature Collection Methodology for Automatic Text Summarization
 
-#### *3.1. Definitions for Automatic Text Summarization*
-
-Definition 1 (Text Summarization). *Text summarization can be defined as a mapping function*
-
-$$
+###*3.1. Definitions for Automatic Text Summarization*Definition 1 (Text Summarization).*Text summarization can be defined as a mapping function*$$
 f_{\theta}: T \to S,\tag{1}
 $$
 
@@ -132,34 +117,16 @@ $$
 | [90]            | Domain-Specific | Dialogue            | Do Not Apply                                                             | 69       | 2022 |
 | [91]            | Domain-Specific | Multi-Document      | Deep Language Model;Graph;Machine Learning;Neural Network                | 93       | 2022 |
 | [92]            | Domain-Specific | Medical             | Do Not Apply                                                             | 284      | 2022 |
-
-*where f*θ *is the summarization method with trainable parameter* θ*, T is the set of tokens in the input text and S* <sup>⊆</sup> *T (for extractive summarization) or S is a newly generated sequence (for abstractive summarization). The objective is to minimize the information loss*
-
-$$
+*where f*θ *is the summarization method with trainable parameter* θ*, T is the set of tokens in the input text and S*<sup>⊆</sup>*T (for extractive summarization) or S is a newly generated sequence (for abstractive summarization). The objective is to minimize the information loss*$$
 \mathcal{L}(\theta) = dist(T, f_{\theta}(T)), \tag{2}
 $$
-
-*subject to the constraint that S is significantly smaller in length than T, while preserving the semantic and syntactic integrity of the original text.*
-
-Considering that Automatic Text Summarization (ATS) techniques involve a series of intermediate steps to achieve the final objective, i.e., generating a concise and informative summary. We define the "ATS Process" as follows:
+*subject to the constraint that S is significantly smaller in length than T, while preserving the semantic and syntactic integrity of the original text.*Considering that Automatic Text Summarization (ATS) techniques involve a series of intermediate steps to achieve the final objective, i.e., generating a concise and informative summary. We define the "ATS Process" as follows:
 
 ## Definition 2 (Automatic Text Summarization (ATS) Process).
-
-*The process of automatic text summarization can be formalized as a sequence of operations on the input text, denoted by a tuple*
-
-$$
+*The process of automatic text summarization can be formalized as a sequence of operations on the input text, denoted by a tuple*$$
 P=(D,M,G,E),
 $$
-
-*where:*
-
-- *D represents data preprocessing, which applies transformations* ϕ(*T*) *such as tokenization or cleaning on the input T.*
-- *M is the modeling step, where a function f*θ(*T*) *is trained or applied to produce a compressed representation h*(*T*)*, where h*(*T*) ≪ *T.*
-- *G is the generation step, applying the function g*(*h*(*T*)) *to produce the summary S , either by extracting or generating a subset of T.*
-
-• *E is the evaluation phase, using metrics Em*(*S*, *<sup>S</sup>* ∗ ) *to measure how well the generated summary S matches the ground truth S* <sup>∗</sup> *, with commonly used metrics being ROUGE and BLEU.*
-
-## *3.2. Process of Automatic Text Summarization*
+*where:*-*D represents data preprocessing, which applies transformations* ϕ(*T*) *such as tokenization or cleaning on the input T.*-*M is the modeling step, where a function f*θ(*T*) *is trained or applied to produce a compressed representation h*(*T*)*, where h*(*T*) ≪ *T.*-*G is the generation step, applying the function g*(*h*(*T*)) *to produce the summary S , either by extracting or generating a subset of T.*•*E is the evaluation phase, using metrics Em*(*S*, *<sup>S</sup>*∗ )*to measure how well the generated summary S matches the ground truth S*<sup>∗</sup>*, with commonly used metrics being ROUGE and BLEU.*##*3.2. Process of Automatic Text Summarization*
 
 Building upon the definition of ATS, we delineate the intermediate steps necessary to achieve the goal of abstraction generation. The ATS process is illustrated in Figure [1,](#page-5-1) and its constituent steps are defined as follows:
 
@@ -175,15 +142,13 @@ modeling in ATS is inherently an NLP task, typically commencing with language mo
 
 4. Evaluation Metrics. Evaluation metrics of ATS to judge how well ATS works. Objective, comprehensive, and accurate evaluation metrics can lead to the recognition and acceptance of research on ATS. Refer to Section [7](#page-16-0) for details.
 
-#### <span id="page-5-2"></span>*3.3. Methodology for Crawling ATS Papers*
-
-We developed an automated crawling algorithm (Algorithm [1\)](#page-6-0) to efficiently collect papers relevant to ATS, addressing the limitations of manual keyword-based searches. By integrating web crawling and Large Language Model (LLM)-based filtering, the algorithm enhances both the accuracy and comprehensiveness of the retrieval process.
+### <span id="page-5-2"></span>*3.3. Methodology for Crawling ATS Papers*We developed an automated crawling algorithm (Algorithm [1\)](#page-6-0) to efficiently collect papers relevant to ATS, addressing the limitations of manual keyword-based searches. By integrating web crawling and Large Language Model (LLM)-based filtering, the algorithm enhances both the accuracy and comprehensiveness of the retrieval process.
 
 Manual selection of ATS papers from Google Scholar poses two key challenges. First, relevant papers may use diverse and non-standard keywords such as "summarization," "text condensation," or "summary generation," making manual searches timeconsuming. Second, some papers relevant to ATS may lack explicit keywords in their titles but include them in their abstracts, as seen in examples like "ChatGPT Chemistry Assistant for Text Mining and the Prediction of MOF Synthesis" [\[96\]](#page-22-13), where "summarization" appears only in the abstract. Similar issues occur with other works [\[97,](#page-22-14) [98\]](#page-22-15).
 
 To this end, we designed a three-stage algorithm that automates the collection, filtering, and categorization of ATS papers. The process leverages synonym-enhanced keyword searches and analyzes both titles and abstracts for relevance, which are as following:
 
-1. Paper Searching: Crawl papers from Google Scholar using a diverse set of synonym-enhanced keywords (e.g., "summarization," "text condensation"). The results are deduplicated and preprocessed to create an initial dataset *D*.
+1. Paper Searching: Crawl papers from Google Scholar using a diverse set of synonym-enhanced keywords (e.g., "summarization," "text condensation"). The results are deduplicated and preprocessed to create an initial dataset*D*.
 
 - 2. Relevance Filtering: Retrieve abstracts to filter out irrelevant papers. Since Google Scholar often provides incomplete abstracts, the algorithm additionally retrieves their publication URLs (*pub url*) to scrape full abstracts. For URLs pointing to PDFs, text is extracted directly from the files using PyPDF.
 - 3. Categorization Using LLMs: Leverage LLaMa-3-Instruct 8B model with specifically designed few-shot examples to classify the crawled papers based on their titles and abstracts into predefined categories (e.g., datasets, methodologies, applications). The outputs are manually reviewed to ensure accuracy.
@@ -196,9 +161,7 @@ This section introduces two types of datasets for ATS: (1) open-source datasets 
 
 Open-source datasets are mostly adopted for general ATS tasks but often lack suitability for domain-specific applications, as noted in studies [\[99,](#page-22-16) [100,](#page-22-17) [101\]](#page-22-18). To address these gaps, we outline methodologies for creating newly custom datasets, focusing on leveraging Large Language Models (LLMs). LLMs enable scalable and efficient generation of domain-specific data, reducing manual effort and enhancing dataset diversity.
 
-#### *4.1. Open-source Datasets*
-
-We collected datasets in the ATS domain that are publicly accessible online or via email, referred to as *Open-Source Datasets*. We adopted the automated retrieval algorithm proposed in Sec. [3.3](#page-5-2) to retrieve the ATS datasets, by using ATS dataset related queries. This process also consists of three main steps:
+#### *4.1. Open-source Datasets*We collected datasets in the ATS domain that are publicly accessible online or via email, referred to as*Open-Source Datasets*. We adopted the automated retrieval algorithm proposed in Sec. [3.3](#page-5-2) to retrieve the ATS datasets, by using ATS dataset related queries. This process also consists of three main steps:
 
 1. Dataset Searching: Using the keyword "summarization dataset," we searched Google Scholar for papers and associated metadata, sorted by relevance.
 
@@ -247,21 +210,19 @@ Given the large number of ATS datasets available, we organized them into two gro
 
 than 100 citations, providing additional resources for specific or emerging use cases. Their basic information is summarized in Table [3.](#page-9-0)
 
-## *4.1.1. Core Datasets*
+## *4.1.1. Core Datasets*The table of core datasets includes details on the publish year, size (number of total pairs including train, validation and test), domain, language, along with their public urls for download. In the following segments, we overview the datasets listed in Table [2.](#page-7-0) The following is a brief introduction to each of the core datasets.
 
-The table of core datasets includes details on the publish year, size (number of total pairs including train, validation and test), domain, language, along with their public urls for download. In the following segments, we overview the datasets listed in Table [2.](#page-7-0) The following is a brief introduction to each of the core datasets.
-
-Gigaword[\[102\]](#page-22-19) is a news summarization dataset from the Linguistic Data Consortium (LDC), sourced from seven media outlets, including *Agence France-Presse*, *Associated Press*, *Bloomberg*, and *Xinhua News Agency*. With nearly 10 million English news documents and headline-based summaries, it is well-suited for training deep neural networks. The dataset directly uses headlines as summaries[\[76\]](#page-21-26).
+Gigaword[\[102\]](#page-22-19) is a news summarization dataset from the Linguistic Data Consortium (LDC), sourced from seven media outlets, including*Agence France-Presse*, *Associated Press*, *Bloomberg*, and *Xinhua News Agency*. With nearly 10 million English news documents and headline-based summaries, it is well-suited for training deep neural networks. The dataset directly uses headlines as summaries[\[76\]](#page-21-26).
 
 DUC[\[103\]](#page-22-20) is a series of high-quality datasets from the Document Understanding Conferences (2001–2007), containing 1600 news document-summary pairs. Summaries are available in three forms: manually created, automatically generated baselines, and algorithm-generated submissions. Due to their small size and quality, DUC datasets are commonly used for testing[\[14\]](#page-20-3).
 
-CNN & Daily Mail[\[104\]](#page-22-21) is a news dataset extracted from *CNN* and *Daily Mail*, featuring 286,817 training, 13,368 validation, and 11,487 test pairs. It includes news body contents paired with editor-created highlights as summaries. Training documents average 766 words across 29.74 sentences, with summaries averaging 53 words and 3.72 sentences. The dataset has two versions: non-anonymous (real entity names) and anonymous (entity names removed).
+CNN & Daily Mail[\[104\]](#page-22-21) is a news dataset extracted from *CNN*and*Daily Mail*, featuring 286,817 training, 13,368 validation, and 11,487 test pairs. It includes news body contents paired with editor-created highlights as summaries. Training documents average 766 words across 29.74 sentences, with summaries averaging 53 words and 3.72 sentences. The dataset has two versions: non-anonymous (real entity names) and anonymous (entity names removed).
 
-LCSTS[\[105\]](#page-22-22) contains over 2 million Chinese micro-blogs from domains inlcude politics, economics, and entertainment, sourced from *Sina Weibo's* official accounts such as People's Daily, the Ministry of National Defense, etc.. Summaries are manually annotated, with rules applied to ensure quality (e.g., accounts with over 1 million followers). The dataset is divided into three parts: a large master dataset, a high-quality subset with manual scoring, and a refined test set.
+LCSTS[\[105\]](#page-22-22) contains over 2 million Chinese micro-blogs from domains inlcude politics, economics, and entertainment, sourced from *Sina Weibo's*official accounts such as People's Daily, the Ministry of National Defense, etc.. Summaries are manually annotated, with rules applied to ensure quality (e.g., accounts with over 1 million followers). The dataset is divided into three parts: a large master dataset, a high-quality subset with manual scoring, and a refined test set.
 
-ArXiv, PubMed[\[106\]](#page-22-23) are academic datasets with over 300,000 papers from *arXiv.org* and *PubMed.com*, using abstracts as summaries. Pre-processing includes filtering out excessively long or short documents, removing figures and tables, normalizing math formulas and citations, and retaining only relevant sections. For arXiv, LATEX files are converted to plain text with Pandoc to preserve discourse structure.
+ArXiv, PubMed[\[106\]](#page-22-23) are academic datasets with over 300,000 papers from*arXiv.org*and*PubMed.com*, using abstracts as summaries. Pre-processing includes filtering out excessively long or short documents, removing figures and tables, normalizing math formulas and citations, and retaining only relevant sections. For arXiv, LATEX files are converted to plain text with Pandoc to preserve discourse structure.
 
-XSum[\[107\]](#page-22-24) is a dataset of 226,711 *BBC* news articles (2010–2017) with single-sentence professionally written summaries, often authored by the article's writer. The dataset spans diverse domains, including politics, sports, business, technology, and entertainment.
+XSum[\[107\]](#page-22-24) is a dataset of 226,711 *BBC*news articles (2010–2017) with single-sentence professionally written summaries, often authored by the article's writer. The dataset spans diverse domains, including politics, sports, business, technology, and entertainment.
 
 NEWSROOM[\[108\]](#page-22-25) contains 1.3 million articles and humanwritten summaries from 38 major news outlets (1998–2017). It features diverse summarization styles, combining abstractive
 
@@ -293,9 +254,9 @@ NEWSROOM[\[108\]](#page-22-25) contains 1.3 million articles and humanwritten su
 
 and extractive approaches, crafted by newsroom authors and editors across various domains like news, sports, and finance.
 
-WikiHow[\[109\]](#page-22-26) comprises over 230,000 article-summary pairs from the *WikiHow* knowledge base, covering procedural tasks across various topics. Summaries are formed by concatenating bold introductory lines for each step, while detailed descriptions form the source article. Articles are categorized as singlemethod tasks or multi-method tasks.
+WikiHow[\[109\]](#page-22-26) comprises over 230,000 article-summary pairs from the*WikiHow*knowledge base, covering procedural tasks across various topics. Summaries are formed by concatenating bold introductory lines for each step, while detailed descriptions form the source article. Articles are categorized as singlemethod tasks or multi-method tasks.
 
-Multi-News[\[110\]](#page-22-27) contains 56,216 article-summary pairs from *newser.com*, with professionally written summaries that include links to cited articles. The summaries are longer (averaging 260 words), have a lower compression rate, and less variability in copied words, aiding models in generating fluent and coherent text.
+Multi-News[\[110\]](#page-22-27) contains 56,216 article-summary pairs from*newser.com*, with professionally written summaries that include links to cited articles. The summaries are longer (averaging 260 words), have a lower compression rate, and less variability in copied words, aiding models in generating fluent and coherent text.
 
 SAMSum[\[111\]](#page-22-28) is a dataset of over 16,000 human-created messenger-style conversations with annotated summaries. Designed by linguists to reflect real-life chat interactions, it emphasizes the complexity of dialogue summarization compared to news articles, requiring specialized models and evaluation metrics.
 
@@ -321,15 +282,11 @@ Booksum[\[120\]](#page-23-2) is a long-form narrative summarization dataset feat
 
 Summscreen[\[121\]](#page-23-3) is a screenplay summarization dataset with 29,186 TV episode transcripts and human-written recaps from various genres. It includes 6,683 episodes from Forever-Dreaming and 22,503 from TVMegaSite. Challenges include indirect plot expression and non-plot content. The dataset was filtered for character overlap and transcript length, split into train/dev/test sets, and features entity-centric evaluation metrics to reflect characters' key role in TV series.
 
-#### *4.1.2. Supplementary Datasets*
-
-Supplementary datasets refer to those cited fewer than 100 times. Although less frequently used than conventional datasets, they offer unique diversity and can serve as valuable resources for addressing specific challenges in the ATS task. The information is presented in Table [3.](#page-9-0)
+### *4.1.2. Supplementary Datasets*Supplementary datasets refer to those cited fewer than 100 times. Although less frequently used than conventional datasets, they offer unique diversity and can serve as valuable resources for addressing specific challenges in the ATS task. The information is presented in Table [3.](#page-9-0)
 
 As summarized in Tables [2](#page-7-0) and [3,](#page-9-0) current summarization datasets offer several strengths: they include large-scale datasets for training deep neural networks and smaller, refined datasets for evaluation, are predominantly open source and easily accessible, and primarily focus on the news domain. However, there is a gap in high-quality datasets for other domains, limiting research and practical applications in specialized areas such as financial earnings releases [\[76\]](#page-21-26). To address this need, we propose methodologies for constructing customized datasets, which are detailed in the following section.
 
-#### *4.2. Techniques to Build New Datasets*
-
-Building new summarization datasets involves two main steps: 1) crawling or fetching texts, and 2) obtaining summaries. While manual annotation is reliable, it is time-consuming and laborintensive[\[103,](#page-22-20) [110,](#page-22-27) [113\]](#page-22-30). Recently, automatic annotation techniques, including rule-based and LLM-based methods, have gained popularity for balancing accuracy and efficiency.
+####*4.2. Techniques to Build New Datasets*Building new summarization datasets involves two main steps: 1) crawling or fetching texts, and 2) obtaining summaries. While manual annotation is reliable, it is time-consuming and laborintensive[\[103,](#page-22-20) [110,](#page-22-27) [113\]](#page-22-30). Recently, automatic annotation techniques, including rule-based and LLM-based methods, have gained popularity for balancing accuracy and efficiency.
 
 Rule-based annotation: Rule-based annotation uses specific portions of the text, such as titles, headlines[\[104\]](#page-22-21), or the first few sentences (e.g., LEAD-3[\[164\]](#page-24-0)), as summaries. News articles, structured in the journalistic style, often start with key information, making their opening sentences suitable for summaries[\[107\]](#page-22-24). Similarly, academic papers have abstract sections that naturally serve as summaries[\[106,](#page-22-23) [132\]](#page-23-4). However, rule-based summaries can be imprecise and overly condensed, and texts in other domains often lack a structured format, making rule-based annotation challenging. In such cases, leveraging LLMs alongside manual efforts offers greater efficiency.
 
@@ -341,9 +298,7 @@ Generating summaries directly via LLMs can encounter hallucination issues, resul
 
 After collecting the data, the next step in the process is preprocessing. Pre-processing is the process of transforming raw text into structured format data. This section describes common methods and powerful tools.
 
-#### *5.1. Pre-processing methods*
-
-Noise Removal: eliminates unnecessary parts of the input text, such as HTML tags in crawled text, extra spaces, blank <span id="page-9-0"></span>Table 3: Supplementary datasets with fewer than 100 citations in ATS. The table is formatted in the same manner as the core dataset table, exhibiting diversity and serving as a valuable complement to ATS datasets.
+####*5.1. Pre-processing methods*Noise Removal: eliminates unnecessary parts of the input text, such as HTML tags in crawled text, extra spaces, blank <span id="page-9-0"></span>Table 3: Supplementary datasets with fewer than 100 citations in ATS. The table is formatted in the same manner as the core dataset table, exhibiting diversity and serving as a valuable complement to ATS datasets.
 
 | Ref.  | Name           | Year | Size         | Domain            | Language             | URL                                                             |
 |-------|----------------|------|--------------|-------------------|----------------------|-----------------------------------------------------------------|
@@ -402,9 +357,7 @@ Sentence Segmentation: splits texts into sentences. The simplest method involves
 
 Word Tokenization: divides words into subwords. Byte Pair Encoding (BPE) [\[184\]](#page-25-14) stands out as a simple and highly effective method for subword segmentation. It recursively maps common byte pairs to new ones and subsequently reconstructs the original text using the mapping table. Wordpiece [\[185\]](#page-25-15) selects the new word unit from all possible options, choosing the one that maximally enhances the likelihood on the training data when incorporated into the model.
 
-#### *5.2. Pre-process Toolkits*
-
-The primary tools for English pre-processing with Python are NLTK[1](#page-10-1) and TextBlob[2](#page-10-2) . NLTK (Natural Language Toolkit) stands out as a leading platform for developing Python programs that handle human language data. It offers a suite of text processing libraries covering classification, tokenization, stemming, tagging, parsing, and semantic reasoning. NLTK also provides wrappers for industrial-strength NLP libraries and maintains an active discussion forum. TextBlob, built on NLTK, offers a simplified API for various NLP tasks, including partof-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and more. While TextBlob is applicationoriented and user-friendly, it sacrifices some flexibility compared to NLTK. For other languages, Jieba[3](#page-10-3) and HanLP[4](#page-10-4) provide effective solutions for Chinese language. Jieba is a relatively lightweight tool with its primary function being word segmentation, capable of fulfilling most Chinese word splitting needs. On the other hand, HanLP[\[186\]](#page-25-16) serves as an NLP toolkit built on PyTorch and TensorFlow, contributing to advancing state-of-the-art deep learning techniques in both academia and industry. It has demonstrated notable results in entity segmentation.
+####*5.2. Pre-process Toolkits*The primary tools for English pre-processing with Python are NLTK[1](#page-10-1) and TextBlob[2](#page-10-2) . NLTK (Natural Language Toolkit) stands out as a leading platform for developing Python programs that handle human language data. It offers a suite of text processing libraries covering classification, tokenization, stemming, tagging, parsing, and semantic reasoning. NLTK also provides wrappers for industrial-strength NLP libraries and maintains an active discussion forum. TextBlob, built on NLTK, offers a simplified API for various NLP tasks, including partof-speech tagging, noun phrase extraction, sentiment analysis, classification, translation, and more. While TextBlob is applicationoriented and user-friendly, it sacrifices some flexibility compared to NLTK. For other languages, Jieba[3](#page-10-3) and HanLP[4](#page-10-4) provide effective solutions for Chinese language. Jieba is a relatively lightweight tool with its primary function being word segmentation, capable of fulfilling most Chinese word splitting needs. On the other hand, HanLP[\[186\]](#page-25-16) serves as an NLP toolkit built on PyTorch and TensorFlow, contributing to advancing state-of-the-art deep learning techniques in both academia and industry. It has demonstrated notable results in entity segmentation.
 
 Furthermore, diverse models require distinct pre-processing methods as a prerequisite. In earlier models, it was imperative to design and implement an extensive set of rules to eliminate text that posed processing challenges for the model. Technological advancements have led to a noticeable reduction in the labor intensity associated with pre-processing. However, the need for pre-processing remains an indispensable component of the process, albeit with diminished intensity.
 
@@ -412,13 +365,9 @@ Furthermore, diverse models require distinct pre-processing methods as a prerequ
 
 We classify summarization methods into two categories: Conventional ATS Methods, which encompass traditional approaches like extractive and abstractive models. These methods are typically limited to a specific generation paradigm, i.e., either extractive or abstractive. In contrast, with the advancement of large language models (LLMs), we collect the ATS paper based LLM, as the category of LLM-based Methods, which are more flexible and not confined to a pre-designed generative paradigm.
 
-#### *6.1. Conventional ATS Methods*
+####*6.1. Conventional ATS Methods*As shown in section [2.2,](#page-2-0) conventional ATS methods are typically classified into extractive, abstractive, and hybrid approaches. Figure ?? provides a detailed categorization of these methods.
 
-As shown in section [2.2,](#page-2-0) conventional ATS methods are typically classified into extractive, abstractive, and hybrid approaches. Figure ?? provides a detailed categorization of these methods.
-
-#### *6.1.1. Extractive Summarization*
-
-Extractive summarization selects sentences from the original text through three main steps: calculating sentence importance, sorting sentences based on their importance, and selecting the top-k sentences to form the summary. Sentence importance can be calculated using unsupervised or supervised methods. Extractive ATS based on unsupervised approaches rely on algorithms such as statistical, clustering, and topic-based techniques, offering high performance with low resource requirements, which will be introduced in detail below:
+####*6.1.1. Extractive Summarization*Extractive summarization selects sentences from the original text through three main steps: calculating sentence importance, sorting sentences based on their importance, and selecting the top-k sentences to form the summary. Sentence importance can be calculated using unsupervised or supervised methods. Extractive ATS based on unsupervised approaches rely on algorithms such as statistical, clustering, and topic-based techniques, offering high performance with low resource requirements, which will be introduced in detail below:
 
 Statistical-based Models: Statistical-based models define importance as "most frequent" or "most likely to occur" [\[79\]](#page-21-28), such as selecting sentences with the highest word frequency. Methods like TextRank [\[187\]](#page-25-17) extract keywords and sentences by estimating similarity between phrases based on shared lexical tokens, while LexRank [\[188\]](#page-25-18) uses a graph-based approach with intra-sentence cosine similarity to determine sentence importance. Another method [\[189\]](#page-25-19) scores sentences based on the number of concepts they contain. These models are computationally efficient and require no extra linguistic knowledge, making them widely used. However, they are prone to interference from irrelevant words, leading to high-scoring but unimportant sentences.
 
@@ -479,9 +428,7 @@ DL-based Models: Deep learning models, particularly pretrained ones, offer rich 
 
 Pros and Cons: Extractive summarization models excel at capturing precise terminologies and require less training data, making them accurate, cost-effective, and efficient. However, they differ from human-generated summaries in expressive quality, often producing outputs with redundancy, excessive length, or contextual inconsistencies, lacking the nuance of humancrafted summaries.
 
-#### *6.1.2. Abstractive Summarization*
-
-Abstractive summarization models generate summaries by producing sentences distinct from the original text. This can be achieved through text structuring and combining or via a generative models that being trained on predicting the next token. Abstractive summarization can be classified as either "rule-based" or "generative" methods. The The Rule-based Summarization methods will be introduced as the following:
+####*6.1.2. Abstractive Summarization*Abstractive summarization models generate summaries by producing sentences distinct from the original text. This can be achieved through text structuring and combining or via a generative models that being trained on predicting the next token. Abstractive summarization can be classified as either "rule-based" or "generative" methods. The The Rule-based Summarization methods will be introduced as the following:
 
 Tree-based Models: Tree-based models use syntactic trees to structure input text, identify key sentences, and integrate them into coherent summaries. [\[199\]](#page-25-29) proposed BASTS, which uses a dominator tree to split ASTs into blocks, modeled with Tree-LSTMs for improved code summarization. [\[200\]](#page-25-30) introduced AST-Trans, leveraging ancestor-descendant and sibling relationships to apply tree-structured attention for efficient encoding. These methods reduce redundancy but may miss important semantic connections by not fully considering broader context.
 
@@ -499,7 +446,7 @@ and Pegasus, are designed for rapid deployment in tasks like text summarization 
 
 Pros and Cons: Abstractive summarization models generate summaries resembling human-written text, offering greater flexibility and compression compared to extractive methods. However, they are more complex to develop, requiring highquality datasets, significant computational resources, and extended training time, demanding a balance between cost and efficiency.
 
-## *6.1.3. Hybrid Summarization*
+##*6.1.3. Hybrid Summarization*
 
 Hybrid summarization combines extractive and abstractive methods, typically by integrating an extractive model with either a shallow abstractive model (Extractive to Shallow Abstractive) or a fully designed abstractive model (Extractive to Abstractive).
 
@@ -509,9 +456,7 @@ Extractive to Abstractive: Extractive to Abstractive (E2A) methods use extractiv
 
 Pros and Cons: The hybrid ATS model aims to combine the strengths of extractive and abstractive methods to outperform both. However, in practice, the sparsity of extracted summaries often leads to lower-quality outputs compared to purely abstractive approaches.
 
-#### <span id="page-12-0"></span>*6.2. LLM-based Methods*
-
-Large Language Models (LLMs), with billions of parameters, are central to natural language processing due to their ex-
+### <span id="page-12-0"></span>*6.2. LLM-based Methods*Large Language Models (LLMs), with billions of parameters, are central to natural language processing due to their ex-
 
 <span id="page-13-0"></span>
 
@@ -558,18 +503,16 @@ In ATS, LLMs have achieved results comparable to or exceeding human performance.
 
 OpenAI's adaptation of GPT-3 using reinforcement learning marked a breakthrough in LLM-based summarization [\[269\]](#page-28-8). Subsequent research has further advanced the field [\[270\]](#page-28-9). LLMbased methods can be generally categorized as: 1) prompt engineering, 2) fine-tuning, and 3) knowledge distillation. The advantages and limitations of these methods are summarized in Table [6.](#page-14-0)
 
-#### *6.2.1. Prompt Engineering for LLM-based ATS*
-
-Prompt engineering involves strategically designing prompts to maximize the capabilities of Large Language Models (LLMs) to implement specific tasks. The process can be formalized as:
+####*6.2.1. Prompt Engineering for LLM-based ATS*Prompt engineering involves strategically designing prompts to maximize the capabilities of Large Language Models (LLMs) to implement specific tasks. The process can be formalized as:
 
 $$
 S = LLM_{\theta}(G(p) + x)
 $$
  (3)
 
-where, *G* refines the initial prompt *p* into an optimized form through methods such as human design, supplementary retrieval, or generation by LLMs. The refined prompt is then combined with raw input text *x* to leverage the knowledge encoded in the
+where,*G*refines the initial prompt*p*into an optimized form through methods such as human design, supplementary retrieval, or generation by LLMs. The refined prompt is then combined with raw input text*x*to leverage the knowledge encoded in the
 
-LLM, with θ representing the model's parameters. This approach improves the interpretation of input text [\[15\]](#page-20-4), resulting in higher-quality summaries *S* .
+LLM, with θ representing the model's parameters. This approach improves the interpretation of input text [\[15\]](#page-20-4), resulting in higher-quality summaries*S* .
 
 The key advantage of prompt engineering is its efficiency, as it minimizes the need for extensive training and can operate effectively with a small set of examples [\[16\]](#page-20-5). This study examines various implementations of prompt engineering in ATS, focusing on techniques like Template Engineering, Chain of Thought (CoT), Agent Interactions, and Retrieval-Augmented Generation (RAG).
 
@@ -585,11 +528,9 @@ Chain of Thought: Chain of Thought (CoT) refers to a series of intermediate reas
 
 Agent Interactions: Agents are artificial entities that sense their environment, make decisions, and take actions [\[273\]](#page-28-12). In ATS, [\[251\]](#page-27-16) proposed a tri-agent pipeline (generator, instructor, editor) to customize LLM-generated summaries to better meet user expectations. [\[101\]](#page-22-18) used agents to address dialogue summarization challenges like lengthy inputs, content verification, limited annotated data, and evaluation, with GPT-3 serving as an offline data annotator to handle dataset scarcity and privacy constraints. [\[252\]](#page-27-17) employed clustering-based agents to improve intent detection by abstracting key elements while removing irrelevant information. Similarly, [\[253\]](#page-27-18) introduced ChatCite, an LLM agent that extracts key elements from literature and generates summaries using a Reflective Incremental Mechanism for detailed summarization.
 
-Retrieval-Augmented Generation for ATS: Retrieval-Augmented Generation (RAG) combines information retrieval with neural text generation, enabling models to generate text using both trained parameters and retrieved passages [\[274\]](#page-28-13). In ATS, RAG enhances summarization by supplementing external knowledge. [\[223\]](#page-26-18) introduced Graph RAG, which uses a graph-based index to generate community summaries for comprehensive answers, improving performance on large datasets. Similarly, [\[254\]](#page-27-19) proposed REDCODER to retrieve relevant code or summaries for code generation, and [\[249\]](#page-27-14) developed a *retrieve-then-summarize* method using templates to summarize retrieved information. In the medical domain, [\[255\]](#page-27-20) proposed a hybrid extractive-abstractive summarization method for processing large unstructured text, while [\[256\]](#page-27-21) introduced LogicSumm and SummRAG to enhance LLM robustness in RAG-based scenarios. To reduce token consumption, [\[238\]](#page-27-3) fine-tuned a T5 model to summarize and compress texts, and [\[239\]](#page-27-4) designed extractive and abstractive compressors to improve task performance and selectively omit irrelevant content.
+Retrieval-Augmented Generation for ATS: Retrieval-Augmented Generation (RAG) combines information retrieval with neural text generation, enabling models to generate text using both trained parameters and retrieved passages [\[274\]](#page-28-13). In ATS, RAG enhances summarization by supplementing external knowledge. [\[223\]](#page-26-18) introduced Graph RAG, which uses a graph-based index to generate community summaries for comprehensive answers, improving performance on large datasets. Similarly, [\[254\]](#page-27-19) proposed REDCODER to retrieve relevant code or summaries for code generation, and [\[249\]](#page-27-14) developed a *retrieve-then-summarize*method using templates to summarize retrieved information. In the medical domain, [\[255\]](#page-27-20) proposed a hybrid extractive-abstractive summarization method for processing large unstructured text, while [\[256\]](#page-27-21) introduced LogicSumm and SummRAG to enhance LLM robustness in RAG-based scenarios. To reduce token consumption, [\[238\]](#page-27-3) fine-tuned a T5 model to summarize and compress texts, and [\[239\]](#page-27-4) designed extractive and abstractive compressors to improve task performance and selectively omit irrelevant content.
 
-#### *6.2.2. Fine-tuning LLMs for ATS*
-
-Given the massive number of parameters in LLMs, training the entire model requires substantial computational resources. To address this, parameter-efficient tuning techniques are often employed for fine-tuning on ATS datasets. These techniques involve either selectively training a subset of the LLM's internal
+####*6.2.2. Fine-tuning LLMs for ATS*Given the massive number of parameters in LLMs, training the entire model requires substantial computational resources. To address this, parameter-efficient tuning techniques are often employed for fine-tuning on ATS datasets. These techniques involve either selectively training a subset of the LLM's internal
 
 Table 7: Knowledge distillation ATS methods and their teacher/student models.
 
@@ -609,9 +550,7 @@ Internal efficient-parameters fine-tuning: This approach involves freezing most 
 
 External adapters fine-tuning: Training external adapters allows models to learn the distribution of target data without modifying the original parameters of the LLM. [\[258\]](#page-27-23) proposed an efficient few-shot method using adapters, where the adapters were pre-trained on a large corpus and fine-tuned on a smaller human-annotated dataset. Similarly, [\[259\]](#page-27-24) introduced a contrastive learning approach for supervised ATS, aiming to maximize the similarity between a document, its gold-standard summary, and model-generated summaries. Additionally, [\[260\]](#page-27-25) combined encoder and decoder foundation models into a single model, AdaMo, and implemented adaptive knowledge transfer techniques such as continuous pretraining and intermediate finetuning, along with task-specific designs for sequence-to-sequence learning.
 
-#### *6.2.3. Knowledge Distillation from LLMs for ATS*
-
-A knowledge distillation system consists of three key components: knowledge, a distillation algorithm, and a teacherstudent architecture [\[275\]](#page-28-16). In this process, a smaller student model is supervised by a larger teacher model [\[276\]](#page-28-17). For ATS, this typically involves an offline distillation process where an LLM serves as a fixed teacher model, with its outputs providing additional supervision to train a smaller student model. This approach enables the student model to inherit the LLM's robust summarization capabilities, making it particularly useful in scenarios with limited computational resources or strict data privacy requirements. For example, [\[228\]](#page-26-23) improved the quality of aspect-triple rationales and summaries through a dual scoring system, followed by a curriculum-learning strategy to train a smaller local model on ATS tasks. Similarly, [\[261\]](#page-28-0) addressed low-resource cross-lingual summarization using mBART for incremental training and reinforcement learning to optimize discrete cues, while [\[243\]](#page-27-8) proposed a three-step method for adapting smaller models to summarize forum discussions by sampling from a large corpus, retrieving annotated prompts, and filtering low-quality data.
+####*6.2.3. Knowledge Distillation from LLMs for ATS*A knowledge distillation system consists of three key components: knowledge, a distillation algorithm, and a teacherstudent architecture [\[275\]](#page-28-16). In this process, a smaller student model is supervised by a larger teacher model [\[276\]](#page-28-17). For ATS, this typically involves an offline distillation process where an LLM serves as a fixed teacher model, with its outputs providing additional supervision to train a smaller student model. This approach enables the student model to inherit the LLM's robust summarization capabilities, making it particularly useful in scenarios with limited computational resources or strict data privacy requirements. For example, [\[228\]](#page-26-23) improved the quality of aspect-triple rationales and summaries through a dual scoring system, followed by a curriculum-learning strategy to train a smaller local model on ATS tasks. Similarly, [\[261\]](#page-28-0) addressed low-resource cross-lingual summarization using mBART for incremental training and reinforcement learning to optimize discrete cues, while [\[243\]](#page-27-8) proposed a three-step method for adapting smaller models to summarize forum discussions by sampling from a large corpus, retrieving annotated prompts, and filtering low-quality data.
 
 <span id="page-16-1"></span>Table 8: Description and pros/cons of overlap-based and similarity-based evaluation metircs.
 
@@ -634,14 +573,14 @@ Pros and Cons: Large Language Models (LLMs) have transformed NLP tasks by simpli
 
 Evaluating the quality of summaries is essential in summarization research [\[288\]](#page-28-27). Stable and consistent assessment methods are crucial for advancing the field, and this section introduces the evaluation metrics detailed in Table [5.](#page-13-0) Previous studies emphasize multi-dimensional evaluation, with [\[289\]](#page-28-28) identifying relevance, factual consistency, conciseness, and semantic coherence as key metrics, where relevance assesses how well the summary captures the main ideas. Similarly, [\[290\]](#page-28-29) proposed redundancy, relevance, and informativeness as core measures. Based on these insights, this paper categorizes evaluation methods into three groups: overlap-based, similarity-based, and LLM-based metrics, with non-LLM metrics summarized in Table [8.](#page-16-1)
 
-#### *7.1. Metrics based on Term Overlap*
+####*7.1. Metrics based on Term Overlap*
 
 Overlap-based evaluation is one of the most widely used methods for assessing summarization quality. It measures the matching of words between candidate summaries (*C*) and reference summaries (*S* ) and uses metrics such as precision (*P*), recall (*R*), and F-score (*F*) to quantify overlap [\[78\]](#page-21-30):
 
 $$
 P = \frac{|S \cap C|}{C}, R = \frac{|S \cap C|}{S}, F = \frac{(\beta + 1) \times P \times R}{\beta^2 \times P + R}
 $$
-  
+
 $$
 s.t. \beta^2 = \frac{1 - \alpha}{\alpha}, \alpha \in [0, 1]
 $$
@@ -649,7 +588,7 @@ $$
 
 However, individual word-overlap methods are limited because they do not account for the order or context of words in the candidate summaries. To address these shortcomings, several improvements to these metrics have been proposed.
 
-ROUGE (Recall-Oriented Understudy for Gisting Evaluation) [\[279\]](#page-28-18) is a widely used metric for ATS evaluation, measuring overlap between candidate summaries (*C*) and reference summaries (*S* ).
+ROUGE (Recall-Oriented Understudy for Gisting Evaluation) [\[279\]](#page-28-18) is a widely used metric for ATS evaluation, measuring overlap between candidate summaries (*C*) and reference summaries (*S*).
 
 ROUGE-N calculates n-gram overlap as:
 
@@ -658,7 +597,7 @@ ROUGE-N = \frac{\sum_{S} \sum_{gram_n \in S} Count_{match}(gram_n)}{\sum_{S} \su
 $$
 (5)
 
-where *<sup>n</sup>* is the n-gram length, typically *<sup>n</sup>* <sup>=</sup> <sup>1</sup>/2/3, and *gram<sup>n</sup>* is the number of matching n-grams in *C* and *S* . ROUGE-L evaluates the longest common subsequence (LCS) between summaries, calculating precision, recall, and F-score. ROUGE-W adds positional weights to address LCS limitations, and ROUGE-S uses skip-bigram co-occurrences to allow gaps. While ROUGE is stable and reliable across sample sizes [\[291\]](#page-28-30), it primarily emphasizes recall and does not directly assess fluency or conciseness [\[84\]](#page-22-7).
+where*<sup>n</sup>*is the n-gram length, typically*<sup>n</sup>*<sup>=</sup> <sup>1</sup>/2/3, and*gram<sup>n</sup>*is the number of matching n-grams in*C*and*S* . ROUGE-L evaluates the longest common subsequence (LCS) between summaries, calculating precision, recall, and F-score. ROUGE-W adds positional weights to address LCS limitations, and ROUGE-S uses skip-bigram co-occurrences to allow gaps. While ROUGE is stable and reliable across sample sizes [\[291\]](#page-28-30), it primarily emphasizes recall and does not directly assess fluency or conciseness [\[84\]](#page-22-7).
 
 BLEU(Bilingual Evaluation Understudy) [\[280\]](#page-28-19) evaluates summarization using precision, measuring the overlap between candidate (*C*) and reference (*S* ) summaries. BLEU precision is calculated as:
 
@@ -679,7 +618,7 @@ $$
 BLEU = BP \cdot exp\left(\sum_{n=1}^{N} w_n \cdot logBLEU-P\right) \tag{8}
 $$
 
-where *N* is the maximum n-gram order, and *w<sup>n</sup>* is typically set to 1/*N*. While BLEU effectively measures word overlap, it does not consider grammatical diversity or expressive variations.
+where *N*is the maximum n-gram order, and*w<sup>n</sup>* is typically set to 1/*N*. While BLEU effectively measures word overlap, it does not consider grammatical diversity or expressive variations.
 
 METEOR (Metric for Evaluation of Translation with Explicit ORdering) [\[281\]](#page-28-20) was developed to overcome the rigidity of BLEU, which relies on exact n-gram matches. METEOR evaluates summaries by aligning words between a candidate and reference summary using flexible matching techniques, including synonyms, stemming, and paraphrases, facilitated by resources like WordNet. This allows METEOR to account for linguistic variations and semantic similarities that BLEU cannot capture. Additionally, METEOR differentiates between function words (e.g., "the," "and") and content words (e.g., "run," "house"), giving more weight to content words to better reflect meaning. By incorporating these features, METEOR provides a more nuanced and flexible evaluation metric for summarization tasks.
 
@@ -693,11 +632,11 @@ BLEURT [\[285\]](#page-28-24) builds on BERT embeddings by incorporating additio
 
 BERT-iBLEU [\[286\]](#page-28-25) evaluates paraphrasing by balancing semantic similarity and surface-form diversity. It promotes semantic closeness using BERTScore and discourages surfacelevel similarity with a penalty based on self-BLEU. The metric is defined as:
 
-BERT-*i*BLEU = 
+BERT-*i*BLEU =
 $$
-\left(\frac{\beta * BERT-score^{-1} + 1.0 * (1 - self-BLEU)^{-1}}{\beta + 1.0}\right)^{-1}
+\left(\frac{\beta *BERT-score^{-1} + 1.0* (1 - self-BLEU)^{-1}}{\beta + 1.0}\right)^{-1}
 $$
- (9)  
+ (9)
 *self-BLEU* = BLEU(*source*, *candidate*)
 
 where β controls the trade-off between semantic similarity and surface-form dissimilarity, and self-BLEU measures similarity between the source and candidate texts. As BERT-iBLEU is reference-free, it can be used both as an evaluation metric for paraphrase quality and as a criterion for re-ranking candidates during task adaptation and self-supervision.
@@ -750,7 +689,7 @@ Interactive and Personalized Summarization: The future may also see a shift towa
 
 By addressing these challenges and exploring these directions, LLM-based methods will continue to push the boundaries of automatic text summarization, offering more flexible, accurate, and scalable solutions.
 
-#### 10. Conclusion
+### Conclusion
 
 In this survey, we present a comprehensive review of Automatic Text Summarization (ATS) techniques, focusing on the evolution of both conventional methods and Large Language Model (LLM)-based approaches. This work makes the following key contributions: (1) providing an Up-to-date Survey on ATS, reviewing the latest developments in traditional, inflexible summarization methods (i.e., extractive and abstractive approaches) alongside LLM-based methods that offer paradigm flexibility in summarization; (2) presenting an in-depth analysis of LLM-based Summarization Methods, highlighting the latest works and research directions, including how in-context learning, prompt engineering, and few-shot learning have reshaped the ATS field; and (3) proposing a Novel Retrieval Algorithm that leverages LLMs to efficiently search for and organize relevant research papers, with potential applications beyond ATS.
 
@@ -1119,7 +1058,7 @@ on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Su
 - <span id="page-29-15"></span>[314] M. Adler, J. Berant, I. Dagan, Entailment-based text exploration with application to the health-care domain, in: M. Zhang (Ed.), Proc. ACL 2012 System Demonstrations, Assoc. Comput. Linguistics, Jeju Island, Korea, 2012, pp. 79–84.
 - <span id="page-29-16"></span>[315] Y. Zhang, D. Merck, E. Tsai, C. D. Manning, C. Langlotz, Optimizing the factual correctness of a summary: A study of summarizing radiology reports, in: D. Jurafsky, J. Chai, N. Schluter, J. Tetreault (Eds.), Proc. 58th Annu. Meeting Assoc. Comput. Linguistics, Assoc. Comput. Linguistics, Online, 2020, pp. 5108–5120. doi:[10.18653/v1/2020.](http://dx.doi.org/10.18653/v1/2020.acl-main.458) [acl-main.458](http://dx.doi.org/10.18653/v1/2020.acl-main.458).
 
-#### 11. Author Biographies
+#### Author Biographies
 
 #### Yang Zhang
 

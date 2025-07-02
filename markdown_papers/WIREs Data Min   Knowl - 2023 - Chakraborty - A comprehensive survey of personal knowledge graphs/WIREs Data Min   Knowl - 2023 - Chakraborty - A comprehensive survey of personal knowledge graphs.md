@@ -1,3 +1,5 @@
+<!-- cite_key: miller2021 -->
+
 # FOCUS ARTICLE
 
 ![](_page_0_Picture_4.jpeg)
@@ -6,11 +8,11 @@
 
 School of Mathematical and Computational Sciences, Indian Association for the Cultivation of Science, Kolkata, West Bengal, India
 
-#### Correspondence
+## Correspondence
 
 Prantika Chakraborty and Debarshi Kumar Sanyal, School of Mathematical and Computational Sciences, Indian Association for the Cultivation of Science, 2A & 2B, Raja Subodh Chandra Mallick Road, Jadavpur, Kolkata 700032, West Bengal, India. Email: [prantika.ch@gmail.com](mailto:prantika.ch@gmail.com) and [debarshisanyal@gmail.com](mailto:debarshisanyal@gmail.com)
 
-#### Funding information
+### Funding information
 
 Department of Science and Technology, Government of India, Grant/Award Number: CRG/2021/000803
 
@@ -66,7 +68,7 @@ To the best of our knowledge, this is the first attempt at surveying PKGs and th
 
 The areas in which PKGs have been primarily used are health, finance, and education and research. Figure [3](#page-3-0) illustrates some of the specific use cases of PKGs in each of these domains. We will now describe the use cases in more detail.
 
-# 2.1 | Health
+# 1 | Health
 
 The medical domain is a storehouse of patient data, which contain their medical history and health conditions. This makes it a very viable environment for maintaining a PKG for each patient. PKGs can be used to make personalized diet and lifestyle plans for patients suffering from chronic diseases such as diabetes (Shirai et al., [2021](#page-12-0)) by taking their various allergies and eating habits into account and integrating that knowledge with other domain-specific KGs like FoodKG (Haussmann et al., [2019](#page-11-0)). This would make the diet plan truly personalized as a diet endorsed to be healthy and efficient for one patient might not be the same for another, due to the differences in their health conditions and also their treatment styles.
 
@@ -80,7 +82,7 @@ knowledge," "cooking methodology," and "financial conditions" can be incorporate
 
 Human beings have a tendency of looking back at their memories. This, however, becomes challenging for people suffering from memory-altering diseases like dementia. Generating a PKG from the various digital lifelogs that people create in their daily life (Yen et al., [2021](#page-12-0)) can prove to be an asset in such cases. Lifelogs are digital repositories of memories and experiences of a user that have been recorded and captured in some form. Information can be extracted from the user's digital lifelog which includes social media activities, blogs and vlogs, search histories, data from wearables (smart glasses and watches), and chat histories. Once stored in a PKG, a user can explicitly query it to recall their memories, in the "reactive mode." In the "proactive mode," the information retrieval service can get triggered by the user's hesitations or interruptions while recalling experiences in a conversation.
 
-# 2.2 | Finance
+# 2 | Finance
 
 An upcoming domain of research where PKGs have found significance is the Financial Technology (FinTech) domain. Financial institutes like banks and insurance companies rely heavily on customer data which they can acquire under the Know Your Customer scheme (Mullins et al., [2014](#page-12-0)). These data are crucial for predicting the credit score, and the possibility of committing financial fraud by a customer. It also aids such institutes to be cognizant of their customer's legal status and social media presence. A PKG can be used to store such day-to-day information about a customer (corporate or natural), for various tasks like risk evaluation of insurance companies, customer-specific marketing by banks, and the possibility of defaulting by commercial entities (Chen et al., [2020\)](#page-11-0).
 
@@ -101,7 +103,7 @@ The construction of a PKG relies greatly on the extraction of entities and relat
 
 In the following subsections, we categorize the various ways of constructing a PKG depending on the source of user data, as shown in Figure [4,](#page-5-0) and how the challenges are overcome.
 
-# 3.1 | From user utterances
+# 1 | From user utterances
 
 One of the most popular ways of populating a PKG is by obtaining information from conversational data, otherwise referred to as user utterances. The methods that make use of such data are discussed in this subsection.
 
@@ -147,7 +149,7 @@ where Cwi is the set of top <sup>K</sup> words obtained from the masked language
 
 Linking personal entities, for example, my\_city to Kolkata as shown in Figure [1](#page-1-0) becomes challenging with traditional entity linking methods that are not equipped to handle personal information. The CREL architecture (Joko & Hasibi, [2022\)](#page-11-0) is an approach of personal entity and concept linking from users' conversations that solves this hurdle. It consists of a BERT-based model for entity mention detection and a rule-based approach for personal entity detection. In particular, mention detection is carried out using a pre-trained BERT model for BIO label prediction whereas entity disambiguation is carried out by training the REL approach (van Hulst et al., [2020\)](#page-12-0) on the ConEL-2 dataset that was created by the authors.
 
-# 3.2 | From system-stored data
+# 2 | From system-stored data
 
 Human beings generate a considerable amount of data in their day-to-day activities that gets stored in their personal devices. In this subsection, we look into the various ways such data can be used to populate a PKG.
 
@@ -174,7 +176,7 @@ uniform form of "2022-1-1 00:00:00." A common knowledge graph (CKG) is construct
 
 Folders and files in a user's system are lucrative sources for the construction of a PKG in the form of hand-made classification structures (Schröder et al., [2022\)](#page-12-0). Since the naming structure of such files and folders might not always follow a rule-based approach and might mostly rely on the whims of the user, a knowledge engineer (or, the "humanin-the-loop") and an artificial intelligence (AI) system join hands to identify a possible schema for the PKG from the names of the user's files and folders, which is then used to populate a PKG after creating a taxonomy and predicting nontaxonomic relations (Schröder et al., [2022\)](#page-12-0).
 
-# 3.3 | Hybrid
+# 3 | Hybrid
 
 In this subsection, we look into the construction methods for PKG that combine user utterances and other sources of data.
 
@@ -250,7 +252,7 @@ The authors have declared no conflicts of interest for this article.
 
 Data sharing is not applicable to this article as no new data were created or analyzed in this study.
 
-### <span id="page-11-0"></span>ORCID
+## <span id="page-11-0"></span>ORCID
 
 Prantika Chakraborty <https://orcid.org/0000-0001-9100-5533> Debarshi Kumar Sanyal <https://orcid.org/0000-0001-8723-5002>
 
@@ -258,7 +260,7 @@ Prantika Chakraborty <https://orcid.org/0000-0001-9100-5533> Debarshi Kumar Sany
 
 [Using Semantic Web technologies in the development of data warehouses: A systematic mapping](https://doi.org/10.1002/widm.1293) [Introduction to neural network-based question answering over knowledge graphs](https://doi.org/10.1002/widm.1389)
 
-### REFERENCES
+## REFERENCES
 
 - Adomavicius, G., & Tuzhilin, A. (2005). Toward the next generation of recommender systems: A survey of the state-of-the-art and possible extensions. IEEE Transactions on Knowledge and Data Engineering, 17(6), 734–749. <https://doi.org/10.1109/TKDE.2005.99>
 - Ammar, N., Bailey, J. E., Davis, R. L., & Shaban-Nejad, A. (2021). Using a personal health library-enabled mHealth recommender system for self-management of diabetes among underserved populations: Use case for knowledge graphs and linked data. JMIR Formative Research, 5(3), e24738. <https://doi.org/10.2196/24738>

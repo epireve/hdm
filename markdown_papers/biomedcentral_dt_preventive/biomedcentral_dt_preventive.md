@@ -1,18 +1,20 @@
+<!-- cite_key: mikaelbensonkise2025 -->
+
 ![](_page_0_Picture_3.jpeg)
 
 # Digital twins as global learning health and disease models for preventive and personalized medicine
 
 ![](_page_0_Picture_5.jpeg)
 
-Xinxiu Li1 , Joseph Loscalzo2 , A. K. M. Firoj Mahmud<sup>3</sup> , Dina Mansour Aly1 , Andrey Rzhetsky4 , Marinka Zitnik5,6,7 and Mikael Benson1[\\*](http://orcid.org/0000-0002-7753-9181) 
+Xinxiu Li1 , Joseph Loscalzo2 , A. K. M. Firoj Mahmud<sup>3</sup> , Dina Mansour Aly1 , Andrey Rzhetsky4 , Marinka Zitnik5,6,7 and Mikael Benson1[\\*](http://orcid.org/0000-0002-7753-9181)
 
-# **Abstract**
+# Abstract
 
 Inefective medication is a major healthcare problem causing signifcant patient sufering and economic costs. This issue stems from the complex nature of diseases, which involve altered interactions among thousands of genes across multiple cell types and organs. Disease progression can vary between patients and over time, infuenced by genetic and environmental factors. To address this challenge, digital twins have emerged as a promising approach, which have led to international initiatives aiming at clinical implementations. Digital twins are virtual representations of health and disease processes that can integrate real-time data and simulations to predict, prevent, and personalize treatments. Early clinical applications of DTs have shown potential in areas like artifcial organs, cancer, cardiology, and hospital workfow optimization. However, widespread implementation faces several challenges: (1) characterizing dynamic molecular changes across multiple biological scales; (2) developing computational methods to integrate data into DTs; (3) prioritizing disease mechanisms and therapeutic targets; (4) creating interoperable DT systems that can learn from each other; (5) designing user-friendly interfaces for patients and clinicians; (6) scaling DT technology globally for equitable healthcare access; (7) addressing ethical, regulatory, and fnancial considerations. Overcoming these hurdles could pave the way for more predictive, preventive, and personalized medicine, potentially transforming healthcare delivery and improving patient outcomes.
 
 **Keywords** Digital twins, Personalized medicine, Data integration, Computational methods
 
-#### \*Correspondence:
+## \*Correspondence:
 
 Mikael Benson
 
@@ -30,7 +32,7 @@ Cambridge, MA, USA
 
 7 Kempner Institute for the Study of Natural and Artifcial Intelligence, Harvard Data Science Initiative, Harvard University, Cambridge, MA, USA
 
-# **Background**
+# Background
 
 Inefective medication is one of the most important healthcare problems. Many patients with complex diseases do not respond to treatment or experience serious side efects. Tis problem causes enormous sufering and costs for health care, drug development, and production loss. An important reason for inefective medication is the daunting complexity of diseases. Multi-omics analyses down to the single cell level show that each disease can involve altered interactions among thousands of genes across billions of cells in multiple organs [\[1\]](#page-10-0).
 
@@ -90,7 +92,7 @@ Moreover, the emerging market for medical DTs is projected to reach US\$183 bill
 
 Here, we will discuss these challenges and potential solutions and give concrete examples of such solutions.
 
-# **1. Dynamic and multi‑scale characterization of health and risk factors**
+# 1. Dynamic and multi‑scale characterization of health and risk factors
 
 Predictive, preventive, and personalized medicine will require analyses of potential disease causes on multiple scales ranging from populations to individuals, to their tissues, cells, and molecular species. Since multi-morbidity is common, population-wide analyses are important for characterizing disease constellations. Tis goal is feasible because of the availability of longitudinal electronic medical records of populations and large biobanks. As an example, see our analyses of temporal disease trajectories of over 200 million Americans revealing ten constellations of comorbid diseases (Fig. [1](#page-3-0)).
 
@@ -104,7 +106,7 @@ Treatment of disease-associated changes is further complicated by the involvemen
 
 Tis heterogeneity has important clinical implications: a drug target in one organ may variably interact with the same or other genes in the same and other organs. Such variations are not possible to measure in individual patients with current diagnostic methods. Tis may be one explanation for why medication is inefective in many patients.
 
-# **2. Systems‑level principles that organize health and disease mechanisms into an overarching DT structure for populations and individuals**
+# 2. Systems‑level principles that organize health and disease mechanisms into an overarching DT structure for populations and individuals
 
 Te complexity and heterogeneity of diseases calls for systems levels to organize disease-associated changes into DTs on scales ranging from populations to individuals.
 
@@ -116,7 +118,7 @@ We propose that analyses of data on population-wide scales, such as those shown 
 
 ![](_page_4_Figure_2.jpeg)
 
-<span id="page-4-0"></span>**Fig. 2** Diferent cellular and molecular constellations in two patients with the same diagnosis, Crohn's disease (CD), fgure from [[37\]](#page-11-4). **a**–**b** scRNA-seq of intestinal biopsies showed that cell type proportions difered between two patients with CD; **c**–**d** multicellular disease models (MCDMs) of disease-associated cell types showed signifcant diferences between the two patients. The MCDMs were constructed by frst identifying upstream regulators (URs) of diferentially expressed genes (DEGs) in any cell type. If such an UR was found in one cell type, a molecular interaction was inferred between that cell type and any cell type harboring the DEGs; **e**–**f** computational ranking of drugs that targeted the MCDMs showed that precision for approved CD drugs among top ranking drug candidates was high for patient 10 but not for patient 1. This prediction agreed with patient 10 responding to approved drugs, but not patient 1
+<span id="page-4-0"></span>**Fig. 2**Diferent cellular and molecular constellations in two patients with the same diagnosis, Crohn's disease (CD), fgure from [[37\]](#page-11-4).**a**–**b**scRNA-seq of intestinal biopsies showed that cell type proportions difered between two patients with CD;**c**–**d**multicellular disease models (MCDMs) of disease-associated cell types showed signifcant diferences between the two patients. The MCDMs were constructed by frst identifying upstream regulators (URs) of diferentially expressed genes (DEGs) in any cell type. If such an UR was found in one cell type, a molecular interaction was inferred between that cell type and any cell type harboring the DEGs;**e**–**f** computational ranking of drugs that targeted the MCDMs showed that precision for approved CD drugs among top ranking drug candidates was high for patient 10 but not for patient 1. This prediction agreed with patient 10 responding to approved drugs, but not patient 1
 
 environmental and genetic causes of health or disease. Te underlying data are increasingly available in longitudinal electronic medical records, quality registries, and genome-wide databases. Pop-DTs should be continuously updated based on information from the literature and the evolution of diferent databases. Te example in Fig. [1](#page-3-0) may represent an early attempt to address such challenges. Te result can be seen as a prototypic pop-DT. Tis version of pop-DT, based on natural language processing-inspired word embedding, we computed a 20-dimensional continuous "disease space," where diseases, such as lung cancer or depression, are represented as 20-dimensional vectors. In this embedding, similar-etiology diseases tend to occur in close neighborhoods of each other.
 
@@ -134,9 +136,9 @@ In the next section, we will discuss how networks can be systematically analyzed
 
 ![](_page_6_Figure_6.jpeg)
 
-<span id="page-6-0"></span>**Fig. 4** Multi-layer networks to integrate diverse disease-associated variables for personalized treatment. **A** All factors that infuence a disease can potentially be described by networks. For instance, symptoms and signs that frequently tend to co-occur can be grouped into a module that represents a disease (pink oval). That disease module may be associated with corresponding modular changes in proteins (blue oval). Similarly, the disease module may be connected to co-occurring environmental factors (green oval). **B** The modules from **A** can be further subdivided into distinct sub-layers, from which **C** predictive combinations of multimodal variables from the diferent sub-layers can be identifed based on machine learning (ML). For example, a red variable from the symptom's module and a blue variable from any sub-layer of the molecular module. **D** Diferences between such combinations can be used to personalize treatment. MLDM, multilayer disease module; nc-RNA, noncoding ribonucleic acid; PPI, protein–protein interaction; SNPs, single-nucleotide polymorphisms
+<span id="page-6-0"></span>**Fig. 4**Multi-layer networks to integrate diverse disease-associated variables for personalized treatment.**A**All factors that infuence a disease can potentially be described by networks. For instance, symptoms and signs that frequently tend to co-occur can be grouped into a module that represents a disease (pink oval). That disease module may be associated with corresponding modular changes in proteins (blue oval). Similarly, the disease module may be connected to co-occurring environmental factors (green oval).**B**The modules from**A**can be further subdivided into distinct sub-layers, from which**C**predictive combinations of multimodal variables from the diferent sub-layers can be identifed based on machine learning (ML). For example, a red variable from the symptom's module and a blue variable from any sub-layer of the molecular module.**D**Diferences between such combinations can be used to personalize treatment. MLDM, multilayer disease module; nc-RNA, noncoding ribonucleic acid; PPI, protein–protein interaction; SNPs, single-nucleotide polymorphisms
 
-# **3. Prioritization of mechanisms, from which diagnostic biomarkers, preventive measures, or therapeutic targets can be inferred**
+# 3. Prioritization of mechanisms, from which diagnostic biomarkers, preventive measures, or therapeutic targets can be inferred
 
 Prioritization of disease-relevant environmental, phenotypic, and molecular changes on dynamic population-, organome-, cellulome-, and genome-wide scales are unresolved challenges.
 
@@ -151,7 +153,7 @@ f). Tis approach has been validated by extensive in vitro and in vivo studies [[
 
 5) Machine and transfer learning can be used to project data about genome-wide drug responses from public databases to individual patients [[76](#page-12-11), [77\]](#page-12-12).
 
-# **4. Solutions to connect 1–3 so that medical DTs can learn from each other and emerging DTs from other felds over time**
+# 4. Solutions to connect 1–3 so that medical DTs can learn from each other and emerging DTs from other felds over time
 
 Pop- and indi-DTs are envisioned to learn and adapt continuously, providing predictive, preventive, and personalized treatment based on diverse data, as described above. Te potential of linking medical DTs to emerging DTs in related felds, such as climatology, environmental pollution, and socioeconomics, was recently discussed at a series of seminars organized by the US National Academies of Sciences, Engineering, and Medicine [\[56](#page-11-16), [78](#page-12-13)]. Algorithmic advances in AI [\[79](#page-12-14)] that can contribute to improving and integrating DTs include self-supervised learning [\[80](#page-12-15)–[83\]](#page-12-16), geometric deep learning [[84–](#page-12-17)[86](#page-12-18)], and generative pre-training of foundation medical models [[87–](#page-12-19)[92\]](#page-12-20). Collectively, these AI approaches are transforming adjacent areas, including healthcare decision support systems, and can be directly adapted to enhance the predictive power and scalability of digital twins due to their unique capabilities in handling complex, multi-modal, and data-limited environments, which are characteristic of biomedical systems across scales.
 
@@ -159,7 +161,7 @@ Self-supervised learning is a form of ML in which the system learns to predict p
 
 DTs need to integrate multiple data types, such as clinical data, genomics, and imaging. Generative pretraining on large-scale medical datasets is a technique to build foundation models [\[87,](#page-12-19) [88,](#page-12-29) [92,](#page-12-20) [102–](#page-12-30)[105](#page-12-31)] that learn medical knowledge across these modalities and can be fne-tuned for specifc DT applications. Instead of training many task-specifc models, we can adapt a single, generative, pre-trained model to many tasks via fewshot prompting [\[106–](#page-12-32)[109\]](#page-12-33) or fne-tuning [[110–](#page-13-0)[112](#page-13-1)]. For example, in virtual cell simulators [[113\]](#page-13-2), this approach can generate and test hypotheses in virtual environments, enabling scientists to explore scenarios and conditions that are difcult to replicate in a physical laboratory [[114](#page-13-3)]. In clinical DTs, this approach could simulate patient-specifc outcomes by generating treatment responses or disease progressions based on the individual's data.
 
-# **5. Solutions to make DTs explainable to individuals, care givers, and scientists**
+# 5. Solutions to make DTs explainable to individuals, care givers, and scientists
 
 Integrating DTs and AI models into clinical settings presents an important challenge in ensuring these technologies are interpretable and transparent to individuals, care givers, and medical researchers. Tis is essential for participatory medicine, where joint decision-making between patients and health professionals is based on a clear and informed understanding of health and disease management [[49\]](#page-11-21). Machine learning models often function as black boxes, making it difcult for end-users, such as clinicians and patients, to understand how predictions are made [\[115](#page-13-4)]. Ensuring these models are explainable without sacrifcing accuracy is crucial for trust and usability in DTs [\[116](#page-13-5), [117\]](#page-13-6). Explainability techniques allow us to create DT models that are more transparent. Tese techniques include tools that visualize how data points are connected and infuence one another within the model and algorithms that break down complex predictions into simpler, more comprehensible components. One of the most efective explainability tools in DTs is attribution maps [[118](#page-13-7)[–120](#page-13-8)]. Tese maps visually represent which parts of the model's structure—such as nodes or edges in a graph, pixels in an image, or time points in sequential datasets—contribute most to a prediction. For example, in a medical DT simulating a patient's disease progression, attribution maps can highlight which clinical symptoms, genetic markers, or other factors are most infuential in diagnosing a condition or predicting a treatment outcome [\[102](#page-12-30), [121](#page-13-9)]. Tis visualization helps clinicians validate the model's reasoning and makes it easier for patients to understand why certain medical decisions are recommended.
 
@@ -167,15 +169,15 @@ Another explainability technique involves local explainers—tools that focus on
 
 Designing explainable interfaces for DTs tailored to patients' preferences and educational backgrounds can enhance DTs. Tis might involve creating visualizations that patients can understand while providing clinicians with detailed insights [[130\]](#page-13-17). For example, a DT interface that simulates the impact of lifestyle changes on disease progression could incorporate interactive elements to engage patients more efectively, adapting the presentation based on their health literacy [[131](#page-13-18)]. Leveraging explainability techniques like attribution maps, local explainers, and visible neural networks can enhance the usability of DTs and foster interaction between DTs and human users [[132,](#page-13-19) [133\]](#page-13-20).
 
-# **6. Solutions to disseminate DTs on a global scale for equitable and efective health in accordance with the 2030 agenda for sustainable development**
+# 6. Solutions to disseminate DTs on a global scale for equitable and efective health in accordance with the 2030 agenda for sustainable development
 
 As evidenced by the Virtual Child Project, which spans three continents, many of the computational solutions underlying DTs are independent of geographical location. Tis supports that DTs may contribute to improved and equitable health on a global scale based on collaborative eforts between developing and developed countries. Tere are several successful examples of such collaborations, aiming at global health digitalization, including concrete examples such as an automated pipeline for virtual drug discovery and clinical applications such as digital or AI-supported diagnostic protocols in low-resource settings [[134](#page-13-21)[–136](#page-13-22)].
 
-# **7. Solutions to address social, psychological, organizational, ethical, regulatory, and fnancial challenges and opportunities**
+# 7. Solutions to address social, psychological, organizational, ethical, regulatory, and fnancial challenges and opportunities
 
 Clinical implementation of DTs will involve a wide range of challenges. As recently discussed, many of these challenges are generic for implementation of computational science in diferent felds [[56\]](#page-11-16). One important example is gender diferences in how digital technologies and health care are perceived, used, and led in diferent countries [[137,](#page-13-23) [138](#page-13-24)]. Such diferences can be disadvantageous for women—especially women of racial or ethnic minority backgrounds. Another question can be data ownership: can a patient be asked to share increasingly detailed information from her DT as a resource for clinicians treating patients with similar characteristics, or for use in clinical or industrial research, such as drug discovery? Addressing this question requires integrated solutions to tackle challenges in ethics, data security, and regulatory issues [[139\]](#page-13-25). However, despite national diferences in evaluation and approval processes, computational modeling tools for clinical purposes have entered in the market. Te FDA has implemented pre-qualifcation programs to speed up the regulatory processes of digital tools. Additionally, protecting the privacy and rights of an individual's DT is crucial, especially as it incorporates sensitive, multiscale data. Te analyses for example federated data analysis with evolving computational approaches that protect privacy even in populationbased studies. A white paper from the US National Academy of Science recently recommended that the potential of digital twins to "accelerate scientifc discovery and revolutionize health care" would merit an integrated agenda to harmonize research across sectors and focus eforts on realistic applications. Tese eforts should be "crosscutting" to help "advance the mathematical, statistical, and computational foundations underlying digital twin technologies." However, the white paper also stated that there is a "lack of adopted standards in data generation" that "hinders the interoperability of data required for digital twins." Finally, the reports urged "fundamental challenges include aggregating uncertainty across diferent data modalities and scales as well as addressing missing data" [[140\]](#page-13-26).
 
-### **Concluding remarks**
+## Concluding remarks
 
 While implementation of DTs for predictive, preventive, and personalized medicine will involve huge and diverse challenges, these must be balanced against the sufering and costs resulting from the many patients for whom today's diagnostics and therapeutics are inefective.
 
@@ -195,7 +197,7 @@ Addressing these challenges as proposed by the 2030 agenda will require global c
 
 Tis could pave the way for a more predictive, preventive, and personalized approach to medicine. Te successful implementation of digital twins has the potential to transform healthcare delivery and signifcantly improve patient outcomes. As research progresses and technology advances, digital twins may become an integral part of healthcare systems worldwide, ofering tailored solutions for individual patients and enhancing overall healthcare efciency.
 
-#### **Abbreviations**
+### Abbreviations
 
 | DT     | Digital twin                                                |
 |--------|-------------------------------------------------------------|
@@ -214,37 +216,36 @@ Tis could pave the way for a more predictive, preventive, and personalized appro
 | AI     | Artifcial intelligence                                      |
 | scGWAS | ScRNA-seq assisted genome-wide association studies analysis |
 
-#### **Acknowledgements**
+#### Acknowledgements
 
 Not applicable.
 
-#### **Authors' contributions**
+#### Authors' contributions
 
 XL, DMA, FM, AR, JL, MZ, and MB wrote the original draft of the manuscript. MB provided supervision. AR, JL, and MZ reviewed the manuscript. All authors read and approved of the fnal manuscript.
 
-#### **Funding**
+#### Funding
 
 Open access funding provided by Karolinska Institute. This paper is supported by US NIH grants R01 HL1551107, R01 HL166137, and U01 HG007691; American Heart Association grants AHA957729 and AHAMERIT1185447; and EU Horizon Health 2021 grant 101057619 to JL.
 
-#### **Data availability**
+#### Data availability
 
 No datasets were generated or analyzed during the current study.
 
-#### **Declarations**
-
+#### Declarations
 **Ethics approval and consent to participate** Not applicable.
 
-#### **Consent for publication**
+#### Consent for publication
 
 Not applicable.
 
-#### **Competing interests**
+#### Competing interests
 
 MB is a co-founder of Mavatar Inc. JL is the scientifc co-founder of Scipher Medicine, Inc. The remaining authors declare that they have no competing interests.
 
 Received: 13 May 2024 Accepted: 29 January 2025
 
-#### <span id="page-10-0"></span>**References**
+#### <span id="page-10-0"></span>References
 
 - 1. Lilja S, Li X, Smelik M, Lee EJ, Loscalzo J, Marthanda PB, Hu L, Magnusson M, Sysoev O, Zhang H, et al. Multi-organ single-cell analysis reveals an on/of switch system with potential for personalized treatment of immunological diseases. Cell Rep Med. 2023;4:100956.
 - <span id="page-10-1"></span>2. Cf O: Transforming our world: the 2030 Agenda for Sustainable Development. United Nations: New York, NY, USA 2015.
@@ -398,6 +399,6 @@ reasoning to prompt LLMs for open ended medical question answering. 2024. arXiv 
 - <span id="page-13-25"></span>139. Reddy S, Allan S, Coghlan S, Cooper P. A governance model for the application of AI in health care. J Am Med Inform Assoc. 2020;27(3):491–7.
 - <span id="page-13-26"></span>140. National Academies of Sciences, Engineering, and Medicine. Foundational research gaps and future directions for digital twins. 2023.
 
-# **Publisher's Note**
+# Publisher's Note
 
 Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afliations.

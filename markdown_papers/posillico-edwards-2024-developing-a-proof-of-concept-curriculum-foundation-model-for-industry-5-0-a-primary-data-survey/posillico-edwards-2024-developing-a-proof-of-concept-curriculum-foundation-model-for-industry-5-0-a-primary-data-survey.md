@@ -1,3 +1,5 @@
+<!-- cite_key: education2024 -->
+
 # Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics
 
 Industry and Higher Education 2024, Vol. 38(5) 423–444 © The Author(s) 2024 Article reuse guidelines: [sagepub.com/journals-permissions](https://uk.sagepub.com/en-gb/journals-permissions) DOI: [10.1177/09504222231224090](https://doi.org/10.1177/09504222231224090) [journals.sagepub.com/home/ihe](https://journals.sagepub.com/home/ihe)
@@ -8,11 +10,11 @@ John J Posillico Birmingham City University, UK
 
 Birmingham City University, UK; University of Johannesburg, South Africa
 
-#### Abstract
+## Abstract
 
 Purpose: Higher education curriculum development in the construction industry has historically received scant academic attention and often, courses/programmes are largely developed using the tacit knowledge of individual tutors. This research investigates the core interpersonal and technical skills and competencies required of a contemporary construction management graduate. Specifically, the work culminates in the development of a proof-of-concept model that could be incorporated into higher education curriculum development. Methodology: A mixed philosophical stance is implemented using both postpositivism and interpretivism together with inductive and abductive reasoning to examine built environment academics' perceptions of the phenomena under investigation. Descriptive and inferential statistics (i.e., weighted average, relative importance index, one sample t test, Chi-square test and Kruskal-Wallis test) are utilised to formulate a foundational set of core interpersonal skills for construction management curricula. Such knowledge provides a strong foundation for building an optimised course curriculum. Findings: Research findings demonstrate that, whilst technical skills are relatively important for the construction manager's role, they significantly pale in comparison to interpersonal skills. Furthermore, an aggregate ranking of skills and competencies suggests that a substantial number of interpersonal skills and competencies out-rank numerous technical skills and competencies. Surprisingly, digital-esque themes rank towards the bottom of the table, with 'traditional' skills competencies (i.e., workflow, budgeting and costing) ranking higher. Originality: This research constitutes the first attempt to: understand the core interpersonal and technical skills and competencies required of a contemporary construction manager; and premised upon this, generate a construction management education curriculum foundation model. Nascent findings pinpoint the core interpersonal skills and competencies that serve as the curriculum's foundation and expose the inadequacies of digital technical skills in core construction management teaching.
 
-#### Keywords
+### Keywords
 
 Construction management, curriculum development, industry 5.0, proof-of-concept model, statistical analysis, technical and interpersonal skills
 
@@ -186,7 +188,7 @@ The interquartile range was also calculated for the mean rating scores for each 
 
 |                                        |    |    |    | Number of respondents selecting… |   |            |    |       |       |
 |----------------------------------------|----|----|----|----------------------------------|---|------------|----|-------|-------|
-| Question                               | 5  | 4  | 3  | 2                                | 1 | Total [ΣW] | N  | A * N | RII   |
+| Question                               | 5  | 4  | 3  | 2                                | 1 | Total [ΣW] | N  | A *N | RII   |
 | 6i<br>– Written/Typed communication    | 66 | 25 | 2  | 0                                | 0 | 436        | 93 | 465   | 0.938 |
 | 7i<br>– Verbal communication           | 81 | 9  | 2  | 1                                | 0 | 449        | 93 | 465   | 0.966 |
 | 8i<br>– Non-verbal communication       | 35 | 39 | 13 | 6                                | 0 | 382        | 93 | 465   | 0.822 |
@@ -214,7 +216,7 @@ Table 5. Relative importance index for survey questions – ranked.
 
 |                                                                                   |          | Number of respondents<br>selecting… |    |    |   |            |    |       |       |      |       |
 |-----------------------------------------------------------------------------------|----------|-------------------------------------|----|----|---|------------|----|-------|-------|------|-------|
-| Question                                                                          | 5        | 4                                   | 3  | 2  | 1 | Total [ΣW] | N  | A * N | RII   | Mean | SD    |
+| Question                                                                          | 5        | 4                                   | 3  | 2  | 1 | Total [ΣW] | N  | A* N | RII   | Mean | SD    |
 | 7i<br>– Verbal communication                                                      | 81       | 9                                   | 2  | 1  | 0 | 449        | 93 | 465   | 0.966 | 4.83 | 0.503 |
 | 10i<br>– Team management                                                          | 76       | 17                                  | 0  | 0  | 0 | 448        | 93 | 465   | 0.963 | 4.82 | 0.389 |
 | 12i<br>– Team/Group work                                                          | 71       | 21                                  | 1  | 0  | 0 | 442        | 93 | 465   | 0.951 | 4.75 | 0.458 |
@@ -284,7 +286,7 @@ A non-parametric Kruskal-Wallis Test was conducted to determine if there was a d
 | 23 – Critical path method schedule | 9.864             | 92 | < .001      | < .001      | 4.31 | 0.812           | 0.60                                            | 1.03  |
 | 24 – Work sequencing               | 14.380            | 92 | < .001      | < .001      | 4.47 | 0.973           | 0.80                                            | 1.15  |
 
-#### <span id="page-13-0"></span>Table 7. One sample t test for technical skills.
+## <span id="page-13-0"></span>Table 7. One sample t test for technical skills.
 
 Table 8. Chi-square test for interpersonal and technical skills.
 
@@ -325,7 +327,7 @@ schedule' are the three technical skills. Conversely, only two interpersonal ski
 
 The HEI and CMCD landscapes were previously conceptualised by [Posillico et al. \(2023\);](#page-20-23) this aforementioned research work illustrated that the CMCD lacks a cohesive
 
-#### <span id="page-14-0"></span>Table 9. Kruskal-Wallis test results.
+## <span id="page-14-0"></span>Table 9. Kruskal-Wallis test results.
 
 | Group                 | Null hypothesis                                         | Test<br>statistic | Degree of<br>freedom | Asymptotic sig.a, b (p<br>value) | Decision on the null<br>hypothesis |
 |-----------------------|---------------------------------------------------------|-------------------|----------------------|----------------------------------|------------------------------------|
@@ -430,11 +432,11 @@ Successful graduate employability is an overarching factor for technically based
 
 The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article.
 
-#### Funding
+## Funding
 
 The author(s) received no financial support for the research, authorship, and/or publication of this article.
 
-#### ORCID iDs
+### ORCID iDs
 
 John J Posillico <https://orcid.org/0000-0003-4818-3670> David J Edwards <https://orcid.org/0000-0001-9727-6000>
 

@@ -1,3 +1,5 @@
+<!-- cite_key: liu2020 -->
+
 # Web of Scholars: A Scholar Knowledge Graph
 
 Jiaying Liu, Jing Ren, Wenqing Zheng School of Software
@@ -8,7 +10,7 @@ Ivan Lee
 
 UniSA STEM University of South Australia, Australia Ivan.Lee@unisa.edu.au
 
-#### ABSTRACT
+## ABSTRACT
 
 In this work, we demonstrate a novel system, namely Web of Scholars, which integrates state-of-the-art mining techniques to search, mine, and visualize complex networks behind scholars in the field of Computer Science. Relying on the knowledge graph, it provides services for fast, accurate, and intelligent semantic querying as well as powerful recommendations. In addition, in order to realize information sharing, it provides open API to be served as the underlying architecture for advanced functions. Web of Scholars takes advantage of knowledge graph, which means that it will be able to access more knowledge if more search exist. It can be served as a useful and interoperable tool for scholars to conduct in-depth analysis within Science of Science.
 
@@ -16,11 +18,11 @@ In this work, we demonstrate a novel system, namely Web of Scholars, which integ
 
 • Information systems → World Wide Web; Web searching and information discovery.
 
-#### KEYWORDS
+## KEYWORDS
 
 Web of Scholars; knowledge graph; relationship mining
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Jiaying Liu, Jing Ren, Wenqing Zheng, Lianhua Chi, Ivan Lee, and Feng Xia. 2020. Web of Scholars: A Scholar Knowledge Graph. In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '20), July 25–30, 2020, Virtual Event, China. ACM, New York, NY, USA, [4](#page-3-0) pages.<https://doi.org/10.1145/3397271.3401405>
 
@@ -88,13 +90,13 @@ Furthermore, this part provides advisor recommendation service for students. It 
 
 Citation Relationship. For each scholar, we describe the citation network and the co-citation network which are different from traditional citation networks for papers. It is used to unveil scientific collaboration patterns and mine the implicit relationships among scholars. For example, in the citation network, we distinguish the identity (e.g., advisors, advisees, co-authors, or collaborators) of the referee with color. We also use different colors and sizes to represent the importance of nodes in scholars' co-citation networks.
 
-#### 2.2 Academic Rank
+#### 2 Academic Rank
 
 In the ranking model, we define different measures to evaluate scholars' achievement, including "Number of Collaborators", "Number of Advisees", "Number of Team Members", "Advisor Influence", "Times of Citations", and "Potential Index". For each measure, the system outputs a descending ranking list in the domain of Computer Science. We store the ranking in the Redis cluster. This cached approach can prevent needless round trips to the database, thus ensuring the quickness and timeliness when visiting rankings.
 
 #### 3 DEMONSTRATION
 
-#### 3.1 Implementation
+#### 1 Implementation
 
 As mentioned above, the system consists of three layers:
 
@@ -106,19 +108,19 @@ Application layer is located at outermost, which is closest to users and could b
 
 Moreover, to ensure the system can normally run with the server temporarily breakdown, a distributed environment, Hadoop + Hbase + Zookeeper with three server machines on Linux operating system is designed.
 
-#### 3.2 Data
+#### 2 Data
 
 For implementing Web of Scholars, we rely on the popular digital library, Microsoft Academic Graph (MAG), which contains 171,233,592 publications, 209,508,429 authors, and 196,025 research fields. Based on the research field, we extract all publications in the field of Computer Science, and identify all scholars in this field to generate relationships mentioned above in Section [2.1.](#page-1-1) Finally, by processing the publication metadata, Web of Scholars collects more than 1.7 million researchers, 1.5 million papers, 20 million collaboration relationships, 1.4 million collaborative teamworks, 1 million advisor-advisee relationships, 14 million citation relationships, and 300 million co-citation relationships. All of them are stored in the graphic database in terms of knowledge graph.
 
-# 3.3 Interface
+# 3 Interface
 
 Web of Scholars provides two kinds of interfaces: User Search Interface and Open Interface. User Search Interface aims to fulfill user expectations of interacting with the system. The query input panel implements a fuzzy matching technique provided by HBase, FuzzyRowFilter, where any token of searching names (synonyms) could be auto-completed. It can also achieve the goal of intelligent query. For example, typing "Bob's advisor" retrieves his advisor as a suggestion. We also provide most of Web of Scholars' API to users freely. Users can share copies and redistribute the data in any format for free to build advanced functions.
 
-#### 3.4 Screen Shots
+## 4 Screen Shots
 
 Figure [3](#page-3-1) shows some screen shots of the system. The URL[1](#page-2-2) presents a 5-minute video of Web of Scholars.
 
-#### ACKNOWLEDGEMENT
+### ACKNOWLEDGEMENT
 
 This work is partially supported by National Natural Science Foundation of China under Grant No. 61872054 and the Fundamental Research Funds for the Central Universities (DUT19LAB23). The authors would like to thank Huijie Zhang and Wenjie Kang for help with system design.
 
@@ -129,6 +131,6 @@ This work is partially supported by National Natural Science Foundation of China
 
 <span id="page-2-2"></span><sup>1</sup>http://thealphalab.org/resources.html
 
-<span id="page-3-1"></span><span id="page-3-0"></span>![](_page_3_Picture_0.jpeg)
+<span id="page-3-1"></span><span id="page-3-0"></span>
 
 Figure 3: Some Screen Shots of Web of Scholars.

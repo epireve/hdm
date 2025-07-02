@@ -1,3 +1,5 @@
+<!-- cite_key: happens2023 -->
+
 # <span id="page-0-0"></span>Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities
 
 [Harry Li](https://orcid.org/0000-0002-2288-6039) , [Gabriel Appleby](https://orcid.org/0000-0003-2436-2121) , [Camelia Daniela Brumar](https://orcid.org/0000-0002-7924-634X) , [Remco Chang](https://orcid.org/0000-0002-6484-6430) , [Ashley Suh](https://orcid.org/0000-0001-6513-8447)
@@ -6,24 +8,21 @@
 
 **Index Terms**—Knowledge graphs, visualization techniques and methodologies, human factors, visual communication
 
-#### **1 INTRODUCTION**
+## 1 INTRODUCTION
 
-Knowledge graphs have emerged as a popular approach to represent and manage complex data from a variety of domains [\[1\]](#page-9-0). Due to their ability to encode semantically rich information in the form of entities and the relationships between them, knowledge graphs are now an industry standard for data unification [\[80\]](#page-10-0), question-answering [\[41\]](#page-10-1), recommendation systems [\[32\]](#page-9-1), explainable AI [\[47\]](#page-10-2), and many other practical applications [\[38\]](#page-10-3). However, despite the growing popularity of knowledge graphs (KGs), there is a limited understanding of the *types* of KG users, the challenges they face, and the limitations of current tools and visualization designs for KGs used in practice.
+Knowledge graphs have emerged as a popular approach to represent and manage complex data from a variety of domains [\[1\]](#page-9-0). Due to their ability to encode semantically rich information in the form of entities and the relationships between them, knowledge graphs are now an industry standard for data unification [\[80\]](#page-10-0), question-answering [\[41\]](#page-10-1), recommendation systems [\[32\]](#page-9-1), explainable AI [\[47\]](#page-10-2), and many other practical applications [\[38\]](#page-10-3). However, despite the growing popularity of knowledge graphs (KGs), there is a limited understanding of the *types*of KG users, the challenges they face, and the limitations of current tools and visualization designs for KGs used in practice.
 
 To address this gap, we conducted an interview study with 19 KG practitioners across eight different organizations. The participants of our study come from a broad background of both industry and academic experiences, representing a diverse set of domains – including biology, finance, health, drug development, software, cybersecurity, information science, and materials science. From the analysis of our interviews, we provide a characterization of the common personas of KG users, their expertise, tool usage, the obstacles they face when using KGs, and their unmet visualization needs. We then propose new directions for visualization research that leverages the semantic richness of KGs to both improve upon existing designs and address common challenges.
 
-We identify three personas for KG users: *Builders* who construct and maintain KGs, *Analysts* who explore and extract insights from KGs, and *Consumers* who use insights from KGs for downstream tasks and decision-making. Across these three personas, we find that their expertise, tasks, and needs can vary drastically. Common challenges experienced by these personas include: difficulty querying KGs, poor data quality, evolving and mismanaged data provenance, schema inconsistencies, and a lack of organizational KG standardizations.
+We identify three personas for KG users:*Builders*who construct and maintain KGs,*Analysts*who explore and extract insights from KGs, and*Consumers*who use insights from KGs for downstream tasks and decision-making. Across these three personas, we find that their expertise, tasks, and needs can vary drastically. Common challenges experienced by these personas include: difficulty querying KGs, poor data quality, evolving and mismanaged data provenance, schema inconsistencies, and a lack of organizational KG standardizations.
 
 Several participants stressed sociotechnical challenges in understanding the desired outcomes of a knowledge graph. When this happens, Builders can overcomplicate the construction of the KG (e.g., with too
 
-- *• Harry Li and Ashley Suh are with MIT Lincoln Laboratory and Tufts University. E-mail: {harry.li, ashley.suh}@ll.mit.edu.*
-- *• Gabriel Appleby, Camelia Daniela Brumar, and Remco Chang are with Tufts University. E-mail: {gabriel.appleby, camelia\_daniela.brumar, remco.chang}@tufts.edu.*
+-*• Harry Li and Ashley Suh are with MIT Lincoln Laboratory and Tufts University. E-mail: {harry.li, ashley.suh}@ll.mit.edu.*-*• Gabriel Appleby, Camelia Daniela Brumar, and Remco Chang are with Tufts University. E-mail: {gabriel.appleby, camelia\_daniela.brumar, remco.chang}@tufts.edu.*many features), rendering it unsustainable. Analysts can struggle to acquire and deliver relevant insights to stakeholders, while Consumers may ultimately perceive no utility in the KG's use for their downstream tasks. Consequently, organizations fail to adopt the KG in practice.
 
-many features), rendering it unsustainable. Analysts can struggle to acquire and deliver relevant insights to stakeholders, while Consumers may ultimately perceive no utility in the KG's use for their downstream tasks. Consequently, organizations fail to adopt the KG in practice.
+In addition to sociotechnical challenges, issues were raised related to current visualization methods. These challenges include: scalability, limited support for organic discovery, unaddressed domain-specific needs, and overly complex visualizations for end users. We find that node-link diagrams, although frequently used as a visual medium, are often ineffective for both generating and delivering insights from large KGs. For instance, one practitioner told us their software team's end users ultimately preferred simple table-based KG representations over custom-built interactive graph interfaces. Overall, we identify a need for visualization solutions that are targeted towards*each*KG persona, particularly those employing higher levels of abstraction to facilitate communication with diverse audiences.
 
-In addition to sociotechnical challenges, issues were raised related to current visualization methods. These challenges include: scalability, limited support for organic discovery, unaddressed domain-specific needs, and overly complex visualizations for end users. We find that node-link diagrams, although frequently used as a visual medium, are often ineffective for both generating and delivering insights from large KGs. For instance, one practitioner told us their software team's end users ultimately preferred simple table-based KG representations over custom-built interactive graph interfaces. Overall, we identify a need for visualization solutions that are targeted towards *each* KG persona, particularly those employing higher levels of abstraction to facilitate communication with diverse audiences.
-
-When asked about what types of visual interfaces could be beneficial for exploring KGs, we found that participants widely praised Wikipedia's ability to support insight generation through on-the-fly data and entity hopping. In particular, "Wikipedia-style" interfaces are desirable for users when engaging in *open-ended KG exploration*, where there is no specific analysis target. Conversely, search engines like Google can help users when they want to pose direct and precise questions to the KG, representing *goal-oriented KG exploration*. As a whole, participants emphasized that there is currently no universally accepted solution for either type of KG-based exploratory analysis.
+When asked about what types of visual interfaces could be beneficial for exploring KGs, we found that participants widely praised Wikipedia's ability to support insight generation through on-the-fly data and entity hopping. In particular, "Wikipedia-style" interfaces are desirable for users when engaging in*open-ended KG exploration*, where there is no specific analysis target. Conversely, search engines like Google can help users when they want to pose direct and precise questions to the KG, representing *goal-oriented KG exploration*. As a whole, participants emphasized that there is currently no universally accepted solution for either type of KG-based exploratory analysis.
 
 The remainder of our paper is structured as follows: Section [2](#page-1-0) provides a background on knowledge graphs, as well as previous work on visualization practices for KGs. Section [3](#page-1-1) outlines our protocol and analysis methodology for our interviews with KG practitioners. In Sections [4,](#page-3-0) [5,](#page-4-0) and [6,](#page-6-0) we respectively characterize the users, challenges, and visualization opportunities of KGs based on our findings. Finally, in Section [7](#page-8-0) we discuss the limitations and future work for this study.
 
@@ -33,19 +32,17 @@ To summarize, the major contributions of this paper are:
 - A characterization of KG users, their common organizational roles, areas of expertise, tool usage, and visualization needs.
 - Directions for future KG visualization research, along with design sketches iterated on with domain experts, aimed at alleviating KG-related challenges identified from our interview study.
 
-*Manuscript received 30 Apr. 2023; accepted 15 Jul. 2023. Date of Publication 14 Dec. 2023; date of current version 14 Dec. 2023. For information on obtaining reprints of this article, please send e-mail to: reprints@ieee.org. Digital Object Identifier: 10.1109/TVCG.2023.3326904*
-
-<span id="page-1-4"></span><span id="page-1-3"></span>![](_page_1_Figure_0.jpeg)
+*Manuscript received 30 Apr. 2023; accepted 15 Jul. 2023. Date of Publication 14 Dec. 2023; date of current version 14 Dec. 2023. For information on obtaining reprints of this article, please send e-mail to: reprints@ieee.org. Digital Object Identifier: 10.1109/TVCG.2023.3326904*<span id="page-1-4"></span><span id="page-1-3"></span>![](_page_1_Figure_0.jpeg)
 
 Fig. 1: An illustrative example of a knowledge graph (KG). In a KG, different types of entities (nodes) can have different types of relationships (edges) defined between them. We further discuss KGs in Section [2.1.](#page-1-2)
 
-#### <span id="page-1-0"></span>**2 BACKGROUND & RELATED WORK**
+### <span id="page-1-0"></span>2 BACKGROUND & RELATED WORK
 
 We begin with a brief background on knowledge graphs and introduce terminology used throughout this paper. We then discuss related work in KG system design, as well as KG visualization tools and practices.
 
-#### <span id="page-1-2"></span>**2.1 Knowledge Graphs**
+#### <span id="page-1-2"></span>2.1 Knowledge Graphs
 
-Fundamentally, a knowledge graph is a data model that represents knowledge in the form of nodes (i.e. *entities*), edges (i.e. the *relations* between entities) and properties (i.e. *attributes*) that can be defined for both nodes and edges. A visual illustration of a simple KG can be seen in Figure [1.](#page-1-3) The concept of a knowledge graph dates back to the rise of the semantic web [\[10\]](#page-9-2) in 2001; however, KGs gained notable popularity after the launch of Google's Knowledge Graph [\[21\]](#page-9-3) in 2012, along with the demand for more sophisticated representations of data.
+Fundamentally, a knowledge graph is a data model that represents knowledge in the form of nodes (i.e.*entities*), edges (i.e. the *relations*between entities) and properties (i.e.*attributes*) that can be defined for both nodes and edges. A visual illustration of a simple KG can be seen in Figure [1.](#page-1-3) The concept of a knowledge graph dates back to the rise of the semantic web [\[10\]](#page-9-2) in 2001; however, KGs gained notable popularity after the launch of Google's Knowledge Graph [\[21\]](#page-9-3) in 2012, along with the demand for more sophisticated representations of data.
 
 KGs store their information as triplets (e.g., {*head, relation, tail*}, or {*subject, predicate, object*}), providing a robust (and often hierarchical) structure to reason about data. The entire "blueprint" that defines the KG's structure (e.g., its nodes, edges, properties) is its *schema*. A schema specifies the different node types, edge types, properties, and constraints in the KG. By doing so, the schema ensures consistency, thereby facilitating data integration and providing a shared understanding of the data model for effective querying and analysis.
 
@@ -53,31 +50,29 @@ There are several well-known knowledge graph databases commonly used today (e.g.
 
 The semantic nature of KGs makes them well-suited for enhancing language tasks, particularly when combined with large language models (LLMs) [\[3,](#page-9-7) [15,](#page-9-8) [61\]](#page-10-6). KGs are also used to manage diverse data sources, including data lakes, data warehouses, and knowledge bases (e.g., WikiData). For a complete background on KGs, including their common applications, we point to Hogan et al.'s survey paper [\[38\]](#page-10-3).
 
-#### **2.2 Studies in Knowledge Graphs**
+#### 2.2 Studies in Knowledge Graphs
 
 Understanding the benefits, shortcomings, and future research directions for knowledge graphs was outlined in a 2019 Dagstuhl seminar report [\[11\]](#page-9-6). In the same year, another Dagstuhl report provided new directions in visual analytics research for multilayer networks [\[44\]](#page-10-7), which have similar properties to KGs. A 2022 Dagstuhl report on the intersection of graph databases and network visualization [\[45\]](#page-10-8) is likely the most similar in motivation to our work here.
 
-However, to the best of our knowledge, our interview study is the first attempt to characterize the practitioners of KGs, their challenges, their tool usage, and their visualization needs. Similar qualitative work has been done within the visualization research community to understand the obstacles faced by ML experts [\[39,](#page-10-9) [60\]](#page-10-10) (e.g., *data cascades* [\[64\]](#page-10-11)), client-facing data scientists [\[55\]](#page-10-12), exploratory data analysts [\[4,](#page-9-9) [43,](#page-10-13) [78\]](#page-10-14), and ML stakeholders [\[72\]](#page-10-15). In addition to improving collaborations, these studies are similarly conducted to discover new opportunities for visualization to alleviate challenges faced by practitioners.
+However, to the best of our knowledge, our interview study is the first attempt to characterize the practitioners of KGs, their challenges, their tool usage, and their visualization needs. Similar qualitative work has been done within the visualization research community to understand the obstacles faced by ML experts [\[39,](#page-10-9) [60\]](#page-10-10) (e.g., *data cascades*[\[64\]](#page-10-11)), client-facing data scientists [\[55\]](#page-10-12), exploratory data analysts [\[4,](#page-9-9) [43,](#page-10-13) [78\]](#page-10-14), and ML stakeholders [\[72\]](#page-10-15). In addition to improving collaborations, these studies are similarly conducted to discover new opportunities for visualization to alleviate challenges faced by practitioners.
 
 A recent position paper by Lissandrini et al. [\[50\]](#page-10-16) called for better KG exploration tools. The authors highlight important tasks and use cases for KG systems, particularly for KG creators and maintainers. From our interviews, we identify similar challenges and needs for users (e.g., maintaining KG schemas, scalability, and the demand for interim query results); however, we also identify unmet visualization needs for KG builders, analysts, and consumers. While the authors provide an excellent foundation for database system designs, our work differs in that we interview KG practitioners directly to understand their needs across various technologies and visualization tools.
 
-#### **2.3 Visualization Solutions for Knowledge Graphs**
+#### 2.3 Visualization Solutions for Knowledge Graphs
 
-There are an increasing number of systems that aim to visualize and explore the data in knowledge graphs. Latif et al. contributed *VisKonnect* [\[46\]](#page-10-17), a multi-coordinate visualization system for EventKG [\[30\]](#page-9-10) that analyzes the connections of historical figures based on the events they participated in. VisKonnect includes an NLP-based panel that lets users ask templated questions to the KG with the GPT-3 language model [\[15\]](#page-9-8). Ahmad et al. [\[2\]](#page-9-11) contributed a visualization that maps data from a KG for patients with inflammatory bowel disease to compare their history, progressions, and administered treatments. Husain et al. contributed a multi-scale visual analytics approach for exploring biomedical knowledge graphs [\[42\]](#page-10-18). Their approach includes three types of views, a 'global' (high-level) view, a local 'drilled down' view, and a text-evidence document view. Partl et al. [\[59\]](#page-10-19) contributed a scalable path finding approach with multiple views that queries and ranks candidate paths by topological features, as well as node and edge properties. While more visualization tools are being designed for and around KGs, they are not without their own set of limitations [\[50\]](#page-10-16). KGs are typically very large in size, may have repeat entities or attributes with similar names (i.e. entity ambiguation [\[27\]](#page-9-12)), and may contain obsolete or outof-date data [\[38\]](#page-10-3). For this paper, we target the identification of similar issues preventing wider visualization adoption for KGs, and potential opportunities to alleviate those challenges.
+There are an increasing number of systems that aim to visualize and explore the data in knowledge graphs. Latif et al. contributed*VisKonnect* [\[46\]](#page-10-17), a multi-coordinate visualization system for EventKG [\[30\]](#page-9-10) that analyzes the connections of historical figures based on the events they participated in. VisKonnect includes an NLP-based panel that lets users ask templated questions to the KG with the GPT-3 language model [\[15\]](#page-9-8). Ahmad et al. [\[2\]](#page-9-11) contributed a visualization that maps data from a KG for patients with inflammatory bowel disease to compare their history, progressions, and administered treatments. Husain et al. contributed a multi-scale visual analytics approach for exploring biomedical knowledge graphs [\[42\]](#page-10-18). Their approach includes three types of views, a 'global' (high-level) view, a local 'drilled down' view, and a text-evidence document view. Partl et al. [\[59\]](#page-10-19) contributed a scalable path finding approach with multiple views that queries and ranks candidate paths by topological features, as well as node and edge properties. While more visualization tools are being designed for and around KGs, they are not without their own set of limitations [\[50\]](#page-10-16). KGs are typically very large in size, may have repeat entities or attributes with similar names (i.e. entity ambiguation [\[27\]](#page-9-12)), and may contain obsolete or outof-date data [\[38\]](#page-10-3). For this paper, we target the identification of similar issues preventing wider visualization adoption for KGs, and potential opportunities to alleviate those challenges.
 
-#### **2.4 Knowledge Graph Solutions for Visual Analysis**
+#### 2.4 Knowledge Graph Solutions for Visual Analysis
 
 In addition to visualization solutions targeted for knowledge graphs, the research community has looked into how we can leverage KGs to build better visualizations and interfaces. Dating back to 2008, Chan et al. presented Vispedia [\[17\]](#page-9-13), an interactive visual exploratory tool that allows users to integrate and visualize data tables from DBpedia [\[7\]](#page-9-14). KG4VIS [\[49\]](#page-10-20) recommends visualizations using a knowledge graph constructed from a large corpus of data-visualization pairs. KG4VIS can also generate rules from a KG embedding to "explain" why the model recommends certain visualizations given the user's data. Cashman et al.'s CAVA system [\[16\]](#page-9-15) utilizes KGs to help users interactively perform data augmentation on their existing datasets. Specifically, users are able to automatically join new attributes from a KG to improve performance on analysis tasks, e.g., improving a model's predictive power.
 
 While many of the tools discussed in this section are robust to their particular data domain and use case, it is currently unclear whether current solutions and visualization techniques can cover broader KG practitioner needs. In the following section, we describe an interview study to investigate these questions. In Section [5.4,](#page-5-0) we distill the potential benefits and tradeoffs of current KG visualization designs.
 
-#### <span id="page-1-1"></span>**3 METHODOLOGY**
+#### <span id="page-1-1"></span>3 METHODOLOGY
 
 To better understand the users of KGs, their use cases, challenges, and visualization needs, we conducted an interview study with KG practitioners from both research and enterprise settings. All interview and supplemental materials can be accessed at [https://github.com/](https://github.com/TuftsVALT/KGsInPractice) [TuftsVALT/KGsInPractice](https://github.com/TuftsVALT/KGsInPractice).
 
-<span id="page-2-1"></span>*© 2023 IEEE. This is the author's version of the article that has been published in IEEE Transactions on Visualization and Computer Graphics. The final version of this record is available at: [10.1109/TVCG.2023.3326904](https://doi.org/10.1109/TVCG.2023.3326904)*
-
-<span id="page-2-0"></span>
+<span id="page-2-1"></span>*© 2023 IEEE. This is the author's version of the article that has been published in IEEE Transactions on Visualization and Computer Graphics. The final version of this record is available at: [10.1109/TVCG.2023.3326904](https://doi.org/10.1109/TVCG.2023.3326904)*<span id="page-2-0"></span>
 
 | PID | Education | Job Title           | Company Domain          | KG Persona(s)     | Years of<br>Experience | Familiarity<br>with KGs  | Familiarity<br>Creating KGs | Familiarity<br>Analyzing KGs | Familiarity<br>Querying KGs | Familiarity<br>Visualizing KGs |
 |-----|-----------|---------------------|-------------------------|-------------------|------------------------|--------------------------|-----------------------------|------------------------------|-----------------------------|--------------------------------|
@@ -103,11 +98,11 @@ To better understand the users of KGs, their use cases, challenges, and visualiz
 
 Table 1: Participant demographics for our interview study, described in Section [3.](#page-1-1) From left to right: the participant's ID; job title; the organization they work in (FFRDC stands for Federally Funded Research and Development Center); their primary persona(s) as KG users (further explained in Section [4.1\)](#page-3-1); years of experience with KGs; overall familiarity working with KGs, creating or maintaining KGs, exploring or analyzing KGs, querying KGs, and visualizing KGs. Familiarity was self-reported on a Likert Scale from (1) not at all familiar to (5) extremely familiar.
 
-# **3.1 Participant Recruitment**
+# 3.1 Participant Recruitment
 
 We recruited interview participants via emails to the authors' professional contacts. In the recruitment email, we specified that interviews would be conducted with practitioners who had experience working with knowledge graphs in some capacity (e.g., creating, maintaining, querying). The demographics for our final 19 interview participants is shown in Table [1.](#page-2-0) P1-10 come from varying divisions within the same FFRDC. P12, P15, and P16 come from the same company. The remaining participants are from 6 different organizations.
 
-Participants self-reported their demographics, including their highest education level, job title, company domain, and subjective familiarity with knowledge graphs. Familiarity was selected on a Likert *Level of Familiarity* Scale from 1-5, where 1=Not at all familiar, 2=Slightly familiar, 3=Somewhat familiar, 4=Moderately familiar, and 5=Extremely familiar. The following questions were asked regarding familiarity:
+Participants self-reported their demographics, including their highest education level, job title, company domain, and subjective familiarity with knowledge graphs. Familiarity was selected on a Likert*Level of Familiarity* Scale from 1-5, where 1=Not at all familiar, 2=Slightly familiar, 3=Somewhat familiar, 4=Moderately familiar, and 5=Extremely familiar. The following questions were asked regarding familiarity:
 
 - 1. How would you rate your familiarity with KGs in general?
 - 2. How would you rate your familiarity creating or modifying KGs? 3. How would you rate your familiarity exploring, analyzing, and
@@ -115,7 +110,7 @@ Participants self-reported their demographics, including their highest education
 - 4. How would you rate your familiarity querying KGs?
 - 5. How would you rate your familiarity visualizing KGs?
 
-# **3.2 Protocol**
+# 3.2 Protocol
 
 Two authors conducted all interviews during a six month period. Most (18/19) interviews were conducted virtually through video conferencing software, with one conducted in person. We recorded and transcribed 15/19 interviews, and took detailed notes for the remaining where recording was not possible due to the interviewee's company policies.
 
@@ -123,7 +118,7 @@ Each interview lasted roughly one hour. Three of our interviews were conducted a
 
 After each interview, the authors met to discuss emergent themes, following a thematic analysis process [\[13\]](#page-9-16). We determined our sample size by reaching thematic saturation, where consistent themes emerged, and no new findings or potential codes were identified. In the end, we concluded our study after interviewing a total of 19 KG practitioners.
 
-#### **3.3 Interviews**
+## 3.3 Interviews
 
 At the start of each interview, participants were given a high-level definition of a knowledge graph and an illustrative example image (Figure [1\)](#page-1-3) of one containing historical figures as nodes, relationships between figures as edges, and attributes belonging to both. In Section [7.2](#page-8-1) we discuss our participants' own definitions of a knowledge graph.
 
@@ -139,7 +134,7 @@ To summarize, the overarching questions for our interviews were:
 
 We also walked participants through several examples of knowledge graph visual analysis tools (specifically, [\[30,](#page-9-10) [46,](#page-10-17) [57\]](#page-10-21)) to understand what could be potentially helpful or not helpful for different KG use cases. Participants' feedback, in addition to their responses to the above questions, helped to inform the opportunities for future KG visualization research we distill in Section [6.](#page-6-0) A write-up of their full responses to the presented tools is provided in our supplemental.
 
-#### **3.4 Analysis**
+### 3.4 Analysis
 
 The goal of our analysis was to qualify the users of KGs, their applications, their frequently experienced challenges, and visualization needs that are not satisfied by current technologies. We carried out a qualitative coding process to analyze our interview data. Our codebook was developed iteratively between all authors, and followed the protocols in [\[20,](#page-9-17) [52\]](#page-10-22) for good codebook development. After each interview, the authors met to recap the discussion and note the most common uses cases, tools, issues, and needs experienced by the participant(s). Through this process, the strongest themes that emerged from our analysis related to: (1) why KGs are used over other solutions (*use cases*); (2) tools used for and with KGs (*tools*); (3) problems working with KGs (*challenges*); (4) lack of visualization support (*visualization needs*).
 
@@ -147,11 +142,11 @@ The goal of our analysis was to qualify the users of KGs, their applications, th
 
 To remain consistent with our analysis procedure, we present the qualitative findings of our interviews in the following section in terms of our themes, and only use code counts to report the total number of participants experiencing a particular challenge, use case, and so on.
 
-# <span id="page-3-0"></span>**4 KNOWLEDGE GRAPH USERS & CURRENT PRACTICES**
+# <span id="page-3-0"></span>4 KNOWLEDGE GRAPH USERS & CURRENT PRACTICES
 
 First we distill personas for the users of knowledge graphs, their common uses cases, data sources, reasons for using a KG over other data models, as well as their frequently used tools and technologies.
 
-# <span id="page-3-1"></span>**4.1 KG Personas**
+# <span id="page-3-1"></span>4.1 KG Personas
 
 From our interviews, we identify three major KG practitioner personas, highlighted in Figure [2.](#page-4-1) While each persona comes with distinct expertise, responsibilities, and needs, we often found that one person could step into multiple personas depending on their use case or organizational role. We assigned personas to each participant in Table [1](#page-2-0) based on the variety of KG tasks they regularly perform.
 
@@ -161,7 +156,7 @@ KG Analyst: The KG Analyst is typically an expert in data science or ML. Analyst
 
 KG Consumer: The KG Consumer is generally an expert in the data domain, business, overarching use case, or the KG's sociocultural context (i.e. milieu [\[72\]](#page-10-15)). While Consumers typically do not interact directly with a KG database or its querying language, they are still a stakeholder or end user of the KG, and know what "types" of insights would be valuable to extract. Consumers tend to rely on KG Analysts, query building GUIs, or automated reporting systems to generate those insights. Few (2/19) of our participants fit appropriately into the Consumer persona; we discuss this limitation in Section [7.3.](#page-8-2)
 
-# <span id="page-3-4"></span>**4.2 KG Use Cases**
+# <span id="page-3-4"></span>4.2 KG Use Cases
 
 Our participants are using KGs for a wide variety of use cases (see Table [2](#page-3-3) for examples, and the supplemental for a full list):
 
@@ -192,7 +187,7 @@ Table 2: A select set of our participants' KG use cases. KGs are used for data c
 
 with billions of nodes. The number of edges ranged from millions to billions, with 3 to 10,000 properties on nodes and edges.
 
-# <span id="page-3-5"></span>**4.3 Benefits & Affordances of Using KGs**
+# <span id="page-3-5"></span>4.3 Benefits & Affordances of Using KGs
 
 We also asked participants why they preferred to use KGs over other data structures, like traditional graphs or relational databases.
 
@@ -210,7 +205,7 @@ We like the semantic explicitness of them [knowledge graphs], even if again, the
 
 In addition the above affordances, participants told us they distinctly use KGs to perform data augmentation, generate concept maps or ontologies, and to organize libraries of data assets via data catalogs.
 
-# <span id="page-3-2"></span>**4.4 Usage of Existing KG Tools**
+# <span id="page-3-2"></span>4.4 Usage of Existing KG Tools
 
 Our participants find success in several databases, tools, and methods for representing KGs:
 
@@ -220,7 +215,7 @@ Our participants find success in several databases, tools, and methods for repre
 - 2/19 use SQLite3 with SQL;
 - 1/19 use spreadsheets and adjacency matrices.
 
-<span id="page-4-3"></span><span id="page-4-1"></span>![](_page_4_Picture_1.jpeg)
+<span id="page-4-3"></span><span id="page-4-1"></span>
 
 Fig. 2: Three personas we identified for the users of knowledge graphs from our interviews, described in Section [3.](#page-1-1) From the left, a user can be a KG Builder (e.g., database administrator), an Analyst (e.g., data scientist), or a Consumer (e.g., stakeholder). All three types of KG users have distinct roles, tasks, needs, and expertise – however, it is possible a user can belong to more than one persona. For example, a user that creates their own KG of companies ("KG Builder") to predict which to invest into ("KG Analyst"). We further describe these personas in Section [4.1.](#page-3-1)
 
@@ -239,11 +234,11 @@ Typically I find interfaces like *Gephi* good for your initial exploration, but 
 
 We discuss the benefits and tradeoffs of these visualization tools for KGs in Section [5.4,](#page-5-0) as well as in our supplemental material.
 
-# <span id="page-4-0"></span>**5 KNOWLEDGE GRAPH CHALLENGES**
+# <span id="page-4-0"></span>5 KNOWLEDGE GRAPH CHALLENGES
 
 Our participants reported several broad challenges with using KGs in practice, many of which are fundamentally rooted in data sourcing and data quality issues. We outline the most common challenges experienced by our participants, and use these challenges to motivate directions for visualization research in Section [6.](#page-6-0)
 
-# <span id="page-4-2"></span>**5.1 Data Quality**
+# <span id="page-4-2"></span>5.1 Data Quality
 
 The most common challenge faced by our participants (15/19) are problems surrounding data quality. These challenges include:
 
@@ -254,7 +249,7 @@ The most common challenge faced by our participants (15/19) are problems surroun
 
 The majority of these problems stem from incomplete or in-progress enterprise KGs. Data quality issues negatively impact AI/ML collaborations (e.g., data cascades [\[64\]](#page-10-11)), making it difficult to account for a model's true robustness to missing data, noise, duplications, and so on.
 
-While open-source KGs may be "complete" and useful for testing AI/ML models, they can also be unrealistic when compared to a realworld KG: "*The drawback of using WikiData is that it's* too *good . . . there are no holes you'd otherwise find in practice*" (P1).
+While open-source KGs may be "complete" and useful for testing AI/ML models, they can also be unrealistic when compared to a realworld KG: "*The drawback of using WikiData is that it's*too*good . . . there are no holes you'd otherwise find in practice*" (P1).
 
 Manual Data Updates: As with many kinds of data sources, KGs incur problems related to manually entering, validating, and invalidating data. While some KGs can be automatically generated, many still require manual human data entries to curate [\[77\]](#page-10-25), which can be extremely burdensome on Builders who create enterprise data catalogs:
 
@@ -278,7 +273,7 @@ A big problem is some of these intermediate layers are a lot smaller than the la
 
 Some participants told us their team is experimenting with hyperedge representations, i.e. edges that connect more than just two nodes, in an attempt to avoid path chokepoints and problematic path convergence.
 
-# <span id="page-5-1"></span>**5.2 Querying**
+# <span id="page-5-1"></span>5.2 Querying
 
 Querying is the most challenging problem faced by both KG Analysts and Consumers (11/19), particularly because each KG representation method typically has its own unique querying language [\[38\]](#page-10-3). Learning a graph query language is also difficult for end users:
 
@@ -294,7 +289,7 @@ It was very frustrating because you'd construct a query, it would take like 15 m
 
 Long wait times caused by computation is frustrating for users [\[67\]](#page-10-26) and interrupts their analysis workflows [\[51\]](#page-10-27). Work in progressive visualization [\[5\]](#page-9-24) could alleviate similar issues for KGs.
 
-# **5.3 Socio-Technical Problems**
+# 5.3 Socio-Technical Problems
 
 Two of our participants mentioned that many of their challenges have both social and technical aspects that stem from difficulties in interpersonal communication and collaboration.
 
@@ -322,7 +317,7 @@ Too Many Hammers, Not Enough Talking: While research continues to focus on optim
 
 We can build faster graph database systems. Is it intellectually challenging to go do that? Definitely. But is that going to push the barrier for the world to take unknowns and turn them into knowns? Honestly, no. We don't need more hammers. We need to go figure out how to use the hammers. . . This is where computer scientists can get uncomfortable, doing qualitative methods. -P17
 
-# <span id="page-5-0"></span>**5.4 Current KG Visualization Designs**
+# <span id="page-5-0"></span>5.4 Current KG Visualization Designs
 
 A major point of discussion in our interviews was how current KG visualization designs either meet or fail to meet users' needs. By far, node-link diagrams [\[37\]](#page-9-25) (NLDs) were the most commonly used KG visualization across all three KG user personas (18/19). However, we find that NLDs have shortcomings for the (albiet) many challenges they tackle. We discuss those challenges below.
 
@@ -342,11 +337,11 @@ From our interviews, we believe KG Consumers tend to prefer tables over other re
 
 <span id="page-6-4"></span>mentioned that they make for good eye candy: "*I will argue that they make very pretty pictures. . . they're great slide decoration*" (P13).
 
-# <span id="page-6-0"></span>**6 VISUALIZATION OPPORTUNITIES FOR KNOWLEDGE GRAPHS**
+# <span id="page-6-0"></span>6 VISUALIZATION OPPORTUNITIES FOR KNOWLEDGE GRAPHS
 
 Finally, we present directions for visualization research that can begin to alleviate many of the challenges identified in Section [5.](#page-4-0) Where appropriate, we include participant quotes or references to related literature that motivates each recommendation.
 
-# <span id="page-6-3"></span>**6.1 Graph-Abstracted Visualizations**
+# <span id="page-6-3"></span>6.1 Graph-Abstracted Visualizations
 
 A recent Dagstuhl report [\[45\]](#page-10-8) discusses future directions of research at the intersection of graph databases and network visualization. With respect to the current limitations identified in this work, it is critical that a relevant design space for knowledge graph visualizations (and their end users) is explored and contributed. Building on previous graph visualization work can provide a starting point [\[48,](#page-10-30) [58,](#page-10-31) [59\]](#page-10-19).
 
@@ -358,7 +353,7 @@ P16 found that end users are not only confused by NLDs, but trust the analysis r
 
 In our experience, the more we can shelter the end user from the underlying graph structure, the better their willingness to interact with the data and accept the results that come out of it. As soon as the level of complexity of the graph reaches a certain level on the screen, users really tend to shut down and not trust any of it. -P16
 
-P15 agreed, telling us that, "*there's a big difference between the format that machines want to read data, versus the format that humans want to read data.*" While KGs store complex data (knowledge) that is interpretable to both humans and machines, this feedback suggests that users do not necessarily prefer to *see* this knowledge in graph form.
+P15 agreed, telling us that, "*there's a big difference between the format that machines want to read data, versus the format that humans want to read data.*" While KGs store complex data (knowledge) that is interpretable to both humans and machines, this feedback suggests that users do not necessarily prefer to *see*this knowledge in graph form.
 
 What if I have to (or want to) use a graph visualization? As discussed in Section [5.4,](#page-5-0) many of our participants still have to use NLDs (or general graph visualizations) for a variety of use cases and applications, particularly Builders and Analysts. Our participants identified several capabilities, often lacking in current tools, that should be supported when interacting with or consuming KG visualizations:
 
@@ -366,7 +361,7 @@ What if I have to (or want to) use a graph visualization? As discussed in Sectio
 - The ability to filter, bundle, condense, collapse, or expand areas (regions) of the KG during open-ended exploration.
 - The ability to switch views, while maintaining context, depending on the KG data type (e.g., from graph view to table view).
 
-# **6.2 Balancing Digestibility and Discoverability**
+# 6.2 Balancing Digestibility and Discoverability
 
 One of the advantages to node-link diagrams is the ability for users to traverse the KG from node to node to discover new information. However, users find NLDs ineffective in practice because the scales of KGs they work with (Section [4.2\)](#page-3-4). Consequently, there is a need for visual interfaces that balance both digestibility and discoverability, to allow users to properly process information and explore the KG:
 
@@ -380,7 +375,7 @@ Fig. 3: Left: an example knowledge card template with node and edge information 
 
 Wikipedia simultaneously presents detailed information about a specific article (i.e. node) and also embeds hyperlinks to other related articles (i.e. edges connecting to another node). In this interface setup, users can both explore the graph structure of Wikipedia while also gaining valuable insights of their choosing by interacting with articles. We discuss the design of potential KG interfaces to support seamless knowledge discovery in Section [6.3.](#page-6-2)
 
-Contextual Knowledge Cards: Similar to a *baseball card*, a knowledge card can give a high-level summary of the most essential data for that particular node or entity in the KG. Five of our participants said they use similar visualizations to deliver KG context to Consumers:
+Contextual Knowledge Cards: Similar to a*baseball card*, a knowledge card can give a high-level summary of the most essential data for that particular node or entity in the KG. Five of our participants said they use similar visualizations to deliver KG context to Consumers:
 
 A knowledge card can be a really powerful as a visualization in use cases that I want to understand the context of something. This is where knowledge graphs are really powerful, where they have the advantage over like traditional relational databases. . . being able to understand context and relationships. -P13
 
@@ -388,7 +383,7 @@ A template for the basic information expected in a knowledge card is provided in
 
 Connecting this research opportunity to Section [6.1'](#page-6-3)s, another interesting direction could include the investigation of using knowledge cards as the "nodes" in a node-link diagram. Further, when clustering groups of nodes in the KG for a 'global view,' a knowledge card could represent a high level abstraction for collections of nodes (e.g., a card representing a cluster of universities or sports teams).
 
-## <span id="page-6-2"></span>**6.3 KG-Based Interfaces that Support Organic Discovery**
+## <span id="page-6-2"></span>6.3 KG-Based Interfaces that Support Organic Discovery
 
 There are a variety of opportunities for visual interfaces to align with the capabilities of KGs, thereby facilitating data discovery and exploration. In particular, interfaces that allow end users to "ask the KG questions" that they would not have thought to ask in the first place:
 
@@ -404,7 +399,7 @@ Visual Interfaces Built on Top of KGs: One direction is for interfaces built "on
 
 Using KGs to Augment Exploratory Visualization Tools: Another direction is utilizing KGs altogether to enhance current visualization interfaces. With the growing popularity of public KGs [\[76\]](#page-10-35), visualization system designers can consider adding the ability for users to "connect" to a KG relevant to their own domain or task. For example, given a generalizable exploratory visualization tool like Tableau or Voyager [\[79\]](#page-10-36), an additional widget to "ask a KG" may be implemented to enrich exploration with data that the user is not currently connected to, increasing in-situ discovery and data integration (similar to [\[16\]](#page-9-15)). Given a KG's semantic richness and well-defined (often hierarchical) structure, KGs could seamlessly provide additional context, annotations, supplementary visualizations, etc. to an analysis session.
 
-#### **6.4 KGs for Explainability**
+### 6.4 KGs for Explainability
 
 The semantic nature of KGs (Section [4.3\)](#page-3-5) can be leveraged for explainable AI (XAI) to help model creators debug their model during training, and also to help end users trust a model's predictions [\[73\]](#page-10-37). This is particularly valuable for deep neural networks, which are often regarded as black boxes with limited interpretability [\[63\]](#page-10-38). Lecue [\[47\]](#page-10-2) describes opportunities for using KGs to help encode the semantics of inputs, outputs, and their properties in a neural network.
 
@@ -427,7 +422,7 @@ P9 described two types of explanations that the KG can provide for why the model
 
 We posit that these kinds of contextual explanations can be important for KG-based XAI, and potentially powerful for visual analytics.
 
-#### **6.5 KG Timelines: Tracking Evolutions Over Time**
+#### 6.5 KG Timelines: Tracking Evolutions Over Time
 
 We identify two distinct temporal-based directions for knowledge graph visualization research.
 
@@ -435,9 +430,9 @@ Another peculiarity of my data is the entities are all time stamped roughly. So 
 
 Visualizing Multi-Attributed Time-Series KG Data: First, there is a need to consume and understand time series, temporal, or "timestamped" data from knowledge graphs, e.g., the data in EventKG [\[30\]](#page-9-10). We observe the need for new visual designs and interfaces that allow users to precisely (and organically) navigate and consume temporal data, events, and relations in a large-scale KG. Work similar to Brehmer et al.'s [\[14\]](#page-9-33) could be done to contribute design spaces for multi-attributed temporal (time-series) data, since the nodes and edges of knowledge graphs typically contain multiple attributes.
 
-Tracking KG Data Evolution and Authoring Changes: KG users need visualization solutions that track how the knowledge graph has changed over time, similar to previous visualization work in tracking software changes [\[70,](#page-10-40) [81\]](#page-10-41). Specifically, users need help tracking *and* validating in what capacity the KG has been assigned additional information, e.g., through new edges (relations) added. Users also need to know whether new information drastically changes their mental model of the KG, or makes their analyses out of date. For example, if an Analyst is curating a report using news articles contained within a KG, it is important for them know whether their current state of information is obsolete. As discussed in Section [5.1,](#page-4-2) some users also do not have an effective method of annotating data invalidations to omit certain nodes or links when they rebuild KGs from source data.
+Tracking KG Data Evolution and Authoring Changes: KG users need visualization solutions that track how the knowledge graph has changed over time, similar to previous visualization work in tracking software changes [\[70,](#page-10-40) [81\]](#page-10-41). Specifically, users need help tracking *and*validating in what capacity the KG has been assigned additional information, e.g., through new edges (relations) added. Users also need to know whether new information drastically changes their mental model of the KG, or makes their analyses out of date. For example, if an Analyst is curating a report using news articles contained within a KG, it is important for them know whether their current state of information is obsolete. As discussed in Section [5.1,](#page-4-2) some users also do not have an effective method of annotating data invalidations to omit certain nodes or links when they rebuild KGs from source data.
 
-## **6.6 Mapping Dynamic Data onto Static Views**
+## 6.6 Mapping Dynamic Data onto Static Views
 
 One of the challenges associated with using NLDs for large KGs is that the algorithms used to generate "nice" and computationally fast layouts (e.g., FDLs [\[28\]](#page-9-26)) often calculate the node and link positions dynamically (or stochastically). Consequently, the graph layout can change drastically each time the KG visualization loads, which can confuse users who must reorient themselves after each change.
 
@@ -451,19 +446,19 @@ There are networks in biology that people [biologists] are already familiar with
 
 For example, the same method is used when visualizing navigational directions. The network of roadways remains static, while routes and icons can be overlaid on top. While this KG visualization opportunity may be use case specific, it could support Consumers who require the context of their own domain to extract insights from the KG.
 
-# **6.7 KG Schema Creator and Enforcer**
+# 6.7 KG Schema Creator and Enforcer
 
 A good, consistent knowledge graph hinges on a good, consistent knowledge graph schema [\[1\]](#page-9-0). Interview participants (typically KG Builders) told us that creating a reliable schema can take several months at a time, which halts the actual development process of the KG database:
 
-I think another thing that's very much missing from the [KG] landscape is how to even build the graph to begin with, how to put together your schema. . . It can make querying impossible if you don't build it correctly. Like if I build it in *this* way, I can get *this* information out of it. But if I build it in this other way, I won't ever be able to do *this* query. -P2
+I think another thing that's very much missing from the [KG] landscape is how to even build the graph to begin with, how to put together your schema. . . It can make querying impossible if you don't build it correctly. Like if I build it in*this*way, I can get*this*information out of it. But if I build it in this other way, I won't ever be able to do*this*query. -P2
 
 KG Schemas as Visual Maps: There are many graph and tree visualizations that could act as a starting point for schema visuals [\[37\]](#page-9-25). KG Builders need concise but detailed views of the schemas they are creating, maintaining, and iterating on for their knowledge graph. Moreover, visual designs should consider that schemas may change over time: attributes can be added to nodes or edges, new relations can be created, while others may be removed entirely. A good way to highlight how a schema has changed over time should be integrated.
 
-Interactive Schema Builder & Enforcer: Interview participants that spend months building a schema frequently use tools like *Visio* [\[35\]](#page-9-34) to create the schema framework or template (i.e. a schema visual map). The common usage of Visio should make clear what is needed for an interactive schema builder: flexibility, customizability, and a multitude of design tools. However, what is lacking in a generic tool like Visio is the ability to: (1) preview the schema, (2) integrate directly into a KG workflow, (3) enforce types and constraints in the schema (e.g., [\[6\]](#page-9-35)). In an ideal tool, the KG Builder could also preview how different queries could be accomplished given the current schema design.
+Interactive Schema Builder & Enforcer: Interview participants that spend months building a schema frequently use tools like*Visio* [\[35\]](#page-9-34) to create the schema framework or template (i.e. a schema visual map). The common usage of Visio should make clear what is needed for an interactive schema builder: flexibility, customizability, and a multitude of design tools. However, what is lacking in a generic tool like Visio is the ability to: (1) preview the schema, (2) integrate directly into a KG workflow, (3) enforce types and constraints in the schema (e.g., [\[6\]](#page-9-35)). In an ideal tool, the KG Builder could also preview how different queries could be accomplished given the current schema design.
 
-# <span id="page-8-0"></span>**7 DISCUSSION**
+# <span id="page-8-0"></span>7 DISCUSSION
 
-# **7.1 Domain-Specific KG Visualization Designs**
+# 7.1 Domain-Specific KG Visualization Designs
 
 We began these interviews with the assumption that there is a common challenge faced by most KG practitioners which could be addressed by a generalizable KG visualization system. Instead, we quickly found that – even though our participants did share common challenges – their domain-specific needs could not be met by a single visualization solution. Many (14/19) participants explicitly stated they believe that visualization challenges for KGs are domain specific for end users.
 
@@ -471,15 +466,15 @@ It's probably going to be really hard to find visual metaphors that work for eve
 
 As P2 told us: "*It's going to be hard to make a generalization unless you know the exact use cases*." Creating effective KG visualizations will require additional formal or informal user studies [\[65\]](#page-10-42) to understand the end users' data domain, applications, questions, and needs.
 
-## <span id="page-8-1"></span>**7.2 What Defines a Knowledge Graph?**
+## <span id="page-8-1"></span>7.2 What Defines a Knowledge Graph?
 
 There is often confusion for what makes a data model a KG beyond storing nodes and edges, a commonality across any graph data representation. We asked our interview participants to provide their own definition and criteria for a knowledge graph, the full list is included as supplemental material. Based on our own participants' collective definitions of a KG, we offer the following description:
 
-*A data model representing entities as nodes, the multi-relationships between those nodes as edges, and properties defining them, such* *that humans* and *machines can easily understand the nuances of that data due to its semantics.*
+*A data model representing entities as nodes, the multi-relationships between those nodes as edges, and properties defining them, such* *that humans*and*machines can easily understand the nuances of that data due to its semantics.*
 
 The most important criteria of a KG identified by our participants were: (1) its ability to store different types of nodes (or entities), different types of semantic relationships (or edges) between those nodes, and the attributes (or properties) on them; (2) its ability to help both humans and machines understand what the data "*actually means*" – e.g., in the greater context of the data domain or use case.
 
-## <span id="page-8-2"></span>**7.3 Limitations & Future Work**
+## <span id="page-8-2"></span>7.3 Limitations & Future Work
 
 Additional work beyond our interview study is needed to further understand the role of visualization for knowledge graphs used in practice. While KGs have been an active area of research in other communities (e.g., database systems [\[50\]](#page-10-16) and NLP [\[18\]](#page-9-36)), they have only recently become a target of study in visualization research (e.g., [\[16,](#page-9-15) [49\]](#page-10-20)). There are a multitude of opportunities for visualization research to leverage the semantic-richness of KGs, as well as application-driven research to augment current KG tools. We presented our participants with three tools [\[30,](#page-9-10) [46,](#page-10-17) [57\]](#page-10-21) discussed in Section [2,](#page-1-0) with mixed feedback on their perceived helpfulness (see supplemental). Future work should investigate to what extent existing graph visualization research can be applied to KGs, as well as how accessible these systems are to practitioners.
 
@@ -489,19 +484,19 @@ Another limitation of our study is the lack of KG Consumers interviewed: 17/19 p
 
 In general, we were not able to identify any single solution for "the best" visual encodings for KGs – instead, we identified shortcomings of current designs. However, we believe these findings underpin the need for further research in visualization for KGs, and KGs for visualization. While we posed a variety of visualization research directions and possible designs in Section [6,](#page-6-0) future work will need to address the validity of those suggestions. This also opens up visualization research in curating KG task taxonomies (similarly, to compare and contrast to [\[48\]](#page-10-30)), design guidelines, and potential KG design spaces.
 
-#### **8 CONCLUSION**
+### 8 CONCLUSION
 
-We presented an interview study with 19 practitioners in industry and academic settings across eight organizations who regularly use knowledge graphs. From our interviews, we distilled common knowledge graph practices, uses cases, and tools frequently used by practitioners. We identified three personas for the users of KGs: (1) *Builders* who create and maintain KGs, (2) *Analysts* who explore and analyze the data in KGs, and (3) *Consumers* who use the insights from KGs for downstream tasks. From those personas, we discussed how each KG user has distinct expertise, tasks, and visualization needs. Overall, we found a gap in current tools and visualization methods (e.g., the usage of node-link diagrams for representing and visually communicating large KGs) for the challenges experienced by interview participants. Based on these collective findings, we outlined several directions for visualization research to enable better KG maintenance, "open-ended" and "goal-oriented" data discovery, analyses, and collaborations.
+We presented an interview study with 19 practitioners in industry and academic settings across eight organizations who regularly use knowledge graphs. From our interviews, we distilled common knowledge graph practices, uses cases, and tools frequently used by practitioners. We identified three personas for the users of KGs: (1) *Builders*who create and maintain KGs, (2)*Analysts*who explore and analyze the data in KGs, and (3)*Consumers*who use the insights from KGs for downstream tasks. From those personas, we discussed how each KG user has distinct expertise, tasks, and visualization needs. Overall, we found a gap in current tools and visualization methods (e.g., the usage of node-link diagrams for representing and visually communicating large KGs) for the challenges experienced by interview participants. Based on these collective findings, we outlined several directions for visualization research to enable better KG maintenance, "open-ended" and "goal-oriented" data discovery, analyses, and collaborations.
 
-#### **ACKNOWLEDGMENTS**
+#### ACKNOWLEDGMENTS
 
 We sincerely thank each of the practitioners who took the time to participate in our interview study, and the reviewers for their insightful feedback on improving the quality of our paper. This work was supported by National Science Foundation grants IIS1452977, OAC-1940175, OAC-1939945, OAC-2118201, NRT-2021874.
 
 DISTRIBUTION STATEMENT A. Approved for public release. Distribution is unlimited. This material is based upon work supported by the Department of the Air Force under Air Force Contract No. FA8702- 15-D-0001. Any opinions, findings, conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the Department of the Air Force.
 
-#### **REFERENCES**
+#### REFERENCES
 
-- <span id="page-9-0"></span>[1] B. Abu-Salih. Domain-specific knowledge graphs: A survey. *J. Netw. Comput. Appl.*, 185:103076, 2021. doi: 10.1016/j.jnca.2021.103076 [1,](#page-0-0) [9](#page-8-3)
+- <span id="page-9-0"></span>[1] B. Abu-Salih. Domain-specific knowledge graphs: A survey.*J. Netw. Comput. Appl.*, 185:103076, 2021. doi: 10.1016/j.jnca.2021.103076 [1,](#page-0-0) [9](#page-8-3)
 - <span id="page-9-11"></span>[2] S. Ahmad, D. Sessler, and J. Kohlhammer. Towards a comprehensive cohort visualization of patients with inflammatory bowel disease. In *Proc. VAHC*, pp. 25–29. IEEE Computer Society, Los Alamitos, 2021. doi: 10. 1109/VAHC53616.2021.00009 [2](#page-1-4)
 - <span id="page-9-7"></span>[3] B. AlKhamissi, M. Li, A. Celikyilmaz, M. Diab, and M. Ghazvininejad. A review on language models as knowledge bases. *arXiv preprint arXiv:2204.06031*, 2022. doi: 10.48550/arXiv.2204.06031 [2](#page-1-4)
 - <span id="page-9-9"></span>[4] S. Alspaugh, N. Zokaei, A. Liu, C. Jin, and M. A. Hearst. Futzing and moseying: Interviews with professional data analysts on exploration practices. *IEEE Trans. Vis. Comput. Graph.*, 25(1):22–31, 2019. doi: 10. 1109/TVCG.2018.2865040 [2](#page-1-4)

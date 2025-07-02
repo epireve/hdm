@@ -1,4 +1,6 @@
-## PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling
+<!-- cite_key: xiesupsup2022 -->
+
+# PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling
 
 Haojie Xie<sup>1</sup>\*, Yirong Chen<sup>2</sup><sup>∗</sup> , Xiaofen Xing<sup>2</sup>† , Jingkai Lin<sup>2</sup> , Xiangmin Xu1,3
 
@@ -52,7 +54,7 @@ In summary, the contributions of this work can be succinctly outlined as follows
 
 This section explores the process of PsyDT framework. We first introduce multi-turn dialogues synthesis method of PsyDT, which consists of three components: Dynamic One-Shot Learning from Counseling Cases, Client Personality Simulation and Multi-Turn Mental Health Dialogues Synthesis, as shown in Figure [2.](#page-1-0) And then we fine-tune the LLMs on the synthetic dataset, PsyDTCorpus, to achieve the digital twin of psychological counselor with a specific counseling style. The specific process of synthesizing multi-turn dialogues is shown in Algorithm [1](#page-32-0) in the Appendix.
 
-### 2.1 Single-Turn Dialogues Preparation
+### 1 Single-Turn Dialogues Preparation
 
 To ensure the quality of the synthetic multi-turn dialogues, we select 5,000 single-turn long-text dialogues with rich presentation of clients' personality traits from the SoulChatCorpus [\(Chen et al.,](#page-8-2) [2023\)](#page-8-2) by utilizing GPT-4 as the client personality
 
@@ -62,29 +64,29 @@ evaluator. An example of the single-turn long-text dialogues is shown in Figure 
 
 Figure 3: Distribution of counseling topics.
 
-## 2.2 Dynamic One-Shot Learning from Counseling Cases
+## 2 Dynamic One-Shot Learning from Counseling Cases
 
-### 2.2.1 Real-World Counseling Cases Collection
+### 2.1 Real-World Counseling Cases Collection
 
 To construct psychological counselor's digital twin, we invited a psychological counselor who meets national professional standards to provide psychological counseling. We recruited volunteers from online community, who were asked to select a counseling topic suitable for themselves. Before the consultation, volunteers were informed of precautions and were required to read and sign an informed consent form. During the formal consultation session, volunteers will engage in a dialogue with the psychological counselor. The entire session will follow the standard psychological consultation model and last for 50 minutes, conducted entirely via textbased communication. After the consultation, the counselor who conducted the session will review and verify the consultation records, correcting any errors and redacting any sensitive information to protect the privacy of the participants. In addition, we employ GPT-4 to conduct security checks and data cleaning on these counseling cases. As a result, the real-world counseling cases of the specific psychological counselor on 12 topics were collected,
 
 with total number of 12 and total cost of \$2000 . One of the real-world counseling cases is presented in Figure [9](#page-14-0) in the Appendix (Counseling Topic: Relationship).
 
-## 2.2.2 Linguistic Style and Therapy Technique Summarization
+## 2.2 Linguistic Style and Therapy Technique Summarization
 
 In real-world psychotherapy scenarios, different psychological counselors exhibit distinct personal styles, including unique linguistic style and therapy techniques, etc. To construct above psychological counselor's digital twin, we first employ GPT-4 to capture the linguistic style from several collected real-world counseling cases. The prompt and one example of the summarized linguistic style from counseling case of Figure [9](#page-14-0) are illustrated in Figure [10,](#page-15-0) [11](#page-15-1) in the appendix. Subsequently, we also employ GPT-4 to summarize the therapeutic type of collected counseling cases of specific counselor. The prompt is shown in Figure [12](#page-16-0) in the Appendix. According to statistics, 12 counseling cases all use rational emotive behavior therapy (REBT) [\(Dry](#page-8-5)[den,](#page-8-5) [2005\)](#page-8-5) for psychological counseling. And then the therapeutic type is used to retrieve the corresponding knowledge from the therapy technique knowledge base. Some therapeutic types and details of the knowledge base are presented in Table [3,](#page-16-1) [4](#page-17-0) in the appendix.
 
-### 2.3 Client Personality Simulation
+### 3 Client Personality Simulation
 
 To ensure both complexity and diversity of clients' linguistic style in synthetic multi-turn dialogues, we employ GPT-4 to simulate the Big Five personality traits [\(Costa and McCrae,](#page-8-4) [1999\)](#page-8-4) of clients based on their question. The Big Five personality theory encompasses five core dimensions: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism (OCEAN). The prompt and an example of simulated client personality traits from single-turn dialogue of Figure [8](#page-12-0) are illustrated in Figure [13,](#page-18-0) [14](#page-19-0) in the Appendix.
 
-## 2.4 Multi-Turn Mental Health Dialogues Synthesis
+## 4 Multi-Turn Mental Health Dialogues Synthesis
 
 In order to prevent excessive homogenization of synthesized multi-turn dialogues, we enable singleturn dialogues to dynamically match real-world counseling cases based on counseling topics. The summarized linguistic style and therapy technique with specific topic and extracted client's Big Five personality traits polymerized with counseling case with specific topic, emotion guide and response
 
 guide, GPT-4 is employed to synthesize single-turn dialogue into multi-turn dialogues. We denote synthetic multi-turn dialogues dataset as PsyDTCorpus. The prompt and an example of PsyDTCorpus from single-turn dialogue of Figure [8](#page-12-0) are illustrated in Figure [15,](#page-20-0) [16](#page-22-0) in the Appendix.
 
-### 2.5 PsyDTLLM Model
+### 5 PsyDTLLM Model
 
 Based on the synthetic multi-turn dialogues dataset, PsyDTCorpus, we construct the specific psychological counselor's digital twin LLM (PsyDTLLM) through multi-turn instruction fine-tuning (MIFT). The loss ℓ<sup>θ</sup> during training is,
 
@@ -108,25 +110,25 @@ In this section, we conduct multiple comprehensive analyses of the synthesized m
 - RQ3: Do the different components in the multi-turn dialogues synthesis method of PsyDT synthesize the corresponding effect of PsyDTCorpus?
 - RQ4: What is the performance of Psy-DTLLM as compared with baseline LLMs?
 
-### 3.1 Analysis of PsyDTCorpus Dataset
+### 1 Analysis of PsyDTCorpus Dataset
 
-### 3.1.1 RQ1: Similarity Analysis
+### 1.1 RQ1: Similarity Analysis
 
-To validate the effectiveness of the multi-turn dialogues synthesis method of PsyDT framework, we compare the multi-turn mental health dialogues constructed by three methods, which are *PsyDT\_Prompt*, *SoulChat\_Prompt* [\(Chen et al.,](#page-8-2)
+To validate the effectiveness of the multi-turn dialogues synthesis method of PsyDT framework, we compare the multi-turn mental health dialogues constructed by three methods, which are *PsyDT\_Prompt*, *SoulChat\_Prompt*[\(Chen et al.,](#page-8-2)
 
 <span id="page-4-2"></span>![](_page_4_Figure_0.jpeg)
 
 Figure 4: Similarity results for the proposed multi-turn dialogue synthesis method and other baseline methods.
 
-[2023\)](#page-8-2), *Smile\_Prompt* [\(Qiu et al.,](#page-9-4) [2024a\)](#page-9-4). For each topic, We randomly select 20 single-turn dialogue samples. Then, all the samples are used to synthesize multi-turn dialogues based on the above three methods, respectively. Given the potential of using LLMs for evaluating text generation quality [\(Chi](#page-8-6)[ang and Lee,](#page-8-6) [2023\)](#page-8-6), we attempt to automatically assess the similarity between three synthetic multiturn dialogues dataset and real-world counseling cases in the matter of linguistic style and therapy technique. We employ two state-of-the-art LLMs as evaluators: GPT-4o[2](#page-4-0) and Claude 3.5[3](#page-4-1) . We take the average of the similarity scores given by two LLMs as the final result. The detailed content of the prompt is shown in Figure [17,](#page-23-0) [18](#page-23-1) in the Appendix.
+[2023\)](#page-8-2),*Smile\_Prompt*[\(Qiu et al.,](#page-9-4) [2024a\)](#page-9-4). For each topic, We randomly select 20 single-turn dialogue samples. Then, all the samples are used to synthesize multi-turn dialogues based on the above three methods, respectively. Given the potential of using LLMs for evaluating text generation quality [\(Chi](#page-8-6)[ang and Lee,](#page-8-6) [2023\)](#page-8-6), we attempt to automatically assess the similarity between three synthetic multiturn dialogues dataset and real-world counseling cases in the matter of linguistic style and therapy technique. We employ two state-of-the-art LLMs as evaluators: GPT-4o[2](#page-4-0) and Claude 3.5[3](#page-4-1) . We take the average of the similarity scores given by two LLMs as the final result. The detailed content of the prompt is shown in Figure [17,](#page-23-0) [18](#page-23-1) in the Appendix.
 
-Figure [4](#page-4-2) illustrates that the similarity between multi-turn dialogues synthesized with *PsyDT\_Prompt* and real-world counseling cases is approximately 70%, surpassing multi-turn dialogues synthesized with *Smile\_Prompt* and *SoulChat\_Prompt*, especially in therapy technique. It indicates that the multi-turn dialogue synthesis method of PsyDT has excellent alignment performance in the linguistic style and therapy technique of the specific psychological counselor, which can effectively synthesize multi-turn dialogues of counselor with specific counseling style.
+Figure [4](#page-4-2) illustrates that the similarity between multi-turn dialogues synthesized with*PsyDT\_Prompt*and real-world counseling cases is approximately 70%, surpassing multi-turn dialogues synthesized with*Smile\_Prompt*and*SoulChat\_Prompt*, especially in therapy technique. It indicates that the multi-turn dialogue synthesis method of PsyDT has excellent alignment performance in the linguistic style and therapy technique of the specific psychological counselor, which can effectively synthesize multi-turn dialogues of counselor with specific counseling style.
 
-### 3.1.2 RQ2: Overall Dataset Comparisons
+### 1.2 RQ2: Overall Dataset Comparisons
 
 To validate the superiority of the synthetic multiturn dialogues dataset PsyDTCorpus, we conduct a comprehensive comparison between PsyDTCor-
 
-pus and the following datasets: SMILECHAT [\(Qiu](#page-9-4) [et al.,](#page-9-4) [2024a\)](#page-9-4), SoulChatCorpus [\(Chen et al.,](#page-8-2) [2023\)](#page-8-2), and CPsyCounD [\(Zhang et al.,](#page-9-7) [2024\)](#page-9-7). Detailed information regarding the employed datasets is provided in Table [1.](#page-5-0) *Open.*, *Size*, *NoT.*, *LoC.*, *LoP.*, *EmoE.*, *CogE.*, *TheT.* respectively represent opensource, dataset size, average number of turns, average length of client's response, average length of psychological counselor's response, emotional empathy[4](#page-4-3) , cognitive empathy [\(Preston and De Waal,](#page-9-8) [2002\)](#page-9-8), therapy technique. We randomly select 50 dialogue samples from each of these four datasets for a manual evaluation. Our evaluation team consists of four senior psychological postgraduate students and an experienced psychotherapist to ensure accuracy and professionalism. The evaluation metrics are listed in Table [5](#page-24-0) in the Appendix. Based on references [Swank and Lambie,](#page-9-9) [2012](#page-9-9) and [Associa](#page-8-7)[tion et al.,](#page-8-7) [2012,](#page-8-7) we summarize four professional assessment dimensions in the field of psychological counseling: Conversation Strategy (*Con.*), State and Attitude (*Sta.*), Relationship Building (*Rel.*), and Application of Therapy Technique (*App.*). Additionally, we manually evaluate the fluency (*Flu.*) and safety (*Saf.*) of the data. The rating scale of *Con.*, *Sta.*, *Rel.* and *App.* is (0, 1, ..., 9, 10), while (0,1) for Flu., where higher score means better. Fleiss' κ [\(Fleiss,](#page-8-8) [1971\)](#page-8-8) for *Con.*, *Sta.*, *Rel.*, *The.* and *Inf.* are 0.411, 0.403, 0.407, 0.435 and 0.547, indicating moderate annotation agreement respectively.
+pus and the following datasets: SMILECHAT [\(Qiu](#page-9-4) [et al.,](#page-9-4) [2024a\)](#page-9-4), SoulChatCorpus [\(Chen et al.,](#page-8-2) [2023\)](#page-8-2), and CPsyCounD [\(Zhang et al.,](#page-9-7) [2024\)](#page-9-7). Detailed information regarding the employed datasets is provided in Table [1.](#page-5-0) *Open.*, *Size*, *NoT.*, *LoC.*, *LoP.*, *EmoE.*, *CogE.*, *TheT.* respectively represent opensource, dataset size, average number of turns, average length of client's response, average length of psychological counselor's response, emotional empathy[4](#page-4-3) , cognitive empathy [\(Preston and De Waal,](#page-9-8) [2002\)](#page-9-8), therapy technique. We randomly select 50 dialogue samples from each of these four datasets for a manual evaluation. Our evaluation team consists of four senior psychological postgraduate students and an experienced psychotherapist to ensure accuracy and professionalism. The evaluation metrics are listed in Table [5](#page-24-0) in the Appendix. Based on references [Swank and Lambie,](#page-9-9) [2012](#page-9-9) and [Associa](#page-8-7)[tion et al.,](#page-8-7) [2012,](#page-8-7) we summarize four professional assessment dimensions in the field of psychological counseling: Conversation Strategy (*Con.*), State and Attitude (*Sta.*), Relationship Building (*Rel.*), and Application of Therapy Technique (*App.*). Additionally, we manually evaluate the fluency (*Flu.*) and safety (*Saf.*) of the data. The rating scale of *Con.*, *Sta.*, *Rel.*and*App.*is (0, 1, ..., 9, 10), while (0,1) for Flu., where higher score means better. Fleiss' κ [\(Fleiss,](#page-8-8) [1971\)](#page-8-8) for*Con.*, *Sta.*, *Rel.*, *The.*and*Inf.* are 0.411, 0.403, 0.407, 0.435 and 0.547, indicating moderate annotation agreement respectively.
 
 As shown in Table [1,](#page-5-0) the PsyDTCorpus dataset
 
@@ -152,7 +154,7 @@ significantly outperforms the other datasets across all four professional assess
 
 Figure 5: Results of manual evaluation for PsyDTCorpus and baseline datasets on 4 professional dimensions.
 
-## 3.1.3 RQ3: Ablation Studies
+## 1.3 RQ3: Ablation Studies
 
 To validate that our synthetic multi-turn dialogues dataset, PsyDTCorpus, integrates linguistic style, therapy technique, and client personality, we design three ablation manual evaluations. Our evaluation team consists of four senior psychological postgraduate students and an experienced psychotherapist to ensure accuracy and professionalism. We randomly select 16 single-turn dialogues. Using multi-turn dialogues synthesis method of PsyDT from Figure [15,](#page-20-0) we synthesize these 16 sets of dialogues, each time excluding one of the following elements: linguistic style, therapy technique, and client personality. The evaluators are asked to choose the dialogues that best represented the corresponding linguistic style, therapy technique, and client personality between original dialogue and ablated dialogues. We took the optimal answer for each set of dialogue from the five evaluators through voting mechanism and then calculating the agreement for all 16 sets. As shown in Figure [6,](#page-5-2) our synthetic multi-turn dialogue achieved a fidelity of over 60%. This demonstrates that our multi-turn dialogues synthesis method of PsyDT framework can effectively integrate linguistic style, therapy technique, and client personality.
 
@@ -160,9 +162,9 @@ To validate that our synthetic multi-turn dialogues dataset, PsyDTCorpus, integr
 
 Figure 6: Results of ablation study on synthetic dialogues and other ablated dialogues.
 
-### 3.2 Analysis of PsyDTLLM model
+### 2 Analysis of PsyDTLLM model
 
-### 3.2.1 Baselines
+### 2.1 Baselines
 
 We compare PsyDTLLM with the following baselines.
 
@@ -173,23 +175,23 @@ We compare PsyDTLLM with the following baselines.
 
 To facilitate a more accurate comparison of the capabilities of various models, we choose models of similar magnitudes, such as the 6B/7B/8B/9B model parameter sizes for comparison.
 
-## 3.2.2 Implementation details
+## 2.2 Implementation details
 
 The Qwen2-7B-Instruct is used as the backbone. The whole implementation is based on the LLaMA-Factory [\(Zheng et al.,](#page-9-15) [2024\)](#page-9-15). PsyDTLLM is finetuned for 3 epochs on the proposed PsyDTCorpus with a batch size of 2 per GPU, using 8 NVIDIA-A800-80G GPUs. The cosine-type learning rate scheduler with warmup\_ratio = 0.03 and warmup\_max\_lr = 1.0e − 5 is used. 16-bit half-precision floating point numbers is utilized to accelerate training and improves model performance. The random seed is set to 42. In the inference phase, all the LLMs adopt the following configuration: temperature=0.9, top\_p=0.75, top\_k=20.
 
-## 3.2.3 RQ4: Overall Model Comparisons
+## 2.3 RQ4: Overall Model Comparisons
 
 To verify the superiority of PsyDTLLM compared to other baseline models, we randomly split the PsyDTCorpus dataset into 4760 sets of training data and 240 sets of testing data. The testing data includes 12 topics, each with 20 sets of data, for a total of 4311 turns to conduct automatic evaluation. For each sample, each model generates an answer for evaluation. We used 5 evaluation metrics as automatic metrics: ROUGE-1, ROUGE-2, ROUGE-L [\(Lin,](#page-9-16) [2004\)](#page-9-16), BLEU-4 [\(Papineni et al.,](#page-9-17) [2002\)](#page-9-17), FBERT of BERTSCORE [\(Zhang\\* et al.,](#page-9-18) [2020\)](#page-9-18). Generally, as shown in Table [2,](#page-7-0) PsyDTLLM outperforms other baseline models in both automatic evaluation metrics, which demonstrates that PsyDTLLM outperforms other baseline models in the semantic understanding ability.
 
-Subsequently, we randomly extracts 20 turns of data from each topic for a total of 240 turns to conduct professional evaluation. We also employ two state-of-the-art LLMs as evaluators: GPT-4o and Claude 3.5. We take the average of the scores given by two LLMs as the final result. The metrics to assess are as follows: Emotional Empathy (*EmoE.*), Cognitive Empathy (*CogE.*), Conversation Strategy (*Con.*), State and Attitude (*Sta.*), and Safety (*Saf.*). The ranting scale of *EmoE.*, *CogE.*, *Con.*, *Sta.* is (0, 1, 2, 3) and *Saf.* is (0, 1), where higher score means better. The detailed content of the prompt is shown in Figure [19,](#page-25-0) [20,](#page-26-0) [21,](#page-27-0) [22,](#page-28-0) and [23](#page-29-0) in the Appendix. Generally, as shown in Table [2,](#page-7-0) PsyDTLLM outperforms other baseline models in both professional metrics, demonstrating better performance in the psychological counseling, thereby indicating the strong potential of PsyDT for application in realworld psychological counseling.
+Subsequently, we randomly extracts 20 turns of data from each topic for a total of 240 turns to conduct professional evaluation. We also employ two state-of-the-art LLMs as evaluators: GPT-4o and Claude 3.5. We take the average of the scores given by two LLMs as the final result. The metrics to assess are as follows: Emotional Empathy (*EmoE.*), Cognitive Empathy (*CogE.*), Conversation Strategy (*Con.*), State and Attitude (*Sta.*), and Safety (*Saf.*). The ranting scale of *EmoE.*, *CogE.*, *Con.*, *Sta.*is (0, 1, 2, 3) and*Saf.*is (0, 1), where higher score means better. The detailed content of the prompt is shown in Figure [19,](#page-25-0) [20,](#page-26-0) [21,](#page-27-0) [22,](#page-28-0) and [23](#page-29-0) in the Appendix. Generally, as shown in Table [2,](#page-7-0) PsyDTLLM outperforms other baseline models in both professional metrics, demonstrating better performance in the psychological counseling, thereby indicating the strong potential of PsyDT for application in realworld psychological counseling.
 
-## 3.3 Case Study
+## 3 Case Study
 
 In this section, we present an close look for examples of clients seeking emotional support from ChatGPT, Qwen2-7B-Instruct, SoulChat, CPsy-CounX, and PsyDTLLM via case studies. as shown in Figure [24,](#page-30-0) [25,](#page-30-1) [26,](#page-31-0) [27,](#page-33-0) and [28](#page-35-0) in the Appendix, respectively. ChatGPT and Qwen2-7B-Instruct tend to provide advice rather than asking questions or listening. SoulChat fails to satisfy the individual need of client who seek specific counseling styles. CPsy-CounX tries to explicitly use some professional therapy terms in its replies, which may cause confusion for clients who are not in the field of psychology. Our PsyDTLLM, like a real-world psychological counselor, implicitly expresses emotional empathy and cognitive empathy to meet the needs of clients who seek specific counseling styles.
 
 ## 4 Related Work
 
-## 4.1 Mental Health LLMs
+## 1 Mental Health LLMs
 
 LLMs typically underperform in domains requiring complex mental acumen and high levels of empathy. Nonetheless, significant advancements have been made by researchers. For instance, [Qiu et al.](#page-9-4) [\(2024a\)](#page-9-4) introduced SMILE approach, leveraging ChatGPT to transform single-turn dialogues into multi-turn interactions. [Chen et al.](#page-8-2) [\(2023\)](#page-8-2) developed SoulChat and SoulChatCorpus, a multi-turn empathetic conversation dataset comprising over 2 million samples. By fine-tuning LLM on SoulChat-Corpus, they achieved superior performance in em-
 
@@ -219,7 +221,7 @@ Table 2: Model evaluation results.
 
 pathetic dialogue tasks. [Zhang et al.](#page-9-7) [\(2024\)](#page-9-7) presented CPsyCoun, a framework for reconstructing and evaluating multi-turn dialogues in Chinese psychological counseling. To optimize the utilization of counseling reports, they proposed a two-phase method for generating high-quality dialogues. Furthermore, they established a comprehensive evaluation benchmark for automatic assessment of multiturn psychological counseling. In this paper, we propose PsyDT, a novel framework using LLMs to construct the digital twin of psychological counselor with personalized counseling style.
 
-### 4.2 Therapy Techniques
+### 2 Therapy Techniques
 
 Psychological therapy techniques significantly contribute to individual mental well-being and overall quality of life. These methods support individuals in identifying, addressing, and managing psychological challenges and conflicts [\(Meier,](#page-9-19) [2010\)](#page-9-19). Rational Emotive Behavior Therapy (REBT) [\(Dryden,](#page-8-5) [2005\)](#page-8-5), developed by psychologist Albert Ellis in the 1950s, is a prominent form of psychotherapy that highlights the role of irrational beliefs in causing emotional distress and dysfunctional behavior. REBT posits that psychological disturbances are not caused by events themselves but by individuals' interpretations and reactions to these events. Cognitive Behavioral Therapy (CBT) [\(Beck,](#page-8-10) [1979\)](#page-8-10),
 
@@ -244,7 +246,7 @@ perts in psychology to conduct a manual evaluation of the model's output. Each a
 ## References
 
 - <span id="page-8-7"></span>American Psychological Association et al. 2012. Competency benchmarks in professional psychology.
-- <span id="page-8-0"></span>Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, et al. 2023. [Qwen technical report.](https://arxiv.org/abs/2309.16609) *Preprint*, arXiv:2309.16609.
+- <span id="page-8-0"></span>Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, et al. 2023. [Qwen technical report.](https://arxiv.org/abs/2309.16609)*Preprint*, arXiv:2309.16609.
 - <span id="page-8-10"></span>Aaron T Beck. 1979. *Cognitive therapy of depression*. Guilford press.
 - <span id="page-8-9"></span>Zheng Cai, Maosong Cao, Haojiong Chen, Kai Chen, Keyu Chen, et al. 2024. [Internlm2 technical report.](https://arxiv.org/abs/2403.17297) *Preprint*, arXiv:2403.17297.
 - <span id="page-8-2"></span>Yirong Chen, Xiaofen Xing, Jingkai Lin, Huimin Zheng, Zhenyu Wang, Qi Liu, and Xiangmin Xu. 2023. [SoulChat: Improving LLMs' empathy, listening, and](https://aclanthology.org/2023.findings-emnlp.83) [comfort abilities through fine-tuning with multi-turn](https://aclanthology.org/2023.findings-emnlp.83) [empathy conversations.](https://aclanthology.org/2023.findings-emnlp.83) In *Findings of the Association for Computational Linguistics: EMNLP 2023*, pages 1170–1183, Singapore. Association for Computational Linguistics.
@@ -273,8 +275,8 @@ perts in psychology to conduct a manual evaluation of the model's output. Each a
 
 - <span id="page-9-9"></span>Jacqueline M Swank and Glenn W Lambie. 2012. The assessment of cacrep core curricular areas and student learning outcomes using the counseling competencies scale. *Counseling Outcome Research and Evaluation*, 3(2):116–127.
 - <span id="page-9-2"></span>Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, and Guillaume Lample. 2023. [Llama: Open](https://arxiv.org/abs/2302.13971) [and efficient foundation language models.](https://arxiv.org/abs/2302.13971) *Preprint*, arXiv:2302.13971.
-- <span id="page-9-6"></span>Dong Xue\* Xin Yan. 2023. Mindchat: Psychological large language model. [https://github.com/](https://github.com/X-D-Lab/MindChat) [X-D-Lab/MindChat](https://github.com/X-D-Lab/MindChat).
-- <span id="page-9-11"></span>Aiyuan Yang, Bin Xiao, Bingning Wang, Borong Zhang, Ce Bian, et al. 2023. [Baichuan 2: Open large-scale](https://arxiv.org/abs/2309.10305) [language models.](https://arxiv.org/abs/2309.10305) *Preprint*, arXiv:2309.10305.
+- <span id="page-9-6"></span>Dong Xue\*Xin Yan. 2023. Mindchat: Psychological large language model. [https://github.com/](https://github.com/X-D-Lab/MindChat) [X-D-Lab/MindChat](https://github.com/X-D-Lab/MindChat).
+- <span id="page-9-11"></span>Aiyuan Yang, Bin Xiao, Bingning Wang, Borong Zhang, Ce Bian, et al. 2023. [Baichuan 2: Open large-scale](https://arxiv.org/abs/2309.10305) [language models.](https://arxiv.org/abs/2309.10305)*Preprint*, arXiv:2309.10305.
 - <span id="page-9-13"></span>An Yang, Baosong Yang, Binyuan Hui, Bo Zheng, Bowen Yu, et al. 2024. [Qwen2 technical report.](https://arxiv.org/abs/2407.10671) *Preprint*, arXiv:2407.10671.
 - <span id="page-9-14"></span>Alex Young, Bei Chen, Chao Li, Chengen Huang, et al. 2024. [Yi: Open foundation models by 01.ai.](https://arxiv.org/abs/2403.04652) *Preprint*, arXiv:2403.04652.
 - <span id="page-9-7"></span>Chenhao Zhang, Renhao Li, Minghuan Tan, Min Yang, Jingwei Zhu, Di Yang, Jiahao Zhao, Guancheng Ye, Chengming Li, and Xiping Hu. 2024. [CPsyCoun:](https://aclanthology.org/2024.findings-acl.830) [A report-based multi-turn dialogue reconstruction](https://aclanthology.org/2024.findings-acl.830) [and evaluation framework for Chinese psychologi](https://aclanthology.org/2024.findings-acl.830)[cal counseling.](https://aclanthology.org/2024.findings-acl.830) In *Findings of the Association for Computational Linguistics ACL 2024*, pages 13947– 13966, Bangkok, Thailand and virtual meeting. Association for Computational Linguistics.
@@ -305,9 +307,9 @@ The detailed scores of 4 semantic metrics of model automatic evaluation are as s
 
 Figure 7: ROUGE and BLEU results of model automatic evaluation on our PsyDTLLM model and other baseline models in 12 counseling topics.
 
-## <span id="page-12-0"></span>**Single-Turn Dialogue in Chinese**
+## <span id="page-12-0"></span>Single-Turn Dialogue in Chinese
 
-```
+```text
 "咨询话题":人际
 "来访者问题主题":敏感多疑,一听到她们就
 会影响自己的情绪,无助痛苦?
@@ -328,21 +330,20 @@ Figure 7: ROUGE and BLEU results of model automatic evaluation on our PsyDTLLM m
 该怎么办,我知道学业为重,可是我没办法控制
 自己一听到她们就会影响自己的情绪,很无助痛
 苦。
-```
+```text
 
 "咨询师长文本回复":你好,我很理解你目前 的感受。你与朋友A之间的友情受到了其他人的 干扰,让你感到无助和痛苦。这种情况下,你可 能会感到被抛弃,以及对于友情的失落和伤感。 对于A的行为,你感到很困惑和伤心,这些情绪 都是非常正常的。在这种情况下,你的自尊和自 信可能会受到挑战,这也会影响到你的学业和生 活。\n\n在这个过程中,你可能也会对A产生怀 疑和不信任的情绪。我建议你可以尝试跟A进行 一次单独的交流,表达你的感受和困惑。也许她 并不是故意要伤害你,而是在处理人际关系时产 生了困扰。通过坦诚的对话,也许可以解开一些 误会,或者找到一种更好的处理方式。\n\n同时, 我明白这段经历会让你感到疲惫和沮丧。在这个 过程中,保持对自己的关爱和呵护是非常重要的。 你可以尝试关注一些自己喜欢的事情,找到一些 能够让自己放松的方式,比如运动、阅读、绘画 等等。通过这些方式,你可以慢慢地调整自己的 情绪状态,让自己更加平静和坚强地面对这段经 历。\n\n最后,我希望你知道,这段经历并不会 一直影响你的生活。每个人都会在人际关系中遇 到挑战,这也是成长的一部分。相信自己,你一 定可以度过这个难关,也会遇到更多真正懂得珍 惜你的朋友。如果你觉得情绪上的困扰影响到了 你的日常生活,也可以考虑寻求专业心理咨询师 的帮助,他们会给予你更专业的支持和指导。
 
-## **Single-Turn Dialogue in English**
+## Single-Turn Dialogue in English
 
-### **"Counseling Topic":** Relationship
+### "Counseling Topic": Relationship
 
-**"Title of Client's Question":** Interpersonal Sensitivity and Emotional Distress **"Detail of Client's Question":** I previously had a bestfriend, A, whom I had known since middle school, and she was the only friend Ihad. In high school, another girl, B, joined our group. B and A shared common interests, and they often walked together, leaving me mostly silent during these moments. B's remarks, though perhaps intended as jokes,were often hurtful. Eventually, my friend C, from another class, confronted B on my behalf, which led to my falling out with her. Over time, I realized that if I didn't reach out to A, she wouldn't initiate contact, and it felt like I was the one keeping our friendship alive. This was draining. Before we parted ways, A had invited both B and me to her birthday, but after the fallout, A invited B and her friends without even calling me. I felt deeply hurt. In class, I only interacted with A, and as a result, I ended up isolated, with no other friends. Later, after switching desks, I became less lonely, but I still felt very sensitive. Hearing A and B laugh together would instantly depress me, and I found myself unable to control my emotions. I feel helpless and distressed. Although I understand the importance of focusing on my studies, I cannot stop how I feelwhenever I hear them; it's overwhelming and painful.
-
+**"Title of Client's Question":**Interpersonal Sensitivity and Emotional Distress**"Detail of Client's Question":**I previously had a bestfriend, A, whom I had known since middle school, and she was the only friend Ihad. In high school, another girl, B, joined our group. B and A shared common interests, and they often walked together, leaving me mostly silent during these moments. B's remarks, though perhaps intended as jokes,were often hurtful. Eventually, my friend C, from another class, confronted B on my behalf, which led to my falling out with her. Over time, I realized that if I didn't reach out to A, she wouldn't initiate contact, and it felt like I was the one keeping our friendship alive. This was draining. Before we parted ways, A had invited both B and me to her birthday, but after the fallout, A invited B and her friends without even calling me. I felt deeply hurt. In class, I only interacted with A, and as a result, I ended up isolated, with no other friends. Later, after switching desks, I became less lonely, but I still felt very sensitive. Hearing A and B laugh together would instantly depress me, and I found myself unable to control my emotions. I feel helpless and distressed. Although I understand the importance of focusing on my studies, I cannot stop how I feelwhenever I hear them; it's overwhelming and painful.
 **"Counselor's Long-Text Response":** Hello, I can deeply empathize with the feelings you're experiencing. The dynamics in your friendship with A, especially the interference caused by B, have left you feeling helpless and distressed. It is completely natural to feel a sense of abandonment and loss when a close friendship begins to deteriorate.Your confusion and hurt regarding A's actions are understandable. These emotions may challenge yoursense of self-worth and confidence, which can, in turn, affect both your academic and personal life. It seems that this experience has also led to feelings of doubt and mistrust towards A. I would suggest considering the possibility of having a direct conversation with her, where you can openly share your feelings and concerns. It is possible that A did not intend to hurt you and may have found herself uncertain about how to navigate the complex dynamics in your friendship. A candid dialogue might help clear up misunderstandings or offer a better way to resolve these issues. At the same time, I recognize how emotionally exhausting and disheartening this situation has been for you. In times like these, it is crucial to show kindness and care towards yourself. I encourage you to engage in activities that you enjoy and that can help alleviate your stress, such as exercising, reading, or engaging in a creative hobby like painting. These activities may help you regain emotional balance, allowing you to approach your situation with a clearer and more resilient mindset. Lastly, please remember that this difficult chapter will not define yourlife. Everyone encounters challenges in relationships, and these experiences are part of personal growth. Trust in your ability to overcome this, and believe that you will find friends who truly appreciate and value you. If you feel that these emotional struggles are affecting your day-to-day life significantly, seeking guidance from a professional therapist could provide you with more structured support and strategies to cope.
 
 Figure 8: An example of the single-turn long-text dialogues.
 
-## **Dialogue in Chinese Dialogue in English**
+## Dialogue in Chinese Dialogue in English
 
 来访者:我现在在班级里担任班长一职,在处理班 级事务的过程中感觉到同学之间很冷淡,对于我组 织的一些活动,同学们的参与度普遍不高,让我很 苦恼。
 
@@ -448,7 +449,7 @@ Client: I feel much better, thank you! Counselor: You're welcome. Thank you fory
 
 Figure 9: An example of real-world counseling cases of psychological counselor with specific counseling style.
 
-## <span id="page-15-0"></span>**Prompt in Chinese Prompt in English**
+## <span id="page-15-0"></span>Prompt in Chinese Prompt in English
 
 | 给你看一个【真实世界咨询案例】,请你学习<br>样例中咨询师的**语言风格**。   | We<br>present<br>an<br>example<br>of<br>the<br>[real-world<br>counseling<br>case].<br>Please<br>study<br>the<br>**linguistic<br>style**<br>of<br>the<br>counselor<br>in<br>the<br>example<br>provided.                                                          |  |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
@@ -457,7 +458,7 @@ Figure 9: An example of real-world counseling cases of psychological counselor w
 
 Figure 10: The prompt used for summarizing linguistic style of real-world counseling cases.
 
-## <span id="page-15-1"></span>**Summarization in Chinese Summarization in English**
+## <span id="page-15-1"></span>Summarization in Chinese Summarization in English
 
 ## OK!
 
@@ -503,7 +504,7 @@ Figure 11: An example of summarized linguistic style of counseling case.
 
 ### 学会了。
 
-## <span id="page-16-0"></span>**Prompt in Chinese Prompt in English**
+## <span id="page-16-0"></span>Prompt in Chinese Prompt in English
 
 | #角色#<br>你是一个有着多年从业经验的心理咨询<br>师。                                                                                                                    | ###<br>#Role#<br>You<br>are<br>an<br>experienced<br>psychotherapist<br>with<br>many<br>years<br>ofprofessional<br>practice.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -571,7 +572,7 @@ Table 4: Knowledge base of some common therapy techniques
 
 \*\*返回格式\*\*: (序号)\*\*属性\*\*:来访者大五人格理论的评 价
 
-# <span id="page-18-0"></span>**Prompt in Chinese Prompt in English**
+# <span id="page-18-0"></span>Prompt in Chinese Prompt in English
 
 Please act as a writer in the field of psychological counseling, possessing rich imagination and creativity, and capable of creating the personality traitsof characters based on the "Big Five Personality Traits" theory.Utilize the \*\*descriptions and evaluation criteria of the Big Five Personality Traits\*\* to describe the personality traits ofthe client in the [Client's Long Text Problem]. The generated personality traits must align with the role state of the client described in the [Client's Long Text Problem], be reasonable, and avoid significant contradictions in the character information.
 
@@ -625,7 +626,7 @@ Figure 13: The prompt used for simulating client personality traits.
 
 象。此外,她提到无法控制听到她们时的情绪反 应,这表明她可能经历了频繁的情绪波动,并且 难以管理自己的情绪状态。
 
-## <span id="page-19-0"></span>**Personality in Chinese Personality in English**
+## <span id="page-19-0"></span>Personality in Chinese Personality in English
 
 1. \*\*Openness\*\*: The client may score lower in openness. She does not seem to exhibit a strong receptiveness to new experiences orcuriosity about different types offriendships when meeting a new acquaintance, B. Instead, she appears to prefer maintaining her relationship with the familiar friend, A, rather than exploring a new connection with B. Furthermore, the client seems to have difficulty adapting to or understanding B's sense of humor, suggesting <sup>a</sup> loweradaptability to novel or challenging social interactions.
 
@@ -639,9 +640,9 @@ Figure 13: The prompt used for simulating client personality traits.
 
 Figure 14: An example of simulated client personality traits.
 
-## <span id="page-20-0"></span>**Prompt in Chinese Prompt in English**
+## <span id="page-20-0"></span>Prompt in Chinese Prompt in English
 
-```
+```text
 请你扮演一个心理咨询领域的文本改写员,将
 给定的【单轮长文本中文心理咨询对话】改写
 为多轮心理咨询对话,要求如下:
@@ -686,14 +687,14 @@ Figure 14: An example of simulated client personality traits.
                            resistance and negativity to a more positive and optimistic outlook. The client's negative emotions will persist for a long time during the conversation, but will eventually become positive and optimistic under counselor's patient guidance. 3. **Client Personality**: {}
                            4. **Therapy Techniques**: {}
                            5. **Response Guide**: (1) At the beginning of the dialogue, the client's response should not directly use
-                           the content of the **client's long text problem** but should revolve around the **client's long text problem**. (2) ** Client personality** are generated based on the "Big Five Personality
+                           the content of the **client's long text problem**but should revolve around the**client's long text problem**. (2) ** Client personality**are generated based on the "Big Five Personality
                            Traits" in psychology, and the client's linguistic style throughout the dialogue
-                           should reflect their **client personality**. (3) The counselor's responses should flexibly use **therapy techniques** without overusing professional terminology related to **therapy techniques**. (4) The counselor's linguistic style should mimic linguistic style of counselor in
+                           should reflect their**client personality**. (3) The counselor's responses should flexibly use **therapy techniques**without overusing professional terminology related to**therapy techniques**. (4) The counselor's linguistic style should mimic linguistic style of counselor in
                            [real-world counseling case] you have learned earlier. (5) Ensure the dialogue flows naturally and realistically, reflecting real-world
                            psychological counseling scenarios. [Single-Turn Long Text Chinese Psychological Counseling Dialogue]: **Client's Long Text Problem**: Title of Client's Question: {}
                            Detail of Client's Question: {} **Counselor's Long Text Response**: {} **Return Format**: Client: Response Counselor: Response
                            ... Please analyze each of the above requirements step by step, imitate the [real- world counseling case] you have learned earlier for rewriting, ensure the number of dialogue turns is between 20 and 30, and provide yourrewritten
-```
+```text
 
 Figure 15: The prompt used for synthesizing multi-turn mental health dialogues.
 
@@ -729,7 +730,7 @@ result as follows:
 
 时会提醒您那种不愉快的感觉。这时候的您肯定感觉 很无助,对吧?
 
-## **Dialogue in Chinese Dialogue in English**
+## Dialogue in Chinese Dialogue in English
 
 咨询师:听起来您最近遇到了一些让您情绪起伏的事 Client: Recently, I've been feeling really emotionally unstable. Even the smallest things can make me irritated for the whole day. Counselor: It seems like you've been encountering situations recently that have caused fluctuations in your emotions. Could you tell me more about the kinds ofthings that are affecting you?
 
@@ -1099,7 +1100,7 @@ Please strictly follow the #Response Format#, using the provided #Evaluation Sta
 
 Figure 23: The prompt used for evaluating safety of LLMs.
 
-<span id="page-30-0"></span>![](_page_30_Picture_0.jpeg)
+<span id="page-30-0"></span>
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
@@ -1151,7 +1152,7 @@ can help you manage stress more effectively in daily life. Remember, taking care
 
 Figure 25: A case of a client confiding to Qwen2-7B-Instruct.
 
-<span id="page-31-0"></span>![](_page_31_Picture_0.jpeg)
+<span id="page-31-0"></span>
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. Idon't know what to do.
 
@@ -1209,23 +1210,23 @@ Initialize: *topic\_rc*: real-world counseling case of current counseling topic;
 
 Output: *mt\_dial\_list*: synthetic multi-turn dialogues list.
 
-- 1: for *topic\_rc* in range *rc\_list* do
-- 2: *topic\_ls* ← GPT-4.LingStyPromptGen(*topic\_rc*);
+- 1: for *topic\_rc*in range*rc\_list*do
+- 2:*topic\_ls* ← GPT-4.LingStyPromptGen(*topic\_rc*);
 - 3: *ls\_list*.append(*topic\_ls*);
 - 4: *topic\_ttype* ← GPT-4.TheTypePromptGen(*topic\_rc*);
 - 5: *ttype\_list*.append(*topic\_ttype*);
 - 6: end for
 - 7: *tt\_list* ← KB\_Retrieve(*ttype\_list*);
-- 8: for *st\_dial* in range *st\_dial\_list* do
-- 9: *st\_dial\_cp* ← GPT-4.CliPerPromptGen(*st\_dial*.client\_problem);
+- 8: for *st\_dial*in range*st\_dial\_list*do
+- 9:*st\_dial\_cp* ← GPT-4.CliPerPromptGen(*st\_dial*.client\_problem);
 - 10: *psy\_ls* ← TopicMatchLing(*st\_dial*.counseling\_topic, *ls\_list*);
-- 11: *psy\_tt* ← TopicMatchTher( *st\_dial*.counseling\_topic, *tt\_list*);
+- 11: *psy\_tt*← TopicMatchTher(*st\_dial*.counseling\_topic, *tt\_list*);
 - 12: *mt\_dial* ← GPT-4.MultiTurnPromptGen(*topic\_rc*, *psy\_ls*, *emo\_gui*, *psy\_tt*, *st\_dial*, *st\_dial\_cp*, *res\_gui*);
 - 13: *mt\_dial\_list*.append(*mt\_dial*);
 - 14: end for
 - 15: return *mt\_dial\_list*;
 
-<span id="page-33-0"></span>![](_page_33_Picture_0.jpeg)
+<span id="page-33-0"></span>
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
@@ -1269,8 +1270,6 @@ In that case, we might consider a new approach called cognitive-behavioral thera
 
 Figure 27: A case of a client confiding to CPsyCounX.
 
-![](_page_34_Picture_0.jpeg)
-
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
 听起来你现在承受了很多压力,这一定很难受。能具体告诉我,是什么事情让你感到焦虑吗? It sounds like you are currently under a lot of pressure, which must be very challenging. Could you specify what exactly is causing your anxiety?
@@ -1311,7 +1310,7 @@ From what you describe, it seems you are under significant academic and psycholo
 
 ![](_page_34_Picture_20.jpeg)
 
-<span id="page-35-0"></span>![](_page_35_Picture_0.jpeg)
+<span id="page-35-0"></span>
 
 我是一个很内向的人,一般就会默默承受这些压力,把自己关在一个黑暗的房间里,也不敢跟爸爸妈妈说,怕 他们担心。
 

@@ -1,12 +1,14 @@
+<!-- cite_key: arxiv_2019_deep_learning_seque -->
+
 HUI FANG, RIIS & SIME, Shanghai University of Finance and Economics, China DANNING ZHANG<sup>∗</sup> , SIME, Shanghai University of Finance and Economics, China YIHENG SHU, Software College, Northeastern University, China GUIBING GUO, Software College, Northeastern University, China
 
 In the field of sequential recommendation, deep learning (DL)-based methods have received a lot of attention in the past few years and surpassed traditional models such as Markov chain-based and factorization-based ones. However, there is little systematic study on DL-based methods, especially regarding how to design an effective DL model for sequential recommendation. In this view, this survey focuses on DL-based sequential recommender systems by taking the aforementioned issues into consideration. Specifically, we illustrate the concept of sequential recommendation, propose a categorization of existing algorithms in terms of three types of behavioral sequences, summarize the key factors affecting the performance of DL-based models, and conduct corresponding evaluations to showcase and demonstrate the effects of these factors. We conclude this survey by systematically outlining future directions and challenges in this field.
 
-#### CCS Concepts: • Information systems → Recommender systems.
+# CCS Concepts: • Information systems → Recommender systems.
 
 Additional Key Words and Phrases: sequential recommendation, session-based recommendation, deep learning, influential factors, survey, evaluations
 
-#### ACM Reference Format:
+## ACM Reference Format:
 
 Hui Fang, Danning Zhang, Yiheng Shu, and Guibing Guo. 2020. Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations. ACM Transactions on Information Systems 1, 1, Article 1 (January 2020), [41](#page-40-0) pages.<https://doi.org/10.1145/3426723>
 
@@ -14,7 +16,7 @@ Hui Fang, Danning Zhang, Yiheng Shu, and Guibing Guo. 2020. Deep Learning for Se
 
 With the prevalence of information technology (IT), recommender system has long been acknowledged as an effective and powerful tool for addressing information overload problem. It makes users easily filter and locate information in terms of their preferences, and allows online platforms to widely publicize the information they produce. Most traditional recommender systems are content-based and collaborative filtering based ones. They strive to model users' preferences towards items on the basis of either explicit or implicit interactions between users and items. Specifically, they incline to utilize a user's historical interactions to learn his/her static preference with the assumption that all user-item interactions in the historical sequences are equally important.
 
-#### <sup>∗</sup>Corresponding author
+## <sup>∗</sup>Corresponding author
 
 Authors' addresses: Hui Fang, RIIS & SIME, Shanghai University of Finance and Economics, China, fang.hui@mail.shufe.edu. cn; Danning Zhang, SIME, Shanghai University of Finance and Economics, China, zhangdanning5@gmail.com; Yiheng Shu, Software College, Northeastern University, China, shuyiheng29@gmail.com; Guibing Guo, Software College, Northeastern University, China, guogb@swc.neu.edu.cn.
 
@@ -60,13 +62,13 @@ More and more new techniques and improved structures have been applied to facili
 
 • We summarize quite a few open issues in existing DL-based sequential recommendation and outline future directions.
 
-# 1.1 Related Survey
+# 1 Related Survey
 
 There have been some surveys on either DL-based recommendation or sequential recommendation. For DL-based recommendation, Singhal et al. [\[92\]](#page-38-0) summarized DL-based recommender systems and categorized them into three types: collaborative filtering, content-based, and hybrid ones. Batmaz et al. [\[8\]](#page-35-2) classified and summarized the DL-based recommendation from the perspectives of DL techniques and recommendation issues, and also gave a brief introduction of the session-based recommendations. Zhang et al. [\[147\]](#page-40-1) further discussed the state-of-the-art DL-based recommender systems, including several RNN-based sequential recommendation algorithms. For sequential recommendation, Quadrana et al. [\[77\]](#page-37-0) proposed a categorization of the recommendation tasks and goals, and summarized existing solutions. Wang et al. [\[121\]](#page-39-0) summarized the key challenges, progress and future directions for sequential recommender systems. In a more comprehensive manner [\[119\]](#page-39-1), they further illustrated the value and significance of the session-based recommender systems (SBRS), and proposed a hierarchical framework to categorize issues and methods, including some DL-based ones.
 
 However, to the best of our knowledge, our survey is the first to specifically and systematically summarize and explore DL-based sequential recommendation, and discuss the common influential factors using a thorough demonstration of experimental evaluations on several real datasets. The experiment results and conclusions can further guide the future research on how to design an effective DL model for the sequential recommendation.
 
-# 1.2 Structure of This Survey
+# 2 Structure of This Survey
 
 The rest of the survey is organized as follows. In Section [2,](#page-3-0) we provide a comprehensive overview of DL-based sequential recommender systems, including a careful refinement of sequential recommendation tasks. In Section [3,](#page-9-0) we present the details of the representative algorithms for each recommendation task. In Section [4,](#page-16-0) we summarize the influential factors for existing DL-based sequential recommendation followed by a thorough evaluation on real datasets in Section [5.](#page-22-0) Finally, we conclude this survey by presenting open issues and future research directions of DL-based sequential recommendation in Section [6.](#page-31-0)
 
@@ -74,7 +76,7 @@ The rest of the survey is organized as follows. In Section [2,](#page-3-0) we pr
 
 In this section, we provide a comprehensive overview of the sequential recommendation. First, we clarify the related concepts, and then formally describe the sequential recommendation tasks. Finally, we elaborate and compare the traditional ML and DL techniques for the sequential recommendation.
 
-# 2.1 Concept Definitions
+# 1 Concept Definitions
 
 To facilitate the understanding, we first formally define behavior object and behavior type to distinguish different user behaviors in sequential data.
 
@@ -112,7 +114,7 @@ Fig. 6. Interaction-based behavior sequence.
 
 Interaction-based behavior sequence. An interaction-based behavior sequence could be viewed as a mixture of experience-based and transaction-based behavior sequences (see Figure [6\)](#page-5-1), i.e., a generalization of previous two types and much closer to the real scenarios. That is to say, it consists of different behavior objects and different behavior types simultaneously. In interaction-based behavioral sequence modeling, a recommender system is expected to understand user preferences more realistically, including different user intents expressed by different behavior types and preferences implied by different behavior objects. Its major goal is to predict the next behavior object that a user will interact with.
 
-### <span id="page-5-2"></span>2.2 Sequential Recommendation Tasks
+## <span id="page-5-2"></span>2.2 Sequential Recommendation Tasks
 
 Before formally defining the sequential recommendation tasks, we firstly summarize the two representative tasks in the literature (as depicted in Figure [7\)](#page-6-0): next-item recommendation and nextbasket recommendation. In next-item recommendation, a behavior contains only one object (i.e., item), which could be a product, a song, a movie, or a location. In contrast, in next-basket recommendation, a behavior contains more than one object.
 
@@ -133,7 +135,7 @@ where the input is the behavior sequence {1, 2, 3, ..., }, refers to the corresp
 
 According to the definition, and given the three types of behavior sequences, we thus divide the sequential recommendation tasks into three categories: experience-based sequential recommendation, transaction-based sequential recommendation, and interaction-based sequential recommendation. We will comprehensively discuss these tasks as well as the specific DL-based recommendation models in Section [3.](#page-9-0)
 
-### 2.3 Related Models
+### 3 Related Models
 
 In this subsection, we first review the traditional ML methods applied to the sequential recommendation and also briefly discuss their advantages and disadvantages. Second, we summarize related DL techniques for the sequential recommendation and elaborate how they overcome the issues involved in traditional methods.
 
@@ -179,7 +181,7 @@ The major problems of DL-based sequential recommendation methods include: 1) the
 
 In this section, in order to figure out whether sequential recommendation tasks have been sufficiently explored, we classify sequential recommendation algorithms in terms of the three tasks (Section [2.2\)](#page-5-2): experience-based sequential recommendation, transaction-based sequential recommendation, and interaction-based sequential recommendation.
 
-## 3.1 Experience-based Sequential Recommendation
+## 1 Experience-based Sequential Recommendation
 
 As we have introduced, in an experience-based behavior sequence, a user interacts with a same item with different behavior types. The goal of experience-based sequential recommendation is to predict the next behavior type that the user will implement on the item, and thus it is also referred to as multi-behavior recommendation. Accordingly, we first explore the studies on multi-behavior recommendation and then present DL-based models that leverage multi-behavior information in the sequential recommendation.
 
@@ -193,7 +195,7 @@ ACM Transactions on Information Systems, Vol. 1, No. 1, Article 1. Publication d
 
 that this cascaded prediction, which could be regarded as pre-training embedding layers of other behavior types before learning a recommendation model for the target behavior, only considers the connections between target behavior and previous behaviors but ignores the ones between target behavior and subsequent behaviors. Thus, it does not fully explore the relationship on various behavior types. In this view, multi-task learning (MTL) can address this problem by providing a paradigm to predict multiple tasks simultaneously which also exploits similarities and differences across tasks. The performance of the MTL model proposed in [\[26\]](#page-35-6) is generally better than those using the sequential training. Besides, Xia et al. [\[133\]](#page-39-4) proposed a multi-task model with LSTM to explicitly model users' purchase decision process by predicting the stage and decision of a user at a specific time with the assistance of a pre-defined set of heuristic rules, and thus obtaining more accurate recommendation results.
 
-# 3.2 Transaction-based Sequential Recommendation
+# 2 Transaction-based Sequential Recommendation
 
 In transaction-based sequential recommendation, there is only a single behavior type (transactionrelated, e.g., purchase), and recommendation models generally consider the sequential dependency relationships between different objects (items) as well as user preferences. As there are a substantial amount of DL-based models for this task, we further summarize the existing models in terms of the employed specific DL techniques.
 
@@ -247,7 +249,7 @@ proposed an intent-aware sequential recommendation algorithm, which uses the sel
 
 Sachdeva et al. [\[87\]](#page-38-16) explored the variational autoencoder for modeling a user's preference through his/her historical sequence, which combines latent variables with temporal dependencies for preference modeling. Ma at al. [\[66\]](#page-37-14) specifically designed a hierarchical gating network (HGN) with BPR to capture both the long-term and short-term user preferences.
 
-# 3.3 Interaction-based Sequential Recommendation
+# 3 Interaction-based Sequential Recommendation
 
 Compared to the aforementioned two tasks, the interaction-based one is much more complicated as each behavior sequence consists of both different behavior types and different behavior objects. Thus, the recommendation models are expected to capture both the sequential dependencies among different behaviors, different items as well as behaviors and items, respectively. Next, we summarize the related models according to the deployed DL techniques.
 
@@ -277,7 +279,7 @@ thus further improve the performance of RLBL. [\[93\]](#page-38-17) took context
 
 <span id="page-15-1"></span>Table 1. Categories of representative algorithms regarding sequential recommendation tasks and DL models.
 
-# 3.4 Concluding Remarks
+# 4 Concluding Remarks
 
 In this section, we have introduced representative algorithms for the three sequential recommendation tasks. We list the representative algorithms in terms of tasks and DL techniques in Table [1.](#page-15-1) In summary, RNNs and attention mechanisms have been greatly explored in both transaction and interaction-based sequential recommendation tasks, where the effectiveness of other DL models (e.g., GNN and generative models) needs much further investigation. Besides, there are also some issues for the existing models especially for the complicated interaction-based sequential recommendation: (1) the behavior type and the item in a behavior 2-tuple ( , ) are mostly equally treated. For example, ATRank [\[153\]](#page-40-11) and CSAN [\[41\]](#page-36-20) adopt the same attention score for the item and the corresponding behavior type; (2) different behavior types are not distinguished successfully. For example, [\[108\]](#page-38-3) used the same network to model different types of behaviors, assuming that different behavior types have similar patterns; (3) the correlation between behaviors in a sequence
 
@@ -295,7 +297,7 @@ Figure [10](#page-16-1) shows the training and testing process of a sequential r
 
 On the basis of a thorough literature study, we identify some representative factors (listed in grey boxes in Figure [10](#page-16-1) and Table [2\)](#page-17-0) that might impact the performance of DL-based models in terms of recommendation accuracy. The details of these factors are discussed subsequently.
 
-## 4.1 Input Module
+## 1 Input Module
 
 Side information and behavior types are critical factors to DL-based models in the input module.
 
@@ -345,7 +347,7 @@ of [2, 3 ), then the parallel mini-batch of this session will contain 2 repeated
 
 It should be noted that, although side information and behavior types could greatly improve model performance, their collections might be either infeasible or cost-consuming.
 
-# 4.2 Data Processing
+# 2 Data Processing
 
 An appropriate design of feature extraction methods (i.e., embedding design) and data augmentation for generating more training data have been validated to be effective in existing DL-based models.
 
@@ -363,7 +365,7 @@ on the basis of the Skip-gram model and thus formed unified representations of i
 
 Fig. 11. Data augmentation. The orange circles represent the predicted items; the dotted circles represent the item that is deleted in the dropout method, and light orange circles make up privileged information.
 
-### 4.3 Model Structure
+## 3 Model Structure
 
 We summarize the major methods to improve model structures in the previous DL-based models as: incorporating attention mechanisms, combining with conventional models, and adding explicit user representation.
 
@@ -385,7 +387,7 @@ User recurrent models. They treat both user and item representations as recurren
 
 In summary, model structures play an important role in the sequential recommendation, where better designs can help more effectively capture the sequential dependencies among items and behaviors, and thus better understand both users' short-term and long-term preferences.
 
-### 4.4 Model Training
+### 4 Model Training
 
 Well-designed training strategies can also facilitate the learning of DL-based sequential recommendation models. With a comprehensive investigation, we have summarized three major strategies: negative sampling, mini-batch creation and loss function.
 
@@ -448,7 +450,7 @@ where is the set of recommendations containing item , while is the set of recomm
 
 Here, we conduct experiments[11](#page-22-3) on real datasets to showcase the impact of influential factors on DL-based models in terms of recommendation accuracy, where mostly the ways of incorporating influential factors are widely adopted by representative sequential recommender systems.
 
-#### 5.1 Experimental Settings
+#### 1 Experimental Settings
 
 5.1.1 Datasets. We use three real-world datasets: RSC15, RSC19 and LastFM. RSC15 is published by RecSys Challenge 2015[12](#page-22-4), which contains click and buy behaviors from an online shop. Only the click data is used in our evaluations. RSC19 is published by RecSys Challenge 2019[13](#page-22-5), which contains hotel search sessions from a global hotel platform. RSC19 (user) is a subset of RSC19. LastFM is collected via the LastFM API, and each sample is a 4-tuple (user, artist, song, timestamp).
 
@@ -544,7 +546,7 @@ where denotes the ranking position of the ground-truth item.
 
 It should be noted that for each method, we run each experiment 5 times and report the performance in the form of "mean ± std deviation" in terms of the three metrics as in Tables [5](#page-26-0) and [6,](#page-27-0) and show the mean values in other Figures.
 
-### 5.2 Experiment Results
+### 2 Experiment Results
 
 <span id="page-26-0"></span>Table 5. Results of incorporating item category or behavior type. Statistical significance of pairwise differences of each improved model vs. basic model (GRU4Rec) is determined by a paired -test (\* for p-value ≤ 0.1, ^ for p-value ≤ 0.05, Δ for p-value ≤ 0.01 ).
 
@@ -656,7 +658,7 @@ Loss function effects. As depicted in Figures [18](#page-30-1) and [19,](#page-3
 
 # <span id="page-31-0"></span>6 FUTURE DIRECTIONS AND CONCLUSIONS
 
-# 6.1 Future Directions
+# 1 Future Directions
 
 As we have discussed, DL techniques have greatly promoted the sequential recommendation studies, but also are accompanied by some challenging issues. Thus, we summarize the following open issues which can be considered as future directions for DL-based sequential recommender systems.
 
@@ -694,11 +696,11 @@ On the other side, more and more large companies incline to provide services/pro
 
 To tackle these two issues, first, machine learning techniques which are capable of learning from a limited number of data samples (e.g., few shot learning [\[125\]](#page-39-27)), can be adopted for sequential recommendation. Few-shot learning strives to bridge the gap between artificial intelligence and human-like learning, and can learn a task with limited information by incorporating prior knowledge and deploying different ML techniques (e.g., the meta-learning, embedding learning and generative modeling methods) [\[125\]](#page-39-27). For instance, Du et al. [\[25\]](#page-35-25) proposed <sup>2</sup> (Scenario-specific Sequential Meta learner) which combines the scenario-specific learning with a model-agnostic sequential meta learning for more effective recommendation. Secondly, sequential recommendation algorithms can be built on different types of side information (e.g., social networks, user profiles, item descriptions, and knowledge graph) to partially relieve the two issues [\[69,](#page-37-27) [101\]](#page-38-18), while deep neural networks are quite suitable to process multi-modal information. For example, SDM considers multiple types of side information, such as item ID, first level category, leaf category, brand and shop, to better model users' long-term preferences.
 
-### 6.2 Conclusions
+## 2 Conclusions
 
 The study systematically investigated the DL-based sequential recommendation. Specifically, we designed a novel taxonomy for investigating the sequential recommendation tasks in terms of the three types of behavior sequences: experienced-based, transaction-based, and interactionbased. Based on it, we surveyed and explored a considerable amount of representative DL-based algorithms in the sequential recommendation, with the aim of a better understanding on whether sequential recommendation tasks have been sufficiently or insufficiently studied. Thirdly, for better guiding the development of DL-based sequential recommender systems, we thoroughly identified the possible influential factors that impact the performance of DL-based models in regards to recommendation accuracy from the four perspectives with respect to learning a better model: model input, data processing, model structure and model training. We further comprehensively showcased their impacts via well-designed evaluations, which can be viewed a testbed. Finally, we discussed the challenges and provided new potential directions for the research on DL-based sequential recommendation.
 
-#### REFERENCES
+### REFERENCES
 
 - <span id="page-35-24"></span>[1] Xavier Amatriain, Josep M Pujol, Nava Tintarev, and Nuria Oliver. 2009. Rate it again: increasing recommendation accuracy by user re-rating. In RecSys. 173–180.
 - <span id="page-35-19"></span>[2] Ashton Anderson, Ravi Kumar, Andrew Tomkins, and Sergei Vassilvitskii. 2014. The dynamics of repeat consumption. In WWW. 419–430.

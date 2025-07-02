@@ -1,3 +1,5 @@
+<!-- cite_key: methodology2024 -->
+
 Original article
 
 ![](_page_0_Picture_2.jpeg)
@@ -10,11 +12,11 @@ International Journal of Mechanical Engineering Education 2024, Vol. 52(4) 500�
 
 Luis Medina Uzcátegui<sup>1</sup> , José Mardones Fernández2 , Alex Pailapán Neicuán3 , and Miguel Cárdenas Villegas<sup>4</sup>
 
-### Abstract
+# Abstract
 
 The COVID-19 crisis has necessitated the exploration of alternative learning methodologies to address the challenges of online education, especially in the context of teamwork. This case study examined the effectiveness of a small student team through a project focused on designing, fabricating, and testing a proof-of-concept prototype, specifically a Level 3 prototype according to the technology readiness level (TRL) scale. The project was predominantly carried out under the restrictions imposed by the pandemic. The student team consisted of two undergraduate engineering students with prior experience in project-based learning (PBL) courses. The effectiveness of this teamwork in the current project was found to be strongly influenced by attributes such as shared goals and values, commitment to team success, constructive feedback, and accountability. However, the students' previous experiences in larger teams indicated
 
-### Corresponding author:
+## Corresponding author:
 
 Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad de Ciencias de la Ingeniería, Universidad Austral de Chile, Valdivia, Chile. Email: [luis.medina@uach.cl](mailto:luis.medina@uach.cl)
 
@@ -89,8 +91,6 @@ After the complete assembly of the prototype, the electronic engineering student
 Once the prototype was fully assembled, its functionality was tested by the electronic engineering student, who utilized an open-source electronic platform to process the acquired measurements. The validation stage also involved comparing the measurements with those obtained from a commercial wearable IMU device. While in-person interactions were feasible during the final stage, the majority of the testing was conducted by a single team member.
 
 In terms of the technology readiness level (TRL) scale,<sup>13</sup> this prototype can be classified as level 3 (TRL3), representing a proof of concept that has been experimentally
-
-![](_page_6_Picture_1.jpeg)
 
 Figure 2. IMU prototype development. IMU: inertial measurement unit.
 

@@ -1,3 +1,5 @@
+<!-- cite_key: zu2018 -->
+
 # AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation
 
 Fengyu Li† , Yilin Li† , Junhao Zhu† , Lu Chen† , Yanfei Zhang† , Jia Zhou† ,
@@ -14,7 +16,7 @@ jingwenzhao5@huawei.com
 
 Huawei has always been committed to exploring the AI application in historical research. Biography generation, as a specialized form of abstractive summarization, plays a crucial role in historical research but faces unique challenges that existing large language models (LLMs) struggle to address. These challenges include maintaining stylistic adherence to historical writing conventions, ensuring factual fidelity, and handling fragmented information across multiple documents. We present AIstorian, a novel end-toend agentic system featured with a knowledge graph (KG)-powered retrieval-augmented generation (RAG) and anti-hallucination multiagents. Specifically, AIstorian introduces an in-context learning based chunking strategy and a KG-based index for accurate and efficient reference retrieval. Meanwhile, AIstorian orchestrates multiagents to conduct on-the-fly hallucination detection and error-typeaware correction. Additionally, to teach LLMs a certain language style, we finetune LLMs based on a two-step training approach combining data augmentation-enhanced supervised fine-tuning with stylistic preference optimization. Extensive experiments on a reallife historical Jinshi dataset demonstrate that AIstorian achieves a 3.8× improvement in factual accuracy and a 47.6% reduction in hallucination rate compared to existing baselines. The data and code are available at: [https://github.com/ZJU-DAILY/AIstorian.](https://github.com/ZJU-DAILY/AIstorian)
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Fengyu Li† , Yilin Li† , Junhao Zhu† , Lu Chen† , Yanfei Zhang† , Jia Zhou† ,, Hui Zu† , Jingwen Zhao‡ , Yunjun Gao† . 2018. AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation. In Proceedings of Make sure to enter the correct conference title from your rights confirmation email (Conference acronym 'XX). ACM, New York, NY, USA, [6](#page-5-0) pages.<https://doi.org/XXXXXXX.XXXXXXX>
 
@@ -59,11 +61,11 @@ generation quality (Rouge-L: 80.54) and factual accuracy, with a 47.6% reduction
 
 ## 2 AIstorian
 
-## 2.1 Overview
+## 1 Overview
 
 Figure [1](#page-1-0) illustrates the overall architecture. The system operates in two modes, with upper half of the figure showing the offline process of index building and model fine-tuning, and the lower half showing the online biography generation pipeline. During the offline phase, AIstorian completes two preparations: (1) KG-based index construction, which reorganizes the biographical facts of historical figures into a knowledge graph, and (2) two-step training, which fine-tunes and aligns the base model on small handcrafted biographical data to teach LLMs a specific language style. During the online phase, AIstorian takes as an input a query of "generating a biography of a historical figure", and then invokes the KG-powered RAG to retrieve relevant information (e.g., text chunks) with the assistance of KG-based index. Using the query and the retrieved relevant information, the aligned LLM starts biography generation. Meanwhile, a Verifier validates the correctness of the generated content in real time. Once an error is detected, a Router categorizes the error and invokes the Solvers to correct it.
 
-## 2.2 KG-based RAG
+## 2 KG-based RAG
 
 2.2.1 Offline KG-based index construction. Documents within the same book series reveal consistent structural patterns: the introduction of person entities follows a standardized format. As illustrated in Figure [2,](#page-2-0) the introduction of historical figures always begins with the name, followed by the alias and other details (e.g., hometown, career, etc.). Motivated by these, we propose a three-step index construction process to effectively reorganize biographical facts.
 
@@ -71,12 +73,9 @@ Training-free pattern-enhanced text chunking. Considering that most documents in
 
 AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation Conference acronym 'XX, June 03–05, 2018, Woodstock, NY
 
-<span id="page-2-0"></span>**Wang Runzhi, styled Yuyuan, nicknamed Tingfang, from Qiantang, Zhejiang. <official career path>.**
-
-| 汪润之, | 字雨元,         | 号听舫, | 浙江钱塘人。 |
+<span id="page-2-0"></span>**Wang Runzhi, styled Yuyuan, nicknamed Tingfang, from Qiantang, Zhejiang. <official career path>.**| 汪润之, | 字雨元,         | 号听舫, | 浙江钱塘人。 |
 |------|--------------|------|--------|
 |      | 散馆授编修,官至少詹事。 |      |        |
-
 **Hong Yao, styled Jingxin, nicknamed Shouyu, from Xin Cheng,**
 
 | Zhejiang. <official career="" path="">.</official> |      |      |        |  |
@@ -84,7 +83,7 @@ AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate b
 | 洪燿,                                                | 字镜心, | 号守愚, | 浙江新城人。 |  |
 | 散馆改吏部主事,官至广西左江道。                                   |      |      |        |  |
 
-#### Figure 2: Examples of writing patterns (from the book Forest of Words: Compilation written in classical Chinese).
+### Figure 2: Examples of writing patterns (from the book Forest of Words: Compilation written in classical Chinese).
 
 Specifically, we use the pattern as instructions to guide the LLM in splitting the documents. Moreover, to enhance accuracy, several chunks following the pattern are handcrafted as demonstrations for the LLM. In this way, we achieve flexible and accurate text chunking based on the power of in-context learning without requiring expensive model training [\[3\]](#page-4-14).
 
@@ -92,7 +91,7 @@ Regex-driven relation extraction. In this step, we aim to extract biographical f
 
 2.2.2 Online retrieval. Upon receiving the query "generate a biography of someone", AIstorian identifies the node of interest by traversing the knowledge graph, and retrieves the text chunks associated with the nodes as references. To expand knowledge coverage, we also consider neighboring nodes as nodes of interest, which are often overlooked by prior methods [\[1,](#page-4-15) [9\]](#page-4-16).
 
-## 2.3 Error-aware Generation with Multi-agents
+## 3 Error-aware Generation with Multi-agents
 
 2.3.1 Offline LLM re-training. Directly applying general-purpose LLMs falls short in terms of biography generation quality. Meanwhile, the scarcity of professional biographical training data limits the capability of fine-tuning LLMs [\[10,](#page-4-17) [26\]](#page-4-18). To address this, we propose a two-step training strategy, including supervised fine-tuning (SFT) and stylistic preference optimization (StylePO), to enhance the LLM's performance with a limited amount of training data.
 
@@ -133,7 +132,7 @@ Solver. To fix various types of errors, a bunch of Solvers is used.
 
 Table 1: The biography generation performance
 
-#### Table 2: Retrieval performance
+### Table 2: Retrieval performance
 
 <span id="page-3-1"></span>
 
@@ -150,7 +149,7 @@ Table 1: The biography generation performance
 
 ## 3 Experiments
 
-## 3.1 Experimental Settings
+## 1 Experimental Settings
 
 Dataset. We use the Jinshi dataset, a real-world historical dataset, for evaluation. It contains 173 Chinese historical figures with manually written biographies as ground truth and a knowledge base of ancient Chinese texts with approximately 220k Chinese characters. Baselines. We consider the following six baselines:
 
@@ -169,7 +168,7 @@ phase, the rank of LoRA is set to 32, the learning rate is 2e-4, the batch size 
 
 Evaluation metrics. For retrieval, precision, recall and F1-score are used for evaluation. For biography generation, ROUGE-( = 1, 2) evaluates generation quality by measuring the overlap of grams between generated text and ground truth, while ROUGE-L [\[11\]](#page-4-27) evaluates quality by a longest common subsequence (LCS) based F-measure. Hallucination rate measures the proportion of generated text containing hallucinations, which are identified by human experts. Following prior work [\[16\]](#page-4-5), we quantify generation accuracy using the average number of erroneous atomic fact, where the erroneous atomic fact is manually-labeled.
 
-## 3.2 Performance Comparison
+## 2 Performance Comparison
 
 We compare our AIstorian with all baselines, followed by analyzing each components in the AIstorian.
 
@@ -258,7 +257,7 @@ Hu E, styled Zhuo'an. Born on the thirteenth day of the second month in the thir
 | BI-LSTM-CRF (NER) | 0.000869            | 114                   |
 | Ours              | 0.00146             | 1236                  |
 
-#### Table 4: Time consumption in each stage
+### Table 4: Time consumption in each stage
 
 ## A.2 Efficiency Evaluation
 

@@ -1,4 +1,6 @@
-#### RESEARCH ARTICLE
+<!-- cite_key: innovations2021 -->
+
+# RESEARCH ARTICLE
 
 ![](_page_0_Picture_2.jpeg)
 
@@ -16,19 +18,17 @@ Received: 27 January 2021; Revised: 05 May 2021; Accepted: 26 June 2021
 
 Keywords: Agents; data; digital twin; dynamic knowledge graph; interoperability
 
-#### Abstract
+## Abstract
 
 This paper introduces a dynamic knowledge-graph approach for digital twins and illustrates how this approach is by design naturally suited to realizing the vision of a Universal Digital Twin. The dynamic knowledge graph is implemented using technologies from the Semantic Web. It is composed of concepts and instances that are defined using ontologies, and of computational agents that operate on both the concepts and instances to update the dynamic knowledge graph. By construction, it is distributed, supports cross-domain interoperability, and ensures that data are connected, portable, discoverable, and queryable via a uniform interface. The knowledge graph includes the notions of a "base world" that describes the real world and that is maintained by agents that incorporate real-time data, and of "parallel worlds" that support the intelligent exploration of alternative designs without affecting the base world. Use cases are presented that demonstrate the ability of the dynamic knowledge graph to host geospatial and chemical data, control chemistry experiments, perform cross-domain simulations, and perform scenario analysis. The questions of how to make intelligent suggestions for alternative scenarios and how to ensure alignment between the scenarios considered by the knowledge graph and the goals of society are considered. Work to extend the dynamic knowledge graph to develop a digital twin of the UK to support the decarbonization of the energy system is discussed. Important directions for future research are highlighted.
 
-#### Impact Statement
+### Impact Statement
 
 Countries must make significant changes to their infrastructure and energy systems to meet their obligations under the 2016 Paris Agreement, which requires a comprehensive, interdisciplinary approach. Digitalization forms an important part of the response to this challenge. Digital twins composed of distributed collaborative entities that share data and combine to answer complex questions have been identified as a key aspect of digitalization. In this work, we demonstrate how a comprehensive digital twin can be implemented as a dynamic knowledge graph using technologies from the Semantic Web. Preliminary evidence from case studies in Singapore is presented to demonstrate how such a concept might be used to support, for example, the planning of cities and the design of future energy systems.
 
 © The Author(s), 2021. Published by Cambridge University Press. This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence ([http://creativecommons.org/licenses/by/4.0/\)](http://creativecommons.org/licenses/by/4.0/), which permits unrestricted re-use, distribution and reproduction, provided the original article is properly cited.
 
-![](_page_0_Picture_16.jpeg)
-
-#### 1. Introduction
+#### Introduction
 
 In the 2016 Paris Agreement, 196 nations committed to reduce their greenhouse gas emissions in a legally binding treaty on climate change. The obligations under the agreement are projected to require significant changes in infrastructure, ranging from a move to large-scale energy distribution (Tröndle et al., [2020;](#page-23-0) Brown and Botterud, [2021](#page-21-0)) to the adoption of distributed energy resources (Jain et al., [2017\)](#page-22-0) and the development of intelligent infrastructure (Ziar et al., [2021](#page-24-0)).
 
@@ -52,11 +52,11 @@ The purpose of this paperis to demonstrate how Semantic Web technology can be us
 
 The paper is structured as follows. Section 2 discusses the Semantic Web and the technologies that are available as part of it. Section 3 explains the World Avatar and presents examples that demonstrate its capability, and discusses current work to develop a knowledge-graph-based digital twin of the UK to support the decarbonization of the UK energy landscape. Conclusions are discussed in Section 5.
 
-#### 2. The Semantic Web Stack
+#### The Semantic Web Stack
 
 The Semantic Web (Berners-Lee et al., [2001\)](#page-20-1) provides a valid description logic (Baader et al., [2007](#page-20-2)) representation of data on the World Wide Web. Resources on the Semantic Web are all instances of ontological classes. The resources are identified using internationalized resource identifiers (IRIs), ensuring an unambiguous representation. Technologies that enable the architecture, development and existence of the Semantic Web are vertically orchestrated based on functional dependency, forming the Semantic Web stack. The interested reader is referred to Allemang and Hendler [\(2011\)](#page-20-3).
 
-#### 2.1. Ontologies
+#### 1. Ontologies
 
 An ontology is a collection of classes, object properties and data properties expressing facts about and a semantic model of a domain of interest, for example, the built environment. An object property links an instance of a class (the domain of the property) to an instance of a class (the range of the property).[1](#page-2-0) Object properties may be structured hierarchically. A data property links an instance of a class (the domain of the
 
@@ -66,19 +66,19 @@ property) to a data element (the range of the property).[2](#page-3-0) Similar t
 
 An ontology is also known as a TBox (Terminological Component), where a class hierarchy is formed and associative relations are established through user-defined object properties, allowing cross-domain linking and modeling. Data properties allow the representation of different types of data. An ABox (Assertional Component) is an instantiation of a TBox representing entities, together with data and metadata about the entities. Inconsistencies can be determined at the level of data and relationships between the entities in an ABox via the assertion of data types, logical constraints, and cardinality (i.e., how many of something are allowed) in the TBox.
 
-## 2.2. Linked data
+## 2. Linked data
 
 Linked Data (Berners-Lee, [2006](#page-20-4); Bizer et al., [2011\)](#page-20-5) is Semantic Web data that is linked to other Semantic Web data to facilitate exploration and discovery (as opposed to semantic, but otherwise isolated data). Linked Data uses resource description framework (RDF) (Klyne and Carroll, [2004](#page-22-6)) as the standard language to store data in the form of subject, predicate, and object triples. Related entities across datasets are connected via IRIs which are meant to be resolvable and provide meaningful information when looked up. Linked Data use ontologies to create and link entities and enrich the entities with data and metadata. Linked open data (LOD) refers to Linked Data that is published with an open license, such that it offers the possibility of finding and using related data, for example to resolve issues with naming and consistency.
 
-## 2.3. Knowledge graphs
+## 3. Knowledge graphs
 
 A knowledge graph is a network of data expressed as a directed graph, where the nodes of the graph are concepts or their instances (data items) and the edges of the graph are links between related concepts or instances. Knowledge graphs are often built using the principles of Linked Data. They provide a powerful means to host, query and traverse data, and to find and retrieve related information.
 
-## 2.4. Data storage
+## 4. Data storage
 
 Triple stores and quad stores provide solutions for the storage and management of RDF data. As the names suggest, triple stores use a 3-column (subject, predicate, and object) statement format, whereas quad stores use a 4-column (subject, predicate, object, and context) statement format. The context element can provide additional information about the data, for example a time coordinate, a reference or a name. When the context contains a name (which could be codified by an IRI) the statement is called a named graph. Many statements can belong to the same named graph, forming a subunit within the store and allowing the possibility of querying only the named graph. Most stores are able to accommodate both triples and quads and, for historic reasons, are often simply referred to as "triple stores." A number of storage solutions exist, such as RDF4J (Eclipse Foundation, [2020\)](#page-21-10) and Fuseki (Apache Software Foundation, [2020a\)](#page-20-6) at the lab scale, and Blazegraph ([2020\)](#page-20-7) and Virtuoso (OpenLink Software, [2019](#page-23-8)) at the enterprise scale. In addition to triple stores, ontology-based data access (OBDA) enables ontological queries to be performed over relational and NoSQL databases (Botoeva et al., [2016](#page-20-8)). Triple stores and OBDA provide endpoints, known as SPARQL endpoints, that are identified by IRIs and that can be used to query and update data. Authentication and authorization solutions to control security and access exist and are discussed elsewhere (Balfanz et al., [2019](#page-20-9)).
 
-## 2.5. Queries and updates
+## 5. Queries and updates
 
 SPARQL (Aranda et al., [2013](#page-20-10)) is a semantic-aware standard language to query and/or update data via a SPARQL endpoint, with or without activating an inference engine. Queries can be performed over named
 
@@ -88,17 +88,17 @@ graphs, over an entire endpoint or (using a federated query) over multiple endpo
 
 Each triple or quad store provides its own application programming interface (API) to support SPARQL query and update operations. However, each API is only compatible with its native store. Jena-JDBC (Apache Software Foundation, [2020b\)](#page-20-11) provides a highly scalable store-agnostic API that can be used to query and update virtually any store.
 
-## 2.6. Inference and rule engines
+## 6. Inference and rule engines
 
 Inference engines (e.g., HermiT, Data and Knowledge Group, [2019\)](#page-21-11) can operate on data expressed using RDF to reason about existing knowledge and infer new knowledge (Allemang and Hendler, [2011\)](#page-20-3), for example using the domain and range of object and data properties. Rule engines (e.g., Drools; Red Hat, Inc, [2020](#page-23-10)) can generate new knowledge through the codification and analysis of "if-then-else" conditions to calculate new values for data properties.
 
-## 2.7. Examples
+## 7. Examples
 
 Google, Microsoft, IBM, Facebook, and eBay recently published a paper (Noy et al., [2019\)](#page-23-11) to explain how they use knowledge graphs. Google and Microsoft both use knowledge graphs to power their search engines. IBM uses one to support the IBM Watson question and answer engine. Facebook uses one to help understand what people care about. eBay is building one to connect what a seller is offering with what a buyer wants.
 
 The article provides a number of insights and identifies opportunities and challenges, particularly relating to the scalability and query-response time of triple stores. Google built its knowledge graph using a set of low-level structures and associated reasoning mechanisms that are replicated at increasing levels of abstraction. This gives advantages in terms of scalability because new abstractions are built on tried and tested low-level units, and because it makes the design easier to understand. Facebook addresses the challenge of conflicting information by either dropping information if confidence in it was deemed to be too low, or by retaining the conflicting information and the associated provenance data. In this manner, their knowledge graph is able to explain why certain assertions are made, even if it cannot identify which assertion is objectively "correct." IBM Watson uses polymorphic stores to offer the ability to support multiple indices, database structures, in-memory and graph stores. Data are split (often redundantly) into one or more of these stores, allowing each store to address specific requirements and workloads.
 
-## 3. The World Avatar Dynamic Knowledge Graph
+## The World Avatar Dynamic Knowledge Graph
 
 The World Avatar project aims to create a digital "avatar" of the real world. The digital world is composed of a dynamic knowledge graph that contains concepts and data that describe the world, and an ecosystem of autonomous computational agents that simulate the behavior of the world and that update the concepts and data so that the digital world remains current in time. In this manner, it is proposed that it is possible to create digital twins that are able to describe the behavior of complex systems, and by doing so provide the ability to make data-driven decisions about how to optimize the systems.
 
@@ -108,7 +108,7 @@ A central tenet of the World Avatar is the requirement to share data so that all
 
 The following sections present an overview of the World Avatar and give examples of how it has been used to date. Section 3.1 describes the structure of the World Avatar. Section 3.2 discusses the computational agents that operate within the World Avatar. Section 3.4 presents example use cases. Section 4 describes the extension of the World Avatar toward a knowledge-graph-based digital twin of the UK. In order to keep the exposition concise, technical details about implementation are omitted here, but can be found in the references provided.
 
-# 3.1. Structure
+# 1. Structure
 
 The World Avatar (Eibeck et al., [2019;](#page-22-3) CARES, [2020d](#page-21-7)) represents information in a dynamic knowledge graph using technologies from the Semantic Web stack. Unlike a traditional database, the World Avatar contains an ecosystem of autonomous computational agents that continuously update it.
 
@@ -120,7 +120,7 @@ The links between the contents of the dynamic knowledge graph take the form of I
 
 Figure 1. The main components of the World Avatar dynamic knowledge graph.
 
-## 3.2. Agents
+## 2. Agents
 
 At any given time, instances of the computational agents described in the knowledge graph may be activated to perform tasks. In this context, "agent" refers to software that uses Semantic Web technologies to operate on the knowledge graph to fulfill specific objectives. Agents may be atomic agents (i.e., not composed of other agents), or composite agents composed of multiple atomic agents operating in a coordinated way.
 
@@ -138,15 +138,15 @@ The calculations performed by agents can take any form, including physics-based 
 
 The potential of the World Avatar arises from the generic functionalities offered by agents that integrate ontologies and create new agents. Both would serve to raise the level of semantic interoperability and allow for the automation of processes to include new data and capabilities, and maintain interoperability as the quantity and complexity of the data and agents increases.
 
-#### 3.3. Ontological coverage
+### 3. Ontological coverage
 
 The current ontological coverage of the World Avatar includes 3D city data (OntoCityGML, Eibeck et al., [2019](#page-22-3)), weather (Weather Ontology, Institute of Computer Engineering at Technical University of Vienna, [2014](#page-22-10)), process engineering (OntoCAPE, Marquardt et al., [2010](#page-23-14)), eco-industrial parks (OntoEIP, Zhang et al., [2017;](#page-24-4) Zhou et al., [2017](#page-24-1); Zhou et al., [2018\)](#page-24-5), and electrical power systems (OntoPowerSys, Devanand et al., [2020](#page-21-8)). It includes ontologies for quantum chemistry (OntoCompChem, Krdzavac et al., [2019\)](#page-22-11), chemical species (OntoSpecies, Farazi et al., [2020b\)](#page-22-12), chemical kinetic reaction mechanisms (OntoKin, Farazi et al., [2020a](#page-22-13)), and combustion experiments (OntoChemExp, Bai et al., [2021](#page-20-13)). Selected subgraphs of the LOD Cloud (lod-cloud.net, [2020](#page-23-15)), in particular DBpedia (Lehmann et al., [2015](#page-22-14); DBpedia, [2020\)](#page-21-15) are also connected to the knowledge graph.
 
-# 3.4. Use cases
+# 4. Use cases
 
 This section presents use cases that demonstrate different aspects of the World Avatar. The use cases are from the Cities Knowledge Graph, PIPS, and J-Park Simulator projects so are mainly associated with Singapore. However, the application of the World Avatar is not restricted to these contexts, as we shall discuss in Section 4.
 
-# 3.4.1. Urban planning
+# 4.1. Urban planning
 
 The Cities Knowledge Graph project (CARES, [2020b\)](#page-21-16) will integrate urban design and planning tools developed by the Future Cities Laboratory at the Singapore-ETH Centre with the World Avatar. The tools include the Collaborative Interactive Visualization and Analysis Laboratory design informatics platform (Future Cities Laboratory, [2020b\)](#page-22-15), the Multi-Agent Transport Simulation Singapore model (Future Cities Laboratory, [2020c](#page-22-16)), the City Energy Analyst toolbox (Future Cities Laboratory, [2020a](#page-22-17)), and the ESRI CityEngine (Environmental Systems Research Institute, [2020](#page-22-18)) 3D modeling software. The concept is shown in [Figure 2.](#page-7-0)
 
@@ -158,7 +158,7 @@ The resulting system will enable interoperability between building data, transpo
 
 developed to convert data from CityGML to OntoCityGML format. Work to find the best way to host this data within the dynamic knowledge graph is ongoing.
 
-#### 3.4.2. Intelligent querying and generation of data
+## 4.2. Intelligent querying and generation of data
 
 The World Avatar contains chemical data, including kinetic reaction mechanisms (Farazi et al., [2020a](#page-22-13)) and computational chemistry (Krdzavac et al., [2019\)](#page-22-11). It is able to use computational chemistry data to calculate thermodynamic quantities required by the reaction mechanisms, and link the resulting quantities to the computational chemistry calculations used to derive them (Farazi et al., [2020b\)](#page-22-12). It is able to identify inconsistencies in the data (Farazi et al., [2020c](#page-22-5)) and interact with high performance computing (HPC) facilities in the real world to perform additional computational chemistry calculations to generate the data required to resolve the problems (Mosbach et al., [2020\)](#page-23-16). It includes experimental data (for combustion experiments) and is able to automate the process of calibrating reaction mechanisms versus experiment data (Bai et al., [2021](#page-20-13)).
 
@@ -172,7 +172,7 @@ Figure 3. Screenshot of Marie website (with enlarged text).
 
 to develop quantitative structure activity/property relationships (QSAR/QSPR) that allow the prediction of the properties of a chemical from its structure, for example, its toxicity (Organisation for Economic Cooperation and Development, [2020\)](#page-23-17) or its photovoltaic performance (Eibeck et al., [2021](#page-22-20), and references therein). This is the focus of the PIPS (CARES, [2020c\)](#page-21-21) project. PIPS will develop the capability of the World Avatar not only to automate calculations (Mosbach et al., [2020](#page-23-16)), but to automate experiments by allowing agents to control a laboratory robot. This capability will close the loop between analysis and experiment to automate the generation of reaction and synthesis data, and establish an ontology framework for AI reasoning agents to generate chemical knowledge from data.
 
-## 3.4.3. Cross-domain calculation of air quality
+## 4.3. Cross-domain calculation of air quality
 
 In recent years there has been increasing concern over the effect of emissions from combustion on air quality (Department for Environment Food and Rural Affairs [United Kingdom], [2019](#page-21-22); National Climate Change Secretariat [Singapore], [2020\)](#page-23-18), in particular, the emission of NO<sup>x</sup> (Department of Transport [United Kingdom], [2016](#page-21-23), [2019](#page-21-24); Air Quality Expert Group, [2017;](#page-20-14) Environmental Protection Agency [United States], [2020](#page-22-21)) and particulate matter (PM) (Environmental Committee, London Assembly, [2015\)](#page-22-22), and the effect of black carbon (BC) emissions on the climate (Bond et al., [2013\)](#page-20-15).
 
@@ -192,7 +192,7 @@ Figure 4. Real-time cross-domain estimation of the contribution of emissions fro
 
 dispersion simulations). Of course, this is unnecessarily elaborate if we are only interested in Singapore. The point, however, is that the World Avatar allows such calculations to be performed for any location.
 
-## 3.4.4. Parallel worlds for scenario analysis
+## 4.4. Parallel worlds for scenario analysis
 
 The parallel worlds capability of the World Avatar supports decision making in a complex environment by allowing the exploration of different scenarios and their associated outcomes. The parallel worlds exploit the structure of the dynamic knowledge graph to use scenario agents to group new instances of any entities that are modified in a scenario and store them in a scenario-specific part of the knowledge graph. Access, queries and updates to the scenario-specific instances are mediated via a scenario agent. The scenario-specific information in the parallel world can be thought of as overlaying the base world, so unchanged entities remain connected to the base world and any changes to the base world are reflected in the scenario. Conversely, any changes in the parallel world remain isolated within the scenario-specific part of the knowledge graph and so do not interfere with the base world. Based on an idea very similar to version-control systems that are widely used among software developers, parallel world containers store the differences to the base world in named graphs where the scenario provides the context. Technical details can be found in Eibeck et al. ([2020\)](#page-21-9).
 
@@ -211,7 +211,7 @@ flow (OPF) agent is invoked to minimize the overall operating cost of the scenar
 
 This use case illustrates how digital twinning and what-if scenario analysis using a dynamic knowledge graph can support decision makers to understand the effect of different design choices and policy instruments. In this example, the problem addressed by the parallel world is simple enough to be formulated as a classical optimization problem with a well-defined objective function. However, many scenarios will be too complex for this to be the case. How to address this is discussed in the context of the knowledge-graph-based digital twin of the UK in Section 4.
 
-#### 4. The Knowledge-Graph-Based Digital Twin of the UK
+### The Knowledge-Graph-Based Digital Twin of the UK
 
 The knowledge-graph-based digital twin of the UK is an effort within the World Avatar project to create a semantic digital twin of the UK. The aim is to provide a comprehensive live distributed platform to support the optimal use, planning and development of infrastructure in the UK and to support scenario analysis to help the UK achieve its development goals, for example, by supporting the decarbonization of the energy landscape.
 
@@ -223,7 +223,7 @@ The interconnectedness of all represented concepts and instances that is inheren
 
 The following sections describe progress toward the creation of the base world in a knowledge-graphbased digital twin of the UK, and discuss a route to meet the challenges posed by goal alignment in the context of parallel worlds.
 
-#### 4.1. Base world
+#### 1. Base world
 
 This section describes the progress to date and the immediate next steps for the creation of the base world in a knowledge-graph-based digital twin of the UK. The immediate motivation for doing this is to help address questions relating to how best to help the UK achieve net zero carbon emissions. The energy sector is the largest contributor to emissions in the UK and was responsible for 82% of total emissions in 2018 (Brown et al., [2020,](#page-20-17) p. 40). Work to date has therefore focused on data relating to the electric power system, the gas grid, the potential for photovoltaic and wind power, biomass and the built environment, all of which are critical to the future of the energy landscape (Committee on Climate Change, [2018](#page-21-13)). Beyond carbon emission reduction, potential applications are of course numerous and include, but are not limited to, public health, urban and infrastructure planning, and achieving a circular economy.
 
@@ -267,7 +267,7 @@ has an associated Unique Property Reference Number (UPRN), likewise every road h
 
 Figure 11. Modified screenshots of city data in the vicinity of Manchester Piccadilly Railway Station (Virtual City Systems, [2020\)](#page-23-29). Contains public sector information licensed under the Open Government License v3.0.
 
-#### 4.2. Goal alignment for parallel worlds
+#### 2. Goal alignment for parallel worlds
 
 The parallel worlds capability of the World Avatar offers a powerful tool to explore the design space of complex problems. However, the problems of interest, for example, how best to develop the UK infrastructure, rapidly become too complex to be treated in the manner of classical optimization problems. This is the case both in the sense that the problems are not amenable to defining a straightforward objective function and in the sense that the design space is too complex to be explored without some additional insight to suggest propitious scenarios. In an ideal world, computational agents would suggest scenarios and automate the exploration of the design space. In order to attempt this, it will be necessary to equip the agents with an understanding of our values and what we, as a society, want to achieve. In other words, we need to equip the agents with goals.
 
@@ -289,7 +289,7 @@ Another possible route forward could be to calculate goals based on environmenta
 
 Inevitably, there will arise scenarios where goals conflict with each other (Fuso Nerini et al., [2018\)](#page-22-26). For example, building more roads may enable better access to schools and therefore better education, so lifting people out of poverty and reducing hunger. However, this would also lead to more road use which could (depending on the type of transport) lead to more pollution. It is therefore necessary to consider goal alignment, that is to say, how to ensure that the scenarios considered by the World Avatar support the goals of humanity. This could potentially be achieved by using the goals not only to inform, but also constrain the suggestion of scenarios. The questions of how to suggest scenarios and achieve goal alignment remain important topics of research.
 
-#### 5. Conclusions
+#### Conclusions
 
 This paper demonstrates for the first time how a comprehensive digital twin can be implemented as a dynamic knowledge graph built using technologies from the Semantic Web stack. Examples are presented from the World Avatar project.
 

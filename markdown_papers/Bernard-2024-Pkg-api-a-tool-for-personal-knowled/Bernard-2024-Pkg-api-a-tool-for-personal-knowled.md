@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: bernard2024 -->
+
+
 
 # PKG API: A Tool for Personal Knowledge Graph Management
 
@@ -28,7 +30,7 @@ Personal knowledge graphs (PKGs) offer individuals a way to store and consolidat
 
 Personal Knowledge Graphs, Personal Data Management, Knowledge Representation, Semantic Technologies
 
-#### ACM Reference Format:
+## ACM Reference Format:
 
 Nolwenn Bernard, Ivica Kostric, Weronika Łajewska, Krisztian Balog, Petra Galuščáková, Vinay Setty, and Martin G. Skjæveland. 2024. PKG API: A Tool for Personal Knowledge Graph Management. In Companion Proceedings of the ACM Web Conference 2024 (WWW '24 Companion), May 13–17, 2024, Singapore, Singapore. ACM, New York, NY, USA, [4](#page-3-0) pages. [https://doi.org/10.](https://doi.org/10.1145/3589335.3651247) [1145/3589335.3651247](https://doi.org/10.1145/3589335.3651247)
 
@@ -54,7 +56,7 @@ Permission to make digital or hard copies of all or part of this work for person
 
 ![](_page_1_Figure_2.jpeg)
 
-#### Figure 1: Overview of the PKG tooling developed in this work.
+## Figure 1: Overview of the PKG tooling developed in this work.
 
 their PKG. While this example is simplistic, we demonstrate that representing it in a PKG can actually become complex due to entanglements between different entities and relationships between them, such as all movies and Tom Cruise. In order to tackle this challenge, we develop a PKG vocabulary on top of RDF to represent such statements both in natural language and as structured data. Furthermore, our vocabulary defines a set of properties, such as access rights and provenance, to enrich the statements.
 

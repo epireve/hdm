@@ -1,3 +1,5 @@
+<!-- cite_key: arxiv_arxiv_250606881_knowcode -->
+
 # KnowCoder-V2: Deep Knowledge Analysis
 
 Zixuan Li1,2<sup>∗</sup> † , Wenxuan Liu1,2,3<sup>∗</sup> , Long Bai1,2<sup>∗</sup> , Chunmao Zhang1,2<sup>∗</sup> , Wei Li, Fenghui Zhang1,2 , Quanxin Jin1,2, Ruoyun He1,2, Zhuo Chen2,3, Zhilei Hu1,2,3, Fei Wang<sup>2</sup> , Bingbing Xu<sup>2</sup> , Xuhui Jiang4,5, Xiaolong Jin1,2,3†, Jiafeng Guo1,2,3†, Xueqi Cheng1,2,3 <sup>1</sup>Key Laboratory of Network Data Science and Technology, Institute of Computing Technology, Chinese Academy of Sciences <sup>2</sup>State Key Laboratory of AI Safety <sup>3</sup>School of Computer Science, University of Chinese Academy of Sciences
@@ -6,7 +8,7 @@ Zixuan Li1,2<sup>∗</sup> † , Wenxuan Liu1,2,3<sup>∗</sup> , Long Bai1,2<su
 
 {lizixuan@ict.ac.cn, jinxiaolong@ict.ac.cn, guojiafeng@ict.ac.cn}
 
-### Abstract
+## Abstract
 
 Deep knowledge analysis tasks always involve the systematic extraction and association of knowledge from large volumes of data, followed by logical reasoning to discover insights. However, to solve such complex tasks, existing deep research frameworks face three major challenges: 1) Coarse knowledge management: They lack systematic organization and management of knowledge; 2) Inefficient Operation Manner: They operate purely online, making it inefficient for tasks that rely on shared and large-scale knowledge; 3) Shallow Knowledge Computation: They cannot perform complex knowledge computation, limiting their abilities to produce insightful analytical results. Motivated by these, in this paper, we propose a Knowledgeable Deep Research (KDR) framework that empowers deep research with deep knowledge analysis capability. Specifically, it introduces an independent knowledge organization phase to preprocess large-scale, domain-relevant data into systematic knowledge offline. Based on this knowledge, it extends deep research with an additional kind of reasoning steps that perform complex knowledge computation in an online manner. To enhance the abilities of LLMs to solve knowledge analysis tasks in the above framework, we further introduce KNOWCODER-V2, an LLM that bridges knowledge organization and reasoning via unified code generation. For knowledge organization, it generates instantiation code for predefined classes, transforming data into knowledge objects. For knowledge computation, it generates analysis code and executes on the above knowledge objects to obtain deep analysis results. Experimental results on more than thirty datasets across six knowledge analysis tasks demonstrate the effectiveness of KNOWCODER-V2. Moreover, when integrated into the KDR framework, KNOWCODER-V2 can generate highquality reports with insightful analytical results compared to the mainstream deep research framework.
 
@@ -51,11 +53,11 @@ In the following sections, we will first introduce the knowledgable deep researc
 
 ## 2 Related Work
 
-### 2.1 LLM-based Knowledge Organization
+### 1 LLM-based Knowledge Organization
 
 For the knowledge organization phase, the related work primarily consists of three key tasks, i.e., ontology expansion, knowledge extraction, and knowledge update. Ontology expansion aims to involve integrating emerging new concepts into existing ontology structures by identifying their appropriate parents. Early works [\(Takeoka et al.,](#page-18-0) [2021;](#page-18-0) [Shen et al.,](#page-17-1) [2024\)](#page-17-1) fine-tuned BERT-based models to leverage textual descriptions of concepts and transfer this task into a multi-class classification task. Recently, some works [\(Moskvoretskii et al.,](#page-16-1) [2024;](#page-16-1) [Zeng et al.,](#page-19-1) [2024\)](#page-19-1) use LLMs to conduct this task and get significant improvement. Knowledge Extraction refers to leveraging LLMs to extract structured knowledge following the given concepts from the ontology, which can be divided into in-context learning (ICL)-based and supervised-based extraction. The ICL-based extraction [Wang et al.](#page-18-1) [\(2023c\)](#page-18-1); [Li et al.](#page-15-0) [\(2023a\)](#page-15-0); [Guo et al.](#page-14-1) [\(2023\)](#page-14-1) aims to leverage the universal capabilities of LLMs to extract the knowledge directly without fine-tuning the specific datasets. And Supervised-based Extraction [Sainz et al.](#page-17-2) [\(2024\)](#page-17-2); [Li et al.](#page-16-2) [\(2024\)](#page-16-2); [Zuo et al.](#page-19-2) [\(2024\)](#page-19-2) aims to construct a large IE corpus to fine-tune the LLM to better adapt to more specific domains or large-scale schema scenarios. Knowledge update refers to updating the out-of-date knowledge according to the given new extracted knowledge. The related techniques include entity linking, entity alignment, and so on.
 
-### 2.2 LLM-based Knowledge Reasoning
+### 2 LLM-based Knowledge Reasoning
 
 The techniques related to the knowledge reasoning phase include Retrieval-Augmented Generation (RAG), Graph Retrieval-Augmented Generation (GraphRAG), Deep Research, and so on. RAG mitigates hallucinations by retrieving relevant documents as context for the LLM [\(Xu et al.,](#page-18-2) [2024;](#page-18-2) [Asai et al.,](#page-14-2) [2023;](#page-14-2) [Shao et al.,](#page-17-3) [2023\)](#page-17-3). GraphRAG extends this by extracting knowledge graphs from text
 
@@ -71,7 +73,7 @@ Building on RAG, Deep Search or Deep Research further focuses on in-depth, multi
 
 In the following sections, we introduce the proposed Knowledgeable Deep Research (KDR) framework. As demonstrated in Figure [2,](#page-3-1) KDR distinguishes itself from traditional deep research framework by clearly separating knowledge organization into a dedicated offline phase. This decoupling allows the structured organization of vast amounts of research objects into accessible structured knowledge. Leveraging these structured knowledge, the KDR framework then enables rapid and in-depth analysis of research objects during the subsequent knowledge reasoning phase.
 
-### 3.1 Knowledge Organization Phase
+### 1 Knowledge Organization Phase
 
 As shown in the left part of Figure [2,](#page-3-1) given a research topic as input, the offline knowledge organization phase first generates several organization subtasks, where each subtask corresponds to a concept that needs to be extracted. Then, for each subtask, this phase consists of three steps, i.e., ontology expansion, knowledge extraction, and knowledge update. First, in the ontology expansion step, KDR aligns the focused concepts to the existing ontology structure. Next, the knowledge extraction step transfers a large collection of related information into the corresponding structured knowledge. Finally, the knowledge update step updates the newly extracted knowledge into existing knowledge bases.
 
@@ -83,7 +85,7 @@ Knowledge Extraction. With the ontology as input, the extraction step processes 
 
 Knowledge Update. Since knowledge is often dispersed across multiple documents, extracting information from a single document or text snippet usually provides only partial details about an entity or event. For example, assembling comprehensive data on a specific author's publications requires extracting relevant information from multiple sources, such as all their published papers. Additionally, knowledge can evolve over time. For instance, a person's residence might change. This step continuously updates the new extracted knowledge to previously extracted ones to ensure ongoing accuracy and consistency.
 
-#### 3.2 Knowledge Reasoning Phase
+#### 2 Knowledge Reasoning Phase
 
 Given a specific research task, the knowledge reasoning phase generates a comprehensive report based on previously organized knowledge. As illustrated on the right side of Figure [2,](#page-3-1) this phase begins by decomposing the overall research task into multiple subtasks, each corresponding to a specific part of the final report. Each subtask is addressed through two types of reasoning steps, i.e., knowledge computation and text generation. Using the outputs from these reasoning steps, the complete and coherent research report is ultimately obtained.
 
@@ -99,23 +101,19 @@ Merge and Revise. After the above two kinds of reasoning steps, the materials fo
 
 Although LLMs have demonstrated strong capabilities in many natural language processing tasks, they still face limitations when it comes to deep knowledge analysis. To address these challenges, we introduce KNOWCODER-V2, an LLM designed to bridge knowledge organization and reasoning through a unified code generation approach. In the following sections, we present the details of how KDR framework is implemented with KNOWCODER-V2.
 
-### 4.1 Knowledge Organization Phase
+### 1 Knowledge Organization Phase
 
 The knowledge organization phase aims to systematically induce, extract, and update the structure knowledge related to the given research task. Following KNOWCODER-V1 [\(Li et al.,](#page-16-2) [2024\)](#page-16-2), we use Python classes to represent concepts in the ontology and Python objects to represent knowledge instances. As illustrated in the left side of Figure [3,](#page-6-0) two base classes, i.e., Entity and Event, are predefined. All other domain-specific concepts are implemented as subclasses of these base classes. For example, class Person(Entity). The attributes of each concept (such as a person's affiliation) are defined as member variables within the class. Additionally, examples and descriptions for each concept are provided in the class docstrings, consistent with KNOWCODER-V1.
 
-### *4.1.1 Task Decomposition*
-
-Given a research task, we begin by decomposing it into a set of subtasks using a human-in-the-loop approach. First, the research task is provided as the input to an LLM, which infers the relevant concepts and their associated attributes. Next, these inferred concepts are manually reviewed to ensure accuracy and completeness. Finally, the validated concepts are automatically structured into Python classes.
+### *4.1.1 Task Decomposition*Given a research task, we begin by decomposing it into a set of subtasks using a human-in-the-loop approach. First, the research task is provided as the input to an LLM, which infers the relevant concepts and their associated attributes. Next, these inferred concepts are manually reviewed to ensure accuracy and completeness. Finally, the validated concepts are automatically structured into Python classes.
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
 
 Figure 3: Illustration of the Knowledgeable Deep Research Framework implemented by KNOWCODER-V2. We use DeepSeek-R1 to handle the parts of the KDR framework that are not related to knowledge analysis tasks.
 
-#### *4.1.2 Ontology Alignment: Class Relation Identification*
+####*4.1.2 Ontology Alignment: Class Relation Identification*The same concept may have different definitions across various knowledge organization tasks, and hierarchical relationships may exist between distinct concepts. This misalignment poses significant challenges for subsequent knowledge organization and reasoning. To address this, the ontology expansion step aims to identify semantic relations, including parent-child and equivalent relations, by analyzing the definitions of the corresponding concepts. To achieve this, we design a twostage alignment process that combines pre-trianed and large language models. In the first stage, following [Zeng et al.](#page-19-1) [\(2024\)](#page-19-1), SimCSE [Gao et al.](#page-14-7) [\(2021\)](#page-14-7) is adopted to encode the concept names and descriptions into*m*-dimensional vectors. Based on the cosine similarity among these vectors, we retrieve the top-*k*most similar candidate concepts. In the second stage, we refine the alignment results by prompting LLM with the code definitions of the candidate classes to determine whether they exhibit parent-child or equivalent relations.
 
-The same concept may have different definitions across various knowledge organization tasks, and hierarchical relationships may exist between distinct concepts. This misalignment poses significant challenges for subsequent knowledge organization and reasoning. To address this, the ontology expansion step aims to identify semantic relations, including parent-child and equivalent relations, by analyzing the definitions of the corresponding concepts. To achieve this, we design a twostage alignment process that combines pre-trianed and large language models. In the first stage, following [Zeng et al.](#page-19-1) [\(2024\)](#page-19-1), SimCSE [Gao et al.](#page-14-7) [\(2021\)](#page-14-7) is adopted to encode the concept names and descriptions into *m*-dimensional vectors. Based on the cosine similarity among these vectors, we retrieve the top-*k* most similar candidate concepts. In the second stage, we refine the alignment results by prompting LLM with the code definitions of the candidate classes to determine whether they exhibit parent-child or equivalent relations.
-
-#### *4.1.3 Knowledge Extraction: Object Instantiation*
+####*4.1.3 Knowledge Extraction: Object Instantiation*
 
 In this step, KNOWCODER-V2 extracts the corresponding structured knowledge by instantiating the classes based on the given text. Previous work [\(Li et al.,](#page-16-2) [2024;](#page-16-2) [Wang et al.,](#page-18-4) [2023b\)](#page-18-4) requires including all class definition code within the prompt. This presents a significant challenge: when a large number of concepts need to be extracted, the total class definition code can become excessively long and may even exceed the prompt length limit. As a result, both the effectiveness and efficiency of the extraction process can degrade due to the excessive length of prompts.
 
@@ -125,27 +123,21 @@ Ontology Understanding Tasks. To enable LLMs to understand the detailed definiti
 
 Ontology Following Tasks. Ontology following task aims to enhance the ability to follow the imported classes and generate instantiating code accordingly. It consists of two subtasks, i.e., class importing and object instantiate tasks. Given the text, class importing task aims to recall the corresponding types via completing the import clause. Given the text and import clause, object instantiate task aims to extract corresponding knowledge via generating the instantiating code. In some situations, users may predefine types that they want to extract but in other situations, the user may not give out the types explicitly and want the model to recall all the possible types in its memory. Thus, we conduct training under two settings, i.e., close domain and open domain settings. In the following, we will introduce details of the training data.
 
-• Class Importing Data. In the closed-domain setting, users specify a predefined set of classes to be extracted. In this scenario, we begin by explicitly listing the relevant types using the import clause: *From {task} Import {type1}, {type2}*. Besides, we also give out the task description in the prompt: *Some {task} Types are imported above. Please instantiate all the possible {task} Objects in the following sentence.* . Then, KNOWCODER-V2 is instructed to recall the most potential types in the text. The output is the potential knowledge types in the form of *Import {type1}*.
+• Class Importing Data. In the closed-domain setting, users specify a predefined set of classes to be extracted. In this scenario, we begin by explicitly listing the relevant types using the import clause: *From {task} Import {type1}, {type2}*. Besides, we also give out the task description in the prompt: *Some {task} Types are imported above. Please instantiate all the possible {task} Objects in the following sentence.*. Then, KNOWCODER-V2 is instructed to recall the most potential types in the text. The output is the potential knowledge types in the form of*Import {type1}*.
 
 In the open domain setting, we remove the given schema and only instruct LLM to recall possible types from knowledge types the model have learned by the task description: *According to the {task} Types you have learned, please import all the possible {task} Types in the sentence*. The output is potential knowledge types in the form of *Import {type1}*.
 
-• Object Instantiation Data. After obtaining the potential knowledge types in the text, we aim to instantiate a concrete knowledge object by task description: *Some {task} Types are imported above. Please instantiate all the possible {task} Objects in the following sentence.* . The output is a list of instantiated objects same with direct extraction data.
+• Object Instantiation Data. After obtaining the potential knowledge types in the text, we aim to instantiate a concrete knowledge object by task description: *Some {task} Types are imported above. Please instantiate all the possible {task} Objects in the following sentence.*. The output is a list of instantiated objects same with direct extraction data.
 
-#### *4.1.4 Knowledge Update: Code Merge*
+####*4.1.4 Knowledge Update: Code Merge*In this step, KNOWCODER-V2 merges entities and events that share the same name. For these entities or events, their relations, properties, or arguments are combined into a single unified entity or event. Additionally, if previously stored knowledge conflicts with newly extracted knowledge, the system updates it with the latest knowledge. This heuristic strategy proves effective in most cases. Developing more precise and robust knowledge update mechanisms is left as future work.
 
-In this step, KNOWCODER-V2 merges entities and events that share the same name. For these entities or events, their relations, properties, or arguments are combined into a single unified entity or event. Additionally, if previously stored knowledge conflicts with newly extracted knowledge, the system updates it with the latest knowledge. This heuristic strategy proves effective in most cases. Developing more precise and robust knowledge update mechanisms is left as future work.
-
-#### 4.2 Knowledge Reasoning Phase
+#### 2 Knowledge Reasoning Phase
 
 In this section, we introduce the implementation details of the knowledge reasoning phase with KNOWCODER-V2.
 
-### *4.2.1 Task Decomposition*
+###*4.2.1 Task Decomposition*As illustrated on the right side of Figure [3,](#page-6-0) the knowledge reasoning phase begins by decomposing the given research task into several subtasks. Each subtask addresses a research topic closely related to the research task. For each subtask, an LLM further decomposes it into two distinct reasoning steps, i.e., the knowledge computation cycle and the text generation cycle. Specifically, we use the tags <begin\_data\_analysis> and <end\_data\_analysis> to indicate the queries of the knowledge computation cycle and the tags <begin\_web\_search> and <end\_web\_search> to indicate the queries of the text generation cycle.
 
-As illustrated on the right side of Figure [3,](#page-6-0) the knowledge reasoning phase begins by decomposing the given research task into several subtasks. Each subtask addresses a research topic closely related to the research task. For each subtask, an LLM further decomposes it into two distinct reasoning steps, i.e., the knowledge computation cycle and the text generation cycle. Specifically, we use the tags <begin\_data\_analysis> and <end\_data\_analysis> to indicate the queries of the knowledge computation cycle and the tags <begin\_web\_search> and <end\_web\_search> to indicate the queries of the text generation cycle.
-
-### *4.2.2 Knowledge Computation Cycle*
-
-Since various types of knowledge have already been encapsulated as distinct Python objects during the knowledge organization phase, KNOWCODER-V2 implements the knowledge computation cycle to generate executable code based on the queries derived from task decomposition. Specifically, this cycle produces three types of code: class definition code, knowledge declaration code, and knowledge computation code. By integrating and executing these components, KNOWCODER-V2 is able to perform deep and precise computations over the structured knowledge.
+###*4.2.2 Knowledge Computation Cycle*Since various types of knowledge have already been encapsulated as distinct Python objects during the knowledge organization phase, KNOWCODER-V2 implements the knowledge computation cycle to generate executable code based on the queries derived from task decomposition. Specifically, this cycle produces three types of code: class definition code, knowledge declaration code, and knowledge computation code. By integrating and executing these components, KNOWCODER-V2 is able to perform deep and precise computations over the structured knowledge.
 
 Ontology Search. Given a research subtask, the ontology search step aims to identify relevant concepts from the ontology. With the queries as input, we leverage Elasticsearch to retrieve codebased concepts that are most pertinent. Once identified, these concepts are then transformed into their corresponding class definition code, enabling seamless integration into subsequent knowledge computation processes.
 
@@ -155,15 +147,11 @@ Instance Query. In this step, we instantiate the corresponding entity objects an
 
 Code Execution. In this step, we integrate the class definition code, the filed search\_results variables, and the analysis code to create the final executable script. By running this combined code in the Python execution environment, we obtain the corresponding analysis results. However, there could be situations where the code execution fails or produces incorrect results (e.g., generating empty charts). To address this, we incorporate an analysis evaluation agent that reviews the obtained analysis results and determines whether they satisfy the task requirements. If the results do not meet the specified criteria, the process loops back to the first step for corrections.
 
-### *4.2.3 Text Generation Cycle*
+###*4.2.3 Text Generation Cycle*With the search query input, the model iteratively conduct web search until the query can be answered. Specifically, it contains three steps, i.e., web search, context understanding, and text writing. As these steps are broadly implemented in the existing deep research frameworks, we will not detail them in this paper.
 
-With the search query input, the model iteratively conduct web search until the query can be answered. Specifically, it contains three steps, i.e., web search, context understanding, and text writing. As these steps are broadly implemented in the existing deep research frameworks, we will not detail them in this paper.
+####*4.2.4 Merge and Revise*A significant challenge is ensuring consistency between the results generated by the knowledge computation and text generation cycles. Inconsistencies often arise due to incomplete search results, quality issues in web content, or inadequacies in the structured knowledge. To address this, we designed an additional agent to merge results from both cycles and revise them. This agent autonomously evaluates the analysis results from the knowledge computation cycle alongside the generated results from the text generation cycle, identifies conflicting content, and resolves these discrepancies to achieve consistency.
 
-#### *4.2.4 Merge and Revise*
-
-A significant challenge is ensuring consistency between the results generated by the knowledge computation and text generation cycles. Inconsistencies often arise due to incomplete search results, quality issues in web content, or inadequacies in the structured knowledge. To address this, we designed an additional agent to merge results from both cycles and revise them. This agent autonomously evaluates the analysis results from the knowledge computation cycle alongside the generated results from the text generation cycle, identifies conflicting content, and resolves these discrepancies to achieve consistency.
-
-### 4.3 Training of KnowCoder-V2
+### 3 Training of KnowCoder-V2
 
 To enhance the extraction capabilities of KNOWCODER-V2, we utilized 14 Named Entity Recognition (NER) datasets, 7 Relation Extraction (RE) datasets, and 6 Event Extraction (EE) datasets, including three datasets in Chinese. Additionally, to further improve KNOWCODER-V2's extraction capabilities, particularly its robustness, event extraction, and multilingual performance, we implemented data augmentation techniques described below.
 
@@ -179,7 +167,7 @@ KNOWCODER-V2 is fine-tuned based on the Qwen-2.5-Coder-14B-Instruct model [\(Hui
 
 ### <span id="page-9-0"></span>5 Experiment
 
-### 5.1 Tasks and Datasets
+### 1 Tasks and Datasets
 
 We evaluate KNOWCODER-V2 on two kinds of tasks, i.e., knowledge organization and knowledge reasoning tasks. For the knowledge organization task, We further evaluate the ontology expansion and knowledge extraction abilities on the corresponding datasets. For the ontology expansion datasets, we evaluate the performance on WordNet Sub-taxonomies from [Bansal et al.](#page-14-9) [\(2014\)](#page-14-9), Graphine taxonomies from [Liu et al.](#page-16-6) [\(2021a\)](#page-16-6), and three large-scale taxonomies from SemEval-2016 [Bordea](#page-14-10) [et al.](#page-14-10) [\(2016\)](#page-14-10) across science, environment, and food domains. Table ?? presents the statistics of these taxonomies, all of which contain entities and definitions curated by human experts. For all benchmarks, we split the training and tesing dataset following [Zeng et al.](#page-19-1) [\(2024\)](#page-19-1). For knowledge extraction, we choose 26 information extraction benchmarks under the supervised setting. For English IE, we evaluate performance across 10 benchmarks for NER, 6 benchmarks for RE, 3 benchmarks for ED, and 2 benchmarks for EAE. For Chinese IE, we evaluate performance on 2 benchmarks for NER, 1 benchmark for RE, 1 benchmark for ED, and 1 benchmark for EAE. Besides, we also evaluate KNOWCODER-V2 under the event extraction benchmark with massive types EEMT [Liu](#page-16-5)
 
@@ -208,7 +196,7 @@ Table 1: Performance on taxonomy expansion across five datasets. Metrics include
 
 [et al.](#page-16-5) [\(2025\)](#page-16-5) and robustness benchmark RUIE [Zhu et al.](#page-19-4) [\(2025\)](#page-19-4). We use abbreviations from P1 to P14 for 14 kinds of perturbations defined in the RUIE. The detailed benchmark statistics are listed in Tables [2,](#page-11-0) [3.](#page-11-1) For the knowledge reasoning task, we further evalute the Knowledge Base Question Answer (KBQA) and the report generation abilities. For the KBQA task, we adopt the most common dataset, WebQSP [\(Yu et al.,](#page-18-5) [2023\)](#page-18-5), as the dataset. For the report generation task, there are no suitable datasets. Thus we evaluate this abilities on the self-construct dataset about the scientific report.
 
-#### 5.2 Baselines
+#### 2 Baselines
 
 Knowledge Organization. For the knowledge organization task, we evaluate the performance of KNOWCODER-V2 on several kinds of tasks, including ontology expansion and knowledge extraction including entity extraction, relation extraction, and event extraction. For the ontology expansion task, we evaluated the performance of KNOWCODER-V2 against several baseline methods, including TaxoExpan [\(Shen et al.,](#page-17-5) [2020\)](#page-17-5), STEAM [\(Yu et al.,](#page-18-6) [2020\)](#page-18-6), HEF [\(Wang et al.,](#page-18-7) [2022\)](#page-18-7), Musubu [\(Takeoka](#page-18-0) [et al.,](#page-18-0) [2021\)](#page-18-0), TEMP [\(Liu et al.,](#page-16-7) [2021b\)](#page-16-7), BoxTaxo [\(Jiang et al.,](#page-15-4) [2023b\)](#page-15-4), TaxoPrompt [\(Xu et al.,](#page-18-8) [2022\)](#page-18-8), TaxoInstruct [\(Shen et al.,](#page-17-1) [2024\)](#page-17-1), and CodeTaxo [\(Zeng et al.,](#page-19-1) [2024\)](#page-19-1).
 
@@ -216,11 +204,9 @@ For the knowledge extraction task, KNOWCODER-V2 is compared with the following u
 
 Knowledge Reasoning. For the knowledge reasoning phase, we first evaluate the performance of KNOWCODER-V2 on the KBQA (Knowledge Base Question Answering) task. For this task, KNOWCODER-V2 is compared with several baselines, including NSM [\(He et al.,](#page-15-5) [2021\)](#page-15-5), TIARA [\(Shu](#page-17-6) [et al.,](#page-17-6) [2022\)](#page-17-6), DeCAF [\(Yu et al.,](#page-18-5) [2023\)](#page-18-5), KD-CoT [\(Wang et al.,](#page-18-11) [2023a\)](#page-18-11), StructGPT [\(Jiang et al.,](#page-15-6) [2023a\)](#page-15-6), KB-BINDER [\(Li et al.,](#page-16-8) [2023b\)](#page-16-8), Cot [\(Wei et al.,](#page-18-12) [2022\)](#page-18-12), ToG [Sun et al.](#page-18-13) [\(2023\)](#page-18-13) and G-Retriever [He et al.](#page-15-7) [\(2024\)](#page-15-7). Then, we evaluate the performance of the proposed knowledgeable deep research framework against the following baselines, i.e., Qwen3 Deep Research [2](#page-11-2) , Grok3 Deep Research [3](#page-11-3) , OpenAI Deep Research [4](#page-11-4) and WebThinker [\(Li et al.,](#page-16-0) [2025b\)](#page-16-0).
 
-### 5.3 Results
+### 3 Results
 
-#### *5.3.1 Knowledge Organization*
-
-Results on Ontology Expansion. The results for ontology expansion are presented in Table [1.](#page-10-0) Compared to self-supervised methods, KNOWCODER-V2 outperforms all baselines on three benchmarks in terms of both accuracy and Wu&Palmer similarity. These results highlight the effectiveness of KNOWCODER-V2's two-stage alignment phase, and show that its code-based definitions significantly enhance the model's ability to analyze the corresponding concepts.
+####*5.3.1 Knowledge Organization*Results on Ontology Expansion. The results for ontology expansion are presented in Table [1.](#page-10-0) Compared to self-supervised methods, KNOWCODER-V2 outperforms all baselines on three benchmarks in terms of both accuracy and Wu&Palmer similarity. These results highlight the effectiveness of KNOWCODER-V2's two-stage alignment phase, and show that its code-based definitions significantly enhance the model's ability to analyze the corresponding concepts.
 
 <span id="page-11-0"></span>
 
@@ -259,9 +245,7 @@ Table 3: The performance of all baselines and our models on the RE, ED and EAE t
 
 Results on Knowledge Extraction. The results for NER, RE, ED, and EAE tasks are shown in Tables [2,](#page-11-0) [3,](#page-11-1) respectively. Compared to KNOWCODER-V1, KNOWCODER-V2 significantly enhances extraction performance across all tasks and demonstrates strong adaptability to multilingual and multi-event scenarios. Besides, KNOWCODER-V2 outperforms the most advanced information extraction models on most benchmarks. In English IE, KNOWCODER-V2 has achieved a significant average improvement of 3.03% and 2.92% F1 on the NER, RE, ED, and EAE compared to all baselines. In Chinese IE, KNOWCODER-V2 surpasses the bilingual UIE baselines. Especially in domain-specific benchmarks such as BC2GM, BC5CDR, and SCIERC, KNOWCODER-V2 surpasses the current state-of-the-art by margins of 1.4%, 1.5%, and 4.3% points, respectively. This highlights KNOWCODER-V2's capability in processing specialized knowledge, thereby offering compelling support for subsequent tasks. In the EEMT benchmark, where the type-recalling and partitioned extraction strategies are removed, KNOWCODER-V2 still demonstrates competitive extraction performance relative to LLM-PEE introduced by [\(Liu et al.,](#page-16-5) [2025\)](#page-16-5). Furthermore, compared to KNOWCODER-V1, KnowCoder-X [\(Zuo et al.,](#page-19-2) [2024\)](#page-19-2), and LLM-PEE, our method maintains comparable performance while significantly reducing the prompt length, thereby enhancing the overall extraction efficiency of the model. The results for NER, RE, and ED tasks under robustness settings are presented in Table [4.](#page-12-0) Compared to KNOWCODER-V1 and KnowCoder-7B-Robust, KNOWCODER-V2 demonstrates strong robustness across various perturbations and ranks 1st among all baselines with average of 78.6%, surpass the KnowCoder-7B-Robust by 1.4%. Notably, under more complex robustness setting such as Extended Sentence perturbation, KNOWCODER-V2 consistently maintains and or even improves its performance than None setting across all tasks (87.3% in P7 v.s 84.6% in None). This indicates that KNOWCODER-V2 is capable of handling longer and more complex texts while still delivering accurate knowledge organization.
 
-### *5.3.2 Knowledge Reasoning.*
-
-<span id="page-11-2"></span><sup>2</sup>https://chat.qwen.ai/?inputFeature=deep\_research
+###*5.3.2 Knowledge Reasoning.*<span id="page-11-2"></span><sup>2</sup>https://chat.qwen.ai/?inputFeature=deep\_research
 
 <span id="page-11-3"></span><sup>3</sup>https://grok.com/
 
@@ -365,7 +349,7 @@ In this paper, we introduced the Knowledgeable Deep Research framework (KDR), wh
 
 ### References
 
-- <span id="page-14-12"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. Gpt-4 technical report. *arXiv preprint arXiv:2303.08774*, 2023.
+- <span id="page-14-12"></span>Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. Gpt-4 technical report.*arXiv preprint arXiv:2303.08774*, 2023.
 - <span id="page-14-4"></span>Salaheddin Alzubi, Creston Brooks, Purva Chiniya, Edoardo Contente, Chiara von Gerlach, Lucas Irwin, Yihan Jiang, Arda Kaz, Windsor Nguyen, Sewoong Oh, et al. Open deep search: Democratizing search with open-source reasoning agents. *arXiv preprint arXiv:2503.20201*, 2025.
 - <span id="page-14-2"></span>Akari Asai, Zeqiu Wu, Yizhong Wang, Avirup Sil, and Hannaneh Hajishirzi. Self-rag: Learning to retrieve, generate, and critique through self-reflection. In *The Twelfth International Conference on Learning Representations*, 2023.
 - <span id="page-14-9"></span>Mohit Bansal, David Burkett, Gerard De Melo, and Dan Klein. Structured learning for taxonomy induction with belief propagation. In *ACL*, pp. 1041–1051, 2014.

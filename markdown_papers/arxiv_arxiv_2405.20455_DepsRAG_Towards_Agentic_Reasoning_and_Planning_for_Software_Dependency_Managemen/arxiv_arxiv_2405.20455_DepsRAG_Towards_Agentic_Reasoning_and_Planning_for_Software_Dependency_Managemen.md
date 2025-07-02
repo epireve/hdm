@@ -1,3 +1,5 @@
+<!-- cite_key: wisconsin-madison2023 -->
+
 # DEPSRAG: Towards Agentic Reasoning and Planning for Software Dependency Management
 
 Mohannad Alhanahnah University of Wisconsin-Madison, USA mohannad@cs.wisc.edu
@@ -20,17 +22,17 @@ In contrast to conventional tools that depend on predefined queries, DEPSRAG use
 
 # 2 Background
 
-# 2.1 Dependency Graphs
+# 1 Dependency Graphs
 
 Dependency graphs are essential in software engineering for representing dependencies among software entities like classes, functions, modules, packages, or larger components. Each node represents an entity and directed edges indicate dependencies, meaning changes in one entity can affect another.
 
 Litzenberger et al. [\[22\]](#page-9-3) proposed a framework with three levels of dependency granularity: packageto-package, artifact-to-package, and artifact-to-artifact. Dusing and Hermann [ ¨ [15\]](#page-8-2) used artifactto-package graphs to study vulnerability propagation in software repositories. Benelallam et al. [\[10\]](#page-8-3) created the Maven Dependency Graph to explore artifact releases, evolution, and usage trends. Dependency graphs are also utilized in tools for program understanding [\[16,](#page-8-4) [26\]](#page-9-4).
 
-## 2.2 Knowledge Graphs (KGs)
+## 2 Knowledge Graphs (KGs)
 
 Knowledge graphs (KGs) organize information in a structured format, capturing relationships between real-world entities and making them comprehensible to humans and machines [\[7\]](#page-8-5). In a KG, data are organized as triplets (head entity, relation, tail entity), where the relation is the relationship between these two entities, such as ("Steven Jobs", "owns", "Apple"). More formally, KGs store structured knowledge as a collection of triples KG = {(e<sup>i</sup> , r, e<sup>j</sup> ) ⊆ E × R × E}, where E and R denote the set of entities and relations, respectively. KGs are created by describing entities and entity relationships, known as graph schema. KGs are useful for a variety of applications, such as question-answering [\[18\]](#page-8-6), information retrieval [\[30\]](#page-9-5), recommender systems [\[33\]](#page-9-6), cybersecurity [\[6,](#page-8-7) [31\]](#page-9-7), and natural language processing [\[32\]](#page-9-8).
 
-## 2.3 Agentic LLM Applications
+## 3 Agentic LLM Applications
 
 Agents. An agent is responsible for a specific aspect of a task, acting essentially as a message transformer. In code, an agent is typically represented as a class encapsulating an interface to an LLM, along with optional tools and external data (e.g., a vector or graph database). Agents communicate by exchanging messages, similar to the actor model in programming [\[19\]](#page-8-8). For practical applications, agents can trigger actions (e.g., API calls, computations) and access external data, facilitated by tools and RAG.
 
@@ -72,7 +74,7 @@ Both DependencyGraphAgent and SearchAgent can be paired with a CriticAgent that 
 
 This section presents the architecture of DEPSRAG, a chatbot designed for the automated construction of software dependencies as a KG and the subsequent answering of user queries, expressed in natural language, regarding the dependency graph.
 
-#### 4.1 DEPSRAG Agent-Critic Interaction and Orchestration Architecture
+## 1 DEPSRAG Agent-Critic Interaction and Orchestration Architecture
 
 This is the core multi-agent interaction pattern that underlies DEPSRAG, and is reminiscent of Actor/Critic methods in reinforcement learning [\[20\]](#page-8-12).
 
@@ -97,7 +99,7 @@ In DEPSRAG, we developed a suite of advanced routing tools, built on top of the 
 
 This section describes the implementation of DEPSRAG. It then describes the conducted experiments to evaluate DEPSRAG.
 
-#### 5.1 Implementation
+## 1 Implementation
 
 We implemented DEPSRAG in Python using Langroid [\[11\]](#page-8-9), which is a framework that supports the development of multi-agent LLMs and enables seamless integration with various LLMs. Moreover, Langroid can orchestrate the interaction between agents and contains built-in tools that facilitate the development of RAG applications, such as performing Web search and accessing Neo4j [\[4\]](#page-8-13), a graph database with a declarative query language called Cypher. To address the orchestration and critic interaction requirements of DEPSRAG, we developed supplementary routing tools.
 
@@ -107,7 +109,7 @@ KG Schema. The user inputs the package name, version, and ecosystem, after which
 
 Source of Software Dependencies. To obtain the dependencies for the provided project and construct the dependency KG, we used Deps.Dev API,[4](#page-5-0) a service developed and hosted by Google to help developers understand the structure and security of open-source software packages. This service was used in previous work [\[28,](#page-9-10) [21\]](#page-8-14) to characterize and analyze dependencies. It repeatedly examines websites, such as GitHub and PyPI, to find up-to-date information about open-source software packages, thus generating a comprehensive list of direct and transitive dependencies that are constantly updated. DEPSRAG receives a JSON response from the Deps.Dev API that contains a list of dependencies of the provided package. Then ConstructKGTool propagates the data in the JSON data to build the dependency KG.
 
-## 5.2 Experiments
+## 2 Experiments
 
 In this study, we address the following research questions (RQs):
 
@@ -116,7 +118,7 @@ In this study, we address the following research questions (RQs):
 
 We have chosen two representative LLMs to test DEPSRAG, summarized in Table [3.](#page-10-2) Both are pretrained models. GPT-4 Turbo represents a proprietary model, whereas Llama-3 is an open-source model.
 
-## 5.2.1 RQ1: Accuracy of Cypher Query Generation
+## 2.1 RQ1: Accuracy of Cypher Query Generation
 
 The effectiveness of the agent, DependencyGraphAgent, is contingent on the LLM's ability to accurately translate user queries from natural language into Cypher queries for retrieving information from Neo4j database, which stores the dependency knowledge graph (KG). Consequently, it is essential to assess the accuracy of the generated Cypher queries from both syntactical and functional perspectives to ensure reliable performance.
 
@@ -141,7 +143,7 @@ Table 1: The performance of DependencyGraphAgent to generate accurate Cypher que
 | How many path chains are in the graph?* | 0                        | GPT-4-Turbo | Yes              |
 |                                         | 2                        | Llama-3     | No               |
 
-\* Listing [1](#page-10-3) presents the queries generated by both Llama-3 and GPT-4-Turbo.
+\*Listing [1](#page-10-3) presents the queries generated by both Llama-3 and GPT-4-Turbo.
 
 <span id="page-6-1"></span>![](_page_6_Figure_4.jpeg)
 
@@ -182,7 +184,7 @@ We would like to thank Benoit Baudry for the helpful discussions and feedback. T
 - <span id="page-8-0"></span>[3] Executive Order 14028, Improving the Nation's Cybersecurity — nist.gov. [https://www.nist.gov/](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity) [itl/executive-order-14028-improving-nations-cybersecurity](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity). [Accessed 31-05-2024].
 - <span id="page-8-13"></span>[4] Neo4j Graph Database — neo4j.com. <https://neo4j.com/product/neo4j-graph-database/>. [Accessed 06-05-2024].
 - <span id="page-8-19"></span>[5] ntia.doc.gov. [https://www.ntia.doc.gov/files/ntia/publications/sbom\\_minimum\\_](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) [elements\\_report.pdf](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf). [Accessed 13-05-2024].
-- <span id="page-8-7"></span>[6] Garima Agrawal. Aiseckg: Knowledge graph dataset for cybersecurity education. *AAAI-MAKE 2023: Challenges Requiring the Combination of Machine Learning 2023*, 2023.
+- <span id="page-8-7"></span>[6] Garima Agrawal. Aiseckg: Knowledge graph dataset for cybersecurity education.*AAAI-MAKE 2023: Challenges Requiring the Combination of Machine Learning 2023*, 2023.
 - <span id="page-8-5"></span>[7] Garima Agrawal, Tharindu Kumarage, Zeyad Alghami, and Huan Liu. Can knowledge graphs reduce hallucinations in llms?: A survey. *arXiv preprint arXiv:2311.07914*, 2023.
 - <span id="page-8-15"></span>[8] Mohannad Alhanahnah, Md Rashedul Hasan, and Hamid Bagheri. An empirical evaluation of pre-trained large language models for repairing declarative formal specifications, 2024.
 - <span id="page-8-17"></span>[9] Musard Balliu, Benoit Baudry, Sofia Bobadilla, Mathias Ekstedt, Martin Monperrus, Javier Ron, Aman Sharma, Gabriel Skoglund, Cesar Soto-Valero, and Martin Wittlinger. Challenges of producing software ´ bill of materials for java. *IEEE Security & Privacy*, 2023.
@@ -243,31 +245,31 @@ Figure 6: Dependency KG Schema consisting of a single entity with two attributes
 
 Listing 1: Cypher queries generated by both models translating question 3 in Table [1](#page-6-0)
 
-```
+```text
 1 -- Query generated by Llama -3
 2 MATCH p =() -[ r : DEPENDS_ON *] - >() RETURN count ( p )
 3 AS pathCount
-4
+
 5 -- Query generated by GPT -4 - Turbo
 6 MATCH p =( root : Package { name : 'chainlit ', version : '1.1.200 '}) -[:
        DEPENDS_ON *] - >( leaf : Package )
 7 WHERE NOT ( leaf ) -[: DEPENDS_ON ] - >() RETURN count ( p )
 8 AS pathCount
-```
+```text
 
 Listing 2: List of tasks used in RQ3
 
-```
+```text
 1 {
 2 "T1": " what 's the density of the dependency graph of
          chainlit version 1.1.200 pypi ",
-3
+
 4 "T2": " which packages in chainlit version 1.1.200 pypi have
           the most dependencies relying on them (i.e. , nodes
          have the highest in - degree in the graph ), and what is
          the risk associated with a vulnerability in those
          packages ?",
-5
+
 6 "T3": "In the dependency graph of chainlit version 1.1.200
          pypi , are there any multi - version conflicts where
          different packages depend on different versions of the
@@ -275,4 +277,4 @@ Listing 2: List of tasks used in RQ3
          conflicts and all paths that lead to these packages
          from the root node "
 7 }
-```
+```text

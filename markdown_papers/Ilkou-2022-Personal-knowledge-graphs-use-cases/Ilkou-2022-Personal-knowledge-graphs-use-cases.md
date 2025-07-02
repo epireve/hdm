@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: ilkouhttpsorcidorg---2022 -->
+
+
 
 # Personal Knowledge Graphs: Use Cases in e-learning Platforms
 
@@ -18,7 +20,7 @@ Personal Knowledge Graphs (PKGs) are introduced by the semantic web community as
 
 e-learning, collaborative search, collaborative learning, personalised knowledge graphs
 
-#### ACM Reference Format:
+### ACM Reference Format:
 
 Eleni Ilkou, supervised by Prof. Dr. Wolfgang Nejdl. 2022. Personal Knowledge Graphs: Use Cases in e-learning Platforms. In Companion Proceedings of the Web Conference 2022 (WWW '22Companion), April 25–29, 2022, Virtual Event, Lyon, France. ACM, New York, NY, USA, [5](#page-4-1) pages. [https:](https://doi.org/10.1145/3487553.3524196) [//doi.org/10.1145/3487553.3524196](https://doi.org/10.1145/3487553.3524196)
 
@@ -57,13 +59,13 @@ The thesis is formulated around the analysis of the characteristics related to t
 
 ## 3 STATE OF THE ART
 
-## 3.1 Personal Knowledge Graphs
+## 1 Personal Knowledge Graphs
 
 Personal or Personalised Knowledge Graphs (PKGs) are small graphs on top of KGs which contain user's related data. They are the natural complementary effort to address the challenges raised by the personal information management (PIM) [\[18\]](#page-4-6), about users retrieving and organising personal information. PKGs are currently mostly used in the medical domain, on top of medical KGs to represent patients data [\[26\]](#page-4-7).
 
 In the broad domain, the works of Personalised Knowledge Graph Summarization [\[9,](#page-4-8) [22\]](#page-4-5) were introduced. The PKG summarisation constructs personal summaries of users from a KG that contain the relevant facts of the users' interests. These summaries support personalised content queries and utility. These works are linked to KGs, such as the DBpedia and Yago, and provide the theoretical formulations for constructing PKG summaries from users' past queries. Moreover, similar work to the PKG summaries direction suggests graph-based approaches for users activity discovery from heterogeneous personal information collections, such as emails and files [\[23\]](#page-4-9). It proposes a method for unsupervised setting that perceives privacy. Influenced by these works, we intend to create PKGs containing information about users' and groups' queries and actions while paying attention to privacy.
 
-## 3.2 Personalisation in e-learning
+## 2 Personalisation in e-learning
 
 Personalisation in e-Learning is about creating an adaptive environment for the learner with adaptive content that derives mainly from the curriculum, educational resources, learning path, learning preferences, and cognitive state. Then the personalisation usually
 
@@ -73,7 +75,7 @@ The symbolic approaches are deployed with the usage of ontologies and semantic f
 
 Another approach is a "black-box" educational recommender system can benefit from open learner models providing a better sense of learning [\[1\]](#page-4-14). An open learner model assists students to understand their learning process and their peers. It can be classified as a cognitive tool approximating students' abilities with a score similar to learning analytics dashboards. Abdi et al. [\[1\]](#page-4-14) showed that open learner models could increase the explainability and transparency of a recommendation; however, there were concerns regarding the fairness and feedback of the recommendation. Their study suggests that users' input and feedback into the recommendation process can improve satisfaction. Motivated by their findings, we aim to implement a transparent model in PKGs which justifies system actions and considers users' input and feedback in the recommendation process while offering additional personalisation via semantic enrichment.
 
-## 3.3 Collaborative Search and Learning
+## 3 Collaborative Search and Learning
 
 Collaborative search can occur as a learning activity; Searching as Learning (SaL) explores this direction and links collaborative search with collaborative learning. SaL in a collaborative setting is formulated around project-based or team-based scenarios [\[24\]](#page-4-15). Research on understanding students online activity in SaL [\[17\]](#page-4-16) suggests that the majority of students primarily choose content-based web pages, like Wikipedia, and that visualisations are essential, both for students and teachers who later can better monitor students' behaviour. This finding supports our idea of implementing PKGs and semantic technologies in the collaborative search and learning systems, and connecting the search with KGs and entities.
 
@@ -89,7 +91,7 @@ group awareness, which has a positive impact on collaboration. Inspired by their
 
 We propose an architecture for the creation of a PKG for a user in the back end of an e-learning system in Figure [1](#page-2-0) (RQ1). The input stream consists of the user's generated data, which is then passed to the intelligence part. In combination with an ontology, the input data are processed with the named entity recognition (NER) and natural language processing (NLP) software to identify the concepts and entities from the KGs. Because user's actions change through time, there is a weighted algorithm that recalculates the main points of interest for the user in each period of time. The black box calculates those weights and offers a filter in the recognised entities from the KGs, which will be passed to the PKG. Then the PKG is created with respect to user's and user group privacy. By implementing the PKGs as a structural element of a platform, we interconnect the activities that happen in the platform with Linked Data and KGs. The research work in the creation of a PKG intends to address the questions related to syntax and semantics as structural elements and regarding the represented data in each application context (RQ1).
 
-## 4.1 Use case 1: Collaborative search
+## 1 Use case 1: Collaborative search
 
 Applications using web search can get benefited by the usage of PKGs, which can offer semantically enhanced features and personalisation capabilities. However, currently PKGs cannot play a role in the filter bubble of the search results provided to the users. We develop the collaborative semantically enhance search use case in the e-learning platform Learnweb [\[20\]](#page-4-19). We link the input stream
 
@@ -97,11 +99,11 @@ data with KGs to attain semantic relations between the data and identify the mos
 
 The proposed approach, in combination with a user-friendly interface and graphics, can help us reveal more personalised as well as group-project needs and develop collaborative features that are boosted with rich metadata and interconnections with the SW. Therefore, we would be able to examine how a collaborative elearning platform can benefit from the addition of PKGs in their database to offer advanced SW features, personalisation (RQ3), and better collaboration in general (RQ4). The potential applications we can implement with the usage of PKGs include but are not limited to better users' credibility and understanding of the group's activity, learning analytics, recommendations, and feedback.
 
-## 4.2 Use case 2: e-Learning
+## 2 Use case 2: e-Learning
 
 In this use case, we utilise the knowledge base of the eDoer platform [\[19\]](#page-4-20), an open learning recommendation system prototype that connects the labour market skills with open educational resources (OERs). The eDoer is currently focused on Data Science related skills; however, the research targets into system's integration of a knowledge base in general domain OERs. The implementation of our approach could allow users to receive personalised recommendations based on their learning preferences and needs, accessibility needs and access, and semantic-based solutions, such as relevant to their topics learning content (RQ2).
 
-## 4.3 Opportunities and Challenges
+## 3 Opportunities and Challenges
 
 Our proposed approach subsist on some novel items and opportunities. So far, the current problem has not been solved with the usage of PKGs. This research might increase the interest in integrating PKGs in other domains, as well as the influence of the usage of knowledge bases in the e-learning community to utilise publicly available KGs and PKGs in their applications. An opportunity stands in the exploration of better collaborative features via the PKGs. Besides the plethora of collaborative search systems, no collaborative search interface has received major attention and has become long-established. This might happen due to the features offered in collaborative systems being adopted from single user purpose interfaces and are not directly developed for collaborative environments [\[10\]](#page-4-21).
 

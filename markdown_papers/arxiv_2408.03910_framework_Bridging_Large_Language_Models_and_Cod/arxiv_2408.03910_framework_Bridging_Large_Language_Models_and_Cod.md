@@ -1,8 +1,10 @@
+<!-- cite_key: arxiv_240803910_framework_brid -->
+
 # CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases
 
 Xiangyan Liu1,3,<sup>∗</sup> Bo Lan2,<sup>∗</sup> Zhiyuan Hu<sup>1</sup> Yang Liu<sup>3</sup> Zhicheng Zhang<sup>3</sup> Fei Wang<sup>2</sup> Michael Shieh<sup>1</sup> Wenmeng Zhou<sup>3</sup> <sup>1</sup> National University of Singapore <sup>2</sup> Xi'an Jiaotong University <sup>3</sup> Alibaba Group {liu.xiangyan@u.nus.edu, bolan@stu.xjtu.edu.cn}
 
-### Abstract
+## Abstract
 
 Large Language Models (LLMs) excel in stand-alone code tasks like HumanEval and MBPP, but struggle with handling entire code repositories. This challenge has prompted research on enhancing LLM-codebase interaction at a repository scale. Current solutions rely on similarity-based retrieval or manual tools and APIs, each with notable drawbacks. Similarity-based retrieval often has low recall in complex tasks, while manual tools and APIs are typically task-specific and require expert knowledge, reducing their generalizability across diverse code tasks and real-world applications. To mitigate these limitations, we introduce CODEXGRAPH, a system that integrates LLM agents with graph database interfaces extracted from code repositories. By leveraging the structural properties of graph databases and the flexibility of the graph query language, CODEXGRAPH enables the LLM agent to construct and execute queries, allowing for precise, code structure-aware context retrieval and code navigation. We assess CODEXGRAPH using three benchmarks: Cross-CodeEval, SWE-bench, and EvoCodeBench. Additionally, we develop five realworld coding applications. With a unified graph database schema, CODEX-GRAPH demonstrates competitive performance and potential in both academic and real-world environments, showcasing its versatility and efficacy in software engineering. Our application demo: [https://github.com/modelscope/](https://github.com/modelscope/modelscope-agent/tree/master/apps/codexgraph_agent) [modelscope-agent/tree/master/apps/codexgraph\\_agent](https://github.com/modelscope/modelscope-agent/tree/master/apps/codexgraph_agent).
 
@@ -30,7 +32,7 @@ To evaluate the effectiveness of the CODEXGRAPH, we assess its performance acros
 
 ### 2 Related Work
 
-### 2.1 Repository-Level Code Tasks
+### 1 Repository-Level Code Tasks
 
 Repository-level code tasks have garnered significant attention due to their alignment with realworld production environments [\(Bairi et al.,](#page-10-8) [2023;](#page-10-8) [Luo et al.,](#page-11-12) [2024;](#page-11-12) [Cognition Labs,](#page-10-9) [2024;](#page-10-9) [Kovrigin](#page-11-3) [et al.,](#page-11-3) [2024\)](#page-11-3). Unlike traditional standalone code-related tasks such as HumanEval [\(Chen et al.,](#page-10-0) [2021\)](#page-10-0) and MBPP [\(Austin et al.,](#page-10-10) [2021\)](#page-10-10), which often fail to capture the complexities of real-world software engineering, repository-level tasks necessitate models to understand cross-file code structures and perform intricate reasoning [\(Liu et al.,](#page-11-7) [2024b;](#page-11-7) [Ma et al.,](#page-11-6) [2024;](#page-11-6) [Sun et al.,](#page-12-2) [2024\)](#page-12-2). These sophisticated tasks can be broadly classified into two lines of work based on their inputs and outputs. The first line of work involves natural language to code repository tasks, exemplified by benchmarks like DevBench [\(Li et al.,](#page-11-13) [2024a\)](#page-11-13) and SketchEval [\(Zan et al.,](#page-12-5) [2024\)](#page-12-5), where models generate an entire code repository from scratch based on a natural language description of input requirements. Stateof-the-art solutions in this area often employ multi-agent frameworks such as ChatDev [\(Qian et al.,](#page-12-6) [2023\)](#page-12-6) and MetaGPT [\(Hong et al.,](#page-10-11) [2023\)](#page-10-11) to handle the complex process of generating a complete codebase. The second line of work, which our research focuses on, includes tasks that integrate both a natural language description and a reference code repository, requiring models to perform tasks like repository-level code completion [\(Zhang et al.,](#page-12-1) [2023;](#page-12-1) [Shrivastava et al.,](#page-12-7) [2023;](#page-12-7) [Liu et al.,](#page-11-14) [2023;](#page-11-14) [Ding et al.,](#page-10-1) [2024;](#page-10-1) [Su et al.,](#page-12-8) [2024\)](#page-12-8), automatic GitHub issue resolution [\(Jimenez et al.,](#page-11-1) [2023\)](#page-11-1), and repository-level code generation [\(Li et al.,](#page-11-2) [2024b\)](#page-11-2). To assess the versatility and effectiveness of our proposed system CODEXGRAPH, we evaluate it on three diverse and representative benchmarks including CrossCodeEval [\(Ding et al.,](#page-10-1) [2024\)](#page-10-1) for code completion, SWE-bench [\(Jimenez et al.,](#page-11-1) [2023\)](#page-11-1) for Github issue resolution, and EvoCodeBench [\(Li et al.,](#page-11-2) [2024b\)](#page-11-2) for code generation.
 
@@ -42,7 +44,7 @@ Retrieval-Augmented Generation (RAG) systems primarily aim to retrieve relevant 
 
 CODEXGRAPH is a system that bridges code repositories and large language models (LLMs) through code graph database interfaces. It indexes input code repositories using static analysis, storing code symbols and relationships as nodes and edges in a graph database according to a predefined schema. When presented with a coding question, CODEXGRAPH leverages the LLM agent to generate graph queries, which are executed to retrieve relevant code fragments or code structures
 
-<span id="page-3-0"></span>![](_page_3_Picture_0.jpeg)
+<span id="page-3-0"></span>
 
 Figure 2: Illustration of the process for indexing source code to generate a code graph based on the given graph database schema. Subfigure (3) provides a visualization example of the resultant code graph in Neo4j.
 
@@ -84,9 +86,7 @@ Benchmarks. We employ three diverse repository-level code benchmarks to evaluate
 
 We report our primary results on the CrossCodeEval Lite (Python) and SWE-bench Lite test sets for CrossCodeEval and SWE-bench, respectively, and on the full test set for EvoCodeBench. Cross-CodeEval Lite (Python) and SWE-bench Lite represent subsets of their respective datasets. Cross-CodeEval Lite (Python) consists of 1000 randomly sampled Python instances, while SWE-bench Lite includes 300 instances randomly sampled after filtering out those with poor issue descriptions.
 
-*Remark: During indexing of* 43 *Sympy samples from the SWE-bench dataset, we face out-of-memory issues due to numerous files and complex dependencies, leading to their exclusion. Similarly, some EvoCodeBench samples are omitted due to test environment configuration issues. Thus, SWE-bench Lite and EvoCodeBench results are based on* 257 *and* 212 *samples, respectively.*
-
-Baselines. We evaluate whether CODEXGRAPH is a powerful solution for Retrieval-Augmented Code Generation (RACG) [\(Jiang et al.,](#page-11-4) [2024\)](#page-11-4). We specifically assess how effectively code graph database interfaces aid LLMs in understanding code repositories, particularly when handling diverse code questions across different benchmarks to test CODEXGRAPH 's general applicability. To achieve this, we select resilient RACG baselines that can be adapted to various tasks. Based on the categories in Section [2.2,](#page-2-0) we choose BM25 [\(Robertson & Zaragoza,](#page-12-10) [2009\)](#page-12-10) and AUTOCODEROVER [\(Zhang et al.,](#page-13-0) [2024b\)](#page-13-0), which are widely recognized in code tasks [\(Jimenez et al.,](#page-11-1) [2023;](#page-11-1) [Ding et al.,](#page-10-1) [2024;](#page-10-1) [Kovrigin et al.,](#page-11-3) [2024;](#page-11-3) [Chen et al.,](#page-10-5) [2024\)](#page-10-5), along with a NO-RAG method. Besides, since our work focuses on RACG methods and their generalizability, we exclude methods that interact with external websites [\(OpenDevin Team,](#page-11-0) [2024;](#page-11-0) [Zhang et al.,](#page-13-2) [2024a\)](#page-13-2) and runtime environments [\(Yang et al.,](#page-12-0) [2024b\)](#page-12-0), as well as task-specific methods that are not easily adaptable across multiple benchmarks [\(Cheng et al.,](#page-10-4) [2024;](#page-10-4) [Orwall](#page-13-1) ¨ , [2024\)](#page-13-1). These methods fall outside the scope of our project.
+*Remark: During indexing of*43*Sympy samples from the SWE-bench dataset, we face out-of-memory issues due to numerous files and complex dependencies, leading to their exclusion. Similarly, some EvoCodeBench samples are omitted due to test environment configuration issues. Thus, SWE-bench Lite and EvoCodeBench results are based on*257*and*212*samples, respectively.*Baselines. We evaluate whether CODEXGRAPH is a powerful solution for Retrieval-Augmented Code Generation (RACG) [\(Jiang et al.,](#page-11-4) [2024\)](#page-11-4). We specifically assess how effectively code graph database interfaces aid LLMs in understanding code repositories, particularly when handling diverse code questions across different benchmarks to test CODEXGRAPH 's general applicability. To achieve this, we select resilient RACG baselines that can be adapted to various tasks. Based on the categories in Section [2.2,](#page-2-0) we choose BM25 [\(Robertson & Zaragoza,](#page-12-10) [2009\)](#page-12-10) and AUTOCODEROVER [\(Zhang et al.,](#page-13-0) [2024b\)](#page-13-0), which are widely recognized in code tasks [\(Jimenez et al.,](#page-11-1) [2023;](#page-11-1) [Ding et al.,](#page-10-1) [2024;](#page-10-1) [Kovrigin et al.,](#page-11-3) [2024;](#page-11-3) [Chen et al.,](#page-10-5) [2024\)](#page-10-5), along with a NO-RAG method. Besides, since our work focuses on RACG methods and their generalizability, we exclude methods that interact with external websites [\(OpenDevin Team,](#page-11-0) [2024;](#page-11-0) [Zhang et al.,](#page-13-2) [2024a\)](#page-13-2) and runtime environments [\(Yang et al.,](#page-12-0) [2024b\)](#page-12-0), as well as task-specific methods that are not easily adaptable across multiple benchmarks [\(Cheng et al.,](#page-10-4) [2024;](#page-10-4) [Orwall](#page-13-1) ¨ , [2024\)](#page-13-1). These methods fall outside the scope of our project.
 
 Especially, although [Zhang et al.](#page-13-0) [\(2024b\)](#page-13-0) evaluate AUTOCODEROVER exclusively on SWE-bench, we extend its implementation to CrossCodeEval and EvoCodeBench, while retaining its core set of 7 code-specific tools for code retrieval.
 
@@ -126,7 +126,7 @@ Implementation details. Before indexing, we filter the Python repositories for e
 
 ### <span id="page-6-0"></span>5 Results
 
-### 5.1 Analysis of Repository-Level Code Tasks
+### 1 Analysis of Repository-Level Code Tasks
 
 RACG is crucial for repository-level code tasks. In Table [1,](#page-6-5) RACG-based methods—BM25, AUTOCODEROVER, and CODEXGRAPH—basically outperform the NO-RAG method across all benchmarks and evaluation metrics. For instance, on the CrossCodeEval Lite (Python) dataset, using GPT-4o as the backbone LLM, RACG methods improve performance by 10.4% to 17.1% on the EM
 
@@ -158,7 +158,7 @@ CODEXGRAPH shows versatility and efficacy across diverse benchmarks. Table [1](#
 
 CODEXGRAPH increases token consumption. CODEXGRAPH uses code graph databases as interfaces and retrieves information from the code repository by writing graph queries. While benefiting from larger and more flexible action spaces, it also incurs increased token costs. The primary reason for this is that the length of the query outcomes is not controllable. Moreover, CODEXGRAPH sometimes encounters loops where it fails to generate executable graph queries. As demonstrated in Table [2,](#page-7-0) this leads to a higher token usage compared to existing RACG methods.
 
-### 5.2 Deeper Analysis of CODEXGRAPH
+### 2 Deeper Analysis of CODEXGRAPH
 
 Optimal querying strategies vary across different benchmarks. There are two strategies for formulating queries in each round within CODEXGRAPH: either generating a single query or producing multiple queries for code retrieval. Opting for a single query per round can enhance precision in retrieving relevant content but may compromise the recall rate. Conversely, generating multiple queries per round can improve recall but may reduce precision. Experimental results, as illustrated in Figure [4,](#page-7-1) reveal that for CrossCodeEval Lite (Python), which involves lower reasoning dif-
 
@@ -166,7 +166,7 @@ Optimal querying strategies vary across different benchmarks. There are two stra
 
 Figure 4: Performance comparison of different querying strategies on CrossCodeEval Lite (Python) and SWE-bench Lite.
 
-ficulty (26.43 *vs.* 27.90 in the EM metric), the "multiple queries" strategy is more effective. In
+ficulty (26.43*vs.*27.90 in the EM metric), the "multiple queries" strategy is more effective. In
 
 <span id="page-8-1"></span>
 
@@ -182,7 +182,7 @@ ficulty (26.43 *vs.* 27.90 in the EM metric), the "multiple queries" strategy is
 
 Table 3: Ablation study about the translation LLM agent on CrossCodeEval Lite (Python).
 
-contrast, for SWE-bench Lite, which presents higher reasoning difficulty, the "single query" strategy yields better outcomes (22.96 *vs.* 17.90 in the Pass@1 metric). These findings provide valuable guidance for researchers in selecting the most appropriate querying strategy for future studies.
+contrast, for SWE-bench Lite, which presents higher reasoning difficulty, the "single query" strategy yields better outcomes (22.96*vs.*17.90 in the Pass@1 metric). These findings provide valuable guidance for researchers in selecting the most appropriate querying strategy for future studies.
 
 "Write then translate" eases reasoning load. When the assistance of the translation LLM agent is removed, the primary LLM agent must independently analyze the coding question and directly formulate the graph query for code retrieval. This increases the reasoning load on the primary LLM agent, leading to a decline in the syntactic accuracy of the graph queries. Experimental results in Table [3](#page-8-1) highlight the significant negative impact of the removal of the translation LLM agent on CODEXGRAPH's performance across all selected LLMs in the CrossCodeEval Lite (Python) benchmark. Even when GPT-4o is used as the backbone model, performance metrics exhibit a significant drop (e.g., the EM metric drops from 27.90% to 8.30%), underscoring the critical role of the translation LLM agent in alleviating the primary LLM agent's reasoning burden.
 
@@ -202,7 +202,7 @@ Conclusion. CODEXGRAPH addresses the limitations of existing RACG methods, which
 
 ### References
 
-- <span id="page-10-3"></span>Daman Arora, Atharv Sonwane, Nalin Wadhwa, Abhav Mehrotra, Saiteja Utpala, Ramakrishna Bairi, Aditya Kanade, and Nagarajan Natarajan. Masai: Modular architecture for softwareengineering ai agents. *arXiv preprint arXiv:2406.11638*, 2024.
+- <span id="page-10-3"></span>Daman Arora, Atharv Sonwane, Nalin Wadhwa, Abhav Mehrotra, Saiteja Utpala, Ramakrishna Bairi, Aditya Kanade, and Nagarajan Natarajan. Masai: Modular architecture for softwareengineering ai agents.*arXiv preprint arXiv:2406.11638*, 2024.
 - <span id="page-10-10"></span>Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le, et al. Program synthesis with large language models. *arXiv preprint arXiv:2108.07732*, 2021.
 - <span id="page-10-8"></span>Ramakrishna Bairi, Atharv Sonwane, Aditya Kanade, Vageesh D C, Arun Iyer, Suresh Parthasarathy, Sriram Rajamani, B. Ashok, and Shashank Shet. Codeplan: Repository-level coding using llms and planning, 2023. URL <https://arxiv.org/abs/2309.12499>.
 - <span id="page-10-5"></span>Dong Chen, Shaoxin Lin, Muhan Zeng, Daoguang Zan, Jian-Gang Wang, Anton Cheshkov, Jun Sun, Hao Yu, Guoliang Dong, Artem Aliev, Jie Wang, Xiao Cheng, Guangtai Liang, Yuchi Ma, Pan Bian, Tao Xie, and Qianxiang Wang. Coder: Issue resolving with multi-agent and task graphs, 2024.
@@ -268,7 +268,7 @@ This schema is designed to abstract code repositories into code graphs for Pytho
 
 Each node in the code graph represents a different element within Python code, and each node type has a set of attributes that encapsulate its meta-information. The node types and their respective attributes are as follows:
 
-```
+```text
 Graph Database Schema: Nodes
 ## Nodes
 MODULE:
@@ -305,13 +305,13 @@ GLOBAL_VARIABLE:
     - file_path (String): File path of the global variable
     - code (String): The code segment in which the global variable
          is defined
-```
+```text
 
 ### A.1.2 Edge Types
 
 Edges in the code graph represent various relationships between the nodes. The edge types we define and the relationships they signify are as follows:
 
-```
+```text
 Graph Database Schema: Edges
 ## Edges
 CONTAINS:
@@ -332,7 +332,7 @@ USES:
   Attributes:
     - source_association_type (String): FUNCTION, METHOD
     - target_association_type (String): GLOBAL_VARIABLE, FIELD
-```
+```text
 
 ### <span id="page-16-0"></span>A.2 Real-World Application
 
@@ -453,8 +453,6 @@ The user has requested a function to retrieve the number of input and output tok
 |   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 Figure 20: The thought process in determining how to identify the relevant fields.
-
-![](_page_23_Picture_0.jpeg)
 
 Figure 21: By using Cypher queries, it was discovered that the corresponding fields are 'input token num' and 'output token num', which enables the generation of the correct code.
 

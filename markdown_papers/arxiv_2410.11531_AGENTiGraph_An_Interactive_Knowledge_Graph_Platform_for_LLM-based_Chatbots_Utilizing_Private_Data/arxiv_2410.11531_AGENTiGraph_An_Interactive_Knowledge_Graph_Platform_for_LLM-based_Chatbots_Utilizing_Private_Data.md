@@ -1,3 +1,5 @@
+<!-- cite_key: zhao2024 -->
+
 # <span id="page-0-0"></span>AGENTiGraph: An Interactive Knowledge Graph Platform for LLM-based Chatbots Utilizing Private Data
 
 Xinjie Zhao<sup>1</sup> , Moritz Blum<sup>2</sup> , Rui Yang<sup>3</sup> , Boming Yang<sup>1</sup> , Luis Márquez Carpintero<sup>4</sup> , Mónica Pina-Navarro<sup>4</sup> , Tony Wang<sup>5</sup> , Xin Li<sup>3</sup> , Huitao Li<sup>3</sup> , Yanran Fu<sup>6</sup> , Rongrong Wang<sup>7</sup> , Juntao Zhang<sup>8</sup> , Irene Li<sup>1</sup>
@@ -62,7 +64,7 @@ Through this orchestrated multi-agent architecture, AGENTiGraph achieves a syner
 
 ## 3 System Demonstration
 
-### 3.1 User Interface
+### 1 User Interface
 
 The AGENTiGraph interface is designed for intuitive use and efficient knowledge exploration, as illustrated in Figure [2.](#page-3-0) It features a dual-mode interaction paradigm that combines conversational AI capabilities with interactive knowledge exploration.
 
@@ -98,13 +100,13 @@ AGENTiGraph's flexibility extends beyond these predefined functionalities. Users
 
 To assess AGENTiGraph's performance, we conducted a comprehensive evaluation focusing on two key aspects: (1) the system's ability to accurately identify user intents and execute corresponding tasks, and (2) the system's effectiveness and user satisfaction in real-world scenarios.
 
-### 4.1 Dataset and Experimental Setup
+### 1 Dataset and Experimental Setup
 
 To comprehensively evaluate AGENTiGraph's performance, we developed an expanded test set that addresses the limitations of the original TutorQA dataset, which comprises 3,500 cases, with 500 queries for each of the six predefined task types and an additional 500 free-form queries ([§3.2\)](#page-3-1). The dataset generation process involved using LLMs to mimic student questions [\(Liu et al.,](#page-7-17) [2024\)](#page-7-17), followed by human verification to ensure quality and relevance, allowing us to create a diverse set of
 
 queries that closely resemble real-world scenarios [\(Extance,](#page-6-13) [2023\)](#page-6-13). Detailed prompts and example cases used in this process can be found in App. [B.](#page-16-0) Our evaluation of AGENTiGraph focuses on two key aspects: Query Classification: We assess the system's ability to correctly categorize user inputs into the seven task types (six predefined plus freeform), measured by accuracy and F1 score. Task Execution: We also evaluate its practical utility by testing whether it can generate valid outputs for each query, which is quantified through an execution success rate.
 
-## 4.2 User Intent Identification and Task Execution
+## 2 User Intent Identification and Task Execution
 
 <span id="page-4-0"></span>
 
@@ -131,7 +133,7 @@ Table [1](#page-4-0) presents the results of our experiment. We evaluated AGENTi
 
 The performance gap between zero-shot and AGENTiGraph implementations narrows as model size increases, indicating that larger models benefit less dramatically from the AGENTiGraph framework. However, the consistent improvement across all models underscores the robustness of AGENTi-Graph's approach in enhancing knowledge graph interactions. Notably, there is a consistent gap between classification accuracy and execution success rates across all models, suggesting that while AGENTiGraph framework excels at identifying the correct task type, there's room for improvement in task execution. The gap is smallest for the most advanced models (GPT-4o and Gemini-1.5 pro), indicating that these models are better equipped to bridge the understanding-execution divide.
 
-## 4.3 User Feedback and System Usability
+## 3 User Feedback and System Usability
 
 To evaluate the real-world effectiveness and user satisfaction of AGENTiGraph, we conducted a comprehensive user study involving participants with varying levels of expertise in knowledge graph systems. Participants interacted with the system within the domain of natural language processing (NLP) and provided feedback on their experience. We collected qualitative feedback from 50 user interactions with AGENTiGraph, compared to ChatGPT-4o [2](#page-0-0) . Users generally found AGENTi-Graph's responses to be more concise. Specifically, 32 queries highlighted its ability to deliver shorter, more focused answers. However, in 5 queries, users noted that AGENTiGraph's responses were incomplete or missing key details, especially for more complex tasks, where ChatGPT's more detailed answers is preferred. Additionally, 4 queries indicated that AGENTiGraph misunderstood the question or provided incorrect answers. Despite the limitations, user satisfaction with AGENTiGraph remained high, particularly regarding the efficiency the freedon of knowledge graph interactions. For users familiar with core concepts, the concise responses helped avoid information overload, beneficial in learning or review scenarios.
 
@@ -141,11 +143,9 @@ We also analyzed 34 queries in computer vision domain, of which 14 were marked s
 
 Our system is also extendable to private or personalized data. The code can be found at [https:](https://shorturl.at/axsPd) [//shorturl.at/axsPd](https://shorturl.at/axsPd). In this section, we showcase its ability to create knowledge graphs in a zero-shot manner within two complex domains: legal and medical.
 
-UK Legislation Data. The first use case demonstrates the system's ability to generate a KG about the UK Legislation. As a knowledge source, we use the dataset *UK Legislation* published by [Chalkidis](#page-6-14) [et al.](#page-6-14) [\(2021\)](#page-6-14). We illustrate a sub-graph generated by our system in Fig. [4](#page-28-0) in App. [D.](#page-25-0) Potentially, it may be helpful to answer this question: *"What legislation provides the definition for the 'duty of excise' related to biodiesel, and which Act cites this duty?"* The system will allow users to identify relationships between legal provisions, definitions, and affected statutes.
+UK Legislation Data. The first use case demonstrates the system's ability to generate a KG about the UK Legislation. As a knowledge source, we use the dataset *UK Legislation*published by [Chalkidis](#page-6-14) [et al.](#page-6-14) [\(2021\)](#page-6-14). We illustrate a sub-graph generated by our system in Fig. [4](#page-28-0) in App. [D.](#page-25-0) Potentially, it may be helpful to answer this question:*"What legislation provides the definition for the 'duty of excise' related to biodiesel, and which Act cites this duty?"*The system will allow users to identify relationships between legal provisions, definitions, and affected statutes.
 
-Japanese Healthcare Data. The second use case is in the Japanese medical domain based on the *MMedC (Japanese)* [\(Qiu et al.,](#page-7-18) [2024\)](#page-7-18) corpus, comprising research and product information about medical treatments and healthcare technology written in Japanese. The small sub-graph shown in Fig. [5](#page-28-1) in App. [D](#page-25-0) reveals that chemotherapy, hematopoietic stem cell transplantation, and CAR-T cell therapy are treatments for blood tumors. Furthermore, CAR-T cell therapy is also used to treat non-Hodgkin's lymphoma and hematologic malignancies. For example, such a sub-graph is helpful to answer this question *"What treatments are used to address blood tumors and related hematologic conditions?"*
-
-Further details on the datasets, applications, and visualizations are available in App. [D.](#page-25-0)
+Japanese Healthcare Data. The second use case is in the Japanese medical domain based on the*MMedC (Japanese)*[\(Qiu et al.,](#page-7-18) [2024\)](#page-7-18) corpus, comprising research and product information about medical treatments and healthcare technology written in Japanese. The small sub-graph shown in Fig. [5](#page-28-1) in App. [D](#page-25-0) reveals that chemotherapy, hematopoietic stem cell transplantation, and CAR-T cell therapy are treatments for blood tumors. Furthermore, CAR-T cell therapy is also used to treat non-Hodgkin's lymphoma and hematologic malignancies. For example, such a sub-graph is helpful to answer this question*"What treatments are used to address blood tumors and related hematologic conditions?"*Further details on the datasets, applications, and visualizations are available in App. [D.](#page-25-0)
 
 ## 6 Conclusion and Future Work
 
@@ -155,7 +155,7 @@ AGENTiGraph presents a novel approach to knowledge graph interaction, leveraging
 
 ## References
 
-- <span id="page-6-2"></span>Isabelle Augenstein, Timothy Baldwin, Meeyoung Cha, Tanmoy Chakraborty, Giovanni Luca Ciampaglia, David Corney, Renee DiResta, Emilio Ferrara, Scott Hale, Alon Halevy, et al. 2024. Factuality challenges in the era of large language models and opportunities for fact-checking. *Nature Machine Intelligence*, pages 1–12.
+- <span id="page-6-2"></span>Isabelle Augenstein, Timothy Baldwin, Meeyoung Cha, Tanmoy Chakraborty, Giovanni Luca Ciampaglia, David Corney, Renee DiResta, Emilio Ferrara, Scott Hale, Alon Halevy, et al. 2024. Factuality challenges in the era of large language models and opportunities for fact-checking.*Nature Machine Intelligence*, pages 1–12.
 - <span id="page-6-10"></span>Sylvio Barbon Junior, Paolo Ceravolo, Sven Groppe, Mustafa Jarrar, Samira Maghool, Florence Sèdes, Soror Sahri, and Maurice Van Keulen. 2024. [Are](https://doi.org/10.1145/3663741.3664785) [large language models the new interface for data](https://doi.org/10.1145/3663741.3664785) [pipelines?](https://doi.org/10.1145/3663741.3664785) In *Proceedings of the International Workshop on Big Data in Emergent Distributed Environments*, BiDEDE '24, New York, NY, USA. Association for Computing Machinery.
 - <span id="page-6-16"></span>Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel Ziegler, Jeffrey Wu, Clemens Winter, Chris Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. 2020. Language models are few-shot learners. In *Advances in Neural Information Processing Systems*, volume 33, pages 1877–1901. Curran Associates, Inc.
 - <span id="page-6-8"></span>Arnaud Castelltort and Trevor Martin. 2018. Handling scalable approximate queries over nosql graph databases: Cypherf and the fuzzy4s framework. *Fuzzy Sets and Systems*, 348:21–49.
@@ -250,13 +250,13 @@ Query: {query}
 
 Provide your analysis in the following JSON format:
 
-```
+```text
 "key_concepts": ["list", "of", "identified", "concepts"],
 "linguistic_analysis": "Brief description of query structure and intent indicators",
 "task_classification": "number (1-7)",
 "confidence": "percentage (0-100)",
 "reasoning": "Explanation for your classification"
-```
+```text
 
 Your final output should only be the valid JSON object.
 
@@ -272,13 +272,13 @@ Query: "How does BERT relate to transformer architecture in NLP?"
 
 Extracted Information:
 
-```
+```text
 {
   "entities": ["BERT", "transformer architecture"],
   "relations": [{"type": "relates_to", "source": "BERT", "target": "transformer architecture"}],
   "domain": "NLP"
 }
-```
+```text
 
 Now, perform the extraction for the following query:
 
@@ -288,11 +288,11 @@ Task Type: {task\_type}
 
 Provide the extracted information in the following JSON format based on the task type:
 
-```
+```text
 For Relation Judgment (Task 1):
-```
+```text
 
-```
+```text
 {
   "concept_1": "First concept",
   "concept_2": "Second concept",
@@ -305,7 +305,7 @@ For Prerequisite Prediction (Task 2):
   "domain": "Specific NLP domain or subdomain, if mentioned"
 }
 Ensure that your extraction is precise and relevant to the given task type.
-```
+```text
 
 ## A.3 Task Planning Agent
 
@@ -321,9 +321,9 @@ Extracted Concepts: ["basic NLP", "advanced machine translation"]
 
 Task Type: 3 (Path Searching)
 
-```
+```text
 Task Plan:
-```
+```text
 
 - 1. Identify key concepts in basic NLP
 - 2. Locate 'advanced machine translation' in the knowledge graph
@@ -351,13 +351,13 @@ Relevant Concepts: ["BERT", "citation", "publication date"]
 
 Graph Schema:
 
-```
+```text
 {
   "nodes": ["Paper", "Author", "Conference"],
   "relationships": ["CITES", "PUBLISHED_IN", "AUTHORED_BY"],
   "properties": {"Paper": ["title", "year"], "Author": ["name"], "Conference": ["name", "year"]}
 }
-```
+```text
 
 ## Generated Query (Cypher):
 
@@ -377,13 +377,13 @@ Provide your query plan in the following JSON format:
 
 }
 
-```
+```text
 "query_objective": "Brief statement of the query goal",
 "cypher_query": "The full Cypher query string",
 "query_explanation": "Explanation of the query components and logic",
 "potential_optimizations": ["Optimization 1", "Optimization 2", ...],
 "refinement_strategy": "Description of how the query might be refined based on results"
-```
+```text
 
 Ensure that your query is efficient, adheres to the given graph schema, and can be dynamically adjusted based on intermediate results.
 
@@ -395,17 +395,17 @@ As the Reasoning Agent, your role is to apply logical inference to the raw query
 
 Here's an example of the reasoning process:
 
-```
+```text
 Raw Query Results:
 [
   {"paper": "Attention Is All You Need", "year": 2017, "citations": 50000},
   {"paper": "BERT", "year": 2018, "citations": 30000},
   {"paper": "GPT-3", "year": 2020, "citations": 10000}
-```
+```text
 
-```
+```text
 ]
-```
+```text
 
 Original User Query: "How has the impact of transformer models evolved over time?" Reasoning:
 
@@ -417,7 +417,7 @@ Original User Query: "How has the impact of transformer models evolved over time
 
 Now, apply reasoning to the following: Raw Query Results: {query\_results} Original User Query: {user\_query} Task Type: {task\_type} Provide your reasoning in the following JSON format:
 
-```
+```text
 {
   "key_observations": ["Observation 1", "Observation 2", ...],
   "inferred_relationships": ["Relationship 1", "Relationship 2", ...],
@@ -426,7 +426,7 @@ Now, apply reasoning to the following: Raw Query Results: {query\_results} Origi
   "confidence_assessment": "Percentage (0-100)",
   "conclusion": "Summary of key findings and their relevance to the user's intent"
 }
-```
+```text
 
 Ensure that your reasoning is clear, logically sound, and directly addresses the user's original query and intent.
 
@@ -440,7 +440,7 @@ Here's an example of response generation:
 
 User Query: "What are the key differences between BERT and GPT models?" Reasoning Results:
 
-```
+```text
 {
   "key_points": [
     "BERT uses bidirectional context, GPT uses unidirectional",
@@ -449,7 +449,7 @@ User Query: "What are the key differences between BERT and GPT models?" Reasonin
   ],
   "confidence": 95
 }
-```
+```text
 
 ## Generated Response:
 
@@ -465,14 +465,14 @@ Now, generate a response for the following:
 
 User Query: {user\_query} Identified Intent: {intent} Reasoning Results: {reasoning\_results} Task Type: {task\_type} Provide your response in the following JSON format: {
 
-```
+```text
 "direct_answer": "A concise answer to the user's query",
   "detailed_explanation": "A more comprehensive explanation",
   "examples": ["Example 1", "Example 2", ...],
   "caveats": ["Caveat 1", "Caveat 2", ...],
   "further_exploration": ["Related topic 1", "Related topic 2", ...]
 }
-```
+```text
 
 Ensure that your response is informative, engaging, and aligned with the user's original intent. Balance technical accuracy with accessibility based on the inferred user expertise level.
 
@@ -484,11 +484,11 @@ As the Dynamic Knowledge Integration Agent, your role is to incorporate new enti
 
 Here's an example of knowledge integration:
 
-```
+```text
 New Information:
-```
+```text
 
-```
+```text
 {
   "entity": "T5",
   "type": "LanguageModel",
@@ -498,17 +498,17 @@ New Information:
     {"type": "USED_FOR", "target": "TextToTextTasks"}
   ]
 }
-```
+```text
 
 ## Existing Graph Schema:
 
-```
+```text
 {
   "nodes": ["LanguageModel", "Organization", "Task"],
   "relationships": ["DEVELOPED_BY", "USED_FOR"],
   "properties": {"LanguageModel": ["name", "year", "architecture"]}
 }
-```
+```text
 
 ## Integration Cypher Queries:
 
@@ -524,7 +524,7 @@ Existing Graph Schema: {graph\_schema}
 
 Provide your integration plan in the following JSON format:
 
-```
+```text
 {
   "analysis": "Summary of the new information to be integrated",
   "integration_strategy": "Description of how the new information will be incorporated",
@@ -540,7 +540,7 @@ Provide your integration plan in the following JSON format:
   "conflict_resolution": "Strategy for resolving potential conflicts with existing data",
   "rollback_plan": "Steps to undo changes if integration fails"
 }
-```
+```text
 
 Ensure that your integration plan maintains the integrity and consistency of the knowledge graph while successfully incorporating the new information.
 
@@ -576,15 +576,13 @@ You are an expert in Natural Language Processing (NLP) education and assessment 
 - Be phrased in natural, conversational language, reflecting how a student would ask.
 - Avoid overlap with the provided examples and ensure diversity in concepts and relationships.
 
-#### Few-Shot Examples:
+### Few-Shot Examples:
 
 #### Example 1:
 
-*Question:* "Is understanding word embeddings necessary for implementing neural machine translation models?" Example 2:
-
-*Question:* "Does knowledge of morphological analysis contribute to better performance in lemmatization tasks?" Example 3:
-
-*Question:* "Are recurrent neural networks related to sequence labeling in NLP applications?"
+*Question:*"Is understanding word embeddings necessary for implementing neural machine translation models?" Example 2:
+*Question:*"Does knowledge of morphological analysis contribute to better performance in lemmatization tasks?" Example 3:
+*Question:*"Are recurrent neural networks related to sequence labeling in NLP applications?"
 
 Now, generate 10 unique questions following these guidelines. Do not include any explanations or reasoning in your final output; only provide the questions.
 
@@ -601,7 +599,7 @@ Now, generate 10 unique questions following these guidelines. Do not include any
 
 ## B.2.3 Path Searching Queries
 
-#### Enhanced Path Searching Query Generation Prompt
+### Enhanced Path Searching Query Generation Prompt
 
 Task Description: Generate high-quality questions where a student asks for a learning path or sequence between two NLP concepts, suitable for testing the Path Searching capabilities of AGENTiGraph.
 
@@ -619,12 +617,9 @@ The questions should:
 #### Few-Shot Examples:
 
 #### Example 1:
-
-*Question:* "How can I move from understanding basic sentiment analysis to developing conversational AI chatbots?" Example 2:
-
-*Question:* "What steps should I follow to transition from learning POS tagging to mastering syntactic parsing?" Example 3:
-
-*Question:* "Can you suggest a learning path from n-gram language models to transformer-based models like BERT?" Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
+*Question:*"How can I move from understanding basic sentiment analysis to developing conversational AI chatbots?" Example 2:
+*Question:*"What steps should I follow to transition from learning POS tagging to mastering syntactic parsing?" Example 3:
+*Question:*"Can you suggest a learning path from n-gram language models to transformer-based models like BERT?" Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
 
 ## B.2.4 Concept Clustering Queries
 
@@ -639,7 +634,7 @@ The questions should:
 
 ## B.2.5 Subgraph Completion Queries
 
-#### Enhanced Subgraph Completion Query Generation Prompt
+### Enhanced Subgraph Completion Query Generation Prompt
 
 Task Description: Generate high-quality questions where a student wants to explore or complete parts of the knowledge graph related to specific NLP concepts, suitable for testing the Subgraph Completion capabilities of AGENTiGraph. Instructions for the LLM:
 
@@ -655,12 +650,9 @@ The questions should:
 #### Few-Shot Examples:
 
 #### Example 1:
-
-*Question:* "After learning about named entity recognition, what other related topics should I study to enhance my skills?" Example 2:
-
-*Question:* "Are there any lesser-known applications of dependency parsing that I should be aware of?" Example 3:
-
-*Question:* "What concepts am I missing if I want to fully understand discourse analysis in NLP?"
+*Question:*"After learning about named entity recognition, what other related topics should I study to enhance my skills?" Example 2:
+*Question:*"Are there any lesser-known applications of dependency parsing that I should be aware of?" Example 3:
+*Question:*"What concepts am I missing if I want to fully understand discourse analysis in NLP?"
 
 Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
 
@@ -680,16 +672,13 @@ You are an NLP project advisor helping students connect theory to practice. Gene
 #### Few-Shot Examples:
 
 Example 1:
-
-*Question:* "How can I utilize sentiment analysis to improve customer feedback systems?"
+*Question:*"How can I utilize sentiment analysis to improve customer feedback systems?"
 
 Example 2:
-
-*Question:* "What are some innovative projects I can develop using question-answering models?"
+*Question:*"What are some innovative projects I can develop using question-answering models?"
 
 Example 3:
-
-*Question:* "Can I apply topic modeling to enhance recommendation systems, and if so, how?"
+*Question:*"Can I apply topic modeling to enhance recommendation systems, and if so, how?"
 
 Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
 
@@ -711,16 +700,13 @@ The questions should:
 #### Few-Shot Examples:
 
 Example 1:
-
-*Question:* "What are the limitations of current NLP models when it comes to understanding context?"
+*Question:*"What are the limitations of current NLP models when it comes to understanding context?"
 
 Example 2:
-
-*Question:* "How does transfer learning benefit NLP tasks, and can you provide some examples?"
+*Question:*"How does transfer learning benefit NLP tasks, and can you provide some examples?"
 
 #### Example 3:
-
-*Question:* "What are the ethical considerations when deploying language models in social media platforms?" Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
+*Question:*"What are the ethical considerations when deploying language models in social media platforms?" Now, generate 10 unique questions following these guidelines. Only provide the questions in your final output.
 
 ## B.3 Human Verification Process
 
@@ -840,10 +826,8 @@ Table 3: Representative User Feedback Cases in Computer Vision Domain
 In this section, we include the experimental details about the demonstrations in both legal and medical domains.
 
 ### D.1 Data
-
-*UK Legislation* The dataset published by [Chalkidis et al.](#page-6-14) [\(2021\)](#page-6-14) comprises legislative and regulatory texts sourced from <legislation.gov.uk>, the official UK government website for accessing legislation, all written in English. The UK government offers a searchable database of all UK laws and regulations, including current and historical statutes, statutory instruments, and amendments. The dataset includes detailed records about, e. g., the UK Public General Acts and UK Local Acts.
-
-*MMedC (Japanese)* MMedC [\(Qiu et al.,](#page-7-18) [2024\)](#page-7-18) is a large-scale multilingual medical corpus developed to enrich LLMs with domain-specific medical knowledge. The dataset is based on multiple sources, and we use a subset derived from open-source medical websites in Japanese. The subset comprises research and product information about medical treatments and healthcare technology written in Japanese. For instance, it contains studies on chemotherapy regimens and information about medical devices.
+*UK Legislation*The dataset published by [Chalkidis et al.](#page-6-14) [\(2021\)](#page-6-14) comprises legislative and regulatory texts sourced from <legislation.gov.uk>, the official UK government website for accessing legislation, all written in English. The UK government offers a searchable database of all UK laws and regulations, including current and historical statutes, statutory instruments, and amendments. The dataset includes detailed records about, e. g., the UK Public General Acts and UK Local Acts.
+*MMedC (Japanese)*MMedC [\(Qiu et al.,](#page-7-18) [2024\)](#page-7-18) is a large-scale multilingual medical corpus developed to enrich LLMs with domain-specific medical knowledge. The dataset is based on multiple sources, and we use a subset derived from open-source medical websites in Japanese. The subset comprises research and product information about medical treatments and healthcare technology written in Japanese. For instance, it contains studies on chemotherapy regimens and information about medical devices.
 
 |                          | UK Leg. | Jap. Med. |
 |--------------------------|---------|-----------|
@@ -885,18 +869,15 @@ We run this prompt five times per dataset, each with a random example document. 
 
 Candidate Entity Extraction. We use BERTopic [\(Grootendorst,](#page-6-15) [2022\)](#page-6-15) for the seed entity extraction. As document features, we use semantic sentence embeddings. These sentence embeddings are generated using a Sentence-BERT model [\(Reimers and Gurevych,](#page-7-19) [2019\)](#page-7-19). Specifically, we use the original Sentence-BERT model pre-trained on English web datasets for the UK Legislation data and a model pre-trained on the Japanese SNLI dataset [\(Yoshikoshi et al.,](#page-8-4) [2020\)](#page-8-4) for the MMedC (Japanese) data.
 
-Candidate Triple Extraction. The next pipeline steps are mostly language independent, as they rely on prompting LLMs, which can usually handle multiple languages. However, LLMs handle different languages differently well, depending e. g. on the training data [\(Brown et al.,](#page-6-16) [2020\)](#page-6-16). Therefore, the data and application language should be taken into account when selecting the LLM for the knowledge graph construction. For this demonstration, we use *Gemini 1.5 Pro*.
+Candidate Triple Extraction. The next pipeline steps are mostly language independent, as they rely on prompting LLMs, which can usually handle multiple languages. However, LLMs handle different languages differently well, depending e. g. on the training data [\(Brown et al.,](#page-6-16) [2020\)](#page-6-16). Therefore, the data and application language should be taken into account when selecting the LLM for the knowledge graph construction. For this demonstration, we use*Gemini 1.5 Pro*.
 
 For our two use cases, we set the number of candidate entities to 50 and limited the LLM input to 2,000 tokens and the output to 400 tokens to keep the computational costs low. As a result, we anticipate that the generated knowledge graph will be a smaller subgraph compared to what could be created without these constraints. However, the created graphs serve as a sufficient basis for this demonstration.
 
 ### D.3 Applications
 
-*KG retrieval of UK Legislation Data.* We demonstrate the capabilities of the constructed KG with the following multistep query: *"What legislation provides the definition for the 'duty of excise' related to biodiesel, and which Act cites this duty?"*
+*KG retrieval of UK Legislation Data.*We demonstrate the capabilities of the constructed KG with the following multistep query:*"What legislation provides the definition for the 'duty of excise' related to biodiesel, and which Act cites this duty?"*We extracted the sub-graph relevant to this question that serves as the basis for the answer. The sub-graph is visualized in Fig. [4.](#page-28-0)
 
-We extracted the sub-graph relevant to this question that serves as the basis for the answer. The sub-graph is visualized in Fig. [4.](#page-28-0)
-
-So, the answer would reveal that the *"Biodiesel and Bioblend Regulations 2002"* defines *"biodiesel duty"* which is related to *"duty of excise"* as defined by the *"Hydrocarbon Oil Duties Act 1979"* and the *"Oil Act"* cites this duty.
-
+So, the answer would reveal that the*"Biodiesel and Bioblend Regulations 2002"*defines*"biodiesel duty"*which is related to*"duty of excise"*as defined by the*"Hydrocarbon Oil Duties Act 1979"*and the*"Oil Act"*cites this duty.
 *KG retrieval of Japanese Healthcare Data.* We demonstrate the capabilities of the constructed KG with the following multistep query: "What treatments are used to address blood tumors and related hematologic conditions?"
 
 We extracted the sub-graph relevant to this question that serves as the basis for the answer. The sub-graph is visualized in Fig. [5.](#page-28-1)

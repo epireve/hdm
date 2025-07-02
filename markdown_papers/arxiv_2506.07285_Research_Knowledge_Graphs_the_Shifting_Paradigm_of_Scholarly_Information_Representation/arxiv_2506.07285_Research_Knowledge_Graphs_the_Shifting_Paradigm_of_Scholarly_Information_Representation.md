@@ -1,3 +1,5 @@
+<!-- cite_key: zloch2019b -->
+
 # Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation
 
 Matthäus Zloch1,<sup>2</sup> , Danilo Dessì<sup>3</sup> , Jennifer D'Souza<sup>4</sup> , Leyla Jael Castro<sup>5</sup> , Benjamin Zapilko<sup>1</sup> , Saurav Karmakar<sup>1</sup> , Brigitte Mathiak<sup>1</sup> , Markus Stocker<sup>4</sup> , Wolfgang Otto<sup>1</sup> , Sören Auer<sup>4</sup> , and Stefan Dietze1,<sup>2</sup>
@@ -24,7 +26,7 @@ Keywords: knowledge graphs · information representation · scholarly knowledge 
 
 2 M. Zloch, D. Dessì, J. D'Souza, L. Castro, B. Zapilko, S. Karmakar et al.
 
-#### 1 Introduction - Open Science Challenges
+## 1 Introduction - Open Science Challenges
 
 The scientific process constantly produces and consumes scientific resources, such as publications, datasets, research methods, software, machine learning models, and discipline-specific research instruments. That has led to an ever-growing amount of research artifacts, where finding, understanding, and reusing them is crucial to scientists' daily activities. The widespread availability of diverse datasets and significant advancements in computational capabilities have led to the adoption of data science and artificial intelligence techniques across various research fields and disciplines. Deep learning methods, in particular, have become the dominant approach in research areas such as natural language processing and image analysis. These methods typically involve a combination of code, machine learning models, and training data. The lack of transparency about dependencies and relations between such resources has led to a reproducibility crisis, where reproducing research and determining the state of the art has become increasingly challenging [12].
 
@@ -64,7 +66,7 @@ as the long-term collection of tweets [10], and the presentation of factual info
 
 By representing relationships between research artifacts and scholarly domain entities through machine-actionable data structures [25], RKGs not only enhance data reusability but also empower machine-driven applications, encouraging new paths for scientific exploration and analysis. Well-structured RKGs enable researchers to trace data lineage, efficiently identify appropriate methods, and assess result validity. For publishers, RKGs offer structured representations of research contributions, facilitating indexing and discovery. Citizen scientists and open science initiatives similarly benefit from increased transparency and structured access to scholarly knowledge. One more key aspect is their compliance with the Findable, Accessible, Interoperable, Reproducible (FAIR) principles [39] which enhances the appeal of RKGs to diverse stakeholders interested in exploring, accessing, and making use of scholarly knowledge. However, the development and usage of RKGs vary widely, originating from diverse data sources and employing different methodologies. This paper delves into this world, exploring RKGs' significance, applications, and challenges, to provide a comprehensive understanding of their pivotal role in advancing scholarly knowledge. Figure 1 sketches the outlook our paper describes; on the left side the reader can observe scholarly entities and research artifacts RKGs target, on the right side, the existing types and nature, and in the middle the processes that can be used to generate them. The next sections further delve into these aspects. More precisely, to understand the variety of uses RKGs can offer Section 2 provides prominent examples of RKGs, analyzing their diverse nature. In Section 3, the focus shifts to the methodologies to build RKGs and highlights the related challenges. RKGs' role in reshaping the scholarly information representation paradigm is a topic delved further in Section 4, which emphasizes the need for standardized approaches and outlooks future perspectives. Finally, Section 5 concludes the paper and remarks on the role of RKGs in the Scholarly Domain future.
 
-#### 2 Conceptualization of Scholarly Knowledge
+### 2 Conceptualization of Scholarly Knowledge
 
 To provide an overview of the types of RKGs within the scholarly domain, the following categorization system will help us to characterize existing RKGs based on the dimensions of data quality, but also with regard to changes to the schema, data growth, vocabulary reuse, and graph inter-connectedness. The dimensions are grounded in observations of existing RKG implementations and their role in different scholarly infrastructural projects (institutions and products are mentioned in the corresponding sections). Table 1 shows an overview of the five categories and a comparison using RKGs' features over the five dimensions.
 

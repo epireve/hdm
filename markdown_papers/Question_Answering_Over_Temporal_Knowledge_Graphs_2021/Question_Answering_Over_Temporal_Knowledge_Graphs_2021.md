@@ -1,3 +1,5 @@
+<!-- cite_key: saxena2021 -->
+
 # Question Answering Over Temporal Knowledge Graphs
 
 Apoorv Saxena Indian Institute of Science Bangalore apoorvsaxena@iisc.ac.in
@@ -6,7 +8,7 @@ Soumen Chakrabarti Indian Institute of Technology Bombay soumen@cse.iitb.ac.in
 
 Partha Talukdar Google Research India partha@google.com
 
-### Abstract
+## Abstract
 
 Temporal Knowledge Graphs (Temporal KGs) extend regular Knowledge Graphs by providing temporal scopes (e.g., start and end times) on each edge in the KG. While Question Answering over KG (KGQA) has received some attention from the research community, QA over Temporal KGs (Temporal KGQA) is a relatively unexplored area. Lack of broadcoverage datasets has been another factor limiting progress in this area. We address this challenge by presenting CRONQUESTIONS, the largest known Temporal KGQA dataset, clearly stratified into buckets of structural complexity. CRONQUESTIONS expands the only known previous dataset by a factor of 340×. We find that various state-of-the-art KGQA methods fall far short of the desired performance on this new dataset. In response, we also propose CRONKGQA, a transformerbased solution that exploits recent advances in Temporal KG embeddings, and achieves performance superior to all baselines, with an increase of 120% in accuracy over the next best performing method. Through extensive experiments, we give detailed insights into the workings of CRONKGQA, as well as situations where significant further improvements appear possible. In addition to the dataset, we have released our code as well.
 
@@ -76,7 +78,7 @@ Table 2: Example questions for different types of temporal reasoning. {head}, {t
 
 nature. They gave a definition for "temporal question" and used certain trigger words (for example 'before', 'after') along with other constraints to filter out questions from these datasets that fell under this definition. However, this dataset contains only 1271 questions — useful only for evaluation — and the KG on which it is based (a subset of FreeBase [\(Bollacker et al.,](#page-8-6) [2008\)](#page-8-6)) is not a temporal KG. Another drawback is that FreeBase has not been under active development since 2015, therefore some information stored in it is outdated and this is a potential source of inaccuracy.
 
-### 2.2 Temporal QA algorithms
+### 2 Temporal QA algorithms
 
 To the best of our knowledge, recent KGQA algorithms [\(Miller et al.](#page-9-13) [2016;](#page-9-13) [Sun et al.](#page-9-14) [2019;](#page-9-14) [Co](#page-8-7)[hen et al.](#page-8-7) [2020;](#page-8-7) [Sun et al.](#page-9-6) [2020\)](#page-9-6) work with *nontemporal KGs*, i.e., KGs containing facts of the form (subject, relation, object). Extending these to *temporal KGs* containing facts of the form (subject, relation, object, start time, end time) is a non-trivial task. TEQUILA [\(Jia et al.,](#page-9-15) [2018b\)](#page-9-15) is one method aimed specifically at temporal KGQA. TEQUILA decomposes and rewrites the question into nontemporal sub-questions and temporal constraints. Answers to sub-questions are then retrieved using any KGQA engine. Finally, TEQUILA uses constraint reasoning on temporal intervals to compute final answers to the full question. A major drawback of this approach is the use of pre-specified templates for decomposition, as well as the assumption of having temporal constraints on entities. Also, since it is made for non-temporal KGs, there is no direct way of applying it to temporal KGs where facts are temporally scoped.
 
@@ -86,22 +88,17 @@ CRONQUESTIONS, our Temporal KGQA dataset consists of two parts: a KG with tempor
 
 requiring temporal reasoning.
 
-#### 3.1 Temporal KG
+### 1 Temporal KG
 
 To prepare our temporal KG, we started by taking all facts with temporal annotations from the Wiki-Data subset proposed by [Lacroix et al.](#page-9-2) [\(2020\)](#page-9-2). We removed some instances of the predicate "*member of sports team*" in order to balance out the KG since this predicate constituted over 50 percent of the facts. Timestamps were discretized to years. This resulted in a KG with 323k facts, 125k entities and 203 relations.
 
-However, this filtering of facts misses out on important world events. For example, the KG subset created using the aforementioned technique contains the entity *World War II* but no associated fact that tells us when *World War II* started or ended. This knowledge is needed to answer questions such as "*Who was the President of the USA during World War II?*." To overcome this shortcoming, we first extracted entities from WikiData that have a "start time" and "end time" annotation. From this set, we then removed entities which were game shows, movies or television series (since these are not important world events, but do have a start and end time annotation), and then removed entities with less than 50 associated facts. This final set of entitities was then added as facts in the format (*WWII, significant event, occurred, 1939, 1945)*. The final Temporal KG consisted of 328k facts out of which 5k are event-facts.
+However, this filtering of facts misses out on important world events. For example, the KG subset created using the aforementioned technique contains the entity *World War II*but no associated fact that tells us when*World War II* started or ended. This knowledge is needed to answer questions such as "*Who was the President of the USA during World War II?*." To overcome this shortcoming, we first extracted entities from WikiData that have a "start time" and "end time" annotation. From this set, we then removed entities which were game shows, movies or television series (since these are not important world events, but do have a start and end time annotation), and then removed entities with less than 50 associated facts. This final set of entitities was then added as facts in the format (*WWII, significant event, occurred, 1939, 1945)*. The final Temporal KG consisted of 328k facts out of which 5k are event-facts.
 
 #### <span id="page-2-0"></span>3.2 Temporal Questions
 
 To generate the QA dataset, we started with a set of templates for temporal reasoning. These were made using the five most frequent relations from our WikiData subset, namely
 
-- *member of sports team*
-- *position held*
-- *award received*
-- *spouse*
-
-| Template               | When did<br>{head} play in<br>{tail}                                                                                                                  |
+- *member of sports team*-*position held*-*award received*-*spouse*| Template               | When did<br>{head} play in<br>{tail}                                                                                                                  |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Seed Qn                | When did<br>Messi play in<br>FC Barcelona                                                                                                             |
 | Human<br>Paraphrases   | When was<br>Messi playing in<br>FC Barcelona<br>Which years did<br>Messi play in<br>FC Barcelona<br>When did<br>FC Barcelona have Messi in their team |
@@ -125,7 +122,7 @@ Table 3: Slot-filled paraphrases generated by humans and machine. Please refer t
 
 Table 4: Number of questions in our dataset across different types of reasoning required and different answer types. Please refer to Section [3.2.1](#page-4-0) for details.
 
-#### • *employer*
+#### •*employer*
 
 This resulted in 30 unique seed templates over five relations and five different reasoning structures (please see Table [2](#page-2-1) for some examples). Each of these templates has a corresponding procedure that could be executed over the temporal KG to extract all possible answers for that template. However, similar to [Zhang et al.](#page-10-3) [\(2017\)](#page-10-3), we chose not to make this procedure a part of the dataset, to remove unwelcome dependence of QA systems on such formal candidate collection methods. This also allows easy augmentation of the dataset, since only question-answer pairs are needed.
 
@@ -157,7 +154,7 @@ The entities are specified as WikiData IDs (e.g., *Q219237*), and times are year
 In order to aid analysis, we categorize questions into "simple reasoning" and "complex reasoning" questions (please refer to Table [4](#page-3-0) for the distribution statistics).
 
 - Simple reasoning: These questions require a single fact to answer, where the answer can be either an entity or a time instance. For example the question *"Who was the President of the United States in 2008?"* requires a single fact to answer the question, namely (*Barack Obama*, *held position*, *President of USA*, *2008*, *2016*)
-- Complex reasoning: These questions require multiple facts to answer and can be more varied. For example *"Who was the first President of the United States?"* This requires reasoning over multiple facts pertaining to the entity *"President of the United States"*. In our dataset, all questions that are not "simple reasoning" questions are considered complex questions. These are further categorized into the types "before/after'', "first/last" and "time join" please refer Table [2](#page-2-1) for examples of these questions.
+- Complex reasoning: These questions require multiple facts to answer and can be more varied. For example *"Who was the first President of the United States?"*This requires reasoning over multiple facts pertaining to the entity*"President of the United States"*. In our dataset, all questions that are not "simple reasoning" questions are considered complex questions. These are further categorized into the types "before/after'', "first/last" and "time join" please refer Table [2](#page-2-1) for examples of these questions.
 
 ### <span id="page-4-2"></span>4 Temporal KG Embeddings
 
@@ -170,8 +167,8 @@ ComplEx [\(Trouillon et al.,](#page-10-5) [2016\)](#page-10-5) represents each e
 $$
 \phi(s,r,o) = \Re(\langle \mathbf{u}_s, \mathbf{v}_r, \mathbf{u}_o^* \rangle)
 $$
-  
-= 
+
+=
 $$
 \Re\left(\sum_{d=1}^D \mathbf{u}_s[d] \mathbf{v}_r[d] \mathbf{u}_o[d]^* \right)
 $$
@@ -193,7 +190,7 @@ $$
 
 Their TNTComplEx scoring function uses two representations of relations r: v T r , which is sensitive to time, and vr, which is not. The scoring function is the sum of a time-sensitive and a time-insensitive part: <(hus, v T r ,u ? o , wti + hus, vr,u ? o , 1i).
 
-#### 4.3 TimePlex
+#### 3 TimePlex
 
 TimePlex [\(Jain et al.,](#page-9-3) [2020\)](#page-9-3) augmented ComplEx with embeddings u<sup>t</sup> ∈ C <sup>D</sup> for discretized time instants t. To incorporate time, TimePlex uses three representations for each relation r, viz., (v SO r , v ST r , v OT r ) and writes the base score of a tuple (s, r, o, t) as
 
@@ -254,7 +251,7 @@ In this section, we aim to answer the following questions:
 - 3. How much does the training dataset size (number of questions) affect the performance of a model? (Section [6.4.](#page-7-0))
 - 4. Do temporal KG embeddings confer any advantage over non-temporal KG embeddings? (Section [6.5.](#page-7-2))
 
-#### 6.1 Other methods compared
+#### 1 Other methods compared
 
 It has been shown by [Petroni et al.](#page-9-20) [\(2019\)](#page-9-20) and [Raf](#page-9-9)[fel et al.](#page-9-9) [\(2020\)](#page-9-9) that large LMs, such as BERT and its variants, capture real world knowledge (collected from their massive, encyclopedic training corpus) and can directly be applied to tasks such as QA. In these baselines, we do not specifically feed our version of the temporal KG to the model —
 
@@ -305,7 +302,7 @@ Figure 2: Model performance (hits@10) vs. training dataset size (percentage) for
 
 #### <span id="page-7-1"></span>6.3 Performance across question types
 
-Table [6](#page-8-8) shows the performance of KG embedding based models across different types of reasoning. As stated above in Section [6.2,](#page-6-0) CRONKGQA performs very well on simple reasoning questions (simple entity, simple time). Among complex question types, all models (except EmbedKGQA) perform the best on time join questions (e.g., '*Who played with Roberto Dinamite on the Brazil national football team*'). This is because such questions typically have multiple answers (such as all the players when *Roberto Dinamite* was playing for Brazil), which makes it easier for the model to make a correct prediction. In the other two question types, the answer is always a single entity/time. Before/after questions seem most challenging for all methods, with the best method achieving only 0.288 hits@1.
+Table [6](#page-8-8) shows the performance of KG embedding based models across different types of reasoning. As stated above in Section [6.2,](#page-6-0) CRONKGQA performs very well on simple reasoning questions (simple entity, simple time). Among complex question types, all models (except EmbedKGQA) perform the best on time join questions (e.g., '*Who played with Roberto Dinamite on the Brazil national football team*'). This is because such questions typically have multiple answers (such as all the players when *Roberto Dinamite*was playing for Brazil), which makes it easier for the model to make a correct prediction. In the other two question types, the answer is always a single entity/time. Before/after questions seem most challenging for all methods, with the best method achieving only 0.288 hits@1.
 
 #### <span id="page-7-0"></span>6.4 Effect of training dataset size
 
@@ -354,7 +351,7 @@ We would like to thank the anonymous reviewers for their constructive feedback, 
 
 ### References
 
-- <span id="page-8-5"></span>Junwei Bao, Nan Duan, Zhao Yan, Ming Zhou, and Tiejun Zhao. 2016. [Constraint-based question an](https://www.aclweb.org/anthology/C16-1236)[swering with knowledge graph.](https://www.aclweb.org/anthology/C16-1236) In *Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers*, pages 2503–2514, Osaka, Japan. The COLING 2016 Organizing Committee.
+- <span id="page-8-5"></span>Junwei Bao, Nan Duan, Zhao Yan, Ming Zhou, and Tiejun Zhao. 2016. [Constraint-based question an](https://www.aclweb.org/anthology/C16-1236)[swering with knowledge graph.](https://www.aclweb.org/anthology/C16-1236) In*Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers*, pages 2503–2514, Osaka, Japan. The COLING 2016 Organizing Committee.
 - <span id="page-8-6"></span>Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. 2008. [Freebase: A collab](https://doi.org/10.1145/1376616.1376746)[oratively created graph database for structuring hu](https://doi.org/10.1145/1376616.1376746)[man knowledge.](https://doi.org/10.1145/1376616.1376746) In *Proceedings of the 2008 ACM SIGMOD International Conference on Management of Data*, SIGMOD '08, page 1247–1250, New York, NY, USA. Association for Computing Machinery.
 - <span id="page-8-1"></span>Antoine Bordes, Nicolas Usunier, Sumit Chopra, and Jason Weston. 2015. [Large-scale simple question](https://arxiv.org/abs/1506.02075) [answering with memory networks.](https://arxiv.org/abs/1506.02075) *arXiv preprint arXiv:1506.02075*.
 - <span id="page-8-2"></span>Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. 2013. [Translating embeddings for modeling multi](https://hal.archives-ouvertes.fr/hal-00920777/)[relational data.](https://hal.archives-ouvertes.fr/hal-00920777/) In *Neural Information Processing Systems (NIPS)*, pages 1–9.
@@ -407,27 +404,27 @@ The model architecture follows Transformer [\(Vaswani et al.,](#page-10-8) [2017
 $$
 X^{0} = \text{TokenEmbed}(x)
 $$
-  
+
 \n
 $$
 X^{1} = \text{Transformer}_{0}(X^{0}, \text{num\_layers} = l_{0})
 $$
-  
+
 \n
 $$
 X^{2} = \text{EntityMemory}(X^{1})
 $$
-  
+
 \n
 $$
 X^{3} = \text{LayerNorm}(X^{2} + X^{1})
 $$
-  
+
 \n
 $$
 X^{4} = \text{Transformer}_{1}(X^{3}, \text{num\_layers} = l_{1})
 $$
-  
+
 \n
 $$
 X^{5} = \text{TaskSpecificHeads}(X^{4})
@@ -443,22 +440,22 @@ CRONQUESTIONS does not provide a text corpus for training language models. There
 $$
 X^{1} = BERT(x)
 $$
-  
+
 \n
 $$
 X^{2} = \text{EntityTimeEmbedding}(X^{1})
 $$
-  
+
 \n
 $$
 X^{3} = \text{LayerNorm}(X^{2} + X^{1})
 $$
- (7)  
+ (7)
 \n
 $$
 X^{4} = \text{Transformer}_{1}(X^{3}, \text{num\_layers} = 6)
 $$
-  
+
 \n
 $$
 X^{5} = \text{PredictionHead}(X^{4})

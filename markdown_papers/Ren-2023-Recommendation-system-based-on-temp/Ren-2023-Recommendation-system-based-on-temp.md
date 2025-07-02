@@ -1,4 +1,6 @@
-![](_page_0_Picture_0.jpeg)
+<!-- cite_key: cui2023 -->
+
+
 
 # Recommendation System Based on Temporal Knowledge Graph Path Reasoning
 
@@ -20,7 +22,7 @@ Reasoning based on Knowledge graph has been studied and used for explanation rec
 
 Recommendation system, temporal knowledge graph, Graph representation learning, Markov decision process
 
-#### ACM Reference Format:
+## ACM Reference Format:
 
 Haoyuan Ren\* and Liangzhong Cui. 2023. Recommendation System Based on Temporal Knowledge Graph Path Reasoning. In 2023 International Conference on Power, Communication, Computing and Networking Technologies (PCCNT 2023), September 24, 25, 2023, Wuhan, China. ACM, New York, NY, USA, [5](#page-4-0) pages.<https://doi.org/10.1145/3630138.3630436>
 
@@ -63,13 +65,13 @@ In this paper, we first encode the entities and relationships in the temporal Kn
 
 In this article, Section 2 first defines the symbols that will appear in the article. Then Part 3 is the model building part. Finally, Part 4 is the experimental part.
 
-### 2 SYMBOL DEFINE
+## 2 SYMBOL DEFINE
 
 Let U, P, U-P represent user set, product set, and interaction set between them respectively. After considering temporal interaction, expand the interaction set to {U-P1, ..., U-PT}, and use KG item to represent the static Knowledge graph of storage item attributes. According to previous research, GT={(s, r, o) | s, o ∈ H', r ∈ R'}, where E '=H ∪ U, R'=R ∪ U-P, which serve as the environment for reasoning. Given the Knowledge graph GT, user u and timestamp t in the actual task, the recommendation model will get an item set I 'and its corresponding reasoning path {(u, r1, h1), ..., (hk-1, rk, i) | (hi-1, ri , hi) ∈ GT}. Table [1](#page-1-0) provides a detailed explanation of the characters that may appear in the article.
 
 ### 3 METHODOLOGY
 
-### 3.1 Learning Temporal semantic representation
+### 1 Learning Temporal semantic representation
 
 In the task related to knowledge graph, the first task is to learn the graph representation. In the actual processing, the entire temporal Knowledge graph is divided into a group of Knowledge graph snapshot sequences according to the time point, and a change model similar to GATNE [\[4\]](#page-4-4) is used on each snapshot graph to learn the representation of entities and relationships.
 
@@ -151,7 +153,7 @@ $$
 
  ,+1 , ,+1 represent the i-th label of two tasks, p represents the probability score of entity i or relationship i, and represents a hyperparameter used to control the importance of both entity prediction and relationship prediction losses.
 
-### 3.2 Multi-hop Path Reasoning
+### 2 Multi-hop Path Reasoning
 
 We regard the multi-hop path reasoning on KG as a MDP [\[7\]](#page-4-7) on KG: Starting from the user entity u, the agent continuously selects the edge (relation) with the highest probability corresponding to the current entity as the direction, and jumps to the edge's tail entity until got the answer or reached the maximum steps K. MDP has the following components as follow:
 
@@ -242,11 +244,11 @@ $$
 
 ### 4 EXPERIMENTS
 
-### 4.1 Datasets
+### 1 Datasets
 
 The experiment was conducted on Amazon's real e-commerce dataset [\[9\]](#page-4-9) [\[10\]](#page-4-10). 70% of the data is randomly selected as the training set, and the rest as testing set. In the training set, 10% is randomly selected as the validation set to tune the hyperparameters. The statistical data for each dataset is shown in Table [2.](#page-2-0) Whether the relationship type has time information is shown in Table [3.](#page-2-1) The relationships between entities in the dataset are shown in Figure [1.](#page-3-0)
 
-### 4.2 Evaluation Metrics
+### 2 Evaluation Metrics
 
 We use NDCG@K, Recall@K and Precision@K to evaluate recommendation performance. The process of obtaining scores for these indicators is shown below. These indicators reflect whether the results of the model are relevant products that users do like. The higher the score, the better the performance achieved by the model. In our experiment, we refer to and assume K=10.
 
@@ -283,7 +285,7 @@ Precision@K = \frac{|TP|}{|TP| + |FP|}
 $$
  (22)
 
-### 4.3 Compared Methods
+### 3 Compared Methods
 
 The performance of the proposed method is compared with the following baselines, including static knowledge graph-based recommendation methods (PGPR, ADAC) and temporal knowledge graph-based recommendation methods (TPRec):
 
@@ -293,7 +295,7 @@ ADAC [\[12\]](#page-4-12): It is an extension of PGPR by utilizing demonstration
 
 TPRec [\[1\]](#page-4-1): A time aware path recommendation inference model that optimizes recommendation results by utilizing time information.
 
-### 4.4 Experiment Result
+### 4 Experiment Result
 
 Table [4](#page-3-1) shows the performance results of the proposed method and other methods in four evaluation indicators through experiments. To make the conclusion more clearly, the "Impv." line shows the
 
