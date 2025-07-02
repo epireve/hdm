@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDM Research Papers - Academic Findings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: normal;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .filters {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        select, input {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .tag-filter {
+            width: 400px;
+        }
+        
+        .year-filter {
+            width: 200px;
+        }
+        
+        .relevancy-filter {
+            width: 200px;
+        }
+        
+        .stats {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .papers-container {
+            border: 1px solid #ddd;
+            background-color: #fafafa;
+        }
+        
+        .paper {
+            border-bottom: 1px solid #ddd;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .paper:last-child {
+            border-bottom: none;
+        }
+        
+        .paper-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .paper-authors {
+            font-style: italic;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .paper-meta {
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #777;
+        }
+        
+        .relevancy {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .relevancy.High {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .relevancy.Medium {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .relevancy.Low {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .paper-insights {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .paper-summary {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #444;
+        }
+        
+        .paper-tags {
+            margin-top: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 2px 6px;
+            margin: 2px 3px 2px 0;
+            border-radius: 3px;
+            font-size: 11px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .paper-links {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        
+        .paper-links a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .paper-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .clear-filters {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .clear-filters:hover {
+            background-color: #5a6268;
+        }
+        
+        .section-label {
+            font-weight: bold;
+            color: #555;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Human Digital Memory (HDM) Research Papers</h1>
+    <p class="subtitle">Academic Literature Review and Analysis</p>
+    
+    <div class="filters">
+        <div class="filter-group">
+            <label for="relevancy-filter">Relevancy:</label>
+            <select id="relevancy-filter" class="relevancy-filter">
+                <option value="">All Relevancy Levels</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="year-filter">Year:</label>
+            <select id="year-filter" class="year-filter">
+                <option value="">All Years</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="tag-filter">Tags:</label>
+            <input type="text" id="tag-filter" class="tag-filter" placeholder="Enter tags separated by commas (e.g., ai, knowledge_graph, privacy)">
+            <button class="clear-filters" onclick="clearFilters()">Clear Filters</button>
+        </div>
+    </div>
+    
+    <div class="stats" id="stats">
+        Loading papers...
+    </div>
+    
+    <div class="papers-container" id="papers-container">
+        <div class="no-results">Loading research papers...</div>
+    </div>
+
+    <script>
+        let allPapers = [];
+        let filteredPapers = [];
+        
+        // Load CSV data
+        async function loadPapers() {
+            try {
+                // Try multiple possible paths for GitHub Pages
+                const possiblePaths = [
+                    'research_papers_complete.csv',
+                    './research_papers_complete.csv',
+                    '/hdm/research_papers_complete.csv'
+                ];
+                
+                let csvText = null;
+                let loadError = null;
+                
+                for (const path of possiblePaths) {
+                    try {
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            csvText = await response.text();
+                            break;
+                        }
+                    } catch (err) {
+                        loadError = err;
+                        continue;
+                    }
+                }
+                
+                if (!csvText) {
+                    throw loadError || new Error('Could not load CSV file');
+                }
+                
+                allPapers = parseCSV(csvText);
+                
+                if (allPapers.length === 0) {
+                    throw new Error('No valid papers found in CSV');
+                }
+                
+                populateYearFilter();
+                filteredPapers = [...allPapers];
+                displayPapers();
+                updateStats();
+                
+            } catch (error) {
+                console.error('Error loading papers:', error);
+                document.getElementById('papers-container').innerHTML = 
+                    `<div class="no-results">
+                        <p>Error loading research papers.</p>
+                        <p><strong>For GitHub Pages:</strong> Ensure research_papers_complete.csv is in the repository root.</p>
+                        <p><strong>For local testing:</strong> Use a local server (e.g., <code>python3 -m http.server 8000</code>)</p>
+                        <p><small>Error: ${error.message}</small></p>
+                    </div>`;
+            }
+        }
+        
+        // Parse CSV data
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n');
+            const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
+            const papers = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const values = parseCSVLine(line);
+                if (values.length < headers.length) continue;
+                
+                const paper = {};
+                headers.forEach((header, index) => {
+                    paper[header] = values[index] ? values[index].replace(/"/g, '').trim() : '';
+                });
+                
+                if (paper.cite_key) {
+                    papers.push(paper);
+                }
+            }
+            
+            return papers;
+        }
+        
+        // Parse a single CSV line handling quoted values and escaped quotes
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        // Escaped quote inside quoted field
+                        current += '"';
+                        i++; // Skip next quote
+                    } else {
+                        // Toggle quote state
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            
+            result.push(current.trim());
+            return result;
+        }
+        
+        // Populate year filter
+        function populateYearFilter() {
+            const years = [...new Set(allPapers.map(paper => paper.year).filter(year => year))].sort();
+            const yearFilter = document.getElementById('year-filter');
+            
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+        }
+        
+        // Filter papers
+        function filterPapers() {
+            const relevancyFilter = document.getElementById('relevancy-filter').value;
+            const yearFilter = document.getElementById('year-filter').value;
+            const tagFilter = document.getElementById('tag-filter').value.toLowerCase().trim();
+            
+            filteredPapers = allPapers.filter(paper => {
+                // Relevancy filter
+                if (relevancyFilter && paper.Relevancy !== relevancyFilter) {
+                    return false;
+                }
+                
+                // Year filter
+                if (yearFilter && paper.year !== yearFilter) {
+                    return false;
+                }
+                
+                // Tag filter
+                if (tagFilter) {
+                    const searchTags = tagFilter.split(',').map(tag => tag.trim()).filter(tag => tag);
+                    const paperTags = paper.Tags ? paper.Tags.toLowerCase() : '';
+                    
+                    if (searchTags.length > 0) {
+                        const hasAllTags = searchTags.every(tag => paperTags.includes(tag));
+                        if (!hasAllTags) {
+                            return false;
+                        }
+                    }
+                }
+                
+                return true;
+            });
+            
+            displayPapers();
+            updateStats();
+        }
+        
+        // Display papers
+        function displayPapers() {
+            const container = document.getElementById('papers-container');
+            
+            if (filteredPapers.length === 0) {
+                container.innerHTML = '<div class="no-results">No papers match the current filters.</div>';
+                return;
+            }
+            
+            const papersHTML = filteredPapers.map(paper => {
+                const relevancyClass = paper.Relevancy || 'Unknown';
+                const tags = paper.Tags ? paper.Tags.split(',').map(tag => 
+                    `<span class="tag">${tag.trim()}</span>`).join('') : '';
+                
+                const links = [];
+                if (paper.url) {
+                    links.push(`<a href="${paper.url}" target="_blank">URL</a>`);
+                }
+                if (paper.DOI) {
+                    const doiUrl = paper.DOI.startsWith('http') ? paper.DOI : `https://doi.org/${paper.DOI}`;
+                    links.push(`<a href="${doiUrl}" target="_blank">DOI</a>`);
+                }
+                
+                return `
+                    <div class="paper">
+                        <div class="paper-title">${paper.title || 'Untitled'}</div>
+                        <div class="paper-authors">${paper.authors || 'Authors not specified'}</div>
+                        <div class="paper-meta">
+                            <span class="relevancy ${relevancyClass}">${relevancyClass}</span>
+                            ${paper.year ? `Year: ${paper.year}` : ''}
+                            ${paper.Downloaded === 'Yes' ? ' • Downloaded' : ''}
+                        </div>
+                        
+                        ${paper.Insights ? `
+                            <div class="section-label">Key Insights:</div>
+                            <div class="paper-insights">${paper.Insights}</div>
+                        ` : ''}
+                        
+                        ${paper['TL;DR'] ? `
+                            <div class="section-label">TL;DR:</div>
+                            <div class="paper-summary">${paper['TL;DR']}</div>
+                        ` : ''}
+                        
+                        ${paper.Summary ? `
+                            <div class="section-label">Summary:</div>
+                            <div class="paper-summary">${paper.Summary}</div>
+                        ` : ''}
+                        
+                        ${tags ? `<div class="paper-tags">${tags}</div>` : ''}
+                        
+                        ${links.length > 0 ? `<div class="paper-links">${links.join('')}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = papersHTML;
+        }
+        
+        // Update statistics
+        function updateStats() {
+            const total = filteredPapers.length;
+            const totalAll = allPapers.length;
+            
+            const relevancyStats = {
+                High: filteredPapers.filter(p => p.Relevancy === 'High').length,
+                Medium: filteredPapers.filter(p => p.Relevancy === 'Medium').length,
+                Low: filteredPapers.filter(p => p.Relevancy === 'Low').length
+            };
+            
+            const downloaded = filteredPapers.filter(p => p.Downloaded === 'Yes').length;
+            const withDOI = filteredPapers.filter(p => p.DOI && p.DOI.trim()).length;
+            const withTags = filteredPapers.filter(p => p.Tags && p.Tags.trim()).length;
+            
+            const yearRange = filteredPapers.length > 0 ? 
+                `${Math.min(...filteredPapers.map(p => parseInt(p.year)).filter(y => !isNaN(y)))}-${Math.max(...filteredPapers.map(p => parseInt(p.year)).filter(y => !isNaN(y)))}` : 'N/A';
+            
+            document.getElementById('stats').innerHTML = `
+                Showing ${total} of ${totalAll} papers | 
+                High: ${relevancyStats.High} | Medium: ${relevancyStats.Medium} | Low: ${relevancyStats.Low} | 
+                Downloaded: ${downloaded} | With DOI: ${withDOI} | With Tags: ${withTags} | 
+                Year Range: ${yearRange}
+            `;
+        }
+        
+        // Clear all filters
+        function clearFilters() {
+            document.getElementById('relevancy-filter').value = '';
+            document.getElementById('year-filter').value = '';
+            document.getElementById('tag-filter').value = '';
+            filterPapers();
+        }
+        
+        // Event listeners
+        document.getElementById('relevancy-filter').addEventListener('change', filterPapers);
+        document.getElementById('year-filter').addEventListener('change', filterPapers);
+        document.getElementById('tag-filter').addEventListener('input', filterPapers);
+        
+        // Load papers on page load
+        loadPapers();
+    </script>
+</body>
+</html>
