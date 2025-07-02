@@ -12,6 +12,34 @@ images_removed: 0
 tags:
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 the limitations of inheritance
+- 3 knowledge patterns
+- 4 using patterns for building a knowledge-base
+- 5 the semantics of knowledge patterns
+- 6 related work
+- 7 summary
+- ContentType
+- McDonald
+- NLP
+- SpecWare
+- a bank account isa container
+- addison-wesley
+- all or nothing
+- artificial intelligence
+- axiom-rich
+- blockable-dag
+- blockable-dags
+- can-be-modeled-as
+- computational clockwork
+- computers as containers
+- container-like
+- dead code
+- design patterns
+- diagnosis
+- ontology
+- relation
 ---
 
 # Knowledge Patterns

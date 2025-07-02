@@ -15,7 +15,20 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- gpt
+- high-performing
+- knowledge graph
+- knowledge graphs
+- knowledge-graph-of-thoughts
+- large language models
+- llm
+- llm-driven
+- low-cost
+- state-of-the-art
+- task-relevant
 ---
+
 
 # Affordable AI Assistants with Knowledge Graph of Thoughts
 

@@ -16,7 +16,18 @@ tags:
 - Machine Learning
 - Privacy
 - Semantic Web
+keywords:
+- communication-efficiency
+- deep learning
+- federated learning
+- high-performance
+- internet-of-things
+- machine learning
+- network-connected
+- privacy-preserving
+- user-generated
 ---
+
 
 # A Review of Privacy-preserving Federated Learning for the Internet-of-Things
 

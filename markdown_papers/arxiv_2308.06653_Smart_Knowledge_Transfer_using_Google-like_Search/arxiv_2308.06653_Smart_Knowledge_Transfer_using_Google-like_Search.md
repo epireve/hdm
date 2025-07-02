@@ -14,6 +14,37 @@ tags:
 - Natural Language Processing
 - Privacy
 - Semantic Web
+keywords:
+- BugZilla
+- ClearQuest
+- NLP
+- OpenAccess
+- WorldComp
+- abstract
+- ad-hoc
+- bug deployment date
+- chi-keung
+- chu-ti
+- co-evolve
+- code-bases
+- comment tokens
+- comment-mine
+- d-cube
+- dagstuhl-leibniz-zentrum
+- data-races
+- data-structures
+- dependency-based
+- dependency-based word
+- e-business
+- emails
+- entity
+- feature computation
+- fixed by
+- for queries on
+- for the concept
+- free-form
+- neha
+- ontology
 ---
 
 # Smart Knowledge Transfer using Google-like Search

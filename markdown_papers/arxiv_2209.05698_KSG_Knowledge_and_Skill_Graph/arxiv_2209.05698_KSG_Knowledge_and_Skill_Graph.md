@@ -1,7 +1,7 @@
 ---
 cite_key: wang_2022
 title: 'KSG: Knowledge and Skill Graph'
-authors: Donglin Wang, Feng Zhao, Knowledge Graph
+authors: Donglin Wang, Feng Zhao, Ziqi Zhang
 year: 2022
 doi: 10.1145/3511808.3557623
 date_processed: '2025-07-02'
@@ -16,7 +16,18 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- cn-dbpedia
+- drl
+- knowledge graph
+- knowledge graphs
+- neural networks
+- pre-train
+- pre-trained
+- question-answering
+- reinforcement learning
 ---
+
 
 # KSG: Knowledge and Skill Graph
 

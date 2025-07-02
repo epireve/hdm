@@ -20,6 +20,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 literature review
+- 4 experiment and results
+- 5 discussion
+- 6 conclusion and future work
+- BERT
+- BabelNet
+- CNN
+- LSTM
+- NLP
+- TechNet
+- WordNet
+- a learning
+- agent-interaction-adaptation
+- analogy-based
+- analogy-based design
+- artificial intelligence
+- at stage
+- back-propagation
+- bert
+- bidirectional encoder representations from transformers
+- big problems and
+- bioinformatics
+- brand-new
+- business research
+- california management review
+- classification
+- cloud-based
+- cloud-based innogps
+- computational visual media
 ---
 
 

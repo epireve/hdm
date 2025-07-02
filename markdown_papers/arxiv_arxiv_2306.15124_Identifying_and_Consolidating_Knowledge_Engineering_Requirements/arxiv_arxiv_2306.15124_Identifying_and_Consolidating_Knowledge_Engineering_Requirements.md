@@ -15,6 +15,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 1 requirements from the dawn of ai
+- 2 requirements from the expert systems era
+- 3 requirements from the semantic web era
+- 4 requirements from the language model era
+- 7 acknowledgments
+- AlKhamissi
+- BioCypher
+- BioLink
+- BioRegistry
+- ConceptNet
+- HuggingFace
+- McMillan
+- OmniPath
+- PageRank
+- SpaCy
+- a appendices
+- a2 biocypher
+- a3 kgtk
+- acm reference format
+- addison-wesley
+- application-oriented
+- application-specific
+- artificial intelligence
+- aspect-oriented
+- berners-lee
+- bio-cypher
+- black-box
+- by learning
+- ccs concepts
 ---
 
 # Identifying and Consolidating Knowledge Engineering Requirements

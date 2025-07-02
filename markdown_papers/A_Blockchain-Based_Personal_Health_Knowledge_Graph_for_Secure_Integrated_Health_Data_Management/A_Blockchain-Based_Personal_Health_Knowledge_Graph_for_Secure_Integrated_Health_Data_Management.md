@@ -23,6 +23,37 @@ original_folder: A_Blockchain-Based_Personal_Health_Knowledge_Graph_for_Secure_I
 images_total: 10
 images_kept: 10
 images_removed: 0
+keywords:
+- AlcoholConsumption
+- AllergyIntolerance
+- BioPortal
+- CareProvision
+- ClinicalFinding
+- ClinicalHistoryOrExaminationObservable
+- ComplexType
+- CuestionAnswer
+- DefinitionalArtifacts
+- DeviceAssertable
+- acta informatica medica
+- artif intell med
+- big-data
+- biomed res int
+- birth date
+- blockchain-based
+- blockchain-based approach
+- blockchain-based personal
+- blockchain-based phkg
+- blockchain-based system
+- blockchain-enabled
+- clinical decision support
+- cost-effective
+- data consumer
+- data privacy
+- denial-of-service
+- dht-based
+- dht-based indexing
+- disease-gene
+- domain-specific
 ---
 
 # A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management

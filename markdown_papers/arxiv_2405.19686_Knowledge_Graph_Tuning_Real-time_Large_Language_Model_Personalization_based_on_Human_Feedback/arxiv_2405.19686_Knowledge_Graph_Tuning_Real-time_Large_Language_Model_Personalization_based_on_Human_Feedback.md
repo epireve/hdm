@@ -22,7 +22,22 @@ original_folder: arxiv_2405.19686_Knowledge_Graph_Tuning_Real-time_Large_Languag
 images_total: 4
 images_kept: 4
 images_removed: 0
+keywords:
+- back-propagation
+- gpt
+- human-llm
+- knowledge graph
+- knowledge graphs
+- large language model
+- large language models
+- llm
+- long-term
+- natural language processing
+- real-time
+- state-of-the-art
+- user-specific
 ---
+
 
 # Knowledge Graph Tuning: Real-time Large Language Model Personalization based on Human Feedback
 

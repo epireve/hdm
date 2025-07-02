@@ -14,6 +14,37 @@ tags:
 - Data Integration
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 literature review
+- 3 research method
+- 4 case study
+- 5 conclusion
+- AttributeValue
+- ExpressionAttributeValues
+- IndexName
+- KeyConditionExpression
+- ObjectMeasured
+- QueryRequest
+- SDK
+- TableName
+- abstract
+- ad-hoc
+- air-conditioning
+- alan reece building
+- artificial intelligence
+- as-built
+- auto-scale
+- better-informed
+- consensus
+- construction-related
+- data marketplace
+- data-intensive
+- decision-making
+- domain-specific
+- eco-ontology
+- energy-efficient
+- et al
 ---
 
 

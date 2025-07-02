@@ -18,6 +18,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- AstraZeneca
+- BioMap
+- ClinVar
+- CoVar
+- DisGeNet
+- DrugBank
+- DrugCentral
+- EHR
+- GraphText
+- McKechnie
+- a priori
+- aims of the review
+- all-purpose
+- and learning
+- article filtering
+- artificial intelligence
+- bio-entities
+- by-nc-nd
+- cc-by-nc-nd
+- class-node
+- clinical data
+- consensus-driven
+- cross-disciplinary
+- cross-validation
+- cut-off
+- data collection
+- data privacy
+- data sources
+- de-identification
+- deep learning
 ---
 
 It is made available under a [CC-BY-NC-ND 4.0 International license](http://creativecommons.org/licenses/by-nc-nd/4.0/) .

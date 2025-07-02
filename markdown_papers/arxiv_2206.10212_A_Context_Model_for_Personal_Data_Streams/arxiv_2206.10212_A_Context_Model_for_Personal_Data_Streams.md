@@ -17,6 +17,37 @@ tags:
 - Mental Health
 - Natural Language Processing
 - Semantic Web
+keywords:
+- 1 introduction
+- ColorEnum
+- DiscovEring
+- EndTime
+- GenderEnum
+- InMood
+- InPain
+- InStress
+- StudentLife
+- 'a context model for personal data streams '
+- accuracy
+- and learning
+- artificial intelligence
+- ben-zeev
+- colorenum
+- dagstuhl-leibniz-zentrum
+- entity-relationship
+- fifty-eight
+- for learning
+- gatica-perez
+- half-hour
+- human-in-the-loop
+- human-machine
+- knowledge graph
+- meta-analysis
+- multi-device
+- off-line
+- on learning
+- part of
+- person-centric
 ---
 
 # A Context Model for Personal Data Streams ?

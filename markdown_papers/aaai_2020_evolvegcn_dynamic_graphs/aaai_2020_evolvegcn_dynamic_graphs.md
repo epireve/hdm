@@ -22,7 +22,20 @@ original_folder: aaai_2020_evolvegcn_dynamic_graphs
 images_total: 5
 images_kept: 5
 images_removed: 0
+keywords:
+- convolutional network
+- convolutional networks
+- deep learning
+- gcn
+- gnn
+- link prediction
+- neural network
+- neural networks
+- node classification
+- non-euclidean
+- rnn
 ---
+
 
 # EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs
 

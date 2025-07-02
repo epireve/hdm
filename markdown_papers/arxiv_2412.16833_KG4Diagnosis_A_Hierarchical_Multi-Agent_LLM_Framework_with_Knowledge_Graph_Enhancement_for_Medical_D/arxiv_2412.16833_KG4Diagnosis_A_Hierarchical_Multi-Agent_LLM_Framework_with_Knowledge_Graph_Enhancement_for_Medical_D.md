@@ -18,6 +18,37 @@ tags:
 - Machine Learning
 - Personal Health
 - Semantic Web
+keywords:
+- BERT
+- GPT
+- GitHub
+- McDermott
+- MedHallBench
+- MediTron
+- NLP
+- PyTorch
+- ai open
+- artificial intelligence
+- artificial intelligence review
+- bidirectional encoder representations from transformers
+- briefings in bioinformatics
+- context learning
+- diagnosis
+- diagnosis example
+- discussion
+- future training and evaluation work
+- generative pre-trained transformer
+- in-context
+- incremental learning
+- journal of big data
+- knowledge graph
+- knowledge graph construction pipeline
+- knowledge-based systems
+- limitations and challenges
+- multi-agent
+- natural language processing
+- nature medicine
+- neural network
 ---
 
 # KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enhancement for Medical Diagnosis

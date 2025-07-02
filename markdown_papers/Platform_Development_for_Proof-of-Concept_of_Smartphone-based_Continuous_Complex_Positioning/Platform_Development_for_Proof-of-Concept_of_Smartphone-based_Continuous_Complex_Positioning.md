@@ -14,6 +14,37 @@ images_removed: 0
 tags:
 - IoT
 - Machine Learning
+keywords:
+- API
+- BlueDetect
+- JaeJun
+- abstract
+- accuracy
+- acknowledgment
+- application programming interface
+- asynchronous
+- cutting-edge
+- dead-reckoning
+- energy-efficient
+- ibeacon-enabled
+- ii related work
+- indoor-outdoor
+- iv poc platform implementation
+- line-of-sight
+- location-based
+- location-based service
+- location-based services
+- long-term
+- mems-imu
+- micro-electro-mechanical
+- on-device
+- optimization
+- performance
+- pre-built
+- proof-of-concept
+- radio-frequency
+- real-time
+- scalability
 ---
 
 # Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning

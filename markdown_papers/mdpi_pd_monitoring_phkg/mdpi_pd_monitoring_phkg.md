@@ -20,6 +20,37 @@ tags:
 - Personal Health
 - Personalized Medicine
 - Semantic Web
+keywords:
+- ' graph attention networks gats'
+- ' graph convolutional networks gcns'
+- ' graph recurrent networks grns'
+- 1 introduction
+- 11 wear4pdmove in protégé oe environment
+- 12 wear4pdmove and rdflibpython implementation
+- 21 gnns gat approach
+- 22 gnns gcn approach
+- API
+- ActuatingFunction
+- AlertingNotification
+- BioPortal
+- BradykinesiaofUpperLimb
+- CrossRef
+- DailyDosagePlan
+- DailyLiving
+- DataFrame
+- DateTime
+- above-mentioned
+- abu-hussain
+- ac-the
+- activitiesof-dailyliving
+- ai matters
+- ai-why
+- alert-level
+- and learning
+- application programming interface
+- artificial intelligence
+- based learning
+- between learning
 ---
 
 

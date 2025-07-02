@@ -23,6 +23,37 @@ original_folder: arxiv_2304.09572_An_Ecosystem_for_Personal_Knowledge_Graphs_A_S
 images_total: 1
 images_kept: 1
 images_removed: 0
+keywords:
+- API
+- BioPortal
+- FrameNet
+- HTTP
+- McGuinness
+- NLP
+- OntoNotes
+- PubSub
+- WebAccess
+- WebAccessOntology
+- annotation-model
+- application programming interface
+- artificial intelligence
+- as we may think
+- attribute-value
+- back-end
+- bar-ilan
+- berners-lee
+- beyth-marom
+- blank node
+- ceur-ws
+- chit-chats
+- class-attribute
+- class-attribute acquisition
+- class-instance
+- class-instance acquisition
+- cloud-based
+- cloud-based back
+- cloud-based services
+- co-located
 ---
 
 # An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap

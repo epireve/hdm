@@ -14,6 +14,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- AUC
+- BERT
+- BioMed
+- BlueSky
+- DrugBank
+- DrugBook
+- EMR
+- GoodRx
+- HumanNet
+- KnowledgeVault
+- a learning
+- abu-salih
+- adverse drug reaction
+- ahead-of-print
+- ai-based
+- al-balqa
+- al-moslmi
+- al-okaily
+- allen-institute-for-ai
+- an overview of kg
+- and learning
+- area under curve
+- artificial intelligence
+- att-bilstm-crf
+- att-gcn-ddi
+- attention-based
+- attention-based knowledge
+- authors contributions
+- bi-lstm
+- bi-ltsm
 ---
 
 <!-- cite_key: abu-salih2023b -->

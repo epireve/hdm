@@ -1,7 +1,7 @@
 ---
-cite_key: words_2020
-title: 'CCS Concepts: • Information systems → Recommender systems.'
-authors: Additional Key Words
+cite_key: fang_2020
+title: Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations
+authors: Hui Fang, Danning Zhang, Yiheng Shu, Guibing Guo
 year: 2020
 doi: 10.1145/3426723
 date_processed: '2025-07-02'
@@ -15,7 +15,15 @@ tags:
 - Personal Health
 - Recommendation System
 - Semantic Web
+keywords:
+- chain-based
+- deep learning
+- dl-based
+- factorization-based
+- recommender systems
+- session-based
 ---
+
 
 HUI FANG, RIIS & SIME, Shanghai University of Finance and Economics, China DANNING ZHANG<sup>∗</sup> , SIME, Shanghai University of Finance and Economics, China YIHENG SHU, Software College, Northeastern University, China GUIBING GUO, Software College, Northeastern University, China
 

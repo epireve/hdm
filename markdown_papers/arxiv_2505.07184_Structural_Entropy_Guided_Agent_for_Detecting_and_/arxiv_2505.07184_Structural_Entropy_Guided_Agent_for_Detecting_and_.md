@@ -15,7 +15,16 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- domain-specific
+- entropy-guided
+- fine-tuning
+- knowledge graph
+- knowledge-intensive
+- large language models
+- self-improvement
 ---
+
 
 # Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficiencies in LLMs
 

@@ -16,7 +16,17 @@ tags:
 - IoT
 - Machine Learning
 - Privacy
+keywords:
+- federated learning
+- homomorphic encryption
+- internet of things
+- machine learning
+- mk-ckks
+- multi-key
+- privacy-preserving
+- xmk-ckks
 ---
+
 
 # PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION
 

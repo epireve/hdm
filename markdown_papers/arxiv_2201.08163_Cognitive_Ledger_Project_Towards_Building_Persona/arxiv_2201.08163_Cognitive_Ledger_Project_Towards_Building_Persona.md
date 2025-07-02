@@ -19,6 +19,37 @@ tags:
 - Personal Health
 - Privacy
 - Semantic Web
+keywords:
+- CognitiveLedger
+- EngraveChain
+- MacBook
+- MetaMask
+- abstract
+- ai magazine
+- arm-based
+- arm-based macbook
+- artificial intelligence
+- back-end
+- blockchain
+- blockchain-based
+- blockchain-based cross
+- blockchain-based database
+- blockchain-based decentralized
+- blockchain-based infrastructure
+- blockchain-based tamper
+- blockchain-friendly
+- bmc medical genomics
+- consensus
+- crm-insights
+- cross-site
+- crypto-currency
+- cyber-physical
+- data privacy
+- decision-making
+- destiantion crm
+- genomics
+- hackernoon
+- medicalchain
 ---
 
 # Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain

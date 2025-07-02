@@ -16,6 +16,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Temporal
+keywords:
+- 1 introduction
+- 2 materials and methods
+- 22 the boxes room task 41page-15-10
+- 3 results
+- 4 discussion
+- 5 conclusions
+- AlWhaibi
+- CrossRef
+- DeLuca
+- GeroScience
+- McAuley
+- McCormick
+- McGurk
+- PubMed
+- accuracy
+- alcaraz-iborra
+- andalucia-feder
+- annurev-psych
+- appendix a
+- arias-carrion
+- article
+- artificial intelligence
+- award-winning
+- boxes room
+- buela-casal
+- castillo-escamilla
+- chance-level
+- closed-skill
+- computer-the
+- cross-cognitive
 ---
 
 <!-- cite_key: castillo-escamilla2025 -->

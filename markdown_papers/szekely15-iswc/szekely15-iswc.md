@@ -20,7 +20,11 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- knowledge graph
+- shih-fu
 ---
+
 
 # Building and Using a Knowledge Graph to Combat Human Trafficking
 

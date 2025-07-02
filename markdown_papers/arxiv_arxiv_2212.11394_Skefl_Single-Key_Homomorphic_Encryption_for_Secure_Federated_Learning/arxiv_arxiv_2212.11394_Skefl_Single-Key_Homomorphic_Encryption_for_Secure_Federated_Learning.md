@@ -1,14 +1,69 @@
 ---
-cite_key: "arxiv_arxiv_221211394_skefl_si"
-title: "Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning"
-authors: "OpenFHE \[Badawi, 2022]."
-year: 2009
-date_processed: "2025-07-02"
+cite_key: zhao_2022
+title: 'Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning'
+authors: Dongfang Zhao
+year: 2022
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2212.11394_Skefl_Single-Key_Homomorphic_Encryption_for_Secure_Federated_Learning"
+original_folder: arxiv_arxiv_2212.11394_Skefl_Single-Key_Homomorphic_Encryption_for_Secure_Federated_Learning
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Federated Learning
+- Privacy
+- Machine Learning
+- Blockchain
+keywords:
+- 1 implementation
+- 1 introduction
+- 1 proposed approach
+- 1 secure aggregation and poisoning attacks
+- 2 contributions
+- 2 experimental setup
+- 2 homomorphic encryption and secret sharing
+- 2 preliminaries and related work
+- 3 experimental results
+- 3 methodology
+- 3 security analysis
+- 4 evaluation
+- 5 conclusion
+- ATSS
+- AsiaCrypt
+- BatchCrypt
+- CKKS
+- CNN
+- CloudLab
+- DeepSecure
+- DiValentin
+- FedAvg
+- IND-CPA
+- MPC
+- McMahan
+- PyTorch
+- additive homomorphic
+- after learning
+- alche-buc
+- algorithm 1 skefl distribute skefl dist
+- application-specific
+- artificial intelligence
+- asymmetric threshold secret sharing
+- atss performance
+- ciphertext
+- collusion attack
+- cryptographic security
+- distributed learning
+- federated learning
+- homomorphic encryption
+- local model privacy
+- model aggregation
+- multi-key HE
+- parameter server
+- privacy preservation
+- secret sharing
+- secure aggregation
+- semi-honest adversary
+- single-key HE
 ---
 
 # Skefl: Single-Key Homomorphic Encryption for Secure Federated Learning
@@ -397,3 +452,4 @@ Conventional single-key HE schemes used in federated learning assume non-collusi
 - <span id="page-8-5"></span>[Yin *et al.*, 2018] Dong Yin, Yudong Chen, Ramchandran Kannan, and Peter Bartlett. Byzantine-robust distributed learning: Towards optimal statistical rates. In Jennifer Dy and Andreas Krause, editors, *Proceedings of the 35th International Conference on Machine Learning (ICML)*, volume 80 of *Proceedings of Machine Learning Research*, pages 5650–5659. PMLR, 10–15 Jul 2018.
 - <span id="page-8-6"></span>[Zhang *et al.*, 2020] Chengliang Zhang, Suyi Li, Junzhe Xia, Wei Wang, Feng Yan, and Yang Liu. BatchCrypt: Efficient homomorphic encryption for Cross-Silo federated learning. In *2020 USENIX Annual Technical Conference (USENIX ATC 20)*. USENIX Association, July 2020.
 - <span id="page-8-1"></span>[Zhu *et al.*, 2019] Ligeng Zhu, Zhijian Liu, and Song Han. Deep leakage from gradients. In H. Wallach, H. Larochelle, A. Beygelzimer, F. d'Alche-Buc, E. Fox, ´ and R. Garnett, editors, *Advances in Neural Information Processing Systems*, volume 32. Curran Associates, Inc., 2019.
+

@@ -20,6 +20,37 @@ tags:
 - Personal Health
 - Personalized Medicine
 - Semantic Web
+keywords:
+- BERT
+- BioDesign
+- NLP
+- abstract
+- accuracy
+- agent-based
+- agent-based modeling
+- artificial intelligence
+- auto-encoders
+- bert
+- bidirectional encoder representations from transformers
+- big four consultants
+- books about africa
+- books by italian authors
+- books for kids
+- categories
+- child-of
+- classes
+- classification
+- closed-form
+- cloud-based
+- cloud-based storage
+- consumer-facing
+- continuous-depth
+- continuous-time
+- data-driven
+- decision-making
+- deep learning
+- diagnosis
+- domain-specific
 ---
 
 # *Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*Logan Nye, MD1,2 <sup>1</sup>SORG Orthopaedic Research Group <sup>2</sup>Department of Orthopaedic Surgery Massachusetts General Hospital

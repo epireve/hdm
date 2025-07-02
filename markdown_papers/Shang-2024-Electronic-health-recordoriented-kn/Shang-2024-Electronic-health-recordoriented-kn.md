@@ -23,6 +23,37 @@ tags:
 - Personal Health
 - Privacy
 - Semantic Web
+keywords:
+- 2 knowledge graphbased ehr query
+- EHR
+- EMR
+- McClellan
+- McDonald
+- NLP
+- PrognOsis
+- PubMed
+- TheBookOfOhdsi
+- a-level
+- abbreviations
+- abd-elsalam
+- abnormal blood potassium
+- abstract
+- advantages of multicenter reasoning
+- albumin-to-creatinine
+- application study design
+- araya-guerra
+- artificial intelligence
+- authors contributions
+- blockchain-based
+- blockchain-based medical
+- blockchain-based system
+- cardio-renal
+- cds-related
+- chronic kidney disease
+- ciphertext-policy
+- ckd-epi
+- ckd-mbd
+- ckd-related
 ---
 
 Original Paper

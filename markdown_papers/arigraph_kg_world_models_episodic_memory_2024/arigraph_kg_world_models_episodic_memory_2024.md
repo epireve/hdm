@@ -23,7 +23,17 @@ original_folder: arigraph_kg_world_models_episodic_memory_2024
 images_total: 16
 images_kept: 16
 images_removed: 0
+keywords:
+- decision-making
+- graph-based
+- knowledge graph
+- large language models
+- llm
+- llm-based
+- multi-hop
+- question-answering
 ---
+
 
 # AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents
 

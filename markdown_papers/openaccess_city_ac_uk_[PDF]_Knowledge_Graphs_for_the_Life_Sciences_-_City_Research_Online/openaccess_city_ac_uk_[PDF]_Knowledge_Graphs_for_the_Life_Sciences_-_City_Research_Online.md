@@ -14,7 +14,15 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- data-driven
+- graph-based
+- knowledge graph
+- knowledge graph construction
+- knowledge graphs
+- leibniz-zentrum
 ---
+
 
 
 

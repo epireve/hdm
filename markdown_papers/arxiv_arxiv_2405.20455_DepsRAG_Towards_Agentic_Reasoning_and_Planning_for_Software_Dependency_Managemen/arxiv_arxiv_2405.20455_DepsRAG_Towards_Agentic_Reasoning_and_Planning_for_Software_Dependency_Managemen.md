@@ -14,7 +14,22 @@ tags:
 - Machine Learning
 - Privacy
 - Semantic Web
+keywords:
+- critic-agent
+- gpt
+- knowledge graph
+- large language models
+- llm
+- llm-based
+- llm-generated
+- multi-agent
+- multi-agent framework
+- multi-step
+- open-source
+- rag
+- retrieval-augmented
 ---
+
 
 <!-- cite_key: wisconsin-madison2023 -->
 

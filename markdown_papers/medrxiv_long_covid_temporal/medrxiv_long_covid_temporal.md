@@ -23,6 +23,37 @@ tags:
 - Personal Health
 - Semantic Web
 - Temporal
+keywords:
+- BioTech
+- CommonDataModel
+- EHR
+- HealthSystem
+- HonorHealth
+- McGrath
+- McMurry
+- MedStar
+- MetroHealth
+- NorthShore
+- acquired hypothyroidism
+- acute renal failure syndrome
+- advance-ctr
+- anagen effluvium
+- anxiety disorder
+- artificial intelligence
+- author contributions
+- autoimmune thyroiditis
+- beta-binomial
+- blood coagulation disorder
+- bmi and quan comorbidity scores
+- bonferroni-adjusted
+- brain fog
+- c-reactive
+- c-reactive protein abnormal
+- cardiac arrhythmia
+- cdc-recommended
+- chronic cough
+- chronic fatigue syndrome
+- clinical finding
 ---
 
 # Finding Long-COVID: Temporal Topic Modeling of Electronic Health Records from the N3C and RECOVER Programs

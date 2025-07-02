@@ -1,9 +1,9 @@
 ---
-cite_key: lin_2003
+cite_key: lin_2024
 title: 'Human Digital Twin: A Survey'
 authors: Yujia Lin, Liming Chen, Aftab Ali, Christopher Nugent, Cleland Ian, Rongyang
   Li, Dazhi Gao, Hang Wang, Yajie Wang, Huansheng Ning
-year: 2003
+year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2212.05937_Human_Digital_Twin_A_Survey
@@ -15,7 +15,13 @@ tags:
 - IoT
 - Machine Learning
 - Mental Health
+keywords:
+- digital twin
+- digital twins
+- hdt
+- physical-world
 ---
+
 
 # Human Digital Twin: A Survey
 

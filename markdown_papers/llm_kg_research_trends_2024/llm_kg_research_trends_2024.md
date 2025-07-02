@@ -17,7 +17,14 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- knowledge graphs
+- large language models
+- llm
+- llm-kg
+- question answering
 ---
+
 
 # Research Trends for the Interplay between Large Language Models and Knowledge Graphs
 

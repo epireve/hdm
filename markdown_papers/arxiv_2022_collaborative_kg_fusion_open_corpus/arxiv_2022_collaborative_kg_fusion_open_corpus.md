@@ -22,7 +22,13 @@ original_folder: arxiv_2022_collaborative_kg_fusion_open_corpus
 images_total: 14
 images_kept: 13
 images_removed: 1
+keywords:
+- ground-truth
+- knowledge graph
+- knowledge graphs
+- sub-tasks
 ---
+
 
 # Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus
 

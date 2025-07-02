@@ -13,6 +13,37 @@ images_removed: 0
 tags:
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 evaluation strategy
+- 1 pre-training of llms of code
+- 2 benchmarks and evaluation
+- 2 enriching llms with se knowledge
+- 2 the status quo
+- 4 conclusions
+- BigCode
+- BigCodeBench
+- CodeLlama
+- CodeUltraFeedback
+- DeepSeek
+- FineWeb
+- GitHub
+- GraphCodebert
+- HumanEval
+- JavaBench
+- artificial intelligence
+- ast-probe
+- boqi chenhttpsorcidorg0000-0002-1451-3603
+- by learning
+- ccs concepts
+- chin-yew
+- code-related
+- code-to-text
+- crowd-sourced
+- data generation
+- deepseek-ai
+- deepseek-coder
+- dual-generation
+- dániel varróhttpsorcidorg0000-0002-8790-252x
 ---
 
 <!-- cite_key: saadhttpsorcidorg---2017 -->

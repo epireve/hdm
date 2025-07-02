@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- API
+- GPT
+- McNeese
+- SpeechRecognition
+- a visual interface
+- abdul mannan mohammed
+- about the authors
+- accuracy
+- adaptive learning
+- after-action-review
+- ai response
+- ai-driven
+- ai-powered
+- an architecture for human digital twin
+- and learning
+- application programming interface
+- artificial intelligence
+- as learning
+- azhar ali mohammad
+- b ai module
+- carolina cruz-neira
+- carsten neumann
+- chat gpt-4o
+- classification
+- clinical decision support
+- computer science review
+- discussion
+- efficiency
+- failure
+- gpt
 ---
 
 # A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations

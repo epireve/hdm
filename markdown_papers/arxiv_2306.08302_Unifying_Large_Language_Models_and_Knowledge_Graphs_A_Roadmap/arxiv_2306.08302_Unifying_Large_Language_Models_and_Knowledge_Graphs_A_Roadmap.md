@@ -21,7 +21,20 @@ original_folder: arxiv_2306.08302_Unifying_Large_Language_Models_and_Knowledge_G
 images_total: 27
 images_kept: 27
 images_removed: 0
+keywords:
+- black-box
+- forward-looking
+- graph-to-text
+- kg-enhanced
+- knowledge graphs
+- large language models
+- llm
+- llm-augmented
+- natural language processing
+- pre-training
+- question answering
 ---
+
 
 # Unifying Large Language Models and Knowledge Graphs: A Roadmap
 

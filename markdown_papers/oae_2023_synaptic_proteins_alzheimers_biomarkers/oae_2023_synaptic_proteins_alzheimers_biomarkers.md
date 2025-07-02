@@ -16,6 +16,37 @@ tags:
 - Biomedical
 - Healthcare
 - Machine Learning
+keywords:
+- AUC
+- BioLegend
+- BioRxiv
+- BrainXell
+- DeTure
+- FitzGerald
+- MagPlex
+- NanoSight
+- NeuroDex
+- PrecisionMed
+- ad-associated
+- ad-related
+- ad-specific
+- age-matched
+- aging-alzheimer
+- alzheimers dement
+- alzheimers res ther
+- amyloid-beta
+- ann neurol
+- area under curve
+- authors contributions
+- availability of data and materials
+- beads-ndevs
+- bioivt-pmed
+- biotechnol lett
+- blood-based
+- blood-based biomarkers
+- blood-brain
+- brain res bull
+- brain-derived
 ---
 
 Eitan *et al. Extracell Vesicles Circ Nucleic Acids*2023;4:133-150**DOI:**10.20517/evcna.2023.13**Extracellular Vesicles and**# Circulating Nucleic Acids

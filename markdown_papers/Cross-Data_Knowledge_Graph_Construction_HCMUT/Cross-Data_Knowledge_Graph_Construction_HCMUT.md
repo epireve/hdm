@@ -22,7 +22,22 @@ original_folder: Cross-Data_Knowledge_Graph_Construction_HCMUT
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- api
+- app-based
+- cross-data
+- knowledge graph
+- knowledge graph construction
+- knowledge graphs
+- large language models
+- llm-enabled
+- pre-trained
+- question-answering
+- rag
+- retrieval-augmented
+- x-xxxx-xxxx-x
 ---
+
 
 # Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT
 

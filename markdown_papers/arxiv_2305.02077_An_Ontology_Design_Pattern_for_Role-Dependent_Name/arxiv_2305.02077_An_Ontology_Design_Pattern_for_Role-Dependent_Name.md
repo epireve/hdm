@@ -13,6 +13,33 @@ images_removed: 0
 tags:
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- AgentRole
+- AgentRoles
+- KnowWhereGraph
+- NameStub
+- artificial intelligence
+- ceur-ws
+- clive hamilton
+- co-located
+- cross-domain
+- ensemble
+- entity
+- entity-relationship
+- node-edgenode
+- ontology
+- poveda-villal
+- rdf
+- role-dependent
+- semantic web
+- span idpage-2-1span3 pattern axiomatization
+- span idpage-4-0span4 conclusion
+- spatially-explicit
+- spatio-temporal
+- spray-on
+- template-based
+- template-based content
 ---
 
 # An Ontology Design Pattern for Role-Dependent Names

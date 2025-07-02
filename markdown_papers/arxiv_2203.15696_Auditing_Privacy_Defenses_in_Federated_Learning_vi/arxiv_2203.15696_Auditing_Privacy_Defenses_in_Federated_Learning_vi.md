@@ -1,8 +1,8 @@
 ---
-cite_key: li_2012
+cite_key: li_2022
 title: Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
 authors: Zhuohang Li, Jiaxin Zhang, Luyang Liu, Jian Liu
-year: 2012
+year: 2022
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2203.15696_Auditing_Privacy_Defenses_in_Federated_Learning_vi
@@ -14,7 +14,28 @@ tags:
 - Healthcare
 - Machine Learning
 - Privacy
+keywords:
+- data privacy
+- differential privacy
+- distributed learning
+- federated learning
+- gan
+- generative models
+- gradient-based
+- gradient-degradationbased
+- gradient-free
+- high-fidelity
+- high-quality
+- ill-posed
+- l-bfgs
+- low-fidelity
+- machine learning
+- non-convex
+- non-linear
+- state-of-the-art
+- sub-optimal
 ---
+
 
 # Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
 

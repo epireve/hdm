@@ -22,7 +22,16 @@ original_folder: kg_human_memory_systems_pomdp_2024
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- agent-room-env
+- graph-based
+- human-like
+- knowledge graph
+- long-term
+- machine-readable
+- open-sourced
 ---
+
 
 # Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes
 

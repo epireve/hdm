@@ -20,6 +20,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Semantic Web
+keywords:
+- 1 introduction
+- 2 methods and materials
+- 23 obtaining triples from machine reading
+- 3 results
+- 5 conclusion
+- BaRspm
+- BhWdIk
+- BioBank
+- BioSocieties
+- ChimeraSourceSentences
+- ConfounderSourceSentences
+- DetailsSearch
+- EHR
+- EpiphaNet
+- FfpmEb
+- across sites and studies
+- ad-diagnosed
+- ad-related
+- ad-specific
+- adverse childhood event
+- age-of-onset
+- all of us
+- alpha-blockers
+- alzgene-like
+- amyloid-associated
+- angiotensin-converting
+- anti-depressant
+- article-lookup
+- artificial intelligence
+- as is
 ---
 
 *Malec et al. (2022) Causal feature selection using a knowledge graph*# Causal feature selection using a knowledge graph combining structured knowledge from the biomedical literature and ontologies: a use case studying depression as a risk factor for Alzheimer's disease

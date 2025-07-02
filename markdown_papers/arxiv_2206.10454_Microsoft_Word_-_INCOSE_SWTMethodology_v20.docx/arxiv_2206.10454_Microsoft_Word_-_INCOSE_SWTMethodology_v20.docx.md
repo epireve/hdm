@@ -15,6 +15,27 @@ tags:
 - Data Integration
 - Machine Learning
 - Semantic Web
+keywords:
+- a novel model
+- agnostic authoritative source
+- agnostic model representation
+- analysis tasks that
+- and analysis tasks
+- and interoperability across
+- and interoperability benefits
+- are becoming
+- as well as
+- becoming more
+- becoming more complex
+- by external users
+- data integration
+- defii
+- digital engineering
+- digital engineering framework
+- engineered
+- integration
+- interoperability
+- misd
 ---
 
 # Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies

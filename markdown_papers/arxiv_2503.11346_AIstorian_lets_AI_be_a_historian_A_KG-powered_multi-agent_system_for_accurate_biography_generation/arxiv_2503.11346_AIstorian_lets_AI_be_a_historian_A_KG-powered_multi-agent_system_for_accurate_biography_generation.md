@@ -16,7 +16,26 @@ tags:
 - Machine Learning
 - Personal Health
 - Semantic Web
+keywords:
+- anti-hallucination
+- augmentation-enhanced
+- end-toend
+- error-typeaware
+- fine-tuning
+- in-context
+- kg-based
+- kg-powered
+- knowledge graph
+- large language models
+- multi-agent
+- multi-agent system
+- on-the-fly
+- rag
+- retrieval-augmented
+- two-step
+- zju-daily
 ---
+
 
 # AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation
 

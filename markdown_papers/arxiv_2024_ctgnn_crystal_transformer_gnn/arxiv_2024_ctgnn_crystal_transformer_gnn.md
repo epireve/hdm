@@ -12,6 +12,37 @@ images_kept: 2
 images_removed: 0
 tags:
 - Machine Learning
+keywords:
+- ArXiv
+- DeCost
+- LeCun
+- MAE
+- MatErials
+- MatFormer
+- McMorrow
+- MultiHead
+- OrbNet
+- a transformer model
+- accuracy
+- ada-gnn
+- and learning
+- artificial intelligence
+- as learning
+- atom-distance-angle
+- atomic-orbital
+- author contributions
+- b ctgnn model
+- c crystal angular encoder
+- chih-hsuan
+- competing interests statement
+- crystal-structure
+- ct-gnn
+- deep learning
+- dft-calculated
+- dual-transformer
+- element-wise
+- excited-state
+- feature extraction
 ---
 
 # CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction

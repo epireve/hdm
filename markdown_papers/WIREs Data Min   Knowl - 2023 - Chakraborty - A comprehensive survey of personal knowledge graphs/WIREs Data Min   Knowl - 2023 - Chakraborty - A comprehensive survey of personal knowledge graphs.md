@@ -17,7 +17,15 @@ tags:
 - Natural Language Processing
 - Recommendation System
 - Semantic Web
+keywords:
+- day-to-day
+- knowledge graph
+- knowledge graphs
+- pkg
+- recommender system
+- recommender systems
 ---
+
 
 # FOCUS ARTICLE
 

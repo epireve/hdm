@@ -21,7 +21,18 @@ original_folder: arxiv_2022_fedgnn_privacy_preserving
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- co-interacted
+- differential privacy
+- gnn
+- gnn-based
+- high-order
+- neural network
+- privacy-preserving
+- privacy-sensitive
+- user-item
 ---
+
 
 # FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation
 

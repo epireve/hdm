@@ -16,6 +16,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Temporal
+keywords:
+- DeBruine
+- DuBrow
+- MacLeod
+- McDonald
+- McGraw
+- RotSpan
+- SimplyAgree
+- SymSpan
+- accuracy
+- action coding system
+- all-ornone
+- alpha
+- and c illustrates
+- annual review of psychology
+- annurev-psych
+- anwyl-irvine
+- average-measures
+- behavior research methods
+- ben-shachar
+- biochemia medica
+- black-square
+- bland-altman
+- built-in
+- careful watching
+- coffee pouring
+- cognitive development
+- cognitive neuropsychology
+- contextual-temporal
+- daily-life
+- data cleaning
 ---
 
 # The role of working memory capacity in the temporal compression of episodic memories: An individual differences approach

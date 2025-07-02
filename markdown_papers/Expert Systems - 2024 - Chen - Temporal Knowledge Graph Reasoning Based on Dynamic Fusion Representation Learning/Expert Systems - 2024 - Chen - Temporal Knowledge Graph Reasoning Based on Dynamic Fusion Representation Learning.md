@@ -17,7 +17,15 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- knowledge graph
+- knowledge graph completion
+- knowledge graphs
+- td-rkg
+- temporal knowledge graph
+- tkg
 ---
+
 
 ![](_page_0_Picture_2.jpeg)
 <!-- Image Description: The image is simply the Wiley publisher logo. It contains no diagrams, charts, graphs, equations, or technical illustrations. Its purpose in the academic paper is to identify the publisher of the work. -->

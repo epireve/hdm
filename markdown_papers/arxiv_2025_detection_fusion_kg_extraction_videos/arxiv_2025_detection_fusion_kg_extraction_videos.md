@@ -21,6 +21,37 @@ original_folder: arxiv_2025_detection_fusion_kg_extraction_videos
 images_total: 7
 images_kept: 6
 images_removed: 1
+keywords:
+- 1 datasets
+- 1 introduction
+- 2 main results
+- 3 inclusion of background knowledge
+- 4 qualitative results
+- GRU
+- ImageNet
+- WordNet
+- a dog is running in a park
+- accuracy
+- and individual
+- and msrvtt
+- applied psycholinguistics
+- artificial intelligence
+- avoid learning
+- avoids learning
+- car
+- classification
+- closed-world
+- cnn
+- communications of the acm
+- computer vision
+- conference on robot learning
+- cross-entropy
+- cup
+- deep-learning
+- deep-learning-based
+- detection-fusion
+- dim
+- drink
 ---
 
 # Detection-Fusion for Knowledge Graph Extraction from Videos

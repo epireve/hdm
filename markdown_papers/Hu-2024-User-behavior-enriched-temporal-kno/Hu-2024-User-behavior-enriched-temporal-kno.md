@@ -21,7 +21,19 @@ original_folder: Hu-2024-User-behavior-enriched-temporal-kno
 images_total: 5
 images_kept: 4
 images_removed: 1
+keywords:
+- knowledge graph
+- knowledge graphs
+- large-scale
+- real-world
+- rec-ommendation
+- state-of-theart
+- temporal knowledge graph
+- time-specific
+- tkg
+- tkg-srec
 ---
+
 
 
 

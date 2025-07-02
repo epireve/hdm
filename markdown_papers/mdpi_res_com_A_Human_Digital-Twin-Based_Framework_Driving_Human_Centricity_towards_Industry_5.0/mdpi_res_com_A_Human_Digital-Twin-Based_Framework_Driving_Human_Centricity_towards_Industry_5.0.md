@@ -14,6 +14,37 @@ images_removed: 3
 tags:
 - IoT
 - Machine Learning
+keywords:
+- 1 introduction
+- 6 concluding remarks
+- CrossRef
+- MachineProvidesPhysicalSupportToHuman
+- PubMed
+- TransferCognitiveModel
+- above-described
+- above-mentioned
+- ai-based
+- ai-based digital
+- ai-driven
+- airegio-project
+- ar-based
+- ar-based instructions
+- ar-based solution
+- article
+- artificial intelligence
+- arxiv
+- as-built
+- berners-lee
+- check for updates
+- cloud-based
+- cloud-based platform
+- cross-dt
+- cyber-physical
+- data-based
+- diagnosis
+- efficiency
+- energies
+- ensemble
 ---
 
 

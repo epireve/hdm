@@ -17,6 +17,37 @@ tags:
 - IoT
 - Machine Learning
 - Privacy
+keywords:
+- LSTM
+- LeCun
+- RNN
+- SSL
+- abstract
+- accuracy
+- artificial intelligence
+- arxiv230709225v1 csai 18 jul 2023
+- black-box
+- brain-inspired
+- cardio-cerebrovascular
+- classification
+- clinical data
+- consensus
+- context-aware
+- contrastive learning
+- cost-aware
+- cost-effective
+- cross-section
+- cross-sectional
+- cross-sections
+- cutting-edge
+- data privacy
+- data-sharing
+- decision-making
+- deep learning
+- diagnosis
+- disease-corresponding
+- disease-free
+- encryption
 ---
 
 # arXiv:2307.09225v1 [cs.AI] 18 Jul 2023

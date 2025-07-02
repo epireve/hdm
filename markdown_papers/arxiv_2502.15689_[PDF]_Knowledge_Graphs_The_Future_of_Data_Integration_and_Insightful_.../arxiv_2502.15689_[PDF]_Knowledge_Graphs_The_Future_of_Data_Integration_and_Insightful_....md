@@ -18,7 +18,34 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- care-fully
+- com-munities
+- compre-hended
+- disam-biguation
+- en-ables
+- entity recognition
+- ex-ploration
+- exam-ple
+- extrac-tion
+- graph construction
+- guaran-tees
+- how-ever
+- in-dicates
+- informa-tion
+- intercon-nected
+- knowl-edge
+- knowledge graph
+- knowledge graphs
+- me-dia
+- mission-critical
+- named entity recognition
+- neural networks
+- nu-merous
+- pro-motes
+- question answering
 ---
+
 
 # Saher Mohamed, Kirollos Farah, Abdelrahman Lotfy, Kareem Rizk, Abdelrahman Saeed, Shahenda Mohamed, Ghada Khouriba, Tamer Arafa
 

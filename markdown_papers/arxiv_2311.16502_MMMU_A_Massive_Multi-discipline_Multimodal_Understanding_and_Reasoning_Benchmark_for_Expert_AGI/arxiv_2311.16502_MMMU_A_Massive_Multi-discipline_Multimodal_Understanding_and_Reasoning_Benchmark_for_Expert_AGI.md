@@ -17,6 +17,37 @@ tags:
 - Healthcare
 - Machine Learning
 - Semantic Web
+keywords:
+- ' specific instructions'
+- 1 baselines
+- 1 overview of mmmu
+- 2 data curation process
+- 2 main results
+- 3 analysis on images types and difficulties
+- 3 comparisons with existing benchmarks
+- CLIP
+- GPT
+- GitHub
+- ImageNum
+- ImageTypes
+- LeCun
+- MathVista
+- OpenFlamingo
+- QuesNum
+- SenseChat
+- a brown pit
+- a gipsy family
+- accept state
+- accounting  investment
+- accounting financial accounting
+- adept-fuyu-heavy
+- agriculture  plant biodiversity and biotechnology
+- agriculture animal anatomy
+- agriculture plant physiology
+- all-around
+- all-round
+- aortic regurgitation
+- architecture and engineering civil engineering
 ---
 
 # <span id="page-0-1"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI

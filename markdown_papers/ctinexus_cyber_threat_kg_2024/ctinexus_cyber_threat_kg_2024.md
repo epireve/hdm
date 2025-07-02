@@ -16,7 +16,25 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- end-to-end
+- entity linking
+- high-level
+- knowledge graphs
+- knowledge-enhanced
+- large-scale
+- multi-modal
+- multi-perspective
+- non-temporal
+- non-temporally
+- real-world
+- self-distillation
+- spatio-temporal
+- three-panel
+- time-consuming
+- two-stream
 ---
+
 
 # <span id="page-0-0"></span>Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition
 

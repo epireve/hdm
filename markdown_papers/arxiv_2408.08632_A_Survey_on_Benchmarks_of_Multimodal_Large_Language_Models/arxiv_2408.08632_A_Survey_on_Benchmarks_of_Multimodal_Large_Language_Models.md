@@ -12,7 +12,12 @@ images_kept: 3
 images_removed: 0
 tags:
 - Machine Learning
+keywords:
+- evaluation-multimodal-llms-survey
+- large language models
+- question answering
 ---
+
 
 # A Survey on Benchmarks of Multimodal Large Language Models
 

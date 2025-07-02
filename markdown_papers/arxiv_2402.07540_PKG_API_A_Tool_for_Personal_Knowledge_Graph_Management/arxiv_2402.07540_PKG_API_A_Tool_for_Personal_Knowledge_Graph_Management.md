@@ -22,6 +22,37 @@ original_folder: arxiv_2402.07540_PKG_API_A_Tool_for_Personal_Knowledge_Graph_Ma
 images_total: 2
 images_kept: 2
 images_removed: 0
+keywords:
+- 1 introduction
+- 2 related work
+- 3 overview and architecture
+- 7 conclusion
+- API
+- GPT
+- HTTP
+- MyData
+- SafeAnswers
+- a learning
+- acm reference format
+- application programming interface
+- artificial intelligence
+- auto-regressive
+- axel-cyrille
+- berners-lee
+- bob likes oppenheimer
+- ccs concepts
+- chain-ofthought
+- classification
+- cross-domain
+- dwivedi-yu
+- end-users
+- entity
+- entity linking
+- few-shot
+- fine-grained
+- gpt
+- keywords
+- ontology
 ---
 
 

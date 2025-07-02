@@ -15,6 +15,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 1 soft-prompting llm with graph
+- 2 hard-prompting llm with graph
+- 2 related work
+- 3 regrap dataset data generation pipeline
+- 5 experimental setup
+- 6 results
+- 7 conclusion
+- GPT
+- GradScaler
+- GraphVis
+- a learning
+- accuracy
+- allen-zhu
+- anime-style
+- anime-themed
+- anime_calendar
+- anime_cup
+- artificial intelligence
+- attribute learning
+- attribute-based
+- attribute-based knowledge
+- band member
+- began learning
+- beni-shouga
+- binary-questions
+- bocchi_the_rock
+- classification
+- efficiency
+- electronic_workspace
 ---
 
 # ReGraP-LLaVA: Reasoning enabled Graph-based Personalized Large Language and Vision Assistant

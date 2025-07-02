@@ -21,7 +21,18 @@ tags:
 - Natural Language Processing
 - Personal Health
 - Semantic Web
+keywords:
+- ai-augmented
+- decision-making
+- ehr
+- electronic health records
+- knowledge graph
+- large language models
+- rag
+- real-world
+- retrieval-augmented
 ---
+
 
 # Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction
 

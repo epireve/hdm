@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Personal Health
+keywords:
+- 176page-25-6
+- 3-based scheme
+- 72 similarity-based ats metrics
+- 73 llm-based ats metrics
+- API
+- AdaMo
+- AdaptSum
+- AlexisDusart
+- ArXiv
+- BERT
+- BaseModel
+- BigData
+- BigDataCongress
+- BillSum
+- abu-hanna
+- acl anthology network
+- acl-long
+- acl-main
+- agence france-presse
+- al-onaizan
+- alex-fabbri
+- algorithm-generated
+- ancestor-descendant
+- application programming interface
+- arc-factuality
+- article-summary
+- artificial intelligence
+- asia-pacific
+- aspect-based
+- aspect-based summarization
 ---
 
 # A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods

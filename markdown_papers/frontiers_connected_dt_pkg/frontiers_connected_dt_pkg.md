@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Personalized Medicine
 - Semantic Web
+keywords:
+- 1 level 1 source
+- 2 level 2 standard
+- 3 level 3 digital twin
+- 4 level 4 application
+- AdverseEvent
+- EHR
+- HeartFlow
+- McCourt
+- McGuinness
+- MedicationStatement
+- access-control
+- ad-hoc
+- agent-based
+- agent-based dts
+- architectural frameworks for digital twins
+- artificial intelligence
+- asynchronous
+- author contributions
+- best-suited
+- citation
+- clinical data
+- cloud-based
+- cloud-based framework
+- conflict of interest
+- copyright
+- corral-acero
+- cyber-physical
+- data availability statement
+- decision-making
+- discussion
 ---
 
 EDITED BY Lina F. Soualmia, Université de Rouen, France

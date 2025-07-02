@@ -15,7 +15,13 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- api
+- in-depth
+- knowledge graph
+- state-of-the-art
 ---
+
 
 # Web of Scholars: A Scholar Knowledge Graph
 

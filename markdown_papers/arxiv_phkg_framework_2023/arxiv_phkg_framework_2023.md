@@ -21,6 +21,37 @@ tags:
 - Personal Health
 - Personalized Medicine
 - Semantic Web
+keywords:
+- 1 data
+- 1 introduction
+- 2 data harmonization
+- 2 methods
+- 2 proposed framework and implementation
+- 3 results
+- 4 conclusion
+- API
+- AlertGra
+- BERT
+- EHR
+- McGuinness
+- MedCat
+- NLP
+- OntoMongo
+- SubClassOf
+- accuracy
+- application programming interface
+- artificial intelligence
+- availability of data and materials
+- bidirectional encoder representations from transformers
+- ceur workshop proc
+- clinical data
+- clinical decision support
+- co-located
+- date-range
+- document-store
+- easy-to-understand
+- electronic health record
+- fine-tuning
 ---
 
 # Towards a Personal Health Knowledge Graph Framework for Patient Monitoring

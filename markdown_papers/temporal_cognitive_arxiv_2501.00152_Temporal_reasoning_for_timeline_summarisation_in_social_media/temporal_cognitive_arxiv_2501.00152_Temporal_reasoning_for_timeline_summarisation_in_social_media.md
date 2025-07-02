@@ -16,7 +16,15 @@ tags:
 - Natural Language Processing
 - Semantic Web
 - Temporal
+keywords:
+- fine-tune
+- health-related
+- large language models
+- out-of-domain
+- pair-wise
+- temporal reasoning
 ---
+
 
 # Temporal reasoning for timeline summarisation in social media
 

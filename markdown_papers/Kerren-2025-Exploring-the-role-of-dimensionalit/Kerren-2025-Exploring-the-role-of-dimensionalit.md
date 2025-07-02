@@ -13,6 +13,37 @@ images_removed: 12
 tags:
 - IoT
 - Machine Learning
+keywords:
+- AutoEncoder
+- DiCarlo
+- DiScenna
+- McClelland
+- McInnes
+- NeuroImage
+- accuracy
+- acknowledgements
+- across learning
+- alternative accounts and falsifying the hypothesis
+- amygdala-hippocampus
+- and learning
+- asynchronous
+- autoencoder
+- autoencoder-based
+- band-like
+- bar-gad
+- co-occurring
+- complementary learning
+- concept learning
+- concluding remarks
+- cortex-wide
+- cross-species
+- cross-validated
+- cross-validation
+- cued-recall
+- decision-making
+- dimensionality reduction
+- dimensionality transformation
+- effective learning
 ---
 
 # Opinion

@@ -2,8 +2,8 @@
 cite_key: galkea_2021
 title: Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes
   and New Classes ?
-authors: Lukas Galkea, Iacopo Vagliano b, Benedikt Franke c, Tobias Zielke c, Marcel
-  Hoffmann c, Ansgar Scherp c
+authors: Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann,
+  Ansgar Scherp
 year: 2021
 doi: 10.48550/arXiv.2112.10558
 url: https://arxiv.org/abs/2112.10558
@@ -23,7 +23,20 @@ original_folder: arxiv_2021_lifelong_learning_evolving_graphs_imbalanced_classes
 images_total: 11
 images_kept: 11
 images_removed: 0
+keywords:
+- attention networks
+- copy-editing
+- cross-entropy
+- gnn
+- in-distribution
+- k-neighborhood
+- neural network
+- neural networks
+- out-of-distribution
+- out-ofdistribution
+- uni-ulm
 ---
+
 
 # Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes ?
 

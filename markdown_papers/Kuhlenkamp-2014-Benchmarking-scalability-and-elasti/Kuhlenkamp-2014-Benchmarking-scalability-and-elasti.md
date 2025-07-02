@@ -16,6 +16,37 @@ tags:
 - Federated Learning
 - Knowledge Graph
 - Machine Learning
+keywords:
+- 1 distributed database systems under test
+- 1 hbase
+- 1 selected experiment
+- 1 server instance memory experiments
+- 2 cassandra
+- 2 reproduction of the experiment
+- 2 scaling distributed database systems
+- 2 server instance cpu experiments
+- 3 ec2 storage setup experiments
+- 3 performance metrics
+- 3 ycsb benchmarking tool
+- 4 results and comparison
+- 5 varying throughput
+- 6 discussion
+- 7 extension of experiment scope
+- BigTable
+- BigTableinspired
+- ConsistencyLevel
+- DeCandia
+- InfiniBand
+- NoDerivs
+- NonCommercial
+- asynchronous
+- attribution-noncommercial-noderivs
+- background
+- big-table
+- bigtable-style
+- by-nc-nd
+- classification
+- client-side
 ---
 
 # Benchmarking Scalability and Elasticity of Distributed Database Systems

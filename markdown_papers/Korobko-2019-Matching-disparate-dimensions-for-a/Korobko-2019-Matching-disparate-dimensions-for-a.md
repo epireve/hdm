@@ -14,6 +14,36 @@ images_removed: 1
 tags:
 - Data Integration
 - Machine Learning
+keywords:
+- 1 introduction
+- 2 multidimensional model
+- 4 algorithm for matching disparate dimensions
+- 5 conclusion
+- AnHai
+- EcoSystems
+- a survey of modern algebra
+- acm reference format
+- ad-hoc
+- all-russian
+- architecture
+- ccs concepts
+- clinical decision support
+- clustering
+- codd date
+- data heterogeneity
+- data preprocessing
+- decision-making
+- dimension-tables
+- efficiency
+- extract-transformation-load
+- jose-norberto
+- keywords
+- knowledge-based
+- knowledge-based intell
+- machine learning
+- ontology
+- relation
+- synchronization
 ---
 
 

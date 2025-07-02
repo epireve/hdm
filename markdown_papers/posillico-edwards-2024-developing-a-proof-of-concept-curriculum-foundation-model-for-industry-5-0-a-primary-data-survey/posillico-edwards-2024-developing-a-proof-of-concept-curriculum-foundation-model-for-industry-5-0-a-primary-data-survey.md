@@ -14,6 +14,36 @@ images_removed: 0
 tags:
 - Machine Learning
 - Semantic Web
+keywords:
+- AbnemehDwikat
+- LinkedIn
+- McCaffer
+- about learning
+- aerosol-generating
+- age-group
+- al-emran
+- and learning
+- based learning
+- broad-brush
+- business-skills
+- character-building
+- chi-square
+- clerk of works
+- co-existence
+- co-operative
+- comparison between interpersonal and technical
+- conclusions
+- consensus
+- david j edwards
+- declaration of conflicting interests
+- demographics  overall
+- demographics  specific academic role
+- descriptive statistics for survey
+- digital-esque
+- discussion
+- funding
+- keywords
+- performance
 ---
 
 # Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics

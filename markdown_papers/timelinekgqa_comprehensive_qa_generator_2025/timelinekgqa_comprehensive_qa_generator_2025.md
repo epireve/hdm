@@ -22,6 +22,37 @@ original_folder: timelinekgqa_comprehensive_qa_generator_2025
 images_total: 3
 images_kept: 3
 images_removed: 0
+keywords:
+- 1 introduction
+- 2 related work
+- 3 concepts and notation
+- 4 question complexity dimensions
+- 5 question answer pair generator
+- 6 dataset generation
+- 7 conclusion
+- CronQuestion
+- CronQuestions
+- GitHub
+- PascalSun
+- TempQuestions
+- TimeQuestions
+- WikiData
+- acl-long
+- acm reference format
+- artificial intelligence
+- ccs concepts
+- complex-cronquestions
+- cron-question
+- cross-referencing
+- domain-specific
+- entity
+- fine-tuning
+- keywords
+- knowledge graph
+- multi-dimensional
+- multi-hop
+- multi-stage
+- performance
 ---
 
 # TimelineKGQA: A Comprehensive Question-Answer Pair Generator for Temporal Knowledge Graphs

@@ -22,7 +22,15 @@ original_folder: sstkg_spatio_temporal_kg_2024
 images_total: 4
 images_kept: 4
 images_removed: 0
+keywords:
+- knowledge graph
+- knowledge graphs
+- link prediction
+- real-world
+- spatio-temporal
+- temporal knowledge graph
 ---
+
 
 # SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding
 

@@ -16,7 +16,13 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- gpt
+- large language models
+- state-of-the-art
+- temporal reasoning
 ---
+
 
 # TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models
 

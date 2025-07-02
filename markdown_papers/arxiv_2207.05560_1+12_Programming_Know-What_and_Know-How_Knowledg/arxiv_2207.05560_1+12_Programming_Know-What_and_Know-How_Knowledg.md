@@ -18,6 +18,37 @@ tags:
 - Natural Language Processing
 - Recommendation System
 - Semantic Web
+keywords:
+- 1 introduction
+- 21 study design
+- 22 result and analysis
+- 3 approach
+- 4 evaluation
+- 6 related work
+- 7 conclusion
+- 8 acknowledgements
+- API
+- ArrayList
+- BigDecimal
+- BigInteger
+- ConcurrentHash
+- ConcurrentHashMap
+- ConcurrentModificationException
+- DataInputStream
+- DataOutputStream
+- DocumentListener
+- a single character
+- add a collection of an object
+- add element to set
+- add elements
+- add elements to list
+- api packet
+- api-centric
+- api-constraint
+- api-entity
+- api-kg
+- api-kgs
+- api-packet
 ---
 
 # 1+1>2: Programming Know-What and Know-How Knowledge Fusion, Semantic Enrichment and Coherent Application

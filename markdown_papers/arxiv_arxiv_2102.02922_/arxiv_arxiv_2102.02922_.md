@@ -15,6 +15,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- API
+- DeepDive
+- KnolwedgeVault
+- LSTM
+- NLP
+- TensorFlow
+- a learning
+- abstract
+- accuracy
+- acid-based
+- acid-based transactions
+- api-based
+- api-based approach
+- api-based design
+- application programming interface
+- application-level
+- artificial intelligence
+- ball-ofmud
+- by learning
+- classification
+- data generation
+- deep dive
+- domain-specific
+- ehri-project
+- end-to-end
+- ending learning
+- ensemble
+- feature extraction
+- fonduer-like
+- for learning
 ---
 
 # Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks

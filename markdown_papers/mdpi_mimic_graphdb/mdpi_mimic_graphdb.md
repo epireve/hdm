@@ -19,6 +19,37 @@ tags:
 - Personal Health
 - Privacy
 - Semantic Web
+keywords:
+- 1 introduction
+- AgroPortal
+- AgroTagger
+- CareGivers
+- CodeableConcept
+- CrossRef
+- EHR
+- FolkScope
+- GoodRelations
+- MacLean
+- McGuinness
+- abu-salih
+- al-tawil
+- artificial intelligence
+- aspirin therapy
+- at-risk
+- berners-lee
+- billion-scale
+- blood clots
+- built-in
+- burgstaller-muehlbacher
+- chest pain
+- click-through
+- clinical data
+- clinical decision support
+- comma-separated
+- coronary artery disease
+- cross-lingual
+- cyber-physical
+- data-driven
 ---
 
 

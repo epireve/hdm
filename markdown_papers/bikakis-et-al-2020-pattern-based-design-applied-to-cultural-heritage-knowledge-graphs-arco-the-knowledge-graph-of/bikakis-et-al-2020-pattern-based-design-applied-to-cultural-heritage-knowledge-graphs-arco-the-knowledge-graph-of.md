@@ -16,6 +16,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 61 functional and logical dimensions
+- AffixedElement
+- AgeOfDeathInterpretation
+- AgentRole
+- ArchaeologicalProperty
+- ArchitecturalOrLandscapeHeritage
+- ArtBiennale
+- AuthorshipAttribution
+- CatalogueRecord
+- CatalogueRecordVersion
+- CatalogueRecordVersions
+- a person cannot be a role
+- a root module acts as the
+- address and location
+- adit-ln
+- agent-role
+- ai magazine
+- an artist is a person
+- analogical learning
+- applied ontology
+- appropriateness of module size
+- architettura della conoscenza
+- arco-odp
+- arco-project
+- arco-release
+- arnolfini portrait
+- art biennale
+- artificial intelligence
+- artwork technical description
 ---
 
 Semantic Web 12 (2021) 313–357 313 DOI 10.3233/SW-200422 IOS Press

@@ -20,6 +20,37 @@ tags:
 - Recommendation System
 - Semantic Web
 - Temporal
+keywords:
+- 1 introduction
+- 2 related work
+- 5 dietary guidelines modeling
+- 52 semantic reasoner in action
+- 61 performance
+- 62 behavioral recommendations
+- 63 food recommendations
+- 7 conclusion
+- ConsistentCarbDietDirective
+- ConsistentCarbPattern
+- ConsistentCarbRecommendation
+- ConsistentCarbohydrateIntake
+- ConsistentPattern
+- DiabeticLowFatHigCarbDietConsumption
+- DiabeticStatusAssessment
+- DietConsumption
+- DietaryAssessment
+- EHR
+- artificial intelligence
+- ceur-ws
+- ching-hua
+- co-located
+- co-occur
+- code and data availability
+- community-defined
+- cooking methodology
+- data-mining
+- day-to-day
+- deep learning
+- electronic health record
 ---
 
 # Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations

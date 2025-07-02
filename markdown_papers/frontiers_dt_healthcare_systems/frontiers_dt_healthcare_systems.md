@@ -19,6 +19,37 @@ tags:
 - IoT
 - Machine Learning
 - Personal Health
+keywords:
+- MacFeely
+- PubMed
+- accuracy
+- alexandre vallée
+- artificial intelligence
+- author contributions
+- biller-andorno
+- closed-loop
+- cloud-based
+- cloud-based framework
+- community-based
+- community-based interventions
+- conflict of interest
+- context-aware
+- convergence
+- copyright
+- corral-acero
+- data privacy
+- data-driven
+- decision-making
+- diagnosis
+- digital health
+- digital twin
+- efficiency
+- entity
+- evidence-based
+- evidence-based medicine
+- evidence-based practices
+- genomics
+- iot
 ---
 
 EDITED BY Camelia Quek, The University of Sydney, Australia

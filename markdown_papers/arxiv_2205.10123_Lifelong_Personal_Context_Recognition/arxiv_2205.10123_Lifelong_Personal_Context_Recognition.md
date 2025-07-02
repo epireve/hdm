@@ -16,6 +16,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- DataScientia
+- DataSet
+- DiscovEring
+- McCarthy
+- McDermott
+- NLP
+- PerCom
+- a learning
+- active learning
+- and learning
+- any
+- artificial intelligence
+- author profiles
+- automated
+- bi-directionality
+- bidirectional
+- bidirectional interaction
+- chenu-abente
+- computer vision
+- concept drift
+- consistency-preserving
+- content-based
+- content-based image
+- deep learning
+- ego-centric
+- example-based
+- example-based explanations
+- guided learning
+- health-centered
+- human-ai
 ---
 
 # Lifelong Personal Context Recognition<sup>1</sup>

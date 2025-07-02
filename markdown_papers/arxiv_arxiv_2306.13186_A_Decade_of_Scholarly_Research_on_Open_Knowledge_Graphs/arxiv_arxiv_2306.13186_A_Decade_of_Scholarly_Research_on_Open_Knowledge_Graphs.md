@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Natural Language Processing
 - Semantic Web
+keywords:
+- 1 introduction
+- 8 acknowledgments
+- BabelNet
+- BigData
+- DateTime
+- GeoNames
+- McGrath
+- NLP
+- OpenCyc
+- SisonkeBiotik
+- WordNet
+- aacl-main
+- anchez-alonso
+- application-oriented
+- artificial intelligence
+- artificial-intelligence-based
+- asia-pacific
+- babel-net
+- blue-yellow
+- broad-coverage
+- classification
+- co-occurrence
+- co-occurrences
+- color-coded
+- color-coding
+- conf-ranks
+- data-engineering-and-semantics
+- deep learning
+- domain-specific
+- entity linking
 ---
 
 # A Decade of Scholarly Research on Open Knowledge Graphs

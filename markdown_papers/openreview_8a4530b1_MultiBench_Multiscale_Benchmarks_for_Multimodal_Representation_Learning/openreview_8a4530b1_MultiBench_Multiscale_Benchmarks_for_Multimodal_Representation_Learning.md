@@ -15,6 +15,25 @@ tags:
 - Healthcare
 - IoT
 - Machine Learning
+keywords:
+- applying methods
+- end-to-end
+- evaluation
+- generalization
+- human-computer
+- implementation
+- inference
+- information
+- large-scale
+- machine learning
+- methodology
+- multimodal learning
+- multimodal models
+- optimization
+- prediction
+- real-world
+- representation learning
+- state-of-the-art
 ---
 
 # MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning

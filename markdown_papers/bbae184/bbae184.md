@@ -22,6 +22,37 @@ original_folder: bbae184
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- -dimensional pathway features
+- -value
+- AUC
+- AvgPooling
+- DeepOmix
+- GitHub
+- MaxPooling
+- McGillivray
+- MiNet
+- OpenReview
+- ablation study
+- accuracy
+- adv neural inf process syst
+- algorithm 1 gene encoding graph neural network
+- annu rev biomed data sci
+- area under curve
+- article-lookup
+- artificial intelligence
+- as the expression value of the
+- atac-seq
+- auc
+- benchmark comparision
+- biologically-informed
+- bmc bioinform
+- brain-inspired
+- brief bioinform
+- cancer-related
+- clinical data
+- cnv-mrna
+- comput struct biotechnol j
 ---
 
 # Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration

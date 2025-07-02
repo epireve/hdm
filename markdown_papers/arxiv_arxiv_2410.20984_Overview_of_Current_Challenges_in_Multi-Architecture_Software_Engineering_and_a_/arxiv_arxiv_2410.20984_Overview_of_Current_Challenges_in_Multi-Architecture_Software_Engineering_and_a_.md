@@ -17,6 +17,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 1 introduction
+- 3 proposed system architecture
+- 3 software modeling
+- 4 conclusion and future work
+- API
+- CloudNet
+- DeLong
+- DevOps
+- DevSecOps
+- DocuWriter
+- GitHub
+- GitLab
+- HTTP
+- JavaScript
+- add-on
+- agent-agnostic
+- ai-based
+- ai-based coding
+- ai-based tasks
+- ai-driven
+- and learning
+- anomaly detection
+- application programming interface
+- arm-based
+- arm-based container
+- artificial intelligence
+- assist-iot
+- berners-lee
+- black-box
+- bridge of understanding
 ---
 
 # Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future

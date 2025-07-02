@@ -16,7 +16,16 @@ tags:
 - Natural Language Processing
 - Privacy
 - Semantic Web
+keywords:
+- graph-based
+- human-like
+- knowledge graph
+- knowledge graphs
+- neural network
+- neural networks
+- neural-symbolic
 ---
+
 
 # A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM APPLICATION PERSPECTIVE
 

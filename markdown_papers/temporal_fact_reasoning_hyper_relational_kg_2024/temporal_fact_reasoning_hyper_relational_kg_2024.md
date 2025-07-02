@@ -22,7 +22,19 @@ original_folder: temporal_fact_reasoning_hyper_relational_kg_2024
 images_total: 4
 images_kept: 4
 images_removed: 0
+keywords:
+- ever-evolving
+- graph reasoning
+- hyper-relational
+- key-value
+- knowledge graphs
+- open-source
+- temporal reasoning
+- tkg
+- wiki-hy
+- yago-hy
 ---
+
 
 # <span id="page-0-0"></span>Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs
 

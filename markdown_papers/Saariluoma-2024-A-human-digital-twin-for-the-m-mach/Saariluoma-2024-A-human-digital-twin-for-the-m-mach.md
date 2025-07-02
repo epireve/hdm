@@ -12,6 +12,27 @@ images_kept: 9
 images_removed: 2
 tags:
 - Machine Learning
+keywords:
+- a conceptual and
+- actions involved in
+- and operating
+- and their use
+- are computational models
+- artifcial intelligence designers
+- as a result
+- as their foundations
+- as tools in
+- associated with certain
+- but also include
+- cognitive
+- cyber-physical
+- design
+- designers to model
+- designing intelligent
+- designing intelligent technologies
+- human
+- indeed
+- interaction
 ---
 
 # Research

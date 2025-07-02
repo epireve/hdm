@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Mental Health
 - Semantic Web
+keywords:
+- 1 summary and discussion of findings
+- 1 technical generativity
+- 2 research originality and implications
+- 3 research limits and future avenues
+- 4 generative design collectives and learning
+- HarperCollins
+- McFadzean
+- NextComp
+- ResearchGate
+- adaptive learning
+- agent-artefact
+- agent-artifact
+- and learning
+- anti-fragile
+- anti-fragility
+- as we may think
+- as well as the
+- as-built-genealogies
+- attention-consuming
+- attentiveness-consuming
+- ba-spaces
+- back-bone
+- being bogged down
+- bi-directional
+- classification
+- efficiency
+- entity
+- notes
+- ontology
+- performance
 ---
 
 <!-- cite_key: idpage--spanearl2019 -->

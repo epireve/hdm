@@ -16,7 +16,18 @@ tags:
 - Decision Support
 - Machine Learning
 - Privacy
+keywords:
+- architecture-specific
+- architecture-to-code
+- generative ai
+- gpt
+- large language model
+- peer-reviewed
+- rag
+- requirements-to-architecture
+- retrieved-augmented
 ---
+
 
 # Generative AI for Software Architecture. Applications, Challenges, and Future Directions
 

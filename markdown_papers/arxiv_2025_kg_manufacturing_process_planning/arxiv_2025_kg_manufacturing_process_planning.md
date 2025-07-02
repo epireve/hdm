@@ -23,6 +23,37 @@ original_folder: arxiv_2025_kg_manufacturing_process_planning
 images_total: 6
 images_kept: 6
 images_removed: 0
+keywords:
+- 1 introduction
+- 1 knowledge graph
+- 1 large language models in machining
+- 2 knowledge graphs in machining
+- 2 models
+- 3 graph retrieval and transversal
+- 3 question category
+- 4 large language model generation
+- DeepMind
+- ElKharboutly
+- ForInsights
+- GPT
+- MapReduce
+- PyTorch
+- SolidWorks
+- accuracy
+- ai-driven
+- al-dahle
+- artificial intelligence
+- bio-process
+- brain-inspired
+- cam-based
+- cam-based cnc
+- capp-oriented
+- cause-effect
+- closed-loop
+- closed-source
+- cloud-based
+- diagnosis
+- efficiency
 ---
 
 # KNOWLEDGE GRAPH FUSION WITH LARGE LANGUAGE MODELS FOR ACCURATE, EXPLAINABLE MANUFACTURING PROCESS PLANNING

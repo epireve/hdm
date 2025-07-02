@@ -22,7 +22,12 @@ original_folder: Knowledge_Graph_Construction_Facade_SPARQL_Anything
 images_total: 10
 images_kept: 10
 images_removed: 0
+keywords:
+- heterogeneous data
+- knowledge graph
+- knowledge graph construction
 ---
+
 
 # Knowledge Graph Construction with a façade: a unified method to access heterogeneous data sources on the Web
 

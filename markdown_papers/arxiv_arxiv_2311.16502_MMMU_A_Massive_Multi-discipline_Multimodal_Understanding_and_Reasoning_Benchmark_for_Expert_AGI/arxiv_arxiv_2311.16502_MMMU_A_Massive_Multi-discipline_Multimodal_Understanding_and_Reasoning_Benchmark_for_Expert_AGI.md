@@ -5,7 +5,7 @@ title: 'MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning 
 authors: Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun,
   Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang,
   Yibo Liu, Wenhao Huang
-year: 2035
+year: 2023
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_arxiv_2311.16502_MMMU_A_Massive_Multi-discipline_Multimodal_Understanding_and_Reasoning_Benchmark_for_Expert_AGI
@@ -16,6 +16,37 @@ tags:
 - Healthcare
 - Machine Learning
 - Semantic Web
+keywords:
+- ' specific instructions'
+- 1 baselines
+- 1 overview of mmmu
+- 2 data curation process
+- 2 main results
+- 3 analysis on images types and difficulties
+- 3 comparisons with existing benchmarks
+- CLIP
+- GPT
+- GitHub
+- ImageNum
+- ImageTypes
+- LeCun
+- MathVista
+- OpenFlamingo
+- QuesNum
+- SenseChat
+- a brown pit
+- a gipsy family
+- accept state
+- accounting  investment
+- accounting financial accounting
+- adept-fuyu-heavy
+- agriculture  plant biodiversity and biotechnology
+- agriculture animal anatomy
+- agriculture plant physiology
+- air base
+- all-around
+- all-round
+- aortic regurgitation
 ---
 
 # <span id="page-0-1"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI

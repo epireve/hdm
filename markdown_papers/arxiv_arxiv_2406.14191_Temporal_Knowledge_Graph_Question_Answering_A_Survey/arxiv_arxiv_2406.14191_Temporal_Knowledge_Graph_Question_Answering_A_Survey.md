@@ -1,7 +1,7 @@
 ---
-cite_key: "su2024"
+cite_key: su_2024
 title: "Temporal Knowledge Graph Question Answering: A Survey"
-authors: "Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin\\, Jiafeng Guo\"
+authors: Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin, Jiafeng Guo
 year: 2024
 doi: "https://doi.org/10.48550/arXiv.2406.14191"
 url: "https://arxiv.org/abs/2406.14191"
@@ -13,6 +13,27 @@ tags:
   - "semantic parsing"
   - "TKG embeddings"
   - "taxonomy"
+keywords:
+  - temporal knowledge graph
+  - question answering
+  - temporal constraints
+  - temporal expressions
+  - semantic parsing
+  - tkg embeddings
+  - temporal reasoning
+  - knowledge base
+  - temporal questions
+  - compound value types
+  - temporal granularity
+  - explicit temporal expression
+  - implicit temporal expression
+  - temporal facts
+  - tkgqa methods
+  - knowledge graph completion
+  - n-array tuples
+  - temporal relations
+  - time-aware reasoning
+  - kbqa
 tldr: "A systematic survey exploring methodological approaches and taxonomies in Temporal Knowledge Graph Question Answering"
 date_processed: "2025-07-02"
 phase2_processed: true

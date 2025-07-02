@@ -19,6 +19,37 @@ tags:
 - Natural Language Processing
 - Personal Health
 - Privacy
+keywords:
+- 1 centralized learning
+- 1 introduction
+- 1 partial sharing
+- 1 threat model
+- 1 update-based membership inference attacks
+- 2 adversarys goal
+- 2 federated learning
+- 2 secure aggregation
+- 2 trend-based membership inference attacks
+- 3 adversarys role
+- 3 comparison to attacks in centralized learning
+- 3 noise perturbation
+- 4 adversarys strategy
+- 4 anomaly detection
+- 5 attack taxonomy
+- 5 comparison to defenses in centralized learning
+- AUC
+- AgrEvader
+- ArXiv
+- BERT
+- BatchCrypt
+- FedAvg
+- FedRecs
+- GAN
+- ImageNet
+- LoDen
+- accuracy-lossless
+- acm reference format
+- adversarial attack
+- ahmad-reza
 ---
 
 LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong

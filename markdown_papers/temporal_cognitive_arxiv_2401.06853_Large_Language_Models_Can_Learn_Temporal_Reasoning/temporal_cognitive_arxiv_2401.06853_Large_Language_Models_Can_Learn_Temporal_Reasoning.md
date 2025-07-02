@@ -14,7 +14,17 @@ tags:
 - Machine Learning
 - Semantic Web
 - Temporal
+keywords:
+- chain-of-thought
+- fine-tuning
+- large language models
+- llm
+- temporal graph
+- temporal reasoning
+- text-to-tg
+- tg-llm
 ---
+
 
 # arXiv:2401.06853v6 [cs.CL] 8 Oct 2024
 

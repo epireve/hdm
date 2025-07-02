@@ -1,8 +1,8 @@
 ---
-cite_key: arazzi_2019
-title: PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS
-authors: Marco Arazzi, Serena Nicolazzo, Rafidha Rehiman, Federated Learning
-year: 2019
+cite_key: sameera_2024
+title: Privacy-preserving in Blockchain-based Federated Learning Systems
+authors: Sameera K. M., Marco Arazzi, Serena Nicolazzo, Antonino Nocera, Rafidha Rehiman K. A., Vinod P., Mauro Conti
+year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2401.03552_Privacy-preserving_in_Blockchain-based_Federated_Learning_Systems
@@ -18,7 +18,17 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Privacy
+keywords:
+- blockchain
+- blockchain-based
+- blockchain-enabled
+- federated learning
+- internet of things
+- machine learning
+- privacy-preserving
+- under-explored
 ---
+
 
 # PRIVACY-PRESERVING IN BLOCKCHAIN-BASED FEDERATED LEARNING SYSTEMS
 

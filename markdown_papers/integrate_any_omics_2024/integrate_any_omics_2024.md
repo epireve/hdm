@@ -16,6 +16,37 @@ tags:
 - Healthcare
 - Machine Learning
 - Personalized Medicine
+keywords:
+- 1 integrao overview
+- 1 introduction
+- 2 integrao
+- 2 results
+- 3 discussion
+- 32 integrao
+- 4 methods
+- 5 supplementary tables
+- 6 supplementary figures
+- BayesPrism
+- InterSim
+- McGowan
+- McLendon
+- VandenBerg
+- accuracy
+- age-adjusted
+- all-encompassing
+- all-missing
+- aml cancer dataset
+- anti-cancer
+- artificial intelligence
+- as is
+- beat-aml
+- better-informed
+- biomarker
+- bowang-lab
+- cdc-like
+- classification
+- clustering
+- convergence
 ---
 
 # Integrate Any Omics: Towards genome-wide data integration for patient stratification

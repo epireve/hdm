@@ -17,6 +17,37 @@ tags:
 - Machine Learning
 - Recommendation System
 - Semantic Web
+keywords:
+- 1 introduction
+- 3 use-cases
+- ArmaSuisse
+- ArmaTweet
+- ArmaTweets
+- BigData
+- NLP
+- ScienceWise
+- WordNet
+- ad-hoc
+- co-created
+- co-reference
+- co-reference resolution
+- cudre-mauroux
+- dependency-driven
+- dig-mastro
+- distributed computing
+- dropout from harvard
+- e-mail
+- end-to-end
+- entities
+- entity
+- entity disambiguation
+- entity linking
+- fine-grained
+- high-quality
+- ieee internet computing
+- journal of web semantics
+- knowledge base
+- location
 ---
 
 <!-- cite_key: cudr-mauroux2020 -->

@@ -20,7 +20,18 @@ tags:
 - Personal Health
 - Personalized Medicine
 - Privacy
+keywords:
+- blockchain
+- blockchain-secure
+- digital twin
+- digital twins
+- electronic medical records
+- emr
+- health data
+- personal health records
+- phr
 ---
+
 
 
 

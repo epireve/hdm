@@ -14,6 +14,34 @@ images_removed: 1
 tags:
 - COVID-19
 - Machine Learning
+keywords:
+- above-mentioned
+- al-fuqaha
+- alongside the word
+- alternative learning
+- autonomous learning
+- based learning
+- collaborative learning
+- conclusions
+- consensus
+- constructive feedback
+- corresponding author
+- current experience
+- current learning
+- data availability statement
+- declaration of conflicting interests
+- directed learning
+- efficiency
+- face-to-face
+- face-to-face interactions
+- findings and discussion
+- five-year
+- four-year
+- funding
+- hands-on
+- keywords
+- performance
+- relation
 ---
 
 Original article

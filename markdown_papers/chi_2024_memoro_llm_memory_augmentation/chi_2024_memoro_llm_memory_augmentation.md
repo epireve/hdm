@@ -15,7 +15,17 @@ tags:
 - IoT
 - Machine Learning
 - Natural Language Processing
+keywords:
+- audio-based
+- ever-expanding
+- large language model
+- large language models
+- llm
+- on-demand
+- real-time
+- real-world
 ---
+
 
 # Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation
 

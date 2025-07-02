@@ -17,6 +17,37 @@ tags:
 - Knowledge Graph
 - Machine Learning
 - Semantic Web
+keywords:
+- 0-based manufacturing
+- 1 introduction
+- 2 the industrial internet pyramid
+- 321 a flexible ontology-based knowledge structure
+- 5 conclusions  further research
+- API
+- HTTP
+- LeMoigne
+- MSE
+- PapersOnLine
+- SmartFactory
+- a-squared
+- agent-based
+- agent-based and
+- agri-food
+- anderson-darling
+- android-based
+- android-based smartphone
+- annals-manufacturing
+- annual reviews in control
+- application programming interface
+- artificial intelligence
+- automation pyramid
+- back-end
+- blockchain
+- blue-collar
+- closed-loop
+- convergence
+- diagnosis
+- efficiency
 ---
 
 **Please cite this paper as follows:**
