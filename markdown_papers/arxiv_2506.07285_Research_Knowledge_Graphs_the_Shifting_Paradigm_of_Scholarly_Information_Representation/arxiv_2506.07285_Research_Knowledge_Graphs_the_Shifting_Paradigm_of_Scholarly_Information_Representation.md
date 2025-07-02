@@ -1,7 +1,7 @@
 ---
 cite_key: "zloch2019b"
 title: "Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation"
-authors: "Matthäus Zloch1,<sup>2</sup> , Danilo Dessì<sup>3</sup> , Jennifer D'Souza<sup>4</sup> , Leyla Jael Castro<sup>5</sup> , Benjamin Zapilko<sup>1</sup> , Saurav Karmakar<sup>1</sup> , Brigitte Mathiak<sup>1</sup> , Markus Stocker<sup>4</sup> , Wolfgang Otto<sup>1</sup> , Sören Auer<sup>4</sup> , and Stefan Dietze1,<sup>2</sup>"
+authors: "Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus Stocker, Wolfgang Otto"
 year: 2019
 doi: "10.15488/13072"
 date_processed: "2025-07-02"
@@ -63,6 +63,7 @@ Despite recent efforts by the research community to get datasets and software re
 <sup>13</sup> https://scholar.google.com
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper illustrates the creation and types of Research Knowledge Graphs (RKGs). A central hexagon diagram displays RKG components: datasets, publications, organizations, etc., categorized by scientific domain (life, human, natural sciences). A flow chart shows RKG creation methods (manual, rule-based, deep learning) and RKG types (curated, automatically generated), emphasizing the cyclical relationship between community expressions and primary research data. Logos of example RKG services are shown. -->
 
 Fig. 1. The figure illustrates examples of scholarly artifacts, methodologies to build RKGs, the five categories described in this paper, and examples of well-known services built on top.
 

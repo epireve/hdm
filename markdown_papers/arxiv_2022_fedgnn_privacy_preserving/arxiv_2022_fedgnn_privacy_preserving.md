@@ -49,6 +49,7 @@ Chuhan Wu<sup>1</sup> , Fangzhao Wu<sup>2</sup> , Yang Cao<sup>3</sup> , Yongfen
 ACM ISBN 123-4567-24-567/08/06. [https://doi.org/10.475/123\\_4](https://doi.org/10.475/123_4)
 
 <span id="page-0-0"></span>![](_page_0_Figure_14.jpeg)
+<!-- Image Description: The image compares centralized and decentralized learning approaches using graph neural networks (GNNs). (a) shows centralized learning: a server processes a single "Centralized User-Item Graph" to build a "Global GNN". (b) illustrates decentralized learning: multiple clients each process a "Local User-Item Graph" with a "Local GNN", then these local models contribute to a combined "Global GNN". The diagrams visually represent the data flow and model aggregation in each approach. -->
 
 <span id="page-0-2"></span>Figure 1: Comparisons between centralized and decentralized training of GNN based recommendation models.
 
@@ -114,6 +115,7 @@ Next, we introduce the framework of our FedGNN method for privacy-preserving GNN
 The local subgraph on each user client is constructed from the user-item interaction data and the neighboring users that have cointeracted items with this user. The node of this user is connected to the nodes of the items she interacted with, and the node of her neighboring users. An embedding layer is first used to convert the user node , the item nodes [,1, ,2, ..., ,] and the neighboring user nodes [,1, ,2, ..., , ] into their embeddings, which are denoted as e , [e ,1 , e ,2 , ..., e ,] and [e ,1 , e ,2 , ..., e , ], respectively. Since the user embeddings may not be accurate enough when the model is not well-tuned, we first exclude the neighboring user embeddings in the model learning for epochs, and then incorporate them into model learning when they have been tuned. Note that the embeddings of the user and the item embeddings are
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a distributed collaborative filtering system. It depicts two user processes (i and j) each incorporating real and pseudo interacted items' embeddings into a Graph Neural Network (GNN). The GNN outputs are fed into a rating predictor, generating predictions and gradients. Local data is then aggregated on a server via Local Differential Privacy (LDP), with model and embedding gradients uploaded and subsequently redistributed. -->
 
 Figure 2: The framework of our FedGNN approach.
 
@@ -178,6 +180,7 @@ GNN model and rating predictor may also leak private information of user histori
 To tackle these challenges, we propose two strategies to protect user privacy in the model update process. The first one is pseudo interacted item sampling. Concretely, we sample items that the user has not interacted with[5](#page-4-1) , and randomly generate their gradients g using a Gaussian distribution with the same mean and co-variance values with the real item embedding gradients. The real embedding gradients g are combined with the pseudo item embedding gradients g , and the unified gradient of the model and
 
 <span id="page-4-3"></span>![](_page_4_Figure_35.jpeg)
+<!-- Image Description: This diagram illustrates a privacy-preserving recommendation system architecture. It depicts two user-item subgraphs, each showing user interactions with items. User embeddings undergo homomorphic encryption before being uploaded to a third-party server. The server components (matcher, item distributor, neighbor distributor) process the encrypted data. Anonymous neighbor user embeddings are also distributed, enhancing privacy. The process involves steps of expand, upload, and distribute phases using public and private keys. -->
 
 Figure 3: The framework of the privacy-preserving useritem graph expansion method.
 
@@ -272,6 +275,7 @@ First, we compare the performance of our FedGNN approach with several recommenda
 | FedGNN       | 0.989    | 0.790  | 21.1  | 0.920   | 0.848 | 0.803  |
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image presents six bar charts comparing the performance of three graph neural network (GNN) models (GGNN, GCN, GAT) across five datasets (Flixster, Douban, Yahoo, ML-100K, ML-10M). Each bar chart shows performance metrics for three embedding scenarios: without neighbor user embeddings, with trainable neighbor embeddings, and with fixed neighbor embeddings. The purpose is to illustrate the impact of different neighbor user embedding strategies on GNN model performance across varying dataset scales. -->
 
 Figure 4: Influence of second-order information and different GNN architectures.
 
@@ -293,10 +297,12 @@ FedGNN can incorporate high-order information of the user-item graphs, while FCF
 Then, we validate the effectiveness of incorporating high-order information of the user-item graphs as well as the generality of our approach. We compare the performance of FedGNN and its variants with fully trainable neighbor user embeddings or without high-order user-item interactions. In addition, we also compare their results under different implementations of their GNN models (GGNN, GCN and GAT). The results are shown in Fig. [4,](#page-6-1) which reveals several findings. First, compared with the baseline performance reported in Table [3,](#page-6-0) the performance of FedGNN and its variants implemented with other different GNN models is satisfactory. This result shows that our approach is compatible with different GNN architectures. Second, FedGNN slightly outperforms its variants based on GCN and GGNN. This may be because the GAT network can more effectively model the importance of the interactions between nodes than GCN and GGNN, which is beneficial for user and item modeling. Third, the variants that can utilize the high-order information by using our FedGNN framework perform better than those without high-order information. It validates the effectiveness of our approach in incorporating high-order information of the user-item graph into recommendation. Fourth, we find that using fixed neighbor user embeddings that are trained for a certain number of iterations is slightly better than using fully trainable ones that are updated in each iteration. This may be because the neighboring user embeddings may not be accurate at the
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image displays six plots showing the Root Mean Squared Error (RMSE) against the regularization parameter (λ) for different datasets (Flixster, Douban, Yahoo, ML-100K, ML-1M, ML-10M). Each plot contains three lines representing different privacy parameters (δ = 0.05, 0.1, 0.2). The plots illustrate the trade-off between RMSE (model accuracy) and privacy budget (controlled by λ and δ) across various datasets. The purpose is to demonstrate the impact of hyperparameters on model performance while maintaining differential privacy. -->
 
 Figure 5: The recommendation RMSE (left y-axis) and privacy budget (right y-axis) w.r.t. different clipping threshold and noise strength .
 
 <span id="page-7-4"></span>![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The image displays six small line plots, each showing the relationship between the number of parameters (orange line) and Root Mean Squared Error (RMSE; blue line) for a collaborative filtering model across different datasets (Flixster, Douban, Yahoo, ML-100K, ML-1M, ML-10M). The x-axis represents the model parameter 'M', while the y-axes show RMSE and the number of parameters. The plots illustrate the trade-off between model complexity and prediction accuracy for different dataset sizes. -->
 
 Figure 6: The recommendation RMSE (left y-axis) and communication cost (right y-axis) w.r.t. different numbers of pseudo interacted items.
 

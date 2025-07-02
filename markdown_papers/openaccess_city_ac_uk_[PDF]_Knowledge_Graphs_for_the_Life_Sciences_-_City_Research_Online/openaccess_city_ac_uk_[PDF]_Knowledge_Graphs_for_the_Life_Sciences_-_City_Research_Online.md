@@ -1,7 +1,7 @@
 ---
 cite_key: "httpsdoiorgtgdk2023"
 title: "City Research Online"
-authors: "**Link to published version**: https://doi.org/10.4230/TGDK.1.1.5"
+authors: "Opportunities. Transactions on Graph Data"
 year: 2023
 doi: "10.4230/TGDK.1.1.5"
 date_processed: "2025-07-02"
@@ -66,11 +66,13 @@ recent developments and advances in the use of graph-based technologies in life 
 <sup>∗</sup> Authors are listed in alphabetic order with authors' contributions presented in the metadata block. Jiaoyan Chen, Hang Dong, Janna Hastings, and Valentina Tamma are corresponding authors.
 
 ![](_page_2_Picture_21.jpeg)
+<!-- Image Description: The image displays a Creative Commons license indicator. It shows the "CC" logo within a circle, a person symbol in a circle, and "BY" indicating attribution as the only required license condition. The image's purpose is to inform readers of the copyright status and permitted uses of the paper's content. -->
 
 © Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jiménez-Ruiz, Vanessa López, Pierre Monnin, Catia Pesquita, Petr Škoda, and Valentina Tamma; licensed under Creative Commons License CC-BY 4.0
 *[Transactions on Graph Data and Knowledge](https://www.dagstuhl.de/tgdk)*, Vol. 1, Issue 1, Article No. 5, pp. 5:1–5:33
 
 ![](_page_2_Picture_24.jpeg)
+<!-- Image Description: The image is a logo consisting of three stylized black, angular shapes resembling a "W" followed by the acronym "TG DK". It likely represents an organization or company mentioned in the academic paper, serving as a visual identifier rather than presenting technical data or analysis. There are no charts, graphs, equations, or other technical illustrations present. -->
 
 [Transactions on Graph Data and Knowledge](https://www.dagstuhl.de/tgdk) [Schloss Dagstuhl – Leibniz-Zentrum für Informatik, Dagstuhl Publishing, Germany](https://www.dagstuhl.de)
 
@@ -110,6 +112,7 @@ We consider Knowledge Graphs (KGs) and their associated technologies to broadly 
 -**(iii)**machine learning approaches that ingest data in graph-based representations and that process these graph-based representations to perform some task, e.g., data analytics.
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper presents a structured overview of knowledge graphs (KGs) in life sciences. Three key areas are highlighted: KG construction and management; life science knowledge discovery; and explainable AI for KGs. Each area lists subtopics and associated section numbers. A separate section details KG types in life sciences (schema-less, schema-based) and their associated challenges (scalability, heterogeneity, explainability, etc.). The purpose is to categorize and outline the scope of the paper's research on KGs within a life sciences context. -->
 **Figure 1** An overview illustration of definitions (upper right, in gray), topics (left column, in blue), use cases (middle), and challenges (bottom right, in green) for the research of KGs in the life sciences.
 
 These different forms of graph-based representations can be further categorized based on the type of content represented. We therefore distinguish schema-less and schema-based Knowledge Graphs. More specifically, a typical KG contains either or both a schema part (terminologies or TBox[1](#page-4-1) ) and a data part (facts, assertions, or ABox). The formal semantics of KGs can be expressed with the OWL ontology language[2](#page-4-2) .

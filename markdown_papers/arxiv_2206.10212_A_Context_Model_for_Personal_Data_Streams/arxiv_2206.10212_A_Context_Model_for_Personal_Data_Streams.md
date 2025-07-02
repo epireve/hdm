@@ -1,7 +1,7 @@
 ---
 cite_key: "supsup2017"
-title: "1 Introduction"
-authors: "Fausto Giunchiglia[0000 −0002 −5903 <sup>−</sup>6150], Xiaoyue Li B[0000 −0002 −0100 −0016] , Matteo Busso[0000 −0002 −3788 <sup>−</sup>0203], and Marcelo Rodas-Britez[0000 −0002 −7607 −7587]"
+title: "A Context Model for Personal Data Streams ?"
+authors: "Fausto Giunchiglia"
 year: 2017
 doi: "10.48550/ARXIV.2205.10123"
 date_processed: "2025-07-02"
@@ -107,6 +107,7 @@ where a function F relates G<sup>a</sup> with Gb, namely, it is associated with 
 We define Location, Sub-location, Event, Sub-event and Generic object as Entity types (etypes), where an entity is anything which has a name and can be distinctly identified via its properties and where, in turn, an etype is a set of entities. Functions and Actions are modeled as Object properties representing the relations among Generic objects. In Table [1,](#page-3-0) we define and provide examples of Spatial, Temporal, External, and Internal data property types as well as of Function and Action object property types.
 
 ![](_page_4_Figure_3.jpeg)
+<!-- Image Description: This image depicts an Entity-Relationship Diagram (ERD) for a data model. It shows entities like *Location*, *Event*, *Object*, and *Human*, with attributes specified for each. Relationships between entities are illustrated, such as "Part of" and "With," along with cardinality. Enumerations (e.g., *ColorEnum*, *GenderEnum*) define attribute value sets. The diagram likely serves to formally define the data structure used within the paper's system or application. -->
 
 <span id="page-4-1"></span>Fig. 1. An example of ETG modeling the situational context.
 

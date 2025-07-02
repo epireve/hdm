@@ -1,7 +1,7 @@
 ---
 cite_key: "qiu2022"
 title: "A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy"
-authors: "Yeqing Qiu, Chenyu Huang, Jianzong Wang, Zhangcheng Huang, Jing Xiao"
+authors: "Jing Xiao"
 year: 2022
 doi: "10.48550/arXiv.2206.03492"
 url: "https://arxiv.org/abs/2206.03492"
@@ -106,6 +106,7 @@ The basic federated GNN framework does not use the graph information from others
 Specifically, DP-FedRec jointly trains a model via four steps as shown in Fig. [1:](#page-4-0) (i) All the clients add noises on the graph data including both weights and edges; (ii) The clients extend the local graph via K-hop extension; (iii) Each client trains the local model on the extended graph and submits the parameters to the server; (iv) The centralized server aggregates the parameters and distributes the updated parameters to all the clients. The process will continue until certain number of rounds is reached.
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a federated learning framework for a recommendation system. Three clients (grocery store, e-commerce, shopping mall) process data locally using data partitioning (DP) and k-hop extension to create graphs. These graphs are fed into Graph Neural Networks (GNNs) generating model parameters (θ₁ θ₂ θ₃). A central server averages these parameters (equation shown) to create a global model. The diagram showcases the data flow and model aggregation process in a federated learning setting. -->
 
 <span id="page-4-0"></span>Fig. 1. Overall framework of DP-FedRec. Each bipartite graph refers to purchasing relationship between user and item in each platform and client. The purple ones are the users in the intersection set of clients' sub-graphs.
 

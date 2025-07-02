@@ -1,7 +1,7 @@
 ---
 cite_key: "mikaelbensonkise2025"
 title: "Digital twins as global learning health and disease models for preventive and personalized medicine"
-authors: "mikael.benson@ki.se"
+authors: "Firoj Mahmud"
 year: 2025
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -12,10 +12,12 @@ images_removed: 0
 ---
 
 ![](_page_0_Picture_3.jpeg)
+<!-- Image Description: The image is a simple banner with a cyan background. On the left, it displays the word "REVIEW" in bold black text, and on the right, "Open Access," also in bold black text. The image likely serves as a header or footer, indicating the open-access status and peer-review nature of the paper. No diagrams, charts, graphs, or equations are present. -->
 
 # Digital twins as global learning health and disease models for preventive and personalized medicine
 
 ![](_page_0_Picture_5.jpeg)
+<!-- Image Description: That image is not a technical illustration or diagram from an academic paper. It's a graphical user interface (GUI) element – a button prompting the user to check for updates. The circular graphic likely indicates a progress or loading state. The text "Check for updates" clarifies its function. It does not present data or technical results, but instead facilitates user interaction with software. -->
 
 Xinxiu Li1 , Joseph Loscalzo2 , A. K. M. Firoj Mahmud<sup>3</sup> , Dina Mansour Aly1 , Andrey Rzhetsky4 , Marinka Zitnik5,6,7 and Mikael Benson1[\\*](http://orcid.org/0000-0002-7753-9181)
 
@@ -50,6 +52,7 @@ Inefective medication is one of the most important healthcare problems. Many pat
 Most diseases, including infammatory, cardiovascular, malignant, and metabolic, can develop for many years, or even decades, before symptoms manifest themselves and
 
 ![](_page_0_Picture_24.jpeg)
+<!-- Image Description: The image is the logo for BMC (BioMed Central), a publisher of open-access scientific journals. It consists of the letters "BMC" in a bold, dark blue sans-serif font. To the left is a smaller square graphic divided diagonally, with one half teal and the other dark blue, suggesting a visual representation of the journal's open access nature or scientific data. The logo serves as a publisher identifier within the academic paper. -->
 
 © The Author(s) 2025. **Open Access** This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativecommons.org/licenses/by/4.0/.](http://creativecommons.org/licenses/by/4.0/)
 
@@ -122,12 +125,14 @@ Tis heterogeneity has important clinical implications: a drug target in one orga
 Te complexity and heterogeneity of diseases calls for systems levels to organize disease-associated changes into DTs on scales ranging from populations to individuals.
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: The image displays ten circular diagrams, labeled "Constellation 1" through "Constellation 10," each representing a cluster of related medical conditions. Each diagram is a stacked bar chart showing the relative frequency of the conditions within that cluster. The conditions are categorized by organ system (e.g., neurological, cardiovascular) and coded by color. The purpose is to visually represent groups of diseases frequently co-occurring in patients, potentially indicating shared underlying mechanisms or etiologies. -->
 
 <span id="page-3-0"></span>**Fig. 1** Disease complexity and heterogeneity in populations and individuals, fgure from [\[63](#page-11-20)]. Disease constellations in a population identifed by analyses of a longitudinal diagnostic registry of 200 million Americans
 
 We propose that analyses of data on population-wide scales, such as those shown in Fig. [1](#page-3-0), can potentially be developed to construct DTs of health and disease processes in whole populations (henceforth referred to as pop-DTs). Since the data and methods to construct pop-DTs have yet to be developed and identifed, an exact defnition of a pop-DT remains to be developed. However, a prototypic defnition could be virtual representations of healthy and sick processes in populations across life spans, as well as their environmental and genetic associations. Te pop-DTs should be continuously updated with relevant data from any relevant data source, such as electronic medical records, quality registries, and environmental and genetic databases. Te pop-DTs should facilitate analyses to identify factors that infuence health and disease to promote health and predict and prevent diseases. Construction and analyses of pop-DTs will involve huge challenges, including fnding relevant data and developing methods to analyze such data. Pop-DTs should ideally describe combinations of
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: This image displays results for two patients (1 and 10). (a, b) show t-SNE plots visualizing cell populations, color-coded and labeled. (c, d) present cell-cell interaction networks, with edge thickness representing Pearson correlation. (e, f) are precision-recall curves comparing the performance of different datasets (approved, clinicaltrials.gov, literature evidence) in identifying top candidate genes. The figure demonstrates a method for analyzing cellular interactions and predicting therapeutic targets. -->
 
 <span id="page-4-0"></span>**Fig. 2**Diferent cellular and molecular constellations in two patients with the same diagnosis, Crohn's disease (CD), fgure from [[37\]](#page-11-4).**a**–**b**scRNA-seq of intestinal biopsies showed that cell type proportions difered between two patients with CD;**c**–**d**multicellular disease models (MCDMs) of disease-associated cell types showed signifcant diferences between the two patients. The MCDMs were constructed by frst identifying upstream regulators (URs) of diferentially expressed genes (DEGs) in any cell type. If such an UR was found in one cell type, a molecular interaction was inferred between that cell type and any cell type harboring the DEGs;**e**–**f** computational ranking of drugs that targeted the MCDMs showed that precision for approved CD drugs among top ranking drug candidates was high for patient 10 but not for patient 1. This prediction agreed with patient 10 responding to approved drugs, but not patient 1
 
@@ -136,6 +141,7 @@ environmental and genetic causes of health or disease. Te underlying data are in
 Indi-DTs translate the same principles to individual patients, but at a greater resolution. Disease-associated changes can be described on multi-organ, -cellulome, and genome-wide scales, as shown in Figs. [2](#page-4-0) and [3.](#page-5-0) Te clinical importance of cellular and molecular resolution lies in that this is needed to fnd biomarkers and drug targets for predictive and preventive treatments. Te
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: This circular chord diagram illustrates the distribution of various cell types across five organs (joint, lung, muscle, skin, spleen) in a mouse model. Colored segments represent organs and cell types. Lines connecting segments show the prevalence of specific cell types within each organ. The diagram visually depicts the interconnectivity of cell populations and their tissue-specific distributions, aiding in understanding cellular heterogeneity across different organs. -->
 
 <span id="page-5-0"></span>**Fig. 3** Multi-organ scRNA-seq analyses of a mouse model of arthritis showed involvement of multiple interconnected organs, not simply joints, fgure from [\[1](#page-10-0)]. The outer circle denotes the analyzed organ, while the inner circle denotes cell types. Lines within the inner circle denote predicted molecular interactions between cell types in each organ. Those predictions were derived from bioinformatically inferring upstream regulators of diferentially expressed genes in diferent cell types, as described in Fig. [2](#page-4-0) [[1\]](#page-10-0)
 
@@ -146,6 +152,7 @@ Such multi-layer networks may be used to analyze the multiple relationships each
 In the next section, we will discuss how networks can be systematically analyzed to prioritize mechanisms for predictive, preventive, and personalized medicine.
 
 ![](_page_6_Figure_6.jpeg)
+<!-- Image Description: The image illustrates a multi-layered disease model (MLDM). (A) shows network construction with nodes representing different molecular layers. (B) depicts an MLDM with layers representing lifestyle factors, environmental factors, symptoms, ncRNA, mRNA, proteins, epigenetics, and SNPs. (C) demonstrates how predictive markers are identified from different layers for personalized treatment. (D) shows personalized treatment, where different individuals receive distinct medications based on their unique biomarker profiles. The figure uses diagrams, illustrating the relationships between different data layers to support personalized medicine. -->
 
 <span id="page-6-0"></span>**Fig. 4**Multi-layer networks to integrate diverse disease-associated variables for personalized treatment.**A**All factors that infuence a disease can potentially be described by networks. For instance, symptoms and signs that frequently tend to co-occur can be grouped into a module that represents a disease (pink oval). That disease module may be associated with corresponding modular changes in proteins (blue oval). Similarly, the disease module may be connected to co-occurring environmental factors (green oval).**B**The modules from**A**can be further subdivided into distinct sub-layers, from which**C**predictive combinations of multimodal variables from the diferent sub-layers can be identifed based on machine learning (ML). For example, a red variable from the symptom's module and a blue variable from any sub-layer of the molecular module.**D**Diferences between such combinations can be used to personalize treatment. MLDM, multilayer disease module; nc-RNA, noncoding ribonucleic acid; PPI, protein–protein interaction; SNPs, single-nucleotide polymorphisms
 

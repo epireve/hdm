@@ -1,7 +1,7 @@
 ---
 cite_key: "khatib2024b"
-title: "Patient-centric knowledge graphs: a survey of current methods, challenges, and applications"
-authors: "Hassan S Al Khatib, et al."
+title: "Patient-Centric Knowledge Graphs: A Survey of Current Methods, Challenges, and Applications"
+authors: "Hassan S. Al Khatib, Subash Neupane, Harish Kumar Manchukonda, Noorbakhsh Amiri Golilarz"
 year: 2024
 doi: "PMC11558794"
 url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11558794/"
@@ -60,6 +60,7 @@ The rest of the paper is organized as follows: Section [II](#page-1-0) explains 
 <span id="page-1-0"></span>The development of knowledge representation has a rich history in the realms of logic and AI. The notion of graphical knowledge representation can be traced back to 1956 when Richens [\[11\]](#page-15-11) introduced the concept of semantic nets. Similarly, symbolic logic knowledge finds its roots in the General Problem Solver [\[12\]](#page-15-12) of 1959. Initially, knowledge bases were employed in knowledge-based systems for reasoning and problem-solving. Notably, MYCIN [\[13\]](#page-15-13), an expert system renowned for medical diagnosis, utilized a knowledge base containing approximately 600 rules. However, it was in 2012 that the concept of Knowledge Graph (KG) gained immense popularity, thanks to Google's search engine and its introduction of the Knowledge Vault framework [\[14\]](#page-15-14). This framework aimed to construct large-scale KGs through knowledge fusion. There is currently no consensus on the definition of the term, with several authors proposing different definitions. Table [I](#page-2-0) illustrates some of these definitions currently available in the literature.
 
 <span id="page-1-1"></span>![](_page_1_Figure_4.jpeg)
+<!-- Image Description: The image is a directed graph illustrating a network. Nodes (V1-V9) represent entities, with larger, gold-colored nodes (V1, V8, V9) potentially indicating a higher importance or different category. Edges, labeled *r1* and *r2*, represent directed relationships between nodes. The graph likely depicts relationships or flows within a system described in the paper, possibly a network flow model or social network analysis. -->
 
 Fig. 1: An example of knowledge graph, where the triplet (v9, r1, v8) serves as an illustration of the link between entities v<sup>9</sup> and v<sup>8</sup> through the relation r<sup>1</sup> and (v8, r2, v1) through r<sup>2</sup> for relation between v<sup>8</sup> and v1.
 
@@ -82,6 +83,7 @@ PCKGs can be linked Personal Knowledge Graphs (PKG), an emerging concept in this
 TABLE I: Various definition of KGs in available literature.
 
 <span id="page-2-1"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This image presents a knowledge graph depicting patient medical information. Nodes represent medical events (visits, diagnoses, tests, prescriptions) and entities (patients, doctors, medications, symptoms, tests). Edges labeled with relationship types (e.g., "HAD_SYMPTOM", "PRESCRIBED") connect the nodes. Four central nodes (V1, V2, V3, V4) likely represent patient visits or encounters. The graph visualizes the connections between various aspects of a patient's medical history within a specific timeframe. -->
 
 Fig. 2: Illustration of Patient's Clincal Visits Knowledge Graph
 *general, importance. The graph has a particular "spiderweb" layout, where every node in the graph is connected to one central node: the user"*. Within the scope of this definition, the PKG only incorporate knowledge pertinent to the specific user.
@@ -107,6 +109,7 @@ The second category involves the evaluation of the PCKG, emphasizing the need to
 The final category of the our taxonomy relates to *application*of PCKG in healthcare domain. We explore four primary healthcare use cases, encompassing*recommending individualized interventions, clinical trials, predicting disease before onset, and others.*The first one personalizes patient care treatments based on insights extracted directly from the graph. While the second application aims to enhance the efficiency of*Clinical Trials*, aiding in developing trial designs or optimizing patient selection. On the other hand, a particularly innovative application is *Predicting Disease Before Onset*, where the complex patterns and relationships mapped in the graph can be harnessed to proactively detect potential health issues. Although these are highlighted applications, the potential of
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates the development and application of patient-centric knowledge graphs (KGs). It details the construction phase (ontology, knowledge sources, extraction, and representation) and evaluation (qualitative and quantitative assessment). The process phase includes reasoning, semantic search, and inference. Finally, it shows the healthcare applications, including personalized interventions, disease prediction, and enhanced clinical trials. The flowchart systematically depicts the KG creation and use in diverse healthcare contexts. -->
 
 Fig. 3: Proposed Taxonomy of Patient-Centric Knowledge Graph
 
@@ -123,6 +126,7 @@ Throughout this section, we explore the complex processes and methodologies invo
 *a) Design:*The growing digitization of healthcare data and the proliferation of medical information need effective and structured methods of representing and managing patientcentric knowledge. Ontologies as formal representations of knowledge, play a critical role in supporting interoperability, data integration, and decision support [\[41\]](#page-16-24), in healthcare systems. In the context of PCKGs, ontology design is a fundamental process that involves defining and modeling the important entities, connections, and features related to patient health and treatment. Figure [4](#page-5-0) provides an example of a patient's ontology. Authors in [\[42\]](#page-16-25) argue that the rationale behind ontology development is to aid in a shared understanding of information structure among people or software agents, facilitate the reuse of domain knowledge, make domain assumptions explicit, separate domain knowledge from operational knowledge, and analyze domain knowledge. However, there is not standard methodology [\[43\]](#page-16-26) or no single correct way of formulating ontology [\[42\]](#page-16-25).
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image displays an ontology graph representing relationships in a medical domain. Nodes represent concepts (e.g., Patient, Doctor, Diagnosis) and edges represent relationships. `owl:Thing` serves as the root class. Different colored dashed lines likely denote various relationship types between entities, illustrating how these medical concepts are interconnected within the knowledge representation. The graph visualizes the structure and relationships for a medical knowledge base or reasoning system. -->
 
 Fig. 4: Illustration of a Basic Patient's Ontology
 
@@ -143,6 +147,7 @@ Together, these diverse yet interconnected research efforts paint a comprehensiv
 *2) Knowledge Sources:*PCKGs are complex structures that integrate diverse data sources, as illustrated in Fig [5,](#page-6-0) in order to offer a comprehensive perspective on a patient's medical past, present ailments, and prospective therapies. The extent of the depth of a PCKG is contingent upon the diversity and quality of the data sources that contribute to its composition. The sources can be classified into three main categories: structured, semi-structured, and unstructured data.
 
 <span id="page-6-0"></span>![](_page_6_Figure_3.jpeg)
+<!-- Image Description: The image is a diagram illustrating a medical and healthcare database. The central database receives input from various sources, including biomedical research data, medical imaging and lab reports, omics data, patient portal and administrative data, electronic health records, medical literature, and government agencies' data. Mobile and wearable fitness device data is also integrated. The diagram visually represents the data integration process within a healthcare system. -->
 
 Fig. 5: Diverse Sources of Medical and Healthcare Data
 *a) Structured Data:*Structured data is organized and easily searchable in relational databases. It follows a specific schema or model, making it straightforward to query and analyze. Structured healthcare data, integral to PCKGs, is exemplified by*EHRs, lab results and dagnostics*, and *genomic and molecular data*. *EHRs*, as digital records of a patient's medical history, encompass diagnoses, medications, treatment plans, and vital statistics, providing a highly structured backbone for PCKGs. Transitioning to *lab results and diagnostics*, this category includes structured, numerical, or categorical data from blood tests, imaging studies (like X-rays, MRIs), and other diagnostic tests, facilitating their integration into PCKGs. Lastly, *genomic and molecular data*, derived from genetic tests, offer structured insights into a patient's disease predisposition, proving essential for the advancement of personalized medicine. Collectively, these structured data forms are key in healthcare analytics and personalized treatment planning.

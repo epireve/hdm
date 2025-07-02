@@ -1,7 +1,7 @@
 ---
 cite_key: "ding2024b"
 title: "Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs"
-authors: "Zifeng Ding, Jingcheng Wu, Jingpei Wu, Yan Xia, Bo Xiong, Volker Tresp"
+authors: "Jingpei Wu, Yan Xia"
 year: 2024
 doi: "10.18653/v1/D19-1522)"
 url: "https://aclanthology.org/2024.findings-emnlp.20/"
@@ -51,6 +51,7 @@ Stemming from traditional knowledge graphs (KGs), hyper-relational KGs (HKGs) pr
 Traditional knowledge graphs (KGs) represent world knowledge by storing a collection of facts in the form of triples. Each KG fact can be described as (s, r, o), where s, o are the subject and object entities of the fact and r denotes the relation between them. On top of traditional triple-based KGs, hyperrelational KGs (HKGs) are designed to introduce additional information into each triple-based fact (also known as primary triple in HKGs) by incorporating a number of key-value restrictions named as qualifiers [\(Zhang et al.,](#page-11-0) [2018;](#page-11-0) [Guan et al.,](#page-9-0) [2019;](#page-9-0)
 
 <span id="page-0-2"></span>![](_page_0_Figure_17.jpeg)
+<!-- Image Description: This image from an academic paper presents two examples of hyper-relational knowledge graphs. (A) depicts Albert Einstein's education, showing his Bachelor's in Mathematics from ETH Zurich and his Doctorate in Physics from the University of Zurich. (B) illustrates Ang Lee's nominations for the Academy Award and European Film Award for Best Non-European Film for "Brokeback Mountain" in 2006 and 2005, respectively. Each example uses nodes (images and text) and edges to represent relationships, demonstrating the structure of hyper-relational knowledge graph facts (KG and TKG). -->
 
 Figure 1: Examples of HKG (A) and HTKG (B) facts. Contents inside dashed line squares denote qualifiers. We also provide another example of HTKG fact showcasing diverse sets of qualifiers in App. [A.](#page-12-0)
 
@@ -153,6 +154,7 @@ $$
 w ∈ R d is a trainable parameter. h˜<sup>ζ</sup> qi [j] denotes the j th element of h˜<sup>ζ</sup> qi . a<sup>i</sup> is an attention vector,
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image presents two diagrams illustrating a model for temporal knowledge graph reasoning. The left diagram details an "Element-Wise Attention" mechanism incorporating temporal and time-invariant knowledge via attention weights (γ, β) and weighted sums. The right diagram shows the overall architecture, processing a knowledge graph query through qualifier-wise, time-invariant-wise, and query-wise transformers, culminating in a final score. Both diagrams use boxes to represent different processing stages and arrows to denote data flow. Equations and symbols depict the mathematical operations within each stage. -->
 
 (a) Qualifier-attentional time-aware graph encoder (QATGE). (b) Qualifier matching decoder (QMD).
 
@@ -311,6 +313,7 @@ ponents of HypeTKG. In study A (Variant A), we neglect the qualifiers in all HTK
 Table 4: Ablation studies. Q means qualifier.
 
 <span id="page-6-5"></span>![](_page_6_Figure_11.jpeg)
+<!-- Image Description: The image presents a line graph comparing the performance of two knowledge graph embedding methods, Wiki-hy and YAGO-hy, across varying qualifier ratios. It plots Mean Reciprocal Rank (MRR) and Hits@3, both measures of ranking accuracy. Solid lines represent MRR, dashed lines Hits@3, with green for Wiki-hy and red for YAGO-hy. The graph shows that performance generally improves with increasing qualifier ratio for both methods and metrics. -->
 
 Figure 3: HypeTKG performance with a varying ratio of used qualifiers.
 
@@ -438,6 +441,7 @@ This work has been funded by the Munich Center for Machine Learning and supporte
 We provide an additional HTKG fact highlighting the diversity of qualifiers within distinct temporal facts happening at the same timestamp (Fig. [4\)](#page-12-4). The two awards *Al Gore*received in*2007*can be differentiated considering the coupled qualifiers.
 
 <span id="page-12-4"></span>![](_page_12_Figure_3.jpeg)
+<!-- Image Description: The image is a timeline showing Al Gore's 2007 Nobel Peace Prize and Primetime Emmy Award. Circular icons represent the Nobel medal and Emmy statuette, with Gore's photo in the center. Connecting lines and text indicate the year and reason for each award: the Nobel Prize was shared with the Intergovernmental Panel on Climate Change, while the Emmy recognized Gore's work on "Current TV." The timeline visually links Gore's achievements in environmental advocacy and media. -->
 
 Figure 4: Additional example of HTKG fact.
 

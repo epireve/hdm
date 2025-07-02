@@ -1,7 +1,7 @@
 ---
 cite_key: "cities2023"
 title: "Secure Federated Learning With Fully Homomorphic Encryption for IoT Communications"
-authors: "*Index Terms***—Cognitive cities, federated learning (FL), homomorphic encryption (HE), Internet of Things (IoT), security.**"
+authors: "Fakhri Karray"
 year: 2023
 doi: "10.1109/JIOT.2023.3302065"
 date_processed: "2025-07-02"
@@ -81,6 +81,7 @@ evaluations show that the proposed scheme meets security requirements and improv
 <span id="page-2-5"></span>The proposed approach leverages the security of public key cryptography and the encrypted model weight aggregation to maintain the privacy and security of the users' data and model parameters. The general approach is illustrated in Fig. [1.](#page-3-0) The general approach serves as the baseline methodology. In this scenario, each user initiates the training process by utilizing their respective local data sets and training their local models. These model weights are subsequently encrypted to ensure privacy and security. Users then transmit their encrypted weight updates directly to a centralized server. Upon receiving the encrypted weight updates from the users, the centralized server performs an aggregation process to combine and consolidate these updates.
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a federated learning system for IoT devices. Multiple IoT devices (e.g., cameras, routers) locally train models on their data, producing encrypted weight matrices. These encrypted matrices are aggregated using a formula (shown) to create a global encrypted model, preserving data privacy. The illustration shows the process within a city setting, with devices located in various locations like malls, hospitals, and banks. -->
 
 Fig. 1. Overview of the general approach.
 
@@ -125,6 +126,7 @@ In the last approach, the users are initially clustered into groups. Each user t
 *f*(*U*,*K*) = {*C*1,*C*2,...,*CK*}, *Ci* = {*U*1, *U*2,..., *Up*}. In the local training phase, each user uses the current global model parameters *GM*\_θ (0) as the starting point to train their current local model *LM*\_θ*i*(*t*) on *Di*using
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning system with encrypted model aggregation. Multiple IoT devices in clusters train local models on their data. These local models' encrypted weight matrices are aggregated into a global encrypted model. This encrypted model is then decrypted to produce an unencrypted global weight matrix, which is used to update the local models. The equation (1/n)Σ shows the averaging of local models. The diagram's purpose is to visually depict the secure aggregation process in the context of the paper. -->
 
 Fig. 2. Overview of the OUCM approach.
 
@@ -152,10 +154,12 @@ $$
 After receiving the updated global model parameters*GM*\_θ (*t*+ 1), the user decrypts them and utilizes the updated weights to update its local model for the
 
 ![](_page_4_Figure_12.jpeg)
+<!-- Image Description: The image is a system diagram illustrating a federated learning framework for IoT devices. It shows multiple clusters of IoT devices (e.g., smartphone, camera, router) each training local encrypted models. These encrypted local models are aggregated using the formula `1/m Σ`, where 'm' is the number of clusters, to create a global encrypted model. The diagram uses icons representing encrypted data and models, showcasing the secure nature of the proposed system. The encrypted weight matrix is a central element, highlighting the aggregation process for privacy-preserving model training. -->
 
 <span id="page-4-1"></span><span id="page-4-0"></span>Fig. 3. Overview of the OECM approach.
 
 ![](_page_4_Figure_14.jpeg)
+<!-- Image Description: The image is a flowchart depicting a federated learning system with encrypted model aggregation. Multiple IoT device clusters (e.g., cluster 1, m) train local models on their data. These local models' encrypted weight matrices are aggregated using a formula (1/n * Σ), resulting in a global encrypted model. The process involves encrypting and decrypting weight matrices within each cluster before final aggregation. The diagram illustrates the workflow and data flow of this secure federated learning approach. -->
 
 Fig. 4. Overview of the MUCM approach.
 
@@ -171,6 +175,7 @@ The cluster matrices*CMr*are first encrypted using the FHE algorithm before bein
 *GM*\_θ (*t* + 1) = (1/*N*) -*Enc*\_*CMr*, which are returned to all users. Finally, after receiving the updated global model parameters from the server, each user decrypts the weights and updates their local model accordingly,
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a federated learning system with encrypted model aggregation. Multiple IoT devices in clusters (1 and m) train local models on their data. Encrypted weight matrices from each cluster are aggregated using a formula (1/l * Σ), resulting in a global encrypted model. The diagram visually represents the process of secure distributed model training, highlighting data and model encryption at each stage. -->
 
 Fig. 5. Overview of the MECM approach.
 
@@ -320,6 +325,7 @@ TABLE III BASELINE PERFORMANCE RESULTS
 | $I$ <sub>o</sub> $T5$  | 0.998    | 0.998  | 1.000     | 0.999    | 0.010 | 168.522       |
 
 ![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph comparing latency (in seconds) across five IoT devices (IoT_1 to IoT_5) for five different cloud computing models: BL, OUC, OECM, MUCM, and MECM. Each line represents a model, showing its latency performance across the different IoT devices. The graph's purpose is to illustrate and compare the latency characteristics of the various cloud models within the context of IoT device deployment. -->
 
 Fig. 6. Average latency of IoT devices.
 
@@ -330,6 +336,7 @@ We evaluated the effectiveness of the four proposed approaches by measuring vari
 1)*Baseline Approach:*In this scenario, the users directly send their own encrypted weight updates to a centralized server. The server then aggregates the updated weights from the users to update the global model parameters, which are returned to the users in order to update their local models accordingly. Table [III](#page-7-0) shows the performance results of this approach. The table reports the accuracy, recall, precision, F1-score, loss, and latency (in seconds) for five IoT devices. The results show that the accuracy ranges from 0.996% to 0.998%, which indicates that the baseline approach performs well in terms of accuracy. All devices achieved high recall and precision, resulting in high F1-scores. Additionally, the loss values for all devices remain consistently low, indicating that the model is effectively optimized across the participating devices. Figs. [6](#page-7-1) and [7](#page-7-2) present the latency and communication overhead, respectively. The communication overhead is relatively high, requiring a total of 104 MB of data to be transmitted between the server and users. Furthermore, the latency ranges from
 
 ![](_page_7_Figure_9.jpeg)
+<!-- Image Description: The bar chart displays memory overhead (MB) for five communication approaches: BL, OUCM, OECM, MUCM, and MECM. BL shows significantly higher overhead (104.027 MB) than the others, which have overheads under 3 MB. The chart likely compares communication efficiency among different methods within the paper. -->
 
 <span id="page-7-3"></span>Fig. 7. Average overhead of IoT devices.
 
@@ -385,6 +392,7 @@ TABLE VII MECM PERFORMANCE RESULTS
 | IoT 5                 | 0.998    | 0.998  | 1.000     | 0.999    | 0.010 | 169.296      |
 
 ![](_page_8_Figure_10.jpeg)
+<!-- Image Description: This bar chart compares security costs (y-axis) across five IoT devices (x-axis) using five different security mechanisms: BL, OUCM, OECM, MUCM, and MECM. Each bar represents the security cost for a specific mechanism on a given IoT device. The chart illustrates the varying security costs associated with different mechanisms and their performance across different IoT devices. The purpose is to demonstrate the relative cost-effectiveness of the various security methods. -->
 
 Fig. 8. Security cost.
 

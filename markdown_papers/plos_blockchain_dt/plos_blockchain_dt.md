@@ -1,7 +1,7 @@
 ---
 cite_key: "s2024"
 title: "OPEN ACCESS"
-authors: "**Citation:** Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J, et al. (2024) Blockchain-secure patient Digital Twin in healthcare using smart contracts. PLoS ONE 19(2): e0286120. [https://doi.](https://doi.org/10.1371/journal.pone.0286120) [org/10.1371/journal.pone.0286120](https://doi.org/10.1371/journal.pone.0286120)"
+authors: "Citation:Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J"
 year: 2024
 doi: "10.1371/journal.pone.0286120)"
 date_processed: "2025-07-02"
@@ -52,6 +52,7 @@ destructive experiments which may not be permitted in the physical world due to 
 However, Digital Twins raise difficult questions regarding security and privacy [\[5\]](#page-25-0). The data connection between the patient and the Digital Twin creates the computational model of the patient's condition(s). Inevitably, without adequate security, inaccurate data input to the Digital Twin can have serious consequences for the patient since his/her treatment may be based on the output the Digital Twin demonstrates. Additionally, unauthorized access to the Digital Twin can reveal compromising details about the patient that may cause long-term damage to their reputation with adverse financial consequences. Hence, it is critical to demand guarantees on the security of the Digital Twin and also to restrict the information it provides when queried. This research proposes a mechanism to handle four key research points: access control, interaction, privacy, and security of the Digital Twin. The need for secure data, reliable storage, trusted computing and other cooperative mechanisms with mutually beneficial interactions can be addressed using the blockchain [\[6–9\]](#page-25-0) where a network of institutions and users collaborate to share data, collectively confer consensus-based validity on transactions, and
 
 ![](_page_1_Figure_7.jpeg)
+<!-- Image Description: The figure depicts a blockchain-like structure illustrating Digital Twin instances from multiple data sources. Document icons represent data sources sequentially feeding into blocks. Each block contains a "PrevHash," "Nonce," and multiple transactions. Blocks are linked, showing the chaining of data through "PrevHash," illustrating a sequential data flow and potentially indicating a distributed ledger system. -->
 
 <https://doi.org/10.1371/journal.pone.0286120.g001>
 
@@ -162,6 +163,7 @@ The blockchain is a linked-list data structure and a consensus protocol initiall
 - **Immutability of Records**: Since a complete medical history is critical to the treatment, the blockchain can be used to create and sustain a distributed, immutable ledger of Digital Twin instances for the patient. This guarantees access to health records for caregivers in multiple institutions while ensuring that appending data to patient Digital Twin instances cannot be
 
 <span id="page-7-0"></span>![](_page_7_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a system architecture for managing patient data across multiple hospitals using blockchain technology. It shows data flowing from patients to hospitals, then to a data management module for collection and analytics. The processed data is stored on a blockchain, with a query system providing access control via smart contracts and authentication. Finally, a separate offline storage layer maintains patient digital twin instances, mirroring data across hospitals. The diagram visually depicts data flow and interaction between various components, clarifying the system’s layered design. -->
 
 **[Fig](#page-6-0) 2. A visual representation of transactions on the blockchain.**<https://doi.org/10.1371/journal.pone.0286120.g002>
 
@@ -176,11 +178,14 @@ We include the blockchain in our research to fully take advantage of the Smart C
 This section presents an overview of the proposed blockchain-secure patient Digital Twin system using smart contracts. [Fig](#page-9-0) 4 shows the overall system architecture. The proposed system has several entities, including the data owner (patient), data users (hospitals), and the system itself, which includes data management, query system, and blockchain network. These entities
 
 ![](_page_8_Figure_7.jpeg)
+<!-- Image Description: The bar chart displays ciphertext size (in bytes) against the number of identities for different cryptographic schemes. It compares the ciphertext size of "our" method against several existing methods ([36], [37], [38], [28], [39]). The chart shows that the "our" method generally produces smaller ciphertexts, particularly as the number of identities increases. The comparison highlights the efficiency improvement achieved by the proposed scheme. -->
 **Fig 3. A conceptual overview of the Digital Twin as a construct of smart contracts.**<https://doi.org/10.1371/journal.pone.0286120.g003>
 
 <span id="page-9-0"></span>![](_page_9_Figure_2.jpeg)
+<!-- Image Description: Figure 4 illustrates a system architecture for a patient Digital Twin. A diagram shows a patient (black figure) providing data and receiving insights. This information feeds into a "Medical Profile" block containing Electronic Medical Records, Electronic Health Records, and Data Analytics. A model generates a light-blue figure representing the Digital Twin, updated over time ("Twin Instanceᵢ", "Twin Instanceₙ"). The diagram depicts data flow and the creation of multiple twin instances across time. -->
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: The image contains a Digital Object Identifier (DOI). Specifically, it shows "https://doi.org/10.1371/journal.pone.0286120.g004", which serves as a persistent link to access a specific figure (g004) within a research article published in PLOS ONE. The DOI facilitates easy retrieval of the referenced figure from online databases. -->
 
 work together to ensure seamless interactions and secure data sharing among the components of the system. Below is a brief description of the system entities and their functions:
 
@@ -191,6 +196,7 @@ work together to ensure seamless interactions and secure data sharing among the 
 - 5. **Data Management**: This component presents an interface for participating hospitals to provide data on patients. It receives patient data from the hospitals and assigns it to the respective Digital Twin after performing preliminary analytics to check for new content for updating the patient Digital Twin. It has three modules: Data Collection, Analytics, and
 
 ![](_page_10_Figure_2.jpeg)
+<!-- Image Description: Figure 5 is a flowchart illustrating a system architecture for managing patient digital twins on a blockchain. A patient's data undergoes authentication and access control via smart contracts. Multiple digital twin instances (H<sub>i</sub>, H<sub>n</sub>) are shown, with a master twin, all stored on the blockchain represented as interconnected blocks. The diagram depicts data flow from patient to digital twin instances and interactions between doctors and the system via requests and replies. -->
 
 <https://doi.org/10.1371/journal.pone.0286120.g005>
 
@@ -236,8 +242,10 @@ $$
 Here, we provide the details on how a patient digital twin is created. First, in Algorithm 1, a smart contract is deployed by the private key generator. It has to authorize a hospital before it uses Algorithm 2 to create an instance of the patient digital twin. Patients provide data to hospital data management platforms, as shown in the overall system architecture in [Fig](#page-9-0) 4. To create the digital twin, one first provides a list of data sources that can later be updated. Ideally, these are hospital databases that host detailed patient data and online storage platforms for Personal Health Records from wearable sensors and other devices. A patient may have a digital twin for each unique condition such as disease progression, an organ, the whole body, etc.
 
 ![](_page_12_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a contractual framework for digital twins. "Digital Twin Contracts" are central, branching into "Data Contracts" and "Services Contracts". Data contracts further subdivide into contracts for contribution, storage, and requests. Service contracts encompass registration and access contracts. The diagram depicts the relationships between different types of contracts needed to manage a digital twin system. -->
 
 ![](_page_12_Figure_4.jpeg)
+<!-- Image Description: Figure 6 is a caption describing a missing visual representation of a patient Digital Twin. The caption states that the missing figure is a visual depiction of the data request and response process within the Digital Twin framework. No diagram, chart, graph, or equation is present in the provided image; only the caption. -->
 
 <https://doi.org/10.1371/journal.pone.0286120.g006>
 
@@ -595,12 +603,15 @@ We assume the presence of a sensor that can transmit continuous physiological da
 <https://doi.org/10.1371/journal.pone.0286120.t004>
 
 <span id="page-21-0"></span>![](_page_21_Figure_2.jpeg)
+<!-- Image Description: The bar chart displays ciphertext size (in bytes) versus the number of identities for different encryption schemes ([36], [37], [38], [28], [39]) and a new ("our") method. It compares the ciphertext size performance of various methods as the number of identities increases, showing that the proposed method generally produces smaller ciphertexts. -->
 **[Fig](#page-20-0) 7. Signcryption.**<https://doi.org/10.1371/journal.pone.0286120.g007>
 
 ![](_page_21_Figure_5.jpeg)
+<!-- Image Description: The bar chart displays ciphertext size (in bytes) against the number of identities for different encryption schemes ([36], [37], [38], [28], [39]) and a new ("our") scheme. It compares the ciphertext size performance of various schemes as the number of identities increases, showing a generally linear increase in ciphertext size with the number of identities for all schemes. The purpose is to demonstrate the efficiency and scalability of the authors' proposed encryption scheme compared to existing methods. -->
 **[Fig](#page-20-0) 8. Unsigncryption cost.**<https://doi.org/10.1371/journal.pone.0286120.g008>
 
 <span id="page-22-0"></span>![](_page_22_Figure_2.jpeg)
+<!-- Image Description: This bar chart displays the gas cost (in Wei) for different components of digital twin smart contracts on a blockchain. The components are contribution, storage, request, registration, and access. Contribution has the highest cost, while request has the lowest. The chart illustrates the varying computational costs associated with each smart contract function. -->
 
 <https://doi.org/10.1371/journal.pone.0286120.g009>
 
@@ -611,14 +622,17 @@ For the experiment, we used the Ropsten Test Environment to test several smart c
 Smart contracts-based patient digital twins can effectively and economically automate patient activities in healthcare considering the current high costs. For example, with the Data Contracts that manage data acquisition and sharing tasks, we measured a total deployment cost of 1308303 Wei on Ethereum, which amounts to about \$2.6153, a competitive amount for accessing healthcare. Figs [10](#page-23-0) and [11](#page-23-0) present the costs of deploying smart contracts in dollars and in Wei while [Fig](#page-24-0) 12 shows the cumulative latency for increasing numbers of user requests. Thus, the aggregate latency for 200 requests in the scheme is 1600 seconds, i.e., 8 seconds per request. The average block confirmation time was approximately 11.7 seconds. The low costs of transactions in both time and monetary terms coupled with our system's provable security make it an effective tool for health data sharing. Even in the unlikely event of a dispute, the immutable records and timestamped transactions provide sufficient input for fault tracing and effective resolution.
 
 <span id="page-23-0"></span>![](_page_23_Figure_2.jpeg)
+<!-- Image Description: The bar chart displays the cost of four component smart contracts within a digital twin system: contribution, storage, request, and access. Contribution and access have the highest costs (around $1.2 and $1.1 respectively), while request shows the lowest (approximately $0.4). The chart illustrates the relative expense of each contract type in the context of the paper's discussion on digital twin architecture. -->
 **[Fig](#page-22-0) 10. Smart contracts costs in wei.**<https://doi.org/10.1371/journal.pone.0286120.g010>
 
 Researchers have conducted studies on the use of blockchain in healthcare, focusing on secure data sharing. Most research emphasize the blockchain properties of immutable transactions and distributed storage. None have considered hosting a collection of smart contracts to act as a data-sharing agent on behalf of the patient, as proposed in this research. Hospitals' data sharing requirement for patient care makes our proposed smart contracts-based patient digital twin a necessary addition to healthcare innovation. Thus, we compare our proposed system to blockchain-based health data-sharing papers, each of which has been cited more than 200 times. The comparison is made in [Table](#page-24-0) 5.
 
 ![](_page_23_Figure_6.jpeg)
+<!-- Image Description: The bar graph displays the relationship between user requests and latency. The x-axis represents the number of user requests (200, 400, 600, 800, 1000), and the y-axis shows latency in seconds. The graph demonstrates a positive correlation: as the number of user requests increases, latency increases significantly, showing a nearly exponential growth pattern. The purpose is to illustrate the performance impact of increasing user load. -->
 **[Fig](#page-22-0) 11. Smart contracts costs in US dollars.**<https://doi.org/10.1371/journal.pone.0286120.g011>
 
 <span id="page-24-0"></span>![](_page_24_Figure_2.jpeg)
+<!-- Image Description: Figure 12 depicts a system architecture diagram. A patient icon inputs data and receives insights from a "Medical Profile" block containing Electronic Medical Records, Electronic Health Records, and Data Analytics. This profile generates a model which produces multiple "Twin Instance" outputs (data, time). The figure illustrates the system's data flow and likely aims to explain system latency in relation to the number of requests processed. -->
 **[Table](#page-23-0) 5. Comparison of our work with other frameworks for blockchain health data sharing.**| Metrics                     | [36] | [37] | [38] | [28] | [39] | Ours |
 |-----------------------------|------|------|------|------|------|------|
 | Blockchain-based            | N    | N    | N    | Y    | N    | Y    |

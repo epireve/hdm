@@ -1,7 +1,7 @@
 ---
 cite_key: "szekelysupsup2014"
 title: "Building and Using a Knowledge Graph to Combat Human Trafficking"
-authors: "Pedro Szekely<sup>1</sup> , Craig A. Knoblock<sup>1</sup> , Jason Slepicka<sup>1</sup> , Andrew Philpot<sup>1</sup> , Amandeep Singh<sup>1</sup> , Chengye Yin<sup>1</sup> , Dipsy Kapoor<sup>1</sup> , Prem Natarajan<sup>1</sup> , Daniel Marcu<sup>1</sup> , Kevin Knight<sup>1</sup> , David Stallard<sup>1</sup> , Subessware S. Karunamoorthy<sup>1</sup> , Rajagopal Bojanapalli<sup>1</sup> , Steven Minton<sup>2</sup> , Brian Amanatullah<sup>2</sup> , Todd Hughes<sup>3</sup> , Mike Tamayo<sup>3</sup> , David Flynt<sup>3</sup> , Rachel Artiss<sup>3</sup> , Shih-Fu Chang<sup>4</sup> , Tao Chen<sup>4</sup> , Gerald Hiebel<sup>5</sup> , and Lidia Ferreira<sup>6</sup>"
+authors: "Pedro Szekely, Craig A. Knoblock, Jason Slepicka, Andrew Philpot, Amandeep Singh, Chengye Yin, Dipsy Kapoor, Prem Natarajan, Daniel Marcu, Kevin Knight, David Stallard, Subessware S. Karunamoorthy, Rajagopal Bojanapalli, Steven Minton, Brian Amanatullah, Todd Hughes, Mike Tamayo, David Flynt, Rachel Artiss, Fu Chang, Tao Chen, Gerald Hiebel, Lidia Ferreira"
 year: 2014
 doi: "10.1007/s00778-008-0098-x"
 date_processed: "2025-07-02"
@@ -61,6 +61,7 @@ Building a knowledge graph to effectively support these types of scenarios requi
 No agreement on APIs or schemas: Our team is part of a large consortium of over 15 organizations funded to develop "domain-specific search and indexing" technology and applying it to address the human trafficking challenge. Different organizations focus on different aspects of the problem, crawling, extraction, knowledge-graph creation, query, analytics and visualization. Needless to say, it
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image is a graph illustrating relationships between online advertisements (Ad1, Ad2, Ad3). Nodes represent ads, locations (Miami, Orlando, Sacramento), names (Kitty, Yuyu), phone numbers, emails, and images. Edges, colored green and red, show connections; green indicates attributes associated with ads, while red represents text (0.9 similarity) and image (0.8 similarity) comparisons between ads. The graph visually depicts the similarity and connections between seemingly unrelated advertisements based on shared attributes. -->
 
 Fig. 2. Example knowledge graph
 
@@ -83,6 +84,7 @@ In this section we describe our overall approach to building knowledge graphs. W
 Data acquisition requires finding relevant pages and extracting the required information from those pages. DIG uses Apache Nutch (nutch.apache.org) to support crawling at scale. Nutch offers a RESTful configuration interface that makes it easy to specify the URL patterns to be crawled, to monitor crawling
 
 ![](_page_4_Figure_8.jpeg)
+<!-- Image Description: This flowchart illustrates a knowledge graph construction pipeline. It depicts data acquisition (crawling and extraction), mapping to ontologies (schema.org and geonames), entity linking and similarity checks, knowledge graph deployment to ElasticSearch and a Graph DB, and finally, query and visualization. Nodes and edges represent the data transformations at each stage. The final output is a visualized query result from the knowledge graph. -->
 
 Fig. 3. Architecture for building a knowledge graph
 
@@ -135,6 +137,7 @@ The main benefit of our ontology is that all the information about a node or an 
 ```text
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image displays a graph-based visualization of data from a JSON file ("ads-sample.json"). Nodes represent entities (e.g., WebPage, PhoneNumber, FeatureCollection) and edges represent relationships (e.g., `wasDerivedFrom`, `hasFeatureCollection`). Below the graph, a table shows data instances linked to the nodes, with bar charts indicating data counts for specific URIs. The figure illustrates the data structure and relationships within the JSON file, likely to demonstrate the application of a knowledge representation or data integration method. -->
 
 Fig. 4. Screenshot of Karma showing data extracted from escort ads and the associated model of this source for phone numbers
 

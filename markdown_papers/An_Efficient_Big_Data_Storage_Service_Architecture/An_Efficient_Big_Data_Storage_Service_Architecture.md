@@ -1,6 +1,6 @@
 ---
 cite_key: "an_efficient_big_data_storage_"
-title: "\\$Q(IILFLHQW%LJ'DWD6WRUDJH6HUYLFH\\$UFKLWHFWXUH"
+title: "\$Q(IILFLHQW%LJ'DWD6WRUDJH6HUYLFH\$UFKLWHFWXUH"
 date_processed: "2025-07-02"
 phase2_processed: true
 original_folder: "An_Efficient_Big_Data_Storage_Service_Architecture"
@@ -65,6 +65,7 @@ The basic architecture of big data storage service based on Ceph is shown in Fig
 When managing user data, Hadoop or Fuse clients reach the gateway through the HTTP protocol, transform S3 protocol into an interface that directly calls the storage system and perform the function of accessing objects. When using S3 clients, the underlying S3 storage can be called using the file system, of which each layer logic is represented by a directory of files. When receiving the corresponding command sent by
 
 ![](_page_2_Figure_6.jpeg)
+<!-- Image Description: This diagram illustrates the architecture of a storage system. It shows data flow from various clients (object clients like SwiftClient and file system clients like Hadoop) through different layers: a libRGW API, RGW functional and performance layers, a libcephfs interface layer, an RGW interface layer, and finally, to a unified storage pool (RADOS). Each layer is depicted as a box containing functional components (e.g., user, bucket, object functions). The diagram details the interaction between these components and clarifies the system's layered design. -->
 
 Fig.1 Big data storage service architecture based on object storage
 
@@ -81,6 +82,7 @@ CTDB is a lightweight cluster database that can manage node members, performs re
 communicate with each other and their corresponding virtual IP is reallocated under the CTDB mechanism. For example, when the*radosgw*corresponding to the virtual IP node  $(100.10.1.2)$  fails, it will be migrated to the first node. Below, we will describe the key technologies of the architecture in detail.
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates an IP address redistribution mechanism. Initially, three IP addresses (100.10.1.1, 100.10.1.2, 100.10.1.3) are allocated to three RadosGW instances. One RadosGW is deactivated (indicated by an "X"). The CTDB mechanism then redistributes the IP addresses of the deactivated instance to a remaining RadosGW instance, combining 100.10.1.1 and 100.10.1.2 into a single instance. The final state shows two active RadosGW instances, one with two IP addresses, and one with a single IP address. -->
 
 Fig.2 Object storage system based on multi-gateways
 
@@ -112,12 +114,14 @@ Step 6 Return the target data in the object storage system to the end user.
 This paper realizes high availability of the architecture through CTDB cluster database. First, start the*radosgw*process of the object storage gateway on all monitoring nodes of the Ceph cluster. Second, install and configure the CTDB cluster on all
 
 ![](_page_3_Figure_18.jpeg)
+<!-- Image Description: This diagram illustrates a distributed object storage system architecture. Two nodes, each containing a RGW (RADOS Gateway) and a CTDB (Cluster-wide Time-ordered Database), exchange Tdb metadata (messages) for data consistency. User data is stored on local disks and managed via metadata exchange. The system incorporates split-brain prevention mechanisms via metadata messaging between the CTDBs. The diagram shows data flow and interaction between components within the object cluster file system. -->
 
 Fig. 3. Transparent access flowcharts
 
 MON nodes. Third, utilize the CTDB to manage the object storage gateway for high availability of the object storage gateway. The relationship between the CTDB and the object storage service cluster is shown in Fig.4. In the figure, a CTDB daemon,*ctdbd*, is running on each cluster node. When the object gateway service (M) receives a command of storing data, it does not write data directly to its database, but interacts with its *daemon-ctdbd*. The *daemon* can interact with the metadata in the database over the network. During this process, the ctdb daemon process handles events through epoll and checks the status of each node through running the monitoring script regularly. When the state of RGW gateway is abnormal, the corresponding process is performed. In addition, the ctdb recovered process also periodically queries the ctdb daemon for system status. When the RGW gateway needs to be repaired, the election process is initiated to select the repair node. After the election, start the repair process on the selected repair node, and inform all nodes to enter the repair state, repair Tdb(Trivial Database), redistribute public IP and trigger TCP reconnection.
 
 ![](_page_3_Figure_21.jpeg)
+<!-- Image Description: This flowchart illustrates a data access process using a Hadoop file system with Ceph backend storage. A request triggers protocol conversion, then accesses the object body gateway. Access permission and time checks precede retrieval of the target data. The diagram details the steps involved, showing data flow from the Hadoop file system through intermediate stages to access data stored in Ceph. -->
 
 Fig.4 CTDB-based cluster graph of object storage services
 
@@ -144,10 +148,12 @@ TABLE 1 SERVER ENVIRONMENT CONFIGURATION
 The throughput for writing data of our big data storage architecture under different workloads is shown in Fig. 5. As can be seen from Fig. 5, when the file size is small, the system is far from reaching its throughput bottleneck. With the gradual increase of file capacity, the throughput of the system also increases, which indicates that the transparent access method can process data very quickly and up to 717Mb/s. When the file size is fixed, the throughput of the system grows slowly with the increase of the number of files. Finally, the throughput gradually stabilizes. Compared to writing data directly on the original HDFS system, the performance of our system is better.
 
 ![](_page_4_Figure_5.jpeg)
+<!-- Image Description: The image displays a 3D surface plot illustrating the relationship between file throughput (mb/sec), file size, and the number of files transferred. The color-coded surface shows that throughput initially increases with the number of files but then decreases as file size increases. The plot likely demonstrates the impact of file size and number on data transfer performance within a specific system, as analyzed in the paper. -->
 
 Fig.5 Throughput for writing data under different workloads
 
 ![](_page_4_Figure_7.jpeg)
+<!-- Image Description: This 3D surface plot displays the standard deviation of I/O rate as a function of file size and the number of files. The x-axis represents the number of files, the y-axis shows file size, and the z-axis indicates the I/O rate standard deviation. The plot illustrates how the I/O rate variability changes with different combinations of file sizes and the number of files processed. It likely serves to demonstrate performance characteristics or resource utilization in the paper's system. -->
 
 Fig.6 The deviation of I/O rate for writing data under different workloads
 
@@ -158,10 +164,12 @@ In general, it can be seen from the experimental results that the transparent ac
 In the following experiment, the number of files $(N)$  is set to 100. The throughput for reading data of our big data storage service architecture under different workloads is shown in Fig. 7. As can be seen from Fig. 7, when the number of files is fixed, the throughput and average read rate of the system increase with the increasing of the size of file, but when the size of file reaches 5120 MB, these two indicators tend to be stable. In general, the transparent access method can read data stably. The reading performance of our system is in line with the original HDFS system.
 
 ![](_page_4_Figure_12.jpeg)
+<!-- Image Description: The image displays a line graph showing the relationship between file size (MB) and both throughput (mb/sec) and average IO rate (mb/sec). Two lines, representing throughput and average IO rate, increase with increasing file size, indicating higher performance with larger files. The graph helps demonstrate the performance characteristics of a system under varying workloads. -->
 
 Fig.7 The reading performance of the system under  $N=100$
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image is a line graph showing the execution time (in seconds) of write and read tests for files of varying sizes (in MB). The x-axis represents file size, increasing from 1024 MB to 6144 MB. The y-axis represents execution time. Two lines depict write and read times, demonstrating a positive correlation between file size and execution time for both operations. The graph likely illustrates the performance characteristics of a storage system. -->
 
 )LJ 7KH WLPH FRQVXPSWLRQ RI ,2 XQGHU 1
 

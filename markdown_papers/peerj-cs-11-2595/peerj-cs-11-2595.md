@@ -1,7 +1,7 @@
 ---
 cite_key: "malaysia2024"
-title: "ABSTRACT"
-authors: "Malaysia"
+title: "INTRODUCTION"
+authors: "Subjects Artificial Intelligence, Data Mining"
 year: 2024
 doi: "10.7717/peerj-cs.2595"
 date_processed: "2025-07-02"
@@ -118,10 +118,13 @@ The TRLC model proposed in this article consists of four modules. The first modu
 Many models, such as RE-GCN ([Li et al., 2021b](#page-18-1)) CEN ([Li et al., 2022a](#page-18-2)), and TiRGN ([Li,](#page-18-3) [Sun & Zhao, 2022](#page-18-3)), have certified the excellent performance of the R-GCN model in obtaining representations of entities and relations. Unlike RE-GCN, which simply adds representations of entities and relations, TiRGN uses one-dimensional convolution to better combine the representations of entities and relations. We apply the one-dimensional
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The flowchart illustrates a model architecture. "TKG Snapshots" feed into two parallel paths. One path processes "Sequential Information" using a "Recurrent Encoder" and "Time Decoder." The other path uses a "History Matrix" followed by "Contrastive Learning" for "Entity Prediction." The red box highlights the contrastive learning component, emphasizing its role in the model's entity prediction task within the larger architecture. -->
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: Figure 1 is a flowchart illustrating the proposed TRCL framework. A red box highlights the framework's main contribution. The flowchart details the steps or processes within the framework, likely showing the sequence of operations and their interdependencies. Its purpose is to visually represent the methodology. -->
 
 <span id="page-6-1"></span>![](_page_6_Figure_3.jpeg)
+<!-- Image Description: This flowchart depicts a three-stage deep learning model. Stage 1 processes sequential information, creating a history matrix from graph-structured data (G<sub>t</sub>). Stage 2 uses a recurrent encoder (RGCN and GRU) to generate representations (H<sub>t</sub>, R<sub>t</sub>) from the history matrix. Stage 3 performs contrastive learning using these representations, classifying entities as historical or non-historical based on a contrastive loss and an entity prediction step, and finally employs a time decoder (ConvTransE) to predict timestamps. The model combines graph convolutional networks, recurrent neural networks, and contrastive learning for temporal knowledge graph reasoning. -->
 
 Figure 2 The entire architecture of TRCL, consists of four modules: recurrent encoder module, history matrix, contrastive learning module and time decoder module. Full-size [DOI: 10.7717/peerj-cs.2595/](http://dx.doi.org/10.7717/peerj-cs.2595/fig-2)fig-2
 
@@ -349,8 +352,10 @@ Meanwhile, from the perspective of MRR indicators, the proposed TRCL model has i
 To investigate the influence of repeated historical facts on entity forecast tasks, this work conducted sensitivity analysis on hyper-parameter α in formula 16 on datasets ICEWS14
 
 <span id="page-14-0"></span>![](_page_14_Figure_1.jpeg)
+<!-- Image Description: Figure 3 is a line graph showing the sensitivity analysis of a hyper-parameter (α) on the ICEWS14 dataset. The graph plots two metrics, Mean Reciprocal Rank (MRR) and Hit@3 (H@3), as percentages against varying values of α. It illustrates how the performance of the model, measured by MRR and H@3, changes with different α values, aiding in hyperparameter tuning for optimal model performance. -->
 
 <span id="page-14-1"></span>![](_page_14_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph showing the performance of two metrics, MRR and H@3, as a function of the parameter α (alpha). Both metrics are represented as percentages and range from approximately 26% to 38%. The graph shows that H@3 generally remains higher than MRR across different α values, although both decrease sharply when α approaches 1. The graph likely illustrates the impact of α on the model's ranking performance within the paper. -->
 
 Figure 4 The sensitivity analysis results of hyper-parameter α on ICEWS18. Full-size [DOI: 10.7717/peerj-cs.2595/](http://dx.doi.org/10.7717/peerj-cs.2595/fig-4)fig-4
 
@@ -359,10 +364,13 @@ and ICEWS18. The value of a ranges from 0 to 1. The results are shown in [Figs. 
 To investigate the influence of learning rate on entity forecast tasks, this work conducted sensitivity analysis on the learning rate on datasets ICEWS14 and ICEWS18. The values of learning rate are {0.1, 0.01, 0.05, 0.001, 0.005, 0.0001}. The results are shown in [Figs. 5](#page-15-0) and [6.](#page-15-1) It can be seen that on datasets ICEWS14 and ICEWS18, the performance
 
 <span id="page-15-0"></span>![](_page_15_Figure_1.jpeg)
+<!-- Image Description: Figure 5 shows a line graph analyzing the sensitivity of learning rate on ICEWS14. Two lines, representing Mean Reciprocal Rank (MRR) and Hit@3, plot percentage scores against varying learning rate values (0.1 to 0.0001). The graph illustrates how model performance (MRR and Hit@3) changes with different learning rates, helping determine the optimal learning rate for the ICEWS14 dataset. -->
 
 ![](_page_15_Figure_2.jpeg)
+<!-- Image Description: The image is a reference to a full-size figure (fig-5) in the paper, accessible via DOI: 10.7717/peerj-cs.2595. No visual content of the figure itself is provided in this snippet; only a citation and a link to the full figure. -->
 
 <span id="page-15-1"></span>![](_page_15_Figure_3.jpeg)
+<!-- Image Description: Figure 6 shows a line graph analyzing the sensitivity of a learning rate on the ICEWS18 dataset. The x-axis represents different learning rate values, and the y-axis shows the percentage of performance metrics MRR (Mean Reciprocal Rank) and H@3 (Hit at 3). The graph displays how these metrics vary with changes in the learning rate, helping to determine the optimal learning rate for the model. -->
 
 of entity prediction tasks is optimal when the learning rate is 0.001, for both the MRR metric and the H@3 metric. This indicates that suitable learning rate contributed to good performance in entity prediction tasks.
 

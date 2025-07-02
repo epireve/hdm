@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_arxiv_250506885_incremen"
 title: "Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on"
+authors: "Industries such as banking, telecom"
 year: 2022
 doi: "10.1145/3493700.3493735"
 date_processed: "2025-07-02"
@@ -66,6 +67,7 @@ Language agnosGc ontology. ii) Allowing SME input/feedback through extensions to
 Our deployed system has three major components that interact with each other in an end-to-end pipeline. These components are 1)*Code Discovery and Knowledge Graph Construc2on*, 2) *Increment Crea2on via Neighbourhood DetecCon*and 3)*Incremental Analysis*. We now proceed to explain the end-to-end flow of our tool. We begin with the input to our system i.e. legacy source code that needs to be modernized. We then run our staGc analyzer tool on this source code and save our analysis into an MS-SQL database. We can construct a graph representaGon for the input source code by combining this staGc analysis and a custom-made knowledge graph ontology. A6er saving this representaGon into a Neo4j [4] graph database, we run inference algorithms to create increments and subsequently complete incremental analysis to generate the corresponding insights. This enGre process is detailed in Figure 1.
 
 ![](_page_1_Figure_7.jpeg)
+<!-- Image Description: The image is a flowchart depicting a code discovery and knowledge graph construction process. Source code is analyzed using a static analyzer (ADDI), producing entities and relations. These are then mapped to an ontology and ingested into a Neo4j database. A user interface (UI) allows for incremental analysis, generating insights. The process involves code discovery, ontology mapping, database population, and iterative analysis for knowledge graph construction. -->
 
 Figure 1: System Overview.
 
@@ -78,6 +80,7 @@ The first step in our pipeline is to perform code discovery using staGc analysis
 While defining this ontology, we pay special a=enGon to making sure that it is language agnosGc and extremely extensible. We depict a simplified version of our ontology in Figure 2. Along with enGty nodes and relaGonship edges, we also store *aEributes*for each node and edge. For example, we store node a=ributes like*programming language*and*Lines-of-code*for program EnGGes and edge a=ributes like*CRUD*operaGons on relaGonships. We also provide the capability for an SME to*logically*group arGfacts as per domain knowledge of the codebase. We depict this in Figure 2 by the blue do=ed lines (i.e.*HAS*relaGonship) connecGng the*applica2on*node to all it's EnGGes. Unlike the other relaGonships directly derived from the legacy code, the logical edges are subjecGve and can be changed as the SME is able to amass more knowledge. Using the ADDI output and the defined ontology, our ingesGon component generates the knowledge graph into the Neo4j database. We will then use this database to infer insights during our next stage -*increment crea2on via neighbourhood detec2on*.
 
 ![](_page_1_Figure_13.jpeg)
+<!-- Image Description: This diagram depicts a system's architecture using a directed graph. Nodes represent software components (e.g., Transaction, Application, Program1, File), while edges represent relationships ("CALLS" or "USES"). Dashed lines indicate relations derived from subject matter experts (SME), while solid lines are from code analysis. The graph illustrates the interactions and dependencies between different parts of the system, aiding in understanding its structure and functionality. -->
 
 Figure 2: Sample Ontology
 
@@ -90,6 +93,7 @@ The discovery phase of the applicaGon modernizaGon journey is a very Gme-consumi
 To aid in this process, we introduce the concept of an*increment*. We define an *increment*to be a bounded scope containing*seed*# 3 Incremental Analysis
 
 ![](_page_2_Figure_4.jpeg)
+<!-- Image Description: This flowchart depicts an iterative increment definition process. It shows steps including initial increment definition ("seeds"), analysis, evaluation of quality ("Is good?"), potential redefinition, and final increment reporting. A subject matter expert/architect interacts with the process, modifying increments as needed. The flowchart visually represents the iterative refinement of increments until they meet quality criteria. -->
 
 ## Figure 3: Incremental Analysis Flow.
 
@@ -100,6 +104,7 @@ Incremental Analysis of Legacy Applica9ons Using Knowledge Graphs for Applica9on
 arGfacts and their*neighbourhood*dependencies. As shown in Figure 3, an SME starts with*seed ar2fact(s)*. The seed arGfacts are o6en something that piques the SME's interest. A seed could be of any arGfact type - programs, transacGons, tables, files, or others. Once the seed arGfacts have been idenGfied, we traverse the knowledge graph to gather related arGfacts closely interacGng with the seeds. These close arGfacts denote the *neighbourhood*dependencies of the seeds. We then create a boundary around the seeds and their neighbourhoods and refer to this collecGon as the*increment*. We also track important metrics for each increment. Each arGfact in an increment contributes to the value of the aggregate increment metric. For example, programs of an increment contribute their lines of code (LOC) and CyclomaGc complexity (Cyclo) values to the increment's aggregate LOC/Cyclometric. These metrics help the user to bring in some preferences when creaGng increments.
 
 ![](_page_2_Figure_9.jpeg)
+<!-- Image Description: The image is a directed graph illustrating data flow between processes (P1-P7) and data stores (File, Table). Two applications (App-A, App-B) are shown. Arrows depict data transfer, labeled as "inside-out" or "outside-in," indicating data origin/destination relative to the applications' data scopes. The graph shows how data, initiated by "Seed," is processed and stored, highlighting different data access patterns. The "Increment" label suggests a counter or similar mechanism is used in the data flow. -->
 
 # Figure 4: Incremental Analysis.
 
@@ -124,6 +129,7 @@ Demo scenario 1: If we just know the specific transacGon 'SSP3' associated to 'H
 a) IniIal setup with 5 applicaIons (a) Increment with seed transacIon: 'SSP3' (b) Increment with seed table: 'House' expanded
 
 ![](_page_3_Figure_7.jpeg)
+<!-- Image Description: Figure 6 is a title only; it lacks an actual illustration. The title "Increment Expansion" suggests the figure likely depicts a diagram or chart illustrating a process or concept related to incremental growth or expansion within the paper's subject matter. Without the figure itself, further analysis is impossible. -->
 
 'House', we get five more. This is due to the fact that the programs interacGng with 'House' also interact with the other tables.
 
@@ -149,6 +155,7 @@ understanding the data of the applicaGon (ex. tables) and insights extracGon fro
 In both the above scenarios, we see that the programs are common to interact with all the tables and hence if we need to create separate micro-service for 'House policy', we need to apply 're-factor' strategy to decompose those common programs. Let us consider the case where we need to reGre the funcGonality 'random customer'. Assume that we know that the related transacGon is 'LGCF' and hence create an increment with it. The analysis results in expanding the increment with only one program 'LGICVS01'. From Figure 7, we can observe the following points : (1) 'LGICVS01' is interacGng the file 'GENAPP.GENAPP.KSDSCUST' with just read operaGon; (2) same program is interacGng to the message queue 'GENACNTL' to just write the log message; (3) there aren't any other program that calls program 'LGICVS01'. With the above three points, we can be sure of the transacGon 'LGCF' and the associated program 'LGICVS01' are not dependent for the rest of GENAPP and hence it can be reGred safely without any changes.
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: The image displays a screenshot of a software interface, likely for managing application components. Two tables detail program calls to a dataset and a queue, showing the calling program, called resource (dataset or queue), access type, and role. A sidebar lists various applications and increments, with checkboxes indicating selection status. The screenshot illustrates the program's data access and role management functionality. -->
 
 Figure 7: Increment with seed transacGon: 'LGCF'
 

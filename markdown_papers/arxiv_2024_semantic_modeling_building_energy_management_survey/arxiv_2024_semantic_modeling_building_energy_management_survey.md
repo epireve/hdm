@@ -1,7 +1,7 @@
 ---
 cite_key: "buckman2019"
 title: "A Survey on Semantic Modeling for Building Energy Management"
-authors: "- <span id=\"page-23-6\"></span>[21] Alex H Buckman, Martin Mayfield, and Stephen BM Beck. \"What is a smart building?\" In: Smart and Sustainable Built Env. 3.2 (2014), pp. 92–109."
+authors: "Miracle Aniakor Vinicius V. Cogo Pedro M. Ferreira"
 year: 2019
 doi: "10.3030/957128"
 date_processed: "2025-07-02"
@@ -39,10 +39,12 @@ Semantic modeling encompasses the representation of both physical and abstract c
 Prior efforts have aimed to represent these concepts; however, they have typically been modeled independently. For instance, consider a scenario involving a building with diverse occupants where the owners are dedicated to reducing energy consumption, lowering operational costs, and upholding tenant satisfaction. In instances where energy KPIs are modeled in isolation from assessment and services, the KPI is monitored independently, focusing on metrics such as
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image presents a conceptual framework for building data analytics. A 3D building model is shown, layered to represent design, construction, and operation phases. Each phase contains static (location, geometry) and dynamic (weather, energy consumption) data types. A four-step process is depicted alongside: data acquisition, semantic modeling, advanced data analysis, and context-aware applications. Each step is illustrated with a visual representation and linked to relevant big data analytics techniques. The figure illustrates the data flow and analytical methods used throughout a building's lifecycle. -->
 
 (a) Relationship among the buildings' lifecycle phases and examples of the respective (static or dynamic) data they manage. (b) Steps for Context-Aware Decision Support Systems.
 
 <span id="page-1-1"></span>![](_page_1_Figure_2.jpeg)
+<!-- Image Description: Figure 1 is a title indicating the presence of a diagram (not shown in the provided image) that details a BEM (likely Boundary Element Method) Applications Framework. The figure's purpose is to visually represent the structure or architecture of how BEM is applied within the scope of the paper. No equations, charts, or graphs are visible in this caption. -->
 
 energy consumption per square foot. While this approach provides insights into energy usage, it lacks context on when and how assessments are conducted and how specific building services impact energy consumption over time.
 
@@ -113,6 +115,7 @@ The pinnacle of complexity within semantic modeling is the facet of ontologies. 
 The Semantic Web, an extension of the World Wide Web, was brought into being by formulating standards by the W3C. Its primary objective is facilitating machine-readable capabilities for internet-based data [\[150\]](#page-28-3). The inception of linked open data (LOD) [\[10\]](#page-22-3) aimed to reduce obstacles in disseminating, sharing, and retrieving information online, fostering a worldwide data environment. Using this method; data must be structured via the Resource Description Framework (RDF) [\[39\]](#page-23-4). This concept lays the groundwork for the renowned 5-star open data [\[7\]](#page-22-2), which means organizing data based on the RDF model and connecting it to other RDF data collections, leading to the formation of the LOD cloud. The RDF data model represents data using subject-predicate-object triple structures, as shown in Figure [2\(b\),](#page-4-1) which create graph patterns. An RDF triple provides a framework for illustrating things and their relationships. The predicate acts as the bridge connecting the subject and the object. Essentially, this format allows any given subject to be related to any object, indicating the nature of their relationship through the predicate. The Web of Data consists of interconnected graphs using the triple format to consistently depict information to ensure the
 
 <span id="page-4-1"></span><span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper illustrates data modeling. (a) shows a network diagram representing the interconnection of domain-specific ontologies (e.g., Electrical, Indoor Climate). (b) depicts a Resource Description Framework (RDF) triple, illustrating a Subject-Predicate-Object relationship. (c) presents an entity-relationship diagram for the NGSI-LD information model, defining Entity, Property, and Value components and their relationships. The image's purpose is to visually explain different data modeling approaches within the context of the paper. -->
 
 <span id="page-4-2"></span>Figure 2: Key components of semantic data modeling and interoperability in smart environments.
 
@@ -155,6 +158,7 @@ BOT comprises a class taxonomy for zones (building site, buildings, store, and s
 The BOT element class bot:Element represents concepts such as Envelope, Building Systems and Equipment, Control Devices, and Sensors. The incorporation of the interface class, identified as bot:Interface within BOT, provides a medium to represent spatial intersections where zones and elements converge or interact. This concept
 
 ![](_page_6_Figure_0.jpeg)
+<!-- Image Description: This 3D diagram illustrates a hierarchical spatial ontology. Nested cuboids represent `bot:Site`, `bot:Building`, `bot:Storey`, and `bot:Space`, showing containment relationships (`bot:containsZone`, `bot:hasBuilding`, `bot:hasStorey`, `bot:hasSpace`). Adjacency is also depicted (`bot:adjacentZone`). The diagram visually clarifies the structure and relationships within the ontology, crucial for understanding the spatial reasoning capabilities of the system described in the paper. -->
 
 <span id="page-6-0"></span>Figure 3: Representation of Building Topology by BOT (image from [\[128\]](#page-27-10)).
 
@@ -194,6 +198,7 @@ The SAREF ontology introduces the concepts such as saref:Command and saref:Servi
 SAREF4GRID 41 28 43 28
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image is an entity-relationship diagram illustrating a conceptual model. Rectangles represent entities (e.g., Service, Function, Device, Profile), and arrows denote relationships (e.g., "hasOperation," "represents," "accomplishes"). The diagram details the relationships between various entities, including features of interest, states, properties, and their values within a specific domain, likely for a service-oriented system or process modeling. The model uses SKOS vocabulary for broader/narrower relationships in states and properties. -->
 
 <span id="page-7-1"></span>Figure 4: Overview of core SAREF ontology (image from [\[62\]](#page-24-2).
 
@@ -224,6 +229,7 @@ Actuators, denoted as sosa:Actuator, are devices used by or implementing SOSA pr
 Additionally, the ssn-system:SystemProperty class enables modelers to define characteristics that represent a system's ability to function for its primary purpose. For instance, it depicts a sensor's capacity to generate observations or an actuator's capability to actuate in a given environment.
 
 ![](_page_9_Figure_0.jpeg)
+<!-- Image Description: This image is a graph depicting relationships between entities in a smart home environment using the Sensor Observation Service (SOS) ontology. Nodes represent things (e.g., sensors, actuators, observations, procedures), and edges represent relationships (e.g., `sosa:observes`, `sosa:hasResult`). The graph illustrates data flow and connections among various components, showing how sensor data is collected, processed, and related to specific locations and actions within the house. Specific data points (e.g., temperature, electricity consumption) are included within the graph's nodes. -->
 
 <span id="page-9-0"></span>Figure 5: Integrating Building Data with Observation and Sensor Data Utilizing SOSA/SSN (image from [\[78\]](#page-25-9)).
 
@@ -242,6 +248,7 @@ A relationship delineates the specific nature of the connection between two inte
 Brick utilizes a directed, labelled graph to represent its structure. Figure [6](#page-10-1) depicts a graph representation of connections between various entities within a building [\[103\]](#page-26-9). These entities are an AHU, two variable air volume boxes, a thermal zone identified as HVAC zone, and a set of points and rooms.
 
 ![](_page_10_Figure_2.jpeg)
+<!-- Image Description: This image presents a directed acyclic graph illustrating a Building Information Model (BIM) schema. Rectangles represent entities (e.g., Air Handling Unit, Room), while arrows depict relationships (e.g., "feeds," "hasPart," "hasPoint"). The graph details the hierarchical relationships between HVAC components, from the Air Handling Unit down to individual sensors and setpoints within a specific zone (VAV2-3Zone) encompassing Rooms 410-412. A legend defines the classes used within the schema (Point, Location, Equipment). -->
 
 <span id="page-10-1"></span>Figure 6: Brick model representing an AHU, two VAVs, and a handful of points and rooms (image from [\[20\]](#page-23-5)).
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "new2023"
-title: "**A human digital twin for the M‑Machine**"
-authors: "Designers should consider how people interact with new, intelligent technical artifacts and not only seek to create cyber-physical objects. The focus of technology design in Society 5.0 is as much on creating new social actions as on constructing new technical artifacts. Thus, the design of the properties of artifacts, such as algorithms, remains an important"
+title: "A human digital twin for the M‑Machine"
+authors: "Jami Aho"
 year: 2023
 doi: "10.1007/s44163-024-00164-x"
 date_processed: "2025-07-02"
@@ -56,6 +56,7 @@ Actions related to intelligence have their origins in human intellectual informa
 A good example of human intelligent information processing is problem-solving. Newell and Simon explain the mind as an information-processing system and thinking as problem-solving [[16\]](#page-10-14). Problem-solving is an information process whereby diferent situations are understood as objective task environments containing diferent tasks that need to be
 
 ![](_page_1_Picture_13.jpeg)
+<!-- Image Description: The image is a logo consisting of the word "Discover" in a sans-serif font and a stylized graphic element to its left. The graphic is a dark blue, concentric circular design, possibly representing waves or a vortex. The logo likely serves as an identifier for a project, company, or organization mentioned within the paper. There are no charts, graphs, equations, or other technical illustrations present. -->
 
 resolved to achieve goals. For an individual, task environments are represented as subjective problem spaces that contain representations of the initial and desired goal situations, the intermediate steps required to achieve the goals, and the concepts used to describe those situations [\[16,](#page-10-14) [17](#page-10-15)]. Constructing new mental representations and action plans can help individuals to explain and solve novel problems [[23\]](#page-11-0). Individuals use diferent mental and behavioral strategies to resolve their problems. The issue of which problem spaces are used in certain situations depends on the individual's intelligence and knowledge in that domain [\[24,](#page-11-1) [25](#page-11-2)], how the problem is represented, how the nature of the problem is understood, what steps the individual takes to reach their goals [[23](#page-11-0)], how well the individual's thoughts are organized, and how focused the individual's thinking is [\[26](#page-11-3)].
 
@@ -76,6 +77,7 @@ Intelligence can be understood as adaptive, sense-making information processing 
 As the human mind is recognized as the best example of intelligent information processing, it is natural to question how one could beneft from knowledge of the human mind when designing intelligent technological systems. Arguably, the frst model of this kind was the Turing machine [\[22\]](#page-10-19). While this machine was essentially a device used by Turing to
 
 ![](_page_2_Picture_13.jpeg)
+<!-- Image Description: The image is a logo for a company or organization named "Discover." The logo consists of the word "Discover" in a sans-serif font and a stylized graphic element to the left. The graphic is a dark blue, concentric circular design resembling a wave or spiral. The logo likely serves as an identifier for the organization within the academic paper. There are no charts, graphs, equations or other technical illustrations present. -->
 
 demonstrate that the meta-mathematical decision problem was unsolvable, it was also a model of human–computer information processing. Later, the Turing model was generalized in the works of Herbert Simon, his collaborators, and many other researchers [[6,](#page-10-4) [16](#page-10-14)]. Instead of introspectively analyzing assumed human information processes, they began to empirically study how people process information in their thinking. As a consequence of this paradigmatic research, a large number of psychologically inspired theoretical models of the human mind were developed [\[15,](#page-10-13) [30](#page-11-7)].
 
@@ -96,6 +98,7 @@ If similar benefts are to be gained from DTs, the models need to mimic human tho
 #### <span id="page-4-0"></span>Fig. 1 The M-Machine (adapted from [\[5](#page-10-3)])
 
 ![](_page_4_Figure_4.jpeg)
+<!-- Image Description: The image presents two schematic diagrams illustrating a system model. The top diagram shows a module "M" receiving inputs (S) and producing outputs (R) via multiple channels. The bottom diagram expands this, showing module "M" connected to an input unit ("U") and an output unit ("EN") through an intermediary processing unit ("HIP"). Arrows indicate the direction of information flow, illustrating the system's architecture and data processing stages within the context of the paper. -->
 
 <span id="page-4-1"></span>**Fig. 2**A human digital twin for the M-Machine. U=user or operator, HIP=human interaction point, M=machine, and EN=(action) environment
 
@@ -118,6 +121,7 @@ In our conceptual model, as presented in Fig. [2](#page-4-1), the technical arti
 Minsky [\[5](#page-10-3)] constructed the M-Machine as an abstract model of any machine (Fig. [2\)](#page-4-1). It has a set of input information types controlling the analysis of both task and situation information. It also has a set of output channels that manipulate
 
 ![](_page_4_Picture_15.jpeg)
+<!-- Image Description: The image is a logo for "Discover". It consists of a stylized abstract graphic element to the left—a dark-blue concentric circle design resembling a wave or vortex—and the word "Discover" in a sans-serif font to the right. There are no charts, graphs, equations, or other technical illustrations present. The image's purpose is likely to identify an organization, project, or company named "Discover" in the paper. -->
 
 the objects of actions following the instructions provided in the input information. The M-Machine ofers a set of processes to transform target environments or objects of industrial actions into a desired end state. Human intentions defne the ideals for process states. In addition to the input processes, the M-Machine has a set of output processes.
 
@@ -166,6 +170,7 @@ When modeling human users, designers should explicate the information contents r
 The third issue to be considered in relation to human modeling is the user experience or emotional usability [[4\]](#page-10-2). This aspect entails how people feel and how motivated they are to use a certain technical artifact. A reason for this dynamic
 
 ![](_page_6_Picture_15.jpeg)
+<!-- Image Description: The image is a logo for "Discover." It consists of the word "Discover" in a sans-serif font, next to a stylized graphic element: a dark blue, concentric circular design suggesting a wave or swirl. The logo likely serves as a publisher's or funder's identifier within the academic paper. There are no charts, graphs, equations, or other technical illustrations present. -->
 
 dimension of usability can be suggested. In principle, several models for the psychology of emotional processes have been developed over the years, and for this reason, it is not impossible to develop HDTs for the emotional aspects of human–technology interaction. However, we will not discuss this aspect any further, because the M-Machine is abstract model.
 
@@ -214,6 +219,7 @@ The IEC model compares the present state with the goal state, and based on analy
 The IEC model is unique, although this does not mean that the same process could not be realized by standard models of the mind, such as the GOMS [[30\]](#page-11-7) or ACT-R [[15](#page-10-13)] models. However, among the various models of the computational mind, the old TOTE model developed by Miller, Galantr, and Pribram [[37\]](#page-11-14) arguably comes the closet to IEC thinking. Nevertheless, it is not computational in the sense that it has been implemented as a simulation model. Rather, the model is grounded in the idea that people test the state of affairs and execute the processes following the tests. The IEC model is an independent way of modeling the mind, and it is a plausible methodological tool for analyzing people who work to steer different types of technologies.
 
 ![](_page_8_Picture_15.jpeg)
+<!-- Image Description: The image is a logo for "Discover," likely a company or project mentioned in the paper. It consists of a stylized circular graphic, resembling concentric waves or a vortex, alongside the word "Discover" in a sans-serif typeface. The logo is purely illustrative and serves as an identifier for the referenced entity within the paper's context; it doesn't contain any data or technical information. -->
 
 ### 10 Discussion: using HDTs in designing human‑operated technical artifacts
 
@@ -238,6 +244,7 @@ HDTs provide a good tool for conceptual engineering when working toward holistic
 **Author contributions**The authors Pertti Saariluoma, Mari Myllylä, Antero Karvonen, Mika Luimula and Jami Aho contributed equally to the work.
 
 ![](_page_9_Picture_15.jpeg)
+<!-- Image Description: The image is a logo for a company or organization named "Discover". The logo consists of the word "Discover" in a sans-serif font alongside a stylized graphic element: a dark-blue circular design resembling concentric waves or ripples. The logo likely serves as an identifier for the entity within the academic paper, perhaps representing a funding body, software used, or a collaborating institution. No data or technical illustrations beyond the logo are present. -->
 **Funding**Saariluoma, Karvonen and Myllylä's work was supported by both the Etairos STN project of the Academy of Finland (decision number 327355) and Business Finland through the COACH project (project number 3289/31/2022), operating under the umbrella of the SEEDForest ecosystem. Luimula and Aho's work was supported by Business Finland through the COACH project (project number 3289/31/2022).
 **Data availability**No datasets were generated or analysed during the current study.
 **Code availability**Not applicable.
@@ -272,6 +279,7 @@ HDTs provide a good tool for conceptual engineering when working toward holistic
 - <span id="page-10-19"></span>22. Turing AM. On computable numbers, with an application to the entscheidungsproblem. Proce Lond Math Soc. 1937;s2–42(1):230–65. [https://doi.org/10.1112/plms/s2-42.1.230.](https://doi.org/10.1112/plms/s2-42.1.230)
 
 ![](_page_10_Picture_33.jpeg)
+<!-- Image Description: The image is a logo for a company or organization called "Discover." The logo consists of the word "Discover" in a sans-serif font, accompanied by a stylized graphic element to the left. This element is a dark blue circular design resembling concentric waves or a spiral. The logo likely serves as an acknowledgement or affiliation within the academic paper. There are no charts, graphs, equations, or other technical illustrations present; only the logo itself. -->
 
 - <span id="page-11-0"></span>23. Novick LR, Bassok M. Problem solving. In: Holyoak KJ, Morrison RG, editors. The Cambridge handbook of thinking and reasoning. Cambridge: Cambridge University Press; 2005. p. 321–49.
 - <span id="page-11-1"></span>24. de Groot AD. Thought and choice in chess. Hague: Mouton; 1965.
@@ -302,3 +310,4 @@ HDTs provide a good tool for conceptual engineering when working toward holistic
 **Publisher's Note** Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional afliations.
 
 ![](_page_11_Picture_30.jpeg)
+<!-- Image Description: The image is a logo for "Discover," consisting of the word "Discover" in a sans-serif font next to a stylized graphic. The graphic is a dark blue, concentric circular design suggesting a wave or vortex. It likely serves as an acknowledgement or affiliation within the context of the academic paper, rather than containing any technical data itself. -->

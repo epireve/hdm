@@ -1,7 +1,7 @@
 ---
 cite_key: "innovations2021"
-title: "Universal Digital Twin - A Dynamic Knowledge Graph"
-authors: "<span id=\"page-0-2\"></span>3 CMCL Innovations, Cambridge CB3 0AX, United Kingdom"
+title: "RESEARCH ARTICLE"
+authors: "Markus Kraft1,2,4, \\"
 year: 2021
 doi: "10.17863/CAM.32260"
 date_processed: "2025-07-02"
@@ -15,6 +15,7 @@ images_removed: 1
 # RESEARCH ARTICLE
 
 ![](_page_0_Picture_2.jpeg)
+<!-- Image Description: The image is the logo for Cambridge University Press. It consists of text stating "CAMBRIDGE UNIVERSITY PRESS" and a stylized circular logo featuring overlapping C and D shapes in blue and teal. The image serves as a publisher's imprint, indicating the source of the academic paper. There are no charts, graphs, equations, or other technical illustrations present. -->
 
 # Universal Digital Twin - A Dynamic Knowledge Graph
 
@@ -129,6 +130,7 @@ The main components of the dynamic knowledge graph are illustrated in [Figure 1]
 The links between the contents of the dynamic knowledge graph take the form of Internationalized Resource Identifiers (IRIs), which can be thought of as generalized web-addresses (Ishida, [2008\)](#page-22-9). This ensures an unambiguous representation and enables the efficient traversal of the graph, both in the sense of traversing related content and in the sense of traversing whatever hardware is used to host the content.
 
 <span id="page-5-0"></span>![](_page_5_Figure_7.jpeg)
+<!-- Image Description: This diagram illustrates an agent-based system. Triangular "active agents" (ontology update, composite agent, atomic agent, communication, composition agent) interact and process input to produce output. These agents operate on a lower level network of circular "instances" representing concepts organized into domain and agent ontologies. The image depicts the system's architecture and information flow, showing communication and update processes between agents. -->
 
 Figure 1. The main components of the World Avatar dynamic knowledge graph.
 
@@ -165,8 +167,10 @@ The Cities Knowledge Graph project (CARES, [2020b\)](#page-21-16) will integrate
 The resulting system will enable interoperability between building data, transport flows, underground infrastructure, humidity, and temperature data to improve the design and planning of cities by automating aspects of data processing, and by integrating concepts and targets from different planning arenas. Work to date has demonstrated the capability to incorporate live building management system (BMS) data into the dynamic knowledge graph (CARES, [2020e\)](#page-21-17) and has integrated the World Avatar with OntoCityGML (Centre Universitaire d'Informatique at University of Geneva, [2012](#page-21-18)), an ontology that describes 3D models of cities and landscapes based on the CityGML 2.0 standard (Gröger et al., [2012\)](#page-22-19). Tools have been
 
 <span id="page-7-0"></span>![](_page_7_Figure_7.jpeg)
+<!-- Image Description: This figure illustrates a workflow for urban planning. It shows a before-and-after map pair depicting a planning area (indicated by a question mark), transformed with new buildings. A central diagram depicts an ontology connecting various knowledge domains. Three lower images showcase CityEngine (3D city models), City Energy Analyst (energy simulations), and Sketch MATSim (agent-based traffic simulation) as data sources. The figure's purpose is to visually represent the integration of these diverse data sources within the proposed planning process. -->
 
 ![](_page_7_Figure_8.jpeg)
+<!-- Image Description: Figure 2 is a textual description of the Cities Knowledge Graph project. It explains that the project will create a pilot knowledge management platform to improve interoperability between different types of city data. This platform aims to enhance the precision of planning tools and connect planning use cases with relevant knowledge domains. No diagrams, charts, graphs, or equations are present; the figure solely provides a textual summary of the project's goals. -->
 
 developed to convert data from CityGML to OntoCityGML format. Work to find the best way to host this data within the dynamic knowledge graph is ongoing.
 
@@ -179,6 +183,7 @@ Research in collaboration with CMCL (CMCL Innovations, [2020a](#page-21-19)) has
 <span id="page-8-0"></span>The availability of intelligent query interfaces has the potential to improve the discovery and interoperability of data. Work is ongoing to use such interfaces in conjunction with the World Avatar
 
 ![](_page_8_Figure_6.jpeg)
+<!-- Image Description: The image displays results from a "World Avatar" search for molecular models of aromatic hydrocarbons. It shows a numbered list; each entry contains a name (e.g., naphthalene, corannulene) and a corresponding 2D or 3D molecular structural representation. The purpose is to illustrate the search results and visualize different aromatic hydrocarbon structures. -->
 
 Figure 3. Screenshot of Marie website (with enlarged text).
 
@@ -199,6 +204,7 @@ This use case illustrates how the World Avatar may be used to calculate the cons
 <span id="page-9-0"></span><sup>3</sup> Includes only vessels with gross tonnage exceeding 75 GT.
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a framework for air quality modeling. It integrates various ontologies (Ship, CAPE, Kin, Species, Comp Chem, CityGML, Weather) representing emissions, atmospheric dispersion, and the built environment. A map depicts modeled air quality dispersion, overlaid with ship locations and buildings. Air quality is represented by gauge-style indicators from "soft sensors." The diagram showcases the data integration and modeling process for air quality assessment. -->
 
 Figure 4. Real-time cross-domain estimation of the contribution of emissions from shipping to air quality in Singapore. Agents operating on the World Avatar update the knowledge graph with real-time information about the weather and about ships in the vicinity of Singapore. An emissions agent is able to use the information about the ships to estimate the emissions of unburned hydrocarbons, CO, NO2, NOx, O3, SO2, PM2.5, and PM10 from each ship. An atmospheric dispersion agent is able to use the information about the weather, the emissions from each ship and the built environment in Singapore to simulate the dispersion of the emissions. Virtual sensor agents report the resulting air quality estimates at different locations. Adapted from Farazi et al. ([2020c](#page-22-5)).
 
@@ -216,6 +222,7 @@ The parallel worlds capability of the World Avatar supports decision making in a
 The parallel world shows that oil generators are replaced with SMRs as the carbon tax is increased from S\$5 to S\$170 per tonne. The types of generator present and the corresponding estimates of the CO2 emissions are automatically updated in the parallel world to reflect these changes, and an optimal power
 
 <span id="page-11-0"></span>![](_page_11_Figure_6.jpeg)
+<!-- Image Description: This image depicts a simulation framework for disaster response. Two maps show geographical locations (presumably Jurong Island) with overlaid incident markers (fires and a nuclear incident). These feed into a "parallel world" simulation, represented as interconnected nodes representing power networks and Jurong Island, layered above a real-world satellite image. The system models the propagation of incidents within the power network and across the island. The "parallel world" allows testing disaster response strategies in a virtual environment. -->
 
 Figure 5. Parallel world concept for what-if scenario analysis. The panels at the top illustrate the electrical network from the real world (left) and an optimized network that is subject to a carbon tax (right). The network from the real world is described in the base world. The modifications to the network in the parallel world are described in a scenario-specific part of the knowledge graph. The pink triangles denote natural gas generators that are present in both the base world and the parallel world. The blue square denotes an oil generator that is only present in the base world. The radiation symbol denotes a small modular nuclear reactor that is only present in the parallel world. Adapted from Eibeck et al. [\(2020](#page-21-9)).
 
@@ -244,24 +251,29 @@ This section describes the progress to date and the immediate next steps for the
 <span id="page-13-0"></span>[Figures 9](#page-15-0) and [10](#page-15-1) show an example of land use data in the vicinity of Cambridge, UK and data about the built environment in the vicinity of the Department of Chemical Engineering and Biotechnology at the University of Cambridge. The land use data are available via the Crop Map of England (Rural Payments
 
 ![](_page_13_Figure_4.jpeg)
+<!-- Image Description: The image displays a map of Great Britain showing the locations of several gas terminals connected by pipelines (blue and orange). Inset is a time-series graph showing instantaneous gas flow (in mm/day) at the Easington terminal over a 24-hour period. The map and graph together illustrate the geographic distribution of gas terminals and the temporal variability of gas flow at one specific location, likely to analyze network dynamics or operational characteristics within a natural gas infrastructure. -->
 
 Figure 6. Geospatial configuration of the National Grid Electricity Transmission (red) and National Grid Gas Transmission (blue) systems. The markers (blue) show the locations of the intake terminals for the National Grid Gas Transmission system. The inset shows real-time data for the gas flow into the network from the Easington North Sea gas terminal. Data obtained from the National Grid ([2020a,](#page-23-22) [2020b\)](#page-23-23).
 
 <span id="page-14-0"></span>![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image displays a color-coded map of Great Britain showing spatial variation in direct normal irradiation (kWh/kWp). A color scale indicates irradiation levels. Inset graphs show hourly averages of direct normal irradiation (red) and air temperature (black) for April, July, and October, illustrating seasonal differences in both parameters across the region. The map and graphs likely demonstrate the relationship between solar energy potential and climate across the UK. -->
 
 <span id="page-14-1"></span>Figure 7. Map showing the average annual photovoltaic power potential in the UK from 1994 to 2018. The inset shows the seasonal variation in the average daily photovoltaic potential and temperature in the vicinity of Cambridge, UK. Contains data licensed by The World Bank under the Creative Commons Attribution license (CC BY 4.0) with the mandatory and binding addition presented in Global Solar Atlas terms (<https://globalsolaratlas.info/support/terms-of-use>).
 
 ![](_page_14_Figure_3.jpeg)
+<!-- Image Description: The image presents two maps displaying wind vector fields over the British Isles. Purple arrows represent wind speed and direction, with color intensity indicating speed (0-30 m/s, as shown in the color bar). The maps likely compare wind patterns under different conditions or models, illustrating spatial variations in wind speed and direction across the region. The purpose is to visually compare and contrast wind data, crucial for meteorological or related analyses. -->
 
 Figure 8. Map showing wind data for the UK at selected points in time. The data show the horizontal component of the velocity 100 m above sea level. Left: November 19, 2020 12:00. Right: February 1, 2020 15:00.Contains modified Copernicus Climate Change Service information [2020]. The data are available under an open license from Copernicus Products.
 
 Agency, [2019\)](#page-23-25), which provides geospatial data about the types of biomass grown throughout the whole of England. The data about the rivers and streams in [Figure 9](#page-15-0) are available using the ordnance survey (OS) Features API (Ordnance Survey, [2020a](#page-23-26)). The base map and building data in [Figure 10](#page-15-1) are available using the OS Vector Tile API (Ordnance Survey, [2020c](#page-23-27)). Every building with a postal address in the UK
 
 <span id="page-15-0"></span>![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image is a thematic map displaying land use and water features. Color-coded polygons represent grassland, non-agricultural land, food crops, and trees. Blue lines depict rivers and streams, with a separate blue shading indicating water bodies. The map likely illustrates the spatial distribution of land cover types within a specific region for analysis of environmental, agricultural, or hydrological aspects relevant to the paper's topic. -->
 
 <span id="page-15-1"></span>Figure 9. Land use in the vicinity of Cambridge, UK. Contains data from the Crop Map of England (CROME) 2019 (Rural Payments Agency, [2019](#page-23-25)) licensed under an Open Government License.
 
 ![](_page_15_Figure_3.jpeg)
+<!-- Image Description: This 3D schematic displays a network connecting buildings. Nodes represent buildings identified by Unique Property Reference Numbers (UPRNs) and Unique Street Reference Numbers (USRNs). Lines depict connections between them, likely representing infrastructure or data links. The image's purpose is to visually represent spatial relationships between buildings within a geographical area using a combination of real-world mapping data and overlaid network connections. -->
 
 Figure 10. Ordnance Survey building data in the vicinity of the Department of Chemical Engineering and Biotechnology (UPRN:10090969505) and the Centre for Digital Built Britain (UPRN:10090627569) in Cambridge, UK. Contains public sector information licensed under the Open Government License v3.0.
 
@@ -270,10 +282,12 @@ has an associated Unique Property Reference Number (UPRN), likewise every road h
 [Figure 11](#page-16-0) shows the built environment in the vicinity of Manchester Piccadilly Railway Station overlaid with data about the solar radiation incident on the roof of each building. The data are published as part of a virtual city map of Manchester (Virtual City Systems, [2020\)](#page-23-29). This illustrates just one way in which the types of data in [Figures 6](#page-13-0)–[10](#page-15-1) can be combined. Making such data available as part of a knowledge-graph-based digital twin of the UK presents the opportunity to include them in parallel world scenario analyses, for example, to investigate the building-by-building potential of installing solar panels and battery storage, either locally within each building, at a street or district level.
 
 <span id="page-16-0"></span>![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image shows a 3D model of buildings overlaid on an aerial photograph. Color-coded surfaces represent data, likely related to solar irradiance or similar spatial phenomenon. A metadata box provides information on creation date, orientation, area, minimum and maximum height, and a unique identifier. The image illustrates a method of integrating 3D modeling with spatial data analysis for urban applications. -->
 
 (a) Solar Radiation on buildings. Clockwise, from bottom left. CityGML representation of building data, coloured by solar radiation in January, April, July, October. Background: Building view.
 
 ![](_page_16_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph showing the annual variation in solar radiation. Three lines represent global, diffuse, and direct radiation (in kWh) over twelve months. The graph illustrates the seasonal fluctuation of each radiation type, with peak global radiation occurring around April-May and decreasing through the year. The purpose is to present solar radiation data relevant to the building's location and its implications for energy modeling or design. -->
 
 (b) Annual variation in solar radiation data for the building with UUID\_0ef5dd86-a957-432f-b3dd-288ab-678538 (the building with the metadata in the CityGML view).
 

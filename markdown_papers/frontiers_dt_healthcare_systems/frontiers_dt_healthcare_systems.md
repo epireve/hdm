@@ -1,7 +1,7 @@
 ---
 cite_key: "algorithms2023"
-title: "[Digital twin for healthcare systems](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1253050/full)"
-authors: "predictive analytics and machine learning algorithms, digital twins could aid in operational decision-making. They analyze data from various sources, encompassing patient flow, staffing levels, and equipment usage, enabling them to anticipate future operational scenarios ([5](#page-4-0)). This enables healthcare providers to make proactive decisions, such as adjusting staffing schedules, optimizing bed allocation, or rescheduling procedures, to optimize resource utilization and improve patient care [\\(5\\)](#page-4-0)."
+title: "Digital twin for healthcare systems"
+authors: "Alexandre Vallée"
 year: 2023
 doi: "10.3389/fdgth.2023.1253050"
 date_processed: "2025-07-02"

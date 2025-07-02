@@ -1,7 +1,7 @@
 ---
 cite_key: "pagefigurejpeg2005"
 title: "MARK: Memory Augmented Refinement of Knowledge"
-authors: "![](_page_2_Figure_0.jpeg)"
+authors: "To overcome these challenges"
 year: 2005
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -73,6 +73,7 @@ Refer to **Figure 6**in**Appendix 2**for an example of a multi-turn conversation
 The related research [11] highlighted the importance of memory building and retrieval for LLM agents, and how it impacts the LLM response [12], additionally a very related research [13] talked about different approaches of memory building and
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: The image presents a system architecture diagram for a conversational LLM agent. Two diagrams illustrate the agent's operation: one for initial conversation and one for subsequent conversations. Both involve an LLM interacting with a domain knowledge source and a system prompt. A "Memory Builder Service" and "Memory Search Service" manage memory, which is visually represented as a database schema showing fields like 'id', 'type', 'user_id', 'memory', and 'memory_vector'. The purpose is to depict the flow of information and the role of memory in maintaining conversational context. -->
 
 retrieval methods. The proposed MARK architecture (**Figure 1**) is a society of memory agents that is divided into two primary blocks, Memory Builder Service (**MBS**) and Memory Search Service (**MSS**). MBS takes user and agent conversation chat history as input and extract Residual, User Question and LLM Response Refined Memories from the conversation (the roles of these individual refined memory types are illustrated through prompts provided in **appendix 3**). Finally, these memories are stored in a vector search enabled document store. Memory is a document that contains memory text, vectorized memory text and metadata information such as, user id, LLM agent name, recall count, classification, created date, metadata (e.g. location, department) etc. The recall count will be increased each time memory is consumed, the classification will help to categorize memories if needed by human evaluator as good or bad. Enterprise data governance and data leakage prevention can be established by leveraging the metadata.
 
@@ -222,6 +223,7 @@ Beyond content coverage, we incorporate efficiency and system-level performance 
 The goal of experiment 1 is to establish a baseline for evaluating the chatbot's performance without memory-based knowledge refinement. This helps assess the limitations of a standard LLM in handling domain-specific queries across multiple interactions. Additionally, this experiment aims to determine the optimal value of α for the AICS metric - which balances factual alignment (keyword matching) and semantic alignment. Since the dataset consists of medical information, factual accuracy (keywords, key points) should be weighted more than general semantic alignment. We hypothesize that the optimal α should be less than 0.5, favouring factual alignment. Thus, we plot the distribution of AICS across different values ( < 0.5).
 
 ![](_page_5_Figure_18.jpeg)
+<!-- Image Description: The figure displays box plots showing the distribution of AICs (Akaike Information Criterion) for correct and incorrect classifications across different alpha values. Each box plot represents the distribution of AICs for a given alpha value, separated by classification accuracy (correct or incorrect). The average ICS (In-sample Classification Score) and KPCS (K-fold cross-validation classification score) are also reported. The purpose is to illustrate the relationship between alpha value, AICs, and classification accuracy. -->
 **Figure 2**: Evaluation results for selection
 
 In **Figure 2**we can see that for lower value of , the AICS distribution for incorrect responses becomes more distinct from the correct ones, highlighting the role of weightage in semantic (ICS) vs. factual alignment (KPCS). The score variation between correct and incorrect responses is due to greater weight (> 0.5) on factual alignment, which is more critical than semantic alignment in domains like healthcare. Since for = 0.1, the difference between correct and incorrect responses is maximized, we**choose = 0.1**to make building memory with incorrect responses easier. Additionally, we aimed to refine the experimentation dataset for subsequent
@@ -231,6 +233,7 @@ experiments by implementing a filter. It has been observed that as the token cou
 In**Figure 3**we can see that the biggest gap between correct and incorrect responses is observed in the 150-220 token range, reinforcing our decision to set**= 0.1**for further experiments. However, this experiment identified 150-220 tokens as the optimal region, we selected records for further experiment ensuring coverage across all three key regions (80- 150, 150-220, and 220-250) to prevent overfitting in framework development. Thus, we can establish the**baseline performance**of the chatbot without refining its knowledge, allowing us to test the further hypotheses that MARK performs better than the baseline.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: This bar chart displays the relationship between information capture score and total token count for alpha = 0.1. It shows the human evaluation of responses categorized as correct (teal) and incorrect (coral) within four token count ranges (80-150, 150-220, 220-290, 290-360). The chart's purpose is to illustrate how the accuracy of information capture varies with the number of tokens used, for a specific alpha value. -->
 **Figure 3**: Information Capture Score vs. Total Token Count ( = 0.1)
 
 #### 1.2 Experiment 2
@@ -264,6 +267,7 @@ The **Table 5**shows how memory was built across 46 conversations using MARK's t
 In this experiment, we systematically integrate structured memory-capturing SME-driven updates and user feedback into the chatbot's knowledge. The primary goal is to assess how effectively the chatbot remembers and prioritizes these updates while discarding outdated information and refining knowledge overtime. We tested the memory injection framework on 107 records with built memory from the previous 46 records which had generated incorrect responses.
 
 ![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The figure is a line graph comparing mean scores of three metrics (Information Capture Score, Information Coverage Score, and Key Point Score) under two conditions: with and without memory. The Information Coverage Score remains constant regardless of memory, while the Information Capture Score and Key Point Score both increase significantly when memory is enabled, demonstrating the impact of memory on these metrics. The x-axis shows the experimental conditions, and the y-axis represents the mean scores. -->
 
 #### Figure 4: Evaluation Metrics with and without memory injection/augmentation
 
@@ -274,6 +278,7 @@ injection did not negatively impact information coverage.
 We have also observed the average token count per response is 149, significantly lower than 415 from Experiment 2, suggesting improved efficiency in responses. This reduction implies that the system is generating more concise yet informative outputs, likely due to better memory utilization, minimizing unnecessary verbosity.
 
 ![](_page_7_Figure_8.jpeg)
+<!-- Image Description: The bar graph displays the number of correct and incorrect responses from two experiments. Experiment 1 (without memory) shows 61 correct and 46 incorrect responses. Experiment 3 (with memory) shows 92 correct and 15 incorrect responses. The graph illustrates the impact of memory on response accuracy, showing significantly improved performance in the experiment incorporating memory. -->
 **Figure 5**: Correct vs incorrect response distribution with and without memory injection
 
 In **Figure 5**we can see a comparative analysis of human evaluation scores across both experiments highlights a substantial reduction in incorrect responses. The chatbot's ability to generate correct responses increased post-memory injection, validating the effectiveness of structured memory in enhancing domain knowledge retention. The sharp decline in incorrect answers suggests that memorybased refinements help**mitigate hallucinations**, leading to more reliable responses.
@@ -390,6 +395,7 @@ Low TS may cause memory decay [15]. Incorporating PS helps retain frequently ret
 The table shows that despite the Trust Score (TS) being below the threshold, the memory wasn't discarded due to a high Persistence Score (PS). Frequent recalls maintained its relevance. Over time, TS increased through validations, showing trust recovery. The adaptive PS threshold prevents premature deletion of useful but initially uncertain memories, balancing TS and PS effectively for dynamic system refinement.
 
 ## *Appendix 2: Medical Enterprise Chatbot Scenario with MARK*![](_page_11_Figure_4.jpeg)
+<!-- Image Description: This flowchart diagrams a medical expert chatbot scenario. Two medical practitioners interact with a user, discussing treatment for continuous hypersensitivity in a recently restored tooth. The flowchart shows the user's questions and the chatbot's responses, progressing from initial inquiry (hypersensitivity) through additional information (pulpitis) to a final recommendation (pulpectomy) based on extracted refined memory. The flow highlights the decision-making process within the chatbot's system. -->
 **Figure 6**: The figure depicts a medical expert chatbot refining its recommendations through interactions with practitioners, concluding that pulpectomy is the optimal treatment for continuous hypersensitivity in a restored tooth.
 
 ### 1 Residual Refined Memory

@@ -1,7 +1,7 @@
 ---
 cite_key: "structured2014"
-title: "**Learning temporal granularity with quadruplet networks for temporal knowledge graph completion**"
-authors: "Temporal information is inherently structured, and it is essential to leverage its granularity to correlate facts effectively. However, previous approaches often overlook the richness of temporal granularity, treating time as a monolithic element rather than exploring its finer details in conjunction with entities and relations."
+title: "Learning temporal granularity with quadruplet networks for temporal knowledge graph completion"
+authors: "RushanGeng, Cuicui Luo"
 year: 2014
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -14,6 +14,7 @@ images_removed: 0
 # OPEN
 
 ![](_page_0_Picture_3.jpeg)
+<!-- Image Description: The image is a simple button with the text "Check for updates". It likely appears in software or a digital document, indicating a functionality to search for and install newer versions. The button features a circular icon, possibly indicating software updates, with a red bookmark-like shape in the center. The image's purpose is to direct the user to check for software updates to ensure they have the latest version. -->
 
 # Learning temporal granularity with quadruplet networks for temporal knowledge graph completion
 
@@ -34,6 +35,7 @@ Temporal information is inherently structured, and it is essential to leverage i
 <sup>1</sup>School of Computer Science and Technology, University of Chinese Academy of Sciences, Beijing, China. <sup>2</sup>International College, University of Chinese Academy of Sciences, Beijing, China. email: luocuicui@ucas.ac.cn
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image is a diagram showing President Barack Obama's visits to four countries during his presidency. A central photograph of Obama is connected by arrows to flags representing the US, China, Japan, and the UK. Each arrow is labeled with the date of the visit and indicates the direction of travel. The diagram visually summarizes Obama's foreign trips, likely to illustrate a point about his foreign policy or international relations. -->
 **Fig. 1**. Some simple facts exist in TKGs.
 
 Moreover, existing models often integrate entities, relations and timestamps information in a staged manner, leading to potential biases that accumulate over time, resulting in diminished accuracy when predicting missing entities. To address these limitations, we propose a dynamic timestamps mapping (DTM) module that integrates heterogeneous elements within TKGs by utilizing dynamic Convolutional Neural Networks (CNNs) to process fine-grained temporal details. This modules ensures that timestamps representations are more precise, enabling the model to better capture the temporal context of facts. Additionally, a quadruplet fuse module (QFM) is introduced to map entities, relations, and timestamps into different spaces. These separate spaces are then combined into a unified representation. Finally, the weight information produced by the quadruplet fuse module is used to adjust the temporal granularity and make predictions. The main contributions of this work are as follows:
@@ -103,6 +105,7 @@ where *σ*(*·*) denotes the LeakyReLU activation function, W*t* and W*r* are li
 Inspired by the gating mechanism introduced in the QDN model proposed by Wang et al.[33,](#page-9-22) we incorporate a gating mechanism to selectively filter out irrelevant features while preserving significant ones. This module
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a neural network architecture for quadruplet fusion. The upper section ("Quadruplet Fusion") processes entity and relation inputs through linear and triaffine layers, followed by CNNs, culminating in a combined representation *q*. The lower section ("Dynamic Timestamps Mapping") incorporates temporal data (year, month, day) via an RNN and CNN, interacting with *q* through a multiply layer and softmax to produce a final output *X₀*. The model uses CNNs for feature extraction and RNNs for temporal information processing. -->
 **Fig. 2**. The framework of Learning Temporal Granularity with Quadruplet Networks.
 
 combines triaffine operations[34](#page-9-23) and CNNs to enable effective information exchange and interaction among entities, relations, and timestamps, even when they reside in different vector spaces. Specifically, the module comprises two key processes: aggregation and dissemination.
@@ -352,10 +355,13 @@ On the ICEWS05-15 dataset, compared with TeAST, our model achieves a 1.1% improv
 | -w/o DM.  | 63.2    | 55.6   | 68.0   | 77.3    | 24.6    | 18.1   | 25.6   | 38.8    |  |
 
 ![](_page_7_Figure_2.jpeg)
+<!-- Image Description: Table 4 presents an ablation study on the ICEWS14 and YAGO11k datasets. It describes the impact of removing different components: Dynamic Timestamps Mapping (DTM), Quadruplet Fusion Module (QFM), and Dissemination Module (DM). All other hyperparameters remained constant, allowing for isolated analysis of each module's contribution. -->
 
 <span id="page-7-1"></span>![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph illustrating the performance of a model across different numbers of layers. Four metrics are shown: Mean Reciprocal Rank (MRR), and Hits@k (k=1, 3, 10), representing the percentage of times the correct item is ranked within the top k predictions. The x-axis represents the number of layers, while the y-axis shows the percentage. The graph likely demonstrates how model performance varies with increasing model complexity (number of layers). -->
 
 ![](_page_7_Figure_4.jpeg)
+<!-- Image Description: Figure 3 is a caption describing a missing figure that would show the performance results of MRR (Mean Reciprocal Rank), Hits@1, Hits@3, and Hits@10. These metrics likely evaluate the performance of a model (possibly a query-focused model, indicated by QFM) with varying numbers of layers. The results are evaluated on the ICEWS14 dataset. The figure's purpose is to demonstrate the impact of the number of QFM layers on the model's performance, measured by the given metrics. -->
 
 On the GDELT dataset, TuckERTNT attains very high performance by employing a decoding-inspired approach. In contrast, our approach keeps timestamps distinct from entities and relations by assigning them equal importance, thereby enabling a more effective use of temporal information. Compared with TuckERTNT, our method shows improvements of 6.8% in MRR and 6.9% in Hits@1, demonstrating significant progress.
 
@@ -370,6 +376,7 @@ We conducted a series of ablation studies to explore the influence of key compon
 To validate the efficacy of the Quadruplet Fusion Module (QFM), we conducted experiments with varying numbers of QFM layers. The performance outcomes are depicted in Fig. [3](#page-7-1). The data suggest that as the number of layers increases, the model's performance generally improves. However, when the layer count exceeds three, there is a noticeable decline in the MRR of the model, which might be attributed to increased model complexity. This complexity potentially hampers the training data's ability to fully adapt to the current configuration of QFM. Despite this decline in MRR, the performance measured by Hits@10 consistently shows an upward trend, indicating that the model becomes capable of identifying a broader array of relevant items among the top ten predictions, even if the top-ranked result may not always be the most pertinent. In general, the inclusion of QFM has been found to significantly enhance the model's performance.
 
 <span id="page-8-10"></span>![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image contains two scatter plots (a) and (b), each showing a 2D representation of data points colored by month (January to December). The plots likely visualize a dimensionality reduction technique applied to data with a temporal aspect. Differences between (a) and (b) suggest different dimensionality reduction methods were used, illustrating their comparative performance in separating data by month within the context of the paper. -->
 
 **Fig. 4**. Visualizations of the timestamps embeddings learned from the ICEWS14 dataset. (a) With timestamps mapping, and (b) Without timestamps mapping. The same color represents the same month.
 

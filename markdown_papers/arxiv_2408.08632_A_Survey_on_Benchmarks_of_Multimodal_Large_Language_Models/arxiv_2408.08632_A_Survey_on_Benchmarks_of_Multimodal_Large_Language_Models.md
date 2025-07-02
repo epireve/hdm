@@ -1,6 +1,7 @@
 ---
 cite_key: "arxiv_240808632_a_survey_on_be"
 title: "A Survey on Benchmarks of Multimodal Large Language Models"
+authors: "Weiheng Lu, Hao Fei, Meng Luo, Ming Dai, Min Xia, Yizhang Jin, Zhenye Gan, Ding Qi, Chaoyou Fu, Ying Tai, Wankou Yang, Yabiao Wang, Chengjie Wang"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -31,6 +32,7 @@ A comprehensive and objective benchmark for evaluating MLLMs is essential for co
 <sup>1</sup>Equal contribution: Jian Li and Weiheng Lu.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image contains three visualizations analyzing large language models (LLMs). A circular diagram categorizes LLM evaluation criteria into domains (specific, other modalities) and capabilities (cognition, perception). Two bar charts show the growth in the number of LLM benchmarks (increasing from Q1 2022 to Q2 2024) and the number of LLMs consistently ranking among the top three across 83 benchmarks since 2024 (GPT-4 significantly outperforms others). The image summarizes the evolution and performance of LLMs. -->
 
 Figure 1: (left) Taxonomy of this benchmarks survey, Our survey covers 5 key domains and 20-30 sub-class types, (Right up) Trend of MLLMs evaluation papers over time, (Right down) The statistics on the number of the top3 MLLMs on 83 benchmarks since 2024.
 
@@ -45,6 +47,7 @@ In this survey, we aim to provide a comprehensive overview of recent advancement
 - Specific domains focus on MLLMs' capabilities in particular tasks and applications, such as their ability to process text-rich visual information and perform agent-based decisionmaking tasks in real-world scenarios. The discussion then extends to the evaluation of their performance in specialized domains such as medicine, autonomous driving, and industry.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: The image is a hierarchical tree diagram categorizing evaluation benchmarks for large language models (LLMs). It organizes benchmarks by LLM capabilities (perception & understanding, cognition & reasoning, key capabilities, other modalities), and further subdivides these into specific tasks (e.g., visual question answering, decision-making). Each node lists relevant benchmark datasets, indicating the scope and depth of LLM evaluation covered in the paper. The purpose is to provide a structured overview of the existing LLM evaluation landscape. -->
 
 Figure 2: Taxonomy of benchmarks for Multimodal Large Language Models
 
@@ -82,6 +85,7 @@ $$
 where L denotes the length of Ya. The parameter sizes of large language models (LLMs) range from 3 billion to tens of billions. Commonly used open-source LLMs include the Llama series[\[211,](#page-29-13) [212,](#page-29-14) [213,](#page-29-15) [214\]](#page-29-16), Phi [\[215,](#page-30-0) [216\]](#page-30-1),Gemma [\[217\]](#page-30-2),Qwen [\[218\]](#page-30-3).
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a multi-modal model architecture. It shows a large language model processing visual and audio input (represented as tokens) via a vision-language projector. The model is pre-trained using image-text pairs and then fine-tuned with instructions. The diagram depicts the flow of information, from input encoding to language response generation ($Y_a$), highlighting the roles of vision encoder, projector, and the different training stages. A sample image and audio waveform are shown as example inputs. -->
 
 Figure 3: The architectures and training process of MLLMs.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "supbsupcombustion2000"
 title: "nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations"
-authors: "<sup>b</sup>Combustion, Acoustics & Flow Physics Laboratory, ETH Z¨urich, 8092 Z¨urich, Switzerland"
+authors: "Stefan Kerkemeier, Christos E. Frouzakis, Ananias G. Tomboulides, Paul Fischer, Mathis Bodee"
 year: 2000
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -112,6 +112,7 @@ $$
 where µ is the dynamic viscosity, p<sup>1</sup> the hydrodynamic pressure, I the unit tensor, and <sup>T</sup> denotes transposition. The hydrodynamic subsystem (Eqs. [3–](#page-2-1)[4\)](#page-2-2) is discretized in time using a third-order backward differentiation formula to approximate the time derivative. For the nonlinear convective term, over-integration (dealiasing) is applied in combination with the operator integrating factor
 
 <span id="page-2-3"></span>![](_page_2_Figure_6.jpeg)
+<!-- Image Description: The image contains two plots comparing nekCRF and Chemkin models. The top plot shows temperature (T) in Kelvin versus time (t) in seconds, illustrating a sharp temperature increase around t = 0.04 s. The bottom plot displays the mass fraction of OH (Y<sub>OH</sub>) versus time, showing a corresponding increase at the same time point. Both plots demonstrate a step-like change in the variables around 0.04 s, likely representing a reaction or ignition event. The purpose is to compare the results of the two models' predictions of temperature and OH radical concentration during a combustion process. -->
 
 Figure 1: Comparison of the time histories of temperature and YOH (symbols) against the Chemkin solution (lines).
 
@@ -134,6 +135,7 @@ In contrast to the previous case, this test includes spatial gradients and incor
 Finally, the code is validated in a more complex application by considering a lean (ϕ = 0.4) premixed hydrogen-air mixture initially at temperature T<sup>0</sup> = 800 K and pressure p = 40 bar. At these conditions, the laminar flame thickness and speed computed with Cantera and the Li et al. mechanism [\[25\]](#page-8-17) are δ<sup>f</sup> = 20 µm and S<sup>L</sup> =
 
 <span id="page-3-0"></span>![](_page_3_Figure_5.jpeg)
+<!-- Image Description: The image presents a double-y-axis plot comparing computational fluid dynamics (CFD) results. The top panel shows temperature (T) profiles from three different solvers (Cantera, nekCRF, LAVP), demonstrating agreement in temperature rise. The bottom panel displays the mole fraction (Y<sub>k</sub>) of various chemical species (H₂, H₂O, OH, HO₂) along the x-axis (normalized spatial coordinate). This comparison validates the accuracy and consistency of the different simulation methods used in the paper. -->
 
 Figure 2: Comparison of temperature and selected species mass fraction profiles in the flame normal direction against Cantera (black line) and LAVp (× symbol) solutions.
 
@@ -142,6 +144,7 @@ Figure 2: Comparison of temperature and selected species mass fraction profiles 
 CVODE absolute tolerances were set to 10<sup>−</sup><sup>4</sup> of max{Yk} of the planar flame, while the relative tolerance was 10<sup>−</sup><sup>6</sup> for all variables. For the linear solvers in the fluid solve, the absolute residual tolerance for pressure and velocity were 10<sup>−</sup><sup>5</sup> and 10<sup>−</sup><sup>7</sup> , respectively. The addition of heat during the initial 0.3t<sup>f</sup> leads to the establishment of a flame kernel from which a propagating flame front is generated that interacts with the decaying turbulent flow field (Fig. [3\(](#page-4-1)b)). Figure [4](#page-4-2) shows good agreement in the evolution of the volumetric integral of the heat release rate, iHRR = R V P k hkω˙ <sup>k</sup>dV , and the instantaneous isocontours of temperature with respect to LAVp for times up to 2t<sup>f</sup> when the flame remains within the high resolution region.
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image contains two subfigures. (a) shows a computational mesh, a quarter-section of a cylindrical grid likely for fluid dynamics simulation. (b) presents a sequence of four 3D visualizations, color-coded by a scalar value (likely velocity magnitude, |V|/SL), showing the evolution of a phenomenon over time (t = 0.5tf to 2.0tf). The purpose is to illustrate numerical mesh and the temporal evolution of a simulated system, possibly a turbulent flow or similar. -->
 
 Figure 3: (a) Slice of a quarter of the mesh (b) flame kernels defined by the T = 1600 K isotherm and colored by the flow velocity magnitude at four time instants.
 
@@ -156,6 +159,7 @@ It is noteworthy that the reported thermochemistry timings are approximately twi
 To compare the performance, the case presented in Section [3.3](#page-3-1) is evaluated using LAVp on the LUMI-C HPC system at the CSC IT Center for Science in Finland. It is important to recognize that the reported speedup factors are generally influenced by specific implementation details, hardware setup, and problem size. Initial microbench-
 
 <span id="page-4-2"></span>![](_page_4_Figure_7.jpeg)
+<!-- Image Description: The image displays a graph plotting iHRR/(ρ c<sub>pu</sub><sup>2</sup> T) against t/t<sub>f</sub>, comparing data from LAVp (blue line) and nekCRF (red dots). Three inset diagrams show the spatial evolution of a quantity (likely a concentration or density) at times t=0.5t<sub>f</sub>, t<sub>f</sub>, and 2t<sub>f</sub>. The graph and insets illustrate the temporal and spatial evolution of a system, likely showcasing the agreement or discrepancy between two numerical models (LAVp and nekCRF) over time. -->
 
 Figure 4: Comparison of the time histories of the integral heat release rate and instantaneous isocontours of temperature. Insets: T = 1600K isotherms on an x − z slice at four time instants.
 
@@ -198,6 +202,7 @@ The elapsed time for the integration of 200 timesteps with dt = 10<sup>−</sup>
 Table 2: Solver statistics averaged over 200 timesteps.
 
 <span id="page-5-1"></span>![](_page_5_Figure_8.jpeg)
+<!-- Image Description: This graph displays the elapsed time (in seconds) of a computation versus the number of compute nodes used. Multiple lines represent different computational components ("total," "ideal," "thermo-chemistry," "velocity," and "pressure"). The "total" line shows overall elapsed time, decreasing with more nodes but less efficiently than the "ideal" line (representing perfect scaling). Other lines show individual component times, demonstrating varying degrees of parallel scalability. The graph illustrates the efficiency and limitations of parallelization across different parts of the computation. -->
 
 Figure 5: Strong scalability of the different solver components.
 

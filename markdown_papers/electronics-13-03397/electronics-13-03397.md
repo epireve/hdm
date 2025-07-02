@@ -1,7 +1,7 @@
 ---
 cite_key: "liu2024b"
-title: "*Article* **Enhancing Temporal Knowledge Graph Representation with Curriculum Learning**"
-authors: "**Yihe Liu, Yi Shen and Yuanfei Dai \\***"
+title: "ArticleEnhancing Temporal Knowledge Graph Representation with Curriculum Learning"
+authors: "Yihe Liu, Yi Shen"
 year: 2024
 doi: "10.3390/electronics13173397)"
 date_processed: "2025-07-02"
@@ -89,6 +89,7 @@ Curriculum learning is an approach that seeks to enhance model training by struc
 The overall framework of the model is shown in Figure [1.](#page-4-0) First, using a graph receptive field-based sphere model and a curriculum temperature radius filtering model, the quadruples in the temporal knowledge graph training dataset are divided by difficulty, and training begins with the easiest subset. Next, a gradient optimization strategy based on curriculum temperature and an incrementally progressive training strategy are used to train the temporal knowledge graph completion model for all required datasets in the current stage. The trained model then generates entity embedding vectors, which are used to re-evaluate and filter the remaining untrained datasets. These steps are repeated until the entire training dataset is fully trained, ensuring a gradual increase in task complexity throughout the learning process.
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
+<!-- Image Description: This image details a curriculum learning approach. It shows a training dataset sorted by difficulty using a temporal knowledge graph. Easier examples are trained first, with increasing difficulty in subsequent training epochs. A formula for a curriculum temperature module is presented, controlling the difficulty increase. The diagram depicts a model iteratively trained on progressively harder data subsets, indicated by the "Model<sub>i</sub>" boxes and equations showing the loss gradient with respect to a parameter θ. -->
 **Figure 1.**The model's framework begins by classifying quaternions in the temporal knowledge graph's training dataset by difficulty using the ball model and radius screening model. Training starts with the easiest dataset. A gradient optimization strategy and incremental training strategy are then used to train the required datasets. The trained model generates embedding vectors to re-evaluate and filter the remaining datasets. These steps repeat until the entire dataset is trained.
 
 ##*3.1. Difficulty Evaluation*The difficulty evaluation process consists of two main components: node difficulty evaluation and curriculum temperature. These components work together to assess the complexity of quadruples in the temporal knowledge graph.
@@ -356,6 +357,7 @@ From Table [5,](#page-11-0) we observe that without the difficulty assessor, the
 In all previous experiments, we set the number of buckets (stages in curriculum learning) to 3. In practice, the data can be divided into more groups to observe the model's performance with different bucket numbers. Therefore, we used Distmult and De-SimplE as the base model and ICEWS14 as the dataset to conduct experiments with 3, 4, and 5 buckets. The results are shown in Figure [2.](#page-11-1)
 
 <span id="page-11-1"></span>![](_page_11_Figure_8.jpeg)
+<!-- Image Description: The image contains two line graphs (a) and (b), both plotting Mean Reciprocal Rank (MRR) in percentage against the number of epochs. Each graph compares the performance of different models ("Distmult" and "De-simple") with varying bucket sizes (3, 4, and 5). The graphs illustrate how MRR improves with increasing epochs for each model and bucket configuration, allowing for a performance comparison across different model architectures and parameter settings. -->
 **Figure 2.**Different buckets on algorithm performance.
 
 When comparing our curriculum learning approach with different numbers of buckets to the baseline model at 100 epochs, we found that using 4 and 5 buckets resulted in slightly lower performance than the baseline. This is because, as the number of buckets increases, complex data receive relatively fewer training iterations. The model spends more time on simpler data in the early stages, achieving good initial performance, but insufficient training for complex data leads to suboptimal final results. However, with increased overall
@@ -369,6 +371,7 @@ In the previous section, we detailed a method for optimizing the allocation of t
 As shown in Figure [3,](#page-12-0) the incremental training strategy achieves Hits@1 scores of 40.9%, 41.6%, and 42.45% after 100, 200, and 300 epochs, respectively. In comparison, the baseline strategy of uniform training across all buckets yields lower Hits@1 scores of 40.1%, 40.5%, and 41.5% at the same epochs.
 
 <span id="page-12-0"></span>![](_page_12_Figure_6.jpeg)
+<!-- Image Description: The image presents two bar charts comparing "Normal Training" and "Incremental Training" methods on two datasets: Distmult (a) and De-simple (b). Each chart displays Hits@1 (%) performance across different epochs (100, 200, 300). The charts illustrate how the performance metric varies with the training method and the number of epochs for each dataset, allowing for a comparison of the effectiveness of the two training approaches. -->
 **Figure 3.**Impact of incremental training strategies on model performance.
 
 In the early stages (around 100 epochs), the incremental strategy allocates more time to simpler data, which may result in similar performance compared to normal training that exposes the model to all data complexities from the start. At around 200 epochs, the incremental strategy reaches a balance between training on simpler and more complex data. This allows the model to build a strong foundation on easier examples before effectively tackling more challenging ones, leading to superior performance. The incremental strategy's performance at 200 epochs demonstrates its ability to achieve better results with less overall training time compared to normal training, highlighting its efficiency.

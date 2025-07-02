@@ -1,7 +1,7 @@
 ---
 cite_key: "zaki2018"
-title: "KERL: *K*nowledge-*E*nhanced Personalized Recipe *R*ecommendation using *L*arge Language Models \\*"
-authors: "Fnu Mohbat and Mohammed J. Zaki"
+title: "KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language Models \"
+authors: "Fnu Mohbat, Mohammed J. Zaki"
 year: 2018
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -34,6 +34,7 @@ We propose a personalized and unified food recommendation system called KERL tha
 <sup>\*</sup>This paper has been accepted at the ACL 2025.
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a recipe generation system. A user query, specifying dietary restrictions and ingredients, is processed via SPARQL query against a Food Knowledge Graph (Food-KG). A subgraph is extracted, then fed into "KERL: Recom" and "KERL: Recipe-Gen" modules generating a personalized recipe with nutritional information, shown as a final output. The Food-KG is depicted as a node graph. -->
 
 Figure 1: KERL Overview: Given a natural language question (with constraints), the system parses entities and generates a SPARQL query to retrieve a subgraph from the KG. The question and this subgraph as context, are given as input to the recommendation model (*KERL-Recom*), which generates a list of recipe names that satisfy the constraints. The *KERL-Recipe*and*KERL-Nutri* models then generate cooking steps and micro-nutrients.
 
@@ -57,6 +58,7 @@ Nutrition Generation Due to the effectiveness of nutritional intake for personal
 of these methods aim to estimate the calories from one or more food images utilizing the Nutrition5k [\(Thames et al.,](#page-11-17) [2021\)](#page-11-17) dataset that contains only 5000 recipes with a total of 125K images. FoodLMM [\(Yin et al.,](#page-11-1) [2023\)](#page-11-1) leverages LISA [\(Lai](#page-10-15) [et al.,](#page-10-15) [2024\)](#page-10-15), CalorieLLaVA [\(Tanabe and Yanai,](#page-11-2) [2024\)](#page-11-2) fine-tunes LLaVA [\(Liu et al.,](#page-10-17) [2024\)](#page-10-17) and CaLoRAify [\(Yao et al.,](#page-11-16) [2024\)](#page-11-16) fine-tunes Llama-2 based visual language model for calorie estimation. Most of the existing work is limited to calorie estimation only, disregarding the estimation of other vital micro-nutrients. This work considers the estimation of several micro-nutrients, including protein, fiber, fat, and cholesterol.
 
 <span id="page-2-0"></span>![](_page_2_Figure_4.jpeg)
+<!-- Image Description: The diagram illustrates a system using a base Large Language Model (LLM) augmented with three Low-Rank Adaptation (LoRA) modules. Inputs include a constraint question and ingredient lists. The LoRAs specialize in recipe generation ("Recipe"), recommendations ("Recom"), and nutritional information ("Nutri"). The system outputs a list of recipes, cooking instructions, and nutritional information based on input constraints. The diagram visually depicts the workflow and modularity of the LLM-based recipe generation system. -->
 
 Figure 2: KERL Multi-LoRA Setup: With the same base model, a separate LoRA adapter is trained for each task. During inference, the desired adapter is activated while base model remains the same.
 
@@ -202,6 +204,7 @@ Table 5: KGQA Benchmark Test Set: *KERL-Recom*versus pre-trained LLMs.
 *Impact of Recipe Types:*To evaluate the generalization across various types of recipes, we compare
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: This bar chart displays F1 scores for five different large language models (Mistral, Llama-2, Llama-3.1, Phi-3-mini-128K, KERL-Recom) across various dietary restrictions (lactose-free, vegan, vegetarian, etc.). Each bar represents a model's performance on a specific dietary constraint. The chart's purpose is to compare the models' abilities to generate text within different dietary contexts, likely evaluating the accuracy and effectiveness of their responses. -->
 
 Figure 3: F1 scores of different models across various recipe types. Our model, KERL-Recom, consistently outperforms others with a significant margin in all categories.
 
@@ -447,6 +450,7 @@ $$
 Then precision (P), recall (R), and F1 scores are computed as follows:
 
 <span id="page-13-0"></span>![](_page_13_Figure_0.jpeg)
+<!-- Image Description: The image displays a recipe's network graph alongside its nutritional information and ingredients. The graph ("2-Hop Neighbors Graph Visualization") visualizes the relationships between the recipe "Corn Frittata With Cheese" and its ingredients, with nodes representing ingredients and edges showing connections. A table lists the recipe's nutritional details (calories, fat, protein, etc.), and another provides a list of ingredients. The image likely illustrates a method of recipe analysis or visualization within the paper. -->
 
 Figure 4: FoodKG Recipe sample: left panel shows a 2-hop KG subgraph for the recipe node shown on the right.
 

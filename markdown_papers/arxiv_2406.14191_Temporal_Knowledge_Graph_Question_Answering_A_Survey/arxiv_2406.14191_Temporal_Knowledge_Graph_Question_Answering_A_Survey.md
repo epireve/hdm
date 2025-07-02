@@ -1,7 +1,7 @@
 ---
 cite_key: "su2024"
 title: "Temporal Knowledge Graph Question Answering: A Survey"
-authors: "Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin, Jiafeng Guo"
+authors: "Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin\\, Jiafeng Guo\"
 year: 2024
 doi: "https://doi.org/10.48550/arXiv.2406.14191"
 url: "https://arxiv.org/abs/2406.14191"
@@ -82,6 +82,7 @@ We categorize the questions based on three aspects as illustrated in Figure [1:]
 Temporal Granularity. Questions can be categorized by the temporal granularity of their temporal
 
 <span id="page-2-2"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper presents three directed acyclic graphs illustrating a taxonomy for analyzing temporal questions. (a) shows question content categories based on temporal constraints (compositional or not), granularity (year, month, day), and time expression (explicit or implicit). (b) categorizes answer types as entity or time, further broken down into day, month, or year. (c) classifies question complexity as simple or complex. The graphs visually represent the hierarchical relationships between these features. -->
 
 Figure 1: Taxonomy of temporal questions from three aspects, including (a) Question Content; (b) Answer Type and (c) Complexity.
 
@@ -138,6 +139,7 @@ Since TKGQA is a crucial subtask within KBQA, many TKGQA methods have been devel
 As illustrated in Figure [2,](#page-3-2) SP-based methods usually have four steps: question understanding, logical parsing, TKG grounding, and query execution. The question understanding module converts unstructured text into encoded questions, facilitating downstream parsing. Next, the logical parsing module transforms the encoded question into uninstantiated logical forms, which are then grounded with the TKG elements through TKG grounding to get executable queries. Finally, the executable queries are processed and executed against the TKG to obtain the final answers during the query execution phase.
 
 <span id="page-3-2"></span>![](_page_3_Figure_6.jpeg)
+<!-- Image Description: This flowchart illustrates a temporal question answering system. It depicts a pipeline processing a temporal question through stages: Question Understanding, Logical Parsing (generating an ungrounded logical form shown as "Before(A₁, ..., Aₙ, t)"), TKG Grounding, and Query Execution, culminating in Answers. The diagram details the system's architecture and the flow of information from input to output. -->
 
 Figure 2: Overall procedure of SP-based methods.
 
@@ -160,6 +162,7 @@ TKG grounding grounds the elements in the unbound logical form with the entities
 The query execution module runs the grounded logical form against the TKG to retrieve the final answers. Some methods conduct temporal reasoning during this module. TEQUILA casts sub-questions answers' time range into intervals and conducts
 
 <span id="page-4-1"></span>![](_page_4_Figure_6.jpeg)
+<!-- Image Description: The image displays a semantic framework for processing temporal constraints, illustrated using a directed graph. Nodes represent entities (Alfred Hitchcock, Psycho, "1960," "1960-10-7") and relations (director, in_time, INCLUDES). Edges represent relationships between the nodes. The graph models the question "Which movie did Alfred Hitchcock direct in 1960?" and its resolution, indicating that "Psycho" was directed by Alfred Hitchcock in 1960 (October 7th). The framework uses temporal constraints (year and date) to answer the question. -->
 
 Figure 3: Semantic framework of temporal constraints.
 
@@ -176,6 +179,7 @@ As illustrated in Figure [4,](#page-5-0) TKGE-based methods typically involve th
 The TKG Embedding module generates embeddings of TKG elements. The entity and timestamp embeddings are filtered and augmented to create a pool of candidate answers. EXAQT [\(Jia](#page-9-15) [et al.,](#page-9-15) [2021\)](#page-9-15) follows a line of KBQA research [\(Sun](#page-11-5) [et al.,](#page-11-5) [2018a;](#page-11-5) [Yasunaga et al.,](#page-12-3) [2022\)](#page-12-3), employ-
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a temporal question answering system. A temporal question is processed to generate a question embedding, which is then combined with a temporal knowledge graph (TKG) embedding. The combined embeddings are used for answer ranking against entities and timestamps extracted from the TKG, ultimately yielding the answers. The diagram visually depicts the data flow and processing steps in the system. -->
 
 Figure 4: Overall procedure of TKGE-based methods.
 

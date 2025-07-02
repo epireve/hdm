@@ -1,7 +1,7 @@
 ---
 cite_key: "sun2024b"
 title: "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models"
-authors: "Qiang Sun, Yuanyi Luo, Wenxiao Zhang, et al."
+authors: "Qiang Sun"
 year: 2024
 doi: "10.48550/arXiv.2406.02962"
 url: "https://arxiv.org/abs/2406.02962"
@@ -72,8 +72,10 @@ Permission to make digital or hard copies of all or part of this work for person
 <sup>©</sup> 2018 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN xxx-xxx-xxx
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image presents a flowchart illustrating a knowledge graph construction process. Text data is initially processed through "Text2KG" and a layout module. The output feeds into a linkage module, where nodes (e.g., "Report," "Profit Year 1," "Analysis") and edges represent relationships, forming a higher-level knowledge graph. A lower section shows a detailed view of node relationships within the graph, with color-coded nodes possibly representing different entity types. The diagram visually explains the system's architecture and data flow. -->
 
 <span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts a dual-path data processing system. Input data (email, web pages, PDFs, spreadsheets) are processed via two paths: one for image data (converted and analyzed for layout), and one for text data (converted to Markdown then parsed). The resulting data is converted to JSON. Three layered diagrams show semantic relationships extracted from the processed data, illustrating the system's ability to build knowledge graphs. Inter-KG and Intra-KG links are shown. -->
 
 Figure 1: Architecture Design for Docs2KG
 
@@ -102,6 +104,7 @@ In Figure [1,](#page-1-0) we categorise the input documents into two types based
 <span id="page-2-0"></span>Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models Under Review, , Perth, WA
 
 ![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This image is a graph depicting the relationships between different pages of a document, likely a report on population census data from 2021 and comparisons to 2011. Nodes represent pages, colored by content type (e.g., red for summary, teal for main results). Edges show temporal relationships ("BEFORE", "SAME_TIME") or hierarchical relationships ("HAS_CHILD"). The graph visualizes the document's structure and the flow of information. -->
 
 Figure 2: A demo graph of query "Show me all documents and their components related to events that occurred in the years 2011 and 2021." by combining a PDF file and an Excel file. The PDF file contains information about the population size and structure of Hong Kong from 2011 to 2021. The Excel file contain records of the population census from 2021 to 2023. (Cyan indicates the PDF document; Green is for Excel file; Red for PDF page; Khaki for header; ocean blue for paragraph)
 
@@ -160,6 +163,7 @@ Figure 3: The Cypher Query to answer "Show me all documents and their components
 To enhance the performance of large language models, the RAG approach suggests integrating more relevant information directly into the prompt. In the context of our multimodal knowledge graph, 'relevance' refers to the proximity of nodes, which can be either semantic or structural. Specifically, relevant nodes are those that can be reached within a limited number of hops in the knowledge graph.
 
 ![](_page_3_Picture_14.jpeg)
+<!-- Image Description: The image displays a graph visualization of a knowledge graph. Nodes, represented by circles, contain textual information and are connected by edges, showing relationships. Node sizes vary. A panel shows node properties including `elementId`, `content`, numerical `bedding` and `meta_embedding` vectors, `labels`, and a `uuid`. The visualization likely illustrates the structure and relationships within a dataset used in the paper, possibly for knowledge representation or information retrieval. Two nodes are highlighted in light blue. -->
 
 Figure 4: Retrieved relevant semantic and structural nodes for query "I want to know all the population information from 2011 to 2021" by combining the same files referenced in Section 4.1. (Green indicates**<p>**tag; Blue for**<tr>** tag.)
 

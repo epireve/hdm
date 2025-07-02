@@ -1,7 +1,7 @@
 ---
 cite_key: "rasmussen2025"
-title: "Zep: A Temporal Knowledge Graph Architecture for Agent Memory"
-authors: "Preston Rasmussen, Pavlo Paliychuk, Travis Beauvais, Jack Ryan, Daniel Chalef"
+title: "ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY"
+authors: "Preston Rasmussen Zep AI"
 year: 2025
 doi: "10.48550/arXiv.2501.13956"
 url: "https://arxiv.org/abs/2501.13956"

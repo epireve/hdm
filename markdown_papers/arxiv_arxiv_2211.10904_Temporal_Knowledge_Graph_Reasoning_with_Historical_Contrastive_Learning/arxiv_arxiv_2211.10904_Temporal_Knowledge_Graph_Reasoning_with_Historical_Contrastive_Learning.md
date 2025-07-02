@@ -1,7 +1,7 @@
 ---
 cite_key: "xu2020b"
 title: "Temporal Knowledge Graph Reasoning with Historical Contrastive Learning"
-authors: "Yi Xu, Junjie Ou, Hui Xu, Luoyi Fu\\*"
+authors: "Yi Xu, Junjie Ou, Hui Xu, Luoyi Fu\"
 year: 2020
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -26,6 +26,7 @@ Temporal knowledge graph, serving as an effective way to store and model dynamic
 Knowledge Graphs (KGs), serving as the collections of human knowledge, have revealed promising expectations in the field of natural language processing (Sun et al. 2020; Wang et al. 2021), recommendation system (Wang et al. 2019), and information retrieval (Liu et al. 2018), etc. A traditional KG is usually a static knowledge base that uses a graph-structured data topology to integrate facts (also called events) in the form of triples (s, p, o), where s and o denote subject and object entities respectively, and p as a relation type means predicate. In the real world, knowledge evolves continuously, inspiring the construction and application of the Temporal Knowledge Graphs (TKGs), where the fact has
 
 ![](_page_0_Figure_9.jpeg)
+<!-- Image Description: The image contains two diagrams illustrating temporal knowledge graph (TKG) challenges. (a) shows a TKG example with three time snapshots, depicting international relations events represented as nodes (countries) and edges (actions like "Negotiate," "Praise"). (b) uses an iceberg metaphor to illustrate limitations of existing methods, contrasting "historical events" data (shown as a graph) with the incomplete or unobserved "non-historical entities" that affect queries and answers. The "query" section shows a prediction problem where historical data is used to predict a future event. -->
 
 Figure 1: An example of TKG and challenges of existing methods.
 
@@ -71,6 +72,7 @@ $$
 where z<sup>i</sup> is the projection embedding of sample i and τ ∈ R <sup>+</sup> denotes a temperature parameter helping the model learn from hard negatives. In the case of supervised learning, there is a work (Khosla et al. 2020) generalizing contrastive loss to an arbitrary number of positives, which separates the representations of different instances using ground truth labels. The obtained contrastive representations can promote the downstream classifier to achieve better performance compared with vanilla classification model.
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a model architecture for predicting entity distributions. It uses two encoders and contrastive learning. The left shows input data representing historical and non-historical dependencies, visualized as bar charts and node graphs. The central section depicts prediction using context vectors and a mask-based inference method. The right displays contrastive training in two stages, using shared encoder weights and a final classifier, outputting a mask vector. The overall purpose is to model dependencies for improved prediction accuracy. -->
 
 Figure 2: The overall architecture of CENET. The left part learns the distribution of entities from both historical and nonhistorical dependency. The right part illustrates the two stages of historical contrastive learning, which aims to identify highly correlated entities, and the output is a boolean mask vector. The middle part is the mask-based inference process that combines the distribution learned from the two kinds of dependency and the mask vector to generate the final results.
 
@@ -335,6 +337,7 @@ CENET-his only considers the historical dependency while CENET-nhis keeps the no
 There are two unexplored hyper-parameters α and λ in CENET. We adjust the values of α and λ respectively to observe the performance change of CENET on ICEWS18 and YAGO. The results are shown in Figure 3. The hyper-
 
 ![](_page_6_Figure_8.jpeg)
+<!-- Image Description: The image contains four line graphs (a-d). Each graph displays the performance of a model across different hyperparameters (α and λ) on two datasets (ICEWS18 and YAGO). The y-axis represents evaluation metrics (MRR, Hits@1, Hits@3, Hits@10), while the x-axis shows the hyperparameter values. The graphs illustrate the impact of hyperparameter tuning on model performance, showing how different metrics respond to varying α and λ. -->
 
 Figure 3: Results of hyper-parameters α and λ of CENET on ICEWS18 and YAGO.
 
@@ -435,6 +438,7 @@ Zhu, C.; Chen, M.; Fan, C.; Cheng, G.; and Zhang, Y. 2021. Learning from history
 The historical contrastive learning consists of two stages: learning contrastive representations and training binary classifier. Figure 4 illustrates the training process of historical contrastive learning.
 
 ![](_page_9_Figure_2.jpeg)
+<!-- Image Description: This flowchart illustrates a two-stage deep learning model. Stage 1 uses two encoders with shared weights, processing input event pairs (e.g., "US, Make a visit, China") to generate contrastive representations. Stage 2 employs a shared binary classifier with sigmoid activation, predicting whether the pair's relationship exists in historical ground truth data. Shared parameters and loss functions are indicated. The diagram visually depicts the model's architecture and workflow for event relationship prediction. -->
 
 Figure 4: The detail of historical contrastive learning: CENET learns representations using a contrastive loss in stage 1, then trains a binary classifier using cross-entropy loss in stage 2.
 
@@ -501,5 +505,6 @@ Table 6: Experimental results of temporal link prediction on three event-based T
 Table 7: Experimental results of temporal link prediction on two public KGs (WIKI and YAGO). The best results are boldfaced.
 
 ![](_page_10_Figure_6.jpeg)
+<!-- Image Description: This table displays a prediction task. The left section shows a history of international relations events at times t-3, t-2, and t-1, represented by country flags and descriptive phrases (e.g., "Halt negotiations"). The middle section presents queries, each specifying a country (s), an action (p), and a time (t). The right section compares the model's prediction with the actual outcome, both shown as country flags. The purpose is to illustrate the model's accuracy in predicting international relations events based on historical data. -->
 
 Figure 5: Case study of CENET's predictions. We select three queries with*North Korea* as subject entity for analysis.

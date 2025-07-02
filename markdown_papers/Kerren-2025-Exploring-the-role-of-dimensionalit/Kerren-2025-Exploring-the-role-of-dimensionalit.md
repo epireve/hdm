@@ -1,7 +1,7 @@
 ---
 cite_key: "retrieval2021"
 title: "Exploring the role of dimensionality transformation in episodic memory"
-authors: "Neural oscillations (gamma and thetagamma code) provide a framework to explain how the brain can implement dimensionality transformation in aid of episodic memory formation and retrieval."
+authors: "Daniel Reznik"
 year: 2021
 doi: "10.1101/2023.02.04."
 date_processed: "2025-07-02"
@@ -105,8 +105,10 @@ cortical areas that do not show specificity for any sensory modality. Transmodal
 cortical areas that show selective responses to one modality of sensory input, such as auditory or visual. Unimodal areas include primary sensory cortex and unimodal association cortex.
 
 ![](_page_2_Figure_11.jpeg)
+<!-- Image Description: The image contains the single word "Perception," likely serving as a title, heading, or label within the academic paper. There are no diagrams, charts, graphs, equations, or other technical illustrations present. The word's purpose is to identify a section or concept related to the cognitive process of perception. -->
 
 ![](_page_2_Figure_12.jpeg)
+<!-- Image Description: The image illustrates the dimensionality reduction and reconstruction processes during perception and retrieval. The top half shows sensory input (eye and ear icons) leading to a brain representation, then a reduction to a low-dimensional representation (sparse points in 3D space) of a tree image. The bottom half mirrors this, starting with a memory representation (thought bubble), reconstruction to a high-dimensional representation (dense points in 3D space) of the tree image. Different tree sketches illustrate the visual information at each stage, and starburst diagrams represent feature spaces. Arrows indicate the “reduction” and “reconstruction” processes. -->
 
 Figure 1. Dimensionality transformation across mnemonic stages. During perception, we hypothesise that neural representations need to be reduced to adhere to the finite number of neurons in the associative regions of the medial temporal lobe. This process is illustrated here as a sequence of images. Initially, a detailed image of a tree is surrounded by various elements, such as birds and other trees. Subsequently, images show a progressive reduction in detail. The final image depicts a simple outline of the original tree, symbolising a low-dimensional representation of the initial complex image. We propose that a low-dimensional representation of an event is stored in associative regions, such as the hippocampus. This reduced dimensional representation requires significantly less storage capacity compared with a high-dimensional one, thereby enabling the memory system to store a greater quantity of information. During retrieval, the low-dimensional code must be expanded, which occurs through interaction with cortical regions to reconstruct the memory. However, due to the initial reduction, the original event can never be fully reconstructed. This is depicted in the trees having fewer details and being distorted compared with the original images during perception. The polar plots symbolise that the number of dimension changes as a function of processing steps and time, from perception to storage and later retrieval.
 
@@ -155,6 +157,7 @@ Although tract-tracing methods are infeasible in humans, fMRI connectivity metho
 An important question is how changes in corticohippocampal interactions are reflected in dimensionality transformations. Existing behavioural evidence suggests that direct projections from sensory regions to the hippocampal system are associated with more veridical and less transformed sensory representations ([Figure 2](#page-6-0)B). For example, in the visual domain, rats are more
 
 <span id="page-6-0"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image contains three panels. (A) shows a line graph illustrating the decreasing cortical input from unimodal areas and a less steep decrease from transmodal areas across species (rat, monkey, human). (B) displays a line graph indicating increasing representational transformation complexity across the same species, using tree illustrations to represent this complexity. (C) presents a log-log plot showing the relationship between brain weight and different brain oscillation frequencies (ripple, gamma, spindle, beta, alpha, slow 1, slow 3) across several species (rat, marmoset, cat, macaque, human). The figure aims to show correlations between brain size, cortical inputs, representational complexity, and oscillatory frequencies. -->
 
 ### Trends in Cognitive Cognitive Sciences Sciences
 

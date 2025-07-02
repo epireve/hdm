@@ -1,7 +1,7 @@
 ---
 cite_key: "zu2018"
 title: "AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation"
-authors: "Hui Zu† , Jingwen Zhao‡ , Yunjun Gao†"
+authors: "Fengyu Li, Yilin Li, Junhao Zhu, Lu Chen, Yanfei Zhang, Jia Zhou"
 year: 2018
 doi: "10.18653/v1/2024.emnlp-main.845"
 date_processed: "2025-07-02"
@@ -55,6 +55,7 @@ Permission to make digital or hard copies of all or part of this work for person
 Conference acronym 'XX, June 03–05, 2018, Woodstock, NY Li et al.
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a two-stage system for biography generation. The offline stage involves relation extraction from documents to build a knowledge graph (KG)-based index linking full names, styles, and nicknames. The online stage uses a prompt, retrieves relevant information from the KG, and generates a biography using an aligned model. A verifier and error-aware solvers handle unsupported or missing information, potentially regenerating the biography. The system employs a two-step training process including data synthesis and stylistic preference optimization. -->
 
 Figure 1: The architecture of AIstorian
 

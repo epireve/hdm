@@ -1,7 +1,7 @@
 ---
 cite_key: "ji2022"
 title: "Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning"
-authors: "- [2] M. Ji, J. Jeon, K.-S. Han, and Y. Cho, \"Accurate Long-Term Evolution/Wi-Fi hybrid positioning technology for emergency rescue,\" ETRI Journal, vol. 45, no. 6, pp. 939-951, Dec. 2023."
+authors: "Seonghun Seo, Kyunghyun Park, Daesub Yoon, JaeJun Yoo, Yonghyun Kim, Yangkoo Lee, Jiwoo Han"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -41,6 +41,7 @@ Indoor positioning technologies often necessitate additional infrastructure to p
 Building upon the findings from the aforementioned studies, we present the architecture of a smartphone-based continuous complex positioning platform designed to deliver optimal positioning results. This platform can be broadly divided into three key components: on-device positioning, server-based positioning, and communication with a positioning support server. We have engineered this platform to effectively acquire and process a variety of sensor and signal measurements. By leveraging this platform, we can implement diverse positioning techniques and achieve seamless positioning through their integration. Fig. 1 illustrates the structure of the proposed system.
 
 ![](_page_1_Figure_3.jpeg)
+<!-- Image Description: The diagram illustrates a mobile positioning system architecture. A smartphone utilizes various on-device sensors (GNSS, accelerometer, etc.) and server-based technologies (Wi-Fi, BLE, LTE) to obtain positioning data. Raw measurements are sent to a positioning support server, which uses a positioning API and a map service, interacting with a spatial information server providing maps, reference points, and other spatial data. The system outputs positioning results to the smartphone. Data flow between components and data types are shown. -->
 
 Fig. 1. Continuous complex positioning system architecture.
 
@@ -59,6 +60,7 @@ resources, the server can directly handle the computations and deliver the resul
 The platform for continuous complex positioning research is implemented as a smartphone application, as depicted in Fig. 2. Fig. 2(a) illustrates the main activity of the application, configured to display map loading, video capture, positioning results for each technique, and the final continuous complex positioning results. Fig. 2(b) shows an example of the realtime sensor and signal measurement acquisition status. These measurements are utilized for either on-device or server-based positioning, and are subsequently used to derive the final positioning results.
 
 ![](_page_1_Figure_14.jpeg)
+<!-- Image Description: The image shows two panels. (a) displays a smartphone application interface showing a building's floor plan overlaid on a satellite image. The app includes zoom controls, a compass, and buttons for 'POS Type' and 'POS Info'. A small image preview labelled 'Capture' is also present. (b) shows a text-based log of sensor data, including accelerometer ([acc]), gyroscope ([gyro]), magnetometer ([mag]), Bluetooth Low Energy ([BLE]), Wi-Fi ([WIFI]), and LTE ([LTE]) readings. The image likely demonstrates a continuous complex positioning system using data fusion from various sensors. -->
 
 Fig. 2. Continuous complex positioning application.
 

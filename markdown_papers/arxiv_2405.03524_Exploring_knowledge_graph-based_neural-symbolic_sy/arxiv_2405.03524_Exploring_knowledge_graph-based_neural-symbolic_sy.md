@@ -1,7 +1,7 @@
 ---
 cite_key: "toronto2019"
 title: "A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM APPLICATION PERSPECTIVE"
-authors: "Shenzhe Zhu<sup>∗</sup> University of Toronto Toronto, Canada cho.zhu@mail.utoronto.ca"
+authors: "Shenzhe Zhu, Toronto Toronto"
 year: 2019
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -59,10 +59,12 @@ Delving into the categorization of neural-symbolic systems unveils three primary
 "Neural for Symbol", also known as "Learning for Reasoning", focuses on utilizing the learning capabilities of neural networks for the enhancement and problem solving of traditional symbolic reasoning. In this paradigm, neural networks usually enhance symbolic systems by acceleration [\[35,](#page-16-22) [36,](#page-17-0) [37,](#page-17-1) [38,](#page-17-2) [39,](#page-17-3) [40,](#page-17-4) [41,](#page-17-5) [42,](#page-17-6) [43,](#page-17-7) [44,](#page-17-8) [45,](#page-17-9) [46,](#page-17-10) [47,](#page-17-11) [48,](#page-17-12) [49,](#page-17-13) [50,](#page-17-14) [51,](#page-17-15) [52,](#page-17-16) [53,](#page-17-17) [54,](#page-17-18) [55,](#page-17-19) [56,](#page-17-20) [57,](#page-17-21) [58\]](#page-17-22).Typically, "acceleration" refers to the use of neural networks to improve the speed and efficiency of symbolic systems in knowledge reasoning and processing complex data. For instance, Neural networks can optimize the search path[\[59\]](#page-18-0) in KG reasoning by leveraging their advanced analytical capabilities. [Figure](#page-2-1) [2](#page-2-1) illustrates the architecture of this integrated approach.
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: The image is a diagram illustrating a hybrid integration scheme. Two boxes represent a symbolic system and a neural network, linked by bidirectional arrows labeled "Hybrid Integration." Curved arrows show feedback loops: one labeled "Guide" from the symbolic system to the neural network, and another labeled "Enhance" in the opposite direction. The diagram depicts how the systems iteratively improve each other's performance through this integrated process. -->
 
 Figure 1: This diagram depicts three neural-symbolic system interactions: the orange curve for "Symbol for Neural", the pink for "Neural for Symbol", and the grey bidirectional line for "Hybrid neural-symbolic integration", highlighting their distinct collaborative dynamics.
 
 <span id="page-2-1"></span>![](_page_2_Figure_3.jpeg)
+<!-- Image Description: Figure 2 is a flowchart illustrating a neural-symbolic system. Knowledge graphs feed into symbolic reasoning, which is accelerated by neural networks, ultimately leading to inference. Arrows depict data flow. The figure visually represents the integration of neural networks and symbolic reasoning to enhance inference capabilities. -->
 
 ### 2 Symbol for neural
 
@@ -73,12 +75,14 @@ In this context, "Symbol for Neural"[\[60,](#page-18-1) [61,](#page-18-2) [62,](
 "Hybrid neural-symbolic integration"[\[88,](#page-19-8) [89,](#page-19-9) [90,](#page-19-10) [91,](#page-19-11) [92,](#page-19-12) [93,](#page-19-13) [94,](#page-19-14) [95,](#page-19-15) [96,](#page-19-16) [97,](#page-19-17) [98,](#page-19-18) [99,](#page-19-19) [100,](#page-19-20) [101,](#page-20-0) [102,](#page-20-1) [103,](#page-20-2) [104\]](#page-20-3) shows a more dynamic way of interaction. In this approach, neural networks and symbolic reasoning complement each other without being subordinate, working together to enhance the comprehension and inference capabilities of the AI system. In this system, neural networks first process input data (e.g., images, text, etc.), extracting features and converting them into intermediate representations. These representations are then passed to a symbolic system, which utilizes this data for logical reasoning and possibly combines it with existing KG to make decisions or generate new knowledge. The results of the reasoning are not only used for direct decision-making output but are also fed back to the neural network
 
 <span id="page-3-1"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a system architecture. Input data (Image, Text...) feeds into a Neural Network. A "Symbolic System" constrains and enhances the Neural Network's operation. The Neural Network then produces "Predictions" as output. The diagram visually represents the data flow and the role of the symbolic system in refining the neural network's processing for improved predictive accuracy. -->
 
 Figure 3: Symbol for neural
 
 to guide its further learning and parameter tuning, thus optimizing the performance of the overall system. Through this iterative feedback mechanism, the hybrid system can continuously optimize itself, and its components, the neural network and the symbolic system, can learn and adapt from each other's processing results. This collaborative process grants the hybrid system resilience and adaptability, allowing it to efficiently manage complex tasks with accuracy and interpretability. [Figure](#page-3-2) [4](#page-3-2) illustrates the architecture of this integrated approach.
 
 <span id="page-3-2"></span>![](_page_3_Figure_4.jpeg)
+<!-- Image Description: The image is a flowchart depicting a system architecture. Input (Image, Text, etc.) feeds into a Neural Network, which interacts with a Symbolic System via iterative "Enhance" and "Adjust" feedback loops. The combined output of the Neural Network and Symbolic System then produces a final Output. The diagram illustrates a synergistic approach combining neural and symbolic methods. -->
 
 Figure 4: Hybrid neural-symbolic integration
 
@@ -128,6 +132,7 @@ Neighborhood aggregation in KGCN updates node representations by utilizing neigh
 Similarly, Knowledge Graph Attention Network (KGAT)[\[52\]](#page-17-16) works on complex network situations between items due to shared attributes or characteristics that traditional methods ignore. By leveraging the adaptive focusing of relevant node property of graph attention network[\[116\]](#page-20-15), KGAT deeply mines the high-order relationships in the KG, significantly enhancing the model's understanding of the interrelationships between items, thereby improving the accuracy and relevance of recommendations.
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image is a graph illustrating a hierarchical network structure. Nodes are colored: blue (central node), green (nodes at distance h=1 from the central node), and white (nodes at distance h=2). Directed blue arrows indicate information flow towards the central node. Concentric circles delineate the hierarchical layers (h=1 and h=2), visually representing the distance from the central node. The graph likely depicts a model for information diffusion or network analysis within the paper. -->
 
 Figure 5: A two-layer receptive field (green entities) of the blue entity in a KG
 
@@ -155,6 +160,7 @@ In recent years, along with the development of graph attention network technolog
 KGs play a central role in the construction of contemporary Q&A systems. By integrating and utilizing KGs, Q&A systems can go beyond simple fact retrieval to achieve advanced question processing that requires in-depth semantic understanding and reasoning, while at the same time, we can leverage the learning capability of neural symbols to enhance the inference speed of KGs, thus significantly improving the response quality and user interaction experience.
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a neural network architecture. Two parallel branches, each processing three inputs ($i_3$, $e_1$, $u_2$), use LeakyReLU activation functions. Each branch involves weighted sums ($W_1^{(l)}$, $W_2^{(l)}$) and element-wise multiplication ($\times$) operations, feeding into the next layer. The final output combines the branches' results. The diagram shows the network's internal structure and data flow at a specific layer ($l$), clarifying the processing steps within the model. -->
 
 Figure 6: Attentive embedding propagation layer of KGAT
 
@@ -167,6 +173,7 @@ Q&A models are easy to encounter limitations due to their reliance on data extra
 Updating the heterogeneous graph constitutes a crucial phase in GRAFT-Net's training, where the refinement of entity nodes is pivotal. This update process employs a feed-forward network. Specifically, the update for an entity v is computed by amalgamating its previous state h (l−1) <sup>v</sup> , the question's representation h (l−1) <sup>q</sup> , and the collective states from neighboring entities Nr(v). These are weighted by attention coefficients α v ′ r and modified by relation-specific transformations ψr[\[114\]](#page-20-12). Additionally, the update incorporates aggregated states from the entity's mentions across the
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a knowledge graph-based question answering system. A question ("The actor of Lost Christmas...") is processed, identifying the topic entity ("Lost Christmas"). This entity is then used to query a knowledge graph, generating graph embeddings for related entities (Shifty, The Truth About Love, etc.). These embeddings undergo an inner product calculation with the question embedding, and the entity with the highest probability (argmax) is selected as the answer. The entire process is depicted using boxes representing processing stages, arrows for data flow, and a central knowledge graph visualization. -->
 
 Figure 7: End-to-end architecture of the variational reasoning network (VRN) for question-answering with KG
 
@@ -200,6 +207,7 @@ $$
 , where fenc is the encoder extracting text features and fhead predicts the relevance score of node v to context z. Second is joint reasoning, where after forming the joint graph, the model uses a graph neural network with an attention mechanism to update node representations, iteratively updating the representations of the context and KG, thereby enabling reasoning. In this process, the graph attention network (GAT)[\[116\]](#page-20-15) dynamically adjusts the weights of information transfer between nodes so that each node can update its own information based on its relevance score with neighboring nodes.
 
 ![](_page_8_Figure_5.jpeg)
+<!-- Image Description: The image illustrates a knowledge graph (KG) reasoning process. A question about the relationship between two persons is input, and a retrieved KG is processed by a large language model (LLM). The LLM outputs a scored KG where node colors represent the confidence of the relationship, with darker colors indicating higher confidence. The example shows the "mother and son" relationship being correctly identified. The diagram shows the process flow and the resulting scored KG. -->
 
 Figure 8: Architecture of the QA-GNN for question-answering with KG
 
@@ -218,6 +226,7 @@ Knowledge graph-based Zero-Shot Learning (ZSL) models[\[127,](#page-21-3) [128,]
 The Zero-shot Learning via Semantic Embeddings and Knowledge Graphs(SEKG-ZSL)[\[86\]](#page-19-6), a cutting-edge zero-shot learning framework for image classification, skillfully integrates semantic embeddings with KG, using them as inputs to GCN to train classifiers that recognize unseen categories. In this model, we utilize pre-trained text models (e.g., GloVe[\[130\]](#page-21-6) or word2vec[\[131\]](#page-21-7)) to extract semantic embedding vector representations of different categories in a high-dimensional space that capture the semantic properties of the corresponding categories. Meanwhile, the KG depicts the associations between categories graphically to aid model comprehension. In the graph structure, nodes represent different categories, and edges reveal the semantic relationships between categories. Then, the model processes these two types of knowledge inputs through the GCN to transfer and combine the information between different categories with the help of the associative relationships in the graph, thus developing a classifier that can generalize to unseen categories. In particular, it is noted that the KG sets constraints for the network's learning by utilizing the relationships between categories to guide the information transfer when training the classifier, and enhances its ability to learn and predict the unseen categories. Simply speaking, the KG plays the role of a map in the model, guiding the GCN to learn and infer along the correct semantic path. Overall, the SEKG-ZSL framework can effectively combine the semantic and visual information of categories to improve the accuracy and generalization ability of zero-sample learning.
 
 <span id="page-9-0"></span>![](_page_9_Figure_5.jpeg)
+<!-- Image Description: This diagram illustrates a graph convolutional network (GCN) architecture for Okapi classification. Input data ("Okapi") is processed using GloVe/Word2Seq and fed into the GCN, which incorporates knowledge graph (KG) information to constrain and guide the learning process. The GCN consists of input and output layers with hidden layers in between, transforming node features (X) to representations (Z) before final classification by an "Okapi Classifier". The diagram shows the data flow and the different components of the model. -->
 
 Figure 9: The basic architecture of training classifier by GCN with KG and semantic embedding
 
@@ -254,6 +263,7 @@ In the field of Natural Language Processing(NLP), although the Bidirectional Enc
 KnowBERT[\[105\]](#page-20-14) introduces an innovative mechanism known as Knowledge Attention and Recontextualization (KAR), which adeptly bridges the gap between textual content and external knowledge bases. The essence of the KAR mechanism lies in its ability to identify entity mentions within the text and link them to corresponding entities in the knowledge base, thereby enriching the original contextual representation of the text. This process encompasses several critical steps: firstly, mention-span representation transforms potential entity mentions within the text into vectors of uniform dimensionality; secondly, an entity linker is employed to accurately align each mention with the most relevant entity in the knowledge base (symbol for neural); thirdly, by incorporating mention-span self-attention mechanism and through knowledge enhancement and recontextualization[\[141\]](#page-21-18) steps, the selected entity information is effectively reintegrated into the textual representation, achieving a comprehensive integration of textual meaning and knowledge content. The basic architecture of KAR is shown in the following.
 
 ![](_page_11_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart depicting a natural language processing (NLP) model. Word vectors are input, projected, pooled, and then undergo contextualization. These representations are enhanced with knowledge from a knowledge base via an entity linker, resulting in knowledge-enhanced span representations. Finally, recontextualization produces output word vectors. The flowchart illustrates the model's architecture, highlighting key processing stages. -->
 
 Figure 10: The Knowledge Attention and Recontextualization (KAR) component
 
@@ -276,6 +286,7 @@ Compared to the two previously mentioned categories, our hybrid integration mode
 In Section [1,](#page-0-0) we discussed the concepts of System 1 and System 2[\[27\]](#page-16-14) from cognitive science. Based on these ideas, Ding M and his team combined the capabilities of BERT (acting as System 1) and GNN (acting as System 2) to develop the Cognitive Graph QA(CogQA)[\[101\]](#page-20-0) model. This model employs a cognitive graph(KG-like structure) to mimic human dual-process cognition, aiming to address the complex challenges encountered when performing multi-hop question answering across large-scale document sets. CogQA constructs a dynamic cognitive graph that links information dispersed across multiple documents and iteratively mines and verifies potential answers. Specifically, apart from initializing the graph (creating starting nodes based on entities mentioned in the questions and marking them as "frontier nodes") and determining the termination conditions, each iteration of building the cognitive graph primarily involves three steps: First, relevant information, including potential answers and related entities, is extracted from the document set using BERT[\[6\]](#page-15-5) (system 1); Second, based on the information provided by system 1, CogQA updates the cognitive graph by adding new nodes and edges, where new nodes include entities or answer candidates identified from the text, and edges represent logical relationships between entities. These new nodes are also marked as frontier nodes for use in the next iteration; Third, once the cognitive graph is updated, GNN(system 2) begins analyzing the logic and relationships between entities in depth and optimizing the structure of the cognitive graph. Importantly, after each iteration, CogQA assesses whether the cognitive graph is sufficiently comprehensive to answer the original question. If the information is deemed adequate, the model will predict the final answer based on the current cognitive graph. Otherwise, the model will continue iterating, further expanding, and refining the cognitive graph with each cycle until a satisfactory answer is found. The basic architecture and implementation of CogQA is shown in Figure [11](#page-12-0)
 
 <span id="page-12-0"></span>![](_page_12_Figure_4.jpeg)
+<!-- Image Description: This flowchart illustrates a hybrid BERT-GNN system for question answering. It shows two systems, BERT (System 1) processing external documents and a GNN (System 2) operating on a cognitive graph. The BERT system's architecture is depicted, including embedding, transformer encoder, and classification layers. The GNN system's diagram shows hidden layers with ReLU activation functions. A cognitive graph represents question-answer relationships. The systems are integrated through "Structure Optimization" and "Relation and Structure Injection," optimizing the graph structure and feeding information between the two systems to produce a final answer. -->
 
 Figure 11: Overview of CogQA implementation
 

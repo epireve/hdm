@@ -1,7 +1,7 @@
 ---
 cite_key: "saxena2021"
 title: "Question Answering Over Temporal Knowledge Graphs"
-authors: "Apoorv Saxena, Soumen Chakrabarti, Partha Talukdar"
+authors: "Partha Talukdar Google Research India, Temporal Knowledge Graphs"
 year: 2021
 doi: "https://doi.org/10.48550/arXiv.2106.01515"
 url: "https://arxiv.org/abs/2106.01515"
@@ -235,6 +235,7 @@ In case entity/timestamp embeddings are complex valued vectors in C <sup>D</sup>
 We first apply EmbedKGQA [\(Saxena et al.,](#page-9-5) [2020\)](#page-9-5) directly to the task of Temporal KGQA. In its original implementation, EmbedKGQA uses ComplEx (Section [4.1\)](#page-4-1) embeddings and can only deal with non-temporal KGs and single entity questions. In order to apply it to CRONQUESTIONS, we set the first entity encountered in the question as the
 
 <span id="page-5-2"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This figure illustrates a temporal knowledge graph embedding model. A knowledge graph (left) representing historical facts about US presidents is processed by a temporal knowledge graph embedding (KGE) model. The model generates temporal KG embeddings (center) which, along with a BERT question embedding (bottom), are fed into a network (right). This network calculates entity and time scores (φ<sub>ent</sub>, φ<sub>time</sub>) that use a softmax function to predict the answer (Harry Truman). The diagram visualizes the model's architecture and data flow. -->
 
 Figure 1: The CRONKGQA method. (i) A temporal KG embedding model (Section [4\)](#page-4-2) is used to generate embeddings for each timestamp and entity in the temporal knowledge graph (ii) BERT is used to get two question embeddings: qeent and qetime. (iii) Embeddings of entity/time mentions in the question are combined with question embeddings using equations [4](#page-5-0) and [5](#page-5-1) to get score vectors for entity and time prediction. (iv) Score vectors are concatenated and softmax is used get answer probabilities. Please refer to Section [5](#page-4-3) for details.
 
@@ -317,6 +318,7 @@ Another interesting thing to note is the performance on simple reasoning questio
 <span id="page-6-2"></span><sup>2</sup>Appendix [A.1](#page-10-7) gives details of our EaE implementation.
 
 <span id="page-7-3"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image displays a line graph comparing the performance of four different methods (CRONKGQA simple, CRONKGQA complex, T-EaE-add simple, T-EaE-add complex) for knowledge graph completion. The y-axis represents Hits@10, a metric reflecting retrieval accuracy, and the x-axis shows the percentage of training data used. The graph illustrates how each method's performance (Hits@10) changes with varying training dataset sizes. Red lines represent CRONKGQA, blue lines represent T-EaE-add; solid lines indicate 'simple' models, and dashed lines show 'complex' models. The purpose is to evaluate and compare the effectiveness of the four approaches under different data conditions. -->
 
 Figure 2: Model performance (hits@10) vs. training dataset size (percentage) for CRONKGQA and T-EaEadd. Solid line is for simple reasoning and dashed line is for complex reasoning type questions. For each dataset size, models were trained until validation hits@10 did not increase for 10 epochs. Please refer to Section [6.4](#page-7-0) for details.
 

@@ -1,6 +1,6 @@
 ---
 cite_key: "bellomarini2024"
-title: "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility"
+title: "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility∗"
 authors: "Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati"
 year: 2024
 doi: "10.48550/arXiv.2410.12418"
@@ -41,6 +41,7 @@ Knowledge Graphs (KG) adopt a graph-based data model to represent knowledge in a
 <sup>∗</sup>The views expressed in this paper are those of the authors and do not necessarily reflect those of the Bank of Italy.
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image is a directed graph illustrating shareholding and control relationships between companies. Nodes represent companies (A, B, C, D, E, F), and edges represent percentage shares (solid lines) and control (dashed lines), with numerical values indicating the proportion. The graph shows a complex network of ownership and influence, likely used to model corporate control structures and potentially analyze power dynamics within an industry or market. The legend clarifies the meaning of solid and dashed lines. -->
 
 <span id="page-1-0"></span>Figure 1: A portion of a Company Ownership KG. Company A controls Company B.
 
@@ -80,6 +81,7 @@ A key privacy issue arises when an attacker knows the relationships of a few fin
 To address this challenge, several definitions of privacy have been pursued. While certainly relevant, differential privacy [\[32,](#page-29-2) [48,](#page-30-4) [33\]](#page-29-3) is not directly applicable, as it exhibits limitations in its use with highly correlated data and can easily lead to a degradation of the utility of the anonymised graph, i.e., how
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image displays four graph representations illustrating a knowledge graph (KG) anonymization process. (a) shows the original KG with nodes representing companies and edges representing share percentages. (b) demonstrates a 2-anonymity approach, obscuring some information. (c) shows another 2-anonymity method. (d) presents the authors' approach, which uses synthetic edges (green) and modified edge weights to enhance privacy while preserving reasoning capabilities. The dashed yellow lines highlight potential re-identification attack paths. The legend clarifies the graph elements. -->
 
 <span id="page-3-0"></span>Figure 2: Examples of KG and re-identification using a NAG. Dashed lines represent the isomorphism that can lead (or not) to re-identification. Figure (c) shows how existing work fails to protect the privacy of entities in the presence of newly derived links.
 
@@ -213,6 +215,7 @@ control(x, y), not controlled(x) \rightarrow ultimateC(x, y). (9)
 The two subgraphs induced respectively by the vertex sets X = {A, B, C, D, E} and Y = {F, G, H, I, L} are KG-isomorphic. In this scenario, a NAG attack of size x = ∣X∣ = ∣Y ∣ = 5 cannot uniquely re-identify the entities, thanks to the
 
 ![](_page_10_Figure_0.jpeg)
+<!-- Image Description: The image presents two directed graphs illustrating corporate control structures. Nodes represent companies (A-L), and edges show ownership shares (dark blue lines) and ultimate control (dotted orange lines). Numerical values on edges indicate percentage ownership. Graph (1) shows a complex structure, while (2) presents a simplified version, likely demonstrating a model's reduction or analysis of ownership relations. The legend clarifies the meaning of edge types. The purpose is to visually represent and compare different levels of control within a corporate network. -->
 
 <span id="page-10-0"></span>Figure 3: Example of re-identification for NAGs of smaller size for the ultimate controller reasoning rule.
 
@@ -370,6 +373,7 @@ In this section we extensively evaluate our approaches on the Erd˝os-R´enyi an
 Erd˝os-R´enyi In Figure [4](#page-21-0) we investigates the fidelity and utility for the Erd˝os-R´enyi graph models. In Figure [\(4a](#page-21-0)) and [\(4b](#page-21-0)), we vary the number of vertices n of the input graph, from 100 to 10,000. Figure [\(4a](#page-21-0)) shows the percentage of vertices added by the algorithm with respect to the original ones (Nodes Overhead): KLONE consistently adds around 200% more vertices, influenced by the privacy requirement k = 3, while KGUARD adds fewer vertices as it exploits the isomorphic subgraphs that are already present in the input graph. The dotted horizontal line represents the theoretical upper bound of (2k − 1)%
 
 ![](_page_21_Figure_0.jpeg)
+<!-- Image Description: The image displays six plots comparing the performance of KLONE and KGUARD algorithms. (a), (c), and (e) show nodes overhead (%) as a function of the number of nodes (n), k (a parameter), and subgraph size (x), respectively. (b), (d), and (f) show utility (VΔ) against n, k, and x, respectively. All plots include a theoretical line (2k-1) for comparison. The plots illustrate the overhead and utility of the algorithms under varying conditions. -->
 
 <span id="page-21-0"></span>Figure 4: Erd˝os-R´enyi - anonymisation results, varying the graph size and privacy requirements.
 
@@ -378,6 +382,7 @@ added vertices for KLONE (Lemma [5.1\)](#page-12-1). The efficiency of KGUARD wi
 Scale-free. Figure [5](#page-22-0) illustrates the performance of our algorithms on a scalefree network with α = 5 and with varying numbers of vertices up to 100, 000. For networks exceeding 10, 000 vertices (denoted by the vertical red line) we employ and evaluate our split & merge procedure. Figure [\(5a](#page-22-0)) shows that, as the network size increases, KGUARD introduces very few additional vertices, while KLONE remains consistent with around 200% added vertices. Indeed, as the graph size increases, it is more probable to find within it subgraphs that are already KG-isomorphic, thus reducing the number of vertices that KGUARD needs to add. We also note that the split & merge procedure does not introduce any significant overhead. In Figure [\(5b](#page-22-0)) and [\(5c](#page-22-0)) we evaluate the
 
 ![](_page_22_Figure_0.jpeg)
+<!-- Image Description: The image contains four graphs comparing the performance of three algorithms (KLONE, KGUARD, Split & Merge) for varying numbers of nodes. (a) shows nodes overhead percentage; (b) shows Wasserstein distance of degrees; (c) shows Wasserstein distance of weights; and (d) shows computation time. All graphs use a logarithmic scale for the number of nodes, revealing algorithm behavior across different scales. A vertical dashed line in each graph indicates a significant change in performance characteristics. -->
 
 <span id="page-22-0"></span>Figure 5: Scale-free - varying the graph size.
 

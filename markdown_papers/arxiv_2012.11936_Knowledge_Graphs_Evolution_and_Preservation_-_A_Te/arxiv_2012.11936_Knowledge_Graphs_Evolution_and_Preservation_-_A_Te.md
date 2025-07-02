@@ -1,7 +1,7 @@
 ---
 cite_key: "abbas2019"
 title: "Knowledge Graphs Evolution and Preservation"
-authors: "Nacira Abbas, INRIA Kholoud Alghamdi, The University of Southampton Mortaza Alinam, University of Genoa Francesca Alloatti, University of Torino, CELI - Language Technology Glenda Amaral, Free University of Bozen-Bolzano Martin Beno, Vienna University of Economics and Business Felix Bensmann, GESIS - Leibniz Institute for the Social Sciences Ling Cai, University of California, Santa Barbara Riley Capshaw, Linkoping University ¨ Amine Dadoun, Eurecom Stefano De Giorgis, University of Bologna Harm Delva, Ghent University, IDLab, imec Vincent Emonet, Institute of Data Science, Maastricht University Paola Espinoza Arias, Universidad Politecnica de Madrid ´ Omaima Fallatah, University of Sheffield Sebastian Ferrada, Institute for Foundational Research on Data, University of Chile ´ Marc Gallofre Oca ´ na, University of Bergen ˜"
+authors: "A Technical Report from ISWS"
 year: 2019
 doi: "10.1007/978-3-642-41338-4"
 date_processed: "2025-07-02"
@@ -563,14 +563,17 @@ From Fig [2.2](#page-26-1) and Fig [2.1,](#page-26-1) we see that birth date, al
 For the least updated properties, we decided to group the properties based on their frequencies and see the correlation between the number of properties and the frequen-
 
 <span id="page-26-1"></span>![](_page_26_Figure_0.jpeg)
+<!-- Image Description: The image contains two bar charts showing the top 20 properties removed from a dataset. The charts display the frequency of each property's removal. The left chart shows a steeper decline in frequency than the right chart. Both charts aim to illustrate the relative importance and prevalence of different properties within the dataset, likely to inform data cleaning or analysis strategies within the paper. -->
 
 ![](_page_26_Figure_1.jpeg)
+<!-- Image Description: The image is a bar chart showing the top 20 properties added to a dataset (likely Wikidata), ranked by frequency. The x-axis lists the properties (e.g., "DBPEDIA:TEAM," "FOAF NAME"), and the y-axis represents their frequency of occurrence. The chart visually demonstrates the distribution of property additions, highlighting the most frequently added properties and illustrating a long-tail distribution. It likely serves to illustrate the most important additions made within the dataset. -->
 
 Figure 2.1: The twenty most frequently changed properties which were removed from the 2014 release
 
 Figure 2.2: The twenty most frequently changed properties which were added in the 2015-04 release
 
 <span id="page-26-2"></span>![](_page_26_Figure_4.jpeg)
+<!-- Image Description: The image is a treemap visualizing the frequency of property additions in a dataset. Larger squares represent properties added more frequently. The properties are labeled (e.g., `dbpedia:team`, `dc:description`), and color-coded for easier identification. The treemap's purpose is to show the relative importance of different properties within the data, aiding in understanding data structure and potential biases. -->
 
 Figure 2.3: The properties which were added in the 2015-04 release based on their frequencies
 
@@ -585,6 +588,7 @@ The above figure provides us a sense of frequently updated properties, serving a
 In this subsection, first the number of changes per property was considered and loglog plot was used to approach the basic network analysis. As shown in Figure. [2.9,](#page-29-1) it can be found that most of properties are changed a few times but a few properties are
 
 <span id="page-27-1"></span>![](_page_27_Figure_0.jpeg)
+<!-- Image Description: This treemap visualizes the frequency of property removal from a dataset. Larger squares represent properties removed more often. The color-coding distinguishes different properties (e.g., `dc:description`, `dbpedia:team`, `foaf:name`). The graphic's purpose is to show the relative importance of various properties in data cleaning or a data reduction process within the study. -->
 
 Figure 2.4: The properties which were removed from the 2014 release based on their frequencies
 
@@ -603,10 +607,12 @@ We analyze the way types of instances change throughout time and find if they be
 Fig. [2.10](#page-29-2) shows a network representing the dynamics of the type of the entities in DBpedia. It contains the relationships of the classes that presented more than 100 changes from or to them. The size of the nodes is proportional to the total number of changes. The edges represent the properties that are affected by these type changes, their width represents the number of objects that changed their type. It can be appreciated that the class dbo:MusicGenre is an specialization of the classes dbo:Genre and
 
 <span id="page-28-0"></span>![](_page_28_Figure_0.jpeg)
+<!-- Image Description: This line graph displays the top 16 most common properties added and removed from files. The x-axis shows the properties (e.g., `dc:description`, `dbpedia:team`), while the y-axis represents their frequency. Two lines depict "Added Frequency" and "Removed Frequency," illustrating the relative changes in property usage. The graph likely helps the paper quantify the significance of different properties in file modifications. -->
 
 Figure 2.5: Frequently changed properties common to both the Added and the removed files
 
 <span id="page-28-1"></span>![](_page_28_Figure_2.jpeg)
+<!-- Image Description: The image presents two line graphs showing the number of properties associated with the 20 lowest frequencies. Both graphs display frequency on the x-axis and the number of properties on the y-axis. The left graph shows a generally increasing trend, while the right graph exhibits more fluctuation, illustrating the distribution of properties across different frequency ranges. The graphs likely demonstrate a frequency analysis within the paper's context. -->
 
 Figure 2.6: Infrequently changed properties from the added file
 
@@ -619,6 +625,7 @@ Fig. [2.11](#page-30-0) shows the properties that produced the lesser amount of 
 From both of these analysis we might infer subclass relationships among types when they are not present in the schema. However, it is necessary to thread carefully: the relationship goes from superclass to subclass when the change is greater, but goes
 
 <span id="page-29-1"></span>![](_page_29_Figure_0.jpeg)
+<!-- Image Description: Figure 2.9 shows the relationship between property change frequency and the number of properties. A bar chart displays the top 20 properties with the highest relative change ratios, indicating "link_page" underwent the most significant change. A scatter plot shows a logarithmic relationship between the number of changes (x-axis) and the number of properties exhibiting that change frequency (y-axis), revealing a power-law distribution of change frequency across properties. -->
 
 Figure 2.8: Properties that are relatively changed the most frequently.
 
@@ -629,6 +636,7 @@ LogLog Plot
 from subclass to superclass when the change is lower. We propose this analysis as an initial empirical evidence that we expect to generalize as future work. These analysis can also be generalized to define a metric of the *volatility*of the involved properties.
 
 <span id="page-29-2"></span>![](_page_29_Figure_4.jpeg)
+<!-- Image Description: This image displays a network graph visualizing relationships between different entities (e.g., `dbo:Genre`, `dbo:Company`, `dbo:MusicGenre`). Nodes represent entities, and edges represent relationships between them, with thicker lines indicating stronger relationships. Larger nodes suggest higher importance. The graph likely illustrates the structure and connections within a knowledge graph, used in the paper to analyze data relationships or to demonstrate a particular knowledge representation. -->
 
 Figure 2.10: Type Evolution Graph. Nodes represent the classes involved and edges the properties whose objects changed from one class to another. Only the properties with a high number of changes are depicted.
 
@@ -637,6 +645,7 @@ Figure 2.10: Type Evolution Graph. Nodes represent the classes involved and edge
 Although the focus of this paper has been on DBpedia, it would be of interest to determine if the identified characteristics could be abstracted to other KGs. An item for future work could thus be to evaluate the characteristics through the lens of the phenomena identified by [\[91\]](#page-118-0), to determine if said phenomena extend to DBpedia.
 
 <span id="page-30-0"></span>![](_page_30_Figure_0.jpeg)
+<!-- Image Description: This image displays a circular node-link diagram representing a knowledge graph. Nodes, sized proportionally and labeled with DBpedia ontology terms (e.g., dbo:Person, dbo:City), depict entity types. Green lines connecting nodes illustrate relationships between these entity types within the knowledge graph. The diagram likely visualizes the structure and interconnectedness of data within a specific domain, showing how different entity types are related. -->
 
 Figure 2.11: Type Evolution Graph. Nodes represent the classes involved and edges the properties whose objects changed from one class to another. Only the properties with lower number of changes are depicted.
 
@@ -731,8 +740,10 @@ In this section, we first provide definitions of some useful concepts. Then, we 
 <span id="page-35-3"></span><sup>3</sup>https://wiki.dbpedia.org/about
 
 <span id="page-36-2"></span>![](_page_36_Figure_0.jpeg)
+<!-- Image Description: The image displays a flowchart depicting a knowledge graph (KG) quality assessment pipeline. It's divided into four stages: syntax (using `diff` for quick checks), structure (using NetworkX for centrality and size measurements), semantics (using RDF2Vec for embedding distances and LogMap for logical mappings), and reality check (using DeFacto for multi-lingual and temporal fact validation). Each stage utilizes specific tools and techniques described below the flowchart. The flowchart illustrates the progressive analysis of KG quality, from basic syntax to semantic correctness and real-world validation. -->
 
 ![](_page_36_Figure_1.jpeg)
+<!-- Image Description: Figure 3.1 is a workflow diagram. It likely illustrates the steps or stages of a process described in the paper, providing a visual representation of the sequence of operations or actions. The absence of a visual makes it impossible to describe the specific steps involved. -->
 
 - Knowledge Graph: A knowledge graph is defined as a set K = (E, R, O) where E is the set of entities, R ⊂ E × Γ × E is a set of typed relations among entities, and O is an ontology, which defines the set of relation types ('properties') Γ.
 - Problem Formulation: We define a Knowledge graph Change as follows:
@@ -970,10 +981,12 @@ of related ontologies is not independent, but aspects of evolution might be indu
 We are interested in the evolution of the ontologies over time, so we compare every historical version of the ontologies to their first version and see how they have evolved over time. We have selected a few ontologies from the DAF and ArCo projects, limiting ourselves to the ontologies that have several versions and that contain modification timestamps. Figure [4.1](#page-50-0) shows the evolution of the amount of classes over time. The x-axis shows the amount of days since the initial version of each ontology, while the y-axis shows the difference in amount of classes since the first version. We can see that it is not uncommon that class definitions are removed from an ontology, but the amount of classes does seem to increase over time. Figure [4.2](#page-50-1) is similar, but the y-axis now shows the difference in the amount of subclass axioms over time. We notice that the amount of subclasses does not decrease nearly as drastically as the number of classes.
 
 <span id="page-50-0"></span>![](_page_50_Figure_0.jpeg)
+<!-- Image Description: The image displays a line graph showing the evolution of ontologies over time. The x-axis represents days since initial release, and the y-axis shows the change in the number of classes. Multiple lines represent different ontologies (AtlasOfPaths-AP_IT, TI-AP_IT, etc.), illustrating their growth or shrinkage in class count over time. The graph's purpose is to visualize the dynamic evolution of these ontologies, highlighting varying rates of change. -->
 
 Figure 4.1: Evolution of the amount classes over time
 
 <span id="page-50-1"></span>![](_page_50_Figure_2.jpeg)
+<!-- Image Description: The image is a line graph showing the evolution of ontologies over time. The y-axis represents the change in the number of subclass axioms, and the x-axis shows the days since the initial release of the ontologies. Multiple lines, each representing a different ontology (e.g., AtlasOfPaths-AP_IT, TI-AP_IT), illustrate the growth in subclass axioms over time. The graph's purpose is to visually compare the evolution rates of different ontologies within the paper. -->
 
 Figure 4.2: Evolution of the amount subclass axioms over time
 
@@ -1094,12 +1107,14 @@ Apple pie as a use case for knowledge graph evolution is practical, because this
 <span id="page-57-4"></span><sup>5</sup><http://www.fao.org/gsfaonline/index.html>
 
 <span id="page-58-0"></span>![](_page_58_Figure_0.jpeg)
+<!-- Image Description: The image is a directed graph illustrating a data model. Nodes represent concepts (e.g., "Source," "Ingredient," "Recipe"), and edges, labeled with relation types (e.g., "dc:date," "ex:hasIngredient"), show relationships between them. The graph depicts how various attributes, such as language, time, location, and ingredients, relate to a recipe. It likely serves to explain the schema used for representing recipe data within the paper. -->
 
 Figure 5.1: Data model
 
 evolution from all perspectives. Figure [5.2](#page-58-1) shows a preliminary visualization of the ingredients used in American and Dutch apple pie recipes.
 
 <span id="page-58-1"></span>![](_page_58_Figure_3.jpeg)
+<!-- Image Description: This dot plot displays the first documented use of six food items (thick juice, DL-tartaric acid, baking mix, raisin, table salt, apples) in the United States (red) and the Netherlands (blue) across time (1840-2000). Each dot represents a single documented instance, illustrating temporal differences in the introduction and use of these ingredients in the two countries. The plot's purpose is to compare the historical adoption of specific food items across national contexts. -->
 
 Figure 5.2: Timeline visualization
 
@@ -1183,6 +1198,7 @@ Volunteers can provide their (personal) data through a secure private channel an
 Researchers have the ability to publish their research proposal through the blockchain, asking for data and providing a complete outline for the research. We assume this is done providing a descriptive version of the knowledge graph (data) involved and a set of SPARQL queries used in the research. This helps a transparent communication between the researcher and the users involved in the community. Once enough data is collected, the system handles the data collection, query execution and results validation. The results are then provided to the researcher, while the temporary data collected for it is destroyed.
 
 <span id="page-65-0"></span>![](_page_65_Figure_0.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a secure data sharing protocol. Two users, Rachel and Victor, interact with a central server (represented by interconnected nodes). Numbered arrows depict data flow: Rachel uploads file 'R' (2), Victor uploads 'V' (1). The server processes and shares data (3, 4, 5, 6, 7, 8). Victor also interacts with an external service 'S' (dotted line). A final section shows the segmented storage of combined data from 'R' and 'V'. The diagram details the data exchange process and its security features. -->
 
 Figure 6.2: Overview of the VAD<sup>2</sup>ER conceptual architecture, showing a full interaction cycle between a researcher Rachel and a volunteer Victor. (1) Victor applies to be a volunteer. (2) Sometime in the future Rachel registers a research project. (3) Research and volunteers' data access constraints are checked. (4) An access point and a token identifier are generated and returned to Rachel. (5) Rachel accesses the RDF store. (6) The RDF store collects the necessary data and executes the relevant SPARQL queries. (7) The results are checked against the volunteers' data access constraints. (8) The research results are returned to Rachel.
 
@@ -1556,6 +1572,7 @@ Each delta chain will start with a fully materialized snapshot. A delta chain is
 <span id="page-84-2"></span><sup>3</sup><https://bio2vec.cbrc.kaust.edu.sa/>, last accessed 2019-07-05
 
 <span id="page-85-1"></span>![](_page_85_Figure_0.jpeg)
+<!-- Image Description: This sequence diagram illustrates a system architecture for querying a knowledge graph (KG). Clients send queries via an API, which interacts with a TRUSTYURI component to fetch results from a triple store via a VM/DM query endpoint. The diagram shows the flow of queries and responses, including URIs used for KG access and TrustyURI composition, and indicates a database storing generated TrustyURIs and KG metadata. -->
 
 Figure 8.1: The general architecture of our proposed approach. Each different client on the right side of the diagram represents a different use case, which will send/call the API so it will handle its request. The API is a connection point between the different technologies used
 
@@ -1585,6 +1602,7 @@ Version Selection. Metadata about KGs include their versions which are retrieved
 Querying & Creating Datasets. After the user has selected a target version, he can start developing his query to create his desired dataset. After the query is done processing, the result is displayed and is available for download. Behind the scenes, the query, including the target version of the selected KG, is sent to the API, where it is passed
 
 <span id="page-87-0"></span>![](_page_87_Figure_0.jpeg)
+<!-- Image Description: The image is a sequence diagram illustrating the interaction between a web application, an API, and a triple store. A user's search for knowledge graphs (KGs) initiates a request to the API. The API queries the triple store, computes a TrustyURI (a unique identifier), saves it with the query and version, and returns the dataset with the TrustyURI. Subsequent queries using the TrustyURI retrieve the dataset without re-querying the triple store, demonstrating efficient versioned data access. -->
 
 Figure 8.2: A sequence diagram to describe the workflow of the proposed design through the three main components: web app, API, and the triple store
 
@@ -1609,6 +1627,7 @@ FAIR Assessment The FAIR principle asks that data resources need to meet certain
 In this paper, we have provided an answer to the research problem of identification and provision of volatile RDF resources by analyzing existing potential partial solutions and technologies and combining them to create a software architectural design that covers all use-cases that are implied from the research questions. We also provide the descriptions of these technologies and the reason why they are suitable to incorporate in our design. Then we delivered a FAIR assessment table where we include most of the FAIR principles requirements in our work. This means that our work is FAIR applicable. We are aware of several limitations of our work, including not incorporating a full SPARQL solution but only a triple pattern query, since the Ostrich does not support that feature. For future work we intend to build the system and make an evaluation of it on real data. We also expect to extend the functionalities of the system to support full SPARQL queries. In the end, we would also create an interface for the data providers for better data, knowledge graph management.
 
 <span id="page-89-0"></span>![](_page_89_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a process for querying a knowledge graph (KG) using trustyuri. The user selects a KG and version, specifies a query, and the system executes the query, returning results and a trustyuri value. The user then computes a hash/trustyuri value on the results and compares it to the received trustyuri for verification, demonstrating a data integrity check using trustyuri within a KG querying workflow. -->
 
 Figure 8.3: System flowchart
 
@@ -1648,6 +1667,7 @@ Figure 8.4: KG Finder Screen
 Figure 8.5: KG Filters and Query Screen
 
 <span id="page-91-0"></span>![](_page_91_Figure_0.jpeg)
+<!-- Image Description: This screenshot shows results from a FAIRway knowledge graph (KG) query. A table displays triples (Subject, Predicate, Object) extracted from Bio2Vec (v34.2), concerning the term "Doctor". Subjects are consistently `http://dbpedia.org/resource/Doctor`. Predicates include `rdf-schema#label` and `wikiPageDisambiguates`, showing different language labels and disambiguations. Objects list related DBpedia resources and Wikidata IDs. The interface allows downloading the results in RDF/XML format. -->
 
 Figure 8.6: Results Screen
 
@@ -1736,6 +1756,7 @@ There is a common scenario of requesting change and updating ontology due to con
 The Ontology Update Language[\[87\]](#page-118-7) was proposed with the aim to accommodate
 
 <span id="page-95-0"></span>![](_page_95_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates an ontology update process. A knowledge worker initiates change requests, which are processed by an Ontology Update Manager. The manager interacts with an Ontology Reasoner, performing entailment and syntactic checks. Ontology changes are refined by a knowledge engineer, informed by change patterns and a formal Ontology Update Specification. The entire system iteratively refines the ontology. -->
 
 Figure 9.1: Ontology Update Architecture (Losch et al. 2009). ¨
 
@@ -1864,6 +1885,7 @@ Figure 9.3: Example knowledge base in Turtle.
 This knowledge graph contains the knowledge of the current status of our domain. In figure [9.5](#page-100-0) we show an example of how to ontology is updated. For the spe-
 
 <span id="page-99-1"></span>![](_page_99_Figure_0.jpeg)
+<!-- Image Description: This image is a directed graph depicting relationships between digital resources. Rectangles represent digital objects (books, websites etc.), labeled with titles and URLs. Arrows indicate connections, likely representing citations or links between these resources. The graph shows how different digital resources are interconnected within a specific corpus, perhaps to illustrate a network of scholarly sources or a collection's organization. The nodes are categorized by "lower Book" and "lower Collection". -->
 
 Figure 9.4: Hogwarts Library's knowledge graph
 
@@ -1947,6 +1969,7 @@ level of shared methodology with respect to our "preservation" step. Additionall
 The core idea is to involve humans within the evolution and preservation of KGs while managing bias that appear in cultural or geographical context. Similarly to other research fields like e.g., cognitive sciences and Theory of Mind [\[133,](#page-122-10) [137\]](#page-122-11), our aim is to lay the foundation for understanding and predicting*mental models*characterizing opinions that (classes) of people may have on different topics, and identify which opinions to preserve and which ones to correct. Our contribution is the formalisation of a general workflow for identifying, classifying and solving bias in KGs, thus iteratively refine KGs preserving and allowing knowledge to evolve correctly. Figure [10.1](#page-104-2) shows the structure of the approach we envisage. The objective is to manage bias accordingly by involving the contribution of humans within the process. Our proposed workflow consists of four steps that can be either made by humans or automated.
 
 <span id="page-104-2"></span>![](_page_104_Figure_4.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a two-part cycle for managing a knowledge graph. The central element is a "Knowledge Graph." The left, orange-toned cycle represents "Preservation," with stages of "Collection" and "Analysis." The right, green-toned cycle depicts "Evolution," including "Refinement" and "Review." Arrows indicate the sequential and iterative nature of the knowledge graph's development and maintenance. -->
 
 Figure 10.1: Process overview. Orange side of the process concerns with the preservation of KGs while the green side with the evolution. Both processes could involve either not-automated or automated steps that do or do not require human intervention.
 
@@ -1957,6 +1980,7 @@ An existing set of triples is used as a starting point for identifying bias. In 
 In order to store provenance data, the concept of reification in RDF is used. Although there is a variety of different provenance methods in RDF [\[66\]](#page-116-10), the implementation of standard reification is straightforward and therefore fits the purpose of our methodology. Each individual rating is stored as provenance data on triple level. This results in a knowledge base that provides not only statement, but also information on the validity of those statements. While some statements might be either right or wrong, for other statements this might not be the case. In Figure [10.2](#page-105-1) the data structure is visualized. In this example, a user has rated a statement, this rating together with some user data is stored on statement level. When other users also rate the same statement, a new provenance statement is added.
 
 <span id="page-105-1"></span>![](_page_105_Figure_2.jpeg)
+<!-- Image Description: This image is a directed graph illustrating provenance information using RDF. Nodes represent statements (e.g., "dbp:Palestine"), predicates (e.g., `rdf:type`), and literals (e.g., "2007-10-01"). Edges show relationships between these elements. The graph depicts how a statement about a person's birthdate in Palestine is linked to its source and supporting data, showcasing provenance tracking through a directed acyclic graph representation. The graph includes labels identifying the types of relationships and nodes. -->
 
 Figure 10.2: Data structure for storing user provenance data on statement level
 
@@ -1987,6 +2011,7 @@ We plan to do this by showing the triple with different visualizations and askin
 <span id="page-106-5"></span><span id="page-106-4"></span><sup>2</sup>[https://en.wikipedia.org/wiki/Wikipedia:List\\_of\\_controversial\\_issues](https://en.wikipedia.org/wiki/Wikipedia:List_of_controversial_issues) <sup>3</sup>http://dbpedia.org/page/Palestine
 
 <span id="page-107-2"></span>![](_page_107_Figure_0.jpeg)
+<!-- Image Description: The image depicts a data processing workflow. First, user data (date of birth, country of origin, etc.) is recorded. This data is then used to rate a statement ("Palestine is a country"), resulting in a true/false assessment (check mark/X). Finally, provenance data, including the statement, rating, and user details, is stored in a structured format. The diagram illustrates the steps and data involved in this process, likely demonstrating a system for recording and tracking data assertions and their justifications. -->
 
 Figure 10.3: Profiling end-users through provenance metadata and collecting opinions
 
@@ -1999,6 +2024,7 @@ We plan to analyze individual statements collected to identify potential bias. T
 Statements with a high metric value are shown to reviewers in another crowdsourcing cycle. Different visualizations are provided to allow reviews to see metadata associated to the triples in the KG. Figure [10.4](#page-107-3) shows a possible visualization of provenance metadata associated to the Palestine statement. In this example, 35% agrees on the statement, the other 65% disagrees. In addition to the percentages, the absolute amount of votes and the countries of respondents are displayed.
 
 <span id="page-107-3"></span>![](_page_107_Figure_6.jpeg)
+<!-- Image Description: The image displays survey results on the statement "Palestine is a country." Two horizontal bar charts show 35% agreeing (80 votes) and 65% disagreeing (150 votes). Two world maps, geographically coded by respondent origin, visually represent the distribution of agreement and disagreement. The purpose is to present geographically-resolved survey data illustrating opinions on Palestine's statehood. -->
 
 Figure 10.4: Example of Palestine statement provenance visualization
 

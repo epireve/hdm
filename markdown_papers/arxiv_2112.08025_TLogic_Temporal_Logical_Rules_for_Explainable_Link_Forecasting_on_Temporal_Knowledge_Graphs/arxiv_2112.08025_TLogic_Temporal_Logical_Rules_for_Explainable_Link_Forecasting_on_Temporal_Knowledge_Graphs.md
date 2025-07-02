@@ -1,7 +1,7 @@
 ---
 cite_key: "ag2014"
 title: "TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs"
-authors: "> <sup>1</sup>Siemens AG, Otto-Hahn-Ring 6, 81739 Munich, Germany {firstname.lastname}@siemens.com"
+authors: "Marcel Hildebrandt, Mitchell Joblin"
 year: 2014
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -30,6 +30,7 @@ Knowledge graphs (KGs) structure factual information in the form of triples (es,
 Some real-world information also includes a temporal dimension, e. g., the event *(Anna, born in, Paris)*happened on a specific date. To model the large amount of available event data that induce complex interactions between entities over time, temporal knowledge graphs (tKGs) have been introduced. Temporal KGs extend the triples to quadruples (es, r, eo, t) to integrate a timestamp or time range t, where t
 
 <span id="page-0-0"></span>![](_page_0_Figure_10.jpeg)
+<!-- Image Description: This image is a directed graph illustrating diplomatic interactions among France, Germany, the USA, and China. Nodes represent countries (represented by flags) and Angela Merkel/Barack Obama (represented by portraits). Edges show communication types (e.g., "consult," "visit," "negotiate") and dates. The graph's purpose is to visually represent the sequence and nature of diplomatic engagements during a specific period. The dotted blue arrow indicates a less formal communication channel. -->
 
 Figure 1: A subgraph from the dataset ICEWS14 with the entities*Angela Merkel, Barack Obama, France*, and *China*. The timestamps are displayed in the format yy/mm/dd. The dotted blue line represents the correct answer to the query *(Angela Merkel, consult, ?, 2014/08/09)*. Previous interactions between *Angela Merkel*and*Barack Obama*can be interpreted as an explanation for the prediction.
 
@@ -309,6 +310,7 @@ Besides a list of possible answer candidates with corresponding scores, TLogic c
 Table 1: Results of link forecasting on the datasets ICEWS14, ICEWS18, and ICEWS0515. All metrics are time-aware filtered. The best results among all models are displayed in bold.
 
 <span id="page-5-1"></span>![](_page_5_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph comparing two methods ("unif" and "exp") for generating random walks in a network. The x-axis represents the number of walks, and the y-axis shows the Mean Reciprocal Rank (MRR). The graph illustrates how MRR improves as the number of walks increases for both methods, with "exp" showing slightly higher MRR values. The purpose is to demonstrate the impact of walk generation strategies on the performance of a ranking task, likely within a recommendation or knowledge graph context. -->
 
 Figure 2: MRR performance on the validation set of ICEWS14. The transition distribution is either uniform or exponentially weighted.
 
@@ -515,26 +517,31 @@ Table 9: Results for different parameter values in the score function f.
 Rule learning The figures [3](#page-9-4) and [4](#page-9-5) show the number of rules learned under the two transition distributions. The total number of learned rules is similar for the uniform and exponential distribution, but there is a large difference for rules of lengths 1 and 3. The exponential distribution leads to more successful longer walks and thus more longer rules, while the uniform distribution leads to a better exploration of the neighborhood around the start node for shorter walks.
 
 <span id="page-9-4"></span>![](_page_9_Figure_13.jpeg)
+<!-- Image Description: The image displays a line graph comparing the number of rules generated under two different distributions ("unif" and "exp") and considering both total rules and rules of length one. The x-axis represents the number of walks, while the y-axis shows the number of rules. The graph illustrates how the number of generated rules increases with the number of walks, differing based on the distribution and rule length. It likely demonstrates the scalability or efficiency of a rule generation algorithm within the paper. -->
 
 Figure 3: Total number of learned rules and number of rules for length 1.
 
 <span id="page-9-5"></span>![](_page_9_Figure_15.jpeg)
+<!-- Image Description: The image displays a line graph showing the relationship between the number of walks and the number of rules generated, categorized by two rule length (2 and 3) and two distributions (uniform and exponential). The x-axis represents the number of walks, and the y-axis shows the number of rules. Four lines represent different combinations of rule length and distribution, illustrating how these factors affect rule generation scaling. The graph likely demonstrates the computational complexity or efficiency of a rule generation algorithm within the paper. -->
 
 Figure 4: Number of rules for lengths 2 and 3.
 
 Training and inference time The rule learning and rule application times are shown in the figures [5](#page-10-0) and [6,](#page-10-1) dependent on the number of extracted temporal walks during learning.
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing the computation time (in seconds) of two methods, "unif" and "exp," as a function of the number of walks. The x-axis represents the number of walks, and the y-axis shows the execution time. The graph shows that execution time increases linearly with the number of walks for both methods, but "exp" consistently takes longer than "unif." The purpose is to demonstrate a performance comparison between the two algorithms. -->
 
 Figure 5: Rule learning time.
 
 <span id="page-10-1"></span>![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph comparing computation time (in seconds) against the number of walks for two methods: "unif" and "exp". The x-axis represents the number of walks, while the y-axis shows the time taken. The graph illustrates that computation time increases with the number of walks, with "exp" consistently exhibiting higher execution times than "unif". The graph likely serves to demonstrate the relative efficiency of the two methods within the paper's algorithm. -->
 
 Figure 6: Rule application time.
 
 The worst-case time complexity for learning rules of length l is O(|R|nlDb), where n is the number of walks, D the maximum node degree in the training set, and b the number of body samples for estimating the confidence. The worst-case time complexity for inference is given by O(|G| + |T R<sup>r</sup> <sup>q</sup> |DL|E| log(k)), where L is the maximum rule length in T R<sup>r</sup> <sup>q</sup> and k the minimum number of candidates. More detailed steps of the algorithms for understanding these complexity estimations are given by Algorithm [3](#page-11-0) and Algorithm [4.](#page-12-0)
 
 ![](_page_11_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a temporal knowledge graph reasoning system. A temporal knowledge graph (showing nodes and edges with timestamps) undergoes temporal random walks, feeding into rule learning. Learned rules are applied to input (subject, predicate, ?, timestamp), generating ranked candidate answers (e.g., France, Germany with associated scores) based on temporal logical rules with confidence scores. The diagram depicts the workflow and data flow of the system. -->
 
 Figure 7: Overall framework.
 

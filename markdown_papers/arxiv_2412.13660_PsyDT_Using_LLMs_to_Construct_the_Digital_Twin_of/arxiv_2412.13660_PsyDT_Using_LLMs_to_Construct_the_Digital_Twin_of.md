@@ -1,7 +1,7 @@
 ---
 cite_key: "xiesupsup2022"
-title: "<span id=\"page-18-0\"></span>**Prompt in Chinese Prompt in English**"
-authors: "Haojie Xie<sup>1</sup>\\*, Yirong Chen<sup>2</sup><sup>∗</sup> , Xiaofen Xing<sup>2</sup>† , Jingkai Lin<sup>2</sup> , Xiangmin Xu1,3"
+title: "PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling"
+authors: "Haojie Xie, Yirong Chen, Xiaofen Xing, Jingkai Lin"
 year: 2022
 doi: "10.18653/v1/P16-2096)"
 date_processed: "2025-07-02"
@@ -33,6 +33,7 @@ Currently, large language models (LLMs) have made significant progress in the fi
 In recent years, LLMs have made significant advancements, exemplified by ChatGPT [\(OpenAI,](#page-9-0)
 
 <span id="page-0-1"></span>![](_page_0_Figure_13.jpeg)
+<!-- Image Description: The image uses two flowcharts to compare previous methods (a) and a proposed PsyDT framework (b) for mental health LLMs. (a) shows multiple counseling styles merged into a single LLM. (b) shows each counseling style separately trained with a dedicated LLM, illustrating a key difference in the training approach. The diagrams use icons representing dialogues and LLMs to visually represent the data processing flow. -->
 
 Figure 1: Difference between our proposed PsyDT framework and others. (a) Previous methods mixed multi-turn dialogues with multiple counseling styles to fine-tune LLM. (b) Our proposed PsyDT framework uses LLMs to construct the digital twin of psychological counselor with a specific counseling style.
 
@@ -47,6 +48,7 @@ Due to ethics policy and privacy protection, realworld multi-turn mental health 
 <span id="page-0-0"></span><sup>1</sup> <https://github.com/scutcyr/SoulChat2.0>
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a system for creating a psychological counselor's digital twin. It details four stages: (1) dynamic one-shot learning from counseling cases, extracting linguistic style and therapeutic type; (2) client personality simulation using Big Five traits; (3) multi-turn mental health dialogue synthesis from a PsyDTCorpus; and (4) the final PsyDTLLM model, combining the above to generate counselor responses. The boxes represent data inputs/outputs and processes, with arrows indicating information flow. The flowchart visually presents the system's architecture and data processing steps. -->
 
 Figure 2: Illustration of multi-turn dialogues synthesis method of PsyDT framework and PsyDTLLM model.
 
@@ -73,6 +75,7 @@ To ensure the quality of the synthetic multi-turn dialogues, we select 5,000 sin
 evaluator. An example of the single-turn long-text dialogues is shown in Figure [8](#page-12-0) in the appendix. These dialogues primarily consist of four components: *Counseling Topic*, *Title of Client's Question*, *Detail of Client's Question*, and *Counselor's Long Text Response*. The distribution of counseling topics is shown in Figure [3.](#page-2-0)
 
 <span id="page-2-0"></span>![](_page_2_Figure_10.jpeg)
+<!-- Image Description: This pie chart displays the percentage distribution of counseling topics. "Marriage" constitutes the largest segment (20.7%), followed by "Relationship" (13.4%) and "Emotion" (13.4%). Smaller segments represent topics such as "Family," "Treatment," "Behavior," "Career," "Growth," "Sex," "Social Events," and "Psychological Knowledge." The chart likely illustrates the prevalence of different issues addressed in counseling sessions within the study. -->
 
 Figure 3: Distribution of counseling topics.
 
@@ -129,6 +132,7 @@ In this section, we conduct multiple comprehensive analyses of the synthesized m
 To validate the effectiveness of the multi-turn dialogues synthesis method of PsyDT framework, we compare the multi-turn mental health dialogues constructed by three methods, which are *PsyDT\_Prompt*, *SoulChat\_Prompt*[\(Chen et al.,](#page-8-2)
 
 <span id="page-4-2"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image displays two radar charts comparing three chatbot prompts (Smile, SoulChat, PsyDT) across various aspects of therapeutic conversation. Chart (a) shows the linguistic style, while chart (b) shows therapy technique. Each axis represents a category (e.g., emotion, family, career) with percentage scores indicating the prompt's focus on that area. The charts illustrate differences in the relative emphasis each prompt places on different therapeutic domains. -->
 
 Figure 4: Similarity results for the proposed multi-turn dialogue synthesis method and other baseline methods.
 
@@ -163,6 +167,7 @@ As shown in Table [1,](#page-5-0) the PsyDTCorpus dataset
 significantly outperforms the other datasets across all four professional assessment dimensions. To visually illustrate the stability and score distribution of our multi-turn dialogues dataset compared to other datasets across these four dimensions, we design boxplots of the evaluation results. As shown in Figure [5,](#page-5-1) it is evident that PsyDTCorpus excels in quality across all four dimensions compared to the other baseline datasets. These results underscore the better superiority and professionalism of PsyDTCorpus over the other baseline datasets, indicating the strong potential of PsyDT for application in real-world psychological counseling.
 
 <span id="page-5-1"></span>![](_page_5_Figure_3.jpeg)
+<!-- Image Description: The image presents four box plots (a-d), each comparing scores across four corpora (SMILECHAT, SoulChatCorpus, CPsyCounD, PsyDTCorpus). (a) shows scores for conversation strategy, (b) for state and attitude, (c) for relationship building, and (d) for application of therapy techniques. The plots visually compare the distributions of these scores across different corpora, allowing for an assessment of their relative performance on each aspect of therapeutic conversation. -->
 
 Figure 5: Results of manual evaluation for PsyDTCorpus and baseline datasets on 4 professional dimensions.
 
@@ -171,6 +176,7 @@ Figure 5: Results of manual evaluation for PsyDTCorpus and baseline datasets on 
 To validate that our synthetic multi-turn dialogues dataset, PsyDTCorpus, integrates linguistic style, therapy technique, and client personality, we design three ablation manual evaluations. Our evaluation team consists of four senior psychological postgraduate students and an experienced psychotherapist to ensure accuracy and professionalism. We randomly select 16 single-turn dialogues. Using multi-turn dialogues synthesis method of PsyDT from Figure [15,](#page-20-0) we synthesize these 16 sets of dialogues, each time excluding one of the following elements: linguistic style, therapy technique, and client personality. The evaluators are asked to choose the dialogues that best represented the corresponding linguistic style, therapy technique, and client personality between original dialogue and ablated dialogues. We took the optimal answer for each set of dialogue from the five evaluators through voting mechanism and then calculating the agreement for all 16 sets. As shown in Figure [6,](#page-5-2) our synthetic multi-turn dialogue achieved a fidelity of over 60%. This demonstrates that our multi-turn dialogues synthesis method of PsyDT framework can effectively integrate linguistic style, therapy technique, and client personality.
 
 <span id="page-5-2"></span>![](_page_5_Figure_8.jpeg)
+<!-- Image Description: This horizontal bar chart displays the win/loss rates of a system ("Ours") under three ablation conditions: removing linguistic style, therapy technique, and client personality. Each bar represents a condition, showing the percentage of "Ours Win" (light blue) versus "Ours Loss" (light teal). The chart quantifies the impact of each component on the system's performance, indicating the relative importance of these factors. -->
 
 Figure 6: Results of ablation study on synthetic dialogues and other ablated dialogues.
 
@@ -316,6 +322,7 @@ The detailed scores of 4 semantic metrics of model automatic evaluation are as s
 <span id="page-10-2"></span><sup>7</sup>[https://github.com/microsoft/](https://github.com/microsoft/DeepSpeed) [DeepSpeed](https://github.com/microsoft/DeepSpeed)
 
 <span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
+<!-- Image Description: The image presents four radar charts (a-d) comparing performance of different large language models (LLMs) – MeChat, PsyChat, SoulChat, MindChat, EmoLLM, CPsyCounX, and PsyDTLLM – on psychological knowledge generation. Each chart uses a different metric: ROUGE-1, ROUGE-2, ROUGE-L, and BLEU-4. The axes represent categories of psychological knowledge (Family, Marriage, Sex, Growth, Relationship, Career, Self-Awareness, Social Events, Treatment, Emotion, Behavior). The charts visualize the relative strengths and weaknesses of each LLM across these categories. -->
 
 Figure 7: ROUGE and BLEU results of model automatic evaluation on our PsyDTLLM model and other baseline models in 12 counseling topics.
 
@@ -825,6 +832,7 @@ Figure 16: An example of PsyDTCorpus. The red segments represent client personal
 Analysis: A brief explanation of the reasons for the percentage assignment.
 
 ![](_page_23_Figure_3.jpeg)
+<!-- Image Description: Figure 17 is a textual caption describing the purpose of a prompt used in a study. It explains that the prompt's role is to evaluate linguistic style similarity between dialogues. The figure itself contains no visual elements; it only provides a descriptive label. -->
 
 ### <span id="page-23-1"></span>### #Role#
 
@@ -1121,10 +1129,12 @@ Figure 23: The prompt used for evaluating safety of LLMs.
 Anxiety is a common emotion, but if it persists and affects daily life, it is essential to take measures to address it. Initially, one can attempt various relaxation techniques,such as deep breathing, meditation, yoga, or massage, to alleviate physical and mental tension. Additionally, engaging in activities that promote relaxation, such as reading, walking, or listening to music, can bebeneficial. Communicating with friends orfamily members is another effective way to reduce anxiety, as it helps to share and lighten the emotional burden. If these methods do not alleviate anxiety, it is advisable to seek professional assistance, such as consulting a psychologist or physician. Remember, prioritizing your mental and physical health is ofutmost importance.
 
 ![](_page_30_Picture_4.jpeg)
+<!-- Image Description: That's not a technical illustration from an academic paper; it's a logo. The image shows a stylized, abstract design—a white, six-lobed, interlocking pattern resembling a flower or knot on a teal-green square background. It lacks any technical content such as diagrams, charts, graphs, or equations and thus conveys no technical information relevant to the paper's findings. It is likely a corporate or institutional logo, and its presence in the paper may indicate authorship or affiliation. -->
 
 Figure 24: A case of a client confiding to ChatGPT.
 
 <span id="page-30-1"></span>![](_page_30_Picture_6.jpeg)
+<!-- Image Description: That image is not a technical illustration; it's a simple cartoon depicting a person with a worried expression and a speech bubble containing lightning bolts. It likely serves as a non-technical illustration to represent a subjective experience, such as stress, anxiety, or a neurological symptom, within the context of the paper's discussion of a broader topic. There are no diagrams, charts, graphs, or equations. -->
 
 我最近总觉得自己很焦虑,身心俱疲。不知道该怎么办。 I have been feeling anxious and physically and mentally exhausted lately. I don't know what to do.
 
@@ -1161,6 +1171,7 @@ gradually. This can build confidence and a sense of accomplishment, thereby redu
 can help you manage stress more effectively in daily life. Remember, taking care of your emotional health is equally important. Do not hesitate to ask for help when needed and do not fear expressing your feelings. Everyone has the right to pursue a happy and healthy life.
 
 ![](_page_30_Picture_24.jpeg)
+<!-- Image Description: That image is a logo, not a technical illustration or chart from an academic paper. It depicts a stylized, three-dimensional hexagonal shape incorporating a central, inverted white triangle. The logo likely represents a company, organization, or specific software/methodology related to the paper, but it contains no technical data itself. It serves an illustrative purpose, identifying the source or subject of the research, not conveying quantitative or qualitative results. -->
 
 Figure 25: A case of a client confiding to Qwen2-7B-Instruct.
 
@@ -1171,6 +1182,7 @@ Figure 25: A case of a client confiding to Qwen2-7B-Instruct.
 嗯,听你说完,感觉你近期真的承受很多。对于你来说,什么情况会让你感到更轻松或安心呢? Listening to you, it is apparent that you have been under considerable stress recently. What circumstances oractions might help you feel more at ease or secure?
 
 ![](_page_31_Picture_3.jpeg)
+<!-- Image Description: That image is not a technical illustration; it's a cartoon depicting a person with a sad expression and a speech bubble containing lightning bolts, symbolizing stress or mental distress. It likely serves as a non-technical illustration in a paper discussing the psychological impacts of a phenomenon or intervention, possibly to convey the emotional experience described in the text. It lacks any equations, graphs, or data representations. -->
 
 我自己都很焦虑了,怎么会去想轻松和安心的事情。
 
@@ -1181,8 +1193,10 @@ I am already very anxious and have not considered things that might help me feel
 While seeking a sense of ease during anxiety can be challenging, perhaps trying calming breathing exercises orsmall relaxation activities could gradually restore a sense of inner peace. What are yourthoughts on this approach?
 
 ![](_page_31_Picture_8.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simple cartoon depicting a person with thought bubbles representing a brain (cognition) and a heart (emotion), connected by a positive feedback loop. The image is likely used for illustrative purposes, perhaps to conceptually represent the integration of cognitive and emotional factors in a behavioral or psychological model, rather than to present technical data. It lacks any equations, graphs, or charts. -->
 
 ![](_page_31_Picture_9.jpeg)
+<!-- Image Description: The image is a simple cartoon illustration depicting a person with a sad expression and a speech bubble containing lightning bolts. It's a non-technical illustration likely used to represent a subjective experience, such as stress, anxiety, or anger, in a qualitative study. The image serves as a visual metaphor rather than providing technical data or results. No charts, graphs, or equations are present. -->
 
 我试过这些方法,帮助不是很大。 I have tried these methods, but they have not been very effective.
 
@@ -1245,8 +1259,10 @@ Output: *mt\_dial\_list*: synthetic multi-turn dialogues list.
 你好,感谢你前来咨询。能详细告诉我一下你的困扰吗? Hello, thank you forreaching out. Could you please provide more details about your concerns?
 
 ![](_page_33_Picture_3.jpeg)
+<!-- Image Description: The image is a simplistic cartoon illustration. It depicts a smiling person with speech bubbles emanating from their head, containing a brain and a heart. A checkmark connects the bubbles, suggesting a positive relationship between cognitive and emotional aspects. The illustration likely serves as a conceptual visual aid in a paper discussing the interplay between intellect and emotion, possibly within a psychological or behavioral science context. It lacks any graphs, charts, equations, or other technical data visualization. -->
 
 ![](_page_33_Picture_4.jpeg)
+<!-- Image Description: That image is not a technical illustration, chart, graph, or equation; it's a cartoon drawing. It depicts a person with a sad expression, a speech bubble containing lightning bolt symbols, suggesting stress, anxiety, or a similar emotional state. In an academic paper, this image likely serves as a non-technical illustration to represent the subject of emotional distress, possibly introducing or summarizing a section discussing psychological factors related to the paper's main topic. -->
 
 我身边的同学太卷了,感觉自己已经很努力了,但还是比不上别人,做什么事情都比别人差,感觉自己不适合 读研,但又怕毕业的时候找不到满意的工作,所以很焦虑。
 
@@ -1257,8 +1273,10 @@ My classmates are very competitive. I feel that, despite my efforts, I cannot ma
 I understand your feelings. It is important to acknowledge that everyone possesses unique strengths and values, and we should not overly fixate on the opinions ofothers. Can you share how you typically manage this anxiety?
 
 ![](_page_33_Picture_9.jpeg)
+<!-- Image Description: The image is a conceptual illustration, not a technical diagram or graph. It depicts a cartoon boy with speech bubbles representing a brain and a heart, connected by a positive feedback loop. This likely serves as a visual metaphor in a paper discussing the interplay of cognitive (brain) and emotional (heart) factors, potentially related to well-being or a similar topic. It lacks any equations or technical data. -->
 
 ![](_page_33_Picture_10.jpeg)
+<!-- Image Description: That image is not a technical illustration; it's a cartoon depicting a person with a worried expression and a speech bubble containing lightning bolt symbols. There are no graphs, charts, equations, or diagrams. The image is likely used for illustrative purposes, possibly to represent stress, anxiety, or a negative emotional state relevant to the paper's topic, not to convey technical information. -->
 
 我是一个很内向的人,一般就会默默承受这些压力,把自己关在一个黑暗的房间里,也不敢跟爸爸妈妈说,怕 他们担心。
 
@@ -1269,8 +1287,10 @@ I am very introverted and usually endure these pressures silently, isolating mys
 You are handling things well, but it is sometimes beneficial to learn to express our emotions and alleviate internal pressure. We could explore methods to ease youranxiety, such as deep breathing or meditation. Would you be open to trying these?
 
 ![](_page_33_Picture_15.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simple cartoon depicting a person with thought bubbles showing a brain and a heart, connected by a checkmark symbol. It lacks quantitative data, equations, or technical detail. The image is likely used for conceptual illustration, perhaps representing a balance between cognitive and emotional aspects, rather than to convey technical information. -->
 
 ![](_page_33_Picture_16.jpeg)
+<!-- Image Description: That image is not a technical illustration; it's a simple cartoon depicting a person with a sad expression and a thought bubble containing lightning bolts. It likely serves as a non-technical illustration in a paper discussing stress, anxiety, or a similar emotional or psychological concept. The image is illustrative and does not contain any data, equations, or technical diagrams. -->
 
 我之前试过这些方法,不过对我的帮助并不是很大。 I have tried these methods before, but they did not significantly help.
 
@@ -1279,6 +1299,7 @@ You are handling things well, but it is sometimes beneficial to learn to express
 In that case, we might consider a new approach called cognitive-behavioral therapy. This method can help you identify and adjust negative thought patterns. Are you interested in trying this?
 
 ![](_page_33_Picture_20.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simple cartoon depicting a person with thought bubbles representing cognitive (brain) and emotional (heart) aspects, connected by a positive feedback loop. It likely serves as a conceptual illustration, possibly introducing a framework for integrating cognitive and emotional factors in a study of human behavior or a similar topic. The image lacks any graphs, charts, equations, or data. -->
 
 Figure 27: A case of a client confiding to CPsyCounX.
 
@@ -1287,8 +1308,10 @@ Figure 27: A case of a client confiding to CPsyCounX.
 听起来你现在承受了很多压力,这一定很难受。能具体告诉我,是什么事情让你感到焦虑吗? It sounds like you are currently under a lot of pressure, which must be very challenging. Could you specify what exactly is causing your anxiety?
 
 ![](_page_34_Picture_3.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simple cartoon depicting a happy person with thought bubbles showing a brain and a heart, connected by a positive feedback loop. It likely serves a purely illustrative purpose, perhaps representing the integration of cognitive and emotional factors in a non-technical, conceptual way within the paper's introduction or conclusion rather than presenting technical data. There are no graphs, charts, equations, or diagrams in the typical academic sense. -->
 
 ![](_page_34_Picture_4.jpeg)
+<!-- Image Description: The image is a cartoon illustration of a person with a sad expression and a speech bubble containing lightning bolt symbols. It's a non-technical illustration likely used to represent a subjective experience, such as stress, anxiety, or a migraine, within a paper discussing a related topic like mental health or neurological conditions. The image's purpose is to visually communicate a negative emotional or physical state without relying on complex data. -->
 
 我身边的同学太卷了,感觉自己已经很努力了,但还是比不上别人,做什么事情都比别人差,感觉自己不适合 读研,但又怕毕业的时候找不到满意的工作,所以很焦虑。 My classmates are very competitive. I feel that, despite my efforts, I cannot match their performance. I am worried I am not suited for graduate study, yet I also fear not finding a satisfactory job after graduation, which makes me very anxious.
 
@@ -1297,8 +1320,10 @@ Figure 27: A case of a client confiding to CPsyCounX.
 You feel disadvantaged among your peers, and this must be very frustrating. How do you experience the feeling of being "unsuited for graduate studies"?
 
 ![](_page_34_Picture_8.jpeg)
+<!-- Image Description: That image is not a technical illustration or diagram suitable for academic analysis. It's a simplistic cartoon depicting a person with thought bubbles showing a brain and a heart, connected by a checkmark symbol. This suggests a conceptual representation of cognitive and emotional well-being, possibly used to introduce or illustrate a point about holistic health or a similar topic in a non-technical way. There are no graphs, charts, equations, or data presented. -->
 
 ![](_page_34_Picture_9.jpeg)
+<!-- Image Description: The image is a cartoon illustration of a person with a worried expression and a speech bubble containing lightning bolt symbols. It's a non-technical illustration likely used to represent the subjective experience of anxiety, stress, or a similar negative emotional state. The purpose within the academic paper is likely to visually represent a discussed concept related to mental health or emotional responses, making the abstract concept more accessible to the reader. There are no graphs, charts, equations, or diagrams; only an illustrative icon. -->
 
 当时读这个研究生,纯粹是因为身边的很多同学都去考研,我也就随大流去考了,后面发现自己并不是做科研 的料,有时也挺痛苦的。
 
@@ -1309,8 +1334,10 @@ I pursued this graduate program mainly because many of my peers were doing so, a
 Your decision to pursue graduate studies seems to have been influenced more by your surroundings than by your personal interests orstrengths. You mentioned distress—could you elaborate on what specifically causes you this pain?
 
 ![](_page_34_Picture_14.jpeg)
+<!-- Image Description: The image is a cartoon illustration, not a technical diagram or chart. It depicts a smiling person with thought bubbles containing a brain and a heart, connected by a positive feedback loop symbol. This likely serves as a conceptual illustration, not presenting quantitative data, to represent the interplay between cognitive and emotional factors in the paper's subject. It lacks equations or precise technical representations. -->
 
 ![](_page_34_Picture_15.jpeg)
+<!-- Image Description: That's not a technical image suitable for academic analysis. The image is a simple cartoon illustration of a person with a sad expression and a speech bubble containing lightning bolt symbols, suggesting stress or anxiety. It lacks any graphs, charts, equations, or diagrams. Its purpose in an academic paper would likely be illustrative, possibly representing a subject's emotional state or a conceptual element related to stress or mental health, rather than presenting technical data. -->
 
 因为我是跨专业考研,研究生的很多课程我都听不懂。另外导师也会额外布置很多科研任务,有时也会pua我, 身边的大佬也特别多,无形之中给了我巨大的压力和痛苦。
 
@@ -1321,6 +1348,7 @@ Your decision to pursue graduate studies seems to have been influenced more by y
 From what you describe, it seems you are under significant academic and psychological pressure. This must be a heavy burden. How do you typically cope with these pressures in such an environment?
 
 ![](_page_34_Picture_20.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simplistic cartoon depicting a person with thought bubbles representing the brain (cognition) and a heart (emotion), connected by a positive feedback loop. It likely serves as a conceptual illustration to introduce or summarize a discussion of the interplay between cognitive and emotional factors, lacking any quantitative data or technical details. -->
 
 <span id="page-35-0"></span>
 
@@ -1333,8 +1361,10 @@ I am very introverted and usually endure these pressures silently, isolating mys
 I understand you may worry about burdening your family, so you choose to bear the stress alone.However, seeking help is also a sign of courage.We can discuss possible solutions together.
 
 ![](_page_35_Picture_5.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simplistic cartoon depicting a person with thought bubbles representing the brain (cognition) and a heart (emotion). A checkmark connects the three, suggesting a positive integration of these elements. The image lacks any quantitative data, equations, or diagrams typical of academic papers; it likely serves only as a conceptual illustration, possibly introducing a theoretical framework regarding cognitive and emotional factors. -->
 
 ![](_page_35_Picture_6.jpeg)
+<!-- Image Description: The image is a cartoon illustration of a person with a worried expression, accompanied by a speech bubble containing lightning bolt symbols. It's not a diagram, chart, graph, or equation, but a non-technical illustration. Its purpose within the academic paper is likely illustrative, representing a subjective experience like stress, anxiety, or mental strain, possibly to visually represent a concept discussed in the text, rather than presenting technical data. -->
 
 那你有什么好的建议呢? Do you have any suggestions?
 
@@ -1343,6 +1373,7 @@ I understand you may worry about burdening your family, so you choose to bear th
 We could explore some anxiety-relief methods, such as exercising, listening to music, or journaling. These activities can help relax the mind. What do you think?
 
 ![](_page_35_Picture_10.jpeg)
+<!-- Image Description: That image is not a technical illustration or diagram suitable for academic analysis. It's a cartoon depicting a person with a sad expression and a speech bubble containing lightning bolts, likely representing stress or anger. It lacks quantitative data or technical details, and its inclusion in an academic paper would be for illustrative purposes only, perhaps to represent a qualitative aspect of a study related to mental health or emotional responses. It is not a graph, chart, or equation. -->
 
 我之前试过这些方法,不过对我的帮助并不是很大。 I have tried these methods before, but they did not significantly help.
 
@@ -1351,16 +1382,20 @@ We could explore some anxiety-relief methods, such as exercising, listening to m
 I understand. Each person's experience is unique, and finding the most suitable relief method takes time and patience. If you are willing,we can explore other potential methods together.
 
 ![](_page_35_Picture_14.jpeg)
+<!-- Image Description: That image is not a technical illustration suitable for an academic paper. It's a simple cartoon depicting a person with thought bubbles showing a brain and a heart, connected by a positive feedback loop. It lacks quantitative data or technical detail. The image likely serves a purely illustrative purpose, possibly representing the integration of cognitive and emotional aspects in the paper's topic, rather than conveying technical information. -->
 
 ![](_page_35_Picture_15.jpeg)
+<!-- Image Description: That's not a technical image suitable for academic analysis. The image is a cartoon depicting a person with a sad expression and a speech bubble containing lightning bolts, suggesting stress or anxiety. It lacks any graphs, charts, equations, or diagrams. It's likely used for illustrative purposes, perhaps to represent a subject of the paper, like emotional distress or mental health, rather than presenting technical data. -->
 
 嗯嗯可以。 Yes, I am open to that.
 
 你提到了导师的pua行为,这听起来对你影响很大。你是否曾尝试过跟导师沟通你的感受? You mentioned your advisor's manipulative behavior, which seems to have a significant impact on you. Have you ever tried to communicate yourfeelings to your advisor?
 
 ![](_page_35_Picture_18.jpeg)
+<!-- Image Description: The image is a cartoon illustration, not a technical diagram, chart, graph, or equation. It depicts a smiling person with thought bubbles representing a brain and a heart, connected by a curved arrow indicating a positive interaction. The image likely serves a non-technical, illustrative purpose, perhaps representing the integration of cognitive and emotional factors within the paper's subject, rather than conveying technical data. -->
 
 ![](_page_35_Picture_19.jpeg)
+<!-- Image Description: The image is a cartoon illustration depicting a person with a sad expression and a speech bubble containing lightning bolts. It's a non-technical illustration, likely used to represent a subjective experience such as stress, anxiety, or a negative emotional state. In an academic paper, this would probably be used to qualitatively illustrate a concept related to mental health, emotional response, or a similar topic, rather than presenting quantitative data. -->
 
 我感觉我的导师很强势,有时也想跟他沟通,但又怕自己说错话得罪导师。 I feel my advisoris very domineering. Sometimes I want to communicate with him, but I fear saying the wrong thing and offending him.
 

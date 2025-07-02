@@ -1,7 +1,7 @@
 ---
 cite_key: "asprino2019"
 title: "Pattern-based Visualization of Knowledge Graphs"
-authors: "Luigi Asprino 1 , Christian Colonna 1 , Misael Mongiov`ı 2 , Margherita Porena 2 , and Valentina Presutti 1 , 2"
+authors: "Valentina Presutti 1"
 year: 2019
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -66,6 +66,7 @@ We propose a general framework based on three levels of visualizations. The top 
 <span id="page-3-0"></span><sup>4</sup> <http://ontologydesignpatterns.org>
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper presents three visualizations related to a data model. (a) shows a graph illustrating relationships (specializes, part of, has view) between different types of cultural properties. (b) depicts a table for exploration, showing "view," "object," "parts," and "filter controls." (c) displays a visualization level illustrating a part-whole relationship using geometric shapes. The image likely describes different levels of data representation and user interaction within the system. -->
 
 Fig. 1: Overview of the system on three levels
 
@@ -98,6 +99,7 @@ Note that our approach is completely independent of the specific implementation 
 <span id="page-6-0"></span><sup>5</sup> We implemented the code to generate such annotations for the patterns we employed in our prototype
 
 <span id="page-7-1"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper illustrates a data model and query processing for visual pattern matching. It shows an Entity-Relationship Diagram (ERD) representing objects and their parts, linked to visual depictions. SQL-like queries (`emapp`, `vmapp`) are presented, demonstrating how to extract object labels and counts, and their corresponding visual frames (depictions). A mapping table links the symbolic object-part relationships to their visual representations. The diagrams clarify the relationships between data in different layers. -->
 
 (a) Pattern Part Of and associated mapping functions (b) Example of pattern instances mapping
 
@@ -110,6 +112,7 @@ alization code of a pattern on a different knowledge graph that implements the s
 Design Methodology. We put emphasys on the importance of user cognition in the visualization design process [\[22\]](#page-15-16) and, taking inspiration by other successful experiences (e.g. [\[12\]](#page-15-17)) we applied User-Centered Design (UCD) principles. Specifically, we followed agile design methodology with brief iteration cycles (1
 
 <span id="page-8-3"></span>![](_page_8_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates the architecture of a system for exploring and visualizing linked data (LD). It shows a frontend with two microservices (ODPBrowser and Extended-Ld-Reactor), built using Node.js and React.js, communicating via HTTP. The frontend interacts with a data layer comprising SPARQL endpoints and a MongoDB database. The ODP-UI, a ReactJS component package, facilitates LD visualization. The user interacts with the system through exploratory search and ontology/LD visualization functionalities. -->
 
 Fig. 3: ODPReactor architecture.
 
@@ -171,6 +174,7 @@ The purpose of the test was to evaluate the ability of the tool to perform the f
 Each tester was asked to perform a series of searching tasks (e.g. finding the length of an object) and to answer questions about the selected items. We dedicated a section of the questionnaire for each task. Each section presents the task and asks the user to rate: (i) the difficulty and rapidity in performing the task; (ii) the usability of the tool. The scores range was on a scale of 1 (very easy/rapid/usable) to 5 (very difficult/slow/unusable). To evaluate the general level of user satisfaction, we added to the survey a section containing the SUS-System Usability Scale questionnaire [\[3\]](#page-14-9). Before starting the test, the users were asked to perform a brief tutorial defined for the tool. The tutorial presents the user the three visualization levels (ODP level, exploration level, visualization level) and, in each of them, it shows the position of the filters. We measured the actual time occurred for performing each task and asked the participants to record their screen and send us the recording. The latter was useful for understanding the reason of possible failures or slowdowns. 10 of the 11 participants agreed to record their screen and share the recording.
 
 <span id="page-11-0"></span>![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image is a pie chart illustrating the distribution of subjective ratings. Six respondents rated something as "Excellent," four as "Good," one as "Poor," and one as "Awful." The chart visually represents the frequency of each rating category, likely to summarize participant feedback or survey results within the paper's overall analysis. No equations or other illustrations are present. -->
 
 Fig. 4: SUS results.
 
@@ -212,6 +216,7 @@ Assessment of the ODP and exploration level. In order to assess H1-3 hypotheses 
 Finally, we report on the results of the exploratory research tasks on ODPReactor. We did not compare this task with LodView since it does not provide exploratory search functionalities. In counting the number of occurrences that satisfy the given constraints, we did not make any assumption about open or close world, and considered correct both the answers that include or exclude objects that do not contain some of the properties necessary for applying the filter.
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The figure presents three bar charts comparing "ODP-Reactor" and "Lodview" performance across six test cases (Comp 1, Comp 2, TITL1, TITL2, MC1, MC2). (a) shows correctness, with values seemingly representing a correctness score. (b) displays timing results, likely execution times. (c) provides a more granular assessment of adequacy, categorized as very adequate, adequate, medium, inadequate, and very inadequate. The charts aim to quantitatively evaluate and compare the two systems' performance in terms of correctness, speed, and adequacy. -->
 
 (c) Usability.
 
@@ -224,6 +229,7 @@ Results are summed up in Figure [6.](#page-14-10) We collected 55 (11 × 5) resp
 This work proposed a novel approach to Knowledge Graph visualization that uses Ontology Design Patterns as first-class citizens for accessing and navigating KGs. We described a general framework that enables reusing an ODP-related visual
 
 <span id="page-14-10"></span>![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image contains three pie charts presenting survey results. (a) shows the correctness of answers (45 correct, 10 incorrect). (b) displays usability ratings (24 very adequate, 16 adequate, 11 medium, 2 very inadequate). (c) illustrates task difficulty (19 very easy, 19 easy, 13 medium, 2 difficult, 2 very difficult). The charts likely assess system performance based on user feedback in an academic study. -->
 
 Fig. 6: Exploratory search tasks
 

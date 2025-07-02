@@ -1,7 +1,7 @@
 ---
 cite_key: "arxiv2024"
 title: "A Survey on Temporal Knowledge Graph: Representation Learning and Applications"
-authors: "Authors from arXiv"
+authors: "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
 year: 2024
 doi: "arXiv:2403.04782"
 url: "https://arxiv.org/abs/2403.04782"
@@ -48,6 +48,7 @@ Knowledge graphs (KGs) describe the real world with structured facts. A fact con
 Existing KGs ignore the timestamp indicating when a fact occurred and cannot reflect their dynamic evolution over time. In order to represent KGs more accurately, Wikidata [\[73\]](#page-33-0) and YOGO2 [\[32\]](#page-28-2) add temporal information to the facts, and some event knowledge graphs [\[55,](#page-31-0) [42\]](#page-29-0) also contain the timestamps indicating when the events occurred. The knowledge graphs with temporal information are called temporal knowledge graphs (TKGs). Figure [1](#page-1-0) is a subgraph of the temporal knowledge graph. The fact in TKGs are expanded into quadruple (head, relation, tail, timestamp), a specific instance is (Barack Obama, make statement, Iran, 2014-6-19).
 
 ![](_page_1_Figure_3.jpeg)
+<!-- Image Description: This diagram depicts the interactions between Barack Obama, Iran, and Iraq in June 2014. It uses a tripartite structure, with Obama at the apex. Arrows labeled with dates and descriptions illustrate actions such as statements, military aid provision, and peacekeeping offers. The image visually represents the flow of diplomatic and military engagement among the three entities during a specific period. The purpose is to show the sequence and nature of political and military actions in a concise visual format. -->
 
 <span id="page-1-0"></span>Figure 1: An example of temporal knowledge graph (a subgraph of ICEWS14).
 
@@ -66,6 +67,7 @@ The remainder of this paper is organized as follows: Chapter 2 introduces the ba
 A temporal knowledge graph is a directed multi-relational graph containing structured facts. It is usually expressed as G = (E, R, T, F), where E, R, and T are the sets of entities, relations, and timestamps, respectively, and F ⊂ E × R × E × T is the set of all possible facts. A fact f is denoted as (h, r, t, τ ), where h, r, t, and τ are the head entity, relation, tail entity, and timestamp, respectively.
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image illustrates a knowledge graph (KG) transformation process. It begins with a tree-like KG representation ("TKG"), then shows its transformation into a matrix representation. This matrix is further processed and applied to three knowledge reasoning tasks: knowledge reasoning, entity alignment, and question answering. The final section displays example knowledge graph structures for each application, demonstrating how the transformed representation is used in practice. -->
 
 <span id="page-3-0"></span>Figure 2: Temporal knowledge graph representation learning and applications.
 
@@ -125,6 +127,7 @@ $$
 \n<sup>(2)</sup>
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This image is a hierarchical diagram categorizing techniques for temporal knowledge graph representation learning. The left side lists broad categories (Transformation, Decomposition, etc.), each branching to specific methods (e.g., Graph Neural Network, Autoregression). The right side shows related approaches used for translation, rotation, and other tasks within the broader context of temporal knowledge graph representation. The diagram's purpose is to systematically organize and present a survey of existing methods in the field. -->
 
 <span id="page-5-0"></span>Figure 3: The categorization of temporal knowledge graph representation learning methods.
 

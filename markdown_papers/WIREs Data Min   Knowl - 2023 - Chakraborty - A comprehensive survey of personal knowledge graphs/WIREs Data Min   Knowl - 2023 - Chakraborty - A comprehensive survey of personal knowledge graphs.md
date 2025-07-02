@@ -1,7 +1,7 @@
 ---
 cite_key: "miller2021"
 title: "FOCUS ARTICLE"
-authors: "- Miller, E. (1998). An introduction to the resource description framework. Bulletin of the American Society for Information Science and Technology, 25(1), 15–19. <https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/bult.105>"
+authors: "Prantika Chakraborty, Fundamental Concepts"
 year: 2021
 doi: "10.1002/widm.1513"
 date_processed: "2025-07-02"
@@ -15,6 +15,7 @@ images_removed: 0
 # FOCUS ARTICLE
 
 ![](_page_0_Picture_4.jpeg)
+<!-- Image Description: The image shows the logos of WIREs Data Mining and Knowledge Discovery and Wiley. It is a publisher's imprint, indicating the journal in which the paper was published. The image contains no diagrams, charts, graphs, or equations. Its purpose is to provide publication metadata. -->
 
 # A comprehensive survey of personal knowledge graphs
 
@@ -55,8 +56,10 @@ Knowledge graphs (KGs) have become an integral part of our daily lives in captur
 19424795, 2023, 6, Downloaded from https://wires.onlinelibrary.wiley.com/doi/10.1002/widm.1513 by <Shibboleth>-member@cranfield.ac.uk, Wiley Online Library on [30/06/2025]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image is a page header from a Wiley publication, *WIREs Data Mining and Knowledge Discovery*. It shows the journal's logo and indicates that the page is number 2 of 13. The authors "Chakraborthy and Sanyal" are also identified. There are no diagrams, charts, graphs, or equations present; it is purely a header providing publication information and page numbering. -->
 
 ![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The image depicts a knowledge graph illustrating relationships between entities. A central node, "Sam," connects to nodes representing spouse ("Susan"), children ("Tina"), parents ("John" and "Mary"), date of birth, and workplace ("HSBC Bank" linked to Wikidata). "Kolkata, India" indicates Sam's location. Edges denote relationships (e.g., "has_spouse," "works_in"). The graph visualizes data structure and relationships, likely to demonstrate a knowledge representation model. -->
 
 FIGURE 1 An example of a personal knowledge graph containing the personal data of a user, Sam.
 
@@ -65,8 +68,10 @@ But, most of the KGs that we use, like DBPedia3 and YAGO<sup>4</sup> host generi
 In this paper, we present a survey of the existing literature on PKGs. We assembled the citations of the position paper that proposed the notion of a PKG (Balog & Kenter, [2019\)](#page-11-0) from Google Scholar, analyzed each of the cited papers, and selected the relevant ones for our survey. We repeated this task recursively for the above-cited papers till we found no other relevant papers. Our main contributions in this survey article are listed as follows:
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: The image is a footer from an academic paper published by Wiley. It shows the authors' names (Chakraborthy and Sanyal), the journal's logo (WIRES Data Mining and Knowledge Discovery), the publisher's logo (Wiley), and a page number indicator ("3 of 13"). The footer's purpose is to provide bibliographic and navigational information within the publication. -->
 
 ![](_page_2_Figure_3.jpeg)
+<!-- Image Description: The image contains two knowledge graphs. (a) depicts a knowledge graph integrating a social network, e-commerce catalogue, and a world knowledge base (KB), linking entities through relationships like "married\_to" and "travelled\_to". (b) shows a knowledge graph representing a research project, connecting researchers, institutions (IISER-K, ACL 22), tools (LDA, CTM), datasets (20NG), and technologies (Nvidia, Intel). Both graphs illustrate the interconnectedness of data within their respective contexts. -->
 
 FIGURE 2 Examples of different personal knowledge graphs. (a) Personal knowledge graph based on lifelogs (Yen et al., [2021](#page-12-0)). (b) Personal research knowledge graph for researchers and academicians (Chakraborty et al., [2022](#page-11-0)).
 
@@ -87,6 +92,7 @@ The medical domain is a storehouse of patient data, which contain their medical 
 Along with the medical history of the patients, other information including the "likes," "dislikes," "nutrient focus" (e.g., the amount of calories preferred), "substitution" (e.g., sugar substitutes for Type 2 diabetic patients), "restaurant
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image is a mind map illustrating applications of a Personal Knowledge Graph (PKG). Central is the PKG, branching out to applications in Financial Technology (credit score prediction, defaulting possibility, customized marketing), Health (personalized diet plans, lifestyle suggestions for chronic patients, dementia patient memory aids), and Education & Research (personalized course recommendations, smart virtual assistants for researchers). The diagram visually represents the diverse utility of the PKG across various domains. -->
 
 FIGURE 3 Domains in which personal knowledge graphs have been used.
 
@@ -122,6 +128,7 @@ One of the most popular ways of populating a PKG is by obtaining information fro
 User utterances often provide ill-structured data as they are mostly noisy and verbose, and incorporate vernacular and informal terms that make the extraction of attributes, like the user's profession and gender, onerous. In other words, the difficulty of extraction arises because such attributes are not always explicitly stated in regular conversations. A number of hidden attribute models (HAMs; Tigunova et al., [2019\)](#page-12-0) have been developed to identify such attribute values from user utterances by ranking the possible values of the object of the <subject–predicate–object> triplet given the subject and the predicate. For example, a user (subject) who utters terms like "experiments," "theorem," and "results" is most likely to be a scientist (object) by profession (predicate), in contrast to an actor by profession, who uses
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates the construction of a Personal Knowledge Graph (PKG). It shows how various methods (e.g., PRIDE, DSCGN, HAM, CHARM, CREL, PEARL, PRKG, URG) utilizing data from user utterances and system-stored data (smartphone data, files, folders) contribute to the hybrid PKG construction. Each method is cited with its corresponding publication. The diagram visually represents the data sources and the component methods involved in creating the PKG. -->
 
 FIGURE 4 Construction of personal knowledge graphs based on data source.
 

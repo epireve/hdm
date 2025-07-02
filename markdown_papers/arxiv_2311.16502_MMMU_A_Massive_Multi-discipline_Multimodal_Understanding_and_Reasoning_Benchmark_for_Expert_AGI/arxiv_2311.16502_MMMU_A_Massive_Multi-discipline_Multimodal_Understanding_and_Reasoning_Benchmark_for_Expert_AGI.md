@@ -1,7 +1,7 @@
 ---
 cite_key: "yue2035"
-title: "<span id=\"page-0-1\"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI"
-authors: "Xiang Yue\\*† , Yuansheng Ni\\*, Kai Zhang\\*, Tianyu Zheng\\*, Ruoqi Liu, <sup>2</sup>Ge Zhang, <sup>3</sup>Samuel Stevens, <sup>2</sup>Dongfu Jiang, <sup>2</sup>Weiming Ren, <sup>4</sup>Yuxuan Sun, Cong Wei, <sup>3</sup>Botao Yu, <sup>5</sup>Ruibin Yuan, <sup>2</sup>Renliang Sun, <sup>7</sup>Ming Yin, Boyuan Zheng, <sup>4</sup>Zhenzhu Yang, <sup>6</sup>Yibo Liu, <sup>4</sup>Wenhao Huang, Huan Sun\\*, <sup>3</sup>Yu Su\\*† , Wenhu Chen\\*†"
+title: "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI"
+authors: "Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang"
 year: 2035
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -20,6 +20,7 @@ Xiang Yue\*† , Yuansheng Ni\*, Kai Zhang\*, Tianyu Zheng\*, Ruoqi Liu, <sup>2<
 <https://mmmu-benchmark.github.io/>
 
 ![](_page_0_Figure_4.jpeg)
+<!-- Image Description: This image from an academic paper displays four panels. The first shows a breakdown of disciplines represented in a dataset (e.g., Engineering 26%). The second illustrates diverse image types within the dataset (diagrams, photos, medical images, etc.). The third demonstrates examples of text and images interleaved, specifically showcasing three medical images for a diagnostic question. The fourth is a flow chart illustrating an expert-level skills test, showing the interplay between perception, knowledge, and reasoning. The overall purpose is to describe the dataset and the cognitive processes involved in its analysis. -->
 
 <span id="page-0-0"></span>Figure 1. Overview of the MMMU dataset. MMMU presents four challenges: 1) comprehensiveness: 11.5K college-level problems across six broad disciplines and 30 college subjects; 2) highly heterogeneous image types; 3) interleaved text and images; 4) expert-level perception and reasoning rooted in deep subject knowledge.
 
@@ -32,6 +33,7 @@ Rapid advances in large language models (LLMs) [\[13,](#page-8-0) [59,](#page-10
 <sup>\*</sup>Core Contributors. See the Author Contribution Statement for details. †B: {yue.149,su.809}@osu.edu; wenhuchen@uwaterloo.ca
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image displays a table showing example questions from different academic subjects (Art & Design, Business, Science, Health & Medicine, Humanities & Social Science, Tech & Engineering). Each entry includes a question, options, subject, subfield, image type (e.g., sheet music, charts, diagrams), and difficulty level. The images themselves are placeholders denoted as `<image 1>`, `<image 2>`, etc., and would show musical notation, bar charts, graphs, medical scans, political cartoons, and electrical circuit diagrams in the full paper. The table's purpose is to illustrate the diversity of question types and image types used in a test or assessment. -->
 
 Figure 2. Sampled MMMU examples from each discipline. The questions and images need expert-level knowledge to understand and reason.
 
@@ -187,6 +189,7 @@ Evaluation. We adopt micro-averaged accuracy as the evaluation metric. For both 
 In this section, we present a comprehensive comparison of different LLMs and LMMs using the MMMU benchmark, detailed in [Table 2.](#page-5-0) We summarize our key findings as follows: Challenging Nature of **MMMU**: The benchmark poses significant challenges to current models. The Best human expert achieves a validation accuracy of 88.6%, significantly outperforming all the models reported in the table. This demonstrates the still-existing gap between human expertise and the performance of current models on the MMMU benchmark. This reflects the benchmark's rigorous standards.
 
 <span id="page-6-2"></span><span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image is a bar chart comparing the performance of several large language models (LLMs) across different visual data types. The x-axis represents data types (diagrams, tables, charts, etc.), and the y-axis represents a performance metric (likely accuracy or a similar measure). Each bar represents a different LLM's score for a given data type. The chart aims to illustrate the relative strengths and weaknesses of the different LLMs in handling diverse visual information. -->
 
 Figure 4. Performance of models on different types of images.
 
@@ -224,6 +227,7 @@ In this section, we delve into the analysis of errors by GPT-4V, a pivotal aspec
 Perceptual Errors (35%): Perceptual errors, forming the bulk of the inaccuracies in the GPT-4V model, are categorized into two types: basic perceptual errors and domainspecific perceptual errors. Basic perceptual errors, as depicted in [Figure 6,](#page-7-1) occur when the model accurately processes and understands the given information but fails in elementary visual interpretation, such as misjudging the sequence described as "from left to right, top to bottom." On the other hand, domain-specific perceptual errors occur due to the lack of knowledge. As we analyze the root cause, we classify such errors as lack of knowledge (see analysis below). Additionally, GPT-4V often exhibits a bias towards
 
 <span id="page-7-2"></span><span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image is a pie chart showing the distribution of error types in a visual question answering system. Perceptual error accounts for 35%, followed by lack of knowledge (29%) and reasoning error (26%). Smaller percentages are attributed to textual understanding, annotation error, answer extraction error, and inability to answer. The chart illustrates the dominant sources of error for the system, aiding in analyzing its performance and suggesting areas for improvement. -->
 
 Figure 5. Error distribution over 150 annotated GPT-4V errors.
 
@@ -236,6 +240,7 @@ Reasoning Errors (26%): Flawed reasoning emerges as another significant cause of
 Other Errors: The remaining errors include Textual Understanding Error (6%), Rejection to Answer (3%), Annotation Error (2%), and Answer Extraction Error (1%). These errors are attributed to various factors such as complex text interpretation challenges, limitations in response generation, inaccuracies in data annotation, and issues in extracting precise answers from longer outputs.
 
 <span id="page-7-1"></span>![](_page_7_Picture_6.jpeg)
+<!-- Image Description: The image displays a 3x3 grid of illustrations depicting three scenarios of an adult and child using an oxygen mask during a plane emergency. Each scenario represents a different balance of egoism and altruism. The illustrations are labeled with the text "Egoism" and "Altruism" on the vertical and horizontal axis respectively. The figure’s purpose is to illustrate the GPT-4V model’s perceptual error in correctly associating the images with the described scenarios, despite correctly understanding the concepts. -->
 
 Figure 6. A basic perceptual error, easy for humans but challenging for GPT-4V. More examples can be found in the Appendix.
 
@@ -1000,6 +1005,7 @@ Table 11. Table index of case study figures by subjects with associated (error) 
 (D) the threat of climate change
 
 ![](_page_24_Picture_8.jpeg)
+<!-- Image Description: That's not a technical image suitable for academic analysis in the way a graph or diagram would be. The image is a reproduction of a work of art (likely a print or digital image of a painting), showing a seemingly idyllic scene of a couple in a rickshaw, being pulled by a small person whose face is obscured. There are no charts, graphs, equations, or technical illustrations present. It's a visual element that would likely be used for illustrative purposes in a paper discussing art, social commentary, or a related topic, rather than to represent technical data. -->
 
 <image 1>
 **GPT-4V:**The artist's use of color and neutral tones in this picture, along with the chosen imagery, helps convey the theme of "the inequities of societies" (A). The contrast between the small child laboring to pull the rickshaw and the larger, relaxed adults taking a selfie is a stark commentary on social and economic disparities. The neutral background emphasizes the subjects, drawing the viewer's attention to the inequality presented within the scene.
@@ -1025,6 +1031,7 @@ Table 11. Table index of case study figures by subjects with associated (error) 
 - (D) a barbican and battlements.
 
 ![](_page_26_Picture_8.jpeg)
+<!-- Image Description: The image is a photograph of a large, stone castle, likely a historical structure. It shows a multi-towered fortress with crenellations, exhibiting a rectangular design with prominent circular towers at its corners and center. The image's purpose within the academic paper is likely illustrative, providing a visual example of the type of architecture or historical site being discussed, potentially for architectural analysis or historical context. -->
 
 <image 1>
 **GPT-4V:**The correct alternate caption for the image based on the provided information would be: (C) a moat and crenellations.
@@ -1038,6 +1045,7 @@ Table 11. Table index of case study figures by subjects with associated (error) 
 Figure 10. A sample error case of Art (subfield: Fine Arts). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-27-0"></span>![](_page_27_Figure_0.jpeg)
+<!-- Image Description: The image presents a multiple-choice question about the patron of a building. It includes two images: a floor plan (<image 1>) and a photograph (<image 2>) of the Hagia Sophia. The question tests knowledge of Art History. The AI correctly identifies Justinian as the patron, matching the ground truth. -->
 
 Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1053,6 +1061,7 @@ Figure 11. A sample correct case of Art Theory (subfield: Art History). [Back to
 (D) use of sharply contrasting light and shade
 
 ![](_page_28_Picture_7.jpeg)
+<!-- Image Description: The image is a reproduction of Théodore Géricault's painting, *The Raft of the Medusa*. It depicts the survivors of a shipwreck clinging to wreckage at sea. The painting's technical aspects include the use of chiaroscuro to highlight emotional intensity and the detailed rendering of human figures in various states of distress and despair. The scene shows the survivors' struggle for survival, illustrating the chaotic and desperate conditions they faced. The artwork's purpose in the paper is likely to be an example of Romanticism or to illustrate a point related to survival, disaster, or social commentary. -->
 
 <image 1>
 **GPT-4V:**Based on the painting provided:
@@ -1075,6 +1084,7 @@ Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back 
 - (D) in the reception room at the Royal Palace in Madrid, where the portraits of the royal family would be viewable by visiting dignitaries
 
 ![](_page_29_Picture_6.jpeg)
+<!-- Image Description: The image is a grayscale reproduction of Diego Velázquez's painting, "Las Meninas." It depicts a scene in the artist's studio, showing the Infanta Margarita surrounded by her entourage. The painting itself is the subject of the academic paper, likely for art historical analysis. The image serves as a visual reference for the text's discussion of composition, subject matter, and the artistic techniques used by Velázquez. No graphs, charts, equations, or other technical illustrations are present. -->
 
 <image 1>
 **GPT-4V:**This painting is "Las Meninas" by Diego Velázquez. The original placement of this painting was**(A) in the Prado Museum in Madrid**, showing a willingness to be compared to great Spanish painters of the past.
@@ -1097,6 +1107,7 @@ Figure 12. A sample correct case of Art Theory (subfield: Art Criticism). [Back 
 (D) Folding chairs and floor-standing lamps
 
 ![](_page_30_Picture_8.jpeg)
+<!-- Image Description: The image is a photograph of a dining room, showcasing Arts & Crafts style interior design. The room features dark wood paneling, built-in cabinetry, and geometric ceiling details. A central dining table is surrounded by chairs, and several Tiffany-style lamps are present on the table and built-in sideboard. The image likely illustrates a specific architectural style or designer's work within the paper's context. -->
 
 <image 1>
 **GPT-4V:**Based on the image you've provided of the Robie House Dining room, the design elements used to create a 'room within a room' vibe are:(A) Tall backs of chairs and lamps at the corners of dining tables.
@@ -1115,6 +1126,7 @@ Figure 14. A sample correct case of Design (subfield: Industrial Design). [Back 
 (D) information systems on the Internet
 
 ![](_page_31_Picture_6.jpeg)
+<!-- Image Description: The image is an abstract technical illustration, resembling a complex network or system. It features a dense arrangement of lines, shapes (including diamonds), and color patches, suggesting interconnected nodes or pathways. The lack of clear labels or axes prevents precise interpretation, but the visual complexity likely represents a multifaceted system's structure or relationships, possibly used to visually convey the intricacy of a model or process within the academic paper. -->
 
 <image 1>
 **GPT-4V:**The painting (<image 1>) appears to be a complex and abstract representation with various lines, patterns, and colors. Based on the visual elements in the painting:(D) information systems on the Internetseems to be the most fitting description. The interconnected lines and vibrant, diverse patterns might suggest the vastness and complexity of information systems on the Internet. However, art interpretation can be subjective, and different viewers may see different meanings in the same piece.
@@ -1138,6 +1150,7 @@ Figure 15. A sample error case of Design (subfield: Design History). Error categ
 - (D) the entrance of light and air into the hall
 
 ![](_page_32_Picture_7.jpeg)
+<!-- Image Description: The image is a photograph of the interior of a building, specifically showing a series of arches and columns. The arches are horseshoe-shaped and feature a repeating red and white striped pattern. The columns are dark, thick, and support the interconnected archway system, creating a repeating visual pattern. The photo likely serves as a visual example of a specific architectural style or structural design within the paper. -->
 
 <image 1>
 **GPT-4V:**The double-tiered columns in the image provided would allow for: (A) barrel-vaulted roofing (B) decorative rhythm and repetition (C) a higher roof to make up for the short columns. However, the double-tiered columns would not directly affect: (D) the entrance of light and air into the hall. So the correct answer is (D) the entrance of light and air into the hall.
@@ -1151,8 +1164,10 @@ Figure 15. A sample error case of Design (subfield: Design History). Error categ
 Figure 16. A sample error case of Design (subfield: Design History). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-33-0"></span>![](_page_33_Figure_0.jpeg)
+<!-- Image Description: The image displays four musical notations (A-D) representing different violin tunings. The correct tuning (A) shows G3, D4, A4, and E5, from lowest to highest string, using treble, alto, and bass clefs for visual representation of pitches across the four strings. The other options are incorrect tunings. The purpose is to assess understanding of violin tuning notation. -->
 
 **Ground Truth: (A) <image 1>**![](_page_33_Figure_2.jpeg)
+<!-- Image Description: Figure 17 is a caption describing a missing image, likely a diagram or illustration, showcasing a "sample correct case of Music" within a specific subfield. The caption lacks the visual itself but provides navigation links to a list of figures and a table index within the paper. The image's purpose is to exemplify a correct data entry or structure related to the topic of music. -->
 
 <span id="page-34-0"></span>
 
@@ -1163,6 +1178,7 @@ Figure 16. A sample error case of Design (subfield: Design History). Error categ
 **Ground Truth: (D) Minor 6th**Figure 18. A sample error case of Music (subfield: Music). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-35-0"></span>![](_page_35_Figure_0.jpeg)
+<!-- Image Description: The image is a musical score excerpt, posing a question about identifying bars containing a compound minor 3rd melodic interval in the right-hand part from bar 13 onwards. The question's options provide bar numbers (14 & 15, 17, 18, 28 & 29) as possible answers. The score is presented to visually support the question, allowing identification of the correct answer through musical analysis. -->
 
 #### <image 1>
 **GPT-4V:**In response to your inquiry, I examined the provided image for the presence of a compound minor third interval in the right-hand part starting from bar 13. A compound minor third, or a tenth, combines an octave (twelve semitones) with a minor third (three semitones), totaling fifteen semitones. Upon inspection, I found that bar 17 doesn't have this interval in the right-hand part. Bars 14 and 15 do contain intervals, but I'm uncertain if any are a compound minor third. I can't confirm the presence of this interval in bars 28 and 29, as they're not visible in the image. Bar 18 also requires checking for this interval. Unfortunately, I can't process the image visually to provide the exact bar number of the specified interval.
@@ -1249,6 +1265,7 @@ Less Dividends: \$8,000. Retained Earnings to be Reported = Beginning Retained E
 - (C) Both time series display a trending behavior
 
 ![](_page_38_Figure_7.jpeg)
+<!-- Image Description: The image contains two time-series line graphs. Figure 1 shows a graph of *M<sub>t</sub>* (likely representing melanoma incidence) over time (approximately 1935-1970), exhibiting an upward trend with fluctuations. Figure 2 displays a graph of *IPI<sub>t</sub>* (likely an industrial production index) from approximately 1975-2000, showing a general upward trend with yearly cyclical variations. Both figures likely illustrate data used for analysis within the paper. -->
 **GPT-4V:**Based on the provided figures:(A) IPIt displays a strong seasonality. - This statement appears to be TRUE. Figure 2 shows consistent and repeating peaks and valleys for the Spanish Industrial Production Index (IPIt), indicative of seasonality.(B) Both time series are mean stationary. - This statement appears to be FALSE. A mean stationary time series would have a constant mean (average) over time. Both figures show a changing mean over the given time frames, particularly Figure 1 where the mean value for Melanoma cases appears to be increasing over time.(C) Both time series display a trending behavior. - This statement appears to be TRUE. Figure 1 shows an upward trend in the number of Melanoma cases over time, and Figure 2 displays fluctuations but also an overall upward trend in the Industrial Production Index. Therefore, the FALSE statement is: (B) Both time series are mean stationary.
 
 ### Ground Truth: (B) Both time series are mean stationary.
@@ -1286,6 +1303,7 @@ Figure 22. A sample correct case of Economics (subfield: Econometrics). [Back to
 **Ground Truth: (A) Nation X has comparative advantage in paper production and should trade paper to Nation Y in exchange for crepes.**Figure 23. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-40-0"></span>![](_page_40_Figure_0.jpeg)
+<!-- Image Description: The image displays a supply and demand graph for credit card borrowing, showing the equilibrium interest rate where the supply and demand curves intersect. The graph's x-axis represents the quantity of money, and the y-axis represents the interest rate. The model incorrectly identifies the intersection point as 9%, while the correct answer is 8%, illustrating a perceptual error in interpreting the graph. -->
 
 Figure 24. A sample error case of Economics (subfield: Macroeconomics). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1324,6 +1342,7 @@ Figure 25. A sample correct case of Finance (subfield: Corporate Finance). [Back
 - (D) Point H
 
 ![](_page_42_Figure_5.jpeg)
+<!-- Image Description: The image displays a graph illustrating the Capital Allocation Line (CAL) in finance. The x-axis represents risk (σ), and the y-axis represents expected return (E(r)). Several indifference curves (light blue) depict varying levels of risk aversion. The CAL is a straight line showing the optimal portfolio combinations given a risk-free rate and a risky asset. Points F, G, H, and E represent different portfolios along the indifference curves and the CAL, demonstrating the trade-off between risk and return. The graph helps explain portfolio optimization in the context of modern portfolio theory. -->
 
 <image 1>
 **GPT-4V:**The optimal portfolio of risky assets is the one that provides the highest expected return for a given level of risk. On the Capital Market Line (CML) or Capital Allocation Line (CAL) depicted in the graph, this is represented by the tangent point where the CAL touches the efficient frontier (the curve of possible portfolios).From the graph provided, Point F is where the CAL is tangent to the efficient frontier, which means Point F designates the optimal portfolio of risky assets. The answer is: (B) Point F.
@@ -1353,6 +1372,7 @@ However, since we're asked for the manufacturing cost per unit, \$190.00 is the 
 Figure 27. A sample correct case of Manage (subfield: Cost Management). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 ![](_page_44_Figure_0.jpeg)
+<!-- Image Description: The image is a title or section header reading "Manage: Management Models". It contains no diagrams, charts, graphs, equations, or other technical illustrations; it is purely textual. Its purpose within the paper is to introduce a section likely discussing various management models. -->
 
 <span id="page-44-0"></span>**Question:**Look at the situation in the <image 1>. You are traveling on a plane with a small child. The cabin is depressurized and the oxygen mask falls from the ceiling. Which of these pictures shows the reconciliation of egoism and other-isms (the order is from left to right, top to bottom)?
 **Option:**(A) 1
@@ -1360,6 +1380,7 @@ Figure 27. A sample correct case of Manage (subfield: Cost Management). [Back to
 (B) 2 (C) 3
 
 ![](_page_44_Figure_5.jpeg)
+<!-- Image Description: The image displays a large, blank grid labeled "Egoism" on the left and "Altruism" on the bottom. Surrounding the grid are four cartoon illustrations depicting passengers on an airplane during an emergency oxygen mask deployment. Two scenarios show selfish behavior (egoism), where adults prioritize themselves, and two show altruistic behavior, prioritizing a child's safety. The grid likely serves as a data collection matrix for a study analyzing behavioral responses to the emergency situation, with the illustrations providing context. -->
 
 <image 1>
 **GPT-4V:**The image shows three situations on a plane when the oxygen mask falls: The adult puts on the mask first while the child watches (egoism).The adult puts the mask on the child first while struggling for breath. Both the adult and the child share the mask. The reconciliation of egoism and other-isms would be a situation where both the individual's needs and the needs of others are considered and addressed. Therefore, the correct answer is: (C) 3
@@ -1408,8 +1429,10 @@ Figure 29. A sample correct case of Marketing (subfield: Market Research). [Back
 (D) 46.8%
 
 ![](_page_46_Figure_8.jpeg)
+<!-- Image Description: The image displays a grouped bar chart showing approval and disapproval rates, segmented by age and gender. Purple bars represent sample size; light-blue bars show the percentage approving; and yellow bars indicate the percentage disapproving. The chart analyzes responses across age groups (18-34, 35-44, etc.) and genders (male, female), providing a demographic breakdown of approval and disapproval. Numerical values are included within each bar for clarity. -->
 
 ![](_page_46_Figure_9.jpeg)
+<!-- Image Description: The provided image is a placeholder, "<image 1>", indicating that an image is missing from the academic paper. No technical content or diagrams are present in the given text. The purpose of "<image 1>" would have been to visually represent data or a concept discussed in the paper, possibly a graph, chart, equation, or illustration. -->
 **GPT-4V:**To find the percentage of males in the sample: First, we'll identify the number of males and females from the graph:
 
 Males = 52, Females = 63, Sum of males and females = 52 + 63 = 115
@@ -1436,6 +1459,7 @@ Figure 30. A sample error case of Marketing (subfield: Market Research). Error c
 - (D) This phenomenon can not be fixed by LASIK (laser-assisted in situ keratomileusis) surgery
 
 ![](_page_47_Picture_7.jpeg)
+<!-- Image Description: The image is a diagram illustrating the optical path of light through a lens system, likely an eye. Two parallel rays from the left enter a circular lens (eye) represented by a dark blue circle. A smaller, darker red circle within represents the pupil. The rays converge at a point to the right, indicating image formation. The shaded area likely shows the focus or the location of the retina. The diagram's purpose is to visually explain the principle of image formation by refraction within the optical system. -->
 
 <image 1>
 **GPT-4V:**The image depicts a case of myopia, or nearsightedness. In myopia, light entering the eye is focused in front of the retina rather than directly on it, which results in distant objects appearing blurred. Given the choices:(A) Vision may be restored with concave lens and refractive surgery - This is correct. A concave lens can help to spread out the light rays so that they can focus on the retina correctly. Additionally, refractive surgeries like LASIK can help correct myopia.(B) Vision may be restored with convex lens and refractive surgery - This is incorrect. Convex lenses are used for hyperopia or farsightedness, not myopia.(C) This condition often occurs in elderly people - This is not necessarily true. Myopia can begin in childhood and progress into adulthood. It is not limited to elderly people.(D) This phenomenon can not be fixed by LASIK (laser-assisted in situ keratomileusis) surgery - This is incorrect. LASIK is one of the common surgeries used to correct myopia.So, the true statement is:
@@ -1455,6 +1479,7 @@ Figure 30. A sample error case of Marketing (subfield: Market Research). Error c
 - (E) Ca, St, St, Ca.
 
 ![](_page_48_Picture_9.jpeg)
+<!-- Image Description: The image is a diagram of a flower's cross-section, illustrating the arrangement of its floral whorls. Concentric circles represent the sepal (whorl 1), petal (whorl 2), stamen (whorl 3), and carpel (whorl 4). Below, a bar graph shows the relative distribution of A, B, and C, likely representing different tissue types or regions within the flower's structure. The diagram's purpose is to visually represent the flower's morphology and possibly its genetic or developmental organization. -->
 
 <image 1>
 **GPT-4V:**The ABC model is a classic model for understanding flower development. This model stipulates that: A-class genes alone specify sepals. A-class and B-class genes together specify petals. B-class and C-class genes together specify stamens. C-class genes alone specify carpels. Given the information, if a wild type Arabidopsis were transformed with a chimeric gene consisting of an A class promoter fused to a B class coding sequence, then the B class gene would be expressed where normally only the A class gene would be active. Here's how the flower would develop according to the modified ABC model: Whorl 1 (outermost): Normally A class genes would specify sepals, but with the B class coding sequence under the A class promoter, it would be A+B which specifies petals.
@@ -1485,6 +1510,7 @@ Pe, Pe, St, Ca The closest match to the given options would be:
 - (C) The mouse may develop no head and two tails
 
 ![](_page_49_Picture_6.jpeg)
+<!-- Image Description: The image displays the spatial expression of Hox genes in a mouse embryo and their correlation to adult human body regions. Four Hox gene clusters (A-D) are shown with colored bars representing 13 paralogous genes, indicating their expression domains along the anterior-posterior axis of the embryo. A corresponding diagram shows these expression patterns mapped onto a human body plan, illustrating the role of Hox genes in establishing body plan organization during development. The color-coding links the gene expression to specific anatomical regions. -->
 
 <image 1>
 **GPT-4V:**The Hox genes are a group of related genes that control the body plan of an embryo along the anterior-posterior (head-tail) axis. These genes determine where limbs and other body segments will grow in a developing fetus.
@@ -1537,6 +1563,7 @@ Figure 34. A sample error case of Biology (subfield: Evolution). Error category:
 - (D) 2R, 3R
 
 ![](_page_51_Figure_6.jpeg)
+<!-- Image Description: The image is a structural formula depicting a molecule. It shows a carbon atom bonded to a methyl group (CH₃), an ethyl group (C₂H₅), and two chlorine atoms (Cl). Two hydrogen atoms (H) complete the carbon's four bonds. The illustration likely serves to identify a specific chemical compound within the paper, clarifying its molecular structure for the reader. -->
 
 <image 1>
 **GPT-4V:**To determine the configuration (R or S) of a chiral center, we follow the Cahn-Ingold-Prelog (CIP) priority rules: Assign priorities based on atomic number. The atom bonded to the chiral center with the highest atomic number gets the highest priority (1). If two atoms have the same atomic number, consider the atoms they are bonded to in order to determine priority. Orient the molecule so that the atom or group with the lowest priority (4) is pointing away (in the background). Observe the order of groups 1-2-3: If the order is clockwise, the configuration is R. If the order is counterclockwise, the configuration is S. Let's determine the configuration for the two chiral centers: For C-2: Attached groups and their atomic numbers: CH3 (Carbon = 6)Cl (Chlorine = 17)H (Hydrogen = 1)C2H5 (Carbon = 6, but this will have higher priority than CH3 because the subsequent carbons in the chain will be used for breaking the tie). Priority order: ClC2H5CH3H. With the H pointing to the background, the order is 1 (Cl) to 2 (C2H5) to 3 (CH3), which is clockwise. So, the configuration at C-2 is R. For C-3: Attached groups and their atomic numbers: H (Hydrogen = 1)Cl (Chlorine = 17)CH3 (Carbon = 6)C2H5 (Carbon = 6, but like before, C2H5 will have higher priority than CH3). Priority order: ClC2H5CH3H. With the H pointing to the background, the order is 1 (Cl) to 2 (C2H5) to 3 (CH3), which is counterclockwise. So, the configuration at C-3 is S. Therefore, the correct configuration for the compound is: 2R, 3S. So, the answer is (A) 2R, 3S.
@@ -1545,6 +1572,7 @@ Figure 34. A sample error case of Biology (subfield: Evolution). Error category:
 Figure 35. A sample correct case of Chemistry (subfield: Organic Chemistry). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-52-0"></span>![](_page_52_Figure_0.jpeg)
+<!-- Image Description: The image displays a reaction scheme in organic chemistry. It shows the conversion of a cyclohexene-based alcohol to a cyclohexene-based alkyl chloride using HCl and methanol as reagents. The reaction mechanism is identified as SN1, involving a carbocation intermediate. The purpose is to illustrate a specific reaction type and test the reader's understanding of reaction mechanisms. -->
 
 Figure 36. A sample correct case of Chemistry (subfield: Organic Chemistry). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
@@ -1569,8 +1597,10 @@ Figure 36. A sample correct case of Chemistry (subfield: Organic Chemistry). [Ba
 Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Error category: Perceptual Error, Reasoning Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 ![](_page_54_Figure_0.jpeg)
+<!-- Image Description: The image is a text label reading "Chemistry: Inorganic Chemistry." It's likely a section header or subheading within an academic paper on chemistry, specifically indicating a section focused on inorganic chemistry topics. No diagrams, charts, graphs, or equations are present; the image solely provides textual categorization. -->
 
 <span id="page-54-0"></span>**Question:**<image> Which point corresponds to a sublimation/deposition equilibrium?**Option:**![](_page_54_Figure_2.jpeg)
+<!-- Image Description: That image is a simple illustration showing a matrix or array. The letter "A" is labeled (A) and the number "1" is below it. The letter "B" is labeled (B) and the number "2" is below it. This likely represents a 2x1 matrix or a simple data structure in the paper, perhaps used as an example to illustrate a concept or algorithm related to matrices, data structures or linear algebra. No further details on the meaning of the values 1 and 2 can be determined from the image itself. -->
 
 (B) 3
 
@@ -1579,6 +1609,7 @@ Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Err
 (E) 8
 
 ![](_page_54_Figure_6.jpeg)
+<!-- Image Description: The image is a pressure-temperature phase diagram showing two curves likely representing phase transitions (e.g., solid-liquid, liquid-gas). Nine labeled points (1-9) are plotted on the diagram, illustrating different states or transitions under varying temperature and pressure conditions. The diagram likely serves to illustrate the relationships between these variables and phase behavior within the system described in the paper. -->
 **GPT-4V:**The graph provided is a phase diagram, which illustrates the conditions (in terms of pressure and temperature) under which different phases of a substance coexist in equilibrium. In such a diagram: The line between the solid and gas regions represents the sublimation/deposition equilibrium, where a substance can transition directly between the solid and gaseous states. The line between the solid and liquid regions represents the melting/freezing equilibrium. The line between the liquid and gas regions represents the boiling/condensation equilibrium. From the image provided, point (B) 3 is on the line between the solid and gas regions, representing the sublimation/deposition equilibrium. So, the correct answer is: (B) 3.
 
 ### Error Category: Lack of Knowledge
@@ -1595,6 +1626,7 @@ Figure 37. A sample error case of Chemistry (subfield: Inorganic Chemistry). Err
 - (E) have large-scale irrigated agriculture
 
 ![](_page_55_Figure_8.jpeg)
+<!-- Image Description: This map displays the geographic distribution of study sites across the Middle East. Squares represent specific cities (e.g., Riyadh, Cairo), while circles indicate broader regions of data collection. A shaded area likely highlights a specific geographic zone relevant to the study's focus, possibly a climatic or political region. The map's purpose is to visually present the spatial scope of the research. -->
 
 <image 1>
 **GPT-4V:**Based on the provided map, the circled areas seem to align with regions that: (D) are production zones of proven oil reserves.Many of the circled areas are in regions known for their significant oil reserves, such as parts of Saudi Arabia, Iraq, and other parts of the Middle East.
@@ -1612,6 +1644,7 @@ Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back
 - (D) Tundra climate
 
 ![](_page_56_Picture_6.jpeg)
+<!-- Image Description: The image is a color-coded map of North America showing bioclimatic zones. Numbers 1-12 represent distinct zones, differentiated by climate. The zones are geographically defined, with irregular boundaries reflecting varying climatic conditions across the continent. The 'H' labels likely indicate specific locations or subzones within the larger numbered zones. The map's purpose is to visually represent the spatial distribution of these bioclimatic zones within the paper's geographic focus. -->
 
 <image 1>
 
@@ -1632,6 +1665,7 @@ Figure 39. A sample correct case of Geography (subfield: Human Geography). [Back
 - (D) Landsat 7, Terra, Aqua
 
 ![](_page_57_Picture_7.jpeg)
+<!-- Image Description: The image is a diagram illustrating the Ocean Surface Topography Mission (OSTM) and related satellites. It shows various satellites (e.g., Jason, QuikSCAT, GRACE, ICESat) orbiting Earth, with their paths and relative positions depicted. The diagram visually represents the collaborative nature of the OSTM, highlighting multiple satellite contributions to the study of ocean dynamics, climate variability, and energy cycles. The numbered annotations likely indicate groupings or categories of satellites based on their data contributions. -->
 
 <image 1>
 **GPT-4V:**The satellites labeled in the image as:Landsat 7, Aqua, Terra So, the correct option is: (C) Landsat 7, Aqua, Terra
@@ -1648,6 +1682,7 @@ Figure 41. A sample error case of Geography (subfield: Physical Geography). Erro
 **Option:**(A) <sup>∫</sup> <sup>−</sup> !.# \$ (B) <sup>∫</sup> <sup>−</sup> !.# \$ (C) <sup>∫</sup> <sup>−</sup> % \$ (D) <sup>∫</sup> <sup>−</sup> % \$
 
 ![](_page_58_Figure_4.jpeg)
+<!-- Image Description: The image displays a graph showing two functions, f(x) = x³ - 6x² + 8x and g(x) = -(1/2)x² + 2x. The graph plots these functions, highlighting the area between them, divided into regions R and S which are shaded. The x-intercepts of both functions are indicated. The purpose is to visually represent the area calculation between two curves, likely for illustrating a calculus concept such as definite integration. -->
 **GPT-4V:**To determine the integral expression to find the area of R, we need to observe which curve is above the other in the region R. From the given graph, for the region R, f(x) (the curve represented by = & − 6% + 8 ) is above g(x) (the curve represented by = ! % % + 2). The interval over which we're integrating is from x=0 to the point where the two curves intersect, which seems to be before x=2 (based on the graph). So, the upper limit of the integral is not 2. Given the options, the only possible upper limit is x=1.5. Thus, the integral expression to find the area of R is: <sup>∫</sup> <sup>−</sup> !.# \$ The correct choice is: (A) <sup>∫</sup> <sup>−</sup> !.# \$
 **Ground Truth: (A)** <sup>∫</sup> <sup>−</sup> .
 
@@ -1664,6 +1699,7 @@ Figure 41. A sample error case of Geography (subfield: Physical Geography). Erro
 (B) No
 
 ![](_page_59_Figure_5.jpeg)
+<!-- Image Description: Image 1 is a diagram showing a tessellation, or tiling, of a square into irregular polygons labeled A through H. The square is further subdivided by dashed lines. Arrows indicate the orientation and boundaries of the tessellation within the larger square. The diagram likely illustrates a specific geometric configuration or partitioning method relevant to the paper's topic. -->
 **GPT-4V:**To solve the problem, we can start by attempting to color the diagram with three colors and see if it's possible to do so without having two adjacent faces of the same color. Let's label our three colors as Red, Green, and Blue (for the sake of this explanation).We can begin by coloring face A with Red. Adjacent to A are B and C, so let's color B with Green and C with Blue. D is adjacent to both B and C, so it must be Red. E is adjacent to A, D, and B. Since A and D are Red and B is Green, E should be Blue. F is adjacent to C, D, and E. D is Red, E is Blue, so F should be Green. G is adjacent to D, F, and A. D is Red, F is Green, so G should be Blue. Lastly, H is adjacent to B, E, and F. B is Green, E is Blue, and F is Green. So H can be colored Red. From this coloring, it seems that we can color the diagram with three colors such that no two adjacent faces have the same color. Hence, the answer is:(A) Yes.
 
 ### Error Category: Perceptual Error
@@ -1674,6 +1710,7 @@ Figure 41. A sample error case of Geography (subfield: Physical Geography). Erro
 Figure 43. A sample error case of Math (subfield: Graph Theory). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-60-0"></span>![](_page_60_Figure_0.jpeg)
+<!-- Image Description: The image contains a diagram showing a circle with two parallel chords, AB and CD. The arc lengths mAB and mCD are given as 104 and 168, respectively. The purpose is to illustrate a geometry problem: finding the measure of arc BD given the parallel chords and their arc lengths. The solution uses the properties of inscribed angles and intercepted arcs. -->
 
 AB and CD are parallel, m∠AOB = m∠COD, but we've just shown that m∠AOB is 52°, which means that our diagram or understanding has an inconsistency because m∠COD is given as 84°.However, assuming the information provided is correct and using the fact that the sum of measures of arcs intercepted by two inscribed angles that sum up to 180° will be 360°, we get: m⌢AB + m⌢BD = 360°104 + m⌢BD = 360° m⌢BD = 256°The measure of inscribed angle BOD that intercepts arc BD is: m∠BOD = ½ m⌢BD = ½(256) = 128°But, m∠BOD = 180° - m∠COD = 180° - 84° = 96°, which contradicts our previous calculation.Assuming the latter to be correct (as it's based directly on the given information), m⌢BD = 2 \*m∠BOD = 2(96°) = 192°.Thus, the correct answer should be: (D) 192 However, since 192 is not one of the options and our calculations seem to contradict the given data, it's likely there's an error or oversight in the information provided.
 
@@ -1688,6 +1725,7 @@ AB and CD are parallel, m∠AOB = m∠COD, but we've just shown that m∠AOB is 
 **Option:**(A) = 3 2 , ℎ = 6 (B) = 3 3 , ℎ = 4 (C) = 3 2 , ℎ = 4 (D) = 2 6 , ℎ = 6
 
 ![](_page_61_Figure_4.jpeg)
+<!-- Image Description: Figure 16-4 is a simple line drawing of a right circular cone. It depicts the cone's radius (r), height (h), and slant height (s). A dashed line indicates the height, which is perpendicular to the radius. The diagram likely serves to define geometrical parameters used in subsequent calculations or derivations within the paper, possibly related to volume, surface area, or other conical properties. -->
 **GPT-4V:**Given that the volume V of the cone-shaped cup is 36 ! when it's full, the formula for the volume of a cone is:
 
  = " ! #ℎ. From the given volume, we can set up the equation: " ! #ℎ = 36. From which, #ℎ = <sup>108</sup>. (1) <sup>ℎ</sup> <sup>=</sup> "\$% &! . Next, the surface area S of the cone (which does not include the base since it's a cup) is given by: S = . Where l is the slant height of the cone.
@@ -1742,6 +1780,7 @@ Figure 46. A sample correct case of Physics (subfield: Classical Mechanics). [Ba
 (E) arrow E
 
 ![](_page_63_Figure_8.jpeg)
+<!-- Image Description: The image is a schematic diagram illustrating a lens system. A parallel beam of light (indicated by arrows) is incident on a converging lens. The lens focuses the light to a point, demonstrating refraction. The focal length 'f' is labeled. Emerging rays are labeled A-E, showing the divergence after the focal point. The diagram likely serves to visually explain the lens's focusing properties and ray tracing within the paper's discussion of optics or a related field. -->
 
 <image 1>
 **GPT-4V**: The given diagram depicts a converging lens (a double convex lens) and a parallel beam of monochromatic light entering it. For a converging lens, parallel rays of light that are parallel to the optic axis will be refracted in such a way that they will converge or meet at the focal point on the other side of the lens. In the provided diagram, the ray is converging towards a point after passing through the lens. Among the given options:
@@ -1782,17 +1821,20 @@ Figure 47. A sample error case of Physics (subfield: Optics). Error category: Pe
 (D) Near the mammillary bodies in the interpeduncular fossa.
 
 ![](_page_64_Picture_7.jpeg)
+<!-- Image Description: The image is a photograph of a dissected brainstem and cerebellum, likely from a rodent. The ventral view shows the pons, medulla oblongata, and cerebellum clearly. The image's purpose within the paper is likely to illustrate the anatomical structures under study, possibly in relation to a neurological or neuroscientific experiment described in the text. No charts, graphs, or equations are present; the image is purely a technical illustration. -->
 
 <image 1>
 **GPT-4V:**The image you provided appears to be of the brainstem and related structures. Based on your question, you are referring to the point where the primary vestibular axons enter the brainstem. The primary vestibular axons enter the brainstem at the level of the pontomedullary junction. Therefore, the correct answer is: (B) The pontomedullary junction.
 **Ground Truth: (B) The pontomedullary junction.**Figure 48. A sample correct case of Basic Medical Science (subfield: Pathophysiology). [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-65-0"></span>![](_page_65_Figure_0.jpeg)
+<!-- Image Description: The image is a simple graphic: a red circle with a white "X" inside, indicating an error or rejection. It lacks quantitative data or equations. Within the context of an academic paper, it likely serves as a visual placeholder, possibly representing a failed experiment, an invalid result, or a rejected hypothesis, or simply marking something as incorrect. The image's purpose is purely symbolic. -->
 
 # Basic Medical Science: Cardiovascular Physiology
 **Question:**<image 1> The diagram shows the front view of a human heart. Letters P, Q, R and S indicate the different chambers of the heart. Which of the following shows the sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart?**Option:**(A) R-S-P-Q (B) Q-S-R-P (C) P-R-Q-S (D) S-R-P-Q
 
 ![](_page_65_Figure_4.jpeg)
+<!-- Image Description: The image is a line drawing of a heart, labeled with four points: P, Q, R, and S. It's a simplified anatomical illustration, likely showing the atria and ventricles. The purpose is to visually identify specific cardiac structures relevant to the paper's discussion, possibly referencing these labeled points in the text to explain a physiological process or a particular methodology involving the heart. The drawing is straightforward and lacks quantitative data. -->
 **GPT-4V:**The sequence in which a blood cell returning from other parts of the body passes through the four chambers of the heart is : Right atrium, Right ventricle, Left atrium, Left ventricle. Looking at the given options, the correct sequence is:(D) S-R-P-Q
 
 ## Error Category: Perceptual Error
@@ -1808,6 +1850,7 @@ Figure 49. A sample error case of Basic Medical Science (subfield: Cardiovascula
 - (D) Meconium aspiration syndrome
 
 ![](_page_66_Picture_6.jpeg)
+<!-- Image Description: The image is a chest X-ray of an infant, showing diffuse reticular and granular opacities bilaterally in the lung fields. This suggests the presence of widespread lung pathology. The image likely serves as a visual representation of a case study or example of a specific lung disease discussed in the accompanying medical paper, illustrating the radiological findings. A thin tube is visible, likely an endotracheal or nasogastric tube. -->
 
 <image 1>
 **GPT-4V:** Based on the image provided, which appears to be a chest X-ray, and the information that the patient is a post-mature newborn, the most suggestive diagnosis is: (D) Meconium aspiration syndrome. Post-mature newborns are at an increased risk of passing meconium (the baby's first stool) into the amniotic fluid before birth or during labor. If the baby breathes the meconiumstained amniotic fluid into their lungs, it can cause a blockage of the airways, leading to meconium aspiration syndrome. The chest X-ray of a newborn with meconium aspiration syndrome might show patchy or streaky areas on the lungs. However, it's important to consult with a pediatric radiologist or neonatologist for a definitive diagnosis based on clinical findings and the entire clinical picture.
@@ -1827,6 +1870,7 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 - (E) Familial polyposis coli
 
 ![](_page_67_Picture_8.jpeg)
+<!-- Image Description: The image is a photomicrograph of a histological section of intestinal tissue. It shows the microscopic architecture of the intestinal mucosa, illustrating the structure of intestinal crypts and villi. The image likely serves to visually demonstrate normal or abnormal tissue morphology in the context of a discussion on intestinal pathology or physiology within the paper. Specific features, such as crypt depth or cellular changes, could be highlighted to support findings described in the text. -->
 
 <image 1>
 **GPT-4V:**The image provided appears to be a histological section of colonic mucosa. Given the clinical scenario of a 19-year-old man with over 100 lesions of the colonic mucosa and the histological findings provided, the most likely diagnosis is: (E) Familial polyposis coli. Familial adenomatous polyposis (FAP), also known as familial polyposis coli, is an autosomal dominant inherited condition characterized by the development of numerous adenomatous polyps in the colon and rectum. If left untreated, there's a nearly 100% chance of developing colon cancer by middle age.
@@ -1848,6 +1892,7 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 - (E) Huntington disease
 
 ![](_page_68_Picture_9.jpeg)
+<!-- Image Description: The image is a photograph of a severely hemorrhaged human brain, viewed from a superior perspective. It shows extensive blood pooling and tissue damage throughout the brain, particularly concentrated in the brainstem and surrounding regions. The photograph likely serves as a visual representation of a severe neurological condition or injury described in the associated academic paper, illustrating the extent of the pathological changes. The purpose is to provide a direct visual correlate to the textual description of the case or condition. -->
 
 <image 1>
 **GPT-4V:**The image appears to show a brain with blood prominently spread around it. Given the clinical scenario provided - a sudden severe headache followed by rapid unconsciousness and death - the most consistent diagnosis with the presentation and gross appearance at autopsy is: (D) Ruptured berry aneurysm. A ruptured berry aneurysm (also called a saccular aneurysm) can cause a subarachnoid hemorrhage, which would present with sudden severe headache and can rapidly lead to death if not treated. The hemorrhage can be seen as the spread of blood over the surface of the brain in the image. The other options do not fit as closely with the clinical scenario and gross appearance.
@@ -1865,6 +1910,7 @@ Figure 50. A sample correct case of Clinical Medicine (subfield: Pathology). [Ba
 - (E) Chronic inflammation
 
 ![](_page_69_Figure_9.jpeg)
+<!-- Image Description: The image is a micrograph showing a histological section of skin tissue. It displays the epidermis (top layer) and dermis (bottom layer), with a prominent inflammatory infiltrate in the dermis. The infiltrate consists of numerous red blood cells and inflammatory cells, indicative of an inflammatory process. The image likely serves to illustrate a specific dermatological condition or disease process described in the paper. -->
 
 <image 1>
 **GPT-4V:**The image provided appears to be a microscopic view of cervical tissue with a characteristic appearance. The histopathological features seen here are suggestive of koilocytes, which are squamous epithelial cells with a perinuclear clearing (halo) and irregular, raisin-like nuclei. Koilocytes are a hallmark of human papillomavirus (HPV) infection. Based on the provided image and clinical information, the most likely diagnosis is: (A) Human papillomavirus infection.
@@ -1923,6 +1969,7 @@ Figure 54. A sample error case of Clinical Medicine (subfield: Heart Disease). E
 - (D) tuberous sclerosis
 
 ![](_page_71_Picture_7.jpeg)
+<!-- Image Description: The image is a grayscale axial computed tomography (CT) scan of a human head. It shows a cross-sectional view of the brain, highlighting areas of varying density. The scan likely depicts a pathological condition, indicated by irregular densities within the brain parenchyma. The purpose is to visually present a case study or example of a specific neurological condition within the paper. A scale bar in centimeters is included for reference. -->
 
 <image 1>
 **GPT-4V:**I'm not a doctor, but based on the CT image provided and the description: The image seems to show a cerebellar anomaly with the absence of the vermis and an enlarged posterior fossa cyst communicating with the fourth ventricle. These findings are suggestive of (C) Dandy-Walker syndrome. However, it's crucial to consult with a medical professional for a definitive diagnosis and medical advice.
@@ -1937,6 +1984,7 @@ Figure 54. A sample error case of Clinical Medicine (subfield: Heart Disease). E
 - (D) Epidural space
 
 ![](_page_72_Picture_7.jpeg)
+<!-- Image Description: The image is a micrograph, likely a histological section stained with hematoxylin and eosin (H&E). It shows tissue structure at high magnification, displaying layers with varying densities of pink (eosinophilic) and purple (basophilic) components. The purpose is likely to illustrate tissue morphology or pathology, providing visual evidence of the study's findings on a microscopic level. The specific tissue type and staining technique would need further context from the paper. -->
 
 <image 1>
 **GPT-4V:**Based on the image provided, it's challenging to definitively determine the anatomic space occupied by the lesion without more context. However, the appearance and patterns shown resemble patterns often seen in subarachnoid hemorrhages or lesions.
@@ -1969,6 +2017,7 @@ Figure 56. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 (D) The patient has a good prognosis because the neoplasm was entirely removed and the margins are free of tumor.
 
 ![](_page_73_Picture_8.jpeg)
+<!-- Image Description: That's a micrograph, likely a histological cross-section. The image shows a stained tissue sample, possibly a blood vessel or organ, exhibiting distinct layered structures and varying coloration suggesting different tissue types. Its purpose within the paper is likely to visually illustrate a specific anatomical feature or pathological condition under investigation, providing supporting evidence for the study's findings. No equations or charts are present; the image is solely a visual representation of a microscopic observation. -->
 
 <image 1>
 **GPT-4V:**Based on the image provided and without the ability to perform further clinical or pathological tests, it's challenging to provide a definitive diagnosis. However, I can offer an analysis based on the image and the choices provided:
@@ -1990,6 +2039,7 @@ Figure 57. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-74-0"></span>![](_page_74_Figure_0.jpeg)
+<!-- Image Description: The image displays a section of an electrocardiogram (ECG) with a portion highlighted. A multiple-choice question asks for the highlighted section's name and what it represents. The AI model incorrectly identifies it as the QRS complex (ventricular depolarization), while the correct answer is the P wave (atrial depolarization). The error analysis attributes this to the model focusing solely on the highlighted portion's shape and neglecting the overall ECG context. -->
 
 Figure 58. A sample error case of Diagnostics and Laboratory Medicine (subfield: Electrocardiography). Error category: Perceptual Error, Lack of Knowledge
 
@@ -2006,6 +2056,7 @@ Figure 58. A sample error case of Diagnostics and Laboratory Medicine (subfield:
 - (C) None of them
 
 ![](_page_75_Figure_6.jpeg)
+<!-- Image Description: The image contains two line graphs showing microbial growth and metabolite changes over cultivation time. Image 1 plots maltose and lipid levels against oxygen consumption, illustrating substrate utilization and metabolic shifts. Image 2 correlates glucose levels and cell numbers with erfrotomycin production, demonstrating the relationship between growth phase and antibiotic synthesis. Both graphs use cultivation time (hours) as the x-axis. -->
 **GPT-4V:**To determine whether efrotomycin is a primary or secondary metabolite, we need to look at the production pattern of the antibiotic in relation to the growth of the organism, S. lactamdurans. A primary metabolite is typically produced during the active growth phase of the organism, while a secondary metabolite is produced after the active growth phase, often during the stationary phase or when nutrients in the medium become limited. From the provided graphs:
 
 In the first image, we see that lipids (potentially representing cell biomass) increase and then plateau. The oxygen consumption increases and starts to decline, which might indicate the end of the active growth phase.
@@ -2029,6 +2080,7 @@ Given these observations, efrotomycin starts to be produced after the active gro
 - (D) The length of the chain D between the amide and the aromatic ring
 
 ![](_page_76_Figure_8.jpeg)
+<!-- Image Description: The image presents three chemical structures (I, II, and III). Structures I and II are small molecule diagrams showing organic compounds with carboxyl and amide groups. Structure III is a larger, more complex molecule, possibly a drug candidate or intermediate. Dashed arrows (A, B, D) on III likely indicate sites of modification or reaction steps in a synthetic pathway. The figure's purpose is to illustrate chemical structures relevant to the paper's discussion of synthesis or structure-activity relationships. -->
 
 <image 1> <image 2>
 **GPT-4V:**Given the synthetic scheme provided, let's analyze each option:
@@ -2052,6 +2104,7 @@ Thus,**(A) The type of substituent A on the aromatic ring**seems to be the most 
 Figure 60. A sample error case of Pharmacy (subfield: Pharmacology and Drug Synthesis). Error category: Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-77-0"></span>![](_page_77_Figure_0.jpeg)
+<!-- Image Description: The image contains two line graphs showing the effects of norepinephrine and tyramine on mean arterial blood pressure (BP). The top graph displays BP changes before administering an unknown drug (W), while the bottom graph shows the changes after administering W. The graphs illustrate how drug W modifies the BP response to norepinephrine and tyramine, serving as the basis for a multiple-choice question identifying drug W from a list of four drugs. -->
 
 blood pressure in the context of Norepinephrine and Tyramine. Here's a breakdown: - Cocaine: Cocaine blocks the reuptake of norepinephrine, which would cause a prolonged effect of norepinephrine, leading to a sustained increase in blood pressure. However, it wouldn't block the effects of Tyramine.
 
@@ -2179,6 +2232,7 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 - (D) The Munich Conference
 
 ![](_page_81_Picture_8.jpeg)
+<!-- Image Description: This image is a political cartoon depicting Adolf Hitler (larger figure) carrying Benito Mussolini (smaller figure) in a sack. Hitler boasts about planning and executing this action. The cartoon uses caricature and speech bubbles to satirize the relationship between the two leaders, likely illustrating Germany's dominance over Italy during World War II. The image's purpose is to visually represent a power dynamic and serve as commentary within the paper's broader historical analysis. -->
 
 <image 1>
 **GPT-4V:**The cartoon is best understood in the context of: (D) The Munich Conference.
@@ -2229,6 +2283,7 @@ Figure 64. A sample error case of Public Health (subfield: Epidemiology). Error 
 - (D) Isolationist
 
 ![](_page_83_Picture_8.jpeg)
+<!-- Image Description: The image is a 1900 political cartoon depicting U.S. intervention in various territories. The top panel shows oppressed figures burdened by "Spanish Oppression" and "Industrial Slavery," representing Philippines, Hawaii, Puerto Rico, Cuba, and the Isthmus of Panama before U.S. involvement. The bottom panel shows the same figures, now smartly dressed and carrying banners symbolizing self-governance, after U.S. intervention. The cartoon satirizes the justification for U.S. imperialism. -->
 **GPT-4V:**Based on the political cartoon, the United States is seen as fulfilling the role of: (B) Imperialist.
 
 ### Error Category: Perceptual Error
@@ -2281,6 +2336,7 @@ Figure 68. A sample error case of History (subfield: World History). Error categ
 (D) These women want their children to be educated.
 
 ![](_page_85_Picture_6.jpeg)
+<!-- Image Description: The image is a woodcut illustration depicting three figures: two adults and a child. The adults, dressed in medieval clothing, appear to be engaged in a conversation, while the child offers an apple to one of the adults. The illustration likely serves as a visual metaphor or symbolic representation within the academic paper, possibly relating to a historical event, literary work, or philosophical concept discussed in the text. No graphs, charts, or equations are present. -->
 
 <image 1>
 **GPT-4V:**The image depicts what seems to be an old illustration with the title "A Gipsy Family" and is described as a facsimile of a woodcut. Given the choices provided: (A) The danger of letting go of a dream.(B) The father is compared to a gypsy. (C) A mother tells her son to stop whining. (D) These women want their children to be educated. Option (B) "The father is compared to a gypsy." appears to best relate to the title and content of the image.
@@ -2299,6 +2355,7 @@ Figure 68. A sample error case of History (subfield: World History). Error categ
 - (D) Intensity
 
 ![](_page_86_Picture_8.jpeg)
+<!-- Image Description: That image is not a technical illustration, chart, graph, or diagram. It's a painting depicting a violent scene; two Native American figures attacking a seated, light-skinned woman. Within the context of an academic paper, it would likely be used as a visual example related to a discussion of historical events, colonialism, violence, or artistic representations of conflict. It does not contain any technical data. -->
 
 <image 1>
 **GPT-4V:**Based on the description <image 1>, the term that best matches the given set of characteristics is:
@@ -2321,6 +2378,7 @@ Figure 70. A sample error case of Literature (subfield: Comparative Literature).
 - (D) Religion
 
 ![](_page_87_Picture_7.jpeg)
+<!-- Image Description: That's a black and white portrait photograph. It shows a head-and-shoulders profile of a man with a bald head, glasses, and a large mustache and beard. The image is likely a biographical photograph included in the paper to illustrate a historical figure relevant to the paper's topic. It contains no technical diagrams, charts, graphs, or equations. -->
 
 <image 1>
 **GPT-4V:**For Émile Durkheim, one of the founding figures in sociology, the root of everything social could be argued to be "Collective Effervescence," a term he coined. This concept refers to the moments of communal passion and ecstasy that occur during group rituals and events, which Durkheim believed were the basis for the solidarity of social groups and ultimately for society itself. It's a foundational element in his theory on the formation of religions and societies.
@@ -2340,6 +2398,7 @@ The correct answer to the question, considering Emile Durkheim's sociological th
 - (D) Wealth
 
 ![](_page_88_Picture_6.jpeg)
+<!-- Image Description: The image is a circular diagram illustrating the core tenets of Symbolic Interactionism. It depicts a cyclical process: society influences the use of symbols; symbols are used to communicate and establish shared meanings; these shared meanings then shape individuals' views, influencing society again. The arrows indicate the continuous feedback loop within this social interaction model. -->
 **GPT-4V:**The diagram you provided outlines the concept of Symbolic Interactionism, which is a sociological perspective that focuses on the ways in which individuals interact and communicate through symbols. Given the choices provided and the context of Symbolic Interactionism, the most appropriate answer is: (B) Master status. Master status refers to a social position that is the primary identifying characteristic of an individual. It dominates other statuses and thereby determines a person's general position in society. In the context of crime, some symbolic interactionists might argue that an individual's master status (e.g., being labeled as a "criminal") could influence their interactions and how they are perceived by others in society.
 
 ## Error Category: Reasoning Error
@@ -2361,6 +2420,7 @@ Figure 72. A sample error case of Sociology (subfield: Comparative Literature). 
 - (D) fixed-ratio
 
 ![](_page_89_Figure_7.jpeg)
+<!-- Image Description: This image presents four graphs illustrating different response patterns in cumulative responses over time. The top graphs show a fixed-ratio and fixed-interval schedule, with steep and linear cumulative responses, respectively. The bottom graphs display variable-ratio and variable-interval schedules; cumulative responses are curvilinear for variable ratio and more linear for variable interval. The graphs visually depict how reinforcement schedules influence response patterns. -->
 **GPT-4V:** The graph corresponds to operant conditioning schedules. The pattern of high-rate bar pressing and short breaks after reinforcement suggests a Fixed Ratio schedule, shown in the top left quadrant. Here, reinforcement is given after a set number of responses, which is reflected in the steep inclines followed by drops on the graph. The rat's behavior—rapid pressing until receiving a pellet, then pausing—matches this schedule, indicating it understands that a specific number of presses leads to a reward, thus causing the observed high response rate followed by a break.
 
 #### Ground Truth: (D) fixed-ratio
@@ -2380,6 +2440,7 @@ Figure 73. A sample correct case of Psychology (subfield: Biological Psychology)
 - (D) CBT is equally effective for IBS sufferers with and without anxiety disorders.
 
 ![](_page_90_Figure_7.jpeg)
+<!-- Image Description: Figure 1 is a bar graph showing the percentage reduction of Irritable Bowel Syndrome (IBS) symptoms following three treatments (CBT, meditation, no treatment) for participants with and without anxiety disorders. Black bars represent those with anxiety disorders; gray bars represent those without. The graph illustrates treatment efficacy differences based on pre-existing anxiety and treatment type. -->
 
 <image 1>
 **GPT-4V:**Based on Figure 1: For IBS sufferers without an anxiety disorder: CBT shows significant symptom reduction. Meditation shows some symptom reduction, but it's less than CBT. No treatment shows very minimal symptom reduction. Thus, for IBS sufferers who do not have an anxiety disorder, CBT is more effective than both meditation and no treatment. The answer is:**(A) CBT is more effective than no treatment and more effective than meditation**.
@@ -2405,6 +2466,7 @@ Figure 74. A sample error case of Psychology (subfield: Clinical Psychology). Er
 - (E) RAN1 will provide Cu2+ to the ethylene receptors.
 
 ![](_page_91_Figure_8.jpeg)
+<!-- Image Description: This diagram illustrates the ethylene signaling pathway in plants. Two pathways are shown: one in the absence ("air") and one in the presence ("ethylene") of the hormone. The diagram depicts the interaction of proteins (EIN4, ETR1, ETR2, ERS1, ERS2, RAN1, CTR1, EIN2, EIN3) and copper ions (Cu<sup>2+</sup>), showing how ethylene binding leads to a change from an "OFF" to an "ON" state, indicating signal transduction and activation of downstream responses. -->
 
 <image 1>
 **GPT-4V:**The image shows a schematic representation of the ethylene signaling pathway in plants. In a typical situation, when ethylene binds to its receptor (ETR1, ERS1, ERS2), it prevents the receptor from activating CTR1, which in turn allows the downstream signaling pathway to proceed, leading to the activation of EIN2, EIN3, and the ethylene response (seedling triple response).In the case of the ein4 mutant, which cannot bind ethylene, the pathway from the ethylene receptor to the downstream components would not be initiated. Since EIN4 is presumably an ethylene receptor like ETR1 and the mutant form of EIN4 cannot bind ethylene, this means that the receptor cannot turn off the CTR1, leading to the inhibition of the seedling triple response due to the constitutive activation of CTR1.Therefore, the correct answer is:(D) CTR1 will be activated and inhibit the seedling triple response. This is because in the ein4 mutant, ethylene cannot bind to EIN4 to inhibit CTR1, thus CTR1 remains active and the signaling pathway is off, preventing the seedling triple response.
@@ -2422,6 +2484,7 @@ Figure 75. A sample correct case of Agriculture (subfield: Plant Biodiversity an
 - (D) Navicular bone, one bone per digit, located at the interphalangeal joint
 
 ![](_page_92_Picture_7.jpeg)
+<!-- Image Description: The image shows a photograph of a dissected equine distal limb. The image highlights a specific anatomical area of the bone structure with a red arrow, indicating a fracture or other significant damage near the articulation of the distal phalanx (coffin bone). The purpose is likely to illustrate a particular pathology or injury described in the accompanying text of the veterinary or anatomical research paper. -->
 
 <image 1>
 **GPT-4V:**The arrow in the image is pointing to the lower part of the horse's leg, specifically to the bone known as the "short pastern" or the "second phalanx". This is the bone located between the long pastern bone (first phalanx) and the coffin bone (third phalanx) in the anatomy of a horse's leg. Therefore, the correct matching term for where the arrow points is: (C): "short pastern"
@@ -2434,6 +2497,7 @@ Figure 75. A sample correct case of Agriculture (subfield: Plant Biodiversity an
 Figure 76. A sample error case of Agriculture (subfield: Animal Anatomy). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-93-0"></span>![](_page_93_Figure_0.jpeg)
+<!-- Image Description: The image contains a diagram of a cross-section of a leaf, showing the palisade mesophyll layer near the top, indicated by an arrow. The diagram is used in a multiple-choice question testing knowledge of plant anatomy. The question asks to identify the leaf layer rich in chloroplasts, based on its location. The diagram aids in visualizing the correct answer, which is the palisade mesophyll. -->
 **GPT-4V:**The layer indicated by the arrow in the image is the uppermost layer of the leaf and is typically known for its protective qualities and prevention of water loss. The correct term for this layer is:(D) waxy cuticle.
 
 #### Error Category: Perceptual Error
@@ -2455,6 +2519,7 @@ Figure 77. A sample error case of Agriculture (subfield: Plant Physiology). Erro
 - (D) Charcoal rot
 
 ![](_page_94_Picture_8.jpeg)
+<!-- Image Description: The image is a close-up photograph showing a soybean stem and leaves exhibiting symptoms of disease. The leaves display interveinal chlorosis (yellowing between leaf veins) with reddish-brown spots, characteristic of a nutrient deficiency or pathogen infection. The stem shows discoloration. The photo likely serves as visual evidence of a specific plant disease or stress described within the accompanying paper's text. No equations or charts are present. -->
 
 <image 1>
 **GPT-4V:**The image shows symptoms that are consistent with (D) charcoal rot. This disease often manifests as brown pitting on the stem and root and is favored by drought conditions.
@@ -2478,6 +2543,7 @@ Figure 78. A sample error case of Agriculture (subfield: Plant Physiology). Erro
 - (D) The scale of the photographs is 1 cm = 68.5 m; Air base = 625 m
 
 ![](_page_95_Figure_7.jpeg)
+<!-- Image Description: The image is a diagram illustrating a stereoscopic aerial photography setup. Two aircraft, symbolized by simple shapes, are shown at an airbase distance above an uneven ground surface. The diagram labels the airbase, and shows ground distances of 0.4L, 0.6L, and L, likely representing spatial resolution or sampling intervals related to the sensors' field of view. The illustration clarifies the geometric relationships involved in obtaining 3D information from overlapping aerial images. -->
 **GPT-4V:**Given: Focal length, f = 200 mm Flight height, H = 1500 m, Size of the prints = 250 mm x 250 mm, Ground height = 250 m, above mean sea level Overlap = 60%. To determine the scale of the photograph and the length of the air base, we can use the following formulas: Photo Scale (S): = /( − ℎ) . Where: S = Photo Scale, f = Focal length, H = Flight height, h = Ground height. Air Base (B): Given the overlap is 60%, it means that 40% of the length is new coverage. B = 0.4L Where: L = Length of the photograph on the ground. First, let's determine the photo scale (S): = /( − ℎ), = 200/(1500 − 250), = 200/1250. S = 0.16mm/m. To convert this into cm and m: = 0.16/1×1/10, S = 0.016 cm/m. To find the ground equivalent for 1 cm in the
 
 photograph: 1 ℎ = 1/0.016 = 62.5. So, the scale of the photograph is 1 cm = 62.5 m. Next, to determine the air base (B): B = 0.4L Given the size of the prints is 250 mm (or 0.25 m), this
@@ -2503,6 +2569,7 @@ Figure 79. A sample correct case of Architecture and Engineering (subfield: Surv
 - (D) 5.657 mm
 
 ![](_page_96_Figure_7.jpeg)
+<!-- Image Description: Figure P8.10 is a diagram of a statically determinate truss structure. The truss is subjected to a vertical load (P = 240 kN) at point D. The truss spans 24 meters, divided into three 8-meter segments. The diagram shows the truss's geometry, member connections, and the applied load, serving as a problem statement for structural analysis, likely focusing on determining internal forces within the truss members. -->
 **GPT-4V:** To solve for the horizontal displacement of joint B due to the 240-kN load, we'll employ the method of joints and consider the effect of the force on the truss members, along with using the formula for the elongation/contraction of axially loaded members. The formula to calculate elongation or contraction in an axially loaded member is: <sup>δ</sup> <sup>=</sup> "# \$%, where P is the axial force in the member, L is the length of the member, A is the cross-sectional area of the member, and E is the modulus of elasticity. Given: A = 2400 mm!and E = 200 Gpa = 200 × 10& ' ((!. First, let's find the forces in the members by applying the method of joints at joint A and joint D. At Joint A: There are two non-collinear unknown member forces, making it a solvable joint. Let's solve for AB and AF. ∑ ) = 0, \*+ 45° − \*- = 0. ∑ . = 0, \*+ 45° = 0. \*+ = 0 and \*- = 0. At Joint D: There's a 240-kN downward force applied. Let's find DC and DE. ∑ ) = 0, /0 45° + /1 − 240 = 0. 1 /1 = 240 − /0 45° . ∑ . = 0, /0 45° = 0. /0 = 0 . From (1), /1 = 240 kN. Compute the elongation in the members: For DE (in tension, elongation): <sup>δ</sup>/1 <sup>=</sup> 2"#×4"# \*×1 <sup>=</sup> !56×76\$×8666 !566×!66×76\$ <sup>=</sup> 8. Considering the geometry of the truss, the horizontal component of the elongation at DE is: δ<sup>+</sup> = δ/1 45° ≈ 5.657. Thus, the answer is: **(D) 5.657 mm**.
 
 ### Ground Truth: (D) 5.657 mm
@@ -2544,6 +2611,7 @@ Figure 81. A sample error case of Architecture and Engineering (subfield: Civil 
 **Option:**(A) P, Q, R, S, T, U (B) P, Q, R, U, S, T (C) P, Q, R, U, S, T (D) P, Q, T, R, U, S
 
 ![](_page_98_Figure_4.jpeg)
+<!-- Image Description: The image displays a weighted directed graph with nodes P, Q, R, S, T, and U. Edges connect the nodes, each labeled with a numerical weight representing the cost or distance between nodes. The graph likely illustrates a network problem, possibly for optimization algorithms like shortest path finding or network flow analysis within the paper. -->
 **GPT-4V:**To determine the order in which the nodes are included using Dijkstra's algorithm, we will start with vertex P and then repeatedly select the vertex with the smallest distance that hasn't been included yet. Initialize distances: makefile Copy code P = 0, Q = ∞, R = ∞, S = ∞, T = ∞, U = ∞, Begin with source vertex P:P to Q = 1P to S = 4P to T = 7Now, the smallest distance is for Q. So, Q is the next vertex. For Q:P to Q to R = 2P to Q to S = 5 (But, P to S is 4, so this is not considered)P to Q to T = 7 (Same as P to T, so this is not updated)Now, the smallest distance among the remaining vertices is for R. So, R is the next vertex. For R:P to Q to R to U = 3P to Q to R to S = 4 (But, P to S is already 4)Now, the smallest distance among the remaining vertices is for U. So, U is the next vertex. For U:P to Q to R to U to S = 5 (But, P to S is already 4)The remaining vertices are S and T. Between them, S has the smallest distance. So, S is the next vertex. For S:P to S to T = 6 (But, P to T is already 7 and P to Q to T is also 7)Now, only T remains. So, T is the last vertex. The final order is:, P, Q, R, U, S, T. The correct option is:(B) P, Q, R, U, S, T.
 **Ground Truth: (B) P, Q, R, U, S, T**
 
@@ -2560,6 +2628,7 @@ Figure 82. A sample correct case of Computer Science (subfield: Data Structure a
 - (C) Not sure
 
 ![](_page_99_Figure_6.jpeg)
+<!-- Image Description: The image shows a state diagram, a type of directed graph. Nodes (G1-G7) represent states, and directed edges labeled 'a' or 'b' represent transitions between states. G1 is the initial state (indicated by a double circle). The diagram likely illustrates a finite state machine or automaton used in the paper to model or analyze a system's behavior based on input symbols 'a' and 'b'. -->
 **GPT-4V:**To determine whether a DFA (Deterministic Finite Automaton) is minimal, we generally follow a process to minimize the DFA and see if it results in a DFA with fewer states than the original. However, without more details regarding the acceptance criteria for each state (like which states are accepting and which are not), we can't definitively determine minimality from the diagram alone. But, let's try to infer some information from the given diagram: There's no unreachable state from the start state; every state can be reached. There's no state with identical transitions for the given inputs which could suggest merging. However, one thing to note is that two states are equivalent (and can be merged) if they have the same transitions on every input to the same set of states, and they are either both accepting or both non-accepting. Without knowing which states are accepting, we can't definitively say if the DFA is minimal or not. Therefore, the answer is: (C) not sure.
 
 ### Error Category: Perceptual Error, Lack of Knowledge
@@ -2570,6 +2639,7 @@ Figure 82. A sample correct case of Computer Science (subfield: Data Structure a
 Figure 83. A sample error case of Computer Science (subfield: Compiler Principle). Error category: Perceptual Error, Lack of Knowledge [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 <span id="page-100-0"></span>![](_page_100_Figure_0.jpeg)
+<!-- Image Description: The image contains a multiple-choice question about interleaved processing in operating systems. A Gantt chart illustrates the execution of transactions A, B, C, and D on two CPUs (CPU₁ and CPU₂). The question asks which pair of transactions shows interleaving, where the execution of one transaction is interspersed with another. The chart's purpose is to visually assess the concurrency of the transactions. -->
 
 <image 1>
 **GPT-4V:**The image depicts a timeline representation of various transactions over time across two CPUs (CPU1 and CPU2). Interleaved processing occurs when two transactions are processed alternately, meaning that one starts, then the other starts before the first one finishes, and then the first one might resume, and so on. From the given image: Transaction A on CPU1 starts and finishes without being interleaved with any other transaction. Transaction B on CPU1 starts after A finishes and completes without being interleaved with any other transaction. Transaction A on CPU2 starts and finishes without any interleaving. Transaction B on CPU2 starts after A finishes and completes without being interleaved with any other transaction. Transaction C on CPU1 starts and finishes without any interleaving. Transaction D on CPU2 starts and finishes without any interleaving. So, based on the provided options: (A) A and B: These are sequential on both CPUs, not interleaved. (B) B and C: These are sequential, not interleaved. (C) C and D: These are on separate CPUs and are not interleaved with each other. (D) None of the other answers. The correct answer is: (D) None of the other answers.
@@ -2582,10 +2652,12 @@ Figure 83. A sample error case of Computer Science (subfield: Compiler Principle
 Figure 84. A sample error case of Computer Science (subfield: Operating System). Error category: Perceptual Error [Back to List of Figures](#page-21-1) | [Back to Table Index](#page-23-0)
 
 ![](_page_101_Figure_0.jpeg)
+<!-- Image Description: The image is a title or heading that reads "Computer Science: Compiler Principle". It lacks any diagrams, charts, graphs, equations, or technical illustrations; it is purely textual and serves to identify the subject matter of the paper section or chapter. -->
 
 <span id="page-101-0"></span>**Question:**Is the one shown in above figure a minimal DFA? <image 1>**Option**: (A) Yes (B) No
 
 ![](_page_101_Figure_2.jpeg)
+<!-- Image Description: The image is a deterministic finite automaton (DFA) diagram. It depicts a state machine with five states (0-4), labeled with numerals, where state 0 is the initial state (double circle). Transitions between states are labeled with input symbols 'a' and 'b'. The diagram visually represents the logic of a system's behavior based on input sequences, likely used within the paper to illustrate a specific algorithm or computation. -->
 
 <image 1>
 
@@ -2613,6 +2685,7 @@ Figure 85. A sample error case of Computer Science (subfield: Compiler Principle
 - (D) (3 + 18 + 3" # )/(\$ + 4 + 4)
 
 ![](_page_102_Figure_6.jpeg)
+<!-- Image Description: The image is a circuit diagram showing a series RLC circuit with a voltage source. Components include a 10Ω resistor, a 1H inductor, a 3/5Ω resistor, a 1/3F capacitor, and an 8V voltage source. A switch is shown closing at t=0, initiating the circuit's transient response. The diagram likely illustrates a problem or example related to circuit analysis, likely solving for voltage or current as a function of time. -->
 
 <image 1>
 **GPT-4V:**To find !()using Laplace transforms for the circuit, we'll follow these steps: 1. Find the initial conditions. 2. Apply the Laplace transforms to the circuit. 3. Solve for !().
@@ -2638,6 +2711,7 @@ Figure 86. A sample correct case of Electronics (subfield: Signal Processing). [
 **Question:**A balanced set of three-phase voltages is connected to an unbalanced set of Y-connected impedances as shown in <image1>. The following values are known !" = 212∠90∘, !\$ = 10 + 0 Ω, "% = 212∠−150∘, "\$ = 10 + 10 Ω, &" = 212∠ −30<sup>∘</sup> , %\$ = 0 − 20 Ω. Find the magnitude of current "!".
 
 ![](_page_103_Figure_3.jpeg)
+<!-- Image Description: Figure 1 is a schematic diagram illustrating a three-phase, star-connected transformer winding configuration. It depicts three primary windings (a', b', c') and three secondary windings (a, b, c) connected to a neutral point (n). The diagram likely serves to illustrate the transformer's internal wiring and connection scheme within the paper's discussion of its operational characteristics or design. The use of zigzag lines represent inductors or coils. -->
 **GPT-4V:**To find the magnitude of the line current "!" , we need to find the phase current "' . The phase current can be found using Ohm's Law: = ( ) . Given: !" = 212∠90∘, "% = 212∠ −150<sup>∘</sup> , %! = 212∠ −30<sup>∘</sup> ; !\$ = 10 + 0 Ω , "\$ = 10 + 10 Ω , %\$ = 0 − 20 Ω . Since it is a star (Y) connection, the line-to-neutral voltage for phase b is "\$. And: "\$ = "% − %!. Given that: "% = 212∠ −150<sup>∘</sup> , %! = 212∠ −30<sup>∘</sup> . Using the phasor method for subtraction: "\$ = 212∠ −150<sup>∘</sup> −212∠ −30∘. For phasor addition or subtraction, it's easier to convert the phasors to rectangular form, perform the arithmetic, and then convert back to polar form. "% = 212 (−150∘) + (212 (−150∘))*,*%! = 212 (30∘) + (212 (30∘)) . Subtracting the two phasors: "% = "% − %! + ("% − %!). Once "' is calculated in rectangular form, convert it to polar form to get its magnitude and angle.
 
 Now, using Ohm's Law for phase b:
@@ -2680,6 +2754,7 @@ Figure 88. A sample correct case of Energy and Power (subfield: Fluid Mechanics)
 **Question:**A piston-cylinder device contains helium gas initially at 100 kPa, 10°C, and 0.2 m^3. The helium is now compressed in a polytropic process (! = ) to 700 kPa and 290°C. Determine the heat loss or gain during this process..<image 1>**Option:**(A) "# = −5.553 (B) "# = −6.553 (C) "# = −7.553
 
 ![](_page_105_Picture_4.jpeg)
+<!-- Image Description: The image is a schematic diagram illustrating an isothermal process involving helium (He) gas. A cylindrical container is shown with a copper lid and a partially submerged, presumably porous, stopper. The equation *PV<sup>γ</sup> = constant* is displayed, indicating an isothermal process where pressure (P) and volume (V) are inversely related with a constant exponent (γ). The diagram likely serves to visually represent the experimental setup or theoretical model being discussed in the paper related to gas behavior under isothermal conditions. -->
 
 <image 1>
 **GPT-4V:**Given the nature of this problem, we'll use the first law of thermodynamics for a closed system undergoing a process: Δ = "# − "#, where Δ = Change in internal energy, "# = Heat transfer during the process, and "# = Work done by the system during the process. From the given image, we can infer that the process is polytropic and is described by the equation: ! = . For a polytropic process involving an ideal gas: "# = (## − "")/(1 − ). Given: "=100kPa, " = 0.2\$, " = 10° , #=700kPa, # = 290° . To find #, we use the polytropic relationship: "" !/# = # !. The value of n can be determined using the temperatures and the ideal gas law: ""/" = ##/#. Once # is known, the work "# can be determined using the equation for polytropic work. The change in internal energy Δ for an ideal gas like helium is only a function of temperature and can be determined using: Δ = &(# − "), where & = Specific heat at constant volume for helium (approximately 3.12 kJ/kgAK), and m = Mass of the helium. Mass can be determined using the ideal gas law: = ""/", where R is the specific gas constant for helium, approximately 2.0831 kJ/kgAK. Finally, using the first law of thermodynamics: "# = Δ + "#=. The given options for "# are in kJ, so we need to ensure that all values used in calculations are consistent with this unit. To determine "#, we will: Calculate the mass m of helium, determine # using the polytropic relationship, calculate the work "#, determine the change in internal energy Δ, and use the first law to calculate "#. Now, let's plug in the values and solve: Calculate mass: = ""/" = 100 ∗ 0.2\$/(2.0831/ A ∗ (10 + 273)) ≈ 0.0271 . Determine # using the given temperatures and the ideal gas relationship (this is iterative and requires more involved math). Calculate the work "# using the polytropic equation. Determine the change in internal energy: Δ = &(# − ") ≈ 23.75. Use the first law: "# = Δ + "#. Now, without the exact value for "# (which requires the iterative determination of V\_2 and n), it's hard to provide an exact answer. However, considering the given options, you can solve for "# using the above steps. If you have the value for n or more specific data, please provide it, and I can assist further.
@@ -2718,6 +2793,7 @@ Figure 88. A sample correct case of Energy and Power (subfield: Fluid Mechanics)
 (A) 0.0292 rad, 0.0292 rad (B) 0.0292 rad, 0.0125 rad (C) 0.0125 rad, 0.0292 rad (D) 0.0125 rad, 0.0125 rad
 
 ![](_page_107_Figure_4.jpeg)
+<!-- Image Description: The image is a diagram showing a rectangular block with dimensions 300 mm x 400 mm. A smaller, dashed rectangle is overlaid, illustrating a 5 mm shift at the top and a 15 mm shift at the bottom, representing a shear deformation. The diagram likely illustrates a problem in mechanics, specifically showcasing shear stress or strain on the block. The labeled dimensions are crucial for calculating the shear values. -->
 
 <image 1>
 **GPT-4V:**To determine the average shear strain !" , we use the formula: !" <sup>=</sup> #" #! Where: <sup>=</sup> change in the y-direction, = change in the x-direction. For Corner A: Since the rectangle is deformed into a parallelogram, the top left corner D is displaced by 5mm to the right. Thus, the shear strain at point <sup>A</sup> due to this horizontal displacement is: !" <sup>=</sup> #" #! . Given: <sup>=</sup> <sup>0</sup> (There's no vertical displacement at A), <sup>=</sup> <sup>5</sup>mm,!" <sup>=</sup> \$ %\$\$&& <sup>=</sup> <sup>0</sup> rad. For Corner B: The bottom right corner C is displaced by 5mm upwards. Thus, the shear strain at point B due to this vertical displacement is: !" <sup>=</sup> #" #! . Given: <sup>=</sup> <sup>5</sup>mm, <sup>=</sup> <sup>400</sup>mm, !" <sup>=</sup> ' && )\$\$ && <sup>=</sup> 0.0125 rad. Therefore, the average shear strain at corners A and B are: A: 0 rad, B: 0.0125 rad. But, since the question has provided choices with minimum values of 0.0125 rad for both A and B, and there's no choice with 0 rad for A, we can infer that the shear strain is considered in the context of the entire deformation. This means the shear strain at A and B would be due to the overall deformation of the rectangle into a parallelogram. Given that both A and D move to the right by 5 mm and both B and C move up by 5 mm, the average shear strain for the entire deformation at both points would be: !" <sup>=</sup> ' && )\$\$ && <sup>=</sup> 0.0125 rad (for both A and B). So, the correct answer is:**(D) 0.0125 rad, 0.0125 rad**.
@@ -2736,6 +2812,7 @@ Figure 91. A sample error case of Materials (subfield: Mechanics of Materials). 
 (C) -1
 
 ![](_page_108_Figure_4.jpeg)
+<!-- Image Description: The image is a block diagram depicting a closed-loop control system. `R(s)` represents the reference input, `C(s)` the controlled output, `E(s)` the error signal, and `G(s)` the transfer function of the system. The diagram illustrates negative feedback, where the output is subtracted from the reference to generate the error signal, which then drives the system. The diagram's purpose is to visually represent the system's structure and signal flow for analysis and control design. -->
 **GPT-4V:** To find the steady-state error for a unity feedback system, we can use the final value theorem. The final value theorem states that: -→/ = -→/(), where E(s) is the Laplace transform of the error signal e(t). Given a system with unity feedback, the error signal in the Laplace domain can be given by: E(s) = R(s) - C(s), where R(s) is the Laplace transform of the reference input, and C(s) is the Laplace transform of the system's output. The closed-loop transfer function for a unity feedback system is given by: = ()/(1 + ()). Given a step input r(t) = 25u(t), the Laplace transform is: = 25/The system's output in the Laplace domain is: = × = ()/(1 + ())×25/. Thus, the error signal in the Laplace domain is: = 25/ − ()/(1 + ())×25/ = 25/×[1 − ()/(1 + ())]To find the steady-state error, we apply the final value theorem:lim%→# × (). Substitute E(s) from the above equation and evaluate the limit. Given: = 450 + 8 + 12 + 15 /= [( + 38)(\* + 2)( + 15)]Using the formula %% = %→#×25/×[1 − ()/(1 + ())]. Now, evaluate this limit to find the steady-state error. After evaluating, the answer will be one of the given options. Let's compute the steady-state error: %% = 25×%→# [1 − ()/(1 + ())]. Solve for %% : Using the given G(s) in the expression and computing the limit, you'll find that: %% = 25× 1 − 1 = 0. So, the steady-state error for the test input 25u(t) is: %% = 0. Thus, the correct answer is: (A) 0.
 
 ### Ground Truth: (A) 0
@@ -2755,6 +2832,7 @@ Figure 92. A sample correct case of Mechanical Engineering (subfield: Control Sy
 (C) Velocity, force = , = 2
 
 ![](_page_109_Figure_6.jpeg)
+<!-- Image Description: The image is a diagram showing two scenarios of a rigid rod with two balls (labeled 1 and 2) at its ends. In the first scenario, the rod is horizontal, with ball 2 moving with velocity *v*. The second scenario shows the rod pivoting around point A, with ball 1 moving along a quarter-circular path of radius *R*. The diagram illustrates a system undergoing a change in configuration, likely used to explain concepts related to mechanics, such as rotational motion or energy transfer. -->
 
 <image 1>
 **GPT-4V:**Two spheres, each of mass . The spheres slide down a smooth circular guide in a vertical plane. The problem involves two parts: calculating the common velocity of the spheres when they reach the horizontal dashed position; finding the normal force between sphere 1 and the supporting surface just before it reaches the bottom position A. Part 1: The potential energy lost by the spheres will be equal to their change in kinetic energy. Potential energy lost by each sphere = ℎ. For sphere 1:Height ℎ! = . For sphere 2: Height ℎ" = 2Total potential energy lost: #\$#%& = ℎ! + ℎ" = + 2 = 3. This potential energy is converted to kinetic energy for the two spheres: #\$#%& = 2×21" = 2 = 2. Part 2: Calculating the normal force just before sphere 1 reaches the bottom position A, its centrifugal force will be "/. Considering forces in the vertical direction for sphere 1: <sup>−</sup> <sup>=</sup> '(! ) . Using the velocity from Part 1, <sup>=</sup> 2 <sup>=</sup> 2 <sup>=</sup> 2. = 1 + 2 = 1 + 2 = 1 + 2 . Since 2 2 is a little more than 1, will be slightly more than 2mg but less than 3mg. The only choice which matches this range is 2mg. The correct option is: (A) = 2, = 2; = 2, = 2.
@@ -2772,6 +2850,7 @@ Figure 92. A sample correct case of Mechanical Engineering (subfield: Control Sy
 (B) Minimal ! = 24.014/ (C) Minimal ! = 28.014/
 
 ![](_page_110_Figure_6.jpeg)
+<!-- Image Description: The image is a diagram illustrating a projectile motion problem. A person at point A throws an object with an initial velocity 'u' horizontally. The object travels 40m before landing at point B. The diagram shows a cliff of height 26m at A and a smaller hill of height 16m at B. Dimensions are provided for the horizontal distance and vertical heights, likely for calculating trajectory and impact parameters. The dashed line represents the parabolic path of the projectile. -->
 
 <image 1>
 **GPT-4V:**To solve this problem, we need to use the kinematic equations of motion for a projectile. Step 1: Determine the time it takes for the rock to fall a vertical distance of (26m−16m)=10m after clearing the obstruction at B. Using the equation: <sup>=</sup> " # #, where is the vertical displacement <sup>=</sup> 10m, is the acceleration due to gravity = 9.81m/s, and the falling time ≈1.428s. Step 2: Determine the horizontal distance covered in this time. This is the distance from A to the point right before the obstruction at B. Given that the total horizontal distance is 40m, the distance from A to just before B is 40m. Step 3: Determine the time it takes for the rock to fall 26m from A. Using the equation: = " # #, where <sup>=</sup> 26m, we obtain <sup>≈</sup> 2.302s. Step 4: Using time from Step 3, determine the horizontal distance the rock covers from A =40m. Step 5: Equating the expressions for from Step 2 and Step 4, Solving for width we get: width ≈ 17.469m. Plugging this into the equation from Step 2: ≈ 15.775m/s. But we made a mistake. When the rock just clears the obstruction, it doesn't have a vertical velocity of 0. In fact, its vertical velocity when it clears the obstruction at B is given by: # = # − 2# = # − 2, where = 10m. Plugging in ≈ 15.775m/s to obtain ≈ 24.014m/s.
@@ -2785,6 +2864,7 @@ Figure 94. A sample error case of Mechanical Engineering (subfield: Engineering 
 ### Distribution of ImageTypes
 
 <span id="page-111-3"></span>![](_page_111_Figure_1.jpeg)
+<!-- Image Description: This horizontal bar chart displays the frequency of different image types within a dataset. The y-axis lists various image categories (e.g., diagrams, photographs, medical images), while the x-axis represents the count of each image type. The chart visually depicts the relative abundance of each image category, showing that diagrams are the most prevalent, followed by tables and photographs. The purpose is to provide a quantitative overview of the dataset's image composition for the paper. -->
 
 Figure 95. Distribution of image types in the MMMU dataset.
 
@@ -2939,10 +3019,13 @@ Ambiguities or unclear data instances should be flagged for a detailed review pr
 - Data Privacy: Compliance with privacy laws and ethical standards in data handling is paramount. The annotators should avoid collecting questions that contain any private information.
 
 <span id="page-116-3"></span>![](_page_116_Figure_0.jpeg)
+<!-- Image Description: The image contains a multiple-choice question about graph theory. A graph diagram shows nodes labeled A-J and their connections. The question asks to identify the articulation points (nodes whose removal increases the number of connected components). Four options are given, with "D, I" being the correct answer as indicated in the JSON-like data structure shown alongside the graph and options. The JSON data represents a question's metadata and answer in a machine-readable format. -->
 
 ![](_page_116_Figure_1.jpeg)
+<!-- Image Description: Figure 96 is a textual description, not a visual representation. It indicates that the figure (presumably appearing later in the paper) will show a multiple-choice question and its corresponding JSON representation. The purpose is to illustrate how a multiple-choice question is structured and encoded in JSON format, likely within the context of a system for processing or storing educational questions. -->
 
 <span id="page-116-4"></span>![](_page_116_Figure_2.jpeg)
+<!-- Image Description: The image contains a diagram showing a logo shaped like a multiplication symbol overlaid on a grid of 1-inch squares. The logo, shaded gray, occupies parts of ten squares. The purpose is to illustrate a geometry problem: calculating the area of the irregularly shaped logo. The accompanying text provides the problem statement, answer (10 square inches), and an explanation involving splitting the logo into five squares with sides of length √2 inches. -->
 
 Figure 97. Open question and its JSON representation.
 
@@ -2964,6 +3047,7 @@ Besides, the annotators are encouraged to collect questions that contain multipl
 All authors made significant contributions to data collection, annotation, and validation. We authors contributed to 1/3 of the MMMU examples. Additionally, all authors contributed to the case study and error analysis, plotting case study figures in the Appendix. Besides, all authors participated in the discussion of data annotation, provided feedback on the project, and proofread the paper. The following authors made additional contributions:
 
 <span id="page-117-0"></span>![](_page_117_Figure_0.jpeg)
+<!-- Image Description: The image presents a multiple-choice question in calculus. The question requires drawing the curve represented by the polar equation r² = sin(2θ) for 0 ≤ θ ≤ 2π. Four graphs are provided as options (A, B, C, D), showing different polar curves. The correct answer (D) is indicated in the accompanying JSON-like metadata, which also includes question details and image file paths for each option. The image assesses understanding of polar coordinates and curve plotting. -->
 
 Figure 98. Multiple image question and its JSON representation.
 

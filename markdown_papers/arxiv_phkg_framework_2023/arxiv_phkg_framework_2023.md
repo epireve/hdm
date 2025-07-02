@@ -1,7 +1,7 @@
 ---
 cite_key: "bloorsupsup2018"
 title: "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring"
-authors: "Daniel Bloor<sup>1</sup> , Nnamdi Ugwuoke<sup>1</sup> , David Taylor<sup>3</sup> , Keir Lewis<sup>4</sup> , Luis Mur<sup>2</sup> , Chuan Lu<sup>1</sup>"
+authors: "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
 year: 2018
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -52,6 +52,7 @@ The proposed framework consists of the following main components (see Figure [1]
 ## 2) Data harmonization.
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a system for creating Personal Health Knowledge Graphs. Heterogeneous data (EHR, sensor data, genome, etc.) is ingested, stored in MongoDB, harmonized (transformation and semantic mapping), and then used to build knowledge graphs (Neo4j). Machine learning is applied, and a reasoning engine generates an API providing data analytics, patient queries, alerts, predictions, and a dashboard. The process incorporates domain knowledge (ontologies, literature). -->
 
 <span id="page-2-0"></span>Figure 1: The personal health knowledge graph (PHKG) framework
 *Time series data summarization.*This is an important step for constructing temporal KGs. For example, in our use case of MIMIC-III data, the summaries (such as averages and the mode) of the measurements are splitting a day into quarters, i.e., a summary for each 6 hours of the day. Timestamps are stored typically as properties of a node and can be accessed easily through queries, and smart filters can be applied using comparisons with other dates, such as only returning results featuring a timestamp within a time/date-range.
@@ -91,6 +92,7 @@ For the use case of COPD monitoring, we constructed a PHKG features 3.5 million 
 The system for COPD was shown to produce alerts based on the triggers that can be seen in Figure [2.](#page-4-0) The query results in the assignment of risk scores based on the comparison between the value and the provided thresholds. These risk scores then trigger a final query that will create an alert node of the appropriate grade, a relationship between that alert and the user, and a relationship between the alert and the measurement node that triggered it. These alerts can act as actionable insights through the grading system of the alerts themselves, where each grade corresponds to a severity designed to be interpreted as a recommended response. A grade one alert would be a simple acknowledgement of a slightly abnormal reading, a grade two alert would be to suggest potential consultation or additional assessment, and a grade three alert is to indicate a need for immediate attention and urgent care for the patient.
 
 ![](_page_4_Figure_6.jpeg)
+<!-- Image Description: The image displays a graph database schema with nodes representing "Respiratory Rate" and "AlertGra..." entities, connected by relationships like "hasTrigger" and "hasAlert". A central node (4602) connects multiple "AlertGra..." nodes. A separate table shows node properties for "Personalisation," including ID, max, min, and type. Cypher queries are shown, demonstrating how to create personalized alerts based on respiratory rate, integrating node properties and relationships within the database. The dotted line highlights a data flow example. -->
 
 <span id="page-4-0"></span>Figure 2: Query on knowledge graph presenting measurements that triggered alerts, with the alert nodes and relationships also presented. A personalization relationship example is also featured, see the node property (personalization) indicated by the dashed arrow.
 
@@ -99,6 +101,7 @@ Queries over PHKGs benefit greatly from the augmented domain knowledge stored wi
 SubClassOf" relationship, the query infers the relevant conditions that the user may be interested in.
 
 <span id="page-5-8"></span>![](_page_5_Figure_2.jpeg)
+<!-- Image Description: The image displays a code snippet and a table. The code is a Cypher query that retrieves user IDs and associated conditions (likely medical diagnoses) from a graph database. The table shows the query's output: user IDs in one column and a list of their associated conditions in the other. The purpose is to illustrate data retrieval and representation within a knowledge graph context, likely for demonstrating a specific data analysis or knowledge reasoning method within the paper. -->
 
 Figure 3: Querying PHKG on patient condition with subclass inferences. In the output below the query, we see user IDs and their diagnoses. While these three example patients have not been diagnosed with the exact condition queried, they exhibit conditions that are subclasses of it within the ontology. These conditions are of ICD9 codes 49322, 49321 and 49320 from the subclasses.
 

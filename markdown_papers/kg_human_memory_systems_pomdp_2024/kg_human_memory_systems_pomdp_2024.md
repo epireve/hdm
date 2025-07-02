@@ -1,7 +1,7 @@
 ---
 cite_key: "kim2024"
 title: "Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes"
-authors: "Taewoon Kim, Vincent François-Lavet, Michael Cochez"
+authors: "Taewoon Kim, Michael Cochez"
 year: 2024
 doi: "10.48550/arXiv.2408.05861"
 url: "https://arxiv.org/abs/2408.05861"
@@ -121,6 +121,7 @@ In essence, the long-term memory system is updated at each step according to the
 We aim to learn the function f mm using RL. To achieve this, we "fix" the exploration policy π explore with a handcrafted function f explore, which directs the agent to "go to
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This diagram depicts a house layout, divided into rooms with directional arrows indicating movement between them. Each room contains labeled objects or occupants represented by small icons. The purpose is likely to illustrate a spatial reasoning or object location problem within the context of a robotics or AI paper, using the house as a simulated environment. The robot icon in the closet suggests a focus on robot navigation or task completion. -->
 
 Figure 1: An illustration of a hidden state s<sup>t</sup> (in white) and partial observation o<sup>t</sup> (in gray).
 
@@ -137,6 +138,7 @@ An advantage of this two-phase approach is that the human-like long-term memory 
 Given the discrete nature of the action spaces for both the baseline and the HumemAI agents, we opt for a value-based RL algorithm [\(Watkins and Dayan 1992\)](#page-10-1), i.e., DDQN [\(Hasselt, Guez, and Silver 2016\)](#page-9-12) instead of the vanilla DQN [\(Mnih et al. 2013\)](#page-9-13), to avoid the overestimation of state-action values. On top of that, we decouple
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image is a directed graph representing a spatial knowledge base. Nodes represent locations (e.g., "Living Room," "Kitchen," "Garage") and objects ("Chair," "Desk"). Edges, labeled with directions (north, south, east, west), indicate spatial relationships between them. "atLocation" labels on some edges suggest object placement within locations. The graph likely serves to illustrate a spatial reasoning system or knowledge representation used in the paper. -->
 
 Figure 2: A hidden state s<sup>t</sup> (in white) and partial observation o<sup>t</sup> (in gray) represented as a KG.
 
@@ -165,6 +167,7 @@ As for π mm, out of Nobservations observations within a given
 1. Encode observation as short-term memory
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper illustrates a memory management system. It uses diagrams to represent stages: 1) observation moving to short-term memory; 2) short-term memory transfer to episodic or semantic long-term memory (shown as node graphs); 3) querying long-term memory based on location and timestamp; and 4) pathfinding in a room graph using "strength" weighted edges to determine navigation decisions. The robot icons highlight agent interaction with the system. -->
 
 Figure 3: A visualization of the four steps involved in training.
 
@@ -181,6 +184,7 @@ We evaluate with varying sizes of memory to see how it influences the performanc
 We designed the training setup to ensure fair comparison between all agents. HumemAI, trained in two phases, has about 85,000 learnable parameters and undergoes 100 training episodes per phase. The decaying factor semantic memory was set to 0.8. For parity, baseline agents have 170,000 learnable parameters and 200 training episodes. All other
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates an attention-based model architecture for Q-value estimation. It uses three LSTM networks: one for short-term observations, and two for long-term memory (episodic and semantic). These LSTMs feed into an attention mechanism, which processes the information and outputs to a Multilayer Perceptron (MLP) that produces Q-values. The diagram visually depicts the information flow and the different memory types involved in the model. -->
 
 Figure 4: Diagram of the DQN architecture for the HumemAI agent, illustrating the steps from memory as KGs to Q-value calculation. The Q-values can be for either memory management actions or exploration actions.
 
@@ -203,6 +207,7 @@ The cognitive architectures like ACT-R [\(Anderson 2007\)](#page-7-2) and Soar [
 Memory-based RL approaches, such as those by Ming et al. [\(Meng, Gorbet, and Kulic 2021\)](#page-9-20) and Lin et al. [\(Lin](#page-9-21) ´ [et al. 2018\)](#page-9-21), add memory components to address partial observability and sample efficiency, respectively. Lin et al. use episodic memory to regularize DQN, but differs from our method by not leveraging KGs for interpretability and longterm memory management.
 
 <span id="page-7-1"></span><span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image displays two line graphs visualizing attention weights over time for two different policies, π<sup>mm</sup> and π<sup>explore</sup>. Graph (a) shows the "short," "episodic," and "semantic" attention weights changing over the number of π<sup>mm</sup> actions. Graph (b) shows "episodic" and "semantic" weights for π<sup>explore</sup> actions. The graphs illustrate the evolution of attention weight values across different policy types and actions, likely to demonstrate the model's learning process or behavior. -->
 
 Figure 5: Attention weights of π mm and π explore, respectively, over time for the HumemAI agent with capacity = 48
 
@@ -368,5 +373,6 @@ M. 2017. Neuroscience-Inspired Artificial Intelligence. *Neuron*, 95: 245–258.
 <span id="page-10-0"></span>Astr ˚ om, K. 1965. Optimal control of Markov processes ¨ with incomplete state information. *Journal of Mathematical Analysis and Applications*, 10(1): 174–205.
 
 <span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
+<!-- Image Description: The image displays a directed graph, likely representing a spatial-temporal knowledge graph. Nodes represent locations (e.g., "Bath," "Office," "Study") and agents ("Sam," "Nurse"). Edges depict movements or interactions, labeled with direction ("north," "east") and timestamps or "strength" values. The graph's purpose is to illustrate the relationships between locations and agents over time, potentially for reasoning or pathfinding within a specific environment. The two distinct node colors might indicate different types of entities. -->
 
 Figure 6: An example of the agent's (HumemAI with capacity = 48) memory systems, Mt=99. There are 7 short-term, 24 episodic, and 24 semantic memories. The nodes are colored differently by the memory type.

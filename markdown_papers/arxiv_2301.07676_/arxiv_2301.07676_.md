@@ -1,7 +1,7 @@
 ---
 cite_key: "laboratory2017"
 title: "A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research"
-authors: "1 Information Systems Laboratory, FORTH-ICS, Heraklion, Greece"
+authors: "Martin Doerr"
 year: 2017
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -131,6 +131,7 @@ We first provide an overview of the workflow model (Section [3.1\)](#page-7-2) a
 Fig. [1](#page-7-0) depicts the proposed workflow model for supporting holistic data management in archival research.
 
 ![](_page_7_Figure_4.jpeg)
+<!-- Image Description: This flowchart depicts an ontology-based data integration process for archival documents. It shows a workflow starting from archives, progressing through schema creation, transcription, curation, and ontology-based modeling and transformation. The process culminates in a database of integrated data represented as a semantic network, enabling research and analysis. Key stages include defining domain ontologies and schema mappings to facilitate data integration. The diagram illustrates the roles of researchers, data engineers, and automated processes in each step. -->
 
 <span id="page-7-0"></span>Fig. 1. Workflow model for holistic data management and semantic interoperability in archival research.
 
@@ -222,6 +223,7 @@ Mapping & Generation of Identifiers. This step defines how the transcribed and c
 Fig. [2](#page-13-0) shows an indicative example on how URIs are used for establishing such connections. In this example there are two different transcription records, each one of them describing various persons. In one of them there is a person called 'Agostino B??ndi' (i.e. the question marks reveal that the characters could not be recognised from the original source), and in another one there is a person called 'A Brondi'. For these persons two different URIs are created, since their names do not match and also they are found in different records. However in the curated dataset, historians agreed that these references point to the same person. Therefore a new person instance is created, with a new URI, linked to the previous ones. This new instance is called 'master', while the linked instances are considered 'local'.
 
 ![](_page_13_Figure_3.jpeg)
+<!-- Image Description: The image depicts a data curation workflow. It shows the transformation of original historical documents ("Original Sources") into transcripts. These are then linked, via a "Semantic Network," to curated data in a structured table format ("Curated Data"). The network uses URIs to represent relationships between the original sources, transcripts, and the final structured data. The diagram illustrates how disparate information sources are integrated and standardized. -->
 
 <span id="page-13-0"></span>Fig. 2. Identity (URI) management and provenance chain.
 
@@ -387,6 +389,7 @@ A deployment of the application is publicly accessible.[20](#page-21-1)
 <span id="page-21-1"></span><sup>20</sup> <http://rs.sealitproject.eu/>
 
 ![](_page_22_Figure_0.jpeg)
+<!-- Image Description: The image displays a bar chart visualizing the number of ships constructed in different locations between 1830 and 1840 AD. The chart's x-axis represents locations (Blanes, Pra, Sestri Ponente, Varazze, Voltri, Unknown), and the y-axis shows the count of ships. Varazze shows the highest number of ships constructed. The image is part of an interactive data visualization tool, allowing users to filter data by time period and location (A,B). The chart is one of several visualization options (C) available. -->
 
 <span id="page-22-1"></span>Fig. 5. Semantic search and results visualisation in ResearchSpace.
 

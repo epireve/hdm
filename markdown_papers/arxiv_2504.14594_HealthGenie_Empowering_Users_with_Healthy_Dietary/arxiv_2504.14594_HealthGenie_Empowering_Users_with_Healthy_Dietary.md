@@ -1,7 +1,7 @@
 ---
 cite_key: "base2025"
 title: "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models"
-authors: "establishing a professional corpus as its knowledge base, HealthGenie retrieve relevant and recommend healthy dietary with keyword extraction. It is designed to help users quickly access desired recipes with minimal mental effort by prioritizing reliable, transparent, and visually clear information compared to traditional long texts that often display disorganized columns that compromise readability, reliability, and transparency [\\[44\\]](#page-15-15)."
+authors: "KG."
 year: 2025
 doi: "10.18653/v1/2021.naacl-main.278"
 date_processed: "2025-07-02"
@@ -15,6 +15,7 @@ images_removed: 0
 # HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models
 
 <span id="page-0-0"></span>![](_page_0_Figure_1.jpeg)
+<!-- Image Description: The image presents two workflow diagrams comparing linear and circular interactive approaches for a food recommendation system. (a) shows a linear workflow where user queries and LLM responses proceed sequentially. (b) depicts a circular workflow incorporating information visualization and matching stages, allowing for iterative refinement based on visual data representation (a knowledge graph) and user feedback. Both diagrams illustrate user interactions with an LLM and a visualized knowledge base to provide personalized dietary recommendations. -->
 
 Figure 1: Unlike the traditional linear workflow (a) of LLMs, HealthGenie offers dietary guidance through interactive knowledge graph visualizations within a circular, interactive workflow (b), allowing users to quickly gain an overview of desired information.
 
@@ -145,6 +146,7 @@ DG3. Adapting Guidance to User Preferences. The development goal of our system i
 Informed by the formative study and design goals, we design a circular interaction workflow among the LLMs, KGs, and the user. In this workflow, the user initiates a query to the LLM, which retrieves relevant information from the KG, and the corresponding subgraphs are visualized. The user can then directly manipulate the visualized KG, such as by including or excluding specific entity nodes. This, in turn, affects the behavior of the LLMs, enabling a more adaptive and controllable interaction (see Figure [2\)](#page-5-0). This loop enables adaptive interactions by combining LLM reasoning with the visual, intuitive power of knowledge graphs. It allows users to explore AI
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper illustrates a knowledge graph (KG)-based question answering system. A user query about low-sugar meal ideas is processed. The system generates an answer based on a visualized KG, represented as a network of nodes and edges. A highlighted portion of the generated answer shows the system's ability to provide contextually relevant information beyond simple fact retrieval. The diagram also depicts an "Interaction Update," suggesting the KG is dynamically updated based on user interaction. -->
 
 Figure 2: Circular Interaction Workflow: Users query an LLM, which retrieves and visualizes relevant knowledge graph (subgraphs); users can then manipulate the graph to iteratively refine outputs. Demonstrated via HealthGenie, this cyclical loop enables adaptive, non-linear exploration of dietary recommendations.
 
@@ -171,6 +173,7 @@ Outcome. Through this circular interaction workflow—comprising initial queries
 In this section, we present the design and implementation of Health-Genie, a sophisticated health recipe recommendation system that features a responsive user interface with real-time chat capabilities and interactive visualization of recipe knowledge graphs. HealthGenie is designed as a web application, where the front end is implemented using React and Next.js while the back end is created with Python and Flask. Specifically, we equip HealthGenie with multiple LLM configurations to provide answers: GPT-4o mini-2024-07-18, DeepSeek-v3, Claude-3.5-Haiku, and LLaMA-3.2-90B. Additionally, HealthGenie supports both English and Chinese.
 
 <span id="page-6-0"></span>![](_page_6_Picture_2.jpeg)
+<!-- Image Description: The image displays a user interface illustrating an AI-powered recipe recommendation system. A node-link diagram (C) visually represents the relationships between various food ingredients, categorized by type (E). User interaction begins with a query (A) about low-protein, low-salt recipes. The AI's response (A) provides dietary advice. A query generation panel (B) shows the user's input and the AI's response. The overall purpose is to showcase the system's ability to generate personalized dietary recommendations based on user input and medical knowledge. -->
 
 Figure 3: The overview of HealthGenie interface, which integrates a visualized nutritional knowledge graph and a conversational dialogue system powered by an LLM. Users can initiate interactions by asking nutrition-related questions and requesting dietary guidance, then LLM retrieves relevant information and generates informative responses (A). Users can explore more relevant information using query generation (B). Simultaneously, the corresponding nutritional information is visualized within a dynamic knowledge graph (C), allowing users to explore with more and less information (D). HealthGenie provides interaction tracing visualization, supporting users to perceive and operate their deletion or addition intuitively (E).
 
@@ -183,6 +186,7 @@ A meticulously developed knowledge graph underpins HealthGenie, ensuring that di
 To enrich coverage, we apply a zero-shot LLM-based extraction approach that processes around 12 million tokens of free-text nutritional notes. This step identifies potential relationships beyond those explicitly defined in our ontology by leveraging the capacity of LLMs for synonym detection, context-aware inference, and
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This image displays a user interface for a recipe generation system. Two network graphs show ingredient relationships; one smaller graph (C) focuses on "Black Pepper," and a larger one (D) shows a wider range of ingredients. A pop-up box (X) prompts the user to include or exclude Black Pepper in a new recipe. A slider controls the level of detail shown in the graphs. The selection is reflected in a section (E) before final application. The purpose is to visually illustrate the impact of ingredient choices on recipe generation. -->
 
 Figure 4: Interaction with the Knowledge Graph: The visualized Knowledge Graph in HealthGenie enables users to explore a broader range of recipes (D). Users can interact directly with the visualized nodes, such as hovering to view detailed relationships or clicking to include or exclude ingredients (C) in the next recommendation. Any selection to include or exclude ingredients is recorded in the interaction history panel (E), ensuring all user actions are tracked.
 
@@ -323,6 +327,7 @@ Regarding data characteristics, Interpretability received the highest ratings ( 
 Participants overwhelmingly agreed that the visual output substantially improved task efficiency. Notably, the data visualization received exceptionally high ratings for its effectiveness in facilitating task completion. Participants strongly agreed that "The visual output made revising the recipe easy" ( = 4.91, = 0.28). Similarly, high ratings were given to statements that "The visual output made understanding nutrition-related information easy" and "The visual output helped select preferred recipes quickly" (both = 4.88), demonstrating the format's effectiveness for comprehension and decision-making. Qualitative feedback further supported these findings. P4 emphasized, "It is easy to understand through the graph," confirming the value of visual aids. P7 noted, "I think the visualization is very beneficial during my interaction since it vividly presents the main content of the response with graphs," underscoring how graphical representation enhanced engagement. Additionally, P12 appreciated the detailed analysis, stating, "The analysis of my
 
 <span id="page-11-0"></span>![](_page_11_Figure_2.jpeg)
+<!-- Image Description: The image presents sixteen histograms displaying participant responses (1-5 scale, strongly disagree to strongly agree) to survey questions regarding text and visual output comprehensiveness, relevance, clarity, organization, accuracy, granularity, reliability, and interpretability. Each histogram shows the number of participants selecting each response level, with a vertical line indicating the mean response. The purpose is to quantitatively illustrate user feedback on the system's effectiveness. -->
 
 Figure 5: Participants' rating on output features of HealthGenie.
 
@@ -339,6 +344,7 @@ In personalized recommendation tasks, HealthGenie consistently outperformed the 
 <span id="page-12-0"></span>
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image displays three horizontal bar charts comparing user responses to three task completion methods ("Intuitively," "Accurately," "Personalized"). Each chart presents the frequency of responses (strongly disagree to strongly agree) for four tasks (Task 1-4). A color-coded legend indicates response levels. To the right of each chart, a vertical line plot shows the mean difference and 95% confidence interval between two groups (HealthGenie and Baseline). The charts illustrate the relative performance of each method across various tasks and highlight statistically significant differences between groups. -->
 
 Figure 6: Participants' responses regarding the task completion intuition, task completion accuracy and task completion satisfaction among four tasks, measured by the 5-point Likert scale questionnaire for both based and our system. Bars present the mean differences of our system compared to the Baseline. Dots indicated the 95% Confidence Interval.
 
@@ -351,6 +357,7 @@ Figure [7](#page-12-1) presents an overview of users' perceptions regarding the 
 Additionally, users consistently rated HealthGenie highly across key interaction experience dimensions. The system received good scores for Usefulness ( = 6.33, = 0.49, = 1.50, = 1.00), indicating unanimous agreement about its value in meeting user needs. Participants also reported exceptional Ease of Use ( = 6.4, = 0.79, = 2.00, = 1.00), confirming the interface's
 
 <span id="page-12-1"></span>![](_page_12_Figure_8.jpeg)
+<!-- Image Description: This image displays a series of stacked bar charts, each representing a user experience attribute (e.g., enjoyment, ease of use, frustration). The horizontal bars are segmented by color-coded numerical scores, likely reflecting user responses on a scale. The chart's purpose is to visually compare user feedback across various system aspects, providing insights into the system's usability and perceived effectiveness. -->
 
 Figure 7: Participants' self-reported rating on usefulness and experience, measured by 7-point Likert scale.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "azeroualdzhweumailtoazeroualdzhweu2019"
 title: "Solving problems of research information heterogeneity during integration – using the European CERIF and German RCD standards as examples"
-authors: "*E-mail: [azeroual@dzhw.eu](mailto:azeroual@dzhw.eu)*"
+authors: "Joachim Schöpfeld"
 year: 2019
 doi: "10.3233/ISU-180030"
 date_processed: "2025-07-02"
@@ -78,6 +78,7 @@ Figure 1 presents a synthetic overview on the integration of research informatio
 Management of research information has become an important issue for universities, research institutions, funding and government organizations. There is an increasing demand to collect, integrate and analyze research information into RIMS for a variety of reasons. Different standardized exchange formats have been developed to support RIMS and foster their interoperability, such as the European CERIF data model (Common European Research Information Format) managed by the European organization
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The diagram illustrates a research information management system. Rectangles on the left categorize data sources: patents (EPO, DPMA), publications (SCOPUS, Web of Science, ORCID, National Library, PubMed), person (personnel management, organizational information, user administration), and projects (project management, GEPRIS, CORDIS). A database cylinder represents the system, fed by integrated data and accessed by multiple users via computer interfaces displaying various data visualizations. The bottom section details data standardization using CERIF and RCD data models. -->
 
 Fig. 1. Integration of research information into a research information management system (RIMS).
 
@@ -92,10 +93,12 @@ The RCD defines the core data that is to be kept in an aggregated form by all Ge
 The application of standard data exchange formats contributes to the development of common and interoperable information infrastructures which is beneficial for the institutions as well as for the individual researchers. Standardization is essential for the management of research information in RIMS,
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image displays a conceptual entity-relationship diagram illustrating the CERIF data model. Rectangular boxes represent entity types (e.g., Project, Person), categorized by color code (base, result, etc.) in the legend. Lines connecting boxes show relationships. A second legend describes additional features (language, semantics, etc.). The diagram's purpose is to visually represent the structure and relationships within the CERIF framework. -->
 
 Fig. 2. The European CERIF data model [17].
 
 <span id="page-4-1"></span>![](_page_4_Figure_3.jpeg)
+<!-- Image Description: The image displays an entity-relationship diagram (ERD) depicting a database schema. Multiple entities (e.g., Person, Publication, Patent) are shown with their attributes and relationships indicated by connecting lines. Cardinality (e.g., 1:1, 1:N, M:N) is specified. The diagram likely details the database structure used in the paper to manage information about individuals, their publications, patents, and involvement in structured doctoral programs and research infrastructure. German labels are used throughout. -->
 
 Fig. 3. The German RCD data model [23].
 
@@ -145,6 +148,7 @@ The integration of different information systems plays a significant but often n
 This section will focus on the methods, processes and techniques of information integration in the context of RIMS to overcome the different types of data heterogeneity problems while at the same time transferring the data sources into a common structure and the most important aspect, specifically how to ensure data quality is also explained.
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart depicting an ETL (Extract, Transform, Load) process. Data is extracted from internal and external sources, then transformed, and loaded into a staging area before finally being loaded into a system called "RIMS". The flowchart illustrates the data flow and the key stages involved in this data integration process. The boxes represent processes or data stores, and the arrows show the direction of data movement. -->
 
 Fig. 4. Implementing the ETL process steps in RIMS [8].
 
@@ -194,6 +198,7 @@ According to [9], the following problem areas may also arise during the transfor
 These so-called errors or problem areas should be eliminated in order to achieve the highest possible data quality. Only data quality can guarantee trust in the data.
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The flowchart depicts a data analysis workflow. It starts with a problem or question, followed by the integration of heterogeneous data sources (personnel, publication, project, financial data). A data quality check involves cleanup, transformation, harmonization, and merging steps. The merged data is then analyzed, interpreted, and used for decision-making. The diagram illustrates the process of data integration and analysis from raw, diverse sources to a final decision. -->
 
 Fig. 5. Integrating quality improvement methods in RIMS.
 
@@ -330,6 +335,7 @@ After standardizing and merging the research information in a RIMS, they can be 
 ##*6.3.1. Schema matching*Schema matching precedes schema mapping. The schema matcher should search for heterogeneous source systems for matching information units. The search can be done by using similar attribute names,
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image displays a schema matching between two database designs: RCD and CERIF. RCD shows “Person” and “Third-party funded project” tables with their respective attributes. CERIF depicts a “CfPerson_Project” table. Lines connect corresponding attributes across the two schemas, illustrating how data elements map between the databases. The purpose is to visually represent the schema mapping process, highlighting data equivalences for data integration or migration. -->
 
 Fig. 7. Simple example of Schema Matching of RCD and CERIF.
 
@@ -348,6 +354,7 @@ Undoubtedly, the research information management systems (RIMS) lead to a more t
 ####*O. Azeroual et al. / Solving problems of research information heterogeneity during integration*119
 
 <span id="page-14-0"></span>![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image displays a comparison of two XML data representations (left and right) and their corresponding relational representation (center). The relational representation uses a tree structure showing attributes (e.g., `cfPersId`, `cfName`, `cfBirthdate`) linked to a root node (`elem:row`). The XML examples illustrate different formatting styles for the same data, demonstrating the transformation between XML structures and a relational model, likely for data integration or database design within the paper. -->
 
 Fig. 8. Source system (top left) and target system (top right) and from that resulting suggested mapping.
 
@@ -362,6 +369,7 @@ The concept of information integration enables recognition and improvement of da
 Institutions should implement the ETL processes as early as possible in order to assess the retroactive effect on their external data sources for the first time and derive data quality rules from this knowledge, which are then evaluated in the course of data quality measurements [3]. A variety of commercial ETL tools (such as CloverETL and QlikView Expressor, etc.) support integration of heterogeneous data sources into RIMS. With the help of appropriate and intelligent tools, it will be increasingly possible to minimize the manual effort required to ensure high data quality and to significantly reduce resource requirements. Especially with repeated application, the effort is much lower than without the use of tools [3].
 
 <span id="page-15-0"></span>![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart depicting a research information management (RIM) system's data processing pipeline. It shows sequential steps: data collection and preprocessing; schema matching and mapping; error identification and correction; duplicate detection; data transformation, harmonization, and merging; visualization and export; and finally, loading into the RIMS. The flowchart visually outlines the stages involved in preparing and integrating research data for analysis and storage. -->
 
 Fig. 9. Supporting workflow diagram.
 

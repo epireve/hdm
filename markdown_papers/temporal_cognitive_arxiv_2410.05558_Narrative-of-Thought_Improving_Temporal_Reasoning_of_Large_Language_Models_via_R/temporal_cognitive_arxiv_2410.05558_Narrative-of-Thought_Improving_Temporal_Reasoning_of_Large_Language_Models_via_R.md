@@ -1,7 +1,7 @@
 ---
 cite_key: "zhangsupsup2021"
 title: "NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models via Recounted Narratives"
-authors: "Xinliang Frederick Zhang<sup>1</sup> , Nick Beauchamp<sup>2</sup> , and Lu Wang<sup>1</sup>"
+authors: "Xinliang Frederick Zhang, Nick Beauchamp, Lu Wang, Ann Arbor"
 year: 2021
 doi: "10.48550/ARXIV.2404.14219)"
 date_processed: "2025-07-02"
@@ -27,6 +27,7 @@ Reasoning about time and temporal relations is an integral aspect of human cogni
 Temporal reasoning is essential for humans to perceive the world, understand daily communications, and interpret the temporal aspects of experiences [\(Allen,](#page-10-0) [1983;](#page-10-0) [Nebel and Bürckert,](#page-12-0) [1995\)](#page-12-0). The recent advent of large language models (LLMs) has garnered substantial attention to their impressive performance in various reasoning tasks, such as arithmetic reasoning [\(Cobbe et al.,](#page-11-0) [2021;](#page-11-0) [Zhong](#page-14-0)
 
 <span id="page-0-1"></span>![](_page_0_Figure_8.jpeg)
+<!-- Image Description: This image depicts a process for modeling a "Business Change" scenario. A database-like structure lists events (A-F), which are then represented as a directed acyclic graph (DAG) showing their dependencies. Finally, Python code implements the scenario, defining events as functions and their relations within the DAG. The image illustrates the transformation of a business process description into a structured Python representation. -->
 
 Figure 1: Task overview of temporal graph generation (TGG), where the input is a goal and a set of unordered events. In this work, to better unleash the pre-training power of LLMs trained with a mixture of text and code, we cast TGG as a code completion task.
 
@@ -77,6 +78,7 @@ Down the line, sophisticated prompting schemes are devised through*structuraliza
 Moreover, existing methods are mostly applied to generate intermediate rationales for *simple, atomic outputs*, usually in the format of multichoice options [\(Mihaylov et al.,](#page-12-9) [2018;](#page-12-9) [Talmor](#page-13-0) [et al.,](#page-13-0) [2019;](#page-13-0) [Liu et al.,](#page-11-10) [2020\)](#page-11-10), a number [\(Cobbe](#page-11-0) [et al.,](#page-11-0) [2021;](#page-11-0) [Hendrycks et al.,](#page-11-11) [2021\)](#page-11-11), or yes/no options [\(Talmor et al.,](#page-13-13) [2021b;](#page-13-13) [Wei et al.,](#page-14-8) [2022a\)](#page-14-8). Our work draws a clear distinction where our focus is
 
 <span id="page-3-1"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image displays code examples and diagrams illustrating different prompting methods for language models. It compares "Vanilla," "Narrative-aware," "Standard structural," and "Narrative-of-Thought" prompting techniques, showcasing their effect on generating temporal relationships between events represented in simplified Python classes. Diagrams visually represent the flow of events and the resulting temporal graphs. The image aims to demonstrate how narrative-based prompting improves the accuracy and structure of generated temporal graphs. -->
 
 Figure 2: Overview of NARRATIVE-OF-THOUGHT (NOT), a prompting technique tailored for temporal reasoning. NOT improves the temporal graph by *recounting*a temporally grounded narrative. Also shown are comparisons with existing methods. Full example is in Figure [A4](#page-19-0) and NOT output is in Figure [A7.](#page-20-0)
 
@@ -231,8 +233,10 @@ generated temporal graphs are significantly enhanced, regardless of which base L
 Comparison with fine-tuned LLMs. To evaluate the performance gap between the NOT prompting technique and the computational-intense finetuning (FT) approach, we conduct a side experiment on the ProScript dataset. Specifically, each instruction-tuned base LLM is fine-tuned on the ProScript training set, utilizing LoRA [\(Hu et al.,](#page-11-15) [2022\)](#page-11-15) and mixed-precision training. We follow the same setting as in [§4.2](#page-5-1) where each training example is prepended with 5-shot demonstrations. While significant performance disparities between NOT and FT are observed across the board, the narrowing gap suggests the growing potential of NOT as the underlying LLM continues to evolve. Moreover, fine-tuned small LLMs consistently outperform the few-shot GPT-4, which is the best-performing gen-
 
 <span id="page-7-1"></span>![](_page_7_Figure_6.jpeg)
+<!-- Image Description: The image is a caption describing a missing figure. The caption indicates the figure would be a graph or chart showing F1 scores (a metric for evaluating classification models) for different methods, plotted against the number of shots (likely referring to the amount of training data). The figure's purpose is to compare the performance of various methods under varying data conditions. -->
 
 ![](_page_7_Figure_7.jpeg)
+<!-- Image Description: The image contains two line graphs showing F1 scores on Proscript and Schema-11 datasets, respectively, for different few-shot learning methods (GPT-3.5, NoT, Prompting, CoT) as the number of shots varies. The top graph displays F1 scores on the Proscript dataset, and the bottom graph shows F1 scores on the Schema-11 dataset. Both graphs illustrate the performance of the different methods under varying numbers of training examples (shots), aiding the analysis of their effectiveness in few-shot learning. Specific F1 scores are labeled on the second graph. -->
 
 Figure 3: F1 scores on ProScript and Schema-11 in relation to the number of shots in demonstrations. We identify the instability in the standard prompting, and the performance plateau after 5 shots.
 
@@ -257,6 +261,7 @@ How faithful is the temporal graph to intermediate narratives? Here, we look int
 Motivated by the recent success of using LLMs as judges [\(Zheng et al.,](#page-14-15) [2023;](#page-14-15) [Zhang et al.,](#page-14-16) [2024a\)](#page-14-16), we employ GPT-4 to assess the self-faithfulness of 600 randomly sampled outputs by NOT-augmented LLAMA3-8B. We prompt GPT-4 to perform a 5 way assessment and provide judgment rationales. Additionally, GPT-4 is instructed to count the temporal links in the temporal graphs and identify aligned temporal links for a sanity check. This helps humans capture the failure modes and make
 
 <span id="page-8-0"></span>![](_page_8_Figure_5.jpeg)
+<!-- Image Description: This figure presents two bar graphs comparing F1 scores for different large language models (GPT3.5 and GPT4) across various meta prompt types (News Report, Simple English, Role Play, Simple Report) and input formats (Alphabet and Descriptive). The top graph shows F1 scores on Proscript, while the bottom graph shows F1 scores on Schema11. Each bar represents a specific model-prompt-format combination, with horizontal dashed lines indicating average scores for each dataset. The purpose is to illustrate the performance variations of different models and prompting strategies on two distinct evaluation metrics. -->
 
 Figure 4: F1 scores on ProScript and Schema-11 with different meta prompts. Average performance grouped by prompt type is also shown. Notably, using a *Simple Report*-style, GPT-4 generated narratives lead to the best score due to its conciseness, simplicity and factuality, which are essential qualities for a *high-quality*reference narrative.
 
@@ -460,10 +465,13 @@ Second, regarding instruction-following capability in code completion, we evalua
 | Simple Report    | You are provided with a set of unordered event descriptions.<br>You are also provided with a set of event relations which instructs you how to temporally link a pair of events.<br>They are displayed as functions defined within a python class. \n<br>Your goal is to write a*simple and concise report*based on the provided event descriptions and event relations set.<br>The generated*report*should be simple such that it can be understood by a 10-year-old child,<br>and it should be concise such that it can be written within a short paragraph.<br>Meanwhile, the generated*report*should honor the provided temporal information. \n |
 
 ![](_page_17_Figure_1.jpeg)
+<!-- Image Description: The image shows the title of a table (Table A2) from an academic paper. The table's title indicates that it presents detailed instructions categorized by different types of meta prompts, also referred to as instruction types. The table itself is not visible in the image. The purpose is to provide a reference for the various instructions used in the study, likely related to a method involving prompts or instructions for a machine learning model. -->
 
 <span id="page-17-1"></span>![](_page_17_Figure_2.jpeg)
+<!-- Image Description: The figure displays two line graphs comparing the performance of four methods (GPT-3.5, NoT, Prompting, CoT) on two datasets (Proscript and Schema-11) across varying numbers of "shots." The y-axis represents GED scores (presumably a metric for generative model evaluation), while the x-axis shows the number of shots. Each line represents a different method, showing how its GED score changes with increased shots, allowing for a comparison of their performance and sensitivity to the number of examples provided. -->
 
 <span id="page-17-2"></span>![](_page_17_Figure_3.jpeg)
+<!-- Image Description: The image displays two grouped bar charts comparing GED scores on Proscript and Schemall. Each chart presents scores for four language models (GPT3.5 Alphabet, GPT3.5 Descriptive, GPT4 Alphabet, GPT4 Descriptive) across four meta-prompt types (News Report, Simple English, Role Play, Simple Report). Horizontal dashed lines indicate average scores for each chart, highlighting performance differences between models and prompt types. The purpose is to compare the impact of different models and prompt types on generated text quality. -->
 
 Figure A1: GED scores on ProScript (top) and Schema-11 (bottom) in relation to the number of shots in demonstrations. We identify the instability in the standard prompting, and the performance plateau after 5 shots, along with a slight decline with even more shots.
 
@@ -604,8 +612,10 @@ Figure A3: Input for Standard Prompting with 1-shot demonstration. The input for
 Figure A5: Output by Standard Prompting.
 
 <span id="page-20-1"></span>![](_page_20_Picture_2.jpeg)
+<!-- Image Description: The image displays Python code defining a `get_relations()` function within a `BusinessChange` class. This function returns a list of strings representing the sequential steps in a business acquisition process: planning, negotiation, offer, deal, merge, and government approval. The code illustrates the logical flow of these steps as a directed graph, implicitly defining the relationships between them. The accompanying text explains each step and its relation to others within the acquisition process. -->
 
 <span id="page-20-0"></span>![](_page_20_Picture_3.jpeg)
+<!-- Image Description: The image displays two Python code snippets. The first function, `get_narrative()`, returns a string describing a business acquisition process. The second function, `get_relations()`, returns a list of strings representing sequential steps (stepB to stepC, etc.) in that process, implicitly defining a workflow or state diagram. The Python logo is also included. The image likely illustrates a data structure representing a business process model within the paper. -->
 
 Figure A7: Output by NOT.
 

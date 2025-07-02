@@ -1,7 +1,7 @@
 ---
 cite_key: "jitter2017"
 title: "Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets"
-authors: "analyzing the graphs of the data timestamps and time between consecutive data frames (Jitter)."
+authors: "Nitheesh K. Lakshminarayana Intel"
 year: 2017
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -96,6 +96,7 @@ GPS Data - The GPS provides a sequence of points containing latitude and longitu
 OBD Data - The OBD data obtained from the vehicle's CAN bus consists of vehicle properties like gear, rpm, speed, steering angle, throttle position, and clutch lever value.
 
 ![](_page_2_Figure_9.jpeg)
+<!-- Image Description: The image shows a four-panel illustration of vehicle navigation data. The top panels display stereo camera images of a road scene. The bottom left panel shows a point cloud representation of the environment from a sensor (likely LiDAR), visualized as a depth map with color-coded distances. The bottom right panel presents a GPS map with a blue line tracing the vehicle's route, indicating the start (red square) and end (green square) points. The image illustrates the integration of various sensor data for autonomous navigation. -->
 
 Figure 1. Visual representtaion of an example multimodal data. Top: RGB image from a stereo camera. Bottom: GPS coordinates plotted on a map and LiDAR pointclouds plotted in a 3D graph.
 
@@ -145,6 +146,7 @@ Once the recorded data is extracted and updated in the database, it is made avai
 - iii Timeseries and jitter graph analysis Inspects recordings for data loss and irregularities in sensor data
 
 ![](_page_3_Picture_9.jpeg)
+<!-- Image Description: This image displays six camera views (front near-left/right, side left/right, rear near-left/right) surrounding a top-down schematic of a vehicle. Each camera view shows a street scene with timestamps, providing a multi-perspective visual representation of the vehicle's surroundings. The numbered slider suggests these images are part of a larger sequence within a dataset used for autonomous driving research or related applications. -->
 
 Figure 3. Dashboard component to analyze image frames. This example shows an instance of images from all camera mounted on a typical AD data collection platform configured shown in Table 1
 
@@ -189,12 +191,15 @@ be present with their configured fps. Any missing data types or lower fps is an 
 The next step is to verify the route to ensure the correctness of GPS data (lat & lng) recording. Data collection drives are mostly pre-planned to capture specific diverse conditions and distances, *e.g*. nuScenes([1]) perform data collection in Boston and Singapore, and emphasizes diversity in terms of vegetation, vehicles, buildings, and traffic conditions. Each data recording happens in predefined routes to capture such variations in data. When GPS coordinates from the data are mapped (Figure 5), the path driven should correspond to the predefined route to be termed as good data. We plot the route on maps and visually verify any discrepancies. Also, the distance is calculated from these coordinate points, and this calculated distance should match the manual observation recorded by the data collection team.
 
 ![](_page_4_Figure_5.jpeg)
+<!-- Image Description: The image displays a map showing a 8.5km route plotted on a street map. A blue line represents the path, starting at a green marker and ending at a red marker. The map's purpose is likely to illustrate a journey or travel route within the context of the paper, potentially for analysis of distance, time, or path optimization. -->
 
 Figure 5. GPS coordinates plotted on a map with distance calculated from the start to the end points.
 
 ![](_page_4_Figure_7.jpeg)
+<!-- Image Description: The image displays a parallel coordinate plot showing the timestamps of data capture for various sensors over a period of approximately 14 minutes. Twelve sensors (Right_r, Right_l, Rear_r, Rear_l, Lidar, Left_r, Left_l, GPS, Front_r, Front_l, and /obd) are represented, each as a colored line spanning the x-axis (timestamp). The plot likely illustrates the temporal synchronization or coverage of different data streams within a sensor system for a vehicle. -->
 
 ![](_page_4_Figure_8.jpeg)
+<!-- Image Description: The image displays a horizontal bar chart illustrating the timestamps of data capture for various sensors on a vehicle. Sensors include Lidar, GPS, and multiple cameras (front, rear, left, right). The chart's x-axis represents time (HH:MM:SS.msec), and the y-axis shows the different sensors. Bar length indicates the duration of data capture for each sensor during a specific period. The chart likely serves to demonstrate the temporal synchronization or overlap of sensor data acquisition in the study. -->
 
 Figure 6. Sensor timeseries graphs shwoing examples of good data recording (top) and bad data recording (bottom).
 
@@ -209,6 +214,7 @@ Figure 6 shows an example graph of a bad data recording where several sensors ha
 The next step is to verify if the sensor's data capture rate is uniform and if all the sensors captured at the expected sampling rate. The jitter graph (Figure 7) plots the time difference between consecutive sensor messages and denotes any jitter as spikes in the graph. These spikes in the graphs are analyzed for all sensors and any spike exceeding the error threshold denotes bad data segments. Figure 7 shows an example of jitter graphs for good and bad data recordings. The good data graph has no spikes exceeding 150 millisec-
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image contains two line graphs showing jitter (delay between consecutive frames) in milliseconds over time. The top graph displays jitter for LiDAR, GPS, and various camera views (side right/left, rear near, front near) between 10:25 and 10:35. The bottom graph shows jitter for right, rear, left, front cameras, LiDAR, GPS, and an obd system between 16:24 and 16:36. Both graphs illustrate timing variations in data acquisition across different sensors. -->
 
 Figure 7. Sensors jitter graph showing examples of good data recording (top) and bad data recording (bottom).
 
@@ -223,10 +229,12 @@ The previous steps verify the integrity of the data. The next step is to check i
 If the video analysis of the front camera shows good data, then the images captured from different cameras are analyzed. Since it is cumbersome to go through all the frames of all the cameras, the images are inspected at 10% intervals of the total number of images to check for any anomalies. The web dashboard provides facilities to view camera frames at multiple ranges (Figure 3). The camera frames
 
 ![](_page_5_Picture_7.jpeg)
+<!-- Image Description: The image is a video still showing a street scene in what appears to be India. The video, playing at variable speeds (1x, 2x, 3x, 5x, 10x), depicts a two-lane road lined with palm trees and buildings, including a multi-story structure. Several people and vehicles are visible. The purpose is likely to provide visual context of the environment for a study potentially analyzing traffic patterns, urban development, or similar topics. -->
 
 Figure 8. Video playback component of the dashboard.
 
 ![](_page_5_Picture_9.jpeg)
+<!-- Image Description: The image displays a point cloud visualization, likely from LiDAR data. Concentric rings of data points suggest a sensor moving in a circular path, capturing a 3D environment. Color variations may represent intensity or distance. The visualization's purpose is to illustrate the collected point cloud data and its spatial arrangement, probably within the context of 3D scene reconstruction or autonomous navigation research. -->
 
 Figure 9. 3D plot of a LiDAR frame.
 
@@ -259,6 +267,7 @@ Verification is done using the graph plots of the OBD data, as shown in Figures 
 Figure 10. Example of OBD data containing vehicle parameters.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph showing measured vehicle parameters over time (in seconds). Seven parameters are plotted: dv, gear, rpm, speed, steering angle, and throttle position. The graph illustrates how these values change over approximately 380 seconds, showing a significant drop in speed and rpm around the 300-second mark. This suggests a sudden deceleration or braking event, which is likely the focus of analysis within the paper. -->
 
 Figure 11. Raw OBD data plot example.
 
@@ -269,10 +278,12 @@ The jitter plot of the OBD data (Figure 13) helps to perform a sanity check of o
 Apart from the validating the sanity of OBD data, plotting these features also enables us to identify and interpret undefined pattern in the data. For example, Figure 14 shows the plot of rpm and gear data containing discontinuities in gear data when rpm value drops below 1000. Although this
 
 ![](_page_6_Figure_7.jpeg)
+<!-- Image Description: The image displays a time series plot showing the dynamic behavior of gear, rpm, and speed over approximately 380 seconds. The x-axis represents time, and the y-axis represents a normalized measured value (0-1). The plot shows relatively stable values until around 300 seconds, where all three variables experience a sharp decrease. The purpose is likely to illustrate the system's response to a specific event or condition, perhaps a braking or stopping maneuver. -->
 
 Figure 12. Normalized OBD data plot example.
 
 ![](_page_6_Figure_9.jpeg)
+<!-- Image Description: The image displays a multi-line graph showing jitter (delay between consecutive frames) over time (seconds) for various vehicle parameters. Lines represent 'dv', 'gear', 'rpm', 'speed', 'steering\_angle', and 'throttle\_position'. The graph illustrates how these parameters' data acquisition times fluctuate, potentially indicating synchronization issues or data loss, particularly around 300 seconds where significant jitter is observed in the 'gear' data. -->
 
 Figure 13. Jitter plot example of OBD data.
 
@@ -281,10 +292,12 @@ discontinuity initially seems like the loss of gear data during data collection,
 In configurations where GPS data is also available from OBD frames, they are verified by plotting its route on the same map containing the route from the onboard GPS sensor. Figure 15 shows an example of two routes plotted on the same map. The sanity of GPS data from OBD is verified by its alignment with the onboard GPS sensors route map. Because the OBD sensor runs at a much slower framerate
 
 ![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image displays a line graph showing changes in gear and rpm over time (in seconds). The orange line represents rpm, initially high, decreasing sharply, then leveling off before a final sharp increase. The teal line represents gear, remaining near zero except for a brief period around 320 seconds. The graph likely illustrates a system's operational profile, possibly a vehicle's, showing gear selection and rotational speed variations. -->
 
 Figure 14. Example of gear and rpm data plot for a time slice.
 
 ![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The image is a map displaying two vehicle trajectories (red and blue) overlaid on a street map. The trajectories likely represent GPS data, showing routes taken. A green point possibly indicates a starting point. The map's purpose is to visually compare and contrast the routes, possibly to analyze navigation algorithms, traffic patterns, or route optimization in the context of the paper. The visual comparison highlights differences in path selection. -->
 
 Figure 15. Routes of GPS coordinates from OBD(*red*) and onboard sensor(*blue*).
 

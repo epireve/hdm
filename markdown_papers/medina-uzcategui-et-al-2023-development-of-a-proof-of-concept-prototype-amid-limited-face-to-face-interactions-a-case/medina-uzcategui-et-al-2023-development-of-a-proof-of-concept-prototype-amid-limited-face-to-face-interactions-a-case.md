@@ -1,7 +1,7 @@
 ---
 cite_key: "methodology2024"
-title: "The current experience: Developing a wearable IMU prototype"
-authors: "Figure 1. General prototype design methodology."
+title: "Corresponding author:"
+authors: "Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad de Ciencias de la Ingeniería, Universidad Austral de Chile"
 year: 2024
 doi: "10.1177/03064190231200397"
 date_processed: "2025-07-02"
@@ -15,12 +15,14 @@ images_removed: 1
 Original article
 
 ![](_page_0_Picture_2.jpeg)
+<!-- Image Description: The image is a logo for the journal "IJMEE," likely short for the International Journal of Mechanical Engineering Education. It consists of a stylized, gray text representation of the journal's name. The logo is purely illustrative, serving as an identifier for the journal's publication and has no other technical content. -->
 
 Development of a proof-of-concept prototype amid limited face-to-face interactions: A case study of an engineering two-student team
 
 International Journal of Mechanical Engineering Education 2024, Vol. 52(4) 500–513 © The Author(s) 2023 Article reuse guidelines: [sagepub.com/journals-permissions](https://us.sagepub.com/en-us/journals-permissions) DOI: 10.1177/03064190231200397 [journals.sagepub.com/home/ijj](https://journals.sagepub.com/home/ijj)
 
 ![](_page_0_Picture_5.jpeg)
+<!-- Image Description: The image is the logo of Sage Publications, a scholarly publisher. It consists of a stylized blue "S" alongside the word "Sage" in a matching blue font. The logo serves as a publisher identifier within the academic paper, indicating where the work was published. There are no charts, graphs, equations, or other technical illustrations present. -->
 
 Luis Medina Uzcátegui<sup>1</sup> , José Mardones Fernández2 , Alex Pailapán Neicuán3 , and Miguel Cárdenas Villegas<sup>4</sup>
 
@@ -87,6 +89,7 @@ The scheme presented in Figure 1 provides an overview of the methodology followe
 The scheme identifies the key participants in the project: the development team, consisting of the two undergraduate students, and two advisors, who served as mentors for the project. Alongside the project's timeline depicted in Figure 1, a qualitative scale
 
 ![](_page_4_Figure_7.jpeg)
+<!-- Image Description: This flowchart illustrates a prototype development process across three stages: design, fabrication/assembly, and testing/validation. Two students (electrical and mechanical engineering) contribute, with their tasks and interactions shown via colored boxes and arrows indicating workflow and feedback loops. A timeline with a color gradient represents the transition from remote to in-person collaboration over 20 months. The chart visualizes the project's temporal and collaborative aspects. -->
 
 Figure 1. General prototype design methodology.
 
@@ -141,10 +144,12 @@ Figure 3 illustrates the effectiveness of teamwork in the shared goal and values
 In contrast, different perceptions are provided when dealing with motivation and interpersonal skills, as it is illustrated in Figure 4.
 
 ![](_page_8_Figure_5.jpeg)
+<!-- Image Description: The image contains two bar charts comparing "previous" and "current" scores for two groups, EES and MES, across two metrics: "Shared Goal & Values" and "Commitment to Team Success." Each bar represents a mean score. The charts illustrate changes in these team characteristics before and after an intervention (likely described elsewhere in the paper). Higher bars indicate greater levels of shared goals, values, and commitment. -->
 
 Figure 3. Team members' perceptions of shared goal and values and commitment to team success in previous and current experiences.
 
 ![](_page_8_Figure_7.jpeg)
+<!-- Image Description: The image contains two bar charts comparing "Previous" and "Current" levels of motivation and interpersonal skills for two groups, "EES" and "MES". Each chart displays scores (presumably on a scale of 0-5) for each category, allowing for a visual comparison of changes in these attributes between the groups across time. The charts visually represent quantitative data from a study, likely to demonstrate the impact of a program or intervention. -->
 
 Figure 4. Team members' perceptions on motivation and interpersonal skills in previous and current experiences.
 
@@ -159,18 +164,22 @@ In contrast, it might be inferred that in a small team, accountability seems to 
 It should be noted that both students recognize the current experience as more effective in terms of this attribute when compared with the previous one. Earlier studies have claimed that larger team sizes do not negatively impact team performance.14,15 However, some researchers suggest that the way in which team members perceive accountability may be linked to students' perception of the quality of their team experience.16,17
 
 ![](_page_9_Figure_6.jpeg)
+<!-- Image Description: The image presents two bar charts comparing "Open/Effective Communication" and "Constructive Feedback" scores. Each chart displays scores ("Previous" and "Current") for two groups, EES and MES. The charts likely illustrate changes in these two aspects between previous and current states within the two groups, indicating an improvement in communication and feedback within MES. -->
 
 Figure 5. Team members' perceptions on open/effective communication and constructive feedback in previous and current experiences.
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image presents two bar charts comparing "Ideal Team Composition" and "Leadership" scores for previous and current teams in two categories: EES and MES. Each chart shows the average score for each category, illustrating differences in team composition and leadership characteristics between previous and current teams. The height of each bar represents the average score (presumably on a scale of 0 to 5). The charts likely aim to demonstrate changes in team effectiveness based on composition and leadership styles. -->
 
 Figure 6. Team members' perceptions on ideal team composition and leadership in previous and current experiences.
 
 ![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The image presents two bar charts comparing "Accountability" and "Interdependence" levels in "EES" and "MES" systems across "Previous" and "Current" states. Each chart shows the mean score for each category. The "Current" state shows higher scores in both accountability and interdependence for both systems compared to the "Previous" state, particularly a substantial increase in interdependence for EES. The charts likely illustrate the impact of a change or intervention on these two key system attributes. -->
 
 Figure 7. Team members' perceptions on accountability and interdependence in previous and current experiences.
 
 ![](_page_10_Figure_5.jpeg)
+<!-- Image Description: The image is a bar chart comparing previous and current values for two metrics: EES and MES. EES shows a significant decrease from the previous value (around 5) to the current value (around 3). MES shows a smaller increase from a near-zero previous value to a current value slightly above 1. The chart likely illustrates a change in these metrics over time within the paper's context. -->
 
 Figure 8. Team members' perception of adherence to team performance in previous and current experiences.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "linsupsup2003"
 title: "Human Digital Twin: A Survey"
-authors: "Yujia Lin<sup>1</sup> , Liming Chen<sup>2</sup>† , Aftab Ali<sup>2</sup> , Christopher Nugent<sup>2</sup> , Cleland Ian<sup>2</sup> , Rongyang Li<sup>1</sup> , Dazhi Gao<sup>1</sup> , Hang Wang<sup>1</sup> , Yajie Wang<sup>1</sup> and Huansheng Ning1\\*"
+authors: "Yujia Lin, Liming Chen, Aftab Ali, Christopher Nugent, Cleland Ian, Rongyang Li, Dazhi Gao, Hang Wang, Yajie Wang, Communication Engineering, Xueyuan Street, York Street"
 year: 2003
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -95,6 +95,7 @@ Apollo program launched by the National Aeronautics and Space Administration (NA
 In 2003, Grieves [\[11\]](#page-30-3) proposed the DT concept of "Virtual Digital Expression Equivalent to Physical Product" in his Product Lifecycle Management (PLM). However, this concept was not explicitly named DT at that time. Instead, it was referred to as the "Mirrored Space Model" (MLM) [\[12\]](#page-30-4) from 2003 to 2005, and the "Information Mirroring Model" (IMM) [\[13\]](#page-30-5) from 2006 to 2010. Its conceptual model contained all core blocks of DT, including the physical space, the cyberspace, and the connection between the two spaces [\[14\]](#page-30-6), as shown in Figure [1.](#page-3-1) Compared with the "twin" put forward by the NASA Apollo program, Grieves has completed the transformation from entity to a digital model. Therefore, it could be seen as the origin of DT.
 
 ![](_page_3_Figure_6.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a digital twin framework for manufacturing. It depicts a "Cyber Space" with models for simulation/analysis, product definition, manufacturing/assembly processes, and measurement/inspection. These models are connected via an "Interface" to a "Physical Space" containing digital machining/assembly and measurement/inspection systems, which create a "Product Entity". Arrows indicate data flow between the cyber and physical spaces. The figure's purpose is to visually represent the system's architecture and data exchange. -->
 
 <span id="page-3-1"></span>Fig. 1 Digital twin conceptual model
 
@@ -143,6 +144,7 @@ We have searched HDT-related publications based on the search field, as shown in
 In order to establish a clear structure of existing literature we decide to clarify publications based on the nature of the papers, namely the concept, technology, framework or application of HDT. After excluding irrelevant publications, 56 literatures with high relevance were screened. Figue [2](#page-7-0) shows a steady increase in the number of HDT publications. The growth of the number of HTD-related publications began recently, after 2018. Before 2020, the development of HDT in the academic field is relatively slow. From 2020 to 2022, the number of HDT publications in the academic field increased rapidly. It shows that HDT is gradually coming out of the embryonic stage and entering the rapid development stage. Researchers have shifted from exploring the concept of HDT to exploring the generic framework of HDT and the practical application and related technologies.
 
 ![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The image is a histogram showing the number of publications per year from 2018 to 2022. Publication counts are represented by the height of the bars. A clear upward trend is visible, with a significant increase in publications from 2020 to 2022 (7, 19, and 20 publications respectively). The earlier years show much lower publication numbers (3 in 2018 and 2019). The histogram illustrates the growth in research output over time. -->
 
 <span id="page-7-0"></span>Fig. 2 Publication year for paper in the literature review
 
@@ -193,6 +195,7 @@ The first block presents a physical-world human representation, including a data
 The use of these data helps to describe HDT more comprehensively. Each human and his corresponding HDT would change synchronously. All the human-related data changes (e.g., human external data, physiological data, behavior data, social interaction data, and environment data) in the physical world will be sensed and transmitted to the digital world, and the HDT will change accordingly. In order to realize cognitive sharing and real-time
 
 ![](_page_11_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts a human digital twin system. It shows three main components: a physical world section (1) collecting human data via sensors; a digital world (2) processing this data using various modeling techniques (big data, AI, etc.), creating physical and behavior models; and a human-computer interface (3) providing feedback, decision support, and visualization. Data flows between these sections, enabling real-time monitoring and prediction. -->
 
 <span id="page-11-0"></span>Fig. 3 The generic human digital twin system framework
 

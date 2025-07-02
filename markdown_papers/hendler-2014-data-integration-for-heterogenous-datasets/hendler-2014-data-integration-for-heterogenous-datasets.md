@@ -18,6 +18,7 @@ images_removed: 3
 The Rensselaer Institute for Data Exploration and Applications, Rensselaer Polytechnic Institute, Troy, New York
 
 ![](_page_0_Picture_3.jpeg)
+<!-- Image Description: The image is a collage illustrating the concept of "integration" within a business context. A central element is a three-dimensional puzzle piece spelling out "INTEGRATION." Surrounding this are various smaller images suggesting data streams, networks, and textual keywords related to business processes, infrastructure, and resource management. The collage visually represents the complex interconnectedness of these elements, highlighting the paper's focus on system integration. -->
 
 ## Abstract
 
@@ -65,6 +66,7 @@ For the examples, I draw from the extremely large and growing domain of open gov
 <sup>{</sup> To be fair to the authors, they do allude to the need for integrating data with other systems (p. 51), but the examples they cite are systems that also assume well-modeled data, with the complexity addressed primarily being the separate issue of mining data from sensors.
 
 ![](_page_1_Picture_11.jpeg)
+<!-- Image Description: The image is a simple alphanumeric identifier: "206BD". It likely serves as a label or code within the academic paper, possibly referring to a specific sample, experiment, or data set. No graphs, charts, or equations are present. The purpose is purely identification. -->
 
 # Integrating Structured Data
 
@@ -93,10 +95,12 @@ not just keyword search, but also the ability to filter by location, topics and 
 Although these sorts of faceted browsers have become more ubiquitous on open data sites, government and otherwise,
 
 ![](_page_2_Figure_15.jpeg)
+<!-- Image Description: This image from an academic paper presents a comparative analysis of US and Chinese GDP. It features four bar charts showing the GDP growth of both countries over time, in their respective currencies and then using a consistent USD exchange rate adjustment. A smaller bar chart displays weekly foreign exchange rates between the US dollar and the Chinese Yuan. A central diagram depicts a database (cylinder) receiving input from the GDP data and providing output for the adjusted GDP comparison chart. The figure illustrates the methodology used for comparing the economic growth of the two nations. -->
 
 FIG. 2. A simple example integrating U.S. and Chinese data with an intermediary dataset.
 
 ![](_page_2_Picture_18.jpeg)
+<!-- Image Description: The image displays the alphanumeric code "BD207," likely a product identifier or catalog number. It's presented as a simple text label, serving as a reference within the academic paper, potentially identifying a specific material, device, or component under discussion. No diagrams, charts, graphs, or equations are present. -->
 
 FIG. 3. The U.S. Data.gov and many other government web sites provide faceted browsers for searching through large dataset catalogs based on metadata features.
 
@@ -115,6 +119,7 @@ alliance.org/) has created a number of interest groups exploring the development
 on web pages.<sup>6</sup> Another approach is the careful design of URL naming systems, allowing catalogs to be more easily found and indexed (hierarchically) based on topics, organizations, etc. (See, for example, the United Kingdom's standards at https://insidegovuk.blog.gov.uk/url-standardsfor-gov-uk/).
 
 ![](_page_3_Picture_11.jpeg)
+<!-- Image Description: The image is a simple text label, "208BD," likely an identifier. The text is blue-grey. To the right, smaller text indicates "BIG DATA DECEMBER 2014," suggesting the data label relates to a large dataset from December 2014. The purpose is likely to identify or reference a specific portion of the dataset discussed within the paper. -->
 
 ## Integration
 
@@ -145,16 +150,20 @@ lem if we can reconcile all the terms (Fig. 5 illustrates the mapping problems i
 Clearly, to be able to answer our query, we now need some information that would allow us to assert where the equivalences between terms lie. We need to be able to assert that ''the student relation in DB2 corresponds to the name relation in DB3'' and that ''the ID number in the advisee field of DB4 corresponds to the ID number in the student field of DB3.'' This is painful, but easily fixed by having the university
 
 ![](_page_4_Picture_17.jpeg)
+<!-- Image Description: The image shows a text snippet from a paper published in December 2014, related to "Big Data." On the right, "BD209" likely denotes a paper ID or identifier within the publication's system. There are no diagrams, charts, graphs, or equations; only text. The purpose is likely to provide publication metadata or a reference. -->
 
 ## DATA INTEGRATION FOR HETEROGENOUS DATASETS Hendler
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image displays three panels visualizing US global foreign aid data. Panel (a) shows a world map color-coded by aid amount received in 2008, alongside pie charts detailing aid distribution by US agency (USAID, Department of Agriculture, Department of State). Panel (b) presents a line graph tracking US aid to Afghanistan from 1946-2009, categorized by agency. Panel (c) compares US (USAID) and UK (DFID) aid distribution globally in a map format, with accompanying pie charts showing aid category breakdowns for each country. The purpose is to illustrate the geographical distribution, temporal trends, and agency-specific allocations of US and UK foreign aid. -->
 
 FIG. 4. Comparing U.S. foreign aid. (a) Comparing U.S. foreign aid from various agencies. Data is reconciled by country, amounts, and years. (b) Extending the comparison to show U.S. foreign aid from various agencies and the specific types of aid over time. (c) Comparing U.S. foreign aid and British foreign aid by combining datasets and using the currency conversion data show in Figure 2.
 
 ![](_page_5_Picture_3.jpeg)
+<!-- Image Description: The image shows a header or footer likely from a draft of an academic paper. It contains the alphanumeric identifier "210BD" prominently displayed on the left, followed by a much smaller annotation on the right reading "BIG DATA DECEMBER 2014". This suggests the document is related to big data research and was produced in December 2014. The "210BD" likely serves as a unique internal identifier for the document or a specific section within the paper. -->
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: Figure 5 illustrates database linking. Two tables are shown: one linking professors to courses, the other linking students to an advisee ID. Arrows depict relationships between the tables, demonstrating how data (like Professor Mary teaching "Database" and student Bob having ID "122113") can be connected across different tables based on shared values. The image showcases a simple relational database design. -->
 
 either write mapping code or pull all these relationships into a warehouse where the combined queries can be answered.
 
@@ -171,6 +180,7 @@ As the information from more databases is linked together, the relationships bet
 One other important direction being explored in this area is the creation of protocols for creating APIs for accessing data
 
 ![](_page_6_Picture_13.jpeg)
+<!-- Image Description: The image shows the alphanumeric identifier "BD211," likely a product code or designation. It's presented as a simple, stylized text label. The purpose within the academic paper is presumably to identify a specific item, component, or sample referenced in the text. No diagrams, charts, graphs, or equations are present. -->
 
 x The details of semantic data integration are beyond the scope of this article. Some useful references for more information include Noy<sup>11</sup> and Grimm et al.<sup>12</sup>
 
@@ -202,6 +212,7 @@ with accompanying data descriptions that can be used by application developers. 
 While the integration discussed above can be very powerful, and allows for putting data together across datasets in ways that can be incrementally explored, the problems that are only partially solved by semantic integration can lead to a number of odd problems. Consider the example in Figure 7. In generating this comparison, data from U.S. and U.K. crime databases are compared for the category ''burglary.'' The result seems quite surprising; it appears that burglaries per person in Avon and Somerset county, a largely nonmetropolitan area in the United Kingdom, are higher than those in the city of Los Angeles, California. This could of course be the case, but common sense would dictate that something may be
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: Figure 7 is a 3D bar chart comparing burglary rates (normalized by population) in Avon and Somerset, UK, and Los Angeles, CA, USA. A search interface is shown, indicating the data sources used. The chart visually represents the difference in burglary rates between the two locations. The US rate is notably higher than the UK rate. -->
 
 wrong here since burglaries are generally more common in large cities. From the datasets and data definitions, there is no obvious way to resolve this difficulty, and in fact resolution requires bringing in the expertise of those who know more about crime reporting in the two countries.
 
@@ -230,8 +241,10 @@ promising direction that is currently being explored actively is taking the info
 ''OTHER KINDS OF PROBLEMS THAT OFTEN SHOW UP IN INTEGRATED DATA INCLUDE MISSING DATA, IMPROPERLY ENTERED DATA, OR OTHER COMMON 'DIRTY DATA' PROBLEMS.''
 
 ![](_page_8_Picture_17.jpeg)
+<!-- Image Description: The image contains text indicating a publication date ("DECEMBER 2014") and topic ("BIG DATA"). A separate section shows "BD213," likely an identifier or code, possibly a paper ID or a conference code, related to the Big Data topic from December 2014. There are no diagrams, charts, graphs, or equations. -->
 
 ![](_page_9_Figure_2.jpeg)
+<!-- Image Description: Figure 8 is a caption describing a method, not showing a diagram or graph. It explains a technique using news titles and tweets' sentiment analysis combined with time and geolocation data to correlate and visualize information. The caption outlines a data integration and visualization approach, not a visual representation of the results. -->
 
 ''ALTHOUGH BIG DATA RESEARCHERS GENERALLY DESCRIBE THE CHALLENGES IN TERMS OF THE 'V'S' OF VOLUME, VELOCITY, AND VARIETY, THE BULK OF THE WORK IN THE FIELD HAS BEEN FOCUSED ON THE FIRST TWO.''
 
@@ -252,6 +265,7 @@ Although big data researchers generally describe the challenges in terms of the 
 becoming increasingly obvious—there are important business opportunities to be explored. Much as the Web of documents has revolutionized so much of society, the increasingly broad Web of data holds promise for exciting innovations yet to be seen.
 
 ![](_page_9_Picture_11.jpeg)
+<!-- Image Description: The image is a simple alphanumeric identifier: "214BD". The text "BIG DATA DECEMBER 2014" is present, suggesting the identifier relates to a dataset from December 2014. It likely serves as a label or reference for a specific data subset within the paper. There are no diagrams, charts, graphs, or equations. -->
 
 ## Acknowledgments
 
@@ -295,7 +309,9 @@ The Rensselaer Institute for Data Exploration and Applications Rensselaer Polyte
 E-mail: hendler@cs.rpi.edu
 
 ![](_page_10_Picture_30.jpeg)
+<!-- Image Description: The image displays a Creative Commons (CC) license attribution graphic. Specifically, it shows the CC logo, a symbol representing a person, and the abbreviation "BY," indicating a "Attribution" license. This graphic signifies that the content of the paper is licensed under a Creative Commons Attribution license, meaning others may reuse and share it with proper attribution to the original creator. -->
 
 This work is licensed under a Creative Commons Attribution 3.0 United States License. You are free to copy, distribute, transmit and adapt this work, but you must attribute this work as ''Big Data. Copyright 2013 Mary Ann Liebert, Inc. http://liebertpub.com/big, used under a Creative Commons Attribution License: http://creativecommons.org/licenses/ by/3.0/us/''
 
 ![](_page_10_Picture_33.jpeg)
+<!-- Image Description: The image contains text only. On the left, it shows a bullet point followed by "DECEMBER 2014 BIG DATA". On the right, it displays "BD215", likely an identifier or code. The text likely indicates the date and topic of a data set or project discussed in the paper, with BD215 serving as a reference code for that specific dataset. -->

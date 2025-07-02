@@ -1,7 +1,7 @@
 ---
 cite_key: "asprino2023"
-title: "Knowledge Graph Construction with a Façade: A Unified Method to Access Heterogeneous Data Sources on the Web"
-authors: "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+title: "Knowledge Graph Construction with a façade: a unified method to access heterogeneous data sources on the Web"
+authors: "Luigi Asprino, Enrico Daga, Aldo Gangemi"
 year: 2023
 doi: "10.1145/3555312"
 url: "https://dl.acm.org/doi/10.1145/3555312"
@@ -83,6 +83,7 @@ Our approach is implemented in SPARQL (with no syntax extensions), by overriding
 URL http://example.org/file.json. Intuitively, the SPARQL Anything endpoint retrieves the JSON !le from the source, then transforms it into RDF according to Facade-X, and, !nally, evaluates the query on the RDF translation of the !le and returns the result of the query to the user. As for the SELECT queries, the result is a list of bindings of the variables of the query; while an RDF KG is returned in case of CONSTRUCT queries.
 
 ![](_page_2_Figure_3.jpeg)
+<!-- Image Description: This diagram illustrates a data transformation and query process. A JSON file is transformed into RDF using a SPARQL Anything endpoint. Two SPARQL queries are shown: one selecting an address based on a name, the other constructing a new RDF graph. The diagram uses boxes to represent data structures (JSON, RDF), arrows to show data flow, and SPARQL code snippets to detail the queries. The purpose is to demonstrate the architecture and workflow of querying data transformed from JSON to RDF. -->
 
 Fig. 1. An example scenario showing how users interact with the SPARQL Anything endpoint in order to retrieve desired information (solid lines) or to construct an knowledge graph (dashed lines) from a JSON file.
 
@@ -91,6 +92,7 @@ The approach of using a façade for integrating data into RDF pipelines has been
 The rest of the article is structured as follows. In the next section, we provide background information on KGC. In Section 3 we discuss the motivations behind our problem and we make methodological considerations. Section 4 introduces the Facade-X meta-model and its mappings to RDF structures. We expand the formalisation introduced in [20], including operators that re#ect possible design choices. Section 5 describes how the Facade-X meta-model can be implemented by selecting a few relevant components from RDF and RDFS speci!cations. In Section 6, we apply the methodology to a system for re-engineering non-RDF resources, in order to make them available through a SPARQL processing engine. In Section 7, we focus on the evaluation of the approach. We demonstrate that our meta-model is generic enough to cover structured data expressible in formal grammars (Section 7.1.1) and relational data (Section 7.1.2). We also compare our approach to state-of-the-art tools for Knowledge Graph construction, in terms of*cognitive complexity*(Section 7.2) and*performance*of a naive implementation (Section 7.3). We describe experiments performed
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: The image displays three cyclical data flow diagrams illustrating different knowledge graph completion (KGC) approaches. (a) shows a traditional KGC cycle with "Input," "Observe," "Design," "Transform," and "Output" stages. (b) presents a revised cycle adding "Reengineer" and "Remodel" stages. (c) depicts a "Facade-X" approach, integrating (b)'s revised cycle with a SPARQL component, emphasizing a modular design. The diagrams compare workflow variations in KGC. -->
 
 Fig. 2. Alternative Knowledge Graph Construction (KGC) processes.
 
@@ -268,6 +270,7 @@ In this section we describe SPARQL Anything, a proof-of-concept of our approach.
 Based on the output of our design activity, i.e. the RDF version of Facade-X, we design a method to inject façade-based data sources into SPARQL engines, with the objective of serving this content to the SPARQL practitioner for de!ning mappings to the target ontology (cf. the*re-modeling* activity mentioned in Section 1). To this end, we overload the SPARQL SER-VICE operator by de!ning a custom URI-schema. The implementation of Facade-X acts as a virtual endpoint that can be queried exactly as a remote SPARQL endpoint. In order to instruct the query processor to delegate the execution to Facade-X, we introduce a speci!c convention for building an IRI to be used within SERVICE clauses: x-sparql-anything:. The related URI-schema supports an open-ended set of parameters speci!ed by the
 
 ![](_page_10_Figure_7.jpeg)
+<!-- Image Description: The image is a UML-like diagram illustrating a class hierarchy. `rdfs:Class` is at the top, pointing to a container which can hold `rdfs:Class` or `rdfs:Literal` values using string or list keys. This container itself is of type `rdfs:Class`. At the bottom, `fx:root` is shown as a singleton inheriting from the container. The diagram depicts the data structure's inheritance relationships and key-value types. -->
 
 Fig. 3. Facade-X/RDF entity-relation diagram
 
@@ -288,8 +291,10 @@ We now show how to use Facade-X. Following our example scenario, users can selec
 TOIT, ACM Transactions on Internet Technology Asprino and Daga, et al.
 
 ![](_page_11_Figure_2.jpeg)
+<!-- Image Description: The image contains two UML diagrams. Figure 4 is a sequence diagram illustrating a user querying a SPARQL endpoint, retrieving a file from a repository, and receiving results. Figure 5 is an activity diagram detailing the process: a SPARQL query is analyzed, files are retrieved and transformed into RDF using FacadeX, the query is evaluated against the RDF, and results are returned. Both diagrams depict the workflow of a system processing SPARQL queries against files. -->
 
 ![](_page_11_Figure_4.jpeg)
+<!-- Image Description: The image displays a SPARQL query. Lines 1-8 define prefixes for various namespaces. Lines 10-16 construct a RDF graph, mapping artwork data. Lines 17-33 query a CSV file (`artwork_data.csv`) and a JSON file (path determined dynamically) using SERVICE clauses and BIND functions to create `?artwork` and `?subject` IRIs, linking artwork data with subject information. The query uses string manipulation to construct URIs from data elements. -->
 
 The query iterates over a CSV with artworks' metadata and, for each one, constructs the path to the local JSON !le containing the artwork subjects. All the data is projected into a CONSTRUCT clause18.
 
@@ -450,6 +455,7 @@ $$
 The intent of the Facadify function is to interpret the components of the input format as basic data structures and to instantiate the Facade-X model accordingly. For example, the containers derived from member can be interpreted as key/value pairs. An example of such transformation is provided in the Listings 4 and 5.
 
 ![](_page_17_Figure_9.jpeg)
+<!-- Image Description: The image displays three code listings. Listing 4 shows a container with non-terminal pairs, represented as nested tuples. Listing 5 presents a Facade-X model, translating Listing 4 into a relational structure using `hasSlot`, `hasValue`, and `hasKey` predicates. Listing 6 simplifies the Facade-X model into a JSON-like structure, illustrating a data transformation process. The purpose is to demonstrate the representation and transformation of data between different models. -->
 
 Finally, we introduce the function*Triplify*, which takes as input a Facade-X model and uses a set of RDF constructs: RDF properties, the predicate rdf:type, and container membership properties, to express sequences (instead of rdf:List, following the recommendation of [22]).
 
@@ -466,6 +472,7 @@ In this section, we laid the theoretical foundation of the façade-based KGC. We
 Knowledge Graph Construction with a*façade*TOIT, ACM Transactions on Internet Technology
 
 ![](_page_18_Figure_2.jpeg)
+<!-- Image Description: The image presents two bar charts comparing four query languages (SPARQL Anything, SPARQL-Generate, RML, ShExML) across twelve queries (q1-q12). Chart (a) shows the total number of tokens per query for each language, while chart (b) displays the number of *distinct* tokens. The charts illustrate the variation in token count and unique token usage among the languages for different queries, likely to analyze efficiency or complexity. -->
 
 Fig. 6. Analysis of the number of tokens needed for expressing each competency questions.
 
@@ -478,6 +485,7 @@ We present a quantitative analysis on the cognitive complexity of SPARQL Anythin
 TOIT, ACM Transactions on Internet Technology Asprino and Daga, et al.
 
 ![](_page_19_Figure_2.jpeg)
+<!-- Image Description: The image presents two bar and line charts comparing the execution times of four RDF data mapping tools (SPARQL Anything, SPARQL-Generate, RML Mapper, ShExML). The left chart shows execution time for 12 queries (q1-q12), highlighting variations across queries. The right chart illustrates scalability, plotting execution time against data size (log scale), revealing performance differences as data volume increases. Both charts aim to assess and contrast the efficiency and scalability of the different tools. -->
 
 (a) Execution time per query (maximum value 5000ms). (b) Execution time with increasing input size.
 
@@ -522,6 +530,7 @@ In order to add an empirical element to the multi-facated evaluation of the appr
 <sup>36</sup>https://forms.gle/nsdm8vsXz2o81CQ56
 
 ![](_page_21_Figure_2.jpeg)
+<!-- Image Description: The image presents bar charts comparing query response times under two scenarios. (a) shows query times varying across different dataset sizes (10, 100, 1k, 10k) for three query types. (b) compares query times for artists, artworks, and subjects in a larger dataset (1M). Error bars represent variability. The charts illustrate the performance and scalability of a system (likely a database or search engine) across different query types and dataset sizes. -->
 
 Fig. 8. The x axis reports the size of the collection, while the y axis the execution time in seconds. The first query is in blue bars, the second green, and the third red. The marked bars refer to the triple-filtering method.
 
@@ -530,6 +539,7 @@ Web practitioners, SPARQL developers/users and Master Students learning advanced
 The !rst set of questions were concerned with the participants' expertise and experience. 37% needed to transform non-RDF resources into RDF either frequently or very frequently. 33.3% performed this task rarely or never. 37% rated their expertise in transforming data into RDF as high or very high. 29% rated their expertise as low and 7.4% as none. 14.8% of participants had contributed
 
 ![](_page_21_Figure_6.jpeg)
+<!-- Image Description: The image presents three pie charts (a, b, c) showing the distribution of responses to a perceived difficulty question. Each chart represents a different group's responses, categorized as: Very difficult, Difficult, Neutral, Easy, and Very easy. Chart (c) shows a significant shift toward the "Easy" category compared to (a) and (b), suggesting an improvement in ease of use or understanding. The charts visually compare the relative proportions within each group's perception of difficulty. -->
 
 Fig. 9. We asked users about the usability of three notations: (a) RML, (b) SPARQL Generate, and (c) SPARQL Anything.
 

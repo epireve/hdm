@@ -1,7 +1,7 @@
 ---
 cite_key: "technology2024b"
 title: "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction"
-authors: "<sup>1</sup>School of Information Science and Technology, Fudan University, Shanghai 200433, China."
+authors: "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -77,6 +77,7 @@ where W<sup>1</sup> and W<sup>2</sup> are weight matrices, and b<sup>1</sup> and
 # B. CTGNN Model
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a crystal graph neural network. Input CIF files are processed, generating atom and neighbor features, and topological features (distances and angles). These are concatenated and fed into atom and neighbor transformers within a graph convolutional layer. A pooling layer summarizes the information, leading to predicted crystal properties. RBF and angular kernels are used in feature extraction. The diagram shows the data flow and processing steps of the model. -->
 
 FIG. 1: Our CTGNN framework. Transformer Layer denotes as Transformer encoder for atom features and neighbor features. After the Transformer Layers, CGCNN convolution layers are used. And finally pooling and predicting layers are used to get the prediction. Topological features include angular and distances (RBF) information.
 
@@ -215,6 +216,7 @@ In order to evaluate the performance, we used JARVIS-DFT[36](#page-12-6), dated 
 As listed in Table [I,](#page-6-0) our proposed CTGNN model demonstrates superior performance on the perovskites dataset on formation energy and bandgap prediction. The plots of the target and prediction distribution are also shown in Fig [2.](#page-7-0) Specifically, CTGNN achieves the lowest MAE on the formation energy prediction on the Pero dataset, compared to CGCNN and MEGNet models. With the MAE of 0.013 eV/atom, CTGNN is 51.85% and 59.38% better than CGCNN and MEGNet, whose MAE is 0.027 and 0.032 eV/atom respectively. The R<sup>2</sup> is also the highest, with 0.8% and 1.4% improvements. When it comes to the bandgap prediction on the Pero dataset, CTGNN also surpasses CGCNN and MEGNet models with a lower MAE and higher R<sup>2</sup> . To be more detailed, the MAE is 0.156 eV, which is 45.26% and 47.30% better. The Jarvist dataset exhibits the same trend, with the CTGNN model enjoying the lowest MAE of 0.469 eV, which is 11.67% and 4.87% better, a significant improvement. These results underline the effectiveness of CTGNN in handling complex material datasets, especially in the perovskites datasets over traditional methods like CGCNN and MEGNet, highlighting its potential in the perovskites era.
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image presents two scatter plots comparing predicted versus target values for material properties from three machine learning models (CGCNN, MEGNET, CTGNN). (a) shows formation energy; (b) shows bandgap. Each point represents a material. The dashed line indicates perfect prediction. Histograms on the top of each plot show the distribution of prediction errors. Mean absolute errors (MAE) are reported for each model, indicating the accuracy of each model in predicting the material property. -->
 
 FIG. 2: Plots of predicted formation energy and bandgap versus target for CGCNN, MEG-Net, and CTGNN models, respectively. the upper and right part are the target and prediction data distribution.
 

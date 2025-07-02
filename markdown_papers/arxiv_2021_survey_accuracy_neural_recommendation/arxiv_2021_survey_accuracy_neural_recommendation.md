@@ -1,7 +1,7 @@
 ---
 cite_key: "wu2008"
 title: "A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation"
-authors: "<sup>•</sup> *L. Wu, and M Wang are with Key Laboratory of Knowledge Engineering with Big Data, Hefei University of Technology, Hefei, Anhui 230029, China, and Institute of Artificial Intelligence, Hefei Comprehensive National Science Center, Hefei, Anhui 230088 (email: lewu.ustc, eric.mengwang@gmail.com).*"
+authors: "Meng Wang, Fellow, IEEE"
 year: 2008
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -34,6 +34,7 @@ Given the significance and popularity of recommendation research, there are some
 Existing surveys consist of two main parts. The first part focuses on the specific topics or directions, such as side information utilization in collaborative filtering [\[7\]](#page-14-6), crossdomain recommendation [\[8\]](#page-14-7), explainable recommendation [\[11\]](#page-14-10), knowledge graph-enhanced recommendation [\[12\]](#page-14-11), sequential recommendation [\[13\]](#page-14-12), [\[14\]](#page-14-13), and session-based
 
 <sup>•</sup> *L. Wu, and M Wang are with Key Laboratory of Knowledge Engineering with Big Data, Hefei University of Technology, Hefei, Anhui 230029, China, and Institute of Artificial Intelligence, Hefei Comprehensive National Science Center, Hefei, Anhui 230088 (email: lewu.ustc, eric.mengwang@gmail.com).*<sup>•</sup>*K. Zhang is with Key Laboratory of Knowledge Engineering with Big Data, Hefei University of Technology, Hefei, Anhui 230029, China.(email:zhang1028kun@gmail.com).*<sup>•</sup>*X. He is with University of Science and Technology of China, Hefei 230026, China. (email: xiangnanhe@gmail.com).*<sup>•</sup>*X. Wang is with National University of Singapore, Singapore. (email: xiangwang@u.nus.edu).*<span id="page-1-1"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image is a 3D diagram illustrating different data types used in recommendation systems. Three data categories are shown as stacked boxes: User Data (blue), Interaction Data (grey), and Item Data (yellow). A larger, encompassing box represents Context Data. The diagram's right side lists three recommendation model types: Collaborative Filtering (using Interaction Data), Content-enriched Models (using Interaction, User, and Item Data), and Context-aware Models (using Interaction and Context Data). Dashed lines show how data is combined in the models. -->
 
 Fig. 1: An illustration of the data used for recommendation modeling and the three model types.
 
@@ -260,6 +261,7 @@ Many studies have empirically found that the most predictive power of review tex
 With the huge success of language generation tech-
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image presents three diagrams (A, B, C) illustrating the architectures of DeepCoNN, VBPR, and DiffNet, respectively. (A) shows a multi-layered neural network processing user and item review text. (B) depicts a model using a pretrained deep CNN to extract visual features from an item image, followed by factorisation. (C) illustrates DiffNet, showing user and item feature embedding and processing through multiple layers, culminating in a prediction. Each diagram visually represents a different recommendation system architecture. -->
 
 Fig. 2: The classical methods for content-enriched models
 
@@ -463,6 +465,7 @@ GRU4REC has been further investigated with item feature consideration [\[202\]](
 Researchers also proposed a translation based model to capture the personalized sequential third order interactions
 
 <span id="page-12-1"></span>![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image displays architectural diagrams of three recommendation systems: GRU4Rec, SASRec, and SR-GNN. (A) shows GRU4Rec as a sequence of GRU layers processing embedded input items. (B) illustrates SASRec with self-attention and feed-forward networks for sequence prediction. (C) depicts SR-GNN using a graph neural network and attention mechanism to model user-item relationships, culminating in a softmax layer to predict item probabilities. Each diagram visually represents the model's components and data flow. -->
 
 Fig. 3: The classical methods for temporal/sequential Models
 
@@ -799,26 +802,31 @@ this survey is able to help reader to quickly understand the development and key
 - <span id="page-19-17"></span>[279] W. Krichene and S. Rendle, "On sampled metrics for item recommendation," in *SIGKDD*, 2020, pp. 1748–1757.
 
 ![](_page_19_Picture_19.jpeg)
+<!-- Image Description: The image is a text block providing biographical information on Le Wu. It states her current position as associate professor and Ph.D. supervisor at Hefei University of Technology, her Ph.D. from University of Science and Technology of China, her research interests (data mining, recommender systems, social network analysis), and her publication record (over 50 papers). It also mentions awards she received. The image contains no diagrams, charts, graphs, or equations. -->
 
 sociation for Artificial Intelligence (CAAI) 2017, and the Youth Talent Promotion Project from China Association for Science and Technology.
 
 ![](_page_19_Picture_21.jpeg)
+<!-- Image Description: That's not a technical image; it's a photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is likely an author photograph for the academic paper, providing a visual representation of the author. It serves no technical purpose within the paper's content. -->
 
 **Xiangnan He**is a professor at the University of Science and Technology of China (USTC). He received his Ph.D. in Computer Science from the National University of Singapore (NUS). His research interests span information retrieval, data mining, and multi-media analytics. He has over 80 publications that appeared in several top conferences such as SIGIR, WWW, and MM, and journals including TKDE, TOIS, and TMM. His work has received the Best Paper Award Honorable Mention in WWW 2018 and ACM SIGIR
 
 2016. He is in the editorial board of journals including Frontiers in Big Data, AI Open etc. Moreover, he has served as the PC chair of CCIS 2019 and SPC/PC member for several top conferences including SIGIR, WWW, KDD, MM, WSDM, ICML etc., and the regular reviewer for journals including TKDE, TOIS, TMM, etc.
 
 ![](_page_19_Picture_24.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person. It contains no diagrams, charts, graphs, equations, or technical illustrations. Within the context of an academic paper, it would likely be an author photograph, serving only an identification purpose and not conveying any technical information. -->
 **Xiang Wang**is now a research fellow at National University of Singapore. He received his Ph.D. degree from National University of Singapore in 2019. His research interests include recommender systems, graph learning, and explainable deep learning techniques. He has published some academic papers on international conferences such as KDD, WWW, SIGIR, and AAAI. He serves as a program committee member for several top conferences such as KDD, SIGIR, WWW, and IJCAI, and invited reviewer for pres-
 
 tigious journals such as TKDE, TOIS, TNNLS, and TMM.
 
 ![](_page_19_Picture_27.jpeg)
+<!-- Image Description: That's not a technical image; it's a headshot photograph of a person. There are no diagrams, charts, graphs, equations, or technical illustrations. The image is likely an author photograph included in the paper for identification purposes and not related to the technical content of the research. -->
 **Kun Zhang**received the PhD degree in computer science and technology from University of Science and Technology of China, Hefei, China, in 2019. He is is currently a faculty member with the Hefei University of Technology (HFUT), China. His research interests include Natural Language Understanding, Recommendation System. He has published several papers in refereed journals and conferences, such as the IEEE Transactions on Systems, Man, and Cybernetics: Systems, the ACM Transactions on
 
 Knowledge Discovery from Data, AAAI, KDD, ACL, SIGIR, WWW, ICDM. He received the KDD 2018 Best Student Paper Award.
 
 ![](_page_19_Picture_30.jpeg)
+<!-- Image Description: That's not a technical image; it's a photograph of a person. It contains no diagrams, charts, graphs, equations, or technical illustrations. In the context of an academic paper, it's likely an author portrait or a contributor photograph and has no technical content. -->
 **Meng Wang** received the BE and PhD degrees from USTC, in 2003 and 2008, respectively. He is a professor with HFUT. His current research interests include multimedia content analysis, computer vision, and pattern recognition. He has authored more than 200 book chapters, journal, and conference papers in these areas. He is the recipient of the ACM SIGMM Rising Star Award 2014. He is an associate editor of the IEEE Transactions on Knowledge and Data Engineering, the IEEE Transactions on Circuits and
 
 Systems for Video Technology, and the IEEE Transactions on Neural Networks and Learning Systems. He is an IEEE Fellow and IAPR Fellow.

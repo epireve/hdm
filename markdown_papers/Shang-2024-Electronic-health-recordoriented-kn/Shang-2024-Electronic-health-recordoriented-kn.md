@@ -1,7 +1,7 @@
 ---
 cite_key: "security2024"
 title: "Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study"
-authors: "<sup>1</sup>Research Center for Data Hub and Security, Zhejiang Laboratory, Hangzhou, China"
+authors: "Tianshu Zhou, Ping Zhang, Jianghua Chen, Jingsong Li"
 year: 2024
 doi: "10.2196/54263"
 date_processed: "2025-07-02"
@@ -106,6 +106,7 @@ The system is deployed in hospitals, where it conducts local reasoning on local 
 <span id="page-3-0"></span>**Figure 1.**The architecture of the EHR-oriented knowledge graph system. (1) The local EHR knowledge graph system performs local reasoning based on local EHR data. (2) The distribution component creates online subgraphs with intermediate reasoning findings to synchronize across hospitals without sharing original EHR data. (3) The blockchain network supports the collaborative process. CDS: clinical decision support; CP-ABE: ciphertext-policy attribute–based encryption. EHR: electronic health record; OMOP: Observational Medical Outcomes Partnership; RDF: resource description framework.
 
 ![](_page_3_Figure_6.jpeg)
+<!-- Image Description: This figure depicts a system architecture for a distributed Electronic Health Record (EHR) knowledge graph. It shows three main components: a local EHR knowledge graph system (1) processing data via semantic reasoning and visualization; a distribution component (2) handling semantic mapping, patient alignment, and data encryption using a blockchain; and a blockchain network component (3) managing consensus mechanisms and process control. The diagram uses boxes, arrows, and smaller diagrams to illustrate data flow and processing steps within each component, including data conversion, knowledge graph creation, and encryption for privacy. -->
 
 ###*The Local EHR Knowledge Graph Component*The local EHR knowledge graph component offers the capability to leverage local EHR data for semantic reasoning and CDS generation. This component has been adapted from our previous study [[18\]](#page-18-1). The EHR Data Conversion Module is responsible for transforming EHR data into resource description framework (RDF)–type triples to enable semantic querying and reasoning. The module conducts an analysis of the EHR database and aligns table concepts with the entities within the knowledge graph ontology. Within the EHR knowledge graph, EHR data and clinical knowledge entities undergo a semantic transformation, organized under a unified top-level ontology structure. Semantic triples are used within the EHR knowledge graph to represent the clinical information pertaining to each patient. The Semantic Reasoning Module offers rule-based reasoning capabilities on the local knowledge graph to generate CDS-related findings. Additionally, the module establishes an EHR pathway for each patient to facilitate the collaboration of multicenter information. This involves connecting intermediate findings from multiple centers along a virtual timeline using semantic relationships, ultimately contributing to the final reasoning process for CDS. The Visualization and Explanation Module furnishes clinicians with a visualized timeline, aiding in their comprehension of critical medical information and evidence pertinent to the CDS.
 
@@ -116,8 +117,10 @@ The system is deployed in hospitals, where it conducts local reasoning on local 
 be matched. Medical data nodes are prohibited from being distributed and are not used for online subgraph construction. Intermediate reasoning findings, represented by hypernym concepts, are extracted to build the online subgraph. This allows the transfer of a patient's clinical evidence without exposing original EHR data. Other hospitals receive the online subgraph to collaborate on multicenter clinical evidence by loading intermediate findings of the aligned patients. If access control is required, the online subgraph can be encrypted using ciphertext policy attribute–based encryption.
 
 <span id="page-4-0"></span>![](_page_4_Figure_4.jpeg)
+<!-- Image Description: Figure 2 describes a data access method for a distribution component. It explains that original EHR data and identities are not used to create online subgraphs. Instead, encrypted identities, timestamps, and authorized findings are used to build these subgraphs for collaborative reasoning. The figure is purely descriptive text, providing no diagrams or visual elements. -->
 
 ![](_page_4_Figure_5.jpeg)
+<!-- Image Description: This flowchart details a system for collaborative medical data analysis. Patient data from a local EHR knowledge graph is processed. Unique identifiers are hash-encrypted for privacy. A distribution component creates virtual patients, forwarding reasoned findings to an online subgraph for collaboration, where only date and anonymized findings are shared. The process uses semantic reasoning to generate medical decision support. The diagram illustrates data flow and privacy preservation techniques. -->
 
 ###*The Blockchain Network Component*The blockchain network component establishes a blockchain node and manages the blockchain network. It securely synchronizes locally generated online subgraphs with other systems and delivers acquired triples from other hospitals to the local system, supporting the collaborative reasoning process. A requirement of the collaborative reasoning process is broadcast through the blockchain network, allowing each node to receive the process's series number. The blockchain method was chosen because it is a proven approach for synchronizing data in distributed systems and is already used in medical domain studies [\[34](#page-18-15),[35](#page-18-16)]. All actions on the blockchain are logged and traceable. In this study, we used Golang [[36\]](#page-18-17) and libp2p [[37\]](#page-18-18) for blockchain platform construction, with proof of stake as the consensus mechanism.
 
@@ -128,15 +131,18 @@ be matched. Medical data nodes are prohibited from being distributed and are not
 The EHR knowledge graph systems are deployed in each hospital and connected through a blockchain network for collaborative reasoning. [Figure 3](#page-5-0) illustrates the multicenter collaboration setting of the system. The EHR knowledge graph system is implemented in local hospitals and uses local EHR data sets for reasoning without exposing the original EHR data. Participating hospitals generate intermediate reasoning results, represented by hypernym concepts to isolate them from the original data, and use hash-encrypted identities to build online subgraphs. The sponsoring hospital receives the online subgraphs via the blockchain network and conducts patient alignment by comparing identity hash codes. For every patient, a comprehensive clinical pathway is established by amalgamating local evidence and intermediate reasoning outcomes from participating hospitals. A conclusive summary reasoning process utilizes the entirety of patient data to furnish clinicians with comprehensive CDS. Throughout this process, the original EHR data remain preserved within the local systems.
 
 ![](_page_4_Picture_11.jpeg)
+<!-- Image Description: The image is a simple text graphic showing "XSL-FO" in gray and "RenderX" in purple. It likely serves as a logo or identifier within the paper, indicating the use of RenderX software, a product that processes XSL-FO (Extensible Stylesheet Language Formatting Objects) files for document formatting and rendering. The image's purpose is to acknowledge the technology utilized in the paper's document generation or presentation. -->
 
 <span id="page-5-0"></span>**Figure 3.**Setting of the EHR knowledge graph system in the multicenter environment. The participating hospitals perform local reasoning and pass the intermediate reasoning results through generated subgraphs. The sponsoring hospital performs local reasoning based on local EHR data and acquired intermediate findings to generate a comprehensive CDS for application. CDS: clinical decision support; EHR: electronic health record; KG: knowledge graph.
 
 ![](_page_5_Figure_3.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning system for clinical decision support (CDS). Hospitals B and C contribute anonymized patient data (subgraphs G'<sub>B</sub> and G'<sub>C</sub>) from their knowledge graphs (KGs) to a blockchain network. A sponsor hospital (A) receives these subgraphs, aligns patients, and integrates the data into its local KG (G<sub>A</sub>), creating a complete pathway and final CDS delivered via a clinical application. The process uses hash encryption for patient privacy. -->
 
 ###*Patient Information Model*<span id="page-5-1"></span>The EHR data within an OMOP CDM–based data table undergo transformation into RDF-type triples, thereby adopting a patient-centric information model suitable for querying and semantic reasoning. The structure of this patient information model is depicted on the left side of [Figure 4.](#page-5-1) It is a 3-level, patient-visit-treatment semantic structure. It models each patient's EHR data into a semantic clinical trajectory, facilitating patient-level querying and reasoning. The patient information model transmutes table-based EHR data into semantic graphs, enabling semantic reasoning, with each data element linking to its corresponding knowledge nodes.
 **Figure 4.**The semantic structure of the RDF-type patient EHR data. In the local EHR knowledge graph, a patient-visit-treatment structure defines the semantic structure of EHR information. In the online subgraph, the structure contains only patient nodes with hash identity, virtual visit nodes with visit dates, and virtual finding nodes with finding types and positive labels. EHR: electronic health record; RDF: resource description framework.
 
 ![](_page_5_Figure_8.jpeg)
+<!-- Image Description: The image displays a knowledge graph illustrating the construction of an online subgraph from a local Electronic Health Record (EHR) knowledge graph. Nodes represent classes (e.g., "Disease") and individuals (e.g., "Patient"), connected by semantic and reasoning connections. Different data types are color-coded. The process involves mapping information from the local EHR (patient data, visits, procedures) to a virtual patient representation in the online subgraph. The graph visually explains the data integration and transformation steps. -->
 
 ###*The Online Subgraph*The online subgraph serves as a streamlined patient information model designed for online synchronization among multiple EHR knowledge graph systems. The ontology structure of the online subgraph is illustrated in the right section of [Figure 4](#page-5-1). The entities within the online subgraph mirror those within the local EHR knowledge graph, focusing solely on information pertinent to collaborative reasoning to conserve network resources. Each patient entity comprises solely hash-encrypted identity values for patient alignment. Virtual visit nodes exclusively feature visit dates to denote visit records from other hospitals. Similarly, virtual clinical finding nodes harbor intermediate reasoning outcomes tailored for collaborative reasoning purposes.
 
@@ -149,6 +155,7 @@ The multicenter collaborative reasoning process delineates a systematic interact
 <span id="page-6-0"></span>**Figure 5.**The overall process of collaborative reasoning. (1) All the centers identify patients meeting the cohort entry criteria. (2) The sponsoring center aligns patients by hash-encrypted identities. (3) The system creates a complete visit pathway with cohort entry findings for each patient to determine the ROIs for further reasoning. (4) Each center performs semantic reasoning and generates intermediate findings based on local EHR data. (5) The intermediate reasoning findings from multiple hospitals are collaborated for final decisions. CDS: clinical decision support; EHR: electronic health record; ROI: region of interest.
 
 ![](_page_6_Figure_9.jpeg)
+<!-- Image Description: This flowchart depicts a multi-center clinical data sharing process using a blockchain network. It details the steps, from initial patient identification and data encryption to collaborative reasoning and final clinical decision support (CDS). Key stages include patient alignment using encrypted IDs, region of interest (ROI) determination within Electronic Health Records (EHRs), independent semantic reasoning at each center, and finally, collaborative reasoning across centers using the shared data. The flowchart illustrates the data flow and the interaction between a sponsor center and participating centers. -->
 
 ###*Initiation Protocol*To initiate a collaborative reasoning process, the local system first executes the initiation protocol as a preparatory step. This protocol is tailored for the local system to delineate the reasoning cohort. The process identifies initial clinical evidence to determine whether a patient needs to join the collaborative reasoning. Unrelated patients are ruled out to save resources. The initiation protocol varies from one disease to another.
 
@@ -173,10 +180,12 @@ The online subgraphs transmit intermediate reasoning results to the sponsoring h
 In instances where decision support necessitates evidence beyond the scope of semantic reasoning, the system offers an interface to interact with other nonreasoning protocols to obtain the requisite evidence. For instance, in the application study, the garbled circuit algorithm is used to compare 2 test results without revealing the actual numerical values [\[38\]](#page-19-0). The protocol incorporates its own security mechanism to generate clinical findings in a data-private manner.
 
 ![](_page_7_Picture_15.jpeg)
+<!-- Image Description: The image is a simple textual representation, not a diagram or chart. It shows "XSL-FO" in gray text stacked above "RenderX" in purple text. This likely identifies the XSL-FO (Extensible Stylesheet Language Formatting Objects) processing software, RenderX, used in the paper's methodology or results section to generate formatted output, possibly of XML data. The image serves as a brief mention or acknowledgement of the specific tool employed. -->
 
 <span id="page-8-0"></span>**Figure 6.**(A) Local systems generate intermediate reasoning results and collaborate by a blockchain network. (B) The multicenter collaborated findings support CDS reasoning and provide explainable results to clinicians. CDS: clinical decision support; EHR: electronic health record.
 
 ![](_page_8_Figure_3.jpeg)
+<!-- Image Description: The image displays two diagrams illustrating a blockchain-based system for synchronizing clinical data across hospitals (A and B). Diagram A depicts the flow of clinical data—diagnosis, measurement, prescriptions—between local and virtual patient visits at three hospitals, highlighting data synchronization via blockchain. Diagram B shows a system with added semantic reasoning and clinical decision support, culminating in visualization for clinicians and collaborative pathways facilitated by blockchain. Both diagrams use timelines and boxes to represent the data flow and processing stages. -->
 
 ### Application to Unconsidered CKD Detection Through Fragmented EHR Data
 
@@ -196,8 +205,10 @@ A disease-specific local ontology for CKD and semantic reasoning rules were deve
 **Figure 7.**The multicenter data group focuses on the early detection of unconsidered CKD using collaborated evidence from multiple hospitals. The transferred group focuses on unconsidered CKD warning at the first visit in the transferred hospital by collaborating evidence from previous hospital visits. CKD: chronic kidney disease.
 
 ![](_page_9_Figure_9.jpeg)
+<!-- Image Description: The image compares CKD diagnosis timelines in two groups: a multicenter data group and a transferred patient group. It uses two Gantt-chart-like diagrams showing patient visits (orange and blue bars) at different hospitals (A and B) over time. Purple circles represent tests. The multicenter group shows early CKD detection via collaboration, while the transferred group shows delayed diagnosis due to fragmented data and a lack of inter-hospital communication. Arrows highlight the key differences in collaboration and diagnosis timing. -->
 
 <span id="page-9-1"></span>![](_page_9_Figure_10.jpeg)
+<!-- Image Description: The image is a textbox labeled "Textbox 2. Focus of the collaborative reasoning." It contains no diagrams, charts, graphs, equations, or illustrations; it is purely textual, serving as a title or heading likely introducing a section within the paper discussing the central theme of collaborative reasoning. -->
 
 ### 1. Detection through the combination of information from multiple hospitals
 
@@ -244,6 +255,7 @@ The study was approved by the Clinical Research Ethics Committee of FAHZU (appro
 The cohort for multicenter reasoning of unconsidered patients with CKD included individuals from FAHZU, Zhejiang Hospital, and AHHNU, spanning from March 2008 to November 2020. All patients had visit records at FAHZU as well as visit records at either Zhejiang Hospital or AHHNU. Patients with a test record of an estimated glomerular filtration rate lower than 60 mL/min or a urine albumin-to-creatinine ratio higher than 30 mg/g were included in the cohort. Exclusion criteria were having a diagnosis record of any kidney disease or having a visit record from the kidney department. The cohort comprised a total of 1185 patients. [Table 1](#page-11-0) presents the characteristics of the patients at the time of cohort entry.
 
 ![](_page_10_Picture_17.jpeg)
+<!-- Image Description: That image is not a diagram, chart, graph, equation, or technical illustration; it simply shows text. Specifically, it displays "XSL-FO" in gray and "RenderX" in purple. In the context of a paper, this likely identifies the XSL-FO (Extensible Stylesheet Language Formatting Objects) processing software (RenderX) used for document layout and formatting within the paper's production. -->
 
 <span id="page-11-0"></span>**Table 1.**Characteristics of the study cohort.
 
@@ -330,6 +342,7 @@ The CKD-related risk coverage highlights the system's ability to furnish compreh
 The potential examination reduction suggests that collaborative reasoning can effectively leverage multicenter fragmented information, using previous tests to identify overlooked CKD and offer decision support. This has the potential to reduce duplicate tests resulting from information gaps and facilitate prompt treatment.
 
 ![](_page_12_Picture_16.jpeg)
+<!-- Image Description: The image displays text identifying two technologies: "XSL-FO" and "RenderX," likely used in the paper. "XSL-FO" is presented in grey, while "RenderX" is in purple, suggesting a distinction in their roles. The image probably serves to list or reference specific software or technologies relevant to the paper's topic (presumably related to document formatting or XML processing, given the acronym XSL-FO). No diagrams, charts, graphs, or equations are present. -->
 
 <span id="page-13-0"></span>**Table 3.**Discovery lead time and comparison between multicenter collaborative reasoning and single-center data analysis.
 
@@ -351,6 +364,7 @@ The potential examination reduction suggests that collaborative reasoning can ef
 **Figure 8.**(A) Identified CKD-related risks of the Multicenter Data Group. (B) Identified CKD-related risks of the Transferred Group. The collaborative reasoning identified more CKD-related risk identification, while single-hospital reasoning missed some clinical evidence during decision support. AKI: acute kidney injury; BUN: blood urea nitrogen; CKD: chronic kidney disease; UA: uric acid; UP: urinary protein.
 
 ![](_page_13_Figure_8.jpeg)
+<!-- Image Description: The image contains two bar graphs (A and B) comparing the prevalence of various comorbidities in two datasets: single-hospital data and multicenter fragmented data. Each graph displays the frequency of conditions such as bicarbonate abnormality, BUN abnormality, and anemia. The purpose is to illustrate differences in comorbidity profiles between the two datasets, potentially highlighting limitations or biases in one versus the other. -->
 
 ### Visualization and Explanation of CDS Results
 
@@ -383,6 +397,7 @@ remote findings are distinguished by different filling styles. The local EHR dat
 |                                                               |                                                                                                                                         |                    | K                                      |                      |                                     |
 
 ![](_page_14_Figure_8.jpeg)
+<!-- Image Description: This image displays a patient's medical timeline, represented as a network graph. Nodes depict diagnostic tests (blood chemistry, urinalysis, full blood count) and clinical findings (diabetes, hypertension), connected by edges showing temporal relationships and diagnostic pathways. The timeline spans from April 2019 to May 2020. A table summarizes key findings meeting chronic kidney disease (CKD) diagnostic criteria, including reduced kidney function (eGFR) and hyperkalemia. The graph visualizes the patient's diagnostic journey and the progression of CKD. -->
 
 ### Principal Findings
 
@@ -405,6 +420,7 @@ While the application study concentrated on unconsidered CKD warning, the propos
 This study has its limitations. When deploying the system across an extensive network of hospitals and clinics, communication
 
 ![](_page_15_Picture_14.jpeg)
+<!-- Image Description: The image is a URL: `https://www.jmir.org/2024/1/e`. It appears to be a link to an online journal article, likely from the Journal of Medical Internet Research (JMIR), published in January 2024. The "e" likely designates an electronic supplementary material or an article published online ahead of print. No diagrams, charts, graphs, equations, or illustrations are present in the provided image itself. -->
 
 efficiency may encounter bottlenecks. Additionally, the network and computational resource costs may escalate due to patient alignment and semantic reasoning of numerous subgraphs. To address these challenges, further systematic design and application of the Hyperledger method could facilitate the widespread deployment of the system. Furthermore, the patient alignment process relies on unique identifiers, which may pose challenges when unique citizen IDs are absent in the records. To enhance system adoption, alternative approaches using nonunique identifiers for similar patient alignment are necessary [[4\]](#page-17-3).
 
@@ -439,6 +455,7 @@ None declared.
 Additional technical details of the proposed system. [[DOCX File , 310 KB-Multimedia Appendix 1\]](https://jmir.org/api/download?alt_name=jmir_v26i1e54263_app1.docx&filename=6f2fba58a705eb8d54e3cb24b870ca3b.docx)
 
 ![](_page_16_Picture_19.jpeg)
+<!-- Image Description: The image shows a simple text-based comparison of two rendering technologies: "XSL-FO" and "RenderX". It likely serves as a brief visual identifier or reference within the academic paper, indicating the specific technologies being compared or analyzed in the study's methodology or results section. No charts, graphs, or equations are present. -->
 
 ### <span id="page-17-15"></span>Multimedia Appendix 2
 
@@ -515,8 +532,10 @@ Additional user interfaces of the proposed system. [[DOCX File , 2590 KB](https:
 **AHHNU:**Affiliated Hospital of Hangzhou Normal University**CDM:**common data model**CDS:**clinical decision support**CKD:**chronic kidney disease**EHR:**electronic health record**FAHZU:**First Affiliated Hospital, College of Medicine, Zhejiang University**FKGE:**Federated Knowledge Graphs Embedding**OHDSI:**Observational Health Data Sciences and Informatics**OMOP:**Observational Medical Outcomes Partnership**RDF:**resource description framework**ROI:**region of interest
 
 ![](_page_19_Picture_19.jpeg)
+<!-- Image Description: The image displays the names "XSL-FO" and "RenderX" in different colors and fonts. "XSL-FO" is in gray, suggesting a standard or established technology. "RenderX," in purple, likely represents a specific software or tool associated with XSL-FO, possibly a rendering engine. The image's purpose is to identify the technologies used in a process described within the paper, likely related to XML formatting and document processing. -->
 *Edited by T de Azevedo Cardoso; submitted 03.11.23; peer-reviewed by S Ding, Z Wang; comments to author 30.11.23; revised version received 02.02.24; accepted 16.05.24; published 05.07.24 Please cite as: Shang Y, Tian Y, Lyu K, Zhou T, Zhang P, Chen J, Li J Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study J Med Internet Res 2024;26:e54263 URL: <https://www.jmir.org/2024/1/e54263> doi: [10.2196/54263](http://dx.doi.org/10.2196/54263) PMID:*
 
 ©Yong Shang, Yu Tian, Kewei Lyu, Tianshu Zhou, Ping Zhang, Jianghua Chen, Jingsong Li. Originally published in the Journal of Medical Internet Research (https://www.jmir.org), 05.07.2024. This is an open-access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work, first published in the Journal of Medical Internet Research (ISSN 1438-8871), is properly cited. The complete bibliographic information, a link to the original publication on https://www.jmir.org/, as well as this copyright and license information must be included.
 
 ![](_page_20_Picture_4.jpeg)
+<!-- Image Description: The image shows text-based labels: "XSL-FO" in gray and "RenderX" in light purple. It's likely a logo or a simple identifier within the paper, signifying the use of RenderX software, a XSL-FO processor, for document formatting or rendering. The image's purpose is to inform the reader of a specific technology used in the research or methodology described in the paper. -->

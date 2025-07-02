@@ -1,7 +1,7 @@
 ---
 cite_key: "zuosupsup2023"
 title: "KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enhancement for Medical Diagnosis"
-authors: "Kaiwen Zuo<sup>1</sup> , Yirui Jiang2, 4, Fan Mo3\\*, Pietro Lio` 3"
+authors: "Kaiwen Zuo"
 year: 2023
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -88,9 +88,11 @@ E = \{e_1, e_2, \ldots, e_n\}
 $$
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a medical diagnosis system. Medical text input undergoes chunking, entity extraction (stored in a database), and relation extraction (also stored). These databases feed into a medical knowledge graph, integrated with large language models (LLMs). A multi-agent system, including a GP-LLM and several agents, processes this graph to provide a diagnostic response to a user's clinical question. The system incorporates human-guided reasoning. -->
 
 Figure 1: An overview of the KG4Diagnosis framework. The system includes the following components: (1) input medical text is segmented into chunks and processed through entity extraction and relation extraction modules; (2) extracted entities and relations are stored in dedicated databases; (3) these databases are utilized to construct the medical KG; (4) the medical KG is integrated with LLMs and MAS to enhance diagnostic reasoning; (5) diagnostic responses are delivered to user endpoints, supported by human-guided reasoning. The framework highlights a structured approach to medical text processing, accurate knowledge graph construction, and collaborative reasoning for advanced diagnostic outcomes.
 **Diagnosis Example**![](_page_2_Figure_3.jpeg)
+<!-- Image Description: The image displays a flowchart illustrating a dialogue between a patient, a doctor, and an AI medical system regarding tinnitus. Each box shows an exchange, with the patient describing symptoms, the doctor asking clarifying questions, and the AI providing potential causes and treatment advice based on the conversation. The flowchart visualizes the AI's role in assisting with diagnosis and treatment recommendations within a medical consultation. -->
 
 Figure 2: An example of a diagnostic conversation illustrating interactions between a patient, a doctor, and an AI medical assistant. The patient describes symptoms, the doctor asks clarifying questions, and the AI provides explanations and suggestions. This dialogue highlights the collaborative diagnostic process and how AI systems can assist in providing personalized medical advice.
 
@@ -234,6 +236,7 @@ Our continuous learning mechanism enhances the initial training through dynamic 
 Given the framework's comprehensive scope and innovative approach to medical diagnosis, a comprehensive benchmark is currently being developed to evaluate performance across multiple dimensions, including diagnostic accuracy, hallucination prevention, and multi-agent coordination efficiency. This benchmark will provide standardized metrics
 
 ![](_page_4_Figure_9.jpeg)
+<!-- Image Description: This conceptual diagram depicts obesity and its related factors. A central node, "Obesity," connects to several others representing treatments (bariatric surgery, Wegovy), symptoms (difficulty in physical activity, breathlessness, excess body weight), and BMI categories (30-35, 35-40, >40). Arrows indicate relationships, labeled as "HAS_CONDITION," "HAS_SYMPTOM," "HAS_CATEGORY," or "TREATED_BY," illustrating the multifaceted nature of obesity. The diagram's purpose is to visually represent the interconnectedness of these elements within the context of the paper. -->
 
 Figure 3: Example 1 illustrates the complexity of obesity, highlighting its core condition along with related factors such as patient status and bariatric surgery. It also depicts associated drug and BMI categorization, emphasizing the interconnectedness of these elements in understanding obesity as a multifaceted health condition.
 
@@ -248,6 +251,7 @@ The development and evaluation of KG4Diagnosis, encompassing 362 common diseases
 The combination of automated knowledge graph construction with hierarchical multi-agent architecture shows encouraging results in addressing key challenges in medical AI systems. Our framework's ability to maintain diagnostic accuracy while preventing hallucination represents a significant advancement over traditional single-agent approaches. Particularly noteworthy is the effectiveness of our semanticdriven entity extraction and relationship reconstruction modules in handling complex medical terminology and relationships, achieving higher precision compared to conventional
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This image is a knowledge graph depicting relationships between Type 2 Diabetes and related conditions and symptoms. Nodes represent concepts (e.g., Type 2 Diabetes, Heart Attack, Metformin) and edges represent relationships (e.g., "HAS_SYMPTOM," "TREATED_BY"). The graph visually organizes the interconnections, showing how various cardiovascular diseases, symptoms, and treatments relate to Type 2 Diabetes. It aids in understanding the complex interplay of factors within this disease area. -->
 
 Figure 4: Example 2 illustrates the expertise of the knowledge graph in the field of obesity. This knowledge graph highlights how certain drugs, such as Ozempic, not only aid in weight management but also reduce cardiovascular risk. Connections between obesity, Type 2 Diabetes, and cardiovascular diseases are depicted, showing their shared symptoms, treatments, and comorbidities. The graph underscores the multifaceted role of medications in addressing complex health conditions.
 
@@ -276,6 +280,7 @@ Deep Learning and Pre-Trained Models: The emergence of deep learning methods, pa
 Hybrid Symbolic-Neural Approaches: Hybrid approaches combining symbolic reasoning with neural architectures have gained traction for their ability to bal-
 
 ![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image displays a network graph visualizing relationships between medical concepts. Nodes, color-coded to represent categories (action, symptom, category, etc.), represent individual concepts. Edges connecting nodes illustrate relationships between these concepts. The central cluster suggests a core set of highly interconnected concepts, radiating outwards to less central terms. The graph likely serves to illustrate the structure and complexity of medical knowledge within the paper's specific domain. -->
 
 Figure 5: A visualization of the KG4Diagnosis full medical knowledge graph. Nodes represent different medical concepts, such as actions, symptoms, categories, and conditions, as indicated by the color legend. Edges signify relationships between these concepts, enabling structured representation and advanced diagnostic reasoning. The densely connected central region highlights the core interactions between treatments, symptoms, and diagnostics, while peripheral nodes provide additional contextual details. This hierarchical structure integrates medical data to facilitate multi-agent collaboration and human-guided reasoning.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "gastinger2024"
 title: "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs"
-authors: "Julia Gastinger, et al."
+authors: "Mikhail Galkin, Erfan Loghmani, Emanuele Rossi, Ioannis Koutis, Heiner Stuckenschmidt"
 year: 2024
 doi: "10.48550/arXiv.2406.09639"
 url: "https://arxiv.org/abs/2406.09639"
@@ -41,6 +41,7 @@ Learning from graph-structured data has become ubiquitous in many applications s
 <sup>∗</sup>Equal contributions
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image presents two scatter plots comparing the number of edges versus the number of nodes in various datasets. The left plot shows datasets categorized as "TGB 2.0 datasets" and "Existing datasets," with point size indicating the number of timestamps. The right plot similarly compares datasets, but with different datasets and larger timestamp ranges. Both plots visually represent the scale and characteristics of different temporal graph datasets, aiding in the analysis and comparison of their sizes. -->
 
 (a) Novel Temporal Knowledge Graphs
 
@@ -133,6 +134,7 @@ thgl-github. This THG dataset is based on Github data collected from the [GH Arx
 Varying Scale. Table [1](#page-4-0) shows the detailed characteristics of all datasets, such as the number of quadruples and nodes. TGB 2.0 datasets vary significantly in scale for number of nodes, edges, and time steps. We observe an increase in runtime and memory requirements from tkgl-smallpedia to tkgl-polecat to tkgl-icews and tkgl-wikidata. In practice, these requirements depend on the combination of number of nodes, edges and time steps. To account for such benchmarking requirements, we categorize the datasets into small, medium and large datasets. Small datasets are suitable for prototyping methods, while medium and large datasets test method performance at increasingly large scales.
 
 Table [1](#page-4-0) reports dataset statistics: the*Proportion of Inductive Test Nodes (Induct. Test Nodes)*is the proportion of nodes in the test set that have not been seen during training. The*Recurrency Degree*<span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image contains two line graphs showing the mean and min-max range of the number of edges over time. (a) displays a steep increase in edges over 120 years for `tkgl-smallpedia`, while (b) shows relatively constant, low edge counts over a much shorter time period (seconds) for `thgl-software`. Both graphs illustrate the temporal dynamics of edge creation in different datasets. -->
 
 Figure 2: Number of edges over time
 *(Rec)*, which is defined as the fraction of test temporal triples (s, r, o, t+) for which there exists a k < t<sup>+</sup> such that (s, r, o, k) ∈ G. The *Direct Recurrency Degree (DRec)*which is the fraction of temporal triples (s, r, o, t+) for which it holds that (s, r, o, t<sup>+</sup> − 1) ∈ G [\[15\]](#page-9-9). Also, we represent a novel metric called*Consecutiveness Value (Con)*, which quantifies if a given temporal triples repeats at consecutive timestamps by averaging the maximum number of consecutive timesteps during which a triple holds true across all triples in the dataset. Intuitively, fact-based relations which are true across multiple consecutive time steps will result in a higher *Consecutiveness Value*.
@@ -148,6 +150,7 @@ Figure [3](#page-6-0) illustrates the distribution of the ten most prominent rel
 Evaluation Protocol. In TGB 2.0, we focus on the *dynamic link property prediction task*where the goal is to predict the property (often existence) of a link between a pair of nodes in a future timestamp. Here, we treat the link prediction task as ranking problem similar to [\[27,](#page-10-2) [28,](#page-10-1) [16\]](#page-9-1). The model is required to assign the true edge with the highest probability from multiple negative edges (also referred to as corrupted triples in the TKG literature). The evaluation metric is the time-aware filtered Mean Reciprocal Rank (MRR) following [\[16,](#page-9-1) [28\]](#page-10-1). The MRR computes the average of the
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image presents two pie charts comparing data distributions. Chart (a) shows the percentage breakdown of reasons for membership in `tkgl-smallpedia`, categories including sports teams, citizenship, location, and employment. Chart (b) displays the distribution of actions (e.g., opening/closing pull requests and issues) within `tkgl-software`, categorized by repository and user action type. Both charts illustrate data proportions for different contexts within the same project. -->
 
 Figure 3: Most frequent relation types for tkgl-smallpedia and thgl-software datasets.*Others*refers to all remaining relations not shown here.
 
@@ -352,6 +355,7 @@ tkgl-polecat [\(scripts\)](https://github.com/shenyangHuang/TGB/tree/main/tgb/da
 tkgl-icews [\(scripts\)](https://github.com/shenyangHuang/TGB/tree/main/tgb/datasets/tkgl_icews). We extract the raw files from [ICEWS Coded Event Data source](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/28075) [\[7,](#page-9-12) [65\]](#page-12-17). We first combine the monthly files into a single one, removing any links missing a source or destination.
 
 <span id="page-16-1"></span>![](_page_16_Figure_0.jpeg)
+<!-- Image Description: The image contains four time-series plots (a-d) showing the mean and min-max range of the number of edges over time for four different knowledge graphs (tkgl-polecat, tkgl-icews, tkgl-smallpedia, tkgl-wikidata). Each plot's x-axis represents time (days or years), and the y-axis represents the number of edges. The plots illustrate the growth and fluctuation of edges in each knowledge graph over its lifespan, providing a visual comparison of their evolution. -->
 
 Figure 5: Dataset Edges over time for TKG.
 
@@ -368,6 +372,7 @@ thgl-myket [\(scripts\)](https://github.com/shenyangHuang/TGB/tree/main/tgb/data
 Figure [5](#page-16-1) shows how the number of edges change over time for TKG datasets. Figures [6](#page-17-2) shows how the number of edges change over time for THG datasets. While most datasets exhibit fluctuations in the number of edges around a constant level, tkgl-wikidata stands out with a significant upward trend in the number of edges over the years, indicating a surge in events, particularly in recent years. In addition, noteworthy deviations in timesteps are apparent. TKG datasets display anomalous timesteps characterized by minimal edge numbers, particularly evident during the Covid pandemic for tkgl-icews. Conversely, for the THG datasets the occurrence of zero-edge timesteps is not indicative of outliers; rather, it reflects the continuous nature of the data, where not every second
 
 <span id="page-17-2"></span>![](_page_17_Figure_0.jpeg)
+<!-- Image Description: The image contains four time series plots showing the mean and range of the number of edges in four different graphs (thgl-software, thgl-forum, thgl-myket, thgl-github). Each plot displays the number of edges over time, with error bars representing the minimum and maximum values. The x-axis represents time, and the y-axis represents the number of edges. The plots illustrate the temporal dynamics of edge counts within each respective graph, likely to analyze network evolution or activity patterns over time. -->
 
 Figure 6: Dataset Edges over time for THG.
 
@@ -384,6 +389,7 @@ In the following, we provide additional experimental details such as the computi
 We ran all experiments on either [Narval](https://docs.alliancecan.ca/wiki/Narval/en) or [Béluga](https://docs.alliancecan.ca/wiki/Béluga/en) cluster of [Digital Research Alliance of Canada](https://www.alliancecan.ca/en) or the [Mila, Québec AI Institute](https://mila.quebec/en) cluster. For the experiments on the Narval cluster, we ran each experiment on a Nvidia A100 (40G memory) GPU with 4 CPU nodes (from either of the AMD Rome 7532 @ 2.40 GHz 256M cache L3, AMD Rome 7502 @ 2.50 GHz 128M cache L3, or AMD Milan 7413 @ 2.65 GHz 128M cache L3 available type) each with 100GB memory. For experiments on the Béluga cluster, we ran each experiments on a NVidia V100SXM2 (16G memory) GPU wiht 4 CPU nodes (from Intel Gold 6148 Skylake @ 2.4 GHz) each with 100GB memory. For the experiments on the Mila cluster, we ran each experiment on an RTX8000 (40G memory) GPU or an V100 (32G memory) GPU with 4 CPU nodes (from either of the AMD Rome 7532 @ 2.40 GHz 256M cache L3, AMD Rome 7502 @ 2.50 GHz 128M cache L3, or AMD Milan 7413 @ 2.65 GHz 128M cache L3 available type). The upper limit of RAM was set to 1056GB.
 
 <span id="page-18-1"></span>![](_page_18_Figure_0.jpeg)
+<!-- Image Description: The image presents four pie charts (a-d) visualizing the distributions of different relationship types within four distinct knowledge graphs (tkgl-polecat, tkgl-smallpedia, tkgl-icews, tkgl-wikidata). Each chart segments the relationships into categories (e.g., "Request," "Accuse," "located," "member of sports team") with percentages indicating their proportion within the respective knowledge graph. The purpose is to compare the relative frequencies of relationship types across different datasets, highlighting the varying structures and focuses of the knowledge graphs. -->
 
 Figure 7: Edge type ratios in TGB 2.0 TKGs. We include the 10 most frequent edge types.
 
@@ -401,6 +407,7 @@ A seven-day time limit was considered for each experiment. For all non determini
 In Table [4](#page-18-2) and [5,](#page-19-2) we report the average GPU usage of TKG and THG methods on the dataset across 5 trials. Note that the Recurrency Baseline, EdgeBank, and TLogic only require CPU thus no GPU usage is reported. For TKG, some methods such as CEN on tkgl-polecat have higher GPU usage when compared to others. For THG, scalability is a significant issue, as most methods involve high GPU usage and often result in out-of-memory errors, especially with larger datasets. Although STHN maintains manageable GPU usage, it requires substantial RAM to compute the subgraphs, making it impractical for use in all environments.
 
 <span id="page-19-1"></span>![](_page_19_Figure_0.jpeg)
+<!-- Image Description: The image presents four pie charts (a-d) visualizing the activity distribution across different platforms within a software project (thgl). Charts (a) and (c) show the proportion of various user actions (e.g., opening/closing pull requests, issues) on the "software" and "github" platforms, respectively. Chart (b) displays the split between user replies and posts on the "forum," and (d) shows the breakdown of "install" and "update" actions on "myket." Each slice's size represents the percentage of total activity. The charts help analyze user engagement and contribution patterns on various project platforms. -->
 
 Figure 8: Edge type ration in TGB 2.0 THGs.
 

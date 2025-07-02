@@ -1,7 +1,7 @@
 ---
 cite_key: "2050"
-title: "**Cong Peng , Prashant Goswami and Guohua Bai**"
-authors: "- 64. Lanthaler M and Gütl C. A semantic description language for RESTful Data Services to combat Semaphobia. In: *5th IEEE International conference on digital ecosystems and technologies (IEEE DEST 2011)*, Daejeon, South Korea, 31 May–3 June 2011, pp. 47–53. New York: IEEE."
+title: "Original Article"
+authors: "Guohua Bai"
 year: 2050
 doi: "10.1177/1460458219892387"
 date_processed: "2025-07-02"
@@ -61,6 +61,7 @@ The remainder of this article is organized as follows. Section "Background" intr
 #*What is health data integration*The terminologies for certain concepts on the topic of health data integration are not firmly defined or consistently used since the topic is relatively new. For the term health data integration in this article, we refer to that health data from heterogeneous or distributed sources processed by a certain approach to act as they come from one source in a seamless way. The data sources could be health-related Web services, devices or electronic health record systems, and so on. For utilization,
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a system for integrating and utilizing health data. Three services (Service 1, 2, and 3, each represented by a box of circles) feed data into a central "Integrated Health Data" node, depicted as a tree-like structure. This integrated data is then utilized for data visualization, patient views, and a smart agent. Arrows indicate data flow, showcasing the integration and utilization stages. The diagram's purpose is to visually represent the architecture of the health data system. -->
 **Figure 1.**Simple process of integration and utilization of health data.
 
 we refer to provide a seamless way to utilize the integrated health data for other applications. Figure 1 shows a simple explanation for these two terms. Usually, the approaches of integration and utilization are bound together. There are often different terms expressing similar or highly close purposes to integration, for example, data aggregation and information fusion. However, even the same term may stand for different meanings in different studies.
@@ -70,6 +71,7 @@ Interoperability, which is a well-defined concept, is highly related to health d
 #*Different target problems*Health data integration is needed to assist the management of health under different usage purposes. General healthcare information management is one of the main purposes. The integration is required when it is in need of the health data from different systems such as hospital information system, medical imaging system, physiological monitoring device and so on. It is for the general
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates three data flow models for healthcare information management. Each model depicts interactions between healthcare providers, third-party service providers, and patients. Solid arrows represent direct data exchange, while dashed lines indicate indirect or less direct communication. The models are categorized as general health information, chronic disease management, and health/lifestyle self-management, highlighting the different data flow patterns depending on the type of care. -->
 **Figure 2.**Health data integration of different care models (solid line stands for a main connection and dashed line stands for a minor connection).
 
 usage purpose, that is, it does not specifically target a certain type of disease. Another kind of usage purpose targets a specific kind of disease, which is usually for managing a certain kind of chronic disease. As the care for chronic disease requires long term and periodical management by both the patients and the healthcare staff, self-management by patients becomes a practical and preferred solution to alleviate the high cost and inconvenience involved in the process of chronic disease caring.1 The rapid development of consumer-oriented health products, which include portable medical devices, wearable devices and health applications, makes it much more feasible for chronic disease self-management, and stimulates people's interests in recording and managing their health and lifestyle data.4,5,7
@@ -101,6 +103,7 @@ In *exclusion*, any of the following criteria is fulfilled:
 • Articles that are not related to health data integration for the purpose of patient healthcare management, such as integrating health data for clinical/biological research, pharmacy or public health statistical analysis;
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This flowchart details a literature review methodology. Starting with known papers and an initial database search (yielding 22 papers), it depicts a three-pronged approach: inclusion/exclusion criteria applied to full texts (resulting in 6 papers), snowballing (finding 408 additional papers, then 167 after abstract review), and applying criteria to paper introductions (resulting in 42 papers, then 32 after full-text review). The diagram visually represents the filtering process and the number of papers remaining at each stage. -->
 
 **Figure 3.**Flowchart of the snowballing literature review process; 32 articles were included after multiple phases of selection.
 
@@ -182,9 +185,11 @@ We analyzed the target problems of the included articles and classified them int
 We investigated and extracted the data based on different characteristics of the approaches including interoperability standard conformance, interoperability level and integration effort, which are listed in Table 3. Interoperability standard is vital for enabling the exchange, interpretation and sharing of health data. The integration would be easier to achieve if the health data
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image is a bar chart showing the publication count per year from 2011 to 2018. The x-axis represents the year, and the y-axis represents the number of publications. Publication counts were low from 2011 to 2014, then increased in 2015 and 2016, reaching a peak in 2017 before decreasing slightly in 2018. The chart likely illustrates a trend in research output or publication activity over time within the paper's subject area. -->
 **Figure 4.**Included articles by year and publication type.
 
 ![](_page_8_Figure_3.jpeg)
+<!-- Image Description: The image is a pie chart showing the distribution of 32 participants across three categories of health management apps: General Healthcare Information Management (62.5%, n=20), Health/Lifestyle Self-Management (25%, n=8), and Chronic Disease Management (12.5%, n=4). The chart visually represents the proportion of participants using apps within each category. The numbers in parentheses represent the absolute frequencies. -->
 **Figure 5.**Targeted problems of the included studies, classified as General Healthcare Information Management, Chronic Disease Management and Health/Lifestyle Self-Management.
 
 conform to these standards. Therefore, we investigated if the approaches in the included articles conform to the standards. We checked if the approach explicitly stated its adoption of any coding or interoperability standard. However, this does not imply that the approach is not able to be standard-conformable if it was not explicitly stated. The reasons could be that the method does not yet apply standards at its current stage or it does not require a standard to be interoperable. As it shows in the first bar of Figure 6, the approaches in 15 of our included articles conform to one or more interoperability standards or coding systems, while 17 articles do not mention any standard.
@@ -228,6 +233,7 @@ The interoperability level that each integration approach achieved was also inve
 **Table 3.**Characteristics of identified studies (standard conformance, interoperability level and effort of integration).
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: This horizontal bar chart displays the results of a study categorized by standard conformance, interoperability level, and effort. Each category shows the number of studies falling into two sub-categories (e.g., "Yes" and "No" for standard conformance). The chart uses different colored bars for each sub-category to visually compare the number of studies in each. Numerical values indicate the count of studies in each sub-category. The chart's purpose is to summarize the distribution of studies based on these three key characteristics. -->
 **Figure 6.**Characteristics of the included studies.
 
 ontology, so that the integrated data are interpretable. The interoperability level relates to that if the approach involves Semantic Web technologies, or if any interoperability standard or medical coding system is applied. From the second bar of Figure 6, we can see that the approaches in 22 of the articles achieve the*Structural*interoperability level, and the remaining 10 achieve the*Semantic*level. There is no approach that achieves only the*Foundational*level. This is consistent with our expectations, since it is easy to achieve and also a necessity for integration.
@@ -301,6 +307,7 @@ external systems. Triantafyllidis et al.50 designed and implemented a system for
 *Semantic Web.*The massive effort of searching and programming for invoking and composing APIs to achieve health data integration makes it a time-consuming and tedious work. Therefore, in
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image is a pie chart showing the distribution of 34 data points across three categories: "Platform" (43.8%, 14 data points), "Semantic Web" (31.2%, 10 data points), and "APIs with Manual Alignment" (25.0%, 8 data points). The chart likely illustrates the prevalence of different data integration approaches within the paper's scope. -->
 **Figure 7.**Integration classifications of approaches.
 
 order to facilitate automatic discovery, composition and invocation of suitable healthcare Web services, M. Schweitzer et al.48 proposed a Semantic Web Service approach. It is based on a Web Service Modeling Ontology (WSMO) adapted service delivery structure and a domain ontology of EHR Web services they developed. However, this approach does not apply semantics to the health data, but only to the process of invoking web services for retrieving health data.
@@ -384,6 +391,7 @@ system and a PHR Web portal. In order to separate the concerns and accessibility
 Besides the platform-independent Web APIs, there are approaches providing platform-bound APIs due to their solutions being built upon certain platforms. To take the advantages of the compatibility, functionality and well-established platform from Android, the iMedBox prototype was developed as an Android application.39 A middleware solution was also developed on the Android platform to cover the majority of smartphone users.31 Therefore, the utilizations of these two approaches have to be provided in the way of Android system-bound APIs. The approach by Kumar et al.4 is as iOS platform-bound since it was developed with the Apple HealthKit. The HealthKit framework collaborates with the Health application, which acts as a repository for health and
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: This pie chart displays the distribution of utilized technologies in a study. The largest segment (28.1%) represents APIs, followed by "Not mention utilization" (21.9%). Other segments show usage of Semantic Web Tech Stacks (18.8%), Application Platforms and Composition (both 12.5%), and Databases (6.2%). Numbers in parentheses indicate the count of instances for each technology. The chart likely illustrates the prevalence of different technological approaches within the research's scope. -->
 **Figure 8.**Utilization classifications of approaches.
 
 fitness data on the iOS platform, to process data collection, management and utilization.57 So other applications can use the APIs provided by the HealthKit framework to utilize the integrated health and fitness data.

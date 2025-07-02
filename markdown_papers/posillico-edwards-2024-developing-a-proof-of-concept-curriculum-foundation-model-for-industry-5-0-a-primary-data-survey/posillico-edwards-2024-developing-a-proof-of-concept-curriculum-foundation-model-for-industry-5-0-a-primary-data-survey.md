@@ -1,7 +1,7 @@
 ---
 cite_key: "education2024"
 title: "Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics"
-authors: "Industry and Higher Education 2024, Vol. 38(5) 423–444 © The Author(s) 2024 Article reuse guidelines: [sagepub.com/journals-permissions](https://uk.sagepub.com/en-gb/journals-permissions) DOI: [10.1177/09504222231224090](https://doi.org/10.1177/09504222231224090) [journals.sagepub.com/home/ihe](https://journals.sagepub.com/home/ihe)"
+authors: "His Majesty, John J Posillico"
 year: 2024
 doi: "10.1177/09504222231224090"
 date_processed: "2025-07-02"
@@ -65,6 +65,7 @@ A three-tiered waterfall research approach is adopted ([Figure 1\)](#page-3-0). 
 The questionnaire was divided into three key sections. Section one presented preliminary information such as the research background (to secure informed consent) and ethical statements. Specifically, participants were assured that: their information would remain strictly confidential (published in aggregate form) and not divulged or disseminated to any third party willingly or otherwise; all data would be securely stored and securely disposed of post publication; and participants could access the findings post publication (cf. [Fisher et al., 2018](#page-18-15); [Law et al., 2021\)](#page-19-13). Section
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a research methodology. It outlines questionnaire development using a 5-point Likert scale, distribution via specified channels (CIB, CNBR, ASC, LinkedIn), and subsequent statistical analysis. The analysis includes measures of central tendency, weighted average, relative importance index, interquartile range, and several hypothesis tests (one-sample t-test, Chi-square test, Kruskal-Wallis test). The process culminates in a proof-of-concept model. -->
 
 <span id="page-3-0"></span>Figure 1. Three-tier waterfall research process flow diagram.
 
@@ -121,6 +122,7 @@ The mean and median values for each of the nine interpersonal skills and compete
 Analysis of the interpersonal skills and competencies can also occur based on the respondents' current academic roles. [Figure 4](#page-7-1) illustrates that there is very little difference between the ratings given for each skill and competency based on the role of the respondent; all four roles appear to agree on the
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image contains two bar charts showing respondent distributions. The top chart displays the number of respondents with varying years of experience in academia (0-4, 5-9, 10-14, 15-19, 20-24, 25+ years), split by a dashed line indicating 60.22% and 39.78% of the total. The bottom chart similarly presents the distribution of respondents based on their years in industry (0-2, 3-5, 6-9, 10+ years), showing 22.58% and 77.42% on either side of the dashed line. Both charts illustrate experience distributions across the two sectors. -->
 
 <span id="page-6-0"></span>Figure 2. Respondents time in academia and industry.
 
@@ -129,10 +131,12 @@ level of importance for the interpersonal skills and competencies. Specifically,
 Utilising a WA, where the rating score is multiplied by the frequency of respondents selecting that specific rating score, a level of importance ranking can be visualised. As noted in [Table 2](#page-8-0), the top-rated interpersonal skill was 'verbal communication' (WA total = 449) with 'team management' an extremely close second (WA total = 448). The difference in WA totals between the top-rated skill to the sixth-rated skill was only 21 points. This indicates that the top six (66.67%) skills and competencies are closely knit
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing mean and median ratings of interpersonal skills' importance. The x-axis lists various skills (e.g., written communication, emotional intelligence). The y-axis shows a 1–5 rating scale (5 being "very important"). Two lines represent the mean (blue) and median (orange) ratings for each skill, illustrating the perceived importance of each skill among respondents. The graph's purpose is to visually present survey data on the relative importance of different interpersonal skills. -->
 
 <span id="page-7-0"></span>Figure 3. Mean and median values for interpersonal skills and competencies.
 
 ![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The image is a line graph showing the ratings (1-5, 5 being very important) of various interpersonal skills/competencies by different academic ranks (Assistant Lecturer/Lecturer, Senior Lecturer, Associate Professor/Professor, Senior Leadership/Department Head). The graph highlights significant rating differences (deltas of 0.30 and 0.29) between certain ranks for specific skills, illustrating the perceived importance of these skills at different career stages within academia. -->
 
 <span id="page-7-1"></span>Figure 4. Ratings of interpersonal skills and competencies based on respondent role.
 
@@ -174,10 +178,12 @@ Analysis of the technical skills and competencies can also occur based on the re
 [Table 5](#page-11-1) places the skills and competencies in order of relative importance. Only viewing the 14 skills and competencies that have a RII >0.700, two bands or groupings can be assigned. Specifically, Band 001 are the are seven skills and competencies that have a RII >0.900 (i.e., verbal communication, team management, team/group work, written/typed communication, authentic leadership, listening and understanding and budgeting/cost control).
 
 ![](_page_9_Figure_7.jpeg)
+<!-- Image Description: The image is a line graph showing the mean and median ratings of technical skills/competencies. The x-axis lists various skills (budgeting, estimating, BIM creation, etc.), and the y-axis represents a rating scale (1-5). Two lines plot mean and median importance ratings for each skill, indicating perceived importance in a context likely related to construction or engineering. The graph visually compares the relative importance of different technical skills according to the survey's mean and median responses. -->
 
 <span id="page-9-0"></span>Figure 5. Mean and median values for technical skills and competencies.
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing the perceived importance (rated 1-5) of various technical skills across four academic ranks (Assistant Lecturer/Lecturer, Senior Lecturer, Associate Professor/Professor, Senior Leadership/Department Head). The x-axis lists different technical skills (e.g., budgeting, BIM, structural engineering), while the y-axis represents the importance rating. The graph illustrates how the importance rating for each skill varies across different academic positions. -->
 
 <span id="page-10-0"></span>Figure 6. Ratings of technical skills and competencies based on respondent role.
 
@@ -359,6 +365,7 @@ The HEI and CMCD landscapes were previously conceptualised by [Posillico et al. 
 <span id="page-14-3"></span>b Multiple comparisons are not performed because the overall test does not show significant differences across samples.
 
 ![](_page_14_Figure_5.jpeg)
+<!-- Image Description: This bar chart displays mean and median ratings (1-5, 5 being very important) of technical and interpersonal skills for a construction context. The x-axis lists specific skills (e.g., budgeting, communication types). A vertical dashed line separates technical from interpersonal skills. The chart likely assesses the relative importance of different skill sets in the profession. The y-axis represents the importance rating. -->
 
 <span id="page-14-1"></span>Figure 7. Mean and median values overlay for interpersonal and technical skills and competencies.
 
@@ -423,6 +430,7 @@ Table 11. Final ranked skills and competencies.
 <span id="page-16-0"></span><sup>i</sup> = interpersonal, <sup>t</sup> = technical.
 
 ![](_page_16_Figure_4.jpeg)
+<!-- Image Description: The image contains a diagram (a) showing a concrete foundation with reinforcing steel, labeled with components representing teamwork, listening/understanding, leadership, and communication skills. A table (b) presents a "Foundation Design Mix" analyzing the relative importance of these skills using weighted averages, ratios, strength (p-value), and mean ratings. The diagram visually links the construction analogy to the skills' importance in a construction management curriculum. -->
 
 <span id="page-16-1"></span>Figure 8. (a)–(b): proof-of-concept model.
 

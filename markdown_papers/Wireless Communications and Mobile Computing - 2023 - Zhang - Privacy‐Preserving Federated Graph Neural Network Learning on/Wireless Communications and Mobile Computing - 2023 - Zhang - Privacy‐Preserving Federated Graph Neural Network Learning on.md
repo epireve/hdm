@@ -1,6 +1,7 @@
 ---
 cite_key: "wireless_communications_and_mo"
 title: "Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data"
+authors: "Academic Editor"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -11,6 +12,7 @@ images_removed: 0
 ---
 
 ![](_page_0_Picture_2.jpeg)
+<!-- Image Description: The image shows the logos of Wiley and Hindawi, two academic publishers. There are no diagrams, charts, graphs, equations, or technical illustrations; it's simply a presentation of publisher identifiers, likely indicating where the paper was published. -->
 
 # Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data
 
@@ -53,8 +55,10 @@ Moreover, federated GNN inherits the core problems from traditional federated se
 2.3. Embedding Space Alignment. The embedding approach has become a primary topic in machine learning and graphical analysis [\[22, 23](#page-11-0)]. Naturally, the alignment of different embedding spaces plays an important role similar to the translation in the communication of different languages. As the pioneer of alignment technique, cross-lingual word
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: The image is a diagram illustrating a federated learning architecture. Client nodes (blue squares, representing local data X<sub>i</sub>) send processed data to a central server via an aggregator. An 'Alignment' module processes this data. The server then returns aggregated node embeddings (X'<sub>i</sub>) to the clients. The diagram shows data flow and the roles of different components in the federated learning process. -->
 
 <span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates a federated learning architecture. Multiple clients (Client 1 to Client N), each possessing a graph-structured dataset (e.g., social network), process data through a two-layer neural network. These processed outputs are then sent to a server where an "alignment" module harmonizes the results before aggregation. The final aggregated model is then updated and possibly distributed back to the clients. The diagram visually represents the data flow and processing steps within a distributed learning setting. -->
 
 Figure 1: Overview of the federated DeepWalk framework. The red nodes are private, and the blue nodes are public. Local training is highlighted in grey, and server aggregation is highlighted in yellow.
 
@@ -93,6 +97,7 @@ where*w*is the window size for iterating the possible collocation of the given n
 In traditional federated learning, each client uploads all weights of the local model to a central server. The central server aggregates these weights to update the global model and then distributes the global model back to the clients. However, in our problem definition, we cannot aggregate all weights directly because each client holds a different subgraph of the global network, which means that the trained latent representations only share commonality on the public nodes partially. Because the potential relationship between public and private nodes is stored in the public nodes' latent representations, as shown in Figure [1](#page-2-0), instead of uploading all weights (i.e., the latent representations of all the nodes in the local graph), a client can only upload the weights related to the public nodes (i.e., the latent representations of public nodes), which also carry some sensitive information of the private nodes.
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a federated graph learning framework. Client nodes (1 and N) each process their local graphs using two layers of graph attention, generating embedding loss and label loss. These are aggregated by a server using an alignment module, resulting in updated model parameters (X'1, X'N). The figure shows the data flow and processing steps within a distributed learning setting. Matrices represent data, and the blocks represent layers and processes. -->
 
 Figure 2: Overview of the federated GAT framework. The red nodes are private, and the blue nodes are public. Local training is highlighted in grey, and server aggregation is highlighted in yellow.
 
@@ -171,6 +176,7 @@ Once we obtain the local embeddings, we have to face the similar challenge of co
 Table 2: The results of the federated GAT framework. Cora\_noise is the Cora dataset with noisy labels.
 
 ![](_page_6_Figure_3.jpeg)
+<!-- Image Description: The image contains two line graphs. The top graph shows alignment precision over 15 iterations for different values of K (1, 5, and 10), illustrating convergence. The bottom graph displays classification accuracy across 15 iterations for four different clients (1-4), demonstrating performance variation across clients. Both graphs assess model performance over iterative training. -->
 
 Figure 3: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated DeepWalk framework on the Cora dataset.
 
@@ -179,6 +185,7 @@ public nodes' embeddings from the model weights directly, the weights of GAT int
 embeddings*X*coming from the model's intermediate layer (i.e.,*h* ð*l*Þ *<sup>i</sup>*,*<sup>i</sup>*<sup>∈</sup>**<sup>U</sup>***k*) to the server without exposing the model weights. Then, the server executes the same processes in the federated DeepWalk framework to align, aggregate, and
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs. The top graph shows alignment precision versus iteration for different values of K (1, 5, and 10). The bottom graph displays classification accuracy versus iteration for four different clients (1-4). Both graphs illustrate the performance of a system over iterative updates, showing how alignment precision and classification accuracy improve with each iteration and vary across different parameter settings and clients. -->
 
 Figure 4: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated DeepWalk framework on the CiteSeer dataset.
 
@@ -208,6 +215,7 @@ In this section, we present the experiments developed by PyTorch and conducted o
 4.1. Datasets. In our experiments, we employ two datasets, Cora [\[36\]](#page-12-0) and CiteSeer [[37\]](#page-12-0), which are commonly used in the GNN research. The Cora dataset includes 2,708
 
 <span id="page-8-0"></span>![](_page_8_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs. The top graph shows alignment precision versus iteration for different values of K (1, 5, and 10). The bottom graph displays classification accuracy versus iteration for four different clients. Both graphs illustrate the performance of a system over multiple iterations, showing how alignment precision and classification accuracy change. The purpose is to demonstrate the convergence and performance stability of the algorithm across different parameters and clients. -->
 
 Figure 5: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated GAT framework on the Cora\_noise dataset.
 
@@ -220,6 +228,7 @@ For all the implementations, we embed each graph into a 16-dimensional space and
 4.3. Performance Evaluation. The federated DeepWalk framework results are presented in Table [1](#page-5-0). We can observe that in contrast to the embeddings generated by limited local information, both classifiers can achieve higher classification
 
 <span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs. The top graph plots alignment precision against iteration number for different values of K (1, 5, and 10). The bottom graph shows classification accuracy versus iteration number for four different clients. Both graphs illustrate the performance of a system across multiple iterations, showing how alignment precision and classification accuracy change over time for various parameter settings and clients. -->
 
 Figure 6: The KNN alignment precision and SVC classification accuracy corresponding to each iteration of the federated GAT framework on the CiteSeer dataset.
 

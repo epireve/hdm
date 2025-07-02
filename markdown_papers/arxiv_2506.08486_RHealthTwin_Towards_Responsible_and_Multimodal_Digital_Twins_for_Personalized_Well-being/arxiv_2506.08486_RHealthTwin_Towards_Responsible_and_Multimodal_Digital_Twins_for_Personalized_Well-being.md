@@ -1,7 +1,7 @@
 ---
 cite_key: "computing2025"
 title: "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being"
-authors: "Rahatara Ferdousi is now with the School of Computing, Queen's University, Goodwin Hall, 25 Union Street, Kingston, ON K7L 3N6 [\\(rahatara.ferdousi@queensu.ca\\).](mailto:(rahatara.ferdousi@queensu.ca)"
+authors: "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
 year: 2025
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -147,6 +147,7 @@ practical initiatives aligned with responsible AI adoption. These include ensuri
 <span id="page-3-0"></span>The proposed framework leverages a digital twin architecture to improve consumer health applications through personalized, context-aware, and multimodal interactions. As illustrated in Figure [1,](#page-4-0) RHealthTwin system integrates user data with advanced AI-driven modules to create a digital representation (digital twin) of well-being assistant, allowing customized health interventions, risk identification and scenario generation. The framework is designed to ensure autonomy, inclusivity, transparency aligning with human wellbeing principles. To fomalize, The RHealthTwin framework processes multimodal inputs M via the Responsible Prompt Engine to generate structured prompts*P* = FRPE(M*, θ*RPE). These prompts guide an LLM in healthcare care HLLM(*P*) →*D*twin to produce results, with parameters updated through *θ<sup>t</sup>*+1 = *θ<sup>t</sup>*+*θ*∇*θ*L(∆*feedback,* E), where E enforces ethical
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart depicting a responsible prompt engine for a digital twin application. It details the system's architecture, showing data sources (user input, system data, knowledgebases), a multimodal prompt generation process, an AI inference engine using LLMs and multimodal agents, and a multimodal user interface. The engine incorporates modules for context-aware personalization, adaptive behavior management, filtering, justification, and ethical considerations like accountability, inclusivity, and transparency. The flowchart illustrates the data flow and processing steps within the system. -->
 
 <span id="page-4-0"></span>Fig. 1. Proposed RHealthTwin Framework
 
@@ -155,6 +156,7 @@ alignment and ∆*feedback*refines results through user interactions.
 ####*A. Example Scenario*To illustrate how our framework builds a personalized wellbeing digital twin, let us consider the case of a 31-year-old working mother who queries:*"Check my weekly activity log and suggest how I can reduce fatigue without compromising productivity."*. As illustrated in Fig. [2,](#page-4-1) the RHealthTwin system first collects multimodal inputs, such as a fitness app screenshot showing low step count, high screen time, and elevated evening heart rate, along with self-reported fatigue and irregular meals. The Context Module synthesizes these signals to define her health goal—fatigue reduction while preserving productivity. The Instruction Module configures the LLM to act as a safe, ethical well-being assistant, avoiding unverified or high-risk recommendations. These modules are composed by the RPE, which integrates few-shot reasoning examples, safety filters, and credible justifications such as CDC sleep guidelines (See Fig. [3\).](#page-5-0) The LLM processes this structured prompt to generate four personalized outputs: (1) decision guidance (e.g., yoga routine and fixed sleep schedule), (2) risk alerts (e.g., elevated room temperature disrupting sleep), (3) scenario simulation (e.g., expected REM improvement), and (4) contextual search results (e.g., nearby yoga classes). The user interacts with these suggestions through a multimodal interface, endorsing helpful advice and skipping less relevant ones (See Fig. [8\).](#page-11-1) This feedback is looped into her DT wellbeing assistant, enabling continual refinement and alignment with her evolving well-being needs. This end-to-end workflow
 
 ![](_page_4_Picture_6.jpeg)
+<!-- Image Description: The image displays a workflow for a digital twin application providing well-being assistance. A user (a 31-year-old working mother) inputs activity data from a health app (showing steps, sleep, and stress levels via a bar chart). The digital twin processes this, providing decision assistance (sleep schedule), risk identification (high bedtime temperature), scenario simulation (earlier bedtime), and information search (yoga classes). The process is illustrated using text boxes, a cartoon user, and a sample app screenshot. -->
 
 Fig. 2. Example Use-Case Scenario for Proposed RHealthTwin Framework
 
@@ -393,6 +395,7 @@ In the RHealthTwin framework,**Data Sources** supply input for both fine-tuning 
 -**Action Twin:**Beyond monitoring and prediction, the DT provides personalized, actionable recommendations customized to the user's goals and context. These interventions may include suggestions for physical activity, nutritional adjustments, or stress management techniques. By aligning recommendations with real-world constraints and user preferences (as shown in Figure [7\),](#page-10-0) the DT supports search and documentation of resources (e.g.
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image displays a conversational AI interaction providing lifestyle advice to a truck driver. A small chart shows daily activity data, likely input by the user. The AI's response offers actionable steps and resources to improve smoking, alcohol consumption, diet (with a MyPlate reference), and physical activity, including real-life examples relevant to a trucker's lifestyle and links to relevant health organizations. -->
 
 Fig. 7. Context-aware Digital Twin recommending lifestyle interventions based on profession-specific constraints and time-activity patterns.
 
@@ -411,6 +414,7 @@ The Algorithm [3](#page-9-1) is triggered only when the "FeedbackFlag" is set. I
 Algorithm [3,](#page-9-1) enables user feedback adaptation by updating the internal slot template structure of the Responsible Prompt Engine based on semantic user feedback. When the Feedback-Flag is active, the system treats FeedbackInput as a prompt and passes it to the MultimodalLLM, which extracts the user's implicit intent using tag-based delimiters (e.g., <INTENT>... </INTENT>). This extracted intent may include preferences (e.g., "prefer yoga"), aversions (e.g., "avoid caffeine-related advice"), or stylistic instructions (e.g., "simpler tone"). The updated slot templates are stored within the latest entry of the
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a system's response to user feedback. It shows how positive user feedback ("earlier dinner," "yoga") is interpreted and stored in a "Real Twin Profile." This profile informs the system's subsequent messages, modifying them to prioritize and encourage the user's reported positive habits (e.g., an email reminder suggesting an early dinner). The diagram compares an initial generic system message with a personalized, updated message. A user illustration emphasizes the practical application. -->
 
 <span id="page-11-1"></span>Fig. 8. Personalized wellness feedback loop to address user feedback to refine responses.
 
@@ -549,10 +553,12 @@ where *wij* ∈ {0*,*1} is GPT-4's compliance judgment for instance*i*on criteri
 Specifically, RPE yielded scores exceeding 4.5 on the 5 point Likert scale across all datasets, while Few-shot prompting exhibited the lowest average CAS, in low-context domains such as MTS-Dialog. The consistently high FS and CAS sug-Here,*y<sup>i</sup>*= Generated Output and model output, reinforcing the feasibility of RPE as a safe gest improved inferential alignment between prompt structure
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: This image displays four line graphs comparing the performance of various large language models (LLMs) across four datasets (MTS, NutriBench, SensorQA, MentalChat). Each graph shows performance metrics (likely accuracy or F1-score) for zero-shot, few-shot, and system instruction learning scenarios, distinguishing between two evaluation methods (FS and CAS). The x-axis represents different LLMs, and the y-axis denotes the performance score. The purpose is to benchmark the LLMs' performance under various learning conditions and evaluation strategies. -->
 
 <span id="page-14-0"></span>Fig. 9. Factual Score(FS) and Contextual Accuracy Score (CAS) for all datasets using patient-side prompts. RPE shows the highest scores, indicating strong alignment with ethical and instructional goals.
 
 ![](_page_14_Figure_3.jpeg)
+<!-- Image Description: The image presents four line graphs comparing the performance of various large language models (LLMs) across four datasets: MTS, NutriBench, SensorQA, and MentalChat. Each graph displays performance metrics (likely accuracy) for zero-shot, few-shot, and system instruction prompting methods using two evaluation schemes (WRR and ICS). The x-axis represents different LLMs, and the y-axis represents the performance score (0-1). The purpose is to benchmark the LLMs' performance under different prompting strategies and evaluation methods. -->
 
 <span id="page-14-1"></span>Fig. 10. Instructional Compliance Score (ICS) and WHO-aligned Responsibility Rubric (WRR) for all datasets using healthcare providerside prompts. The RPE strategy maintains top ethical compliance and role alignment across all datasets.
 
@@ -562,10 +568,12 @@ intermediate layer between raw user input and LLM inference in real-world applic
 The declarative system instruction schema includes four core components: safety filters, role assignments, tone constraints, and grounding directives. Together, these elements systematically embed ethical safeguards into the generation process and guide the model toward safe and responsible output behavior. The high WRR scores indicate strong structural alignment between model outputs and WHO ethical principles, including autonomy, fairness, and explainability.
 
 ![](_page_14_Figure_8.jpeg)
+<!-- Image Description: The image is a bar chart comparing the performance of two systems, CAS and FS, across different evaluation scenarios. The chart shows performance scores (y-axis) for nutritionists and patients under "few-shot," "RPE," and "zero-shot" conditions, and with or without system instructions. The purpose is to illustrate a comparative analysis of CAS and FS performance in a multimodal question answering task. Higher scores indicate better performance. -->
 
 Fig. 11. SensorQA FS and CAS for patient and nutritionist roles.
 
 <span id="page-14-2"></span>![](_page_14_Figure_10.jpeg)
+<!-- Image Description: The image displays a bar graph comparing the performance of two methods, ICS and WRR, across different scenarios (few-shot, zero-shot, RPE) and user types (nutritionist, patient) in a multimodal SensorQA system. The y-axis represents performance (likely accuracy, 0-1 scale), while the x-axis categorizes the testing conditions. The graph shows a comparison of the two methods' performance under various conditions, allowing assessment of their relative effectiveness. -->
 
 <span id="page-14-3"></span>Fig. 12. SensorQA WRR and ICS comparison for patient and nutritionist roles.
 

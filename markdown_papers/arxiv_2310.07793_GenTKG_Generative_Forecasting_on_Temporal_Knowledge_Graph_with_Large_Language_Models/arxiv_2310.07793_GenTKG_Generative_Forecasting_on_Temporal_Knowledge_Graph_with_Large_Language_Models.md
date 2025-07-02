@@ -1,7 +1,7 @@
 ---
 cite_key: "mcml2023"
 title: "GenTKG: Generative Forecasting on Temporal Knowledge Graph with Large Language Models"
-authors: "<sup>1</sup>LMU Munich <sup>2</sup>Munich Center for Machine Learning (MCML)"
+authors: "Ruotong Liao, Xu Jia, Yangzhe Li, Yunpu Ma, Volker Tresp, Donald Trump, Joe Biden"
 year: 2023
 doi: "10.18653/v1/2023.nlrse-1.7)"
 date_processed: "2025-07-02"
@@ -69,6 +69,7 @@ visiting the same country multiple times. Another intuition behind this is that 
 Rule Learning Let r<sup>h</sup> be a fixed relation, for which we want to learn rules. We sample an edge (e1, rh, e2, t), which will serve as the rule head, uniformly from all edges with relation rh. Then the temporal random walker samples iteratively candidate edges adjacent to the current object C(e2, t) := e2, r, e1,tˆ | e2, r, e1,tˆ ∈ G,t < t ˆ , where tˆ is the timestamp associated with the next transition
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This image depicts a system architecture diagram for Temporal Logical Rule-based Retrieval (TLR) enhanced by Few-shot Instruction Tuning (FIT). TLR uses a temporal knowledge graph to mine rules, stored in a rule bank. These rules, along with facts from the knowledge graph, are input to an inference process. FIT leverages a Large Language Model (LLM) and Low-Rank Adaptation (LoRA) with k-shot samples for improved inference, leading to output prediction. The diagram shows data flow and components, illustrating the system's overall functionality. -->
 
 Figure 1: Framework of GenTKG. GenTKG first retrieves relevant facts based on a temporal logical rule-based retrieval strategy (TLR) then samples K prompts for few-shot parameter-efficient instruction-tuning (FIT) that aligns LLM to the task of generative temporal knowledge graph forecasting.
 
@@ -179,6 +180,7 @@ Compared to in-context-learning method. We analyze the performance of GenTKG on 
 To answer the second question of GenTKG's performance in the generalization setting, the empirical results indicate that the GenTKG framework manifests a substantial capability for cross-dataset generalization. Specifically, once the LLM has been aligned to the tKG forecasting task in the second phase on any dataset, the LLM can be applied directly to any other dataset. Therefore, on a new dataset, GenTKG only requires dataset-specific temporal-logical rule-based retrieval to formulate proper prompts from the first phase, and can directly infer the predictions without retraining in the second phase. As shown in Figure [3\(](#page-6-1)a), all methods are trained and evaluated on GDELT, except that the LLM in generalized GenTKG is trained ICEWS14. Still, the generalized GenTKG delivers comparable performance metrics on GDELT to conventional methods with a minor performance drop compared to the original trained GenTKG. We further demonstrate similar generalization results by cross-checking the training and evaluation
 
 <span id="page-6-1"></span>![](_page_6_Figure_5.jpeg)
+<!-- Image Description: The image presents a comparative analysis of knowledge graph embedding methods. (a) shows a bar chart comparing performance (H@1 and H@3) of different methods (Llama2-ICL, TiTer, Inductive, etc.) on a single dataset. (b) displays two heatmaps. One shows the absolute percentage difference, the other the relative percentage difference, in inductive link predictions across four datasets (ICEWS14, ICEWS18, GDELT, YAGO) for pairs of methods. The purpose is to evaluate and compare the effectiveness and consistency of these methods across datasets. -->
 
 Figure 3: Cross-Domain Generalization Setting. (a) Single dataset evaluation. All training and evaluation is on GDELT except generalized GenTKG, which is trained on ICEWS14. (b) Cross-checking. We cross-check the trained LLaMA2 in GenTKG on different training datasets and evaluation datasets. The performance drop compared to the original training setting takes up only small percentages. Even higher performance than ICL can be observed. More discussions about experiment settings and analysis are given in Appendix [B.1,](#page-14-1) explaining the huge relative difference on GDELT is due to its poor baseline performances.
 
@@ -189,10 +191,12 @@ datasets as shown in Figure [3\(](#page-6-1)b). Although the LLM is trained excl
 Apart from cross-domain generalizability, how well does GenTKG generalize to different training partitions within the same dataset? To investigate such a problem, we carefully designed various partitions of time-ordered training data ranging in {5%, 10%,
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image contains a bar chart and a line graph. The bar chart displays seven experiment settings, showing the percentage of training data used for training, skipping, and evaluation. The line graph presents the Hit@1 metric for six different algorithms (RE-GCN, TANGO, TLogic, XERTE, Timetraveler, GenTKG) across varying percentages of training data. Both visualizations analyze the impact of training data size on algorithm performance. -->
 
 Figure 4: In-domain generalizability. GenTKG exceeds conventional methods on all different partitions of training data on ICEWS14. Values in Appendix Table [6.](#page-16-0)
 
 <span id="page-7-1"></span>![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The image contains two bar charts. (a) shows ablation study results comparing ICL, TLR, FIT, and TLR+FIT methods, measuring "Hits@1", "Hits@3", and "Hits@10". (b) illustrates few-shot tuning performance of ICL, and models trained with 16, 512, and 1024 shots, also using the same "Hits@" metric. Both charts assess the effectiveness of different techniques and training parameters on a retrieval task. -->
 
 Figure 5: (a) Both TLR and FIT phases contribute to GenTKG. (b) Increasing the few-shot training parameter K improves performance.
 
@@ -235,6 +239,7 @@ The results in Figure [6\(](#page-8-0)a) show that all configurations other than
 Q4: How does history length affect GenTKG's performance? Due to the limitation of LLM context length, we evaluate the impact of the history length of TLR retrieved facts. We conduct a set of
 
 <span id="page-8-0"></span>![](_page_8_Figure_6.jpeg)
+<!-- Image Description: The image contains two bar charts and a line graph evaluating a recommendation system. (a) compares "Hits@1", "Hits@3", and "Hits@10" metrics across four temporal configurations (Original, Reverse, Random, Removal). (b) shows how these same metrics change with varying "history length limit" values. The graphs illustrate the impact of temporal data ordering and history length on recommendation accuracy. -->
 
 Figure 6: (a) Other temporal configurations deteriorate performance. (b) Increasing the history length limit improves performance.
 

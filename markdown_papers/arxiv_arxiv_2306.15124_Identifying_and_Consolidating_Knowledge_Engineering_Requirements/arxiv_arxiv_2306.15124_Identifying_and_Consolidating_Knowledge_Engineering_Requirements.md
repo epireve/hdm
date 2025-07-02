@@ -1,7 +1,7 @@
 ---
 cite_key: "amsterdam2018"
 title: "Identifying and Consolidating Knowledge Engineering Requirements"
-authors: "Bradley P. Allen University of Amsterdam Amsterdam, The Netherlands b.p.allen@uva.nl"
+authors: "Filip Ilievski, Saurav Joshi, Bradley P. Allen"
 year: 2018
 doi: "10.1145/3442188."
 date_processed: "2025-07-02"
@@ -57,6 +57,7 @@ Permission to make digital or hard copies of all or part of this work for person
 ## <span id="page-1-0"></span>Conference'17, July 2017, Washington, DC, USA Allen, Ilievski, and Joshi
 
 ![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The image displays a line graph showing the percentage of n-grams related to "expert systems," "ontology," "metadata," and "machine learning" in English books published between 1955 and 2019. This is overlaid with a timeline depicting eras in AI development (Dawn of AI, AI Winter I, Expert Systems Era, AI Winter II, Semantic Web Era, Language Model Era). Below, a network diagram connects these eras to key quality attributes (reliability, efficiency, domain-specificity, etc.) and features associated with each era. The image illustrates the evolution of AI research and its corresponding characteristics over time. -->
 
 Figure 1: Evolving requirements over four eras of the history of knowledge engineering, as witnessed by research that has been responding to the shifting KE landscape [\[1,](#page-8-1) [6,](#page-8-2) [7,](#page-8-3) [11,](#page-8-4) [12,](#page-8-5) [14,](#page-8-6) [17,](#page-8-7) [19,](#page-8-8) [26,](#page-8-9) [30](#page-8-10)[–32,](#page-8-11) [35\]](#page-8-12). We show English language book n-gram occurrence percentages over time for n-grams indicative of each era [\[37\]](#page-8-13). We describe the figure in detail in [section 4.](#page-3-0)
 

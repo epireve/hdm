@@ -1,7 +1,7 @@
 ---
 cite_key: "lu2023"
-title: "A SysML-centric integration framework for helicopter fuel system development"
-authors: "Jinzhi Lu, Guoxin Wang, Jian Wang, Martin Törngren, Dejiu Chen"
+title: "PAPER • OPEN ACCESS"
+authors: "Extension Mechanisms -"
 year: 2023
 doi: "10.1109/AERO55745.2023.10115875"
 url: "Available through IEEE Xplore"
@@ -76,6 +76,7 @@ An integration environment of system development should support the engineers to
 In order to bring more fidelity to SysML models, it is suitable to designate the SysML models as a framework and integrate more accurate simulation models. The system model should be in the central position of the integration environment because the system model provides a consistent source of the system specification, design, analysis, and verification information while maintaining traceability and rationale for critical decisions [8]. Based on this principle, we employ the SysML-centric integration framework to integrate multi-disciplinary engineering models into the SysML modeling environment, executing numerical analysis by co-simulation, verifying requirements, and maintaining traceability. The input data (named as control orders) and the calculated results (named as signals) by simulation models are automatically exchanged between the SysML modeling tools and 3D virtual scene simulation software to show state changes of the systems.
 
 ![](_page_2_Figure_5.jpeg)
+<!-- Image Description: The image depicts a system architecture diagram for helicopter simulation. It shows three interconnected models: a 3D visual model (Unity 3D), a SysML model (CATIA Magic, Rhapsody), and a simulation model (AMESim, Matlab, ANSYS). Data exchange occurs between these models via TCP/IP, UPD, FMI, XMI, and APIs. The simulation model is further decomposed into subsystems (avionics, electrical, main rotor, etc.). The diagram illustrates the integrated workflow and data flow among different simulation tools. -->
 
 Figure 1. SysML- centric integration framework.
 
@@ -101,6 +102,7 @@ According to FAR part 29 Regulations, the main requirements for helicopter fuel 
 For helicopter fuel system, fuel supply pressure and flow, longitudinal and lateral CoGs are critical system parameters. The parameters above will be decomposed in SysML parametric diagrams.
 
 ![](_page_3_Figure_14.jpeg)
+<!-- Image Description: The image is a schematic diagram of a fuel system. It shows a tank with a booster pump, check valve, and fuel supply line connected to an engine via a shut-off valve and pressure transducer. Various pressure differences (ΔPg1, ΔPg2, ΔPf, ΔPp) are labeled, along with heights (H1, H2) and the ambient pressure (Pa). The diagram illustrates the pressure components within the system, likely to support calculations or analysis presented in the paper. -->
 
 Figure 2. Fuel supply system schematic diagram.
 
@@ -168,6 +170,7 @@ At the aircraft level, the stakeholders' concerns focus on:
 MoPs at fuel system level associated with the above stakeholders' needs are established to describe their value properties.
 
 ![](_page_5_Figure_9.jpeg)
+<!-- Image Description: The image displays a system model, likely using a UML-like notation, depicting a fuel system's constraints. Rectangles represent components (e.g., "Fuel System," "CoG Management"), with internal attributes and constraints specified. Arrows indicate relationships, showing how constraints ("CoGX," "CoGY," etc.) refine or satisfy higher-level requirements. Numerical constraints on fuel flow and pressure are defined, along with geometrical constraints on the center of gravity (CoG). The diagram's purpose is to formally specify system requirements and relationships within the paper. -->
 
 Figure 3. MoPs at fuel system level.
 
@@ -176,12 +179,14 @@ Figure 3. MoPs at fuel system level.
 Depending on the above analysis, the subsystem tree is defined using the Block Definition Diagram (BDD), and the interface between the subsystems is defined in the IBD. It includes the front and rear tank system, fuel tank venting system, LH (Left Hand) and RH (Right Hand) engine fuel supply system, fuel gauging system, LH and RH auxiliary fuel tank system.
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image displays two diagrams of a fuel system. The left shows a SysML model, a block diagram representing the system's components (fuel tanks, pumps, probes) and their connections. The right depicts a simplified schematic diagram showing the fuel tanks, pumps, sensors (flow sensors, pressure transducers), and valves (NRV, SOV) with fuel flow paths. The schematic clarifies the physical layout, complementing the more abstract SysML model. -->
 
 Figure 4. From IBD to schematic diagram.
 
 3.2.3. Physical architecture modeling. In the solution domain, the physical architecture model of fuel system inherits from the architecture during the white box phase. In many cases, engineers usually employ commercial simulation software like AMESim, Matlab-Simulink, Flowmaster, etc. to conduct numerical analysis. AMESim software is used to build the fuel system simulation model according to the physical architecture mentioned above. Fuel pressure and flow supplied to the engines and the longitudinal and lateral CoGs of fuel are obtained as outputs of the simulation model; the control orders of booster pumps ("on" and "off") and SOVs (Shut Off Valve) ("on" and "off") are obtained as the inputs.
 
 ![](_page_6_Figure_4.jpeg)
+<!-- Image Description: The image displays a simulation model of an aircraft's fuel system. A schematic diagram shows the fuel tanks, valves (SOV), and fuel flow pathways, connected to calculations for center of gravity (CoG). A 3D model of the fuel tanks is included, along with simulated gauges displaying airspeed, altitude, and CoG values in the longitudinal and lateral axes. The figure illustrates the model's structure and simulated outputs. -->
 
 Figure 5. AMESim simulation model. Figure 6. AMESim Monitor
 
@@ -198,6 +203,7 @@ Control orders of booster pumps and electric valves are defined as the inputs of
 codes or binary form, which executes the equations representing the fuel system behavior and performance. The FMU, as black-box blocks, is then imported into CATIAMagic software and connects to the corresponding parameters in IBD. A State Machine (STM) diagram is built to execute the co-simulation model and achieve the state switch through the control orders.
 
 ![](_page_7_Figure_2.jpeg)
+<!-- Image Description: This image displays a schematic of a fuel system model. It shows three main components: a human-model interface (HMI) with fuel control panels for cross-feed and engine fuel feed, an FMU (Functional Mock-up Unit) SysML model illustrating input/output signals between the HMI and the fuel system, and a fuel system parameter display showing tank levels, fuel flow rates, and pressure. The diagram illustrates the interaction between the user interface and a simulated fuel system. -->
 
 Figure 7. FMU interfaces definition.
 
@@ -206,6 +212,7 @@ The FMI approach provides a way to interconnect with SysML models for co-simulat
 Referring to the MoPs holder in the problem domain regarding engine fuel pressure and flow, longitudinal and lateral CoGs of fuel, the physical architecture model of the fuel system inherits the parameters of the MoPs holder and establishes a binding relationship with the fuel system requirements. The binding relationship between the acquisition parameters and the MoPs indicator is established in the parameter diagram.
 
 ![](_page_7_Figure_6.jpeg)
+<!-- Image Description: The image displays a state machine diagram alongside simulation results. The state machine depicts a system's workflow, showing transitions between states (e.g., "CFO_Connected," "LED"). The simulation results section presents multiple time-series graphs showing fuel levels, engine flow/pressure, and control orders over time. This visualization likely demonstrates the system's behavior under various control inputs as simulated by the model represented in the state machine diagram. -->
 
 #### Figure 8. State machine diagram. Figure 9. Monitoring panel.
 

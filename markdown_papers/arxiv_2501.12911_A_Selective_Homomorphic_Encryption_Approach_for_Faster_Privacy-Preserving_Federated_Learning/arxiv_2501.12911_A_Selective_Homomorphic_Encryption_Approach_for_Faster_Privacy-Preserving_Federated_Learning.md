@@ -1,7 +1,7 @@
 ---
 cite_key: "nonetheless2016"
 title: "A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning"
-authors: "Nonetheless, the decentralized structure of FL brings about distinct security challenges. While data remains on local devices, the transmission of model parameters over networks creates vulnerabilities, including risks of unauthorized access or data leakage during exchange. Existing research often assumes that data localization inherently guarantees privacy, overlooking these communication-phase threats. Current security strategies in FL, such as encrypting communication channels or perturbing shared gradients, are frequently implemented in isolation, without systematic analysis of their combined impact on computational efficiency, model accuracy, or multi-layered privacy preservation."
+authors: "Abdulkadir Korkmaz · Praveen Rao"
 year: 2016
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -155,6 +155,7 @@ $$
 where Enc and Dec refer to the encryption and decryption functions, respectively, and Eval denotes a computation performed on ciphertexts. This capability is
 
 ![](_page_4_Figure_19.jpeg)
+<!-- Image Description: The flowchart depicts a federated learning system. Two clients ("Client 1" and "Client 2") independently train on weight vectors, then encrypt and obfuscate the results (bitwise scramble, random encrypt, differential noise). These encrypted updates are sent to a central server which aggregates them. The aggregated model is then distributed as a model update back to the clients. The diagram illustrates the process of secure model aggregation in a federated learning setting. -->
 
 Fig. 1 General depiction of the FL model showing the processes of encryption, scrambling, and aggregation.
 
@@ -181,10 +182,12 @@ The proposed model follows a three-stage pipeline: client-side processing, serve
 Figure 1 provides a general depiction of our FL model, demonstrating the encryption, scrambling, and noise addition steps across client nodes, and the subsequent aggregation performed by the server.
 
 ![](_page_5_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a data processing pipeline for secure model training. "Train" data undergoes random weight vector splitting, encryption, hexadecimal formatting, noise addition, bitwise scrambling with a key, and finally transmission to a server. The diagram details the stages of data obfuscation before sending it to the server, likely to protect sensitive training data. -->
 
 Fig. 2 Client-side process in FL system: encryption, scrambling, and noise addition.
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: This flowchart illustrates a secure aggregation protocol. Client vectors are split, with one part encrypted and the other not. The server receives these parts, aggregates the encrypted portions separately from the non-encrypted ones, and then combines them before sending the result back to the clients, ensuring privacy. The diagram details the data flow and encryption/aggregation steps. -->
 
 Fig. 3 Server-side process in FL system: aggregation and rescrambling.
 
@@ -359,6 +362,7 @@ $$
 Thus, M′ (D) maintains the same DP guarantee as M(D).
 
 ![](_page_7_Figure_17.jpeg)
+<!-- Image Description: The image displays sample chest X-ray images categorized into three groups: (a) Benign, (b) COVID-19, and (c) Pneumonia. Each group shows four example X-rays, illustrating the visual differences in lung patterns associated with each condition. The image serves as a visual representation of the dataset used in the paper, showcasing the variations in radiological findings used for model training and evaluation. -->
 
 Fig. 4 Examples from the Chest X-ray (Covid, Pneumonia) dataset [20]
 
@@ -385,14 +389,17 @@ This dataset contains 6,339 grayscale X-ray images across three classes: benign,
 Comprising 12,446 CT scans categorized as benign (5,077), cyst (3,709), stone (1,377), and tumor (2,283), this dataset aids in kidney disease diagnosis.
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: This image displays four sets of axial computed tomography (CT) scans of kidneys, each set representing a different kidney pathology: benign, cyst, stone, and tumor. Each set shows three to four different slices of the same kidney at varying depths. The purpose is to visually illustrate the distinct CT scan appearances of these kidney conditions, likely for diagnostic comparison or algorithm training in the context of the paper. -->
 
 Fig. 5 Examples from the CT Kidney dataset [20]
 
 ![](_page_8_Figure_3.jpeg)
+<!-- Image Description: The image presents two sets of retinal fundus photographs. (a) shows four examples of benign retinas, while (b) displays four examples of retinas with diabetic retinopathy. The image serves as a visual comparison to illustrate the differences in retinal appearance between healthy and diseased states, likely within a section on image data used for a diagnostic model in the paper. -->
 
 Fig. 6 Examples from the Diabetic Retinopathy Detection dataset [20]
 
 ![](_page_8_Figure_5.jpeg)
+<!-- Image Description: The image displays microscopic tissue samples categorized into three groups: (a) Benign, (b) Adenocarcinoma (ACC), and (c) Squamous Cell Carcinoma (SCC). Each group presents four 2x2 arrays of histological images, visually illustrating the distinct microscopic appearances of these tissue types. The purpose is to provide a visual representation of the data used in the paper for classification or analysis of cancerous and benign tissues. -->
 
 Fig. 7 Examples from the Lung Cancer Histopathological Images dataset. [20]
 
@@ -491,10 +498,12 @@ Table 1 Training Time (Minutes) and Overheads Across
 |             | Diabetic    | 1140        | 673        |
 
 ![](_page_9_Figure_20.jpeg)
+<!-- Image Description: The image displays a line graph showing the file size (in MB) of four different deep learning models (EfficientNetB0, DenseNet121, MobileNetV2, ResNet50) as a function of encryption percentage. The graph illustrates how the file size increases linearly with the percentage of encryption applied to each model, with ResNet50 showing the most significant size increase. The purpose is to compare the impact of encryption on the size of different model architectures. -->
 
 Fig. 8 Encrypted file size per encryption level (10% - 100%)
 
 ![](_page_9_Figure_22.jpeg)
+<!-- Image Description: The image is a line graph showing the accuracy of four different convolutional neural networks (DenseNet, ResNet, EfficientNet, MobileNet) at varying levels of data encryption (0-90%). The x-axis represents the encryption percentage, and the y-axis represents the model accuracy. The graph illustrates how the accuracy of each model decreases as the encryption percentage increases. It likely demonstrates the impact of data encryption on model performance. -->
 
 Fig. 9 Accuracy Vs Encryption Percentage Across Different Models
 
@@ -503,6 +512,7 @@ Fig. 9 Accuracy Vs Encryption Percentage Across Different Models
 Before conducting our main security experiments, we implemented several security tests to evaluate the
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The bar chart displays the encryption overhead (in minutes) for four different convolutional neural network models: EfficientNetB0, DenseNet121, MobileNetV2, and ResNet50. Two overheads are compared: Fully Homomorphic Encryption (blue bars) and FAS (red bars). The chart shows that ResNet50 has the highest Fully Homomorphic Encryption overhead (510 minutes), while EfficientNetB0 has the lowest (100 minutes). FAS overhead is significantly lower for all models. The chart visually compares the computational costs of the encryption methods across different model complexities. -->
 
 Fig. 10 Training Time and Encrypted Size Comparison for FHE and FAS Models (CT Kidney dataset)
 
@@ -531,6 +541,7 @@ Model inversion attacks pose a threat to FL by reconstructing training data from
 MSSIM quantifies structural similarity between original and reconstructed images, with lower scores indicating stronger privacy. VIFP measures visual quality based on perceptual models, highlighting the impact of noise and scrambling techniques. Both metrics are widely recognized for privacy evaluation in adversarial scenarios.
 
 ![](_page_10_Figure_10.jpeg)
+<!-- Image Description: The image presents a line graph comparing the performance of four different convolutional neural networks (EfficientNetB0, DenseNet121, MobileNetV2, ResNet50) under varying levels of encryption. The x-axis represents the encryption percentage (0-90%), while the y-axis shows two performance metrics: MSSIM (structural similarity index) and VIFP (visual information fidelity). The graph illustrates how these metrics decrease as the encryption percentage increases for each network, indicating a degradation in image quality with higher encryption. -->
 
 Fig. 11 MSSIM and VIFP Scores across Encryption Percentages for Various Models
 
@@ -547,6 +558,7 @@ Figure 11 illustrates MSSIM and VIFP scores across encryption percentages for va
 MASKCRYPT [19] applies a gradient-guided encryption mask to selectively encrypt critical model weights, reducing communication overhead by up to 4.15× compared to full model encryption. However, its gradient mask is not always optimized for selecting the most sensitive gradients, leading to lower initial security scores. MASKCRYPT requires multiple rounds to stabilize en-
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing MSSIM and VIFp scores across three methods (FedML-HE, MaskCrypt, FAS) at varying encryption levels (0-90%). MSSIM and VIFp, likely image quality metrics, are plotted against encryption percentage. The graph shows how these metrics decrease with increasing encryption for each method, allowing for a performance comparison. -->
 
 Fig. 12 Comparison of MSSIM and VIFP Scores: FAS vs. FedML-HE vs. MASKCRYPT
 
@@ -591,10 +603,12 @@ This section compares the performance of FAS, FEDML-HE, and MASKCRYPT across fiv
 Across all datasets, FAS consistently achieves the lowest training times and computational overhead as we can see from Figures 13, 14, 17, 16, 15. Unlike FEDML-HE, which incurs significant pretraining costs for sensitivity mask creation, and MASKCRYPT, which generates masks at each round, FAS employs a
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The bar chart compares the execution times (in minutes) of different encrypted deep learning models (EffNetB0, DenseNet121, MobileNetV2, ResNet-50) using various encryption techniques: FAS, MASKCRYPT, and FEDML-HE. Each bar is segmented to show the encrypted computation time and the overhead for each method. A "Fully Encrypted" control group is included for comparison. The chart illustrates the performance trade-offs between different privacy-preserving machine learning approaches. -->
 
 Fig. 13 Comparison of Partly Encrypted and Fully Encrypted Metrics Across Models (CIFAR-10).
 
 ![](_page_12_Figure_3.jpeg)
+<!-- Image Description: The bar chart displays the encrypted inference time (in minutes) for four different deep learning models (EffNetB0, DenseNet121, MobileNetV2, ResNet-50) using three different secure inference methods (FAS, FEDML-HE, MASKCRYPT) and a fully encrypted control. Each bar is segmented to show the encrypted computation time and the overhead of each method. The gray bars represent the fully encrypted control, showcasing the total time. The chart compares the performance and overhead of the secure inference techniques across various model architectures. -->
 
 Fig. 14 Comparison of Partly Encrypted and Fully Encrypted Metrics Across Models (Diabetic Retinopathy).
 
@@ -603,14 +617,17 @@ random masking strategy with minimal computation. This advantage is particularly
 Figures 13, 15, 14, 17 and 16 shows that across all datasets, FAS consistently outperforms FEDML-HE and MASKCRYPT in terms of total training time and overhead. The absence of sensitivity mask pretraining or extra per-round computations is the key factor contributing to its superior performance. These results establish FAS as the optimal choice for applications requiring fast and efficient encryption without compro-
 
 ![](_page_12_Figure_7.jpeg)
+<!-- Image Description: This grouped bar chart compares the training times (in minutes) of four convolutional neural networks (EffNetB0, DenseNet121, MobileNetV2, ResNet-50) under different privacy-preserving training methods. Each bar represents a model trained with either fully encrypted methods (control), FAS, or FEDML-HE, showing the encrypted computation time and the overhead introduced by each method. The chart visualizes the trade-off between security and training efficiency for these models. -->
 
 Fig. 15 Comparison of Partly Encrypted and Fully Encrypted Metrics Across Models (COVID).
 
 ![](_page_12_Figure_9.jpeg)
+<!-- Image Description: This bar chart compares the training times (in minutes) of four different deep learning models (EffNetB0, DenseNet121, MobileNetV2, ResNet-50) under various secure training protocols: FAS, MASKCRYPT, and FEDML-HE. Each protocol's encrypted and overhead times are shown separately. A "Fully Encrypted" control group is included for comparison. The chart illustrates the relative performance and overhead of different secure training methods across various model architectures. -->
 
 Fig. 16 Comparison of Partly Encrypted and Fully Encrypted Metrics Across Models (Lung).
 
 ![](_page_12_Figure_11.jpeg)
+<!-- Image Description: The image presents a grouped bar chart comparing the computation times (in minutes) of five different deep learning models (EffNetB0, DenseNet121, MobileNetV2, ResNet-50) under various secure computation schemes: FAS, MASKCRYPT, and FEDML-HE. Each model's bar is segmented to show the encrypted computation time and the overhead for each scheme. A "Fully Encrypted (Control)" bar represents a baseline. The chart illustrates the performance trade-offs between different secure computation methods in terms of computation time for various model architectures. -->
 
 Fig. 17 Comparison of Partly Encrypted and Fully Encrypted Metrics Across Models (Kidney).
 
@@ -670,6 +687,7 @@ Table 5 MSSIM and VIFP Scores for Skew and Normal Data across Datasets
 Table 5 demonstrates that the proposed FAS technique, leveraging encryption, scrambling, and noise, exhibits superior robustness to data skew across all evaluated datasets—Kidney, Lung, COVID, and Diabetic Retinopathy—when compared to existing gradientbased encryption methods. This characteristic ensures that FAS maintains its performance and security advantages even in diverse, real-world scenarios with varying data distributions. Experimental results using the Effi-
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph comparing the accuracy of several federated learning methods (FAS, MASKCRYPT, Fedml-HE) across different deep learning models (EfficientNet, DenseNet, ResNet, MobileNet). Accuracy is shown for both "normal" and "skew" data distributions. The graph shows how accuracy varies across models and methods, with accuracy generally decreasing as model complexity (from EfficientNet to MobileNet) increases. The purpose is to illustrate the comparative performance of the different federated learning approaches under varying conditions. -->
 
 Fig. 18 Effect of Data Skew on CIFAR Dataset Across Different Techniques
 

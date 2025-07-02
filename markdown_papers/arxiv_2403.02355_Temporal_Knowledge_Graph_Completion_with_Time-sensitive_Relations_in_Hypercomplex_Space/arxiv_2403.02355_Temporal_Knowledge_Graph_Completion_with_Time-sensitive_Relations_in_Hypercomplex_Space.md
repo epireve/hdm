@@ -1,7 +1,7 @@
 ---
 cite_key: "caisupsup2023b"
 title: "Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space"
-authors: "Li Cai<sup>1</sup>,<sup>2</sup> , Xin Mao<sup>1</sup> , Zhihong Wang<sup>1</sup> , Shangqing Zhao<sup>1</sup> , Yuhao Zhou<sup>1</sup> , Changxu Wu<sup>3</sup> , Man Lan<sup>1</sup> <sup>∗</sup>"
+authors: "Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan"
 year: 2023
 doi: "10.1007/3-540-44503-X_27)"
 date_processed: "2025-07-02"
@@ -37,6 +37,7 @@ Knowledge graphs (KGs) serve as organized repositories of information about the 
 Despite their significance, knowledge graphs (KGs) inherently lack completeness due to the vastness of real-world information. Knowledge graph completion (KGC) becomes crucial for inferring absent relations or entities within KGs.
 
 <span id="page-0-0"></span>![](_page_0_Figure_13.jpeg)
+<!-- Image Description: This diagram depicts the diplomatic interactions among Barack Obama, Japan, South Korea, and North Korea in 2014. Nodes represent actors, and edges represent actions (visits and negotiations) with dates. Solid lines show confirmed actions; dashed red lines represent uncertain or potential actions. The diagram illustrates the sequence and nature of diplomatic engagements during a specific period, likely to analyze the flow of events and potentially identify key turning points or influential actors. -->
 
 Figure 1: Subgraph example from ICEWS14 dataset for TKGC. Nodes on the graph represent entities, including Obama, Japan, South Korea, North Korea, and edges signify relations (with timestamps in parentheses), encompassing Host a visit, Make a visit, Express intent to meet or negotiate, Engage in negotiation. Solid black arrows denote existing facts, while red dashed arrows indicate missing facts that need to be completed.
 
@@ -345,10 +346,12 @@ We conduct an ablation experiment on ICEWS14 to investigate the contributions of
 As reported in Table [3,](#page-6-1) without periodic time (w/o PT), all metrics of the performance of TQuatE drops, which indicates the effectiveness of model the periodic time.
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The figure displays a line graph showing the performance of a model (ICEWS14) across varying dimensions ('d'). Four metrics are plotted: MRR, Hits@1, Hits@3, and Hits@10. Each metric's value is shown on the y-axis, and the dimension 'd' is on the x-axis. The graph illustrates how these information retrieval metrics change with respect to the dimensionality of the model, suggesting an optimal range for 'd'. -->
 
 Figure 2: TKGC performance for different embedding dimensions d on ICEWS14.
 
 <span id="page-7-1"></span>![](_page_7_Figure_2.jpeg)
+<!-- Image Description: The figure displays a line graph showing the Mean Reciprocal Rank (MRR) for the ICEWS14 dataset. Two lines represent MRR values corresponding to different parameters, λe and λτ, across various regularization strength values shown on the x-axis. The graph illustrates how MRR changes with varying regularization strength for the two parameters, likely to analyze optimal parameter settings within the model. -->
 
 Figure 3: MRR values for different weight of embedding regularizer λ<sup>e</sup> and time regularizer λ<sup>τ</sup> on ICEWS14.
 

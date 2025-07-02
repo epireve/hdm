@@ -1,6 +1,6 @@
 ---
 cite_key: "ghanisupsup2020"
-title: "**Issues and challenges in Cloud Storage Architecture: A Survey**"
+title: "## ABSTRACT"
 authors: "**Anwar Ghani<sup>1</sup> , Afzal Badshah<sup>1</sup> , Saeed Ullah Jan<sup>2</sup> , Abdulrahman A. Alshdadi<sup>3</sup> and Ali Daud<sup>3</sup>**"
 year: 2020
 doi: "10.1109/RpJC.2020.DOI"
@@ -41,9 +41,11 @@ The recent advances and development in smart technology is getting more attentio
 Today more embedded devices joined the Internet to monitor and connect everything (e.g, traffic facilities, buildings, environment, and lakes), enlarging the size of the data generation [\[5\]](#page-13-4)–[\[9\]](#page-13-5). As the data on the Internet is increasing day by day, therefore, analyzing and storing it through traditional data management method is a great challenge [\[10\]](#page-13-6), [\[11\]](#page-13-7) . However, researchers are struggling to design new kinds of databases based on NoSQL for handling unstructured data at such a large
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image displays a line graph showing the growth of "Devices" and "Investment" from 2017 to 2023. The Investment line exhibits a steeper, exponential increase compared to the slower, linear growth of Devices. The graph likely illustrates a correlation between investment in a technology and the resulting increase in devices. The y-axis represents quantity (Devices and Investment), while the x-axis represents the years. -->
 **FIGURE 1.** The cloud devices and revenue forecost.
 
 <span id="page-1-0"></span>![](_page_1_Figure_3.jpeg)
+<!-- Image Description: This diagram illustrates a cloud storage architecture. Multiple virtual machines (VMs) are shown layered above servers, which in turn sit atop physical storage units. The illustration clarifies the concept of cloud storage—providing virtual resources without direct ownership of physical hardware—and highlights the remote accessibility that defines this model. The caption mentions leading cloud providers as examples. -->
 
 <span id="page-1-1"></span>**FIGURE 2.** Structure of cloud storage.
 
@@ -52,6 +54,7 @@ scale [\[12\]](#page-13-8)–[\[14\]](#page-13-9). There are many proposals in t
 With the advent of technology, computing requirements of organizations grew exponentially prompting the organization to incorporate more computing and storage resources [\[19\]](#page-13-12) [\[20\]](#page-13-13). Setting up systems at such large scale require more efforts and heavy investments prompting the enterprise customers to outsource their computing and storage resources [\[21\]](#page-13-14)–[\[24\]](#page-13-15). The users have no full control over the computing resources available through cloud over the Internet [\[25\]](#page-13-16), [\[26\]](#page-13-17). Storage in the cloud is becoming a hot research venue today because new applications are data intensive which doubles storage capacity requirement as well as data usage every year. It prompted some commercial organizations to work for another cloud service called as "on
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: The image depicts a distributed data storage system architecture. Multiple consumers access data via the internet, which connects to a master node. This master node manages access to numerous data nodes within a cloud-based Storage Service Provider. The diagram illustrates a client-server model with data distributed across multiple servers for redundancy and scalability. The "n" notation indicates scalability to an arbitrary number of consumers and data nodes. -->
 
 <span id="page-2-0"></span>**FIGURE 3.**Master and data node in cloud storage architecture.
 
@@ -72,6 +75,7 @@ Storage in a cloud is a crucial part of the Infrastructure as a Service (IaaS). 
 Data security is an important requirement from tenant as a right. Secure services attract users to store their data in a cloud. Companies providing the cloud storage services are searching for techniques that can control access to cloud data and improve security. With increase in size of the data, there is also an increase in data attacks and interceptions. The cloud computing provides storage services as a vitalized environment where a user has no control over the data [\[34\]](#page-13-25). In such situation, a user may ask questions like "where exactly is my data located?", "what happen if I delete my data?" and "is the deleted data really deleted?".
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image is a hierarchical tree diagram categorizing cloud storage issues. The root node is "Cloud Storage Issues," branching into "Data Security Issues" and "Data Management Issues." "Data Security Issues" further subdivides into data integrity, confidentiality, access, authentication/authorization, and breaches. "Data Management Issues" branches into data dynamics, segregation, virtualization vulnerabilities, backup issues, availability, and data locality. The diagram visually organizes and clarifies various aspects of cloud storage challenges. -->
 
 <span id="page-3-0"></span>**FIGURE 4.**Cloud storage challenges.
 
@@ -219,6 +223,7 @@ This section presents a quick review of the cloud storage future and its opportu
 Remote accessibility (i.e, access from everywhere and anytime) is the core of cloud storage. The fast network speed and AI is making it more smarter and faster. Leading cloud provider (i.e, Apple iCloud [\[80\]](#page-14-31), Microsoft OneDrive [\[81\]](#page-14-32), and Google Drive [\[82\]](#page-14-33) etc) are providing fast and reliable remote services to their users. Remote access allows to store and retrieve items from a cloud storage without needing to create a physical connection. Accessibility of storage devices is getting interested after introducing high storage devices and high bandwidth network. Remote access increases the usage of cloud storage and business. In the presence of internet services, cloud storage can provide seamless access to data files [\[72\]](#page-14-34). The coming 5G internet service will make the accessibility very easy and smart as real-time access [\[83\]](#page-14-35).
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: This mind map illustrates the opportunities presented by cloud storage. A central node, "Cloud Storage Opportunities," connects to seven surrounding nodes representing key advantages: remote accessibility, usability, disaster recovery, cost savings, sharing and collaboration, automation and synchronization, and privacy and security. The invisibility of data storage is also noted as a key feature. The image visually summarizes the benefits of cloud storage technology within the context of the paper. -->
 
 <span id="page-10-0"></span>**FIGURE 5.**Opportunities of cloud storage
 

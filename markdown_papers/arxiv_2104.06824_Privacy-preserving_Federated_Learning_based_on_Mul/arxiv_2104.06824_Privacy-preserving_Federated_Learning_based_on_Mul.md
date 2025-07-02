@@ -1,7 +1,7 @@
 ---
 cite_key: "preprint2021"
 title: "PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION"
-authors: "A PREPRINT"
+authors: "Xixiang Lyu"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -42,10 +42,12 @@ Recent attempts to address this issue by applying cryptographic techniques are n
 <sup>∗</sup>Corresponding author. E-mail address: xxlv@mail.xidian.edu.cn
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image depicts a federated learning architecture. A central server interacts with multiple clients (represented as mobile devices with network graphs). The server receives global model weights (`W_global`) and updates from clients, indicated by `E(w)`. Clients receive and send model weights to the server, suggesting a process of model aggregation and dissemination in a distributed training scheme. The ellipsis (...) implies the existence of multiple clients beyond those shown. -->
 
 <span id="page-1-1"></span>(a) Federated learning without encryption (b) Homomorphic encryption (HE)-based federated learning using the same keys for all parameters
 
 ![](_page_1_Figure_4.jpeg)
+<!-- Image Description: The image depicts a federated learning system architecture. Three client devices (represented by rectangles with internal nodes and keys) independently train models, indicated by the internal network structure. These local models' parameters (`w`) are sent to a central server for aggregation, denoted by `E(w)`, producing a global model (`w<sup>global</sup>`). The server then distributes the updated global model back to the clients. The diagram illustrates the data flow and model updates in a federated learning setting. -->
 
 <span id="page-1-2"></span>(c) Multi-key HE-based federated learning using distinct encryption keys. Decryption is possible only combining all keys
 
@@ -282,6 +284,7 @@ $$
 In xMK-CKKS, the aggregated public key is computed for encryption. The decryption requires each device to computes its decryption share. The decryption share implicitly contains the information of individual secret key of each participants and the aggregated cipheretexts Csum, and adds an error for security, thus is useless to decrypt any
 
 <span id="page-7-0"></span>![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a federated learning algorithm using homomorphic encryption. It shows local model training (1), encryption of model weights (2), aggregation of encrypted weights via a server (3, shown as two database servers), decryption share computation (4), and final decryption and averaging (5). The equation C<sub>sum</sub> = (C<sub>sum0</sub>, C<sub>sum1</sub>) represents the encrypted sum of weights. The diagram emphasizes the process of secure model aggregation in a distributed setting. -->
 
 Figure (2) Privacy-preserving federated learning based on xMK-CKKS multi-key homomorphic encryption
 
@@ -402,6 +405,7 @@ In our evaluation, we utilize the dataset from the data of the accelerometer sen
 | Data size | 28K | 27K | 28K | 27K | 28K | 25K | 28K | 26K | 27K | 27K | 37K     |
 
 <span id="page-10-1"></span>![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The image displays a system architecture diagram (left) and a photograph (right). The diagram depicts a server storing shared and private data, distributing data to multiple clients, each possessing both local data and data received from the server. The photograph shows eight interconnected hardware boards, likely representing the client devices from the diagram, forming a distributed computing setup. The image illustrates the physical implementation of the proposed architecture. -->
 
 <span id="page-10-2"></span>(a) Distribution strategy to remote devices. The server shares a small fraction of the data to decrease weights divergences (b) Environment testbed settings with 10 Jetson Nano IoT devices
 
@@ -430,6 +434,7 @@ We evaluated fall detection model accuracy to ensure the effectiveness of our sc
 schemes to validate its applicability for IoT devices. We further evaluated the computational cost of each scheme during encryption, decryption, computation of cipher sums as well as decryption share computation. The classification accuracy, communication cost, energy consumption, and computational cost are reported.
 
 <span id="page-11-1"></span><span id="page-11-0"></span>![](_page_11_Figure_4.jpeg)
+<!-- Image Description: The image contains two line graphs comparing the accuracy of three federated learning (FL) schemes – a standard FL-based scheme, and two variants using CKKS (a homomorphic encryption scheme) – over 30 aggregation rounds. Each line represents a scheme, and error bars show variability. The graphs illustrate the convergence of accuracy for each scheme, with the purpose of comparing their performance in terms of accuracy achieved across multiple training rounds. -->
 
 <span id="page-11-2"></span>(a) Accuracy of the federated lerning schemes utilizing L = 20 local training epochs (b) Accuracy of the federated lerning schemes utilizing L = 40 local training epochs
 
@@ -444,6 +449,7 @@ Energy Consumption. We monitored the energy consumption during the operation of 
 Computational cost We discuss the computational cost when varying the number of weights (up to nearly 1/3 million) in Fig. [5.](#page-12-0) We report computational cost at the encryption phase (Fig. [5\(](#page-12-0)a)), aggregation phase (Fig. [5\(](#page-12-0)b)), decryption share calculation phase (Fig. [5\(](#page-12-0)c)), and decryption phase (Fig. [5\(](#page-12-0)d)), where each experiment is executed four times. We compare our scheme with MK-CKKS based scheme and Paillier based scheme. We notice that our scheme behaves
 
 <span id="page-12-0"></span>![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image displays four line graphs comparing the time costs of Paillier, MK-CKKS, and xMK-CKKS based federated learning (FL) methods. Each graph shows how encryption (a), decryption (b), total cipher (c), and decryption share (d) costs vary with the number of weights (x-axis). The y-axes represent time cost in milliseconds, scaled differently for each graph. The purpose is to demonstrate the performance differences between the three FL encryption methods. -->
 
 number of weights number of weights ent number of weights different number of weights Figure (5) Computational cost for Paillier based federated learning, MK-CKKS based federated learning, and xMK-CKKS based federated learning in different stages
 

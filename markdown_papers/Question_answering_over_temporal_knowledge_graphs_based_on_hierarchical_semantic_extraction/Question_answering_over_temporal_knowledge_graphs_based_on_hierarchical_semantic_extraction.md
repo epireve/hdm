@@ -47,6 +47,7 @@ Furthermore, existing TKGQA models [2]–[6] typically operate with temporal kno
 To address the challenges of complex temporal problems and the absence of structural information, we propose a new model called HSTQA. This model efficiently extracts semantic and implicit temporal information using hierarchical semantic extraction. The embedding module employs hierarchical semantic extraction to parse and understand both the semantic and implicit temporal information in queries more effectively. To handle mixed temporal granularity questions,
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a knowledge graph transformation. The left panel shows a general knowledge graph ("TKG Searching"), a network of nodes and edges. The right panel ("Reasoning Facts") displays a refined subgraph, extracted from the initial graph, focusing on US presidents (Hoover, Roosevelt, Truman) and World War II. Nodes represent entities, edges show relationships, with labels specifying the type and time period. The arrow indicates the transformation from raw data to structured facts. -->
 
 Fig. 1. Example of a complex time question
 
@@ -77,6 +78,7 @@ $$
  (1)
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This image depicts the architecture of a question-answering system for temporal knowledge graphs. It uses a pipeline, starting with data preprocessing of a temporal knowledge graph (KG). The system then generates embeddings for the question and KG entities, using pretrained language models. A question reasoning module fuses entity and relational information, and an answer selection module ranks potential answers based on a combined score incorporating temporal and entity features. Finally, a multi-granularity fusion module incorporates temporal information before the final answer selection. The diagram shows the flow of information through various modules, including embeddings, encoders, and fusion operations, visualized with boxes and arrows. -->
 
 Fig. 2. Overall architecture of HSTQA
 
@@ -289,6 +291,7 @@ TABLE IV RESULTS OF ABLATION STUDIES
 In this paper, we propose HSTQA, a question-answering model based on hierarchical semantic extraction, which significantly enhances complex temporal reasoning for the TKGQA task. Unlike existing models, HSTQA excels by hierarchically
 
 ![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The bar chart compares the performance of two question answering methods, HSTQA and MultiQA, across various scenarios. The y-axis represents Hits@1 (accuracy), and the x-axis shows different query-answering contexts (e.g., "Equal," "Before/After"). Numerical values above each bar indicate precise Hits@1 scores for each method in each scenario. The chart visually demonstrates the relative effectiveness of HSTQA and MultiQA under varying conditions. -->
 
 Fig. 3. Experimental results of MultiQA and HSTQA for different question types (Hits@1)
 

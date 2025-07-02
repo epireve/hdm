@@ -1,7 +1,7 @@
 ---
 cite_key: "yang2024"
 title: "SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding"
-authors: "Ruiyi Yang, Flora D. Salim, Hao Xue"
+authors: "Ruiyi Yang"
 year: 2024
 doi: "arXiv:2402.12132"
 url: "https://arxiv.org/abs/2402.12132"
@@ -111,6 +111,7 @@ Apart from prediction, knowledge graphs are also widely used for recommendation.
 Table 1: Notations and descriptions
 
 <span id="page-2-1"></span>![](_page_2_Figure_4.jpeg)
+<!-- Image Description: This flowchart illustrates a data processing pipeline for spatial-temporal data. It begins with raw spatial-temporal data (time, location, dynamic attributes), which is structured through input transfer, relation/influence calculation, and fact construction. This structured data is then represented as spatial-temporal relations (shown as a graph with nodes and edges) using STKG (likely a graph-based model). Finally, an embedding model processes these relations for downstream tasks such as prediction or recommendation. -->
 
 Figure 2: The workflow of proposed framework
 
@@ -397,6 +398,7 @@ The accuracy rate for a prediction in the study is quantified using ACCn metric,
 | Location<br>Suburb<br>Temporal records<br>Overall records     | counters' locations<br>the suburb where counters are located<br>traffic volume collected by hour<br>aggregated traffic volume                                  |  |  |
 
 <span id="page-5-4"></span>![](_page_5_Figure_19.jpeg)
+<!-- Image Description: The image is a heatmap overlaid on a map of Ohio. It displays a spatial distribution, likely of population density or a related metric. Brighter colors (yellow-green) indicate higher concentrations, while lighter colors (purple-blue) show lower concentrations. The heatmap's purpose is to visually represent the geographic clustering or spatial patterns of the phenomenon being studied within the state of Ohio. -->
 
 Figure 3: Heatmap of stores in Spend-Ohio dataset
 
@@ -504,12 +506,14 @@ service restaurant, which is a general type in the data. 3. Proper related entit
 From the above results, generally, entities close to the sample entity tend to have larger absolute influence values, whereas those entities located further away exhibit minimal or no influence on the sample. Three groups of entities are chosen for further analysis, marked as A, B and C. Entity A and Entity B are close to the center store, having high 'influence' values. Group C, although their temporal records are significant, their spatial and categorical attributes play a crucial role in the model's calculations, resulting in them having a minimal influence value. By integrating the above influences with trained embeddings, the sample's selling is predicted based on Equation [\(6\)](#page-3-7), [\(8\)](#page-4-0) and [\(9\)](#page-4-1) (first calculate embeddings then decode records). However, if some related entities, like A, B and group C were masked, the predicted result would change. Table [7](#page-7-2) shows the change of prediction after masking entities. While the former predicted data is 0, predicted data after removing A, B and C are , and .
 
 <span id="page-7-0"></span>![](_page_7_Figure_5.jpeg)
+<!-- Image Description: The histogram displays the distribution of distances from various shops to a central shop. The x-axis represents the distance, and the y-axis shows the number of shops at that distance. The data shows a multimodal distribution, with several peaks indicating clusters of shops at specific distances from the central location. The histogram likely illustrates spatial patterns or characteristics of shop locations relative to a central point in the study area. -->
 
 Figure 4: Related entities' distances with sample shop
 
 A hypothesis test is set to show the difference between predicted data. The null hypothesis are: 0 : <sup>0</sup> < ; 0 : <sup>0</sup> > ; 0 : 0! = , while alternative hypothesis are 1 : <sup>0</sup> > ; 1 : <sup>0</sup> < ; 1 : <sup>0</sup> = . Table [8](#page-7-3) shows the p-value after t-test under 95% confidence level. For all three null hypotheses, the p-value of t-test is greater than 0.05, thus are all rejected, drawing the conclusion that, by masking entity A, the predicted value for sample's selling decreased(<sup>0</sup> > ), while by masking B the predicted value increased (<sup>0</sup> > ) – those who have positive
 
 <span id="page-7-1"></span>![](_page_7_Figure_8.jpeg)
+<!-- Image Description: The scatter plot displays the relationship between influence and distance. Red 'x' markers represent individual data points. Three box plots (A, B, C) show the distribution of influence at different distance ranges. A dashed horizontal line indicates zero influence. The figure illustrates how influence changes with distance, with A showing high positive, B negative, and C near-zero influence. -->
 
 Figure 5: Related entities' influence to sample shop
 

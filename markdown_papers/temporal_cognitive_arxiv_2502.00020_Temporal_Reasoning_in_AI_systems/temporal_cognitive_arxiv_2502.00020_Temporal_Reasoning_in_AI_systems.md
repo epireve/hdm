@@ -1,7 +1,7 @@
 ---
 cite_key: "a2013"
-title: "**Temporal Reasoning in AI Systems**"
-authors: "Given sentences like A6, we will find the last known starting point of risk period. Then expression E2 can be"
+title: "Temporal Reasoning in AI Systems"
+authors: "Abhishek Sharma3840 Far West Blvd"
 year: 2013
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -95,6 +95,7 @@ Pr(T = k) = (1-h1)(1-h2)...(1-hk-1).hk= hk. \prod(1-hj) \qquad ...(E3)
 $$
 
 ![](_page_2_Figure_10.jpeg)
+<!-- Image Description: The image displays a line graph illustrating survival likelihood against age (years). The graph shows a high survival likelihood (near 1.0) until around age 30, after which it declines steeply, reaching near zero by age 44. The data points are marked with diamonds. The graph likely depicts mortality data relevant to the paper's subject, possibly showing the lifespan or survival rate of a specific organism or system. -->
 
 Figure 1: Likelihood of truth of sentences of type (isa <ins> Cricketer) as a function of age.
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "file2020"
-title: "<span id=\"page-0-0\"></span>Structural Quality Metrics to Evaluate Knowledge Graph Quality"
-authors: "tion associated with Wikipedia and allows users to participate directly in creating and editing data. Although ontology information is not provided as a separate file, the hierarchical structure between entities can be known through *subclass of* property for each entity."
+title: "Structural Quality Metrics to Evaluate Knowledge Graph Quality"
+authors: "Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun"
 year: 2020
 doi: "10.1007/978-3-540-76298-0_52)"
 date_processed: "2025-07-02"
@@ -155,6 +155,7 @@ $$
 
 #### <span id="page-4-2"></span>4.2.3 Class Instantiation
 *Class Instantiation*is a metric that assesses how much in detail classes are defined in the ontology and how much they are actually instantiated. For each class included in the knowledge graph, the class instantiation is calculated and summed to be used as an indicator representing the knowledge graph. In a formula ( [3\)](#page-5-1) to obtain*Class Instantiation*for a particular*Class*, n<sup>c</sup> means the number of subclasses that the *Class*has, ir(c) means instantiated ratio, which is*'number of instances of the Class / number of all instances in knolwedge*<span id="page-5-2"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image displays a sample knowledge graph illustrating a hierarchical structure. Nodes represent categories (e.g., Person, Athlete) with values indicating instance count and probability. Arrows show relationships, and equations ($\times \frac{1}{2^1}$ and $\times \frac{1}{2^2}$) suggest a probabilistic branching model for distributing 500 total instances across the categories. The graph likely demonstrates a data representation method or sampling technique used within the paper. -->
 
 Figure 1: Class Instantiation Example
 *graph'*, c<sup>i</sup> is the i-th subclass the *Class*has, d means the distance between the*Class*and c<sup>i</sup> .
@@ -311,10 +312,12 @@ Structural quality metric sees 'structure' as an important factor in determining
 ## A.1.1 Number of Classes
 
 ![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The bar chart displays the number of classes in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Wikidata (59,662 classes) and Freebase (53,091 classes) have significantly more classes than the others, which each have fewer than 1,000. The chart's purpose is to compare the scale of these knowledge graphs based on their class counts. -->
 
 Figure 2: Number of Classes (target language: Korean)
 
 ![](_page_10_Figure_5.jpeg)
+<!-- Image Description: The image is a bar chart comparing the number of properties in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Freebase has the most properties (23446), while Raftel has the fewest (607). The chart visually represents the relative sizes of each knowledge graph's property count, aiding in the paper's analysis of knowledge graph scale and scope. -->
 
 ## A.1.2 Number of Properties
 
@@ -323,10 +326,12 @@ Figure 3: Number of Properties (target language: Korean)
 # A.1.3 Number of RDF Triples
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: The image is a bar chart comparing the number of RDF triples in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. YAGO contains the most triples (≈3.5 x 10<sup>8</sup>), while DBpedia has the fewest (≈1.1 x 10<sup>7</sup>). The chart's purpose is to illustrate the relative sizes of these knowledge graphs in terms of their data volume. -->
 
 Figure 4: Number of RDF Triples (target language: Korean)
 
 ![](_page_11_Figure_3.jpeg)
+<!-- Image Description: This bar chart displays the number of instances in six different knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Freebase has the most instances (33,535,913), while DBpedia has the fewest (287,752). The chart's purpose is to visually compare the scale of these knowledge graphs, providing quantitative data on their size. -->
 
 # A.1.4 Number of Instances
 
@@ -337,10 +342,12 @@ Figure 5: Number of Instances (target language: Korean)
 ## A.2.1 Instantiated Class Ratio
 
 ![](_page_12_Figure_2.jpeg)
+<!-- Image Description: The image displays a bar chart illustrating the "Instantiated Class Ratio" for six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Raftel shows the highest ratio (0.941), while Freebase exhibits the lowest (0.046). The chart likely compares the completeness or density of class instantiation within these knowledge graphs, providing quantitative data for analysis in the paper. -->
 
 Figure 6: Instantiated Class Ratio (target language: Korean)
 
 ![](_page_12_Figure_4.jpeg)
+<!-- Image Description: The image displays a bar chart comparing the "Instantiated Property Ratio" across six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Raftel, Wikidata, and GoogleKG show ratios near 1.0, indicating high instantiation. DBpedia and YAGO are slightly lower, while Freebase has a significantly lower ratio (0.002). The chart likely illustrates the completeness or quality of property instantiation in these knowledge graphs within the context of the paper. -->
 
 ## A.2.2 Instantiated Property Ratio
 
@@ -349,10 +356,12 @@ Figure 7: Instantiated Property Ratio (target language: Korean)
 ## A.2.3 Class Instantiation
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image is a bar chart comparing the performance of six different knowledge graphs (Raftel, Wikidata, DBpedia, YAGO, GoogleKG, Freebase) on a "Class Instantiation" task. The y-axis represents a performance metric (likely accuracy or precision), with values ranging from 0 to 1. Raftel achieves the highest score (0.941), while GoogleKG has the lowest (0.660). The chart visually illustrates the relative strengths of each knowledge graph for this specific task. -->
 
 Figure 8: Class Instantiation (target language: Korean)
 
 ![](_page_13_Figure_3.jpeg)
+<!-- Image Description: The bar chart displays the performance of six different knowledge graphs (Raftel, Wikidata, DBpedia, YAGO, GoogleKG, Freebase) on an inverse multiple inheritance task. The y-axis represents a performance metric (likely accuracy or F1-score, though not explicitly labeled), ranging from 0 to 1. The x-axis lists the knowledge graphs. Freebase achieves the highest score (1.0), while Raftel is the second best. The chart illustrates a comparison of the knowledge graphs' abilities to handle inverse multiple inheritance relationships. -->
 
 # A.2.4 Inverse Multiple Inheritance
 
@@ -361,10 +370,12 @@ Figure 9: Inverse Multiple Inheritance (target language: Korean)
 ## A.2.5 Subclass Property Acquisition
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: The bar chart displays the subclass property acquisition for six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. DBpedia shows the highest acquisition (63.570), while Freebase shows the lowest (1.000). The chart visually compares the quantity of subclass properties obtained from each knowledge graph, illustrating the relative richness of each source for this specific type of information. -->
 
 Figure 10: Subclass Property Acquisition (target language: Korean)
 
 ![](_page_14_Figure_3.jpeg)
+<!-- Image Description: The bar chart displays the proportion of subclass property instantiation across six knowledge graphs: Raftel, Wikidata, DBpedia, YAGO, GoogleKG, and Freebase. Raftel and DBpedia show the highest proportions (0.0857 and 0.0841 respectively), while the others have significantly lower values, indicating a considerable variation in the representation of this specific property type among different knowledge bases. The chart's purpose is to quantitatively compare the prevalence of this property type. -->
 
 # A.2.6 Subclass Property Instantiation
 

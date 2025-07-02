@@ -1,7 +1,7 @@
 ---
 cite_key: "bernard2024"
 title: "PKG API: A Tool for Personal Knowledge Graph Management"
-authors: "Nolwenn Bernard, Ivica Kostric, Weronika Łajewska, et al."
+authors: "Petra Galu, Martin G. Skj"
 year: 2024
 doi: "10.48550/arXiv.2402.07540"
 url: "https://arxiv.org/abs/2402.07540"
@@ -78,6 +78,7 @@ Permission to make digital or hard copies of all or part of this work for person
 <span id="page-1-0"></span>WWW '24 Companion, May 13–17, 2024, Singapore, Singapore Nolwenn Bernard et al.
 
 ![](_page_1_Figure_2.jpeg)
+<!-- Image Description: The figure is a system diagram illustrating the architecture of a NL2PKG system. It shows a user interface sending statements via HTTP requests to a NL2PKG module, which performs natural language understanding and entity linking. The output is an annotated statement and preference which are then passed to a PKG connector, ultimately stored in a PKG database containing statements and preferences. The diagram visually depicts data flow and processing stages within the system. -->
 
 ## Figure 1: Overview of the PKG tooling developed in this work.
 
@@ -126,6 +127,7 @@ The bottom block of Fig. [3](#page-2-2) demonstrates the use of the PKG vocabula
 PKG API: A Tool for Personal Knowledge Graph Management WWW '24 Companion, May 13–17, 2024, Singapore, Singapore
 
 <span id="page-2-2"></span>![](_page_2_Figure_9.jpeg)
+<!-- Image Description: The image depicts a flowchart illustrating the processing of a user's natural language preference ("I dislike all movies with Tom Cruise"). It shows the stages: user interface input, transformation by NL2PKG (Natural Language to Package), connection to a package (PKG) via a connector, and final representation in PKG format using RDF (Resource Description Framework) triples. Code snippets illustrate the data structure at each stage, detailing subject, predicate, object, and preference values. The diagram's purpose is to explain the system's architecture for processing and storing user preferences. -->
 
 # <span id="page-2-1"></span>Figure 3: Life of a statement from NL to PKG. 5 NATURAL LANGUAGE TO PKG
 

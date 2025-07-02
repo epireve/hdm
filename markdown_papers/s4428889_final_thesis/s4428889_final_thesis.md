@@ -1,7 +1,7 @@
 ---
 cite_key: "pagepicturejpeg2021"
 title: "A Study on Temporal Knowledge Graph Enrichment"
-authors: "![](_page_0_Picture_3.jpeg)"
+authors: "Yu Liu Master of Engineering"
 year: 2021
 doi: "10.1007/978-3-030-12079-5_2)"
 date_processed: "2025-07-02"
@@ -19,6 +19,7 @@ images_removed: 1
 Yu Liu Master of Engineering
 
 ![](_page_0_Picture_3.jpeg)
+<!-- Image Description: The image displays a green circular logo with "iD" inside, followed by a numerical identifier: "0000-0002-5080-9102". This likely represents an author or organization identifier, used in academic publishing for disambiguating authorship and linking publications to individuals or institutions. The purpose is to provide a unique, persistent identifier within the context of the paper's citation or metadata. -->
 
 *A thesis submitted for the degree of Doctor of Philosophy at The University of Queensland in 2021* Information Technology and Electrical Engineering
 
@@ -268,6 +269,7 @@ The main focus of this thesis is to study the enrichment of the temporal knowled
 <sup>5</sup>We simply count the number of facts in Japanese/English of DBpedia-2016 and assume all Japanese facts are covered in English.
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: This image is a knowledge graph depicting relationships between Cristiano Ronaldo and other entities. Nodes represent individuals (Ronaldo, Beckham, Zidane, Rodriguez) and football clubs (Manchester United, Real Madrid, Juventus, Portugal U23). Edges represent relationships, labeled with relationship types ("bornIn," "playFor," "dateWith") and time intervals. The graph visualizes Ronaldo's career and personal life, illustrating connections between different aspects of his biography. -->
 
 <span id="page-16-1"></span>Figure 1.1: An example of temporal knowledge graph, in which each vertex is a real-world entity, each edge is a relation, and each edge label is a valid time span.
 
@@ -437,6 +439,7 @@ The task of relation extraction (RE) is an important step for (temporal) knowled
 Pattern-based information extraction has been extensively studied since the 1990s [\[64\]](#page-114-1) and dominates commercial industry, mainly because patterns are interpretable for humans and it is easy to cope with errors [\[65\]](#page-114-2). The most famous hand-crafted patterns for relation extraction is the Hearst pattern [\[66\]](#page-114-3), which aims to identify and extract the *isA*relation for constructing an ontology. For example, noun phrases will be extracted by matching the syntactic pattern*"NP such as* {*NP, NP, ..*}*"*. Here, NP is the POS tag for noun phrases. As discussed by Weikum [\[67\]](#page-114-4), manually constructed patterns (e.g., Hearst pattern) yield relatively high precision, but typically suffer from low recall due to the sparseness of the exact patterns. Besides, it is difficult to manually construct expressive and accurate patterns for arbitrary target relations (e.g., *marriedTo*or*hasAdvisor*). By leveraging the duality of facts and
 
 ![](_page_30_Figure_3.jpeg)
+<!-- Image Description: The image is a flowchart depicting an iterative process for fact extraction. It begins with "Seed Facts," which feeds into "Pattern Extraction." The extracted patterns are then "Pattern Scored," informing "Fact Extraction." Newly extracted facts are "Fact Scored," influencing subsequent "Pattern Extraction" in a cyclical refinement. The diagram illustrates a feedback loop optimizing fact discovery through iterative pattern identification and scoring. -->
 
 <span id="page-30-0"></span>Figure 2.1: An example of bootstrapping relation extraction systems.
 
@@ -550,6 +553,7 @@ First, ET [\[123\]](#page-119-5) and Know-Evolve [\[122\]](#page-119-3) incorpor
 KG alignment (also known as entity alignment) seeks to find entities in different knowledge graphs that refer to the same real-world object [\[125\]](#page-119-6). It is similarly for temporal KG alignment which locates entities in temporal KGs using observed temporal facts. In practice, KGs and temporal KGs are constructed from different sources, with different schema and using various languages, which leads the heterogeneous issues. However, there are actually plenty of entities across two temporal KGs refer to the same real-world entity, e.g., *Mount Everest*in DBpedia and*Q*513 in Wikidata. Therefore, with the identification of SameAs links, KG and temporal KG alignment are useful for mitigating heterogeneous structures and improving the completeness. To our best knowledge, there is no existing work on temporal KG alignment. Therefore, in this section we will review the work on traditional KG alignment. In our view, the main methodology of KG alignment and temporal alignment are similar, i.e., they both learn the embeddings of KG components and incorporates with structure information, attribute information, etc. The only difference is that temporal KG alignment uses temporal KGs to seek entity pairs and captures the entity temporal involvements. Currently, most KG alignment approaches are embedding-based model, as embedding techniques allow the entity representations perseveres the semantic relatedness and the geometrical structures. In embedding-based alignment model, if two entities have similar vector representations, they will be aligned, i.e., regarded as the same object in the real world. Therefore, the key problem of KG alignment is to design an embedding approach that perseveres the shared characteristics, while filters the permutations and noisy information.
 
 ![](_page_38_Figure_2.jpeg)
+<!-- Image Description: This flowchart depicts a knowledge graph (KG) alignment method. It shows a bootstrapping process starting with aligned seeds from two KGs (KG1 and KG2). These seeds are fed into KG encoders to generate entity embeddings. Auxiliary inputs (names, attributes, temporal facts, text descriptions) are integrated. A distance metric compares embeddings, generating aligned pairs. The process iteratively refines alignment using the generated pairs. -->
 
 <span id="page-38-0"></span>Figure 2.2: A general framework for embedding-based KG alignment.
 
@@ -679,6 +683,7 @@ Definition 6 (Temporal Fact). *A temporal fact, denoted as* (*s*,*r*,*o*,*t*)*, 
 Definition 7 (Temporal Pattern). *We define the temporal pattern p as a phrase that can, to some extent, imply the commencement or termination of a relation r. Specifically, p consists of two parts: an indicating phrase v (e.g., verb phrase) and its temporal status sta* ∈{*START,END*}*, i.e., p* = (*v*,*sta*)*. For example, given the relation SpouseOf, its temporal pattern could be ("get married", START), ("get divorced", END), and ("hold a wedding", START), etc. Obviously, different phrases can indicate the temporal status of relation r to a different extent. Therefore, we use w*(*p*) *to represent the indicating strength of pattern p.*Definition 8 (Temporal Pattern Extraction).*Given a text corpus*D*and a seed set of temporal facts* {(*s*,*r*,*o*,[*t<sup>s</sup>* ,*te*])}*, we aim to extract a collection of weighted temporal patterns, i.e.,*{<*p*,*w*(*p*) >} *that can indicate the relation r.*
 
 ![](_page_47_Figure_2.jpeg)
+<!-- Image Description: This flowchart details a system for extracting indicating patterns. The offline preprocessing steps involve entity linking, coreference resolution, and time normalization on a corpus, culminating in index generation. The online extraction uses seeds to generate, cluster, and score indicating patterns, ultimately producing the final indicating patterns. Solid lines represent online, while dashed lines show offline processing stages. The system uses an index as an intermediary data structure. -->
 
 <span id="page-47-0"></span>Figure 3.1: An overview of the framework for temporal pattern extraction.
 
@@ -700,6 +705,7 @@ Recall that temporal patterns are phrases that can imply not only the existence 
 As illustrated in Algorithm [1,](#page-48-1) given a set of seed facts, we locate all relevant sentences for each seed. For example, given a seed ("Brad Pitt", "Jennifer Aniston", "[2000, 2005]"), we can obtain such a relevant sentence as "Pitt met Friends actress Jennifer Aniston in 1998 and married her in a private wedding ceremony in Malibu on July 29, 2000" from the text corpus. Then for each relevant sentence *h*, we extract all verb phrases V = {*v*} and time expressions T = {*t*} to generate temporal patterns. In particular, we extract verb phrases based on the definition of verb phrase in Open IE systems [\[156\]](#page-122-13). Time expressions are extracted similarly based on the definition of time expression in the Timex3 annotation of TimeML [\[155\]](#page-122-12). The next step is to determine the temporal status, i.e., *sta* ∈{*START*,*END*}, for each phrase *v*by its "relevant" time expression*tv*. That is, a phrase is highly possible to indicate the commencement (resp. termination) of a relation if its time expression is close to the start date *t<sup>s</sup>*(resp. end date*te*) of the input seed (lines 9-13 in Algorithm [1\)](#page-48-1). However, it is non-trivial to locate the relevant time expression *t<sup>v</sup>*for a verb phrase*v*, especially when multiple verb phrases and time expressions are extracted from a sentence *h*, namely |V| > 1 and |T| > 1. Humans can correctly identify the relatedness between phrases and time expressions in a sentence since they understand the syntactic structure when reading that sentence. Therefore, in this work, we resort to parse tree to locate relevant time expressions for each verb phrase. Figure [3.2](#page-49-0) illustrates a parse tree. In the parse tree, leaf nodes are tokens in the sentence, and internal nodes are their labels, i.e.,
 
 ![](_page_49_Figure_2.jpeg)
+<!-- Image Description: This image is a syntactic parse tree, a hierarchical representation of a sentence's grammatical structure. It shows the sentence "Pitt met Friends actress Jennifer Aniston in 1998, and married her in a private wedding ceremony in Malibu on July 29, 2000." The tree's nodes represent grammatical constituents (e.g., NP for noun phrase, VP for verb phrase), and edges show their relationships. Key words are highlighted, indicating their role within the sentence's structure. The tree's purpose is to illustrate the syntactic analysis of a complex sentence. -->
 
 Figure 3.2: Parse tree of sentence "Pitt met Friends actress Jennifer Aniston in 1998 and married her in a private wedding ceremony in Malibu on July 29, 2000".
 
@@ -911,10 +917,12 @@ The influence of seed popularity. In this part, we evaluate the influence of see
 The influence of seed set size. Intuitively, the accuracy of extracted patterns increases when more seeds are applied for pattern extraction. We verify this observation quantitatively in this part by evaluating the accuracy of various seed sizes. In particular, we enumerate all possible combinations of various seeds (i.e., from 20 1 to 20 20 combinations) for each relation and then calculate the average*nDCG<sup>k</sup>*after applying each seed set for pattern extraction. The average*nDCG<sup>k</sup>* on all the relations is reported in Figure [3.4.2.](#page-59-1) We can see from Figure [3.4.2](#page-59-1) that pattern accuracy improves when the seed size increases. However, even when using a small set of seeds (e.g., 10 seeds), our system is still able to extract high-quality patterns as well. It is worth noting that not all seeds are in high-quality since all 20 seeds for each relation were randomly sampled. Therefore, it is not necessary to manually select popular seeds for pattern extraction. Even randomly sampled seeds can achieve satisfactory temporal patterns as long as enough seeds are provided.
 
 ![](_page_59_Figure_1.jpeg)
+<!-- Image Description: The image displays a bar chart comparing normalized Discounted Cumulative Gain (nDCG) scores at different cutoff levels (1, 3, 5, 10) across four groups categorized by the number of user interactions (0-10, 11-50, 51-500, 500+). Each bar represents an nDCG score for a specific interaction group and cutoff level. The chart's purpose is to show the relationship between user interaction volume and ranking performance, as measured by nDCG. -->
 
 <span id="page-59-1"></span>Figure 3.3: Pattern accuracy of different seed popularities.
 
 ![](_page_59_Figure_3.jpeg)
+<!-- Image Description: The image displays a line graph illustrating the performance of a ranking algorithm. Four lines represent nDCG (normalized Discounted Cumulative Gain) scores at cut-offs of 1, 3, 5, and 10. The x-axis likely represents a parameter or data point, while the y-axis shows the nDCG score. The graph demonstrates how nDCG improves with increasing x-values for each cut-off, indicating the effectiveness of the algorithm. -->
 
 <span id="page-59-2"></span>Figure 3.4: Pattern accuracy of different seed set sizes.
 
@@ -1092,6 +1100,7 @@ However, as the real world is continuously changing, not all previous facts stor
 attention on the temporal information. In this paper, instead of focusing on the target fact itself, we start from a new direction, on modeling the contextual interactions of the target fact with its related contexts. In particular, we regard the contexts of a target fact as all the facts that share a certain component (i.e., subject or object) with the target fact.
 
 ![](_page_67_Figure_2.jpeg)
+<!-- Image Description: This image is a knowledge graph representing relationships between Cristiano Ronaldo and other entities. Nodes represent entities (e.g., Ronaldo, Manchester United) and edges represent relationships (e.g., "playFor," "bornIn," "dateWith"), labeled with date ranges. Dashed lines indicate uncertain or incomplete relationships. The graph illustrates Ronaldo's career trajectory, personal relationships, and connections to other football players and clubs. The purpose is to visually represent structured data about Ronaldo within the paper's context. -->
 
 <span id="page-67-0"></span>Figure 4.1: An example of temporal interactions for the predicting of fact ("Cristiano Ronaldo", *playfor*, "Real Madrid", "[2004, 2012]").
 
@@ -1138,6 +1147,7 @@ In this section, we will introduce our proposed context-aware model for temporal
 Different from existing temporal-KGE models, which only focus on the plausibility of a fact, we explore more on context interactions temporally and semantically, i.e., temporal consistency and contextual consistency. Our intuition can be summarised as follows: a fact is valid if (1) the fact is composed of a plausible subject, relation and object; (2) the valid interval of the target fact is temporally consistent with its contexts; (3) the fact is semantically consistent with multiple contexts as a group.
 
 ![](_page_70_Figure_6.jpeg)
+<!-- Image Description: This flowchart illustrates a fact verification model. A "target fact" is input into an "Embedding Layer," which feeds into "Context Selection" and "Time Projection" modules. These modules further process the information, generating "Temporal Consistency," "Contextual Consistency," and "Factual Plausibility" scores. Finally, these scores converge to produce a "prediction" regarding the fact's veracity. The diagram visually represents the model's architecture and data flow. -->
 
 <span id="page-70-2"></span>Figure 4.2: An overview of our proposed temporal-aware KGE model.
 
@@ -1236,6 +1246,7 @@ $$
 In this part, we introduce how to use the selected contexts, i.e.,*C*˜ *<sup>s</sup>*and*C*˜ *<sup>o</sup>*, to calculate the contextual consistency *s<sup>c</sup>*for improving temporal KG embeddings. Contextual consistency is a state in which head contexts and tail contexts occur together without conflicts regarding the target fact, which requires capturing the context interactions as a whole group instead of modeling them one by one. As human beings, in order to detect conflicts between the target fact and its contexts, we have to first read all of them and know their semantics. Then, according to the observations, we summarise all the contexts and extracted useful clues for making the prediction. In our work, we also follow the previous steps, namely, (1) encoding facts and (2) summarizing and extracting clues as Fig[.4.3](#page-74-0) shows.
 
 ![](_page_74_Figure_2.jpeg)
+<!-- Image Description: The image depicts a model architecture. A target fact and multiple contexts are encoded using "fact encoders" to produce representations. These representations form a "spare graph" where nodes interact. An aggregation layer processes these interactions, resulting in a contextual interaction representation. The diagram illustrates the flow of information and processing steps within the model, highlighting the encoding, graph creation, and aggregation stages. -->
 
 Figure 4.3: The architecture for learning the representation of contextual interactions.
 
@@ -1522,6 +1533,7 @@ However, none of above works consider the importance of time information in temp
 ### 2. PROBLEM DEFINITION 75
 
 ![](_page_88_Figure_1.jpeg)
+<!-- Image Description: This image shows two temporal knowledge graphs (KG1 and KG2). Each KG represents information about Zinedine Zidane, including his career, playing history (for Real Madrid and Juventus), and personal details (height, birthdate). KG1 also includes Cristiano Ronaldo's playing history. A dashed line and "align?" node indicate an attempt to match information between the two graphs, potentially for data integration or knowledge fusion. The graphs use nodes for entities and edges labeled with relationships and time spans. -->
 
 <span id="page-88-1"></span>Figure 5.1: An example of temporal KG alignment.
 
@@ -1546,6 +1558,7 @@ We believe, two entities are likely equivalent in the real world if they have si
 In particular, we follow the framework of AttrGNN [\[23\]](#page-110-4) and split each temporal knowledge graph into five subgraphs. Each subgraph contains one kind of information. Formally, given a temporal graph *G* = (*E*,*R*,*L*,*T*,*D*), we have entity name information *name*and the corresponding fact sets*D r*,
 
 ![](_page_90_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a knowledge graph (KG) alignment method. Two KGs (KG1, KG2) provide entity information (names, relation, character, digit, and time facts) which are fed into separate fact encoders (name, relation, attribute, and time modules). These produce entity embeddings (name-view, rel-view, attr-view, and time-view). These embeddings, along with seed pairs, are input into a graph alignment module. A multi-channel ensemble then generates aligned pairs. The diagram details the process of aligning two knowledge graphs by generating and combining embeddings from various fact types. -->
 
 <span id="page-90-0"></span>Figure 5.2: An overview of our framework for temporal KG alignment.
 *D c*,*D d*,*D <sup>t</sup>*which are splitting from*D*according to the object type. For each type of information, we apply a type-specific encoder to learn the entity representations under the corresponding channel. Formally, consider a type*u*of information*D u*; there is an encoder*E <sup>u</sup>*=*fu*(*D u*) where*u* ∈ {*n*,*r*, *c*,*d*,*t*}, *E <sup>u</sup>* ∈ R |*E*|×*d* , |*E*| = |*E*<sup>1</sup> ∪*E*2|. Since our work focuses on exploiting the temporal information for temporal KG alignment, so for other types of information, we use the same architecture proposed by AttrGNN [\[23\]](#page-110-4), i.e., name channel, relation channel and attribute channel. In particular, we use a mean aggregator [\[170\]](#page-124-1) and stacked graph attention networks (GATs) [\[171\]](#page-124-2) to gather neighbor information and to generate entity embeddings, respectively. We will elaborate upon the details of our proposed the time encoder in the following section [5.3.3.](#page-93-0)
@@ -1571,6 +1584,7 @@ In this section, we will introduce our proposed clustering approach, which is es
 Obviously, not all of contexts are relevant. For example, the contexts with predicate *height*and*career*are not relevant. So we need to group contexts according to their predicate relevance. We observe that the correlated predicates are more likely to describe the same aspect of an entity. For example, predicates*latitude*and*longitude*are relevant because they are widely used together to describe a place in geography [\[172\]](#page-124-3), and the predicates*debut*, *activateYears*, *playfor*all describe the career of a football player. In order to capture different aspects of the entity, we first cluster all contexts into various correlated groups according to their predicates; then, for each cluster we learn to capture the evolving contexts over time. We can follow previous work [\[138\]](#page-121-3) and use the string similarity to calculate any pair of predicates to do the clustering. However, string similarity cannot fully capture the semantic information, e.g, "Obama" v.s. "Barack Hussein Obama",*termStart*v.s.*termEnd*. Recent work [\[22,](#page-110-3) [173\]](#page-124-4) propose using neural networks, e.g., CNNs and LSTMs, to obtain the representation of each predicate. However, none of them considers the cluster relationship between predicates. In other words, predicates in a cluster are closely related but do not necessarily refer to the same relation in the real world. Our cluster approach can be regarded as soft predicate alignment and thus greatly improve the tolerance to the heterogeneous issue. Moreover, as each cluster becomes a closely relevant group, each cluster provides more consistent semantics for capturing context evolving over time than using all contexts directly. Now we introduce our clustering approach. Given a predicate set *P* = {*p*1,..., *pn*},
 
 ![](_page_91_Figure_4.jpeg)
+<!-- Image Description: The image illustrates a clustering process. The left panel shows "time facts" (white circles) and "entities" (gray circles) scattered. A large arrow indicates a transformation into the right panel, where the white circles are clustered using dashed ovals, signifying grouped time facts associated with entities. A legend clarifies the circle representations. The figure demonstrates a data clustering technique applied to time-series data, likely within the context of an algorithm description. -->
 
 <span id="page-91-1"></span>Figure 5.3: An illustration of clustering.
 
@@ -1641,6 +1655,7 @@ Recall that we have the assumption that if two entities have the same/similar co
 We observe time contexts in a cluster have interactions on temporal dimension, i.e., contexts that happened early will influence other contexts that happened later. For example, the time fact of *debut*will provide information about other time facts, including*playFor*, *activateYears*, etc. In other words, time facts {(*e*, *p<sup>j</sup>*,*v <sup>j</sup>*)} are closely dependent on previous time facts {(*e*, *p<sup>i</sup>*,*vi*)}, where *v<sup>i</sup>*<*v <sup>j</sup>*and*pi*,*p<sup>j</sup>* in the same cluster. As events happen sequentially, we believe the time interactions are also following temporal orders, i.e., (*e*, *p<sup>i</sup>*,*vi*) → (*e*, *p<sup>j</sup>*,*v <sup>j</sup>*) but (*e*, *p<sup>i</sup>*,*vi*) 6→ (*e*, *p<sup>j</sup>*,*v <sup>j</sup>*), where → denotes the influence direction and *v<sup>i</sup>*<*v <sup>j</sup>* (*v<sup>i</sup>*and*v <sup>j</sup>* in time contexts are "date" type values). Moreover, the influences are not equal, especially for those that have a large gap. For example, we may infer the transfer time and the transferred club of a soccer player from his existing records, but it becomes much harder to infer the transfer information of 10 years later. This highlights the context influence will decrease when distance increase. So, we propose a window-aware influence passing mechanism, which is based on the current existing message passing framework, e.g., graph convolution network,
 
 ![](_page_94_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates a data processing pipeline. It begins with "clusters" of data points, which are then transformed into a sequence of time graphs (1-3). Each time graph represents relationships ("time facts") between entities (grey circles) over time, with arrows indicating connections. A separate "entity graph" shows the relationships between entities independent of time. The figure visually depicts how clustered data is structured and how a temporal evolution of facts and entities is modeled using graphs. -->
 
 Figure 5.4: An illustration of our proposed module for capturing entity evolving over time.
 

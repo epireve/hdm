@@ -1,7 +1,7 @@
 ---
 cite_key: "kocaguneli2011"
-title: "**On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>**"
-authors: "- [4] Kocaguneli, E., Gay, G., Menzies, T., Yang, Y., and Keung, J. W. 2010. When to use data from other projects for effort estimation. In *Proceedings of the 25th IEEE/ACM International Conference on Automated Software Engineering.* (Antwerp, Belgium, September 20-24 2010). ASE '10. ACM Press, 321–324. DOI: https://doi.org/10.1145/1858996.1859061."
+title: "On a Factorial Knowledge Architecture for Data Science-powered Software Engineering ∗"
+authors: "Maxwell3 datasets respectively;"
 year: 2011
 doi: "10.1371/journal.pone.0021101."
 date_processed: "2025-07-02"
@@ -115,6 +115,7 @@ Inspired by the factor-based system model [6], we also treat individual software
 **Responses (Output Factors)**are observable variables of finished software projects. These output variables are essentially corresponding to the input factors, which meanwhile is under various influences from the other types of factors.
 
 ![](_page_2_Figure_11.jpeg)
+<!-- Image Description: The image is a systems diagram depicting an organizational system. Arrows show controllable and uncontrollable environmental factors impacting the system, alongside input factors. The system processes these and generates responses (output factors). The diagram illustrates the interplay of internal and external influences on organizational outcomes within the paper's framework. -->
 **Figure 1: A general system model of software projects from the factorial perspective.**# 3.2 Fitting Factors into the Software Project Model
 
 Due to the large amount of categories of datasets in the repositories (e.g., [5]), it is impossible to include the factors all at once in this paper. Therefore, we focus on the category of software effort estimation to arrange and fit factors into the software project model (see Figure 1). In specific, the factors are selected by referring to the software project datasets Albrecht<sup>6</sup> , COCOMO, Desharnais, Maxwell, and the 14 general system characteristics in Function Point Analysis<sup>7</sup> , while their arrangement is illustrated in Figure 2 and briefly explained as follows.
@@ -127,6 +128,7 @@ Due to the large amount of categories of datasets in the repositories (e.g., [5]
 <sup>7</sup> https://www.softwaremetrics.com/fpafund.htm
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This diagram models software development effort estimation. It shows three main factors (K1, K2, K3) influencing effort. K1 encompasses development environment, team, and manager experience. K2 represents actual project metrics (duration, effort, lines of code). K3 includes product, application, and database characteristics along with development factors (schedule, documentation, reusable components, system reliability, and turnaround time). Arrows indicate relationships between these factors and the central block representing software characteristics and influencing development effort. -->
 **Figure 2. An example piece of knowledge architecture of software engineering. The knowledge can be managed by sticking to a single factor (e.g., K1 for Jones's Law), by correlating two factors (e.g., K2 for Brooks' Law), and by involving multiple factors (e.g., K3 for Li-O'Brien-Yang's Law).**- As explained in Section 3.1, things having outside impacts on the delivery of a software product can be viewed as environmental factors. From the perspective of software products, in particular, personnel attributes can also be treated as a special type of environmental factors. We consider environmental factors to be controllable if they take effects during the product development process. For example, it is possible to speed up a software project by improving the development environment adequacy and employing experienced development team and manager.
 - In contrast, we consider environmental factors to be uncontrollable if they take effects at product runtime. For example, the program runtime performance could be unpredictable due to unknown hardware circumstances, and the virtual computing environment would particularly be unstable due to uncertain resource competitions.
 - Given the investigated datasets, we highlight three observable variables as output factors of software projects, such as actual duration, actual effort, and lines of code (LOC). Note that, unlike function counts and database size, LOC is not a fixed product property because it could vary depending on programming language and programmer capacity. Therefore, we do not consider LOC to be an inherent factor of software projects.

@@ -53,6 +53,7 @@ We release our data, code, KG data dump, and results at our homepage [\[28\]](#p
 <span id="page-1-0"></span>Fig [1](#page-1-1) shows an overview of DSrepair. Given a code problem description, we first let LLM (i.e. GPT-3.5-turbo) generate code. If the code fails to pass the test cases, DSrepair constructs a repair prompt and requests LLM to regenerate the code (see Section [III-B](#page-4-0) for details). As shown in the figure, DSrepair involves four main steps: API KG Construction, where a knowledge graph (DS-KG) is built for popular data science libraries (e.g., NumPy and Pandas) to capture detailed API usage and relationships; API Knowledge Retrieval, where API calls are extracted from the buggy code and queried from DS-KG, with the results verbalized into natural language for LLM prompts; Bug Knowledge Enrichment, which localizes errors at the AST node level using test case execution to provide fine-grained bug information; and Prompt Construction,
 
 <span id="page-1-1"></span>![](_page_1_Figure_11.jpeg)
+<!-- Image Description: This flowchart illustrates a code repair system. API documents are used to construct a Domain-Specific Knowledge Graph (DS-KG) (1). Buggy code and its coding task are input, generating an Abstract Syntax Tree (AST). The system retrieves API knowledge (2), enriching bug knowledge (3) from the AST and API. Finally, a repair prompt is constructed (4) and fed to a Large Language Model (LLM) to generate repaired code. The image details the stages of knowledge acquisition and prompt engineering in the code repair process. -->
 
 Fig. 1: Overview of DSrepair.
 
@@ -67,6 +68,7 @@ Fig [2](#page-2-0) illustrates an example of DS-KG construction from the NumPy A
 <span id="page-1-2"></span>1 In this paper, we ignore the OWL prefixes in RDF triples (<subject, predicate, object>) to make the article more concise.
 
 <span id="page-2-0"></span>![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This flowchart details an API knowledge extraction process from NumPy documentation. Web pages are parsed to extract function descriptions. This data is converted into RDF triples, loaded into a knowledge graph (DS-KG), and queried using a SPARQL query. The results, also in RDF triples, are then verbalized into natural language statements, representing the extracted API knowledge. An example of incorrect code and its resulting error is also shown. -->
 
 Fig. 2: Details on API KG construction (Step 1) and API Knowledge Retrieval (Step 2) in DSrepair. The code raises an error because of the mismatched array shape between *np.flipud*'s required input and *np.array split*'s output. DSrepair extracts the API call in the error line and builds a SPARQL query to search the relevant RDF triples in the DS-KG, which is constructed from API documents and guided by the ontology. Finally, DSrepair maps the returned RDF triples to natural language, which will be used as a part of the repair prompt.
 
@@ -83,6 +85,7 @@ In Section [IV-F,](#page-8-0) we demonstrate that incorporating only the full AP
 Firstly, test cases are extracted from the coding task description provided. These tests are essential for validating the correctness of the code and are used later in the bug knowledge enrichment process. We then transform the incorrect code snippet into its AST representation. Once the AST is generated, DSrepair iterates within a namespace that includes all necessary libraries and the extracted test cases. This iteration involves executing nodes in the AST sequentially.
 
 <span id="page-3-1"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This image from an academic paper illustrates bug information enrichment. It shows four sections: a standard error message highlighting a `ValueError` in Python code; the generated code snippet causing the error; a test case with input and output; and an enriched bug knowledge representation. The enrichment expands the error message by detailing the function calls and variable assignments involved in the error, pinpointing the problematic line and showcasing the exact array causing the issue. The final section structures this information for enhanced debugging. -->
 
 Fig. 3: Bug knowledge enrichment example. Stderr (standard error information) can only localize the bug at the line level, while our bug knowledge enrichment could enrich the error information to the AST node level.
 
@@ -99,6 +102,7 @@ We extract useful API knowledge from the DS-KG query results, specifically the A
 For bug knowledge, we leverage the results from bug enrichment. This involves providing the test case, the last unexecutable AST node, and the last executable AST node along with the executed result value. By comparing the actual
 
 <span id="page-3-2"></span>![](_page_3_Picture_8.jpeg)
+<!-- Image Description: The diagram illustrates a system's workflow for repairing incorrect code. It shows a user's initial request containing a problem description, followed by an incorrect response. The "DSrepair" section details the system's repair process, using the initial problem description and incorrect code, along with API and bug knowledge, fact-checking, and a final return format to produce a corrected response. The diagram visually represents the stages of a code-repair process. -->
 
 Fig. 4: DSrepair prompt example. The prompt contains structural and rich information to guide LLMs for code generation.
 
@@ -181,6 +185,7 @@ For specific data science libraries, DSrepair outperforms the baselines for most
 Fig [5](#page-5-2) shows an example from Codestral where the error can be solved by DSrepair, but cannot be solved by Self-Repair. The purpose of this code problem is to only turn on minor ticks on the x-axis. Self-Repair generates an incorrect fix, while DSrepair generates the correct fix. In this problem, the buggy code uses the function*plt.minorticks on*(short for*matplotlib.pyplot.minorticks on*), with parameter *axis='x'*. However, as stated in the Matplotlib official document, the full expression of *plt.minorticks on*is*matplotlib.pyplot.minorticks on()*with no parameters, which means that*plt.minorticks on*can control the display of minor ticks on both x-axis and y-axis, but there is no optional parameter to control the display on x-axis or y-axis only. With DSrepair, by enriching the prompt with knowledge of how to use*plt.minorticks on*correctly, LLM is more likely to realize that putting parameters in function*plt.minorticks on*is incorrect. The correct solution uses*plt.gca().xaxis.set minor locator()*instead to reach the goal of the code problem.
 
 <span id="page-5-2"></span>![](_page_5_Figure_11.jpeg)
+<!-- Image Description: The image presents a code snippet solution to a Matplotlib problem. It shows two code blocks labeled "Incorrect Solution" and "Correct Solution." Both aim to add minor ticks to the x-axis of a scatter plot. The incorrect solution uses `plt.minorticks_on()`, while the correct solution imports `matplotlib.ticker` and uses `set_minor_locator()` with `AutoMinorLocator()` for more precise control. Both include `savefig()` to save the plot. -->
 
 Fig. 5: A code problem example from DS-1000. The incorrect solution is generated from Self-Repair, and the correct solution is generated from DSrepair. By incorporating knowledge of the invoked API, DSrepair can assist LLMs in generating solutions with correct API usage.
 
@@ -239,6 +244,7 @@ Answer to RQ3: Compared to the second-best baseline, DSrepair uses fewer tokens 
 #*D. RQ4: Influence of Prompt Design*To figure out how different prompt components influence DSrepair, we conduct an ablation study. In DSrepair, there are two key components, i.e., API knowledge and bug knowledge. In the ablation study, we compare DSrepair's performance
 
 <span id="page-7-0"></span>![](_page_7_Figure_0.jpeg)
+<!-- Image Description: The image presents a comparative analysis of four code generation models (GPT-3.5-turbo, GPT-40-mini, DeepSeek-Coder, and Codestral). For each model, two types of bar charts display the intersection size of capabilities—Self-Repair, Self-Debugging (evaluated via two methods, E and S), Chat-Repair, Code-Search, and DSRepair. Below each bar chart is a dot plot visually representing the same data, showing the overlap of capabilities among the different models. The purpose is to quantitatively and visually compare the capabilities of these models in various code-related tasks. -->
 
 Fig. 6: RQ2: Upset plots for overlap analysis. For example, in (a), the first column indicates that 19 buggy code snippets that can be fixed by both DSrepair and Code-Search.
 
@@ -255,6 +261,7 @@ Fig. 6: RQ2: Upset plots for overlap analysis. For example, in (a), the first co
 | DSrepair         | 1262.14       | \$0.00073 | 1584.74     | \$0.00043 | 1453.96        | \$0.00025 | 1407.15   | \$0.00185 |
 
 <span id="page-7-2"></span>![](_page_7_Figure_4.jpeg)
+<!-- Image Description: This figure presents four scatter plots comparing the "Fix Rate" of different code repair methods (Code-Search, Chat-Repair, Self-Debugging-S, Self-Debugging-E, Self-Repair, DSrepair) against "Token Usage". Each plot represents a different codebase (GPT-3.5-turbo, GPT-40-mini, DeepSeek-Coder, Codestral). The plots visualize the effectiveness and resource consumption of each method, allowing for a comparison of their performance across different contexts. The purpose is to demonstrate the trade-offs between repair success and computational cost. -->
 
 Fig. 7: RQ3: Scatter plot of TU (Token Usage) and FR (Fix Rate). DSrepair is the optimal approach (the star markers) compared with baselines.
 

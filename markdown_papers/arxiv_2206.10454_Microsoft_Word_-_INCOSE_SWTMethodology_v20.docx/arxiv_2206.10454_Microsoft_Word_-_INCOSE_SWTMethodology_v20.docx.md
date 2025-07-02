@@ -1,7 +1,7 @@
 ---
 cite_key: "yu2022"
 title: "Driving Digital Engineering Integration and Interoperability Through Semantic Integration of Models with Ontologies"
-authors: "Daniel Dunbar1 | Thomas Hagedorn1 | Mark Blackburn1 | John Dzielski1 | Steven Hespelt1 | Benjamin Kruse2 | Dinesh Verma1 | Zhongyuan Yu1"
+authors: "Daniel Dunbar, Semantic Web, Digital Engineering"
 year: 2022
 doi: "10.1002/sys.21592"
 date_processed: "2025-07-02"
@@ -83,6 +83,7 @@ The DEFII framework (Figure 1) assigns the role of the AST to ontologies and dat
 **Figure 1**The DEFII Framework for use of SWT in DE contexts
 
 ![](_page_2_Figure_10.jpeg)
+<!-- Image Description: The image is a layered architecture diagram illustrating a system's data access and interaction methods. It shows multiple layers: a bottom layer of "Ontology Aligned Data," a middleware layer using DL reasoners and SWRL rules, and a top layer with various interfaces (direct, REST API, SPARQL queries). The diagram showcases how different system models (MISD) and expansion capabilities are integrated into the architecture through a SysML authoring tool and defined interfaces. The purpose is to visually represent the system's modular design and data access pathways. -->
 
 # 3.1.1 | Ontology Aligned Data
 
@@ -122,6 +123,7 @@ This interface is the most restrictive interface as it is responsible for access
 **Figure 2**Mapping to an AST reduces interface development work
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: This image compares two software integration approaches. The left side shows a "new tool" integrating with multiple "existing tools" via a central "Authoritative Source of Truth (AST)," a tool-agnostic triple store. The right side illustrates direct tool-to-tool integration. The diagrams illustrate that using a mapping interface (AST) reduces the number of interfaces needed compared to direct integration, thus reducing development effort. -->
 
 The Specified Model interface characterizes models of interest within the broader system model. A model of interest is defined here as an aggregation of parameters present in the system model that is beneficial for external tools and application purposes. In contrast with the Mapping Interface, the Specified Model Interface begins with ontology-aligned data and exposes this data towards tools. This reverse of direction enables the interface to be tool agnostic. Even if an instantiation of the Specified Model Interface is designed with a particular tool in mind, the direction of the interface creation enables other tools to access the same information via the same interface. This interface primarily addresses MBE models and exposes data in a structured way to be analyzed, visualized, etc.
 
@@ -133,19 +135,23 @@ Once mapped into the ontological layer, this specification can be concretized in
 **Figure 3**Abstract Model Interface Specification Diagram (MISD)
 
 ![](_page_4_Figure_8.jpeg)
+<!-- Image Description: The image is a diagram depicting an "Abstract MISD" (Multiple Instruction Single Data) model. It shows a central "Model of Interest" component receiving "parameter 1" and "parameter n" inputs from external sources. The diagram illustrates the flow of parameters into the model, clarifying the system's architecture and data handling within the context of the paper's discussion on MISD models. The use of boxes and lines represents the components and data paths, respectively. -->
 
 ## 3.2 | Framework Case Study
 
 An Information Technology (IT) example is provided as a case study18,27. While the DEFII framework is domain agnostic, the IT case study provides a simple use case that is intuitive to understand as a test of the framework and a demonstration of its functionality. The case study examines a simple cyber system that has various cyber elements such as a laptop and software. The system is represented by a SysML Block Definition Diagram (Figure 4).
 
 ![](_page_4_Figure_11.jpeg)
+<!-- Image Description: Figure 4 is a Binary Decision Diagram (BDD) illustrating a cyber system's hierarchical architecture. The BDD visually represents the system's structure, likely showing its various components and their relationships in a layered or nested format. Its purpose is to provide a clear, concise, and structured visualization of the cyber system's organization for the reader. -->
 
 ![](_page_4_Figure_12.jpeg)
+<!-- Image Description: The image displays a hierarchical model of a cyber system's vulnerability analysis. A top-level box, "Cyber Vulnerability Analysis," branches down to "Cyber System," which further subdivides into components: Laptop, Software (including Internet Explorer with version and patch details), Magnetometer, and Ethernet Cord. Relationships are denoted using "subsets sub." The model likely illustrates a system's structure for vulnerability assessment using the CVSS (Common Vulnerability Scoring System) model. -->
 
 The use case involving this case study is the identification of a seeded cyber vulnerability in the Internet Explorer web browser (contrived for demonstration) and the generation of a system wide Common Vulnerability Scoring System (CVSS)32 score. This requires the use of both an MBSE model (system model in SysML) and an MBE model (MATLAB analysis model). In addition, a visualization of the results is included to demonstrate that a single toolagnostic interface can service multiple tools. The DEFII Framework is displayed in the context of the case study (Figure 5). The gray portions of the figure will be realized as results are generated in Section 4.
 **Figure 5**DEFII Framework applied to cyber case study
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image is a system architecture diagram showing the components and data flow of a vulnerability analysis system. It depicts data moving from a CATIA Teamwork Cloud via a mapping interface into an Ontotext GraphDB triple store using SPARQL queries and RDFS reasoning. A REST API provides access for MATLAB analysis and dashboard visualization, incorporating CVSS MISD parameters. The system utilizes a cyber ontology aligned with CCO's BFO. -->
 
 To account for the cyber vulnerability portion of the use case, each cyber element also includes the value properties listed in Table I related to a CVSS score. These attributes are used to apply a CVSS score to a specific cyber vulnerability. For example, the scope value can be "Unchanged" or "Changed," and the CVSS scoring process would take that value into account when calculating the overall CVSS score. They are left off Figure 4 for readability.
 **Table I**List of CVSS related value properties assigned to each block
@@ -184,6 +190,7 @@ A functional analysis of the three success criteria identified in the introducti
 **Figure 6**Digital Thread Across Different Interfaces
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: The image depicts a data integration architecture. A central GraphDB triple store (ontology-aligned data) connects various tools via a REST API. CATIA Teamwork Cloud (SysML model) and MATLAB (analysis model) use a mapping interface to interact with the store (1, 3, 4). A dashboard visualizes the data (5), while a SPARQL query performs vulnerability identification directly (2). The diagram illustrates the data flow and interfaces between different software components within a system. -->
 
 #### 4.1 | Mapping Interface Instantiation
 
@@ -198,8 +205,10 @@ First a SPARQL query is run (Figure 8). This simple SPARQL query extracts classe
 details about this mapping process can be found in Bone et al.7
 
 ![](_page_6_Figure_8.jpeg)
+<!-- Image Description: Figure 8 presents a SPARQL query designed to identify stereotyped classes within a dataset. It's a text-based query, not a visual representation like a chart or graph. The purpose is to illustrate the specific query used in the research methodology for discovering and analyzing these classes. -->
 
 ![](_page_6_Figure_9.jpeg)
+<!-- Image Description: The image displays a data query (SELECT statement) and its corresponding graph representation. The query selects `?class` and `?name` variables where `?class` has a relationship with `?name` via `SysM:_appliedStereotypeIds` and `test:name`. The graph visually depicts this relationship, showing nodes for `?class`, an intermediate node, and `?name`, connected by labeled edges representing the query's conditions. The graph clarifies the data flow implied in the query. -->
 
 This example mapping rule is implemented as part of a collection of mapping rules that address other aspects of the SysML model representation as presented by the Teamwork Cloud tool to include other facets of the language such as instances and enumerations. Together, these rules provide a process for transferring a SysML model representation to a tool-agnostic, ontology-aligned graph data structure. While this specific result relates to the cyber case study described in the Methods section, the mapping rules discussed are more general and can be applied to any SysML model stored in a TWC instance. Thus, the mapping interface is tool-specific, but it can be used across models and domains.
 
@@ -209,6 +218,7 @@ Accessing the triple store via the Direct Interface allows for use of the SWT st
 **Figure 9**Top: SPARQL Query; Bottom: Graph View
 
 ![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The image displays a directed graph representing an RDF data model. Nodes depict concepts (e.g., "browser," "VersionNumber") and relationships (e.g., "rdf:type," "Comm:designated_by"). Arrows indicate relationships between nodes. The graph models information about Internet Explorer's version and patch numbers, with numbered nodes likely representing unique identifiers within the data model. A SPARQL filter query is shown above, suggesting the graph's use in querying this data. The graph visually explains the data structure and its use in a specific query within the paper. -->
 
 # 4.3 | Specified Model Interface with MISD
 
@@ -219,6 +229,7 @@ This interface definition is mapped to ontology-aligned data via the same mappin
 # Figure 10 CVSS Model Interface Specification Diagram (MISD)
 
 ![](_page_7_Figure_8.jpeg)
+<!-- Image Description: This image displays a hierarchical model of a cyber system using a CVSS (Common Vulnerability Scoring System) model. The diagram shows nested boxes representing system components (Magnetometer, Laptop, CentOS, Internet Explorer, Ethernet Cord, Software) and their attributes (ac, c, pr, ui, av, a, s, i). Each attribute is defined as a string with a specified range. The top-level box represents the overall system with inherited attributes and scores (vs, score). The purpose is to visually represent the system's structure and vulnerability attributes for security analysis. -->
 
 Once it has be mapped to ontology-aligned data, the instantiated data associated with the definition can be transformed to a REpresentational State Transfer (REST) API. REST APIs allow stateless interaction with web services via HTTP requests. The DEFII REST API allows the Python implementation of the specified model interface to be exercised remotely via POST, GET, and PUT requests to instantiate, retrieve, and modify data in the triple store (Figure 11).
 **Figure 11**Partial Results of GET Request of MISD
@@ -244,6 +255,7 @@ For the CVSS model defined, a simple MATLAB analysis model was deployed to deter
 The results can be visualized using the same REST API endpoint accessed by the MATLAB analysis program. Since the interface is tool-agnostic and specified for a defined model, a simple dashboard can be created to pull the results data from the same interface. Figure 12 shows a resulting CVSS score and vector after the MATLAB analysis model has been run.
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: Figure 12 displays a screenshot of a "Cyber Demo Dashboard" showing CVSS analysis results. The dashboard presents an "Overall Cyber System Vulnerability Score (CVSS)" and a section labeled "Retrieve Information," which details how to run a GET request and output JSON data. The image illustrates the interface used to access and present the vulnerability scoring system's results. -->
 
 # 4.4 | Additional SWT Transformation
 
@@ -252,6 +264,7 @@ Additional SWT Transformation is seen in the use of automated reasoning supporte
 ## Figure 13 GraphDB display of explicit and inferred statements
 
 ![](_page_8_Figure_6.jpeg)
+<!-- Image Description: The image displays a table summarizing data from a local database labeled "cyber_mapped." It shows a total of 56,394 statements, categorized into 19,720 explicit and 36,674 inferred statements. An expansion ratio of 2.86 is also provided, likely indicating the relationship between explicit and inferred statements. The icon suggests the data is stored in a database. The purpose is to present key statistics about the dataset used in the study. -->
 
 ### 5 | DISCUSSION AND FUTURE WORK
 

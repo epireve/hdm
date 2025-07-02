@@ -1,7 +1,7 @@
 ---
 cite_key: "shaosupsup2023"
 title: "StreamE: Lightweight Updates of Representations for Temporal Knowledge Graphs in Streaming Scenarios"
-authors: "Jie Shao<sup>∗</sup>"
+authors: "Jie Shao, Jiasheng Zhang"
 year: 2023
 doi: "10.1145/3539618.3591772"
 date_processed: "2025-07-02"
@@ -57,6 +57,7 @@ Actually, TKGs are often continuously enriched. For example, in a recommendation
 Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a knowledge graph's evolution over time. A curve shows increasing entity numbers. Below, a series of evolving graph snapshots shows entities (e1-e5) and relations (r1-r3) forming a knowledge stream. Each snapshot represents a time point (t1, tk), with edges indicating relations between entities. The example clarifies the meaning of entities and relations, showing how a knowledge graph might represent the transfer of Messi to PSG. The figure visually represents knowledge graph growth and its temporal aspect. -->
 
 ### Figure 1: Illustration of a temporal knowledge graph, where the orange nodes denote newly introduced entities and the red dotted edges denote new relations.
 
@@ -114,6 +115,7 @@ where W ∈ R × and b ∈ R are learnable parameters used to project raw featur
 However, there also exist many entities of which the raw features are missing. We introduce a semantic-aware initialization strategy to handle these entities. Our idea is based on two observations. First, entities with the same roles often have similar semantics. For example, entity and entity should be close in the vector space since they both act as the subject entity of the quadruple (?, , , −). Second, entities that co-occur with
 
 <span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
+<!-- Image Description: This image depicts a model architecture diagram for processing knowledge and query streams. The left side shows knowledge stream processing: identifying influenced entities, generating features using interaction and propagation units, and updating entity representations. The center shows entity representation as a stacked vector. The right side processes query streams, identifying periodic evolution patterns using multiple evolution heads, and assessing semantic relevance through a ReLU-activated neural network layer. The diagram illustrates the flow of information and the different components within the model. -->
 
 Figure 2: Illustration of the overall architecture of StreamE. In the update function, the green nodes and the yellow nodes denote the directly influenced entities and the propagated (indirectly influenced by propagation) entities of the newly-arrived knowledge ( , , , ), respectively.
 
@@ -313,6 +315,7 @@ Model robustness. First, as shown in Table [4,](#page-7-1) our framework can wor
 | StreamE (ours) | 23.15 | 17.13 | 25.09    | 34.59  | 31.62       | 24.57 | 34.94 | 47.78    | 13.66 | 9.45  | 16.87 | 22.17  | 39.64 | 31.01 | 42.98 | 56.30  |
 
 <span id="page-7-2"></span>![](_page_7_Figure_4.jpeg)
+<!-- Image Description: This figure presents a performance comparison of five knowledge graph embedding methods (StreamE, xERTE, RE-GCN, CyGNet, TNTComplEX). (a) shows a bar chart comparing their performance on standard metrics (MRR, Hit@1, Hit@3, Hit@10). (b) is a line graph illustrating Hit@3 performance against varying training proportions. (c) displays a log-scale line graph comparing the time cost (in milliseconds) of each method as the number of queries increases. The figure aims to demonstrate the relative strengths and weaknesses of the methods in terms of both accuracy and efficiency. -->
 
 Figure 3: (a) Forecasting performance of different methods for seen entities on the ICEWS 05-15 dataset. (b) Performance of the inductive forecasting task with different proportions of data for training on the ICEWS 14 dataset. (c) Time cost of different methods on responding to different numbers of queries.
 
@@ -348,6 +351,7 @@ Efficiency analysis. Figure [3\(](#page-7-2)c) summarizes the time cost of diffe
 high computational complexity since it needs to rollback steps for the whole graph to obtain representations and then respond to the queries. Even though CyGNet is also parallel, our StreamE is more efficient on responding to each piece of query because of its decoupled architecture. The time cost of the training phase and the parameter size of different models are shown in Table [5.](#page-7-3) We can see that besides the efficient response, our StreamE is also efficient in training (e.g., 25× faster than xERTE [\[10\]](#page-9-29)). Even though many entity representations are used to update the target representations, they are decoupled from training. Therefore, only the parameters of the relation representations, the update function, and the read function need to be optimized. Furthermore, different from baseline methods that employ recurrent architecture such as xERTE and RE-GCN, StreamE is not required to back-propagation through time,
 
 <span id="page-8-0"></span>![](_page_8_Figure_2.jpeg)
+<!-- Image Description: This figure presents three line graphs comparing the performance of four recommendation models (StreamE, xERTE, RE-GCN, StreamE-R) across different hyperparameters. (a) shows Hit@10 varying with time span. (b) displays Mean Reciprocal Rank (MRR) against the number of negative samplings for different lambda (λ) values. (c) illustrates MRR as a function of propagation length for varying λ values. The graphs aim to demonstrate the impact of these hyperparameters on recommendation accuracy. -->
 
 Figure 4: (a) The long time forecasting performance of different methods on the ICEWS 14 dataset. (b) Performance of StreamE with different negative sampling numbers on the YAGO dataset. (c) Performance of StreamE with different propagation lengths on the YAGO dataset.
 

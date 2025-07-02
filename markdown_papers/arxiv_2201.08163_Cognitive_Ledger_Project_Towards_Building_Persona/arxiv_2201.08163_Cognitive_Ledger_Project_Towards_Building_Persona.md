@@ -1,7 +1,7 @@
 ---
 cite_key: "fig2020"
 title: "Cognitive Ledger Project: Towards Building Personal Digital Twins Through Cognitive Blockchain"
-authors: "considering Fig.1, design requirements, and altering CIT architecture, the PCDT 1.0 architecture (Personal Cognitive Digital Twin) was designed."
+authors: "Amir Reza Asadi Humind Labs Tehran"
 year: 2020
 doi: "10.1109/MC.2018.2876181."
 date_processed: "2025-07-02"
@@ -45,6 +45,7 @@ The participatory design methodology was used for defining the design requiremen
 - It should mimic the decision-making pattern of the user.
 
 ![](_page_1_Figure_3.jpeg)
+<!-- Image Description: This table categorizes cognitive skills and abilities into functional domains: Perception, Memory, Attention, Social Interaction, Planning, Motivation, Emotion, and quantitative skills. Each domain lists subcategories, for example, Perception includes vision, smell, and touch, while Reasoning includes induction and deduction. The table likely serves to provide a framework for analyzing and comparing cognitive functions within the paper's scope. -->
 
 Fig 1. Artificial general intelligence competencies [8]
 
@@ -60,6 +61,7 @@ The mental layer is at the center of our proposed architecture, which is designe
 • ML Trainer Engine: The programs that train personalized machine learning models. In our vision, these trained models work together to compose the cognitive digital twin of the user.
 
 ![](_page_1_Figure_11.jpeg)
+<!-- Image Description: The diagram illustrates a three-layered architecture for a cognitive agent. The "Learning Layer" processes information via knowledge codification and improvement agents, feeding into a "Mental Layer" (cognitive ledger) storing personality traits, knowledge objects, and personal ML models. The "Shell Layer" uses this information for reasoning and decision-making, acting on the environment and collecting further information. Arrows indicate data flow between layers and modules. -->
 
 Fig 2. PCDT 1.0 Cognitive Architecture
 
@@ -90,6 +92,7 @@ The idealistic approach for implementing the learning layer would be integrating
 Thus, we decided to postpone developing the knowledge mining marketplace at this early stage and apply the on-device machine learning paradigm. In contrast to centralized cloudbased systems, on-device machine learning would limit data privacy concerns, and new smart devices such as the new iPad Pro and the new ARM-based MacBook, which are capable of running on-device machine training frameworks, can reduce our concerns over the feasibility of using on-device ML.
 
 ![](_page_2_Figure_13.jpeg)
+<!-- Image Description: This diagram illustrates a system for storing NFTs (Non-Fungible Tokens) representing a personality badge, knowledge object, and ML model on a blockchain. Each NFT is depicted as a block containing the NFT type, Token ID, and a description or link to the actual data (stored off-chain on a cooperative storage cloud and potentially a blockchain-based database). An arrow indicates these NFTs are linked to a blockchain's memory pool, suggesting a decentralized storage and management approach. -->
 
 Fig 3. Cognitive Blockchain and Mental Layer
 
@@ -98,6 +101,7 @@ Therefore, the learning modules will be integrated into several shell modules. A
 The Cognitive Wallet would be the first shell that will be released, and it would be a wallet and gateway to the cognitive blockchain. It allows users to access their knowledge assets through a browser extension, which can then be used to interact with the third-party shells. It is inspired by the MetaMask wallet [19]. Furthermore, it includes some learning modules. First, it collects the links that the user visits. It also collects bookmarked URLs and the time users spent on these pages. Then with the help of Natural Language Processing pre-trained models, the web extension identifies the topics and persons mentioned on these pages. Moreover, the quiz panel recognizes the personality traits of the user.
 
 ![](_page_2_Figure_17.jpeg)
+<!-- Image Description: The image displays a layered architecture of a system, progressing from "Level 0: Simple Information Capturing" to a "Fully Autonomous Cognitive Digital Twin." Intermediate layers include "Personal information management," "Intelligent Virtual Assistant," and "User Assistance: Guiding Web Browser Saliency Layer." The diagram illustrates the hierarchical evolution of capabilities within a digital twin framework. -->
 
 Fig 4: Different levels of Cognitive Digital Twins in Cognitive Ledger Project
 

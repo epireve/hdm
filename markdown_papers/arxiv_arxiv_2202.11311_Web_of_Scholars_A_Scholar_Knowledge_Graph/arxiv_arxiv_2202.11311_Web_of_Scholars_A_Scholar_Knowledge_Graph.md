@@ -1,7 +1,7 @@
 ---
 cite_key: "liu2020"
 title: "Web of Scholars: A Scholar Knowledge Graph"
-authors: "Jiaying Liu, Jing Ren, Wenqing Zheng School of Software"
+authors: "Jiaying Liu, Ivan Lee"
 year: 2020
 doi: "10.1145/3397271.3401405"
 date_processed: "2025-07-02"
@@ -59,6 +59,7 @@ L.Chi@latrobe.edu.au
 Feng Xia School of Science, Engineering and IT Federation University Australia, Australia f.xia@ieee.org
 
 <span id="page-0-0"></span>![](_page_0_Figure_23.jpeg)
+<!-- Image Description: This flowchart depicts a system architecture for scholar relationship analysis. It shows data flowing from data access (Microsoft and crowdsourced datasets) through data extraction, fusion, and processing stages, populating a relationship graph database and scholar profiling database. Business logic components analyze relationships (collaboration, advisor-advisee, citation, co-citation), geographic distribution, and scholar statistics. The application layer then performs deep mining, path analysis, and visualized analysis to support intelligent querying and outputting scholar profiles, relationship analyses, potential predictions, and impact evaluations. -->
 
 Figure 1: System Architecture of Web of Scholars.
 
@@ -77,6 +78,7 @@ New Knowledge. We present Web of Scholars as a novel system that tailors our gen
 Wealthy Information. The system collects more than 1.7 million scholars, 1.5 million publications, and 7 different types total to over 433 million relationships among scholars. It attempts to clarify the complex academic network and storage the large knowledge graph in the graphic database.
 
 <span id="page-1-0"></span>![](_page_1_Figure_5.jpeg)
+<!-- Image Description: This image from an academic paper displays visualizations of a scholarly knowledge graph. It shows screenshots of an "Intelligent Search" interface and "Scholar Ranking" results. Further, it presents various network diagrams: a collaboration network (showing global connections), an advisor-advisee network (hierarchical structure), and a citation network (with nodes representing publications and their relationships). A bar chart depicts collaboration trends over time. The purpose is to illustrate the system's data representation and analysis capabilities. -->
 
 Figure 2: System Overview of Web of Scholars.
 

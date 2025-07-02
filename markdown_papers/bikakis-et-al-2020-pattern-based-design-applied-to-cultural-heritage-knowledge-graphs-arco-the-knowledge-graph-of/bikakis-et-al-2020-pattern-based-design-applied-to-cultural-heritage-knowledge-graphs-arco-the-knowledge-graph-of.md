@@ -1,7 +1,7 @@
 ---
 cite_key: "daquino2021"
 title: "Pattern-based design applied to cultural heritage knowledge graphs"
-authors: "- <span id=\"page-42-0\"></span>[14] M. Daquino, F. Mambelli, S. Peroni, F. Tomasi and F. Vitali, Enhancing semantic expressivity in the cultural heritage domain: Exposing the zeri photo archive as linked open data, *Journal on Computing and Cultural Heritage JOCCH* **10**(4) (2017), 1–21. doi[:10.1145/3051487.](https://doi.org/10.1145/3051487)"
+authors: "Editors:Antonis Bikakis, UK; Beatrice Markhoff, France; Alessandro Mosca, Italy; Stéphane Jean, France; Eero Hyvönen, FinlandSolicited review:Seven anonymous reviewers"
 year: 2021
 doi: "10.3233/SW-200422"
 date_processed: "2025-07-02"
@@ -108,6 +108,7 @@ ICCD coordinates these cataloguing activities by maintaining the General Catalog
 The General Catalogue is built upon a collaborative platform, named SIGECweb (footnote [13\)](#page-1-12), to which national or regional, public or private, institutional organisations that administer cultural properties can submit their catalogue records, i.e. files containing data on cultural properties and compliant with predetermined standards and guidelines (see Section [2.2\)](#page-3-1). Only users from institutions that are formally authorised by ICCD can access and contribute to SIGECweb, with specific profiles (e.g. administrator, cataloguer). The highly reliable provenance of the database is guaran-
 
 ![](_page_3_Figure_7.jpeg)
+<!-- Image Description: This flowchart depicts the SIGEC web platform's data flow. Data from various Italian cultural heritage institutions (museums, theaters, etc., shown on a map of Italy) feeds into the SIGEC web interface. This data undergoes assessment of scientific quality and verification of compliance with cataloging standards, leading to formal accreditation by iccdl (International Council of Museums). Heritage protection agencies are also involved in the process. The illustration demonstrates the system's workflow and its role in standardizing cultural heritage data. -->
 
 <span id="page-3-2"></span>Fig. 1. Accreditation and validation process for contributing to SIGECweb.
 
@@ -149,6 +150,7 @@ Currently, an effort is being made by ICCD in publishing on GitHu[b16](#page-4-1
 <span id="page-4-2"></span><sup>17</sup>Previous and current versions include: 1.00 and 2.00 (1990– 2000), 3.00 (2002–2004), 3.01 (2005–2010), 4.00 (since 2015).
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates the evolution of a cataloging standard from version 3.00 to 4.00. It uses two rectangular boxes to represent the data structures of each version. Lines connect corresponding data fields (e.g., "title," "place," "date") showing how the structure changed. Version 4.00 incorporates more detailed information, such as "notes on exhibition/event" and "type," compared to version 3.00. The abbreviations (e.g., MSTL, MSTD) likely represent specific data field codes within the standard. -->
 
 <span id="page-5-1"></span>Fig. 3. The ICCD cataloguing standard*F*for photographs: difference and mapping between version 3.00 and version 4.00.
 
@@ -175,6 +177,7 @@ As depicted in Fig. [4,](#page-6-0) after the project initiation, XD is executed
 <sup>19</sup>At the time of ArCo development the tool was not available, we plan to test and use it in future developments.
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts an ontology project lifecycle. It outlines stages from requirements collection (using surveys, feedback, and meetups) and project initiation, through modules development using tools like Protégé and RDFizer, data production, testing (including CQ and inference verification), refactoring, and finally, release and versioning of the ontology network and data. The iterative nature of the process is highlighted. -->
 
 <span id="page-6-0"></span>Fig. 4. The XD methodology as implemented for the ArCo knowledge graph.
 
@@ -190,6 +193,7 @@ Figure [5](#page-6-1) depicts a simple example that will be used to illustrate t
 <span id="page-6-1"></span>*Requirements engineering*A fundamental step is to collect requirements and to engineer them. Requirements are collected in the form of*user stories*, which are provided by the customer team. A user story is a set of sentences, which describe by example the kind of facts that the resulting knowledge graph is required to encode. The length of a user story is limited to favour keeping them focused; its maximum length is decided by the design team. The customer team is instructed to break possible complex stories into smaller and simpler ones. An example of a simple user story is (cf.
 
 ![](_page_6_Picture_10.jpeg)
+<!-- Image Description: This image from an academic paper illustrates a method for matching user queries (CQs) to ontology-based data (ODPs). It uses a flowchart showing how a user story (Leonardo da Vinci's roles) is broken down into specific queries, which are then generalized. A diagram at the bottom depicts the conceptual relationship between agents and roles (Agent, Role, hasRole, isRoleOf) within the ODPs, clarifying the query-matching process. The visual aids represent a step-by-step approach to query formulation and ontology mapping. -->
 
 Fig. 5. An example of a user story translated into CQs, and of the matching between a CQ and an ODP.
 
@@ -256,6 +260,7 @@ As an example, we report one of the stories collected through the Google form:
 <sup>2</sup>[9https://github.com/ICCD-MiBACT/ArCo/blob/master/](https://github.com/ICCD-MiBACT/ArCo/blob/master/ArCo-release/test/CQ/Release%201.0/CQs-SPARQLqueries.txt) [ArCo-release/test/CQ/Release%201.0/CQs-SPARQLqueries.txt](https://github.com/ICCD-MiBACT/ArCo/blob/master/ArCo-release/test/CQ/Release%201.0/CQs-SPARQLqueries.txt)
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: This image displays the ARCO network, a graph illustrating ontology relationships. Nodes represent concepts (core, location, context description, etc.) and edges, labeled "owl:imports," indicate import relationships between ontologies. The graph shows how different ARCO ontologies interrelate, with a central "core" ontology importing information from specialized ontologies (cultural event, denotative description, etc.). URLs provided below specify the location of each ontology. -->
 
 <span id="page-10-0"></span>Fig. 6. ArCo ontology network, currently including seven modules:*arco*is the root node of the network, while*core*is reused by all other modules, where concepts related to cultural properties and catalogue records are represented.
 
@@ -415,6 +420,7 @@ We report the definitions for the specific classes, according to ICCD standards.
 <span id="page-15-1"></span><sup>44</sup>We plan to reflect additional classifications as provided by official national or international standards.
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image displays a hierarchical ontology of cultural property types using an RDF schema. A tree structure depicts subclasses of "CulturalProperty," branching into "Tangible" and "Intangible" categories, further subdivided (e.g., "MovableCulturalProperty," "ArchitecturalOrLandscapeHeritage"). Small images illustrate each subclass. The bottom section provides OWL axioms defining disjointness and equivalence between property types. The figure visualizes the classification system used in the paper for organizing different forms of cultural heritage. -->
 
 <span id="page-16-0"></span>Fig. 7. The taxonomy of cultural properties.
 
@@ -443,6 +449,7 @@ Figure [8](#page-17-2) shows all the prefixes used in the next diagrams, designe
 ## <span id="page-17-1"></span>*5.1. Representing dynamics*Dynamic concepts, such as situations that change over time, are present in almost every domain. There are different patterns that model dynamic situations: in this subsection, we exemplify ArCo approach to dynamicity with catalogue records and cultural property locations, which may both evolve over time.
 
 ![](_page_17_Figure_8.jpeg)
+<!-- Image Description: This image displays a list of prefixes used in an academic paper, likely within the context of ontology or knowledge representation. Each prefix is an abbreviation linked to a specific URI (Uniform Resource Identifier), representing different ontologies or namespaces. The purpose is to provide shorthand notations for referring to these resources within the paper's data or code, improving readability and conciseness. -->
 
 <span id="page-17-2"></span>Fig. 8. Prefixes used in the next figures.
 *A catalogue record as a fluent information object*A catalogue record is an entity that contains metadata about a cultural property. As it describes a real-world object, it can be defined as an*information object*, i.e. a piece of information, independent from how it is concretely realised, describing something in the real world. This concept is defined in several ODPs, including *Information Realization*[46](#page-17-4) [\[29\]](#page-42-20), which is reused in ArCo. The content of a catalogue record, i.e. the description of a cultural property, can change: "information about the creation of a catalogue record and possible following computerisation, update and corrections". Indeed, different agents with different roles (e.g. the official in charge) can be recorded, and a date keeps track of the time interval associated with each action.
@@ -458,6 +465,7 @@ The *Time Interval*ODP is used to represent the temporal validity of each versio
 <span id="page-17-5"></span><sup>47</sup>Cf. Section [4.5](#page-14-0) about the difference between factual and reporting situations.
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: The image presents two diagrams illustrating a model for catalogue records and their versions. The top diagram shows a conceptual model using UML-like notation, depicting relationships between entities such as `CatalogueRecord`, `CatalogueRecordVersion`, and `CataloguingAgent`, along with time intervals and roles. The bottom diagram exemplifies the model with a concrete example, showcasing versioning and changes in legal status over time. Both diagrams utilize RDF-style identifiers. -->
 
 <span id="page-18-1"></span>Fig. 9. Information Realization and Sequence ODPs reused for modeling catalogue records.
 *quence*[48](#page-18-0) to represent the sequence of consecutive information objects.
@@ -491,6 +499,7 @@ Figure [10b](#page-20-1) depicts one of the time-indexed typed locations of a*ba
 <span id="page-19-4"></span><sup>5</sup>[3https://w3id.org/arco/resource/ArchaeologicalProperty/](https://w3id.org/arco/resource/ArchaeologicalProperty/1000176477) [1000176477](https://w3id.org/arco/resource/ArchaeologicalProperty/1000176477)
 
 ![](_page_20_Figure_1.jpeg)
+<!-- Image Description: The image presents two linked diagrams illustrating a model for time-indexed typed locations. The upper diagram shows a class diagram defining relationships between concepts like `TimeIndexedSituation`, `TypedLocation`, and various location types (e.g., storage, exhibition). The lower diagram exemplifies the model using an archaeological artifact, showing its temporal and spatial data linked through the defined ontology. Nodes represent entities, and arrows represent relationships. The purpose is to visualize a data model for representing the temporal and spatial aspects of cultural heritage data. -->
 
 <span id="page-20-1"></span>Fig. 10. Time indexed situation ODP implemented for modelling different types of locations of a cultural property.
 
@@ -501,10 +510,12 @@ For example, when a coin is issued, many entities play a role in such context: t
 <span id="page-20-2"></span><sup>5</sup>[4http://www.ontologydesignpatterns.org/cp/owl/situation.owl](http://www.ontologydesignpatterns.org/cp/owl/situation.owl)
 
 ![](_page_21_Figure_1.jpeg)
+<!-- Image Description: This diagram shows an ontology model, likely for representing numismatic data. Rectangles represent classes (e.g., `NumismaticProperty`, `CoinIssuance`, `Agent`, `AgentRole`, `Role`). Arrows depict relationships between classes, labeled with relationship names (e.g., `hasCoinIssuance`, `hasAgentRole`). The model structures information on coin issuance, connecting properties, agents, and their roles within a described "situation." The ontology uses prefixes like `a-cd:` and `core:` to denote namespaces or ontologies. -->
 
 <span id="page-21-0"></span>Fig. 11. Situation ODP reused for representing the coin issuance.
 
 ![](_page_21_Figure_3.jpeg)
+<!-- Image Description: This image is a UML diagram depicting an ontology for representing authorship attribution in cultural heritage. Rectangles represent concepts (e.g., "AuthorshipAttribution," "CulturalScope"). Arrows denote relationships, labeled with predicates (e.g., "rdfs:subClassOf," "a-cd:hasAuthorshipAttribution"). The diagram structures the relationships between cultural properties, their authors, and interpretations of authorship, clarifying the hierarchical and attributional aspects. "Situation" is highlighted as a central organizing concept. -->
 
 <span id="page-21-1"></span>Fig. 12. Situation ODP reused for the authorship attribution.
 
@@ -522,6 +533,7 @@ Different technical characteristics of a cultural property can be specified, in 
 <span id="page-21-3"></span><sup>5</sup>[6http://www.ontologydesignpatterns.org/cp/owl/classification.](http://www.ontologydesignpatterns.org/cp/owl/classification.owl) [owl](http://www.ontologydesignpatterns.org/cp/owl/classification.owl)
 
 ![](_page_22_Figure_1.jpeg)
+<!-- Image Description: This image is a directed graph illustrating a knowledge representation model. Nodes represent entities (e.g., coin, author, issuance) and edges depict relationships (e.g., `hasAuthor`, `hasIssuer`). Specific identifiers and labels (e.g., `data:Agent/06deb3d97...`, `rdfs:label "Calandra Davide"`) are provided for each node. The graph visualizes the relationships between a coin, its authors, and the entity responsible for its issuance. The purpose is to demonstrate the structure and semantics of the data model used in the paper. -->
 
 <span id="page-22-1"></span>Fig. 13. An instance of the model in Figs [11](#page-21-0) and [12:](#page-21-1) a numismatic property involved in a coin issuance and a preferred authorship attribution.
 
@@ -542,8 +554,10 @@ Let us take a compass by an Italian workshop of the 19th century[58](#page-22-3)
 <span id="page-22-4"></span><sup>5</sup>[9https://www.labiennale.org/en/art/](https://www.labiennale.org/en/art/)
 
 ![](_page_23_Figure_0.jpeg)
+<!-- Image Description: This image presents an ontology diagram, illustrating relationships between classes and properties using a box-and-arrow notation. Rectangles represent classes (e.g., "Cultural Property," "Technical Characteristic"), and arrows denote relationships (e.g., "a-dd:has," "rdfs:subClassOf"). The diagram models the technical description and situation of a cultural entity, linking concepts like "Technical Status," "Description," and "Concept" to show how they relate to each other within the ontology. The purpose is to visually represent the structured knowledge of the domain. -->
 
 336*V.A. Carriero et al. / Pattern-based design applied to cultural heritage knowledge graphs*![](_page_23_Figure_3.jpeg)
+<!-- Image Description: This image is a directed graph illustrating a knowledge representation model. Nodes represent entities (e.g., "HistoricOrArtisticProperty," "TechnicalCharacteristic") and relationships (e.g., "has," "includes," "uses"). Edges depict relationships between entities. Text labels specify entity types and relationships. The graph models the technical description of a 19th-century Italian compass, detailing its material ("brass"), shape ("circular"), and technical status. The purpose is to showcase the structure and relationships within a structured dataset describing the artifact. -->
 
 <span id="page-23-0"></span>Fig. 14. The D&S pattern reused and specialised for modelling technical descriptions and status of a cultural entity.
 
@@ -558,6 +572,7 @@ Recurrent situations are usually modelled as a special type of events (cf. Wikid
 <span id="page-23-2"></span><sup>6</sup>[1http://dbpedia.org/page/Venice\\_Biennale](http://dbpedia.org/page/Venice_Biennale)
 
 ![](_page_24_Figure_1.jpeg)
+<!-- Image Description: This image presents a model for recurrent situation series using a UML-like diagram. It depicts relationships between concepts like "core:Concept," "situation," and "collection," showing how they are connected via properties (e.g., "a-ce:hasUnifyingFactor," "a-ce:hasMemberSituation"). A specific example of "ex:ArtBiennale" is modeled, illustrating its temporal relationships (e.g., "a-ce:hasRecurrentTimePeriod") and connections to specific years (1895, 1897, 1899). The diagram clarifies the ontology used to represent recurring events within the paper's framework. -->
 
 <span id="page-24-1"></span>Fig. 15. The new pattern Recurrent Situation Series as implemented in ArCo.
 *Art Biennale 2019*intended as a particular edition of the series with a start date and an end date, is important in the CH domain context. We introduce a new ODP for modelling*Recurrent situation series*[62](#page-24-0) [\[10](#page-42-21)], which reuses other existing ODPs.
@@ -596,8 +611,10 @@ ArCo is evaluated along different dimensions: functional, logical, and structura
 <sup>69</sup>The authors of [\[27\]](#page-42-6) refer to ontologies in their analysis. In the scope of this paper we generalise their results to knowledge graphs, since we also compute the distribution of the instances across classes.
 
 ![](_page_26_Figure_1.jpeg)
+<!-- Image Description: This image depicts an ontology diagram illustrating relationships between concepts using RDF (Resource Description Framework) and OWL (Web Ontology Language). It shows how an `owl:Ontology` relates to an `odp-portal:sequence` through `rdf:type` and `opla:specializationOfPattern` relationships. A second `rdf:type` link connects the sequence to an `a-module:catalogue`. The diagram uses nodes and directed edges to visually represent these relationships. A separate box lists the prefixes used for the namespaces in the diagram. -->
 
 ![](_page_26_Figure_3.jpeg)
+<!-- Image Description: This diagram depicts an ontology model, likely for managing catalogue record versions. It uses a directed graph showing relationships between nodes representing "owl:Ontology", "owl:ObjectProperty", and "arco-odp:catalogue-record-sequence". Pink nodes represent specific record versions, linked by properties like "a-cat:isPreviousVersionOf" and "opla:isNativeTo", illustrating version history and native ontology associations. The diagram clarifies the ontology's structure for version control within the paper. -->
 
 <span id="page-26-0"></span>Fig. 16. An example of a reused ODP annotated with OPLa ontology.
 
@@ -623,6 +640,7 @@ Let us consider as an example the competency question "Which archival set (fonds
 Source code: [https://github.com/TESTaLOD/TESTaLOD.](https://github.com/TESTaLOD/TESTaLOD)
 
 ![](_page_28_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a software testing process. Users select OWL files from a GitHub repository or local directory using a GUI with options for filtering and recursive loading. Selected files (shown in a file selection box) are then processed ("TEST!" button), with results displayed in a summary table showing the number of tests executed, categorized by the match between expected and actual results (all expected matched, some expected matched, no expected matched) and an execution time. The flowchart visually guides users through the testing workflow. -->
 
 <span id="page-28-1"></span>Fig. 17. Workflow implemented by TESTaLOD based on the user interface.
 
@@ -650,6 +668,7 @@ In order to allow TESTaLOD to automatically run this test, two new annotation pr
 <sup>7</sup>[7https://github.com/ICCD-MiBACT/ArCo/tree/master/](https://github.com/ICCD-MiBACT/ArCo/tree/master/ArCo-release/test) [ArCo-release/test](https://github.com/ICCD-MiBACT/ArCo/tree/master/ArCo-release/test)
 
 ![](_page_29_Figure_1.jpeg)
+<!-- Image Description: The bar chart displays the relative overlap scores of three different data models: ArCo, Europeana Data Model, and CIDOC-CRM. ArCo shows the highest overlap (0.72), significantly more than the Europeana Data Model (0.07) and CIDOC-CRM (0.2). The chart likely illustrates a comparative analysis of the data models' compatibility or shared elements within the paper's context. -->
 
 <span id="page-29-1"></span>Fig. 18. The terminological coverage as recorded for ArCo, EDM, and CIDOC CRM.
 
@@ -856,6 +875,7 @@ ArCo substantially contributes to the existing LOD CH cloud with a huge amount o
 <span id="page-37-13"></span><sup>10</sup>[1http://purl.org/spar/pro](http://purl.org/spar/pro)
 
 ![](_page_38_Figure_1.jpeg)
+<!-- Image Description: This image is a flowchart illustrating the provenance of a 17th-century "Woman Portrait" by Netscher Caspar. A grayscale image of the painting is shown, connected by lines to photographs of three buildings: the Uffizi and Pitti Palace in Florence, and Poppi Castle. Text indicates the painting's current location (Uffizi), temporary storage in Poppi Castle in 1942, and exhibition at the Pitti Palace in 1773. The figure visually maps the painting's historical locations. -->
 
 <span id="page-38-0"></span>Fig. 20. The painting "Woman Portrait" by Caspar Netscher (17th century) and the different (types of) locations it is associated with.
 

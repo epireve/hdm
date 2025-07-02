@@ -1,7 +1,7 @@
 ---
 cite_key: "chen2020"
 title: "A Survey on Collaborative Mechanisms Between Large and Small Language Models"
-authors: "Yi Chen1,2, JiaHao Zhao1,2, HaoHao Han1,2"
+authors: "Yi Chen, JiaHao Zhao, HaoHao Han, Computer Applications"
 year: 2020
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -130,6 +130,7 @@ The CoGenesis framework is another typical example of pipeline collaboration, as
 The key to pipeline collaboration lies in reasonably dividing tasks and designing effective inter-model interfaces to ensure that information can be accurately and efficiently transferred between different models [\(F. Wang, L. Zhang, and Jian Hu,](#page-34-0) [2024;](#page-34-0) [Y. Liu et al.,](#page-32-3) [2025;](#page-32-3) [Bin Chen](#page-31-4) [et al.,](#page-31-4) [2025;](#page-31-4) [W. Xu et al.,](#page-34-3) [2024\)](#page-34-3). The effectiveness of this mode largely depends on the ability of the first model to extract relevant information and the quality of the information passed to the second model. If the SLM fails to accurately capture key information or passes information in an inappropriate format, the LLM's performance will be adversely affected. Therefore,
 
 ![](_page_7_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates four approaches to using large language models (LLMs) for email drafting. Stages 1-3 show a user's request processed by a generic cloud-based LLM (2), revealing privacy concerns due to data leakage. Stage 3 contrasts this with a specialized, on-device SLM, which is less effective. Finally, stage 4 depicts a hybrid approach: the on-device SLM uses the cloud LLM for high-level knowledge, protecting privacy while maintaining effectiveness. The flowchart compares different architectures for privacy-preserving LLM-based text generation. -->
 
 <span id="page-7-0"></span>Figure 1: CoGenesis framework structure diagram. 1. Context-aware instructional examples. 2. Context-aware Language Models (LLMs) excel in context awareness but pose privacy risks. 3. On-device specialized Small Language Models (SLMs) prioritize privacy but have lower performance. 4. Collaborative LLMs and SLMs enhance privacy protection and improve performance.
 
@@ -144,6 +145,7 @@ The CITER framework is a typical example of routing collaboration, shown in Figu
 Other research efforts focus on developing routers capable of selecting the most appropriate LLM from a pool of candidate models [\(Varangot-Reille et al.,](#page-34-6) [2025;](#page-34-6) [Xinyuan Wang et al.,](#page-34-4) [2025\)](#page-34-4). This approach can be extended to include SLMs, enabling the router to choose among
 
 ![](_page_8_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a collaborative inference system using Large Language Models (LLMs) and smaller language models (SLMs). Three example question-answering scenarios ("cases") demonstrate the iterative process. Each case shows data flow between LLM and SLM, with correct and incorrect answers indicated. A separate section depicts the training phase, where routing preferences are learned and stored in a router to optimize subsequent inference. The diagram visually explains the system's architecture and its decision-making process. -->
 
 <span id="page-8-0"></span>Figure 2: CITER framework structure diagram. Utilizes a router for collaborative inference between SLM and LLM. The router is trained using routing preferences collected through three scenarios. Scenario 1: SLM generates the correct token, routing preference assigned to SLM. Scenario 2: SLM generates an incorrect token, while LLM generates the correct token, routing preference assigned to LLM. Scenario 3: Neither SLM nor LLM generates the correct token; collaborative reasoning is performed to obtain the complete response for assigning routing preference.
 
@@ -160,6 +162,7 @@ In auxiliary or enhancement collaboration, one model (either LLM or SLM) assists
 An LLM can decompose a complex query into several sub-problems and then assign these sub-problems to an SLM for processing, or vice versa [\(Shao et al.,](#page-33-3) [2025;](#page-33-3) [R. Xu et al.,](#page-34-8) [2025\)](#page-34-8). SLMs can provide LLMs with contextual information or domain-specific knowledge to enhance
 
 ![](_page_9_Figure_0.jpeg)
+<!-- Image Description: The image displays three diagrams illustrating different retrieval-augmented generation (RAG) methods. (a) shows a standard RAG pipeline: query → retriever → LLM → answer. (b) depicts IRCOT, where an LLM generates sub-queries to refine retrieval. (c) presents Collab-RAG, using a white-box SLM to generate sub-queries, with a supervision mechanism evaluating LLM answers. The diagrams compare different architectures and highlight the role of sub-queries and supervision in improving answer quality. -->
 
 <span id="page-9-0"></span>Figure 3: Iterative training framework of Collab-RAG. The SLM updates its parameters based on the generation quality of the LLM reader. This process iterates multiple times, progressively improving the SLM's decomposition capability.
 
@@ -190,6 +193,7 @@ Integration collaboration offers the potential to create more powerful and versa
 To effectively implement collaboration between LLMs and SLMs, the following key technologies are required:
 
 ![](_page_11_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates the architecture of a language model. It shows a sequential process starting with an embedding layer, followed by repeated "Hymba Blocks." Each block contains a "Full Attn" and "SWA" component, with KV sharing every two layers. A detailed view shows that each Hymba Block consists of layer normalization, a hybrid-head module, and a feed-forward network (FFN). The process concludes with an LM Head. The diagram clarifies the model's structure and component interactions. -->
 
 <span id="page-11-0"></span>Figure 4: Overall architecture of the Hymba model
 
@@ -246,10 +250,12 @@ Real-time low-latency inference is a core requirement of edge computing, especia
 Wearable devices and IoT voice assistants require rapid processing of user commands to provide a smooth interactive experience. The powerful language understanding capabilities of LLMs make them ideal for voice assistants, but their high computational demands necessitate optimization through SLMs and edge computing. Research by Froiz-Miguez et al. [\(Froiz-](#page-31-9)[Miguez, Fraga-Lamas, and Fernández-CaraméS,](#page-31-9) [2023\)](#page-31-9) shows that traditional voice assistants
 
 ![](_page_14_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a three-layered architecture for an IoT system. The bottom layer shows IoT devices (lightbulb, water level sensor, smart relay, temperature/humidity sensor). The middle layer depicts a gateway layer with three interconnected nodes. The top layer shows a voice assistant device (LPN node) connected to the internet via cellular technology and capable of making phone calls. The architecture uses a BLE mesh network. The diagram's purpose is to visually represent the system's structure and communication flow. -->
 
 <span id="page-14-0"></span>Figure 5: Edge-cloud collaborative LLM-SLM architecture
 
 ![](_page_14_Figure_2.jpeg)
+<!-- Image Description: This flowchart illustrates a text generation system using an Edge SLM and a Cloud LLM. An Edge SLM autoregressively generates tokens ("quick," "brown," "dog," "barks"). These are sent to a cloud LLM for verification. The cloud LLM assigns confidence scores (color-coded) to each token, rejecting "dog" and accepting others. Verified tokens are then transferred back to the edge device. The diagram shows the data flow and the verification process using confidence scores. -->
 
 <span id="page-14-1"></span>Figure 6: Hybrid SLM-LLM framework structure
 
@@ -260,6 +266,7 @@ The Hybrid SLM-LLM framework proposed by Hao et al. [\(Hao et al.,](#page-32-12)
 In practical applications, Google's Gboard and SwiftKey have adopted similar methods, integrating local SLMs into mobile keyboards for speech recognition and text prediction, only
 
 ![](_page_15_Figure_0.jpeg)
+<!-- Image Description: This image depicts a cloud-edge-client architecture for machine learning. It shows three deployment scenarios: cloud-edge, edge-only, and cloud-edge-client. Each scenario illustrates model training and inference processes, including fine-tuned models, knowledge relay, and API gateways. Different model types (large, domain-specific, lightweight) and their deployment locations are shown. The figure also highlights advantages (reduced latency, privacy) and concerns (limited resources, accuracy) of each deployment. The architecture diagram uses boxes and arrows to represent data flow and model interactions. -->
 
 Figure 7: LLM Edge Deployment Strategy
 

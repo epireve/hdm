@@ -1,7 +1,7 @@
 ---
 cite_key: "shaiksupsup2024"
 title: "S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source, Metadata, and Document"
-authors: "Kareem Shaik<sup>1</sup> , Dali Wang<sup>2</sup> , Weijian Zheng<sup>3</sup> , Qinglei Cao<sup>4</sup> , Heng Fan<sup>1</sup> , Peter Schwartz<sup>2</sup> , and Yunhe Feng<sup>1</sup>"
+authors: "Kareem Shaik, Dali Wang, Weijian Zheng, Qinglei Cao, Heng Fan, Peter Schwartz, Yunhe Feng"
 year: 2024
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -65,6 +65,7 @@ LLM-based Software Engineering: The integration of AI and LLMs has significantly
 We first introduce an overview of the S3LLM framework, subsequently delving into the detailed design of its components. S3LLM examines large-scale scientific software from multifaceted perspectives, utilizing diverse data types such as source code, code metadata, and textual reports. Each
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a system for large-scale scientific software understanding using large language models (LLMs). Three main processing paths are shown: one for source code (using FQL queries and RAG), one for metadata (using LLaMA and GPT-4), and one for documents (using RAG and LLaMA). Each path involves prompting LLMs (primarily LLaMA and GPT-4) with data and receiving results. The diagram details the data flow and the specific LLM used in each step, showcasing a multi-faceted approach to software comprehension. -->
 
 Fig. 1: Framework overview of S3LLM
 

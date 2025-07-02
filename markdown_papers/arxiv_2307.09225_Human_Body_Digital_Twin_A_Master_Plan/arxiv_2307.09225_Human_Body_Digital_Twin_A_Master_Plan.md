@@ -1,7 +1,7 @@
 ---
 cite_key: "tangsupsup2023"
 title: "arXiv:2307.09225v1 [cs.AI] 18 Jul 2023"
-authors: "Chenyu Tang<sup>1</sup> , Shuo Gao<sup>2</sup> , and Luigi G. Occhipinti<sup>1</sup>"
+authors: "Chenyu Tang, Shuo Gao, Luigi G. Occhipinti"
 year: 2023
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -32,6 +32,7 @@ In future healthcare, cutting-edge biomedical technologies are investigated to d
 In this context, digital twin (DT) technology, by deploying sensors to long-termly retrieve a tremendous amount of information required to decode the uncertainties of a target system, is now unleashing its strong power in determining and predicting the system's status under changing conditions. DTs have been successfully applied in diverse complex industrial scenarios, anticipating the possibility of addressing uncertainties of human bodies. In recent years many researchers have started to explore the human body DT [9-11]. Nevertheless, the lack of a unifying approach, especially a consensus on the
 
 ![](_page_0_Figure_10.jpeg)
+<!-- Image Description: The figure is a log-log plot showcasing the evolution of computing performance in petaFLOP days for various AI tasks (language, vision, games, speech, other) from 1985 to 2025. Data points represent key AI models, illustrating an exponential increase in performance exceeding Moore's Law (dashed line). Dashed and solid green lines highlight the accelerating growth rate post-2010, attributed to the increased use of GPUs. The plot effectively visualizes the rapid advancement in AI computational capabilities over time. -->
 
 Fig. 1. Computing performance evolution of the state-of-the-art AI models [36].
 
@@ -44,6 +45,7 @@ Based on the state-of-the-art works and our forecasts for technological developm
 The scarcity of human data, especially data annotated by clinicians, poses a significant challenge to the advancement of the digital health field [10]. The development of a human body DT model is no exception to this issue. However, recent breakthroughs in related technologies offer promising solutions. Specifically, innovations in nanotechnology have facilitated the design and fabrication of novel sensors that are more sensitive, adaptable, and comfortable, thereby enabling the collection of vast amounts of human data over extended periods [12, 13]. Moreover, the advent of advanced Self-supervised Learning (SSL) algorithms allows for the utilization of copious amounts
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a five-level modeling framework for human body mechanisms. It progresses from a cross-sectional model using current data (Level 1) to an explainable model (Level 5) incorporating AI, transparency, and human interpretability. Intermediate levels involve deductive, editable, and evolutionary modeling, incorporating data edits and external interactions. Equations depict loss functions and recurrent model structures. The diagram uses human figures to visually represent model progression and incorporates icons for nanotechnology and AI technologies as prerequisites. -->
 
 Fig. 2. The five-level roadmap for human body DT.
 
@@ -74,6 +76,7 @@ The development of a Level 5 Model requires a deep understanding and explanation
 The evolution of the human body DT technology has ushered in a new era in the realm of medicine. By generating virtual counterparts that replicate human anatomy and physiology, it offers a remarkable opportunity to comprehend and anticipate diverse physiological and pathological states in a highly individualized manner, as depicted in Figure 3.
 
 ![](_page_3_Picture_3.jpeg)
+<!-- Image Description: The image displays a futuristic medical visualization. Two translucent, three-dimensional human body models stand facing each other. Each model is overlaid with a schematic highlighting internal organs and skeletal structure. Behind each figure is a transparent screen displaying interactive diagrams of various body systems and internal organs, potentially representing medical data analysis or a diagnostic interface. The purpose is likely to illustrate advancements in medical imaging and data analysis technology. -->
 
 Fig. 3. Conceptual figure of the future application of the human body digital twin technology.
 

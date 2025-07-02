@@ -1,7 +1,7 @@
 ---
 cite_key: "idpage--spanearl2019"
-title: "Designing decentralized knowledge management systems to effectuate individual and collective generative capacities"
-authors: "- <span id=\"page-21-3\"></span>Earl, M. (2001), \"Knowledge management strategies: toward a taxonomy\", Journal of Management Information Systems, Vol. 18 No. 1, pp. 215-233."
+title: "The current issue and full text archive of this journal is available on Emerald Insight at: https://www.emerald.com/insight/0368-492X.htm"
+authors: "Kybernetes Vol"
 year: 2019
 doi: "10.1108/K-03-2019-0215"
 date_processed: "2025-07-02"
@@ -63,10 +63,12 @@ Erikson's (1950) psycho-social progressive multi-stage model entails a step-by-s
 Although having evolved from initial technology domination to more practice-oriented approaches [\(Earl, 2001;](#page-21-3) [Schmitt, 2018a,](#page-23-0) [Figure 1\)](#page-1-0), traditional knowledge management systems (KMSs) have remained costly, heavyweight, prohibitive, institutional developments often failing to enthuse a skeptical workforce. To further the acceptance of KMSs as well as the sense-making
 
 ![](_page_1_Figure_9.jpeg)
+<!-- Image Description: This diagram models information exchange between an informant and an informee. It depicts a three-part process: the informant's encoding and transmission of information (considering noise and context), the informee's reception and interpretation of information considering their needs and cognitive system, and feedback loops for informing and learning. The central section highlights the roles of coherence and generativity in the process. The diagram visually represents the complexities of information transfer within a given context. -->
 
 <span id="page-1-0"></span>Figure 1. Generativity as a feature within cognitive informant–informee system (based on the informing science framework)
 
 ![](_page_1_Figure_13.jpeg)
+<!-- Image Description: The image is simply the number "23," likely a figure number or a reference to another part of the paper. There are no diagrams, charts, graphs, equations, or illustrations present. The image's sole purpose is to act as a label or identifier within the academic paper's textual flow, not to convey any technical information. -->
 
 and effectiveness of knowledge workers, [Pollard \(2008](#page-23-1), p. 98) urges going "back to the original premise and promise of KM and start again - but this time from the bottom up" by emphasizing peer-to-peer content-sharing, expertise-finding and connectivity instead of top-down communityof-practice management and top-down centralized content acquisition and collection.
 
@@ -159,6 +161,7 @@ Acting individually and freely, the engaging agents' micro-behaviors and effects
 In complementing the generative technical perspective of artifacts and systems, social generativity focuses on generative relationships between human agents and their potential for initiating change and innovation. As drivers of the underlying practices, [Figure 2](#page-6-0) depicts the mutually complementing, generic iterative sequences of Usher's notion of cumulative synthesis (CS) (2013, p. 65) and Lane's theory of exaptive bootstrapping (EB) (2011, pp. 7-8).
 
 ![](_page_6_Figure_6.jpeg)
+<!-- Image Description: The image displays a flowchart comparing three innovation models: Cumulative Synthesis, Exaptive Bootstrapping, and the Generative Potential of Relationships. Each model is represented by a numbered, sequential process shown in rectangular boxes. A connecting flowchart shows the relationship between the three models using numbered circles and lines, indicating how the stages of each model interact and relate to each other. The purpose is to illustrate the interrelation and differences between these innovation frameworks. -->
 
 <span id="page-6-0"></span>Figure 2. Cumulative synthesis, exaptation and generative social potential
 
@@ -209,6 +212,7 @@ This section demonstrates how the generative notions presented relate and are ap
 [Figure 3](#page-9-0) depicts the PKMS as a DPE, one of the meta-artifacts referred to in Section 2. It affords a central service structure arranged as an iterative workflow cycle following [Levy](#page-22-1)'s [\(2011\)](#page-22-1) envisaged decentralizing configuration (as described in Section 1.1): PKMS community members [knowledge worker] through their PKMS devices [technology] are capturing, exploring or creating specifically formatted content (memes) at various levels of granularity (memeplexes) to be voluntarily shared and centrally curated in a repository [ideosphere] from where it feeds back in the form of accessible conversations, resources or assets [extelligence] to the PKMS community [society] to be (potentially generatively) used in
 
 ![](_page_9_Figure_5.jpeg)
+<!-- Image Description: This diagram illustrates a Digital Platform Ecosystem (DPE) for knowledge management. It shows how organizational KM systems, learning management systems (LMS), and personal learning environments (PLE) interact. Central to the model is a PKMS repository (ideosphere) facilitating voluntary sharing of meme-based content. The flow depicts knowledge asset exchange among a PKMS community, represented as a knowledge worker interacting with the system and then sharing knowledge with a wider society. The diagram uses boxes, lines, and icons to visually represent the different components and their relationships. -->
 
 <span id="page-9-0"></span>Figure 3. PKMS as a DPE (based on [Schmitt](#page-24-4) [and Gill, 2019](#page-24-4))
 
@@ -235,6 +239,7 @@ One of the key changes is the reuse of the "extelligence" captured in the PKMS r
 Accordingly, PKMSs substitute current document-centric storage paradigms with the finer granularity of "atomic" cognitive information units (memes) and their structural combinations. Memes (e.g. idea, tune, catch phrase, skill and technology) were introduced by [Dawkins \(1976\)](#page-21-14) as basic units of cultural transmission or imitation that evolve over time through a Darwinian process of variation, selection and transmission (in analogy to genes) with their longevity being determined by their environment. For better attention and survival, "atomic" memes may form symbiotic relationships (memeplexes) to mutually support each other's fitness and to replicate together (Grant et al.[, 1999\)](#page-22-13). Also referred to as Business Genes ([Koch, 2013](#page-22-14)), these memes represent, in the broadest sense, the "building blocks of know-how, skills" and technology in need of commercial vehicles (or containers) before their economic information may facilitate the delivery of a valuable product, service or Knowledge Asset (defined as "nonphysical claims to future value or benefits" [\(Dalkir,](#page-21-15) [2005](#page-21-15)).
 
 <span id="page-11-0"></span>![](_page_11_Figure_0.jpeg)
+<!-- Image Description: Figure 4 is a diagram illustrating a "Generativity framework" for decentralized knowledge management. It's a flowchart depicting the process of knowledge creation and dissemination, from individual "Seizing" of knowledge to collective "Encompassing" and "Collating." The framework incorporates various stages like "Imbedding," "Codification," and "Effectuating," with each stage detailed by sub-components and influencing factors (e.g., technology, society, individual knowledge workers). The overall purpose is to model how generative collectives function within digital ecosystems. -->
 
 By affording the metaphor of a living organism, the "selfish" meme perspective[\[1\]](#page-20-1) offers [although controversially discussed in social sciences and humanities [\(Schmitt, 2017a](#page-23-6); [Shifman, 2013](#page-24-12))] a powerful conceptual scheme valued for its usefulness to a client or for educational purposes rather than its representation of the truth like a theory ([Gill, 2011\)](#page-22-15) as exemplified in the respective description of the SECI model below. For survival, memes:
 

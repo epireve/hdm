@@ -1,7 +1,7 @@
 ---
 cite_key: "sowiski2020"
 title: "Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future"
-authors: "Piotr Sowiński 1 ,2[0000 −0002 −2543 <sup>−</sup>9461], Ignacio Lacalle3[0000 −0002 −6002 −4050] , Rafael Vaño3[0000 −0003 −2372 <sup>−</sup>6253], Carlos E. Palau3[0000 −0002 −3795 <sup>−</sup>5404], Maria Ganzha 1 ,2[0000 −0001 −7714 <sup>−</sup>4844], and Marcin Paprzycki2[0000 −0002 −8069 −2152]"
+authors: "Piotr Sowi"
 year: 2020
 doi: "10.1007/978-3-540-92913-0"
 date_processed: "2025-07-02"
@@ -113,6 +113,7 @@ for this approach to succeed, the process of knowledge elicitation and formaliza
 Taking into account what has been discussed thus far, let us introduce an architecture for a system that would tackle the indicated challenges of software modeling and SE process automation for multi-architecture software. The proposed concept offers a comprehensive view of the entire software engineering lifecycle, and can plug in seamlessly into the existing tools and processes, such as those discussed in Section [2.](#page-2-0) The general architecture is described in what follows, with a visual overview presented in Figure [1.](#page-9-0) Further details about each component (WebAssembly Twin, Autonomy Core, and Modular Pluggable Connectors) are presented in subsequent sections.
 
 ![](_page_9_Figure_4.jpeg)
+<!-- Image Description: The image is a system architecture diagram illustrating an autonomy framework. It shows a WebAssembly Twin (WT) interacting with an Autonomy Core (AC) via an Open WebAssembly Twin API. The AC comprises machine learning, symbolic reasoning, and neuro-symbolic fusion components, with explainability and control features. Modular Pluggable Connectors (MPCs) enable interaction with existing tools and processes, depicted as interconnected modules. The system interfaces with a software engineer via an IDE plugin for autonomy supervision and control. -->
 
 <span id="page-9-0"></span>Fig. 1. Overview of the proposed system architecture.
 
@@ -131,6 +132,7 @@ The WebAssembly Twin (Figure [2\)](#page-11-0) takes a leap beyond the state of 
 ecosystem appears to be most appropriate to be used as the knowledge graph model. In RDF, ontologies are most commonly expressed in the Web Ontology Language (OWL) [\[70\]](#page-20-7), allowing one to define expressive reasoning rules. Constraints (useful for, for instance, validation) can be written down in the Shapes Constraint Language (SHACL) [\[31\]](#page-18-14). RDF, OWL, and SHACL are standardized by the W3C and there are many independent implementations of these standards. This should help in facilitating the adoption of the proposed concept.
 
 ![](_page_11_Figure_2.jpeg)
+<!-- Image Description: This diagram illustrates an Open WebAssembly Twin API architecture. It shows a dynamic knowledge graph interacting with the API via a streaming event bus. Knowledge fragments are input, and the API processes data (e.g., SAST results, code, tests) through modules (A, B, C). "WT write" and "WT read" depict data input and output, respectively. The API is built upon an Autonomy Core and modular connectors. The illustration clarifies the system's data flow and modular design. -->
 
 <span id="page-11-0"></span>Fig. 2. Architecture of the WebAssembly Twin.
 
@@ -155,6 +157,7 @@ The modular structure of MPCs simplifies their implementation – for example, t
 <span id="page-12-4"></span><sup>13</sup> <https://warg.io/>
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This image depicts a workflow diagram illustrating the interactions between a WebAssembly Twin API and various software development stages. The central element is the WebAssembly Twin API, connected to modules representing Plan, Code, Build, Test, Run, Monitor, and Distribute. Arrows, differentiated by color to represent "WT-to-software MPC" and "Software-to-WT MPC," show data flow and dependencies between these stages, highlighting the API's role in managing the software development lifecycle. The diagram visually represents the communication and information exchange within the system. -->
 
 <span id="page-13-1"></span>Fig. 3. Example Modular Pluggable Connectors.
 
@@ -167,6 +170,7 @@ In the guiding scenario, the software company would ideally be able to reuse man
 Finally, the leap forward in automation capabilities is provided by the Autonomy Core (AC) (Figure 4) – a general autonomy enabler, capable of planning and executing complex WebAssembly software workflows on its own. The vision behind the AC is to realize complex, self-adaptive use cases – for example: (i) responding to a spike of runtime errors and fixing the bug autonomously, while also adding tests to prevent the problem from re-occurring; (ii) detecting a security vulnerability in the dependency chain and resolving the issue by updating
 
 ![](_page_14_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts an autonomy core architecture. The core comprises modules for analyzing, planning, simulating, and executing actions, guided by context knowledge and monitored for reporting. A WebAssembly twin interacts with Multi-Purpose Controllers (MPCs), enabling software modification and data acquisition. The architecture emphasizes transparency and user control, shown by the outer layer. Arrows indicate data flow and control. -->
 
 the affected module; (iii) identifying a possible resource optimization (e.g., more efficient library, unnecessary code) and introducing it in practice.
 

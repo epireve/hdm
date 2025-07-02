@@ -1,7 +1,7 @@
 ---
 cite_key: "anokhin2024"
 title: "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents"
-authors: "Petr Anokhin, Nikita Semenov, Artyom Sorokin, Dmitry Evseev, Andrey Kravchenko, Mikhail Burtsev, Evgeny Burnaev"
+authors: "Petr Anokhin, Nikita Semenov, Artyom Sorokin, Dmitry Evseev, Mikhail Burtsev, Evgeny Burnaev"
 year: 2024
 doi: "10.48550/arXiv.2407.04363"
 url: "https://arxiv.org/abs/2407.04363"
@@ -53,6 +53,7 @@ Currently, the most popular solution for incorporating memory to LLM agents is t
 In our research, we have developed a memory architecture
 
 ![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image contains two parts. (A) illustrates the Ariadne LLM agent architecture: a directed graph ("AriGraph") representing episodic and semantic memory, feeding into a decision-making module interacting with an environment. (B) is a bar chart comparing the normalized scores of Ariadne against other agents (human players, Reflexion, Simulacra, Summary, RAG, and full history) on text-based games, showing Ariadne's superior performance. Error bars represent variability. -->
 
 Figure 1: (A) The architecture of our Ariadne agent, equipped with AriGraph memory. AriGraph integrates both semantic knowledge graph and past experiences. Memory in the form of a semantic knowledge graph extended with episodic vertices and edges significantly enhances the performance of LLM-agent in text-based games. (B) The average performance of our agent on text games, compared to various baselines including human players and other LLM memory implementations. The LLM-agents differ only in the memory module, while the decisionmaking component remains identical across all versions. The results for the agents are displayed for the top three out of five runs. For human players, the results are presented as both the top three and the average across all participants.
 
@@ -125,6 +126,7 @@ Treasure Hunting. The primary objective is to retrieve the hidden treasure, with
 even hyperedges, because they connect vertices with multiple graph edges, but for simplicity we call them edges or episodic edges.
 
 <span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image displays two diagrams. (A) shows a knowledge graph representing semantic and episodic memory. Nodes represent objects (e.g., Tuna, Table) and edges represent relationships (e.g., "contains," "is on"). Different colors denote semantic and episodic information. (B) illustrates a cognitive architecture for an agent. It shows information flow from observation through working memory, planning, and decision-making modules to produce actions within an environment. The AriGraph module learns and updates the world model. The diagram clarifies the agent's reasoning process. -->
 
 Figure 2: AriGraph world model and Ariadne cognitive architecture. (A) AriGraph learns episodic and semantic knowledge during interaction with unknown environment. At each time step t new episodic vertex (containing full textual observation ot) is added to the episodic memory. Then LLM model parses observation o<sup>t</sup> to extract relevant relationships in a form of triplets (object1, relation, object2). These triplets are used to update semantic memory graph. The connection between episodic and semantic memory occurs through episodic edges that link each episodic vertex with all triplets extracted from respective observation. (B) Ariadne agent explores the environment and accomplishes tasks with AriGraph. User sets goal to the agent. Working memory is populated with recent history of observations and actions, relevant semantic and episodic knowledge retrieved from the AirGraph world model. Planing LLM module uses content of working memory to generate new or update existing plan. Results of planning are stored back in working memory. Finally, a ReAct-based module reads memory content and selects one of possible actions to be executed in the environment. Every observation triggers learning that updates agent's world model.
 
@@ -151,6 +153,7 @@ NetHack [\[Kuttler](#page-7-6) ¨ *et al.*, 2020] is a classic roguelike adventu
 We based our experiments on NetPlay [\[Jeurissen](#page-7-10) *et al.*, [2024\]](#page-7-10) agent, which demonstrates state-of-the-art performance among LLM agents that do not rely on finetuning or RL. In NetPlay agent receives textual observations containing all information about current explored dungeon level. These
 
 <span id="page-4-0"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image presents bar graphs comparing normalized scores across different methods (Ariadne, Reflexion, Simulacra, human performance) on three tasks: Treasure Hunt, Cooking, and Cleaning. Subplots (A) show results using various approaches, while (B) displays results for harder versions of Treasure Hunt and Cooking. Subplot (C) shows human evaluations of the different methods across all three tasks. Error bars represent uncertainty. The figure aims to demonstrate comparative performance of different methods on complex reasoning tasks. -->
 
 Figure 3: AriGraph world model enables Ariadne agent to successfully solve variety of text games. (A) Ariadne outperform baseline agents with alternative types of memory. (B) Ariadne with episodic and semantic memory scales to harder environments without losing performance. (C) Ariadne shows performance comparable to the best human players. The Y-axis shows the normalized score, which is calculated relative to the maximum possible points that can be obtained in each environment. Error bars show standard deviation. The number of max steps is set to 60 in the Cooking and to 150 in other games.
 
@@ -175,6 +178,7 @@ Compared to the Treasure Hunt, the Cleaning game possesses a slightly different 
 The Cooking game has the highest difficulty, because any error at intermediate step prevents completion of the whole game. All baseline agents (except Reflexion 2-shot with obvious advantage over other methods) fail to complete cooking tasks due to insufficient or misused information. In this game, episodic memory is particularly important, allowing the agent
 
 <span id="page-5-0"></span>![](_page_5_Figure_0.jpeg)
+<!-- Image Description: The image presents four bar graphs comparing the normalized scores of five different methods (GATA, LTL-GATA, EXPLORER, GPT-4, Ariadne) across four levels (Level 1-4). Each bar represents a method's performance at a specific level, with error bars indicating variability. A dashed horizontal line indicates a benchmark score. The purpose is to illustrate and compare the performance of these methods at different complexity levels. -->
 
 Figure 4: Ariadne LLM agent shows top performance compared to RL alternatives. Comparison of Ariadne and Full History baseline (GPT-4) with RL baselines in the cooking benchmark. Ariadne demonstrates superior performance across all 4 difficulty levels
 
@@ -211,6 +215,7 @@ The best performance using GPT-4 was achieved by HOLMES, but AriGraph (GPT-4) ex
 Voyager [Wang*et al.*[, 2023a\]](#page-8-14), Ghost in the Minecraft [\[Zhu](#page-8-15) *et al.*[, 2023\]](#page-8-15) and Jarvis-1 [Wang *et al.*[, 2023b\]](#page-8-16) are advanced, open-ended LLM agents that show significantly better performance in Minecraft compared to earlier techniques. These agents feature memory capabilities through a library of learned skills, summaries of successful actions, and episodic memory with plans for successful task execution. However, they fall short in representing knowledge with semantic structure and depend heavily on the LLM's extensive Minecraft knowledge, or even access to the Minecraft wiki. Generative agents [Park *et al.*[, 2023\]](#page-8-4) mimic human behavior in multiagent environments and were among the pioneers in introducing an advanced memory system for LLM agents, which we use as our baseline. Reflexion [Shinn *et al.*[, 2023\]](#page-8-5) and CLIN [\[Majumder](#page-7-15) *et al.*, 2023] enables agents to reflect on past trajectories, allowing them to store relevant insights about com-
 
 <span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image presents ten line graphs, five pairs arranged vertically. Each pair displays data for a different task: "Treasure Hunt," "Treasure Hunt Hard," "Cooking," "Cooking Hard," and "Cleaning." The top graph in each pair shows the cumulative number of triplets and items over time. The bottom graph shows the number of new triplets and replacements over time. The purpose is to illustrate the progression of triplets and items, along with the rate of change, across different tasks. -->
 
 Figure 5: AriGraph demonstrate good scaling during learning and with environment size. A size of the knowledge graph quickly saturates during exploration and learning phase. KG grows moderately when the Treasure Hunt and the Cooking games include more rooms and objects in their hard versions.
 
@@ -405,6 +410,7 @@ When working with a graph, it would be advantageous to assess the quality of its
 From the obtained results, one can conclude that the graph grows most actively during the exploration phase but
 
 <span id="page-10-2"></span>![](_page_10_Figure_0.jpeg)
+<!-- Image Description: The image presents six plots, three line graphs above three bar graphs. Each set of graphs compares the performance of three large language models (LLaMA-3-8B, LLaMA-3-70B, GPT-4). The top graphs show the cumulative number of triplets and items over time, illustrating knowledge base growth. The bottom graphs display the number of new triplets, replacements, and items added at each step, providing a granular view of knowledge base updates. The plots analyze knowledge base evolution during model training. -->
 
 Figure 6: Statistics of graph construction and updating during the random walk.
 
@@ -651,6 +657,7 @@ We tested or agent and raw GPT-4 with full history on 3 randomly generated envir
 This section presents the step-by-step dynamics of performance of different agents and human players (figure[.14\)](#page-20-0) . Additionally, this section includes a table summarizing the results of all experiments across three versions of the Treasure Hunt (Medium, Hard, Hardest), three versions of the Cooking (Medium, Hard, Hardest), and the Cleaning (table [4\)](#page-14-1).
 
 <span id="page-14-0"></span>![](_page_14_Figure_0.jpeg)
+<!-- Image Description: This flowchart diagrams a puzzle or game. Rectangles represent rooms, each containing a differently colored locked locker. Lines connect rooms, illustrating the sequence to find keys. Each locker contains either a key to another locker, or, in Room A, the final treasure. The chart's purpose is to visually represent the solution's steps, showing the logic of unlocking the lockers in order to obtain the treasure. -->
 
 Figure 7: Treasure Hunt environment
 
@@ -673,29 +680,38 @@ Figure 7: Treasure Hunt environment
 Table 4: All normalised scores across all tasks in TextWorld environment. Based on the results, it is evident that the agent with AriGraph significantly outperforms all baselines and scales well to larger and more complex environments. An important outcome is that our agent demonstrated near-human performance in text-based games, which has not been previously achieved using LLM.
 
 <span id="page-15-0"></span>![](_page_15_Figure_0.jpeg)
+<!-- Image Description: This diagram depicts a flowchart illustrating a series of interconnected rooms, each containing a locked locker and potentially a key or note. Lines connect rooms indicating the key's location relative to the locked locker. The chart's purpose is to visually represent a puzzle or game scenario requiring players to find keys within specific rooms to unlock subsequent lockers, ultimately leading to the treasure in Room A. Each room box displays the locker's color, lock status, and any contained items (keys or notes). -->
 
 ![](_page_15_Figure_1.jpeg)
+<!-- Image Description: Figure 8 is a textual caption titled "Treasure Hunt hard environment." It lacks any diagrams, charts, graphs, equations, or illustrations. The caption likely precedes a description or discussion of a challenging simulated environment used in the paper's methodology, possibly related to a "Treasure Hunt" algorithm or problem. -->
 
 <span id="page-16-0"></span>![](_page_16_Figure_0.jpeg)
+<!-- Image Description: The image is a flowchart illustrating the relationships between rooms, lockers, keys, and objects in a game or puzzle. Each box represents a room containing locked lockers and items on tables. Lines connect rooms indicating item transfers or key usage. The flowchart visually depicts the interconnectedness of the puzzle's elements to solve it. The purpose is to provide a comprehensive overview of the game's structure and logic. -->
 
 Figure 9: Treasure Hunt hardest environment
 
 <span id="page-17-0"></span>![](_page_17_Figure_0.jpeg)
+<!-- Image Description: This image is a diagram depicting the objects located in various rooms of a house. It uses a relational structure, showing how items are associated with specific rooms (Bathroom, Kitchen, Kids Room, etc.). Each room is represented by a box containing a list of objects, visually linked to other rooms through connecting lines. The diagram likely serves to illustrate data organization or spatial relationships within a home environment for the paper's research. -->
 
 Figure 10: Cleaning environment
 
 <span id="page-18-0"></span>![](_page_18_Figure_0.jpeg)
+<!-- Image Description: This image is a diagram illustrating a house's spatial layout and object locations. It uses a hierarchical structure, showing rooms (kitchen, living room, bedroom, bathroom, etc.) connected by corridors. Each room contains a list of objects (e.g., furniture, food). The diagram also includes outdoor areas (garden, backyard, shed) and their contents, with connections representing doors. The purpose is likely to visualize the spatial relationships and object locations within a specific environment for a research purpose. -->
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: Figure 11 is a caption, not an image containing a diagram, chart, graph, equation, or technical illustration. It simply labels a missing figure in the academic paper as depicting a "Cooking environment." The figure itself is absent from the provided image. -->
 
 <span id="page-18-1"></span>![](_page_18_Figure_2.jpeg)
+<!-- Image Description: This image is an entity-relationship diagram depicting a house and its surroundings, including a garden, backyard, shed, and supermarket. Rectangles represent entities (e.g., "kitchen," "garden"), containing attributes (e.g., "Lettuce," "Patio table"). Lines connect entities to show relationships, illustrating the location of items and their connections to different rooms and spaces. The diagram likely serves to illustrate a spatial or data model within the paper. -->
 
 Figure 12: Cooking hard environment
 
 <span id="page-19-0"></span>![](_page_19_Figure_0.jpeg)
+<!-- Image Description: The image displays a game interface, likely from an academic paper on AI or game development. It shows a top-down view of a game map with a player character, enemies (kobold zombies), and items. Text boxes detail agent thoughts (AI decision-making process), message history, and character stats (level, health, inventory). The map's text-based representation is also shown, possibly for analysis purposes. The image illustrates a specific moment in the game, showcasing the AI's actions and reasoning. -->
 
 Figure 13: Example of NetHack level
 
 <span id="page-20-0"></span>![](_page_20_Figure_0.jpeg)
+<!-- Image Description: The image presents six learning curves comparing the performance of different agents (Ariadne, with and without experience/episodic memory, Human Top-3, Human All, Fullhist, RAG) across three tasks (Treasure Hunt, Cleaning, Cooking, each with easy and hard versions). Each graph plots normalized score against step number, showing the cumulative performance over time. Shaded areas represent confidence intervals. The curves illustrate how the agents' performance improves as they complete more steps in each task, allowing for a comparative analysis of their learning capabilities. -->
 
 Figure 14: Performance Dynamics in Test Games. In the Treasure Hunt, the Ariadne agent delivers performance comparable to top players; in the Cleaning task, it falls slightly behind, but in the Cooking, it surpasses top human players in speed. The hard variants of the tasks demonstrate that the quality of Ariadne's performance does not decrease with increasing task difficulty, and also highlight the importance of episodic memory.

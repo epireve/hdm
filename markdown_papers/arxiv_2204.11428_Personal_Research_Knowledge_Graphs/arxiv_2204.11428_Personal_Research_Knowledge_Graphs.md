@@ -1,7 +1,7 @@
 ---
 cite_key: "kolkata2000"
 title: "Personal Research Knowledge Graphs"
-authors: "Prantika Chakraborty Indian Association for the Cultivation of Science Kolkata, India prantika.ch@gmail.com"
+authors: "Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal"
 year: 2000
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -74,6 +74,7 @@ Broad types of entities. A PRKG belonging to a researcher contains information i
 <span id="page-1-2"></span><sup>5</sup><https://www.orkg.org/orkg/>
 
 <span id="page-2-4"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This image is a knowledge graph visualizing the research activities and resources of Sunita. Nodes represent entities (e.g., Sunita, Twitter, A100 GPU, LDA method) and edges denote relationships (e.g., "worksFor," "uses," "supervises"). The graph illustrates Sunita's involvement in NLP, using various tools, datasets (like 20NG), and methods (LDA, CTM) for topic modelling, within the context of her affiliations (IISER-K, NLPLab) and resources used. The purpose is to provide a contextual overview of her research workflow and dependencies. -->
 
 Figure 1: PRKG for a computer scientist Sunita
 
@@ -175,10 +176,12 @@ We present the prototype of a PRKG in Fig. [3](#page-5-1) that we have implement
 #### Chakraborty, Dutta, Sanyal
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: This image presents a dialogue between a user and a chatbot. The conversation focuses on natural language processing tasks. The user requests information on time series visualization tools (TempoViz), topic modeling methods (LDA, CTM), and available GPUs (NVIDIA A100) within a specific lab (NLPLab) for running neural topic models. The chatbot provides relevant answers based on the user’s past actions and system information. The image visually depicts the information exchange, using speech bubbles to represent the interaction. -->
 
 (a) Conversation 1: Sunita had worked on topic modeling and timeseries analysis in a previous project. Now, she plans to work on a project on analysis of a news corpus. She chats with SciJeeves about the new project.
 
 ![](_page_5_Figure_3.jpeg)
+<!-- Image Description: The image depicts a dialogue between a user and a chatbot. Speech bubbles illustrate a conversation where the user inquires about NLP conferences (ACL 2022 and COLING 2022), deadlines, and adds a research topic (entity and relation extraction on scientific data) to their reading list. The image showcases the chatbot's functionality in providing information and assistance, likely to demonstrate its capabilities within the context of the academic paper. -->
 
 (b) Conversation 2: Sunita chats with SciJeeves about the upcoming conferences in her field and her new project.
 
@@ -193,6 +196,7 @@ CREATE ROLE collaborator AS COPY OF admin;
 Here admin is an in-built role in Neo4j who is given complete access to the current graph database. But we have restricted the collaborator from viewing the nodes selComm representing the selection committees (like the PhD Selection Committee) that she is a part of, using the following command in Neo4j:
 
 <span id="page-5-1"></span>![](_page_5_Figure_10.jpeg)
+<!-- Image Description: This image is a knowledge graph illustrating the relationships between Sunita and various entities. Nodes represent entities like projects (SpERT.PL, ScienceKG, CCLINC, NLPLab), research areas (NLP), and activities (translation, word sense disambiguation). Edges, labeled with relationship types (writes, manages, memberOf, etc.), connect the nodes, showing Sunita's involvement in these areas and projects. The graph visualizes Sunita's research network and contributions. -->
 
 Figure 3: PRKG for a computer scientist Sunita, as implemented in Neo4j.
 

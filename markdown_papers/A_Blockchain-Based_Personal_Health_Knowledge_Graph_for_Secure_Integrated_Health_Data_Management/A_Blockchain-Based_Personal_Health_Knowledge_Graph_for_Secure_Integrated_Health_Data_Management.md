@@ -58,6 +58,7 @@ In addition to clinical decision support and disease risk prediction, knowledge 
 These studies demonstrate the potential of knowledge graphs for managing and integrating health data. However, there is still a need for further research to explore the scalability, privacy, and security aspects of using knowledge graphs in the healthcare domain.
 
 ![](_page_1_Figure_7.jpeg)
+<!-- Image Description: This diagram illustrates a blockchain-based system for secure healthcare data management. It shows a peer-to-peer (P2P) network of blockchain nodes storing patient health data (PHKG). Data is uploaded from various sources (hospital, lab, wearable device, mobile app) and accessed by patients and doctors after authentication. A magnified section details a smart contract's role within a blockchain block, managing data access and transactions. The purpose is to depict the architecture and workflow of a secure, decentralized system for healthcare data. -->
 
 #### III. SYSTEM DESIGN
 
@@ -173,6 +174,7 @@ Fig. 3 shows the sequence diagram of this communication process.
 To register individual users, health data producers, and data consumers, we can create a smart contract that stores the necessary information, such as user identification, contact information, and access permissions. To authenticate people and institutes, we can use the Ethereum network's public-key infrastructure to verify user identities. The smart contract can include a function that verifies a user's identity by checking their public key against a stored list of authorized public keys. To control access to health data, we can use the smart contract to manage access permissions for users and data producers. The smart contract can include functions that allow authorized users to grant or revoke access permissions for specific data. For example, a function could be created to grant a data consumer access to a specific health data record.
 
 ![](_page_3_Figure_9.jpeg)
+<!-- Image Description: This sequence diagram illustrates data access control using a smart contract. It shows the interactions between a data owner, data producer, data consumer, and a resource system. The smart contract mediates access requests, verifying producer and consumer identities before granting write and read access to the data, respectively. The diagram details message exchanges, including token generation and access information exchange, to manage permissions. -->
 
 Fig. 3 A sequence diagram of the data access communication process
 
@@ -190,10 +192,12 @@ Fig. 4 shows the smart contract written in Solidity language. The function getAc
  Smart contracts play a critical role in our system as they eliminate the need for intermediaries and provide a secure and transparent platform for data sharing. They automate the process of verifying and executing the contract terms, reducing the risk of fraud and ensuring that the terms are enforced as intended. Smart contracts also ensure that the personal health data is only accessible to authorized entities, which enhances data privacy and security. Overall, smart contracts provide a reliable and secure platform for the sharing of personal health data in a transparent and auditable manner.
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: The image displays a code snippet, specifically a Solidity function (`getAccess_Consumer`) within a smart contract. It checks if a data consumer is authorized, using a mapping to verify the sender's address. If authorized, it generates a token using Keccak-256 hashing and emits a `tokenEvent`. Otherwise, it reverts with an error message. The code utilizes mappings for authorization and storage of data consumer details. -->
 
 Fig. 4. A snippet of the proposed smart contract.
 
 ####*D. Distributed Graph Storage*![](_page_4_Figure_5.jpeg)
+<!-- Image Description: The diagram illustrates a system architecture for a knowledge graph (KG) stored in a peer-to-peer (P2P) network. A client interacts with a Name Node via a smart contract. The Name Node manages the distribution of KG chunks across multiple chunk servers within the P2P network. The diagram shows data chunks distributed among servers, highlighting the decentralized storage approach and the role of the smart contract in managing data access. -->
 
 Fig. 5. P2P-based distributed PHKG storage
 
@@ -206,12 +210,14 @@ We deployed the proposed mechanism over an Ethereum blockchain network. In the f
 ####*A. Access Control Verification*####*1) Smart contract use case testing*In this case, John is a patient at John Hopkins Hospital. He has opted to use a proposed blockchain-based personal health knowledge graph to securely and decentrally store and share all of his health data. As shown in Fig. 6, John has registered with the application using his Ethereum address (0xAb8…35cb2), and all his data generated during his hospital visits is safely stored and accessible through the application.
 
 ![](_page_4_Figure_14.jpeg)
+<!-- Image Description: The image displays a code snippet showing the successful execution of a smart contract function, `PatientData.registerDataOwner()`. The output includes transaction details like `from`, `to`, `value`, `data`, and logs. The logs section, formatted as a JSON object, confirms the event `registeredPatientEvent` with associated parameters indicating a new patient was registered and their address. The image illustrates a successful blockchain transaction within the context of patient data registration. -->
 
 Fig. 6. John was successuflly registered as the data owner.
 
 John has a new health provider Dr. Johnson with an Ethereum Address (0x4B2…C02db). John registers Dr. Johnson and provides him a doctor's role (Fig. 7).
 
 ![](_page_4_Figure_17.jpeg)
+<!-- Image Description: This image displays a debugging output, likely from a blockchain transaction. It shows the transaction details including the sender (`from`), receiver (`to`), function called (`registerDataConsumer`), status (`true`), input parameters (address and role), and various hexadecimal values (hash, data). The successful execution is indicated by "Transaction mined and execution succeed". The output's purpose is to verify the successful execution of a smart contract function within a decentralized application. -->
 
 Fig. 7. Dr. Johnson was successuflly registered as the data consumer.
 
@@ -249,6 +255,7 @@ Fig. 8. Dr. Johnson was successuflly authrorized to accesss John's data.
 An unauthorized party with Ethereum address (0x5c6…21678) tries to access John's data will be denied by the smart contract as shown in Fig. 9.
 
 ![](_page_5_Picture_5.jpeg)
+<!-- Image Description: The image displays a debugging log from a smart contract transaction. It shows a transaction to `PatientData.getAccess_Consumer` that reverted due to an "Unauthorized Data Consumer" error. The log includes the transaction hash, addresses, values, and data, indicating a failed attempt to access patient data. The error message and debugging information aid in identifying and resolving the access control issue within the smart contract. -->
 
 Fig. 9. Unauthorized party was denied with accesss of John's data.
 
@@ -277,18 +284,21 @@ Fig. 9. Unauthorized party was denied with accesss of John's data.
 We compared the P2P distributed PHKG system's network communication overhead (bytes per node) with a centralized storage system. As illustrated in Fig. 10, as the number of users of the system increases, the system's overhead increases. This increase is dramatical for the centralized system. While the P2P nodes' overhead is much lower for P2P system with 50 nodes and 1000 nodes. For the P2P system with 1000 nodes the overhead is so small that its performance line almost touches the x-axis. These experiments demonstrate the scalability of the P2P system.
 
 ![](_page_5_Figure_20.jpeg)
+<!-- Image Description: The image displays a line graph comparing the byte usage of centralized and distributed systems (with 1000 and 50 nodes) as the number of users increases from 0 to 900. The graph shows that byte usage increases linearly with the number of users for the centralized system and the distributed system with 1000 nodes, while remaining relatively constant for the distributed system with 50 nodes. The purpose is to illustrate the scalability and performance differences between the three system architectures. -->
 
 Fig. 10. Number of users (patients) vs. avg message overhead per server (node).
 
  Fig. 11 shows the distribution of communication load of a P2P network with 500 nodes. We randomly generated data access requests. For simplicity, we only generate "read" requests. As shown in the figure, communication overhead is basically balanced among the P2P nodes mainly ranging from 10000 to 30000 bytes. These experiments illustrate the load balancing properties of the system.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image displays a scatter plot illustrating the relationship between node ID and data size (in bytes). Approximately 400 data points are shown, revealing a generally negative correlation: as Node ID increases, the corresponding data size tends to decrease, although with considerable variation. The plot likely demonstrates the data distribution across nodes in a network, possibly related to load balancing or data partitioning within the system described in the paper. -->
 
 Fig. 11. Nodes' communication overhead distribution
 
  As presented in the previous section, to ensure data availability, in the P2P-based distributed PHKG storage, data is replicated across multiple chunk servers. We tested the data availability of the system. In this experiment, each data has three replicas, i.e., each data chunk is replicated in three P2P nodes. The network size is 500. Fig. 12 shows the success rate of the access requests with respect to the node drop rate. The data availability keeps being 100% when the node's drop rate is below 30%. For the network of 500 nodes, even 150 nodes die or leave the system, the network still can provide 100% data availability. These experiments show the fault tolerance of the system.
 
 ![](_page_6_Figure_5.jpeg)
+<!-- Image Description: The line graph displays the relationship between node drop rate and data availability. The x-axis represents the percentage of nodes dropped, while the y-axis shows the percentage of data availability. The graph demonstrates high data availability (around 95-100%) is maintained until a node drop rate of approximately 30%, after which availability decreases sharply. This suggests a high resilience to node failures until a critical threshold is reached. -->
 
 Fig. 12. Data availability of the PHKG storage vs the network's node drop rate
 

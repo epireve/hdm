@@ -1,6 +1,7 @@
 ---
 cite_key: "madrid2024"
-authors: "- **5 Universidad Politécnica de Madrid, ES. [ana.iglesiasm@upm.es](mailto:ana.iglesiasm@upm.es)**"
+title: "1 Executive Summary"
+authors: "SeminarFebruary 4–"
 year: 2024
 doi: "10.4230/DagRep.14.2.1"
 date_processed: "2025-07-02"
@@ -890,8 +891,10 @@ Data quality has an important role in the KG construction since KGs are frequent
 Common data quality issues are related to missing entities and/or properties, inaccuracies, and redundancies. Such issues might affect all parts of the KG, including schema and attributes, which means that validation is a challenge. Data quality assessment and improvement
 
 <span id="page-49-0"></span>![](_page_49_Figure_1.jpeg)
+<!-- Image Description: The image is a flowchart illustrating the Knowledge Graph (KG) lifecycle. It shows a linear progression from raw data through processing, data integration, construction, and refinement stages to a deployed KG, which undergoes maintenance. A separate path indicates the influence of metadata, documentation, and provenance throughout the process. The "Target schema" informs the construction phase. The flowchart visually depicts the stages and interdependencies in building and maintaining a KG. -->
 
 ![](_page_49_Figure_2.jpeg)
+<!-- Image Description: Figure 1 is a caption indicating that the missing figure depicts the lifecycle of KG (likely Knowledge Graph). No actual visual content is provided in the image itself; it only serves as a placeholder for a diagram or chart illustrating the stages or processes involved in the KG's lifecycle within the context of the paper. -->
 
 are difficult in this context. Not all aspects are quantifiable, and non-functional quality aspects such as trustworthiness are difficult to assess. On the other hand, the volume and variety of values contained in the KG hampered data cleaning.
 
@@ -915,6 +918,7 @@ Data quality assessment can be performed on consistency, completeness, and accur
 Drawing from principles in data integration [\[2\]](#page-56-13), semantic data management [\[3\]](#page-56-14), and data ecosystems [\[1\]](#page-56-15), the concept of*Knowledge Graph Ecosystems*(KGE) is presented as an abstraction that specifies a knowledge graph based on six components. They include:
 
 <span id="page-50-0"></span>![](_page_50_Figure_1.jpeg)
+<!-- Image Description: The image presents a comparative analysis of "Knowledge Provider" and "Knowledge Auditor" roles. Two side-by-side tables categorize each role by types of personas involved (e.g., domain-knowledge experts), their needs (methodologies, tools, etc.), and their tasks. The tables visually highlight the differences in responsibilities and resource requirements between the two roles within a knowledge management system. -->
 
 **Figure 2**KG new roles.
 
@@ -971,8 +975,10 @@ A*knowledge graph ecosystem (KGE)*is defined by a tuple*KGE* = (*D, O, M, DC, KG
 A knowledge graph ecosystem *KGE*is subject of*life cycles*, consisting of a series of ordered *life cycle steps*and potential sub-life cycles. These life cycles orchestrate the manipulation and evolution of*KGE*components, guiding their creation, validation, curation, maintenance,
 
 <span id="page-53-0"></span>![](_page_53_Figure_1.jpeg)
+<!-- Image Description: The image displays a table showing a six-step life cycle (data collection, ontology evolution, quality assurance, analysis, monitoring, optimization) and a directed graph illustrating partial order dependencies between these steps. The graph shows the precedence relationships; for example, step 1 precedes steps 3 and 4. The image clarifies the workflow and interdependencies within the described life cycle. -->
 
 ![](_page_53_Figure_2.jpeg)
+<!-- Image Description: Figure 3 is a textual caption that describes a life cycle diagram (not shown) composed of six steps. The caption's purpose is to concisely label the diagram and inform the reader of its content, providing a brief overview of the life cycle's structure. No visual elements are included in the provided image itself. -->
 
 traversal, and analysis. Each life cycle step operates within a defined partial order, ensuring systematic execution and progression throughout the life cycle of*KGE*.
 
@@ -1395,3 +1401,4 @@ Ivo Velitchkov Brussels, BE
 Maria-Esther Vidal TIB – Hannover, DE
 
 ![](_page_69_Picture_17.jpeg)
+<!-- Image Description: The image is a group photograph of approximately 35 people posing on the steps of a building. It likely depicts the attendees of a conference or workshop. The individuals are dressed casually and appear to be academics or researchers, some wearing name badges. The photo's purpose is to document the participants of a scientific event, providing visual context for the paper. No graphs, charts, diagrams, or equations are present. -->

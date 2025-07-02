@@ -1,7 +1,7 @@
 ---
 cite_key: "turki2013"
 title: "A Decade of Scholarly Research on Open Knowledge Graphs"
-authors: "Houcemeddine Turki,<sup>1</sup>,2,<sup>3</sup> Abraham Toluwase Owodunni,<sup>2</sup>,<sup>4</sup> Mohamed Ali Hadj Taieb,<sup>1</sup>,<sup>2</sup> Ren´e Fabrice Bile,<sup>2</sup>,<sup>5</sup> Mohamed Ben Aouicha,<sup>1</sup>,<sup>2</sup> Vil´em Zouhar"
+authors: "Houcemeddine Turki, Abraham Toluwase Owodunni, Mohamed Ali Hadj Taieb, Fabrice Bile, Mohamed Ben Aouicha"
 year: 2013
 doi: "10.1007/978-3-540-88564-1"
 date_processed: "2025-07-02"
@@ -59,12 +59,14 @@ VoSViewer, an open-source software for bibliographic mapping, to the Author Keyw
 As revealed by Scopus, we identified 4445 scholarly articles utilizing open knowledge graphs published between 2013 and 2022. The yearly scholarly production on this topic has linearly evolved over the decade from 226 in 2013 to 751 in 2022 as shown in Figure [1.](#page-3-1) The research outputs for every year received an average of more than 4 citations per paper except the ones for 2020-2022 which have naturally fewer citations as they had less time to accumulate them.
 
 ![](_page_3_Figure_4.jpeg)
+<!-- Image Description: The figure is a bar chart showing the relationship between the number of new publications and their median citation counts for each year from 2013 to 2022. Horizontal bars represent the number of new publications per year, while overlaid black dots indicate the median citation count for those publications. The chart illustrates a trend: years with more publications tend to have a slightly lower median citation count, although there is variation. The x-axis shows the new publication count and the y-axis displays the publication year. -->
 
 <span id="page-3-1"></span>Fig. 1. Citation and publication counts as dependent on the publication year.
 
 The analysis of the citation counts for every single publication (Figure [2\)](#page-4-0) shows that 31% of papers are never cited and two-thirds have 5 or fewer citations. On the other hand, about 12% of papers have accumulated 20 or more citations, suggesting that they have been noticed and used by the community. Finally, about 2% of papers became very popular, with over 100 citations. When seeing the list of the most cited publications (Table [1\)](#page-4-1), we find out that they are descriptive papers for common open knowledge graphs, particularly multidisciplinary ones (e.g., DBpedia and Wikidata), biological ones (e.g., Reactome pathway knowledgebase) and medical ones (e.g., ChestX-ray8). Generic methods specifically developed for open knowledge graphs are consequently not very impactful and constitute a minority in the 2% most popular publications.
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: The scatter plot displays the distribution of publication proportions across different citation counts. The x-axis represents the number of citations received, while the y-axis shows the percentage of publications with that citation count. Most publications have a low citation count, with a long tail indicating a small proportion of highly cited works. The graph illustrates a skewed distribution, common in citation analysis, indicating publication impact variability. -->
 
 <span id="page-4-0"></span>Fig. 2. Distribution of accumulated citations of each paper.
 
@@ -86,18 +88,21 @@ The analysis of the citation counts for every single publication (Figure [2\)](#
 When analyzing the country distribution of the research publications (Figure [3\)](#page-5-0), it appears that the publishing landscape is dominated by developed countries from North America and Europe (e.g., United States of America, Germany, United Kingdom, and Italy), Japan, South Korea, and BRICS (i.e., Brazil, Russia, India, and China) nations. When the research productivity of every country is normalized to its population size, it seems that developed countries from North America and Europe keep their prestigious place with a rate of five publications or more per one million inhabitants while Japan, South Korea, and BRICS countries are lagging behind them with a rate of 2.5 publications or less per one million inhabitants. Particular outliers in this perspective are the European countries of Austria, Switzerland, and the Netherlands.
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: This horizontal bar chart displays the publication count per million inhabitants for various countries. Each bar is segmented by publication year (2012-2022), visualized by a color gradient. Darker green indicates more recent publications. Black dots overlay the bars, likely representing a specific year's data or a total. The chart's purpose is to compare research output across nations, normalized by population size and across time. -->
 
 <span id="page-5-0"></span>Fig. 3. Citation and publication count as dependent on the country of affiliation. Demography data is retrieved from the Countryinfo Python Library.
 
 When identifying the conferences where publications related to open knowledge graphs are presented (Figure [4\)](#page-6-0), we found a plethora of publication venues where such works are regularly submitted. These conferences are all of technical nature and not linked to other domains like Biomedicine, though some are oriented more towards text processing (e.g., ACL, LREC, and EMNLP), artificial intelligence (e.g., AAAI and IJCAI), data management (e.g., CIKM and VLDB), and some towards semantic web in general (e.g., ESWC, WWW, and ISWC). That being said, the top three conferences where open knowledge graph research is published are semantic web ones: ESWC (First), ISWC (Second), and WWW (Third). Despite the relative domination of semantic web conferences on the outputs of open knowledge graph research, the conferences where scholarly works on the topic are most impactful are Natural Language Processing (e.g., ACL and EMNLP) and Artificial Intelligence (e.g., KDD, AAAI) ones.
 
 ![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image is a bar chart showing the publication count and median citation count for various academic conferences across four research areas: Data Management, Semantic Web, Natural Language Processing, and Artificial Intelligence. Each bar represents a conference, its length indicating the publication count, and a black circle on the bar depicts the median citation count. The chart compares the publication output and citation impact of conferences within each area. -->
 
 <span id="page-6-0"></span>Fig. 4. Citation and publication count as dependent on the conference names.
 
 When identifying the main scholarly journals publishing open knowledge graph research (Figure [5\)](#page-7-1), we find four main categories of source titles. The first one is the set of application-oriented journals, featuring the applications of open knowledge graphs in fields beyond computer science like Biomedicine and mostly having a high citation impact (SJR ≥ 2). Examples of these journals are Nucleic Acids Research, British Journal of Pharmacology, ISPRS International Journal of Geo-Information, BMC Bioinformatics, Bioinformatics, Database, Journal of Biomedical Informatics, and Journal of Biomedical Semantics. The second group includes specialized scholarly journals about the Semantic Web, particularly Semantic Web Journal and Journal of Web Semantics. These journals do not have a very high citation impact (SJR ≤ 2). However, they publish a significant part of the research outputs of this research field. The third group is constituted of open-access mega-journals, mainly PLoS One, IEEE Access, and Applied Sciences. These journals are not very impactful (SJR ≤ 2). Finally, the fourth set concerns the sources publishing knowledge-based systems such as Knowledge-Based Systems, Expert Systems with Applications, and IEEE Transactions on Knowledge and Data Engineering. These journals have a high citation impact (SJR ≥ 2).
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This horizontal stacked bar chart displays the publication counts for various journals across several years (2012-2022), categorized by Scimago Journal Rank in 2021. Each bar represents a journal, segmented by yearly publication count; darker shades of green indicate more recent years. The chart's purpose is to visually compare journal publication output over time, illustrating trends in scholarly contributions within a specific field. The black dots possibly indicate the journal's Scimago rank. -->
 
 <span id="page-7-1"></span>Fig. 5. Scimago Journal Rank [\[33\]](#page-17-7) and publication counts for the most published scholarly journals.
 
@@ -116,10 +121,12 @@ Between 2013 and 2014, it is clear that scholarly research on open knowledge gra
 When reproducing the network for 2015-2016 (Figure [8\)](#page-11-0) and 2017-2018 (Figure [9\)](#page-11-1), we find a similar behaviour of the topical coverage of scholarly research on open knowledge graphs. Again, we report a more compact integration of the open knowledge graphs applications for clinical medicine, molecular biology, and Bioinformatics to drive OMICS research and medical education (Blue in Figure
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: This image is a horizontal bar chart showing the publication count for various research topics related to knowledge graphs from 2012 to 2022. Each bar is color-coded by publication year, ranging from light green (2012) to dark green (2022). The chart's purpose is to illustrate research trends and the popularity of different subfields within knowledge graph research over time. The y-axis lists keywords representing these research topics. The x-axis shows the publication count for each topic. -->
 
 <span id="page-9-0"></span>Fig. 6. Most common keywords in scholarly publications related to open knowledge graphs. Note the split bars for knowledge graph.
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: This image displays a network graph visualizing keyword co-occurrences in a corpus of research papers. Nodes represent keywords (e.g., "knowledge base," "linked data," "algorithms"), sized proportionally to frequency. Edges, colored by keyword cluster (green, blue, red), connect related terms, indicating their frequent joint appearance. The graph illustrates the relationships and interconnections between key concepts within the research domain, providing a visual overview of the thematic structure. -->
 
 <span id="page-9-1"></span>Fig. 7. Keyword co-occurrence network for the research works published in 2013-2014.
 
@@ -132,16 +139,19 @@ The generation of the keyword co-occurrence network for 2019-2020 (Figure [10\)]
 <span id="page-10-1"></span><span id="page-10-0"></span><sup>10</sup> Blue in Figure [10,](#page-12-1) Yellow in Figure [11.](#page-13-0)
 
 ![](_page_11_Figure_1.jpeg)
+<!-- Image Description: This image displays a knowledge network graph visualizing relationships between research topics. Nodes represent keywords (e.g., "knowledge base," "semantic web," "humans") and edges signify connections between them, with color-coding possibly indicating topic clusters or relationship strength. The graph illustrates the interconnectedness of research areas within knowledge-based systems and related fields, likely to show research trends or gaps in the literature of the paper. -->
 
 <span id="page-11-0"></span>Fig. 8. Keyword co-occurrence network for the research works published in 2015-2016.
 
 ![](_page_11_Figure_3.jpeg)
+<!-- Image Description: This image displays a network graph visualizing keyword relationships in a knowledge base research field. Nodes represent keywords (e.g., "knowledge base," "natural language processing," "genetics") and edges represent co-occurrence frequency. Node size corresponds to frequency; color distinguishes thematic clusters (red: data processing; green: database systems; yellow: biological applications; blue: human studies). The graph illustrates the interconnectivity of concepts within the research domain and may be used to reveal emerging trends or knowledge gaps. -->
 
 <span id="page-11-1"></span>Fig. 9. Keyword co-occurrence network for the research works published in 2017-2018.
 
 fore and after 2019 are the development of open knowledge graphs for cultural heritage and digital humanities as well as for Internet of Things-driven Industry (Blue in Figure [10\)](#page-12-1), the use of open knowledge graphs as an input and output for deep learning techniques (e.g., long short-term memory) and language models (e.g., embeddings) (Red-Yellow in Figure [10,](#page-12-1) Red in Figure [11\)](#page-13-0) allowing the generation of novel machine learning algorithms for knowledge graph processing (e.g., graph embeddings and graph neural network), and the development of open knowledge graphs including lexicons and morphology data for natural languages and data about social interactions across heterogeneous social networks (Purple in Figure [11\)](#page-13-0). The latter serves for language processing and social network analysis and requires robust cybersecurity algorithms for ensuring network security and preventing adversarial attacks (Purple in Figure [11\)](#page-13-0).
 
 ![](_page_12_Figure_2.jpeg)
+<!-- Image Description: This image displays a knowledge graph visualizing the relationships between keywords in a research field. Nodes represent terms (e.g., "knowledge graphs," "semantic web," "human"), and edges show connections between them. The graph is color-coded to group related concepts, illustrating the interconnectedness of different research areas, particularly within knowledge representation, natural language processing, and biomedical research. It serves to map the research landscape and highlight key themes. -->
 
 <span id="page-12-1"></span>Fig. 10. Keyword co-occurrence network for the research works published in 2019-2020.
 
@@ -152,6 +162,7 @@ The increasing productivity of research outputs about open knowledge graphs (Fig
 14 H. Turki et al.
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This image displays a word-network graph visualizing relationships between research topics. Nodes represent keywords (e.g., "knowledge graph," "machine learning," "open data") sized by frequency. Edge thickness indicates connection strength. The graph illustrates the interconnectedness of concepts within a specific field of study, likely knowledge representation and management, highlighting prominent themes and their relationships. -->
 
 <span id="page-13-0"></span>Fig. 11. Keyword co-occurrence network for the research works published in 2021-2022.
 

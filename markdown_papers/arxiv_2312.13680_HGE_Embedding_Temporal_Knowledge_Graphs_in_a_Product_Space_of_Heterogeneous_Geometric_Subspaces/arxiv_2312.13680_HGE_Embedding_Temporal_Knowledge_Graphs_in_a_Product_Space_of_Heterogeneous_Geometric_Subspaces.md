@@ -1,7 +1,7 @@
 ---
 cite_key: "pan2021"
 title: "HGE: Embedding Temporal Knowledge Graphs in a Product Space of Heterogeneous Geometric Subspaces"
-authors: "Jiaxin Pan,<sup>1</sup> Mojtaba Nayyeri, <sup>1</sup> Yinan Li <sup>1</sup> Steffen Staab 1,2"
+authors: "Jiaxin Pan, Mojtaba Nayyeri, Yinan Li"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -28,6 +28,7 @@ Knowledge Graphs (KGs) (Hogan et al. 2021) model facts in real-world application
 Relations in temporal knowledge graphs may exhibit various structural temporal patterns. In the left part of Figure 1,*(Charles III, marriedWith, Camilla, 2005)*and*(Camilla, marriedWith, Charles III, 2005)*forms a symmetrical structure in time. In the middle part, at first*(Elizabeth Bowes-Lyon, hasChild, Elizabeth II, 1926)*and then*(Elizabeth II, hasChild, Charles III, 1948)*. The transition of *hasChild*relation through*Elizabeth II*forms a hierarchy structure in
 
 ![](_page_0_Figure_9.jpeg)
+<!-- Image Description: The image compares different data structure visualizations. Three panels show unit circles in Euclidean, Minkowskian, and Galilean geometries. The remaining panels illustrate "Symmetric," "Hierarchy," and "Star" structures using family relationships and travel data as examples. Nodes represent individuals/locations, edges represent relationships (marriage, parenthood, visits) with dates often included. The figure aims to contrast geometric representations with typical data structure diagrams. -->
 
 Figure 1: Unit spheres in their corresponding spaces. All points on the orange hyperplanes have the same distance to their origin. Different spaces favor different temporal patterns: Left: Unit circle represented in Complex space (top) is suitable for representing periodicities and for inferencing with 'periodic' logical temporal patterns, e.g. symmetry (bottom). Middle: Minkowskian unit circle in Splitcomplex space (top) is suitable for representing a temporal hierarchy formed by*Make statement*. Right: Galilean unit circle represented in Dual space (top) is suitable for representing temporal star patterns (bottom).
 
@@ -58,6 +59,7 @@ Definition 1 (Time Interval).*Let*T*be the set of closed intervals on the real l
 To capture heterogeneous structural and logical patterns in a temporal KG, we propose the HGE model which extends the complex space adopted by existing models(Zhang et al. 2022; Lacroix, Obozinski, and Usunier 2020) to an attention-based product space. We introduce the key components of our temporal knowledge graph embedding method, HGE, in the following order: a) *embedding space*, b) *temporal-relational attention*, c) *temporal-geometric attention*. Figure 2 shows the structure of our proposed HGE model.
 
 ![](_page_2_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a temporal knowledge graph reasoning model. Input is a series of temporal knowledge graphs ($G_i$). These graphs undergo vector sharing, then are processed by three backbone models (Euclidean, Minkowskian, Galilean unit circles) within a temporal geometric attention mechanism. Results feed into a product space, incorporating temporal relational attention, before final scoring. The diagram illustrates the architecture's data flow and processing steps. -->
 
 Figure 2: An illustration for the HGE. At first, entities, relations and timestamps in temporal knowledge graphs are represented in heterogeneous geometric subspaces: 1) complex space, 2) split-complex space, 3) dual space respectively. Based on the static relation embedding ps, and dynamic relation embedding pc, temporal relational attention learns hybrid relation embedding pst based on each relation's changing frequencies. Temporal geometric attention incorporates embeddings in geometric subspaces into a product space by pst, which decides the suitable geometry for each relation. Finally, the scoring function is performed on the embeddings learned in the product space.
 
@@ -245,6 +247,7 @@ Table 2 shows link prediction results on the time interval dataset. With HGE, al
 We conduct ablation study experiments on backbone TNT-ComplEx to investigate the effectiveness of each compo-
 
 ![](_page_5_Figure_11.jpeg)
+<!-- Image Description: The image displays a graph representing a query ("Barack Obama, intent to cooperate, ?, 153") processed through three spaces: complex, split-complex, and dual. Nodes represent individuals (Obama, Merkel, etc.) and countries (Poland, Japan, etc.) linked by weighted edges (r₁, r₂ values). β values (βc, βs, βD) indicate space-specific weights. The graph illustrates a network analysis or information retrieval process. -->
 
 Figure 3: A case study of HGE model. We omit some entities connected to France by relation r<sup>1</sup> which forms a temporal star structure for brevity. r<sup>1</sup> stands for*intent to cooperate*relation and r<sup>2</sup> stands for*consult*relation. Time information is shown in ids.
 
@@ -534,14 +537,17 @@ This can be simply fulfilled if we set pt1<sup>a</sup> ̸= pt2a, pt1<sup>b</sup>
 All experiments in the paper were run on the same NVIDIA A100 GPU device(40G GPU/100G CPU) with Ubuntu system 22.0. We implement a grid search to select the best regularizer weight from [5e-4, 3e-3, 5e-3, 3e-3, 1e-3, 3e-2, 1e-2, 1e-1]. A detailed list of hyperparamters is provided in hyperparamter.pdf file in the code folder of supplement material.
 
 ![](_page_11_Figure_0.jpeg)
+<!-- Image Description: This heatmap displays a similarity matrix, likely representing a comparison between "split-complex" and "complex" entities (e.g., networks, systems). The color intensity, ranging from light green to dark blue, indicates the degree of similarity, with darker shades suggesting higher similarity. The matrix's dimensions suggest 100 entities are compared. The image likely illustrates the relationship between two sets of complex data within the paper. -->
 
 (a) Cosine similarity score between trained entity embeddings in Complex space and Split-complex space.
 
 ![](_page_11_Figure_2.jpeg)
+<!-- Image Description: The image displays a heatmap, a type of matrix visualization. The heatmap shows a correlation matrix between "Dual" and "Complex" variables, likely representing a pairwise comparison of 100 data points. Color intensity represents the strength of the correlation, ranging from light green (low correlation) to dark blue (high correlation). A clear diagonal pattern suggests a high self-correlation. The figure likely illustrates the relationship or similarity between two sets of data within the paper's context. -->
 
 (b) Cosine similarity score between trained entity embeddings in Complex space and Split-complex space.
 
 ![](_page_11_Figure_4.jpeg)
+<!-- Image Description: The image displays a heatmap showing the correlation between "Dual" and "Split-complex" variables. The color intensity of each cell (ranging from light green to dark blue) represents the correlation strength, with darker shades indicating stronger correlations. The heatmap likely illustrates a similarity or distance matrix within the paper's context, perhaps to analyze relationships between two sets of data points. The axes represent the indices of the "Dual" and "Split-complex" components. -->
 
 (c) Cosine similarity score between trained entity embeddings in Split-complex space and Dual space.
 

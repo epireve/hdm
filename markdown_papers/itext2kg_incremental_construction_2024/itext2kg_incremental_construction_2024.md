@@ -1,7 +1,7 @@
 ---
 cite_key: "lairgi2024"
 title: "iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models"
-authors: "Yassir Lairgi, Ludovic Moncla, Rémy Cazabet, Khalid Benabdeslem, Pierre Cléau"
+authors: "Pierre CLÉAU"
 year: 2024
 doi: "arXiv:2409.03284"
 url: "https://arxiv.org/abs/2409.03284"
@@ -91,6 +91,7 @@ $$
 We propose the iText2KG approach composed of four modules (see Figure [1\)](#page-4-0): Document Distiller, Incremental Entities Extractor, Incremental Relations Extractor, and Neo4j Graph Integrator. Each module fulfills a distinct role in constructing the KG. Notably, entity extraction and relation extraction tasks are separated following results described in [\[1\]](#page-14-4) that positively impact the performance. Further details of modules 1 to 3 are as follows, with the fourth module serving to visualize the graph.
 
 ![](_page_4_Figure_7.jpeg)
+<!-- Image Description: The image displays four diagrams illustrating a four-module system for knowledge graph construction. Module 1 ("Document Distiller") uses LLM-GPT to process documents into JSON semantic blocks. Modules 2 ("Incremental Entities Extractor") and 3 ("Incremental Relations Extractor") incrementally identify and match entities and relations from these blocks, storing them in databases. Finally, Module 4 ("Neo4j Graph Integrator") integrates the extracted entities and relations into a Neo4j graph database. Each module's diagram shows data flow and processing steps. -->
 
 <span id="page-4-0"></span>Fig. 1. The overall workflow of the iText2KG modules. Module 3, the Incremental Relations Extractor, operates differently depending on whether global or local document entities are provided as context.
 
@@ -169,6 +170,7 @@ Information Consistency Figure [4](#page-10-0) illustrates the information consi
 <span id="page-9-2"></span><sup>8</sup> [https://docs.llamaindex.ai/en/stable/examples/property\\_graph/property\\_](https://docs.llamaindex.ai/en/stable/examples/property_graph/property_graph_basic/) [graph\\_basic/](https://docs.llamaindex.ai/en/stable/examples/property_graph/property_graph_basic/)
 
 ![](_page_10_Figure_0.jpeg)
+<!-- Image Description: This bar chart displays the information consistency across different document types (CVs, scientific articles, websites). It shows the percentage of documents categorized as "Fully Consistent," "Largely Consistent," and "Medium" consistency. CVs exhibit the highest percentage of fully consistent information, while websites show the lowest and a noticeable proportion of medium consistency. The chart quantifies the consistency levels, aiding analysis of information reliability across various sources within the paper's scope. -->
 
 <span id="page-10-0"></span>Fig. 4. Bar Plot of the Information Consistency Scores for the different types of Documents
 
@@ -228,6 +230,7 @@ In this paper, we introduced iText2KG, an approach for incremental KG constructi
 <span id="page-12-0"></span><sup>9</sup> <https://platform.openai.com/docs/guides/embeddings/embedding-models>
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This image displays nine knowledge graph (KG) visualizations, comparing three methods (OpenAI Function Method, Langchain, iText2KG) for extracting information from scientific articles, CVs, and websites. Each method is represented by three sub-figures showing KG construction for each data type. Nodes represent entities and edges represent relations. Highlighted regions indicate unresolved or resolved entities and relations, illustrating the success of each method in linking entities and establishing relationships within the knowledge graphs. The figure demonstrates the differences in KG construction resulting from different knowledge extraction techniques. -->
 
 <span id="page-13-0"></span>Fig. 5. Comparison of KG construction across three scenarios between baseline methods and our method, iText2KG.
 

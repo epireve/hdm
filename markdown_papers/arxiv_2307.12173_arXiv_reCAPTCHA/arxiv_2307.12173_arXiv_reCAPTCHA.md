@@ -1,7 +1,7 @@
 ---
 cite_key: "arxiv2023"
 title: "Named Entity Resolution in Personal Knowledge Graphs"
-authors: "Authors from arXiv"
+authors: "Additional Key Words"
 year: 2023
 doi: "arXiv:2307.12173"
 url: "https://arxiv.org/abs/2307.12173"
@@ -48,6 +48,7 @@ Author's address: Mayank Kejriwal, kejriwal@isi.edu, University of Southern Cali
 <sup>©</sup> 2023 Copyright held by the owner/author(s). Corresponding Author: Mayank Kejriwal
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This image is a graph illustrating a knowledge representation. Nodes represent entities (e.g., "John_Adams," "Microsoft") and relationships (e.g., "employs," "date_of_birth"). Edges connect nodes, showing relationships between entities. The dotted red line depicts a "sameAs" relationship, linking two representations of the same individual. The graph demonstrates how different information about individuals and organizations can be interconnected within a knowledge base. -->
 
 Fig. 1. An illustration of the named entity resolution problem between fragments of two personal knowledge graphs (PKGs).
 
@@ -82,6 +83,7 @@ In the remainder of this section, for two input-sets <sup>1</sup> and 2, a named
 To alleviate the quadratic complexity of evaluating all possible bilateral pairs, a two-step framework is typically adopted in much of the ER literature [\[12\]](#page-16-5). This two-step framework is illustrated in Figure [2.](#page-3-0) The first step, blocking, uses a function called a blocking key to cluster approximately similar entities into (potentially overlapping) blocks [\[11\]](#page-16-6). A blocking method then considers which entities sharing a block to bilaterally pair, with the result that those Manuscript submitted to ACM
 
 <span id="page-3-0"></span>![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The flowchart depicts a knowledge graph (KG) matching process. Two RDF KGs are input, processed via a blocking method (using a blocking key) to create a candidate set of pairs. A trained classifier then assesses the similarity of these pairs, generating `:sameAs` links as output. The diagram illustrates the system's workflow, highlighting the key steps involved in matching entities across different KGs. -->
 
 Fig. 2. A typical two-step ER workflow that is often implemented in practice for solving the problem efficiently and effectively. Although the figure assumes two RDF KGs, a similar workflow would also apply to non-KG datasets, as well as to the deduplication problem (where a single dataset is input).
 
@@ -119,6 +121,7 @@ Furthermore, it is easy to extend the method to the two-PKG (or even multi-PKG) 
 # <span id="page-5-0"></span>6 Kejriwal
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a data processing algorithm. Two tables show personal data (First Name, Last Name, Zipcode, Blocking Key Value). A "slide window" technique processes the data in stages, creating a "candidate set C" which is a set of pairs of data. The algorithm adds pairs from the sliding window to the candidate set iteratively, as shown in the flow chart. The figure demonstrates the step-wise construction of the candidate set, highlighting the algorithm's operation. -->
 
 Fig. 3. An illustration of the Sorted Neighborhood blocking method.
 
@@ -241,6 +244,7 @@ As similarity is most similar to a machine learning classification problem (such
 Given a ground-truth set Ω (using the terminology of the previous section) of actual duplicate entity-pairs, the true positives (TPs), false negatives (FNs), and false positives (FPs) can be computed in the usual way. Precision is just the ratio of TPs to the sum of TPs and FPs, while recall is the ratio of TPs to the ratio of TPs and FNs. Like most machine learning problems, optimizing precision in an ER application can come at the cost of optimizing recall. One way to measure the tradeoff is by plotting a Receiver Operating Characteristic (ROC), which plots true positives against false positives [\[23\]](#page-17-6). However, it is simpler to obtain a single-point estimate of this tradeoff by computing the harmonic mean (F-Measure) of precision and recall. Note that if F-Measure is used to evaluate similarity, as well as blocking (along the lines discussed in the previous section), a clear distinction must be noted between the two when reporting the results, as they are measuring tradeoffs between different quantities. An alternative to a single-point estimate is a precision-recall curve that, although related in a complex way to the ROC curve, expresses the tradeoff much more directly at different (precision, recall) points. Historically, and currently, precision-recall curves dominate ROC curves in the ER community [\[89,](#page-19-4) [90,](#page-19-5) [99\]](#page-20-15).
 
 <span id="page-12-0"></span>![](_page_12_Figure_1.jpeg)
+<!-- Image Description: This timeline chart displays the chronological development of entity matching systems from 2007 onwards. It shows various systems categorized by their year of introduction. "Linked Open Data" is the earliest entry, followed by systems like "Silk," "Limes," and others, progressing to more recent approaches such as "DeepER" and "LIME". The chart illustrates the evolution of techniques in the field. -->
 
 Fig. 5. A timeline of approaches (primarily for the similarity step) that have evolved to address ER.
 

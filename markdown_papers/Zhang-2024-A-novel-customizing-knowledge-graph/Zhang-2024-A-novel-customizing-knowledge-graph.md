@@ -1,6 +1,7 @@
 ---
 cite_key: "zhang_2024_a_novel_customizing"
-title: "**A novel customizing knowledge graph evaluation method for incorporating user needs**"
+title: "A novel customizing knowledge graph evaluation method for incorporating user needs"
+authors: "Ying Zhang\, Gang Xiao"
 year: 2023
 doi: "10.1109/TKDE.2022.3150080)"
 date_processed: "2025-07-02"
@@ -14,6 +15,7 @@ images_removed: 0
 # OPEN
 
 ![](_page_0_Picture_3.jpeg)
+<!-- Image Description: The image is a button that says "Check for updates". It's a graphical user interface (GUI) element, likely from software or a website. The button includes a small circular icon featuring a red bookmark-like shape within a multicolored ring. The image's purpose in an academic paper would be to illustrate a software interface element or to demonstrate a step in a methodology involving software updates. -->
 
 # A novel customizing knowledge graph evaluation method for incorporating user needs
 
@@ -67,8 +69,10 @@ In this section, we describe the approach for knowledge graph accuracy assessmen
 <span id="page-2-0"></span>**Table 1.** Comprehensive comparison of knowledge graph accuracy assessment methods. \*MS stands for 'Model stacking stand' and EDR stands for 'Incorporating external data resources'.
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The image presents a flowchart detailing a two-stage knowledge graph sampling method. The "Preparation" phase involves segmenting the graph into entity clusters and calculating entity popularity (based on visits), used as cluster weights. The "Sampling" phase orders clusters by popularity, employs a two-stage weighted clustering sampling (TWCS) method, and iteratively calculates the margin of error (MoE) until it falls below a user-defined threshold (ε). The flowchart visually outlines the algorithm's steps. -->
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: The image displays a flowchart outlining a computation process. It details three steps: calculating entity cluster accuracy, calculating the average accuracy across all clusters, and obtaining confidence intervals for the overall accuracy. These steps involve calculating the accuracy of sampling triples within each cluster and then averaging these accuracies to determine a user-needs-based accuracy for the knowledge graph. The flowchart visually presents this computational methodology. -->
 
 <span id="page-3-0"></span>**Figure 1.** Flowchart of the assessment process, from lef to right, the preparation phase, the sampling phase, and the calculation phase.
 
@@ -134,16 +138,21 @@ All this experiment was conducted under the condition that ε is 5% and the conf
 When diferent values of n are taken, 100 experiments were conducted for the NELL, YAGO, and MOVIE knowledge graphs, yielding evaluation results as shown in Tables [2](#page-5-3), [3,](#page-6-0) and [4](#page-6-1) respectively (the data shown are in the case of stabilization of the accuracy). Furthermore, for reference, Tables [5,](#page-6-2) [6](#page-6-3), and [7](#page-6-4) respectively present the experimental results obtained using Simple Random Sampling (SRS), Random Cluster Sampling (RCS), Weighted
 
 ![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The scatter plot displays the popularity (y-axis) of 800 entities (x-axis). Most entities have low popularity, clustered near zero. A few outliers exhibit significantly higher popularity values, indicated by their coordinates. A horizontal dashed line represents a popularity threshold. The plot likely illustrates the distribution of popularity within a dataset and highlights high-popularity outliers. -->
 
 <span id="page-5-0"></span>![](_page_5_Figure_2.jpeg)
+<!-- Image Description: Figure 2 is a scatter plot visualizing the popularity of entities within theNELL dataset. The plot likely shows a correlation between two variables related to entity popularity, aiding the paper's analysis of entity prominence or frequency within the dataset. No specific axis labels or data points are visible in the provided text. -->
 
 ![](_page_5_Figure_3.jpeg)
+<!-- Image Description: This scatter plot displays the "popularity" of entities (x-axis) with their corresponding popularity scores (y-axis). Individual data points represent entities, with their popularity values indicated. A horizontal dashed line likely denotes a popularity threshold. Several high-popularity outliers are labeled with their exact values. The plot likely illustrates the distribution of popularity scores within a dataset and highlights exceptionally popular entities. -->
 
 <span id="page-5-1"></span>**Figure 3.** Scatter plot of YAGO entity popularity.
 
 ![](_page_5_Figure_5.jpeg)
+<!-- Image Description: The image displays a scatter plot illustrating entity popularity. The x-axis represents entity ID, and the y-axis represents popularity, ranging from 0 to 0.06. Numerous data points are scattered near the baseline (around 0.01), with several outliers exhibiting significantly higher popularity values. These outliers are individually labeled with their popularity scores. The plot likely demonstrates the distribution of popularity across various entities and highlights the most popular ones within the dataset. -->
 
 <span id="page-5-2"></span>![](_page_5_Figure_6.jpeg)
+<!-- Image Description: Figure 4 is a scatter plot illustrating the popularity of MOVIE entities. It likely shows a correlation between two variables related to movie entities, visualizing the relationship between their popularity metrics. The plot's purpose is to present a visual representation of the data, allowing for analysis of the distribution and potential correlation between the measured aspects of MOVIE entity popularity. -->
 
 | Sampling method | Entity popularity Weighted clustering sampling (EP-TWCS) (Average cluster size=2.28) |             |             |             |             |             |             |
 |-----------------|--------------------------------------------------------------------------------------|-------------|-------------|-------------|-------------|-------------|-------------|
@@ -204,8 +213,10 @@ Additionally, through researching relevant works, where[29](#page-10-14) has dem
 To further validate the generality and applicability of our proposed method, identical accuracy assessment experiments were conducted on two knowledge graphs, YAGO and MOVIE. Similarly, all triplets sampled from entity clusters in YAGO and MOVIE were computed, yielding true accuracies of 96.72 and 88.9%, respectively. Table [3](#page-6-0) presents the accuracy assessment results obtained on YOGA, while Fig. [6](#page-7-1) depicts the corresponding relationship between n and bias. From Table [3](#page-6-0), it is evident that the deviation between the measured average accuracy and the actual accuracy gradually decreases with increasing n, eventually converging towards the true accuracy. Specifcally, when n equals 5, the average accuracy, deviation, and required sample size stabilize. At this
 
 ![](_page_7_Figure_4.jpeg)
+<!-- Image Description: The image displays a line graph showing the relationship between "n" and "bias". The x-axis represents "n" (likely a parameter or variable), and the y-axis represents "bias" (likely a measure of error or deviation). The graph shows a sharp decrease in bias initially, followed by a leveling off at approximately 0.03 for higher values of "n". The coordinates of each data point are explicitly labeled on the graph, aiding in precision. The purpose is to illustrate the effect of varying "n" on the bias of a model or system, highlighting an initial reduction and eventual stabilization. -->
 
 ![](_page_7_Figure_5.jpeg)
+<!-- Image Description: The figure is a line graph showing bias against n. The y-axis represents bias, and the x-axis represents n (an unspecified variable). The graph illustrates that bias decreases sharply from n=1 to n=2, then plateaus around 0.016 for n ≥ 3. Coordinates for several data points are explicitly labeled on the graph, showing the bias value at each corresponding n. The purpose is to demonstrate the relationship between the variable n and the resulting bias, highlighting a rapid initial decrease followed by a consistent low bias for larger n. -->
 
 #### <span id="page-7-1"></span>Figure 6. Line graph of n taken as a function of bias (YAGO).
 
@@ -229,10 +240,13 @@ y_1 = 55.65 \times x_1 - 4.31 \times x_2 + 30.59 \times x_3 - 0.07 \times x_4 + 
 $$
 
 ![](_page_8_Figure_8.jpeg)
+<!-- Image Description: The image displays a line graph showing the relationship between 'n' and 'bias'. The graph depicts a sharp decrease in bias from n=1 to n=2, followed by a slight decrease to n=3, and then a nearly flat line at approximately 0.045 for n=3 to 15. The graph's purpose is to illustrate the effect of parameter 'n' on the bias of a model or algorithm, showing a rapid initial reduction in bias followed by diminishing returns. Individual data points are labeled with their coordinates. -->
 
 <span id="page-8-0"></span>![](_page_8_Figure_9.jpeg)
+<!-- Image Description: Figure 7 is a line graph showing the relationship between the variable *n* and bias, specifically within the context of a MOVIE (likely referring to a specific model or experiment). The graph illustrates how *n* changes as a function of bias, providing a visual representation of their dependence. No specific data or equation is shown in the provided caption. -->
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: Figure 8 is a line graph showing the fit of a model. A red line represents test data, while a blue line shows predicted data. The graph plots a relationship between a dependent variable (y₁) and independent variables (x₁, x₂, x₃, x₄). The close proximity of the lines suggests a good model fit. The purpose is to visually demonstrate the accuracy of the model's predictions compared to actual test data. -->
 
 <span id="page-9-14"></span>
 

@@ -1,6 +1,6 @@
 ---
 cite_key: "arxiv_230803584_a_polystore_ar"
-title: "A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES <sup>∗</sup>"
+title: "A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES ∗"
 year: 2019
 doi: "10.1007/s00778-017-0474-5"
 date_processed: "2025-07-02"
@@ -29,6 +29,7 @@ Modern applications commonly need to manage dataset types composed of heterogene
 *K*eywords Knowledge and Data Engineering Tools and Techniques · Database integration · Distributed databases · Query processing
 
 <sup>∗</sup>*For authors marked with \* : Work done while at IBM Research*![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a data processing workflow. Four workflows (Wf1-Wf4) are depicted: data quality assessment, geospatial index generation, expert knowledge ingestion, and data preparation. These workflows process geological raw data files through R-DBMS, Doc DBMS, and T-DBMS, culminating in training datasets stored in a parallel file system. Rectangles represent workflow steps, cylinders represent databases, and the legend clarifies data usage (used vs. generated). The image shows the stages involved in preparing data for a machine learning model. -->
 
 <span id="page-1-0"></span>Figure 1: Workflows and data stores of the oil reserves discovery scenario (adapted from [Souza*et al*[., 2019\]](#page-22-0)).
 
@@ -81,6 +82,7 @@ A Multidatabase System (MDBS) provides a layer of software that runs on top of i
 <span id="page-2-0"></span><sup>8</sup> <https://www.postgresql.org/docs/current/postgres-fdw.html>
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a multi-mediator architecture for data integration. A client interacts with a chain of mediators (Mediator1...Mediator<sub>n</sub>), each communicating with wrappers accessing different data sources: an RDBMS (RDB), parallel file system (Files), document DBMS (JSON), and triple store (Triples). The architecture facilitates data access from diverse sources through a unified client interface. -->
 
 <span id="page-3-1"></span>Figure 2: Layered Mediator/Wrapper Multidatabase System architecture (adapted from [\[Özsu and Valduriez, 2020\]](#page-21-0)).
 
@@ -169,6 +171,7 @@ In this work, both perspectives of query complexity concern us. Our goal is to p
 This section presents our proposal of a polystore architecture that provides users with a single layer for data access encapsulating data and data store heterogeneity, location, and data linkage using schemas metadata, mappings, and provenance. We named Hyperknowledge Polystore or HKPoly because we use HK (Section [2.4\)](#page-4-5) in its implementation. Although we could use other ontology representations, HKPoly supports our requirements, like the *Context*composite node we use for knowledge modularization.
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates two pathways for interacting with a knowledge graph (KG) system. Path (a) shows a client service consumer interacting with the HKPoly service, which then uses a KG DBMS to access the HKPoly KG database. Path (b) depicts a client user employing a KG UI modeling tool to interact with the HKPoly service and, indirectly, the KG database. The diagram showcases the architecture's components and their interactions. -->
 
 <span id="page-6-6"></span>Figure 3: HKPoly-client interaction: (a) Client application calls directly HKPoly service; (b) A user uses a UI which calls the HKPoly service.
 
@@ -203,6 +206,7 @@ HKPoly architecture supports requirements [R1,](#page-6-0) [R2,](#page-6-2) [R3]
 [R1](#page-6-0) Support: The HKPoly client user employs a simple language for the GCS creation,*i.e.,*a language without many constructs. We propose the use of a Knowledge Graph language (like RDF or Hyperknowledge), using vertices (nodes) to represent concepts and edges to represent relationships among them, respectively (Section [2.4\)](#page-4-5). As an example, the user represents the concepts*Seismic*, *Horizon*and*Well*as nodes, and the relationships*Seismic has Horizon*, *Seismic has Well*edges among these nodes. The user may create this model using the HKPoly UI or call HKPoly service. The GCS is stored in HKPoly KG.
 
 ![](_page_7_Figure_1.jpeg)
+<!-- Image Description: This image is a class diagram illustrating a data model. It shows the relationships between a `DatasetSchema` (a collection), `Attribute` (an entity), and a `referred` element. Relationships are defined using cardinality notations (e.g., 0..1, 1..*). The diagram clarifies how attributes relate to a dataset schema (as identifiers or general attributes), and how entities can be referenced. The purpose is to formally specify the structure of datasets within the paper. -->
 
 <span id="page-7-0"></span>Figure 4: HKPoly model used to represent the GCS schema.
 
@@ -227,10 +231,12 @@ Afterwards, the developers include calls to the ProvLakeLib (Section [2.3\)](#pa
 <span id="page-7-1"></span><sup>18</sup>This model was created inheriting from W3C-Prov as presented by Souza*et al.*[Souza*et al*[., 2019\]](#page-22-0). We omitted the stereotypes to simplify the model design.
 
 ![](_page_8_Figure_1.jpeg)
+<!-- Image Description: This image is a class diagram illustrating a data model. Rectangles represent classes (e.g., DataStore, Database, Attribute), with labels indicating class types and multiplicity. Arrows depict relationships (e.g., "isSchemaOf," "isMemberOfComplex") between classes, including cardinality constraints (e.g., "0..1," "1..*"). The diagram details the relationships between data stores (FileSystem, RDBMS, etc.), databases, schemas, and attributes, showing how they are interconnected within a system. -->
 
 <span id="page-8-0"></span>Figure 5: HKPoly model used to represent the LCS schemas.
 
 ![](_page_8_Figure_3.jpeg)
+<!-- Image Description: This image is an Entity-Relationship Diagram (ERD) illustrating a data model. It depicts entities such as `Workflow`, `Data Transformation`, `Attribute`, `AttributeValue`, `DataStore`, and their relationships, indicated by labeled arrows and cardinality constraints (e.g., 1, *, 0..1). The diagram details the connections between workflow executions, data transformations, attribute values, and data storage, showing how data is generated, used, and derived throughout a workflow's lifecycle. The purpose is to formally represent the structure and relationships within a workflow data management system. -->
 
 <span id="page-8-1"></span>Figure 6: Provenance model based on ProvLake [Souza *et al*[., 2019\]](#page-22-0).
 
@@ -241,10 +247,12 @@ The schemas metadata, mappings, workflow schema, and workflow execution data sto
 [R6](#page-6-5) Support: An HKPoly architecture overview is depicted in Figure [8.](#page-9-2) It is based on the Multidatabase Mediator/Wrapper architecture [\[Özsu and Valduriez, 2020\]](#page-21-0) (Section [2.1\)](#page-2-2). To process client-user queries, HKPoly receives a user query formulated considering the GCS concepts and written using an HKPoly supported query language. Then, HKPoly
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image is a data flow diagram illustrating a provenance tracking system. An instrumented client application sends data to a provenance manager, which then forwards it to a KG DBMS (Knowledge Graph Database Management System). Finally, the processed data is stored in an HKPoly KG (presumably a knowledge graph database specific to HKPoly). The diagram visually represents the stages of data processing and storage within the system. -->
 
 <span id="page-9-1"></span>Figure 7: Provenance manager architecture overview.
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: The image is a system architecture diagram. It illustrates the data flow in the HKPoly system. A client interacts with the HKPoly service, which in turn accesses data from various sources: a file system, document DBMS, relational DBMS, and a triplestore. These data sources are then integrated into a knowledge graph (HKPoly KG) via a KG DBMS. The diagram shows the system's layered architecture and data integration process. -->
 
 <span id="page-9-2"></span>Figure 8: HKPoly architecture overview.
 
@@ -265,6 +273,7 @@ In particular, the present case study focuses on activities that range from prep
 In this case study, the user is an ML expert with deep knowledge in the domain. When reporting the results of the ML model, the user must provide domain data about the processed data by the workflows. An exemplary data to be queried is shown in Table [1,](#page-10-1) which illustrates the various data stores that need to be integrated to resolve the query.
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: This diagram depicts a system architecture. It shows a client user interacting with a Knowledge Exchange System (KES) which connects to an IHKBase. This communicates with an HKBase, which uses HKPolyService and HKBaseService to access data from DBMS and IDBMS. The queried data includes seismic information and geodetic systems, stored in PostgreSQL, AllegroGraph, and Mongo. The diagram illustrates data flow and component interactions within the system. -->
 
 <span id="page-10-1"></span>Table 1: Seismic data and the data stores where they reside.
 
@@ -331,10 +340,12 @@ The Workflow schema and its counterparts are created when execution data is load
 Figure [11](#page-12-1) presents a UML Activity diagram to exemplify the execution of the workflows of Figure [1](#page-1-0) to process the Seismic*Netherlands*. Workflows are presented as actions for simplification. The first workflow *Data quality assessment*reads the*netherlands segy*file from the*FileSystem*and inserts*Netherlands assessments*in a*PostgreSQL*database table. The second workflow*Geospatial index generation*reads the same file and stores*Netherlands indexes*in a*MongoDB*collection. The third workflow*Expert knowledge ingestion*stores*Netherlands knowledge information*in AllegroGraph. An Expert provides this information when analyzing the*netherlands segy*seismic file. Finally, the fourth workflow Data preparation creates the training data by reading all the stored data and generating the*netherlands.train*file which is stored in the*FileSystem*. During this workflow execution, while storing data in the data stores, the instrumented client application also sends provenance data calling *HKProvManager*, which stores the DataReferences for the record, document, and triples (id, identifier, and respectively) in *HKPoly Knowledge Graph*. Table [4](#page-12-2) presents the DataReferences captured during the execution of Netherlands workflow. The provenance data, GCS, LCSs, and mappings are used to compute the polystore query detailed in [R6](#page-6-5) support implementation.
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image is a system diagram illustrating the architecture of an application using HBase. It shows an instrumented client application interacting with an HKProvManager, which in turn connects to an HBase system comprised of an HKBaseService and an HKDataSource. The HKDataSource uses a DBMS via an IDBMS interface. The diagram clarifies the data flow and component relationships within the described system. -->
 
 <span id="page-12-0"></span>Figure 10: Provenance Manager component architecture.
 
 ![](_page_12_Figure_3.jpeg)
+<!-- Image Description: This flowchart depicts a data processing workflow. Netherlands assessment and knowledge information are input, processed through PostgreSQL, MongoDB, and AllegroGraph databases. Geospatial index generation and expert knowledge ingestion are intermediate steps. Data quality assessment precedes the main process. The final outputs are stored in the filesystem. The diagram illustrates the data flow and storage mechanisms used in the research. -->
 
 <span id="page-12-1"></span>Figure 11: Example of execution of the workflows of Figure [1](#page-1-0) to investigate the Seismic Netherlands. Workflows are illustrated as actions in the diagram.
 
@@ -358,6 +369,7 @@ HKPoly interprets and validates the query using the data stored in the*HKPoly Kn
 | Data preparation            | Training File | path                                        | /data/netherlands.train |  |
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a system architecture. A "Client service consumer" interacts with "IHKPoly," which in turn uses "HKPolyService" within "HKBase." "HKPolyService" uses "HKDataSource," which connects to an "IDBMS" and "DBMS." "HKDataSource" is further connected to a "PostgreSQL FDW," which acts as an interface to "FileSystem," "MongoDB," "PostgreSQL," and "Triplestore" databases. The diagram shows data flow and dependencies between different components. -->
 
 Figure 12: HKPoly component diagram considering the [R6](#page-6-5) support.
 
@@ -479,6 +491,7 @@ Although it is straightforward to assume that the overall query response time wo
 <span id="page-15-1"></span><sup>25</sup><https://www.docker.com/>
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: The image displays a bar chart comparing the time (in milliseconds) taken for HyQL-to-SQL query building and FDW SQL query execution at varying batch quantities (B001, B050, B100, B400, B700). Each bar is divided, showing the time spent in each process. The chart demonstrates how execution time increases with batch size for both processes, with FDW SQL query execution dominating the total time at larger batch quantities. -->
 
 <span id="page-16-1"></span>Figure 13: HyQL to SQL Query Building and FDW SQL Query Execution Response Time Analysis Over Batch Quantities (ms).
 

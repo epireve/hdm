@@ -1,7 +1,7 @@
 ---
 cite_key: "lab2022"
 title: "Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for Fact-aware Language Modeling"
-authors: "Zhejiang Lab, Hangzhou 311121, China (email: yangly@zhejianglab.com; dr.h.chen@ieee.org; zhaoli@zhejianglab.com; xwu@hfut.edu.cn)"
+authors: "Linyao Yang, Hongyang Chen, Senior Member, Zhao Li, Xiao Ding, Xindong Wu"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -38,6 +38,7 @@ However, existing studies [\[12\]](#page-16-8)–[\[15\]](#page-16-9) have found
 So far, numerous methods have been proposed for strengthening PLMs with KGs, which can be categorized into three types: before-training enhancement, during-training enhancement, and post-training enhancement. Although there exist a few surveys [\[17\]](#page-16-11)–[\[19\]](#page-16-12) of knowledge-enhanced PLMs, they focus on various forms of knowledge, lacking a systematic review of knowledge graph enhanced pre-trained language model (KGPLM) methods. For instance, Wei *et al.*[\[17\]](#page-16-11) conducted a review of knowledge enhanced PLMs based on diverse knowledge sources but only covered a small set of KGPLMs. Similarly, Yang*et al.*[\[18\]](#page-16-13) covered various forms of knowledge enhanced PLMs but provided only a partial review of KGPLMs without technical categorization. In another study, Zhen*et al.*[\[19\]](#page-16-12) categorized knowledge enhanced PLMs into implicit incorporation and explicit incorporation methods, yet their review encompassed only a small subset of KGPLMs. Moreover, this field is rapidly evolving with numerous new technologies consistently being introduced. Therefore, to address questions of whether constructing KGs
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image displays three diagrams illustrating different neural network architectures for processing data represented by `x1`, `x2`, `x3`, `x4`. The first shows an "encoder-only" model where all inputs influence a hidden layer. The second shows a "decoder-only" model with reversed input-output flow. The third demonstrates an "encoder-decoder" model, combining the previous two, with information passing from encoder to decoder. Each architecture uses a fully connected layer between input and output components, [M] and [S] likely represent intermediary processing. The diagrams visually compare these architectures. -->
 
 <span id="page-1-0"></span>Fig. 1. Main frameworks of existing PLMs, in which x<sup>i</sup> is the i-th token of the input sentence, [M] represents the masked token and [S] is the start token.
 
@@ -66,6 +67,7 @@ $$
 It can promote the learning of contextual information, thereby achieving better results in language understanding and language modeling tasks. RTD operates similarly to MLM but
 
 ![](_page_2_Figure_1.jpeg)
+<!-- Image Description: This figure is a timeline chart showing the evolution of pre-trained language models (PLMs) from 2018 to 2023. It categorizes models as encoder-only, encoder-decoder, or decoder-only, illustrating their lineage through a series of connected boxes representing individual models. Arrows indicate relationships or influences between models. The chart visualizes the development and connections within the field of PLMs over time. -->
 
 <span id="page-2-0"></span>Fig. 2. Milestones of LLMs. Open-source models are represented by solid squares, while closed-source models are represented by hollow squares.
 
@@ -109,6 +111,7 @@ where Q, K, and V are the query matrix, key matrix, and value matrix. d<sup>k</s
 Encoder-only PLMs utilize bidirectional Transformer as encoder and employ MLM and NSP tasks for self-supervised
 
 ![](_page_3_Figure_1.jpeg)
+<!-- Image Description: The flowchart details a four-step process for training a GPT model. Step 1 pre-trains GPT using probabilistic language modeling. Step 2 fine-tunes it via supervised learning using human demonstrations. Step 3 trains a reward model based on human ranking of model outputs. Finally, Step 4 optimizes the GPT model using reinforcement learning guided by the reward model. The diagram visually represents the training pipeline and its constituent learning methods. -->
 
 <span id="page-3-0"></span>Fig. 3. The implementation process of ChatGPT.
 
@@ -195,6 +198,7 @@ Limited Reasoning Ability. LLMs have demonstrated decent performance on some bas
 Insufficient Domain Knowledge. Because of the limited availability of domain-specific corpus, LLMs may not perform as well on domain-specific tasks as on general ones. For instance, while such models generally capture frequent patterns from general texts, generating medical reports, which involve numerous technical terms, may pose a great challenge for LLMs. This limitation suggests that during pre-training, it is difficult for LLMs to acquire sufficient domain knowledge, and injecting additional specialized knowledge may come at the cost of losing previously learned information, given the issue of catastrophic forgetting. Therefore, developing effective techniques for knowledge injection is of critical importance to enhance the performance of LLMs on specialized domains. Domain KGs are effective and standardized knowledge bases for specific domains, offering a feasible source for unified domain knowledge. For example, Ding*et al.*[\[68\]](#page-17-27) proposed
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a model architecture for enhancing pre-trained language models (PLMs). It shows three stages: pre-training (with MLM and NSP tasks), intermediate layers (transformer layers 1-N), and output embeddings. The bottom depicts input processing, combining token, segment, and position embeddings. Three enhancement strategies are outlined: before, during, and post-training, detailing modifications to the input structure, model layers, and fine-tuning methods, respectively. The figure's purpose is to visually explain the proposed architecture and its knowledge integration approach for improving PLM performance. -->
 
 <span id="page-6-0"></span>Fig. 4. Three types of KGPLMs according to the stage of knowledge graph participating in pre-training.
 
@@ -234,6 +238,7 @@ Overall, LLMs have made noteworthy advancements and are considered a prototype o
 TABLE II SUMMARY OF KGPLMS
 
 ![](_page_7_Figure_3.jpeg)
+<!-- Image Description: The diagram illustrates a model architecture for knowledge-enhanced text representation. It shows a layered structure, starting with input text, progressing through token, segment, and position embeddings. Knowledge graph information (showing relationships between entities like "Tim Cook," "Apple," "Beijing," and "China") is integrated via knowledge embeddings and a knowledge-guided masking strategy within the transformer layers before pre-training tasks. The diagram's purpose is to visually explain the model's workflow and how external knowledge is incorporated. -->
 
 <span id="page-7-0"></span>Fig. 5. Main framework of before-training enhancement KGPLMs.
 
@@ -269,6 +274,7 @@ Before-training enhancement methods can improve the semantic standardization and
 Incorporate Knowledge Encoders. ERNIE [\[31\]](#page-16-25) integrates a knowledge encoder to incorporate KG information, which takes two types of input: the token embedding and the concatenation of the token and entity embeddings. Building on ERNIE, ERNIE 3.0 [\[87\]](#page-17-46) builds a few task-specific modules upon the universal representation module to enable easy customization of the model for natural language understanding and generation tasks. BERT-MK [\[88\]](#page-18-0) utilizes a graph contextualized knowledge embedding module to learn knowledge in subgraphs and incorporates the learned knowledge into the language model for knowledge generalization. CokeBERT [\[89\]](#page-18-1) utilizes three modules to select contextual knowledge and embed knowledge context, where the text encoder computes embeddings for the input text, the knowledge context encoder dynamically selects knowledge context based on textual context and computes knowledge embeddings, while the knowledge fusion encoder fuses textual context and knowledge context embeddings for better language understanding. JointLK [\[90\]](#page-18-2) performs joint reasoning between PLM and a graph neural network (GNN) through a dense bidirectional attention module to effectively fuse and reason over question and KG representations. KET [\[91\]](#page-18-3) interprets contextual utterances using hierarchical self-attention and dynamically leverages external commonsense knowledge using a contextaware affective graph attention mechanism to detect emotions in textual conversations. Liu*et al.*[\[92\]](#page-18-4) proposed a memoryaugmented approach to condition a PLM on a KG, which represents the KG as a set of relation triples and retrieves pertinent relations for a given context to enhance text generation. QA-GNN [\[93\]](#page-18-5) uses a PLM to estimate the importance of nodes to identify relevant knowledge from large KGs, and combines the QA context and KG to form a joint graph. Then, it mutually updates the representations of QA context and KG through graph-based message passing to perform joint reasoning. GreaseLM [\[67\]](#page-17-26) integrates embeddings from a PLM and a GNN through several layers of modality interaction operations. KLMo [\[94\]](#page-18-6) explicitly models the interaction between entity
 
 ![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The diagram illustrates a knowledge-guided pre-training model architecture. Three transformer encoders process input text embeddings. A "knowledge encoding layer" integrates knowledge embeddings into the encoders at layer *i*−1. An adapter module further processes the output of one encoder. The architecture uses multiple transformer layers and integrates knowledge representations to improve pre-training. -->
 
 <span id="page-9-0"></span>Fig. 6. Main framework of during-training enhancement KGPLMs.
 
@@ -283,6 +289,7 @@ Modify the Pre-training Task. Several studies attempt to incorporate knowledge i
 Other methods utilize the multi-task learning mechanism to integrate knowledge representation learning with the training
 
 ![](_page_10_Figure_1.jpeg)
+<!-- Image Description: The image presents a system architecture diagram for generating text from a knowledge graph. It depicts a layered approach: input text feeds into knowledge retrieval, which accesses a knowledge graph. Retrieved facts undergo knowledge-to-text transformation using a pre-trained language model to produce a final knowledge description. A separate section shows a knowledge graph example (nodes representing person, puzzle, riddle, problem, challenge) with relationships (is_a, used_for, desires), illustrating the knowledge representation used by the system. Finally, a multiple-choice question tests understanding of the knowledge demonstrated. -->
 
 <span id="page-10-0"></span>Fig. 7. Main framework of post-training enhancement KGPLMs.
 
@@ -343,6 +350,7 @@ Knowledge Graph Completion. Due to the limitations in data quality and automatic
 Question Answering. Question answering systems need to choose the correct answers for the given questions, which must be able to access relevant knowledge and reason over
 
 ![](_page_12_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a model architecture for natural language processing. It depicts a two-stage process: pretraining and fine-tuning. Pretraining uses a transformer to process word and entity embeddings, generating output embeddings through application-related tasks. Fine-tuning then adapts this model to specific downstream tasks (sentiment analysis, relation extraction, named entity recognition), each using a separate transformer layer that processes input embeddings and generates task-specific output embeddings. The diagram uses boxes to represent embedding types and layers, and plus signs to indicate addition operations. -->
 
 <span id="page-12-0"></span>Fig. 8. The framework for KGPLMs to realize various applications.
 
@@ -371,6 +379,7 @@ Recent advancements in training PLMs on a large corpus have led to a surge of im
 <span id="page-12-6"></span><sup>6</sup>https://www.huaweicloud.com/product/pangu.html
 
 ![](_page_13_Figure_1.jpeg)
+<!-- Image Description: The image displays two knowledge graph-based question-answering methods. The left side shows a knowledge graph traversal approach, where a query about Barack Obama's birthplace leads to the answer "Hawaii" via relationship links. The right side illustrates a BERT-based approach, using a masked language model to fill in "[MASK]" within the question "Barack was born in [MASK]" resulting in the same answer. The diagrams compare different techniques for knowledge-based QA. -->
 
 <span id="page-13-0"></span>Fig. 9. Querying KGs and PLMs for factual knowledge, in which the left part represents directly querying factual knowledge from KGs while the right part represents querying factual knowledge from PLMs by asking them to fill in masked tokens in sequences.
 
@@ -395,6 +404,7 @@ In the preceding sections, we have analyzed and compared existing KGPLMs. Despit
 ###*A. Overall Framework*The development framework for KGLLMs based on existing technologies is depicted in Fig. [10.](#page-14-0) Since LLMs primarily scale the size of parameters and training data from PLMs, their model architecture and training methods remain largely unchanged. Hence, all three types of KGPLM methods introduced before can be applied to developing KGLLMs. The before-training enhancement approaches can be utilized to construct KG-extended text, improving input quality and integrating factual information into the input. The during-training enhancement methods can be employed to adaptively fuse textual knowledge and structural knowledge to learn knowledgeenhanced word representations. Graph encoders, such as GNN, can serve as knowledge encoders, while attention mechanisms can be utilized to design the knowledge fusion module. Multi-task learning, including knowledge-guided pre-training tasks, helps improve LLMs' learning of factual knowledge. The post-training enhancement methods can be utilized to
 
 ![](_page_14_Figure_7.jpeg)
+<!-- Image Description: This flowchart illustrates a knowledge-enhanced text processing model. It depicts a multi-stage architecture incorporating a knowledge fusion module that combines information from a text encoder and a knowledge encoder. The knowledge encoder processes input extended with knowledge from a knowledge graph (e.g., Wikipedia). The combined output then undergoes knowledge-guided pre-training, fine-tuning, and prompt tuning stages sequentially. The diagram shows the data flow and processing steps, highlighting the integration of external knowledge into the model. -->
 
 <span id="page-14-0"></span>Fig. 10. Technical framework of developing KGLLMs.
 

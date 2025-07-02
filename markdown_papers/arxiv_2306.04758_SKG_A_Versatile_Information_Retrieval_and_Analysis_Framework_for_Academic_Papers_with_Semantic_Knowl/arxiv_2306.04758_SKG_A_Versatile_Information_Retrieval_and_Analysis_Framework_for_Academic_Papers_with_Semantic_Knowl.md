@@ -1,7 +1,7 @@
 ---
 cite_key: "first2020"
-title: "<span id=\"page-0-1\"></span>SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs"
-authors: "There are several challenges associated with existing technologies that must be addressed. First, transforming unstructured documents"
+title: "SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs"
+authors: "Yamei Tu, Rui Qiu, Han-Wei Shen"
 year: 2020
 doi: "10.1109/AIKE48582.2020."
 date_processed: "2025-07-02"
@@ -15,6 +15,7 @@ images_removed: 0
 # <span id="page-0-1"></span>SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs
 
 ![](_page_0_Figure_1.jpeg)
+<!-- Image Description: This image depicts the architecture of a knowledge graph visualization system. It shows a workflow diagram with labeled components: a node querier (A), node expander (B), node visualizer (D), data viewer (D), and graph comparer (C). The system processes queries, expands nodes in a knowledge graph, visualizes the results, and compares graphs. Examples of node expansion (B,C) and knowledge graph visualizations (D,E) are shown, along with a description of knowledge graphs (F) and associated SPARQL query editor (e2). The diagram illustrates data flow and functionality. -->
 
 Yamei Tu, Rui Qiu, Han-Wei Shen
 
@@ -76,6 +77,7 @@ As querying is the first step during KG exploration, some tools support visualiz
 The Semantic Knowledge Graph (SKG) serves as a foundational representation of a large corpus. It is a graph-based representation of knowledge that captures entities and their relationships. Unlike some existing academic knowledge graphs, SKG combines information from both meta-data and text data. As shown in [Figure 2,](#page-2-0) SKG has five types of entities, one semantic entity, called*Concept*, and the other four types of meta-data entity. Each entity type has a specific meaning and related attributes, summarized as follows:
 
 <span id="page-2-0"></span>![](_page_2_Figure_3.jpeg)
+<!-- Image Description: This image depicts two entity relationship diagrams. The left diagram ("Meta-data Entity") shows relationships between "Conference," "Venue," "Author," and "Paper," illustrating metadata connections like authorship, venue, and citation. The right diagram ("Semantic Entity") displays a "Concept" entity linked to attributes including "application," "data," "method," "visualization," and "evaluation," representing semantic information. The diagrams illustrate the distinction between metadata and semantic data within a research context. -->
 
 Fig. 2: The schematic ontology of Semantic Knowledge Graph. It contains four meta-data entity types and one semantic entity type. *Concepts*with different semantic roles are captured in relationships between*Paper*and*Concept*.
 
@@ -122,6 +124,7 @@ We construct the *VISBank*dataset by extracting relevant papers from the S2ORC d
 <span id="page-2-1"></span><sup>2</sup><https://github.com/allenai/s2orc>
 
 <span id="page-3-2"></span><span id="page-3-0"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image presents a three-stage workflow diagram for training a named entity recognition (NER) model. Stage A shows unsupervised pipeline creation using entity extraction and classification from documents to generate training samples. Stage B depicts selecting high-confidence samples through human feedback and fine-tuning. Stage C shows fine-tuning a pre-trained NER model using recognition and normalization steps, leveraging DBpedia Spotlight. The diagrams illustrate the process flow, highlighting data transformation and model refinement. -->
 
 Fig. 3: The process of transforming unstructured text into *Concept*entities involves three steps: (A) preparing a training dataset for the Named Entity Recognition (NER) model by utilizing machine semantic understanding ability, (B) incorporating human feedback into the training dataset, and (C) training the NER model to recognize all entities in the*VISBank*and perform normalization to eliminate redundant information.
 
@@ -187,6 +190,7 @@ all the relations into a < s, p, o > format, where the subject entity s and obje
 #Entity Type #Count Paper 125745 Concept 766276 Author 181031 Journal 1355 Conference 4367 # Relation Type # Count cites 344389 creator 398670 appearsInJournal 57330 appearsInConf\*111558 hasDATA 350262 hasAPPLICATION 333562 hasMETHOD 537921 hasVISUALIZATION 99284 hasEVALUATION 172981 (B) (C) (D) After construction, each instance in*VISBank*can be seen as a subgraph that surrounds the*Paper*entity. An example of such a subgraph is shown in [Figure 4.](#page-4-0) The paper titled "LDAvis: a method for visualizing for visualizing and interpreting," was written by Carson Sievert, and Kenneth Shirley and published in*Proceedings of the Workshop on Interactive Language Learning, Visualization, and Interfaces*. The paper
 
 ![](_page_4_Figure_5.jpeg)
+<!-- Image Description: The image is a graph illustrating the relationships between the LDAvis topic modeling visualization method and related works. Nodes represent publications, methods (e.g., Termite visualization techniques), datasets, and individuals (e.g., Kenneth Shirley). Edges depict connections such as citations, data usage, and method application. The graph visually summarizes the context and contributions of LDAvis within the field of topic modeling visualization. -->
 
 <span id="page-4-0"></span>Fig. 4: A subgraph from SKG that is built from one paper record.
 
@@ -295,6 +299,7 @@ The quality of SKG heavily depends on the concept entities, which are extracted 
 To assess this, we computed the f1-score of NER results by comparing the unsupervised results and the predicted results with the humanlabeled ground truth. Traditionally, an exactly matched entity is considered one true positive case. However, we also perform entity nor-
 
 <span id="page-6-3"></span><span id="page-6-0"></span>![](_page_6_Figure_0.jpeg)
+<!-- Image Description: The image displays a bar chart comparing the performance of different pre-trained language models (Unsupervised, SciBERT, BERT-large, BERT-base, DistilBERT, RoBERTa) across six aspects: Data, Application, Method, Visualization, Evaluation, and an Overall score. Each model's performance in each category is represented by a bar, with scores ranging from approximately 0.1 to 0.9. The chart likely serves to illustrate the comparative strengths and weaknesses of each model for the paper's specific application. A horizontal dashed line indicates a benchmark score. -->
 
 Fig. 5: The F1 scores for five fine-tuned language models and an unsupervised pipeline on the Named Entity Recognition (NER) task.
 
@@ -315,6 +320,7 @@ The purpose of this study is to demonstrate the efficiency of SKG in summarizing
 <span id="page-6-1"></span>There are 200 surveyed papers included in the original STAR. To obtain the paper list, we crawled their website[3](#page-6-1) and excluded papers published after 2020 when the STAR was published. We used these paper titles as input and utilized a*querier*to retrieve papers from SKG, resulting in 162 out of 200 papers retrieved. This confirms that our SKG covers the main conferences/journals in the VIS literature, providing robust support for further study.
 
 <span id="page-6-2"></span>![](_page_6_Figure_11.jpeg)
+<!-- Image Description: This image displays a node-link diagram illustrating a co-authorship network. Nodes represent researchers, clustered geographically (USA, China, Germany, UK, etc.). Links connect co-authors. Node size may indicate publication count or centrality. The visualization helps analyze collaboration patterns and identify key researchers within specific geographical regions and institutions (Harvard, Georgia Tech). Numbers (1-6) likely denote clusters or subgroups for further analysis within the paper. -->
 
 Fig. 6: The collaboration network of scholars on the topic of improving trust in machine learning through visualization.
 
@@ -389,6 +395,7 @@ She intended to profile users on the publication conferences of their research p
 To analyze the research interests of the two authors, Emily built another analysis pipeline to perform a comparative analysis [\(Figure 7](#page-8-0)P2). She started by using a *querier*to search for*Jaegual Choo*and connected an*expander*to find his research topics, as shown in g → h . She performed the same operation for*Giuseppe Carenini*and obtained
 
 <span id="page-8-1"></span><span id="page-8-0"></span>![](_page_8_Figure_0.jpeg)
+<!-- Image Description: The image displays a system for exploring and visualizing relationships within a dataset. It shows several interface screenshots (a-f) illustrating a node querier and node expander tools, creating interactive network graphs. Panels (g-i) demonstrate additional querying and comparison functionalities. Panel (i) is a larger network graph connecting various concepts (e.g., algorithms, data sets, visualization techniques) highlighting relationships and connections within the dataset, aiding analysis and providing a visual overview of the topic area. -->
 
 Fig. 7: Exploring knowledge discovery through text mining using two pipelines: (P1) document retrieval and summarization; (P2) comparing research interests between*Jaegul Choo*and*Giuseppe Carenini*; (P1') a Sankey diagram generated by a *visualizer*after component d in P1.
 

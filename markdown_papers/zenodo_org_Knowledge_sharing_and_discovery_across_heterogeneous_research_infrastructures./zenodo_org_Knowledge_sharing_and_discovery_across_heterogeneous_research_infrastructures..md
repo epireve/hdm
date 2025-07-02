@@ -1,7 +1,7 @@
 ---
 cite_key: "supsup2021"
-title: "**Open Peer Review**"
-authors: "Siamak Farshidi <sup>1</sup>, Xiaofeng Liao <sup>1</sup>, Na Li<sup>1</sup>, Doron Goldfarb<sup>2</sup>, Barbara Magagna<sup>2</sup>, Markus Stocke[r](https://orcid.org/0000-0001-5492-3212) <sup>3</sup>, Keith Jeffery <sup>4</sup>, Peter Thijsse<sup>5</sup>, Christian Pichot <sup>6</sup>, Andreas Petzol[d](https://orcid.org/0000-0002-2504-1680) <sup>7</sup>, Zhiming Zhao [1](https://orcid.org/0000-0002-6717-9418)"
+title: "SOFTWARE TOOL ARTICLE"
+authors: "Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Keith Jeffery, Peter Thijsse, Christian Pichot, The Netherlands, Environment Agency Austria, British Geological Survey"
 year: 2021
 doi: "10.12688/openreseurope.13677.1"
 date_processed: "2025-07-02"
@@ -61,10 +61,12 @@ Knowledge base, knowledge management, search engine, research infrastructure, so
 Any reports and responses or comments on the article can be found at the end of the article.
 
 ![](_page_1_Picture_5.jpeg)
+<!-- Image Description: The image is a stylized icon depicting a computer monitor displaying a graphical user interface (GUI). The GUI shows a line graph illustrating upward trending data, alongside bar charts presenting additional data sets. The icon likely represents the visualization of data analysis results within the paper, possibly illustrating the output of a particular algorithm or model. The purpose is to visually represent the key findings in a concise manner. -->
 
 This article is included in the [Data Science](https://open-research-europe.ec.europa.eu/gateways/data-science) gateway.
 
 ![](_page_1_Picture_7.jpeg)
+<!-- Image Description: The image is a stylized graphic depicting cloud computing. A white outline of a cloud, representing cloud services, is shown with three lines connecting to circles below, symbolizing connected devices or systems. The cloud sits over a teal background, partially overlaid by a dark blue semi-circle. The image likely serves as a visual metaphor or placeholder illustrating the concept of cloud infrastructure and connectivity within the academic paper. There are no charts, graphs, or equations present. -->
 
 This article is included in the [Cloud-based](https://open-research-europe.ec.europa.eu/collections/cloud-based-technologies) [Technologies](https://open-research-europe.ec.europa.eu/collections/cloud-based-technologies) collection.
 **Corresponding authors:**Siamak Farshidi ([s.farshidi@uu.nl](mailto:s.farshidi@uu.nl)), Zhiming Zhao [\(z.zhao@uva.nl\)](mailto:z.zhao@uva.nl)
@@ -218,6 +220,7 @@ Based on the survey we conducted (see [Section 4.1](#page-6-0)), we identified t
 (3)**RI developers**may use the KB to check the existing technologies, e.g., those development results in the ENVRI
 
 ![](_page_7_Figure_15.jpeg)
+<!-- Image Description: This diagram illustrates the ENVR I Knowledgebase, showing its interactions with various user groups. Scientists use it for quick discovery, asking questions and accessing research resources. RI developers share technologies, while RI managers share FAIRness practices. Knowledgebase operators manage data quality and ingestion. Numbered arrows indicate different interaction types or functionalities within the system. -->
 **Figure 1. An enterprise view of the ENVRI-KMS.**The enterprise view highlights the key stakeholders (namely communities in the Open Distributed Processing (ODP) term) and their interaction scenarios with the ENVRI-KMS. The numbered circles indicate the possible orders of the interactions.
 
 <span id="page-8-0"></span>portfolio or the demonstrators prepared for some known FAIRness gaps. They can also publish or update the technical descriptions using the KB tools, such as an online description form.
@@ -245,10 +248,13 @@ The versions of the structure data currently can be managed via version control 
 (1) A significant amount of KB relevant information is represented in human-readable form, residing in Wikis, other content management systems, or even static web-pages, in the
 
 ![](_page_8_Figure_14.jpeg)
+<!-- Image Description: The image depicts a layered architecture for a knowledge discovery system. It shows three layers: Interface (User Management and User Interface), Service (Discovery, Search, Results Ranking, Recommendation), and Storage (RDF Triple Store and Index). The Content layer (Ingest, Transform, Quality Control, Update, Provenance) processes information from sources before storage. Arrows indicate data flow and inter-layer dependencies. The diagram illustrates the system's components and their interactions. -->
 **Figure 2. Architecture layers.**<span id="page-9-0"></span>![](_page_9_Figure_1.jpeg)
+<!-- Image Description: This diagram depicts a search engine architecture for an environmental research infrastructure (ENVRI). A central database ("Knowledge base") integrates structured data (RDF format: Research Infrastructure descriptions, FAIRness assessments, etc.) and dynamic online data (ENVRI web pages, catalogues). Multiple users access the system via a search engine, illustrating a data integration and access system. A small RDF graph example is included to show the data structure. -->
 **Figure 3. ENVRI-KMS content components.**The ENVRI-KMS can be used by end users to search different contents.
 
 ![](_page_9_Figure_3.jpeg)
+<!-- Image Description: The image is a flowchart illustrating a data processing pipeline. FAIRness assessment outputs (in .TTL, .OWL/.RDF, .YAML formats) from a Git repository are converted into RDF triples and stored in triple stores. Separately, web resources (.HTML/.HTM, images, XML, etc.) are indexed and stored. The flowchart depicts the distinct pathways and storage mechanisms for two types of data inputs. -->
 **Figure 4. Basic information flow of the knowledge ingestion.**"offline" text found in various documents such as books, project deliverables, or scientific publications. In the ENVRI-FAIR context, the research infrastructure websites are an excellent resource of related information, including news/events, background knowledge, etc. Similar to ENVRI, ENVRIFAIR, the community websites also contain lots of related information, like news/events, community introduction, community landscape, project information, progress, etc. These information sources have different formats, such as a webpage, word document, and pdf file.
 
 (2) Another approach to populate the KB would be to process such free-text information to extract structured, machine-readable information. Named entity recognition would represent the first step in this regard, while the application of more complicated Natural Language Processing operations could be a valuable field of research in its own right.
@@ -411,6 +417,7 @@ As far as the considered knowledge management platforms are concerned, Ontowiki 
 **User-friendly and customizable user interface.**A clear and straightforward user interface is needed to fulfill their objectives,
 
 <span id="page-16-0"></span>![](_page_16_Figure_1.jpeg)
+<!-- Image Description: This figure depicts the architecture of the ENVRI-KMS system, a knowledge management system for environmental research infrastructures. A central component is a data flow diagram showing data acquisition (via web crawlers and NLP), storage (Apache Solr and MySQL), and user interaction via a search interface offering keyword, semantic, and natural language searches, returning ranked results including publications and visualizations. The system also incorporates user profiles, search history, decision models, and an inference engine. The diagram further details various research infrastructures integrated into the system and different user roles. -->
 **Figure 6. The operational workflow of the ENVRI-KMS.**like query, (semantic) search. Advanced services like comparison, recommendation are also needed for interested users. Considering the difference between general public users and professional users, two different user interfaces should be provided.
 
 As already analyzed, although the Knowledge management systems provide a GUI for search and query, their targeted users are knowledge base administrators considering the technology barriers. For general users without much technical knowledge of the SPARQL or triplestores, an easy and straightforward user interface for searching and exploration is expected to increase the user experience.
@@ -580,6 +587,7 @@ License:<https://opensource.org/licenses/Apache-2.0>
 **© 2021 Koskela R.**This is an open access peer review report distributed under the terms of the [Creative](https://creativecommons.org/licenses/by/4.0/) [Commons Attribution License](https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
 
 ![](_page_22_Picture_8.jpeg)
+<!-- Image Description: The image is a simple red "X" symbol. It lacks any technical content such as diagrams, charts, graphs, or equations. Within the context of an academic paper, it likely functions as a placeholder, indicating missing or omitted data, an invalid result, or a negative outcome. Further context from the surrounding text is needed to determine its precise meaning. -->
 
 ## Rebecca Koskela
 
@@ -622,6 +630,7 @@ Partly
 **© 2021 Huber R.**This is an open access peer review report distributed under the terms of the [Creative Commons](https://creativecommons.org/licenses/by/4.0/) [Attribution License](https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
 
 ![](_page_23_Picture_12.jpeg)
+<!-- Image Description: The image is a simple red "X" symbol. There are no diagrams, charts, graphs, equations, or technical illustrations. In the context of an academic paper, this "X" likely serves as a placeholder, indicating missing or omitted data, an unsuccessful experimental trial, or a point of disagreement. It lacks specific technical content. -->
 
 ## Robert Huber
 

@@ -1,7 +1,7 @@
 ---
 cite_key: "dong2022"
-title: "<span id=\"page-24-0\"></span>5 KNOWLEDGE GRAPH REFINEMENT FROM STRUCTURED DATA"
-authors: "- <span id=\"page-38-8\"></span>[50] Z. Dong and Q. Dong, \"Hownet - a hybrid language and knowledge resource,\" in ICNLP, 2003 , Proceedings, pp. 820–824, 2003."
+title: "ACM Reference Format:"
+authors: "Lingfeng Zhong, Jia Wu, Qian Li, Hao Peng"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -38,6 +38,7 @@ Permission to make digital or hard copies of all or part of this work for person
 66:2 Lingfeng Zhong, et al.
 
 <span id="page-1-0"></span>![](_page_1_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a knowledge graph (KG) construction and evolution system. It shows data sources (tables, web pages, images, text) feeding into stages like entity discovery, relation extraction, and KG completion. These stages culminate in KG fusion and refinement, resulting in a refined KG. The process is iterative, with knowledge evolution incorporating dynamic information from multiple KGs over time. The diagram illustrates the system's architecture and data flow. -->
 
 Fig. 1. The general process of constructing a knowledge graph. In this diagram, semi-structured or unstructured input data is manufactured into a raw knowledge graph by acquiring knowledge. Then the knowledge will be refined to complete the knowledge graph or enrich it with other existing knowledge graphs. If the input is only an existing knowledge graph, it will be directly handled by the knowledge refinement process. Last, the knowledge evolution process will try to obtain a group of knowledge graphs/conditional knowledge graphs that contains dynamic information about the graph's evolution.
 
@@ -50,6 +51,7 @@ Regarding this issue, researchers then recourse to well-partitioned acquisition 
 More recently, deep learning methods have given rise to tremendous breakthroughs in natural language processing (NLP), and these breakthroughs have fed applications for knowledge graph
 
 <span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
+<!-- Image Description: The image displays a flowchart illustrating challenges and approaches in knowledge graph (KG) construction. It shows data heterogeneity (tables, web pages, images, text), autonomous community data integration, complex data with long-term context, noisy and low-resource data, and the need for interpretability. The bottom depicts temporal dynamics within evolving conditional facts and knowledge graphs, including the representation of temporal data using a timeline of Joe Biden's career. The diagram uses icons, text excerpts, and graph structures to represent diverse data types and processing stages. -->
 
 Fig. 2. An illustration of the challenges framed by the HACE environments. In terms of heterogeneous data, knowledge graph construction with semi-structured and unstructured data in outlined in Section [4.](#page-9-0) Methods of refining existing knowledge graphs are detailed in Section [5.](#page-24-0) Methods of obtaining temporal data are described in [6.1.](#page-30-0) Section [8.2](#page-34-0) presents a discussion on multi-modal knowledge graphs. In terms of complex data, long-term contexts and their involvement with multiple KG construction tasks are discussed in Sections [4.1.2,](#page-11-0) [4.2,](#page-14-0) [4.3.6.](#page-23-0) Methods for tackling noisy data are mainly presented in Section [4.3.3.](#page-18-0) Model interpretability is covered in Section [5.1.3.](#page-26-0) In terms of evolving data, recent work in knowledge evolution is presented in Section [6,](#page-30-1) and research on autonomous data is discussed in Section [8.5.](#page-35-0)
 
@@ -253,6 +255,7 @@ When content extraction has been performed on a semi-structured page, users will
 <sup>9</sup>https://github.com/thunlp/OpenNE
 
 <span id="page-9-1"></span>![](_page_9_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a natural language processing (NLP) pipeline. It shows a sentence ("Trump is a leader from New York.") undergoing three stages: Named Entity Recognition (identifying "Trump" and "New York"), Entity Typing (classifying them as PERSON and LOCATION), and Entity Linking (connecting them to knowledge graph representations, visually shown as nodes and edges). The diagram uses boxes for each NLP stage, arrows indicating the flow of information, and example images for linked entities. -->
 
 Fig. 3. The entity discovery process.
 
@@ -279,6 +282,7 @@ Named entity recognition tasks tag named entities in semi-structured or unstruct
 Rule-based approaches [\[89\]](#page-39-18) are the general solutions for NER. As for semi-structured web data, Wrapper inductions generate rule wrappers to interpret semi-structures such as DOM tree nodes
 
 <span id="page-10-0"></span>![](_page_10_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates a named entity recognition (NER) model architecture. It uses a word feature extractor that incorporates pre-trained vectors (BERT, ELMO) and character embeddings (LSTM and CNN). Contextual word embeddings are fed into an attention mechanism, which interacts with label embeddings before a CRF tag decoder outputs the NER tags (B-P, I-P, O, B-L, I-L). The model processes input text ("Donald Trump is from New York") to identify named entities. -->
 
 Fig. 4. Illustration of the standard architecture for deep-learning-based named entity recognition. When a sentence is input, such NER model will output tagged entity words with positional information and rough entity classifications.
 
@@ -293,6 +297,7 @@ CNN structures mainly focus on local features for capturing entities. Colloabert
 RNN structures can better digest global contextual features in long sentences, such as the unidirectional RNN for biomedical entity recognition presented in [\[102\]](#page-40-1). However, RNNs may suffer from context bias with later upcoming words [\[9\]](#page-36-8). Hence, many models consider bi-directional RNNs, such as the Bi-LSTM-CRF-based in [\[9\]](#page-36-8) and the GRU-based NER model in [\[103\]](#page-40-2). Combinations of character and word encoders are also widely-applied structures, such as a structure comprising a CNN for character embedding and an LSTM for word embedding [\[10\]](#page-36-9). The standard architecture of deep learning-based NER models is pictured in Fig. [4.](#page-10-0)
 
 <span id="page-11-1"></span>![](_page_11_Figure_1.jpeg)
+<!-- Image Description: This flowchart depicts a multi-stage model for fine-grained entity typing. It shows input "type embeddings," fed into a logistic regression model with adaptive thresholds. The model incorporates three encoders: document-level context, entity, and sentence-level, which are combined via an aggregator and attention mechanism before final classification. The diagram illustrates the data flow and components of the proposed model architecture. -->
 
 Fig. 5. Illustration of deep learning-based entity typing via multi-scale feature extraction (based on [\[111\]](#page-40-3)).
 
@@ -309,6 +314,7 @@ Deep learning approaches tackle two main challenges for entity typing: 1) infreq
 Novel embedding-based models avail of combing global graph structure features and background knowledge for predicting potential types of entities via representations. Researchers reported that the classical TransE model acts poorly while directly applied to ET tasks. Moon et al. [\[112\]](#page-40-11) propose the TransE-ET model adjusting the TransE model by optimizing the euclidean distance between entities and their types representations, limited by insufficient entities types and triples
 
 <span id="page-12-0"></span>![](_page_12_Figure_1.jpeg)
+<!-- Image Description: This image depicts a type inference framework. It shows a process flow: data labeling leads to graph construction, followed by graph embedding and type inference. The framework uses three key graphs: a type-type correlation graph showing relationships between types (e.g., actor, author) with correlation scores; a hierarchical type tree; and an entity-type graph from a knowledge base (KB) illustrating entity-type relationships. A final entity-feature graph (from KB) adds context. The purpose is to illustrate the technical pipeline for fine-grained type inference. -->
 
 Fig. 6. Illustration of embedding-based ET via heterogeneous graph structures (PTE [\[12\]](#page-36-11)).
 
@@ -321,6 +327,7 @@ Entity linking (EL) tasks, also called entity disambiguation, link entity mentio
 Statistical approaches, especially those approaches based on probabilistic graphs and SVM models, are the general solutions for semi-structured and unstructured data. Models based on probabilistic graphs construct a probabilistic graph of mentions in tables, then link entities by calculating the semantic factors of nodes. Limaye et al. [\[118\]](#page-40-17), for instance, constructed a factor graph for collective entity linking based on the TF-IDF algorithm that calculates the term frequency of entity labels with cell-text pairs and type labels with column-head pairs. Some models incorporate external knowledge bases to improve entity linking tasks. For example, TabEL [\[119\]](#page-40-18) improves its factor graph by leveraging the hyperlinks in Wikipedia to estimate semantic relatedness features before collective classification for disambiguation. Wu et al. [\[120\]](#page-40-19) propose an approach for enhancing entity linking
 
 <span id="page-13-0"></span>![](_page_13_Figure_1.jpeg)
+<!-- Image Description: This image illustrates coreference resolution in natural language processing. Three example sentences show "John and Mary" as antecedents and "He and she" as mentions. Arrows indicate the coreference links between the antecedent ("John and Mary") and its mentions ("He and she"). The image distinguishes between "Antecedent Discovery" and "Mention Discovery," showing how the system identifies these elements in text. -->
 
 Fig. 7. The coreference resolution process. First, mentions are detected. Then the antecedents of the mentions are selected and matches to co-referred pairs. Noticeably, coreference resolution tasks can be performed on documents with multiple sentences, while handling identical mentions in a compound sentence.
 
@@ -335,6 +342,7 @@ Few/Zero-shot entity typing is an intricate challenging issue. Ma et al. [\[139\
 Joint extraction models incorporating NER with EL tasks reduce error propagation of the pipelinebased entity recognition tasks. NEREL [\[141\]](#page-41-2) couples NER and EL tasks by ranking extracted mention-entity pairs to exploit the interaction features between entity mentions and their links. Graphic models are also effective designs to combine NEN (Named Entity Normalization) labels that convert entity mentions into unambiguous forms, e.g., Washington (Person) and Washington (State). Liu et al. [\[142\]](#page-41-3) incorporated EL with NEN tasks utilizing a factor graph model, forming CRF chains for word entity types and their target nodes. Likewise, MINTREE [\[143\]](#page-41-4) introduces a tree-based pair-linking model for collective tasks.
 
 <span id="page-14-1"></span>![](_page_14_Figure_1.jpeg)
+<!-- Image Description: This image depicts a neural network architecture for coreference resolution. The left side shows a pipeline processing text input ("Mary Puth was with her husband, Andy W.") through embedding, context feature extraction, span feature aggregation, and mention scoring. The right side illustrates a coreference scoring mechanism using a softmax layer to determine the relationships between mentions (e.g., "Mary Puth" and "her husband"). The diagram visualizes the flow of information and the model's components in achieving coreference resolution. -->
 
 Fig. 8. Architecture of the standard deep end-to-end model (based on [\[15\]](#page-37-1)). A deep learning model performs a two-stage procedure to tackle coreference resolution tasks: 1) Mention detection, which discovers entity mentions as spans from text; 2) Coreference detection, which score the antecedents in the span to match coreference mention pairs as outputs. Spans include combinations of all word sequences. This figure displays simplified results.
 
@@ -353,6 +361,7 @@ Cluster-based solutions handle the CO task as a pairwise binary classification t
 66:16 Lingfeng Zhong, et al.
 
 <span id="page-15-0"></span>![](_page_15_Figure_1.jpeg)
+<!-- Image Description: The image presents two diagrams illustrating relation extraction (RE) tasks. (a) shows the goal of RE: transforming text statements into structured knowledge graphs (e.g., "Biden is president of U.S.A." becomes a graph with nodes "Biden," "U.S.A." and an edge labeled "president-of"). (b) diagrams various RE task configurations, including open RE, DocRE, joint RE, and few-shot relation classification, highlighting the use of long-term context, low-resource data, joint learning, given entities, and noisy data in different approaches. -->
 
 Fig. 9. Relation extraction. The goal of relation extraction tasks is to extract factual triples from data and find edges to link nodes together. For -ary relations, the link is a super-edge that covers multiple nodes.
 
@@ -371,6 +380,7 @@ Attention mechanisms model semantic interactions for CO tasks. A good example of
 Researchers also focus on embedding-based distribution models over multiple semantic structures to handle coreference resolution. Durrett and Klein [\[159\]](#page-42-1) utilize antecedents representations to enable coreference inference through distribution features. Martschat and Strube [\[160\]](#page-42-2) explore distribution semantics over mention-pairs and tree models to enhance coreference representations, directly picking robust features to optimize the CO task. Chakrabarti et al. [\[161\]](#page-42-3) further employ the MapReduce framework to cover anaphoric entity names through query context similarity.
 
 <span id="page-16-0"></span>![](_page_16_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper presents two models for relation extraction. (a) shows an encoder-decoder model (IMOJIE) using BERT for sentence encoding and attention mechanisms for iterative relation extraction. (b) illustrates a metric-based knowledge transfer model (RSN). RSN uses a relational Siamese network to learn embeddings for relation types, leveraging pre-defined relations to extract novel ones via metric learning and clustering. Both diagrams depict the architecture and workflow of each model, clarifying their technical processes. -->
 
 Fig. 10. Two paradigms of deep learning-based open relation extraction. In this figure, (a) shows the IMOJIE model [\[187\]](#page-43-0), which extracts facts via a encoder-decoder design. (b) portrays a model [\[188\]](#page-43-1) that uses the RSN to compare relational patterns, then leverages clustering to collect the relations.
 
@@ -387,6 +397,7 @@ Statistical approaches are also trending solutions for open relation extraction.
 Methods focusing rules are the earliest attempts for RE tasks on different data structure kinds, gathering strings that fit in hand-craft templates, e.g., "\$PEOPLE is born in \$LOCATION." refers to (\$PEOPLE, born-in, \$LOCATION). However, these unsupervised strategies rely on complex linguist knowledge to label data. Later, researchers concentrate on automatical pattern discovery for triples mining. Semi-supervision design is an enlightening strategy to reduce hand-craft features and data labeling that uncovers more reliable patterns based on a small group of annotated samples, such as DIPRE [\[179\]](#page-42-7) iteratively extracting patterns with seeds, bootstrapping-based KnowItAll [\[7\]](#page-36-6) and Snowball [\[180\]](#page-42-8) equipping DIPRE with confidence evaluation. Some rule-based models consider
 
 <span id="page-17-0"></span>![](_page_17_Figure_1.jpeg)
+<!-- Image Description: This image displays four neural network architectures for natural language processing. (a) shows a CNN framework with embedding, convolutional layers, pooling, and a classifier. (b) illustrates an LSTM framework, incorporating an attention mechanism before classification. (c) details the attention mechanism using an attention matrix. Finally, (d) presents a GCN framework, processing graph-structured data through a non-linear layer to produce embeddings. Each diagram visually represents a different approach to sentence representation and classification. -->
 
 Fig. 11. Some frameworks of classic relation classification models. In this figure, (a), (b), (d) display the architectures of CNNs, LSTMs, GCNs, while (c) displays the structure of the widely-used attention mechanism.
 
@@ -425,6 +436,7 @@ Fully-supervised relation extraction/classification on large datasets will gener
 Data noise hampers relation classification tasks in traditional models. Some methods try to overcome this problem by enhancing the feature extractors, e.g., piecewise convolution (PCNN) [\[16\]](#page-37-2). This approach divides a sentence into three separate pieces for convolution according to
 
 <span id="page-19-0"></span>![](_page_19_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates three neural network architectures for relation classification. (a) PCNN uses convolutional layers followed by piecewise max pooling to generate a probabilistic vector of relation types. (b) Selective Attention applies CNNs to individual sentences, weighting their outputs based on a sentence-level attention mechanism. (c) MIML CNN pools sentence representations for the same entity pair using max pooling before classification. Each subfigure depicts the network's processing steps from input to output. -->
 
 Fig. 12. Milestone models for distant supervision.
 
@@ -467,6 +479,7 @@ Metric learning aims at finding metric spaces with which to compare different re
 66:22 Lingfeng Zhong, et al.
 
 <span id="page-21-0"></span>![](_page_21_Figure_1.jpeg)
+<!-- Image Description: This image displays three neural network architectures for relation extraction. (a) shows ProtoNet, visualizing a query embedding's proximity to support samples in a feature space. (b) illustrates a Relation Siamese Network (RSN), using shared encoders and a distance function to compare sentence embeddings, achieving a 0.97 similarity score. (c) depicts a Matching Network, where a function *gθ* processes support set embeddings ((S₁,r₁), (S₂,r₂), (S₃,r₃)) and applies attention to output a query embedding. Each diagram illustrates a different approach to relation classification. -->
 
 Fig. 13. The metric-based few-shot relation classification models. In this figure, (a) shows ProtoNet [\[202\]](#page-43-19), which compares the distances of a query sample among support vectors of different relation types. (b) shows RSN [\[206\]](#page-43-23), which calculates the similarity of sample pairs. (c) shows Matching Network [\[205\]](#page-43-22), which uses an attention mechanism to tag a query by matching it with different-tagged support samples.
 
@@ -481,6 +494,7 @@ Few-shot domain adaptation maps unseen labels for classification. BERT-PAIR pair
 Conventional pipeline-based relation extraction (relation classification) models suffer from error propagation in each stage, while also undermining inter-task interactions. Early researchers concentrate on intriguing statistical-based features for fast end-to-end joint relation extraction, such as Integer Linear Programming-based (ILP) algorithm [\[216\]](#page-44-2) solving entities and relations via conditional probabilistic model, semi-Markov chain model [\[217\]](#page-44-3) jointly decoding global-level relation features, and Markov Logic Networks (MLN) [\[218\]](#page-44-4) modeling joint logic rules of entity labels and relationships. Early attempts deliver prototypes of entity-relationship interactions. However, statistical patterns are not explicit for intricate contexts. The recourse for researchers has been
 
 <span id="page-22-0"></span>![](_page_22_Figure_1.jpeg)
+<!-- Image Description: This image from an academic paper illustrates three neural network architectures for relation extraction. (a) shows an LSTM + CNN framework with parameter sharing, processing input sequences to generate entity and relation representations. (b) depicts GraphRel, using Bi-LSTM and Bi-GCN layers to iteratively refine relational graph representations, minimizing entity and relation losses. (c) presents CasRel, a BERT-based model using a novel tagging scheme for improved relation classification by combining BERT embeddings with object and subject taggers. -->
 
 Fig. 14. The joint extraction model paradigms. (a) depicts [\[219\]](#page-44-5), (b) depicts [\[220\]](#page-44-6) and (c) depicts [\[222\]](#page-44-7).
 
@@ -525,6 +539,7 @@ Researchers then developed dynamic document graph models for high-order reasonin
 Another direction for document-level relation extraction is reasoning with evidence. Zhang et al. [\[237\]](#page-44-24) develop a rationale graph with external tagged co-occurrence evidence features for capturing long-term relational dependencies. Dynamic graphs with alterable nodes have also been considered
 
 <span id="page-24-1"></span>![](_page_24_Figure_1.jpeg)
+<!-- Image Description: The image illustrates a two-stage knowledge graph (KG) integration process. The left side depicts KG completion, showing knowledge reasoning and triple classification to infer missing links. The right side shows knowledge fusion, using attribute and entity alignment techniques to merge information from multiple KGs. Small diagrams represent KGs, with arrows indicating relationships and the integration steps. The bottom diagrams show input ("Existing KGs" and "Other KGs") and an integrated KG as output. -->
 
 Fig. 15. Illustration of knowledge refinement.
 
@@ -595,6 +610,7 @@ Attribute embeddings also provide side information for entity alignment tasks, s
 In its preliminary stages, a knowledge base will only contain a few triple mentions with insufficient information for rigorous concepts. Therefore, entity matching models integrate multi-source knowledge with the available linguistic information in small-scale data. The more recent models treat entity matching as a machine learning classification task. For example, Magellan [\[293\]](#page-46-25) integrates multiple similarity functions with random forest, such that the approach also considers numerical attributes. MSejrKu [\[294\]](#page-46-26) explores the feasibility of leveraging the classifier layer including the logic regression and MLP classifier to judge identical entity pairs. DeepMatcher [\[295\]](#page-46-27) is a
 
 <span id="page-28-0"></span>![](_page_28_Figure_1.jpeg)
+<!-- Image Description: This image illustrates a knowledge graph (KG) alignment method. Two ellipses represent a source and target KG, with nodes (e₁, e₂, e₃, e'₁, e'₂, e'₃) and relations (r₂). Arrows show mappings between aligned nodes, using alignment seeds. Equations (a) and (b) define alignment error, while the right diagram details mapping reliability based on whether e₂ + r₂ ≈ e₃ holds. The figure explains how to calculate the reliability of the mapping between the two KGs. -->
 
 Fig. 16. IPtranE [\[308\]](#page-47-0). IPtranE scores entity pairs via (a) translation models and (b) linear transformation models, and merges identical pairs via hard or soft alignment.
 
@@ -609,6 +625,7 @@ Entity matching tasks can also be handled by text-similarity-based models that d
 Autonomous communities may input unique information to a KG system, such as nicknames, telephone numbers, and other personalized data. Such knowledge can only be known by users. Strategies to detect unique missing parts and ask users to fill them in are necessary. Active learning methods [\[306\]](#page-47-10) that judge information or solve conflicts by querying users are the most reliable solutions and are indispensable in these scenarios.
 
 <span id="page-29-0"></span>![](_page_29_Figure_1.jpeg)
+<!-- Image Description: The figure illustrates a knowledge graph (KG) transformation. (a) shows a Condition KG with two statements represented as directed graphs, each showing conditions and facts linked by "is" and "satisfies" relations. (b) depicts the transformation process, showing how the initial graph (c1) evolves into a more complex one (c2) representing different knowledge states (dynamic, complete, acquisition). The transformation aims to enrich the KG by inferring missing links. -->
 
 Fig. 17. Knowledge evolution. Evolution analysis tasks presented in (b) manufacture data into groups of knowledge graphs (either conditional or fact knowledge graphs) displayed in (a) to portray knowledge under various dynamic conditions.
 
@@ -625,6 +642,7 @@ Another challenging issue is semantic graph structures for alignment. GCN-Align 
 Large-scale knowledge graphs typically contain distinctive semantic sub-graph structures for alignment. Here, graph matching neural network (GMNN) [\[318\]](#page-47-21) builds a topic entity graph that
 
 <span id="page-30-2"></span>![](_page_30_Figure_1.jpeg)
+<!-- Image Description: This diagram depicts a neural network architecture for tuple completion. It shows a multi-input module processing a statement sentence and external features, feeding into an LSTM. The output is processed by multi-head encoders and decoders, leading to a multi-output module. This module uses feed-forward networks (FFN) and softmax layers to predict relation names, facts, and conditions, represented by probability distributions (P[1:N]). The architecture is designed for knowledge base completion by jointly predicting multiple outputs. -->
 
 Fig. 18. The architecture of MIMO model [\[26\]](#page-37-12) for extracting facts with conditions over texts.
 
@@ -685,6 +703,7 @@ Key/value databases are lightweight solutions for saving clusters in large knowl
 <sup>11</sup>http://hadoop.apache.org
 
 <span id="page-33-1"></span>![](_page_33_Figure_1.jpeg)
+<!-- Image Description: This image depicts three scenarios illustrating the prepositional phrase "A saw B with a telescope." Simple stick figures represent A and B, and a telescope is shown. The top panel shows A using the telescope to observe B. The middle shows B using the telescope to observe A. The bottom panel indicates an absence of observation. Alongside each scenario are tuples representing the subject-object-verb and instrument-instrument-preposition relationships, demonstrating the different interpretations of the sentence's meaning and the effect of changing the instrument's possessor. -->
 
 Fig. 20. An example of solving information incompleteness via cross-modal dependency. In this case, the textual expression "A saw B with a telescope." is unclear. An extractor can only determine the relationship between people and the "telescope" by interpreting the side information in the image data.
 
@@ -709,6 +728,7 @@ Out-of-context expressions requiring background knowledge to handle are bottlene
 <sup>13</sup>RDF and OWL are both standards of w3c, see also http://www.w3.org/RDF
 
 <span id="page-34-1"></span>![](_page_34_Figure_1.jpeg)
+<!-- Image Description: The figure illustrates a federated learning framework for privacy-preserving entity alignment. Two models (A and B), trained on local data from providers A and B respectively, participate in encrypted training via a federated model. A collaborator performs encrypted entity alignment between the models without direct data exchange, indicated by a crossed-out connection between the providers. Data-invisible features are incorporated into the federated model. The diagram showcases the process's privacy-preserving nature by preventing direct data sharing. -->
 
 Fig. 21. An illustration of building a federated model from different knowledge providers while protecting privacy. In this procedure, an encrypted entity alignment process is performed before training separate models on multi-source data parts, then a collaborator calculates and aggregates encrypted gradients of each model to prevent leakage. A federated model only reserves data-invisible crowd-sourced knowledge features.
 
@@ -723,6 +743,7 @@ Multi-modal knowledge graphs can entirely express and store heterogeneous inform
 Federated Learning is an enlightening direction for the essential requirements of privacy protection. A federated setting for KGs that trains model ensembles from multi-sources is one of the popular strategies. Significant advances have been conducted to federated knowledge embeddings, such as FKGE [\[355\]](#page-49-3) and FedE [\[356\]](#page-49-4), which prohibit data exchange while incorporating cross-modal features during training. However, entity alignment is a paradoxical bottleneck that impedes federated learning, requiring multi-source KGs to be shared before model learning, which will exchange sensitive information during knowledge fusion. How to create a privacy-reserved super feature space for encrypted entity alignment while federating features is still open for exploration. 66:36 Lingfeng Zhong, et al.
 
 <span id="page-35-1"></span>![](_page_35_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates a knowledge base (KB) querying system. A knowledge graph depicts relationships (e.g., "friend," "nationality," "live_in") between entities (John, Microsoft, Seattle). The right side shows the system's active learning process, where an AI agent (AI) queries a human information provider (HI) and an organized data manager (OI) to resolve missing knowledge indicated by question marks (?) in the knowledge graph. Colored arrows represent the knowledge requests and responses. -->
 
 Fig. 22. An HAO-based active learning case for knowledge graph construction. HAO-based active learning models select users with appropriate roles to label uncertain samples. In this case (if the privacy policy allows), John's nationality will be labeled by the authority (OI), while his friends will be found by asking users (HI) in his social network. The AI will then derive his place of living from known facts.
 

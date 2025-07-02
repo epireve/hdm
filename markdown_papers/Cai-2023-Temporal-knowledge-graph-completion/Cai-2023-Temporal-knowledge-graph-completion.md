@@ -1,7 +1,7 @@
 ---
 cite_key: "caisupsup2022b"
 title: "Temporal Knowledge Graph Completion: A Survey"
-authors: "Borui Cai<sup>1</sup> , Yong Xiang<sup>1</sup> , Longxiang Gao<sup>2</sup> , He Zhang<sup>3</sup> , Yunfeng Li<sup>3</sup> and Jianxin Li<sup>1</sup>"
+authors: "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
 year: 2022
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -30,6 +30,7 @@ Knowledge graphs are multi-relational graphs that represent a wide range of real
 Knowledge graph completion (KGC) [Lin *et al.*[, 2015\]](#page-7-2) aims at automatically inferring missing links for a knowledge graph by learning from existing facts (also known as
 
 <span id="page-0-0"></span>![](_page_0_Figure_10.jpeg)
+<!-- Image Description: This image displays a knowledge graph depicting relationships between Barack Obama, Donald Trump, and relevant entities. Oval nodes represent entities (e.g., "the USA," "Barack Obama"). Directed edges, labeled with relationship types and timeframes (e.g., "Is President 2009-2017"), connect the nodes, illustrating facts such as Obama's presidency and Trump's birthplace. The graph visually represents structured data about US presidents. -->
 
 Figure 1: A knowledge graph example that contains the temporal validity of facts.
 

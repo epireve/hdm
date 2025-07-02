@@ -1,7 +1,7 @@
 ---
 cite_key: "maoa2023"
 title: "A Survey on Semantic Processing Techniques"
-authors: "<span id=\"page-0-1\"></span>Rui Maoa,<sup>∗</sup> , Kai Hec,<sup>∗</sup> , Xulang Zhangb,<sup>∗</sup> , Guanyi Chend,e,f,<sup>∗</sup> , Jinjie Nib,<sup>∗</sup> , Zonglin Yanga,<sup>∗</sup> , Erik Cambriaa,∗∗"
+authors: "Rui Maoa, Kai Hec, Xulang Zhangb, Guanyi Chend, Jinjie Nib, Zonglin Yanga, Erik Cambriaa"
 year: 2023
 doi: "10.5683/SP2/QPOJSI"
 date_processed: "2025-07-02"
@@ -45,6 +45,7 @@ The evolution of semantic research reflects the rich connotation of semantics in
 g.chen@ccnu.edu.cn (Guanyi Chen), jinjie001@e.ntu.edu.sg (Jinjie Ni), zonglin001@e.ntu.edu.sg (Zonglin Yang), cambria@ntu.edu.sg (Erik Cambria)
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: The image is a hierarchical tree diagram classifying semantic theories. The top node is "Semantics," branching into "Lexical semantics," "Structural semantics," and "Cognitive semantics." Each of these branches further subdivides into more specific semantic approaches, for example, lexical semantics includes "Word senses," "Polysemy," and "Word formation." The diagram's purpose is to visually represent the relationship and categorization of different semantic theories within the paper. -->
 
 Figure 1: Semantic research domains in linguistics. Lex. denotes lexical; sem. denotes semantics; und. denotes understanding.
 *nary*[\(Simpson and Weiner, 1989\)](#page-94-0) became one of the most significant symbols of lexical semantic research achievements. The research of lexical semantics covers word senses, polysemy, word formation, contrastive lexical semantics, and more. Next, another important research dimension of semantics emerged, termed structural semantics. Structural semantics emphasizes the analysis of sentence structures, including the relationships between words and the ways in which words contribute to the meaning of a sentence. The study of structural semantics includes but is not limited to analyzing the meaning of words by syntax, grammar, and pragmatics. Structural semantics elevates the study of semantics from the word level to the sentence level. The later cognitive semantics further enrich the connotation of semantics. The tenets of cognitive semantics posit that the faculty of language is intricately intertwined with the broader cognitive capacity of human beings [\(Croft and Cruse, 2004\)](#page-82-0). In other words, semantics is a reflection of how humans understand and make sense of the world around them. Under cognitive semantics, researchers extend to frame semantics (semantics is the reflection of encyclopedic knowledge), situation semantics (semantics reflects the relationships between situations) [\(Barwise and Perry, 1981\)](#page-80-0), conceptual semantics (semantics reflects the structural perception of concepts) [\(Jackendo](#page-86-0)ff, [1976\)](#page-86-0), and more. Figure [1](#page-1-0) summarizes partial semantic research domains in linguistics.
@@ -91,6 +92,7 @@ The contribution of this survey is threefold:
 - We highlight important theoretical research, and downstream applications to encourage deeper and wider re-
 
 <span id="page-3-1"></span>![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This figure presents a hierarchical tree diagram illustrating the relationships between semantic processing techniques (WSD, Anaphora Resolution, NER, Concept Extraction, Subjectivity Detection) and their associated technical trends and downstream applications. Each semantic processing technique branches into specific technical approaches (e.g., rule-based, statistical-based WSD) which, in turn, connect to various downstream applications (e.g., sentiment computing, machine translation). The diagram visually organizes and clarifies the connections between these areas within natural language processing. -->
 
 Figure 2: The summary of technical trends and downstream applications of surveyed semantic processing tasks. KGC denotes knowledge graph construction. CEG denotes commonsense explanation generation. RE denotes relation extraction.
 
@@ -105,6 +107,7 @@ In the following sections, we introduce different semantic processing techniques
 The complexity of human language is difficult for machines to understand it. One of the challenges is the ambiguity of word senses. In natural language, a word may have multiple senses, given different contexts. Consider the following example:
 
 <span id="page-4-1"></span>![](_page_4_Figure_0.jpeg)
+<!-- Image Description: The image contrasts knowledge-based and supervised Word Sense Disambiguation (WSD) methods. The left side shows a knowledge-based approach illustrated as a graph where nodes represent word senses (gloss), with connections showing relationships. The right side depicts a supervised method using a predictive model that assigns probabilities (0.3, 0.6, 0.1) to different senses based on context. Different shapes represent glosses of target and context words. The image clarifies the contrasting approaches to WSD. -->
 
 Figure 3: Simplified examples of the knowledge-based and supervised WSD.
 
@@ -997,6 +1000,7 @@ In order to address the issue of label sparsity, [Shibuya and Hovy](#page-94-19)
 A hypergraph is a generalized variant of a normal graph, which is characterized by an edge that can connect an arbitrary number of vertices [\(Feng et al., 2019\)](#page-83-25). It is widely used in the NLP community for the tasks of syntactic parsing, semantic parsing, and machine translation because it can accurately describe the relationship between objects with multiple associations. A set of objects with only binary relations can be described by a normal graph. However, when the objects are often related to each other in a more complex one-to-many or many-to-many, e.g., nested named entities, hypergraphs become a more appropriate data structure. A typical example of nested NER with a hypergraph solution is shown in Figure [4.](#page-39-0)
 
 <span id="page-39-0"></span>![](_page_39_Figure_8.jpeg)
+<!-- Image Description: The image shows two diagrams illustrating nested label results in named entity recognition. (a) depicts a sequence labeling result with nested entities, where "that her fellow pilot Erik Satie" contains overlapping entities. (b) presents the corresponding hypergraph structure, representing the nested relationships more explicitly using directed edges, resolving the overlapping entity issue present in the sequence labeling. The diagrams use boxes representing words and labels (PER_S, PER_B, PER_I, PER_E, O). -->
 
 (b) Corresponding hypergraph structure
 
@@ -1029,6 +1033,7 @@ Recently, prompt tuning has shown great potential on few-shot tasks by reformula
 Manually defined prompts were labor-intensive and made the algorithm sensitive to these prompts. To avoid the manual prompt constructions, [Ma et al.](#page-89-22) [\(2022a\)](#page-89-22) tried to explore a prompt-free method for few-shot NER. The present
 
 <span id="page-41-0"></span>![](_page_41_Figure_0.jpeg)
+<!-- Image Description: The figure illustrates a masked language model's application in entity recognition. An input sentence is processed. "Person" is mapped to "People" via a label words mapping. The model then predicts the masked entity "[MASK]" in the prompt "Erik Satie is [MASK] entity," based on the input sentence context, effectively identifying Erik Satie as a person. The diagram uses boxes to represent labels and text, arrows show processing flow, and a shaded rectangle represents the core model. -->
 
 Figure 5: A typical prompt tuning example for NER tasks.
 

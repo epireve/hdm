@@ -1,7 +1,7 @@
 ---
 cite_key: "francescoosborneopenacuk2023"
-title: "**Knowledge Graphs: Opportunities and Challenges**"
-authors: "Francesco Osborne francesco.osborne@open.ac.uk"
+title: "Knowledge Graphs: Opportunities and Challenges"
+authors: "Feng Xia"
 year: 2023
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -75,6 +75,7 @@ In 2012, Google frst put forward Knowledge Graph by introducing their knowledge 
 <span id="page-3-0"></span>**Fig. 1** An example of a knowledge graph. In this knowledge graph, (*e*1,*r*1, *e*2) is a triplet that indicates *e*1 and *e*2 are connected by relation *r*1
 
 ![](_page_3_Figure_2.jpeg)
+<!-- Image Description: The image is a directed graph illustrating a network with nodes (e₁, e₂, ..., e₉) representing events. Nodes e₁ and e₂ are shaded, indicating a possible distinction. Arrows depict the direction of influence or causality between events. The label 'r₁' represents a relationship between e₁ and e₂. The graph likely models a process or system where events influence each other in a specific order, potentially for analysis within the paper. -->
 
 • *WordNet*, a lexical knowledge base measuring the semantic similarity between words. The knowledge base contains a number of hierarchical concept graphs to analyse the semantic similarity (Pedersen et al. [2004\)](#page-28-1).
 
@@ -87,6 +88,7 @@ Fig. [1](#page-3-0) depicts an example of a simple knowledge graph. As shown in 
 In recent years, knowledge graphs have gained extensive research interest. Plenty of studies have focused on exploring knowledge graphs. This paper conducts a comprehensive survey on knowledge graphs and lists seven important categories of current research on this topic. Fig. [2](#page-4-0) illustrates a schema of the most popular research lines regarding knowledge graphs. Among them, AI systems are services that utilize knowledge graphs for their foundation, and application felds are domains where knowledge graphs reach. These two research lines are listed for discussing the opportunities of knowledge graphs. Another fve research lines are fve main knowledge graph technologies corresponding to fve tasks. In this paper, we introduce these fve technologies and emphasize their limitations to give useful insights into the major challenges of the knowledge graphs.
 
 ![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This diagram illustrates the multifaceted nature of knowledge graphs. A central node, "Knowledge Graphs," connects to six key aspects: knowledge acquisition, graph embeddings, completion, fusion, reasoning, and application fields (including AI systems). Each aspect branches further, detailing specific methods and application areas. The diagram visually organizes the key concepts and relationships within the field of knowledge graphs. -->
 
 <span id="page-4-0"></span>**Fig. 2**Research on knowledge graphs
 
@@ -166,6 +168,7 @@ Fig [3](#page-8-0) presents an example of knowledge graph-based movie recommenda
 Recently, a great deal of research has been conducted to utilize knowledge graphs for recommendation tasks. For instance, Wang et al. ([2019b\)](#page-30-4) introduced KPRN. KPRN is a recommender system that generates entity-relation paths according to the user-item interaction and constructs a knowledge graph that consists of the users, items, and their interaction. It then infers the user preference based on the entity-relation path. The useritem interaction, which is extracted from knowledge graphs, improves the quality of the
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: This image is a knowledge graph illustrating a movie recommendation system. It depicts users connected to movies they like ("isFanOf"). Movies are linked to actors ("isActedBy"), directors ("isDirectedBy"), and genres ("hasGenreOf"). The graph shows how user preferences and movie attributes (actors, directors, genre) influence recommendations. The "Recommended movies" section highlights movies suggested based on the user's preferences and the relationships within the graph. -->
 
 <span id="page-8-0"></span>**Fig. 3**An example of knowledge graph-based recommender system
 
@@ -192,6 +195,7 @@ There are two main types of questions in this space: simple and multi-hop questi
 <span id="page-10-0"></span>**Fig. 4**The illustration of knowledge graph based questionanwsering systems
 
 ![](_page_10_Figure_3.jpeg)
+<!-- Image Description: The image displays a knowledge graph illustrating a question-answering process. A directed acyclic graph represents relationships between entities: "Romeo," "Romeo and Juliet," "Shakespeare," and "Shakespearean tragedy." Edges labeled "isCharacterOf," "isWroteBy," and "hasGenreOf" show the connections. The graph visually depicts the reasoning steps to answer the question "Who wrote the tragedy in which Romeo is a character?" The answer, "Shakespeare," is shown below the graph. -->
 
 the semantic meanings of the questions, Shin et al. [\(2019](#page-29-10)) presented a predicate constraint-based question-answering system (PCQA). They took advantage of the predicate constraints of knowledge graphs, which is a triplet contains a subject, predicate, and an object to capture the connection between the questions and answers. Using the triplet for question-answering integration, the processing of the question-answering service can be simplifed; therefore, the result improves.
 
@@ -390,8 +394,10 @@ Multi-modal knowledge graph construction is regarded as another challenging issu
 <span id="page-20-0"></span>In this table, all the results of link prediction are flter results
 
 <span id="page-21-0"></span>![](_page_21_Figure_1.jpeg)
+<!-- Image Description: Figure 5 is a caption describing an illustration, not the illustration itself. The caption states that Figure 5 is an illustration of tensor factorization of knowledge graphs. No visual diagram, chart, graph, equation, or illustration is provided in the image. The figure's purpose is to explain, presumably visually (although that is not shown), the application of tensor factorization to knowledge graph analysis. -->
 
 ![](_page_21_Figure_2.jpeg)
+<!-- Image Description: The image is a diagram illustrating a tensor representation. A central matrix is labeled with indices `e₁`, `e₂`, ..., `eₘ` representing one dimension and `r₁`, `r₂`, ..., `rₙ` representing the other. The diagram visually depicts a multi-dimensional array or tensor, showing how the dimensions `e` and `r` interact to form the tensor structure. It likely serves to explain the data structure or mathematical object being used in the paper. -->
 
 symbols, which could result in the poor capability of machines to understand our real world (Zhu et al. [2022b\)](#page-31-6). Therefore, many researchers focus on multi-modal knowledge graphs with various entities, such as texts and images. The construction of multi-modal knowledge graphs requires the exploration of entities with diferent modalities, which makes the knowledge acquisition tasks complicated and inefcient.
 

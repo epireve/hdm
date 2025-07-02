@@ -1,8 +1,8 @@
 ---
 cite_key: "cfcs2017"
-title: "*Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*"
-authors: "integrating knowledge graphs with CfCs, we can build powerful predictive models and facilitate personalized care that leads to improved patient outcomes. This combination enables real-time analytics and adaptability, essential for early diagnosis and intervention, tailoring treatment plans to each patient's unique needs, and simulating surgical procedures and therapeutic strategies."
-year: 2017
+title: "Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks"
+authors: "Logan Nye"
+year: 2023
 date_processed: "2025-07-02"
 phase2_processed: true
 original_folder: "arxiv_2307.04772_Digital_Twins_for_Patient_Care_via_Knowledge_Graph"

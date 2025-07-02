@@ -1,7 +1,7 @@
 ---
 cite_key: "bernard2024"
 title: "PKG API: A Tool for Personal Knowledge Graph Management"
-authors: "Nolwenn Bernard, Ivica Kostric, Weronika Łajewska, et al."
+authors: "Nolwenn Bernard Ivica Kostric Weronika Łajewska"
 year: 2024
 doi: "10.48550/arXiv.2402.07540"
 url: "https://arxiv.org/abs/2402.07540"
@@ -80,6 +80,7 @@ This is the author's version of the work. It is posted here for your personal us
 <span id="page-0-0"></span><sup>1</sup> See, e.g., discussions at<https://www.reddit.com/r/solid/>
 
 <span id="page-1-0"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates a system architecture. A user interface sends statements via HTTP requests to a PKG API. The API uses NL2PKG (Natural Language Understanding and Entity Linking) to process the statement, generating an annotated statement and preference. A PKG connector then stores this information in a PKG database containing statements and preferences. The diagram details data flow and processing steps within this knowledge graph system. -->
 
 Figure 1: Overview of the PKG tooling developed in this work.
 
@@ -124,6 +125,7 @@ The bottom block of Fig. [3](#page-2-2) demonstrates the use of the PKG vocabula
 To facilitate user-friendly interactions with PKGs, we present a twostage NL2PKG approach that translates natural language statements to API calls that perform operations on the PKG, such as storing stated preferences or retrieving previous statements.
 
 <span id="page-2-2"></span>![](_page_2_Figure_9.jpeg)
+<!-- Image Description: This flowchart depicts the processing of a natural language user input ("I dislike all movies with Tom Cruise") into a knowledge graph. The process proceeds through NL2PKG (Natural Language to Package) which translates the statement into a structured representation (subject, predicate, object, preference). A PKG connector adds this triple to a PKG (Package), which is shown as RDF code, representing the statement's formal encoding within the knowledge graph. The diagram illustrates the system's architecture and data transformation. -->
 
 Figure 3: Life of a statement from NL to PKG.
 

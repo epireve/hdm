@@ -1,7 +1,7 @@
 ---
 cite_key: "xiongsupsupsupsup2024"
 title: "arXiv:2401.06853v6 [cs.CL] 8 Oct 2024"
-authors: "Siheng Xiong<sup>1</sup><sup>∗</sup> , Ali Payani<sup>2</sup><sup>∗</sup> , Ramana Kompella<sup>2</sup> , Faramarz Fekri<sup>1</sup>"
+authors: "Siheng Xiong, Ali Payani, Ramana Kompella, Faramarz Fekri"
 year: 2024
 doi: "10.18653/v1/2024.findings-acl.401)"
 date_processed: "2025-07-02"
@@ -29,6 +29,7 @@ While large language models (LLMs) have demonstrated remarkable reasoning capabi
 As one of the fundamental abilities, temporal reasoning (TR) plays an important role in human perception. It is not just about understanding basic concepts such as ordering or duration; it extends to more intricate aspects, e.g., task planning or causal relation discovery. Recently, large language models (LLMs) [\(Ouyang et al.,](#page-10-0) [2022;](#page-10-0) [Achiam et al.,](#page-8-0) [2023;](#page-8-0) [Touvron et al.,](#page-10-1) [2023a\)](#page-10-1) have emerged with some reasoning capabilities [\(Huang and Chang,](#page-9-0) [2022\)](#page-9-0). However, there is observation that they still can not perform TR sufficiently well [\(Wang and](#page-10-2)
 
 ![](_page_0_Figure_10.jpeg)
+<!-- Image Description: This image from an academic paper illustrates a two-step process: text-to-temporal graph translation and temporal graph reasoning. Step 1 shows transforming a text narrative into a temporal graph representing events and their timelines. Step 2 uses this graph to answer a question about the duration of two events, comparing the time spans visually and calculating the differences to determine if the statement is true or false. The graphs are node-link diagrams showing entities (John, Sophia, locations) and relationships (marriage, ownership) across time, with dates specified. The robot icon symbolizes an automated process. -->
 
 Figure 1: Our framework (TG-LLM) performs temporal reasoning in two steps: 1) Text-to-Temporal Graph translation: generate (relevant) temporal graph given the context and keyword (extracted from questions); 2) Temporal Graph Reasoning: perform Chain-of-Thought reasoning over the temporal graph.
 
@@ -117,6 +118,7 @@ Ground-truth TG Generation. For some datasets such as TGQA, a verified TG (corre
 (3) TG Construction & Verification: We generate the TG using GPT-3.5 with ICL. Specifically, we
 
 ![](_page_3_Figure_9.jpeg)
+<!-- Image Description: This image displays a flowchart illustrating a reasoning process. It presents multiple examples ("In-context Examples" and "Inference") where a question is answered through a chain of thought (CoT). Each CoT step leads to an answer (True/False) and is associated with a probability value `P<sub>sample</sub>(c<sub>i</sub>)`, representing the model's confidence in its reasoning. The purpose is to demonstrate the model's ability to reason through complex scenarios and provide confidence scores for its conclusions. -->
 
 Figure 2: In Chain-of-Thought (CoT) bootstrapping, we only accept CoTs that lead to correct final answers and sample them according to their contrastive learning scores to balance usefulness and diversity.
 
@@ -172,6 +174,7 @@ $$
 where P<sup>0</sup> := P(c|g, e, q) denotes the original conditional probability, irrelevant event Firr will be randomly removed from g, and disturbed event F ′
 
 <span id="page-4-4"></span>![](_page_4_Figure_17.jpeg)
+<!-- Image Description: This image from an academic paper demonstrates data cleaning techniques on a knowledge graph. Four variations of a graph are presented. The original graph shows nodes representing people (John, Sophia) and locations, linked by edges denoting relationships (married to, born in, owned) and time spans. Subsequent panels show the same data after applying transformations, including removing edges, replacing relation labels with synonyms ("married to" becomes "become life partner"), and altering entity names and time ranges. The purpose is to illustrate data cleaning processes for improving knowledge graph quality. -->
 
 <span id="page-4-3"></span><span id="page-4-2"></span><span id="page-4-1"></span><span id="page-4-0"></span>Figure 3: We further boost the model performance with several graph data augmentation strategies: remove irrelevant edges, use relation synonyms and change entities/times.
 
@@ -213,6 +216,7 @@ used APIs provided by OpenAI for GPT models. We evaluated their few-shot ICL per
 We use Llama2-13B as the baseline due to limited computational resources. We inject two adapters with selectors into the base model for the textto-TG translation and temporal graph reasoning. The adapters are trained in parallel. For inference, we first translate the original story into a temporal graph, and then perform reasoning on it, i.e., the adapters are used in sequence. For data generation, we use GPT-3.5 for story, TG and CoT generation, and the verification of stories and TGs. We use GPT-4 to create the ICL demonstrations of CoT generation, due to its high generation quality. All the prompt templates are given in Appendix [C.](#page-14-0)
 
 <span id="page-5-1"></span>![](_page_5_Figure_12.jpeg)
+<!-- Image Description: The image presents a bar chart comparing the performance of four different methods (ICL, SFT, SFT + bs, SFT + bs + aug) for TGQA (presumably a type of question answering task). For each method, three metrics are shown: EM (Exact Match), F1 score, and accuracy (Acc). The chart illustrates how the different methods and their variations affect the performance metrics, demonstrating an improvement in all three metrics across the methods. -->
 
 Figure 4: Performance comparison between different CoT generation strategies on TGQA.
 
@@ -255,6 +259,7 @@ Table 3: Human evaluation on the generated CoTs by different strategies. ER: err
 Table 4: Main results using different models and strategies. We report exact match (EM), token-level F1 scores, and perplexity-based accuracy (Acc). Note: (1) Results with † are reported in the original papers. We only fine-tune and evaluate the models on our dataset. (2) Results with \*are evaluated on 1000 random test samples.
 
 <span id="page-6-1"></span>![](_page_6_Figure_2.jpeg)
+<!-- Image Description: The image presents four bar charts comparing three metrics (ΔEM, ΔF1, ΔAcc) across different methods (ICL-CoT, SFT (TGQA), SFT) for two question-answering tasks (TimeQA in easy and hard modes) and two reasoning tasks (TempReason with OBQA-L2 and OBQA-L3). Each chart displays the change in the three metrics, likely representing performance improvements. The purpose is to quantitatively compare the effectiveness of different methods on various question-answering and reasoning tasks. -->
 
 Figure 5: Performance comparison between different strategies on TimeQA and TempReason. To obtain a fair comparison, we use Llama2-13B as the base model for all strategies. The basic strategy used to calculate the performance changes is in-context learning with standard Input/Output prompt (ICL-SP).
 
@@ -403,10 +408,12 @@ This work was supported by a sponsored research award by Cisco Research.
 - <span id="page-11-2"></span>Zhaocheng Zhu, Yuan Xue, Xinyun Chen, Denny Zhou, Jian Tang, Dale Schuurmans, and Hanjun Dai. 2023. Large language models can learn rules. *arXiv preprint arXiv:2310.07064*.
 
 <span id="page-12-2"></span>![](_page_12_Figure_0.jpeg)
+<!-- Image Description: The image presents two histograms depicting the frequency distribution of the number of facts in training and test samples. The top histogram shows the distribution for training data, peaking around 8 facts. The bottom histogram displays the distribution for test data, showing a similar, though slightly less skewed distribution. Both histograms illustrate the data's characteristics regarding the number of facts per sample used in the experiment. -->
 
 Figure 6: Number of facts distribution in TGQA.
 
 <span id="page-12-3"></span>![](_page_12_Figure_2.jpeg)
+<!-- Image Description: The image contains two pie charts comparing the distribution of question types in a training set and a test set. Each chart displays nine question types (0-8), represented by different colored segments. The charts' purpose is to show the class balance of the datasets, illustrating the relative proportions of each question type in both the training and testing data used in a machine learning model. The visual comparison helps assess the similarity of the distributions and potential biases. -->
 
 Figure 7: Types of questions distribution in TGQA.
 

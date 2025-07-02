@@ -1,7 +1,7 @@
 ---
 cite_key: "happens2023"
-title: "<span id=\"page-0-0\"></span>Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities"
-authors: "Several participants stressed sociotechnical challenges in understanding the desired outcomes of a knowledge graph. When this happens, Builders can overcomplicate the construction of the KG (e.g., with too"
+title: "Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities"
+authors: "Harry Li, Gabriel Appleby, Camelia Daniela Brumar, Remco Chang, Ashley Suh"
 year: 2023
 doi: "10.1109/TVCG.2023.3326904"
 date_processed: "2025-07-02"
@@ -45,6 +45,7 @@ To summarize, the major contributions of this paper are:
 - Directions for future KG visualization research, along with design sketches iterated on with domain experts, aimed at alleviating KG-related challenges identified from our interview study.
 
 *Manuscript received 30 Apr. 2023; accepted 15 Jul. 2023. Date of Publication 14 Dec. 2023; date of current version 14 Dec. 2023. For information on obtaining reprints of this article, please send e-mail to: reprints@ieee.org. Digital Object Identifier: 10.1109/TVCG.2023.3326904*<span id="page-1-4"></span><span id="page-1-3"></span>![](_page_1_Figure_0.jpeg)
+<!-- Image Description: This image is a knowledge graph visualizing relationships between Claude Monet, his wife Alice Monet, his painting "Bridge over a Pond of Water Lilies", and their locations (Paris and New York City). Nodes represent entities (people, places, artworks), and edges depict relationships (e.g., "is born on," "painted," "is exhibited in"). Images are used to represent the entities, enriching the visualization. The graph serves to illustrate the interconnectedness of the data. -->
 
 Fig. 1: An illustrative example of a knowledge graph (KG). In a KG, different types of entities (nodes) can have different types of relationships (edges) defined between them. We further discuss KGs in Section [2.1.](#page-1-2)
 
@@ -382,6 +383,7 @@ I think the key with [KG interfaces] is not to lose the pivotability and discove
 Wikipedia as an EDA Tool: Four of our participants expressed that Wikipedia functions as an effective graph exploration tool, since
 
 <span id="page-6-1"></span>![](_page_6_Figure_19.jpeg)
+<!-- Image Description: This image from an academic paper presents two data panels. The left panel describes a "Node," detailing its name, key attributes, temporal information, connected nodes, relationships, peer nodes, and data sources. The right panel details the Meltdown vulnerability (CVE-2017-5754), including its discovery date (January 2018), affected hardware (Intel x86, IBM POWER, and some ARM processors), related vulnerabilities (Spectre), and a website link. The panels use icons (a landscape image and a shield) to visually represent the node and vulnerability respectively. -->
 
 Fig. 3: Left: an example knowledge card template with node and edge information that may be relevant to a KG end user. Right: an example knowledge card of a cybersecurity vulnerability that we iterated on with one of our participants to understand what might be useful to a cyber analyst. We describe knowledge cards in Section [6.2.](#page-6-1)
 

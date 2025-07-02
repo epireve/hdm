@@ -1,7 +1,7 @@
 ---
 cite_key: "yu2052"
-title: "*Article* **Ontology-Driven Architecture for Managing Environmental, Social, and Governance Metrics**"
-authors: "**Mingqin Yu 1,\\*, Fethi A. Rabhi [1](https://orcid.org/0000-0001-8934-6259) and Madhushi Bandara [2](https://orcid.org/0000-0001-6543-3841)**"
+title: "ArticleOntology-Driven Architecture for Managing Environmental, Social, and Governance Metrics"
+authors: "New South Wales"
 year: 2052
 doi: "10.3390/electronics13091719)"
 date_processed: "2025-07-02"
@@ -73,6 +73,7 @@ Here, we describe how the six DSR steps are applied in our work. The motivation 
 As the third step, our approach is to design and develop the ESGMKG following a standard ontology development process, as detailed in Section [3.2.](#page-4-1)
 
 <span id="page-4-0"></span>![](_page_4_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart depicting a research process. It outlines six stages: problem identification and motivation, defining a solution objective, design and development (using a standard ontology), demonstration (on the Stardog Enterprise Knowledge Graph platform), evaluation (creating a data repository and querying it), and communication of findings. A parallel "Problem Centered" and "Objective Centered" pathway is shown, highlighting a design choice. The flowchart's purpose is to illustrate the methodology used in the paper. -->
 **Figure 1.** DSR process adapted in this paper [\[26\]](#page-14-22).
 
 As the fourth step, the modelled ontology will be implemented within the Stardog Enterprise Knowledge Graph platform [\(http://stardog.com](http://stardog.com) (accessed on 3 March 2024)) following semantic web principles in RDF/OWL notation. Details about the demonstration are given in Section [5.1.](#page-9-1)
@@ -104,6 +105,7 @@ The formulation of these CQs was an elaborate process that entailed extensive co
 ###*4.1. Architecture Overview*To envision how the proposed ontology can be used within organisations and align with existing systems, we proposed a system architecture structured into three integral layers. Each layer caters to specific functionalities and user groups, drawing on the categorisation of stakeholders by CFA Institute [\[33\]](#page-14-29). The target users of this architecture include a broad spectrum of stakeholders ranging from asset owners to regulators, all of whom stand to benefit from enhanced ESG reporting and investment management [\[34\]](#page-14-30). Figure [2](#page-6-1) shows the hierarchical structure of the proposed ESG metric management system.
 
 <span id="page-6-1"></span>![](_page_6_Picture_2.jpeg)
+<!-- Image Description: This architectural diagram depicts a microservice-based system for ESG (Environmental, Social, and Governance) data management. It shows three microservices (Framework Category, ESG Metrics Modelling, and ESG Datasource Collection) interacting via a GUI accessible to Chief Sustainability Officers, Investors, and Regulators. A continuous integration/continuous delivery (CI/CD) cycle is illustrated for the microservices. The system also includes an ESGMKG Ontology Data Management Platform with components for data governance, security, service delivery, and authentication. -->
 **Figure 2.** The general architecture of an ESG metric management system.
 
 Each layer's role is defined as follows:
@@ -161,6 +163,7 @@ structure not only underscores the layered approach of the ESGMKG ontology but a
 | Datasource             | The origin of an ESG dataset, which can be a primary or secondary source.                                                                                 |
 
 <span id="page-8-1"></span>![](_page_8_Figure_4.jpeg)
+<!-- Image Description: The image displays a directed graph, likely representing a data model. Nodes, color-coded (yellow, orange, green, teal), represent entities like "ESG Metric," "ESG Category," "Dataset," and "Indicator." Edges show relationships (e.g., "ObtainedFrom," "DividedInto") between these entities. The graph illustrates the flow and dependencies within an ESG reporting framework, clarifying data sources and calculations used to derive ESG metrics. The interface suggests a visual modeling tool for building and managing such frameworks. -->
 **Figure 3.**Visualisation of ESGMKG key classes and relationships on Stardog platform.
 
 ##*4.3. ESGMKG Integration*
@@ -259,6 +262,7 @@ The first set of triples in Table [4](#page-11-1) showcases that the IFRS S1 fra
 ##*5.4. Querying the Implementation*Each competency question is translated into a SPARQL query (the query language for semantic web notation) and executed on the Stardog platform. When tested against the instance ontology, the Stardog implementation was able to answer all listed competency questions. An example of how we evaluated competency questions 6 and 7 shown in Table [3](#page-10-1) is showcased by Figure [4.](#page-12-0) The SPARQL query retrieves the ESG model(s) that compute the 'Reported Carbon Emission' metric, as well as all input metrics or indicators required for these models.
 
 <span id="page-12-0"></span>![](_page_12_Figure_4.jpeg)
+<!-- Image Description: The image displays a screenshot of a SPARQL query executed within the Stardog knowledge graph platform. The query retrieves data on ESG metrics, specifically focusing on "reported carbon emissions" as a dependent variable. The results table shows three instances of an ESG metric computing model, each linked to different carbon emission scopes (direct and indirect). The screenshot serves to illustrate the querying capabilities of the platform for accessing and structuring environmental, social, and governance (ESG) data. -->
 **Figure 4.**Visualisation of sample query on Stardog platform for competency questions 6 and 7.
 
 ### 6. Conclusions and Future Work

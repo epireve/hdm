@@ -1,7 +1,7 @@
 ---
 cite_key: "twin2020"
 title: "Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey"
-authors: "*Index Terms*—Human digital twin, personalized healthcare, artificial intelligence, reinforcement learning, federated learning, networking architecture, life-cycle data management, pervasive sensing, on-body communications, tactile Internet, semantic communications, multi-access edge computing, edge-cloud collaboration, blockchain, Metaverse"
+authors: "Xuemin (Sherman) Shen, Fellow, IEEE"
 year: 2020
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -171,6 +171,7 @@ TABLE III LIST OF ABBREVIATIONS
 and the most significant difference between human beings and machines is emotion and psychology [\[32\]](#page-34-23), [\[35\]](#page-34-26). External factors or physiological states can affect individual emotions and psychology, which in turn affect individual physiological states. Second, human's external behaviours depend on individual subjective consciousness, while internal behaviours (e.g., blood flow, the progress of diseases, activities of organs and tissues) are known to generally result from multi-source
 
 ![](_page_4_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts the structure of a survey paper on Hyper-realistic Digital Twins in Healthcare (HDT). It outlines the paper's sections, starting with an introduction and a comprehensive exploration of HDT. Subsequent sections detail key technologies for data acquisition, communication, computation, and management layers. The flowchart also covers data analysis, decision-making, and future research directions, concluding with a summary. Each layer is further broken down into specific technological aspects and lessons learned. -->
 
 <span id="page-4-0"></span>Fig. 1. The organization of this survey.
 
@@ -200,6 +201,7 @@ TABLE IV DIFFERENCES BETWEEN HDT AND THE CONVENTIONAL DT
 | Mobility               | Mostly fixed with no or limited mobility             | Highly mobile with very complicated mobility patterns.      |  |
 
 ![](_page_5_Figure_2.jpeg)
+<!-- Image Description: This image from an academic paper illustrates the evolution of digital twins in healthcare. It presents a timeline, showing the development of organ-specific digital twins (heart, brain, liver, lung, cardiovascular disease, and cancer) from 2014 to 2022. A diagram of a full human digital twin is shown alongside text describing the parallel roles of industry (building a repository) and academia (researching advanced modeling techniques) in developing this technology. Reference numbers are provided for each cited work. -->
 
 <span id="page-5-1"></span>Fig. 2. DT in healthcare is evolving toward HDT.
 
@@ -214,6 +216,7 @@ The distinctions between HDT and the conventional DT are summarized in Table [IV
 As recently recognized in [\[13\]](#page-34-4), [\[35\]](#page-34-26), HDT is expected to be an exceptionally vivid in silico representation of human profile for broad and refined applications, ranging from health monitoring, diagnosis, prescription, clinical trials, surgery, rehabilitation to the others, in dealing with various diseases, providing more effective and personalized healthcare services. As shown in Fig. [2,](#page-5-1) HDT is a more holistic and versatile concept that the
 
 ![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This image presents a framework for a digital twin system in healthcare. It depicts data acquisition via electronic health records, social networks sensing (smart devices), and biomedical sensing. Data is processed using cloud and edge computing, managed via blockchain, and analyzed using AI for decision-making (diagnosis, prescription, surgery, rehabilitation). The framework also includes digital modeling and visualization of various human organ systems. Communication is facilitated by 5G networks. -->
 
 <span id="page-6-0"></span>Fig. 3. The universal framework of HDT.
 
@@ -248,6 +251,7 @@ Although some routine healthcare data (such as step number, heart rate and body 
 *6) Advanced Computing Power:*In HDT, tasks such as synchronization, model evolution and analytics are expected to be time-sensitive and computation-intensive. To ensure a real-time computation process, massive computation resources are required by HDT to keep high-fidelity. This prompts HDT to be deployed on the network side instead of local devices (which are commonly resource-limited). Furthermore, this paradigm requires optimal computation resource scheduling mechanisms on the network side to guarantee the efficient resource utilization.
 
 ![](_page_8_Figure_5.jpeg)
+<!-- Image Description: This diagram illustrates a layered architecture for a wearable sensor data system. It shows data flowing from various smart wearable sensors (smart hat, shoes, etc.) through communication and data management layers to data centers. Data is then analyzed using specified methods and PH services, with results potentially shared via collaboration among servers. The diagram highlights the system's data acquisition, management, analysis, and computation stages, focusing on security through padlock icons at various data transfer points. -->
 
 <span id="page-8-0"></span>Fig. 4. The networking architecture of HDT.
 *7) AI-Driven Analytics:*AI is a core key technology for enabling HDT to have the ability to deliver PH services. AIdriven analytical models provide insights at different scales for HDT using real-time and historical collected data, thereby providing decisions or predictions to individuals and updating the VT model. Additionally, AI can support HDT from all aspects (e.g., intelligent computation, intelligent communication network and intelligent data management). However, one limitation of current AI solutions is that they rely on blackbox models and may be inappropriate for problems requiring explicit explanations (e.g., clinical applications). Therefore, the interpretability of AI is an imperative issue that extremely depends on the implementability of HDT. Moreover, the everchanging of human conditions impel AI models to dynamically validate their effectiveness and update for more precisely abstracting the real status of the human body. However, this process is highly complex, which requires the assistance of a strong computation capability.
@@ -271,14 +275,17 @@ In addition to physiological data, the high-fidelity digital model of humans als
 In this section, we provide a review of data acquisition solutions for HDT. First, we discuss wearable biomedical sensing, implantable biomedical sensing and social network sensing in Section [III-A,](#page-10-2) which allows HDT to collect realtime physiological and psychological information of PTs. Besides, EHRs is another crucial data source accurately reflecting PTs' health information, which can be used to build the prototype of VTs and improve diagnosis accuracy and patient outcomes as reviewed in Section [III-B.](#page-12-0) Finally, in Section [III-C,](#page-13-0) we provide a brief summary of the reviewed papers, and discuss some opening issues that should be considered in data acquisition for HDT. The roadmap of Section [III](#page-9-0) is illustrated in Fig. [6.](#page-10-3)
 
 ![](_page_10_Figure_0.jpeg)
+<!-- Image Description: This table illustrates a layered architecture for a biomedical data processing system. Three layers are depicted: Data Acquisition, Data Management, and Data Analysis and Decision Making. Each layer lists relevant communication technologies and application-specific data processing techniques (e.g., data cleaning, fusion) and technologies (Hadoop, HBase, MySQL). The diagram uses icons to represent various applications (diagnosis, surgery) and technologies, clarifying the system's functionality and components. -->
 
 <span id="page-10-0"></span>Fig. 5. An overview of key technologies for implementing the networking architecture of HDT.
 
 ![](_page_10_Figure_2.jpeg)
+<!-- Image Description: The image is a flowchart outlining the structure of Section III of a paper on data acquisition for health data tracking (HDT). It details three main categories of pervasive sensing: wearable, implantable, and social network biomedical sensing, with subcategories specifying device types and applications (e.g., biomarker detection). Additionally, it shows how data is used for electronic health records and prototype building to improve diagnosis accuracy and patient outcomes. The flowchart visually organizes the paper's structure and research scope. -->
 
 <span id="page-10-3"></span>Fig. 6. The roadmap of Section [III.](#page-9-0)
 
 ![](_page_10_Figure_4.jpeg)
+<!-- Image Description: This Venn diagram illustrates data acquisition methods in a healthcare context. Three overlapping circles represent wearable, implantable, and social network sensing, each detailing specific data types (e.g., vital signals, biomarker detection, social media activity). A fourth circle includes Electronic Health Records (EHR) data such as CT scans and medical history. All data sources converge on a central "Data Acquisition" point, highlighting the integration of diverse data streams for comprehensive health monitoring. -->
 
 <span id="page-10-1"></span>Fig. 7. An illustration of data acquisition approaches for HDT.
 
@@ -338,6 +345,7 @@ Since body sensors are typically low-power, resourceconstrained and low bit-rate
 *2) ZigBee:*It is developed atop the IEEE 802.15.4 standard for low-power, short-range and low-rate data connectivity [\[110\]](#page-36-2). Unlike BLE, ZigBee supports various network topologies and a huge number of sensors, making it a more robust solution. Furthermore, ZigBee is known to be not only a secure key technology that offers three levels of security mode to prevent unauthorized access of data by attackers, but also capable of supporting multicast [\[110\]](#page-36-2). However, ZigBee shares the frequency bands with other types of radio technologies (e.g., WiFi and Bluetooth), and therefore, suffers from unintentional interference. Additionally, ZigBee communications
 
 ![](_page_14_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a body area network (WBAN) architecture for healthcare. The left side depicts "on-body communication," showing various sensors (ECG, EEG, glucose, etc.) on a person (PT), communicating via ZigBee, BLE, and NB-IoT to a gateway. The right displays "beyond-body communication," with the gateway connecting to a 6G xURLLC network, a core network, and ultimately servers (data center) via Ethernet for data processing and storage. A circulatory system illustration depicts "molecular communication." The purpose is to showcase a holistic system for data acquisition and transmission in a telemedicine context. -->
 
 <span id="page-14-0"></span>Fig. 8. The communication architecture of HDT.
 
@@ -359,12 +367,14 @@ TABLE V INFORMATION OF PHYSIOLOGICAL PARAMETERS SAMPLED BY BIOMEDICAL SENSORS (C
 | Blood CRP             | 0-8 mg/l         | 2.4 bps      | 12                | -              |
 
 ![](_page_14_Figure_4.jpeg)
+<!-- Image Description: The image compares two network topologies for biosensors: a star topology (a) and a two-level topology (b). (a) shows multiple biosensors (blue circles) directly connected to a single gateway (red star). (b) illustrates biosensors communicating with a central processor (green triangle) which then sends data to a gateway. Yellow lightning bolts represent communication links. The image clarifies data flow and architecture options in a wireless biosensor network. -->
 
 are vulnerable to radio jamming attacks due to the openness of the wireless medium. When a malicious device emits a highpower jamming signal, all ZigBee devices in its proximity will
 
 <span id="page-14-1"></span>Fig. 9. The topology of on-body communication.
 
 ![](_page_14_Figure_6.jpeg)
+<!-- Image Description: This diagram illustrates a conceptual model for intracellular communication. Two cells, within a blood environment, are depicted. One cell acts as a transmitter, generating and emitting information particles via a particle generator and emission control. These particles propagate through the blood, received by a receptor in the second cell, which then decodes the information. The diagram highlights the key components of this proposed communication system: particle generation, emission control, propagation, reception, and decoding. -->
 
 <span id="page-14-3"></span>Fig. 10. An illustration of the molecular communication.
 
@@ -386,6 +396,7 @@ In summary, TI is already paving the way for HDT, where PTs and VTs are connecte
 *2) Semantic Communication:*The explosive growth of data, expected in HDT, as well as the generally discussed limited bandwidth issues in wireless communications, indi-
 
 ![](_page_16_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a semantic communication system. Information from various human body sources (wearables, etc.) is encoded using semantic features (neural network representation) extracted from a source knowledge base. This data is transmitted through a physical channel, subject to noise, then decoded and reconstructed using semantic features at the destination. The process generates a virtual response shown as a human body diagram. The flowchart details encoding, transmission, and decoding stages, highlighting the role of semantic features and noise in the system's performance. -->
 
 <span id="page-16-0"></span>Fig. 11. Semantic communication for HDT.
 
@@ -426,6 +437,7 @@ However, cloud computing suffers from many limitations: i) high communication co
 In this section, we firstly discuss the role of mobile edge computing in HDT, and its benefits, i.e., addressing the mobility issue of HDT and reducing the response time, in Section [V-A.](#page-18-1) Although mobile edge computing can be an ideal solution for replacing the traditional centric cloud computing, it hard to resolve computation burden brought by long-term operations and large scalability of HDT under several scenarios. In response, we further introduce an effective computing paradigm,
 
 ![](_page_18_Figure_1.jpeg)
+<!-- Image Description: The diagram illustrates an edge-cloud collaborative system for processing vital signs (VT) from wearable devices (smartwatch, smartphone). Data from patients (PT) is offloaded to multiple Mobile Edge Computing (MEC) servers with compressed models, and then further processed by cloud servers using uncompressed models for improved accuracy. The core network connects the edge and cloud components, enabling efficient data transfer and processing. The diagram depicts the task offloading process and the system architecture, including EHR integration. -->
 
 <span id="page-18-0"></span>Fig. 12. The edge computing paradigm for HDT.
 
@@ -458,6 +470,7 @@ Although MEC is a promising alternative to traditional centralized cloud computi
 Edge-cloud collaboration combines the benefits of both edge computing and cloud comping, thereby providing a promising solution towards addressing the limitations of enabling either the edge or cloud along [\[155\]](#page-37-2). In the edge-cloud computing architecture, an end-user can offload complicated tasks to an edge server. Each edge server can then decide whether to compute the whole task or collaborate with the cloud server to perform a part of it. The edge-cloud collaboration paradigm can reduce overall latency and augment computation capacity [\[156\]](#page-37-3), [\[157\]](#page-37-4). This advantage is very useful in HDT for optimizing the information processing procedure. Ghosh et
 
 ![](_page_19_Figure_6.jpeg)
+<!-- Image Description: This diagram illustrates a federated learning (FL) system for healthcare. Edge devices (smartphone, XR device, hospital) perform local model training on their data, then send local gradients to a central server for aggregation. The aggregated global model is then sent back to the edge devices for updates. The cloud houses servers performing the aggregation, shown as a neural network. The illustration highlights data flow and model updates in this distributed learning framework. -->
 
 <span id="page-19-2"></span>Fig. 13. Edge-cloud collaboration assisted FL.
 
@@ -478,6 +491,7 @@ However, there are still several opening issues that need to be considered. Firs
 Since every segment in HDT generates and exchanges massive data constantly, data management for HDT is indispensable. For guaranteeing the efficiency of such huge data stream, it is required that data should be pre-processed, and then stored in databases for later analysis. On top of these, data security and privacy schemes, such as cybersecurity, privacypreserving mechannism and distributed ledger technology, are also imperative in the data management for HDT.
 
 ![](_page_20_Figure_6.jpeg)
+<!-- Image Description: The image is a flowchart outlining the data management process for high-dimensional data (HDT). It details data pre-processing (cleaning, reduction, fusion), data storage (Hadoop, HBase, OpenStack Swift), and cybersecurity measures (intrusion detection, cyber resilience, cryptography). Each stage is broken down into sub-stages, illustrating a hierarchical workflow. The flowchart's purpose is to visually represent the technical architecture of the data management system within the paper. -->
 *b) Anonymization c) Federated learning a) Storing health data*Fig. 14. The roadmap of Section [VI.](#page-20-1)
 *C. Data Security and Privacy*
 
@@ -522,6 +536,7 @@ c) *Decision-level fusion*: Decision-level fusion generally refers to the proces
 *1) Hadoop Distributed File System (HDFS):*Hadoop is considered as the most famous platform for big data analytics. It uses a prime data storage system, called HDFS, to store massive data in distributed environments [\[193\]](#page-37-40). HDFS has two data categories: metadata and application data. These data categories are stored separately. To be specific, the metadata are stored on a dedicated server, called the NameNode, while the application data are stored on other servers called DataNode [\[194\]](#page-37-41). All these servers are mutually connected and communicate using TCP-based protocols. Owing to the
 
 ![](_page_23_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates three data fusion methods for decision-making: data-level, feature-level, and decision-level fusion. Each level shows data from multiple IoT devices and Electronic Health Records (EHRs) undergoing data analysis and decision-making. Circles represent original data and extracted features, progressing to a final decision result at the top. The chart's purpose is to visually compare the different fusion architectures. -->
 
 <span id="page-23-1"></span>Fig. 15. An illustration of different data fusion techniques for HDT.
 
@@ -552,6 +567,7 @@ network level intrusion and anomalies in sensor data. b) *Cyber resilience*: Cyb
 *2) Privacy-Preserving Mechanism:*In HDT, network security is not sufficient to enhance operations, since medical data are also privacy-sensitive. Several common privacy threats in HDT are listed in the following.
 
 ![](_page_25_Figure_0.jpeg)
+<!-- Image Description: This diagram illustrates a system architecture for privacy-preserving healthcare. It shows data acquisition, encrypted and indexed, sent to a cloud server for similarity search. A digital twin uses a neural network to predict values, separating delay-sensitive and delay-tolerant attributes for timely diagnosis and treatment, with data synced from a wearable device (PT) to a virtual twin (VT). The system uses prediction and monitoring trapdoors for secure access to sensitive data. -->
 
 <span id="page-25-0"></span>Fig. 16. Cryptography-based privacy-preserving mechanism for HDT.
 
@@ -583,10 +599,12 @@ The procedure of a blockchain-enabled data sharing scheme for HDT is presented i
 - b) *Data access control*: Rather than adopting blockchain as a database, blockchain could be better used to ensure data access control, thereby providing a secure data sharing service. Zhang et al. in [\[230\]](#page-38-28) proposed a double blockchainenabled secure storage and sharing framework for EHR data. To ensure privacy, the EHR data were first encrypted and stored in the cloud. After this, the storage blockchain
 
 ![](_page_27_Figure_1.jpeg)
+<!-- Image Description: This flowchart illustrates a blockchain-based system for secure healthcare data management. Data from various sources (EHR, smartwatch, etc.) is encrypted, hashed, and then broadcast as an unapproved block to a peer-to-peer network. Peers validate the block via distributed consensus. Once validated, the block is added to the immutable blockchain, accessible only to authorized users with private keys. The diagram uses icons to represent data blocks, keys, servers, and network participants, clarifying the data flow and validation process within the system. -->
 
 <span id="page-27-1"></span>Fig. 17. Blockchain for data sharing in HDT.
 
 ![](_page_27_Figure_3.jpeg)
+<!-- Image Description: The image is a diagram illustrating a blockchain structure. Three blocks (a, b, c) are shown, each containing "Collected Data," "Proof of Work," and "Hash Previous." Arrows indicate the chaining: the "Hash Previous" field in each block contains the hash of the preceding block's "Proof of Work." This shows how blocks are linked, forming a chain secured by cryptographic hashing, a key feature of blockchain technology. -->
 
 <span id="page-27-2"></span>Fig. 18. Structure of the Blockchain.
 
@@ -605,6 +623,7 @@ AI is one of the main fueling technologies to support the design and implementat
 In this section, we discuss AI-powered data analysis and decision-making for HDT in PH applications, including diagnosis, prescription, surgery, and rehabilitation. Specifically, we survey the role of AI in HDT applied to personalized monitoring and diagnosis in Section [VII-A.](#page-28-1) Then, in Section
 
 ![](_page_28_Figure_0.jpeg)
+<!-- Image Description: This flowchart illustrates the application of machine learning in health monitoring. It depicts three learning paradigms: supervised learning (classification and regression using labeled data), unsupervised learning (clustering using unlabeled data), and reinforcement learning (agent-environment interaction). Each learning type is shown progressing to a corresponding healthcare stage (diagnosis, prescription, surgery/rehabilitation). Simple diagrams represent data, learning processes, and healthcare actions. -->
 
 <span id="page-28-0"></span>Fig. 19. AI for data analysis and decision making in HDT applications.
 

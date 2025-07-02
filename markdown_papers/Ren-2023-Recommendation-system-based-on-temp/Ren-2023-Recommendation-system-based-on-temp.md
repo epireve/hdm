@@ -1,7 +1,7 @@
 ---
 cite_key: "cui2023"
 title: "Recommendation System Based on Temporal Knowledge Graph Path Reasoning"
-authors: "Liangzhong Cui"
+authors: "Haoyuan Ren, Liangzhong Cui"
 year: 2023
 doi: "10.1145/3630138.3630436"
 date_processed: "2025-07-02"
@@ -276,10 +276,12 @@ We use NDCG@K, Recall@K and Precision@K to evaluate recommendation performance. 
 | Impv. (%) | 5.928 | 7.051  | 6.542 | 5.015 | 2.803  | 3.101 | 1.360  | 1.262  | 1.020 |
 
 <span id="page-3-0"></span>![](_page_3_Figure_4.jpeg)
+<!-- Image Description: The image is a graph depicting relationships between entities in a data model. A central "item" node connects to nodes representing "category," "brand," "feature," and "user," with directional edges labeled to indicate the type of relationship (e.g., "produced by," "described by," "bought by"). The graph visualizes the data schema, likely for an e-commerce or product recommendation system. It shows how different data elements are interconnected. -->
 
 Figure 1: Relationships between entities in the dataset.
 
 <span id="page-3-2"></span>![](_page_3_Figure_6.jpeg)
+<!-- Image Description: The image is a bar chart comparing the performance of three methods ("ours," TPrec, PGPR) across three product categories (phone, cloth, beauty). The height of each bar represents a performance metric (likely precision or recall, though not specified). The chart visually demonstrates the relative strengths and weaknesses of each method across different product types, allowing for a direct comparison of their effectiveness. -->
 
 Figure 2: The number of invalid users of the three methods on three datasets.
 

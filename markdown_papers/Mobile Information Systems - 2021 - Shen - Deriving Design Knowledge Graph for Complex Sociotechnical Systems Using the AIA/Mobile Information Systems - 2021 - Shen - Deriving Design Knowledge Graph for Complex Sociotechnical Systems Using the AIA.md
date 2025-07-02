@@ -1,7 +1,7 @@
 ---
 cite_key: "shen2021"
-title: "**Deriving Design Knowledge Graph for Complex Sociotechnical Systems Using the AIA Design Thinking**"
-authors: "**Tao Shen , <sup>1</sup> Chan Gao,2,3 Yukari Nagai,3 and Wei Ou <sup>4</sup>**"
+title: "Deriving Design Knowledge Graph for Complex Sociotechnical Systems Using the AIA Design Thinking"
+authors: "Tao Shen, Chan Gao, Yukari Nagai, Wei Ou"
 year: 2021
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -71,6 +71,7 @@ AIA design thinking is proved to have the ability to promote designers' extensio
 Name entity recognition (NER) has long been treated as a sequence classification problem. A widely adopted approach is first classifying each word in a sentence into one of the three following classes:*b*(stands for the beginning of a name entity mention),*i*(the inside of a name entity), and*o*(the outside of a name entity), followed by grouping the words with the*b*and*i* labels into name entities. Sequence
 
 ![](_page_2_Figure_7.jpeg)
+<!-- Image Description: The image displays a triangular model depicting a design process. Three core components — Agent, Interaction, and Adaptation — are interconnected by numerous bidirectional arrows, symbolizing iterative feedback and influence. Surrounding the triangle, rectangular boxes label various design methods (e.g., mind mapping, brainstorming, rapid prototyping) contributing to the central components. The model likely illustrates the iterative nature of design, emphasizing the interplay between different methods and the continuous adaptation phase. -->
 
 Figure 1: Model of the AIA design thinking.
 
@@ -144,6 +145,7 @@ where*λ*is the learning rate which is tuned using grid search in the training p
 *3.2. Design 1inking Information Processing Mechanism.* \*e thinking of innovators is different, and the reason why they can "think differently" is because they can connect concepts that have not yet been connected [[61\]](#page-9-0). For example, designers can get inspiration by identifying potential similarities between biology and engineering and generate ideas
 
 <span id="page-4-0"></span>![](_page_4_Figure_1.jpeg)
+<!-- Image Description: This figure illustrates a four-layer architecture for a design knowledge system. The first layer collects structured, semi-structured, and unstructured data. This data is processed in the second layer through concept and relation extraction. The third layer integrates this knowledge using the AIA Design Thinking framework. Finally, the fourth layer applies the integrated knowledge, producing a design knowledge graph and design stimuli information. Arrows indicate the data flow between layers. -->
 
 Figure 2: \*e overall research framework of the proposed integrated approach.
 
@@ -158,6 +160,7 @@ According to its understanding, the human brain converts knowledge or experience
 *4.1. Participants.* In this experiment, twenty-eight students with an innovation design background were invited (14 males and 14 females aged between 25 and 28 years). \*e selection of participants is based on the assumption that they already have fundamental knowledge of the design process but are not practicing professionals. \*is follows our opinion that results will be better applicable in design support. Moreover, this selection is relevant to the general goal of developing a new support method for design through this analysis. All the participants are volunteers who received no additional course credits for their participation.
 
 <span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
+<!-- Image Description: The figure presents a model of the design process. It depicts information flow from external and internal environments through a cognitive system, processing "Question" and "Inspiration" in working memory. These activate nodes in a long-term memory's knowledge association network, resulting in "Idea" generation and design output. Boxes represent information sources, ovals represent processes, and the network illustrates knowledge retrieval and idea formation. -->
 
 Figure 3: Design thinking information processing mechanism.
 
@@ -181,6 +184,7 @@ In this equation,*Sjk*is the score for function*j*at stage*k*; *m*is the total n
 \*en we analyzed these data using paired *t*-test. \*e results presented in Table [4](#page-7-0) show that the difference of idea
 
 <span id="page-6-0"></span>![](_page_6_Figure_1.jpeg)
+<!-- Image Description: This image is a conceptual model depicting the relationships between various factors contributing to the creation of a sustainable community. It uses a node-and-link diagram, with "sNice" as the central node connected to nodes representing human factors (e.g., families, designers), spatial elements (e.g., space, transportation), services (e.g., healthcare, education), and the resulting sustainable community. The links illustrate interactions and influences between these elements, showing how they synergistically contribute to improved quality of urban life. -->
 
 Figure 4: Knowledge graph using the AIA design thinking framework.
 

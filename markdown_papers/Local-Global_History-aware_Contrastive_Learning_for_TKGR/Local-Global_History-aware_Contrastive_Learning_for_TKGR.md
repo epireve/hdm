@@ -1,7 +1,7 @@
 ---
 cite_key: "chen2023"
 title: "Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning"
-authors: "Wei Chen, Huaiyu Wan, Yuting Wu, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
+authors: "Wei Chen, Huaiyu Wan, Yuting Wu §∗, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
 year: 2023
 doi: "https://doi.org/10.48550/arXiv.2312.01601"
 url: "https://arxiv.org/abs/2312.01601"
@@ -40,6 +40,7 @@ Wei Chen†‡, Huaiyu Wan†‡, Yuting Wu §∗, Shuyuan Zhao†‡, Jiayaqi C
 Temporal knowledge graphs (TKGs), which represent dynamic facts as quadruples in the form of (subject, relation, object, time), are actually sequences of KG snapshots with respective timestamps. Reasoning on TKGs aims to predict the unknown facts by modeling the historical KGs snapshots, which involves two reasoning settings: interpolation and extrapolation. The interpolation setting focuses on completing the missing facts in history while the extrapolation setting aims to predict the facts happening in the future. For TKGs, the extrapolation task is much more challenging and has great practical significance for various downstream applications, such as medical aided diagnosis system [\[1\]](#page-11-0), [\[2\]](#page-11-1), traffic flow prediction [\[3\]](#page-12-0) and stock prediction [\[4\]](#page-12-1). Therefore, this paper
 
 ![](_page_0_Figure_12.jpeg)
+<!-- Image Description: This image depicts a model for predicting international relations. A directed graph shows interactions (cooperate, negotiate, accuse, etc.) between multiple countries over time (t<sub>q</sub>-3, t<sub>q</sub>-2, t<sub>q</sub>-1). A lower section illustrates the model's mechanics: "local" and "global historical facts modeling" feed into a prediction of future actions (e.g., Thailand's next move). The graph uses flags to represent countries and arrows to indicate actions. Blue bars represent relevance to the query. -->
 
 Fig. 1. An illustrative example highlighting the importance of capturing the historical information related to the query. The red arrows represent the most important facts associated with the query.
 
@@ -54,6 +55,7 @@ The studies of the historical fact repeating or cyclic pattern such as CyGNet [\
 patterns, such as TiRGN [\[11\]](#page-12-7) and HIPNet [\[12\]](#page-12-8), which integrate global and local final prediction results to restrict the prediction range and achieve promising performance. Yet, the performance of these methods is limited due to the following two challenges:
 
 ![](_page_1_Figure_1.jpeg)
+<!-- Image Description: The image contains two line graphs comparing the performance of four recommendation algorithms (REGCN, TiGRN, LogCL and their noisy counterparts) on two datasets (ICEWS14 and ICEWS18). The x-axis represents evaluation metrics (MRR, Hits@1, Hits@3, Hits@10), while the y-axis shows performance scores. Shaded regions likely indicate confidence intervals. The graphs illustrate the relative effectiveness of each algorithm under noisy and noise-free conditions across different ranking metrics. -->
 
 Fig. 2. The Comparison results of REGCN [\[9\]](#page-12-5), TiRGN [\[11\]](#page-12-7) and our LogCL change after adding gaussian noise on ICEWS14 and ICEWS18 datasets. Light green shading, light red shading, and light blue shading indicate the variation range of LogCL, TiRGN, and REGCN, respectively.
 
@@ -97,6 +99,7 @@ In this section, we will first introduce basic notations and definitions used in
 ####*A. Notations and Definitions*A TKG G is formalized as a sequence of KG snapshots, i.e., G = {G1, G2, ..., G|T |}. Each KG snapshot G<sup>t</sup> = (E, R, Ft) actually is a directed multi-relational graph that is a set of valid facts at t. A fact (or an event) is denoted as a quadruple (es, r, eo, t) where the subject entity e<sup>s</sup> ∈ E and the object
 
 ![](_page_3_Figure_0.jpeg)
+<!-- Image Description: This flowchart depicts a knowledge graph (KG) reasoning model. It processes global and local historical KG information (represented as graph sequences) using entity-aware attention encoders. A recurrent encoder processes local information. Contrastive training, comparing outputs from two encoders sharing weights, optimizes entity prediction (shown as a bar chart), minimizing reasoning and contrastive losses. The model's architecture is clearly illustrated, showing data flow and processing steps. -->
 
 Fig. 3. The overall architecture of LogCL, consists of three components: local entity-aware attention recurrent encoder, global entity-aware attention historical encoder, and local-global query contrast module.
 
@@ -121,6 +124,7 @@ TABLE I SUMMARY OF PRIMARY NOTATIONS.
 entity e<sup>o</sup> ∈ E is connected by a relation r ∈ R at time t ∈ T . The primary notations and their meanings used in this paper are described in Table I.**选题思路及研究 内容 主要方法**TKG extrapolation task involves forecasting a missing object entity (or subject entity ) given a query (eq, rq, ?, tq) (or (?, rq, eq, tq)) according to previous historical KG snapshots {G0, G1, ..., G<sup>t</sup>q−1}. Without loss of generality, the inverse relation quadruples (eo, r<sup>−</sup><sup>1</sup> , es, t) are added to the TKG dataset. So the TKG extrapolation task can be reduced to object entities predictions.**实验结果**####*B. Architecture Overview*As shown in Fig. 3, the overall framework of LogCL is composed of three components: global entity-aware attention encoder, local entity-aware recurrent encoder and local-global query contrast module. Local entity-aware attention recurrent encoder adopts an entity-aware attention mechanism to capture the necessary information related to queries for prediction. If facts in KG snapshots at the latest timestamps contain semantic information relevant to the queries, these facts will help to improve the probability of entity prediction. Global entity-aware attention encoder takes into account the global historical facts related to queries and avoids overlooking important historical facts that do not appear in the recent local KG snapshots. Local-global query contrast module is introduced to guide a better integration of global and local historical information and to enhance the robustness of LogCL. Finally, LogCL combines local and global historical embedding representations for entity prediction.
 
 ![](_page_3_Figure_9.jpeg)
+<!-- Image Description: The image presents two diagrams depicting encoder architectures for processing graph data. (a) shows a "Global Entity-Aware Attention Encoder," using RGCN (Relational Graph Convolutional Network) for global subgraph sampling followed by entity-aware attention. (b) illustrates a "Local Entity-Aware Attention Recurrent Encoder," incorporating RGCN, GRU (Gated Recurrent Unit), a time gate, mean pooling, and entity-aware attention, processing temporal information. Both diagrams use blocks representing layers and arrows showing data flow. They highlight the different approaches to encode graph information, one globally and one locally with a temporal component. -->
 
 Fig. 4. The architecture of our proposed global entity-aware attention encoder and local entity-aware attention recurrent encoder.
 
@@ -358,12 +362,14 @@ TABLE IV THE ABLATION STUDY RESULTS OF MRR AND HITS@1/3/10 ON ICEWS14, ICEWS18 A
 | LogCL-w/o-cl     | 46.84   | 35.62  | 52.44  | 69.05   | 35.32 | 24.04  | 40.00   | 57.62   | 56.85      | 45.83  | 63.61  | 77.81   |  |
 
 ![](_page_8_Figure_2.jpeg)
+<!-- Image Description: This figure displays three line graphs illustrating the performance of different variations of a LogCL model across varying variances. Each graph shows Mean Reciprocal Rank (MRR) and Hits@1 metrics, with and without noise, and with and without closed-class information. The shaded areas represent confidence intervals. The purpose is to demonstrate the model's robustness and sensitivity to variance under different conditions. -->
 
 (a) The results of different intensity of noise in ICEWS14 dataset (b) The results of different intensity of noise in ICEWS18 dataset (c) The results of different intensity of noise in ICEWS05-15 dataset
 
 Fig. 5. Study on the different intensity of noise on ICEWS14,ICEWS18 and ICEWS05-15 datasets on Hits@1 and MRR.
 
 ![](_page_8_Figure_5.jpeg)
+<!-- Image Description: The image presents two line graphs comparing Mean Reciprocal Rank (MRR) and Hits@3 metrics across different numbers of layers (1-4). The left graph shows consistently higher values than the right graph. Both graphs illustrate the performance of a model varying the number of layers, assessing the impact on MRR and Hits@3, key evaluation metrics likely for a ranking or recommendation system. -->
 
 (a) The results of different layers on ICEWS14 dataset (b) The results of different layers on ICEWS18 dataset
 
@@ -381,6 +387,7 @@ excellent performance exhibited by LogCL on ICEWS18 and GDELT datasets demonstra
 • Extrapolation models on all datasets perform better than interpolation and static models, mainly because static models do not consider temporal information and are difficult to capture the dynamic changes of entities and relations. For interpolation models, they only focus on the completion of historical missing facts and lack the ability to model the evolution of entities and relationships over time and predict future unseen facts.
 
 ![](_page_9_Figure_2.jpeg)
+<!-- Image Description: The image contains two bar charts comparing the performance of four different models (LogCL-gl, LogCL-lg, LogCL-gg, LogCL-II) on two datasets (ICEWS14 and ICEWS18). The left chart shows Hits@3 (a measure of retrieval accuracy), while the right chart displays Mean Reciprocal Rank (MRR), another evaluation metric for information retrieval. The charts illustrate the relative performance of the models across different datasets, allowing for a comparison of their effectiveness. -->
 
 (a) The MRR results under different query contrast strategies (b) The Hits@1 results under different query contrast strategies
 
@@ -391,12 +398,15 @@ Fig. 7. Study on different query contrast strategies on ICEWS14 and ICEWS18 data
 *2) Impact of Local Entity-Aware Attention Recurrent Encoder:*LogCL-G in Table IV is a variant of LogCL without modeling the recent local history at the adjacent timestamps. More specifically, the local entity-aware attention recurrent encoder is removed in LogCL-G. The scores of all entities are obtained by using the representation of entities from the global entity-aware attention encoder and the static relation embedding as the representation of the query relation. The results of LogCL-G in Table IV can be observed that ignoring the local entity-aware attention recurrent encoder can generate a great impact on the performances. Mainly because the recent local history contains rich information describing the behavior trends related to the query, which helps in the selection of the correct answer. Another observation is that the variant LogCL-L is superior to the variant LogCL-G, indicating that modeling the recent local entities and relations evolution is more effective than long historical information.
 
 ![](_page_9_Figure_10.jpeg)
+<!-- Image Description: The image contains two line graphs displaying the performance of a model (likely a recommendation system) across different values of a hyperparameter (λ). Both graphs plot Mean Reciprocal Rank (MRR) and Hits@3, two common information retrieval metrics, against λ. The graphs show how MRR and Hits@3 vary with changes in λ, allowing assessment of the optimal λ value for best model performance. The left graph likely represents results from one dataset or experimental condition, and the right graph from another. -->
 
 (a) The results of different λ on on ICEWS14 dataset (b) The results of different λ on ICEWS18 dataset
 
 ![](_page_9_Figure_12.jpeg)
+<!-- Image Description: Figure 8 is a caption describing a study on parameter λ using ICEWS14 and ICEWS18 datasets. The caption lacks a visual; it only indicates that the figure contains an analysis of the parameter lambda across two specified datasets. No diagrams, charts, graphs, or equations are present in the provided caption. -->
 
 ![](_page_9_Figure_13.jpeg)
+<!-- Image Description: The image contains two line graphs displaying the performance of a model across different values of a parameter τ. Each graph plots Mean Reciprocal Rank (MRR) and Hits@3, two standard information retrieval metrics. The left graph shows results for one dataset, and the right graph shows results for a second dataset. The graphs illustrate how MRR and Hits@3 vary with changes in τ, allowing analysis of optimal parameter settings for each dataset. -->
 
 (a) The results of different temperature coefficient τ on ICEWS14 dataset (b) The results of different temperature coefficient τ on ICEWS18 dataset
 
@@ -420,6 +430,7 @@ TABLE V THE ABLATION EXPERIMENT RESULTS OF MRR AND HITS@1 ON ICEWS14, ICEWS18 AN
 *1) Analysis of the Parameter*λ*:*To explore the parameter λ that is used to trade off global and local representations
 
 ![](_page_10_Figure_7.jpeg)
+<!-- Image Description: The image contains two bar charts comparing the performance of three methods (LogCL, RETIA, CEN) on three datasets (ICEWS14, ICEWS18, ICEWS05-15). The left chart displays Mean Reciprocal Rank (MRR), while the right chart shows Hits@1, both common metrics for evaluating information retrieval systems. The charts illustrate the relative effectiveness of each method across different datasets, allowing for a comparative analysis of their performance. -->
 
 (a) The MRR results under online learning (b) The Hits@1 results under online learning
 

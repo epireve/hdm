@@ -1,6 +1,7 @@
 ---
 cite_key: "lim_2010_key_management_for_la"
-title: "**Key Management for Large-Scale Distributed Storage Systems**"
+title: "Key Management for Large-Scale Distributed Storage Systems"
+authors: "Hoon Wei Lim"
 year: 2009
 date_processed: "2025-07-02"
 phase2_processed: true
@@ -71,6 +72,7 @@ Our proposal of a file system security architecture (FSSA) is based on the curre
 proposals, however, we emphasise simplified, lightweight k[ey](#page-4-0) management and improved usability in our approach. [In F](#page-7-0)SSA, a client does not make use of longterm cryptographic keys when accessing data on storage devices. All is assumed, from the client's perspective, is that it needs to share a secret, *i.e.* password, with its metadata server. The client then interacts with the storage devices using only short-term cryptographic keys, which in turn, will be destroyed at the end of a session. We also assume that each storage device pre-distributes some keying material to the metadata server when it is first added to the system. Figure 1 gives an overview of our security architecture. We will explain the steps involved in requesting and accessing files using FSSA in Section 3.3.
 
 ![](_page_4_Figure_2.jpeg)
+<!-- Image Description: The diagram illustrates a secure file access system. A user (client) requests a file (1), the metadata server provides a capability (2), and the storage device returns the requested file (4) after receiving an I/O request and the capability (3). The dashed line shows the initial transfer of key material (0) to the storage device. The image details the flow of information and capabilities required for secure file access. -->
 
 <span id="page-4-0"></span>**Fig. 1.**Architectural view of FSSA
 
