@@ -1,22 +1,32 @@
 ---
-cite_key: privacy_2024
-title: Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices
-authors: Usable Privacy, Haozhe Zhou
+cite_key: "privacy_2024"
+title: "Bring Privacy To The Table: Interactive Negotiation for Privacy Settings of Shared Sensing Devices (ThingPoll)"
+authors: "Usable Privacy, Haozhe Zhou"
 year: 2024
-doi: 10.1145/3613904.3642897
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: chi_2024_thingpoll_privacy_iot_negotiation
-images_total: 9
-images_kept: 8
-images_removed: 1
+doi: "10.1145/3613904.3642897"
+url: "https://dl.acm.org/doi/10.1145/3613904.3642897"
+relevancy: "High"
+tldr: "Interactive privacy negotiation system for shared IoT devices that enables multi-user privacy configuration through strategic scaffolding and context-aware suggestions."
+insights: "Achieves 97.5% agreement rate in privacy negotiations with 83.3% user satisfaction through strategic scaffolding, context-aware suggestions, and crowdsourced preference models, completing negotiations in average 3.27 minutes."
+summary: "This paper presents ThingPoll, an interactive system that helps users negotiate privacy configurations for IoT devices in shared settings. The system addresses privacy concerns arising when multiple stakeholders share IoT devices by strategically scaffolding the negotiation process through eliciting privacy preferences, providing helpful contexts, and suggesting feasible configuration options. The approach bootstraps a preference model from a custom crowdsourced privacy preferences dataset and identifies successful negotiation patterns from observational studies."
+research_question: "How can interactive systems effectively facilitate privacy negotiations for IoT devices in shared settings while ensuring user satisfaction and efficient agreement processes?"
+methodology: "Observational study with 12 participants for negotiation pattern analysis, user study with 30 participants evaluating privacy settings for 4 devices, crowdsourced privacy preference dataset development, comparative analysis with baseline approaches."
+key_findings: "Achieved 97.5% agreement rate in negotiation scenarios, average negotiation time of 3.27 minutes, 83.3% user satisfaction compared to baseline approaches, identified successful negotiation patterns from observational data."
+limitations: "Limited to specific research context, potential scalability challenges with larger numbers of users or devices, evaluation focused on controlled laboratory settings rather than real-world deployments."
+conclusion: "Demonstrates that interactive negotiation systems can effectively facilitate privacy configuration in shared IoT environments with high user satisfaction and agreement rates."
+future_work: "Expand privacy negotiation frameworks to more complex multi-user scenarios, evaluate real-world deployment effectiveness, integrate with commercial IoT platforms, develop adaptive negotiation strategies."
+implementation_insights: "Provides practical framework for implementing privacy-preserving device integration in HDM systems, particularly relevant for multi-user environments and shared personal data scenarios requiring collaborative privacy management."
 tags:
-- IoT
-- Knowledge Graph
-- Machine Learning
-- Privacy
-keywords:
-- internet of things
+  - "IoT"
+  - "Knowledge Graph"
+  - "Machine Learning"
+  - "Privacy"
+date_processed: "2025-07-02"
+phase2_processed: "true"
+original_folder: "chi_2024_thingpoll_privacy_iot_negotiation"
+images_total: "9"
+images_kept: "8"
+images_removed: "1"
 ---
 
 

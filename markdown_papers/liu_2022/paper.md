@@ -18,14 +18,6 @@ tags:
 - Semantic Web
 - Temporal
 keywords:
-- 1 embedding analysis
-- 1 introduction
-- 1 system architecture
-- 2 the urban knowledge graph system
-- 2 urbankg construction
-- 2 use cases analysis
-- 3 evaluation
-- 4 conclusion
 - SDK
 - UbiComp
 - accuracy
@@ -46,8 +38,6 @@ keywords:
 - graph-based
 - graph-based application
 - ontology
-- performance
-- precision
 ---
 
 
