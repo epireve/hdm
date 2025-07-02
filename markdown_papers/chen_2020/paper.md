@@ -3,29 +3,29 @@ cite_key: chen_2020
 title: A Survey on Collaborative Mechanisms Between Large and Small Language Models
 authors: Yi Chen, JiaHao Zhao, HaoHao Han, Computer Applications
 year: 2020
-date_processed: '2025-07-02'
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - federated
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - personal
+  - privacy
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: collaborative_llm_slm_survey_2024
 images_total: 7
 images_kept: 7
 images_removed: 0
-tags:
-- Cloud Computing
-- IoT
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Privacy
-- Semantic Web
-keywords:
-- inter-model
-- large language models
-- llm
-- llm-slm
-- on-device
-- resource-constrained
-- small language models
-- trade-offs
+keywords: 
 ---
 
 

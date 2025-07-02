@@ -3,29 +3,24 @@ cite_key: chakraborty_2022
 title: Personal Research Knowledge Graphs
 authors: Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal
 year: 2022
-date_processed: '2025-07-02'
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - knowledge_graph
+  - machine_learning
+  - personal
+  - privacy
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2204.11428_Personal_Research_Knowledge_Graphs
 images_total: 4
 images_kept: 4
 images_removed: 0
-tags:
-- COVID-19
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Privacy
-- Recommendation System
-- Semantic Web
-- Temporal
-keywords:
-- co-principal
-- data augmentation
-- deep learning
-- document-level
-- domain-specific
-- end-user
-- entity linking
+keywords: 
 ---
 
 # Personal Research Knowledge Graphs

@@ -4,18 +4,29 @@ title: Universal Digital Twin - A Dynamic Knowledge Graph
 authors: Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft
 year: 2021
 doi: 10.17863/CAM.32260
-date_processed: '2025-07-02'
+url: https://doi.org/10.17863/cam.32260
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - digital_twin
+  - federated
+  - healthcare
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - medicine_access
+  - memory
+  - ontology
+  - sdg
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Akroyd-2021-Universal-digital-twin
-keywords:
-- cross-domain
-- digital twin
-- digital twins
-- dynamic knowledge graph
-- knowledge graph
-- knowledge-graph
-- real-time
-- semantic web
+keywords: 
 ---
 a-dynamic-
 images_total: 15

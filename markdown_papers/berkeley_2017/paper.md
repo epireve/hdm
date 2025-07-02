@@ -3,23 +3,19 @@ cite_key: berkeley_2017
 title: Quality and Relevance Metrics for Selection of Multimodal Pretraining Data
 authors: Roshan Rao UC Berkeley
 year: 2017
-date_processed: '2025-07-02'
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - machine_learning
+  - semantic
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: cvf_open_access_d096d1c4_Quality_and_Relevance_Metrics_for_Selection_of_Multimodal_Pretraining_Data
 images_total: 5
 images_kept: 4
 images_removed: 1
-tags:
-- Machine Learning
-- Natural Language Processing
-keywords:
-- billion-image
-- ice-comments
-- ice-title
-- natural language processing
-- question answering
-- self-supervised
-- tf-idf
+keywords: 
 ---
 
 

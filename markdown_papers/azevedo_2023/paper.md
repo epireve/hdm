@@ -1,26 +1,30 @@
 ---
-cite_key: "azevedo_2023"
+cite_key: azevedo_2023
 title: A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores
 authors: Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno
 year: 2023
 doi: 10.1007/s00778-017-0474-5
-date_processed: '2025-07-02'
+url: https://doi.org/10.1007/s00778-017-0474-5
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - federated
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - ontology
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2308.03584_A_Polystore_Architecture_Using_Knowledge_Graphs_to
 images_total: 13
 images_kept: 13
 images_removed: 0
-tags:
-- Biomedical
-- Data Integration
-- Federated Learning
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- knowledge graph
-- data heterogeneity
+keywords: 
 ---
 
 

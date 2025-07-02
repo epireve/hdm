@@ -1,8 +1,8 @@
 ---
-cite_key: saad_2017
+cite_key: saad_2025
 title: SENAI: Towards Software Engineering Native Generative Artificial Intelligence
 authors: Mootez Saad
-year: 2017
+year: 2025
 doi: 10.1145/nnnnnnn.nnnnnnn
 date_processed: '2025-07-02'
 phase2_processed: true

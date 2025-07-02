@@ -3,44 +3,27 @@ cite_key: challenges_2005
 title: MARK: Memory Augmented Refinement of Knowledge
 authors: To overcome these challenges
 year: 2005
-date_processed: '2025-07-02'
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - healthcare
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - personal
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_arxiv_2505.05177_MARK_Memory_Augmented_Refinement_of_Knowledge
 images_total: 6
 images_kept: 6
 images_removed: 0
-tags:
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-- Temporal
-keywords:
-- cold-start
-- domain-specific
-- enablemulti-turn
-- enterprise-level
-- fine-tuning
-- general-purpose
-- high-accuracy
-- high-risk
-- high-stakes
-- high-usage
-- human-agent
-- knowledge-firstapproach
-- large language models
-- lifecycle-driven
-- llm
-- long-standing
-- long-term
-- memory-based
-- memory-driven
-- multi-turn
-- ourmemory-augmented
-- pre-trained
-- rag
-- rag-based
-- re-ranked
+keywords: 
 ---
 
 

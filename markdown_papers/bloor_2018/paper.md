@@ -3,55 +3,27 @@ cite_key: bloor_2018
 title: Towards a Personal Health Knowledge Graph Framework for Patient Monitoring
 authors: Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu
 year: 2018
-date_processed: '2025-07-02'
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - memory
+  - ontology
+  - personal
+  - semantic
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_phkg_framework_2023
 images_total: 3
 images_kept: 3
 images_removed: 0
-tags:
-- Biomedical
-- Data Integration
-- Electronic Health Records
-- Healthcare
-- IoT
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Personal Health
-- Personalized Medicine
-- Semantic Web
-keywords:
-- 1 data
-- 1 introduction
-- 2 data harmonization
-- 2 methods
-- 2 proposed framework and implementation
-- 3 results
-- 4 conclusion
-- API
-- AlertGra
-- BERT
-- EHR
-- McGuinness
-- MedCat
-- NLP
-- OntoMongo
-- SubClassOf
-- accuracy
-- application programming interface
-- artificial intelligence
-- availability of data and materials
-- bidirectional encoder representations from transformers
-- ceur workshop proc
-- clinical data
-- clinical decision support
-- co-located
-- date-range
-- document-store
-- easy-to-understand
-- electronic health record
-- fine-tuning
+keywords: 
 ---
 
 # Towards a Personal Health Knowledge Graph Framework for Patient Monitoring

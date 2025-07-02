@@ -4,49 +4,30 @@ title: An open source knowledge graph ecosystem for the life sciences
 authors: Tifany J. Callahan, Ignacio J. Tripodi, Adrianne L. Stefanski, Luca Cappelletti, Sanya B. Taneja, Jordan M. Wyrwa, Elena Casiraghi, Nicolas A. Matentzoglu, Justin Reese, Jonathan C. Silverstein, Charles Tapley Hoyt, Richard D. Boyce, Scott A. Malec, Deepak R. Unni, Marcin P. Joachimiak, Peter N. Robinson, Christopher J. Mungall, Emanuele Cavalleri, Tommaso Fontana, Giorgio Valentini, Marco Mesiti, Lucas A. Gillenwater, Brook Santangelo, Nicole A. Vasilevsky, Robert Hoehndorf, Tellen D. Bennett, Patrick B. Ryan, George Hripcsak, Michael G. Kahn, Michael Bada, William A. Baumgartner Jr✉& Lawrence E. Hunter
 year: 2024
 doi: 10.1101/2023.02.11.528088
-date_processed: '2025-07-02'
+url: https://doi.org/10.1101/2023.02.11.528088
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - children
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - memory
+  - ontology
+  - pediatric
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Callahan-2024-An-open-source-knowledge-graph-ecos
 images_total: 8
 images_kept: 7
 images_removed: 1
-tags:
-- Biomedical
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- API
-- AnacletoLab
-- BioCreative
-- BioCyphe
-- BioCypher
-- BioGrakn
-- BioLin
-- BioMolecular
-- ClinVar
-- DeLong
-- actions-scheduled
-- additional information
-- ai-platform
-- all-some
-- and learning
-- application programming interface
-- archive-based
-- archive-based data
-- archived-builds
-- artificial intelligence
-- author contributions
-- bancherd-delong
-- based learning
-- benchmark kgs
-- bg-integration
-- biomedical-knowledge-integration
-- bmc bioinformatics
-- build data sources
-- cell nucleus
-- cell syst
+keywords: 
 ---
 
 **OPEN**

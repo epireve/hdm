@@ -4,50 +4,28 @@ title: CONNECTED: leveraging digital twins and personal knowledge graphs in heal
 authors: Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone
 year: 2023
 doi: 10.3389/fdgth.2023.1322428
-date_processed: '2025-07-02'
+url: https://doi.org/10.3389/fdgth.2023.1322428
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - digital_twin
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - personal
+  - privacy
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: frontiers_connected_dt_pkg
 images_total: 2
 images_kept: 2
 images_removed: 0
-tags:
-- Data Integration
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Personalized Medicine
-- Semantic Web
-keywords:
-- 1 level 1 source
-- 2 level 2 standard
-- 3 level 3 digital twin
-- 4 level 4 application
-- AdverseEvent
-- EHR
-- HeartFlow
-- McCourt
-- McGuinness
-- MedicationStatement
-- access-control
-- ad-hoc
-- agent-based
-- agent-based dts
-- architectural frameworks for digital twins
-- artificial intelligence
-- asynchronous
-- author contributions
-- best-suited
-- citation
-- clinical data
-- cloud-based
-- cloud-based framework
-- conflict of interest
-- copyright
-- corral-acero
-- cyber-physical
-- data availability statement
-- decision-making
-- discussion
+keywords: 
 ---
 
 EDITED BY Lina F. Soualmia, Université de Rouen, France

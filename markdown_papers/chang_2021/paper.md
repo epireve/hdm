@@ -6,30 +6,26 @@ year: 2021
 doi: 10.48550/arXiv.2106.14226
 url: https://arxiv.org/abs/2106.14226
 relevancy: High
-downloaded: 'Yes'
+relevancy_justification: Tangentially related to knowledge management or data systems
 tags:
-- Sequential Recommendation
-- Graph Neural Networks
-- Interest Clustering
-- User Modeling
-- Noise Handling
-tldr: Graph neural network approach for sequential recommendation that clusters user
-  interests and handles noisy behavioral signals
-date_processed: '2025-07-02'
+  - ai
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - memory
+  - personal
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2021_sequential_recommendation_gnn_surge
+downloaded: Yes
+tldr: Graph neural network approach for sequential recommendation that clusters user
 images_total: 4
 images_kept: 4
 images_removed: 0
-keywords:
-- cluster-aware
-- item-item
-- long-term
-- neural network
-- neural networks
-- query-aware
-- re-constructing
-- state-of-the-art
+keywords: 
 ---
 
 

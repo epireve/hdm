@@ -4,51 +4,30 @@ title: ArticleCapturing Semantic Relationships in Electronic Health Records Usin
 authors: Bader Aldughayfiq, Farzeen Ashfaq
 year: 2023
 doi: 10.3390/healthcare11121762
-date_processed: '2025-07-02'
+url: https://doi.org/10.3390/healthcare11121762
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - digital_twin
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - ontology
+  - personal
+  - privacy
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: mdpi_mimic_graphdb
 images_total: 14
 images_kept: 10
 images_removed: 4
-tags:
-- Electronic Health Records
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Personal Health
-- Privacy
-- Semantic Web
-keywords:
-- 1 introduction
-- AgroPortal
-- AgroTagger
-- CareGivers
-- CodeableConcept
-- CrossRef
-- EHR
-- FolkScope
-- GoodRelations
-- MacLean
-- McGuinness
-- abu-salih
-- al-tawil
-- artificial intelligence
-- aspirin therapy
-- at-risk
-- berners-lee
-- billion-scale
-- blood clots
-- built-in
-- burgstaller-muehlbacher
-- chest pain
-- click-through
-- clinical data
-- clinical decision support
-- comma-separated
-- coronary artery disease
-- cross-lingual
-- cyber-physical
-- data-driven
+keywords: 
 ---
 
 

@@ -4,52 +4,25 @@ title: ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool
 authors: Fernando Beltran
 year: 2023
 doi: 10.3390/fi15030111
-date_processed: '2025-07-02'
+url: https://doi.org/10.3390/fi15030111
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - healthcare
+  - integration
+  - machine_learning
+  - memory
+  - personal
+  - privacy
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: mdpi_future_internet_15_3_111
 images_total: 7
 images_kept: 3
 images_removed: 4
-tags:
-- COVID-19
-- Decision Support
-- Electronic Health Records
-- Healthcare
-- IoT
-- Machine Learning
-- Mental Health
-- Personalized Medicine
-keywords:
-- 1 introduction
-- 2 related work
-- 42 prototype development
-- 43 prototype evaluation
-- CNN
-- CrossRef
-- DataFrame
-- DateTimeIndex
-- EMR
-- FitBit
-- LSTM
-- McKinsey
-- MedRxiv
-- PubMed
-- al-maroof
-- angle-base
-- anomaly detection
-- app-based
-- app-based study
-- articleco-design
-- at-risk
-- ben-assuli
-- built-in
-- classification-based
-- clinical data
-- closed-ended
-- clustering-based
-- clustering-based local
-- clustering-we
-- co-creation
+keywords: 
 ---
 
 

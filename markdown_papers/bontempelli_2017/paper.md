@@ -3,49 +3,24 @@ cite_key: bontempelli_2017
 title: Lifelong Personal Context Recognition1
 authors: Andrea Bontempelli, Marcelo Rodas Britez, Xiaoyue Li, Haonan Zhao, Luca Erculiani, Stefano Teso, Andrea Passerini, Fausto Giunchiglia
 year: 2017
-date_processed: '2025-07-02'
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - healthcare
+  - heterogeneous
+  - knowledge_graph
+  - machine_learning
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2205.10123_Lifelong_Personal_Context_Recognition
 images_total: 1
 images_kept: 1
 images_removed: 0
-tags:
-- Healthcare
-- IoT
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- DataScientia
-- DataSet
-- DiscovEring
-- McCarthy
-- McDermott
-- NLP
-- PerCom
-- a learning
-- active learning
-- and learning
-- any
-- artificial intelligence
-- author profiles
-- automated
-- bi-directionality
-- bidirectional
-- bidirectional interaction
-- chenu-abente
-- computer vision
-- concept drift
-- consistency-preserving
-- content-based
-- content-based image
-- deep learning
-- ego-centric
-- example-based
-- example-based explanations
-- guided learning
-- health-centered
-- human-ai
+keywords: 
 ---
 
 # Lifelong Personal Context Recognition<sup>1</sup>

@@ -6,32 +6,29 @@ year: 2023
 doi: 10.1145/3555312
 url: https://dl.acm.org/doi/10.1145/3555312
 relevancy: High
-downloaded: 'Yes'
+relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
-- Knowledge Graph Construction
-- Data Integration
-- SPARQL
-- Heterogeneous Data
-- Facade-X
-tldr: Unified framework for constructing knowledge graphs from heterogeneous web data
-  sources
-date_processed: '2025-07-02'
+  - ai
+  - children
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - llm
+  - memory
+  - ontology
+  - pediatric
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
-original_folder: '3555312'
+original_folder: 3555312
+downloaded: Yes
+tldr: Unified framework for constructing knowledge graphs from heterogeneous web data
 images_total: 13
 images_kept: 12
 images_removed: 1
-keywords:
-- data integration
-- facade-x
-- heterogeneous data
-- knowledge graph
-- knowledge graph construction
-- knowledge graphs
-- meta-model
-- sparql
-- state-of-the-art
-- well-established
+keywords: 
 ---
 
 

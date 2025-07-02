@@ -4,48 +4,26 @@ title: Mind the Gap: Two Dissociable Mechanisms of Temporal Processing in the Au
 authors: Lucy A. Anderson, Jennifer F. Linden
 year: 2016
 doi: 10.1523/JNEUROSCI.1652-15.2016
-date_processed: '2025-07-02'
+url: https://doi.org/10.1523/jneurosci.1652-15.2016
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - children
+  - healthcare
+  - integration
+  - llm
+  - machine_learning
+  - pediatric
+  - privacy
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: 1977.full
 images_total: 10
 images_kept: 10
 images_removed: 0
-tags:
-- Healthcare
-- IoT
-- Machine Learning
-- Temporal
-keywords:
-- CommonsAttribution
-- CrossRef
-- DeBlander
-- DeCola
-- LoTurco
-- McAlpine
-- McClure
-- McConahey
-- McFarland
-- age-related
-- analog-to-digital
-- baseline-subtracted
-- bin-by-bin
-- build-up
-- classification
-- click-evoked
-- co-occur
-- controls for effects of anesthesia
-- custom-made
-- differential privacy
-- e-mail
-- echo-locating
-- ectopia-induced
-- ectopia-like
-- element-wise
-- evoked-potential
-- exceptthattheweightingoftheoffset-sensitivechannel
-- experience-related
-- fifth-order
-- first-spike
+keywords: 
 ---
 
 # Systems/Circuits

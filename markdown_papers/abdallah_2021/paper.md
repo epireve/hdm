@@ -4,49 +4,25 @@ title: Towards a GML-Enabled Knowledge Graph Platform
 authors: Hussein Abdallah, Essam Mansour
 year: 2021
 doi: 10.1145/3447772
-date_processed: '2025-07-02'
+url: https://doi.org/10.1145/3447772
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - memory
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2303.02166_Towards_a_GML-Enabled_Knowledge_Graph_Platform
 images_total: 9
 images_kept: 9
 images_removed: 0
-tags:
-- Data Integration
-- Knowledge Graph
-- Machine Learning
-- Recommendation System
-- Semantic Web
-keywords:
-- API
-- BigQuery
-- ComplEx
-- DestinationNode
-- DistMult
-- HTTP
-- LinkPredictor
-- MaxMemory
-- MaxTime
-- ModelScore
-- a dblp
-- above-mentioned
-- acm sigir
-- acm sigmod
-- ad-hoc
-- addison-wesley
-- ai-enabled
-- al-kateb
-- almost-universal
-- application programming interface
-- artificial intelligence
-- as a service
-- auto-regressive
-- b the sparqlml as a service
-- billion-scale
-- cods-gcs
-- community-based
-- cross-lingual
-- data transformer
-- dblp-in-rdf
+keywords: 
 ---
 
 

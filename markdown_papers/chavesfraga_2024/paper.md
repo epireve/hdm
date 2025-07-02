@@ -1,24 +1,26 @@
 ---
-cite_key: "chavesfraga_2024"
-title: "Are Knowledge Graphs Ready for the Real World? Challenges and Perspectives"
-authors: "David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, Maria-Esther Vidal, Ana Iglesias-Molina, Dylan Van Assche"
+cite_key: chavesfraga_2024
+title: Are Knowledge Graphs Ready for the Real World? Challenges and Perspectives
+authors: David Chaves-Fraga, Oscar Corcho, Anastasia Dimou, Maria-Esther Vidal, Ana Iglesias-Molina, Dylan Van Assche
 year: 2024
-doi: "10.4230/DagRep.14.2.1"
+doi: 10.4230/DagRep.14.2.1
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
 tags:
-  - "Blockchain"
-  - "Data Integration"
-  - "Federated Learning"
-  - "Knowledge Graph"
-  - "Machine Learning"
-  - "Personal Health"
-  - "Privacy"
-  - "Semantic Web"
-date_processed: "2025-07-02"
-phase2_processed: "true"
-original_folder: "DagRep.14.2.1"
-images_total: "7"
-images_kept: "6"
-images_removed: "1"
+  - Blockchain
+  - Data Integration
+  - Federated Learning
+  - Knowledge Graph
+  - Machine Learning
+  - Personal Health
+  - Privacy
+  - Semantic Web
+date_processed: 2025-07-02
+phase2_processed: true
+original_folder: DagRep.14.2.1
+images_total: 7
+images_kept: 6
+images_removed: 1
 ---
 
 

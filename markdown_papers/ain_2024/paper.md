@@ -1,34 +1,28 @@
 ---
-cite_key: "ain_2024"
+cite_key: ain_2024
 title: Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs
 authors: Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann
 year: 2024
 doi: 10.1145/3636555.3636881
 url: https://dl.acm.org/doi/10.1145/3636555.3636881
 relevancy: High
-downloaded: 'Yes'
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
 tags:
-- Personal Knowledge Graphs
-- Educational Recommendation
-- Learner Modeling
-- User Control
-- Educational Technology
-tldr: Novel educational recommender system using student-controlled personal knowledge
-  graphs for semantically-enriched learner modeling and personalized resource recommendations
-date_processed: '2025-07-02'
+  - ai
+  - knowledge_graph
+  - machine_learning
+  - personal
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
-original_folder: '3636555.3636881'
+original_folder: 3636555.3636881
+downloaded: Yes
+tldr: Novel educational recommender system using student-controlled personal knowledge
 images_total: 6
 images_kept: 5
 images_removed: 1
-keywords:
-- content-based
-- knowledge graphs
-- pkg
-- pkg-based
-- recommender systems
-- semantically-enriched
-- user-centric
+keywords: 
 ---
 
 

@@ -3,6 +3,8 @@ cite_key: "xie_2022"
 title: "Enabling building digital twin: Ontology-based information management framework for multisource data integration"
 authors: X Xie, N Moretti, J Merino, J Y Chang, P Pauwels, A K Parlikad
 year: 202
+doi: 10.1088/1755-1315/1101/9/092010
+url: https://doi.org/10.1088/1755-1315/1101/9/092010
 ---
 
 ![](_page_0_Picture_1.jpeg)

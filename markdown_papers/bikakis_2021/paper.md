@@ -4,47 +4,30 @@ title: Pattern-based design applied to cultural heritage knowledge graphs
 authors: Editors:Antonis Bikakis, UK; Beatrice Markhoff, France; Alessandro Mosca, Italy; Stéphane Jean, France; Eero Hyvönen, FinlandSolicited review:Seven anonymous reviewers
 year: 2021
 doi: 10.3233/SW-200422
-date_processed: '2025-07-02'
+url: https://doi.org/10.3233/sw-200422
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - ontology
+  - personal
+  - privacy
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: bikakis-et-al-2020-pattern-based-design-applied-to-cultural-heritage-knowledge-graphs-arco-the-knowledge-graph-of
 images_total: 20
 images_kept: 20
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Semantic Web
-keywords:
-- 1 introduction
-- 61 functional and logical dimensions
-- AffixedElement
-- AgeOfDeathInterpretation
-- AgentRole
-- ArchaeologicalProperty
-- ArchitecturalOrLandscapeHeritage
-- ArtBiennale
-- AuthorshipAttribution
-- CatalogueRecord
-- CatalogueRecordVersion
-- CatalogueRecordVersions
-- a person cannot be a role
-- a root module acts as the
-- address and location
-- adit-ln
-- agent-role
-- ai magazine
-- an artist is a person
-- analogical learning
-- applied ontology
-- appropriateness of module size
-- architettura della conoscenza
-- arco-odp
-- arco-project
-- arco-release
-- arnolfini portrait
-- art biennale
-- artificial intelligence
-- artwork technical description
+keywords: 
 ---
 
 Semantic Web 12 (2021) 313–357 313 DOI 10.3233/SW-200422 IOS Press

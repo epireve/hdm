@@ -1,19 +1,21 @@
 ---
-cite_key: "abusalih_2023"
-title: "Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities"
-authors: "Bilal Abu-Salih, Muhammad AL-Qurishi, Mohammed Alweshah, Mohammad AL-Smadi, Reem Alfayez, Heba Saadeh"
+cite_key: abusalih_2023
+title: Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities
+authors: Bilal Abu-Salih, Muhammad AL-Qurishi, Mohammed Alweshah, Mohammad AL-Smadi, Reem Alfayez, Heba Saadeh
 year: 2023
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
 tags:
-  - "Healthcare"
-  - "Knowledge Graph"
-  - "Machine Learning"
-  - "Semantic Web"
-date_processed: "2025-07-02"
-phase2_processed: "true"
-original_folder: "healthcare_kg_construction_systematic_review_2023"
-images_total: "5"
-images_kept: "4"
-images_removed: "1"
+  - Healthcare
+  - Knowledge Graph
+  - Machine Learning
+  - Semantic Web
+date_processed: 2025-07-02
+phase2_processed: true
+original_folder: healthcare_kg_construction_systematic_review_2023
+images_total: 5
+images_kept: 4
+images_removed: 1
 ---
 
 <!-- cite_key: abu-salih2023b -->

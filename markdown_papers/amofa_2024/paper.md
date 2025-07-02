@@ -4,32 +4,28 @@ title: Blockchain-secure patient Digital Twin in healthcare using smart contract
 authors: Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao
 year: 2024
 doi: 10.1371/journal.pone.0286120
-date_processed: '2025-07-02'
+url: https://doi.org/10.1371/journal.pone.0286120
+relevancy: High
+relevancy_justification: Directly addresses HDM/PKG concepts with focus on personal data management
+tags:
+  - ai
+  - digital_twin
+  - healthcare
+  - heterogeneous
+  - integration
+  - llm
+  - machine_learning
+  - personal
+  - privacy
+  - semantic
+  - survey
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: plos_blockchain_dt
 images_total: 15
 images_kept: 14
 images_removed: 1
-tags:
-- Blockchain
-- Cloud Computing
-- Electronic Health Records
-- Healthcare
-- IoT
-- Machine Learning
-- Personal Health
-- Personalized Medicine
-- Privacy
-keywords:
-- blockchain
-- blockchain-secure
-- digital twin
-- digital twins
-- electronic medical records
-- emr
-- health data
-- personal health records
-- phr
+keywords: 
 ---
 
 

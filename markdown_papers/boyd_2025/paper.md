@@ -4,50 +4,26 @@ title: BMC Bioinformatics
 authors: Samuel S. Boyd, Chad Slawson, Jefrey A. Thompson
 year: 2025
 doi: 10.1186/s12859-025-06063-x.
-date_processed: '2025-07-02'
+url: https://doi.org/10.1186/s12859-025-06063-x.
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - healthcare
+  - heterogeneous
+  - integration
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - ontology
+  - semantic
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: bmc_bioinformatics_s12859-025-06063-x
 images_total: 13
 images_kept: 12
 images_removed: 1
-tags:
-- Biomedical
-- Cancer
-- Data Integration
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-keywords:
-- BioData
-- GitHub
-- KansasProQuest
-- McCormick
-- McHardy
-- MultiXrank
-- NetCore
-- OhmNet
-- acknowledgements
-- amend 20 new capabilities
-- amend-diablo
-- amendb-rwr
-- analysis-based
-- andrade-navarro
-- aracne-ap
-- author contributions
-- availability of data and materials
-- b-tfiid
-- benjamini-hochberg
-- beta-oxidation
-- bh-adjusted
-- biased random walk
-- biomarker
-- bmc bioinformatics
-- clinical data
-- closely-related
-- color-coded
-- column-normalization
-- column-normalized
-- column-normalizing
+keywords: 
 ---
 
 # RESEARCH

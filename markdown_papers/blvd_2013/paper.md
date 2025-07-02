@@ -3,50 +3,23 @@ cite_key: blvd_2013
 title: Temporal Reasoning in AI Systems
 authors: Abhishek Sharma3840 Far West Blvd
 year: 2013
-date_processed: '2025-07-02'
+relevancy: Low
+relevancy_justification: Tangentially related to knowledge management or data systems
+tags:
+  - ai
+  - healthcare
+  - knowledge_graph
+  - machine_learning
+  - ontology
+  - semantic
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: temporal_cognitive_arxiv_2502.00020_Temporal_Reasoning_in_AI_systems
 images_total: 1
 images_kept: 1
 images_removed: 0
-tags:
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Semantic Web
-- Temporal
-keywords:
-- AlbertEinstein
-- BillClinton
-- BiologicalLivingObject
-- ComputerScientist
-- DayFn
-- FemaleHuman
-- FemaleInfant
-- FrequentPerformerFn
-- HumanAdult
-- HumanInfant
-- abhishek sharma
-- analysis-related
-- and learning
-- application-specific
-- artificial intelligence
-- bidirectional projection
-- cognitive science
-- computational intelligence
-- conclusions and discussion
-- discrete-time
-- domain-specific
-- event calculus in temporal projection
-- event-type
-- experimental evaluation
-- figure 2 algorithm used for temporal projection
-- generation learning
-- graph-based
-- graph-based reasoning
-- hazard function
-- in learning
+keywords: 
 ---
 
 # Temporal Reasoning in AI Systems

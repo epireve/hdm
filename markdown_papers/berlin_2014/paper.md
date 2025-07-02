@@ -3,49 +3,22 @@ cite_key: berlin_2014
 title: Benchmarking Scalability and Elasticity of Distributed Database Systems
 authors: Markus Klems Technische Universitat Berlin ¨ Information Systems Engineering Group Berlin, Germany mk@ise.tu-berlin.de
 year: 2014
-date_processed: '2025-07-02'
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - federated
+  - integration
+  - knowledge_graph
+  - machine_learning
+  - memory
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Kuhlenkamp-2014-Benchmarking-scalability-and-elasti
 images_total: 22
 images_kept: 22
 images_removed: 0
-tags:
-- Blockchain
-- Cloud Computing
-- Federated Learning
-- Knowledge Graph
-- Machine Learning
-keywords:
-- 1 distributed database systems under test
-- 1 hbase
-- 1 selected experiment
-- 1 server instance memory experiments
-- 2 cassandra
-- 2 reproduction of the experiment
-- 2 scaling distributed database systems
-- 2 server instance cpu experiments
-- 3 ec2 storage setup experiments
-- 3 performance metrics
-- 3 ycsb benchmarking tool
-- 4 results and comparison
-- 5 varying throughput
-- 6 discussion
-- 7 extension of experiment scope
-- BigTable
-- BigTableinspired
-- ConsistencyLevel
-- DeCandia
-- InfiniBand
-- NoDerivs
-- NonCommercial
-- asynchronous
-- attribution-noncommercial-noderivs
-- background
-- big-table
-- bigtable-style
-- by-nc-nd
-- classification
-- client-side
+keywords: 
 ---
 
 # Benchmarking Scalability and Elasticity of Distributed Database Systems

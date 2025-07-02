@@ -4,26 +4,26 @@ title: Temporal Knowledge Graph Completion with Time-sensitive Relations in Hype
 authors: Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan
 year: 2023
 doi: 10.1007/3-540-44503-X_27
-date_processed: '2025-07-02'
+url: https://doi.org/10.1007/3-540-44503-x_27
+relevancy: Medium
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tags:
+  - ai
+  - heterogeneous
+  - knowledge_graph
+  - llm
+  - machine_learning
+  - memory
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2403.02355_Temporal_Knowledge_Graph_Completion_with_Time-sensitive_Relations_in_Hypercomplex_Space
 images_total: 3
 images_kept: 3
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Recommendation System
-- Semantic Web
-- Temporal
-keywords:
-- knowledge graph
-- knowledge graph completion
-- quaternion-based
-- state-of-the-art
-- temporal knowledge graph
-- time-aware
-- time-sensitive
+keywords: 
 ---
 
 
