@@ -1,14 +1,19 @@
 ---
-cite_key: "rilling2000"
-title: "BEYOND INFORMATION SILOS — AN OMNIPRESENT APPROACH TO SOFTWARE EVOLUTION"
-authors: "JUERGEN RILLING∗, RENE WITTE ´ † and PHILIPP SCHUEGERL‡"
+cite_key: rilling_2000
+title: BEYOND INFORMATION SILOS — AN OMNIPRESENT APPROACH TO SOFTWARE EVOLUTION
+authors: JUERGEN RILLING∗, RENE WITTE ´ , PHILIPP SCHUEGERL
 year: 2000
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "rilling2008"
+original_folder: rilling2008
 images_total: 15
 images_kept: 14
 images_removed: 1
+tags:
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 

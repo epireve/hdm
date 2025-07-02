@@ -1,15 +1,25 @@
 ---
-cite_key: "zhangsupsup2023"
-title: "REVIEWED BY"
-authors: "Ilya Shmulevich"
+cite_key: shmulevich_2023
+title: REVIEWED BY
+authors: Ilya Shmulevich
 year: 2023
-doi: "10.3389/fdgth.2024.1336050"
-date_processed: "2025-07-02"
+doi: 10.3389/fdgth.2024.1336050
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "frontiers_dt_diabetes"
+original_folder: frontiers_dt_diabetes
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Biomedical
+- Cancer
+- Healthcare
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Personalized Medicine
+- Semantic Web
 ---
 
 EDITED BY Tjalf Ziemssen, University Hospital Carl Gustav Carus, Germany

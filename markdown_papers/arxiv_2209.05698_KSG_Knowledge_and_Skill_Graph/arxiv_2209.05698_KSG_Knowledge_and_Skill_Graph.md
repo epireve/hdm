@@ -1,15 +1,21 @@
 ---
-cite_key: "hangzhou2022"
-title: "KSG: Knowledge and Skill Graph"
-authors: "Donglin Wang, Feng Zhao, Knowledge Graph"
+cite_key: wang_2022
+title: 'KSG: Knowledge and Skill Graph'
+authors: Donglin Wang, Feng Zhao, Knowledge Graph
 year: 2022
-doi: "10.1145/3511808.3557623"
-date_processed: "2025-07-02"
+doi: 10.1145/3511808.3557623
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2209.05698_KSG_Knowledge_and_Skill_Graph"
+original_folder: arxiv_2209.05698_KSG_Knowledge_and_Skill_Graph
 images_total: 8
 images_kept: 8
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # KSG: Knowledge and Skill Graph

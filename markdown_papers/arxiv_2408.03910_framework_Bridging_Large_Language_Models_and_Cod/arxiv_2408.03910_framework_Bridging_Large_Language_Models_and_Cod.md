@@ -1,15 +1,19 @@
 ---
-cite_key: "arxiv_240803910_framework_brid"
-title: "CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases"
-authors: "Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Shieh, Wenmeng Zhou"
+cite_key: hu_2021
+title: 'CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code
+  Graph Databases'
+authors: Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Shieh, Wenmeng Zhou
 year: 2021
-doi: "10.1561/1500000019."
-date_processed: "2025-07-02"
+doi: 10.1561/1500000019.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2408.03910_framework_Bridging_Large_Language_Models_and_Cod"
+original_folder: arxiv_2408.03910_framework_Bridging_Large_Language_Models_and_Cod
 images_total: 11
 images_kept: 9
 images_removed: 2
+tags:
+- Machine Learning
+- Semantic Web
 ---
 
 # CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases

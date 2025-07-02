@@ -1,15 +1,24 @@
 ---
-cite_key: "bai2023"
-title: "LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong"
-authors: "Additional Key Words"
+cite_key: words_2023
+title: LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University,
+  Hong Kong
+authors: Additional Key Words
 year: 2023
-doi: "10.1109/NaNA53684.2021.00062"
-date_processed: "2025-07-02"
+doi: 10.1109/NaNA53684.2021.00062
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2412.06157_Membership_Inference_Attacks_and_Defenses_in_Federated_Learning_A_Survey"
+original_folder: arxiv_2412.06157_Membership_Inference_Attacks_and_Defenses_in_Federated_Learning_A_Survey
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Blockchain
+- Federated Learning
+- Healthcare
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Privacy
 ---
 
 LI BAI, HAIBO HU, QINGQING YE, and HAOYANG LI, The Hong Kong Polytechnic University, Hong Kong

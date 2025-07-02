@@ -1,22 +1,24 @@
 ---
-cite_key: "chang2021"
-title: "Sequential Recommendation with Graph Neural Networks"
-authors: "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
+cite_key: chang_2021
+title: Sequential Recommendation with Graph Neural Networks
+authors: Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng
+  Jin, Yong Li
 year: 2021
-doi: "10.48550/arXiv.2106.14226"
-url: "https://arxiv.org/abs/2106.14226"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2106.14226
+url: https://arxiv.org/abs/2106.14226
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Sequential Recommendation"
-  - "Graph Neural Networks"
-  - "Interest Clustering"
-  - "User Modeling"
-  - "Noise Handling"
-tldr: "Graph neural network approach for sequential recommendation that clusters user interests and handles noisy behavioral signals"
-date_processed: "2025-07-02"
+- Sequential Recommendation
+- Graph Neural Networks
+- Interest Clustering
+- User Modeling
+- Noise Handling
+tldr: Graph neural network approach for sequential recommendation that clusters user
+  interests and handles noisy behavioral signals
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2021_sequential_recommendation_gnn_surge"
+original_folder: arxiv_2021_sequential_recommendation_gnn_surge
 images_total: 4
 images_kept: 4
 images_removed: 0

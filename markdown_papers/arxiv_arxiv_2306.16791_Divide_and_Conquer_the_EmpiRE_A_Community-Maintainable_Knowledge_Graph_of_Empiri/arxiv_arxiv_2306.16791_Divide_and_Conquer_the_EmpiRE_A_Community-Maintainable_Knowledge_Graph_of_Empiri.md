@@ -1,15 +1,21 @@
 ---
-cite_key: "oliverkarras2020"
-title: "Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of Empirical Research in Requirements Engineering"
-authors: "Oliver Karras"
+cite_key: karras_2020
+title: 'Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of
+  Empirical Research in Requirements Engineering'
+authors: Oliver Karras
 year: 2020
-doi: "10.48366/r255464)"
-date_processed: "2025-07-02"
+doi: 10.48366/r255464)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2306.16791_Divide_and_Conquer_the_EmpiRE_A_Community-Maintainable_Knowledge_Graph_of_Empiri"
+original_folder: arxiv_arxiv_2306.16791_Divide_and_Conquer_the_EmpiRE_A_Community-Maintainable_Knowledge_Graph_of_Empiri
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Decision Support
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # Divide and Conquer the EmpiRE: A Community-Maintainable Knowledge Graph of Empirical Research in Requirements Engineering

@@ -1,14 +1,17 @@
 ---
-cite_key: "clark2001"
-title: "Knowledge Patterns"
-authors: "Peter Clark 1 , John Thompson 1, Bruce Porter, Knowledge Systems, Texas Austin"
+cite_key: clark_2001
+title: Knowledge Patterns
+authors: Peter Clark, John Thompson, Bruce Porter, Knowledge Systems, Texas Austin
 year: 2001
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2005.04306_Knowledge_Patterns"
+original_folder: arxiv_2005.04306_Knowledge_Patterns
 images_total: 8
 images_kept: 8
 images_removed: 0
+tags:
+- Machine Learning
+- Semantic Web
 ---
 
 # Knowledge Patterns

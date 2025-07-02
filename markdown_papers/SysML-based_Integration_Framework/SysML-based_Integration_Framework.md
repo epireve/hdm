@@ -1,14 +1,16 @@
 ---
-cite_key: "sysml_based_integration_framew"
-title: "A SysML-based Integration Framework for the Engineering of Mechatronic Systems"
-authors: "Mohammad Chami"
+cite_key: chami_2003
+title: A SysML-based Integration Framework for the Engineering of Mechatronic Systems
+authors: Mohammad Chami
 year: 2003
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "SysML-based_Integration_Framework"
+original_folder: SysML-based_Integration_Framework
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Machine Learning
 ---
 
 # A SysML-based Integration Framework for the Engineering of Mechatronic Systems

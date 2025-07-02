@@ -1,15 +1,19 @@
 ---
-cite_key: "abbas2019"
-title: "Knowledge Graphs Evolution and Preservation"
-authors: "A Technical Report from ISWS"
+cite_key: isws_2019
+title: Knowledge Graphs Evolution and Preservation
+authors: A Technical Report from ISWS
 year: 2019
-doi: "10.1007/978-3-642-41338-4"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-642-41338-4
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2012.11936_Knowledge_Graphs_Evolution_and_Preservation_-_A_Te"
+original_folder: arxiv_2012.11936_Knowledge_Graphs_Evolution_and_Preservation_-_A_Te
 images_total: 28
 images_kept: 26
 images_removed: 2
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 <span id="page-0-0"></span>

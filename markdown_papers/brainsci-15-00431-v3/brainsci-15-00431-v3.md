@@ -1,15 +1,21 @@
 ---
-cite_key: "castillo-escamilla2025"
-title: "ArticleThe Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women"
-authors: "Temporal Cognitive Processing in Young Women"
-year: 2025
-doi: "10.3390/brainsci15050431)"
-date_processed: "2025-07-02"
+cite_key: castillo-escamilla_2024
+title: The Role of Physical Activity on Spatial and Temporal Cognitive Processing
+  in Young Women
+authors: Joaquín Castillo-Escamilla, María del Mar Salvador-Viñas, José Manuel Cimadevilla
+year: 2024
+doi: 10.3390/brainsci15050431
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "brainsci-15-00431-v3"
+original_folder: brainsci-15-00431-v3
 images_total: 12
 images_kept: 9
 images_removed: 3
+tags:
+- Knowledge Graph
+- Machine Learning
+- Mental Health
+- Temporal
 ---
 
 <!-- cite_key: castillo-escamilla2025 -->

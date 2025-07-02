@@ -1,22 +1,24 @@
 ---
-cite_key: "bellomarini2024"
-title: "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility∗"
-authors: "Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati"
+cite_key: bellomarini_2024
+title: Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility∗
+authors: Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela
+  Samarati
 year: 2024
-doi: "10.48550/arXiv.2410.12418"
-url: "https://arxiv.org/abs/2410.12418"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2410.12418
+url: https://arxiv.org/abs/2410.12418
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Privacy-Preserving"
-  - "Knowledge Graphs"
-  - "Synthetic Data"
-  - "Anonymization"
-  - "Semantic Utility"
-tldr: "Framework for privacy-preserving synthetic KG augmentation via structural anonymization while maintaining semantic utility."
-date_processed: "2025-07-02"
+- Privacy-Preserving
+- Knowledge Graphs
+- Synthetic Data
+- Anonymization
+- Semantic Utility
+tldr: Framework for privacy-preserving synthetic KG augmentation via structural anonymization
+  while maintaining semantic utility.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "privacy_preserving_synthetic_kg_2024"
+original_folder: privacy_preserving_synthetic_kg_2024
 images_total: 5
 images_kept: 5
 images_removed: 0

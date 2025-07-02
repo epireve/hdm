@@ -1,14 +1,20 @@
 ---
-cite_key: "pan2021"
-title: "HGE: Embedding Temporal Knowledge Graphs in a Product Space of Heterogeneous Geometric Subspaces"
-authors: "Jiaxin Pan, Mojtaba Nayyeri, Yinan Li"
+cite_key: pan_2021
+title: 'HGE: Embedding Temporal Knowledge Graphs in a Product Space of Heterogeneous
+  Geometric Subspaces'
+authors: Jiaxin Pan, Mojtaba Nayyeri, Yinan Li
 year: 2021
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2312.13680_HGE_Embedding_Temporal_Knowledge_Graphs_in_a_Product_Space_of_Heterogeneous_Geometric_Subspaces"
+original_folder: arxiv_2312.13680_HGE_Embedding_Temporal_Knowledge_Graphs_in_a_Product_Space_of_Heterogeneous_Geometric_Subspaces
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # HGE: Embedding Temporal Knowledge Graphs in a Product Space of Heterogeneous Geometric Subspaces

@@ -1,14 +1,23 @@
 ---
-cite_key: "kolkata2000"
-title: "Personal Research Knowledge Graphs"
-authors: "Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal"
+cite_key: chakraborty_2000
+title: Personal Research Knowledge Graphs
+authors: Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal
 year: 2000
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2204.11428_Personal_Research_Knowledge_Graphs"
+original_folder: arxiv_2204.11428_Personal_Research_Knowledge_Graphs
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- COVID-19
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Privacy
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # Personal Research Knowledge Graphs

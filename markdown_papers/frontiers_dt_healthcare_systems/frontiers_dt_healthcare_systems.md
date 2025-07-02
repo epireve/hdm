@@ -1,15 +1,24 @@
 ---
-cite_key: "algorithms2023"
-title: "Digital twin for healthcare systems"
-authors: "Alexandre Vallée"
+cite_key: valle_2023
+title: Digital twin for healthcare systems
+authors: Alexandre Vallée
 year: 2023
-doi: "10.3389/fdgth.2023.1253050"
-date_processed: "2025-07-02"
+doi: 10.3389/fdgth.2023.1253050
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "frontiers_dt_healthcare_systems"
+original_folder: frontiers_dt_healthcare_systems
 images_total: 0
 images_kept: 0
 images_removed: 0
+tags:
+- Biomedical
+- Data Integration
+- Digital Health
+- Electronic Health Records
+- Healthcare
+- IoT
+- Machine Learning
+- Personal Health
 ---
 
 EDITED BY Camelia Quek, The University of Sydney, Australia

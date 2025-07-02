@@ -1,15 +1,19 @@
 ---
-cite_key: "httpsdoiorgtgdk2023"
-title: "City Research Online"
-authors: "Opportunities. Transactions on Graph Data"
+cite_key: data_2023
+title: City Research Online
+authors: Opportunities. Transactions on Graph Data
 year: 2023
-doi: "10.4230/TGDK.1.1.5"
-date_processed: "2025-07-02"
+doi: 10.4230/TGDK.1.1.5
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "openaccess_city_ac_uk_[PDF]_Knowledge_Graphs_for_the_Life_Sciences_-_City_Research_Online"
+original_folder: openaccess_city_ac_uk_[PDF]_Knowledge_Graphs_for_the_Life_Sciences_-_City_Research_Online
 images_total: 4
 images_kept: 3
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 

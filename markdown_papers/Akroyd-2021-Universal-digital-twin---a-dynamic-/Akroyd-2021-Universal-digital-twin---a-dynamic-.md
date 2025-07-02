@@ -1,15 +1,22 @@
 ---
-cite_key: "innovations2021"
-title: "RESEARCH ARTICLE"
-authors: "Markus Kraft1,2,4, \\"
+cite_key: kraft_2021
+title: RESEARCH ARTICLE
+authors: Markus Kraft1,2,4, \
 year: 2021
-doi: "10.17863/CAM.32260"
-date_processed: "2025-07-02"
+doi: 10.17863/CAM.32260
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Akroyd-2021-Universal-digital-twin---a-dynamic-"
+original_folder: Akroyd-2021-Universal-digital-twin---a-dynamic-
 images_total: 15
 images_kept: 14
 images_removed: 1
+tags:
+- Biomedical
+- Healthcare
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # RESEARCH ARTICLE

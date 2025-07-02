@@ -1,22 +1,24 @@
 ---
-cite_key: "sun2024"
-title: "Knowledge Graph Tuning: Real-time Large Language Model Personalization based on Human Feedback"
-authors: "Jingwei Sun, Zhixu Du"
+cite_key: sun_2024
+title: 'Knowledge Graph Tuning: Real-time Large Language Model Personalization based
+  on Human Feedback'
+authors: Jingwei Sun, Zhixu Du
 year: 2024
-doi: "10.48550/arXiv.2405.19686"
-url: "https://arxiv.org/abs/2405.19686"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2405.19686
+url: https://arxiv.org/abs/2405.19686
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "LLM"
-  - "Knowledge Graph Tuning"
-  - "Real-time Personalization"
-  - "Efficient Computing"
-  - "HDM Systems"
-tldr: "Innovative approach that personalizes LLMs through knowledge graph optimization rather than model parameter modification, enabling efficient real-time adaptation."
-date_processed: "2025-07-02"
+- LLM
+- Knowledge Graph Tuning
+- Real-time Personalization
+- Efficient Computing
+- HDM Systems
+tldr: Innovative approach that personalizes LLMs through knowledge graph optimization
+  rather than model parameter modification, enabling efficient real-time adaptation.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2405.19686_Knowledge_Graph_Tuning_Real-time_Large_Language_Model_Personalization_based_on_Human_Feedback"
+original_folder: arxiv_2405.19686_Knowledge_Graph_Tuning_Real-time_Large_Language_Model_Personalization_based_on_Human_Feedback
 images_total: 4
 images_kept: 4
 images_removed: 0

@@ -1,14 +1,19 @@
 ---
-cite_key: "abu-salih2023b"
-title: "RESEARCH Open Access"
-authors: "Heba Saadeh"
+cite_key: saadeh_2023
+title: RESEARCH Open Access
+authors: Heba Saadeh
 year: 2023
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "healthcare_kg_construction_systematic_review_2023"
+original_folder: healthcare_kg_construction_systematic_review_2023
 images_total: 5
 images_kept: 4
 images_removed: 1
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 <!-- cite_key: abu-salih2023b -->

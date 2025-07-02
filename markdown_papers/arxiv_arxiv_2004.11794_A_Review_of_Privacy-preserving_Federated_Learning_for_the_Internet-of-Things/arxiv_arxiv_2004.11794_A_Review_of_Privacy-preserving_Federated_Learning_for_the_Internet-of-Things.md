@@ -1,14 +1,21 @@
 ---
-cite_key: "briggs2021c"
-title: "A Review of Privacy-preserving Federated Learning for the Internet-of-Things"
-authors: "Christopher Briggs, Zhong Fan, Peter Andras"
+cite_key: briggs_2021
+title: A Review of Privacy-preserving Federated Learning for the Internet-of-Things
+authors: Christopher Briggs, Zhong Fan, Peter Andras
 year: 2021
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2004.11794_A_Review_of_Privacy-preserving_Federated_Learning_for_the_Internet-of-Things"
+original_folder: arxiv_arxiv_2004.11794_A_Review_of_Privacy-preserving_Federated_Learning_for_the_Internet-of-Things
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Cloud Computing
+- Federated Learning
+- IoT
+- Machine Learning
+- Privacy
+- Semantic Web
 ---
 
 # A Review of Privacy-preserving Federated Learning for the Internet-of-Things

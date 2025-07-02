@@ -1,22 +1,25 @@
 ---
-cite_key: "galke2021"
-title: "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes ?"
-authors: "Lukas Galkea, Iacopo Vagliano b, Benedikt Franke c, Tobias Zielke c, Marcel Hoffmann c, Ansgar Scherp c"
+cite_key: galkea_2021
+title: Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes
+  and New Classes ?
+authors: Lukas Galkea, Iacopo Vagliano b, Benedikt Franke c, Tobias Zielke c, Marcel
+  Hoffmann c, Ansgar Scherp c
 year: 2021
-doi: "10.48550/arXiv.2112.10558"
-url: "https://arxiv.org/abs/2112.10558"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2112.10558
+url: https://arxiv.org/abs/2112.10558
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Continual Learning"
-  - "Temporal Graphs"
-  - "Class Imbalance"
-  - "Graph Neural Networks"
-  - "New Class Detection"
-tldr: "Continual learning framework for temporal graphs addressing new class detection and imbalanced data distribution challenges"
-date_processed: "2025-07-02"
+- Continual Learning
+- Temporal Graphs
+- Class Imbalance
+- Graph Neural Networks
+- New Class Detection
+tldr: Continual learning framework for temporal graphs addressing new class detection
+  and imbalanced data distribution challenges
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2021_lifelong_learning_evolving_graphs_imbalanced_classes"
+original_folder: arxiv_2021_lifelong_learning_evolving_graphs_imbalanced_classes
 images_total: 11
 images_kept: 11
 images_removed: 0

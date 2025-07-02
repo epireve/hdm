@@ -1,15 +1,24 @@
 ---
-cite_key: "happens2023"
-title: "Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities"
-authors: "Harry Li, Gabriel Appleby, Camelia Daniela Brumar, Remco Chang, Ashley Suh"
+cite_key: li_2023
+title: 'Knowledge Graphs in Practice: Characterizing their Users, Challenges, and
+  Visualization Opportunities'
+authors: Harry Li, Gabriel Appleby, Camelia Daniela Brumar, Remco Chang, Ashley Suh
 year: 2023
-doi: "10.1109/TVCG.2023.3326904"
-date_processed: "2025-07-02"
+doi: 10.1109/TVCG.2023.3326904
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2304.01311_Knowledge_Graphs_in_Practice_Characterizing_their"
+original_folder: arxiv_2304.01311_Knowledge_Graphs_in_Practice_Characterizing_their
 images_total: 3
 images_kept: 2
 images_removed: 1
+tags:
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Privacy
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # <span id="page-0-0"></span>Knowledge Graphs in Practice: Characterizing their Users, Challenges, and Visualization Opportunities

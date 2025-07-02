@@ -1,15 +1,23 @@
 ---
-cite_key: "b2021"
-title: "Data Integration Challenges for Machine Learning in Precision Medicine"
-authors: "Clinical Research Division, Mexico City, Computational Genomics Division"
+cite_key: division_2021
+title: Data Integration Challenges for Machine Learning in Precision Medicine
+authors: Clinical Research Division, Mexico City, Computational Genomics Division
 year: 2021
-doi: "10.3389/fmed.2021.784455/full)"
-date_processed: "2025-07-02"
+doi: 10.3389/fmed.2021.784455/full)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "frontiersin_org_Data_Integration_Challenges_for_Machine_Learning_in_Precision_Medicine"
+original_folder: frontiersin_org_Data_Integration_Challenges_for_Machine_Learning_in_Precision_Medicine
 images_total: 3
 images_kept: 2
 images_removed: 1
+tags:
+- Biomedical
+- Cancer
+- Data Integration
+- Healthcare
+- Machine Learning
+- Personalized Medicine
+- Privacy
 ---
 
 <span id="page-0-0"></span>

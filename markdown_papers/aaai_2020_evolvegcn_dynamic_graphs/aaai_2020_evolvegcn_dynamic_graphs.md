@@ -1,22 +1,24 @@
 ---
-cite_key: "pareja2020"
-title: "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs"
-authors: "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+cite_key: pareja_2020
+title: 'EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs'
+authors: Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura,
+  Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson
 year: 2020
-doi: "10.48550/arXiv.1902.10191"
-url: "https://arxiv.org/abs/1902.10191"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.1902.10191
+url: https://arxiv.org/abs/1902.10191
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Temporal Graphs"
-  - "Graph Neural Networks"
-  - "Dynamic Systems"
-  - "RNN"
-  - "Parameter Evolution"
-tldr: "Temporal graph convolutional network that adapts parameters over time using RNN evolution for dynamic graph representation learning"
-date_processed: "2025-07-02"
+- Temporal Graphs
+- Graph Neural Networks
+- Dynamic Systems
+- RNN
+- Parameter Evolution
+tldr: Temporal graph convolutional network that adapts parameters over time using
+  RNN evolution for dynamic graph representation learning
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "aaai_2020_evolvegcn_dynamic_graphs"
+original_folder: aaai_2020_evolvegcn_dynamic_graphs
 images_total: 5
 images_kept: 5
 images_removed: 0

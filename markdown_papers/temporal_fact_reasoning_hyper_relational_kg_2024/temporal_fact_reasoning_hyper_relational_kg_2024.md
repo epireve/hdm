@@ -1,22 +1,24 @@
 ---
-cite_key: "ding2024b"
-title: "Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs"
-authors: "Jingpei Wu, Yan Xia"
+cite_key: wu_2024
+title: Temporal Fact Reasoning over Hyper-Relational Knowledge Graphs
+authors: Jingpei Wu, Yan Xia
 year: 2024
-doi: "10.18653/v1/D19-1522)"
-url: "https://aclanthology.org/2024.findings-emnlp.20/"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.18653/v1/D19-1522)
+url: https://aclanthology.org/2024.findings-emnlp.20/
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Temporal Knowledge Graphs"
-  - "Hyper-relational"
-  - "Time-aware Systems"
-  - "Personal Data Evolution"
-  - "Temporal Reasoning"
-tldr: "Novel framework for temporal reasoning that extends knowledge graphs with time validity and key-value qualifiers for sophisticated temporal fact processing and dynamic knowledge representation."
-date_processed: "2025-07-02"
+- Temporal Knowledge Graphs
+- Hyper-relational
+- Time-aware Systems
+- Personal Data Evolution
+- Temporal Reasoning
+tldr: Novel framework for temporal reasoning that extends knowledge graphs with time
+  validity and key-value qualifiers for sophisticated temporal fact processing and
+  dynamic knowledge representation.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "temporal_fact_reasoning_hyper_relational_kg_2024"
+original_folder: temporal_fact_reasoning_hyper_relational_kg_2024
 images_total: 4
 images_kept: 4
 images_removed: 0

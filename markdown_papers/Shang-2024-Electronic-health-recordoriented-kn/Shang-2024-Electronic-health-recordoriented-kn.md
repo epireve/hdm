@@ -1,15 +1,28 @@
 ---
-cite_key: "security2024"
-title: "Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study"
-authors: "Tianshu Zhou, Ping Zhang, Jianghua Chen, Jingsong Li"
+cite_key: zhou_2024
+title: 'Electronic Health Record–Oriented Knowledge Graph System for Collaborative
+  Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and
+  Application Study'
+authors: Tianshu Zhou, Ping Zhang, Jianghua Chen, Jingsong Li
 year: 2024
-doi: "10.2196/54263"
-date_processed: "2025-07-02"
+doi: 10.2196/54263
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Shang-2024-Electronic-health-recordoriented-kn"
+original_folder: Shang-2024-Electronic-health-recordoriented-kn
 images_total: 19
 images_kept: 19
 images_removed: 0
+tags:
+- Biomedical
+- Blockchain
+- Decision Support
+- Electronic Health Records
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Privacy
+- Semantic Web
 ---
 
 Original Paper

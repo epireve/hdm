@@ -1,15 +1,22 @@
 ---
-cite_key: "tsvetkovsupsup2024"
-title: "Medical Hallucination in Foundation Models and Their Impact on Healthcare"
-authors: "Shan Chen, Shuyue Stella Li, Kumail Alhamoud, Jimin Mun, Cristina Grau, Minseok Jung, Rodrigo Gameiro, Lizhou Fan, Eugene Park, Tristan Lin, Wonjin Yoon, Maarten Sap, Yulia Tsvetkov, Paul Liang, Xuhai Xu, Xin Liu, Hyeonhoon Lee, Hae Won Park, Cynthia Breazeal"
+cite_key: chen_2024
+title: Medical Hallucination in Foundation Models and Their Impact on Healthcare
+authors: Shan Chen, Shuyue Stella Li, Kumail Alhamoud, Jimin Mun, Cristina Grau, Minseok
+  Jung, Rodrigo Gameiro, Lizhou Fan, Eugene Park, Tristan Lin, Wonjin Yoon, Maarten
+  Sap, Yulia Tsvetkov, Paul Liang, Xuhai Xu, Xin Liu, Hyeonhoon Lee, Hae Won Park,
+  Cynthia Breazeal
 year: 2024
-doi: "10.1056/NEJMcpc1802826."
-date_processed: "2025-07-02"
+doi: 10.1056/NEJMcpc1802826.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "medrxiv_medical_hallucination"
+original_folder: medrxiv_medical_hallucination
 images_total: 12
 images_kept: 12
 images_removed: 0
+tags:
+- Decision Support
+- Healthcare
+- Machine Learning
 ---
 
 # Medical Hallucination in Foundation Models and Their Impact on Healthcare

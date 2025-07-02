@@ -1,15 +1,22 @@
 ---
-cite_key: "soualmia2023"
-title: "RECEIVED 16 October 2023 ACCEPTED 27 November 2023 PUBLISHED 07 December 2023"
-authors: "Carbonaro A, Marfoglia A, Nardini F"
+cite_key: a_2023
+title: RECEIVED 16 October 2023 ACCEPTED 27 November 2023 PUBLISHED 07 December 2023
+authors: Carbonaro A, Marfoglia A, Nardini F
 year: 2023
-doi: "10.3389/fdgth.2023.1322428"
-date_processed: "2025-07-02"
+doi: 10.3389/fdgth.2023.1322428
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "frontiers_connected_dt_pkg"
+original_folder: frontiers_connected_dt_pkg
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Data Integration
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personalized Medicine
+- Semantic Web
 ---
 
 EDITED BY Lina F. Soualmia, Université de Rouen, France

@@ -1,22 +1,23 @@
 ---
-cite_key: "hu2024b"
-title: "User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation"
-authors: "Hengchang Hu, Yong Liu, Wei Guo, Ruiming Tang, Min-Yen Kan"
+cite_key: hu_2024
+title: User Behavior Enriched Temporal Knowledge Graphs for Sequential Recommendation
+authors: Hengchang Hu, Yong Liu, Wei Guo, Ruiming Tang, Min-Yen Kan
 year: 2024
-doi: "10.1145/3616855.3635762"
-url: "https://dl.acm.org/doi/10.1145/3616855.3635762"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.1145/3616855.3635762
+url: https://dl.acm.org/doi/10.1145/3616855.3635762
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Temporal Knowledge Graphs"
-  - "Sequential Recommendation"
-  - "User Behavior"
-  - "Dynamic Systems"
-  - "Knowledge Representation"
-tldr: "Temporal knowledge graph approach incorporating user behavior dynamics for improved sequential recommendation performance"
-date_processed: "2025-07-02"
+- Temporal Knowledge Graphs
+- Sequential Recommendation
+- User Behavior
+- Dynamic Systems
+- Knowledge Representation
+tldr: Temporal knowledge graph approach incorporating user behavior dynamics for improved
+  sequential recommendation performance
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Hu-2024-User-behavior-enriched-temporal-kno"
+original_folder: Hu-2024-User-behavior-enriched-temporal-kno
 images_total: 5
 images_kept: 4
 images_removed: 1

@@ -1,14 +1,25 @@
 ---
-cite_key: "lemont2016"
-title: "Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System"
-authors: "Kibaek KimMathematics"
+cite_key: kimmathematics_2016
+title: Advances in Privacy Preserving Federated Learning to Realize a Truly Learning
+  Healthcare System
+authors: Kibaek KimMathematics
 year: 2016
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2409.19756_Advances_in_Privacy_Preserving_Federated_Learning_to_Realize_a_Truly_Learning_Healthcare_System"
+original_folder: arxiv_2409.19756_Advances_in_Privacy_Preserving_Federated_Learning_to_Realize_a_Truly_Learning_Healthcare_System
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Biomedical
+- Blockchain
+- Electronic Health Records
+- Federated Learning
+- Healthcare
+- IoT
+- Machine Learning
+- Personal Health
+- Privacy
 ---
 
 # Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System

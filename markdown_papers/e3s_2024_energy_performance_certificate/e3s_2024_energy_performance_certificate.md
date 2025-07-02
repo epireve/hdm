@@ -1,21 +1,23 @@
 ---
-cite_key: "salvalai2024"
-title: "New generation Energy Performance Certificate: development and application in an Italian case study as an EU proof of concept"
-authors: "Marta Maria Sesana, Ilaria Isacco"
+cite_key: sesana_2024
+title: 'New generation Energy Performance Certificate: development and application
+  in an Italian case study as an EU proof of concept'
+authors: Marta Maria Sesana, Ilaria Isacco
 year: 2024
-doi: "10.1051/e3sconf/202452306001"
-url: "https://www.e3s-conferences.org/10.1051/e3sconf/202452306001"
-relevancy: "Low"
-downloaded: "Yes"
+doi: 10.1051/e3sconf/202452306001
+url: https://www.e3s-conferences.org/10.1051/e3sconf/202452306001
+relevancy: Low
+downloaded: 'Yes'
 tags:
-  - "Energy Performance Certificate"
-  - "Building Decarbonization"
-  - "EU Green Deal"
-  - "Energy Efficiency"
-tldr: "Development of improved Energy Performance Certificate methodology for building decarbonization support."
-date_processed: "2025-07-02"
+- Energy Performance Certificate
+- Building Decarbonization
+- EU Green Deal
+- Energy Efficiency
+tldr: Development of improved Energy Performance Certificate methodology for building
+  decarbonization support.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "e3s_2024_energy_performance_certificate"
+original_folder: e3s_2024_energy_performance_certificate
 images_total: 12
 images_kept: 12
 images_removed: 0

@@ -1,15 +1,22 @@
 ---
-cite_key: "ghanisupsup2020c"
-title: "## ABSTRACT"
-authors: "**Anwar Ghani<sup>1</sup> , Afzal Badshah<sup>1</sup> , Saeed Ullah Jan<sup>2</sup> , Abdulrahman A. Alshdadi<sup>3</sup> and Ali Daud<sup>3</sup>**"
+cite_key: ghani_2020
+title: '## ABSTRACT'
+authors: Anwar Ghani1 , Afzal Badshah1 , Saeed Ullah Jan2 , Abdulrahman A. Alshdadi3,
+  Ali Daud3
 year: 2020
-doi: "10.1109/RpJC.2020.DOI"
-date_processed: "2025-07-02"
+doi: 10.1109/RpJC.2020.DOI
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2004.06809_Issues_and_challenges_in_Cloud_Storage_Architecture_A_Survey"
+original_folder: arxiv_arxiv_2004.06809_Issues_and_challenges_in_Cloud_Storage_Architecture_A_Survey
 images_total: 6
 images_kept: 5
 images_removed: 1
+tags:
+- Cloud Computing
+- Data Integration
+- IoT
+- Machine Learning
+- Privacy
 ---
 
 

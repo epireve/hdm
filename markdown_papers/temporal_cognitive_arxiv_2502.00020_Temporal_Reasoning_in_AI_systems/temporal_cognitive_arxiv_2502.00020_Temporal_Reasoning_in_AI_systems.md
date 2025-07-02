@@ -1,14 +1,21 @@
 ---
-cite_key: "a2013"
-title: "Temporal Reasoning in AI Systems"
-authors: "Abhishek Sharma3840 Far West Blvd"
+cite_key: blvd_2013
+title: Temporal Reasoning in AI Systems
+authors: Abhishek Sharma3840 Far West Blvd
 year: 2013
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "temporal_cognitive_arxiv_2502.00020_Temporal_Reasoning_in_AI_systems"
+original_folder: temporal_cognitive_arxiv_2502.00020_Temporal_Reasoning_in_AI_systems
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
+- Temporal
 ---
 
 # Temporal Reasoning in AI Systems

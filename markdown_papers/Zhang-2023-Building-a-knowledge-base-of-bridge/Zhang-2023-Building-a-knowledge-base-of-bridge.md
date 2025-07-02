@@ -1,14 +1,21 @@
 ---
-cite_key: "zhang2022"
-title: "Research Article# Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph"
-authors: "Yang Zhang"
+cite_key: zhang_2022
+title: Research Article# Building a Knowledge Base of Bridge Maintenance Using Knowledge
+  Graph
+authors: Yang Zhang
 year: 2022
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Zhang-2023-Building-a-knowledge-base-of-bridge"
+original_folder: Zhang-2023-Building-a-knowledge-base-of-bridge
 images_total: 16
 images_kept: 16
 images_removed: 0
+tags:
+- Blockchain
+- Federated Learning
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 ![](_page_0_Picture_2.jpeg)

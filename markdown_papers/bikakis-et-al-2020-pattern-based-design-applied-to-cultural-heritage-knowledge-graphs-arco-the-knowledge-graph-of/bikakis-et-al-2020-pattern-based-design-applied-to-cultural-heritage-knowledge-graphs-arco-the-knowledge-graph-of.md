@@ -1,15 +1,21 @@
 ---
-cite_key: "daquino2021"
-title: "Pattern-based design applied to cultural heritage knowledge graphs"
-authors: "Editors:Antonis Bikakis, UK; Beatrice Markhoff, France; Alessandro Mosca, Italy; Stéphane Jean, France; Eero Hyvönen, FinlandSolicited review:Seven anonymous reviewers"
+cite_key: bikakis_2021
+title: Pattern-based design applied to cultural heritage knowledge graphs
+authors: Editors:Antonis Bikakis, UK; Beatrice Markhoff, France; Alessandro Mosca,
+  Italy; Stéphane Jean, France; Eero Hyvönen, FinlandSolicited review:Seven anonymous
+  reviewers
 year: 2021
-doi: "10.3233/SW-200422"
-date_processed: "2025-07-02"
+doi: 10.3233/SW-200422
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "bikakis-et-al-2020-pattern-based-design-applied-to-cultural-heritage-knowledge-graphs-arco-the-knowledge-graph-of"
+original_folder: bikakis-et-al-2020-pattern-based-design-applied-to-cultural-heritage-knowledge-graphs-arco-the-knowledge-graph-of
 images_total: 20
 images_kept: 20
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 Semantic Web 12 (2021) 313–357 313 DOI 10.3233/SW-200422 IOS Press

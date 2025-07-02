@@ -1,15 +1,21 @@
 ---
-cite_key: "bogachovsupsup2018"
-title: "A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING INFORMATION AND KNOWLEDGE EXTRACTION"
-authors: "Bogdan Bogachov"
+cite_key: bogachov_2018
+title: A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING
+  INFORMATION AND KNOWLEDGE EXTRACTION
+authors: Bogdan Bogachov
 year: 2018
-doi: "10.48550/arXiv.2302.04023."
-date_processed: "2025-07-02"
+doi: 10.48550/arXiv.2302.04023.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2505.21109_A_Lightweight_Multi-Expert_Generative_Language_Model_System_for_Engineering_Info"
+original_folder: arxiv_arxiv_2505.21109_A_Lightweight_Multi-Expert_Generative_Language_Model_System_for_Engineering_Info
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Cloud Computing
+- Machine Learning
+- Privacy
+- Semantic Web
 ---
 
 # A LIGHTWEIGHT MULTI-EXPERT GENERATIVE LANGUAGE MODEL SYSTEM FOR ENGINEERING INFORMATION AND KNOWLEDGE EXTRACTION

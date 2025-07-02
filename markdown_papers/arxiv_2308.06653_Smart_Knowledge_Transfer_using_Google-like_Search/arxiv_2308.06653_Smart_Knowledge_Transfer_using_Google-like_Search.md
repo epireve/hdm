@@ -1,14 +1,19 @@
 ---
-cite_key: "majumdarsrijonigmailcom2013"
-title: "Smart Knowledge Transfer using Google-like Search"
-authors: "Srijoni Majumdar, Partha Pratim Das"
+cite_key: majumdar_2013
+title: Smart Knowledge Transfer using Google-like Search
+authors: Srijoni Majumdar, Partha Pratim Das
 year: 2013
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2308.06653_Smart_Knowledge_Transfer_using_Google-like_Search"
+original_folder: arxiv_2308.06653_Smart_Knowledge_Transfer_using_Google-like_Search
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
+- Privacy
+- Semantic Web
 ---
 
 # Smart Knowledge Transfer using Google-like Search

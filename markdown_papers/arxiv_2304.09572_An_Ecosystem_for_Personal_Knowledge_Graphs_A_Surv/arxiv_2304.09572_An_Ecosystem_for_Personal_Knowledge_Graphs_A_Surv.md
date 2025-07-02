@@ -1,23 +1,25 @@
 ---
-cite_key: "skjveland2024"
-title: "An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap"
-authors: "Martin G. Skjæveland, Krisztian Balog, Nolwenn Bernard, Weronika Łajewska, Trond Linjordet"
+cite_key: skjveland_2024
+title: 'An Ecosystem for Personal Knowledge Graphs: A Survey and Research Roadmap'
+authors: Martin G. Skjæveland, Krisztian Balog, Nolwenn Bernard, Weronika Łajewska,
+  Trond Linjordet
 year: 2024
-doi: "10.1016/j.aiopen.2024.01.003"
-url: "https://arxiv.org/abs/2304.09572"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.1016/j.aiopen.2024.01.003
+url: https://arxiv.org/abs/2304.09572
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "PKG"
-  - "Personal Knowledge Graphs"
-  - "Data Management"
-  - "Personalization"
-  - "AI Research"
-  - "Knowledge Representation"
-tldr: "Comprehensive survey that establishes PKG definitions and ecosystem components for personalized services."
-date_processed: "2025-07-02"
+- PKG
+- Personal Knowledge Graphs
+- Data Management
+- Personalization
+- AI Research
+- Knowledge Representation
+tldr: Comprehensive survey that establishes PKG definitions and ecosystem components
+  for personalized services.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2304.09572_An_Ecosystem_for_Personal_Knowledge_Graphs_A_Surv"
+original_folder: arxiv_2304.09572_An_Ecosystem_for_Personal_Knowledge_Graphs_A_Surv
 images_total: 1
 images_kept: 1
 images_removed: 0

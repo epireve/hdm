@@ -1,15 +1,23 @@
 ---
-cite_key: "gaffineta2002"
-title: "Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0"
-authors: "Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet"
+cite_key: gaffineta_2002
+title: 'Human Digital Twin: Systematic Literature Review and Concept Disambiguation
+  for Industry 5.0'
+authors: Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet
 year: 2002
-doi: "10.2777/308407."
-date_processed: "2025-07-02"
+doi: 10.2777/308407.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "hal_science_Human_digital_twins_A_systematic_literature_review_and_concept_disambiguation_for_industry_5.0"
+original_folder: hal_science_Human_digital_twins_A_systematic_literature_review_and_concept_disambiguation_for_industry_5.0
 images_total: 12
 images_kept: 12
 images_removed: 0
+tags:
+- Data Integration
+- Healthcare
+- IoT
+- Machine Learning
+- Mental Health
+- Privacy
 ---
 
 # Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0

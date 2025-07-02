@@ -1,14 +1,22 @@
 ---
-cite_key: "yue2035"
-title: "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI"
-authors: "Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang"
-year: 2035
-date_processed: "2025-07-02"
+cite_key: yue_2023
+title: 'MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark
+  for Expert AGI'
+authors: Xiang Yue, Yuansheng Ni, Kai Zhang, Tianyu Zheng, Ruoqi Liu, Ge Zhang, Samuel
+  Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan,
+  Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang, Huan
+  Sun, Yu Su, Wenhu Chen
+year: 2023
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2311.16502_MMMU_A_Massive_Multi-discipline_Multimodal_Understanding_and_Reasoning_Benchmark_for_Expert_AGI"
+original_folder: arxiv_2311.16502_MMMU_A_Massive_Multi-discipline_Multimodal_Understanding_and_Reasoning_Benchmark_for_Expert_AGI
 images_total: 123
 images_kept: 84
 images_removed: 39
+tags:
+- Healthcare
+- Machine Learning
+- Semantic Web
 ---
 
 # <span id="page-0-1"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI

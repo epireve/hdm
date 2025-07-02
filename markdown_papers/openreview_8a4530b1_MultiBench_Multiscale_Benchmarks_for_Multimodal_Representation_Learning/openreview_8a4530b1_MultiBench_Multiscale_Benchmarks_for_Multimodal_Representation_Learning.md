@@ -1,14 +1,20 @@
 ---
-cite_key: "liang2021"
-title: "MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning"
-authors: "Paul Pu Liang, Yiwei Lyu, Xiang Fan, Zetian Wu, Yun Cheng, Jason Wu, Leslie Chen, Peter Wu, Michelle A. Lee, Yuke Zhu, Ruslan Salakhutdinov, Philippe Morency, Johns Hopkins"
+cite_key: liang_2021
+title: 'MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning'
+authors: Paul Pu Liang, Yiwei Lyu, Xiang Fan, Zetian Wu, Yun Cheng, Jason Wu, Leslie
+  Chen, Peter Wu, Michelle A. Lee, Yuke Zhu, Ruslan Salakhutdinov, Philippe Morency,
+  Johns Hopkins
 year: 2021
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "openreview_8a4530b1_MultiBench_Multiscale_Benchmarks_for_Multimodal_Representation_Learning"
+original_folder: openreview_8a4530b1_MultiBench_Multiscale_Benchmarks_for_Multimodal_Representation_Learning
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Healthcare
+- IoT
+- Machine Learning
 ---
 
 # MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning

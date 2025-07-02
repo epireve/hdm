@@ -1,15 +1,21 @@
 ---
-cite_key: "jilek2012"
-title: "Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories"
-authors: "Andreas Dengel 1"
+cite_key: dengel_2012
+title: Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate
+  Memories
+authors: Andreas Dengel 1
 year: 2012
-doi: "10.17026/dans-x55-69zp"
-date_processed: "2025-07-02"
+doi: 10.17026/dans-x55-69zp
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2308.01732_Towards_Self-organizing_Personal_Knowledge_Assista"
+original_folder: arxiv_2308.01732_Towards_Self-organizing_Personal_Knowledge_Assista
 images_total: 23
 images_kept: 19
 images_removed: 4
+tags:
+- Cloud Computing
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # Towards Self-organizing Personal Knowledge Assistants in Evolving Corporate Memories

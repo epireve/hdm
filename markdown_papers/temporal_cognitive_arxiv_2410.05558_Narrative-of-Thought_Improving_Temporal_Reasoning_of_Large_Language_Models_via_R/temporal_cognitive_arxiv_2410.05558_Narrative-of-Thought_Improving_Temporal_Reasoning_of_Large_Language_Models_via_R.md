@@ -1,15 +1,21 @@
 ---
-cite_key: "zhangsupsup2021"
-title: "NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models via Recounted Narratives"
-authors: "Xinliang Frederick Zhang, Nick Beauchamp, Lu Wang, Ann Arbor"
+cite_key: zhang_2021
+title: 'NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models
+  via Recounted Narratives'
+authors: Xinliang Frederick Zhang, Nick Beauchamp, Lu Wang, Ann Arbor
 year: 2021
-doi: "10.48550/ARXIV.2404.14219)"
-date_processed: "2025-07-02"
+doi: 10.48550/ARXIV.2404.14219)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "temporal_cognitive_arxiv_2410.05558_Narrative-of-Thought_Improving_Temporal_Reasoning_of_Large_Language_Models_via_R"
+original_folder: temporal_cognitive_arxiv_2410.05558_Narrative-of-Thought_Improving_Temporal_Reasoning_of_Large_Language_Models_via_R
 images_total: 10
 images_kept: 10
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
+- Temporal
 ---
 
 # NARRATIVE-OF-THOUGHT: Improving Temporal Reasoning of Large Language Models via Recounted Narratives

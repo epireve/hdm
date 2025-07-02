@@ -1,23 +1,24 @@
 ---
-cite_key: "bernard2024"
-title: "PKG API: A Tool for Personal Knowledge Graph Management"
-authors: "Petra Galu, Martin G. Skj"
+cite_key: galu_2024
+title: 'PKG API: A Tool for Personal Knowledge Graph Management'
+authors: Petra Galu, Martin G. Skj
 year: 2024
-doi: "10.48550/arXiv.2402.07540"
-url: "https://arxiv.org/abs/2402.07540"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2402.07540
+url: https://arxiv.org/abs/2402.07540
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "PKG"
-  - "Personal Knowledge Graph"
-  - "Data Management"
-  - "RDF"
-  - "Natural Language Processing"
-  - "User Control"
-tldr: "Practical solution for managing personal knowledge graphs that enables consolidation of fragmented personal data."
-date_processed: "2025-07-02"
+- PKG
+- Personal Knowledge Graph
+- Data Management
+- RDF
+- Natural Language Processing
+- User Control
+tldr: Practical solution for managing personal knowledge graphs that enables consolidation
+  of fragmented personal data.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Bernard-2024-Pkg-api-a-tool-for-personal-knowled"
+original_folder: Bernard-2024-Pkg-api-a-tool-for-personal-knowled
 images_total: 3
 images_kept: 2
 images_removed: 1

@@ -1,15 +1,18 @@
 ---
-cite_key: "rayan2021b"
-title: "An Ontology Design Pattern for Role-Dependent Names"
-authors: "Cogan Shimizu, Pascal Hitzler"
+cite_key: shimizu_2021
+title: An Ontology Design Pattern for Role-Dependent Names
+authors: Cogan Shimizu, Pascal Hitzler
 year: 2021
-doi: "10.1007/978-3-030-77385-4"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-030-77385-4
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2305.02077_An_Ontology_Design_Pattern_for_Role-Dependent_Names"
+original_folder: arxiv_2305.02077_An_Ontology_Design_Pattern_for_Role-Dependent_Names
 images_total: 3
 images_kept: 3
 images_removed: 0
+tags:
+- Machine Learning
+- Semantic Web
 ---
 
 # An Ontology Design Pattern for Role-Dependent Names

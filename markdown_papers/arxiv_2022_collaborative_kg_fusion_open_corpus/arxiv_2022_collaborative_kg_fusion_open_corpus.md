@@ -1,22 +1,24 @@
 ---
-cite_key: "wang2022"
-title: "Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus"
-authors: "Yue Wang, Yao Wan, Lu Bai, Lixin Cui, Zhuo Xu, Ming Li, Philip S. Yu, Edwin R Hancock"
+cite_key: wang_2022
+title: Collaborative Knowledge Graph Fusion by Exploiting the Open Corpus
+authors: Yue Wang, Yao Wan, Lu Bai, Lixin Cui, Zhuo Xu, Ming Li, Philip S. Yu, Edwin
+  R Hancock
 year: 2022
-doi: "10.48550/arXiv.2206.07472"
-url: "https://arxiv.org/abs/2206.07472"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2206.07472
+url: https://arxiv.org/abs/2206.07472
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Knowledge Graph"
-  - "Data Fusion"
-  - "Information Extraction"
-  - "Open Corpus"
-  - "Collaborative Learning"
-tldr: "Collaborative framework for refining knowledge graphs using noisy corpus triples with mutual task assistance"
-date_processed: "2025-07-02"
+- Knowledge Graph
+- Data Fusion
+- Information Extraction
+- Open Corpus
+- Collaborative Learning
+tldr: Collaborative framework for refining knowledge graphs using noisy corpus triples
+  with mutual task assistance
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2022_collaborative_kg_fusion_open_corpus"
+original_folder: arxiv_2022_collaborative_kg_fusion_open_corpus
 images_total: 14
 images_kept: 13
 images_removed: 1

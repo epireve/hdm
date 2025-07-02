@@ -1,14 +1,26 @@
 ---
-cite_key: "gaosupsup2014"
-title: "Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction"
-authors: "Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey, Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar, Public Health, Wisconsin Madison"
+cite_key: gao_2014
+title: Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction
+authors: Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey,
+  Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar,
+  Public Health, Wisconsin Madison
 year: 2014
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "medrxiv_llm_diagnosis"
+original_folder: medrxiv_llm_diagnosis
 images_total: 9
 images_kept: 8
 images_removed: 1
+tags:
+- Biomedical
+- Decision Support
+- Electronic Health Records
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Semantic Web
 ---
 
 # Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction

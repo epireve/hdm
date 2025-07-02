@@ -1,15 +1,18 @@
 ---
-cite_key: "retrieval2021"
-title: "Exploring the role of dimensionality transformation in episodic memory"
-authors: "Daniel Reznik"
+cite_key: reznik_2021
+title: Exploring the role of dimensionality transformation in episodic memory
+authors: Daniel Reznik
 year: 2021
-doi: "10.1101/2023.02.04."
-date_processed: "2025-07-02"
+doi: 10.1101/2023.02.04.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Kerren-2025-Exploring-the-role-of-dimensionalit"
+original_folder: Kerren-2025-Exploring-the-role-of-dimensionalit
 images_total: 15
 images_kept: 3
 images_removed: 12
+tags:
+- IoT
+- Machine Learning
 ---
 
 # Opinion

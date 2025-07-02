@@ -1,14 +1,19 @@
 ---
-cite_key: "bradac2021"
-title: "A Lexical Approach to Assessing Stress: Development and Proof- of- Concept"
-authors: "Tripp Driskell, Eduardo Salas, C. Shawn Burke, James E. Driskell"
+cite_key: driskell_2021
+title: 'A Lexical Approach to Assessing Stress: Development and Proof- of- Concept'
+authors: Tripp Driskell, Eduardo Salas, C. Shawn Burke, James E. Driskell
 year: 2021
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "driskell-et-al-2021-a-lexical-approach-to-assessing-stress-development-and-proof-of-concept"
+original_folder: driskell-et-al-2021-a-lexical-approach-to-assessing-stress-development-and-proof-of-concept
 images_total: 11
 images_kept: 11
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Mental Health
+- Semantic Web
 ---
 
 # A Lexical Approach to Assessing Stress: Development and Proof- of- Concept

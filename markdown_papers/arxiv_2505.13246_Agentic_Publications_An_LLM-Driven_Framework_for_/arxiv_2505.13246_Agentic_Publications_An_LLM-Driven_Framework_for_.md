@@ -1,15 +1,21 @@
 ---
-cite_key: "supasup2024c"
-title: "Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems"
-authors: "Roberto Pugliese, George Kourousias, Francesco Venier, Grazia Garlatti Costa, Via Alfonso Valerio"
+cite_key: pugliese_2024
+title: 'Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing,
+  Supplementing Traditional Papers with AI-Powered Knowledge Systems'
+authors: Roberto Pugliese, George Kourousias, Francesco Venier, Grazia Garlatti Costa,
+  Via Alfonso Valerio
 year: 2024
-doi: "10.34965/agenticpublication.3567a)"
-date_processed: "2025-07-02"
+doi: 10.34965/agenticpublication.3567a)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2505.13246_Agentic_Publications_An_LLM-Driven_Framework_for_"
+original_folder: arxiv_2505.13246_Agentic_Publications_An_LLM-Driven_Framework_for_
 images_total: 5
 images_kept: 4
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems

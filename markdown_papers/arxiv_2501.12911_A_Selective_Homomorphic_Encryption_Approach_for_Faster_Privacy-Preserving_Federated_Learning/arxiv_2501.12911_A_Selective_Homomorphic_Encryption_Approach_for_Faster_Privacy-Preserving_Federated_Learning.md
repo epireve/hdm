@@ -1,14 +1,21 @@
 ---
-cite_key: "nonetheless2016"
-title: "A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning"
-authors: "Abdulkadir Korkmaz · Praveen Rao"
+cite_key: rao_2016
+title: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated
+  Learning
+authors: Abdulkadir Korkmaz · Praveen Rao
 year: 2016
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2501.12911_A_Selective_Homomorphic_Encryption_Approach_for_Faster_Privacy-Preserving_Federated_Learning"
+original_folder: arxiv_2501.12911_A_Selective_Homomorphic_Encryption_Approach_for_Faster_Privacy-Preserving_Federated_Learning
 images_total: 18
 images_kept: 18
 images_removed: 0
+tags:
+- Blockchain
+- Federated Learning
+- Healthcare
+- Machine Learning
+- Privacy
 ---
 
 # A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning

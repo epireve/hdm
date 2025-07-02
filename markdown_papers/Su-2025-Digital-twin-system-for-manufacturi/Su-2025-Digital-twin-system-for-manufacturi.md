@@ -1,15 +1,23 @@
 ---
-cite_key: "technology2024"
-title: "Digital twin system for manufacturing processes based on a multi-layer knowledge graph model"
-authors: "Dongsheng Jiang"
+cite_key: jiang_2024
+title: Digital twin system for manufacturing processes based on a multi-layer knowledge
+  graph model
+authors: Dongsheng Jiang
 year: 2024
-doi: "10.1016/j.jmsy.2021.05.010)"
-date_processed: "2025-07-02"
+doi: 10.1016/j.jmsy.2021.05.010)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Su-2025-Digital-twin-system-for-manufacturi"
+original_folder: Su-2025-Digital-twin-system-for-manufacturi
 images_total: 13
 images_kept: 12
 images_removed: 1
+tags:
+- Data Integration
+- Decision Support
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # OPEN

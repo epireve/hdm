@@ -1,15 +1,21 @@
 ---
-cite_key: "kumar2021"
-title: "1. Introduction"
-authors: "Citation:Kumar, G., Basri, S., Imam, A.A., Khowaja, S.A., Capretz, L.F."
+cite_key: citationkumar_2021
+title: 1. Introduction
+authors: Citation:Kumar, G., Basri, S., Imam, A.A., Khowaja, S.A., Capretz, L.F.
 year: 2021
-doi: "10.3390/app11178275)"
-date_processed: "2025-07-02"
+doi: 10.3390/app11178275)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "mdpi_res_com_Data_Harmonization_for_Heterogeneous_Datasets_A_Systematic_Literature_Review"
+original_folder: mdpi_res_com_Data_Harmonization_for_Heterogeneous_Datasets_A_Systematic_Literature_Review
 images_total: 8
 images_kept: 4
 images_removed: 4
+tags:
+- Data Integration
+- Healthcare
+- IoT
+- Machine Learning
+- Natural Language Processing
 ---
 
 

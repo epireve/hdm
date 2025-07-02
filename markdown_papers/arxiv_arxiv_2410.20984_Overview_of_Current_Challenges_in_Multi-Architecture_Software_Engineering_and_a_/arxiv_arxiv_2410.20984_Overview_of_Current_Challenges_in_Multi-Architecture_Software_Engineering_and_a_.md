@@ -1,15 +1,22 @@
 ---
-cite_key: "sowiski2020"
-title: "Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future"
-authors: "Piotr Sowi"
+cite_key: sowi_2020
+title: Overview of Current Challenges in Multi-Architecture Software Engineering and
+  a Vision for the Future
+authors: Piotr Sowi
 year: 2020
-doi: "10.1007/978-3-540-92913-0"
-date_processed: "2025-07-02"
+doi: 10.1007/978-3-540-92913-0
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2410.20984_Overview_of_Current_Challenges_in_Multi-Architecture_Software_Engineering_and_a_"
+original_folder: arxiv_arxiv_2410.20984_Overview_of_Current_Challenges_in_Multi-Architecture_Software_Engineering_and_a_
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Cloud Computing
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # Overview of Current Challenges in Multi-Architecture Software Engineering and a Vision for the Future

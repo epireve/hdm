@@ -1,15 +1,21 @@
 ---
-cite_key: "first2020"
-title: "SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs"
-authors: "Yamei Tu, Rui Qiu, Han-Wei Shen"
+cite_key: tu_2020
+title: 'SKG: A Versatile Information Retrieval and Analysis Framework for Academic
+  Papers with Semantic Knowledge Graphs'
+authors: Yamei Tu, Rui Qiu, Han-Wei Shen
 year: 2020
-doi: "10.1109/AIKE48582.2020."
-date_processed: "2025-07-02"
+doi: 10.1109/AIKE48582.2020.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2306.04758_SKG_A_Versatile_Information_Retrieval_and_Analysis_Framework_for_Academic_Papers_with_Semantic_Knowl"
+original_folder: arxiv_2306.04758_SKG_A_Versatile_Information_Retrieval_and_Analysis_Framework_for_Academic_Papers_with_Semantic_Knowl
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # <span id="page-0-1"></span>SKG: A Versatile Information Retrieval and Analysis Framework for Academic Papers with Semantic Knowledge Graphs

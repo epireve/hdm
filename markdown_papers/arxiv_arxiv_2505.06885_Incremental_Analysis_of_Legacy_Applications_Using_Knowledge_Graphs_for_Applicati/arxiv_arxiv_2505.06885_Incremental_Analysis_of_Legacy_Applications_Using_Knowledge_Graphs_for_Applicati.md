@@ -1,15 +1,20 @@
 ---
-cite_key: "arxiv_arxiv_250506885_incremen"
-title: "Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on"
-authors: "Industries such as banking, telecom"
+cite_key: banking_2022
+title: Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on
+  Moderniza4on
+authors: Industries such as banking, telecom
 year: 2022
-doi: "10.1145/3493700.3493735"
-date_processed: "2025-07-02"
+doi: 10.1145/3493700.3493735
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2505.06885_Incremental_Analysis_of_Legacy_Applications_Using_Knowledge_Graphs_for_Applicati"
+original_folder: arxiv_arxiv_2505.06885_Incremental_Analysis_of_Legacy_Applications_Using_Knowledge_Graphs_for_Applicati
 images_total: 7
 images_kept: 6
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
 ---
 
 # Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on

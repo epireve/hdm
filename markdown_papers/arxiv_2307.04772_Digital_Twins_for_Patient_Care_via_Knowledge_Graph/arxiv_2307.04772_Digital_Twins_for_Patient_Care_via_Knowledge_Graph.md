@@ -1,14 +1,25 @@
 ---
-cite_key: "cfcs2017"
-title: "Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks"
-authors: "Logan Nye"
+cite_key: nye_2023
+title: Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time
+  Liquid Neural Networks
+authors: Logan Nye
 year: 2023
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2307.04772_Digital_Twins_for_Patient_Care_via_Knowledge_Graph"
+original_folder: arxiv_2307.04772_Digital_Twins_for_Patient_Care_via_Knowledge_Graph
 images_total: 0
 images_kept: 0
 images_removed: 0
+tags:
+- Biomedical
+- Decision Support
+- Healthcare
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Personalized Medicine
+- Semantic Web
 ---
 
 # *Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*Logan Nye, MD1,2 <sup>1</sup>SORG Orthopaedic Research Group <sup>2</sup>Department of Orthopaedic Surgery Massachusetts General Hospital

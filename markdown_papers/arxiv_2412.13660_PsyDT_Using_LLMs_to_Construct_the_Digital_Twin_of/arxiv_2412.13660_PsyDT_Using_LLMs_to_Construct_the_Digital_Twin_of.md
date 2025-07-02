@@ -1,15 +1,20 @@
 ---
-cite_key: "xiesupsup2022"
-title: "PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling"
-authors: "Haojie Xie, Yirong Chen, Xiaofen Xing, Jingkai Lin"
+cite_key: xie_2022
+title: 'PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor
+  with Personalized Counseling Style for Psychological Counseling'
+authors: Haojie Xie, Yirong Chen, Xiaofen Xing, Jingkai Lin
 year: 2022
-doi: "10.18653/v1/P16-2096)"
-date_processed: "2025-07-02"
+doi: 10.18653/v1/P16-2096)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2412.13660_PsyDT_Using_LLMs_to_Construct_the_Digital_Twin_of"
+original_folder: arxiv_2412.13660_PsyDT_Using_LLMs_to_Construct_the_Digital_Twin_of
 images_total: 40
 images_kept: 35
 images_removed: 5
+tags:
+- Machine Learning
+- Mental Health
+- Privacy
 ---
 
 # PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling

@@ -1,15 +1,25 @@
 ---
-cite_key: "malec2022"
-title: "Malec (2022) Causal feature selection using a knowledge graph### Abstract"
-authors: "Alzheimer's disease."
+cite_key: malec_2022
+title: 'Causal feature selection using a knowledge graph combining structured knowledge
+  from the biomedical literature and ontologies: a use case studying depression as
+  a risk factor for Alzheimer''s disease'
+authors: Scott A. Malec, Sanya B. Taneja, Steven M. Albert, C. Elizabeth Shaaban,
+  Helmet T. Karim, Arthur S. Levine, Paul Munro, Tiffany J. Callahan, Richard D. Boyce
 year: 2022
-doi: "10.5281/zenodo.6785307."
-date_processed: "2025-07-02"
+doi: 10.5281/zenodo.6785307.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Malec-2022-Causal-feature-selection-using-a-kn"
+original_folder: Malec-2022-Causal-feature-selection-using-a-kn
 images_total: 13
 images_kept: 13
 images_removed: 0
+tags:
+- Biomedical
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Mental Health
+- Semantic Web
 ---
 
 *Malec et al. (2022) Causal feature selection using a knowledge graph*# Causal feature selection using a knowledge graph combining structured knowledge from the biomedical literature and ontologies: a use case studying depression as a risk factor for Alzheimer's disease

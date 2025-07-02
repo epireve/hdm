@@ -1,14 +1,22 @@
 ---
-cite_key: "structured2014"
-title: "Learning temporal granularity with quadruplet networks for temporal knowledge graph completion"
-authors: "RushanGeng, Cuicui Luo"
+cite_key: rushangeng_2014
+title: Learning temporal granularity with quadruplet networks for temporal knowledge
+  graph completion
+authors: RushanGeng, Cuicui Luo
 year: 2014
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Geng-2025-Learning-temporal-granularity-with-"
+original_folder: Geng-2025-Learning-temporal-granularity-with-
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # OPEN

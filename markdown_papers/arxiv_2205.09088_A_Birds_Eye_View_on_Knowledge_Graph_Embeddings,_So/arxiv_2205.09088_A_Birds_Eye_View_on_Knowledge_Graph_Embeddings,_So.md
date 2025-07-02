@@ -1,14 +1,23 @@
 ---
-cite_key: "gargsupasup2012"
-title: "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges"
-authors: "Satvik Garg, Dwaipayan Roy"
+cite_key: garg_2012
+title: 'Knowledge Graph Completion: A Bird''s Eye View on Knowledge Graph Embeddings,
+  Software Libraries, Applications and Challenges'
+authors: Satvik Garg, Dwaipayan Roy
 year: 2012
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2205.09088_A_Birds_Eye_View_on_Knowledge_Graph_Embeddings,_So"
+original_folder: arxiv_2205.09088_A_Birds_Eye_View_on_Knowledge_Graph_Embeddings,_So
 images_total: 22
 images_kept: 22
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Privacy
+- Semantic Web
+- Temporal
 ---
 
 # Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges

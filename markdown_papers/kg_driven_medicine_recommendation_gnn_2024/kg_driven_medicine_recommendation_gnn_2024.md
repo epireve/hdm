@@ -1,15 +1,19 @@
 ---
-cite_key: "2024b"
-title: "1. Introduction"
-authors: "Citation:Wu, T."
+cite_key: citationwu_2024
+title: 1. Introduction
+authors: Citation:Wu, T.
 year: 2024
-doi: "10.3390/app14198650)"
-date_processed: "2025-07-02"
+doi: 10.3390/app14198650)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "kg_driven_medicine_recommendation_gnn_2024"
+original_folder: kg_driven_medicine_recommendation_gnn_2024
 images_total: 8
 images_kept: 5
 images_removed: 3
+tags:
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 ![](_page_0_Figure_0.jpeg)

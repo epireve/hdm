@@ -1,14 +1,18 @@
 ---
-cite_key: "penalties2016"
-title: "Time-R1: Towards Comprehensive Temporal Reasoning in LLMs"
-authors: "Large Language Models, Temporal Reasoning"
+cite_key: models_2016
+title: 'Time-R1: Towards Comprehensive Temporal Reasoning in LLMs'
+authors: Large Language Models, Temporal Reasoning
 year: 2016
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "temporal_cognitive_arxiv_2505.13508_Time-R1_Towards_Comprehensive_Temporal_Reasoning_in_LLMs"
+original_folder: temporal_cognitive_arxiv_2505.13508_Time-R1_Towards_Comprehensive_Temporal_Reasoning_in_LLMs
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # Time-R1: Towards Comprehensive Temporal Reasoning in LLMs

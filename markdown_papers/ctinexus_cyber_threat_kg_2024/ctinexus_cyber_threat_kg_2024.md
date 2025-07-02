@@ -1,14 +1,21 @@
 ---
-cite_key: "ctinexus_cyber_threat_kg_2024"
-title: "Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition"
-authors: "Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan Cheng, Qingpei Guo, Wei Chu"
+cite_key: yu_2016
+title: Knowledge-enhanced Multi-perspective Video Representation Learning for Scene
+  Recognition
+authors: Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan
+  Cheng, Qingpei Guo, Wei Chu
 year: 2016
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "ctinexus_cyber_threat_kg_2024"
+original_folder: ctinexus_cyber_threat_kg_2024
 images_total: 2
 images_kept: 2
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Semantic Web
+- Temporal
 ---
 
 # <span id="page-0-0"></span>Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition

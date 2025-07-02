@@ -1,14 +1,20 @@
 ---
-cite_key: "francescoosborneopenacuk2023"
-title: "Knowledge Graphs: Opportunities and Challenges"
-authors: "Feng Xia"
+cite_key: xia_2023
+title: 'Knowledge Graphs: Opportunities and Challenges'
+authors: Feng Xia
 year: 2023
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Peng-2023-Knowledge-graphs-opportunities-and-"
+original_folder: Peng-2023-Knowledge-graphs-opportunities-and-
 images_total: 7
 images_kept: 6
 images_removed: 1
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 

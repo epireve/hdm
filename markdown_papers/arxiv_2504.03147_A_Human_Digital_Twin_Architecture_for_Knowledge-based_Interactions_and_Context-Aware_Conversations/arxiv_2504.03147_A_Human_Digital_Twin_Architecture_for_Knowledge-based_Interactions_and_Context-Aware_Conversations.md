@@ -1,15 +1,22 @@
 ---
-cite_key: "reiners2024"
-title: "A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations"
-authors: "Abdul Mannan Mohammed, Azhar Ali Mohammad, Jason A. Ortiz, Carsten Neumann, Grace Bochenek"
+cite_key: mohammed_2024
+title: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware
+  Conversations
+authors: Abdul Mannan Mohammed, Azhar Ali Mohammad, Jason A. Ortiz, Carsten Neumann,
+  Grace Bochenek
 year: 2024
-doi: "10.1016/j.cmpbup.2021.100014"
-date_processed: "2025-07-02"
+doi: 10.1016/j.cmpbup.2021.100014
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2504.03147_A_Human_Digital_Twin_Architecture_for_Knowledge-based_Interactions_and_Context-Aware_Conversations"
+original_folder: arxiv_2504.03147_A_Human_Digital_Twin_Architecture_for_Knowledge-based_Interactions_and_Context-Aware_Conversations
 images_total: 5
 images_kept: 4
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 # A Human Digital Twin Architecture for Knowledge-based Interactions and Context-Aware Conversations

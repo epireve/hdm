@@ -1,15 +1,26 @@
 ---
-cite_key: "dresdenleipzig2012"
-title: "Construction of Knowledge Graphs: State and Challenges"
-authors: "Erhard Rahm a,b"
+cite_key: a_2012
+title: 'Construction of Knowledge Graphs: State and Challenges'
+authors: Erhard Rahm a,b
 year: 2012
-doi: "10.1145/3289600.3290956."
-date_processed: "2025-07-02"
+doi: 10.1145/3289600.3290956.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2302.11509_Construction_of_Knowledge_Graphs_State_and_Challe"
+original_folder: arxiv_2302.11509_Construction_of_Knowledge_Graphs_State_and_Challe
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- COVID-19
+- Data Integration
+- Decision Support
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Recommendation System
+- Semantic Web
 ---
 
 # Construction of Knowledge Graphs: State and Challenges

@@ -1,14 +1,20 @@
 ---
-cite_key: "preprint2021"
-title: "PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION"
-authors: "Xixiang Lyu"
+cite_key: lyu_2021
+title: PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION
+authors: Xixiang Lyu
 year: 2021
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2104.06824_Privacy-preserving_Federated_Learning_based_on_Mul"
+original_folder: arxiv_2104.06824_Privacy-preserving_Federated_Learning_based_on_Mul
 images_total: 6
 images_kept: 6
 images_removed: 0
+tags:
+- Federated Learning
+- Healthcare
+- IoT
+- Machine Learning
+- Privacy
 ---
 
 # PRIVACY-PRESERVING FEDERATED LEARNING BASED ON MULTI-KEY HOMOMORPHIC ENCRYPTION

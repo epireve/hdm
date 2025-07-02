@@ -1,21 +1,24 @@
 ---
-cite_key: "yang2024"
-title: "SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding"
-authors: "Ruiyi Yang"
+cite_key: yang_2024
+title: 'SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile
+  Dynamic Information Embedding'
+authors: Ruiyi Yang
 year: 2024
-doi: "arXiv:2402.12132"
-url: "https://arxiv.org/abs/2402.12132"
-relevancy: "High"
-downloaded: "Yes"
+doi: arXiv:2402.12132
+url: https://arxiv.org/abs/2402.12132
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Spatio-Temporal Knowledge Graphs"
-  - "Dynamic Information Embedding"
-  - "Location-Aware Modeling"
-  - "Temporal-Spatial Patterns"
-tldr: "Simple spatio-temporal knowledge graph framework that enables interpretable and versatile dynamic information embedding by integrating spatial and temporal dimensions for enhanced prediction and recommendation systems."
-date_processed: "2025-07-02"
+- Spatio-Temporal Knowledge Graphs
+- Dynamic Information Embedding
+- Location-Aware Modeling
+- Temporal-Spatial Patterns
+tldr: Simple spatio-temporal knowledge graph framework that enables interpretable
+  and versatile dynamic information embedding by integrating spatial and temporal
+  dimensions for enhanced prediction and recommendation systems.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "sstkg_spatio_temporal_kg_2024"
+original_folder: sstkg_spatio_temporal_kg_2024
 images_total: 4
 images_kept: 4
 images_removed: 0

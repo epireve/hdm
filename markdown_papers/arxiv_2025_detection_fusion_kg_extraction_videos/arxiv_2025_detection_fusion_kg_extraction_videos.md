@@ -1,22 +1,23 @@
 ---
-cite_key: "das2025"
-title: "Detection-Fusion for Knowledge Graph Extraction from Videos"
-authors: "Taniya Das, Louis Mahon, Thomas Lukasiewicz"
+cite_key: das_2025
+title: Detection-Fusion for Knowledge Graph Extraction from Videos
+authors: Taniya Das, Louis Mahon, Thomas Lukasiewicz
 year: 2025
-doi: "10.48550/arXiv.2501.00136"
-url: "https://arxiv.org/abs/2501.00136"
-relevancy: "High"
-downloaded: "Yes"
+doi: 10.48550/arXiv.2501.00136
+url: https://arxiv.org/abs/2501.00136
+relevancy: High
+downloaded: 'Yes'
 tags:
-  - "Video Understanding"
-  - "Knowledge Graphs"
-  - "Deep Learning"
-  - "Multimodal AI"
-  - "Computer Vision"
-tldr: "Novel deep learning approach for extracting semantic knowledge graphs from videos beyond traditional language model limitations"
-date_processed: "2025-07-02"
+- Video Understanding
+- Knowledge Graphs
+- Deep Learning
+- Multimodal AI
+- Computer Vision
+tldr: Novel deep learning approach for extracting semantic knowledge graphs from videos
+  beyond traditional language model limitations
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2025_detection_fusion_kg_extraction_videos"
+original_folder: arxiv_2025_detection_fusion_kg_extraction_videos
 images_total: 7
 images_kept: 6
 images_removed: 1

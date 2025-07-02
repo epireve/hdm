@@ -1,15 +1,20 @@
 ---
-cite_key: "hoffart2019c"
-title: "Personal Knowledge Graphs: A Research Agenda"
-authors: "Krisztian Balog Google London"
+cite_key: london_2019
+title: 'Personal Knowledge Graphs: A Research Agenda'
+authors: Krisztian Balog Google London
 year: 2019
-doi: "10.1145/3341981.3344241"
-date_processed: "2025-07-02"
+doi: 10.1145/3341981.3344241
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "ictir2019-pkg"
+original_folder: ictir2019-pkg
 images_total: 3
 images_kept: 2
 images_removed: 1
+tags:
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
 ---
 
 # Personal Knowledge Graphs: A Research Agenda

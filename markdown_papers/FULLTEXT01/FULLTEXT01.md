@@ -1,15 +1,27 @@
 ---
-cite_key: "2050"
-title: "Original Article"
-authors: "Guohua Bai"
-year: 2050
-doi: "10.1177/1460458219892387"
-date_processed: "2025-07-02"
+cite_key: peng_2019
+title: A literature review of current technologies on health data integration for
+  patient-centered health management
+authors: Cong Peng, Prashant Goswami, Guohua Bai
+year: 2019
+doi: 10.1177/1460458219892387
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "FULLTEXT01"
+original_folder: FULLTEXT01
 images_total: 10
 images_kept: 8
 images_removed: 2
+tags:
+- Data Integration
+- Decision Support
+- Digital Health
+- Electronic Health Records
+- Healthcare
+- IoT
+- Machine Learning
+- Patient Engagement
+- Personal Health
+- Semantic Web
 ---
 
 # *Original Article*

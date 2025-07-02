@@ -1,15 +1,22 @@
 ---
-cite_key: "correlation2024"
-title: "1 | Introduction"
-authors: "Correspondence:Man Zhang"
+cite_key: zhang_2024
+title: 1 | Introduction
+authors: Correspondence:Man Zhang
 year: 2024
-doi: "10.1111/exsy.13758"
-date_processed: "2025-07-02"
+doi: 10.1111/exsy.13758
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Expert Systems - 2024 - Chen - Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning"
+original_folder: Expert Systems - 2024 - Chen - Temporal Knowledge Graph Reasoning
+  Based on Dynamic Fusion Representation Learning
 images_total: 16
 images_kept: 16
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 ![](_page_0_Picture_2.jpeg)

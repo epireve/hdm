@@ -1,21 +1,23 @@
 ---
-cite_key: "wang2024"
-title: "Question answering over temporal knowledge graphs based on hierarchical semantic extraction"
-authors: "Jian Wang, Wenjuan Zhang, Qi He, Danfeng Zhao"
+cite_key: wang_2024
+title: Question answering over temporal knowledge graphs based on hierarchical semantic
+  extraction
+authors: Jian Wang, Wenjuan Zhang, Qi He, Danfeng Zhao
 year: 2024
-doi: "10.1109/SWC62898.2024.00207"
-url: "https://ieeexplore.ieee.org/document/10924876/"
-relevancy: "Medium"
-downloaded: "No"
+doi: 10.1109/SWC62898.2024.00207
+url: https://ieeexplore.ieee.org/document/10924876/
+relevancy: Medium
+downloaded: 'No'
 tags:
-  - "Temporal Knowledge Graphs"
-  - "Question Answering"
-  - "Temporal Reasoning"
-  - "Multi-granularity"
-tldr: "Novel model for temporal knowledge graph question answering using hierarchical semantic extraction and multi-granularity fusion techniques."
-date_processed: "2025-07-02"
+- Temporal Knowledge Graphs
+- Question Answering
+- Temporal Reasoning
+- Multi-granularity
+tldr: Novel model for temporal knowledge graph question answering using hierarchical
+  semantic extraction and multi-granularity fusion techniques.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "Question_answering_over_temporal_knowledge_graphs_based_on_hierarchical_semantic_extraction"
+original_folder: Question_answering_over_temporal_knowledge_graphs_based_on_hierarchical_semantic_extraction
 images_total: 3
 images_kept: 3
 images_removed: 0

@@ -1,14 +1,22 @@
 ---
-cite_key: "chen2020"
-title: "A Survey on Collaborative Mechanisms Between Large and Small Language Models"
-authors: "Yi Chen, JiaHao Zhao, HaoHao Han, Computer Applications"
+cite_key: chen_2020
+title: A Survey on Collaborative Mechanisms Between Large and Small Language Models
+authors: Yi Chen, JiaHao Zhao, HaoHao Han, Computer Applications
 year: 2020
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "collaborative_llm_slm_survey_2024"
+original_folder: collaborative_llm_slm_survey_2024
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Cloud Computing
+- IoT
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Privacy
+- Semantic Web
 ---
 
 # A Survey on Collaborative Mechanisms Between Large and Small Language Models

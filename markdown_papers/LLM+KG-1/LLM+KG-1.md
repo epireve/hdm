@@ -1,14 +1,21 @@
 ---
-cite_key: "arijitkcsaaudk2024"
-title: "Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs"
-authors: "Arijit Khan, Tianxing Wu, Xi Chen"
+cite_key: khan_2024
+title: Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs
+authors: Arijit Khan, Tianxing Wu, Xi Chen
 year: 2024
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "LLM+KG-1"
+original_folder: LLM+KG-1
 images_total: 0
 images_kept: 0
 images_removed: 0
+tags:
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Privacy
+- Semantic Web
 ---
 
 # Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs

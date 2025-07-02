@@ -1,22 +1,25 @@
 ---
-cite_key: "li2023"
-title: "A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management"
-authors: "Juan Li, Vikram Pandey, Rasha Hendawi"
+cite_key: li_2023
+title: A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health
+  Data Management
+authors: Juan Li, Vikram Pandey, Rasha Hendawi
 year: 2023
-doi: "10.1109/ISCC58397.2023.10218032"
-url: "https://ieeexplore.ieee.org/document/10218032/"
-relevancy: "High"
-downloaded: "No"
+doi: 10.1109/ISCC58397.2023.10218032
+url: https://ieeexplore.ieee.org/document/10218032/
+relevancy: High
+downloaded: 'No'
 tags:
-  - "Blockchain"
-  - "Personal Health Knowledge Graphs"
-  - "Health Data Management"
-  - "Privacy"
-  - "Interoperability"
-tldr: "Blockchain-based approach for integrating diverse health data types using knowledge graphs to provide comprehensive health view while ensuring patient control and data privacy."
-date_processed: "2025-07-02"
+- Blockchain
+- Personal Health Knowledge Graphs
+- Health Data Management
+- Privacy
+- Interoperability
+tldr: Blockchain-based approach for integrating diverse health data types using knowledge
+  graphs to provide comprehensive health view while ensuring patient control and data
+  privacy.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "A_Blockchain-Based_Personal_Health_Knowledge_Graph_for_Secure_Integrated_Health_Data_Management"
+original_folder: A_Blockchain-Based_Personal_Health_Knowledge_Graph_for_Secure_Integrated_Health_Data_Management
 images_total: 10
 images_kept: 10
 images_removed: 0

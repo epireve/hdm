@@ -1,15 +1,22 @@
 ---
-cite_key: "liu2024b"
-title: "ArticleEnhancing Temporal Knowledge Graph Representation with Curriculum Learning"
-authors: "Yihe Liu, Yi Shen"
+cite_key: liu_2024
+title: ArticleEnhancing Temporal Knowledge Graph Representation with Curriculum Learning
+authors: Yihe Liu, Yi Shen
 year: 2024
-doi: "10.3390/electronics13173397)"
-date_processed: "2025-07-02"
+doi: 10.3390/electronics13173397)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "electronics-13-03397"
+original_folder: electronics-13-03397
 images_total: 7
 images_kept: 3
 images_removed: 4
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 

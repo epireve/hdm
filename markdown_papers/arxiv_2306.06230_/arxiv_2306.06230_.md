@@ -1,15 +1,21 @@
 ---
-cite_key: "winikoff2023"
-title: "Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments"
-authors: "Jie Guan, Canada {jie.guan"
+cite_key: guan_2023
+title: Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments
+authors: Jie Guan, Canada {jie.guan
 year: 2023
-doi: "10.1109/MNET.005.2300129."
-date_processed: "2025-07-02"
+doi: 10.1109/MNET.005.2300129.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2306.06230_"
+original_folder: arxiv_2306.06230_
 images_total: 5
 images_kept: 5
 images_removed: 0
+tags:
+- Blockchain
+- Cloud Computing
+- IoT
+- Machine Learning
+- Mental Health
 ---
 
 Full Citation: J. Guan and A. Morris, "Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments," in IEEE Network, vol. 37, no. 4, pp. 12-21, July/August 2023, doi: 10.1109/MNET.005.2300129. keywords: Metaverse;Corporate acquisitions;Mixed reality;Switches;User experience;Digital twins;Internet of Things;Extended reality,

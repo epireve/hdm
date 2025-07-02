@@ -1,14 +1,19 @@
 ---
-cite_key: "linsupsup2022"
-title: "Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook"
-authors: "Baihan Lin"
+cite_key: lin_2022
+title: 'Knowledge Management System with NLP-Assisted Annotations: A Brief Survey
+  and Outlook'
+authors: Baihan Lin
 year: 2022
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2206.07304_Knowledge_Management_System_with_NLP-Assisted_Anno"
+original_folder: arxiv_2206.07304_Knowledge_Management_System_with_NLP-Assisted_Anno
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook

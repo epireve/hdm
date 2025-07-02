@@ -1,14 +1,24 @@
 ---
-cite_key: "dkfz2025"
-title: "DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE"
-authors: "Markus Hohenfellner, Physikalisches Institut"
+cite_key: hohenfellner_2025
+title: DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE
+authors: Markus Hohenfellner, Physikalisches Institut
 year: 2025
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2505.01206_Design_for_a_Digital_Twin_in_Clinical_Patient_Care"
+original_folder: arxiv_2505.01206_Design_for_a_Digital_Twin_in_Clinical_Patient_Care
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Cancer
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Personalized Medicine
+- Privacy
+- Recommendation System
+- Semantic Web
 ---
 
 # DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE

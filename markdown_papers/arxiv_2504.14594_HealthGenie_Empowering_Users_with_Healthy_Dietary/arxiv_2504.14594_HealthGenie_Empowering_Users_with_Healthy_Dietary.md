@@ -1,15 +1,23 @@
 ---
-cite_key: "base2025"
-title: "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models"
-authors: "KG."
+cite_key: gao_2025
+title: 'HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge
+  Graph and Large Language Models'
+authors: Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang
+  Jiang, Chanjun Park, Irene Li
 year: 2025
-doi: "10.18653/v1/2021.naacl-main.278"
-date_processed: "2025-07-02"
+doi: 10.18653/v1/2021.naacl-main.278
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2504.14594_HealthGenie_Empowering_Users_with_Healthy_Dietary"
+original_folder: arxiv_2504.14594_HealthGenie_Empowering_Users_with_Healthy_Dietary
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Personal Health
+- Recommendation System
+- Semantic Web
 ---
 
 # HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models

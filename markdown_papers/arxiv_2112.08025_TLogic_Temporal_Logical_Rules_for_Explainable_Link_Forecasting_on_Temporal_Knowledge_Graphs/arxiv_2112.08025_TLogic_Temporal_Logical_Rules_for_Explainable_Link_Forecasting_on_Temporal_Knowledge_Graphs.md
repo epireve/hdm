@@ -1,14 +1,23 @@
 ---
-cite_key: "ag2014"
-title: "TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs"
-authors: "Marcel Hildebrandt, Mitchell Joblin"
+cite_key: hildebrandt_2014
+title: 'TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal
+  Knowledge Graphs'
+authors: Marcel Hildebrandt, Mitchell Joblin
 year: 2014
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2112.08025_TLogic_Temporal_Logical_Rules_for_Explainable_Link_Forecasting_on_Temporal_Knowledge_Graphs"
+original_folder: arxiv_2112.08025_TLogic_Temporal_Logical_Rules_for_Explainable_Link_Forecasting_on_Temporal_Knowledge_Graphs
 images_total: 7
 images_kept: 7
 images_removed: 0
+tags:
+- Decision Support
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs

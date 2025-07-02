@@ -1,15 +1,24 @@
 ---
-cite_key: "data2019"
-title: "Brief ReportThe Roadmap toward Personalized Medicine: Challenges and Opportunities"
-authors: "Michael Joulie, Hussein Ayoub"
+cite_key: joulie_2019
+title: 'Brief ReportThe Roadmap toward Personalized Medicine: Challenges and Opportunities'
+authors: Michael Joulie, Hussein Ayoub
 year: 2019
-doi: "10.3390/jpm14060546)"
-date_processed: "2025-07-02"
+doi: 10.3390/jpm14060546)
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "connected_digital_twins_pkg_healthcare_2024"
+original_folder: connected_digital_twins_pkg_healthcare_2024
 images_total: 5
 images_kept: 1
 images_removed: 4
+tags:
+- Biomedical
+- Cancer
+- Healthcare
+- Machine Learning
+- Personalized Medicine
+- Privacy
+- Recommendation System
+- Semantic Web
 ---
 
 

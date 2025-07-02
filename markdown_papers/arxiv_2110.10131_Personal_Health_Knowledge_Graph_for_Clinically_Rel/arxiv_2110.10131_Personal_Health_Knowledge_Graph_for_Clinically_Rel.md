@@ -1,15 +1,25 @@
 ---
-cite_key: "seneviratnesupsup2021"
-title: "Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations"
-authors: "Oshani Seneviratne, Jonathan Harris, Hua Chen"
+cite_key: seneviratne_2021
+title: Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations
+authors: Oshani Seneviratne, Jonathan Harris, Hua Chen
 year: 2021
-doi: "10.2337/dc20-Sint."
-date_processed: "2025-07-02"
+doi: 10.2337/dc20-Sint.
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2110.10131_Personal_Health_Knowledge_Graph_for_Clinically_Rel"
+original_folder: arxiv_2110.10131_Personal_Health_Knowledge_Graph_for_Clinically_Rel
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Electronic Health Records
+- Healthcare
+- Knowledge Graph
+- Machine Learning
+- Patient Engagement
+- Personal Health
+- Recommendation System
+- Semantic Web
+- Temporal
 ---
 
 # Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations

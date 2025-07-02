@@ -1,15 +1,19 @@
 ---
-cite_key: "huang2024"
-title: "OPEN ACCESS"
-authors: "Meng Hao"
+cite_key: hao_2024
+title: OPEN ACCESS
+authors: Meng Hao
 year: 2024
-doi: "10.3389/fphy.2024.1383276"
-date_processed: "2025-07-02"
+doi: 10.3389/fphy.2024.1383276
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "personalized_privacy_preserving_federated_gnn_2024"
+original_folder: personalized_privacy_preserving_federated_gnn_2024
 images_total: 4
 images_kept: 4
 images_removed: 0
+tags:
+- Federated Learning
+- Machine Learning
+- Privacy
 ---
 
 # OPEN ACCESS

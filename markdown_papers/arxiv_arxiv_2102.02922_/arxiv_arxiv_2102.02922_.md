@@ -1,15 +1,20 @@
 ---
-cite_key: "arxiv_arxiv_210202922_"
-title: "Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks"
-authors: "Big Data, Software Architecture"
+cite_key: data_2019
+title: Towards a Flexible System Architecture for Automated Knowledge Base Construction
+  Frameworks
+authors: Big Data, Software Architecture
 year: 2019
-doi: "10.14778/2733004.2733069"
-date_processed: "2025-07-02"
+doi: 10.14778/2733004.2733069
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_arxiv_2102.02922_"
+original_folder: arxiv_arxiv_2102.02922_
 images_total: 1
 images_kept: 1
 images_removed: 0
+tags:
+- Machine Learning
+- Natural Language Processing
+- Semantic Web
 ---
 
 # Towards a Flexible System Architecture for Automated Knowledge Base Construction Frameworks

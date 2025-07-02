@@ -1,14 +1,21 @@
 ---
-cite_key: "dong2022"
-title: "ACM Reference Format:"
-authors: "Lingfeng Zhong, Jia Wu, Qian Li, Hao Peng"
+cite_key: zhong_2022
+title: A Comprehensive Survey on Automatic Knowledge Graph Construction
+authors: Lingfeng Zhong, Jia Wu, Qian Li, Hao Peng, Xindong Wu
 year: 2022
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2302.05019_A_Comprehensive_Survey_on_Automatic_Knowledge_Grap"
+original_folder: arxiv_2302.05019_A_Comprehensive_Survey_on_Automatic_Knowledge_Grap
 images_total: 21
 images_kept: 21
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Personal Health
+- Recommendation System
+- Semantic Web
 ---
 
 <span id="page-0-0"></span>LINGFENG ZHONG, Macquarie University, Australia JIA WU, Macquarie University, Australia QIAN LI, Beihang University, China HAO PENG, Beihang University, China XINDONG WU, Hefei University of Technology, China

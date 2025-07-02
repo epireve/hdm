@@ -1,14 +1,21 @@
 ---
-cite_key: "toronto2019"
-title: "A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM APPLICATION PERSPECTIVE"
-authors: "Shenzhe Zhu, Toronto Toronto"
+cite_key: zhu_2019
+title: 'A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM
+  APPLICATION PERSPECTIVE'
+authors: Shenzhe Zhu, Toronto Toronto
 year: 2019
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2405.03524_Exploring_knowledge_graph-based_neural-symbolic_sy"
+original_folder: arxiv_2405.03524_Exploring_knowledge_graph-based_neural-symbolic_sy
 images_total: 11
 images_kept: 11
 images_removed: 0
+tags:
+- Knowledge Graph
+- Machine Learning
+- Natural Language Processing
+- Privacy
+- Semantic Web
 ---
 
 # A SHORT SURVEY: EXPLORING KNOWLEDGE GRAPH-BASED NEURAL-SYMBOLIC SYSTEM FROM APPLICATION PERSPECTIVE

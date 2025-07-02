@@ -1,14 +1,21 @@
 ---
-cite_key: "ma2017"
-title: "Integrate Any Omics: Towards genome-wide data integration for patient stratification"
-authors: "Shihao Ma"
+cite_key: ma_2017
+title: 'Integrate Any Omics: Towards genome-wide data integration for patient stratification'
+authors: Shihao Ma
 year: 2017
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "integrate_any_omics_2024"
+original_folder: integrate_any_omics_2024
 images_total: 12
 images_kept: 12
 images_removed: 0
+tags:
+- Biomedical
+- Cancer
+- Data Integration
+- Healthcare
+- Machine Learning
+- Personalized Medicine
 ---
 
 # Integrate Any Omics: Towards genome-wide data integration for patient stratification

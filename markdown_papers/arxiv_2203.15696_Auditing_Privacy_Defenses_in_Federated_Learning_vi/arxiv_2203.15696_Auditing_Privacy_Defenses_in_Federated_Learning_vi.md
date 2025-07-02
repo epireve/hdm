@@ -1,14 +1,19 @@
 ---
-cite_key: "arxiv_220315696_auditing_priva"
-title: "Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage"
-authors: "Zhuohang Li, Jiaxin Zhang, Luyang Liu, Jian Liu"
+cite_key: li_2012
+title: Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
+authors: Zhuohang Li, Jiaxin Zhang, Luyang Liu, Jian Liu
 year: 2012
-date_processed: "2025-07-02"
+date_processed: '2025-07-02'
 phase2_processed: true
-original_folder: "arxiv_2203.15696_Auditing_Privacy_Defenses_in_Federated_Learning_vi"
+original_folder: arxiv_2203.15696_Auditing_Privacy_Defenses_in_Federated_Learning_vi
 images_total: 15
 images_kept: 15
 images_removed: 0
+tags:
+- Federated Learning
+- Healthcare
+- Machine Learning
+- Privacy
 ---
 
 # Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
