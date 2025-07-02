@@ -1,4 +1,15 @@
-<!-- cite_key: lab2022 -->
+---
+cite_key: "lab2022"
+title: "Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for Fact-aware Language Modeling"
+authors: "Zhejiang Lab, Hangzhou 311121, China (email: yangly@zhejianglab.com; dr.h.chen@ieee.org; zhaoli@zhejianglab.com; xwu@hfut.edu.cn)"
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2306.11489_"
+images_total: 10
+images_kept: 10
+images_removed: 0
+---
 
 # Give Us the Facts: Enhancing Large Language Models with Knowledge Graphs for Fact-aware Language Modeling
 

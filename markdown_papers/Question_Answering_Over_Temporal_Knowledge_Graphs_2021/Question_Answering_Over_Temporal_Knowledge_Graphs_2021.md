@@ -1,4 +1,26 @@
-<!-- cite_key: saxena2021 -->
+---
+cite_key: "saxena2021"
+title: "Question Answering Over Temporal Knowledge Graphs"
+authors: "Apoorv Saxena, Soumen Chakrabarti, Partha Talukdar"
+year: 2021
+doi: "https://doi.org/10.48550/arXiv.2106.01515"
+url: "https://arxiv.org/abs/2106.01515"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "temporal KGQA"
+  - "CRONQUESTIONS"
+  - "transformer"
+  - "temporal embeddings"
+  - "question answering"
+tldr: "Improved question answering in temporal knowledge graphs through novel dataset and transformer-based approach"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Question_Answering_Over_Temporal_Knowledge_Graphs_2021"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # Question Answering Over Temporal Knowledge Graphs
 

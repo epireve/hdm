@@ -1,4 +1,14 @@
-<!-- cite_key: wireless_communications_and_mo -->
+---
+cite_key: "wireless_communications_and_mo"
+title: "Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data"
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Wireless Communications and Mobile Computing - 2023 - Zhang - Privacy‐Preserving Federated Graph Neural Network Learning on"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 ![](_page_0_Picture_2.jpeg)
 

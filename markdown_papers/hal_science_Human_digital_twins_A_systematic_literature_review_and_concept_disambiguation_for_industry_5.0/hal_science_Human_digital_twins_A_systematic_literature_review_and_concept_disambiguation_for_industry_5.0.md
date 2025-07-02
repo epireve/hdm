@@ -1,4 +1,16 @@
-<!-- cite_key: gaffineta2002 -->
+---
+cite_key: "gaffineta2002"
+title: "Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0"
+authors: "Ben Gaffineta,b, Jana Al Haj Ali<sup>a</sup> , Yannick Naudet<sup>b</sup> , Herv´e Panetto<sup>a</sup>"
+year: 2002
+doi: "10.2777/308407."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "hal_science_Human_digital_twins_A_systematic_literature_review_and_concept_disambiguation_for_industry_5.0"
+images_total: 12
+images_kept: 12
+images_removed: 0
+---
 
 # Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0
 

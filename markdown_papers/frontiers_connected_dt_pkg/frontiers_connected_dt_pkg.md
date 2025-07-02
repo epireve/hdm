@@ -1,4 +1,16 @@
-<!-- cite_key: soualmia2023 -->
+---
+cite_key: "soualmia2023"
+title: "[CONNECTED: leveraging digital](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [twins and personal knowledge](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full) [graphs in healthcare digitalization](https://www.frontiersin.org/articles/10.3389/fdgth.2023.1322428/full)"
+authors: "EDITED BY Lina F. Soualmia, Université de Rouen, France"
+year: 2023
+doi: "10.3389/fdgth.2023.1322428"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "frontiers_connected_dt_pkg"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 EDITED BY Lina F. Soualmia, Université de Rouen, France
 

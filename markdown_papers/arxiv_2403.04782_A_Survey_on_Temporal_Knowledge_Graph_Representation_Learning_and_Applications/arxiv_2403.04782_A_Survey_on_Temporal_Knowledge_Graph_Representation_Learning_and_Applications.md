@@ -1,4 +1,25 @@
-<!-- cite_key: arxiv2024 -->
+---
+cite_key: "arxiv2024"
+title: "A Survey on Temporal Knowledge Graph: Representation Learning and Applications"
+authors: "Authors from arXiv"
+year: 2024
+doi: "arXiv:2403.04782"
+url: "https://arxiv.org/abs/2403.04782"
+relevancy: "High"
+downloaded: "No"
+tags:
+  - "Temporal Knowledge Graphs"
+  - "Time-Aware Modeling"
+  - "Dynamic Systems"
+  - "Temporal Reasoning"
+tldr: "Comprehensive survey addressing critical temporal modeling limitations in current knowledge graph systems."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2403.04782_A_Survey_on_Temporal_Knowledge_Graph_Representation_Learning_and_Applications"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # A Survey on Temporal Knowledge Graph: Representation Learning and Applications
 

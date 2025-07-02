@@ -1,4 +1,15 @@
-<!-- cite_key: pagefigurejpeg2005 -->
+---
+cite_key: "pagefigurejpeg2005"
+title: "MARK: Memory Augmented Refinement of Knowledge"
+authors: "![](_page_2_Figure_0.jpeg)"
+year: 2005
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2505.05177_MARK_Memory_Augmented_Refinement_of_Knowledge"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # MARK: Memory Augmented Refinement of Knowledge
 

@@ -1,4 +1,16 @@
-<!-- cite_key: hangzhou2022 -->
+---
+cite_key: "hangzhou2022"
+title: "KSG: Knowledge and Skill Graph"
+authors: "Feng Zhao Westlake University Hangzhou, Zhejiang, China zhaofeng@westlake.edu.cn"
+year: 2022
+doi: "10.1145/3511808.3557623"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2209.05698_KSG_Knowledge_and_Skill_Graph"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # KSG: Knowledge and Skill Graph
 

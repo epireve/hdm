@@ -1,4 +1,16 @@
-<!-- cite_key: graph2018 -->
+---
+cite_key: "graph2018"
+title: "Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs"
+authors: "- 5. A **context unit** is a compound unit that includes all semantic units for which merging their data graphs forms a connected graph, with every resource and triple being connected to every other resource via a series of triples that also belong to the data graph of the context unit, except for triples that have *isAbout* (IAO:0000136) as their property and which thus belong to an **is-about statement unit**. Is-about statement units relate an information artifact to an entity that the artifact contains information about. They are thus indices that point at positions in the graph where changes of the **reference frame** occur **[E1.3; E3.2]**. Thus, every is-about statement unit demarcates the border between two different frames of reference in a graph and with it two different context units. Similar to granular item group units, context units additionally structure item group units, and knowledge graphs in general, by organizing them into different context units and thus subgraphs that belong to different frames of reference. A special case of context unit is the set of lexical statement units in a graph. Since they comprise statements that are about linguistic items, they share the same **terminological frame of reference** and thus form a **terminological context unit**."
+year: 2018
+doi: "10.1007/978-3-030-61244-3"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2304.09029_Knowledge_Graph_Building_Blocks_An_easy-to-use_Fr"
+images_total: 26
+images_kept: 26
+images_removed: 0
+---
 
 # Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs
 

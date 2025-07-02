@@ -1,4 +1,26 @@
-<!-- cite_key: yan2024 -->
+---
+cite_key: "yan2024"
+title: "Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation"
+authors: "Bo Yan, Yang Cao, Haoyu Wang, Wenchuan Yang, Junping Du, Chuan Shi"
+year: 2024
+doi: "arXiv:2310.11730"
+url: "https://arxiv.org/abs/2310.11730"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Federated Learning"
+  - "Privacy-Preserving Recommendation"
+  - "Heterogeneous Information Networks"
+  - "Differential Privacy"
+  - "Graph Neural Networks"
+tldr: "Privacy-preserving federated learning framework for heterogeneous information networks that enables collaborative recommendation model training while protecting user privacy through differential privacy and semantic-preserving data publishing techniques."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "fedhgnn_privacy_preserving_recommendation_2024"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # Federated Heterogeneous Graph Neural Network for Privacy-preserving Recommendation
 

@@ -1,4 +1,16 @@
-<!-- cite_key: buckman2019 -->
+---
+cite_key: "buckman2019"
+title: "A Survey on Semantic Modeling for Building Energy Management"
+authors: "- <span id=\"page-23-6\"></span>[21] Alex H Buckman, Martin Mayfield, and Stephen BM Beck. \"What is a smart building?\" In: Smart and Sustainable Built Env. 3.2 (2014), pp. 92–109."
+year: 2019
+doi: "10.3030/957128"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2024_semantic_modeling_building_energy_management_survey"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # A Survey on Semantic Modeling for Building Energy Management
 

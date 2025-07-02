@@ -1,4 +1,15 @@
-<!-- cite_key: bontempelli2017 -->
+---
+cite_key: "bontempelli2017"
+title: "Lifelong Personal Context Recognition<sup>1</sup>"
+authors: "Andrea Bontempelli, Marcelo Rodas Britez, Xiaoyue Li, Haonan Zhao Luca Erculiani, Stefano Teso, Andrea Passerini, Fausto Giunchiglia"
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2205.10123_Lifelong_Personal_Context_Recognition"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Lifelong Personal Context Recognition<sup>1</sup>
 

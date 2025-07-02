@@ -1,4 +1,16 @@
-<!-- cite_key: 2024 -->
+---
+cite_key: "2024"
+title: "*Article* **Personalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach**"
+authors: "**Fatemeh Sarani Rad [,](https://orcid.org/0000-0001-7088-2561) Rasha Hendawi [,](https://orcid.org/0000-0001-5828-2651) Xinyi Yang and Juan Li [\\\\*](https://orcid.org/0000-0002-7668-5996)**"
+year: 2024
+doi: "10.3390/jpm14040359"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Personalized_Diabetes_Management_Digital_Twins_PHKG"
+images_total: 11
+images_kept: 8
+images_removed: 3
+---
 
 ![](_page_0_Figure_0.jpeg)
 

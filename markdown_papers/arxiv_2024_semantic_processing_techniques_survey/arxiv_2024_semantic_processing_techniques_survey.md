@@ -1,4 +1,16 @@
-<!-- cite_key: maoa2023 -->
+---
+cite_key: "maoa2023"
+title: "A Survey on Semantic Processing Techniques"
+authors: "<span id=\"page-0-1\"></span>Rui Maoa,<sup>∗</sup> , Kai Hec,<sup>∗</sup> , Xulang Zhangb,<sup>∗</sup> , Guanyi Chend,e,f,<sup>∗</sup> , Jinjie Nib,<sup>∗</sup> , Zonglin Yanga,<sup>∗</sup> , Erik Cambriaa,∗∗"
+year: 2023
+doi: "10.5683/SP2/QPOJSI"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2024_semantic_processing_techniques_survey"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # A Survey on Semantic Processing Techniques
 

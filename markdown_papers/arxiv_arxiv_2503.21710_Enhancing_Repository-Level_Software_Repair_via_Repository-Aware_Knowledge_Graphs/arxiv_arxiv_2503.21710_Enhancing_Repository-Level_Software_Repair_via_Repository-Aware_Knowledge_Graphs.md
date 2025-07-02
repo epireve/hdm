@@ -1,4 +1,16 @@
-<!-- cite_key: yang2025b -->
+---
+cite_key: "yang2025b"
+title: "Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs"
+authors: "Boyang Yang1,<sup>2</sup> , Haoye Tian3,<sup>∗</sup> , Jiadong Ren<sup>1</sup> , Shunfu Jin<sup>1</sup> , Yang Liu<sup>4</sup> , Feng Liu<sup>3</sup> , Bach Le<sup>3</sup>"
+year: 2025
+doi: "10.1145/nnnnnnn.nnnnnnn"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2503.21710_Enhancing_Repository-Level_Software_Repair_via_Repository-Aware_Knowledge_Graphs"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
 

@@ -1,4 +1,26 @@
-<!-- cite_key: rossi2020 -->
+---
+cite_key: "rossi2020"
+title: "Temporal Graph Networks for Deep Learning on Dynamic Graphs"
+authors: "Emanuele Rossi, Ben Chamberlain, Fabrizio Frasca, Davide Eynard, Federico Monti, Michael Bronstein"
+year: 2020
+doi: "10.48550/arXiv.2006.10637"
+url: "https://arxiv.org/abs/2006.10637"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Temporal Graphs"
+  - "Graph Neural Networks"
+  - "Memory Networks"
+  - "Dynamic Systems"
+  - "Deep Learning"
+tldr: "Generic temporal graph network framework combining memory modules and graph operators for dynamic graph representation learning"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2020_temporal_graph_networks_dynamic_graphs"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # TEMPORAL GRAPH NETWORKS FOR DEEP LEARNING ON DYNAMIC GRAPHS
 

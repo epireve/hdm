@@ -1,3 +1,17 @@
+---
+cite_key: "ilkouhttpsorcidorg---2022b"
+title: "arXiv:2203.08507v1 [cs.IR] 16 Mar 2022"
+authors: "[Eleni Ilkou](https://orcid.org/0000-0002-4847-6177)"
+year: 2022
+doi: "10.1145/nnnnnnn.nnnnnnn"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2203.08507_Personal_Knowledge_Graphs_Use_Cases_in_e-learning_Platforms"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
+
 <!-- cite_key: ilkouhttpsorcidorg---2022b -->
 
 # arXiv:2203.08507v1 [cs.IR] 16 Mar 2022

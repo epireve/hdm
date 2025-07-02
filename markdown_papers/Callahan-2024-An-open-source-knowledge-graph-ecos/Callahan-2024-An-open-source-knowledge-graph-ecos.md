@@ -1,4 +1,16 @@
-<!-- cite_key: data2024 -->
+---
+cite_key: "data2024"
+title: "**An open source knowledge graph ecosystem for the life sciences**"
+authors: "**Translational research requires data at multiple scales of biological organization.Advancements in sequencing and multi-omics technologies have increased the availability ofthese data, but researchers face signifcantintegration challenges. Knowledge graphs (KGs) are used to model complex phenomena, and methods existto constructthem automatically. However,tackling complex biomedical integration problems requires fexibility in the way knowledge is modeled. Moreover, existing KG construction methods provide robusttooling atthe cost of fxed or limited choices among knowledge representation models. PheKnowLator (Phenotype KnowledgeTranslator) is a semantic ecosystem for automating the FAIR (Findable,Accessible, Interoperable, and Reusable) construction of ontologically grounded KGs with fully customizable knowledge representation.The ecosystem includes KG construction resources (e.g., data preparationAPIs), analysis tools (e.g., SPARQL endpointresources and abstraction algorithms), and benchmarks (e.g., prebuilt KGs).We evaluated the ecosystem by systematically comparing itto existing open-source KG construction methods and by analyzing its computational performance when used to construct 12 diferentlarge-scale KGs. With fexible knowledge representation, PheKnowLator enables fully customizable KGs without compromising performance or usability.**"
+year: 2024
+doi: "10.1101/2023.02.11.528088"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Callahan-2024-An-open-source-knowledge-graph-ecos"
+images_total: 8
+images_kept: 7
+images_removed: 1
+---
 
 **OPEN**
 

@@ -1,4 +1,26 @@
-<!-- cite_key: lu2023 -->
+---
+cite_key: "lu2023"
+title: "A SysML-centric integration framework for helicopter fuel system development"
+authors: "Jinzhi Lu, Guoxin Wang, Jian Wang, Martin Törngren, Dejiu Chen"
+year: 2023
+doi: "10.1109/AERO55745.2023.10115875"
+url: "Available through IEEE Xplore"
+relevancy: "Low"
+downloaded: "Yes"
+tags:
+  - "SysML"
+  - "systems engineering"
+  - "aerospace"
+  - "integration framework"
+  - "MBSE"
+tldr: "Presents SysML-based framework for integrating tools and data in helicopter fuel system development"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Zhao_2023_J._Phys.%3A_Conf._Ser._2472_012040"
+images_total: 8
+images_kept: 7
+images_removed: 1
+---
 
 
 

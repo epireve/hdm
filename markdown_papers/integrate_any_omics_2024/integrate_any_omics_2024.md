@@ -1,4 +1,15 @@
-<!-- cite_key: ma2017 -->
+---
+cite_key: "ma2017"
+title: "Integrate Any Omics: Towards genome-wide data integration for patient stratification"
+authors: "Shihao Ma1,2,3, Andy G.X. Zeng5,8, Benjamin Haibe-Kains2,6,8, Anna Goldenberg2,3,7, John E Dick5,8 and Bo Wang1,2,3,4\\*"
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "integrate_any_omics_2024"
+images_total: 12
+images_kept: 12
+images_removed: 0
+---
 
 # Integrate Any Omics: Towards genome-wide data integration for patient stratification
 

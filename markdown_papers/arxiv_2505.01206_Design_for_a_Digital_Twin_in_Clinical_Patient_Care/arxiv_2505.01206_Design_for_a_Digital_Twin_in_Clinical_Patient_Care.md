@@ -1,4 +1,15 @@
-<!-- cite_key: dkfz2025 -->
+---
+cite_key: "dkfz2025"
+title: "DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE"
+authors: "Cancer Research Center (DKFZ), Heidelberg, Germany."
+year: 2025
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2505.01206_Design_for_a_Digital_Twin_in_Clinical_Patient_Care"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # DESIGN FOR A DIGITAL TWIN IN CLINICAL PATIENT CARE
 

@@ -1,4 +1,15 @@
-<!-- cite_key: arxiv_240803910_framework_brid -->
+---
+cite_key: "arxiv_240803910_framework_brid"
+title: "CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases"
+year: 2021
+doi: "10.1561/1500000019."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2408.03910_framework_Bridging_Large_Language_Models_and_Cod"
+images_total: 11
+images_kept: 9
+images_removed: 2
+---
 
 # CODEXGRAPH: Bridging Large Language Models and Code Repositories via Code Graph Databases
 

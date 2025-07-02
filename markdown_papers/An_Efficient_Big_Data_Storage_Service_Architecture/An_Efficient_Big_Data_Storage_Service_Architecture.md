@@ -1,4 +1,13 @@
-<!-- cite_key: an_efficient_big_data_storage_ -->
+---
+cite_key: "an_efficient_big_data_storage_"
+title: "\\$Q(IILFLHQW%LJ'DWD6WRUDJH6HUYLFH\\$UFKLWHFWXUH"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "An_Efficient_Big_Data_Storage_Service_Architecture"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # \$Q(IILFLHQW%LJ'DWD6WRUDJH6HUYLFH\$UFKLWHFWXUH
 

@@ -1,4 +1,16 @@
-<!-- cite_key: luosupsupsupsup2024b -->
+---
+cite_key: "luosupsupsupsup2024b"
+title: "Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion"
+authors: "Ruilin Luo<sup>1</sup><sup>∗</sup> , Tianle Gu<sup>1</sup><sup>∗</sup> , Haoling Li<sup>1</sup><sup>∗</sup> , Junzhe Li<sup>2</sup> , Zicheng Lin<sup>1</sup> , Jiayi Li<sup>3</sup> , Yujiu Yang<sup>1</sup>†"
+year: 2024
+doi: "10.48550/ARXIV.2309.16609)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2401.06072_Chain_of_History_Learning_and_Forecasting_with_LLMs_for_Temporal_Knowledge_Graph_Completion"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # Chain of History: Learning and Forecasting with LLMs for Temporal Knowledge Graph Completion
 

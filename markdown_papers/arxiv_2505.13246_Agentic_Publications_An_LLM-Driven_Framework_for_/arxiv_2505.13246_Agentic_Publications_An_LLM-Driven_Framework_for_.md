@@ -1,4 +1,16 @@
-<!-- cite_key: supasup2024c -->
+---
+cite_key: "supasup2024c"
+title: "**Keywords**"
+authors: "Roberto Pugliese <sup>a</sup> , George Kourousias <sup>b</sup> , Francesco Venier <sup>c</sup> , Grazia Garlatti Costa <sup>d</sup> \\*"
+year: 2024
+doi: "10.34965/agenticpublication.3567a)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2505.13246_Agentic_Publications_An_LLM-Driven_Framework_for_"
+images_total: 5
+images_kept: 4
+images_removed: 1
+---
 
 # Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems
 

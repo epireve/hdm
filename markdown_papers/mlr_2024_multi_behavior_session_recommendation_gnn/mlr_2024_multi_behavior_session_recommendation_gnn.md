@@ -1,4 +1,26 @@
-<!-- cite_key: qin2024 -->
+---
+cite_key: "qin2024"
+title: "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning"
+authors: "Shuo Qin, Xiangyu Zhao, Haochen Liu, Wenqi Fan, Lei Chen, Hui Liu, Qing Li"
+year: 2024
+doi: "N/A"
+url: "https://proceedings.mlr.press/v222/qin24a.html"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Multi-behavior Recommendation"
+  - "Graph Neural Networks"
+  - "Reinforcement Learning"
+  - "Session-based Recommendation"
+  - "Deep Q-Network"
+tldr: "Multi-behavior graph reinforcement learning approach for session-based recommendation handling diverse user interaction patterns"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mlr_2024_multi_behavior_session_recommendation_gnn"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Multi-behavior Session-based Recommendation via Graph Reinforcement Learning
 

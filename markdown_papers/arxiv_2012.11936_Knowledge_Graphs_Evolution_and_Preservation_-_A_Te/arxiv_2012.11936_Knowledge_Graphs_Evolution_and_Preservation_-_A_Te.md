@@ -1,4 +1,16 @@
-<!-- cite_key: abbas2019 -->
+---
+cite_key: "abbas2019"
+title: "Knowledge Graphs Evolution and Preservation"
+authors: "Nacira Abbas, INRIA Kholoud Alghamdi, The University of Southampton Mortaza Alinam, University of Genoa Francesca Alloatti, University of Torino, CELI - Language Technology Glenda Amaral, Free University of Bozen-Bolzano Martin Beno, Vienna University of Economics and Business Felix Bensmann, GESIS - Leibniz Institute for the Social Sciences Ling Cai, University of California, Santa Barbara Riley Capshaw, Linkoping University ¨ Amine Dadoun, Eurecom Stefano De Giorgis, University of Bologna Harm Delva, Ghent University, IDLab, imec Vincent Emonet, Institute of Data Science, Maastricht University Paola Espinoza Arias, Universidad Politecnica de Madrid ´ Omaima Fallatah, University of Sheffield Sebastian Ferrada, Institute for Foundational Research on Data, University of Chile ´ Marc Gallofre Oca ´ na, University of Bergen ˜"
+year: 2019
+doi: "10.1007/978-3-642-41338-4"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2012.11936_Knowledge_Graphs_Evolution_and_Preservation_-_A_Te"
+images_total: 28
+images_kept: 26
+images_removed: 2
+---
 
 <span id="page-0-0"></span>
 

@@ -1,4 +1,14 @@
-<!-- cite_key: arxiv_240808632_a_survey_on_be -->
+---
+cite_key: "arxiv_240808632_a_survey_on_be"
+title: "A Survey on Benchmarks of Multimodal Large Language Models"
+year: 2024
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2408.08632_A_Survey_on_Benchmarks_of_Multimodal_Large_Language_Models"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # A Survey on Benchmarks of Multimodal Large Language Models
 

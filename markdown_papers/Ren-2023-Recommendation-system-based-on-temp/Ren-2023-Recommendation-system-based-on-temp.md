@@ -1,4 +1,16 @@
-<!-- cite_key: cui2023 -->
+---
+cite_key: "cui2023"
+title: "Recommendation System Based on Temporal Knowledge Graph Path Reasoning"
+authors: "Liangzhong Cui"
+year: 2023
+doi: "10.1145/3630138.3630436"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Ren-2023-Recommendation-system-based-on-temp"
+images_total: 3
+images_kept: 2
+images_removed: 1
+---
 
 
 

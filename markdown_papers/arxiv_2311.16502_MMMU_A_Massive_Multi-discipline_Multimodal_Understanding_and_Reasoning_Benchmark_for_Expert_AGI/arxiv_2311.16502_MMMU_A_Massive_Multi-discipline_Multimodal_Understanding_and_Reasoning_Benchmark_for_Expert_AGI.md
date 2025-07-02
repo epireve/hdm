@@ -1,4 +1,15 @@
-<!-- cite_key: yue2035 -->
+---
+cite_key: "yue2035"
+title: "<span id=\"page-0-1\"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI"
+authors: "Xiang Yue\\*† , Yuansheng Ni\\*, Kai Zhang\\*, Tianyu Zheng\\*, Ruoqi Liu, <sup>2</sup>Ge Zhang, <sup>3</sup>Samuel Stevens, <sup>2</sup>Dongfu Jiang, <sup>2</sup>Weiming Ren, <sup>4</sup>Yuxuan Sun, Cong Wei, <sup>3</sup>Botao Yu, <sup>5</sup>Ruibin Yuan, <sup>2</sup>Renliang Sun, <sup>7</sup>Ming Yin, Boyuan Zheng, <sup>4</sup>Zhenzhu Yang, <sup>6</sup>Yibo Liu, <sup>4</sup>Wenhao Huang, Huan Sun\\*, <sup>3</sup>Yu Su\\*† , Wenhu Chen\\*†"
+year: 2035
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2311.16502_MMMU_A_Massive_Multi-discipline_Multimodal_Understanding_and_Reasoning_Benchmark_for_Expert_AGI"
+images_total: 123
+images_kept: 84
+images_removed: 39
+---
 
 # <span id="page-0-1"></span>MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI
 

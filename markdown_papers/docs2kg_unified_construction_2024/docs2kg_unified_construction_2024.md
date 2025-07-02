@@ -1,4 +1,27 @@
-<!-- cite_key: sun2024b -->
+---
+cite_key: "sun2024b"
+title: "Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models"
+authors: "Qiang Sun, Yuanyi Luo, Wenxiao Zhang, et al."
+year: 2024
+doi: "10.48550/arXiv.2406.02962"
+url: "https://arxiv.org/abs/2406.02962"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Knowledge Graphs"
+  - "Data Integration"
+  - "Large Language Models"
+  - "Enterprise Data"
+  - "Information Retrieval"
+  - "Heterogeneous Documents"
+tldr: "Framework for extracting multimodal information from diverse document types and dynamically generating unified knowledge graphs using LLMs."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "docs2kg_unified_construction_2024"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models
 

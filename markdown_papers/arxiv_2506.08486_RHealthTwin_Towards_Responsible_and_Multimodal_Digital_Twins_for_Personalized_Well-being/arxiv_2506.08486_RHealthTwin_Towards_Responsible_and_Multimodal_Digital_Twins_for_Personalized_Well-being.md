@@ -1,4 +1,15 @@
-<!-- cite_key: computing2025 -->
+---
+cite_key: "computing2025"
+title: "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being"
+authors: "Rahatara Ferdousi is now with the School of Computing, Queen's University, Goodwin Hall, 25 Union Street, Kingston, ON K7L 3N6 [\\(rahatara.ferdousi@queensu.ca\\).](mailto:(rahatara.ferdousi@queensu.ca)"
+year: 2025
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2506.08486_RHealthTwin_Towards_Responsible_and_Multimodal_Digital_Twins_for_Personalized_Well-being"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being
 

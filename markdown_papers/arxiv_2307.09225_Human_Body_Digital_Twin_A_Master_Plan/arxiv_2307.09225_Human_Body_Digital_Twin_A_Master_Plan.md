@@ -1,4 +1,15 @@
-<!-- cite_key: tangsupsup2023 -->
+---
+cite_key: "tangsupsup2023"
+title: "arXiv:2307.09225v1 [cs.AI] 18 Jul 2023"
+authors: "Chenyu Tang<sup>1</sup> , Shuo Gao<sup>2</sup> , and Luigi G. Occhipinti<sup>1</sup>"
+year: 2023
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2307.09225_Human_Body_Digital_Twin_A_Master_Plan"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # arXiv:2307.09225v1 [cs.AI] 18 Jul 2023
 

@@ -1,4 +1,15 @@
-<!-- cite_key: dong2022 -->
+---
+cite_key: "dong2022"
+title: "<span id=\"page-24-0\"></span>5 KNOWLEDGE GRAPH REFINEMENT FROM STRUCTURED DATA"
+authors: "- <span id=\"page-38-8\"></span>[50] Z. Dong and Q. Dong, \"Hownet - a hybrid language and knowledge resource,\" in ICNLP, 2003 , Proceedings, pp. 820–824, 2003."
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2302.05019_A_Comprehensive_Survey_on_Automatic_Knowledge_Grap"
+images_total: 21
+images_kept: 21
+images_removed: 0
+---
 
 <span id="page-0-0"></span>LINGFENG ZHONG, Macquarie University, Australia JIA WU, Macquarie University, Australia QIAN LI, Beihang University, China HAO PENG, Beihang University, China XINDONG WU, Hefei University of Technology, China
 

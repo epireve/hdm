@@ -1,4 +1,15 @@
-<!-- cite_key: supbsupcombustion2000 -->
+---
+cite_key: "supbsupcombustion2000"
+title: "nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations"
+authors: "<sup>b</sup>Combustion, Acoustics & Flow Physics Laboratory, ETH Z¨urich, 8092 Z¨urich, Switzerland"
+year: 2000
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "gnn_heart_failure_prediction_2024"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations
 

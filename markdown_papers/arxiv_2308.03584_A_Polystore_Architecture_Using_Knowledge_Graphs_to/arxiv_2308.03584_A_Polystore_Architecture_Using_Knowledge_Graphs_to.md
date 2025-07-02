@@ -1,4 +1,15 @@
-<!-- cite_key: arxiv_230803584_a_polystore_ar -->
+---
+cite_key: "arxiv_230803584_a_polystore_ar"
+title: "A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES <sup>∗</sup>"
+year: 2019
+doi: "10.1007/s00778-017-0474-5"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2308.03584_A_Polystore_Architecture_Using_Knowledge_Graphs_to"
+images_total: 13
+images_kept: 13
+images_removed: 0
+---
 
 # A POLYSTORE ARCHITECTURE USING KNOWLEDGE GRAPHS TO SUPPORT QUERIES ON HETEROGENEOUS DATA STORES <sup>∗</sup>
 

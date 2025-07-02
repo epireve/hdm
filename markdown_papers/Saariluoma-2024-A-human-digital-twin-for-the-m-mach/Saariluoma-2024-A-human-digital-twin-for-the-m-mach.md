@@ -1,4 +1,16 @@
-<!-- cite_key: new2023 -->
+---
+cite_key: "new2023"
+title: "**A human digital twin for the M‑Machine**"
+authors: "Designers should consider how people interact with new, intelligent technical artifacts and not only seek to create cyber-physical objects. The focus of technology design in Society 5.0 is as much on creating new social actions as on constructing new technical artifacts. Thus, the design of the properties of artifacts, such as algorithms, remains an important"
+year: 2023
+doi: "10.1007/s44163-024-00164-x"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Saariluoma-2024-A-human-digital-twin-for-the-m-mach"
+images_total: 11
+images_kept: 9
+images_removed: 2
+---
 
 # Research
 

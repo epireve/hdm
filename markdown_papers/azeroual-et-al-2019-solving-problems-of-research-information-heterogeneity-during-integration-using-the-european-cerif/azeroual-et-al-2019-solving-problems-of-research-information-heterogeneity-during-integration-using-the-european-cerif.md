@@ -1,4 +1,16 @@
-<!-- cite_key: azeroualdzhweumailtoazeroualdzhweu2019 -->
+---
+cite_key: "azeroualdzhweumailtoazeroualdzhweu2019"
+title: "Solving problems of research information heterogeneity during integration – using the European CERIF and German RCD standards as examples"
+authors: "*E-mail: [azeroual@dzhw.eu](mailto:azeroual@dzhw.eu)*"
+year: 2019
+doi: "10.3233/ISU-180030"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "azeroual-et-al-2019-solving-problems-of-research-information-heterogeneity-during-integration-using-the-european-cerif"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 Information Services & Use 39 (2019) 105–122 105 DOI [10.3233/ISU-180030](http://dx.doi.org/10.3233/ISU-180030) IOS Press
 

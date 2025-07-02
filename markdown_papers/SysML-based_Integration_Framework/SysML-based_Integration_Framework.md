@@ -1,4 +1,14 @@
-<!-- cite_key: sysml_based_integration_framew -->
+---
+cite_key: "sysml_based_integration_framew"
+title: "A SysML-based Integration Framework for the Engineering of Mechatronic Systems"
+year: 2003
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "SysML-based_Integration_Framework"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # A SysML-based Integration Framework for the Engineering of Mechatronic Systems
 

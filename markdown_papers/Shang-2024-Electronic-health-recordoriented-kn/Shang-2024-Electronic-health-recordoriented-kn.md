@@ -1,4 +1,16 @@
-<!-- cite_key: security2024 -->
+---
+cite_key: "security2024"
+title: "Electronic Health Record–Oriented Knowledge Graph System for Collaborative Clinical Decision Support Using Multicenter Fragmented Medical Data: Design and Application Study"
+authors: "<sup>1</sup>Research Center for Data Hub and Security, Zhejiang Laboratory, Hangzhou, China"
+year: 2024
+doi: "10.2196/54263"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Shang-2024-Electronic-health-recordoriented-kn"
+images_total: 19
+images_kept: 19
+images_removed: 0
+---
 
 Original Paper
 

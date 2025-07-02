@@ -1,4 +1,26 @@
-<!-- cite_key: wu2022 -->
+---
+cite_key: "wu2022"
+title: "FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation"
+authors: "Chuhan Wu, Fangzhao Wu, Yang Cao, Yongfeng Huang, Xing Xie"
+year: 2022
+doi: "10.48550/arXiv.2102.04925"
+url: "https://arxiv.org/abs/2102.04925"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Federated Learning"
+  - "Graph Neural Networks"
+  - "Privacy"
+  - "Recommendation Systems"
+  - "Differential Privacy"
+tldr: "Privacy-preserving recommendation framework using graph neural networks in federated learning environment"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2022_fedgnn_privacy_preserving"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # FedGNN: Federated Graph Neural Network for Privacy-Preserving Recommendation
 

@@ -1,4 +1,16 @@
-<!-- cite_key: correlation2024 -->
+---
+cite_key: "correlation2024"
+title: "**Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning**"
+authors: "introducing an implicit correlation encoder and calculating the strength of the implicit correlation, this model can better capture the implicit relationships between entities, thereby improving the effectiveness of relation extraction."
+year: 2024
+doi: "10.1111/exsy.13758"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Expert Systems - 2024 - Chen - Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning"
+images_total: 16
+images_kept: 16
+images_removed: 0
+---
 
 ![](_page_0_Picture_2.jpeg)
 

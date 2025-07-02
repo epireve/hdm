@@ -1,4 +1,16 @@
-<!-- cite_key: allamanis2021 -->
+---
+cite_key: "allamanis2021"
+title: "Morescient GAI for Software Engineering (Extended Version)"
+authors: "- <span id=\"page-13-0\"></span>[2] Miltiadis Allamanis, Earl T. Barr, Premkumar Devanbu, and Charles Sutton. 2018. A Survey of Machine Learning for Big Code and Naturalness. ACM Comput. Surv. 51, 4, Article 81 (jul 2018), 37 pages. <https://doi.org/10.1145/3212695>"
+year: 2021
+doi: "10.1145/3359591.3359735"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2406.04710_Morescient_GAI_for_Software_Engineering"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Morescient GAI for Software Engineering (Extended Version)
 

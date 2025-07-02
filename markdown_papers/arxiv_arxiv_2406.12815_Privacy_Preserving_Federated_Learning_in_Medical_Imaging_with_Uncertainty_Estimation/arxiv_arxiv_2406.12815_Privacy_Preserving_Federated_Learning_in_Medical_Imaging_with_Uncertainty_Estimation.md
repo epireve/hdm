@@ -1,4 +1,15 @@
-<!-- cite_key: koutsoubisa2017b -->
+---
+cite_key: "koutsoubisa2017b"
+title: "Privacy Preserving Federated Learning in Medical Imaging with Uncertainty Estimation"
+authors: "Nikolas Koutsoubisa,c,∗∗, Yasin Yilmaz<sup>c</sup> , Ravi P. Ramachandran<sup>d</sup> , Matthew Schabath<sup>b</sup> , Ghulam Rasool<sup>a</sup>"
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2406.12815_Privacy_Preserving_Federated_Learning_in_Medical_Imaging_with_Uncertainty_Estimation"
+images_total: 5
+images_kept: 4
+images_removed: 1
+---
 
 # Privacy Preserving Federated Learning in Medical Imaging with Uncertainty Estimation
 

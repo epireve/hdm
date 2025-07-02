@@ -1,4 +1,16 @@
-<!-- cite_key: technology2024 -->
+---
+cite_key: "technology2024"
+title: "**OPEN**"
+authors: "Digital twin technology, which fully utilizes physical models, sensor updates, operational history, and other data, integrates multidisciplinary, multi-physical, multiscale, and multiprobability simulation processes to map virtually the entire lifecycle of corresponding physical entities. Thus, the digital twin technological system must"
+year: 2024
+doi: "10.1016/j.jmsy.2021.05.010)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Su-2025-Digital-twin-system-for-manufacturi"
+images_total: 13
+images_kept: 12
+images_removed: 1
+---
 
 # OPEN
 

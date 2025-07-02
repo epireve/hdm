@@ -1,4 +1,16 @@
-<!-- cite_key: pagepicturejpeg2021 -->
+---
+cite_key: "pagepicturejpeg2021"
+title: "A Study on Temporal Knowledge Graph Enrichment"
+authors: "![](_page_0_Picture_3.jpeg)"
+year: 2021
+doi: "10.1007/978-3-030-12079-5_2)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "s4428889_final_thesis"
+images_total: 16
+images_kept: 15
+images_removed: 1
+---
 
 
 

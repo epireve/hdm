@@ -1,4 +1,16 @@
-<!-- cite_key: yangruiunusedu2025 -->
+---
+cite_key: "yangruiunusedu2025"
+title: "**Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective**"
+authors: "Rui Yang Duke-NUS Medical School Singapore yang\\_rui@u.nus.edu"
+year: 2025
+doi: "10.18653/v1/P19-1470"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2024_graphusion_rag_framework_global_perspective"
+images_total: 12
+images_kept: 12
+images_removed: 0
+---
 
 # Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective
 

@@ -1,4 +1,16 @@
-<!-- cite_key: base2025 -->
+---
+cite_key: "base2025"
+title: "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models"
+authors: "establishing a professional corpus as its knowledge base, HealthGenie retrieve relevant and recommend healthy dietary with keyword extraction. It is designed to help users quickly access desired recipes with minimal mental effort by prioritizing reliable, transparent, and visually clear information compared to traditional long texts that often display disorganized columns that compromise readability, reliability, and transparency [\\[44\\]](#page-15-15)."
+year: 2025
+doi: "10.18653/v1/2021.naacl-main.278"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2504.14594_HealthGenie_Empowering_Users_with_Healthy_Dietary"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models
 

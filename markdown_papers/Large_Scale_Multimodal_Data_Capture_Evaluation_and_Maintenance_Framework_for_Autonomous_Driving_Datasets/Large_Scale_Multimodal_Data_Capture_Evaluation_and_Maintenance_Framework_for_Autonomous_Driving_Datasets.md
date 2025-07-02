@@ -1,4 +1,15 @@
-<!-- cite_key: jitter2017 -->
+---
+cite_key: "jitter2017"
+title: "Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets"
+authors: "analyzing the graphs of the data timestamps and time between consecutive data frames (Jitter)."
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Large_Scale_Multimodal_Data_Capture_Evaluation_and_Maintenance_Framework_for_Autonomous_Driving_Datasets"
+images_total: 13
+images_kept: 13
+images_removed: 0
+---
 
 # Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets
 

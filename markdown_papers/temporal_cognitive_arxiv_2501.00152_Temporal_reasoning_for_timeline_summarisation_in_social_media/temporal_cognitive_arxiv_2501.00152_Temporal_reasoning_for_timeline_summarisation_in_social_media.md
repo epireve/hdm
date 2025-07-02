@@ -1,4 +1,16 @@
-<!-- cite_key: songsupsup2019 -->
+---
+cite_key: "songsupsup2019"
+title: "Temporal reasoning for timeline summarisation in social media"
+authors: "Jiayu Song<sup>1</sup> , Mahmud Akhter<sup>1</sup> , Dana Atzil-Slonim<sup>2</sup> , Maria Liakata<sup>1</sup>,<sup>3</sup>"
+year: 2019
+doi: "10.3115/V1/P14-2082)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "temporal_cognitive_arxiv_2501.00152_Temporal_reasoning_for_timeline_summarisation_in_social_media"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # Temporal reasoning for timeline summarisation in social media
 

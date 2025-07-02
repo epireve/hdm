@@ -1,4 +1,16 @@
-<!-- cite_key: kocaguneli2011 -->
+---
+cite_key: "kocaguneli2011"
+title: "**On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>**"
+authors: "- [4] Kocaguneli, E., Gay, G., Menzies, T., Yang, Y., and Keung, J. W. 2010. When to use data from other projects for effort estimation. In *Proceedings of the 25th IEEE/ACM International Conference on Automated Software Engineering.* (Antwerp, Belgium, September 20-24 2010). ASE '10. ACM Press, 321–324. DOI: https://doi.org/10.1145/1858996.1859061."
+year: 2011
+doi: "10.1371/journal.pone.0021101."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2103.01387_Insert_Your_Title_Here"
+images_total: 2
+images_kept: 2
+images_removed: 0
+---
 
 # On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>
 

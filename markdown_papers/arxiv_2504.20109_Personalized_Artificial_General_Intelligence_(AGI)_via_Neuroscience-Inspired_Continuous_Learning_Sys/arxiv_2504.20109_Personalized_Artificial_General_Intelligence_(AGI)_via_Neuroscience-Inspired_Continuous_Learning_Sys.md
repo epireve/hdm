@@ -1,4 +1,16 @@
-<!-- cite_key: guptasupasup2021 -->
+---
+cite_key: "guptasupasup2021"
+title: "Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems"
+authors: "Rajeev Gupta<sup>a</sup> , Suhani Gupta<sup>b</sup> , Ronak Parikh<sup>c</sup> , Divya Gupta<sup>d</sup> , Amir Javaheri<sup>e</sup> , Jairaj Singh Shaktawat<sup>f</sup>"
+year: 2021
+doi: "10.1126/science.1089662"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2504.20109_Personalized_Artificial_General_Intelligence_(AGI)_via_Neuroscience-Inspired_Continuous_Learning_Sys"
+images_total: 22
+images_kept: 20
+images_removed: 2
+---
 
 # Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems
 

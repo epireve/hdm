@@ -1,4 +1,15 @@
-<!-- cite_key: nonetheless2016 -->
+---
+cite_key: "nonetheless2016"
+title: "A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning"
+authors: "Nonetheless, the decentralized structure of FL brings about distinct security challenges. While data remains on local devices, the transmission of model parameters over networks creates vulnerabilities, including risks of unauthorized access or data leakage during exchange. Existing research often assumes that data localization inherently guarantees privacy, overlooking these communication-phase threats. Current security strategies in FL, such as encrypting communication channels or perturbing shared gradients, are frequently implemented in isolation, without systematic analysis of their combined impact on computational efficiency, model accuracy, or multi-layered privacy preservation."
+year: 2016
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2501.12911_A_Selective_Homomorphic_Encryption_Approach_for_Faster_Privacy-Preserving_Federated_Learning"
+images_total: 18
+images_kept: 18
+images_removed: 0
+---
 
 # A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federated Learning
 

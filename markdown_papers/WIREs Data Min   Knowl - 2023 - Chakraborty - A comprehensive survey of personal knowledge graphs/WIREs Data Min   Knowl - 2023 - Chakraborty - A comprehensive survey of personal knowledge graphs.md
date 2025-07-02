@@ -1,4 +1,16 @@
-<!-- cite_key: miller2021 -->
+---
+cite_key: "miller2021"
+title: "FOCUS ARTICLE"
+authors: "- Miller, E. (1998). An introduction to the resource description framework. Bulletin of the American Society for Information Science and Technology, 25(1), 15–19. <https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/bult.105>"
+year: 2021
+doi: "10.1002/widm.1513"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "WIREs Data Min   Knowl - 2023 - Chakraborty - A comprehensive survey of personal knowledge graphs"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # FOCUS ARTICLE
 

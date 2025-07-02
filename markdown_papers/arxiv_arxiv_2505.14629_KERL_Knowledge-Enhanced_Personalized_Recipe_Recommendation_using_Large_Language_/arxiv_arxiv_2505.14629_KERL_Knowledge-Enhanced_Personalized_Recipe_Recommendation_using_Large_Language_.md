@@ -1,4 +1,15 @@
-<!-- cite_key: zaki2018 -->
+---
+cite_key: "zaki2018"
+title: "KERL: *K*nowledge-*E*nhanced Personalized Recipe *R*ecommendation using *L*arge Language Models \\*"
+authors: "Fnu Mohbat and Mohammed J. Zaki"
+year: 2018
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2505.14629_KERL_Knowledge-Enhanced_Personalized_Recipe_Recommendation_using_Large_Language_"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # KERL: *K*nowledge-*E*nhanced Personalized Recipe *R*ecommendation using *L*arge Language Models \*
 

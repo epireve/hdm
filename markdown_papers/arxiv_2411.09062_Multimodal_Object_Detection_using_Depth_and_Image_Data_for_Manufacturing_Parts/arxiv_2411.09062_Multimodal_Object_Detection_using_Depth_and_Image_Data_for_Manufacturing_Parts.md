@@ -1,4 +1,16 @@
-<!-- cite_key: mahjouriansupsup2022 -->
+---
+cite_key: "mahjouriansupsup2022"
+title: "**ABSTRACT**"
+authors: "**Nazanin Mahjourian**<sup>∗</sup> **, Vinh Nguyen,**"
+year: 2022
+doi: "10.1016/j.neucom.2021.11.097."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2411.09062_Multimodal_Object_Detection_using_Depth_and_Image_Data_for_Manufacturing_Parts"
+images_total: 7
+images_kept: 5
+images_removed: 2
+---
 
 # MULTIMODAL OBJECT DETECTION USING DEPTH AND IMAGE DATA FOR MANUFACTURING PARTS
 

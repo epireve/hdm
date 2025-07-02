@@ -1,4 +1,15 @@
-<!-- cite_key: lemont2016b -->
+---
+cite_key: "lemont2016b"
+title: "Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System"
+authors: "Kibaek Kim *Mathematics and Computer Science Argonne National Laboratory* Lemont, IL USA kimk@anl.gov"
+year: 2016
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2409.19756_Advances_in_Privacy_Preserving_Federated_Learning_to_Realize_a_Truly_Learning_Healthcare_System"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System
 

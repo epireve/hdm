@@ -1,4 +1,16 @@
-<!-- cite_key: samsboydgmailcom2025 -->
+---
+cite_key: "samsboydgmailcom2025"
+title: "**RESEARCH**"
+authors: "\\*Correspondence: samsboyd21@gmail.com"
+year: 2025
+doi: "10.1186/s12859-025-06063-x."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "bmc_bioinformatics_s12859-025-06063-x"
+images_total: 13
+images_kept: 12
+images_removed: 1
+---
 
 # RESEARCH
 

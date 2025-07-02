@@ -1,4 +1,15 @@
-<!-- cite_key: here2012 -->
+---
+cite_key: "here2012"
+title: "DATA INTEGRATION FOR HETEROGENOUS DATASETS"
+authors: "they present a number of complex challenges. The search shown here, for example, required knowing that the Federal"
+year: 2012
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "hendler-2014-data-integration-for-heterogenous-datasets"
+images_total: 19
+images_kept: 16
+images_removed: 3
+---
 
 # DATA INTEGRATION FOR HETEROGENOUS DATASETS
 

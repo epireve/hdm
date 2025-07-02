@@ -1,4 +1,26 @@
-<!-- cite_key: qiu2022 -->
+---
+cite_key: "qiu2022"
+title: "A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy"
+authors: "Yeqing Qiu, Chenyu Huang, Jianzong Wang, Zhangcheng Huang, Jing Xiao"
+year: 2022
+doi: "10.48550/arXiv.2206.03492"
+url: "https://arxiv.org/abs/2206.03492"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Federated Learning"
+  - "Graph Neural Networks"
+  - "Differential Privacy"
+  - "Recommendation Systems"
+  - "Private Set Intersection"
+tldr: "Privacy-preserving federated graph neural network framework using differential privacy for recommendation systems"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2022_privacy_preserving_subgraph_federated_gnn"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy
 

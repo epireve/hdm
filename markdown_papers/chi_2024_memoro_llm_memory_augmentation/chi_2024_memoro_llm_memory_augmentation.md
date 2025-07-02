@@ -1,4 +1,16 @@
-<!-- cite_key: follows2024 -->
+---
+cite_key: "follows2024"
+title: "Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation"
+authors: "The introductions of the four fictional people were as follows:"
+year: 2024
+doi: "10.1145/3613904.3642450"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "chi_2024_memoro_llm_memory_augmentation"
+images_total: 9
+images_kept: 9
+images_removed: 0
+---
 
 # Memoro: Using Large Language Models to Realize a Concise Interface for Real-Time Memory Augmentation
 

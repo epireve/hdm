@@ -1,4 +1,15 @@
-<!-- cite_key: gaosupsup2014 -->
+---
+cite_key: "gaosupsup2014"
+title: "Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction"
+authors: "Yanjun Gao<sup>1</sup>, Ruizhe Li<sup>2</sup>, Emma Croxford<sup>1</sup>, Samuel Tesch<sup>1</sup>, Daniel To<sup>1</sup>, John Caskey<sup>1</sup>, Brian W. Patterson<sup>1</sup>, Matthew M. Churpek<sup>1</sup>, Timothy Miller<sup>4</sup>, Dmitriy Dligach<sup>3</sup>, and Majid Afshar<sup>1</sup>"
+year: 2014
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "medrxiv_llm_diagnosis"
+images_total: 9
+images_kept: 8
+images_removed: 1
+---
 
 # Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction
 

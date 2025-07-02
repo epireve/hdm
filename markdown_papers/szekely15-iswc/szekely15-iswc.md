@@ -1,4 +1,16 @@
-<!-- cite_key: szekelysupsup2014 -->
+---
+cite_key: "szekelysupsup2014"
+title: "Building and Using a Knowledge Graph to Combat Human Trafficking"
+authors: "Pedro Szekely<sup>1</sup> , Craig A. Knoblock<sup>1</sup> , Jason Slepicka<sup>1</sup> , Andrew Philpot<sup>1</sup> , Amandeep Singh<sup>1</sup> , Chengye Yin<sup>1</sup> , Dipsy Kapoor<sup>1</sup> , Prem Natarajan<sup>1</sup> , Daniel Marcu<sup>1</sup> , Kevin Knight<sup>1</sup> , David Stallard<sup>1</sup> , Subessware S. Karunamoorthy<sup>1</sup> , Rajagopal Bojanapalli<sup>1</sup> , Steven Minton<sup>2</sup> , Brian Amanatullah<sup>2</sup> , Todd Hughes<sup>3</sup> , Mike Tamayo<sup>3</sup> , David Flynt<sup>3</sup> , Rachel Artiss<sup>3</sup> , Shih-Fu Chang<sup>4</sup> , Tao Chen<sup>4</sup> , Gerald Hiebel<sup>5</sup> , and Lidia Ferreira<sup>6</sup>"
+year: 2014
+doi: "10.1007/s00778-008-0098-x"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "szekely15-iswc"
+images_total: 4
+images_kept: 3
+images_removed: 1
+---
 
 # Building and Using a Knowledge Graph to Combat Human Trafficking
 

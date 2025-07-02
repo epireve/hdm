@@ -1,4 +1,15 @@
-<!-- cite_key: penalties2016 -->
+---
+cite_key: "penalties2016"
+title: "Time-R1: Towards Comprehensive Temporal Reasoning in LLMs"
+authors: "applying such penalties, the Plen\\_rep mechanism actively discourages the model from generating verbose or repetitive content. This not only improves the conciseness of the output but also pushes the model to explore more diverse and efficient reasoning pathways. The consistent application of these universal bonuses and penalties, including those for length and various forms of repetition (word, phrase, n-gram diversity), is therefore instrumental in achieving the well-formed, succinct, and accurate responses demonstrated in the examples throughout Appendix [E.](#page-21-0) It ensures that Time-R1's advanced temporal reasoning is communicated clearly and effectively, without being undermined by a tendency towards unnecessary verbosity or redundancy."
+year: 2016
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "temporal_cognitive_arxiv_2505.13508_Time-R1_Towards_Comprehensive_Temporal_Reasoning_in_LLMs"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # Time-R1: Towards Comprehensive Temporal Reasoning in LLMs
 

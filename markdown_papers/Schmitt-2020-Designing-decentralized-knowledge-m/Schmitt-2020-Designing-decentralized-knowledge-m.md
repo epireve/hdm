@@ -1,3 +1,17 @@
+---
+cite_key: "idpage--spanearl2019"
+title: "Designing decentralized knowledge management systems to effectuate individual and collective generative capacities"
+authors: "- <span id=\"page-21-3\"></span>Earl, M. (2001), \"Knowledge management strategies: toward a taxonomy\", Journal of Management Information Systems, Vol. 18 No. 1, pp. 215-233."
+year: 2019
+doi: "10.1108/K-03-2019-0215"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Schmitt-2020-Designing-decentralized-knowledge-m"
+images_total: 6
+images_kept: 5
+images_removed: 1
+---
+
 <!-- cite_key: idpage--spanearl2019 -->
 
 # The current issue and full text archive of this journal is available on Emerald Insight at: https://www.emerald.com/insight/0368-492X.htm

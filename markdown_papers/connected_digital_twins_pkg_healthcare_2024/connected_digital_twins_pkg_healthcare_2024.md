@@ -1,4 +1,16 @@
-<!-- cite_key: data2019 -->
+---
+cite_key: "data2019"
+title: "*Brief Report* **The Roadmap toward Personalized Medicine: Challenges and Opportunities**"
+authors: "**Data Availability Statement:** This study did not report any data."
+year: 2019
+doi: "10.3390/jpm14060546)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "connected_digital_twins_pkg_healthcare_2024"
+images_total: 5
+images_kept: 1
+images_removed: 4
+---
 
 
 

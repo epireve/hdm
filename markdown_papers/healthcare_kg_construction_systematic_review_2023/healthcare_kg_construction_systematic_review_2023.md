@@ -1,3 +1,16 @@
+---
+cite_key: "abu-salih2023b"
+title: "**RESEARCH Open Access**"
+authors: "Bilal Abu-Salih1\\*, Muhammad AL-Qurishi2 , Mohammed Alweshah3 , Mohammad AL-Smadi4,5, Reem Alfayez1 and Heba Saadeh1"
+year: 2023
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "healthcare_kg_construction_systematic_review_2023"
+images_total: 5
+images_kept: 4
+images_removed: 1
+---
+
 <!-- cite_key: abu-salih2023b -->
 
 # RESEARCH Open Access

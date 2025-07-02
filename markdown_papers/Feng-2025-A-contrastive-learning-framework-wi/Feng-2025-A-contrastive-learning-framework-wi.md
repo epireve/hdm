@@ -1,4 +1,15 @@
-<!-- cite_key: training2024 -->
+---
+cite_key: "training2024"
+title: "**A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning**"
+authors: "introducing adversarial perturbations during training, ensuring that the embedded representation remains stable in a noisy environment. Previous studies have shown[59](#page-21-19) that adversarial training significantly improves the generalization and robustness of the model. In DNCL, adversarial noise not only enhances the model's adaptability to random noise, but also improves its resistance to structured noise. This is because adversarial training continuously simulates inconsistent perturbations in reality, prompting the model to learn more robust entity and relationship embeddings to accurately filter out contradictory facts or time-misaligned information. Therefore, even if the experiment does not explicitly introduce structured or contradictory noise, DNCL still has good generalization performance and can effectively adapt to the complex noise environment of the real world."
+year: 2024
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Feng-2025-A-contrastive-learning-framework-wi"
+images_total: 12
+images_kept: 12
+images_removed: 0
+---
 
 # OPEN
 

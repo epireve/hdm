@@ -1,4 +1,15 @@
-<!-- cite_key: liang2021 -->
+---
+cite_key: "liang2021"
+title: "MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning"
+authors: "- <span id=\"page-15-0\"></span>[102] Paul Pu Liang, Ziyin Liu, AmirAli Bagher Zadeh, and Louis-Philippe Morency. Multimodal language analysis with recurrent multistage fusion. In *EMNLP*, 2018."
+year: 2021
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "openreview_8a4530b1_MultiBench_Multiscale_Benchmarks_for_Multimodal_Representation_Learning"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # MULTIBENCH: Multiscale Benchmarks for Multimodal Representation Learning
 

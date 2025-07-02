@@ -1,4 +1,16 @@
-<!-- cite_key: inc2023 -->
+---
+cite_key: "inc2023"
+title: "**Circulating Nucleic Acids**"
+authors: "<sup>1</sup>NeuroDex Inc., Natick, MA 01760, USA."
+year: 2023
+doi: "10.20517/evcna.2023.13"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "oae_2023_synaptic_proteins_alzheimers_biomarkers"
+images_total: 8
+images_kept: 6
+images_removed: 2
+---
 
 Eitan *et al. Extracell Vesicles Circ Nucleic Acids*2023;4:133-150**DOI:**10.20517/evcna.2023.13**Extracellular Vesicles and**# Circulating Nucleic Acids
 **Original Article Open Access**## Synaptic proteins in neuron-derived extracellular vesicles as biomarkers for Alzheimer's disease: novel methodology and clinical proof of concept

@@ -1,4 +1,16 @@
-<!-- cite_key: xiesupsup2022 -->
+---
+cite_key: "xiesupsup2022"
+title: "<span id=\"page-18-0\"></span>**Prompt in Chinese Prompt in English**"
+authors: "Haojie Xie<sup>1</sup>\\*, Yirong Chen<sup>2</sup><sup>∗</sup> , Xiaofen Xing<sup>2</sup>† , Jingkai Lin<sup>2</sup> , Xiangmin Xu1,3"
+year: 2022
+doi: "10.18653/v1/P16-2096)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2412.13660_PsyDT_Using_LLMs_to_Construct_the_Digital_Twin_of"
+images_total: 40
+images_kept: 35
+images_removed: 5
+---
 
 # PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling
 

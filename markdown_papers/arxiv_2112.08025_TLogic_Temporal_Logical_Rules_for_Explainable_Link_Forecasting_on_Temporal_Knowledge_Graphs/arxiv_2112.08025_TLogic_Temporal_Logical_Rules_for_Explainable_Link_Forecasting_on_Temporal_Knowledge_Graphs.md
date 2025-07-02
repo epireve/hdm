@@ -1,4 +1,15 @@
-<!-- cite_key: ag2014 -->
+---
+cite_key: "ag2014"
+title: "TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs"
+authors: "> <sup>1</sup>Siemens AG, Otto-Hahn-Ring 6, 81739 Munich, Germany {firstname.lastname}@siemens.com"
+year: 2014
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2112.08025_TLogic_Temporal_Logical_Rules_for_Explainable_Link_Forecasting_on_Temporal_Knowledge_Graphs"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs
 

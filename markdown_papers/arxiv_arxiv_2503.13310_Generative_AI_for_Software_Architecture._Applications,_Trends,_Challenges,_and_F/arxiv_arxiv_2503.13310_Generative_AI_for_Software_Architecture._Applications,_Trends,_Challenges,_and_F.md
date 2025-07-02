@@ -1,4 +1,16 @@
-<!-- cite_key: a2025 -->
+---
+cite_key: "a2025"
+title: "Generative AI for Software Architecture. Applications, Challenges, and Future Directions"
+authors: "Matteo Esposito a , Xiaozhou Li a , Sergio Moreschinia,b, Noman Ahmad a , Tomas Cerny c , Karthik Vaidhyanathan d , Valentina Lenarduzzi a , Davide Taibi a"
+year: 2025
+doi: "10.5281/zenodo.15032395"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2503.13310_Generative_AI_for_Software_Architecture._Applications,_Trends,_Challenges,_and_F"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # Generative AI for Software Architecture. Applications, Challenges, and Future Directions
 

@@ -1,4 +1,16 @@
-<!-- cite_key: huang2024 -->
+---
+cite_key: "huang2024"
+title: "[Personalized and](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [privacy-preserving federated](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full) [graph neural network](https://www.frontiersin.org/articles/10.3389/fphy.2024.1383276/full)"
+authors: "EDITED BY Yuanyuan Huang, Chengdu University of Information Technology, China"
+year: 2024
+doi: "10.3389/fphy.2024.1383276"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "personalized_privacy_preserving_federated_gnn_2024"
+images_total: 4
+images_kept: 4
+images_removed: 0
+---
 
 # OPEN ACCESS
 

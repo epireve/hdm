@@ -1,4 +1,15 @@
-<!-- cite_key: gargsupasup2012 -->
+---
+cite_key: "gargsupasup2012"
+title: "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges"
+authors: "Satvik Garg<sup>a</sup> , Dwaipayan Royb,<sup>∗</sup>"
+year: 2012
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2205.09088_A_Birds_Eye_View_on_Knowledge_Graph_Embeddings,_So"
+images_total: 22
+images_kept: 22
+images_removed: 0
+---
 
 # Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges
 

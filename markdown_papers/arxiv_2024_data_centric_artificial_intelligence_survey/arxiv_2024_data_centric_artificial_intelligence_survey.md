@@ -1,4 +1,16 @@
-<!-- cite_key: zhanga2014 -->
+---
+cite_key: "zhanga2014"
+title: "A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods"
+authors: "Yang Zhanga,b, Hanlei Jina,b, Dan Menga,b, Jun Wang1a,b, Jinghua Tana,b"
+year: 2014
+doi: "10.1108/eb026526"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2024_data_centric_artificial_intelligence_survey"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # A Comprehensive Survey on Automatic Text Summarization with Exploration of LLM-Based Methods
 

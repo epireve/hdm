@@ -1,4 +1,16 @@
-<!-- cite_key: zafeiropoulos2024 -->
+---
+cite_key: "zafeiropoulos2024"
+title: "*Article* **Evaluating Ontology-Based PD Monitoring and Alerting in Personal Health Knowledge Graphs and Graph Neural Networks**"
+authors: "**Nikolaos Zafeiropoulos, Pavlos Bitilis [,](https://orcid.org/0000-0003-0548-6268) George E. Tsekouras and Konstantinos Kotis [\\\\*](https://orcid.org/0000-0001-7838-9691)**"
+year: 2024
+doi: "10.3390/info15020100)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "mdpi_pd_monitoring_phkg"
+images_total: 13
+images_kept: 9
+images_removed: 4
+---
 
 
 

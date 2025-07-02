@@ -1,4 +1,16 @@
-<!-- cite_key: supsup2021 -->
+---
+cite_key: "supsup2021"
+title: "**Open Peer Review**"
+authors: "Siamak Farshidi <sup>1</sup>, Xiaofeng Liao <sup>1</sup>, Na Li<sup>1</sup>, Doron Goldfarb<sup>2</sup>, Barbara Magagna<sup>2</sup>, Markus Stocke[r](https://orcid.org/0000-0001-5492-3212) <sup>3</sup>, Keith Jeffery <sup>4</sup>, Peter Thijsse<sup>5</sup>, Christian Pichot <sup>6</sup>, Andreas Petzol[d](https://orcid.org/0000-0002-2504-1680) <sup>7</sup>, Zhiming Zhao [1](https://orcid.org/0000-0002-6717-9418)"
+year: 2021
+doi: "10.12688/openreseurope.13677.1"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "zenodo_org_Knowledge_sharing_and_discovery_across_heterogeneous_research_infrastructures."
+images_total: 10
+images_kept: 9
+images_removed: 1
+---
 
 # SOFTWARE TOOL ARTICLE
 

@@ -1,4 +1,16 @@
-<!-- cite_key: s2024 -->
+---
+cite_key: "s2024"
+title: "OPEN ACCESS"
+authors: "**Citation:** Amofa S, Xia Q, Xia H, Obiri IA, Adjei-Arthur B, Yang J, et al. (2024) Blockchain-secure patient Digital Twin in healthcare using smart contracts. PLoS ONE 19(2): e0286120. [https://doi.](https://doi.org/10.1371/journal.pone.0286120) [org/10.1371/journal.pone.0286120](https://doi.org/10.1371/journal.pone.0286120)"
+year: 2024
+doi: "10.1371/journal.pone.0286120)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "plos_blockchain_dt"
+images_total: 15
+images_kept: 14
+images_removed: 1
+---
 
 
 

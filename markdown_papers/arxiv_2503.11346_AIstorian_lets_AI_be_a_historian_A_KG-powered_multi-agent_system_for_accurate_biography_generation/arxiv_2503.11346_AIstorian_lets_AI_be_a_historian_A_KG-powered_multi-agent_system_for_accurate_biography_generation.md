@@ -1,4 +1,16 @@
-<!-- cite_key: zu2018 -->
+---
+cite_key: "zu2018"
+title: "AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation"
+authors: "Hui Zu† , Jingwen Zhao‡ , Yunjun Gao†"
+year: 2018
+doi: "10.18653/v1/2024.emnlp-main.845"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2503.11346_AIstorian_lets_AI_be_a_historian_A_KG-powered_multi-agent_system_for_accurate_biography_generation"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation
 

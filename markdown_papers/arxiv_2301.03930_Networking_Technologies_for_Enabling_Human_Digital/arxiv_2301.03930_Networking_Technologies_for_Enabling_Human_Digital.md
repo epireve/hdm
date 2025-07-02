@@ -1,4 +1,15 @@
-<!-- cite_key: twin2020 -->
+---
+cite_key: "twin2020"
+title: "Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey"
+authors: "*Index Terms*—Human digital twin, personalized healthcare, artificial intelligence, reinforcement learning, federated learning, networking architecture, life-cycle data management, pervasive sensing, on-body communications, tactile Internet, semantic communications, multi-access edge computing, edge-cloud collaboration, blockchain, Metaverse"
+year: 2020
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2301.03930_Networking_Technologies_for_Enabling_Human_Digital"
+images_total: 19
+images_kept: 19
+images_removed: 0
+---
 
 # Networking Architecture and Key Supporting Technologies for Human Digital Twin in Personalized Healthcare: A Comprehensive Survey
 

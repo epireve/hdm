@@ -1,3 +1,17 @@
+---
+cite_key: "ilkouhttpsorcidorg---2022"
+title: "Personal Knowledge Graphs: Use Cases in e-learning Platforms"
+authors: "[Eleni Ilkou](https://orcid.org/0000-0002-4847-6177)"
+year: 2022
+doi: "10.1145/3487553.3524196)"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Ilkou-2022-Personal-knowledge-graphs-use-cases"
+images_total: 4
+images_kept: 3
+images_removed: 1
+---
+
 <!-- cite_key: ilkouhttpsorcidorg---2022 -->
 
 

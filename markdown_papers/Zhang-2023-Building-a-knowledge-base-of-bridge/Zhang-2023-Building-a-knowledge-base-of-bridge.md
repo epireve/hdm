@@ -1,4 +1,15 @@
-<!-- cite_key: zhang2022 -->
+---
+cite_key: "zhang2022"
+title: "**Building a Knowledge Base of Bridge Maintenance Using Knowledge Graph**"
+authors: "**Yang Zhang , <sup>1</sup> Jia Li[u](https://orcid.org/0009-0003-5497-9533) , <sup>1</sup> and Kepeng Ho[u](https://orcid.org/0009-0004-2418-4681) <sup>2</sup>**"
+year: 2022
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Zhang-2023-Building-a-knowledge-base-of-bridge"
+images_total: 16
+images_kept: 16
+images_removed: 0
+---
 
 ![](_page_0_Picture_2.jpeg)
 

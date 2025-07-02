@@ -1,4 +1,15 @@
-<!-- cite_key: sun2024d -->
+---
+cite_key: "sun2024d"
+title: "Knowledge-Enhanced Program Repair for Data Science Code"
+authors: "Zeyu Sun"
+year: 2024
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2502.09771_Knowledge-Enhanced_Program_Repair_for_Data_Science_Code"
+images_total: 7
+images_kept: 7
+images_removed: 0
+---
 
 # Knowledge-Enhanced Program Repair for Data Science Code
 

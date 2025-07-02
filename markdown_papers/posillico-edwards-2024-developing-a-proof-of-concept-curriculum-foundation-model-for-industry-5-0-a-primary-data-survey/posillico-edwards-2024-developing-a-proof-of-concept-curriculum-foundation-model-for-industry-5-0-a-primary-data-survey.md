@@ -1,4 +1,16 @@
-<!-- cite_key: education2024 -->
+---
+cite_key: "education2024"
+title: "Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics"
+authors: "Industry and Higher Education 2024, Vol. 38(5) 423–444 © The Author(s) 2024 Article reuse guidelines: [sagepub.com/journals-permissions](https://uk.sagepub.com/en-gb/journals-permissions) DOI: [10.1177/09504222231224090](https://doi.org/10.1177/09504222231224090) [journals.sagepub.com/home/ihe](https://journals.sagepub.com/home/ihe)"
+year: 2024
+doi: "10.1177/09504222231224090"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "posillico-edwards-2024-developing-a-proof-of-concept-curriculum-foundation-model-for-industry-5-0-a-primary-data-survey"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # Developing a proof-of-concept curriculum foundation model for industry 5.0: A primary data survey of built environment academics
 

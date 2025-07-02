@@ -1,4 +1,26 @@
-<!-- cite_key: zhang2021 -->
+---
+cite_key: "zhang2021"
+title: "Dynamic Graph Neural Networks for Sequential Recommendation"
+authors: "Mengqi Zhang, Shu Wu, Xueli Yu, Qiang Liu, Liang Wang"
+year: 2021
+doi: "10.48550/arXiv.2104.07368"
+url: "https://arxiv.org/abs/2104.07368"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Sequential Recommendation"
+  - "Dynamic Graphs"
+  - "Graph Neural Networks"
+  - "Collaborative Filtering"
+  - "User Modeling"
+tldr: "Dynamic graph neural network approach for sequential recommendation modeling user behavior evolution and collaborative signals"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2021_dynamic_gnn_sequential_recommendation"
+images_total: 8
+images_kept: 8
+images_removed: 0
+---
 
 # Dynamic Graph Neural Networks for Sequential Recommendation
 

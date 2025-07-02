@@ -1,4 +1,27 @@
-<!-- cite_key: hoang2025 -->
+---
+cite_key: "hoang2025"
+title: "Knowledge Graph Fusion with Large Language Models for Accurate, Explainable Manufacturing Process Planning"
+authors: "Danny Hoang, David Gorsich, Matthew P. Castanier, Farhad Imani"
+year: 2025
+doi: "10.48550/arXiv.2506.13026"
+url: "https://arxiv.org/abs/2506.13026"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Knowledge Graphs"
+  - "LLM"
+  - "Manufacturing"
+  - "Process Planning"
+  - "CNC Machining"
+  - "Explainable AI"
+tldr: "Combines knowledge graphs and LLMs to enhance manufacturing process planning accuracy and explainability"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2025_kg_manufacturing_process_planning"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # KNOWLEDGE GRAPH FUSION WITH LARGE LANGUAGE MODELS FOR ACCURATE, EXPLAINABLE MANUFACTURING PROCESS PLANNING
 

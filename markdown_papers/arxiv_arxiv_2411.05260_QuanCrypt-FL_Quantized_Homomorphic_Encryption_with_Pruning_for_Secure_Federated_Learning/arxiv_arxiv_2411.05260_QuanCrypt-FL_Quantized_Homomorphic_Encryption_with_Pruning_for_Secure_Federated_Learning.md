@@ -1,4 +1,15 @@
-<!-- cite_key: jeon2020b -->
+---
+cite_key: "jeon2020b"
+title: "QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated Learning"
+authors: "- <span id=\"page-12-8\"></span>[14] J. Jeon, K. Lee, S. Oh, J. Ok *et al.*, \"Gradient inversion with generative image prior,\" *Advances in neural information processing systems*, vol. 34, pp. 29 898–29 908, 2021."
+year: 2020
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2411.05260_QuanCrypt-FL_Quantized_Homomorphic_Encryption_with_Pruning_for_Secure_Federated_Learning"
+images_total: 11
+images_kept: 11
+images_removed: 0
+---
 
 # QuanCrypt-FL: Quantized Homomorphic Encryption with Pruning for Secure Federated Learning
 

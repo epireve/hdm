@@ -1,4 +1,26 @@
-<!-- cite_key: khatib2024b -->
+---
+cite_key: "khatib2024b"
+title: "Patient-centric knowledge graphs: a survey of current methods, challenges, and applications"
+authors: "Hassan S Al Khatib, et al."
+year: 2024
+doi: "PMC11558794"
+url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11558794/"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Patient-Centric Knowledge Graphs"
+  - "Healthcare Data Integration"
+  - "Medical Ontologies"
+  - "Personalized Healthcare"
+  - "Knowledge Representation"
+tldr: "Comprehensive survey exploring patient-centric knowledge graphs as transformative healthcare information management approach that places individual patients at the center of medical information networks."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "frontiers_2024_patient_centric_kg_survey"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # Patient-Centric Knowledge Graphs: A Survey of Current Methods, Challenges, and Applications
 

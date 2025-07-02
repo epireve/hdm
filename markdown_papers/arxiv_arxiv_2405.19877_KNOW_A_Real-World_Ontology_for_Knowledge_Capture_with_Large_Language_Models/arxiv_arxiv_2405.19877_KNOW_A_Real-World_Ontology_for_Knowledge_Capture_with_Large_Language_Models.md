@@ -1,4 +1,15 @@
-<!-- cite_key: happiness2024 -->
+---
+cite_key: "happiness2024"
+title: "KNOW–A Real-World Ontology for Knowledge Capture with Large Language Models"
+authors: "Emotions and mental states. Happiness, sadness, anger, fear, love, desire, beliefs, intentions, etc."
+year: 2024
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2405.19877_KNOW_A_Real-World_Ontology_for_Knowledge_Capture_with_Large_Language_Models"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # KNOW–A Real-World Ontology for Knowledge Capture with Large Language Models
 

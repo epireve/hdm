@@ -1,4 +1,26 @@
-<!-- cite_key: prahlad2025 -->
+---
+cite_key: "prahlad2025"
+title: "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph"
+authors: "Deeksha Prahlad, Chanhee Lee, Dongha Kim, Hokeun Kim"
+year: 2025
+doi: "arXiv:2505.09945"
+url: "https://arxiv.org/html/2505.09945v1"
+relevancy: "High"
+downloaded: "No"
+tags:
+  - "LLM Personalization"
+  - "Retrieval Augmented Generation"
+  - "Knowledge Graphs"
+  - "On-Device AI"
+  - "Private Data Protection"
+tldr: "Novel approach to personalizing LLMs using knowledge graphs and retrieval augmented generation specifically targeting on-device applications with private data protection"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2505.09945_Personalizing_Large_Language_Models_using_Retrieval_Augmented_Generation_and_Knowledge_Graph"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph
 

@@ -1,4 +1,14 @@
-<!-- cite_key: lim_2010_key_management_for_la -->
+---
+cite_key: "lim_2010_key_management_for_la"
+title: "**Key Management for Large-Scale Distributed Storage Systems**"
+year: 2009
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Lim-2010-Key-management-for-large-scale-dist"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Key Management for Large-Scale Distributed Storage Systems
 

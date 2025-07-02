@@ -1,4 +1,14 @@
-<!-- cite_key: arxiv_220315696_auditing_priva -->
+---
+cite_key: "arxiv_220315696_auditing_priva"
+title: "Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage"
+year: 2012
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2203.15696_Auditing_Privacy_Defenses_in_Federated_Learning_vi"
+images_total: 15
+images_kept: 15
+images_removed: 0
+---
 
 # Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
 

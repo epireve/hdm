@@ -1,4 +1,16 @@
-<!-- cite_key: rayan2021b -->
+---
+cite_key: "rayan2021b"
+title: "An Ontology Design Pattern for Role-Dependent Names"
+authors: "Rushrukh Rayan1, Cogan Shimizu<sup>2</sup> , and Pascal Hitzler<sup>1</sup>"
+year: 2021
+doi: "10.1007/978-3-030-77385-4"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2305.02077_An_Ontology_Design_Pattern_for_Role-Dependent_Names"
+images_total: 3
+images_kept: 3
+images_removed: 0
+---
 
 # An Ontology Design Pattern for Role-Dependent Names
 

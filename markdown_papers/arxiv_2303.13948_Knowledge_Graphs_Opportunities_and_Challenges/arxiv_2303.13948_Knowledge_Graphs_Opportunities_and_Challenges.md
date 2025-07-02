@@ -1,4 +1,15 @@
-<!-- cite_key: pengsupsup2021 -->
+---
+cite_key: "pengsupsup2021"
+title: "Knowledge Graphs: Opportunities and Challenges"
+authors: "Ciyuan Peng<sup>1</sup> , Feng Xia2\\*, Mehdi Naseriparsa<sup>3</sup> and Francesco Osborne<sup>4</sup>"
+year: 2021
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2303.13948_Knowledge_Graphs_Opportunities_and_Challenges"
+images_total: 5
+images_kept: 5
+images_removed: 0
+---
 
 # Knowledge Graphs: Opportunities and Challenges
 

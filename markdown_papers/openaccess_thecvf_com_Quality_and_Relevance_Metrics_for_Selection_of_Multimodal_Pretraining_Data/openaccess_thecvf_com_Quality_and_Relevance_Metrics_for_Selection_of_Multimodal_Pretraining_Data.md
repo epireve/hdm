@@ -1,4 +1,14 @@
-<!-- cite_key: openaccess_thecvf_com_quality_ -->
+---
+cite_key: "openaccess_thecvf_com_quality_"
+title: "Quality and Relevance Metrics for Selection of Multimodal Pretraining Data"
+year: 2017
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "openaccess_thecvf_com_Quality_and_Relevance_Metrics_for_Selection_of_Multimodal_Pretraining_Data"
+images_total: 5
+images_kept: 4
+images_removed: 1
+---
 
 
 

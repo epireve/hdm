@@ -1,4 +1,16 @@
-<!-- cite_key: authors2021 -->
+---
+cite_key: "authors2021"
+title: "1+1>2: Programming Know-What and Know-How Knowledge Fusion, Semantic Enrichment and Coherent Application"
+authors: "<sup>•</sup> *Q. Huang and Z. Yuan are co-first authors, Z. Zuo is the corresponding author(zuo803@jxnu.edu.cn)*"
+year: 2021
+doi: "10.1145/1294261.1294276"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2207.05560_1+12_Programming_Know-What_and_Know-How_Knowledg"
+images_total: 9
+images_kept: 8
+images_removed: 1
+---
 
 # 1+1>2: Programming Know-What and Know-How Knowledge Fusion, Semantic Enrichment and Coherent Application
 

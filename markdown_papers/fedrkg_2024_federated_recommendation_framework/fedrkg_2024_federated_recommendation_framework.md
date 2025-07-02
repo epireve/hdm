@@ -1,4 +1,27 @@
-<!-- cite_key: yao2024 -->
+---
+cite_key: "yao2024"
+title: "FedRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement"
+authors: "Dezhong Yao, Tongtong Liu, Qi Cao, Hai Jin"
+year: 2024
+doi: "10.1007/978-981-99-9896-8_6"
+url: "https://arxiv.org/abs/2401.11089"
+relevancy: "High"
+downloaded: "Yes"
+tags:
+  - "Federated Learning"
+  - "Privacy Preservation"
+  - "Knowledge Graphs"
+  - "Recommendation Systems"
+  - "Local Differential Privacy"
+  - "HDM Privacy"
+tldr: "Privacy-preserving federated recommendation framework that leverages knowledge graphs to enhance personalization while maintaining user privacy through local differential privacy mechanisms."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "fedrkg_2024_federated_recommendation_framework"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement
 

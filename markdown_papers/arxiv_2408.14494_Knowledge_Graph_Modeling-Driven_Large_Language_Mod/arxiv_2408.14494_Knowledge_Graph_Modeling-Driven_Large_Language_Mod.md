@@ -1,4 +1,14 @@
-<!-- cite_key: arxiv_240814494_knowledge_grap -->
+---
+cite_key: "arxiv_240814494_knowledge_grap"
+title: "Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) for Task Automation in Process Engineering Problem-Solving"
+year: 2024
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_2408.14494_Knowledge_Graph_Modeling-Driven_Large_Language_Mod"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) for Task Automation in Process Engineering Problem-Solving
 

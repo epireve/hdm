@@ -1,4 +1,16 @@
-<!-- cite_key: amsterdam2018 -->
+---
+cite_key: "amsterdam2018"
+title: "Identifying and Consolidating Knowledge Engineering Requirements"
+authors: "Bradley P. Allen University of Amsterdam Amsterdam, The Netherlands b.p.allen@uva.nl"
+year: 2018
+doi: "10.1145/3442188."
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "arxiv_arxiv_2306.15124_Identifying_and_Consolidating_Knowledge_Engineering_Requirements"
+images_total: 1
+images_kept: 1
+images_removed: 0
+---
 
 # Identifying and Consolidating Knowledge Engineering Requirements
 

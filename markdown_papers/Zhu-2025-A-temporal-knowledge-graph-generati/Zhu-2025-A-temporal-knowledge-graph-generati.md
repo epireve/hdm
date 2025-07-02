@@ -1,4 +1,16 @@
-<!-- cite_key: kg2000 -->
+---
+cite_key: "kg2000"
+title: "**ATemporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models**"
+authors: "TKG represents a signifcant and vibrant branch of KG, garnering considerable interest in recent years. By incorporating the dimension of time, TKGs ofer a richer representation of the real world, enabling a more nuanced understanding of event occurrence. For example, two static knowledge triples <*Tomas Wolf, joined, UC Berkeley*> and <*Tomas Wolf, published, Seminal Paper*> can be extracted from the sentence \"Tomas Wolf joined UC Berkeley in 1976 and published his seminal paper in 1984\". Te triplet without temporal information is not conducive to representing realistic facts. More dynamic facts are represented in the TKG as <*Tomas Wolf, joined, UC Berkeley, 1976*> and <*Tomas Wolf, published, Seminal Paper, 1984*>. Moreover, the dynamic nature of event expressions within TKG facilitates a comprehensive analysis of historical and prospective developments, providing a clearer and more logically coherent narrative of events over time. Tis"
+year: 2000
+doi: "10.1007/978-3-642-15939-8"
+date_processed: "2025-07-02"
+phase2_processed: true
+original_folder: "Zhu-2025-A-temporal-knowledge-graph-generati"
+images_total: 6
+images_kept: 6
+images_removed: 0
+---
 
 # OPEN
 
