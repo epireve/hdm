@@ -72,12 +72,25 @@
             }
         }
         
+        /* Make visualization container scrollable */
+        #visualization-container {
+            height: 70vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .view {
+            min-height: 100%;
+        }
+        
         /* Opportunities Dashboard Styles */
         #opportunities-dashboard {
             padding: 20px;
             background: #f8f9fa;
             border-radius: 8px;
             margin: 20px;
+            max-height: none;
+            overflow-y: visible;
         }
         
         .dashboard-header {
