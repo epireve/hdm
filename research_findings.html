@@ -17,9 +17,14 @@
             line-height: 1.6;
             color: #333;
             background-color: #fff;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .content-wrapper {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         h1 {
@@ -308,15 +313,16 @@
         /* Navigation Styles */
         .nav-header {
             background: linear-gradient(135deg, #3498db, #2980b9);
-            padding: 12px 0;
+            padding: 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+            width: 100%;
         }
         
         .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 100%;
+            margin: 0;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -383,10 +389,11 @@
         </div>
     </nav>
 
-    <h1>Human Digital Memory (HDM) Research Papers</h1>
-    <p class="subtitle">Complete Academic Literature Review with Personal Knowledge Graph Analysis</p>
-    
-    <div class="filters">
+    <div class="content-wrapper">
+        <h1>Human Digital Memory (HDM) Research Papers</h1>
+        <p class="subtitle">Complete Academic Literature Review with Personal Knowledge Graph Analysis</p>
+        
+        <div class="filters">
         <div class="filter-group">
             <label for="relevancy-filter">Relevancy:</label>
             <select id="relevancy-filter" class="relevancy-filter">
@@ -817,5 +824,6 @@
             }
         });
     </script>
+    </div> <!-- End content-wrapper -->
 </body>
 </html>
