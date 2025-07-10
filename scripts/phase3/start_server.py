@@ -19,6 +19,29 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         super().end_headers()
+    
+    def log_message(self, format, *args):
+        """Override to add more detailed logging."""
+        print(f"[{self.log_date_time_string()}] {format % args}")
+        
+    def do_GET(self):
+        """Override to add request logging and debug info."""
+        print(f"GET request for: {self.path}")
+        print(f"Current working directory: {os.getcwd()}")
+        
+        # Check if requesting a markdown paper file
+        if self.path.startswith('/markdown_papers/'):
+            full_path = os.path.join(os.getcwd(), self.path.lstrip('/'))
+            print(f"Attempting to serve file: {full_path}")
+            print(f"File exists: {os.path.exists(full_path)}")
+            
+            # Additional debugging
+            dir_path = os.path.dirname(full_path)
+            print(f"Directory exists: {os.path.exists(dir_path)}")
+            if os.path.exists(dir_path):
+                print(f"Directory contents: {os.listdir(dir_path)}")
+            
+        super().do_GET()
 
 
 def open_browser():
