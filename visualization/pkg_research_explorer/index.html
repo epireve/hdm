@@ -65,6 +65,14 @@
                 <h4>Related Concepts</h4>
                 <ul id="related-list"></ul>
             </div>
+            <div id="concept-insights">
+                <h4>Research Insights</h4>
+                <div id="insights-content"></div>
+            </div>
+            <div id="concept-actions">
+                <button id="add-to-notes">Add to Research Notes</button>
+                <button id="copy-details">Copy Details</button>
+            </div>
         </div>
 
         <!-- Research Notes Section -->
@@ -117,6 +125,10 @@
         document.getElementById('resetView').addEventListener('click', resetView);
         document.getElementById('exportData').addEventListener('click', exportData);
         document.getElementById('save-notes').addEventListener('click', saveNotes);
+        
+        // New action buttons
+        document.getElementById('add-to-notes').addEventListener('click', addConceptToNotes);
+        document.getElementById('copy-details').addEventListener('click', copyConceptDetails);
     }
 
     // Switch between views
@@ -431,10 +443,11 @@
     function updateDetailPanel(node) {
         const info = document.getElementById('concept-info');
         info.innerHTML = `
-            <h4>${node.name}</h4>
-            <p><strong>Category:</strong> ${node.category.replace('_', ' ')}</p>
-            <p><strong>Frequency:</strong> ${node.frequency}</p>
+            <h4 style="color: ${getCategoryColor(node.category)}; margin-bottom: 10px;">${node.name}</h4>
+            <p><strong>Category:</strong> ${node.category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
+            <p><strong>Frequency:</strong> ${node.frequency} papers</p>
             <p><strong>Type:</strong> ${node.type}</p>
+            <p><strong>Rank:</strong> #${node.id + 1} out of ${data.network.nodes.length} concepts</p>
         `;
 
         // Find related concepts
@@ -450,10 +463,72 @@
             const relatedNode = data.network.nodes.find(n => n.id === relatedId);
             if (relatedNode) {
                 const li = document.createElement('li');
-                li.textContent = `${relatedNode.name} (weight: ${edge.weight})`;
+                li.innerHTML = `<strong>${relatedNode.name}</strong> 
+                    <span style="color: #666;">(${relatedNode.category.replace(/_/g, ' ')}, 
+                    strength: ${edge.weight})</span>`;
+                li.style.cursor = 'pointer';
+                li.onclick = () => selectNode(relatedNode);
                 relatedList.appendChild(li);
             }
         });
+
+        if (relatedEdges.length === 0) {
+            relatedList.innerHTML = '<li style="color: #999;">No direct connections found</li>';
+        }
+
+        // Add research insights
+        const insights = document.getElementById('insights-content');
+        insights.innerHTML = generateInsights(node);
+
+        // Update current selected node for actions
+        window.currentSelectedNode = node;
+    }
+
+    function generateInsights(node) {
+        let insights = '<ul>';
+        
+        // Category-specific insights
+        const categoryInsights = {
+            'knowledge_graph': 'Core PKG concept - fundamental to personal knowledge management systems',
+            'hdm_specific': 'Human Digital Memory specific - critical for HDM system implementation',
+            'algorithms': 'Algorithm/technique - computational approach for PKG/HDM systems',
+            'methodologies': 'Research methodology - approach or framework for PKG development',
+            'performance_metrics': 'Performance measure - used to evaluate PKG/HDM system effectiveness',
+            'architectures': 'System architecture - structural design pattern for PKG systems',
+            'frameworks_tools': 'Implementation tool - practical framework or database for PKG',
+            'data_integration': 'Data integration approach - method for combining heterogeneous data'
+        };
+        
+        if (categoryInsights[node.category]) {
+            insights += `<li><strong>Category Insight:</strong> ${categoryInsights[node.category]}</li>`;
+        }
+        
+        // Frequency-based insights
+        if (node.frequency > 50) {
+            insights += '<li><strong>High Frequency:</strong> This is a major concept in PKG research, appearing in 50+ papers</li>';
+        } else if (node.frequency > 20) {
+            insights += '<li><strong>Common Concept:</strong> Frequently discussed in PKG literature</li>';
+        } else if (node.frequency < 5) {
+            insights += '<li><strong>Emerging Concept:</strong> Relatively new or specialized area of research</li>';
+        }
+        
+        // Temporal concepts
+        if (node.name.toLowerCase().includes('temporal')) {
+            insights += '<li><strong>Temporal Focus:</strong> Related to time-based aspects of knowledge graphs, crucial for HDM systems</li>';
+        }
+        
+        // Integration concepts
+        if (node.name.toLowerCase().includes('integration') || node.name.toLowerCase().includes('heterogeneous')) {
+            insights += '<li><strong>Integration Focus:</strong> Important for combining diverse data sources in PKG systems</li>';
+        }
+        
+        // Privacy concepts
+        if (node.name.toLowerCase().includes('privacy') || node.name.toLowerCase().includes('preserving')) {
+            insights += '<li><strong>Privacy Focus:</strong> Critical for personal data protection in PKG/HDM systems</li>';
+        }
+        
+        insights += '</ul>';
+        return insights;
     }
 
     function showTooltip(event, d) {
@@ -553,6 +628,61 @@
             savedDiv.appendChild(noteDiv);
         });
     });
+
+    // New action functions
+    function addConceptToNotes() {
+        if (!window.currentSelectedNode) return;
+        
+        const node = window.currentSelectedNode;
+        const noteText = `
+Concept: ${node.name}
+Category: ${node.category.replace(/_/g, ' ')}
+Frequency: ${node.frequency} papers
+Insights: ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
+        `.trim();
+        
+        document.getElementById('notes-input').value = noteText + '\n\n' + document.getElementById('notes-input').value;
+        document.getElementById('notes-input').focus();
+    }
+
+    function copyConceptDetails() {
+        if (!window.currentSelectedNode) return;
+        
+        const node = window.currentSelectedNode;
+        const relatedConcepts = data.network.edges
+            .filter(e => e.source === node.id || e.target === node.id)
+            .map(e => {
+                const relatedId = e.source === node.id ? e.target : e.source;
+                const relatedNode = data.network.nodes.find(n => n.id === relatedId);
+                return relatedNode ? relatedNode.name : '';
+            })
+            .filter(name => name)
+            .join(', ');
+        
+        const details = `
+${node.name}
+================
+Category: ${node.category.replace(/_/g, ' ')}
+Frequency: ${node.frequency} papers
+Type: ${node.type}
+Related Concepts: ${relatedConcepts || 'None'}
+
+Insights:
+${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
+        `.trim();
+        
+        navigator.clipboard.writeText(details).then(() => {
+            // Show feedback
+            const btn = document.getElementById('copy-details');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            btn.style.backgroundColor = '#27ae60';
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+            }, 2000);
+        });
+    }
     </script>
 </body>
 </html>
