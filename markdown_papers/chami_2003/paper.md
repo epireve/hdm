@@ -12,10 +12,9 @@ tags:
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: SysML-based_Integration_Framework
-images_total: 3
-images_kept: 3
-images_removed: 0
 keywords: 
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # A SysML-based Integration Framework for the Engineering of Mechatronic Systems
@@ -23,6 +22,12 @@ keywords:
 Mohammad Chami, Holger Seemuller and Holger Voos ¨ University of Applied Sciences Ravensburg-Weingarten, Mobile Robotics and Mechatronics Lab, D-88241 Weingarten, Germany eMail: {chami, seemueller, voos}@hs-weingarten.de
 
 **Abstract:** The engineering discipline mechatronics is one of the main innovation leader in industry nowadays. With the need for an optimal synergetic integration of the involved disciplines, the engineering process of mechatronic systems is faced with an increasing complexity and the interdisciplinary nature of these systems. New methods and techniques have to be developed to deal with these challenges. This document presents an approach of a SysML-based integration framework that shall deal with the complexity and bring the different disciplines together for a better cooperation and collaboration. Therefore, SysML shall be used for the overall interdisciplinary system design and simultaniously act as a link between the heterogenous model data of the discipline specific tools.
+
+## TL;DR
+Research on a sysml-based integration framework for the engineering of mechatronic systems providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
 
 ## I. INTRODUCTION
 
@@ -176,3 +181,18 @@ For the future, the architecture for the realisation has to be improved and conc
 - [13] G. Pahl, W. Beitz, J. Feldhusen, and K. H. Grote, *Konstruktionslehre: Grundlagen erfolgreicher Produktentwicklung*, 7th ed. Springer, Berlin, Oct. 2006.
 - [14] A. Johar and R. Stetter, "A proposal for the use of diagrams of UML for mechatronics engineering," Dubrovnik, Croatia, 2008.
 - [15] R. B. A. Rahman, U. Pulm, and R. Stetter, "Systematic mechatronic design of a Piezo-Electric brake," Paris, 2007.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+   
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+   
+### Implementation Notes

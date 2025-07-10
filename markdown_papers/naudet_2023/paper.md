@@ -1,3 +1,4 @@
+```
 ---
 cite_key: naudet_2023
 title: Preliminary Systemic Model of (Human) Digital Twin
@@ -7,9 +8,8 @@ doi: 10.1145/3594806.3596596
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: '3594806.3596596'
-images_total: 4
-images_kept: 2
-images_removed: 2
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Machine Learning
 keywords:
@@ -52,6 +52,12 @@ Yannick Naudet<sup>∗</sup> Christoph Stahl Marie Gallais yannick.naudet@list.l
 ## ABSTRACT
 
 This paper is an ongoing work seeking to establish a generic definition and model of the Human Digital Twin (HDT) concept, independently from the application sector. The goal is to help researchers knowing more precisely what is or could be a HDT and an initial step step towards a unifying and generic definition and model grounded in the systemics theory. We propose a systemic model of Digital Twin (DT), where HDT is a specific class of DT. The last years of literature on HDT are reviewed, to build a generic definition, extract the main components and integrate them in a generic systemic model centred on the DT and HDT concepts as systems. Doing this, we make explicit the link between DT and the systems they twin, including the special system that is the human-being, when a DT becomes a HDT.
+
+## TL;DR
+Research on preliminary systemic model of (human) digital twin providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## CCS CONCEPTS
 
@@ -198,3 +204,18 @@ Building on the work of [\[9\]](#page-5-2) presenting the HDT concept and recent
 - <span id="page-5-6"></span>[16] D.E Sparrow, K Kruger, and A.H Basson. 2021. An architecture to facilitate the integration of human workers in Industry 4.0 environments. International journal of production research 60, 15 (2021), 4778–4796. [https://doi.org/10.1080/00207543.](https://doi.org/10.1080/00207543.2021.1937747) [2021.1937747](https://doi.org/10.1080/00207543.2021.1937747)
 - <span id="page-5-4"></span>[17] Ludwig Von Bertalanffy. 1972. The history and status of general systems theory. Academy of management journal 15, 4 (1972), 407–426.
 - <span id="page-5-7"></span>[18] Baicun Wang, Huiying Zhou, Geng Yang, Xingyu Li, and Huayong Yang. 2022. Human Digital Twin (HDT) Driven Human-Cyber-Physical Systems: Key Technologies and Applications. Chinese Journal of Mechanical Engineering (English Edition) 35 (12 2022), 1–6. Issue 1.<https://doi.org/10.1186/S10033-022-00680-W>
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

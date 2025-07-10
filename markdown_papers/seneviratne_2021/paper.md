@@ -1,3 +1,4 @@
+```yaml
 ---
 cite_key: seneviratne_2021
 title: Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations
@@ -7,9 +8,6 @@ doi: 10.2337/dc20-Sint.
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2110.10131_Personal_Health_Knowledge_Graph_for_Clinically_Rel
-images_total: 1
-images_kept: 1
-images_removed: 0
 tags:
 - Electronic Health Records
 - Healthcare
@@ -51,8 +49,10 @@ keywords:
 - day-to-day
 - deep learning
 - electronic health record
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
-
+```
 # Personal Health Knowledge Graph for Clinically Relevant Diet Recommendations
 
 Oshani Seneviratne*<sup>1</sup>* , Jonathan Harris*<sup>1</sup>* , Ching-Hua Chen*<sup>2</sup>* and Deborah L. McGuinness*<sup>1</sup>*
@@ -66,6 +66,12 @@ We propose a knowledge model for capturing dietary preferences and personal cont
 ### Keywords
 
 knowledge representation, personal health, dietary recommendations, guideline modeling
+
+## TL;DR
+Research on personal health knowledge graph for clinically relevant diet recommendations providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
 
 ## 1. Introduction
 
@@ -330,3 +336,18 @@ This work is supported by IBM Research AI through the AI Horizons Network.
 - <span id="page-6-16"></span>[19] C. K. Joshi, F. Mi, B. Faltings, Personalization in goal-oriented
 
 dialog, arXiv preprint arXiv:1706.07503 (2017).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

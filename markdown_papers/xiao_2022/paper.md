@@ -1,6 +1,7 @@
 ---
 cite_key: xiao_2022
-title: A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy
+title: A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential
+  Privacy
 authors: Jing Xiao, Yeqing Qiu, Chenyu Huang, Jianzong Wang, Zhangcheng Huang
 year: 2022
 doi: 10.48550/arXiv.2206.03492
@@ -18,9 +19,6 @@ tldr: Privacy-preserving federated graph neural network framework using differen
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2022_privacy_preserving_subgraph_federated_gnn
-images_total: 1
-images_kept: 1
-images_removed: 0
 keywords:
 - differential privacy
 - dp-based
@@ -32,6 +30,8 @@ keywords:
 - recommendation system
 - sub-graph-level
 - subgraph-level
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # A Privacy-Preserving Subgraph-Level Federated Graph Neural Network via Differential Privacy
@@ -43,6 +43,12 @@ Yeqing Qiu 1 , 2 , Chenyu Huang 1 , Jianzong Wang 1 ? , Zhangcheng Huang 1 , and
 Abstract. Currently, the federated graph neural network (GNN) has attracted a lot of attention due to its wide applications in reality without violating the privacy regulations. Among all the privacy-preserving technologies, the differential privacy (DP) is the most promising one due to its effectiveness and light computational overhead. However, the DPbased federated GNN has not been well investigated, especially in the sub-graph-level setting, such as the scenario of recommendation system. The biggest challenge is how to guarantee the privacy and solve the non independent and identically distributed (non-IID) data in federated GNN simultaneously. In this paper, we propose DP-FedRec, a DP-based federated GNN to fill the gap. Private Set Intersection (PSI) is leveraged to extend the local graph for each client, and thus solve the non-IID problem. Most importantly, DP is applied not only on the weights but also on the edges of the intersection graph from PSI to fully protect the privacy of clients. The evaluation demonstrates DP-FedRec achieves better performance with the graph extension and DP only introduces little computations overhead.
 
 Keywords: Recommendation System, Federated Learning, Subgraph-Level Federated Learning, Graph Neural Network, Differential Privacy
+
+## TL;DR
+Privacy-preserving federated graph neural network framework using differential
+
+## Key Insights
+Differential privacy applied to weights and graph edges provides comprehensive privacy protection; Private Set Intersection enables graph extension while preserving privacy; federated approach addresses non-IID data challenges
 
 ## 1 Introduction
 
@@ -320,6 +326,21 @@ This paper is supported by the Key Research and Development Program of Guangdong
 - <span id="page-11-4"></span>25. Wu, C., Wu, F., Cao, Y., Huang, Y., Xie, X.: Fedgnn: Federated graph neural network for privacy-preserving recommendation. International Workshop on Federated Learning for User Privacy and Data Confidentiality in Conjunction with ICML 2021 FL-ICML'21 (2021)
 - <span id="page-11-3"></span>26. Wu, F., Long, Y., Zhang, C., Li, B.: Linkteller: Recovering private edges from graph neural networks via influence analysis. In: Proceedings of the Symposium on Security and Privacy (2021)
 - <span id="page-11-7"></span>27. Wu, Z., Pan, S., Chen, F., Long, G., Zhang, C., Philip, S.Y.: A comprehensive survey on graph neural networks. IEEE Transactions on Neural Networks and Learning Systems (2020)
-
 - <span id="page-12-1"></span>28. Yang, C., Wang, H., Zhang, K., Chen, L., Sun, L.: Secure deep graph generation with link differential privacy. In: the 30th International Joint Conference on Artificial Intelligence, IJCAI'21 (2021)
 - <span id="page-12-0"></span>29. Zhou, J., Chen, C., Zheng, L., Wu, H., Wu, J., Zheng, X., Wu, B., Liu, Z., Wang, L.: Vertically federated graph neural network for privacy-preserving node classification. the 31st International Joint Conference on Artificial Intelligence, IJCAI'22 (2022)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to guarantee privacy and solve non-IID data problems in federated graph neural networks simultaneously, particularly for recommendation applications?
+- **Methodology**: Proposed DP-FedRec using Private Set Intersection (PSI) to extend local graphs; differential privacy applied to weights and graph edges; federated learning framework for recommendation systems; subgraph-level privacy protection
+- **Key Findings**: Differential privacy applied to weights and intersection graph edges; achieved privacy protection with minimal computational overhead; successful integration of PSI for graph extension
+- **Primary Outcomes**: DP-FedRec framework; differential privacy integration for federated GNNs; Private Set Intersection for graph extension; privacy-preserving recommendation system
+
+### Analysis
+- **Limitations**: Sub-graph level approach may not generalize to all graph scenarios; computational overhead analysis needs further investigation; evaluation limited to recommendation domain
+- **Research Gaps**: Limited investigation of DP-based federated GNNs; challenges in balancing privacy with model utility; non-IID data problems in federated graph settings
+- **Future Work**: Extend to broader graph learning applications; optimize computational efficiency; investigate adaptive privacy budget allocation
+- **Conclusion**: Demonstrated effective privacy preservation in federated recommendation systems while addressing non-IID data challenges through innovative PSI approach
+
+### Implementation Notes
+Uses differential privacy on intersection graph edges; demonstrates practical federated learning for graph data; PSI enables privacy-preserving graph expansion

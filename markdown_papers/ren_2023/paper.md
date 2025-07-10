@@ -7,9 +7,6 @@ doi: 10.1145/3630138.3630436
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Ren-2023-Recommendation-system-based-on-temp
-images_total: 3
-images_kept: 2
-images_removed: 1
 tags:
 - Knowledge Graph
 - Machine Learning
@@ -23,6 +20,8 @@ keywords:
 - recommendation system
 - reinforcement learning
 - temporal knowledge graph
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Recommendation System Based on Temporal Knowledge Graph Path Reasoning
@@ -40,6 +39,12 @@ Reasoning based on Knowledge graph has been studied and used for explanation rec
 ### CCS CONCEPTS
 
 • Computing methodologies → Artificial intelligence; Knowledge representation and reasoning; Temporal reasoning; • Information systems → Information systems applications; Data mining.
+
+## TL;DR
+Research on recommendation system based on temporal knowledge graph path reasoning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
 
 ## KEYWORDS
 
@@ -349,3 +354,18 @@ In this paper, we propose a novel path reasoning recommendation model based on t
 - <span id="page-4-10"></span>[10] Jianmo Ni, Jiacheng Li, and Julian McAuley. 2019. Justifying recommendations using distantly-labeled reviews and fine-grained aspects. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP). 188–197.
 - <span id="page-4-11"></span>[11] Yikun Xian, Zuohui Fu, S Muthukrishnan, Gerard De Melo, and Yongfeng Zhang. 2019. Reinforcement knowledge graph reasoning for explainable recommendation. In Proceedings of the 42nd international ACM SIGIR conference on research and development in information retrieval. 285–294.
 - <span id="page-4-12"></span>[12] Kangzhi Zhao, Xiting Wang, Yuren Zhang, Li Zhao, Zheng Liu, Chunxiao Xing, and Xing Xie. 2020. Leveraging Demonstrations for Reinforcement Recommendation Reasoning over Knowledge Graphs. In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. 239–248.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+   
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+   
+### Implementation Notes

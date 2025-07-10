@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HDM Research Papers - Academic Findings</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
     <style>
         * {
             margin: 0;
@@ -303,9 +304,85 @@
             font-size: 11px;
             box-shadow: 0 1px 0 rgba(0,0,0,0.1);
         }
+        
+        /* Navigation Styles */
+        .nav-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <h2 class="nav-title">📚 Research Paper Browser</h2>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 Home</a>
+                <a href="research_findings.html" class="nav-link active">📊 Paper Browser</a>
+                <a href="visualization/index.html" class="nav-link">🕸️ Knowledge Graph</a>
+                <a href="https://github.com/epireve/hdm" class="nav-link" target="_blank">📱 GitHub</a>
+            </div>
+        </div>
+    </nav>
+
     <h1>Human Digital Memory (HDM) Research Papers</h1>
     <p class="subtitle">Complete Academic Literature Review with Personal Knowledge Graph Analysis</p>
     
@@ -374,12 +451,11 @@
                 const possiblePaths = [
                     'hdm_research_papers_merged_20250710.csv',
                     './hdm_research_papers_merged_20250710.csv',
+                    '/hdm/hdm_research_papers_merged_20250710.csv',
                     'hdm_research_papers_complete_20250710.csv',
                     './hdm_research_papers_complete_20250710.csv',
                     'research_papers_complete.csv',
-                    './research_papers_complete.csv',
-                    '/hdm/hdm_research_papers_merged_20250710.csv',
-                    '/hdm/research_papers_complete.csv'
+                    './research_papers_complete.csv'
                 ];
                 
                 let csvText = null;

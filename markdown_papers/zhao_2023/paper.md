@@ -18,9 +18,6 @@ tldr: Presents SysML-based framework for integrating tools and data in helicopte
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Zhao_2023_J._Phys.%3A_Conf._Ser._2472_012040
-images_total: 8
-images_kept: 7
-images_removed: 1
 keywords:
 - 1 problem description
 - 2 solution
@@ -47,6 +44,8 @@ keywords:
 - matlab-simulink
 - mock-up
 - performance
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # PAPER • OPEN ACCESS
@@ -77,6 +76,12 @@ H Zhao1\*, W K Wu<sup>1</sup> , X M Hu<sup>1</sup> , Y Q Guo<sup>1</sup> , C Zha
 \*Corresponding author's e-mail: zhaoh020@avic.com
 
 Abstract. Data and model exchange between SysML (Systems Modeling Language) Modeling tools and other system development tools is a critical aspect of Model-Based Systems Engineering (MBSE). This paper introduces an application of the SysML-centric integration framework, which allows integrating multi-disciplinary engineering models into a SysML Modeling environment. A design practice of helicopter fuel system is then presented to illustrate how to combine the external simulation models within the SysML Models to explore the performance and verify corresponding requirements. In this case, FMI (Functional Mockup Interface) based co-simulation creates a bridge between SysML Modeling tools and simulation tools in the SysML-centric integration framework. According to the practice, we believe it will significantly improve model consistency and traceability to provide early evaluation of concepts during conceptual design phase.
+
+## TL;DR
+Presents SysML-based framework for integrating tools and data in helicopter
+
+## Key Insights
+SysML provides standardized approach for complex system integration; Model patterns enable consistent component representation; Tool integration critical for complex systems
 
 ## Introduction
 
@@ -279,3 +284,19 @@ Other integrating approaches may also support model/data exchange in the SysML-c
 | Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 [15] Feldman Y, Greenberg L, Palachi E 2014 Simulating rhapsody SysML blocks in hybrid models with FMI Proc. of the 10th Int. Modelica Conf. (Lund) (Linköping University Electronic Press) 096 pp 43-52
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to create an effective integration framework for complex helicopter fuel system development using SysML
+- **Methodology**: Model-based systems engineering approach; SysML Model Pattern implementation; Case study validation with helicopter fuel system
+- **Key Findings**: SysML Model Patterns effectively represent IEC-81346 standard components; Framework enables successful tool integration in aerospace applications
+- **Primary Outcomes**: SysML-centric integration framework; Model patterns for standard components; Demonstrated tool integration approach
+
+### Analysis
+- **Limitations**: Not available from search results
+- **Research Gaps**: Not specified in available information
+- **Future Work**: Not specified in available information
+- **Conclusion**: SysML provides effective central integration framework for complex aerospace systems
+
+### Implementation Notes
+Model and data management approach based on SysML enables practical tool integration; Standard component definitions crucial for consistency

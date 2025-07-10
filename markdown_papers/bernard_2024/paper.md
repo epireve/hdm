@@ -1,3 +1,4 @@
+```
 ---
 cite_key: bernard_2024
 title: PKG API: A Tool for Personal Knowledge Graph Management
@@ -21,10 +22,9 @@ phase2_processed: true
 original_folder: Bernard-2024-Pkg-api-a-tool-for-personal-knowled
 downloaded: Yes
 tldr: Practical solution for managing personal knowledge graphs that enables consolidation
-images_total: 3
-images_kept: 2
-images_removed: 1
 keywords: 
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # PKG API: A Tool for Personal Knowledge Graph Management
@@ -46,6 +46,12 @@ Vinay Setty University of Stavanger Stavanger, Norway vinay.j.setty@uis.no
 ## ABSTRACT
 
 Personal knowledge graphs (PKGs) offer individuals a way to store and consolidate their fragmented personal data in a central place, improving service personalization while maintaining full user control. Despite their potential, practical PKG implementations with user-friendly interfaces remain scarce. This work addresses this gap by proposing a complete solution to represent, manage, and interface with PKGs. Our approach includes (1) a user-facing PKG Client, enabling end-users to administer their personal data easily via natural language statements, and (2) a service-oriented PKG API. To tackle the complexity of representing these statements within a PKG, we present an RDF-based PKG vocabulary that supports this, along with properties for access rights and provenance.
+
+## TL;DR
+This paper proposes a complete solution for managing Personal Knowledge Graphs (PKGs), consisting of a user-facing PKG Client and a service-oriented PKG API. It introduces an RDF-based vocabulary to represent user statements, preferences, access rights, and provenance. A key feature is the NL2PKG component, which uses LLMs to translate natural language statements from users into structured data and API calls, making PKG management more accessible to non-expert users.
+
+## Key Insights
+The key insight is that abstracting the complexity of PKG management behind a user-friendly, natural-language-driven interface is crucial for user adoption. While technologies like Solid provide the decentralized infrastructure, they often lack usability. This paper shows that a combination of a well-defined vocabulary, a service-oriented API, and an LLM-powered natural language layer can bridge this gap.
 
 ## CCS CONCEPTS
 
@@ -100,7 +106,7 @@ While there are several definitions of PKGs [\[1,](#page-3-1) [5\]](#page-3-5), 
 
 Our proposed PKG API focuses on enabling user-friendly interactions via natural language (NL). This requires a way to automatic translate NL statements to a structured query language that can directly interact with the PKG. Methods for such NL-tostructured-language translation traditionally focus on conversion to SQL [\[30,](#page-3-14) [32\]](#page-3-15), with interactive approaches [\[26\]](#page-3-16) and LLMs [\[13,](#page-3-17) [22\]](#page-3-18) being the state of the art. A similar pattern is followed in the case of conversion from natural language to SPARQL, which can be used for querying knowledge graphs. While earlier methods were based, for example, on rules [\[17\]](#page-3-19) and machine translation [\[31\]](#page-3-20), recent studies start to explore LLMs [\[25,](#page-3-21) [29\]](#page-3-22). LLMs have also been utilized to translate NL queries to different API calls [\[18,](#page-3-23) [21\]](#page-3-24).
 
-
+<span id="page-1-1"></span>
 **Figure 2:** Screenshot of the home screen after submission of a natural language statement.
 
 ## 3 OVERVIEW AND ARCHITECTURE
@@ -199,3 +205,19 @@ This research was partially supported by the Norwegian Research Center for AI In
 <span id="page-3-31"></span><sup>3</sup><https://ollama.ai>
 
 <span id="page-3-35"></span><span id="page-3-32"></span><sup>4</sup>We do not use proprietary models like GPT-4 or Gemini, due to privacy reasons. <sup>5</sup><https://rdflib.readthedocs.io/>
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The authors developed a complete software solution consisting of: (1) A PKG vocabulary based on RDF reification and existing vocabularies (SKOS, PAV). (2) A PKG API built with Flask, which includes an "NL2PKG" module that uses LLMs (Mistral-7b via Ollama) for intent classification and SPO extraction, and an entity linker (REL) to resolve entities. (3) A web-based PKG Client built with React for user interaction.
+- **Methodology**: The work demonstrates the feasibility of creating a user-friendly PKG management system. The use of LLMs for natural language understanding significantly lowers the barrier to entry for end-users. The proposed RDF-based vocabulary is shown to be effective for representing complex user statements, including preferences and provenance.
+- **Key Findings**: The primary outcome is the open-source PKG API and Client, a complete, practical tool for personal knowledge graph management. This includes the PKG vocabulary, the NL2PKG component, and the user interface.
+- **Primary Outcomes**: The paper acknowledges that the NL2PKG component's performance depends on the underlying LLM and entity linker. The current implementation is a demonstration and has not been evaluated in a large-scale user study. The resolution of entities in the user's private circle is mentioned as a challenge that requires a PKG-specific entity linker.
+
+### Analysis
+- **Limitations**: The paper concludes that user-centric management tools are essential for the adoption of PKGs. By combining a robust data representation (the PKG vocabulary) with a user-friendly natural language interface, their work represents a major step forward in the practical realization of PKGs.
+- **Research Gaps**: Future work could involve improving the NL2PKG component, conducting user studies to evaluate the system's usability and effectiveness, and extending the PKG vocabulary to support more complex types of statements and reasoning.
+- **Future Work**: The architecture of a separate API and Client is a standard and robust design. The use of LLMs via a local framework like Ollama is a good choice for privacy. The modular design of the NL2PKG component, allowing for different LLMs and entity linkers, is a good practice. The use of RDF reification to model statements is a standard Semantic Web pattern that provides flexibility.
+- **Conclusion**: The paper highlights the general lack of practical, user-friendly PKG implementations. It also points to the need for better entity linking solutions specifically for personal entities that don't exist in public KGs.
+
+### Implementation Notes
+https://arxiv.org/abs/2402.07540

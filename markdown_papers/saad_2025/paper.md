@@ -1,3 +1,4 @@
+```
 ---
 cite_key: saad_2025
 title: SENAI: Towards Software Engineering Native Generative Artificial Intelligence
@@ -7,9 +8,8 @@ doi: 10.1145/nnnnnnn.nnnnnnn
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_arxiv_2503.15282_SENAI_Towards_Software_Engineering_Native_Generative_Artificial_Intelligence
-images_total: 1
-images_kept: 1
-images_removed: 0
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Machine Learning
 - Semantic Web
@@ -79,6 +79,12 @@ Dalhouise University Halifax, Canada tushar@dal.ca
 Large Language Models have significantly advanced the field of code generation, demonstrating the ability to produce functionally correct code snippets. However, advancements in generative ai for code overlook foundational Software Engineering (se) principles such as modularity, and single responsibility, and concepts such as cohesion and coupling which are critical for creating maintainable, scalable, and robust software systems. These concepts are missing in pipelines that start with pre-training and end with the evaluation using benchmarks.
 
 This vision paper argues for the integration of se knowledge into llms to enhance their capability to understand, analyze, and generate code and other se artifacts following established se knowledge. The aim is to propose a new direction where llms can move beyond mere functional accuracy to perform generative tasks that require adherence to se principles and best practices. In addition, given the interactive nature of these conversational models, we propose using Bloom's Taxonomy as a framework to assess the extent to which they internalize se knowledge. The proposed evaluation framework offers a sound and more comprehensive evaluation technique compared to existing approaches such as linear probing. Software engineering native generative models will not only overcome the shortcomings present in current models but also pave the way for the next generation of generative models capable of handling real-world software engineering.
+
+## TL;DR
+Research on senai: towards software engineering native generative artificial intelligence providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## CCS Concepts
 
@@ -238,3 +244,18 @@ Large Language Model Meets Programming–The Rise of Code Intelligence. arXiv pr
 - <span id="page-4-15"></span>[29] Yue Wang, Weishi Wang, Shafiq Joty, and Steven CH Hoi. 2021. Codet5: Identifieraware unified pre-trained encoder-decoder models for code understanding and generation. arXiv preprint arXiv:2109.00859 (2021).
 - <span id="page-4-31"></span>[30] Martin Weyssow, Aton Kamanda, and Houari Sahraoui. 2024. CodeUltraFeedback: An LLM-as-a-Judge Dataset for Aligning Large Language Models to Coding Preferences. arXiv preprint arXiv:2403.09032 (2024).
 - <span id="page-4-25"></span>[31] Terry Yue Zhuo, Minh Chien Vu, Jenny Chim, Han Hu, Wenhao Yu, Ratnadira Widyasari, Imam Nur Bani Yusuf, Haolan Zhan, Junda He, Indraneil Paul, et al. 2024. Bigcodebench: Benchmarking code generation with diverse function calls and complex instructions. arXiv preprint arXiv:2406.15877 (2024).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

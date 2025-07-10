@@ -7,9 +7,6 @@ doi: 10.1145/3236024.3275428
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: '3236024.3275428'
-images_total: 3
-images_kept: 2
-images_removed: 1
 tags:
 - Knowledge Graph
 - Machine Learning
@@ -21,6 +18,8 @@ keywords:
 - knowledge graph
 - knowledge graph construction
 - multi-source
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Intelligent Bug Fixing with Software Bug Knowledge Graph
@@ -34,6 +33,12 @@ School of Information Engineering, Yangzhou University Yang zhou, China canorche
 Software bugs continuously emerge during the process of software evolution. With the increasing size and complexity of software, bug fixing becomes increasingly more difficult. Bug and commit data of open source projects, Q&A documents and other software resources contain a sea of bug knowledge which can be utilized to help developers understand and fix bugs. Existing work focuses on data mining from a certain software resource in isolation to assist in bug fixing, which may reduce the efficiency of bug fixing.
 
 How to obtain, organize and understand bug knowledge from multi-source software data is an urgent problem to be solved. In order to solve this problem, we utilize knowledge graph (KG) technology to explore the deep semantic and structural relationships in the multi-source software data, propose effective search and recommendation techniques based on the knowledge graph, and design a bug-fix knowledge question & answering system to assist developers in intelligent software bug fixing. At present, we have designed a bug knowledge graph construction framework, proposed the identification principles and methods for bug knowledge entities and relationships, constructed a preliminary knowledge graph based on the bug repository. In the following work, we will further improve the knowledge graph, complete the knowledge graph fusion of multi-source database, comprehend bug knowledge through knowledge reasoning, utilize the collaborative search and recommendation technology for bug-fixing knowledge question and answering.
+
+## TL;DR
+Research on intelligent bug fixing with software bug knowledge graph providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## CCS CONCEPTS
 
@@ -223,3 +228,18 @@ I express my gratitude to my supervisors Bin Li and Xiaobing Sun for their conti
 - <span id="page-3-8"></span>[23] Hui Yang, Xiaobing Sun, Bin Li, and Jiajun Hu. 2016. Recommending developers with supplementary information for issue request resolution. In Proceedings of the 38th International Conference on Software Engineering, ICSE 2016, Austin, TX, USA, May 14-22, 2016 - Companion Volume. 707–709.
 - <span id="page-3-22"></span>[24] Cheng Zhou, Bin Li, Xiaobing Sun, and Hongjing Guo. 2018. Recognizing software bug-specific named entity in software bug repository. In Proceedings of the 26th Conference on Program Comprehension, ICPC 2018, Gothenburg, Sweden, May 27-28, 2018. 108–119.
 - <span id="page-3-13"></span>[25] Guangyou Zhou, Tingting He, Jun Zhao, and Po Hu. 2015. Learning Continuous Word Embedding with Metadata for Question Retrieval in Community Question Answering. In Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing of the Asian Federation of Natural Language Processing, ACL 2015, July 26-31, 2015, Beijing, China, Volume 1: Long Papers. 250–259.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+   
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+   
+### Implementation Notes

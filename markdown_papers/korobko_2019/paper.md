@@ -7,9 +7,6 @@ doi: 10.1145/3297662.3365809
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Korobko-2019-Matching-disparate-dimensions-for-a
-images_total: 2
-images_kept: 1
-images_removed: 1
 tags:
 - Data Integration
 - Machine Learning
@@ -43,6 +40,8 @@ keywords:
 - ontology
 - relation
 - synchronization
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Matching disparate dimensions for analytical integration of heterogeneous data sources
@@ -54,6 +53,12 @@ Aleksei Korobko Department of Applied Computer Science ICM SB RAS Krasnoyarsk, R
 ## ABSTRACT
 
 The paper presents the first steps towards an authorial integration methodology for heterogeneous data. Exposing information from multiple heterogeneous data sources demands a global (mediated) schema. We need a model to couple with the mismatches between schemata of different sources and to provide uniform access to the data. The virtual global schema is apparently more convenient for assembling big data sources because of useless time consumption during the processes of materialization and synchronization. Thus, an integral analytical model has been proposed as the global schema of heterogeneous data sources. The suggested model provides virtual integration of complex and diverse information for further analytical processing. It combines the original multidimensional design and lattice structure according to the formal conceptual analysis. The main goal of the paper is to suggest an approach to automatic mapping between the schemata of the disparate data sources and virtual integral analytical model with human moderation.
+
+## TL;DR
+Research on matching disparate dimensions for analytical integration of heterogeneous data sources providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
 
 ### CCS CONCEPTS
 
@@ -213,3 +218,18 @@ OLAP with data mining.*IJCSNS Int. J. Comput. Sci. Netw. Secur.*8, 9 (2008), 290
 - [40] Nectaria Tryfona, Frank Busborg, and Gottfried Vossen. 1999. Conceptual data warehouse design. *Dol. 99 Proc. 2nd ACM Int. Work. Data Warehous. Ol.*(1999), 3–8. DOI:https://doi.org/10.1145/319757.319776
 - [41] Esko Ukkonen. 1992. Approximate string-matching with q-grams and maximal matches.*Theor. Comput. Sci.*92, 1 (1992), 191–211.
 - [42] Jovan Varga, Oscar Romero, Torben Bach Pedersen, and Christian Thomsen. 2018. Analytical metadata modeling for next generation BI systems.*J. Syst. Softw.* 144, (2018), 240–254. DOI:https://doi.org/10.1016/j.jss.2018.06.039
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

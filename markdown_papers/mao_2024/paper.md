@@ -22,6 +22,8 @@ tags:
   - "Mobile Applications"
   - "Natural Language Interface"
   - "Android"
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 ![](_page_0_Picture_0.jpeg)
@@ -44,6 +46,12 @@ Meng Wang† Tongji University Shanghai, China wangmengsd@outlook.com
 ## ABSTRACT
 
 We develop a Personal Knowledge Graph Question-Answering (PKGQA) assistant, seamlessly integrating information from multiple mobile applications into a unified and user-friendly query interface to offer users convenient information retrieval and personalized knowledge services. Based on a fine-grained schema customized for PKG, the PKGQA system in this paper comprises Symbolic Semantic Parsing, Frequently Asked Question (FAQ) Semantic Matching, and Neural Semantic Parsing modules, which are designed to take into account both accuracy and efficiency. The PKGQA system achieves high accuracy on the constructed dataset and demonstrates good performance in answering complex questions. Our system is implemented through an Android application, which is shown in [https://youtu.be/p732U5KPEq4.](https://youtu.be/p732U5KPEq4)
+
+## TL;DR
+Practical PKG-based question answering system for mobile personal data integration
+
+## Key Insights
+PKGQA integrates information from multiple mobile applications into unified query interface achieving high accuracy on complex personal questions
 
 ## CCS CONCEPTS
 
@@ -197,3 +205,19 @@ In this paper, we delve into the methodology of integrating data from different 
 - <span id="page-4-20"></span>[19] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al. 2022. Chain-of-thought prompting elicits reasoning in large language models. Advances in Neural Information Processing Systems 35 (2022), 24824–24837.
 - <span id="page-4-13"></span>[20] Haobo Xiong, Shuting Wang, Mingrong Tang, Liping Wang, and Xuemin Lin. 2021. Knowledge graph question answering with semantic oriented fusion model. Knowledge-Based Systems 221 (2021), 106954.
 - <span id="page-4-2"></span>[21] Yu Yang, Jiangxu Lin, Xiaolian Zhang, and Meng Wang. 2022. PKG: A personal knowledge graph for recommendation. In Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval. 3334–3338.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can personal knowledge graphs support effective question-answering for personalized information retrieval across multiple mobile applications?
+- **Methodology**: Fine-grained schema for PKG, Symbolic Semantic Parsing, FAQ Semantic Matching, Neural Semantic Parsing modules, Android implementation
+- **Key Findings**: PKGQA achieves high accuracy on constructed dataset, demonstrates good performance on complex questions, successfully deployed as Android application
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: Abstract lacks specific accuracy metrics, limited to mobile application context
+- **Research Gaps**: 
+- **Future Work**: Implement for HDM with broader data sources, develop cross-platform support, enhance privacy controls
+- **Conclusion**: Proves feasibility of PKG-based conversational interfaces for personal information management
+
+### Implementation Notes
+Agent Epsilon: Critical paper - practical PKG implementation with conversational interface highly relevant to HDM

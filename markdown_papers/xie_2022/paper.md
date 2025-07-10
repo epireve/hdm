@@ -1,11 +1,15 @@
+```yaml
 ---
 cite_key: "xie_2022"
 title: "Enabling building digital twin: Ontology-based information management framework for multisource data integration"
 authors: X Xie, N Moretti, J Merino, J Y Chang, P Pauwels, A K Parlikad
-year: 202
+year: 2022
 doi: 10.1088/1755-1315/1101/9/092010
 url: https://doi.org/10.1088/1755-1315/1101/9/092010
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
+```
 
 ![](_page_0_Picture_1.jpeg)
 <!-- Image Description: The image is a logo for "Purpose-Led Publishing." It consists of text stating the company name in a sans-serif font and a graphic element to the left. The graphic is an abstract design of interconnected nodes or dots, possibly representing network connections or collaboration, rendered in shades of pink and red. The logo likely serves as an identifier for the publisher within the paper. -->
@@ -42,6 +46,12 @@ This content was downloaded from IP address 202.184.51.195 on 02/07/2025 at 15:0
 xx809@cam.ac.uk
 
 **Abstract**. The emergence of the digital twin concept can potentially change the way people manage built assets thoroughly. This is because the semantics-based model and linked data approach behind the digital twin, as the successor of classical BIM, provide strong capability in integrating data from fragmented and heterogeneous sources and thus enable better-informed decision-making. Taking buildings as the case, this paper demonstrates the ontology-based Information Management Framework and elaborates on the process to integrate data through a common data model. Specifically, the Foundation Data Model (FDM) representing the operation of buildings and embedded systems is developed and two patterns of integration architecture are compared. To conceptualise all the essential entities and relationships, the building topology ontology and BRICK ontology are reused and merged to serve as a feasible FDM. According to the characteristic of asset management services that digital twins support, two integration architectures are compared, including the data warehouse approach and the mediator approach. A case study is presented to elaborate on the implementation of these two approaches and their applicability. This work sets out the standardised and modularised paradigms for discovering, fetching, and integrating data from disparate sources with different data curation manners.
+
+## TL;DR
+Research on enabling building digital twin: ontology-based information management framework for multisource data integration providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
 
 ## **1. Introduction**
 
@@ -203,3 +213,18 @@ model *Centre for Digital Built Britain Report*
 - [14] Shahinmoghadam M and Motamedi A 2020 An ontology-based mediation framework for integrating federated sources of BIM and IoT data *Proc. 18th Int. Conf. on Computing in Civil and Building Engineering* ed E T Santos and S Scheer (Cham: Springer) pp 907-923
 - [15] Mavrokapnidis D, Katsigarakis K, Pauwels P, Petrova E, Korolija I and Rovas D 2021 A linkeddata paradigm for the integration of static and dynamic building data in Digital Twins *Proc. 8th ACM Int. Conf. on Systems for Energy-Efficient Buildings, Cities, and Transportation* pp 369-372
 - [16] Schneider GF 2019 Automated ontology matching in the architecture, engineering and construction domain–a case study *Proc. 7th Linked Data in Architecture and Construction Workshop* vol 2389 pp 35-49
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

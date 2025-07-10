@@ -1,3 +1,4 @@
+```yaml
 ---
 cite_key: du_2024
 title: CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction
@@ -6,9 +7,6 @@ year: 2024
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2024_ctgnn_crystal_transformer_gnn
-images_total: 2
-images_kept: 2
-images_removed: 0
 tags:
 - Machine Learning
 keywords:
@@ -42,7 +40,10 @@ keywords:
 - element-wise
 - excited-state
 - feature extraction
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
+```
 
 # CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction
 
@@ -69,6 +70,12 @@ of Micro and Nano Photonic Structures (Ministry of Education), Fudan University,
 ## Abstract
 
 The combination of deep learning algorithm and materials science has made significant progress in predicting novel materials and understanding various behaviours of materials. Here, we introduced a new model called as the Crystal Transformer Graph Neural Network (CTGNN), which combines the advantages of Transformer model and graph neural networks to address the complexity of structure-properties relation of material data. Compared to the state-of-the-art models, CTGNN incorporates the graph network structure for capturing local atomic interactions and the dual-Transformer structures to model intra-crystal and inter-atomic relationships comprehensively. The benchmark carried on by the proposed CTGNN indicates that CTGNN significantly outperforms existing models like CGCNN and MEGNET in the prediction of formation energy and bandgap properties. Our work highlights the potential of CTGNN to enhance the performance of properties prediction and accelerates the discovery of new materials, particularly for perovskite materials.
+
+## TL;DR
+Research on ctgnn: crystal transformer graph neural network for crystal material property prediction providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## I. INTRODUCTION
 
@@ -329,3 +336,18 @@ The authors declare no competing interests.
 - <span id="page-12-7"></span><span id="page-12-6"></span><sup>36</sup> Kamal Choudhary. Jarvis-dft, 2014.
 - <sup>37</sup> Chiho Kim, Tran Doan Huan, Sridevi Krishnan, and Rampi Ramprasad. A hybrid organicinorganic perovskite dataset. Scientific Data, 4(1):1–11, 2017.
 - <span id="page-12-8"></span><sup>38</sup> Takahito Nakajima and Keisuke Sawada. Discovery of pb-free perovskite solar cells via highthroughput simulation on the k computer. The journal of physical chemistry letters, 8(19):4826– 4831, 2017.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+   
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+   
+### Implementation Notes

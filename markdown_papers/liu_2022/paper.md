@@ -7,9 +7,8 @@ doi: 10.1145/3557990.3567586
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: '3557990.3567586'
-images_total: 4
-images_kept: 3
-images_removed: 1
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Data Integration
 - IoT
@@ -51,6 +50,12 @@ Yong Li<sup>∗</sup> liyong07@tsinghua.edu.cn BNRist, Department of Electronic 
 ## ABSTRACT
 
 Everyday our living city produces a tremendous amount of spatialtemporal data, involved with multiple sources from the individual scale to the city scale. Undoubtedly, such massive urban data can be explored for a better city and better life, as what the urban computing community has been dedicating in recent years. Nevertheless, existing studies are still facing the challenges of data fusion for the urban data as well as the knowledge distillation for specific applications. Moreover, there is a lack of full-featured and user-friendly platform for both researchers and developers in urban computing scenario. Therefore, in this paper, we present an urban knowledge graph (UrbanKG) system to incorporate knowledge graph with urban computing. Specifically, the system introduces a complete scheme to construct knowledge graph for urban data fusion from Data layer to Construction layer. The system further develops the multiple layers of Storage, Algorithm, Operation and Applications, which achieve the knowledge distillation and support various functions to the users. We perform three representative and practical use cases and demonstrate the system capability of boosting performance in various downstream applications, indicating a promising research direction of knowledge-driven urban computing.
+
+## TL;DR
+Research on developing knowledge graph based system for urban computing providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ### CCS CONCEPTS
 
@@ -179,6 +184,7 @@ Statistics. Following the creation process above, the UrbanKG system constructs 
 
 entities and over ten millions of triples on urban knowledge, which is comparable to large-scale KGs like YAGO [\[2\]](#page-3-4).
 
+<span id="page-2-3"></span>**Table 2:** The summary of attributes for entities in UrbanKG.
 
 | Entity | Attribute |
 |-------------|-----------------------------------------------|
@@ -268,3 +274,18 @@ This work was supported in part by The National Key Research and Development Pro
 - <span id="page-3-9"></span>[6] Yu Liu, Jingtao Ding, and Yong Li. 2021. Knowledge-driven Site Selection via Urban Knowledge Graph. arXiv preprint arXiv:2111.00787 (2021).
 - <span id="page-3-6"></span>[7] Huandong Wang, Qiaohong Yu, Yu Liu, Depeng Jin, and Yong Li. 2021. Spatio-Temporal Urban Knowledge Graph Enabled Mobility Prediction. UbiComp (2021).
 - <span id="page-3-1"></span>[8] Yu Zheng, Licia Capra, Ouri Wolfson, and Hai Yang. 2014. Urban computing: Concepts, Methodologies, and Applications. ACM TIST 5, 3 (2014), 1–55.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

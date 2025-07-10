@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-07-10T19:07:15.189245",
+  "csv_file": "hdm_research_papers_merged_20250710.csv",
+  "dry_run": true,
+  "papers": {
+    "abdallah_2021": {
+      "cite_key": "abdallah_2021",
+      "path": "markdown_papers/abdallah_2021/paper.md",
+      "status": "success",
+      "metadata": {
+        "cite_key": "abdallah_2021",
+        "title": "Towards a GML-Enabled Knowledge Graph Platform",
+        "authors": "Hussein Abdallah, Essam Mansour",
+        "year": "2021",
+        "doi": "Knowledge Graph, Graph Machine Learning, GML, SPARQL, RDF, GNN, AI, Heterogeneous, Integration, Semantic",
+        "url": "10.1145/3447772",
+        "relevancy": "HIGH",
+        "relevancy_justification": "This paper is highly relevant as it proposes KGNet, a platform for on-demand graph machine learning (GML) as a service on top of RDF engines. This directly addresses the HDM project's need for integrating machine learning with knowledge graphs to enable intelligent reasoning over personal data. The focus on scalability, automated model training, and a GML-enabled query language (SPARQLML) provides a strong architectural blueprint for the HDM system.",
+        "tags": [
+          "architecture",
+          "data-integration",
+          "gml",
+          "graph-platforms",
+          "heterogeneous-data",
+          "knowledge-graph",
+          "schema-management"
+        ],
+        "date_processed": "2025-07-02",
+        "phase2_processed": "true",
+        "standardization_date": "2025-07-10",
+        "standardization_version": "1.0",
+        "word_count": 7929,
+        "sections_count": 16
+      }
+    },
+    "aburasheed_2023b": {
+      "cite_key": "aburasheed_2023b",
+      "path": "markdown_papers/aburasheed_2023b/paper.md",
+      "status": "success",
+      "metadata": {
+        "cite_key": "aburasheed_2023b",
+        "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+        "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi",
+        "year": "2023",
+        "doi": "Contextual Knowledge Graphs, Personalized Learning, Educational Technology, Semantic Graph Completion, Learning Object Modeling",
+        "url": "10.1109/ICALT58122.2023.00040",
+        "relevancy": "HIGH",
+        "relevancy_justification": "This paper is highly relevant as it directly addresses the transformation of hierarchical learning object data models into knowledge graphs using text mining and semantic graph completion. This aligns with the HDM project's focus on heterogeneous data integration and building schemas for diverse data, as it demonstrates a method for converting structured but inflexible data into a semantically rich knowledge graph. The emphasis on personalized recommendations also aligns with the HDM's goal of user-centric systems.",
+        "tags": [
+          "data-integration",
+          "educational-technology",
+          "knowledge-graph",
+          "personalized-learning",
+          "recommendation-systems",
+          "semantic-completion",
+          "text-mining"
+        ],
+        "date_processed": "N/A",
+        "phase2_processed": false,
+        "standardization_date": "2025-07-10",
+        "standardization_version": "1.0",
+        "word_count": 4988,
+        "sections_count": 16
+      }
+    },
+    "ai_2025": {
+      "cite_key": "ai_2025",
+      "path": "markdown_papers/ai_2025/paper.md",
+      "status": "success",
+      "metadata": {
+        "cite_key": "ai_2025",
+        "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+        "authors": "Preston Rasmussen Zep AI",
+        "year": "2025",
+        "doi": "10.48550/arXiv.2501.13956",
+        "url": "https://arxiv.org/abs/2501.13956",
+        "relevancy": "HIGH",
+        "relevancy_justification": "Contains relevant concepts applicable to HDM systems",
+        "tags": [
+          "ai",
+          "integration",
+          "knowledge-graph",
+          "llm",
+          "machine-learning",
+          "memory",
+          "semantic",
+          "survey",
+          "temporal"
+        ],
+        "date_processed": "2025-07-02",
+        "phase2_processed": "true",
+        "standardization_date": "2025-07-10",
+        "standardization_version": "1.0",
+        "word_count": 6108,
+        "sections_count": 28
+      }
+    }
+  }
+}

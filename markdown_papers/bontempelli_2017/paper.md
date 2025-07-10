@@ -1,3 +1,4 @@
+```yaml
 ---
 cite_key: bontempelli_2017
 title: Lifelong Personal Context Recognition1
@@ -17,17 +18,23 @@ tags:
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2205.10123_Lifelong_Personal_Context_Recognition
-images_total: 1
-images_kept: 1
-images_removed: 0
 keywords: 
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
-
+```
 # Lifelong Personal Context Recognition<sup>1</sup>
 
 Andrea Bontempelli, Marcelo Rodas Britez, Xiaoyue Li, Haonan Zhao Luca Erculiani, Stefano Teso, Andrea Passerini, Fausto Giunchiglia
 
-*University of Trento, Italy*Abstract. We focus on the development of AIs which live in lifelong symbiosis with a human. The key prerequisite for this task is that the AI understands - at any moment in time - the*personal situational context*that the human is in. We outline the key challenges that this task brings forth, namely*(i)*handling the humanlike and ego-centric nature of the the user's context, necessary for understanding and providing useful suggestions,*(ii)*performing lifelong context recognition using machine learning in a way that is robust to change, and*(iii)*maintaining alignment between the AI's and human's representations of the world through continual bidirectional interaction. In this short paper, we summarize our recent attempts at tackling these challenges, discuss the lessons learned, and highlight directions of future research. The main take-away message is that pursuing this project requires research which lies at the intersection of knowledge representation and machine learning. Neither technology can achieve this goal without the other.
+*University of Trento, Italy*
+Abstract. We focus on the development of AIs which live in lifelong symbiosis with a human. The key prerequisite for this task is that the AI understands - at any moment in time - the*personal situational context*that the human is in. We outline the key challenges that this task brings forth, namely*(i)*handling the humanlike and ego-centric nature of the the user's context, necessary for understanding and providing useful suggestions,*(ii)*performing lifelong context recognition using machine learning in a way that is robust to change, and*(iii)*maintaining alignment between the AI's and human's representations of the world through continual bidirectional interaction. In this short paper, we summarize our recent attempts at tackling these challenges, discuss the lessons learned, and highlight directions of future research. The main take-away message is that pursuing this project requires research which lies at the intersection of knowledge representation and machine learning. Neither technology can achieve this goal without the other.
+
+## TL;DR
+This paper outlines the key challenges in developing AIs that live in lifelong symbiosis with a human. The authors argue that the central task is for the AI to understand the user's personal situational context at all times. They propose a three-pronged approach: (1) a knowledge representation scheme for personal context, (2) machine learning techniques for lifelong context recognition that are robust to change (e.g., concept drift and knowledge drift), and (3) a machine-human alignment loop to maintain a shared understanding through continual interaction.
+
+## Key Insights
+The key insight is that a truly symbiotic Human-AI system cannot be achieved with KR or ML alone; it requires a synthesis of both. The paper argues that to overcome the "problem of generality" and brittleness, an AI must continually align its understanding of the world with its user's subjective perspective. This requires a KR framework to model the user's context and an ML framework that can learn and adapt to this context over a lifetime, all orchestrated through a bidirectional interaction loop.
 
 Keywords. Personal Situational Context, Knowledge Representation, Machine Learning, Machine-Human alignment
 
@@ -128,7 +135,6 @@ The fourth issue is the importance of running real world experiments in the wild
 - <span id="page-6-17"></span>[18] Zeni M, Zhang W, Bignotti E, Passerini A, Giunchiglia F. Fixing mislabeling by human annotators leveraging conflict resolution and prior knowledge. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies. 2019;3(1):1-23.
 - <span id="page-6-18"></span>[19] Zhang W, Zeni M, Passerini A, Giunchiglia F. Skeptical Learning—An Algorithm and a Platform for Dealing with Mislabeling in Personal Context Recognition. Algorithms. 2022;15(4):109.
 - <span id="page-6-19"></span>[20] Bontempelli A, Teso S, Giunchiglia F, Passerini A. Learning in the wild with incremental skeptical Gaussian processes. In: Proceedings of the Twenty-Ninth International Conference on International Joint Conferences on Artificial Intelligence; 2021. p. 2886-92.
-
 - <span id="page-7-0"></span>[21] Teso S, Bontempelli A, Giunchiglia F, Passerini A. Interactive label cleaning with example-based explanations. Advances in Neural Information Processing Systems. 2021;34.
 - <span id="page-7-3"></span>[22] Giunchiglia F, Weyhrauch RW. A multi-context monotonic axiomatization of inessential nonmonotonicity. In: Nardi D, Maes P, editors. Meta-level Architectures and Reflection. North Holland; 1988. p. 271-85.
 - <span id="page-7-1"></span>[23] Tsymbal A. The problem of concept drift: definitions and related work. Computer Science Department, Trinity College Dublin. 2004.
@@ -146,3 +152,18 @@ The fourth issue is the importance of running real world experiments in the wild
 - <span id="page-7-14"></span>[35] Fausto G, Ivano B, Matteo B, Ronald CA, Marcelo R, Mattia Z, et al.. A worldwide diversity pilot on daily routines and social practices (2020-2021); 2022. University of Trento Technical Report - DataScientia dataset descriptors. Dataset soon to be available at: <https://ri.internetofus.eu>.
 - <span id="page-7-15"></span>[36] Zeni M, Zaihrayeu I, Giunchiglia F. Multi-device activity logging. In: Proceedings of the 2014 ACM International Joint Conference on Pervasive and Ubiquitous Computing: Adjunct Publication; 2014. p. 299-302.
 - <span id="page-7-16"></span>[37] Zeni M, Bison I, Gauckler B, Reis F, Giunchiglia F. Improving time use measurement with personal big data collection - the experience of the European Big Data Hackathon 2019. Journal of Official Statistics. 2020.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The paper presents a conceptual framework and summarizes the authors' research efforts in three areas: (1) Knowledge Representation: They propose modeling the personal situational context as a Knowledge Graph, composed of a "Life Sequence" of contexts (defined by location, event, people, objects, etc.). (2) Machine Learning: They discuss the challenges of lifelong Personal Context Recognition (PCR), including handling changes in the user's descriptions (skeptical learning) and changes in the world itself (knowledge drift). (3) Human-AI Alignment: They posit the need for a continual, bidirectional interaction loop to maintain alignment, though this is presented as a major area for future research.
+- **Methodology**: The paper establishes a clear conceptual framework for building a lifelong personal AI. It identifies the key research challenges and provides a roadmap for tackling them. The authors' work on skeptical learning and knowledge drift provides initial solutions for the ML component of the framework.
+- **Key Findings**: The primary outcome is a research agenda and a conceptual framework for Human-AI Symbiosis, centered around the problem of Lifelong Personal Context Recognition.
+- **Primary Outcomes**: The paper is a short position paper and does not provide a complete, implemented system. Many of the ideas, particularly around the machine-human alignment loop, are presented as open research questions rather than solved problems.
+
+### Analysis
+- **Limitations**: The paper concludes that building a symbiotic AI requires a deep integration of Knowledge Representation and Machine Learning. Neither field can solve the problem of generality and brittleness in isolation. A lifelong, bidirectional interaction between the human and the AI is essential for maintaining alignment and enabling the AI to adapt to a constantly changing world.
+- **Research Gaps**: Future research will focus on designing the machine-human alignment loop, including how to manage the cognitive load on the user and how to translate between ML outputs and the KR layer. The authors also emphasize the need for more real-world experiments and interdisciplinary collaboration.
+- **Future Work**: The paper provides a strong conceptual model for the HDM's knowledge representation, based on a "Life Sequence" of personal situational contexts represented as KGs. The identification of specific ML challenges like "knowledge drift" is a crucial insight for designing the learning components of the HDM. The emphasis on bidirectional interaction highlights the need for an explainable and interactive user interface.
+- **Conclusion**: The paper highlights the need for more research on the machine-human alignment loop, including how to structure the interaction to be effective without being burdensome for the user. It also points to the challenge of translating between the outputs of ML models and the symbolic representations in the KR component.
+
+### Implementation Notes

@@ -7,9 +7,8 @@ doi: 10.1145/3487553.3524196
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Ilkou-2022-Personal-knowledge-graphs-use-cases
-images_total: 4
-images_kept: 3
-images_removed: 1
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - COVID-19
 - Healthcare
@@ -43,6 +42,12 @@ keywords:
 ## ABSTRACT
 
 Personal Knowledge Graphs (PKGs) are introduced by the semantic web community as small-sized user-centric knowledge graphs (KGs). PKGs fill the gap of personalised representation of user data and interests on the top of big, well-established encyclopedic KGs, such as DBpedia [\[21\]](#page-4-0). Inspired by the widely recent usage of PKGs in the medical domain to represent patient data, this PhD proposal aims to adopt a similar technique in the educational domain in elearning platforms by deploying PKGs to represent users and learners. We propose a novel PKG development that relies on ontology and interlinks to Linked Open Data. Hence, adding the dimension of personalisation and explainability in users' featured data while respecting privacy. This research design is developed in two use cases: a collaborative search learning platform and an e-learning platform. Our preliminary results show that e-learning platforms can get benefited from our approach by providing personalised recommendations and more user and group-specific data.
+
+## TL;DR
+Research on personal knowledge graphs: use cases in e-learning platforms providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
 
 ## CCS CONCEPTS
 
@@ -213,3 +218,18 @@ The author would like to thank Prof. Dr. Maria-Esther Vidal for the fruitful dis
 - <span id="page-4-23"></span>[25] Paul Voigt and Axel Von dem Bussche. 2017. The EU general data protection regulation (GDPR). A Practical Guide, 1st Ed., Cham: Springer International Publishing (2017).
 - <span id="page-4-7"></span>[26] Huaqiong Wang, Xiaoyu Miao, and Pan Yang. 2018. Design and implementation of personal health record systems based on knowledge graph. In 2018 9th International Conference (ITME).
 - <span id="page-4-18"></span>[27] Luyan Xu, Zeon Trevor Fernando, Xuan Zhou, and Wolfgang Nejdl. 2018. LogCanvas: Visualizing Search History Using Knowledge Graphs. In The 41st International ACM SIGIR Conference on Research & Development in Information Retrieval, SIGIR 2018, Ann Arbor, MI, USA, July 08-12, 2018. ACM.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

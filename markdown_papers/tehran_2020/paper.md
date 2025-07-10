@@ -7,9 +7,8 @@ doi: 10.1109/MC.2018.2876181.
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2201.08163_Cognitive_Ledger_Project_Towards_Building_Persona
-images_total: 4
-images_kept: 4
-images_removed: 0
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Blockchain
 - Electronic Health Records
@@ -55,7 +54,15 @@ keywords:
 
 Amir Reza Asadi Humind Labs Tehran,Iran a.asadi@humind.xyz ORCID: 0000-0001-5440-8456
 
-**Abstract:** **—The Cognitive Ledger Project is an effort to develop a modular system for turning users' personal data into structured information and machine learning models based on a blockchain-based infrastructure. In this work-in-progress paper, we propose a cognitive architecture for cognitive digital twins. The suggested design embraces a cognitive blockchain (Cognitive ledger) at its core. The architecture includes several modules that turn users' activities in the digital environment into reusable knowledge objects and artificial intelligence that one day can work together to form the cognitive digital twin of users.**#*Keywords— Cognitive Computing, Knowledge Management, Artificial Intelligence, Blockchain, Tokenomics*# I. INTRODUCTION
+**Abstract:** **—The Cognitive Ledger Project is an effort to develop a modular system for turning users' personal data into structured information and machine learning models based on a blockchain-based infrastructure. In this work-in-progress paper, we propose a cognitive architecture for cognitive digital twins. The suggested design embraces a cognitive blockchain (Cognitive ledger) at its core. The architecture includes several modules that turn users' activities in the digital environment into reusable knowledge objects and artificial intelligence that one day can work together to form the cognitive digital twin of users.**#*Keywords— Cognitive Computing, Knowledge Management, Artificial Intelligence, Blockchain, Tokenomics*#
+
+## TL;DR
+Research on cognitive ledger project: towards building personal digital twins through cognitive blockchain providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
+
+# I. INTRODUCTION
 
 Digital Twin is a trending topic in manufacturing technology studies. It refers to the virtual representation of a physical object or system that simulates the behavior of the physical thing [1]. However, this paper does not deal with the manufacturing industry. In this project, we develop a cognitive ledger for use by personal cognitive digital twins of individuals.
 
@@ -209,3 +216,18 @@ For more information you can check, CognitiveLedger.org
 - [25] S. K. Karmaker ("Santu"), Md. M. Hassan, M. J. Smith, L. Xu, C. Zhai, and K. Veeramachaneni, "AutoML to Date and Beyond: Challenges and Opportunities," *ACM Comput. Surv.*, vol. 54, no. 8, Oct. 2021, doi: [10.1145/3470918.](https://doi.org/10.1145/3470918)
 - [26] S. Del Rowe, "Personal Digital Twins Look Like the Answer for Marketers," *Destiantion CRM*, 2018. [https://www.destinationcrm.com/Articles/CRM-](https://www.destinationcrm.com/Articles/CRM-Insights/Insight/Personal-Digital-Twins-Look-Like-the-Answer-for-Marketers-128314.aspx)[Insights/Insight/Personal-Digital-Twins-Look-Like-the-Answer-for-](https://www.destinationcrm.com/Articles/CRM-Insights/Insight/Personal-Digital-Twins-Look-Like-the-Answer-for-Marketers-128314.aspx)[Marketers-128314.aspx](https://www.destinationcrm.com/Articles/CRM-Insights/Insight/Personal-Digital-Twins-Look-Like-the-Answer-for-Marketers-128314.aspx) (accessed Jul. 25, 2021).
 - [27] "Datacoup," *Wikipedia*. Jul. 20, 2021. [Online]. Available: <https://en.wikipedia.org/wiki/Datacoup>
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes
