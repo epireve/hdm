@@ -85,12 +85,16 @@ def main():
             row_data = []
             
             for header in headers:
-                if header == 'Paper Title':
+                if header == 'cite_key':
+                    value = clean_text(row.get('cite_key', ''))
+                elif header == 'Paper Title':
                     value = clean_text(row.get('title', ''))
                 elif header == 'Authors':
                     value = clean_text(row.get('authors', ''))
                 elif header == 'Year':
                     value = str(row.get('year', ''))
+                elif header == 'Downloaded':
+                    value = clean_text(row.get('Downloaded', ''))
                 elif header == 'Relevancy':
                     value = clean_text(row.get('Relevancy', '')).upper()
                 elif header == 'url':
@@ -135,8 +139,8 @@ def main():
                     # Truncate long fields
                     if header in ['Methodology', 'Key Findings', 'Primary Outcomes']:
                         value = truncate_text(value, 250)
-            
-            row_data.append(value)
+                
+                row_data.append(value)
             
             f.write("| " + " | ".join(row_data) + " |\n")
         
