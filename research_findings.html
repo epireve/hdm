@@ -288,6 +288,74 @@
             background-color: #0056b3;
         }
         
+        /* Column Controls */
+        .column-controls {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .column-controls.active {
+            display: block;
+        }
+        
+        .column-controls h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #495057;
+        }
+        
+        .column-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px;
+        }
+        
+        .column-checkbox {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .column-checkbox input {
+            margin-right: 6px;
+        }
+        
+        .table-options {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .table-options button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .table-options button:hover {
+            background-color: #5a6268;
+        }
+        
+        .table-options button.active {
+            background-color: #007bff;
+        }
+        
+        .truncate-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+        
         /* Table View Styles */
         .table-container {
             display: none;
@@ -365,14 +433,21 @@
         
         .papers-table .text-cell {
             max-width: 300px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1.4;
         }
         
-        .papers-table .text-cell:hover {
-            white-space: normal;
-            overflow: visible;
+        .papers-table .text-cell.short {
+            max-width: 200px;
+        }
+        
+        .papers-table .text-cell.medium {
+            max-width: 250px;
+        }
+        
+        .papers-table .text-cell.long {
+            max-width: 400px;
         }
         
         .papers-table .relevancy-cell {
@@ -625,7 +700,7 @@
     
     <div style="text-align: center; font-size: 13px; color: #666; margin-bottom: 10px; font-style: italic;">
         <span id="card-view-instructions">Click on any paper to expand and see full analysis details • Press <kbd>Ctrl/Cmd + A</kbd> to expand/collapse all • <kbd>Esc</kbd> to clear filters</span>
-        <span id="table-view-instructions" style="display: none;">Hover over cells to see full content • Click column headers to sort • Use filters above to narrow results</span>
+        <span id="table-view-instructions" style="display: none;">Click column headers to sort • Use filters above to narrow results • Long content is reasonably truncated</span>
     </div>
     
     <div class="papers-container active" id="papers-container">
@@ -633,6 +708,80 @@
     </div>
     
     <div class="table-container" id="table-container">
+        <div class="table-options">
+            <button onclick="toggleColumnControls()">🔧 Show/Hide Columns</button>
+            <div class="truncate-toggle">
+                <input type="checkbox" id="truncate-toggle" checked onchange="toggleTruncation()">
+                <label for="truncate-toggle">Truncate Long Text</label>
+            </div>
+        </div>
+        
+        <div class="column-controls" id="column-controls">
+            <h4>Select Columns to Display:</h4>
+            <div class="column-checkboxes" id="column-checkboxes">
+                <label class="column-checkbox">
+                    <input type="checkbox" value="0" checked onchange="toggleColumn(this)"> Title
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="1" checked onchange="toggleColumn(this)"> Authors
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="2" checked onchange="toggleColumn(this)"> Year
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="3" checked onchange="toggleColumn(this)"> Downloaded
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="4" checked onchange="toggleColumn(this)"> Relevancy
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="5" onchange="toggleColumn(this)"> Relevancy Justification
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="6" onchange="toggleColumn(this)"> Insights
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="7" checked onchange="toggleColumn(this)"> TL;DR
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="8" checked onchange="toggleColumn(this)"> Summary
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="9" onchange="toggleColumn(this)"> Research Question
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="10" onchange="toggleColumn(this)"> Methodology
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="11" onchange="toggleColumn(this)"> Key Findings
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="12" onchange="toggleColumn(this)"> Primary Outcomes
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="13" onchange="toggleColumn(this)"> Limitations
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="14" onchange="toggleColumn(this)"> Conclusion
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="15" onchange="toggleColumn(this)"> Research Gaps
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="16" onchange="toggleColumn(this)"> Future Work
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="17" onchange="toggleColumn(this)"> Implementation Insights
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="18" checked onchange="toggleColumn(this)"> Links
+                </label>
+                <label class="column-checkbox">
+                    <input type="checkbox" value="19" checked onchange="toggleColumn(this)"> Tags
+                </label>
+            </div>
+        </div>
+        
         <table class="papers-table" id="papers-table">
             <thead>
                 <tr>
@@ -671,6 +820,8 @@
         let filteredPapers = [];
         let currentView = 'card';
         let sortDirection = {};
+        let truncateText = true;
+        let visibleColumns = [0, 1, 2, 3, 4, 7, 8, 18, 19]; // Default visible columns
         
         // Toggle paper details
         function togglePaperDetails(index) {
@@ -826,6 +977,65 @@
             });
         }
         
+        // Toggle column controls visibility
+        function toggleColumnControls() {
+            const controls = document.getElementById('column-controls');
+            controls.classList.toggle('active');
+        }
+        
+        // Toggle text truncation
+        function toggleTruncation() {
+            const checkbox = document.getElementById('truncate-toggle');
+            truncateText = checkbox.checked;
+            if (currentView === 'table') {
+                displayTable();
+            }
+        }
+        
+        // Toggle column visibility
+        function toggleColumn(checkbox) {
+            const columnIndex = parseInt(checkbox.value);
+            const table = document.getElementById('papers-table');
+            const rows = table.rows;
+            
+            if (checkbox.checked) {
+                // Show column
+                if (!visibleColumns.includes(columnIndex)) {
+                    visibleColumns.push(columnIndex);
+                }
+                for (let i = 0; i < rows.length; i++) {
+                    if (rows[i].cells[columnIndex]) {
+                        rows[i].cells[columnIndex].style.display = '';
+                    }
+                }
+            } else {
+                // Hide column
+                visibleColumns = visibleColumns.filter(col => col !== columnIndex);
+                for (let i = 0; i < rows.length; i++) {
+                    if (rows[i].cells[columnIndex]) {
+                        rows[i].cells[columnIndex].style.display = 'none';
+                    }
+                }
+            }
+        }
+        
+        // Initialize column visibility
+        function initializeColumnVisibility() {
+            const checkboxes = document.querySelectorAll('.column-checkbox input');
+            checkboxes.forEach(checkbox => {
+                const columnIndex = parseInt(checkbox.value);
+                if (!checkbox.checked) {
+                    const table = document.getElementById('papers-table');
+                    const rows = table.rows;
+                    for (let i = 0; i < rows.length; i++) {
+                        if (rows[i].cells[columnIndex]) {
+                            rows[i].cells[columnIndex].style.display = 'none';
+                        }
+                    }
+                }
+            });
+        }
+        
         // Switch between card and table view
         function switchView(viewType) {
             console.log('Switching to view:', viewType);
@@ -853,6 +1063,9 @@
                 cardInstructions.style.display = 'none';
                 tableInstructions.style.display = 'inline';
                 displayTable();
+                setTimeout(() => {
+                    initializeColumnVisibility();
+                }, 100);
             }
         }
         
@@ -881,6 +1094,14 @@
                     links.push(`<a href="markdown_papers/${paper.cite_key}/paper.md" target="_blank">MD</a>`);
                 }
                 
+                // Helper function to truncate text reasonably
+                const truncateContent = (text, maxLength) => {
+                    if (!text) return '';
+                    if (!truncateText) return text; // Don't truncate if toggle is off
+                    if (text.length <= maxLength) return text;
+                    return text.substring(0, maxLength).trim() + '...';
+                };
+                
                 return `
                     <tr>
                         <td class="title-cell">${paper.title || 'Untitled'}</td>
@@ -890,26 +1111,31 @@
                         <td class="relevancy-cell">
                             <span class="relevancy ${relevancyClass}">${relevancyClass}</span>
                         </td>
-                        <td class="text-cell" title="${(paper['Relevancy Justification'] || '').replace(/"/g, '&quot;')}">${paper['Relevancy Justification'] || ''}</td>
-                        <td class="text-cell" title="${(paper.Insights || '').replace(/"/g, '&quot;')}">${paper.Insights || ''}</td>
-                        <td class="text-cell" title="${(paper['TL;DR'] || '').replace(/"/g, '&quot;')}">${paper['TL;DR'] || ''}</td>
-                        <td class="text-cell" title="${(paper.Summary || '').replace(/"/g, '&quot;')}">${paper.Summary || ''}</td>
-                        <td class="text-cell" title="${(paper['Research Question'] || '').replace(/"/g, '&quot;')}">${paper['Research Question'] || ''}</td>
-                        <td class="text-cell" title="${(paper.Methodology || '').replace(/"/g, '&quot;')}">${paper.Methodology || ''}</td>
-                        <td class="text-cell" title="${(paper['Key Findings'] || '').replace(/"/g, '&quot;')}">${paper['Key Findings'] || ''}</td>
-                        <td class="text-cell" title="${(paper['Primary Outcomes'] || '').replace(/"/g, '&quot;')}">${paper['Primary Outcomes'] || ''}</td>
-                        <td class="text-cell" title="${(paper.Limitations || '').replace(/"/g, '&quot;')}">${paper.Limitations || ''}</td>
-                        <td class="text-cell" title="${(paper.Conclusion || '').replace(/"/g, '&quot;')}">${paper.Conclusion || ''}</td>
-                        <td class="text-cell" title="${(paper['Research Gaps'] || '').replace(/"/g, '&quot;')}">${paper['Research Gaps'] || ''}</td>
-                        <td class="text-cell" title="${(paper['Future Work'] || '').replace(/"/g, '&quot;')}">${paper['Future Work'] || ''}</td>
-                        <td class="text-cell" title="${(paper['Implementation Insights'] || '').replace(/"/g, '&quot;')}">${paper['Implementation Insights'] || ''}</td>
+                        <td class="text-cell long">${truncateContent(paper['Relevancy Justification'], 400)}</td>
+                        <td class="text-cell medium">${truncateContent(paper.Insights, 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper['TL;DR'], 250)}</td>
+                        <td class="text-cell long">${truncateContent(paper.Summary, 500)}</td>
+                        <td class="text-cell medium">${truncateContent(paper['Research Question'], 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper.Methodology, 300)}</td>
+                        <td class="text-cell long">${truncateContent(paper['Key Findings'], 400)}</td>
+                        <td class="text-cell medium">${truncateContent(paper['Primary Outcomes'], 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper.Limitations, 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper.Conclusion, 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper['Research Gaps'], 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper['Future Work'], 300)}</td>
+                        <td class="text-cell medium">${truncateContent(paper['Implementation Insights'], 300)}</td>
                         <td class="links-cell">${links.join(' ')}</td>
-                        <td class="text-cell" title="${tags.replace(/"/g, '&quot;')}">${tags}</td>
+                        <td class="text-cell short">${truncateContent(tags, 150)}</td>
                     </tr>
                 `;
             }).join('');
             
             tableBody.innerHTML = rows;
+            
+            // Initialize column visibility after table is rendered
+            setTimeout(() => {
+                initializeColumnVisibility();
+            }, 50);
         }
         
         // Sort table by column
