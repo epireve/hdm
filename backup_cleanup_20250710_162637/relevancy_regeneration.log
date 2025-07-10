@@ -1,0 +1,679 @@
+2025-07-10 14:38:53,207 - [MainThread] - INFO - KiloCode configuration loaded successfully
+2025-07-10 14:38:53,208 - [MainThread] - INFO - Checkpoint shows 225 papers to regenerate
+2025-07-10 14:38:53,211 - [MainThread] - INFO - Found 225 papers needing regeneration
+2025-07-10 14:38:53,211 - [Worker_0] - INFO - [Worker_0] Generating justification for cao_2020
+2025-07-10 14:38:53,211 - [Worker_1] - INFO - [Worker_1] Generating justification for cognitiveyunp_2023
+2025-07-10 14:38:53,211 - [Worker_2] - INFO - [Worker_2] Generating justification for wang_2024
+2025-07-10 14:38:53,211 - [Worker_3] - INFO - [Worker_3] Generating justification for discovery_2024
+2025-07-10 14:38:53,211 - [Worker_4] - INFO - [Worker_4] Generating justification for fabr_2024
+2025-07-10 14:38:53,212 - [Worker_5] - INFO - [Worker_5] Generating justification for galke_2021
+2025-07-10 14:38:53,212 - [Worker_6] - INFO - [Worker_6] Generating justification for graph_2024
+2025-07-10 14:38:53,212 - [Worker_7] - INFO - [Worker_7] Generating justification for herath_2024
+2025-07-10 14:38:53,212 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for hewasinghage_2016
+2025-07-10 14:38:53,212 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for hildebrandt_2014
+2025-07-10 14:38:53,709 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:53,709 - [Worker_5] - ERROR - Error processing galke_2021: Failed to get justification
+2025-07-10 14:38:53,709 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for hofer_2023
+2025-07-10 14:38:53,716 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:53,717 - [Worker_8] - ERROR - Error processing hewasinghage_2016: Failed to get relevancy
+2025-07-10 14:38:53,717 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for hohenfellner_2025
+2025-07-10 14:38:53,753 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:53,753 - [Worker_3] - ERROR - Error processing discovery_2024: Failed to get justification
+2025-07-10 14:38:53,753 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for hoseini_2024
+2025-07-10 14:38:53,760 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:53,761 - [Worker_4] - ERROR - Error processing fabr_2024: Failed to get justification
+2025-07-10 14:38:53,761 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for hu_2021
+2025-07-10 14:38:53,780 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:53,780 - [Worker_7] - ERROR - Error processing herath_2024: Failed to get justification
+2025-07-10 14:38:53,780 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for huaman_2012
+2025-07-10 14:38:53,995 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:53,995 - [Worker_8] - ERROR - Error processing hohenfellner_2025: Failed to get relevancy
+2025-07-10 14:38:53,995 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for huang_2021
+2025-07-10 14:38:54,015 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,016 - [Worker_5] - ERROR - Error processing hofer_2023: Failed to get relevancy
+2025-07-10 14:38:54,016 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for hur_2023
+2025-07-10 14:38:54,051 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,051 - [Worker_7] - ERROR - Error processing huaman_2012: Failed to get relevancy
+2025-07-10 14:38:54,051 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for ilievski_2018
+2025-07-10 14:38:54,057 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,058 - [Worker_4] - ERROR - Error processing hu_2021: Failed to get relevancy
+2025-07-10 14:38:54,058 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for ilkou_2022a
+2025-07-10 14:38:54,061 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,061 - [Worker_3] - ERROR - Error processing hoseini_2024: Failed to get relevancy
+2025-07-10 14:38:54,061 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for intel_2017
+2025-07-10 14:38:54,261 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,261 - [Worker_8] - ERROR - Error processing huang_2021: Failed to get relevancy
+2025-07-10 14:38:54,261 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for isws_2019
+2025-07-10 14:38:54,281 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,281 - [Worker_5] - ERROR - Error processing hur_2023: Failed to get relevancy
+2025-07-10 14:38:54,281 - [Worker_5] - INFO - [Worker_5] Generating justification for janakiramal_2024
+2025-07-10 14:38:54,305 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,306 - [Worker_3] - ERROR - Error processing intel_2017: Failed to get relevancy
+2025-07-10 14:38:54,306 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for jeunehomme_2020
+2025-07-10 14:38:54,316 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,316 - [Worker_4] - ERROR - Error processing ilkou_2022a: Failed to get relevancy
+2025-07-10 14:38:54,316 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for jiang_2024
+2025-07-10 14:38:54,338 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,338 - [Worker_7] - ERROR - Error processing ilievski_2018: Failed to get relevancy
+2025-07-10 14:38:54,338 - [Worker_7] - INFO - [Worker_7] Generating justification for jinheonbae_2024
+2025-07-10 14:38:54,515 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,515 - [Worker_8] - ERROR - Error processing isws_2019: Failed to get relevancy
+2025-07-10 14:38:54,515 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for joosse_2023
+2025-07-10 14:38:54,540 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,540 - [Worker_5] - ERROR - Error processing janakiramal_2024: Failed to get justification
+2025-07-10 14:38:54,540 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for kalmuk_2024
+2025-07-10 14:38:54,584 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,584 - [Worker_4] - ERROR - Error processing jiang_2024: Failed to get relevancy
+2025-07-10 14:38:54,584 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for kaplan_2021
+2025-07-10 14:38:54,612 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,612 - [Worker_7] - ERROR - Error processing jinheonbae_2024: Failed to get justification
+2025-07-10 14:38:54,612 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for karras_2020
+2025-07-10 14:38:54,617 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,617 - [Worker_3] - ERROR - Error processing jeunehomme_2020: Failed to get relevancy
+2025-07-10 14:38:54,617 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for karray_2023
+2025-07-10 14:38:54,775 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,775 - [Worker_8] - ERROR - Error processing joosse_2023: Failed to get relevancy
+2025-07-10 14:38:54,776 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for kerkemeier_2024
+2025-07-10 14:38:54,800 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,801 - [Worker_5] - ERROR - Error processing kalmuk_2024: Failed to get relevancy
+2025-07-10 14:38:54,801 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for khan_2024
+2025-07-10 14:38:54,838 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,839 - [Worker_4] - ERROR - Error processing kaplan_2021: Failed to get relevancy
+2025-07-10 14:38:54,839 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for khatib_2024
+2025-07-10 14:38:54,862 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,862 - [Worker_7] - ERROR - Error processing karras_2020: Failed to get relevancy
+2025-07-10 14:38:54,862 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for khovricheva_2019
+2025-07-10 14:38:54,888 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:54,889 - [Worker_3] - ERROR - Error processing karray_2023: Failed to get relevancy
+2025-07-10 14:38:54,889 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for kim_2023
+2025-07-10 14:38:55,047 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,047 - [Worker_8] - ERROR - Error processing kerkemeier_2024: Failed to get relevancy
+2025-07-10 14:38:55,048 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for kimmathematics_2016
+2025-07-10 14:38:55,072 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,072 - [Worker_5] - ERROR - Error processing khan_2024: Failed to get relevancy
+2025-07-10 14:38:55,072 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for kimura_2025
+2025-07-10 14:38:55,098 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,099 - [Worker_4] - ERROR - Error processing khatib_2024: Failed to get relevancy
+2025-07-10 14:38:55,099 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for korobko_2019
+2025-07-10 14:38:55,123 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,123 - [Worker_7] - ERROR - Error processing khovricheva_2019: Failed to get relevancy
+2025-07-10 14:38:55,124 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for koutsoubisa_2017
+2025-07-10 14:38:55,148 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,149 - [Worker_3] - ERROR - Error processing kim_2023: Failed to get relevancy
+2025-07-10 14:38:55,149 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for kumar_2021
+2025-07-10 14:38:55,322 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,322 - [Worker_8] - ERROR - Error processing kimmathematics_2016: Failed to get relevancy
+2025-07-10 14:38:55,322 - [Worker_8] - INFO - [Worker_8] Generating justification for lee_2024
+2025-07-10 14:38:55,339 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,339 - [Worker_5] - ERROR - Error processing kimura_2025: Failed to get relevancy
+2025-07-10 14:38:55,339 - [Worker_5] - INFO - [Worker_5] Generating justification for leixiawan_2024
+2025-07-10 14:38:55,358 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,358 - [Worker_4] - ERROR - Error processing korobko_2019: Failed to get relevancy
+2025-07-10 14:38:55,358 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for leroy_2024
+2025-07-10 14:38:55,434 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,434 - [Worker_3] - ERROR - Error processing kumar_2021: Failed to get relevancy
+2025-07-10 14:38:55,434 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for leskinen_2015
+2025-07-10 14:38:55,435 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,435 - [Worker_7] - ERROR - Error processing koutsoubisa_2017: Failed to get relevancy
+2025-07-10 14:38:55,436 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for li_2018
+2025-07-10 14:38:55,586 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,586 - [Worker_8] - ERROR - Error processing lee_2024: Failed to get justification
+2025-07-10 14:38:55,586 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for li_2020
+2025-07-10 14:38:55,652 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,652 - [Worker_5] - ERROR - Error processing leixiawan_2024: Failed to get justification
+2025-07-10 14:38:55,652 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for li_2021
+2025-07-10 14:38:55,671 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,671 - [Worker_4] - ERROR - Error processing leroy_2024: Failed to get relevancy
+2025-07-10 14:38:55,672 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for li_2022
+2025-07-10 14:38:55,693 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,693 - [Worker_3] - ERROR - Error processing leskinen_2015: Failed to get relevancy
+2025-07-10 14:38:55,693 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for li_2022a
+2025-07-10 14:38:55,708 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,709 - [Worker_7] - ERROR - Error processing li_2018: Failed to get relevancy
+2025-07-10 14:38:55,709 - [Worker_7] - INFO - [Worker_7] Generating justification for li_2022b
+2025-07-10 14:38:55,851 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,851 - [Worker_8] - ERROR - Error processing li_2020: Failed to get relevancy
+2025-07-10 14:38:55,851 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for li_2023b
+2025-07-10 14:38:55,926 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,927 - [Worker_4] - ERROR - Error processing li_2022: Failed to get relevancy
+2025-07-10 14:38:55,927 - [Worker_4] - INFO - [Worker_4] Generating justification for li_2024
+2025-07-10 14:38:55,946 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,946 - [Worker_3] - ERROR - Error processing li_2022a: Failed to get relevancy
+2025-07-10 14:38:55,946 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for li_2025
+2025-07-10 14:38:55,947 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,948 - [Worker_5] - ERROR - Error processing li_2021: Failed to get relevancy
+2025-07-10 14:38:55,948 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for liang_2021
+2025-07-10 14:38:55,988 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:55,988 - [Worker_7] - ERROR - Error processing li_2022b: Failed to get justification
+2025-07-10 14:38:55,988 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for liao_2023
+2025-07-10 14:38:56,105 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,105 - [Worker_8] - ERROR - Error processing li_2023b: Failed to get relevancy
+2025-07-10 14:38:56,105 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for lim_2010
+2025-07-10 14:38:56,182 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,182 - [Worker_4] - ERROR - Error processing li_2024: Failed to get justification
+2025-07-10 14:38:56,182 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for lin_2022
+2025-07-10 14:38:56,209 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,209 - [Worker_5] - ERROR - Error processing liang_2021: Failed to get relevancy
+2025-07-10 14:38:56,209 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for lin_2024a
+2025-07-10 14:38:56,216 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,217 - [Worker_3] - ERROR - Error processing li_2025: Failed to get relevancy
+2025-07-10 14:38:56,217 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for liu_2020
+2025-07-10 14:38:56,293 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,293 - [Worker_7] - ERROR - Error processing liao_2023: Failed to get relevancy
+2025-07-10 14:38:56,293 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for liu_2021
+2025-07-10 14:38:56,388 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,388 - [Worker_8] - ERROR - Error processing lim_2010: Failed to get relevancy
+2025-07-10 14:38:56,388 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for liu_2022
+2025-07-10 14:38:56,449 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,449 - [Worker_4] - ERROR - Error processing lin_2022: Failed to get relevancy
+2025-07-10 14:38:56,449 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for liu_2024a
+2025-07-10 14:38:56,458 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,459 - [Worker_5] - ERROR - Error processing lin_2024a: Failed to get relevancy
+2025-07-10 14:38:56,459 - [Worker_5] - INFO - [Worker_5] Generating justification for liu_2024b
+2025-07-10 14:38:56,511 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,511 - [Worker_3] - ERROR - Error processing liu_2020: Failed to get relevancy
+2025-07-10 14:38:56,511 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for liu_2025
+2025-07-10 14:38:56,556 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,556 - [Worker_7] - ERROR - Error processing liu_2021: Failed to get relevancy
+2025-07-10 14:38:56,556 - [Worker_7] - INFO - [Worker_7] Generating justification for liyitong_2024
+2025-07-10 14:38:56,650 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,651 - [Worker_8] - ERROR - Error processing liu_2022: Failed to get relevancy
+2025-07-10 14:38:56,651 - [Worker_8] - INFO - [Worker_8] Generating justification for llms_2024
+2025-07-10 14:38:56,715 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,715 - [Worker_5] - ERROR - Error processing liu_2024b: Failed to get justification
+2025-07-10 14:38:56,715 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for longo_2019
+2025-07-10 14:38:56,720 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,720 - [Worker_4] - ERROR - Error processing liu_2024a: Failed to get relevancy
+2025-07-10 14:38:56,720 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for lu_2024
+2025-07-10 14:38:56,775 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,775 - [Worker_3] - ERROR - Error processing liu_2025: Failed to get relevancy
+2025-07-10 14:38:56,775 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for luo_2024
+2025-07-10 14:38:56,801 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,801 - [Worker_7] - ERROR - Error processing liyitong_2024: Failed to get justification
+2025-07-10 14:38:56,801 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for lyu_2021
+2025-07-10 14:38:56,838 - [Worker_9] - INFO - [Worker_9] Generating justification for hildebrandt_2014
+2025-07-10 14:38:56,907 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,907 - [Worker_8] - ERROR - Error processing llms_2024: Failed to get justification
+2025-07-10 14:38:56,907 - [Worker_8] - INFO - [Worker_8] Generating justification for m_2024
+2025-07-10 14:38:56,979 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:56,979 - [Worker_4] - ERROR - Error processing lu_2024: Failed to get relevancy
+2025-07-10 14:38:56,979 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for ma_2017
+2025-07-10 14:38:57,012 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,012 - [Worker_5] - ERROR - Error processing longo_2019: Failed to get relevancy
+2025-07-10 14:38:57,012 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for maack_2025
+2025-07-10 14:38:57,039 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,040 - [Worker_3] - ERROR - Error processing luo_2024: Failed to get relevancy
+2025-07-10 14:38:57,040 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for mahmud_2025
+2025-07-10 14:38:57,046 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,047 - [Worker_7] - ERROR - Error processing lyu_2021: Failed to get relevancy
+2025-07-10 14:38:57,047 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for majerus_2009
+2025-07-10 14:38:57,115 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,115 - [Worker_9] - ERROR - Error processing hildebrandt_2014: Failed to get justification
+2025-07-10 14:38:57,115 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for majesty_2024
+2025-07-10 14:38:57,159 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,159 - [Worker_8] - ERROR - Error processing m_2024: Failed to get justification
+2025-07-10 14:38:57,159 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for majumdar_2013
+2025-07-10 14:38:57,223 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,223 - [Worker_4] - ERROR - Error processing ma_2017: Failed to get relevancy
+2025-07-10 14:38:57,223 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for malec_2022
+2025-07-10 14:38:57,280 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,281 - [Worker_3] - ERROR - Error processing mahmud_2025: Failed to get relevancy
+2025-07-10 14:38:57,281 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for mandal_2013
+2025-07-10 14:38:57,290 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,290 - [Worker_5] - ERROR - Error processing maack_2025: Failed to get relevancy
+2025-07-10 14:38:57,290 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for mandreoli_2010
+2025-07-10 14:38:57,308 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,308 - [Worker_7] - ERROR - Error processing majerus_2009: Failed to get relevancy
+2025-07-10 14:38:57,308 - [Worker_7] - INFO - [Worker_7] Generating justification for mao_2024
+2025-07-10 14:38:57,415 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,415 - [Worker_8] - ERROR - Error processing majumdar_2013: Failed to get relevancy
+2025-07-10 14:38:57,416 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for maoa_2023
+2025-07-10 14:38:57,427 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,427 - [Worker_9] - ERROR - Error processing majesty_2024: Failed to get relevancy
+2025-07-10 14:38:57,427 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for martinez_2022
+2025-07-10 14:38:57,482 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,482 - [Worker_4] - ERROR - Error processing malec_2022: Failed to get relevancy
+2025-07-10 14:38:57,482 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for mazzuto_2023
+2025-07-10 14:38:57,533 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,533 - [Worker_3] - ERROR - Error processing mandal_2013: Failed to get relevancy
+2025-07-10 14:38:57,533 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for memoro_2024
+2025-07-10 14:38:57,548 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,549 - [Worker_5] - ERROR - Error processing mandreoli_2010: Failed to get relevancy
+2025-07-10 14:38:57,549 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for messner_2015
+2025-07-10 14:38:57,580 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,580 - [Worker_7] - ERROR - Error processing mao_2024: Failed to get justification
+2025-07-10 14:38:57,580 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for mia_2020
+2025-07-10 14:38:57,677 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,677 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,677 - [Worker_9] - ERROR - Error processing martinez_2022: Failed to get relevancy
+2025-07-10 14:38:57,677 - [Worker_8] - ERROR - Error processing maoa_2023: Failed to get relevancy
+2025-07-10 14:38:57,677 - [Worker_9] - INFO - [Worker_9] Generating justification for mishra_2024
+2025-07-10 14:38:57,677 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for models_2016
+2025-07-10 14:38:57,729 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,729 - [Worker_4] - ERROR - Error processing mazzuto_2023: Failed to get relevancy
+2025-07-10 14:38:57,730 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for models_2018
+2025-07-10 14:38:57,798 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,798 - [Worker_3] - ERROR - Error processing memoro_2024: Failed to get relevancy
+2025-07-10 14:38:57,798 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for modoni_2023
+2025-07-10 14:38:57,800 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,800 - [Worker_5] - ERROR - Error processing messner_2015: Failed to get relevancy
+2025-07-10 14:38:57,800 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for mohammadi_2024
+2025-07-10 14:38:57,820 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,820 - [Worker_7] - ERROR - Error processing mia_2020: Failed to get relevancy
+2025-07-10 14:38:57,820 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for mohammed_2024
+2025-07-10 14:38:57,938 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,939 - [Worker_9] - ERROR - Error processing mishra_2024: Failed to get justification
+2025-07-10 14:38:57,939 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for mohbat_2025
+2025-07-10 14:38:57,944 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:57,944 - [Worker_8] - ERROR - Error processing models_2016: Failed to get relevancy
+2025-07-10 14:38:57,944 - [Worker_8] - INFO - [Worker_8] Generating justification for namesurnam_2023
+2025-07-10 14:38:58,049 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,049 - [Worker_3] - ERROR - Error processing modoni_2023: Failed to get relevancy
+2025-07-10 14:38:58,049 - [Worker_3] - INFO - [Worker_3] Generating justification for nath_2024
+2025-07-10 14:38:58,068 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,068 - [Worker_7] - ERROR - Error processing mohammed_2024: Failed to get relevancy
+2025-07-10 14:38:58,068 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for naudet_2023
+2025-07-10 14:38:58,114 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,114 - [Worker_5] - ERROR - Error processing mohammadi_2024: Failed to get relevancy
+2025-07-10 14:38:58,114 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for nguyen_2022
+2025-07-10 14:38:58,199 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,199 - [Worker_9] - ERROR - Error processing mohbat_2025: Failed to get relevancy
+2025-07-10 14:38:58,199 - [Worker_9] - INFO - [Worker_9] Generating justification for noise_2024
+2025-07-10 14:38:58,201 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,201 - [Worker_8] - ERROR - Error processing namesurnam_2023: Failed to get justification
+2025-07-10 14:38:58,201 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for nye_2023
+2025-07-10 14:38:58,299 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,300 - [Worker_3] - ERROR - Error processing nath_2024: Failed to get justification
+2025-07-10 14:38:58,300 - [Worker_3] - INFO - [Worker_3] Generating justification for oss_2024
+2025-07-10 14:38:58,313 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,313 - [Worker_7] - ERROR - Error processing naudet_2023: Failed to get relevancy
+2025-07-10 14:38:58,313 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for pan_2021
+2025-07-10 14:38:58,365 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,365 - [Worker_5] - ERROR - Error processing nguyen_2022: Failed to get relevancy
+2025-07-10 14:38:58,365 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for pan_2025
+2025-07-10 14:38:58,448 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,448 - [Worker_9] - ERROR - Error processing noise_2024: Failed to get justification
+2025-07-10 14:38:58,448 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for paperbased_2021
+2025-07-10 14:38:58,456 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,456 - [Worker_8] - ERROR - Error processing nye_2023: Failed to get relevancy
+2025-07-10 14:38:58,456 - [Worker_8] - INFO - [Worker_8] Generating justification for parsers_2024
+2025-07-10 14:38:58,548 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,549 - [Worker_3] - ERROR - Error processing oss_2024: Failed to get justification
+2025-07-10 14:38:58,549 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for pascual_2022
+2025-07-10 14:38:58,559 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,559 - [Worker_7] - ERROR - Error processing pan_2021: Failed to get relevancy
+2025-07-10 14:38:58,559 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for peng_2019
+2025-07-10 14:38:58,623 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,624 - [Worker_5] - ERROR - Error processing pan_2025: Failed to get relevancy
+2025-07-10 14:38:58,624 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for peng_2021
+2025-07-10 14:38:58,703 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,704 - [Worker_8] - ERROR - Error processing parsers_2024: Failed to get justification
+2025-07-10 14:38:58,704 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for piechocki_2022
+2025-07-10 14:38:58,722 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,723 - [Worker_9] - ERROR - Error processing paperbased_2021: Failed to get relevancy
+2025-07-10 14:38:58,723 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for plailly_2019
+2025-07-10 14:38:58,815 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,815 - [Worker_3] - ERROR - Error processing pascual_2022: Failed to get relevancy
+2025-07-10 14:38:58,815 - [Worker_3] - INFO - [Worker_3] Generating justification for pokrywka_2024
+2025-07-10 14:38:58,843 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,844 - [Worker_7] - ERROR - Error processing peng_2019: Failed to get relevancy
+2025-07-10 14:38:58,844 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for presutti_2019
+2025-07-10 14:38:58,895 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,895 - [Worker_5] - ERROR - Error processing peng_2021: Failed to get relevancy
+2025-07-10 14:38:58,895 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for pugliese_2024
+2025-07-10 14:38:58,958 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,958 - [Worker_8] - ERROR - Error processing piechocki_2022: Failed to get relevancy
+2025-07-10 14:38:58,958 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for rad_2024
+2025-07-10 14:38:58,981 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:58,981 - [Worker_9] - ERROR - Error processing plailly_2019: Failed to get relevancy
+2025-07-10 14:38:58,982 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for rakuten_2020
+2025-07-10 14:38:59,032 - [Worker_1] - INFO - Progress: 1/225 (0.4%)
+2025-07-10 14:38:59,032 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for ramonell_2023
+2025-07-10 14:38:59,122 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,122 - [Worker_3] - ERROR - Error processing pokrywka_2024: Failed to get justification
+2025-07-10 14:38:59,122 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for rao_2016
+2025-07-10 14:38:59,124 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,124 - [Worker_7] - ERROR - Error processing presutti_2019: Failed to get relevancy
+2025-07-10 14:38:59,124 - [Worker_7] - INFO - [Worker_7] Generating justification for rashahendaw_2024
+2025-07-10 14:38:59,142 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,142 - [Worker_5] - ERROR - Error processing pugliese_2024: Failed to get relevancy
+2025-07-10 14:38:59,142 - [Worker_5] - INFO - [Worker_5] Generating justification for rastogi_2020
+2025-07-10 14:38:59,219 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,219 - [Worker_8] - ERROR - Error processing rad_2024: Failed to get relevancy
+2025-07-10 14:38:59,219 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for ren_2023
+2025-07-10 14:38:59,242 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,242 - [Worker_9] - ERROR - Error processing rakuten_2020: Failed to get relevancy
+2025-07-10 14:38:59,242 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for ren_2025
+2025-07-10 14:38:59,292 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,292 - [Worker_1] - ERROR - Error processing ramonell_2023: Failed to get relevancy
+2025-07-10 14:38:59,292 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for reznik_2021
+2025-07-10 14:38:59,374 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,374 - [Worker_3] - ERROR - Error processing rao_2016: Failed to get relevancy
+2025-07-10 14:38:59,374 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for rilling_2008
+2025-07-10 14:38:59,376 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,376 - [Worker_7] - ERROR - Error processing rashahendaw_2024: Failed to get justification
+2025-07-10 14:38:59,376 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for rushangeng_2014
+2025-07-10 14:38:59,410 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,410 - [Worker_5] - ERROR - Error processing rastogi_2020: Failed to get justification
+2025-07-10 14:38:59,410 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for saad_2025
+2025-07-10 14:38:59,481 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,482 - [Worker_8] - ERROR - Error processing ren_2023: Failed to get relevancy
+2025-07-10 14:38:59,482 - [Worker_8] - INFO - [Worker_8] Generating justification for saharghassab_2023
+2025-07-10 14:38:59,518 - [Worker_2] - INFO - Progress: 2/225 (0.9%)
+2025-07-10 14:38:59,518 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for sandovalarrayga_2024
+2025-07-10 14:38:59,541 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,541 - [Worker_9] - ERROR - Error processing ren_2025: Failed to get relevancy
+2025-07-10 14:38:59,541 - [Worker_9] - INFO - [Worker_9] Generating justification for schatz_2023
+2025-07-10 14:38:59,554 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,554 - [Worker_1] - ERROR - Error processing reznik_2021: Failed to get relevancy
+2025-07-10 14:38:59,554 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for schjetnan_2021
+2025-07-10 14:38:59,623 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,623 - [Worker_3] - ERROR - Error processing rilling_2008: Failed to get relevancy
+2025-07-10 14:38:59,623 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for schmitt_2020a
+2025-07-10 14:38:59,628 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,629 - [Worker_7] - ERROR - Error processing rushangeng_2014: Failed to get relevancy
+2025-07-10 14:38:59,629 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for schmitt_2020b
+2025-07-10 14:38:59,664 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,665 - [Worker_5] - ERROR - Error processing saad_2025: Failed to get relevancy
+2025-07-10 14:38:59,665 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for schpfeld_2019
+2025-07-10 14:38:59,736 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,737 - [Worker_8] - ERROR - Error processing saharghassab_2023: Failed to get justification
+2025-07-10 14:38:59,737 - [Worker_8] - INFO - [Worker_8] Assessing relevancy for schultes_2022
+2025-07-10 14:38:59,740 - [Worker_0] - INFO - Progress: 3/225 (1.3%)
+2025-07-10 14:38:59,741 - [Worker_0] - INFO - [Worker_0] Generating justification for science_2022
+2025-07-10 14:38:59,771 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,771 - [Worker_2] - ERROR - Error processing sandovalarrayga_2024: Failed to get relevancy
+2025-07-10 14:38:59,771 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for sciences_2019
+2025-07-10 14:38:59,790 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,790 - [Worker_9] - ERROR - Error processing schatz_2023: Failed to get justification
+2025-07-10 14:38:59,790 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for seneviratne_2021
+2025-07-10 14:38:59,863 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,864 - [Worker_1] - ERROR - Error processing schjetnan_2021: Failed to get relevancy
+2025-07-10 14:38:59,864 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for seo_2020
+2025-07-10 14:38:59,869 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,869 - [Worker_3] - ERROR - Error processing schmitt_2020a: Failed to get relevancy
+2025-07-10 14:38:59,869 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for seo_2022
+2025-07-10 14:38:59,967 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:38:59,967 - [Worker_5] - ERROR - Error processing schpfeld_2019: Failed to get relevancy
+2025-07-10 14:38:59,967 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for shaik_2024
+2025-07-10 14:39:00,052 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,052 - [Worker_2] - ERROR - Error processing sciences_2019: Failed to get relevancy
+2025-07-10 14:39:00,052 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for shao_2023
+2025-07-10 14:39:00,054 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,059 - [Worker_9] - ERROR - Error processing seneviratne_2021: Failed to get relevancy
+2025-07-10 14:39:00,059 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for shen_2020
+2025-07-10 14:39:00,100 - [Worker_4] - INFO - [Worker_4] Generating justification for models_2018
+2025-07-10 14:39:00,129 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,129 - [Worker_1] - ERROR - Error processing seo_2020: Failed to get relevancy
+2025-07-10 14:39:00,129 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for shen_2021
+2025-07-10 14:39:00,140 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,140 - [Worker_3] - ERROR - Error processing seo_2022: Failed to get relevancy
+2025-07-10 14:39:00,140 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for shimizu_2021
+2025-07-10 14:39:00,153 - [Worker_8] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,153 - [Worker_8] - ERROR - Error processing schultes_2022: Failed to get relevancy
+2025-07-10 14:39:00,153 - [Worker_8] - INFO - [Worker_8] Generating justification for shirai_2021
+2025-07-10 14:39:00,157 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,157 - [Worker_0] - ERROR - Error processing science_2022: Failed to get justification
+2025-07-10 14:39:00,157 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for singhal_2019
+2025-07-10 14:39:00,241 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,242 - [Worker_5] - ERROR - Error processing shaik_2024: Failed to get relevancy
+2025-07-10 14:39:00,242 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for software_2023
+2025-07-10 14:39:00,308 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,308 - [Worker_2] - ERROR - Error processing shao_2023: Failed to get relevancy
+2025-07-10 14:39:00,308 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for song_2019
+2025-07-10 14:39:00,324 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,324 - [Worker_9] - ERROR - Error processing shen_2020: Failed to get relevancy
+2025-07-10 14:39:00,324 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for sowi_2020
+2025-07-10 14:39:00,347 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,347 - [Worker_4] - ERROR - Error processing models_2018: Failed to get justification
+2025-07-10 14:39:00,347 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for spens_2023
+2025-07-10 14:39:00,389 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,389 - [Worker_3] - ERROR - Error processing shimizu_2021: Failed to get relevancy
+2025-07-10 14:39:00,389 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for storage_2023
+2025-07-10 14:39:00,395 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,395 - [Worker_1] - ERROR - Error processing shen_2021: Failed to get relevancy
+2025-07-10 14:39:00,395 - [Worker_1] - INFO - [Worker_1] Generating justification for sun_2024a
+2025-07-10 14:39:00,435 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,436 - [Worker_0] - ERROR - Error processing singhal_2019: Failed to get relevancy
+2025-07-10 14:39:00,436 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for szekely_2014
+2025-07-10 14:39:00,509 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,510 - [Worker_5] - ERROR - Error processing software_2023: Failed to get relevancy
+2025-07-10 14:39:00,510 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for tan_2020
+2025-07-10 14:39:00,559 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,559 - [Worker_2] - ERROR - Error processing song_2019: Failed to get relevancy
+2025-07-10 14:39:00,560 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for tang_2023
+2025-07-10 14:39:00,586 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,587 - [Worker_9] - ERROR - Error processing sowi_2020: Failed to get relevancy
+2025-07-10 14:39:00,587 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for tang_2024
+2025-07-10 14:39:00,641 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,641 - [Worker_3] - ERROR - Error processing storage_2023: Failed to get relevancy
+2025-07-10 14:39:00,641 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for tehran_2020
+2025-07-10 14:39:00,650 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,650 - [Worker_1] - ERROR - Error processing sun_2024a: Failed to get justification
+2025-07-10 14:39:00,650 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for teraoka_2011
+2025-07-10 14:39:00,670 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,670 - [Worker_0] - ERROR - Error processing szekely_2014: Failed to get relevancy
+2025-07-10 14:39:00,670 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for truong_2021
+2025-07-10 14:39:00,770 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,770 - [Worker_5] - ERROR - Error processing tan_2020: Failed to get relevancy
+2025-07-10 14:39:00,770 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for tu_2020
+2025-07-10 14:39:00,796 - [Worker_6] - INFO - Progress: 4/225 (1.8%)
+2025-07-10 14:39:00,796 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for turki_2013
+2025-07-10 14:39:00,815 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,815 - [Worker_2] - ERROR - Error processing tang_2023: Failed to get relevancy
+2025-07-10 14:39:00,815 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for tushkanova_2019
+2025-07-10 14:39:00,877 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,877 - [Worker_9] - ERROR - Error processing tang_2024: Failed to get relevancy
+2025-07-10 14:39:00,877 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for universit_2024
+2025-07-10 14:39:00,910 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,911 - [Worker_1] - ERROR - Error processing teraoka_2011: Failed to get relevancy
+2025-07-10 14:39:00,911 - [Worker_1] - INFO - [Worker_1] Generating justification for up_2024
+2025-07-10 14:39:00,927 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:00,927 - [Worker_3] - ERROR - Error processing tehran_2020: Failed to get relevancy
+2025-07-10 14:39:00,927 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for updates_2006
+2025-07-10 14:39:01,068 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,068 - [Worker_2] - ERROR - Error processing tushkanova_2019: Failed to get relevancy
+2025-07-10 14:39:01,068 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for updates_2014
+2025-07-10 14:39:01,159 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,159 - [Worker_9] - ERROR - Error processing universit_2024: Failed to get relevancy
+2025-07-10 14:39:01,159 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for uzctegui_2024
+2025-07-10 14:39:01,181 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,182 - [Worker_1] - ERROR - Error processing up_2024: Failed to get justification
+2025-07-10 14:39:01,182 - [Worker_1] - INFO - [Worker_1] Assessing relevancy for vaikunth_2024
+2025-07-10 14:39:01,193 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,193 - [Worker_3] - ERROR - Error processing updates_2006: Failed to get relevancy
+2025-07-10 14:39:01,193 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for valle_2023
+2025-07-10 14:39:01,222 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,222 - [Worker_0] - ERROR - Error processing truong_2021: Failed to get relevancy
+2025-07-10 14:39:01,222 - [Worker_0] - INFO - [Worker_0] Generating justification for vassiliou_2023
+2025-07-10 14:39:01,368 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,368 - [Worker_2] - ERROR - Error processing updates_2014: Failed to get relevancy
+2025-07-10 14:39:01,368 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for vol_2019
+2025-07-10 14:39:01,385 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,386 - [Worker_6] - ERROR - Error processing turki_2013: Failed to get relevancy
+2025-07-10 14:39:01,386 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for wan_2024
+2025-07-10 14:39:01,424 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,424 - [Worker_9] - ERROR - Error processing uzctegui_2024: Failed to get relevancy
+2025-07-10 14:39:01,424 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for wang_2020
+2025-07-10 14:39:01,446 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,447 - [Worker_3] - ERROR - Error processing valle_2023: Failed to get relevancy
+2025-07-10 14:39:01,447 - [Worker_3] - INFO - [Worker_3] Generating justification for wang_2022b
+2025-07-10 14:39:01,509 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,510 - [Worker_0] - ERROR - Error processing vassiliou_2023: Failed to get justification
+2025-07-10 14:39:01,510 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for wang_2023a
+2025-07-10 14:39:01,655 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,655 - [Worker_2] - ERROR - Error processing vol_2019: Failed to get relevancy
+2025-07-10 14:39:01,655 - [Worker_2] - INFO - [Worker_2] Generating justification for wang_2023b
+2025-07-10 14:39:01,703 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,703 - [Worker_9] - ERROR - Error processing wang_2020: Failed to get relevancy
+2025-07-10 14:39:01,703 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for wang_2024a
+2025-07-10 14:39:01,724 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,724 - [Worker_6] - ERROR - Error processing wan_2024: Failed to get relevancy
+2025-07-10 14:39:01,724 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for wang_2024b
+2025-07-10 14:39:01,757 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,757 - [Worker_3] - ERROR - Error processing wang_2022b: Failed to get justification
+2025-07-10 14:39:01,757 - [Worker_3] - INFO - [Worker_3] Generating justification for wang_2025
+2025-07-10 14:39:01,783 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,783 - [Worker_0] - ERROR - Error processing wang_2023a: Failed to get relevancy
+2025-07-10 14:39:01,783 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for wickramarachchi_2021
+2025-07-10 14:39:01,935 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:01,935 - [Worker_2] - ERROR - Error processing wang_2023b: Failed to get justification
+2025-07-10 14:39:01,936 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for wilkins_2022
+2025-07-10 14:39:02,030 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,030 - [Worker_6] - ERROR - Error processing wang_2024b: Failed to get relevancy
+2025-07-10 14:39:02,030 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for wisconsinmadison_2023
+2025-07-10 14:39:02,041 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,041 - [Worker_0] - ERROR - Error processing wickramarachchi_2021: Failed to get relevancy
+2025-07-10 14:39:02,041 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for words_2021
+2025-07-10 14:39:02,087 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,087 - [Worker_9] - ERROR - Error processing wang_2024a: Failed to get relevancy
+2025-07-10 14:39:02,087 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for wu_2021
+2025-07-10 14:39:02,105 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,105 - [Worker_3] - ERROR - Error processing wang_2025: Failed to get justification
+2025-07-10 14:39:02,105 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for xiang_2023
+2025-07-10 14:39:02,206 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,207 - [Worker_2] - ERROR - Error processing wilkins_2022: Failed to get relevancy
+2025-07-10 14:39:02,207 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for xie_2022
+2025-07-10 14:39:02,367 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,368 - [Worker_9] - ERROR - Error processing wu_2021: Failed to get relevancy
+2025-07-10 14:39:02,368 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for xie_2022a
+2025-07-10 14:39:02,475 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,475 - [Worker_2] - ERROR - Error processing xie_2022: Failed to get relevancy
+2025-07-10 14:39:02,475 - [Worker_2] - INFO - [Worker_2] Generating justification for xie_2022b
+2025-07-10 14:39:02,478 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,478 - [Worker_0] - ERROR - Error processing words_2021: Failed to get relevancy
+2025-07-10 14:39:02,478 - [Worker_0] - INFO - [Worker_0] Generating justification for xie_2024a
+2025-07-10 14:39:02,541 - [Worker_7] - INFO - [Worker_7] Generating justification for schmitt_2020b
+2025-07-10 14:39:02,552 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,552 - [Worker_3] - ERROR - Error processing xiang_2023: Failed to get relevancy
+2025-07-10 14:39:02,552 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for xie_2024b
+2025-07-10 14:39:02,654 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,654 - [Worker_9] - ERROR - Error processing xie_2022a: Failed to get relevancy
+2025-07-10 14:39:02,654 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for xie_2024c
+2025-07-10 14:39:02,733 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,734 - [Worker_2] - ERROR - Error processing xie_2022b: Failed to get justification
+2025-07-10 14:39:02,734 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for xiong_2024
+2025-07-10 14:39:02,740 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,740 - [Worker_0] - ERROR - Error processing xie_2024a: Failed to get justification
+2025-07-10 14:39:02,740 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for xu_2015
+2025-07-10 14:39:02,793 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,793 - [Worker_7] - ERROR - Error processing schmitt_2020b: Failed to get justification
+2025-07-10 14:39:02,793 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for xu_2020
+2025-07-10 14:39:02,802 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,802 - [Worker_3] - ERROR - Error processing xie_2024b: Failed to get relevancy
+2025-07-10 14:39:02,802 - [Worker_3] - INFO - [Worker_3] Generating justification for xu_2023a
+2025-07-10 14:39:02,923 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,923 - [Worker_9] - ERROR - Error processing xie_2024c: Failed to get relevancy
+2025-07-10 14:39:02,923 - [Worker_9] - INFO - [Worker_9] Generating justification for xu_2023b
+2025-07-10 14:39:02,984 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,984 - [Worker_2] - ERROR - Error processing xiong_2024: Failed to get relevancy
+2025-07-10 14:39:02,984 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for xu_2025
+2025-07-10 14:39:02,990 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:02,991 - [Worker_0] - ERROR - Error processing xu_2015: Failed to get relevancy
+2025-07-10 14:39:02,991 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for xua_2020
+2025-07-10 14:39:03,035 - [Worker_4] - INFO - [Worker_4] Generating justification for spens_2023
+2025-07-10 14:39:03,064 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,064 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,065 - [Worker_7] - ERROR - Error processing xu_2020: Failed to get relevancy
+2025-07-10 14:39:03,065 - [Worker_3] - ERROR - Error processing xu_2023a: Failed to get justification
+2025-07-10 14:39:03,065 - [Worker_7] - INFO - [Worker_7] Generating justification for yan_2024b
+2025-07-10 14:39:03,065 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for yang_2022
+2025-07-10 14:39:03,183 - [Worker_9] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,184 - [Worker_9] - ERROR - Error processing xu_2023b: Failed to get justification
+2025-07-10 14:39:03,184 - [Worker_9] - INFO - [Worker_9] Assessing relevancy for yang_2025
+2025-07-10 14:39:03,250 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,250 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,250 - [Worker_0] - ERROR - Error processing xua_2020: Failed to get relevancy
+2025-07-10 14:39:03,250 - [Worker_2] - ERROR - Error processing xu_2025: Failed to get relevancy
+2025-07-10 14:39:03,250 - [Worker_0] - INFO - [Worker_0] Generating justification for yc_2024
+2025-07-10 14:39:03,250 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for yu_2016
+2025-07-10 14:39:03,311 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,311 - [Worker_6] - ERROR - Error processing wisconsinmadison_2023: Failed to get relevancy
+2025-07-10 14:39:03,311 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for yu_2024
+2025-07-10 14:39:03,319 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,319 - [Worker_4] - ERROR - Error processing spens_2023: Failed to get justification
+2025-07-10 14:39:03,319 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for yue_2023
+2025-07-10 14:39:03,326 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,327 - [Worker_7] - ERROR - Error processing yan_2024b: Failed to get justification
+2025-07-10 14:39:03,327 - [Worker_7] - INFO - [Worker_7] Generating justification for yutongchen_2024
+2025-07-10 14:39:03,363 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,363 - [Worker_3] - ERROR - Error processing yang_2022: Failed to get relevancy
+2025-07-10 14:39:03,363 - [Worker_3] - INFO - [Worker_3] Generating justification for yxyan_2025
+2025-07-10 14:39:03,514 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,515 - [Worker_2] - ERROR - Error processing yu_2016: Failed to get relevancy
+2025-07-10 14:39:03,515 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for zafeiropoulos_2024
+2025-07-10 14:39:03,516 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,516 - [Worker_0] - ERROR - Error processing yc_2024: Failed to get justification
+2025-07-10 14:39:03,516 - [Worker_0] - INFO - [Worker_0] Generating justification for zha_2024
+2025-07-10 14:39:03,574 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,574 - [Worker_6] - ERROR - Error processing yu_2024: Failed to get relevancy
+2025-07-10 14:39:03,574 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for zhang_2019
+2025-07-10 14:39:03,593 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,593 - [Worker_4] - ERROR - Error processing yue_2023: Failed to get relevancy
+2025-07-10 14:39:03,593 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for zhang_2021b
+2025-07-10 14:39:03,613 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,613 - [Worker_3] - ERROR - Error processing yxyan_2025: Failed to get justification
+2025-07-10 14:39:03,613 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for zhang_2022
+2025-07-10 14:39:03,649 - [Worker_7] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,649 - [Worker_7] - ERROR - Error processing yutongchen_2024: Failed to get justification
+2025-07-10 14:39:03,649 - [Worker_7] - INFO - [Worker_7] Assessing relevancy for zhang_2023
+2025-07-10 14:39:03,772 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,772 - [Worker_0] - ERROR - Error processing zha_2024: Failed to get justification
+2025-07-10 14:39:03,772 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for zhang_2024
+2025-07-10 14:39:03,774 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,774 - [Worker_2] - ERROR - Error processing zafeiropoulos_2024: Failed to get relevancy
+2025-07-10 14:39:03,774 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for zhanga_2024
+2025-07-10 14:39:03,840 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,840 - [Worker_6] - ERROR - Error processing zhang_2019: Failed to get relevancy
+2025-07-10 14:39:03,840 - [Worker_6] - INFO - [Worker_6] Assessing relevancy for zhao_2022
+2025-07-10 14:39:03,848 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,848 - [Worker_4] - ERROR - Error processing zhang_2021b: Failed to get relevancy
+2025-07-10 14:39:03,848 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for zhong_2022
+2025-07-10 14:39:03,865 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:03,865 - [Worker_3] - ERROR - Error processing zhang_2022: Failed to get relevancy
+2025-07-10 14:39:03,865 - [Worker_3] - INFO - [Worker_3] Generating justification for zhong_2024
+2025-07-10 14:39:04,039 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,040 - [Worker_2] - ERROR - Error processing zhanga_2024: Failed to get relevancy
+2025-07-10 14:39:04,040 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for zhou_2018
+2025-07-10 14:39:04,041 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,041 - [Worker_0] - ERROR - Error processing zhang_2024: Failed to get relevancy
+2025-07-10 14:39:04,041 - [Worker_0] - INFO - [Worker_0] Generating justification for zhou_2024a
+2025-07-10 14:39:04,075 - [Worker_5] - INFO - [Worker_5] Generating justification for tu_2020
+2025-07-10 14:39:04,111 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,111 - [Worker_6] - ERROR - Error processing zhao_2022: Failed to get relevancy
+2025-07-10 14:39:04,111 - [Worker_6] - INFO - [Worker_6] Generating justification for zhou_2024b
+2025-07-10 14:39:04,168 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,169 - [Worker_4] - ERROR - Error processing zhong_2022: Failed to get relevancy
+2025-07-10 14:39:04,169 - [Worker_4] - INFO - [Worker_4] Assessing relevancy for zhou_2025
+2025-07-10 14:39:04,206 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,206 - [Worker_3] - ERROR - Error processing zhong_2024: Failed to get justification
+2025-07-10 14:39:04,206 - [Worker_3] - INFO - [Worker_3] Assessing relevancy for zhu_2019
+2025-07-10 14:39:04,302 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,302 - [Worker_2] - ERROR - Error processing zhou_2018: Failed to get relevancy
+2025-07-10 14:39:04,302 - [Worker_2] - INFO - [Worker_2] Assessing relevancy for zhu_2022
+2025-07-10 14:39:04,303 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,304 - [Worker_0] - ERROR - Error processing zhou_2024a: Failed to get justification
+2025-07-10 14:39:04,304 - [Worker_0] - INFO - [Worker_0] Assessing relevancy for zhu_2025
+2025-07-10 14:39:04,307 - [Worker_1] - INFO - [Worker_1] Generating justification for vaikunth_2024
+2025-07-10 14:39:04,338 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,338 - [Worker_5] - ERROR - Error processing tu_2020: Failed to get justification
+2025-07-10 14:39:04,338 - [Worker_5] - INFO - [Worker_5] Assessing relevancy for zuo_2023
+2025-07-10 14:39:04,366 - [Worker_6] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,366 - [Worker_6] - ERROR - Error processing zhou_2024b: Failed to get justification
+2025-07-10 14:39:04,448 - [Worker_4] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,448 - [Worker_4] - ERROR - Error processing zhou_2025: Failed to get relevancy
+2025-07-10 14:39:04,536 - [Worker_3] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,536 - [Worker_3] - ERROR - Error processing zhu_2019: Failed to get relevancy
+2025-07-10 14:39:04,557 - [Worker_1] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,557 - [Worker_1] - ERROR - Error processing vaikunth_2024: Failed to get justification
+2025-07-10 14:39:04,577 - [Worker_0] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,577 - [Worker_0] - ERROR - Error processing zhu_2025: Failed to get relevancy
+2025-07-10 14:39:04,583 - [Worker_2] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,583 - [Worker_2] - ERROR - Error processing zhu_2022: Failed to get relevancy
+2025-07-10 14:39:04,602 - [Worker_5] - ERROR - API request error: HTTP Error 418: I'm a teapot
+2025-07-10 14:39:04,602 - [Worker_5] - ERROR - Error processing zuo_2023: Failed to get relevancy
+2025-07-10 14:39:05,727 - [Worker_8] - INFO - Progress: 5/225 (2.2%)
+2025-07-10 14:39:06,332 - [Worker_9] - INFO - [Worker_9] Generating justification for yang_2025
+2025-07-10 14:39:06,689 - [Worker_7] - INFO - [Worker_7] Generating justification for zhang_2023
+2025-07-10 14:39:12,452 - [Worker_9] - INFO - Progress: 6/225 (2.7%)
+2025-07-10 14:39:13,570 - [Worker_7] - INFO - Progress: 7/225 (3.1%)

@@ -1,0 +1,96 @@
+{
+  "overview": {
+    "total_papers": 358,
+    "total_nodes": 2334,
+    "total_edges": 22339,
+    "node_types": {
+      "paper": 358,
+      "author": 1497,
+      "year": 22,
+      "tag": 457
+    }
+  },
+  "temporal": {
+    "year_distribution": {
+      "2001": 1,
+      "2003": 1,
+      "2005": 1,
+      "2006": 1,
+      "2008": 1,
+      "2009": 2,
+      "2010": 2,
+      "2011": 1,
+      "2012": 1,
+      "2013": 3,
+      "2014": 6,
+      "2015": 3,
+      "2016": 7,
+      "2017": 7,
+      "2018": 8,
+      "2019": 19,
+      "2020": 27,
+      "2021": 38,
+      "2022": 41,
+      "2023": 57,
+      "2024": 104,
+      "2025": 27
+    },
+    "year_range": [
+      2001,
+      2025
+    ]
+  },
+  "content": {
+    "relevancy_distribution": {
+      "HIGH": 156,
+      "MEDIUM": 101,
+      "LOW": 80,
+      "SUPER": 21
+    },
+    "top_tags": {
+      "knowledge-graph": 256,
+      "data-integration": 223,
+      "educational-technology": 35,
+      "temporal-data": 32,
+      "machine-learning": 30,
+      "healthcare": 29,
+      "survey": 23,
+      "ai": 21,
+      "llm": 20,
+      "semantic": 18,
+      "graph-neural-networks": 17,
+      "privacy": 16,
+      "heterogeneous-data": 15,
+      "temporal": 15,
+      "personal-knowledge": 15,
+      "integration": 14,
+      "personal": 13,
+      "ontology": 11,
+      "personal-knowledge-graph": 11,
+      "heterogeneous": 11
+    },
+    "total_unique_tags": 457
+  },
+  "authors": {
+    "total_unique_authors": 1497,
+    "top_authors": {
+      "Senior Member": 5,
+      "Aldo Gangemi": 4,
+      "Rui Yang": 4,
+      "Irene Li": 4,
+      "Luigi Asprino": 3,
+      "Krisztian Balog": 3,
+      "Xinjie Zhao": 3,
+      "Jinghui Lu": 3,
+      "Yang Liu": 3,
+      "Arnaud D'Argembeau": 3
+    },
+    "avg_authors_per_paper": 4.44
+  },
+  "network_metrics": {
+    "avg_degree": 19.14,
+    "density": 0.0082,
+    "communities": 18,
+    "themes": 8
+  }
+}

@@ -1,0 +1,322 @@
+#!/usr/bin/env python3
+"""
+Clean up redundant files in the HDM project - automatic version
+Run with --dry-run for preview, or --execute to perform cleanup
+"""
+
+import os
+import sys
+import shutil
+from pathlib import Path
+from datetime import datetime
+
+# Define files to keep and remove
+KEEP_CSV_FILES = {
+    "research_papers_complete_FINAL_normalized_tags.csv",
+    "research_papers_merged_final_normalized_tags.csv", 
+    "personalized_pkg_paperguide_clean.csv",
+    "research_papers_final.csv",  # Original base file
+}
+
+REMOVE_CSV_FILES = {
+    "research_papers_complete.csv",
+    "research_papers_complete_cleaned.csv",
+    "research_papers_complete_extracted.csv",
+    "research_papers_complete_filled.csv",
+    "research_papers_complete_FINAL_clean_tags.csv",
+    "research_papers_complete_FINAL.csv",
+    "research_papers_complete_final.csv",
+    "research_papers_complete_regenerated.csv",
+    "research_papers_complete_updated.csv",
+    "research_papers_complete_with_relevancy.csv",
+    "research_papers_merged_efficient.csv",
+    "research_papers_merged_final_clean_tags.csv",
+    "research_papers_merged_final.csv",
+    "research_papers_merged.csv",
+    "research_papers_test_output.csv",
+    "unmatched_papers_efficient.csv",
+    "unmatched_papers_final.csv",
+    "unmatched_papers.csv",
+    "papers_clean.csv",
+    "personalized_pkg_paperguide_manual.csv",
+    "personalized_pkg_paperguide.csv",
+    "pkg_papers_clean.csv",
+}
+
+KEEP_SCRIPTS = {
+    # Core processing scripts
+    "process_new_papers_batch.py",
+    "smart_converter.py",
+    "validate_and_fix_yaml.py",
+    "markdown_header_standardizer.py",
+    "normalize_tags.py",
+    "standardize_tags.py",
+    
+    # Final consolidated merge script
+    "merge_datasets_final.py",
+    
+    # Utility scripts to keep
+    "extract_pkg_papers.py",
+    "verify_merge.py",
+}
+
+# Script patterns to remove
+REMOVE_SCRIPT_PATTERNS = [
+    "*duplicate*.py",
+    "merge_*.py",
+    "fix_*.py",
+    "*converter*.py",
+    "*convert*.py",
+    "*image_descriptor*.py",
+    "complete_*.py",
+    "fill_*.py",
+    "update_*.py",
+    "extract_full_authors.py",
+    "update_missing_authors.py",
+    "rename_folders_to_cite_keys.py",
+]
+
+# Temporary files to remove
+TEMP_FILES = [
+    "comprehensive_checkpoint.json",
+    "relevancy_checkpoint.json", 
+    "processing.out",
+    "complete_data_batch1.log",
+    "complete_missing_data.log",
+    "relevancy_analysis.log",
+    "relevancy_regeneration.log",
+    "papers_to_download.csv",
+    "new_papers_checkpoint.json",
+]
+
+def create_backup_directory():
+    """Create a backup directory with timestamp"""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    backup_dir = Path(f"backup_cleanup_{timestamp}")
+    backup_dir.mkdir(exist_ok=True)
+    return backup_dir
+
+def backup_file(file_path, backup_dir):
+    """Backup a file before deletion"""
+    if file_path.exists():
+        try:
+            relative_path = file_path.relative_to(Path.cwd())
+        except ValueError:
+            # If not relative to cwd, just use the filename
+            relative_path = Path(file_path.name)
+        backup_path = backup_dir / relative_path
+        backup_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file_path, backup_path)
+        return True
+    return False
+
+def clean_csv_files(backup_dir, dry_run=True):
+    """Clean up redundant CSV files"""
+    print("\n=== Cleaning CSV Files ===")
+    
+    removed_count = 0
+    for csv_file in REMOVE_CSV_FILES:
+        file_path = Path(csv_file)
+        if file_path.exists():
+            if dry_run:
+                print(f"Would remove: {csv_file}")
+            else:
+                backup_file(file_path, backup_dir)
+                file_path.unlink()
+                print(f"Removed: {csv_file}")
+            removed_count += 1
+    
+    print(f"\nCSV files removed: {removed_count}")
+    
+    # List files we're keeping
+    print("\nKeeping these CSV files:")
+    for csv_file in KEEP_CSV_FILES:
+        if Path(csv_file).exists():
+            print(f"  ✓ {csv_file}")
+
+def clean_scripts(backup_dir, dry_run=True):
+    """Clean up redundant Python scripts"""
+    print("\n=== Cleaning Python Scripts ===")
+    
+    scripts_dir = Path("scripts/processing")
+    if not scripts_dir.exists():
+        print("Scripts directory not found")
+        return
+    
+    # Get all Python files
+    all_scripts = set(f.name for f in scripts_dir.glob("*.py"))
+    
+    # Determine which to remove
+    scripts_to_remove = set()
+    
+    # Add scripts matching remove patterns
+    for pattern in REMOVE_SCRIPT_PATTERNS:
+        for script in scripts_dir.glob(pattern):
+            if script.name not in KEEP_SCRIPTS:
+                scripts_to_remove.add(script.name)
+    
+    # Remove scripts
+    removed_count = 0
+    for script_name in sorted(scripts_to_remove):
+        script_path = scripts_dir / script_name
+        if script_path.exists():
+            if dry_run:
+                print(f"Would remove: {script_name}")
+            else:
+                backup_file(script_path, backup_dir)
+                script_path.unlink()
+                print(f"Removed: {script_name}")
+            removed_count += 1
+    
+    print(f"\nScripts removed: {removed_count}")
+    
+    # List scripts we're keeping
+    print("\nKeeping these scripts:")
+    remaining_scripts = all_scripts - scripts_to_remove
+    for script in sorted(remaining_scripts):
+        if script in KEEP_SCRIPTS or script not in scripts_to_remove:
+            print(f"  ✓ {script}")
+
+def clean_temp_files(backup_dir, dry_run=True):
+    """Clean up temporary and log files"""
+    print("\n=== Cleaning Temporary Files ===")
+    
+    removed_count = 0
+    
+    # Clean files in root and scripts/processing
+    for temp_file in TEMP_FILES:
+        # Check in root
+        file_path = Path(temp_file)
+        if file_path.exists():
+            if dry_run:
+                print(f"Would remove: {temp_file}")
+            else:
+                backup_file(file_path, backup_dir)
+                file_path.unlink()
+                print(f"Removed: {temp_file}")
+            removed_count += 1
+        
+        # Check in scripts/processing
+        script_path = Path("scripts/processing") / temp_file
+        if script_path.exists():
+            if dry_run:
+                print(f"Would remove: scripts/processing/{temp_file}")
+            else:
+                backup_file(script_path, backup_dir)
+                script_path.unlink()
+                print(f"Removed: scripts/processing/{temp_file}")
+            removed_count += 1
+    
+    print(f"\nTemporary files removed: {removed_count}")
+
+def clean_backup_files(backup_dir, dry_run=True):
+    """Clean up paper_backup.md files"""
+    print("\n=== Cleaning Backup Files ===")
+    
+    markdown_dir = Path("markdown_papers")
+    if not markdown_dir.exists():
+        print("Markdown papers directory not found")
+        return
+    
+    removed_count = 0
+    backup_files = list(markdown_dir.glob("*/paper_backup.md"))
+    
+    for backup_file_path in backup_files:
+        if dry_run:
+            print(f"Would remove: {backup_file_path}")
+        else:
+            # Note: backup_file function name conflict, using direct copy
+            if backup_dir:
+                try:
+                    relative_path = backup_file_path.relative_to(Path.cwd())
+                    backup_path = backup_dir / relative_path
+                    backup_path.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(backup_file_path, backup_path)
+                except:
+                    pass
+            backup_file_path.unlink()
+            print(f"Removed: {backup_file_path}")
+        removed_count += 1
+    
+    print(f"\nBackup files removed: {removed_count}")
+
+def print_summary(dry_run=True):
+    """Print summary of cleanup operation"""
+    print("\n" + "=" * 60)
+    print("CLEANUP SUMMARY")
+    print("=" * 60)
+    
+    # Count all files to be removed
+    total_files = len(REMOVE_CSV_FILES)
+    
+    scripts_dir = Path("scripts/processing")
+    if scripts_dir.exists():
+        scripts_to_remove = set()
+        for pattern in REMOVE_SCRIPT_PATTERNS:
+            for script in scripts_dir.glob(pattern):
+                if script.name not in KEEP_SCRIPTS:
+                    scripts_to_remove.add(script.name)
+        total_files += len(scripts_to_remove)
+    
+    total_files += len(TEMP_FILES) * 2  # root and scripts/processing
+    
+    markdown_dir = Path("markdown_papers")
+    if markdown_dir.exists():
+        total_files += len(list(markdown_dir.glob("*/paper_backup.md")))
+    
+    action = "Would remove" if dry_run else "Removed"
+    print(f"{action} approximately {total_files} files")
+    
+    print("\nFiles being kept:")
+    print(f"  - {len(KEEP_CSV_FILES)} CSV files")
+    print(f"  - {len(KEEP_SCRIPTS)} core Python scripts")
+    print(f"  - All paper markdown files in markdown_papers/")
+    print(f"  - All PDFs in papers/")
+
+def main():
+    """Main cleanup function"""
+    
+    # Check command line arguments
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--execute":
+            dry_run = False
+        elif sys.argv[1] == "--dry-run":
+            dry_run = True
+        else:
+            print("Usage: python cleanup_project_auto.py [--dry-run|--execute]")
+            print("  --dry-run   Show what would be removed (default)")
+            print("  --execute   Actually perform the cleanup")
+            sys.exit(1)
+    else:
+        dry_run = True
+    
+    print("HDM Project Cleanup Tool")
+    print("=" * 60)
+    
+    if dry_run:
+        print("\n🔍 DRY RUN MODE - Showing what would be removed")
+        print("Run with --execute to actually perform cleanup")
+        backup_dir = None
+    else:
+        print("\n🧹 EXECUTE MODE - Files will be removed!")
+        backup_dir = create_backup_directory()
+        print(f"✅ Creating backup in: {backup_dir}")
+    
+    print("=" * 60)
+    
+    # Perform cleanup
+    clean_csv_files(backup_dir, dry_run=dry_run)
+    clean_scripts(backup_dir, dry_run=dry_run)
+    clean_temp_files(backup_dir, dry_run=dry_run)
+    clean_backup_files(backup_dir, dry_run=dry_run)
+    
+    # Print summary
+    print_summary(dry_run=dry_run)
+    
+    if not dry_run:
+        print(f"\n✅ Cleanup completed!")
+        print(f"📁 Backup created in: {backup_dir}")
+        print("⚠️  If you need to restore any files, check the backup directory.")
+
+if __name__ == "__main__":
+    main()

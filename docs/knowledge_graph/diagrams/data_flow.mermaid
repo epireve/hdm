@@ -1,0 +1,49 @@
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant B as Browser
+    participant S as Web Server
+    participant P as Python Scripts
+    participant F as File System
+    
+    Note over U,F: Initial Data Processing
+    U->>P: Run process_hdm_data.py
+    P->>F: Load research_papers_complete.csv
+    F-->>P: CSV Data (342 papers)
+    
+    P->>P: Extract Entities<br/>(Papers, Authors, Tags)
+    P->>P: Calculate Relationships<br/>(Similarity Metrics)
+    P->>P: Identify Themes<br/>(LDA + Communities)
+    
+    P->>F: Write graph_data.json
+    P->>F: Write themes.json
+    P->>F: Write similarities.json
+    P->>F: Write statistics.json
+    P->>F: Write index.json
+    
+    Note over U,F: Visualization Usage
+    U->>B: Open localhost:8080
+    B->>S: Request index.html
+    S-->>B: HTML + JS + CSS
+    
+    B->>S: Fetch graph_data.json
+    S->>F: Read JSON files
+    F-->>S: JSON Data
+    S-->>B: Graph Data
+    
+    B->>B: Initialize D3.js
+    B->>B: Render Force Graph
+    B->>B: Setup Interactions
+    
+    U->>B: Click Node
+    B->>B: Show Details
+    B-->>U: Paper Information
+    
+    U->>B: Search "knowledge"
+    B->>B: Filter Nodes
+    B-->>U: Highlighted Results
+    
+    U->>B: Export SVG
+    B->>B: Generate SVG
+    B-->>U: Download File
+```

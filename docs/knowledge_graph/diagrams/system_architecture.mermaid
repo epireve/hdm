@@ -1,0 +1,58 @@
+```mermaid
+graph TB
+    subgraph "Input Layer"
+        CSV[research_papers_complete.csv<br/>21 columns, 342+ papers]
+    end
+    
+    subgraph "Data Processing Layer - Python"
+        PM[Process Manager<br/>process_hdm_data.py]
+        GB[Graph Builder<br/>Entity Extraction]
+        RE[Relationship Extractor<br/>Similarity Calculation]
+        TC[Theme Clusterer<br/>LDA + Louvain]
+    end
+    
+    subgraph "Data Storage Layer - JSON"
+        GD[graph_data.json<br/>Nodes & Links]
+        TH[themes.json<br/>Research Themes]
+        SI[similarities.json<br/>Paper Relations]
+        ST[statistics.json<br/>Graph Metrics]
+        IX[index.json<br/>Quick Lookup]
+    end
+    
+    subgraph "Presentation Layer - Web"
+        HTML[index.html<br/>Main Page]
+        D3[D3.js Graph<br/>Force Layout]
+        INT[Interactions<br/>Click, Drag, Zoom]
+        FLT[Filters<br/>Search, Year, Theme]
+    end
+    
+    subgraph "User Interface"
+        USR[End User<br/>Researchers]
+    end
+    
+    CSV --> PM
+    PM --> GB
+    PM --> RE
+    PM --> TC
+    
+    GB --> GD
+    RE --> SI
+    TC --> TH
+    PM --> ST
+    PM --> IX
+    
+    GD --> D3
+    TH --> FLT
+    SI --> D3
+    ST --> HTML
+    IX --> FLT
+    
+    HTML --> USR
+    D3 --> INT
+    INT --> USR
+    FLT --> USR
+    
+    style CSV fill:#f9f,stroke:#333,stroke-width:2px
+    style USR fill:#9f9,stroke:#333,stroke-width:2px
+    style D3 fill:#99f,stroke:#333,stroke-width:2px
+```

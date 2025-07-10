@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDM Research Knowledge Graph</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>Human Digital Memory - Research Knowledge Graph</h1>
+        <div id="stats">
+            <span class="stat-item">
+                <span class="stat-label">Papers:</span>
+                <span id="paper-count" class="stat-value">0</span>
+            </span>
+            <span class="stat-item">
+                <span class="stat-label">Authors:</span>
+                <span id="author-count" class="stat-value">0</span>
+            </span>
+            <span class="stat-item">
+                <span class="stat-label">Themes:</span>
+                <span id="theme-count" class="stat-value">0</span>
+            </span>
+        </div>
+    </div>
+    
+    <div id="controls">
+        <div class="control-group">
+            <input type="text" id="search" placeholder="Search papers, authors, or keywords...">
+        </div>
+        
+        <div class="control-group">
+            <label for="year-filter">Year:</label>
+            <select id="year-filter">
+                <option value="">All Years</option>
+            </select>
+            
+            <label for="relevancy-filter">Relevancy:</label>
+            <select id="relevancy-filter">
+                <option value="">All Relevancy</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            
+            <label for="theme-filter">Theme:</label>
+            <select id="theme-filter">
+                <option value="">All Themes</option>
+            </select>
+        </div>
+        
+        <div class="control-group">
+            <label for="node-type-filter">Show:</label>
+            <label class="checkbox-label">
+                <input type="checkbox" id="show-papers" checked> Papers
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" id="show-authors" checked> Authors
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" id="show-tags" checked> Tags
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" id="show-years"> Years
+            </label>
+        </div>
+        
+        <div class="control-group">
+            <button id="reset-zoom">Reset View</button>
+            <button id="toggle-labels">Toggle Labels</button>
+            <button id="export-svg">Export SVG</button>
+        </div>
+    </div>
+    
+    <div id="main-container">
+        <div id="graph-container">
+            <svg id="graph"></svg>
+            <div id="tooltip" class="tooltip"></div>
+        </div>
+        
+        <div id="details-panel">
+            <h2>Details</h2>
+            <div id="details-content">
+                <p class="details-placeholder">Click on a node to view details</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="legend">
+        <h3>Legend</h3>
+        <div class="legend-item">
+            <svg width="20" height="20">
+                <circle cx="10" cy="10" r="8" fill="#4A90E2"></circle>
+            </svg>
+            <span>Paper</span>
+        </div>
+        <div class="legend-item">
+            <svg width="20" height="20">
+                <circle cx="10" cy="10" r="6" fill="#7ED321"></circle>
+            </svg>
+            <span>Author</span>
+        </div>
+        <div class="legend-item">
+            <svg width="20" height="20">
+                <circle cx="10" cy="10" r="5" fill="#F5A623"></circle>
+            </svg>
+            <span>Tag</span>
+        </div>
+        <div class="legend-item">
+            <svg width="20" height="20">
+                <circle cx="10" cy="10" r="5" fill="#BD10E0"></circle>
+            </svg>
+            <span>Year</span>
+        </div>
+    </div>
+    
+    <script src="js/graph.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

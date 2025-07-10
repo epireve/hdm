@@ -1,0 +1,82 @@
+```mermaid
+graph TB
+    subgraph "Development Environment"
+        DEV[Developer Machine]
+        IDE[IDE/Editor]
+        PY[Python 3.8+]
+        GIT[Git Repository]
+    end
+    
+    subgraph "CI/CD Pipeline"
+        GHA[GitHub Actions]
+        TEST[Test Suite]
+        BUILD[Build Process]
+        VAL[Validation]
+    end
+    
+    subgraph "Deployment Options"
+        subgraph "Static Hosting"
+            GHP[GitHub Pages]
+            S3[AWS S3 + CloudFront]
+            NTL[Netlify]
+        end
+        
+        subgraph "Container"
+            DOC[Docker]
+            K8S[Kubernetes]
+        end
+        
+        subgraph "Server"
+            EC2[AWS EC2]
+            GCE[Google Compute]
+            VPS[VPS Hosting]
+        end
+    end
+    
+    subgraph "Production Environment"
+        CDN[CDN<br/>CloudFlare]
+        WEB[Web Server<br/>nginx]
+        APP[Application]
+        MON[Monitoring<br/>Analytics]
+    end
+    
+    subgraph "End Users"
+        USR1[Researchers]
+        USR2[Students]
+        USR3[Public]
+    end
+    
+    DEV --> IDE
+    IDE --> PY
+    PY --> GIT
+    
+    GIT --> GHA
+    GHA --> TEST
+    TEST --> BUILD
+    BUILD --> VAL
+    
+    VAL --> GHP
+    VAL --> S3
+    VAL --> NTL
+    VAL --> DOC
+    
+    DOC --> K8S
+    DOC --> EC2
+    DOC --> GCE
+    DOC --> VPS
+    
+    GHP --> CDN
+    S3 --> CDN
+    EC2 --> WEB
+    
+    CDN --> USR1
+    CDN --> USR2
+    CDN --> USR3
+    
+    WEB --> APP
+    APP --> MON
+    
+    style DEV fill:#f96,stroke:#333,stroke-width:2px
+    style CDN fill:#69f,stroke:#333,stroke-width:2px
+    style USR1 fill:#6f9,stroke:#333,stroke-width:2px
+```
