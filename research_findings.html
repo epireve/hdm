@@ -258,6 +258,148 @@
             background-color: #5a6268;
         }
         
+        /* View Toggle Styles */
+        .view-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .view-toggle button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .view-toggle button.active {
+            background-color: #007bff;
+        }
+        
+        .view-toggle button:hover {
+            background-color: #5a6268;
+        }
+        
+        .view-toggle button.active:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Table View Styles */
+        .table-container {
+            display: none;
+            overflow-x: auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .table-container.active {
+            display: block;
+        }
+        
+        .papers-container {
+            display: block;
+        }
+        
+        .papers-container.active {
+            display: block;
+        }
+        
+        .papers-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        .papers-table th,
+        .papers-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .papers-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+        
+        .papers-table th:hover {
+            background-color: #e9ecef;
+        }
+        
+        .papers-table th:after {
+            content: '↕';
+            margin-left: 5px;
+            color: #6c757d;
+            font-size: 10px;
+        }
+        
+        .papers-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .papers-table tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .papers-table .title-cell {
+            max-width: 200px;
+            font-weight: bold;
+        }
+        
+        .papers-table .authors-cell {
+            max-width: 150px;
+            font-style: italic;
+        }
+        
+        .papers-table .text-cell {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .papers-table .text-cell:hover {
+            white-space: normal;
+            overflow: visible;
+        }
+        
+        .papers-table .relevancy-cell {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .papers-table .year-cell {
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .papers-table .links-cell {
+            min-width: 120px;
+        }
+        
+        .papers-table .links-cell a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 11px;
+        }
+        
+        .papers-table .links-cell a:hover {
+            text-decoration: underline;
+        }
+        
         .section-label {
             font-weight: bold;
             color: #555;
@@ -476,17 +618,59 @@
         Loading papers...
     </div>
     
-    <div style="text-align: center; font-size: 13px; color: #666; margin-bottom: 10px; font-style: italic;">
-        Click on any paper to expand and see full analysis details • Press <kbd>Ctrl/Cmd + A</kbd> to expand/collapse all • <kbd>Esc</kbd> to clear filters
+    <div class="view-toggle">
+        <button id="card-view-btn" class="active" onclick="switchView('card')">📋 Card View</button>
+        <button id="table-view-btn" onclick="switchView('table')">📊 Table View</button>
     </div>
     
-    <div class="papers-container" id="papers-container">
+    <div style="text-align: center; font-size: 13px; color: #666; margin-bottom: 10px; font-style: italic;">
+        <span id="card-view-instructions">Click on any paper to expand and see full analysis details • Press <kbd>Ctrl/Cmd + A</kbd> to expand/collapse all • <kbd>Esc</kbd> to clear filters</span>
+        <span id="table-view-instructions" style="display: none;">Hover over cells to see full content • Click column headers to sort • Use filters above to narrow results</span>
+    </div>
+    
+    <div class="papers-container active" id="papers-container">
         <div class="no-results">Loading research papers...</div>
+    </div>
+    
+    <div class="table-container" id="table-container">
+        <table class="papers-table" id="papers-table">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Title</th>
+                    <th onclick="sortTable(1)">Authors</th>
+                    <th onclick="sortTable(2)">Year</th>
+                    <th onclick="sortTable(3)">Downloaded</th>
+                    <th onclick="sortTable(4)">Relevancy</th>
+                    <th onclick="sortTable(5)">Relevancy Justification</th>
+                    <th onclick="sortTable(6)">Insights</th>
+                    <th onclick="sortTable(7)">TL;DR</th>
+                    <th onclick="sortTable(8)">Summary</th>
+                    <th onclick="sortTable(9)">Research Question</th>
+                    <th onclick="sortTable(10)">Methodology</th>
+                    <th onclick="sortTable(11)">Key Findings</th>
+                    <th onclick="sortTable(12)">Primary Outcomes</th>
+                    <th onclick="sortTable(13)">Limitations</th>
+                    <th onclick="sortTable(14)">Conclusion</th>
+                    <th onclick="sortTable(15)">Research Gaps</th>
+                    <th onclick="sortTable(16)">Future Work</th>
+                    <th onclick="sortTable(17)">Implementation Insights</th>
+                    <th onclick="sortTable(18)">Links</th>
+                    <th onclick="sortTable(19)">Tags</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr>
+                    <td colspan="20" style="text-align: center; padding: 20px;">Loading research papers...</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script>
         let allPapers = [];
         let filteredPapers = [];
+        let currentView = 'card';
+        let sortDirection = {};
         
         // Toggle paper details
         function togglePaperDetails(index) {
@@ -550,7 +734,11 @@
                 
                 populateYearFilter();
                 filteredPapers = [...allPapers];
-                displayPapers();
+                if (currentView === 'card') {
+                    displayPapers();
+                } else {
+                    displayTable();
+                }
                 updateStats();
                 updateHeaderStats();
                 
@@ -563,6 +751,8 @@
                         <p><strong>For local testing:</strong> Use a local server (e.g., <code>python3 -m http.server 8000</code>)</p>
                         <p><small>Error: ${error.message}</small></p>
                     </div>`;
+                document.getElementById('table-body').innerHTML = 
+                    `<tr><td colspan="20" style="text-align: center; padding: 20px;">Error loading research papers. ${error.message}</td></tr>`;
             }
         }
         
@@ -636,6 +826,126 @@
             });
         }
         
+        // Switch between card and table view
+        function switchView(viewType) {
+            console.log('Switching to view:', viewType);
+            currentView = viewType;
+            
+            const cardContainer = document.getElementById('papers-container');
+            const tableContainer = document.getElementById('table-container');
+            const cardBtn = document.getElementById('card-view-btn');
+            const tableBtn = document.getElementById('table-view-btn');
+            const cardInstructions = document.getElementById('card-view-instructions');
+            const tableInstructions = document.getElementById('table-view-instructions');
+            
+            if (viewType === 'card') {
+                cardContainer.style.display = 'block';
+                tableContainer.style.display = 'none';
+                cardBtn.classList.add('active');
+                tableBtn.classList.remove('active');
+                cardInstructions.style.display = 'inline';
+                tableInstructions.style.display = 'none';
+            } else {
+                cardContainer.style.display = 'none';
+                tableContainer.style.display = 'block';
+                cardBtn.classList.remove('active');
+                tableBtn.classList.add('active');
+                cardInstructions.style.display = 'none';
+                tableInstructions.style.display = 'inline';
+                displayTable();
+            }
+        }
+        
+        // Display papers in table format
+        function displayTable() {
+            const tableBody = document.getElementById('table-body');
+            
+            if (filteredPapers.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="20" style="text-align: center; padding: 20px;">No papers match the current filters.</td></tr>';
+                return;
+            }
+            
+            const rows = filteredPapers.map(paper => {
+                const relevancyClass = paper.Relevancy ? paper.Relevancy.toUpperCase() : 'Unknown';
+                const tags = paper.Tags ? paper.Tags.split(',').map(tag => tag.trim()).join(', ') : '';
+                
+                const links = [];
+                if (paper.url) {
+                    links.push(`<a href="${paper.url}" target="_blank">URL</a>`);
+                }
+                if (paper.DOI) {
+                    const doiUrl = paper.DOI.startsWith('http') ? paper.DOI : `https://doi.org/${paper.DOI}`;
+                    links.push(`<a href="${doiUrl}" target="_blank">DOI</a>`);
+                }
+                if (paper.cite_key) {
+                    links.push(`<a href="markdown_papers/${paper.cite_key}/paper.md" target="_blank">MD</a>`);
+                }
+                
+                return `
+                    <tr>
+                        <td class="title-cell">${paper.title || 'Untitled'}</td>
+                        <td class="authors-cell">${paper.authors || 'Authors not specified'}</td>
+                        <td class="year-cell">${paper.year || 'N/A'}</td>
+                        <td class="relevancy-cell">${paper.Downloaded === 'Yes' ? '✓' : '✗'}</td>
+                        <td class="relevancy-cell">
+                            <span class="relevancy ${relevancyClass}">${relevancyClass}</span>
+                        </td>
+                        <td class="text-cell" title="${(paper['Relevancy Justification'] || '').replace(/"/g, '&quot;')}">${paper['Relevancy Justification'] || ''}</td>
+                        <td class="text-cell" title="${(paper.Insights || '').replace(/"/g, '&quot;')}">${paper.Insights || ''}</td>
+                        <td class="text-cell" title="${(paper['TL;DR'] || '').replace(/"/g, '&quot;')}">${paper['TL;DR'] || ''}</td>
+                        <td class="text-cell" title="${(paper.Summary || '').replace(/"/g, '&quot;')}">${paper.Summary || ''}</td>
+                        <td class="text-cell" title="${(paper['Research Question'] || '').replace(/"/g, '&quot;')}">${paper['Research Question'] || ''}</td>
+                        <td class="text-cell" title="${(paper.Methodology || '').replace(/"/g, '&quot;')}">${paper.Methodology || ''}</td>
+                        <td class="text-cell" title="${(paper['Key Findings'] || '').replace(/"/g, '&quot;')}">${paper['Key Findings'] || ''}</td>
+                        <td class="text-cell" title="${(paper['Primary Outcomes'] || '').replace(/"/g, '&quot;')}">${paper['Primary Outcomes'] || ''}</td>
+                        <td class="text-cell" title="${(paper.Limitations || '').replace(/"/g, '&quot;')}">${paper.Limitations || ''}</td>
+                        <td class="text-cell" title="${(paper.Conclusion || '').replace(/"/g, '&quot;')}">${paper.Conclusion || ''}</td>
+                        <td class="text-cell" title="${(paper['Research Gaps'] || '').replace(/"/g, '&quot;')}">${paper['Research Gaps'] || ''}</td>
+                        <td class="text-cell" title="${(paper['Future Work'] || '').replace(/"/g, '&quot;')}">${paper['Future Work'] || ''}</td>
+                        <td class="text-cell" title="${(paper['Implementation Insights'] || '').replace(/"/g, '&quot;')}">${paper['Implementation Insights'] || ''}</td>
+                        <td class="links-cell">${links.join(' ')}</td>
+                        <td class="text-cell" title="${tags.replace(/"/g, '&quot;')}">${tags}</td>
+                    </tr>
+                `;
+            }).join('');
+            
+            tableBody.innerHTML = rows;
+        }
+        
+        // Sort table by column
+        function sortTable(columnIndex) {
+            const columnNames = ['title', 'authors', 'year', 'Downloaded', 'Relevancy', 'Relevancy Justification', 'Insights', 'TL;DR', 'Summary', 'Research Question', 'Methodology', 'Key Findings', 'Primary Outcomes', 'Limitations', 'Conclusion', 'Research Gaps', 'Future Work', 'Implementation Insights', 'links', 'Tags'];
+            const columnName = columnNames[columnIndex];
+            
+            // Toggle sort direction
+            sortDirection[columnName] = sortDirection[columnName] === 'asc' ? 'desc' : 'asc';
+            
+            filteredPapers.sort((a, b) => {
+                let aVal = a[columnName] || '';
+                let bVal = b[columnName] || '';
+                
+                // Handle special cases
+                if (columnName === 'year') {
+                    aVal = parseInt(aVal) || 0;
+                    bVal = parseInt(bVal) || 0;
+                } else if (columnName === 'Downloaded') {
+                    aVal = aVal === 'Yes' ? 1 : 0;
+                    bVal = bVal === 'Yes' ? 1 : 0;
+                } else {
+                    aVal = aVal.toString().toLowerCase();
+                    bVal = bVal.toString().toLowerCase();
+                }
+                
+                if (sortDirection[columnName] === 'asc') {
+                    return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
+                } else {
+                    return aVal > bVal ? -1 : aVal < bVal ? 1 : 0;
+                }
+            });
+            
+            displayTable();
+        }
+        
         // Filter papers
         function filterPapers() {
             const relevancyFilter = document.getElementById('relevancy-filter').value;
@@ -669,7 +979,11 @@
                 return true;
             });
             
-            displayPapers();
+            if (currentView === 'card') {
+                displayPapers();
+            } else {
+                displayTable();
+            }
             updateStats();
         }
         
