@@ -762,9 +762,11 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         document.getElementById('paper-content').innerHTML = '<div style="text-align: center; padding: 40px;"><div class="loading-spinner"></div><p style="color: #666; margin-top: 20px;">Loading paper content...</p></div>';
         
         // Fetch paper markdown
-        fetch(`markdown_papers/${paperId}/paper.md`)
+        console.log('Attempting to fetch paper:', `/markdown_papers/${paperId}/paper.md`);
+        fetch(`/markdown_papers/${paperId}/paper.md`)
             .then(response => {
-                if (!response.ok) throw new Error('Paper not found');
+                console.log('Paper fetch response:', response.status, response.statusText);
+                if (!response.ok) throw new Error(`Paper not found: ${response.status} ${response.statusText}`);
                 return response.text();
             })
             .then(markdown => {
@@ -832,9 +834,26 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
     }
 
     function convertMarkdownToHtml(markdown, paperId) {
-        // Preprocess markdown to handle special citation format [\[number\]]
+        // Preprocess markdown to handle various citation formats
+        console.log('Processing citations in markdown...');
+        
+        // Handle citation format [\[number\]]
         markdown = markdown.replace(/\[\\?\[(\d+)\\?\]\]/g, (match, num) => {
-            return `<sup>[${num}]</sup>`;
+            console.log('Found citation:', match, '->', num);
+            return `<sup><a href="#ref-${num}" style="color: #3498db; text-decoration: none;">[${num}]</a></sup>`;
+        });
+        
+        // Handle standalone 'undefined' text that appears as citation placeholders
+        // Only replace 'undefined' when it appears as a standalone word, not in compounds like "undefined-variable"
+        markdown = markdown.replace(/\bundefined(?![-\w])/g, (match) => {
+            console.log('Found undefined reference, replacing with [citation needed]');
+            return '<span style="color: #e74c3c; font-style: italic;">[citation needed]</span>';
+        });
+        
+        // Handle markdown links that might be citations
+        markdown = markdown.replace(/\[(.*?)\]\(#page-(\d+)-(\d+)\)/g, (match, text, page, ref) => {
+            console.log('Found page reference:', match);
+            return `<sup><a href="#page-${page}-${ref}" style="color: #3498db; text-decoration: none;">[${text}]</a></sup>`;
         });
         
         // Create a new renderer instance
@@ -842,21 +861,39 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         
         // Override specific rendering methods
         renderer.image = function(href, title, text) {
+            // Debug: log the original parameters
+            console.log('Image renderer called with:', { href, title, text });
+            
+            // Handle case where href might be an object (marked.js compatibility issue)
+            if (typeof href === 'object' && href !== null) {
+                // If href is an object, try to extract the src property
+                if (href.href) {
+                    href = href.href;
+                } else if (href.src) {
+                    href = href.src;
+                } else {
+                    console.error('Image href is an object but no src/href property found:', href);
+                    href = '';
+                }
+            }
+            
             // Ensure href is a string
             href = String(href || '');
+            console.log('Image href after processing:', href);
             
             // Check if it's a relative path
             if (href && !href.startsWith('http') && !href.startsWith('data:')) {
-                // Adjust path to point to the correct location - use relative path from server root
-                const newHref = `markdown_papers/${paperId}/${href}`;
+                // Adjust path to point to the correct location - use absolute path from server root
+                const newHref = `/markdown_papers/${paperId}/${href}`;
                 console.log('Image path transformation:', href, '->', newHref);
                 href = newHref;
             }
             
-            // Add responsive image styling with error handling
+            // Add responsive image styling with error handling and debugging
             return `<img src="${href}" alt="${text || ''}" title="${title || ''}" 
                     style="max-width: 100%; height: auto; display: block; margin: 20px auto;"
-                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPC9zdmc+'; this.alt='Image not found: ' + this.alt;">`;
+                    onload="console.log('Image loaded successfully: ${href}')"
+                    onerror="console.error('Image failed to load: ${href}'); this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPC9zdmc+'; this.alt='Image not found: ' + this.alt;">`;
         };
         
         renderer.table = function(header, body) {
@@ -894,17 +931,34 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         
         // Configure marked options with the custom renderer
         try {
-            return marked.parse(markdown, {
-                renderer: renderer,
-                breaks: true,
-                gfm: true,
-                headerIds: true,
-                mangle: false,
-                pedantic: false,
-                sanitize: false,
-                smartLists: true,
-                smartypants: false
-            });
+            // Try the new API first (marked v4+)
+            if (typeof marked.parse === 'function') {
+                return marked.parse(markdown, {
+                    renderer: renderer,
+                    breaks: true,
+                    gfm: true,
+                    headerIds: true,
+                    mangle: false,
+                    pedantic: false,
+                    sanitize: false,
+                    smartLists: true,
+                    smartypants: false
+                });
+            } else {
+                // Fallback to old API
+                marked.setOptions({
+                    renderer: renderer,
+                    breaks: true,
+                    gfm: true,
+                    headerIds: true,
+                    mangle: false,
+                    pedantic: false,
+                    sanitize: false,
+                    smartLists: true,
+                    smartypants: false
+                });
+                return marked(markdown);
+            }
         } catch (error) {
             console.error('Markdown parsing error:', error);
             // Fallback to basic rendering
