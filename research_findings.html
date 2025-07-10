@@ -420,7 +420,7 @@
                 <a href="index.html" class="nav-link">🏠 Home</a>
                 <a href="research_findings.html" class="nav-link active">📊 Paper Browser</a>
                 <a href="visualization/index.html" class="nav-link">🕸️ Knowledge Graph</a>
-                <a href="visualization/pkg_research_explorer/index.html" class="nav-link">🔍 PKG Explorer</a>
+                <a href="visualization/explorer/index.html" class="nav-link">🔍 PKG Explorer</a>
                 <a href="https://github.com/epireve/hdm" class="nav-link" target="_blank">📱 GitHub</a>
             </div>
         </div>
@@ -472,7 +472,7 @@
         </div>
     </div>
     
-    <div class="stats" id="stats">
+    <div class="stats" id="main-stats">
         Loading papers...
     </div>
     
@@ -820,9 +820,14 @@
             const years = allPapers.map(p => parseInt(p.Year || p.year)).filter(y => !isNaN(y));
             const yearRange = years.length > 0 ? `${Math.min(...years)}-${Math.max(...years)}` : '2020-2025';
             
-            document.getElementById('total-papers').textContent = totalAll;
-            document.getElementById('year-range').textContent = yearRange;
-            document.getElementById('high-relevancy').textContent = highRelevancy;
+            // Check if elements exist before updating
+            const totalPapersEl = document.getElementById('total-papers');
+            const yearRangeEl = document.getElementById('year-range');
+            const highRelevancyEl = document.getElementById('high-relevancy');
+            
+            if (totalPapersEl) totalPapersEl.textContent = totalAll;
+            if (yearRangeEl) yearRangeEl.textContent = yearRange;
+            if (highRelevancyEl) highRelevancyEl.textContent = highRelevancy;
         }
 
         function updateStats() {
@@ -843,12 +848,15 @@
             const yearRange = filteredPapers.length > 0 ? 
                 `${Math.min(...filteredPapers.map(p => parseInt(p.year)).filter(y => !isNaN(y)))}-${Math.max(...filteredPapers.map(p => parseInt(p.year)).filter(y => !isNaN(y)))}` : 'N/A';
             
-            document.getElementById('stats').innerHTML = `
-                Showing ${total} of ${totalAll} papers | 
-                Super: ${relevancyStats.Super} | High: ${relevancyStats.High} | Medium: ${relevancyStats.Medium} | Low: ${relevancyStats.Low} | 
-                With DOI: ${withDOI} | With Tags: ${withTags} | 
-                Year Range: ${yearRange}
-            `;
+            const statsEl = document.getElementById('main-stats');
+            if (statsEl) {
+                statsEl.innerHTML = `
+                    Showing ${total} of ${totalAll} papers | 
+                    Super: ${relevancyStats.Super} | High: ${relevancyStats.High} | Medium: ${relevancyStats.Medium} | Low: ${relevancyStats.Low} | 
+                    With DOI: ${withDOI} | With Tags: ${withTags} | 
+                    Year Range: ${yearRange}
+                `;
+            }
         }
         
         // Clear all filters
