@@ -1,0 +1,2560 @@
+{
+  "executive_summary": {
+    "analysis_scope": "Analyzed 358 research papers spanning 2020-2025",
+    "key_findings": [
+      "Identified 26 novel research opportunities",
+      "26 opportunities have high university collaboration potential",
+      "Found 926 unexplored concept intersections",
+      "Discovered 0 concepts ripe for modernization",
+      "Identified 52 cross-domain transfer opportunities"
+    ],
+    "collaboration_readiness": "0 opportunities are immediately ready for university partnerships"
+  },
+  "statistics": {
+    "total_papers_analyzed": 358,
+    "papers_with_explicit_gaps": 66,
+    "novel_concept_intersections": 926,
+    "temporal_evolution_gaps": 0,
+    "cross_domain_opportunities": 52,
+    "total_research_opportunities": 26,
+    "high_collaboration_potential": 26,
+    "analysis_date": "2025-07-11T02:45:51.411562"
+  },
+  "gap_analysis_results": {
+    "explicit_research_gaps": [
+      {
+        "paper_id": "abusalih_2023",
+        "title": "Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities",
+        "year": "2023",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "rrent state-of-the-art in healthcare knowledge graph construction, what are the main challenges and open issues, and what are the opportunities for future research?",
+            "source_column": "Summary",
+            "pattern_matched": "(?:remains?\\s+)?(?:open|unsolved|challenging|difficult)\\s+(?:problem|issue|question)"
+          }
+        ]
+      },
+      {
+        "paper_id": "abusalih_2024",
+        "title": "A systematic literature review of knowledge graph construction and application in education",
+        "year": "2024",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on addressing the identified research gaps. This includes developing common ontologies for ed",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          },
+          {
+            "type": "performance_gaps",
+            "context": "current state-of-the-art, including a lack of standardization, poor interoperability, sparse data, scalability issues, and inadequate evaluation techniques. The paper calls for more rigorous and standardized methodolo",
+            "source_column": "Summary",
+            "pattern_matched": "(?:scalability|memory|storage|computational)\\s+(?:issues?|problems?|limitations?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "aho_2023",
+        "title": "A human digital twin for the M‑Machine",
+        "year": "2023",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on developing practical methodologies and tools for building HDTs for specific application do",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "aldughayfiq_2023",
+        "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+        "year": "2023",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "h external standard vocabularies like SNOMED CT and LOINC was identified as a next step and not yet implemented. The study also focused on a single data repository.",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "amofa_2024",
+        "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+        "year": "2024",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could involve applying the framework to a wider range of healthcare use cases, further optimizing the per",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "anderson_2016",
+        "title": "Mind the Gap: Two Dissociable Mechanisms of Temporal Processing in the Auditory System",
+        "year": "2016",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on further experiments to explore the origin of the offset-response deficit and its relations",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "anokhin_2024",
+        "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+        "year": "2024",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "The current approach is focused on text-based environments. The scalability of the graph construction and retrieval for",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "anzia_2018",
+        "title": "Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs",
+        "year": "2018",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could involve improving the accuracy of the event extraction, expanding the system to other social media",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "asprino_2022",
+        "title": "Uncovering Values: Detecting Latent Moral Content from Natural Language with Explainable and Non-Trained Methods",
+        "year": "2022",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could explore the automatic discovery of knowledge patterns and their mappings, potentially drawing from",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "azevedo_2023",
+        "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+        "year": "2023",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "captures provenance data from workflows to create explicit links between data. The architecture was implemented as a polystore service and evaluated in an Oil & Gas industry scenario, showing it could reduce que",
+            "source_column": "Summary",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "banking_2022",
+        "title": "Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on",
+        "year": "2022",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "The paper suggests that future work should go beyond staGc analysis to include insights from data within the applicaGon (e.g., tables) and fro",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "bellomarini_2024a",
+        "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
+        "year": "2024",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "or more efficient anonymization algorithms, especially for very large graphs. It also suggests that future work could explore more complex diversity requirements beyond just node degrees and labels.",
+            "source_column": "Conclusion",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "beltran_2023",
+        "title": "ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study",
+        "year": "2023",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "How can a health monitoring tool using smartwatch data be effectively designed and developed to support healthcare professionals in clinical decision-making?",
+            "source_column": "Summary",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "berlin_2014",
+        "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+        "year": "2014",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could involve developing more sophisticated elasticity benchmarks that cover a wider range of scaling sce",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "bernard_2024",
+        "title": "PKG API: A Tool for Personal Knowledge Graph Management",
+        "year": "2024",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could involve improving the NL2PKG component, conducting user studies to evaluate the system's usability",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "bianchini_2022",
+        "title": "A semantics-enabled approach for personalised Data Lake exploration",
+        "year": "2022",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "The paper suggests that future work could focus on improving the automation of the semantic annotation process, developing more sophisticated",
+            "source_column": "Conclusion",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "bogachov_2018",
+        "title": "A Lightweight Multi-Expert Generative Language Model System for Engineering Information and Knowledge Extraction",
+        "year": "2018",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "h other models (like larger Llama models and RAG systems) and more rigorous hallucination checking. Future work should also focus on improving the orchestrator, adding conversational capabilities, and incorporating mul",
+            "source_column": "Conclusion",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "bontempelli_2017",
+        "title": "Lifelong Personal Context Recognition",
+        "year": "2017",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "integration_gaps",
+            "context": "entation and Machine Learning. Neither field can solve the problem of generality and brittleness in isolation. A lifelong, bidirectional interaction between the human and the AI is essential for maintaining al",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:data\\s+)?(?:silos?|isolation|fragmentation)"
+          }
+        ]
+      },
+      {
+        "paper_id": "boyd_2025",
+        "title": "AMEND 2.0: module identifcation and multi-omic data integration with multiplex-heterogeneous graphs",
+        "year": "2025",
+        "domain": "social",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could involve applying AMEND 2.0 to a wider range of multi-omic datasets and disease contexts, as well as",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "briggs_2021",
+        "title": "A Review of Privacy-preserving Federated Learning for the Internet-of-Things",
+        "year": "2021",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on developing more advanced and computationally efficient privacy-preserving methods, explori",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "The paper provides a good overview of practical privacy-preserving techniques that can be implemented in a federated system. This includes the use of Secure Multi-party Computation (SMC) for secure agg",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "cai_2022",
+        "title": "Temporal Knowledge Graph Completion: A Survey",
+        "year": "2022",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "experimental results. The authors explicitly state they do not compare the published performance of existing methods due to implementation differences. The field is rapidly evolving, so new methods may have emerged",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "cai_2023",
+        "title": "Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space",
+        "year": "2023",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could focus on optimizing the computational efficiency of quaternion-based models for TKGC.",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "chakraborty_2023",
+        "title": "A Comprehensive Survey of Personal Knowledge Graphs",
+        "year": "2023",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "The paper suggests that future work should focus on developing more user-friendly and privacy-preserving PKG solutions.",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "chan_2024",
+        "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+        "year": "2024",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "ing to other healthcare systems; computational complexity considerations for large-scale deployment not fully addressed.",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "chen_2023a",
+        "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+        "year": "2023",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on addressing the identified challenges, such as developing more robust and scalable methods",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "chen_2023b",
+        "title": "Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
+        "year": "2023",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Neglecting historical information in knowledge graph snapshots; Weak anti-noise capabilities in existing methods",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "(TKGs) represent fact dynamics over time, with significant potential for predicting future events. Current methods struggle with effectively encoding historical information and handling noisy inputs. The researche",
+            "source_column": "Summary",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "clark_2001",
+        "title": "Knowledge Patterns",
+        "year": "2001",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work could explore the automatic discovery of knowledge patterns and their mappings, potentially drawing from",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "cudrmauroux_2020",
+        "title": "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline",
+        "year": "2020",
+        "domain": "enterprise",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on developing libraries of composable software artifacts for different integration subprocess",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "das_2025",
+        "title": "Detection-Fusion for Knowledge Graph Extraction from Videos",
+        "year": "2025",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "performance_gaps",
+            "context": "determines relations between them, incorporating background knowledge from Visual Genome dataset to improve accuracy.",
+            "source_column": "Summary",
+            "pattern_matched": "(?:improve|enhance|optimize|increase)\\s+(?:performance|efficiency|accuracy)"
+          }
+        ]
+      },
+      {
+        "paper_id": "fabr_2024",
+        "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+        "year": "2024",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "the Torus (TFHE) with graph-based machine learning using Zama Concrete ML. Two main pipelines were developed: a privacy-preserving Graph Neural Network (GNN) pipeline and a privacy-preserving graph-based XGBo",
+            "source_column": "Summary",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "farshidi_2021",
+        "title": "Knowledge sharing and discovery across heterogeneous research infrastructures",
+        "year": "2021",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "domain_gaps",
+            "context": "Enhanced knowledge discovery approaches for multi-domain applications integration with virtual research environments advanced semantic reasoning capabilities for cross-i",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:cross-domain|interdisciplinary|multi-domain)\\s+(?:applications?|approaches?|solutions?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "feng_2024",
+        "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+        "year": "2024",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "data fusion beyond temporal relationships. Schema harmonization and cross-domain entity resolution not addressed despite relevance to PKG architectures.",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "Future work could explore multi-modal information integration (text, images, sensor data), optimization for ultra-lar",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "r temporal relationship modeling in knowledge graphs with significant performance improvements over existing methods.",
+            "source_column": "Conclusion",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "fu_2024",
+        "title": "Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey",
+        "year": "2024",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Current techniques address either data or computation privacy separately; limited work on temporal and heterogeneous graph privacy; privacy-utility trade-offs require better analysis",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:limited|little|minimal)\\s+(?:work|research|study|investigation)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "rving graph ML requires integrated approaches combining data generation and computation techniques; future work should address temporal graphs, heterogeneous graphs, and unified privacy frameworks",
+            "source_column": "Conclusion",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "gaffineta_2002",
+        "title": "Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0",
+        "year": "2023",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "ation separately; limited standardized frameworks; temporal and privacy requirements insufficiently addressed; gap between conceptual models and practical implementations",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "galkin_2024",
+        "title": "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs",
+        "year": "2024",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "phs and heterogeneous graphs with large-scale datasets revealing critical scalability challenges in existing methods.",
+            "source_column": "Summary",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "gao_2024",
+        "title": "Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction",
+        "year": "2024",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on enhancing DR.KNOWS with Bayesian network integration, improving semantic similarity rankin",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          }
+        ]
+      },
+      {
+        "paper_id": "garg_2022",
+        "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+        "year": "2022",
+        "domain": "social",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Future work should focus on developing more sophisticated multimodal embedding techniques, exploring temporal dynamics",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:future\\s+work|further\\s+research|next\\s+steps)\\s+(?:should|could|needs?|requires?)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "providing detailed taxonomy of algorithms based on mathematical foundations. The paper categorizes existing approaches into translation models (TransE, TransH, TransR, TransD), tensor factorization methods (RESCAL, D",
+            "source_column": "Summary",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "general_2023",
+        "title": "Privacy and Fairness in Federated Learning: On the Perspective of Tradeoff",
+        "year": "2023",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Limited work on simultaneous privacy-fairness optimization techniques; insufficient exploration of individual vs",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:limited|little|minimal)\\s+(?:work|research|study|investigation)"
+          },
+          {
+            "type": "integration_gaps",
+            "context": "rning, addressing a critical gap in current research that typically treats these ethical notions in isolation. The authors present detailed taxonomies of privacy attacks (membership inference, property inferen",
+            "source_column": "Summary",
+            "pattern_matched": "(?:data\\s+)?(?:silos?|isolation|fragmentation)"
+          }
+        ]
+      },
+      {
+        "paper_id": "ghani_2020b",
+        "title": "Issues and challenges in Cloud Storage Architecture: A Survey",
+        "year": "2020",
+        "domain": "iot",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Limited work on simultaneous privacy-security optimization in heterogeneous environments; insufficient explorati",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:limited|little|minimal)\\s+(?:work|research|study|investigation)"
+          }
+        ]
+      },
+      {
+        "paper_id": "graphs_2018",
+        "title": "Knowledge Graph Building Blocks: An easy-to-use Framework for developing FAIREr Knowledge Graphs",
+        "year": "2018",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Need for comprehensive evaluation across diverse knowledge domains; Limited investigation of automated KGBB discovery and recommendation; Insufficient exploration of large-scale KGBB compos",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:limited|little|minimal)\\s+(?:work|research|study|investigation)"
+          }
+        ]
+      },
+      {
+        "paper_id": "group_2009",
+        "title": "Consistency Rationing in the Cloud: Pay only when it matters",
+        "year": "2009",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "performance_gaps",
+            "context": "with automatic switching mechanisms. Implementation on Amazon S3 with TPC-W benchmark demonstrates significant cost savings through the Dynamic policy, which outperforms static consistency approaches. The framework",
+            "source_column": "Summary",
+            "pattern_matched": "(?:high|excessive|significant)\\s+(?:latency|delay|overhead|cost)"
+          }
+        ]
+      },
+      {
+        "paper_id": "guan_2023",
+        "title": "Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments",
+        "year": "2023",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Need for comprehensive user experience evaluation; Limited investigation of long-term system scalability; Insufficient exploration of privacy-preserving multi-user interact",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:limited|little|minimal)\\s+(?:work|research|study|investigation)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "imited to conceptual framework without empirical user studies; Implementation complexity challenges not fully addressed; Scalability and performance considerations need more investigation; Privacy and security framework",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "gupta_2021",
+        "title": "Personalized Artificial General Intelligence (AGI) via Neuroscience-Inspired Continuous Learning Systems",
+        "year": "2021",
+        "domain": "education",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Need for comprehensive empirical validation on real edge devices; Limited investigation of cross-domain knowledge transfer; Insufficient exploration of multi-user and collaborative learni",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:limited|little|minimal)\\s+(?:work|research|study|investigation)"
+          }
+        ]
+      },
+      {
+        "paper_id": "gyrarda_2024",
+        "title": "IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for Better Well-Being",
+        "year": "2024",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "across evolving standards; Privacy and ethical considerations for personal health data integration not fully addressed; Scalability challenges for large-scale deployment across diverse healthcare environments",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "hbscher_2020",
+        "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+        "year": "2020",
+        "domain": "social",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "requires further investigation; long-term evolution and maintenance of user-created type extensions not fully addressed.",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "hendler_2014",
+        "title": "Data Integration for Heterogeneous Datasets",
+        "year": "2014",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "ent open data examples; limited discussion of privacy and security; semantic integration complexity not fully addressed; validation techniques preliminary",
+            "source_column": "Future Work",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "khatib_2024",
+        "title": "Patient-Centric Knowledge Graphs: A Survey of Current Methods, Challenges, and Applications",
+        "year": "2024",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "udip Mittal, Amin Amirlatifi, Shahram Rahimi explores patient-centric knowledge graphs: a survey of current methods, challenges, and applications. The work contributes to the field of knowledge graphs and data mana",
+            "source_column": "Summary",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      },
+      {
+        "paper_id": "kim_2024",
+        "title": "Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes",
+        "year": "2024",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Abstract lacks specific performance metrics; evaluation details limited; scalability considerations not addressed.",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "li_2023a",
+        "title": "A Blockchain-Based Personal Health Knowledge Graph for Secure Integrated Health Data Management",
+        "year": "2023",
+        "domain": "healthcare",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Abstract only - technical implementation details and real-world deployment challenges not addressed.",
+            "source_column": "Research Gaps",
+            "pattern_matched": "(?:not\\s+)?(?:fully\\s+)?(?:addressed|solved|implemented|developed)"
+          }
+        ]
+      },
+      {
+        "paper_id": "liyitong_2024",
+        "title": "A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation",
+        "year": "2024",
+        "domain": "general",
+        "gaps": [
+          {
+            "type": "technical_gaps",
+            "context": "Previous methods de-emphasized temporal correlations, existing approaches ignored inferring clues from missing past facts, limited handling of temporal data complexity in",
+            "source_column": "Limitations",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          },
+          {
+            "type": "technical_gaps",
+            "context": "ine interpretability. The approach addresses temporal correlations and chronological knowledge that existing methods have de-emphasized or ignored.",
+            "source_column": "Summary",
+            "pattern_matched": "(?:no\\s+)?(?:existing|current|available)\\s+(?:solution|method|approach|framework)"
+          }
+        ]
+      }
+    ],
+    "concept_intersections": [
+      {
+        "concept1": "pkg",
+        "concept2": "heterogeneous data integration",
+        "category1": "knowledge_graph",
+        "category2": "hdm_specific",
+        "frequency1": 259,
+        "frequency2": 233,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "hdm",
+        "category1": "knowledge_graph",
+        "category2": "hdm_specific",
+        "frequency1": 259,
+        "frequency2": 91,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "temporal-first",
+        "category1": "knowledge_graph",
+        "category2": "hdm_specific",
+        "frequency1": 259,
+        "frequency2": 41,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "federated learning",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 67,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "graph neural networks",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 34,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "privacy-preserving",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 86,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "differential privacy",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 40,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "accuracy",
+        "category1": "knowledge_graph",
+        "category2": "performance_metrics",
+        "frequency1": 259,
+        "frequency2": 80,
+        "co_occurrence": 2,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "scalability",
+        "category1": "knowledge_graph",
+        "category2": "performance_metrics",
+        "frequency1": 259,
+        "frequency2": 50,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "temporal-first architecture",
+        "category1": "knowledge_graph",
+        "category2": "architectures",
+        "frequency1": 259,
+        "frequency2": 37,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "heterogeneous data integration",
+        "concept2": "accuracy",
+        "category1": "hdm_specific",
+        "category2": "performance_metrics",
+        "frequency1": 233,
+        "frequency2": 80,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 100
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "transformer",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 27,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 97.2
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "graph neural network",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 23,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 97.0
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "gnn",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 24,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 96.3
+      },
+      {
+        "concept1": "heterogeneous data integration",
+        "concept2": "scalability",
+        "category1": "hdm_specific",
+        "category2": "performance_metrics",
+        "frequency1": 233,
+        "frequency2": 50,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 96.3
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "precision",
+        "category1": "knowledge_graph",
+        "category2": "performance_metrics",
+        "frequency1": 259,
+        "frequency2": 27,
+        "co_occurrence": 2,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 96.2
+      },
+      {
+        "concept1": "knowledge graph construction",
+        "concept2": "heterogeneous data integration",
+        "category1": "knowledge_graph",
+        "category2": "hdm_specific",
+        "frequency1": 52,
+        "frequency2": 233,
+        "co_occurrence": 2,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 95.9
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "temporal modeling",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 18,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 95.5
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "entity resolution",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 21,
+        "co_occurrence": 1,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 95.4
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "nlp",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 17,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 95.2
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "homomorphic encryption",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 15,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 94.60000000000001
+      },
+      {
+        "concept1": "heterogeneous data integration",
+        "concept2": "differential privacy",
+        "category1": "hdm_specific",
+        "category2": "methodologies",
+        "frequency1": 233,
+        "frequency2": 40,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 94.3
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "latency",
+        "category1": "knowledge_graph",
+        "category2": "performance_metrics",
+        "frequency1": 259,
+        "frequency2": 13,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 94.0
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "continual learning",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 11,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 93.4
+      },
+      {
+        "concept1": "heterogeneous data integration",
+        "concept2": "temporal-first architecture",
+        "category1": "hdm_specific",
+        "category2": "architectures",
+        "frequency1": 233,
+        "frequency2": 37,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 93.4
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "gpt",
+        "category1": "knowledge_graph",
+        "category2": "algorithms",
+        "frequency1": 259,
+        "frequency2": 10,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 93.10000000000001
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "knowledge integration",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 10,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 93.10000000000001
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "anomaly detection",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 10,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 93.10000000000001
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "quality assessment",
+        "category1": "knowledge_graph",
+        "category2": "hdm_specific",
+        "frequency1": 259,
+        "frequency2": 8,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "opportunity_score": 92.5
+      },
+      {
+        "concept1": "pkg",
+        "concept2": "semantic interoperability",
+        "category1": "knowledge_graph",
+        "category2": "methodologies",
+        "frequency1": 259,
+        "frequency2": 8,
+        "co_occurrence": 0,
+        "potential_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "opportunity_score": 92.5
+      }
+    ],
+    "temporal_evolution_gaps": [],
+    "cross_domain_opportunities": [
+      {
+        "concept": "privacy-preserving",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 86,
+        "category": "methodologies",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "temporal knowledge graph",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 75,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "differential privacy",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 40,
+        "category": "methodologies",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "precision",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 27,
+        "category": "performance_metrics",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "knowledge graph completion",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 24,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "entity resolution",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 21,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "link prediction",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 18,
+        "category": "knowledge_graph",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "knowledge graph reasoning",
+        "source_domain": "general",
+        "target_domain": "enterprise",
+        "frequency": 15,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "temporal knowledge graph",
+        "source_domain": "general",
+        "target_domain": "healthcare",
+        "frequency": 75,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "differential privacy",
+        "source_domain": "general",
+        "target_domain": "healthcare",
+        "frequency": 40,
+        "category": "methodologies",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "knowledge graph completion",
+        "source_domain": "general",
+        "target_domain": "healthcare",
+        "frequency": 24,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "entity resolution",
+        "source_domain": "general",
+        "target_domain": "healthcare",
+        "frequency": 21,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "link prediction",
+        "source_domain": "general",
+        "target_domain": "healthcare",
+        "frequency": 18,
+        "category": "knowledge_graph",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "knowledge graph reasoning",
+        "source_domain": "general",
+        "target_domain": "healthcare",
+        "frequency": 15,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "temporal knowledge graph",
+        "source_domain": "general",
+        "target_domain": "social",
+        "frequency": 75,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "differential privacy",
+        "source_domain": "general",
+        "target_domain": "social",
+        "frequency": 40,
+        "category": "methodologies",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "entity resolution",
+        "source_domain": "general",
+        "target_domain": "social",
+        "frequency": 21,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "temporal reasoning",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 72,
+        "category": "knowledge_graph",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "federated learning",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 67,
+        "category": "algorithms",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "scalability",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 50,
+        "category": "performance_metrics",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "temporal-first",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 41,
+        "category": "hdm_specific",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "temporal-first architecture",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 37,
+        "category": "architectures",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "graph neural networks",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 34,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "inference",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 29,
+        "category": "knowledge_graph",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "transformer",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 27,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "sparql",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 24,
+        "category": "knowledge_graph",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "graph neural network",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 23,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "temporal modeling",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 18,
+        "category": "methodologies",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "latency",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 13,
+        "category": "performance_metrics",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "knowledge integration",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 10,
+        "category": "methodologies",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "anomaly detection",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 10,
+        "category": "methodologies",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "gpt",
+        "source_domain": "healthcare",
+        "target_domain": "enterprise",
+        "frequency": 10,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "graph neural networks",
+        "source_domain": "healthcare",
+        "target_domain": "general",
+        "frequency": 34,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "graph neural network",
+        "source_domain": "healthcare",
+        "target_domain": "general",
+        "frequency": 23,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "anomaly detection",
+        "source_domain": "healthcare",
+        "target_domain": "general",
+        "frequency": 10,
+        "category": "methodologies",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "federated learning",
+        "source_domain": "healthcare",
+        "target_domain": "social",
+        "frequency": 67,
+        "category": "algorithms",
+        "transfer_potential": "medium"
+      },
+      {
+        "concept": "sparql",
+        "source_domain": "healthcare",
+        "target_domain": "social",
+        "frequency": 24,
+        "category": "knowledge_graph",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "nlp",
+        "source_domain": "healthcare",
+        "target_domain": "social",
+        "frequency": 17,
+        "category": "algorithms",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "latency",
+        "source_domain": "healthcare",
+        "target_domain": "social",
+        "frequency": 13,
+        "category": "performance_metrics",
+        "transfer_potential": "low"
+      },
+      {
+        "concept": "anomaly detection",
+        "source_domain": "healthcare",
+        "target_domain": "social",
+        "frequency": 10,
+        "category": "methodologies",
+        "transfer_potential": "low"
+      }
+    ]
+  },
+  "novel_research_opportunities": {
+    "by_type": {
+      "integration": [
+        {
+          "id": "intersection_1",
+          "title": "Integration of Pkg and Heterogeneous Data Integration",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_2",
+          "title": "Integration of Pkg and Hdm",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_3",
+          "title": "Integration of Pkg and Temporal-First",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_4",
+          "title": "Integration of Pkg and Federated Learning",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_5",
+          "title": "Integration of Pkg and Graph Neural Networks",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_6",
+          "title": "Integration of Pkg and Privacy-Preserving",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_7",
+          "title": "Integration of Pkg and Differential Privacy",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "education",
+            "social",
+            "iot",
+            "enterprise",
+            "healthcare"
+          ]
+        },
+        {
+          "id": "intersection_8",
+          "title": "Integration of Pkg and Accuracy",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_9",
+          "title": "Integration of Pkg and Scalability",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_10",
+          "title": "Integration of Pkg and Temporal-First Architecture",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_11",
+          "title": "Integration of Heterogeneous Data Integration and Accuracy",
+          "importance_score": 1.0,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_12",
+          "title": "Integration of Pkg and Transformer",
+          "importance_score": 0.972,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_13",
+          "title": "Integration of Pkg and Graph Neural Network",
+          "importance_score": 0.97,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_14",
+          "title": "Integration of Pkg and Gnn",
+          "importance_score": 0.963,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "education",
+            "social",
+            "iot",
+            "enterprise",
+            "healthcare"
+          ]
+        },
+        {
+          "id": "intersection_15",
+          "title": "Integration of Heterogeneous Data Integration and Scalability",
+          "importance_score": 0.963,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_16",
+          "title": "Integration of Pkg and Precision",
+          "importance_score": 0.9620000000000001,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_17",
+          "title": "Integration of Knowledge Graph Construction and Heterogeneous Data Integration",
+          "importance_score": 0.9590000000000001,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_18",
+          "title": "Integration of Pkg and Temporal Modeling",
+          "importance_score": 0.955,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "intersection_19",
+          "title": "Integration of Pkg and Entity Resolution",
+          "importance_score": 0.9540000000000001,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "education",
+            "social",
+            "iot",
+            "enterprise",
+            "healthcare"
+          ]
+        },
+        {
+          "id": "intersection_20",
+          "title": "Integration of Pkg and Nlp",
+          "importance_score": 0.9520000000000001,
+          "feasibility_score": 0.7,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "general",
+            "social",
+            "iot",
+            "healthcare",
+            "education",
+            "enterprise"
+          ]
+        }
+      ],
+      "domain": [
+        {
+          "id": "transfer_21",
+          "title": "Gpt Transfer from Healthcare to Education",
+          "importance_score": 0.2,
+          "feasibility_score": 0.75,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "healthcare",
+            "education"
+          ]
+        },
+        {
+          "id": "transfer_22",
+          "title": "Gnn Transfer from Social to Enterprise",
+          "importance_score": 0.48,
+          "feasibility_score": 0.75,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "social",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "transfer_23",
+          "title": "Homomorphic Encryption Transfer from Education to Enterprise",
+          "importance_score": 0.3,
+          "feasibility_score": 0.75,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "transfer_24",
+          "title": "Continual Learning Transfer from Education to Enterprise",
+          "importance_score": 0.22,
+          "feasibility_score": 0.75,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "education",
+            "enterprise"
+          ]
+        },
+        {
+          "id": "transfer_25",
+          "title": "Homomorphic Encryption Transfer from Education to Healthcare",
+          "importance_score": 0.3,
+          "feasibility_score": 0.75,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "education",
+            "healthcare"
+          ]
+        },
+        {
+          "id": "transfer_26",
+          "title": "Continual Learning Transfer from Education to Healthcare",
+          "importance_score": 0.22,
+          "feasibility_score": 0.75,
+          "collaboration_potential": "high",
+          "affected_domains": [
+            "education",
+            "healthcare"
+          ]
+        }
+      ]
+    },
+    "university_ready": [],
+    "all_opportunities": [
+      {
+        "id": "intersection_1",
+        "title": "Integration of Pkg and Heterogeneous Data Integration",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and heterogeneous data integration (hdm_specific) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "heterogeneous data integration"
+        ]
+      },
+      {
+        "id": "intersection_2",
+        "title": "Integration of Pkg and Hdm",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and hdm (hdm_specific) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "hdm"
+        ]
+      },
+      {
+        "id": "intersection_3",
+        "title": "Integration of Pkg and Temporal-First",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and temporal-first (hdm_specific) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "temporal-first"
+        ]
+      },
+      {
+        "id": "intersection_4",
+        "title": "Integration of Pkg and Federated Learning",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and federated learning (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "federated learning"
+        ]
+      },
+      {
+        "id": "intersection_5",
+        "title": "Integration of Pkg and Graph Neural Networks",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and graph neural networks (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "graph neural networks"
+        ]
+      },
+      {
+        "id": "intersection_6",
+        "title": "Integration of Pkg and Privacy-Preserving",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and privacy-preserving (methodologies) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "privacy-preserving"
+        ]
+      },
+      {
+        "id": "intersection_7",
+        "title": "Integration of Pkg and Differential Privacy",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and differential privacy (methodologies) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "related_concepts": [
+          "pkg",
+          "differential privacy"
+        ]
+      },
+      {
+        "id": "intersection_8",
+        "title": "Integration of Pkg and Accuracy",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and accuracy (performance_metrics) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "accuracy"
+        ]
+      },
+      {
+        "id": "intersection_9",
+        "title": "Integration of Pkg and Scalability",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and scalability (performance_metrics) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "scalability"
+        ]
+      },
+      {
+        "id": "intersection_10",
+        "title": "Integration of Pkg and Temporal-First Architecture",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and temporal-first architecture (architectures) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "temporal-first architecture"
+        ]
+      },
+      {
+        "id": "intersection_11",
+        "title": "Integration of Heterogeneous Data Integration and Accuracy",
+        "description": "Unexplored intersection between heterogeneous data integration (hdm_specific) and accuracy (performance_metrics) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 1.0,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "heterogeneous data integration",
+          "accuracy"
+        ]
+      },
+      {
+        "id": "intersection_12",
+        "title": "Integration of Pkg and Transformer",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and transformer (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.972,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "transformer"
+        ]
+      },
+      {
+        "id": "intersection_13",
+        "title": "Integration of Pkg and Graph Neural Network",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and graph neural network (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.97,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "graph neural network"
+        ]
+      },
+      {
+        "id": "intersection_14",
+        "title": "Integration of Pkg and Gnn",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and gnn (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.963,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "related_concepts": [
+          "pkg",
+          "gnn"
+        ]
+      },
+      {
+        "id": "intersection_15",
+        "title": "Integration of Heterogeneous Data Integration and Scalability",
+        "description": "Unexplored intersection between heterogeneous data integration (hdm_specific) and scalability (performance_metrics) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.963,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "heterogeneous data integration",
+          "scalability"
+        ]
+      },
+      {
+        "id": "intersection_16",
+        "title": "Integration of Pkg and Precision",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and precision (performance_metrics) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.9620000000000001,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "precision"
+        ]
+      },
+      {
+        "id": "intersection_17",
+        "title": "Integration of Knowledge Graph Construction and Heterogeneous Data Integration",
+        "description": "Unexplored intersection between knowledge graph construction (knowledge_graph) and heterogeneous data integration (hdm_specific) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.9590000000000001,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "knowledge graph construction",
+          "heterogeneous data integration"
+        ]
+      },
+      {
+        "id": "intersection_18",
+        "title": "Integration of Pkg and Temporal Modeling",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and temporal modeling (methodologies) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.955,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "temporal modeling"
+        ]
+      },
+      {
+        "id": "intersection_19",
+        "title": "Integration of Pkg and Entity Resolution",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and entity resolution (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.9540000000000001,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "education",
+          "social",
+          "iot",
+          "enterprise",
+          "healthcare"
+        ],
+        "related_concepts": [
+          "pkg",
+          "entity resolution"
+        ]
+      },
+      {
+        "id": "intersection_20",
+        "title": "Integration of Pkg and Nlp",
+        "description": "Unexplored intersection between pkg (knowledge_graph) and nlp (algorithms) with high potential for innovation.",
+        "gap_type": "integration",
+        "importance_score": 0.9520000000000001,
+        "feasibility_score": 0.7,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "general",
+          "social",
+          "iot",
+          "healthcare",
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "pkg",
+          "nlp"
+        ]
+      },
+      {
+        "id": "transfer_21",
+        "title": "Gpt Transfer from Healthcare to Education",
+        "description": "Successful gpt approaches from healthcare domain could be adapted for education applications.",
+        "gap_type": "domain",
+        "importance_score": 0.2,
+        "feasibility_score": 0.75,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "healthcare",
+          "education"
+        ],
+        "related_concepts": [
+          "gpt"
+        ]
+      },
+      {
+        "id": "transfer_22",
+        "title": "Gnn Transfer from Social to Enterprise",
+        "description": "Successful gnn approaches from social domain could be adapted for enterprise applications.",
+        "gap_type": "domain",
+        "importance_score": 0.48,
+        "feasibility_score": 0.75,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "social",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "gnn"
+        ]
+      },
+      {
+        "id": "transfer_23",
+        "title": "Homomorphic Encryption Transfer from Education to Enterprise",
+        "description": "Successful homomorphic encryption approaches from education domain could be adapted for enterprise applications.",
+        "gap_type": "domain",
+        "importance_score": 0.3,
+        "feasibility_score": 0.75,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "homomorphic encryption"
+        ]
+      },
+      {
+        "id": "transfer_24",
+        "title": "Continual Learning Transfer from Education to Enterprise",
+        "description": "Successful continual learning approaches from education domain could be adapted for enterprise applications.",
+        "gap_type": "domain",
+        "importance_score": 0.22,
+        "feasibility_score": 0.75,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "education",
+          "enterprise"
+        ],
+        "related_concepts": [
+          "continual learning"
+        ]
+      },
+      {
+        "id": "transfer_25",
+        "title": "Homomorphic Encryption Transfer from Education to Healthcare",
+        "description": "Successful homomorphic encryption approaches from education domain could be adapted for healthcare applications.",
+        "gap_type": "domain",
+        "importance_score": 0.3,
+        "feasibility_score": 0.75,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "education",
+          "healthcare"
+        ],
+        "related_concepts": [
+          "homomorphic encryption"
+        ]
+      },
+      {
+        "id": "transfer_26",
+        "title": "Continual Learning Transfer from Education to Healthcare",
+        "description": "Successful continual learning approaches from education domain could be adapted for healthcare applications.",
+        "gap_type": "domain",
+        "importance_score": 0.22,
+        "feasibility_score": 0.75,
+        "collaboration_potential": "high",
+        "affected_domains": [
+          "education",
+          "healthcare"
+        ],
+        "related_concepts": [
+          "continual learning"
+        ]
+      }
+    ]
+  },
+  "collaboration_framework": {
+    "immediate_opportunities": [],
+    "medium_term_opportunities": [],
+    "funding_recommendations": [
+      "NSF Computer and Information Science and Engineering (CISE) programs",
+      "NIH Big Data to Knowledge (BD2K) initiative",
+      "DOE Advanced Scientific Computing Research (ASCR)",
+      "Industry partnerships for applied research"
+    ],
+    "collaboration_types": {
+      "joint_research_projects": 20,
+      "student_exchange_programs": 6,
+      "shared_infrastructure": 0
+    }
+  }
+}
