@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKG/HDM Research Explorer - Standalone</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Embedded CSS for standalone operation */
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        #app {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        
+        header p {
+            margin: 0;
+            color: #7f8c8d;
+        }
+        
+        #controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        #visualization-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        svg {
+            width: 100%;
+            border: 1px solid #eee;
+            background: #fafafa;
+        }
+        
+        .node {
+            cursor: pointer;
+        }
+        
+        .node:hover circle {
+            stroke-width: 3px !important;
+        }
+        
+        .node text {
+            pointer-events: none;
+            user-select: none;
+            font-size: 11px;
+        }
+        
+        .link {
+            fill: none;
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        
+        #info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tooltip {
+            position: absolute;
+            text-align: left;
+            padding: 10px;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-radius: 4px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>PKG/HDM Research Explorer</h1>
+            <p>Interactive visualization of 100 key concepts from PKG/HDM research</p>
+        </header>
+        
+        <div id="controls">
+            <div class="control-group">
+                <label>Min Frequency:</label>
+                <input type="range" id="freqSlider" min="2" max="50" value="10">
+                <span id="freqValue">10</span>
+            </div>
+            <div class="control-group">
+                <label>Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <button id="resetBtn">Reset View</button>
+            </div>
+        </div>
+        
+        <div id="visualization-container">
+            <svg id="main-svg"></svg>
+        </div>
+        
+        <div id="info">
+            <h3>Instructions</h3>
+            <ul>
+                <li>Drag nodes to reposition them</li>
+                <li>Use the frequency slider to filter concepts</li>
+                <li>Select a category to focus on specific types</li>
+                <li>Hover over nodes to see details</li>
+                <li>Node size = concept frequency, Edge thickness = relationship strength</li>
+            </ul>
+            <p id="stats"></p>
+        </div>
+    </div>
+
+    <script>
+    // Embedded data for standalone operation
+    const data = {
+      "metadata": {
+        "total_concepts": 100,
+        "total_edges": 10,
+        "categories": ["methodologies", "performance_metrics", "architectures", "data_integration", "frameworks_tools", "knowledge_graph", "algorithms", "hdm_specific"]
+      },
+      "network": {
+        "nodes": [
+          {"id": 0, "name": "pkg", "frequency": 259, "category": "knowledge_graph", "size": 55.6},
+          {"id": 1, "name": "heterogeneous data integration", "frequency": 233, "category": "hdm_specific", "size": 54.5},
+          {"id": 2, "name": "complex", "frequency": 113, "category": "algorithms", "size": 47.3},
+          {"id": 3, "name": "hdm", "frequency": 91, "category": "hdm_specific", "size": 45.2},
+          {"id": 4, "name": "privacy-preserving", "frequency": 86, "category": "methodologies", "size": 44.6},
+          {"id": 5, "name": "accuracy", "frequency": 80, "category": "performance_metrics", "size": 43.9},
+          {"id": 6, "name": "temporal knowledge graph", "frequency": 75, "category": "knowledge_graph", "size": 43.3},
+          {"id": 7, "name": "temporal reasoning", "frequency": 72, "category": "knowledge_graph", "size": 42.9},
+          {"id": 8, "name": "federated learning", "frequency": 67, "category": "algorithms", "size": 42.1},
+          {"id": 9, "name": "knowledge graph construction", "frequency": 52, "category": "knowledge_graph", "size": 39.7},
+          {"id": 10, "name": "scalability", "frequency": 50, "category": "performance_metrics", "size": 39.3},
+          {"id": 11, "name": "temporal-first", "frequency": 41, "category": "hdm_specific", "size": 37.3},
+          {"id": 12, "name": "differential privacy", "frequency": 40, "category": "methodologies", "size": 37.1},
+          {"id": 13, "name": "temporal-first architecture", "frequency": 37, "category": "architectures", "size": 36.3},
+          {"id": 14, "name": "graph neural networks", "frequency": 34, "category": "algorithms", "size": 35.5},
+          {"id": 15, "name": "inference", "frequency": 29, "category": "knowledge_graph", "size": 34.0},
+          {"id": 16, "name": "personal knowledge graph", "frequency": 29, "category": "knowledge_graph", "size": 34.0},
+          {"id": 17, "name": "precision", "frequency": 27, "category": "performance_metrics", "size": 33.3},
+          {"id": 18, "name": "transformer", "frequency": 27, "category": "algorithms", "size": 33.3},
+          {"id": 19, "name": "sparql", "frequency": 24, "category": "knowledge_graph", "size": 32.1},
+          {"id": 20, "name": "knowledge graph completion", "frequency": 24, "category": "knowledge_graph", "size": 32.1},
+          {"id": 21, "name": "gnn", "frequency": 24, "category": "algorithms", "size": 32.1},
+          {"id": 22, "name": "graph neural network", "frequency": 23, "category": "algorithms", "size": 31.7},
+          {"id": 23, "name": "entity resolution", "frequency": 21, "category": "algorithms", "size": 30.9},
+          {"id": 24, "name": "link prediction", "frequency": 18, "category": "knowledge_graph", "size": 29.4},
+          {"id": 25, "name": "temporal modeling", "frequency": 18, "category": "methodologies", "size": 29.4},
+          {"id": 26, "name": "nlp", "frequency": 17, "category": "algorithms", "size": 28.9},
+          {"id": 27, "name": "homomorphic encryption", "frequency": 15, "category": "methodologies", "size": 27.7},
+          {"id": 28, "name": "knowledge graph reasoning", "frequency": 15, "category": "knowledge_graph", "size": 27.7},
+          {"id": 29, "name": "latency", "frequency": 13, "category": "performance_metrics", "size": 26.3},
+          {"id": 30, "name": "continual learning", "frequency": 11, "category": "methodologies", "size": 24.8}
+        ],
+        "edges": [
+          {"source": 6, "target": 7, "weight": 3, "strength": 0.6},
+          {"source": 6, "target": 11, "weight": 3, "strength": 0.6},
+          {"source": 6, "target": 13, "weight": 3, "strength": 0.6},
+          {"source": 6, "target": 25, "weight": 3, "strength": 0.6},
+          {"source": 7, "target": 11, "weight": 3, "strength": 0.6},
+          {"source": 7, "target": 13, "weight": 3, "strength": 0.6},
+          {"source": 7, "target": 25, "weight": 3, "strength": 0.6},
+          {"source": 11, "target": 13, "weight": 3, "strength": 0.6},
+          {"source": 11, "target": 25, "weight": 3, "strength": 0.6},
+          {"source": 13, "target": 25, "weight": 3, "strength": 0.6}
+        ]
+      }
+    };
+
+    // Initialize visualization
+    const svg = d3.select('#main-svg');
+    const width = 1000;
+    const height = 600;
+    svg.attr('width', width).attr('height', height);
+
+    // Color scale
+    const categoryColors = {
+        'knowledge_graph': '#1f77b4',
+        'hdm_specific': '#ff7f0e',
+        'algorithms': '#2ca02c',
+        'methodologies': '#d62728',
+        'performance_metrics': '#9467bd',
+        'architectures': '#8c564b',
+        'frameworks_tools': '#e377c2',
+        'data_integration': '#7f7f7f'
+    };
+
+    // Initialize controls
+    const categoryFilter = document.getElementById('categoryFilter');
+    data.metadata.categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat.replace('_', ' ');
+        categoryFilter.appendChild(option);
+    });
+
+    // Create force simulation
+    let simulation;
+    let link, node;
+
+    function updateVisualization() {
+        // Clear previous
+        svg.selectAll('*').remove();
+
+        // Filter data
+        const minFreq = parseInt(document.getElementById('freqSlider').value);
+        const category = categoryFilter.value;
+        
+        const filteredNodes = data.network.nodes.filter(n => 
+            n.frequency >= minFreq && 
+            (category === 'all' || n.category === category)
+        );
+        
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        const filteredEdges = data.network.edges.filter(e => 
+            nodeIds.has(e.source) && nodeIds.has(e.target)
+        );
+
+        // Update stats
+        document.getElementById('stats').textContent = 
+            `Showing ${filteredNodes.length} concepts and ${filteredEdges.length} relationships`;
+
+        // Create container
+        const g = svg.append('g');
+
+        // Add zoom
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on('zoom', (event) => g.attr('transform', event.transform));
+        
+        svg.call(zoom);
+
+        // Create simulation
+        simulation = d3.forceSimulation(filteredNodes)
+            .force('link', d3.forceLink(filteredEdges).id(d => d.id).distance(120))
+            .force('charge', d3.forceManyBody().strength(-400))
+            .force('center', d3.forceCenter(width / 2, height / 2))
+            .force('collision', d3.forceCollide().radius(d => d.size / 2 + 10));
+
+        // Draw edges
+        link = g.selectAll('.link')
+            .data(filteredEdges)
+            .enter().append('line')
+            .attr('class', 'link')
+            .style('stroke-width', d => Math.sqrt(d.weight) * 2);
+
+        // Draw nodes
+        node = g.selectAll('.node')
+            .data(filteredNodes)
+            .enter().append('g')
+            .attr('class', 'node')
+            .call(d3.drag()
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended));
+
+        // Node circles
+        node.append('circle')
+            .attr('r', d => d.size / 2)
+            .style('fill', d => categoryColors[d.category] || '#999')
+            .style('stroke', '#fff')
+            .style('stroke-width', 2)
+            .on('mouseover', showTooltip)
+            .on('mouseout', hideTooltip);
+
+        // Node labels
+        node.append('text')
+            .text(d => d.name)
+            .attr('dx', d => d.size / 2 + 5)
+            .attr('dy', 3);
+
+        // Update positions
+        simulation.on('tick', () => {
+            link
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            node.attr('transform', d => `translate(${d.x},${d.y})`);
+        });
+    }
+
+    // Drag functions
+    function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    }
+
+    // Tooltip functions
+    function showTooltip(event, d) {
+        const tooltip = d3.select('body').append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        tooltip.transition()
+            .duration(200)
+            .style('opacity', .9);
+        
+        tooltip.html(`<strong>${d.name}</strong><br/>
+                     Category: ${d.category}<br/>
+                     Frequency: ${d.frequency}<br/>
+                     Papers: ${d.frequency}`)
+            .style('left', (event.pageX + 10) + 'px')
+            .style('top', (event.pageY - 28) + 'px');
+    }
+
+    function hideTooltip() {
+        d3.selectAll('.tooltip').remove();
+    }
+
+    // Event listeners
+    document.getElementById('freqSlider').addEventListener('input', function(e) {
+        document.getElementById('freqValue').textContent = e.target.value;
+        updateVisualization();
+    });
+
+    categoryFilter.addEventListener('change', updateVisualization);
+
+    document.getElementById('resetBtn').addEventListener('click', function() {
+        document.getElementById('freqSlider').value = 10;
+        document.getElementById('freqValue').textContent = '10';
+        categoryFilter.value = 'all';
+        updateVisualization();
+    });
+
+    // Initial render
+    updateVisualization();
+    </script>
+</body>
+</html>

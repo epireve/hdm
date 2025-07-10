@@ -1,0 +1,316 @@
+/* PKG/HDM Research Explorer Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+#app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
+
+header p {
+    margin: 0;
+    color: #7f8c8d;
+}
+
+/* Control Panel */
+#controls {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+.control-group select,
+.control-group input[type="range"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.control-group button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control-group button:hover {
+    background-color: #2980b9;
+}
+
+#frequencyValue {
+    font-weight: bold;
+    color: #3498db;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Visualization Container */
+#visualization-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    position: relative;
+    min-height: 600px;
+}
+
+.view {
+    display: none;
+    padding: 20px;
+}
+
+.view.active {
+    display: block;
+}
+
+#network-svg,
+#hierarchy-svg,
+#matrix-svg {
+    width: 100%;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+}
+
+/* Detail Panel */
+#detail-panel {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#detail-panel h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+#concept-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+#concept-info h4 {
+    margin: 0 0 10px 0;
+    color: #3498db;
+}
+
+#concept-info p {
+    margin: 5px 0;
+}
+
+#related-concepts h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+#related-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#related-list li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+}
+
+/* Research Notes */
+#research-notes {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#research-notes h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+#notes-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+#save-notes {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#save-notes:hover {
+    background-color: #229954;
+}
+
+#saved-notes {
+    margin-top: 20px;
+}
+
+.saved-note {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #27ae60;
+}
+
+.saved-note small {
+    color: #7f8c8d;
+    font-size: 12px;
+}
+
+.saved-note p {
+    margin: 5px 0 0 0;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 10px;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* D3 Specific Styles */
+.node {
+    cursor: pointer;
+}
+
+.node:hover circle {
+    stroke-width: 3px !important;
+}
+
+.node text {
+    pointer-events: none;
+    user-select: none;
+}
+
+.link {
+    fill: none;
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.cell {
+    cursor: pointer;
+}
+
+.cell:hover {
+    stroke: #000 !important;
+    stroke-width: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .control-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    #visualization-container {
+        min-height: 400px;
+    }
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    color: #7f8c8d;
+}
+
+.loading::after {
+    content: "Loading visualization data...";
+    font-size: 18px;
+}
+
+/* Export Animation */
+@keyframes exportPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.control-group button:active {
+    animation: exportPulse 0.3s ease-in-out;
+}

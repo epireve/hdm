@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKG/HDM Research Explorer - Personal Research Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <h1>PKG/HDM Research Explorer</h1>
+            <p>Interactive visualization for exploring Personal Knowledge Graph research landscape</p>
+        </header>
+
+        <!-- Control Panel -->
+        <div id="controls">
+            <div class="control-group">
+                <label>View Mode:</label>
+                <select id="viewMode">
+                    <option value="network">Network Graph</option>
+                    <option value="hierarchy">Hierarchical Tree</option>
+                    <option value="matrix">Co-occurrence Matrix</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Filter by Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Min Frequency:</label>
+                <input type="range" id="frequencySlider" min="2" max="50" value="2">
+                <span id="frequencyValue">2</span>
+            </div>
+            <div class="control-group">
+                <button id="resetView">Reset View</button>
+                <button id="exportData">Export Selection</button>
+            </div>
+        </div>
+
+        <!-- Main Visualization Area -->
+        <div id="visualization-container">
+            <div id="network-view" class="view active">
+                <svg id="network-svg"></svg>
+            </div>
+            <div id="hierarchy-view" class="view">
+                <svg id="hierarchy-svg"></svg>
+            </div>
+            <div id="matrix-view" class="view">
+                <svg id="matrix-svg"></svg>
+            </div>
+        </div>
+
+        <!-- Detail Panel -->
+        <div id="detail-panel">
+            <h3>Concept Details</h3>
+            <div id="concept-info">
+                <p>Click on a concept to see details</p>
+            </div>
+            <div id="related-concepts">
+                <h4>Related Concepts</h4>
+                <ul id="related-list"></ul>
+            </div>
+        </div>
+
+        <!-- Research Notes Section -->
+        <div id="research-notes">
+            <h3>Research Notes</h3>
+            <textarea id="notes-input" placeholder="Add your research notes here..."></textarea>
+            <button id="save-notes">Save Notes</button>
+            <div id="saved-notes"></div>
+        </div>
+    </div>
+
+    <script>
+    // Global variables
+    let data = null;
+    let currentView = 'network';
+    let selectedNodes = new Set();
+    let notes = JSON.parse(localStorage.getItem('researchNotes') || '{}');
+
+    // Load visualization data
+    d3.json('data/visualization_data.json').then(function(loadedData) {
+        data = loadedData;
+        initializeControls();
+        renderVisualization();
+    });
+
+    // Initialize controls
+    function initializeControls() {
+        // Populate category filter
+        const categoryFilter = document.getElementById('categoryFilter');
+        data.filters.categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category.replace('_', ' ').charAt(0).toUpperCase() + category.slice(1);
+            categoryFilter.appendChild(option);
+        });
+
+        // Event listeners
+        document.getElementById('viewMode').addEventListener('change', function(e) {
+            currentView = e.target.value;
+            switchView();
+        });
+
+        document.getElementById('categoryFilter').addEventListener('change', renderVisualization);
+        
+        document.getElementById('frequencySlider').addEventListener('input', function(e) {
+            document.getElementById('frequencyValue').textContent = e.target.value;
+            renderVisualization();
+        });
+
+        document.getElementById('resetView').addEventListener('click', resetView);
+        document.getElementById('exportData').addEventListener('click', exportData);
+        document.getElementById('save-notes').addEventListener('click', saveNotes);
+    }
+
+    // Switch between views
+    function switchView() {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(currentView + '-view').classList.add('active');
+        renderVisualization();
+    }
+
+    // Main rendering function
+    function renderVisualization() {
+        switch(currentView) {
+            case 'network':
+                renderNetworkGraph();
+                break;
+            case 'hierarchy':
+                renderHierarchyTree();
+                break;
+            case 'matrix':
+                renderCooccurrenceMatrix();
+                break;
+        }
+    }
+
+    // Network Graph Visualization
+    function renderNetworkGraph() {
+        const svg = d3.select('#network-svg');
+        svg.selectAll('*').remove();
+
+        const width = svg.node().getBoundingClientRect().width;
+        const height = 600;
+        svg.attr('width', width).attr('height', height);
+
+        // Filter data based on controls
+        const minFreq = parseInt(document.getElementById('frequencySlider').value);
+        const category = document.getElementById('categoryFilter').value;
+        
+        const filteredNodes = data.network.nodes.filter(n => 
+            n.frequency >= minFreq && 
+            (category === 'all' || n.category === category)
+        );
+        
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        const filteredEdges = data.network.edges.filter(e => 
+            nodeIds.has(e.source) && nodeIds.has(e.target)
+        );
+
+        // Create force simulation
+        const simulation = d3.forceSimulation(filteredNodes)
+            .force('link', d3.forceLink(filteredEdges).id(d => d.id).distance(100))
+            .force('charge', d3.forceManyBody().strength(-300))
+            .force('center', d3.forceCenter(width / 2, height / 2))
+            .force('collision', d3.forceCollide().radius(d => d.size + 5));
+
+        // Create container
+        const g = svg.append('g');
+
+        // Add zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on('zoom', (event) => g.attr('transform', event.transform));
+        
+        svg.call(zoom);
+
+        // Draw edges
+        const link = g.selectAll('.link')
+            .data(filteredEdges)
+            .enter().append('line')
+            .attr('class', 'link')
+            .style('stroke', '#999')
+            .style('stroke-opacity', 0.6)
+            .style('stroke-width', d => Math.sqrt(d.weight));
+
+        // Draw nodes
+        const node = g.selectAll('.node')
+            .data(filteredNodes)
+            .enter().append('g')
+            .attr('class', 'node')
+            .call(d3.drag()
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended));
+
+        // Node circles
+        node.append('circle')
+            .attr('r', d => d.size / 2)
+            .style('fill', d => getCategoryColor(d.category))
+            .style('stroke', '#fff')
+            .style('stroke-width', 2)
+            .on('click', (event, d) => selectNode(d))
+            .on('mouseover', (event, d) => showTooltip(event, d))
+            .on('mouseout', hideTooltip);
+
+        // Node labels
+        node.append('text')
+            .text(d => d.name)
+            .style('font-size', d => Math.min(d.size / 3, 12) + 'px')
+            .attr('dx', d => d.size / 2 + 5)
+            .attr('dy', 3);
+
+        // Update positions on simulation tick
+        simulation.on('tick', () => {
+            link
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            node.attr('transform', d => `translate(${d.x},${d.y})`);
+        });
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    }
+
+    // Hierarchy Tree Visualization
+    function renderHierarchyTree() {
+        const svg = d3.select('#hierarchy-svg');
+        svg.selectAll('*').remove();
+
+        const width = svg.node().getBoundingClientRect().width;
+        const height = 800;
+        const margin = {top: 20, right: 90, bottom: 30, left: 90};
+
+        svg.attr('width', width).attr('height', height);
+
+        const g = svg.append('g')
+            .attr('transform', `translate(${margin.left},${margin.top})`);
+
+        // Create tree layout
+        const treeLayout = d3.tree()
+            .size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+
+        // Create hierarchy
+        const root = d3.hierarchy(data.hierarchy);
+        treeLayout(root);
+
+        // Draw links
+        g.selectAll('.link')
+            .data(root.links())
+            .enter().append('path')
+            .attr('class', 'link')
+            .attr('d', d3.linkHorizontal()
+                .x(d => d.y)
+                .y(d => d.x))
+            .style('fill', 'none')
+            .style('stroke', '#ccc')
+            .style('stroke-width', 2);
+
+        // Draw nodes
+        const node = g.selectAll('.node')
+            .data(root.descendants())
+            .enter().append('g')
+            .attr('class', 'node')
+            .attr('transform', d => `translate(${d.y},${d.x})`);
+
+        node.append('circle')
+            .attr('r', d => d.children ? 5 : 10)
+            .style('fill', d => d.children ? '#555' : getCategoryColor(d.data.category))
+            .on('click', (event, d) => {
+                if (d.data.id !== undefined) {
+                    selectNode(data.network.nodes.find(n => n.id === d.data.id));
+                }
+            });
+
+        node.append('text')
+            .attr('dy', 3)
+            .attr('x', d => d.children ? -10 : 10)
+            .style('text-anchor', d => d.children ? 'end' : 'start')
+            .text(d => d.data.name)
+            .style('font-size', '12px');
+    }
+
+    // Co-occurrence Matrix Visualization
+    function renderCooccurrenceMatrix() {
+        const svg = d3.select('#matrix-svg');
+        svg.selectAll('*').remove();
+
+        const width = 800;
+        const height = 800;
+        const margin = {top: 100, right: 10, bottom: 10, left: 100};
+
+        svg.attr('width', width).attr('height', height);
+
+        // Get top N concepts for matrix
+        const topConcepts = data.network.nodes
+            .sort((a, b) => b.frequency - a.frequency)
+            .slice(0, 20);
+
+        const conceptIds = topConcepts.map(c => c.id);
+        const size = topConcepts.length;
+        const cellSize = (width - margin.left - margin.right) / size;
+
+        // Create matrix data
+        const matrix = [];
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                const edge = data.network.edges.find(e => 
+                    (e.source === conceptIds[i] && e.target === conceptIds[j]) ||
+                    (e.source === conceptIds[j] && e.target === conceptIds[i])
+                );
+                matrix.push({
+                    x: j,
+                    y: i,
+                    value: edge ? edge.weight : (i === j ? topConcepts[i].frequency : 0)
+                });
+            }
+        }
+
+        const g = svg.append('g')
+            .attr('transform', `translate(${margin.left},${margin.top})`);
+
+        // Color scale
+        const colorScale = d3.scaleSequential(d3.interpolateBlues)
+            .domain([0, d3.max(matrix, d => d.value)]);
+
+        // Draw cells
+        g.selectAll('.cell')
+            .data(matrix)
+            .enter().append('rect')
+            .attr('class', 'cell')
+            .attr('x', d => d.x * cellSize)
+            .attr('y', d => d.y * cellSize)
+            .attr('width', cellSize - 2)
+            .attr('height', cellSize - 2)
+            .style('fill', d => d.value > 0 ? colorScale(d.value) : '#f0f0f0')
+            .style('stroke', '#fff')
+            .on('mouseover', (event, d) => {
+                if (d.value > 0) {
+                    showMatrixTooltip(event, d, topConcepts[d.y].name, topConcepts[d.x].name);
+                }
+            })
+            .on('mouseout', hideTooltip);
+
+        // Add labels
+        g.selectAll('.row-label')
+            .data(topConcepts)
+            .enter().append('text')
+            .attr('class', 'row-label')
+            .attr('x', -5)
+            .attr('y', (d, i) => i * cellSize + cellSize / 2)
+            .attr('dy', 3)
+            .style('text-anchor', 'end')
+            .style('font-size', '10px')
+            .text(d => d.name);
+
+        g.selectAll('.col-label')
+            .data(topConcepts)
+            .enter().append('text')
+            .attr('class', 'col-label')
+            .attr('x', (d, i) => i * cellSize + cellSize / 2)
+            .attr('y', -5)
+            .attr('transform', (d, i) => `rotate(-45,${i * cellSize + cellSize / 2},-5)`)
+            .style('text-anchor', 'start')
+            .style('font-size', '10px')
+            .text(d => d.name);
+    }
+
+    // Helper functions
+    function getCategoryColor(category) {
+        const colors = {
+            'knowledge_graph': '#1f77b4',
+            'hdm_specific': '#ff7f0e',
+            'algorithms': '#2ca02c',
+            'methodologies': '#d62728',
+            'performance_metrics': '#9467bd',
+            'architectures': '#8c564b',
+            'frameworks_tools': '#e377c2',
+            'data_integration': '#7f7f7f',
+            'general': '#bcbd22',
+            'temporal': '#17becf',
+            'integration': '#aec7e8',
+            'schema': '#ffbb78',
+            'privacy': '#98df8a',
+            'performance': '#ff9896'
+        };
+        return colors[category] || '#999';
+    }
+
+    function selectNode(node) {
+        // Update selection
+        if (selectedNodes.has(node.id)) {
+            selectedNodes.delete(node.id);
+        } else {
+            selectedNodes.add(node.id);
+        }
+
+        // Update detail panel
+        updateDetailPanel(node);
+
+        // Highlight in visualization
+        d3.selectAll('.node circle')
+            .style('stroke-width', d => selectedNodes.has(d.id) ? 4 : 2)
+            .style('stroke', d => selectedNodes.has(d.id) ? '#000' : '#fff');
+    }
+
+    function updateDetailPanel(node) {
+        const info = document.getElementById('concept-info');
+        info.innerHTML = `
+            <h4>${node.name}</h4>
+            <p><strong>Category:</strong> ${node.category.replace('_', ' ')}</p>
+            <p><strong>Frequency:</strong> ${node.frequency}</p>
+            <p><strong>Type:</strong> ${node.type}</p>
+        `;
+
+        // Find related concepts
+        const relatedList = document.getElementById('related-list');
+        relatedList.innerHTML = '';
+        
+        const relatedEdges = data.network.edges.filter(e => 
+            e.source === node.id || e.target === node.id
+        );
+        
+        relatedEdges.forEach(edge => {
+            const relatedId = edge.source === node.id ? edge.target : edge.source;
+            const relatedNode = data.network.nodes.find(n => n.id === relatedId);
+            if (relatedNode) {
+                const li = document.createElement('li');
+                li.textContent = `${relatedNode.name} (weight: ${edge.weight})`;
+                relatedList.appendChild(li);
+            }
+        });
+    }
+
+    function showTooltip(event, d) {
+        const tooltip = d3.select('body').append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        tooltip.transition()
+            .duration(200)
+            .style('opacity', .9);
+        
+        tooltip.html(`<strong>${d.name}</strong><br/>
+                     Category: ${d.category}<br/>
+                     Frequency: ${d.frequency}`)
+            .style('left', (event.pageX + 10) + 'px')
+            .style('top', (event.pageY - 28) + 'px');
+    }
+
+    function showMatrixTooltip(event, d, row, col) {
+        const tooltip = d3.select('body').append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        tooltip.transition()
+            .duration(200)
+            .style('opacity', .9);
+        
+        tooltip.html(`<strong>${row} ↔ ${col}</strong><br/>
+                     Value: ${d.value}`)
+            .style('left', (event.pageX + 10) + 'px')
+            .style('top', (event.pageY - 28) + 'px');
+    }
+
+    function hideTooltip() {
+        d3.selectAll('.tooltip').remove();
+    }
+
+    function resetView() {
+        selectedNodes.clear();
+        document.getElementById('categoryFilter').value = 'all';
+        document.getElementById('frequencySlider').value = 2;
+        document.getElementById('frequencyValue').textContent = '2';
+        renderVisualization();
+    }
+
+    function exportData() {
+        const exportObj = {
+            selectedConcepts: Array.from(selectedNodes).map(id => {
+                const node = data.network.nodes.find(n => n.id === id);
+                return {
+                    name: node.name,
+                    category: node.category,
+                    frequency: node.frequency
+                };
+            }),
+            notes: notes,
+            timestamp: new Date().toISOString()
+        };
+
+        const dataStr = JSON.stringify(exportObj, null, 2);
+        const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+        
+        const exportFileDefaultName = `research_export_${new Date().toISOString().slice(0,10)}.json`;
+        
+        const linkElement = document.createElement('a');
+        linkElement.setAttribute('href', dataUri);
+        linkElement.setAttribute('download', exportFileDefaultName);
+        linkElement.click();
+    }
+
+    function saveNotes() {
+        const noteText = document.getElementById('notes-input').value;
+        if (noteText.trim()) {
+            const timestamp = new Date().toISOString();
+            notes[timestamp] = noteText;
+            localStorage.setItem('researchNotes', JSON.stringify(notes));
+            
+            // Display saved note
+            const savedDiv = document.getElementById('saved-notes');
+            const noteDiv = document.createElement('div');
+            noteDiv.className = 'saved-note';
+            noteDiv.innerHTML = `<small>${new Date(timestamp).toLocaleString()}</small><p>${noteText}</p>`;
+            savedDiv.insertBefore(noteDiv, savedDiv.firstChild);
+            
+            // Clear input
+            document.getElementById('notes-input').value = '';
+        }
+    }
+
+    // Load saved notes on startup
+    window.addEventListener('load', () => {
+        const savedDiv = document.getElementById('saved-notes');
+        Object.entries(notes).reverse().forEach(([timestamp, text]) => {
+            const noteDiv = document.createElement('div');
+            noteDiv.className = 'saved-note';
+            noteDiv.innerHTML = `<small>${new Date(timestamp).toLocaleString()}</small><p>${text}</p>`;
+            savedDiv.appendChild(noteDiv);
+        });
+    });
+    </script>
+</body>
+</html>

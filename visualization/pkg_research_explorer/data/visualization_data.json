@@ -1,0 +1,1452 @@
+{
+  "metadata": {
+    "total_concepts": 100,
+    "total_edges": 10,
+    "total_opportunities": 0,
+    "categories": [
+      "methodologies",
+      "performance_metrics",
+      "architectures",
+      "data_integration",
+      "frameworks_tools",
+      "knowledge_graph",
+      "algorithms",
+      "hdm_specific"
+    ],
+    "domains": []
+  },
+  "network": {
+    "nodes": [
+      {
+        "id": 0,
+        "name": "pkg",
+        "frequency": 259,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 55.606816310155274
+      },
+      {
+        "id": 1,
+        "name": "heterogeneous data integration",
+        "frequency": 233,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 54.55321115357702
+      },
+      {
+        "id": 2,
+        "name": "complex",
+        "frequency": 113,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 47.36198448394496
+      },
+      {
+        "id": 3,
+        "name": "hdm",
+        "frequency": 91,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 45.217885770490405
+      },
+      {
+        "id": 4,
+        "name": "privacy-preserving",
+        "frequency": 86,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 44.65908118654583
+      },
+      {
+        "id": 5,
+        "name": "accuracy",
+        "frequency": 80,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 43.94449154672439
+      },
+      {
+        "id": 6,
+        "name": "temporal knowledge graph",
+        "frequency": 75,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 43.30733340286331
+      },
+      {
+        "id": 7,
+        "name": "temporal reasoning",
+        "frequency": 72,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 42.90459441148391
+      },
+      {
+        "id": 8,
+        "name": "federated learning",
+        "frequency": 67,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 42.19507705176107
+      },
+      {
+        "id": 9,
+        "name": "knowledge graph construction",
+        "frequency": 52,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 39.70291913552122
+      },
+      {
+        "id": 10,
+        "name": "scalability",
+        "frequency": 50,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 39.318256327243255
+      },
+      {
+        "id": 11,
+        "name": "temporal-first",
+        "frequency": 41,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 37.37669618283368
+      },
+      {
+        "id": 12,
+        "name": "differential privacy",
+        "frequency": 40,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 37.13572066704308
+      },
+      {
+        "id": 13,
+        "name": "temporal-first architecture",
+        "frequency": 37,
+        "category": "architectures",
+        "type": "technical",
+        "size": 36.37586159726386
+      },
+      {
+        "id": 14,
+        "name": "graph neural networks",
+        "frequency": 34,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 35.553480614894134
+      },
+      {
+        "id": 15,
+        "name": "inference",
+        "frequency": 29,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 34.011973816621555
+      },
+      {
+        "id": 16,
+        "name": "personal knowledge graph",
+        "frequency": 29,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 34.011973816621555
+      },
+      {
+        "id": 17,
+        "name": "precision",
+        "frequency": 27,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 33.32204510175204
+      },
+      {
+        "id": 18,
+        "name": "transformer",
+        "frequency": 27,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 33.32204510175204
+      },
+      {
+        "id": 19,
+        "name": "sparql",
+        "frequency": 24,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 32.18875824868201
+      },
+      {
+        "id": 20,
+        "name": "knowledge graph completion",
+        "frequency": 24,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 32.18875824868201
+      },
+      {
+        "id": 21,
+        "name": "gnn",
+        "frequency": 24,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 32.18875824868201
+      },
+      {
+        "id": 22,
+        "name": "graph neural network",
+        "frequency": 23,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 31.780538303479457
+      },
+      {
+        "id": 23,
+        "name": "entity resolution",
+        "frequency": 21,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 30.91042453358316
+      },
+      {
+        "id": 24,
+        "name": "link prediction",
+        "frequency": 18,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 29.444389791664403
+      },
+      {
+        "id": 25,
+        "name": "temporal modeling",
+        "frequency": 18,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 29.444389791664403
+      },
+      {
+        "id": 26,
+        "name": "nlp",
+        "frequency": 17,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 28.903717578961647
+      },
+      {
+        "id": 27,
+        "name": "homomorphic encryption",
+        "frequency": 15,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 27.725887222397812
+      },
+      {
+        "id": 28,
+        "name": "knowledge graph reasoning",
+        "frequency": 15,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 27.725887222397812
+      },
+      {
+        "id": 29,
+        "name": "latency",
+        "frequency": 13,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 26.390573296152585
+      },
+      {
+        "id": 30,
+        "name": "continual learning",
+        "frequency": 11,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 24.849066497880003
+      },
+      {
+        "id": 31,
+        "name": "knowledge integration",
+        "frequency": 10,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 23.978952727983707
+      },
+      {
+        "id": 32,
+        "name": "anomaly detection",
+        "frequency": 10,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 23.978952727983707
+      },
+      {
+        "id": 33,
+        "name": "gpt",
+        "frequency": 10,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 23.978952727983707
+      },
+      {
+        "id": 34,
+        "name": "gcn",
+        "frequency": 8,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 35,
+        "name": "semantic interoperability",
+        "frequency": 8,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 36,
+        "name": "entity linking",
+        "frequency": 8,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 37,
+        "name": "rouge",
+        "frequency": 8,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 38,
+        "name": "lambda architecture",
+        "frequency": 8,
+        "category": "architectures",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 39,
+        "name": "quality assessment",
+        "frequency": 8,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 40,
+        "name": "reinforcement learning",
+        "frequency": 8,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 41,
+        "name": "graph fusion",
+        "frequency": 8,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 21.972245773362197
+      },
+      {
+        "id": 42,
+        "name": "mrr",
+        "frequency": 7,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 20.79441541679836
+      },
+      {
+        "id": 43,
+        "name": "neo4j",
+        "frequency": 7,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 20.79441541679836
+      },
+      {
+        "id": 44,
+        "name": "cassandra",
+        "frequency": 7,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 20.79441541679836
+      },
+      {
+        "id": 45,
+        "name": "schema harmonization",
+        "frequency": 7,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 20.79441541679836
+      },
+      {
+        "id": 46,
+        "name": "availability",
+        "frequency": 6,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 19.45910149055313
+      },
+      {
+        "id": 47,
+        "name": "data lake",
+        "frequency": 6,
+        "category": "data_integration",
+        "type": "technical",
+        "size": 19.45910149055313
+      },
+      {
+        "id": 48,
+        "name": "explainable ai",
+        "frequency": 6,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 19.45910149055313
+      },
+      {
+        "id": 49,
+        "name": "natural language processing",
+        "frequency": 6,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 19.45910149055313
+      },
+      {
+        "id": 50,
+        "name": "bespoke pkg",
+        "frequency": 6,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 19.45910149055313
+      },
+      {
+        "id": 51,
+        "name": "query optimization",
+        "frequency": 5,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 52,
+        "name": "graphdb",
+        "frequency": 5,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 53,
+        "name": "clustering",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 54,
+        "name": "attention mechanism",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 55,
+        "name": "multi-task learning",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 56,
+        "name": "transe",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 57,
+        "name": "lstm",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 58,
+        "name": "heterogeneous data fusion",
+        "frequency": 5,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 59,
+        "name": "schema evolution",
+        "frequency": 5,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 60,
+        "name": "entity matching",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 61,
+        "name": "feature extraction",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 62,
+        "name": "rnn",
+        "frequency": 5,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 17.91759469228055
+      },
+      {
+        "id": 63,
+        "name": "layered architecture",
+        "frequency": 4,
+        "category": "architectures",
+        "type": "technical",
+        "size": 16.094379124341003
+      },
+      {
+        "id": 64,
+        "name": "data provenance",
+        "frequency": 4,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 16.094379124341003
+      },
+      {
+        "id": 65,
+        "name": "recall",
+        "frequency": 4,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 16.094379124341003
+      },
+      {
+        "id": 66,
+        "name": "postgresql",
+        "frequency": 4,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 16.094379124341003
+      },
+      {
+        "id": 67,
+        "name": "microservices",
+        "frequency": 4,
+        "category": "architectures",
+        "type": "technical",
+        "size": 16.094379124341003
+      },
+      {
+        "id": 68,
+        "name": "f1-score",
+        "frequency": 4,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 16.094379124341003
+      },
+      {
+        "id": 69,
+        "name": "text mining",
+        "frequency": 3,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 70,
+        "name": "reliability",
+        "frequency": 3,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 71,
+        "name": "mysql",
+        "frequency": 3,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 72,
+        "name": "graph representation learning",
+        "frequency": 3,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 73,
+        "name": "causal inference",
+        "frequency": 3,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 74,
+        "name": "cnn",
+        "frequency": 3,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 75,
+        "name": "knowledge graph quality",
+        "frequency": 3,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 76,
+        "name": "hits@1",
+        "frequency": 3,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 77,
+        "name": "real-time processing",
+        "frequency": 3,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 78,
+        "name": "gan",
+        "frequency": 3,
+        "category": "methodologies",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 79,
+        "name": "bleu",
+        "frequency": 3,
+        "category": "performance_metrics",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 80,
+        "name": "dynamic schema",
+        "frequency": 3,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 81,
+        "name": "graphsage",
+        "frequency": 3,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 82,
+        "name": "graph attention networks",
+        "frequency": 3,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 83,
+        "name": "knowledge graph visualization",
+        "frequency": 3,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 84,
+        "name": "transr",
+        "frequency": 3,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 85,
+        "name": "distmult",
+        "frequency": 3,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 86,
+        "name": "multi-modal knowledge graph",
+        "frequency": 3,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 87,
+        "name": "graph generation",
+        "frequency": 3,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 13.862943611198906
+      },
+      {
+        "id": 88,
+        "name": "mongodb",
+        "frequency": 2,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 89,
+        "name": "kafka",
+        "frequency": 2,
+        "category": "frameworks_tools",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 90,
+        "name": "data standardization",
+        "frequency": 2,
+        "category": "data_integration",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 91,
+        "name": "gru",
+        "frequency": 2,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 92,
+        "name": "named entity recognition",
+        "frequency": 2,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 93,
+        "name": "upstream data orchestration",
+        "frequency": 2,
+        "category": "hdm_specific",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 94,
+        "name": "data synchronization",
+        "frequency": 2,
+        "category": "data_integration",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 95,
+        "name": "knowledge graph evolution",
+        "frequency": 2,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 96,
+        "name": "multi-head attention",
+        "frequency": 2,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 97,
+        "name": "data security",
+        "frequency": 2,
+        "category": "data_integration",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 98,
+        "name": "computer vision",
+        "frequency": 2,
+        "category": "algorithms",
+        "type": "technical",
+        "size": 10.986122886681098
+      },
+      {
+        "id": 99,
+        "name": "knowledge graph integration",
+        "frequency": 2,
+        "category": "knowledge_graph",
+        "type": "technical",
+        "size": 10.986122886681098
+      }
+    ],
+    "edges": [
+      {
+        "source": 6,
+        "target": 7,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 6,
+        "target": 11,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 6,
+        "target": 13,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 6,
+        "target": 25,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 7,
+        "target": 11,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 7,
+        "target": 13,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 7,
+        "target": 25,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 11,
+        "target": 13,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 11,
+        "target": 25,
+        "weight": 3,
+        "strength": 0.6
+      },
+      {
+        "source": 13,
+        "target": 25,
+        "weight": 3,
+        "strength": 0.6
+      }
+    ]
+  },
+  "hierarchy": {
+    "name": "PKG Research Landscape",
+    "children": [
+      {
+        "name": "Knowledge Graph",
+        "children": [
+          {
+            "name": "pkg",
+            "value": 259,
+            "id": 0
+          },
+          {
+            "name": "temporal knowledge graph",
+            "value": 75,
+            "id": 6
+          },
+          {
+            "name": "temporal reasoning",
+            "value": 72,
+            "id": 7
+          },
+          {
+            "name": "knowledge graph construction",
+            "value": 52,
+            "id": 9
+          },
+          {
+            "name": "inference",
+            "value": 29,
+            "id": 15
+          },
+          {
+            "name": "personal knowledge graph",
+            "value": 29,
+            "id": 16
+          },
+          {
+            "name": "sparql",
+            "value": 24,
+            "id": 19
+          },
+          {
+            "name": "knowledge graph completion",
+            "value": 24,
+            "id": 20
+          },
+          {
+            "name": "link prediction",
+            "value": 18,
+            "id": 24
+          },
+          {
+            "name": "knowledge graph reasoning",
+            "value": 15,
+            "id": 28
+          },
+          {
+            "name": "graph fusion",
+            "value": 8,
+            "id": 41
+          },
+          {
+            "name": "bespoke pkg",
+            "value": 6,
+            "id": 50
+          },
+          {
+            "name": "graph representation learning",
+            "value": 3,
+            "id": 72
+          },
+          {
+            "name": "knowledge graph quality",
+            "value": 3,
+            "id": 75
+          },
+          {
+            "name": "knowledge graph visualization",
+            "value": 3,
+            "id": 83
+          },
+          {
+            "name": "multi-modal knowledge graph",
+            "value": 3,
+            "id": 86
+          },
+          {
+            "name": "graph generation",
+            "value": 3,
+            "id": 87
+          },
+          {
+            "name": "knowledge graph evolution",
+            "value": 2,
+            "id": 95
+          },
+          {
+            "name": "knowledge graph integration",
+            "value": 2,
+            "id": 99
+          }
+        ]
+      },
+      {
+        "name": "Hdm Specific",
+        "children": [
+          {
+            "name": "heterogeneous data integration",
+            "value": 233,
+            "id": 1
+          },
+          {
+            "name": "hdm",
+            "value": 91,
+            "id": 3
+          },
+          {
+            "name": "temporal-first",
+            "value": 41,
+            "id": 11
+          },
+          {
+            "name": "quality assessment",
+            "value": 8,
+            "id": 39
+          },
+          {
+            "name": "schema harmonization",
+            "value": 7,
+            "id": 45
+          },
+          {
+            "name": "data provenance",
+            "value": 4,
+            "id": 64
+          },
+          {
+            "name": "dynamic schema",
+            "value": 3,
+            "id": 80
+          },
+          {
+            "name": "upstream data orchestration",
+            "value": 2,
+            "id": 93
+          }
+        ]
+      },
+      {
+        "name": "Algorithms",
+        "children": [
+          {
+            "name": "complex",
+            "value": 113,
+            "id": 2
+          },
+          {
+            "name": "federated learning",
+            "value": 67,
+            "id": 8
+          },
+          {
+            "name": "graph neural networks",
+            "value": 34,
+            "id": 14
+          },
+          {
+            "name": "transformer",
+            "value": 27,
+            "id": 18
+          },
+          {
+            "name": "gnn",
+            "value": 24,
+            "id": 21
+          },
+          {
+            "name": "graph neural network",
+            "value": 23,
+            "id": 22
+          },
+          {
+            "name": "entity resolution",
+            "value": 21,
+            "id": 23
+          },
+          {
+            "name": "nlp",
+            "value": 17,
+            "id": 26
+          },
+          {
+            "name": "gpt",
+            "value": 10,
+            "id": 33
+          },
+          {
+            "name": "gcn",
+            "value": 8,
+            "id": 34
+          },
+          {
+            "name": "entity linking",
+            "value": 8,
+            "id": 36
+          },
+          {
+            "name": "reinforcement learning",
+            "value": 8,
+            "id": 40
+          },
+          {
+            "name": "natural language processing",
+            "value": 6,
+            "id": 49
+          },
+          {
+            "name": "clustering",
+            "value": 5,
+            "id": 53
+          },
+          {
+            "name": "attention mechanism",
+            "value": 5,
+            "id": 54
+          },
+          {
+            "name": "multi-task learning",
+            "value": 5,
+            "id": 55
+          },
+          {
+            "name": "transe",
+            "value": 5,
+            "id": 56
+          },
+          {
+            "name": "lstm",
+            "value": 5,
+            "id": 57
+          },
+          {
+            "name": "entity matching",
+            "value": 5,
+            "id": 60
+          },
+          {
+            "name": "feature extraction",
+            "value": 5,
+            "id": 61
+          },
+          {
+            "name": "rnn",
+            "value": 5,
+            "id": 62
+          },
+          {
+            "name": "text mining",
+            "value": 3,
+            "id": 69
+          },
+          {
+            "name": "cnn",
+            "value": 3,
+            "id": 74
+          },
+          {
+            "name": "graphsage",
+            "value": 3,
+            "id": 81
+          },
+          {
+            "name": "graph attention networks",
+            "value": 3,
+            "id": 82
+          },
+          {
+            "name": "transr",
+            "value": 3,
+            "id": 84
+          },
+          {
+            "name": "distmult",
+            "value": 3,
+            "id": 85
+          },
+          {
+            "name": "gru",
+            "value": 2,
+            "id": 91
+          },
+          {
+            "name": "named entity recognition",
+            "value": 2,
+            "id": 92
+          },
+          {
+            "name": "multi-head attention",
+            "value": 2,
+            "id": 96
+          },
+          {
+            "name": "computer vision",
+            "value": 2,
+            "id": 98
+          }
+        ]
+      },
+      {
+        "name": "Methodologies",
+        "children": [
+          {
+            "name": "privacy-preserving",
+            "value": 86,
+            "id": 4
+          },
+          {
+            "name": "differential privacy",
+            "value": 40,
+            "id": 12
+          },
+          {
+            "name": "temporal modeling",
+            "value": 18,
+            "id": 25
+          },
+          {
+            "name": "homomorphic encryption",
+            "value": 15,
+            "id": 27
+          },
+          {
+            "name": "continual learning",
+            "value": 11,
+            "id": 30
+          },
+          {
+            "name": "knowledge integration",
+            "value": 10,
+            "id": 31
+          },
+          {
+            "name": "anomaly detection",
+            "value": 10,
+            "id": 32
+          },
+          {
+            "name": "semantic interoperability",
+            "value": 8,
+            "id": 35
+          },
+          {
+            "name": "explainable ai",
+            "value": 6,
+            "id": 48
+          },
+          {
+            "name": "query optimization",
+            "value": 5,
+            "id": 51
+          },
+          {
+            "name": "heterogeneous data fusion",
+            "value": 5,
+            "id": 58
+          },
+          {
+            "name": "schema evolution",
+            "value": 5,
+            "id": 59
+          },
+          {
+            "name": "causal inference",
+            "value": 3,
+            "id": 73
+          },
+          {
+            "name": "real-time processing",
+            "value": 3,
+            "id": 77
+          },
+          {
+            "name": "gan",
+            "value": 3,
+            "id": 78
+          }
+        ]
+      },
+      {
+        "name": "Performance Metrics",
+        "children": [
+          {
+            "name": "accuracy",
+            "value": 80,
+            "id": 5
+          },
+          {
+            "name": "scalability",
+            "value": 50,
+            "id": 10
+          },
+          {
+            "name": "precision",
+            "value": 27,
+            "id": 17
+          },
+          {
+            "name": "latency",
+            "value": 13,
+            "id": 29
+          },
+          {
+            "name": "rouge",
+            "value": 8,
+            "id": 37
+          },
+          {
+            "name": "mrr",
+            "value": 7,
+            "id": 42
+          },
+          {
+            "name": "availability",
+            "value": 6,
+            "id": 46
+          },
+          {
+            "name": "recall",
+            "value": 4,
+            "id": 65
+          },
+          {
+            "name": "f1-score",
+            "value": 4,
+            "id": 68
+          },
+          {
+            "name": "reliability",
+            "value": 3,
+            "id": 70
+          },
+          {
+            "name": "hits@1",
+            "value": 3,
+            "id": 76
+          },
+          {
+            "name": "bleu",
+            "value": 3,
+            "id": 79
+          }
+        ]
+      },
+      {
+        "name": "Architectures",
+        "children": [
+          {
+            "name": "temporal-first architecture",
+            "value": 37,
+            "id": 13
+          },
+          {
+            "name": "lambda architecture",
+            "value": 8,
+            "id": 38
+          },
+          {
+            "name": "layered architecture",
+            "value": 4,
+            "id": 63
+          },
+          {
+            "name": "microservices",
+            "value": 4,
+            "id": 67
+          }
+        ]
+      },
+      {
+        "name": "Frameworks Tools",
+        "children": [
+          {
+            "name": "neo4j",
+            "value": 7,
+            "id": 43
+          },
+          {
+            "name": "cassandra",
+            "value": 7,
+            "id": 44
+          },
+          {
+            "name": "graphdb",
+            "value": 5,
+            "id": 52
+          },
+          {
+            "name": "postgresql",
+            "value": 4,
+            "id": 66
+          },
+          {
+            "name": "mysql",
+            "value": 3,
+            "id": 71
+          },
+          {
+            "name": "mongodb",
+            "value": 2,
+            "id": 88
+          },
+          {
+            "name": "kafka",
+            "value": 2,
+            "id": 89
+          }
+        ]
+      },
+      {
+        "name": "Data Integration",
+        "children": [
+          {
+            "name": "data lake",
+            "value": 6,
+            "id": 47
+          },
+          {
+            "name": "data standardization",
+            "value": 2,
+            "id": 90
+          },
+          {
+            "name": "data synchronization",
+            "value": 2,
+            "id": 94
+          },
+          {
+            "name": "data security",
+            "value": 2,
+            "id": 97
+          }
+        ]
+      }
+    ]
+  },
+  "opportunities": [],
+  "filters": {
+    "categories": [
+      "algorithms",
+      "architectures",
+      "data_integration",
+      "frameworks_tools",
+      "hdm_specific",
+      "knowledge_graph",
+      "methodologies",
+      "performance_metrics"
+    ],
+    "types": [
+      "technical",
+      "domain"
+    ],
+    "maturity_levels": [
+      "early_stage",
+      "emerging",
+      "established"
+    ],
+    "gap_types": []
+  }
+}
