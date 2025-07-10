@@ -512,3 +512,20 @@ ing," in *2023 IEEE Security and Privacy Workshops (SPW)*. IEEE, 2023, pp. 69–
 - <span id="page-13-37"></span>[70] A. Krizhevsky, G. Hinton *et al.*, "Learning multiple layers of features from tiny images," 2009.
 - <span id="page-13-38"></span>[71] Y. LeCun, "The mnist database of handwritten digits," *http://yann. lecun. com/exdb/mnist/*, 1998.
 - <span id="page-13-39"></span>[72] H. A. Salehi, M. J. Mia, S. S. Pradhan, M. H. Amini, and F. Shirani, "Corbin-fl: A differentially private federated learning mechanism using common randomness," *arXiv preprint arXiv:2409.13133*, 2024.
+
+
+## TL;DR
+Research on quancrypt-fl: quantized homomorphic encryption with pruning for secure federated learning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

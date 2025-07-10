@@ -1,4 +1,3 @@
----
 cite_key: yu_2016
 title: Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition
 authors: Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan Cheng, Qingpei Guo, Wei Chu
@@ -39,7 +38,15 @@ keywords:
 
 ## Abstract
 
-*With the explosive growth of video data in real-world applications, a comprehensive representation of videos becomes increasingly important. In this paper, we address the problem of video scene recognition, whose goal is to learn a high-level video representation to classify scenes in videos. Due to the diversity and complexity of video contents in realistic scenarios, this task remains a challenge. Most existing works identify scenes for videos only from visual or textual information in a temporal perspective, ignoring the valuable information hidden in single frames, while several earlier studies only recognize scenes for separate images in a non-temporal perspective. We argue that these two perspectives are both meaningful for this task and complementary to each other, meanwhile, external introduced knowledge can also promote the comprehension of videos. We propose a novel two-stream framework to model video representations from multiple perspectives, i.e. temporal and non-temporal perspectives, and integrate the two perspectives in an end-to-end manner by self-distillation. Besides, we design a knowledge-enhanced feature fusion and label prediction method that contributes to naturally introducing knowledge into the task of video scene recognition. Experiments conducted on a real-world dataset demonstrate the effectiveness of our proposed method.*# INTRODUCTION
+*With the explosive growth of video data in real-world applications, a comprehensive representation of videos becomes increasingly important. In this paper, we address the problem of video scene recognition, whose goal is to learn a high-level video representation to classify scenes in videos. Due to the diversity and complexity of video contents in realistic scenarios, this task remains a challenge. Most existing works identify scenes for videos only from visual or textual information in a temporal perspective, ignoring the valuable information hidden in single frames, while several earlier studies only recognize scenes for separate images in a non-temporal perspective. We argue that these two perspectives are both meaningful for this task and complementary to each other, meanwhile, external introduced knowledge can also promote the comprehension of videos. We propose a novel two-stream framework to model video representations from multiple perspectives, i.e. temporal and non-temporal perspectives, and integrate the two perspectives in an end-to-end manner by self-distillation. Besides, we design a knowledge-enhanced feature fusion and label prediction method that contributes to naturally introducing knowledge into the task of video scene recognition. Experiments conducted on a real-world dataset demonstrate the effectiveness of our proposed method.*
+
+## TL;DR
+Research on knowledge-enhanced multi-perspective video representation learning for scene recognition providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+# INTRODUCTION
 
 With the explosive growth of video data in real-world applications, analysis and reasoning on video content become increasingly important. One important branch is scene recognition from videos, which is to identify scene labels based on the content of videos.
 
@@ -452,3 +459,13 @@ With the explosive growth of video data in real-world applications, a comprehens
 - <span id="page-9-3"></span>[29] Ziqi Zhang, Yaya Shi, Chunfeng Yuan, Bing Li, Peijin Wang, Weiming Hu, and Zheng-Jun Zha. Object relational graph with teacher-recommended learning for video captioning. In *IEEE/CVF Conference on Computer Vision and Pattern Recognition, CVPR*, pages 13275–13285. Computer Vision Foundation / IEEE, 2020. [2,](#page-1-0) [3](#page-2-0)
 - <span id="page-9-4"></span>[30] Bolei Zhou, Agata Lapedriza, Aditya Khosla, Aude Oliva, ` and Antonio Torralba. Places: A 10 million image database for scene recognition. *IEEE Trans. Pattern Anal. Mach. Intell.*, 40(6):1452–1464, 2018. [2](#page-1-0)
 - <span id="page-9-6"></span>[31] Yushan Zhu, Huaixiao Zhao, Wen Zhang, Ganqiang Ye, Hui Chen, Ningyu Zhang, and Huajun Chen. Knowledge perceived multi-modal pretraining in e-commerce. In *Proceedings of the ACM International Conference on Multimedia, MM*, pages 2744–2752. ACM, 2021. [2,](#page-1-0) [3](#page-2-0)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

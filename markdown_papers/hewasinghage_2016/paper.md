@@ -525,3 +525,20 @@ This research has been funded by the European Commission, Spain through the Eras
 <span id="page-15-2"></span>![](_page_15_Picture_8.jpeg)
 <!-- Image Description: That's a grayscale photograph of a person, likely an author or contributor to the academic paper. It's a headshot, showing the individual from the chest up, and serves solely as an author portrait, providing a visual representation of the person associated with the research. The image contains no technical content such as diagrams, charts, graphs, or equations. -->
 **Esteban Zimányi** is a professor and the director of the Department of Computer and Decision Engineering (CoDE) at Université libre de Bruxelles. He is Editor-in-Chief of the Journal on Data Semantics published by Springer. His current research interests include data warehouses, spatio-temporal databases, geographic information systems, and semantic web.
+
+
+## TL;DR
+Research on managing polyglot systems metadata with hypergraphs providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

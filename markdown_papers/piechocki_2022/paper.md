@@ -1,4 +1,3 @@
----
 cite_key: piechocki_2022
 title: Multimodal sensor fusion in the latent representation space
 authors: Robert J. Piechocki, Xiaoyang Wang, Mohammud J. Bocus
@@ -53,6 +52,12 @@ keywords:
 **Robert J. Piechocki**\***, XiaoyangWang & Mohammud J. Bocus**
 
 **A new method for multimodal sensor fusion is introduced. The technique relies on a two-stage process. In the frst stage, a multimodal generative model is constructed from unlabelled training data. In the second stage, the generative model serves as a reconstruction prior and the search manifold for the sensor fusion tasks. The method also handles cases where observations are accessed only via subsampling i.e. compressed sensing. We demonstrate the efectiveness and excellent performance on a range of multimodal fusion experiments such as multisensory classifcation, denoising, and recovery from subsampled observations.**
+
+## TL;DR
+Research on multimodal sensor fusion in the latent representation space providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 **Controlled hallucination:** [1](#page-8-0) is an evocative term referring to the Bayesian brain hypothesi[s2](#page-8-1) . It posits that perception is not merely a function of sensory information processing capturing the world as is. Instead, the brain is a predictive machine - it attempts to infer the causes of sensory inputs. To achieve this, the brain builds and continually refnes its world model. Te world model serves as a prior and when combined with the sensory signals will produce the best guess for its causes. Hallucination (uncontrolled) occurs when the sensory inputs cannot be reconciled with, or contradict the prior world model. Tis might occur in our model, and when it does, it manifests itself at the fusion stage with the stochastic gradient descent procedure getting trapped in a local minimum. Te method presented in this paper is somewhat inspired by the Bayesian brain hypothesis, but it also builds upon multimodal generative modelling and deep compressed sensing.
 
@@ -308,7 +313,7 @@ Te data that support the fndings of this study are openly available in fgshare a
 - <span id="page-9-13"></span>23. Bocus, M. J. *et al.*Translation resilient opportunistic WiFi sensing. In*2020 25th Int. Conf. Pattern Recogn. (ICPR)*, 5627–5633, <https://doi.org/10.1109/ICPR48806.2021.9412263>(2021).
 - 24. Li, W. *et al.*On CSI and passive Wi-Fi radar for opportunistic physical activity recognition.*IEEE Trans. Wireless Commun.*(2022).
 - <span id="page-9-14"></span>25. Li, W.*et al.*A taxonomy of WiFi sensing: CSI vs passive WiFi radar. In*2020 IEEE Globecom Workshops (GC Wkshps*, 1–6, [https://](https://doi.org/10.1109/GCWkshps50303.2020.9367546) [doi.org/10.1109/GCWkshps50303.2020.9367546](https://doi.org/10.1109/GCWkshps50303.2020.9367546) (2020).
-- <span id="page-9-15"></span>26. Bocus, M. J., Li, W., Vishwakarma, S. & Tang, C. A comprehensive multimodal activity recognition dataset acquired from radio frequency and vision-based sensors. *fgshare*[https://doi.org/10.6084/m9.fgshare.c.5551209.v1](https://doi.org/10.6084/m9.figshare.c.5551209.v1) *(2022).*# Acknowledgements
+- <span id="page-9-15"></span>26. Bocus, M. J., Li, W., Vishwakarma, S. & Tang, C. A comprehensive multimodal activity recognition dataset acquired from radio frequency and vision-based sensors. *fgshare*[https://doi.org/10.6084/m9.fgshare.c.5551209.v1](https://doi.org/10.6084/m9.fgshare.c.5551209.v1) *(2022).*# Acknowledgements
 
 Tis work was performed as a part of the OPERA Project, funded by the UK Engineering and Physical Sciences Research Council (EPSRC), Grant EP/R018677/1. Tis work has also been funded in part by the Next-Generation Converged Digital Infrastructure (NG-CDI) Project, supported by BT and Engineering and Physical Sciences Research Council (EPSRC), Grant ref. EP/R004935/1.
 
@@ -329,3 +334,13 @@ Te authors declare no competing interests.
 **Open Access** Tis article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. Te images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit<http://creativecommons.org/licenses/by/4.0/>.
 
 © Te Author(s) 2023
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

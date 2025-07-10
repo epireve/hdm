@@ -1,4 +1,3 @@
----
 cite_key: ho_2024
 title: Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT
 authors: Bao Ho, Oanh Tran, Long Nguyen, Phuong Nguyen, Thang Bui
@@ -68,6 +67,12 @@ ACM ISBN 978-x-xxxx-xxxx-x/YY/MM. . . \$15.00
 <https://doi.org/10.1145/nnnnnnn.nnnnnnn>
 
 Graph from multiple data sources and discusses some initial applications (experimental trials) of KG in conjunction with LLMs for question-answering tasks.
+
+## TL;DR
+Knowledge graph-augmented LLM system for educational question answering with
+
+## Key Insights  
+KG integration improves LLM accuracy by providing factual context, reduces hallucinations, enables domain-specific knowledge management
 
 ## CCS CONCEPTS
 
@@ -425,3 +430,13 @@ Our experiments revealed several key insights. Firstly, the original embedding m
 Secondly, a higher number of components in UMAP increases focus on local attributes, leading to greater separation and potentially clearer visualizations. However, it's crucial to be mindful of the "curse of dimensionality" when employing this approach.
 
 Finally, the framework is sensitive to hyperparameter selection. Due to the presence of numerous hyperparameters requiring tuning, careful consideration should be given when applying this method to your specific domain or FAQ dataset.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can knowledge graphs enhance LLM performance for domain-specific question-answering systems?
+- **Methodology**: Open intent discovery using unsupervised learning, KG construction from FAQ data, Neo4J implementation, evaluation on Banking77 and HCMUT_FAQ datasets
+- **Key Findings**: First Vietnamese open intent discovery approach, 613 entity-pair relationships identified, improved LLM accuracy with factual KG context
+
+### Analysis
+- **Limitations**: Focus on educational domain, limited to Vietnamese and English datasets, some intents not detected (22 of 53)
+- **Future Work**: Scale to larger datasets, develop multilingual support, enhance relationship discovery

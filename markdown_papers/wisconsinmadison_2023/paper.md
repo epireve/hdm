@@ -1,4 +1,3 @@
----
 cite_key: "wisconsinmadison_2023"
 title: "DEPSRAG: Towards Agentic Reasoning and Planning for Software Dependency Management"
 authors: "Mohannad Alhanahnah University of Wisconsin-Madison, USA mohannad@cs.wisc.edu"
@@ -29,6 +28,12 @@ Yazan Boshmaf Qatar Computing Research Institute, Qatar yboshmaf@hbku.edu.qa
 In the era of Large Language Models (LLMs) with their advanced capabilities, a unique opportunity arises to develop LLM-based digital assistant tools that can support software developers by facilitating comprehensive reasoning about software dependencies and open-source libraries before importing them. This reasoning process is daunting, mandating multiple specialized tools and dedicated expertise, each focusing on distinct aspects (e.g., security analysis tools may overlook design flaws such as circular dependencies, which hinder software maintainability). Creating a significant bottleneck in the software development lifecycle.
 
 In this paper, we introduce DEPSRAG, a multi-agent framework designed to assist developers in reasoning about software dependencies. DEPSRAG first constructs a comprehensive Knowledge Graph (KG) that includes both direct and transitive dependencies. Developers can interact with DEPSRAG through a conversational interface, posing queries about the dependencies. DEPSRAG employs Retrieval-Augmented Generation (RAG) to enhance these queries by retrieving relevant information from the KG as well as external sources, such as the Web and vulnerability databases, thus demonstrating its adaptability to novel scenarios. DEPSRAG incorporates a Critic-Agent feedback loop to ensure the accuracy and clarity of LLM-generated responses. We evaluated DEPSRAG using GPT-4-Turbo and Llama-3 on three multi-step reasoning tasks, observing a threefold increase in accuracy with the integration of the Critic-Agent mechanism. DEPSRAG demo and implementation are available: <https://github.com/Mohannadcse/DepsRAG>.
+
+## TL;DR
+Research on depsrag: towards agentic reasoning and planning for software dependency management providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -302,3 +307,13 @@ conflicts and all paths that lead to these packages
 from the root node "
 7 }
 ```text
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

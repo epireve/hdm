@@ -460,3 +460,20 @@ Zhang, J. 2023. Graph-toolformer: To empower LLMs with graph reasoning ability v
 Zhang, T.; Patil, S. G.; Jain, N.; Shen, S.; Zaharia, M.; Stoica, I.; and Gonzalez, J. E. 2024a. Raft: Adapting language model to domain specific rag. *arXiv preprint arXiv:2403.10131*.
 
 Zhang, Y.; Zhang, Y.; Gan, Y.; Yao, L.; and Wang, C. 2024b. Causal graph discovery with retrieval-augmented generation based large language models. *arXiv preprint arXiv:2402.15301*.
+
+
+## TL;DR
+Research on knowledge graph modeling-driven large language model operating system (llm os) for task automation in process engineering problem-solving providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

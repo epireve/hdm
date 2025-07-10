@@ -688,3 +688,20 @@ Word cloud Visualization Finally, in Fig. [11,](#page-23-0) we present a word cl
 <!-- Image Description: This image displays four word clouds, one each for LLAMA, GPT-3, GPT-4, and GPT-40 language models. Each cloud visualizes the frequency of terms associated with each model's capabilities and research areas. Larger font sizes indicate higher frequency. Common themes across all models include "language model," "natural language," "machine translation," "question answering," and "neural network," highlighting core functionalities and research focuses within large language models. -->
 
 **Figure 11:** Word cloud visualization for extracted concepts.
+
+
+## TL;DR
+LLM-powered framework for creating knowledge graphs with global triplet fusion
+
+## Key Insights
+LLMs can provide global perspective for knowledge graph construction; zero-shot KG construction achievable with proper frameworks; educational domain demonstrates practical applicability
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can large language models facilitate zero-shot knowledge graph construction with global perspective and improved accuracy?
+- **Methodology**: Zero-shot knowledge graph construction framework; global triplet fusion using LLMs; TutorQA benchmark development; evaluation on concept entity extraction and relation recognition
+- **Key Findings**: Surpasses supervised baselines by 10% in link prediction accuracy; achieves high scores in concept entity extraction and relation recognition; demonstrates effective zero-shot KG construction
+
+### Analysis
+- **Limitations**: Focused specifically on NLP educational domain; limited evaluation beyond education context; scalability to other domains not demonstrated
+- **Future Work**: Expand framework to other domain-specific knowledge graphs; develop domain-agnostic construction methods; create larger-scale educational benchmarks

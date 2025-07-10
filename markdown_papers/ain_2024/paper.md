@@ -314,3 +314,20 @@ on research and development in Information Retrieval.
 
 - <span id="page-10-10"></span>[48] Yongfeng Zhang, Qingyao Ai, Xu Chen, and Pengfei Wang. 2018. Learning over knowledge-base embeddings for recommendation. arXiv preprint arXiv:1803.06540 (2018).
 - <span id="page-10-6"></span>[49] Juxiang Zhou, Xiaoyu Ma, Peipei Shan, and Jun Wang. 2021. Learning Path Recommendation Using Lesson Sequence and Learning Object based on Course Graph. In Proceedings of the 13th International Conference on Education Technology and Computers. 7–12.
+
+
+## TL;DR
+This paper presents an educational recommender system where students build their own Personal Knowledge Graphs (PKGs) by flagging concepts they don't understand. This PKG-based approach, which gives users control over their data model, was perceived as more accurate, novel, diverse, and useful than a traditional content-based system.
+
+## Key Insights
+The key insight is that giving learners direct control over their knowledge model (by marking concepts they "Did Not Understand") significantly improves their satisfaction and intention to use a recommender system. This user-in-the-loop approach, creating a scrutable PKG, is more impactful on user perception than minor differences in algorithmic accuracy.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can we effectively leverage Personal Knowledge Graphs (PKGs) to model students' knowledge and recommend learning resources in a MOOC environment, and what is the impact of this approach on system accuracy and user perception?
+- **Methodology**: The authors developed a PKG-based recommender system within their CourseMapper MOOC platform. Key components include: 1) A concept extraction pipeline using SingleRank and DBpedia Spotlight. 2) A user interface allowing students to mark concepts as "Did Not Understand" (DNU). 3) A learner model built from the student's PKG, using SBERT for concept embeddings and a modified LightGCN to incorporate graph structure. 4) A recommendation engine that computes cosine similarity between the learner model and candidate resources from YouTube and Wikipedia. The system was evaluated in an online user study (N=31) comparing four variants (PKG-based vs. content-based, each with keyphrase vs. document-level analysis) using quantitative metrics (Precision@k, MRR, MAP) and a qualitative user survey (ResQue framework).
+- **Key Findings**: The user study found that: (1) The PKG-based recommendation approach was perceived by users as more accurate, novel, diverse, and useful than the content-based approach. (2) Users were more satisfied with the PKG-based system and had a higher intention to use it. (3) Giving users control over their learner model (by marking DNU concepts) was a major contributor to their satisfaction. (4) Offline, the keyphrase-based variants achieved higher semantic similarity scores, but online, the document-based variants had slightly better ranking accuracy (MRR/MAP), highlighting the discrepancy between offline metrics and user perception.
+
+### Analysis
+- **Limitations**: The authors acknowledge several limitations: (1) The concept extraction process was sometimes imprecise, leading to irrelevant concepts being included in the PKG. (2) The YouTube API's query length limit restricted the number of DNU concepts that could be used for candidate retrieval. (3) The user study was conducted with a relatively small sample size (N=31) from a single university course, which may limit the generalizability of the findings.
+- **Future Work**: Future work will focus on: (1) Improving the accuracy of the concept extraction pipeline. (2) Refining the recommendation algorithm to better handle the trade-off between global and local context. (3) Conducting larger-scale user studies to further validate the findings and explore other user-centric metrics like transparency and trust.

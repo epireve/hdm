@@ -502,3 +502,20 @@ Example 8: 6936: [Police (India), Arrest, detain, or charge with legal action, S
 | single_step_inference_candidate | 10 |
 
 **Table 13:** Parameter search space.
+
+
+## TL;DR
+Research on chain of history: learning and forecasting with llms for temporal knowledge graph completion providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

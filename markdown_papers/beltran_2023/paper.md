@@ -278,3 +278,20 @@ Integrating smartwatches into EMR may benefit HCPs in care delivery, and there i
 - <span id="page-14-3"></span>44. Zhang, J.; Li, Y.; Xiao, W.; Zhang, Z. Non-iterative and Fast Deep Learning: Multilayer Extreme Learning Machines. *J. Frankl. Inst.* **2020**, *357*, 8925–8955. [\[CrossRef\]](http://doi.org/10.1016/j.jfranklin.2020.04.033)
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+## TL;DR
+This study details the co-design, development, and evaluation of a web-based health monitoring tool that uses machine learning to detect anomalies in smartwatch data. The prototype was designed with input from healthcare professionals (HCPs) and evaluated for its usability. The results show that while HCPs see the potential, successful clinical integration requires careful design to meet their specific needs and workflow constraints.
+
+## Key Insights
+The key insight is the critical importance of the co-design process with healthcare professionals (HCPs) to ensure the clinical utility and adoption of health monitoring tools. Simply providing raw data is not enough; tools must be designed to fit into clinical workflows and reduce, not increase, the workload of HCPs.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The study employed a three-phase Design Science Research (DSR) methodology: (1) A co-design phase where requirements were gathered from eight HCPs via an online survey. (2) A development phase where a web-based prototype was built using a public smartwatch dataset (PMData) and a clustering-based machine learning algorithm (from the PyCaret library) for anomaly detection. (3) An evaluation phase where the HCPs assessed the prototype's usability using the mHealth App Usability Questionnaire (MAUQ).
+- **Methodology**: The co-design process successfully identified key HCP requirements, such as the importance of heart rate data and the preference for graphical summaries. The resulting prototype received positive usability scores from over 60% of the HCPs, particularly for its ease of use and interface design. The study also found that HCPs would prefer a workflow where healthcare administrators first review the data to reduce the clinicians' workload.
+- **Key Findings**: The primary outcome is a proof-of-concept web application that demonstrates the feasibility of using smartwatch data and machine learning to create a health monitoring tool for HCPs. The study also provides a set of design guidelines and user requirements for future development in this area.
+
+### Analysis
+- **Limitations**: The study concludes that integrating smartwatch data into clinical care is feasible and potentially beneficial, but its success is highly dependent on a user-centered, co-design approach that involves HCPs from the beginning. The tool must be designed to be intuitive and to streamline, rather than complicate, the clinical workflow.
+- **Future Work**: A key implementation insight is the value of using a co-design approach to gather user requirements before development. The use of an open-source, low-code machine learning library like PyCaret can accelerate the development of the data analysis component. The suggestion of a tiered review process (with administrators doing initial screening) is a practical workflow consideration for managing HCP workload.

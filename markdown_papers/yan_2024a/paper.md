@@ -564,3 +564,20 @@ Since we only perturb edges (user-item interactions), the number of nodes is unc
 ## E CONVERGENCE ANALYSIS
 
 Following [\[2\]](#page-8-52), we give convergence analysis in Figure [6,](#page-10-3) which shows the convergence plots of different FedRec models in ACM and Douban Book datasets. We visualize HR@10 on different communication rounds. It can be observed that our FedHGNN converges rapidly with better results, and we conjecture that by utilizing the recovered semantics, FedHGNN can rapidly capture the user-item interaction patterns. Also, the communication cost of each round of FedHGNN is moderate compared to baselines. Therefore, although some baselines achieve faster convergence (e.g., FedMF and SemiDFEGL), considering the relatively large improvements in performance, it's acceptable of the trade-off between communication cost and utility in FedHGNN.
+
+
+## TL;DR
+Privacy-preserving federated learning framework for heterogeneous information
+
+## Key Insights
+Achieves 34% improvement in Hit Rate@10 and 42% improvement in NDCG@10 through FedHGNN framework that partitions HINs into private client-side and shared server-side networks while applying differential privacy to protect user interactions and high-order patterns.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can federated learning be applied to heterogeneous information networks for recommendation systems while maintaining strong privacy guarantees and preserving semantic relationships across distributed data?
+- **Methodology**: Developed FedHGNN framework with HIN partitioning strategy, implemented semantic-preserving user interaction publishing method, designed HGNN model with node- and semantic-level aggregations, applied differential privacy techniques for user pattern protection, evaluated under reasonable privacy budgets.
+- **Key Findings**: Demonstrated 34% improvement in Hit Rate@10 and 42% improvement in NDCG@10 compared to baseline methods, achieved effective privacy protection through differential privacy mechanisms, successfully recovered broken semantic connections in distributed network environments while maintaining recommendation quality.
+
+### Analysis
+- **Limitations**: Limited evaluation to specific recommendation datasets, requires further validation across diverse heterogeneous network types, computational complexity considerations for large-scale federated deployment, privacy-utility trade-off optimization needs refinement.
+- **Future Work**: Extend framework to additional recommendation domains and heterogeneous network types, optimize computational efficiency for large-scale federated scenarios, develop adaptive privacy mechanisms, investigate integration with existing commercial recommendation platforms.

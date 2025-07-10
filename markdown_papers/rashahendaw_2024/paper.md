@@ -1,4 +1,3 @@
----
 cite_key: "rashahendaw_2024"
 title: "Comprehensive Personal Health Knowledge Graph for Effective Management and Utilization of Personal Health Data"
 authors: "USA rasha.hendaw"
@@ -28,6 +27,12 @@ tags:
 Rasha Hendawi *Department of Computer Science North Dakota State University* Fargo, USA rasha.hendawi@ndsu.edu
 
 **Abstract:** **— The widespread use of electronic health records (EHRs) and wearable devices has generated a massive amount of personal health data (PHD) that can be utilized for research and patient care. However, integrating and managing various types of PHD from different sources presents significant challenges, including data interoperability, privacy, and security concerns. In response, this paper proposes a Personal Health Knowledge Graph for integrated health data management and utilization. This approach utilizes knowledge graphs to structure and integrate different types of PHD from various sources, including EHR data, wearable device sensing data, insurance data, and social determinants of health. The proposed approach offers a comprehensive view of an individual's health, allowing for the integration and analysis of different types of PHD. Additionally, this paper proposes three use cases that illustrate the practical applications and advantages of the Personal Health Knowledge Graph (PHKG) in healthcare data management and utilization. Overall, the Personal Health Knowledge Graph (PHKG) provides a promising solution for managing and analyzing PHD, which can be used to improve healthcare outcomes and research.**
+
+## TL;DR
+Knowledge graph approach for integrating diverse personal health data sources including EHRs, wearable sensors, insurance data, and social determinants of health.
+
+## Key Insights  
+Addresses massive amounts of personal health data from EHRs and wearable devices; offers comprehensive view of individual's health through integration and analysis of different PHD types.
 
 ### *Keywords—Personal Health Data, Knowledge Graphs, Ontology, Electronic Health Records, Semantic Query*
 
@@ -274,3 +279,13 @@ VII. REFRENCES
 - [30] Z. Wang, J. Zhang, J. Feng, and Z. Chen, "Knowledge Graph Embedding by Translating on Hyperplanes," *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 28, no. 1, pp. 1112–1119, Jun. 2014, doi: 10.1609/AAAI.V28I1.8870.
 - [31] W. L. Hamilton, R. Ying, and J. Leskovec, "Inductive Representation Learning on Large Graphs".
 - [32] X. Wang *et al.*, "Empowering Personalized Health Data Queries with Knowledge Graph and GPT-Enhanced Voice Assistant," in *2023 International Conference on Data, Information, Knowledge and Wisdom (DIKW 2023)*, 2023.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can knowledge graphs effectively manage and integrate personal health data from diverse sources for comprehensive health understanding?
+- **Methodology**: Utilized knowledge graphs to structure and integrate health data from multiple sources including EHRs, wearable sensors, insurance data, and social determinants of health.
+- **Key Findings**: Proposed approach offers comprehensive view of individual's health through integration and analysis of different types of personal health data.
+
+### Analysis
+- **Limitations**: Abstract only - detailed methodology, evaluation results, and implementation specifics not available.
+- **Future Work**: Develop prototype implementation, evaluate integration effectiveness, assess scalability with real-world health data.

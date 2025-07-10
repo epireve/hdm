@@ -1,4 +1,3 @@
----
 cite_key: peng_2025
 title: Code Digital Twin: Empowering LLMs with Tacit Knowledge for Complex Software Maintenance
 authors: Xin Peng, Chong Wang, Mingwei Liu, Yiling Lou, Yijian Wu
@@ -28,6 +27,12 @@ keywords:
 XIN PENG, Fudan University, China CHONG WANG, Fudan University, China MINGWEI LIU, Sun Yat-sen University, China YILING LOU, Fudan University, China YIJIAN WU, Fudan University, China
 
 While large language models (LLMs) have demonstrated promise in software engineering tasks like code completion and generation, their support for the maintenance of complex software systems remains limited. These models often struggle with understanding the tacit knowledge embedded in systems, such as responsibility allocation and collaboration across different modules. To address this gap, we introduce the concept and framework of Code Digital Twin, a conceptual representation of tacit knowledge that captures the concepts, functionalities, and design rationales behind code elements, co-evolving with the software. A code digital twin is constructed using a methodology that combines knowledge extraction from both structured and unstructured sources—such as source code, documentation, and change histories—leveraging LLMs, static analysis tools, and human expertise. This framework can empower LLMs for software maintenance tasks such as issue localization and repository-level code generation by providing tacit knowledge as contexts. Based on the proposed methodology, we explore the key challenges and opportunities involved in the continuous construction and refinement of code digital twin.
+
+## TL;DR
+Not available
+
+## Key Insights  
+Not available
 
 # 1 Introduction
 
@@ -217,3 +222,13 @@ In this work, we introduce the Code Digital Twin, a conceptual framework designe
 - <span id="page-9-1"></span>[33] Fengji Zhang, Bei Chen, Yue Zhang, Jacky Keung, Jin Liu, Daoguang Zan, Yi Mao, Jian-Guang Lou, and Weizhu Chen. 2023. Repocoder: Repositorylevel code completion through iterative retrieval and generation. arXiv preprint arXiv:2303.12570 (2023).
 - <span id="page-9-4"></span>[34] Yuntong Zhang, Haifeng Ruan, Zhiyu Fan, and Abhik Roychoudhury. 2024. Autocoderover: Autonomous program improvement. In Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis. 1592–1604.
 - <span id="page-9-9"></span>[35] Xuejiao Zhao, Zhenchang Xing, Muhammad Ashad Kabir, Naoya Sawada, Jing Li, and Shang-Wei Lin. 2017. HDSKG: Harvesting domain specific knowledge graph from content of webpages. In IEEE 24th International Conference on Software Analysis, Evolution and Reengineering, SANER 2017, Klagenfurt, Austria, February 20-24, 2017. IEEE Computer Society, 56–67. [doi:10.1109/SANER.2017.7884609](https://doi.org/10.1109/SANER.2017.7884609)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Not available
+- **Methodology**: Not available
+- **Key Findings**: Not available
+
+### Analysis
+- **Limitations**: Not available
+- **Future Work**: Not available

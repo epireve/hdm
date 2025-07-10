@@ -613,3 +613,20 @@ The worst-case time complexity for learning rules of length l is O(|R|nlDb), whe
 Input: Test query q = (e q , r<sup>q</sup> , ?, t<sup>q</sup> ), temporal logical rules T R, temporal knowledge graph G. Parameters: Time window w ∈ N ∪ {∞}, minimum number of candidates k, score function f. Output: Answer candidates C. 1: C ← ∅ . Apply the rules in T R by decreasing confidence. 2: Retrieve subgraph SG ⊂ G with timestamps t ∈ [t <sup>q</sup> − w, t<sup>q</sup> ). . Only done if the timestamp changes. The queries in the test set are sorted by timestamp. Retrieve edges with timestamps t ∈ [t <sup>q</sup> − w, t<sup>q</sup> ). Store edges for each relation in a dictionary. 3: if T R<sup>r</sup> <sup>q</sup> 6= ∅ then 4: for rule R ∈ T R<sup>r</sup> <sup>q</sup> do 5: Find all body groundings of R in SG. Retrieve edges that could constitute walks that match the rule's body. First, retrieve edges whose subject matches e and the relation the first relation in the rule body. Then, retrieve edges whose subject match one of the current targets and the relation the next relation in the rule body. Generate complete walks by merging the edges on the same target-source entity. Delete all walks that do not comply with the time constraints. Check variable constraints, and delete the walks that do not comply with the variable constraints. 6: Retrieve candidates C(R) from the target entities of the walks. 7: for c ∈ C(R) do 8: Calculate score f(R, c). . See [\(6\)](#page-3-3). 9: C ← C ∪ {(c, f(R, c))} 10: if |{c | ∃R : (c, f(R, c)) ∈ C}| ≥ k then 11: break 12: return C
 
 q
+
+
+## TL;DR
+Research on tlogic: temporal logical rules for explainable link forecasting on temporal knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -1,4 +1,3 @@
----
 cite_key: kim_2024
 title: Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve Partially Observable Markov Decision Processes
 authors: Taewoon Kim, Michael Cochez
@@ -40,6 +39,12 @@ Taewoon Kim<sup>1</sup> , Vincent Franc¸ois-Lavet<sup>1</sup> , Michael Cochez<
 ## Abstract
 
 Humans observe only part of their environment at any moment but can still make complex, long-term decisions thanks to our long-term memory. To test how an AI can learn and utilize its long-term memory, we have developed a partially observable Markov decision processes (POMDP) environment, where the agent has to answer questions while navigating a maze. The environment is completely knowledge graph (KG) based, where the hidden states are dynamic KGs. A KG is both human- and machine-readable, making it easy to see what the agents remember and forget. We train and compare agents with different memory systems, to shed light on how human brains work when it comes to managing its own memory. By repurposing the given learning objective as learning a memory management policy, we were able to capture the most likely hidden state, which is not only interpretable but also reusable. The code is open-sourced at [https://github.com/humemai/agent-room-env-v2-lstm.](https://github.com/humemai/agent-room-env-v2-lstm)
+
+## TL;DR
+AI can learn and utilize long-term memory through knowledge graph-based memory
+
+## Key Insights  
+Dynamic KGs represent hidden states in POMDP; enables human- and machine-readable memory tracking; demonstrates learning of memory management policies similar to human cognitive processes.
 
 ## 1 Introduction
 
@@ -384,3 +389,13 @@ M. 2017. Neuroscience-Inspired Artificial Intelligence. *Neuron*, 95: 245–258.
 <!-- Image Description: The image displays a directed graph, likely representing a spatial-temporal knowledge graph. Nodes represent locations (e.g., "Bath," "Office," "Study") and agents ("Sam," "Nurse"). Edges depict movements or interactions, labeled with direction ("north," "east") and timestamps or "strength" values. The graph's purpose is to illustrate the relationships between locations and agents over time, potentially for reasoning or pathfinding within a specific environment. The two distinct node colors might indicate different types of entities. -->
 
 **Figure 6:** An example of the agent's (HumemAI with capacity = 48) memory systems, Mt=99. There are 7 short-term, 24 episodic, and 24 semantic memories. The nodes are colored differently by the memory type.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can AI learn and utilize long-term memory similar to human cognitive processes in partially observable environments?
+- **Methodology**: Developed POMDP environment with KG-based hidden states; agents navigate maze and answer questions; repurposed learning objective as memory management policy learning; compared agents with different memory systems.
+- **Key Findings**: Demonstrated AI can learn memory management policies; captured most likely hidden states through KG representation; provided interpretable and reusable memory state tracking.
+
+### Analysis
+- **Limitations**: Abstract lacks specific performance metrics; evaluation details limited; scalability considerations not addressed.
+- **Future Work**: Further exploration of memory systems in AI agents; optimize KG structures for different tasks; develop benchmarks for memory-based POMDP solving.

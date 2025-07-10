@@ -1,4 +1,3 @@
----
 cite_key: budhdeo_2021
 title: Scoping review of knowledge graph applications in biomedical and healthcare sciences
 authors: Sanjay Budhdeo
@@ -70,6 +69,12 @@ characteristics, and research attributes in the academic literature. Our seconda
 ## *Results*Although medical science insights and drug repurposing are the most common uses, there is a broad range of knowledge graph use cases. General graphs are more common than graphs specific to disease areas. Knowledge graphs are heterogenous in size with median node numbers 46 983 (IQR 6 415-460 948) and median edge numbers 906 737 (IQR 66 272-9 894 909). DrugBank is the most frequently used data source, cited in 46 manuscripts. Analysing node and edge classes within the graphs suggests delineation into two broad groups: biomedical and clinical. Querying is the most common analytic technique in the literature; however, more advanced machine learning techniques are often used.
 
 ## *Discussion*The variation in use case and disease area focus identifies areas of opportunity for knowledge graphs. There is diversity of graph construction and validation methods. Translation of knowledge graphs into clinical practice remains a challenge. Critically assessing the success of deploying insights derived from graphs will help determine the best practice in this area.
+
+## TL;DR
+This paper conducts a scoping review of 255 articles to characterize the use of knowledge graphs in biomedical and healthcare sciences. It finds that while medical science insights and drug repurposing are common applications, there is a wide variety of use cases. The review highlights the heterogeneity of KGs in terms of size and data sources, with DrugBank being the most common. It also notes that while advanced machine learning techniques are used, simple querying remains a prevalent analysis method. A key finding is the lack of real-world validation for insights derived from these KGs, posing a major challenge for their clinical translation.
+
+## Key Insights  
+The key insight is the systematic identification of a gap between the potential of KGs in healthcare and their actual clinical translation. The paper highlights that while there's a lot of research, there's a lack of real-world validation and standardized practices. The delineation of KGs into "biomedical" and "clinical" clusters is also a significant insight.
 
 ## Introduction
 
@@ -405,3 +410,13 @@ In summary, KGs have many possible uses within in biomedicine and healthcare, bu
 | data characteristics | Table 4, 5, 6; Figure 5 |
 | research characteristics | Tables 1, 2, 3, 7, 9; Figure 2 |
 | validation | Table 8 |
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The authors conducted a scoping review following the PRISMA-ScR checklist. They performed keyword-based searches on multiple databases (MEDLINE, EMBASE, medRxiv, arXiv, bioRxiv) and screened 255 articles for inclusion. Data was extracted on demographics, graph characteristics, data sources, analysis techniques, and validation methods.
+- **Methodology**: The most common use cases for KGs are medical science insights and drug repurposing. KGs are heterogeneous in size and data sources. DrugBank is the most used data source. A meta-analysis of node classes suggests a split between "biomedical" and "clinical" graphs. While advanced ML is used, simple querying is the most common analysis technique. A major finding is that most studies rely on "inside graph" validation, with very few performing "outside graph" validation (e.g., clinical trials).
+- **Key Findings**: A comprehensive scoping review that systematically describes the landscape of KG applications in biomedicine and healthcare. It provides a categorization of use cases, an analysis of graph characteristics, and a critical assessment of validation practices in the field.
+
+### Analysis
+- **Limitations**: KGs have many possible uses in biomedicine and healthcare, but their full potential is yet to be realised. The two most popular use cases to date are generation of medical science insights and drug repurposing. There is an opportunity to expand work areas across other use cases and across diseases. Heterogeneity in graph size and context specificity suggests further work is needed to understand optimum graph construction. There are many different techniques used in graph analysis - deploying more sophisticated graph machine learning techniques may improve insights gained from KGs. Validation of findings from graphs through external testing will increase the robustness of conclusions drawn from graphs.
+- **Future Work**: The paper highlights the challenges of integrating clinical data (EHRs) due to lack of standardization, noise, and privacy concerns. This is a crucial consideration for the HDM project. The clear distinction between "biomedical" and "clinical" KGs is a useful conceptual model. The finding that simple querying is a common analysis method suggests that even basic KG functionality can be valuable.

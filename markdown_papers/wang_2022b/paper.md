@@ -635,3 +635,20 @@ tern Recognition Journal. She has published more than 40 journal and conference 
 ![](_page_13_Picture_21.jpeg)
 <!-- Image Description: That image is a headshot photograph of a person, likely the author or a contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or technical illustrations; it is a simple portrait against a solid blue background. Its purpose is solely to provide a visual representation of the individual, serving as an author photograph. -->
 **Zhuo Xu** received the B.Sc. degrees from Central University of Finance and Economics. He is now an graduate explorer in Central University of Finance and Economics, Beijing, China.
+
+
+## TL;DR
+Collaborative framework for refining knowledge graphs using noisy corpus triples
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

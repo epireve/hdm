@@ -473,3 +473,20 @@ In this paper we detail the effort we undertook to reinvent IBM's Db2 Warehouse 
 - [33] M. Abebe, H. Lazu and K. Daudjee, "Proteus: Autonomous Adaptive Storage for Mixed Workloads," in SIGMOD '22: Proceedings of the 2022 International Conference on Management of Data (700–714), 2022.
 - [34] Apache Software Foundation, "Apache Parquet," [Online]. Available: https://parquet.apache.org/. [Accessed 26 11 2023].
 - [35] Snowflake, "Automatic Clustering," [Online]. Available: https://docs.snowflake.com/en/user-guide/tables-auto-reclustering. [Accessed 26 11 2023].
+
+
+## TL;DR
+Research on native cloud object storage in db2 warehouse: providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -1,4 +1,3 @@
----
 cite_key: hohenfellner_2025
 title: Design for a Digital Twin in Clinical Patient Care
 authors: Markus Hohenfellner, Physikalisches Institut
@@ -47,6 +46,12 @@ June 3, 2025
 ## ABSTRACT
 
 Digital Twins hold great potential to personalize clinical patient care, provided the concept is translated to meet specific requirements dictated by established clinical workflows. We present a generalizable Digital Twin design combining knowledge graphs and ensemble learning to reflect the entire patient's clinical journey and assist clinicians in their decision-making. Such Digital Twins can be predictive, modular, evolving, informed, interpretable and explainable with applications ranging from oncology to epidemiology.
+
+## TL;DR
+Research on design for a digital twin in clinical patient care providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -190,3 +195,13 @@ Digital Twins for Multiple Sclerosis. *Frontiers in Immunology*, 12, 2021.
 - <span id="page-8-1"></span>[18] Eugen Octav Popa. The use of digital twins in healthcare: Socio-ethical benefits and socio-ethical risks. *Life Sciences, Society and Policy*, 17(1):6–6, July 2021.
 - <span id="page-8-2"></span>[19] S. Larry Goldenberg, Nir, and Septimiu E. Salcudean. A new era: Artificial intelligence and machine learning in prostate cancer. *Nature Reviews Urology*, 16(7):391–403, July 2019.
 - <span id="page-8-3"></span>[20] Michael C. Haffner, Wilbert Zwart, Martine P. Roudier, Lawrence D. True, William G. Nelson, Jonathan I. Epstein, Angelo M. De Marzo, Peter S. Nelson, and Srinivasan Yegnasubramanian. Genomic and phenotypic heterogeneity in prostate cancer. *Nature Reviews Urology*, 18(2):79–92, 2021. Publisher: Nature Publishing Group.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

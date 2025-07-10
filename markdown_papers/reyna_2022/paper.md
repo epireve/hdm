@@ -1,4 +1,3 @@
----
 cite_key: reyna_2022
 title: Heart Murmur Detection from Phonocardiogram Recordings: The George B. Moody PhysioNet Challenge 2022
 authors: Matthew A. Reyna, Yashar Kiarashi, Andoni Elola, Jorge Oliveira, Francesco Renna, Annie Gu, Erick A. Perez Alday, Ashish Sharma, Sandra Mattos, Miguel T. Coimbra, Reza Sameni, Ali Bahrami Rad, Biomedical Informatics, Universidade Portucalense, Medicina Fetal, Biomedical Engineering
@@ -69,6 +68,12 @@ Main results: So far, over 80 teams have submitted over 600 algorithms during th
 Significance: The use of heart sound recordings for both heart murmur detection and clinical outcome identification allowed us to explore the potential of automated approaches to provide accessible pre-screening of less-resourced populations. The submission of working,
 
 > open-source algorithms and the use of novel evaluation metrics supported the reproducibility, generalizability, and relevance of the researched conducted during the Challenge.
+
+## TL;DR
+Machine learning challenge for automated heart murmur detection from multi-location
+
+## Key Insights  
+Cardiac auscultation is accessible but requires experts to interpret recordings; automated approaches can provide accessible pre-screening for less-resourced populations; focuses on pediatric cardiac screening.
 
 ## Introduction
 
@@ -344,7 +349,7 @@ RTI2018-101475-BI00, jointly with the Fondo Europeo de Desarrollo Regional (FEDE
 - <span id="page-12-9"></span>[10] F. Renna, J. Oliveira, and M. T. Coimbra, "Deep convolutional neural networks for heart sound segmentation," IEEE Journal of Biomedical and Health Informatics, vol. 23, no. 6, pp. 2435–2445, Nov. 2019. doi: [10.1109/jbhi.2019.2894222](https://doi.org/10.1109/jbhi.2019.2894222).
 
 - <span id="page-13-1"></span>[11] A. R. Freeman, "The clinical significance of the systolic murmur," Annals of Internal Medicine, vol. 6, no. 11, p. 1371, May 1933. doi: [10.7326/0003-4819-6-11-1371](https://doi.org/10.7326/0003-4819-6-11-1371).
-- <span id="page-13-0"></span>[12] A. L. Goldberger, L. A. Amaral, L. Glass, et al., "PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals," Circulation, vol. 101, no. 23, e215–e220, 2000. doi: [10.1161/01.CIR.101.23.e215](https://doi.org/10.1161/01.CIR.101.23.e215).
+- <span id="page-13-0"></span>[12] A. L. Goldberger, L. A. Amaral, L. Glass, et al., "PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals," Circulation, vol. 101, no. 23, e215–e220, 2000. doi: [10.1101/01.CIR.101.23.e215](https://doi.org/10.1161/01.CIR.101.23.e215).
 - <span id="page-13-2"></span>[13] M. A. Reyna, C. Josef, R. Jeter, et al., "Early prediction of sepsis from clinical data: the PhysioNet/Computing in Cardiology Challenge 2019," Critical Care Medicine, vol. 48, pp. 210–217, 2 2019. doi: [10.1097/CCM.0000000000004145](https://doi.org/10.1097/CCM.0000000000004145).
 - <span id="page-13-3"></span>[14] S. Mullainathan and Z. Obermeyer, "On the inequity of predicting A while hoping for B," in AEA Papers and Proceedings, vol. 111, 2021, pp. 37–42. doi: [10.1257/pandp.](https://doi.org/10.1257/pandp.20211078) [20211078](https://doi.org/10.1257/pandp.20211078).
 - <span id="page-13-4"></span>[15] M. A. Reyna, E. O. Nsoesie, and G. D. Clifford, "Rethinking Algorithm Performance Metrics for Artificial Intelligence in Diagnostic Medicine," JAMA, vol. 328, no. 4, pp. 329–330, Jul. 2022, issn: 0098-7484. doi: [10.1001/jama.2022.10561](https://doi.org/10.1001/jama.2022.10561).
@@ -401,3 +406,13 @@ Let s be the number of expert screenings in a patient cohort of t patients, and 
 - (iv) We set gexpert(1) = 10000 so that the mean expert screening cost was \$10000 when screening x = 1, i.e., screening all of the cohort, which is ten times the cost of screening half of the database.
 
 The unique coefficients that satisfy these conditions are a = 25, b = 397, c = −1718, and d = 11296.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can automated approaches detect abnormal heart function from multi-location phonocardiogram (PCG) recordings to enable accessible cardiac screening?
+- **Methodology**: Sourced 5,272 PCG recordings from 1,568 pediatric patients in rural Brazil; required participants to submit complete code for training and running models; developed cost-based evaluation metric.
+- **Key Findings**: Over 80 teams submitted more than 600 algorithms; demonstrated potential for automated approaches to provide accessible pre-screening; full analysis of results pending.
+
+### Analysis
+- **Limitations**: Focus limited to pediatric population; results pending full analysis; specific algorithm performance not detailed in available summary.
+- **Future Work**: Extend to adult populations; integrate with electronic health records; develop clinical decision support systems.

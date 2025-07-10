@@ -476,3 +476,20 @@ We run experiments 3 times and take averages with A40 GPU. For the TLR part, we 
 | Timetraveler | 21.06 | 34.78 | 49.10 | 23.10 | 35.71 | 49.96 | 26.69 | 39.42 | 51.78 | 27.98 | 40.14 | 53.23 | 30.05 | 42.82 | 54.74 | 32.11 | 45.33 | 57.14 | 31.90 | 45.40 | 57.50 |
 | TLogic Original 26.03 | | 37.42 | 46.50 | 27.65 | 39.55 | 48.72 | 28.72 | 40.48 | 50.71 | 29.11 | 41.79 | 51.90 | 29.84 | 42.40 | 53.37 | 31.89 | 45.01 | 57.37 | 33.20 | 47.60 | 60.20 |
 | GenTKG | 30.60 | 42.20 | 49.30 | 34.00 | 45.40 | 52.10 | 34.90 | 46.60 | 54.00 | 34.70 | 46.90 | 54.40 | 36.00 | 48.70 | 55.50 | 36.50 | 48.30 | 55.30 | 37.20 | 48.80 | 56.30 |
+
+
+## TL;DR
+Research on gentkg: generative forecasting on temporal knowledge graph with large language models providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

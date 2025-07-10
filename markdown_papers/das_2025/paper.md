@@ -1,4 +1,3 @@
----
 cite_key: das_2025
 title: Detection-Fusion for Knowledge Graph Extraction from Videos
 authors: Taniya Das, Louis Mahon, Thomas Lukasiewicz
@@ -66,6 +65,12 @@ Taniya Das<sup>1</sup> t.das@tue.nl Louis Mahon1,2 lmahon@ed.ac.uk Thomas Lukasi
 ## Abstract
 
 One of the challenging tasks in the field of video understanding is extracting semantic content from video inputs. Most existing systems use language models to describe videos in natural language sentences, but this has several major shortcomings. Such systems can rely too heavily on the language model component and base their output on statistical regularities in natural language text rather than on the visual contents of the video. Additionally, natural language annotations cannot be readily processed by a computer, are difficult to evaluate with performance metrics and cannot be easily translated into a different natural language. In this paper, we propose a method to annotate videos with knowledge graphs, and so avoid these problems. Specifically, we propose a deep-learning-based model for this task that first predicts pairs of individuals and then the relations between them. Additionally, we propose an extension of our model for the inclusion of background knowledge in the construction of knowledge graphs. It may be distributed unchanged freely in print or electronic forms. arXiv:2501.00136v1 [cs.CV] 30 Dec 2024
+
+## TL;DR
+Novel deep learning approach for extracting semantic knowledge graphs from videos
+
+## Key Insights  
+Two-stage detection-fusion approach overcomes language model limitations in video understanding; structured knowledge representations more computer-processable than natural language; background knowledge integration improves extraction accuracy
 
 ## 1 Introduction
 
@@ -268,3 +273,13 @@ Future works include exploring the use of other datasets for injecting commonsen
 - [30] Jianwei Yang, Jiasen Lu, Stefan Lee, Dhruv Batra, and Devi Parikh. Graph r-cnn for scene graph generation. In *Proceedings of the European conference on computer vision (ECCV)*, pages 670–685, 2018.
 - [31] Wei Zhang, Bairui Wang, Lin Ma, and Wei Liu. Reconstruct and represent video contents for captioning via reinforcement learning. *IEEE transactions on pattern analysis and machine intelligence*, 42(12):3088–3101, 2019.
 - [32] Xishan Zhang, Ke Gao, Yongdong Zhang, Dongming Zhang, Jintao Li, and Qi Tian. Task-driven dynamic fusion: Reducing ambiguity in video description. In *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*, pages 3713– 3721, 2017.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to extract semantic content from video inputs more effectively than current language model approaches while providing computer-processable structured representations?
+- **Methodology**: Deep learning model with two-stage process: 1) detection module identifies objects, actions, events; 2) fusion module combines visual information with language understanding; incorporation of background knowledge from Visual Genome dataset
+- **Key Findings**: Current language model approaches have significant limitations in video understanding; knowledge graphs provide more computationally processable video semantic representations; first work to include background knowledge in video KG extraction
+
+### Analysis
+- **Limitations**: Computational complexity of two-stage approach; evaluation methodology details not fully specified; generalization across video domains not demonstrated
+- **Future Work**: Extend to larger-scale video datasets; investigate domain-specific background knowledge; optimize computational efficiency for real-time processing

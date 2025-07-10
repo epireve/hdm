@@ -436,3 +436,14 @@ Te authors declare that they have no known competing fnancial interests or perso
 **Open Access** Tis article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modifed the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. Te images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit [http://creativecommons.org/licenses/by-nc-nd/4.0/.](http://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 © Te Author(s) 2025
+
+
+## TL;DR
+Research on a temporal knowledge graph generation dataset supervised distantly by large language models providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 

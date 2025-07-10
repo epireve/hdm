@@ -502,3 +502,20 @@ Supplemental information for this article can be found online at [http://dx.doi.
 - <span id="page-20-0"></span>Zhang Q, Weng X, Zhou G, Zhang Y, Huang JX. 2022c. ARL: an adaptive reinforcement learning framework for complex question answering over knowledge base. Information Processing & Management 59(3):102933 [DOI 10.1016/j.ipm.2022.102933](http://dx.doi.org/10.1016/j.ipm.2022.102933).
 - <span id="page-20-2"></span>Zhao X, Zou J, Xie F, Wang H, Wu H, Zhou B, Tian J. 2023. A unified framework for unseen target stance detection based on feature enhancement via graph contrastive learning. In: Proceedings of the Annual Meeting of the Cognitive Science Society.
 - <span id="page-20-1"></span>Zhu C, Chen M, Fan C, Cheng G, Zhang Y. 2021. Learning from history: modeling temporal knowledge graphs with sequential copy-generation networks. In: Proceedings of the AAAI Conference on Artificial Intelligence. [DOI 10.1609/aaai.v35i5.16604](http://dx.doi.org/10.1609/aaai.v35i5.16604).
+
+
+## TL;DR
+Research on a temporal knowledge graph reasoning model based on recurrent encoding and contrastive learning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

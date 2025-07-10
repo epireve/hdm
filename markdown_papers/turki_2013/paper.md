@@ -1,54 +1,3 @@
----
-cite_key: turki_2013
-title: A Decade of Scholarly Research on Open Knowledge Graphs
-authors: Houcemeddine Turki, Abraham Toluwase Owodunni, Mohamed Ali Hadj Taieb, Fabrice Bile, Mohamed Ben Aouicha
-year: 2013
-doi: 10.1007/978-3-540-88564-1
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: arxiv_arxiv_2306.13186_A_Decade_of_Scholarly_Research_on_Open_Knowledge_Graphs
-images_total: 11
-images_kept: 11
-images_removed: 0
-tags:
-- IoT
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Semantic Web
-keywords:
-- 1 introduction
-- 8 acknowledgments
-- BabelNet
-- BigData
-- DateTime
-- GeoNames
-- McGrath
-- NLP
-- OpenCyc
-- SisonkeBiotik
-- WordNet
-- aacl-main
-- anchez-alonso
-- application-oriented
-- artificial intelligence
-- artificial-intelligence-based
-- asia-pacific
-- babel-net
-- blue-yellow
-- broad-coverage
-- classification
-- co-occurrence
-- co-occurrences
-- color-coded
-- color-coding
-- conf-ranks
-- data-engineering-and-semantics
-- deep learning
-- domain-specific
-- entity linking
----
-
 # A Decade of Scholarly Research on Open Knowledge Graphs
 
 Houcemeddine Turki,<sup>1</sup>,2,<sup>3</sup> Abraham Toluwase Owodunni,<sup>2</sup>,<sup>4</sup> Mohamed Ali Hadj Taieb,<sup>1</sup>,<sup>2</sup> Ren´e Fabrice Bile,<sup>2</sup>,<sup>5</sup> Mohamed Ben Aouicha,<sup>1</sup>,<sup>2</sup> Vil´em Zouhar
@@ -64,6 +13,12 @@ Houcemeddine Turki,<sup>1</sup>,2,<sup>3</sup> Abraham Toluwase Owodunni,<sup>2<
 [turkiabdelwaheb@hotmail.fr](mailto:turkiabdelwaheb@hotmail.fr)
 
 Abstract. The proliferation of open knowledge graphs has led to a surge in scholarly research on the topic over the past decade. This paper presents a bibliometric analysis of the scholarly literature on open knowledge graphs published between 2013 and 2023. The study aims to identify the trends, patterns, and impact of research in this field, as well as the key topics and research questions that have emerged. The work uses bibliometric techniques to analyze a sample of 4445 scholarly articles retrieved from Scopus. The findings reveal an ever-increasing number of publications on open knowledge graphs published every year, particularly in developed countries (+50 per year). These outputs are published in highly-referred scholarly journals and conferences. The study identifies three main research themes: (1) knowledge graph construction and enrichment, (2) evaluation and reuse, and (3) fusion of knowledge graphs into NLP systems. Within these themes, the study identifies specific tasks that have received considerable attention, including entity linking, knowledge graph embedding, and graph neural networks.
+
+## TL;DR
+Research on a decade of scholarly research on open knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 Code & data: [github.com/Data-Engineering-and-Semantics/OpenKGBiblio](https://github.com/Data-Engineering-and-Semantics/OpenKGBiblio/)
 
@@ -269,3 +224,13 @@ This work is a part of the Adapting Wikidata to support clinical practice using 
 - <span id="page-18-8"></span>45. Xia, F., Sun, K., Yu, S., Aziz, A., Wan, L., Pan, S., Liu, H.: Graph Learning: A Survey. IEEE Transactions on Artificial Intelligence 2(2), 109–127 (apr 2021). <https://doi.org/10.1109/tai.2021.3076021>
 - <span id="page-18-7"></span>46. Xue, B., Zou, L.: Knowledge Graph Quality Management: a Comprehensive Survey. IEEE Transactions on Knowledge and Data Engineering pp. 1–1 (2022). <https://doi.org/10.1109/tkde.2022.3150080>
 - <span id="page-18-5"></span>47. Yi, H., Ao, X., Ho, Y.S.: Use of citation per publication as an indicator to evaluate pentachlorophenol research. Scientometrics 75(1), 67–80 (feb 2008). <https://doi.org/10.1007/s11192-007-1849-y>
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

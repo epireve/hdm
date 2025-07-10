@@ -64,7 +64,6 @@ Research on the roadmap toward personalized medicine: challenges and opportuniti
 
 ## Key Insights
 Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
-
 **Keywords:**personalized medicine; ICPerMed; healthcare; health data; precision medicine
 
 ## 1. Introduction

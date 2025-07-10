@@ -1,4 +1,3 @@
----
 cite_key: "kim_2023"
 title: Guidelines for designing an automated multimodal textual annotation system
 authors: Joshua Y. Kim, Kalina Yacef
@@ -55,6 +54,12 @@ Joshua Y. Kim Kalina Yacef<sup>∗</sup> University of Sydney University of Sydn
 ## ABSTRACT
 
 Automatic multimodal textual annotation systems have the potential to advance research in conversational analysis and computational linguistics; however, there is little research in this area. In this short paper, we outline guidelines for designing an automated multimodal textual annotation system. We discussed the guidelines using four guiding questions. First, we share the four possible usecases for building an automated multimodal annotation system. Second, we share three guidelines for collecting multimodal data. Third, we share two guidelines on extracting multimodal features. Lastly, we share another four guidelines regarding what to present to the users.
+
+## TL;DR
+Research on guidelines for designing an automated multimodal textual annotation system providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ### CCS CONCEPTS
 
@@ -201,7 +206,7 @@ Guidelines for designing an automated multimodal textual annotation system ICMI 
 - <span id="page-4-24"></span>[17] Joshua Y Kim, Chunfeng Liu, Rafael A Calvo, Kathryn McCabe, Silas CR Taylor, Björn W Schuller, and Kaihang Wu. 2019. A comparison of online automatic speech recognition systems. In 12th International Workshop on Spoken Dialog System Technology.
 - <span id="page-4-9"></span>[18] Joshua Y Kim and Kalina Yacef. 2023. An empirical user-study of text-based nonverbal annotation systems for human–human conversations. International Journal of Human-Computer Studies (2023), 103082.
 - <span id="page-4-2"></span>[19] Joshua Y Kim, Kalina Yacef, Greyson Kim, Chunfeng Liu, Rafael Calvo, and Silas Taylor. 2021. MONAH: Multi-Modal Narratives for Humans to analyze conversations. In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume. 466–479.
-- <span id="page-4-0"></span>[20] Michael Kipp. 2012. Multimedia annotation, querying, and analysis in ANVIL. Multimedia Information Extraction: Advances in Video, Audio, and Imagery Analysis for Search, Data Mining, Surveillance, and Authoring (2012), 351–367.
+- <span id="page-4-0"></span>[20] Michael Kipp. 2012. Multimedia annotation, querying, and analysis in ANVIL. Multimedia Information Extraction: Advances in Video, Audio, and Imagery Analysis for Search, Data Mining, Surveillance, and Authoring (2022), 351–367.
 - <span id="page-4-13"></span>[21] Martha Komter. 2013. 30 Conversation Analysis in the Courtroom. The handbook of conversation analysis (2013), 612.
 - <span id="page-4-19"></span>[22] Sreekar Krishna, Vineeth Balasubramanian, and Sethuraman Panchanathan. 2010. Enriching social situational awareness in remote interactions: insights and inspirations from disability focused research. In Proceedings of the 18th ACM international conference on Multimedia. 1275–1284.
 - <span id="page-4-44"></span>[23] Efe Lai-Chong Law, Paul Van Schaik, and Virpi Roto. 2014. Attitudes towards user experience (UX) measurement. International Journal of Human-Computer Studies 72, 6 (2014), 526–541.
@@ -302,3 +307,13 @@ ICMI '23 Companion, October 09–13, 2023, Paris, France Kim et al.
 ### <span id="page-6-3"></span>A.8 Mondada Example
 
 **Figure 8:** Example of a Mondada [\[31\]](#page-4-34) transcript, where temporal gestures and gaze are aligned with the verbal transcript.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

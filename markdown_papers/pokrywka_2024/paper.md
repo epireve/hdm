@@ -1,4 +1,3 @@
----
 cite_key: "pokrywka_2024"
 title: "Evaluating Transformer Models for Suicide Risk Detection on Social Media"
 authors: "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzelańczyk"
@@ -33,6 +32,12 @@ Jeremi I. Kaczmarek *Adam Mickiewicz University, Poznan University of Medical Sc
 Edward J. Gorzela ´nczyk *Kazimierz Wielki University, The Society for the Substitution "Medically Assisted Recovery"* Poland medsystem@medsystem.com.pl
 
 **Abstract:** The detection of suicide risk in social media is a critical task with potential life-saving implications. This paper presents a study on leveraging state-of-the-art natural language processing solutions for identifying suicide risk in social media posts as a submission for the "IEEE BigData 2024 Cup: Detection of Suicide Risk on Social Media" conducted by the kubapok team. We experimented with the following configurations of transformer-based models: fine-tuned DeBERTa, GPT-4o with CoT and few-shot prompting, and fine-tuned GPT-4o. The task setup was to classify social media posts into four categories: indicator, ideation, behavior, and attempt. Our findings demonstrate that the fine-tuned GPT-4o model outperforms two other configurations, achieving high accuracy in identifying suicide risk. Notably, our model achieved second place in the competition. By demonstrating that straightforward, general-purpose models can achieve state-of-the-art results, we propose that these models, combined with minimal tuning, may have the potential to be effective solutions for automated suicide risk detection on social media.
+
+## TL;DR
+Comparative analysis of transformer-based models for suicide risk detection from social media posts using natural language processing to classify risk categories including indicator, ideation, behavior, and attempt.
+
+## Key Insights  
+Fine-tuned GPT-4o achieved highest performance with weighted F1 score of 75.5% and demonstrated that general-purpose models can achieve state-of-the-art results in suicide risk detection, securing second place in IEEE BigData 2024 Cup competition.
 
 **Index Terms:** suicide risk detection, AI in medicine, natural language processing.
 
@@ -341,3 +346,13 @@ We also extend our thanks to Piotr Jabło ´nski for suggesting some points to i
 - <span id="page-7-17"></span>[34] C. H. K. Park, J. W. Lee, S. Y. Lee, J. Moon, D.-W. Jeon, S.-H. Shim, S.-J. Cho, S. G. Kim, J. Lee, J.-W. Paik *et al.*, "Suicide risk factors across suicidal ideators, single suicide attempters, and multiple suicide attempters," *Journal of psychiatric research*, vol. 131, pp. 1–8, 2020.
 - <span id="page-7-18"></span>[35] S. S. Welch, "A review of the literature on the epidemiology of parasuicide in the general population," *Psychiatric services*, vol. 52, no. 3, pp. 368–375, 2001.
 - <span id="page-7-19"></span>[36] C. M. McHugh, A. Corderoy, C. J. Ryan, I. B. Hickie, and M. M. Large, "Association between suicidal ideation and suicide: meta-analyses of odds ratios, sensitivity, specificity and positive predictive value," *BJPsych open*, vol. 5, no. 2, p. e18, 2019.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Which natural language processing method would work best for suicide risk detection on social media while balancing accuracy and practical deployment constraints?
+- **Methodology**: Used three transformer model configurations including fine-tuned DeBERTa base and large models, GPT-4o with few-shot prompting and Chain of Thought reasoning, fine-tuned GPT-4o model, evaluated on Reddit-sourced dataset with 2,000 posts.
+- **Key Findings**: Fine-tuned GPT-4o achieved highest performance with weighted F1 score of 75.5%, achieved second place in IEEE BigData 2024 Cup, demonstrated that general-purpose models can achieve state-of-the-art results with minimal specialized tuning.
+
+### Analysis
+- **Limitations**: Dataset restricted to Reddit posts, collected during COVID-19 pandemic creating potential temporal bias, limited contextual information available, potential bias in data collection methodology.
+- **Future Work**: Develop dataset based on clinical assessments, collaborate with healthcare institutions for validation, expand to multi-platform analysis for comprehensive risk assessment.

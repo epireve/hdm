@@ -529,3 +529,19 @@ He is a Distinguished Professor with Tongji University, Shanghai, China. He was 
 an adjunct faculty member with Columbia University since 2011. He holds over 20 patents and has been published extensively in leading IEEE journals and conferences. His current research interests include Big Data analytics, machine learning, wireless communications, and signal processing.
 
 Dr. Yang was a recipient of the Eliahu Jury Award from Columbia University, the Bell Laboratories Teamwork Award, the Huawei Technology Breakthrough Award, and the Huawei Future Star Award. The products he has developed have been deployed by Tier-1 operators and served billions of users worldwide. He is an Editor for the IEEE INTERNET OF THINGS JOURNAL, IEEE COMMUNICATIONS SURVEYS & TUTORIALS, and a Guest Editor for the IEEE JOURNAL ON SELECTED AREAS IN COMMUNICATIONS. From 2012 to 2014, he was the Vice-Chair of the IEEE ComSoc Multimedia Communications Technical Committee. In 2017, he founded and served as the Chair of the IEEE TCCN Special Interest Group on AI Embedded Cognitive Networks. He has served as a Demo/Poster Co-Chair of IEEE INFOCOM, Symposium Co-Chair of IEEE GLOBECOM, and Workshop Co-Chair of IEEE ICME.
+
+## TL;DR
+Graph-based log anomaly detection framework using adversarial autoencoders
+
+## Key Insights
+GAE-Log framework uses event graphs and knowledge graphs to model logs with adversarial training for unsupervised anomaly detection
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can log anomaly detection be improved to handle the increasing scale and complexity of distributed systems?
+- **Methodology**: GAE-Log framework using event graphs and knowledge graphs, adversarial training of autoencoders, integration of temporal dynamics and contextual information
+- **Key Findings**: Outperforms state-of-the-art log anomaly detection methods with significant performance improvements, reduces computational complexity, enables unsupervised training
+
+### Analysis
+- **Limitations**: Specific performance metrics not detailed in abstract, evaluation limited to log data domain
+- **Future Work**: Extend to personal activity logs, integrate with HDM monitoring systems, develop user-friendly interfaces

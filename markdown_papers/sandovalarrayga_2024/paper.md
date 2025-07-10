@@ -506,3 +506,20 @@ This work's research was possible thanks to the grants and support from Consejo 
 - <span id="page-9-20"></span>[van Blooijs, Dorien, van den Boom, Max A., van der Aar, Jaap F., Huiskamp, Geert](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb31)[jan M., Castegnaro, Giulio, Demuru, Matteo, et al. \(2023\). Developmental trajectory](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb31) [of transmission speed in the human brain.](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb31) *Nature Neuroscience*, 1–5.
 - <span id="page-9-15"></span>[Vernon, David, Lowe, Robert, Thill, Serge, & Ziemke, Tom \(2015\). Embodied cognition](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb32) [and circular causality: on the role of constitutive autonomy in the reciprocal](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb32) [coupling of perception and action.](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb32) *Frontiers in Psychology*, *6*, 1660.
 - <span id="page-9-32"></span>[Walker, R. J., Brooks, H. L., & Holden-Dye, L. \(1996\). Evolution and overview of](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb33) [classical transmitter molecules and their receptors.](http://refhub.elsevier.com/S1389-0417(24)00059-7/sb33) *Parasitology*, *113*(S1), S3–S33.
+
+
+## TL;DR
+Research on temporal heterogeneity in cognitive architectures providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

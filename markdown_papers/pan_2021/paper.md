@@ -619,3 +619,20 @@ considered during the training time but missed during the test time, which cause
 DyERNIE We do not include the baseline of Dy-ERNIE(Han et al. 2020) since this paper reports the results using the static filtered setting. Moreover, the code released by the authors is not complete to implement hyperbolic spaces, making it hard to report time-aware filtering results.
 
 HSAE HSAE(Ren et al. 2023) adopts a hierarchy selfattention mechanism to incorporate information from different time shots. We do not include the baseline of HSAE because the author does not publish the codes.
+
+
+## TL;DR
+Research on hge: embedding temporal knowledge graphs in a product space of heterogeneous geometric subspaces providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

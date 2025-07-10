@@ -323,3 +323,20 @@ In conclusion, despite these possible limitations, our work was able to successf
 - <span id="page-17-1"></span>83. Chueh, T.-Y.; Huang, C.-J.; Hsieh, S.-S.; Chen, K.-F.; Chang, Y.-K.; Hung, T.-M. Sports Training Enhances Visuo-Spatial Cognition Regardless of Open-Closed Typology. *PeerJ* **2017**, *5*, e3336. [\[CrossRef\]](https://doi.org/10.7717/peerj.3336)
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+## TL;DR
+Research on the role of physical activity on spatial and temporal cognitive processing in young women providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

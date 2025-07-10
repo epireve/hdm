@@ -429,3 +429,19 @@ In this paper we introduced a domain-agnostic workflow called BUILD-KG for integ
 - **[28] G. Van Rossum and F. L. Drake,** *Python 3 Reference Manual.* **CreateSpace, 2009.**
 - **[29] N. Small, "The py2neo v4 handbook," 2019.**
 - **[30] J. Pennington, R. Socher, and C. D. Manning, "GloVe: Global vectors for word representation," in** *EMNLP,* **2014, pp. 1532-1543.**
+
+## TL;DR
+Domain-agnostic framework for automated heterogeneous data integration into unified knowledge graphs
+
+## Key Insights
+Workflow can significantly reduce data-integration time and resource burden while potentially resulting in higher-quality KG data for rule mining and ML
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can domain experts efficiently integrate heterogeneous data from multiple sources into unified knowledge graphs for complex analytics?
+- **Methodology**: Domain-agnostic workflow accepting multiple data formats, automated integration with human-in-the-loop validation, focus on enabling rule mining and machine learning applications
+- **Key Findings**: Automated option for integrating heterogeneous data reduces expert time/resources, improves data quality for downstream analytics, enables meaningful rule mining and ML
+
+### Analysis
+- **Limitations**: Limited evaluation details available, specific performance metrics not accessible from abstract
+- **Future Work**: Empirical validation across domains, performance benchmarking, integration with existing KG platforms

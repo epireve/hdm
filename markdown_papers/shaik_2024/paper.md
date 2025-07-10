@@ -1,4 +1,3 @@
----
 cite_key: shaik_2024
 title: S3LLM: Large-Scale Scientific Software Understanding with LLMs using Source,Metadata, and Document
 authors: Kareem Shaik, Dali Wang, Weijian Zheng, Qinglei Cao, Heng Fan, Peter Schwartz, Yunhe Feng
@@ -31,6 +30,12 @@ kareembabashaik@my.unt.edu,{heng.fan, yunhe.feng}@unt.edu
 <sup>4</sup> Saint Louis University, St. Louis, MO 63103, USA qinglei.cao@slu.edu
 
 Abstract. The understanding of large-scale scientific software poses significant challenges due to its diverse codebase, extensive code length, and target computing architectures. The emergence of generative AI, specifically large language models (LLMs), provides novel pathways for understanding such complex scientific codes. This paper presents S3LLM , an LLMbased framework designed to enable the examination of source code, code metadata, and summarized information in conjunction with textual technical reports in an interactive, conversational manner through a user-friendly interface. S3LLM leverages open-source LLaMA-2 models to enhance code analysis through the automatic transformation of natural language queries into domain-specific language (DSL) queries. Specifically, it translates these queries into Feature Query Language (FQL), enabling efficient scanning and parsing of entire code repositories. In addition, S3LLM is equipped to handle diverse metadata types, including DOT, SQL, and customized formats. Furthermore, S3LLM incorporates retrieval augmented generation (RAG) and LangChain technologies to directly query extensive documents. S3LLM demonstrates the potential of using locally deployed open-source LLMs for the rapid understanding of large-scale scientific computing software, eliminating the need for extensive coding expertise, and thereby making the process more efficient and effective. S3LLM is available at <https://github.com/ResponsibleAILab/s3llm>.
+
+## TL;DR
+Research on s3llm: large-scale scientific software understanding with llms using source,metadata, and document providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 Keywords: Large-Scale Scientific Software, Large Language Models, Research Software Analysis, E3SM Land Model, Retrieval Augmented Generation (RAG), LLM, LLaMA, ChatGPT
 
@@ -354,3 +359,13 @@ This paper presents S3LLM , a framework developed on the foundation of LLMs, aim
 - <span id="page-13-0"></span>31. Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi Lin, Zhuohan Li, Dacheng Li, Eric Xing, et al. Judging llm-as-a-judge with mt-bench and chatbot arena. Advances in Neural Information Processing Systems, 36, 2024.
 - <span id="page-13-11"></span>32. Weijian Zheng, Dali Wang, and Fengguang Song. XScan: an integrated tool for understanding open source community-based scientific code. In International Conference on Computational Science, pages 226–237. Springer, 2019.
 - <span id="page-13-4"></span>33. Weijian Zheng, Dali Wang, and Fengguang Song. FQL: An extensible feature query language and toolkit on searching software characteristics for hpc applications. In Guido Juckeland and Sunita Chandrasekaran, editors, Tools and Techniques for High Performance Computing, pages 129–142, Cham, 2020. Springer International Publishing.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

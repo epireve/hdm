@@ -1,4 +1,3 @@
----
 cite_key: li_2022a
 title: Toward the Tradeoffs between Privacy, Fairness and Utility in Federated Learning
 authors: Jianhua Li
@@ -30,6 +29,12 @@ School of Computer Science and Technology, Huazhong University of Science and Te
 Abstract. Federated Learning (FL) is a novel privacy-protection distributed machine learning paradigm that guarantees user privacy and prevents the risk of data leakage due to the advantage of the client's local training. Researchers have struggled to design fair FL systems that ensure fairness of results. However, the interplay between fairness and privacy has been less studied. Increasing the fairness of FL systems can have an impact on user privacy, while an increase in user privacy can affect fairness. In this work, on the client side, we use the fairness metrics, such as *Demographic Parity*(DemP),*Equalized Odds*(EOs), and*Disparate Impact*(DI), to construct the local fair model. To protect the privacy of the client model, we propose a privacy-protection fairness FL method. The results show that the accuracy of the fair model with privacy increases because privacy breaks the constraints of the fairness metrics. In our experiments, we conclude the relationship between privacy, fairness and utility, and there is a tradeoff between these.
 
 Keywords: Fair and Private Federated Learning · Differential Privacy · Privacy Protection.
+
+## TL;DR
+Research on toward the tradeoffs between privacy, fairness and utility in federated learning providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -372,3 +377,13 @@ ing with differential privacy: Algorithms and performance analysis. *IEEE Transa
 - <span id="page-16-1"></span>[YLL+20] Han Yu, Zelei Liu, Yang Liu, Tianjian Chen, Mingshu Cong, Xi Weng, Dusit Niyato, and Qiang Yang. A fairness-aware incentive scheme for federated learning. In *Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society*, pages 393–399, 2020.
 - <span id="page-16-0"></span>[ZVRG17] Muhammad Bilal Zafar, Isabel Valera, Manuel Gomez Rogriguez, and Krishna P Gummadi. Fairness constraints: Mechanisms for fair classification. In *Artificial intelligence and statistics*, pages 962–970. PMLR, 2017.
 - <span id="page-16-3"></span>[ZXW+22] Zan Zhou, Changqiao Xu, Mingze Wang, Xiaohui Kuang, Yirong Zhuang, and Shui Yu. A multi-shuffler framework to establish mutual confidence for secure federated learning. *IEEE Transactions on Dependable and Secure Computing*, 2022.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

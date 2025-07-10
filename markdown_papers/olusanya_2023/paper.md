@@ -1,4 +1,3 @@
----
 cite_key: olusanya_2023
 title: Digital Personal Health Coaching Platform for Promoting Human Papillomavirus Infection Vaccinations and Cancer Prevention: Knowledge Graph-Based Recommendation System
 authors: Olufunto A Olusanya, Lokesh Chinthala, Xiaolei Huang, Brianna M White
@@ -82,6 +81,12 @@ Arash Shaban-Nejad, MPH, MSc, PhD Center for Biomedical Informatics, Department 
 **Results:**We have designed and implemented a proof-of-the-concept prototype to showcase and demonstrate how the PHL can be used to store an individual's health data, for example, a personal health knowledge graph. This is integrated with web-scale knowledge to support HPV vaccine promotion and prevent HPV-associated cancers among adolescents and their caregivers. We also demonstrated how the Digital Personal Health Librarian uses the PHL to provide evidence-based insights and knowledge-driven explanations that are personalized and inform health decision-making.
 **Conclusions:**Digital platforms such as the PHL can be instrumental in improving precision health promotion and education strategies that address population-specific needs (ie, health literacy, digital competency, and language barriers) and empower individuals by facilitating knowledge acquisition to make healthy choices.
 *(JMIR Form Res 2023;7:e50210)*doi: [10.2196/50210](http://dx.doi.org/10.2196/50210)
+
+## TL;DR
+Knowledge graph-powered digital health coaching for personalized preventive
+
+## Key Insights  
+Platform uses knowledge graphs to provide personalized HPV vaccination recommendations and cancer prevention guidance
 
 ## KEYWORDS
 
@@ -274,3 +279,13 @@ NA and OAO conceptualized the study, wrote the original draft, reviewed and edit
 
 ![](_page_9_Picture_12.jpeg)
 <!-- Image Description: The image is a simple text-based graphic showing "XSL-FO" in gray and "RenderX" in light purple. It likely identifies the XSL-FO (Extensible Stylesheet Language Formatting Objects) processing software, RenderX, used in the paper. The purpose is to specify the technology employed for document formatting and generation, likely within a section describing the research methodology or tools. -->
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can knowledge graphs enable personalized digital health coaching for preventive care and vaccination promotion?
+- **Methodology**: Knowledge graph-based recommendation engine, personalized health coaching algorithms, HPV and cancer prevention knowledge integration
+- **Key Findings**: Developed functional platform for personalized health recommendations using KG technology for preventive care guidance
+
+### Analysis
+- **Limitations**: Limited details available from title/URL, specific evaluation metrics not accessible
+- **Future Work**: Adapt recommendation approach for HDM health monitoring, implement privacy-preserving personalization

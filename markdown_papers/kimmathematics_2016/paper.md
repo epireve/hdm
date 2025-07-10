@@ -1,4 +1,3 @@
----
 cite_key: kimmathematics_2016
 title: Advances in Privacy Preserving Federated Learning to Realize a Truly Learning Healthcare System
 authors: Kibaek KimMathematics
@@ -67,6 +66,12 @@ Tarak Nandi*Data Science and Learning Division Argonne National Laboratory*Lemon
 
 > Alex Rodriguez*Data Science and Learning Argonne National Laboratory*Lemont, IL USA a.rodriguez@anl.gov
 **Abstract:** The concept of a learning healthcare system (LHS) envisions a self-improving network where multimodal data from patient care are continuously analyzed to enhance future healthcare outcomes. However, realizing this vision faces significant challenges in data sharing and privacy protection. Privacy-Preserving Federated Learning (PPFL) is a transformative and promising approach that has the potential to address these challenges by enabling collaborative learning from decentralized data while safeguarding patient privacy. This paper proposes a vision for integrating PPFL into the healthcare ecosystem to achieve a truly LHS as defined by the Institute of Medicine (IOM) Roundtable.
+
+## TL;DR
+Research on advances in privacy preserving federated learning to realize a truly learning healthcare system providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 **Index Terms:** Privacy-Preserving Federated Learning, Learning Healthcare System, Data Privacy, Healthcare Innovation, Collaborative Learning.
 
@@ -208,3 +213,13 @@ This work was supported by the U.S. Department of Energy, Office of Science, Adv
 - <span id="page-6-20"></span>[43] G. I. Parisi, R. Kemker, J. L. Part, C. Kanan, and S. Wermter, "Continual lifelong learning with neural networks: A review," *Neural networks*, vol. 113, pp. 54–71, 2019.
 - <span id="page-6-21"></span>[44] C. S. Lee and A. Y. Lee, "Clinical applications of continual learning machine learning," *The Lancet Digital Health*, vol. 2, no. 6, pp. e279– e281, 2020.
 - <span id="page-6-22"></span>[45] Z. Li, P. Chaturvedi, S. He, H. Chen, G. Singh, V. Kindratenko, E. A. Huerta, K. Kim, and R. Madduri, "Fedcompass: efficient cross-silo federated learning on heterogeneous client devices using a computing power aware scheduler," *arXiv preprint arXiv:2309.14675*, 2023.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

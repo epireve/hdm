@@ -455,3 +455,20 @@ The work is supported by the National Key Research and Development Program of Ch
 - <span id="page-9-25"></span>[42] Rui Ye, Xin Li, Yujie Fang, Hongyu Zang, and Mingzhong Wang. 2019. A vectorized relational graph convolutional network for multi-relational network alignment. In*Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, IJCAI-19*. 4135–4141.
 - <span id="page-9-19"></span>[43] Cunchao Zhu, Muhao Chen, Changjun Fan, Guangquan Cheng, and Yan Zhan. 2020. Learning from History: Modeling Temporal Knowledge Graphs with Sequential Copy-Generation Networks. *arXiv preprint arXiv:2012.08492*(2020).
 - <span id="page-9-1"></span>[44] Xiaohan Zou. 2020. A survey on application of knowledge graph. In*Journal of Physics: Conference Series*, Vol. 1487. IOP Publishing, 012016.
+
+
+## TL;DR
+Research on temporal knowledge graph reasoning based on evolutional representation learning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

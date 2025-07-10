@@ -1,4 +1,3 @@
----
 cite_key: kaplan_2021
 title: A Classification for Managing Software Engineering Knowledge
 authors: Angelika Kaplan, Maximilian Walter, Robert Heinrich
@@ -30,6 +29,12 @@ Robert Heinrich heinrich@kit.edu Karlsruhe Institute of Technology Karlsruhe, Ge
 ## ABSTRACT
 
 This taxonomy paper presents a novel way of knowledge engineering in the software engineering research community. Till now, research papers are organized digitally as documents, mostly in PDF files. Not much effort is spent on effective knowledge classification, retrieval, storage, and representation. In contrast to the current paper-based approach for knowledge documentation, we present a statement-based approach, where each statement is linked to arguments and data of its evidence as well as to related statements. We argue that in this way, knowledge will be easier to retrieve, compare, and evaluate in contrast to current paper-based knowledge engineering in scientific search engines and digital libraries. Therefore, we present as a first step a novel multi-dimensional classification for statements in software engineering research. Statements are classified according to their research object, their kind (e.g., relevance), and their underlying evidence. This classification is validated and extended with a first systematic literature review. Additionally, we provide an example for illustration purpose.
+
+## TL;DR
+Research on a classification for managing software engineering knowledge providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## CCS CONCEPTS
 
@@ -81,7 +86,7 @@ Answering such queries (1) – (3) relies on a classification of SE statements a
 
 classified statements. Thus, for realizing this management system for SE research knowledge, we need a novel classification approach for statements and their relations. However, manually classifying research papers is a very time-consuming process. Therefore, we propose an automatic process to reduce the manual effort (e.g., by using text classification techniques). We see the potential benefits of such a KMS in:
 
-- (i) A faster progress in science, as (a) authors can find relevant work for their foundations and related work more easily. In addition, inadequately validated statements, missing statements or statements with high relevance may motivate further investigations. Beyond that, a significantly reduced effort for literature reviews, as compared to the current titlesubstring- or full-text-based search and a better precision / recall should be achieved (cf. [\[9,](#page-6-4) [11\]](#page-6-5)). Hence, efforts are more concentrated on true advancements beyond the state-of-theart and (b) reviewers can give more precise feedback on the novelty of reviewed papers.
+- (i) A faster progress in science, as (a) authors can find relevant work for their foundations and related work more easily. In addition, inadequately validated statements, missing statements or statements with high relevance may motivate further investigations. Beyond that, a significantly reduced effort for literature reviews, as compared to the current titlesubstring- or full-text-based search and a better precision / recall should be achieved (cf. [\[9,](#page-6-4) [11\]](#page-6-5)). Hence, efforts are more concentrated on true advancements beyond the state-of-the-art and (b) reviewers can give more precise feedback on the novelty of reviewed papers.
 - (ii) A faster transfer of ideas into practice, as evidence on methods and practices becomes visible for industry and experiences of pilot projects with commercial partners find their way back into a well accessible body of knowledge.
 - (iii) An easier access to the state-of-the-art for teachers and students, where the evidence of statements is documented, including even contradictions between statements. This helps to eliminate outdated content from teaching material and to better understand in which context approaches work beneficially.
 
@@ -143,7 +148,7 @@ For assigning the statements and evidence classes, we analyzed first the dedicat
 
 - (1) process extension: The paper describes only the need for these kinds of analysis processes and the general applicability. Therefore we select relevance (2.3) and as evidence (3.1) as well as (3.2), since we do not give empirical evidence of the general applicability but argue it and provide a motivating example.
 - (2) metamodel: The metamodel is not explicitly evaluated but rather whether it is suitable as an input for the analysis. We, therefore, select (2.2) as it is a related property. The evidence is given by the motivating example (3.2) and the executed scenarios based on different case studies (3.3). Additionally, by using case studies from industrial partners to model the scenario, we investigated the relevance (2.3).
-- (3) analysis: The analysis is firstly evaluated by analyzing different scenarios and comparing the output to the expected output. We evaluated there only the functional properties. Therefore we would choose (2.1) as property-as-such since these mainly check whether the behavior is as expected. The type of evidence is (3.2) and (3.3) since we use different case studies and a motivating example. Additionally, we investigated the scalability of the approach. This is a property-inrelation statement (2.2) since we investigated the execution time compared to different input parameter sizes. As evidence class, we select (3.5) since we scaled the selected input parameter and then observed the system's behavior.
+- (3) analysis: The analysis is firstly evaluated by analyzing different scenarios and comparing the output to the expected output. We evaluated there only the functional properties. Therefore we would choose (2.1) as property-as-such since these mainly check whether the behavior is as expected. The type of evidence is (3.2) and (3.3) since we use different case studies and a motivating example. Additionally, we investigated the scalability of the approach. This is a property-in-relation statement (2.2) since we investigated the execution time compared to different input parameter sizes. As evidence class, we select (3.5) since we scaled the selected input parameter and then observed the system's behavior.
 
 Table [1](#page-4-1) summarizes our classification. It shows for each contribution the assigned classifications. Figure [1](#page-2-0) also illustrates for the process extension the classification with the connecting lines between the different selected classes.
 
@@ -155,7 +160,7 @@ For instance, with the help of the classification and topic restriction to furth
 
 Another possible use case could be, that we have developed a metamodel and want to investigate what kind of evaluation is commonly used. Here we would again insert the research object and then have a look at the given evidence to get insights, how other researchers have evaluated their approaches to compare own results with state-of-the-art.
 
-
+<span id="page-4-1"></span>
 | Contributions | Research Object | Kind of Statement | Evidence |
 |-------------------------------|-----------------|------------------------------------------------------------|---------------------|
 | process extension | (1.2) | (2.3) applicable to scenarios | (3.1), (3.2) |
@@ -197,6 +202,7 @@ Regarding the study selection process, we defined the following inclusion (I) an
 
 Derived from our aforementioned RQs, we define a data extraction form (cf. Table [2\)](#page-4-2). Thus, we validated and refined the definitions of the classes for each dimension.
 
+<span id="page-4-2"></span>
 ### Table 2: Data Extraction Form
 
 
@@ -304,3 +310,13 @@ This work was supported by the KASTEL institutional funding.
 - <span id="page-6-24"></span>[27] Claes Wohlin, Per Runeson, Martin Höst, Magnus C. Ohlsson, and Björn Regnell. 2012. Experimentation in Software Engineering. Springer. [https://doi.org/10.1007/](https://doi.org/10.1007/978-3-642-29044-2) [978-3-642-29044-2](https://doi.org/10.1007/978-3-642-29044-2)
 - <span id="page-6-25"></span>[28] Marvin V. Zelkowitz and Dolores Wallace. 1997. Experimental validation in software engineering. Information and Software Technology 39, 11 (1997), 735– 743. [https://doi.org/10.1016/S0950-5849\(97\)00025-6](https://doi.org/10.1016/S0950-5849(97)00025-6) Evaluation and Assessment in Software Engineering.
 - <span id="page-6-29"></span>[29] Darja Šmite, Claes Wohlin, Zane Galvin, a, and Rafael Prikladnicki. 2014. An empirically based terminology and taxonomy for global software engineering. Empirical Software Engineering 19, 1 (Feb. 2014), 105–153. [https://doi.org/10.](https://doi.org/10.1007/s10664-012-9217-9) [1007/s10664-012-9217-9](https://doi.org/10.1007/s10664-012-9217-9)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

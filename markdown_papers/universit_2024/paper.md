@@ -315,3 +315,20 @@ Annual International Conference on Natural Language & Information Systems (NLDB 
 - <span id="page-9-17"></span>[94] Chenhan Yuan, Qianqian Xie, and Sophia Ananiadou. 2023. Zero-shot Temporal Relation Extraction with ChatGPT.<http://arxiv.org/abs/2304.05454> arXiv:2304.05454 [cs].
 - <span id="page-9-29"></span>[95] Amrapali Zaveri, Anisa Rula, Andrea Maurino, Ricardo Pietrobon, Jens Lehmann, and Soeren Auer. 2016. Quality assessment for linked data: A survey. Semantic Web 7, 1 (2016), 63–93.
 - <span id="page-9-8"></span>[96] Wenxuan Zhou, Sheng Zhang, Yu Gu, Muhao Chen, and Hoifung Poon. 2023. Universalner: Targeted distillation from large language models for open named entity recognition. arXiv:2308.03279 (2023).
+
+
+## TL;DR
+Research on research trends for the interplay between large language models and knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

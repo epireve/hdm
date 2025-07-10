@@ -425,3 +425,20 @@ Mentions in Scientific Articles," in *30th ACM International Conference on Infor
 - <span id="page-11-42"></span>[87] K. White, "Publications Output: US Trends and International Comparisons. Science & Engineering Indicators 2020. NSB-2020-6." *National Science Foundation*, 2019.
 - <span id="page-11-43"></span>[88] L. Martin and A. Henrich, "RDFtex: Knowledge Exchange Between LaTeX-Based Research Publications and Scientific Knowledge Graphs," in *Linking Theory and Practice of Digital Libraries*. Springer, 2022.
 - <span id="page-11-44"></span>[89] C. Bless, I. Baimuratov, and O. Karras, "SciKGTeX - A LaTeX Package to Semantically Annotate Contributions in Scientific Publications," in *23nd ACM/IEEE Joint Conference on Digital Libraries*, 2023.
+
+
+## TL;DR
+Research on divide and conquer the empire: a community-maintainable knowledge graph of empirical research in requirements engineering providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -503,3 +503,19 @@ The authors declare no competing interests.
 **Open Access** This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit<http://creativecommons.org/licenses/by/4.0/>.
 
 © The Author(s) 2024
+
+## TL;DR
+Novel knowledge graph-driven medicine recommendation system that leverages graph neural networks on longitudinal medical records for personalized healthcare interventions.
+
+## Key Insights
+Proposes KGDNet using longitudinal EHR data with ontologies and Drug-Drug Interaction knowledge to construct admission-wise clinical and medicine Knowledge Graphs for every patient, achieving improved personalization through temporal modeling and relational data processing.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can knowledge graphs combined with graph neural networks effectively leverage longitudinal medical records to provide personalized medicine recommendations while considering drug interactions and patient history?
+- **Methodology**: Developed KGDNet framework using Relational Graph Convolutional Networks (RGCN) for multi-relational clinical data, implemented RNNs for temporal feature learning from medical record embeddings, constructed admission-wise knowledge graphs with clinical and medicine streams, evaluated on longitudinal EHR datasets.
+- **Key Findings**: Demonstrated superior performance of longitudinal-based models considering patient historical information with current clinical state, achieved improved PR-AUC scores and optimal DDI rates through personalized knowledge graph approach, showed effectiveness of RGCN for modeling patient clinical KG embeddings.
+
+### Analysis
+- **Limitations**: Evaluation limited to specific datasets, computational complexity considerations for real-time clinical deployment, potential challenges in scaling to diverse patient populations and healthcare systems requiring broader validation.
+- **Future Work**: Expand evaluation to multi-institutional datasets, optimize computational efficiency for real-time deployment, integrate with existing electronic health record systems, develop clinical validation studies.

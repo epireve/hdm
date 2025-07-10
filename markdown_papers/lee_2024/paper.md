@@ -532,3 +532,19 @@ Additional Case Studies. Figure [7](#page-14-1) and Figure [8](#page-15-0) are a
 the correct answer, unaffected by "fishbowl" in option a. In Figure [8,](#page-15-0) the model aims to predict "soy bean" based on the image of soy milk and an example of (image of food, grain). The sub-MMKG provides an indirect connection linking "soy bean" with "soy milk" through the intermediary "tofu". Within the sub-MMKG, the image of soy milk directly incorporates visual features of soy bean that closely resemble the image of soy bean itself. This guides the model to accurately predict "soy bean", highlighting the pivotal role of multimodal knowledge from MMKGs in multimodal reasoning.
 
 Error Analysis. we also conduct an error case study, as illustrated in Figure [9.](#page-15-1) In this instance, the question is "Which fish's mouth is also adapted for tearing through meat?". However, the sub-MMKG retrieved by MR-MKG does not contain any useful information. Specifically, it contains knowledge about other fish and even two movies with names associated with fish. We can see the hardship of the MR-MKG method: 1) Insufficient knowledge: The utilized MMKG itself lacks relevant information, impeding its ability to provide effective knowledge for multimodal reasoning. 2) Ambiguity of knowledge: Inherent ambiguities in the knowledge itself may lead to retrieve unrelated knowledge. In this example, "BIG FISH" does not refer to the fish but rather to a movie, introducing ambiguity.
+
+## TL;DR
+Efficient approach to enhance large language model multimodal reasoning using multimodal knowledge graphs with significant parameter efficiency and performance improvements across diverse reasoning tasks.
+
+## Key Insights
+Achieves state-of-the-art performance in multimodal question answering and analogical reasoning while training on only ~2.25% of LLM parameters through MR-MKG approach using relation graph attention networks and cross-modal alignment modules for comprehensive multimodal understanding.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can multimodal knowledge graphs be effectively integrated with large language models to enhance multimodal reasoning capabilities while maintaining computational efficiency and cross-modal understanding?
+- **Methodology**: Developed MR-MKG framework with multimodal knowledge graph encoder, implemented relation graph attention network (RGAT) for MMKG encoding, designed cross-modal alignment module for image-text matching, constructed MMKG-grounded dataset from Visual Genome, evaluated on ScienceQA and MARS benchmarks across multiple LLMs.
+- **Key Findings**: Achieved state-of-the-art performance on multimodal question answering (ScienceQA) and multimodal analogical reasoning (MARS) tasks, demonstrated exceptional parameter efficiency training only ~2.25% of LLM parameters, showed significant improvements in cross-modal reasoning and multimodal understanding capabilities.
+
+### Analysis
+- **Limitations**: Knowledge retrieval effectiveness depends on retrieval strategy quality, computational resource constraints limited evaluation to four LLMs, performance may vary across different datasets and application domains, limited exploration of complex multimodal reasoning scenarios.
+- **Future Work**: Extend evaluation to additional LLMs and multimodal reasoning tasks, optimize knowledge retrieval mechanisms for improved effectiveness, develop adaptive multimodal fusion techniques, explore integration with real-world personal data management systems requiring multimodal understanding.

@@ -1,4 +1,3 @@
----
 cite_key: "herath_2024"
 title: "Smart City Digital Twins: A Modular and Adaptive Architecture for Real-Time Data-Driven Urban Management"
 authors: "Manoj Herath, Maira Alvi, Roberto Minerva, Hrishikesh Dutta, Noel Crespi, Syed Mohsan Raza"
@@ -33,6 +32,12 @@ Samovar, Telecom SudParis, Institut Polytechnique de Paris, 91120 Palaiseau, Fra
 Email: {manoj.herath, maira.alvi, roberto.minerva, hrishikesh.dutta, noel.crespi, syed-mohsan raza}@telecom-sudparis.eu
 
 **Abstract:** This paper presents a modular Digital Twin software architecture designed for smart cities, leveraging Edge-Cloud Continuum to enable the development of flexible and scalable DT-based solutions. Digital Twin technology provides a powerful framework for simulating, analyzing, and optimizing urban environments by integrating real-time and historical data from various city sensors through IoT, AI, and cloud computing. The proposed architecture addresses the limitations of existing DT frameworks by focusing on smart city-specific requirements such as dynamic resource management, real-time data processing, and autonomous decision-making. The viability of the proposed framework is demonstrated through a case study on autonomous traffic management in the city of Issyles-Moulineaux. It shows how the proposed framework predicts traffic patterns and manages network resource allocation by adjusting the data sampling frequency to balance prediction accuracy and communication costs. The architecture's modular design supports seamless integration and adaptability, making it suitable for various smart city applications, thereby advancing the development of more efficient, sustainable, and resilient urban environments.
+
+## TL;DR
+Adaptive digital twin framework for real-time urban data integration and management
+
+## Key Insights  
+Modular digital twin architecture leveraging Edge-Cloud Continuum for dynamic resource management and real-time urban simulation
 
 **Index Terms:** Digital Twin, Software Architecture, Smart City, Artificial Intelligence
 
@@ -259,3 +264,13 @@ This research work is supported by Project CLOUD CON-TINUUM SOUVERAIN ET JUMEAUX
 - [15] ETSI. (2024) Gs cim 009 v1.5.1 context information management (cim); ngsi-ld api. [Online]. Available: https://www.etsi.org/deliver/etsi gs/CIM/001 099/009/01.08.01 60/gs CIM009v010801p.pdf
 - [16] D. Merkel *et al.*, "Docker: lightweight linux containers for consistent development and deployment," *Linux j*, vol. 239, no. 2, p. 2, 2014.
 - [17] S. M. Raza, R. Minerva, B. Martini, and N. Crespi, "Empowering microservices: A deep dive into intelligent application component placement for optimal response time," *Journal of Network and Systems Management*, vol. 32, no. 4, p. 84, 2024.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can a digital twin architecture be designed to enable flexible and scalable urban management solutions?
+- **Methodology**: Modular digital twin architecture, Edge-Cloud Continuum integration, dynamic resource management, real-time data processing, traffic management case study
+- **Key Findings**: Demonstrated framework viability through traffic management case study, showed ability to predict traffic patterns, adaptive network resource allocation
+
+### Analysis
+- **Limitations**: Focused on urban management context, scalability to personal systems not explored
+- **Future Work**: Develop personal digital twin frameworks, implement privacy controls, create user-centric interfaces

@@ -611,3 +611,20 @@ exploratory columnar data augmentation using knowledge graphs. *IEEE Trans. Vis.
 - <span id="page-10-36"></span>[79] K. Wongsuphasawat, Z. Qu, D. Moritz, R. Chang, F. Ouk, A. Anand, J. Mackinlay, B. Howe, and J. Heer. Voyager 2: Augmenting visual analysis with partial view specifications. In *Proc. CHI*, p. 2648–2659. ACM, New York, 2017. doi: 10.1145/3025453.3025768 [8](#page-7-1)
 - <span id="page-10-0"></span>[80] G. Xiao, L. Ding, B. Cogrel, and D. Calvanese. Virtual knowledge graphs: An overview of systems and use cases. *Data Intell.*, 1(3):201–223, 2019. doi: 10.1162/dint\_a\_00011 [1](#page-0-0)
 - <span id="page-10-41"></span>[81] Y. Yoon, B. A. Myers, and S. Koo. Visualization of fine-grained code change history. In *IEEE VL/HCC*, pp. 119–126, 2013. doi: 10.1109/ VLHCC.2013.6645254 [8](#page-7-1)
+
+
+## TL;DR
+Research on knowledge graphs in practice: characterizing their users, challenges, and visualization opportunities providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

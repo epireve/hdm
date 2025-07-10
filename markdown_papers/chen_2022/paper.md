@@ -1,4 +1,3 @@
----
 cite_key: chen_2022
 title: Integrating Manifold Knowledge for Global Entity Linking with Heterogeneous Graphs
 authors: Zhibin Chen, Yuting Wu, Yansong Feng
@@ -37,6 +36,12 @@ Citation: Chen, Z.B., et al.: Integrating manifold knowledge for global entity l
 Entity Linking (EL) aims to automatically link the mentions in unstructured documents to corresponding entities in a knowledge base (KB), which has recently been dominated by global models. Although many global EL methods attempt to model the topical coherence among all linked entities, most of them failed in exploiting the correlations among manifold knowledge helpful for linking, such as the semantics of mentions and their candidates, the neighborhood information of candidate entities in KB and the fine-grained type information of entities. As we will show in the paper, interactions among these types of information are very useful for better characterizing the topic features of entities and more accurately estimating the topical coherence among all the referred entities within the same document. In this paper, we present a novel HEterogeneous Graph-based Entity Linker (HEGEL) for global entity linking, which builds an informative heterogeneous graph for every document to collect various linking clues. Then HEGEL utilizes a novel heterogeneous graph neural network (HGNN) to integrate the different types of manifold information and model the interactions among them. Experiments on the standard benchmark datasets demonstrate that HEGEL can well capture the global coherence and outperforms the prior state-of-the-art EL methods.
 
 <sup>†</sup> Corresponding author: Yuting Wu (Email: wyting@pku.edu.cn; ORCID:0000-0002-7550-3804).
+
+## TL;DR
+Research on integrating manifold knowledge for global entity linking with heterogeneous graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
 
 ## 1. INTRODUCTION
 
@@ -393,7 +398,7 @@ Z.B. Chen (czb-peking@pku.edu.cn) performed the research, designed the whole met
 - [22] Wu, L., et al.: Zero-shot entity linking with dense entity retrieval. arXiv preprint arxiv:1911.03814 (2019)
 - [23] Cao, N.D., et al.: Multilingual autoregressive entity linking. arXiv preprint arxiv:2103.12528 (2021)
 - [24] Hamilton, W.L., Ying, R., Leskovec, J.: Inductive representation learning on large graphs. In: Proceedings of the 31st International Conference on Neural Information Processing Systems (NIPS'17), pp. 1025–1035 (2017)
-- [25] Velicˇković, P., et al.: Graph attention networks. In: International Conference on Learning Representations (ICLR), pp. 1-12 (2018)
+- [25] Velicˇković, P., et al.: Graph attention networks. In: International Conference on Learning Representations (ICLR), pp. 1-12 (2018)
 - [26] Dong, Y., Chawla, N.V., Swami, A.: metapath2vec: Scalable representation learning for heterogeneous networks. In: Proceedings of the 23rd ACM SIGKDD international conference on knowledge discovery and data mining, pp. 135–144 (2017)
 
 - [27] Moreau, E., Yvon, F., Cappé, O.: Robust similarity measures for named entities matching. In: Proceedings of the 22nd International Conference on Computational Linguistics (Coling 2008), pp. 593–600 (2008)
@@ -421,3 +426,13 @@ ORCID:0000-0002-7550-3804
 <!-- Image Description: The image is a photograph of an author's headshot. It's a standard passport-style photo showing a man with short dark hair wearing glasses and a dark grey collared shirt. The image serves solely as an author identification photograph for the academic paper. There are no diagrams, charts, graphs, or equations present. -->
 **Yansong Feng**is an Associate Professor in the Wangxuan Institute of Computer Technology (WICT) at Peking University. He is affiliated with the group of Web Information Processing. Before that, he worked with Prof. Mirella Lapata and obtained his Ph.D. degree from the School of Informatics at the University of Edinburgh. Prior to Edinburgh, he worked with Prof. Jufu Feng on pattern recognition at Peking University. His current research focuses on distilling knowledge from large volumes of text resources on the Web.
 **Dongyan Zhao** is a Professor in Wangxuan Institute of Computer Technology (WICT), Peking University, China. He received B.S., M.S. and Ph.D. in Computer Science from Department of Computer Science and Technology of Peking University. As a distinguished member of China Computer Federation (CCF), he is the secretary-general of CCF TCCI (Technical Committee on Chinese Information Technology, renamed as Technical Committe on Natural Language Processing in 2020) from 2010 to 2019, member of CCF Task Force on Big Data and member of CCF Network and Data Communications, as well as a senior member of CIPS Social Media Processing Committee.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

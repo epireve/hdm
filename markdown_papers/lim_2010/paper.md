@@ -1,4 +1,3 @@
----
 cite_key: lim_2010
 title: Key Management for Large-Scale Distributed Storage Systems
 authors: Hoon Wei Lim
@@ -37,6 +36,12 @@ Hoon Wei Lim
 SAP Research, Sophia Antipolis, France hoon.wei.lim@sap.com
 
 **Abstract.**Petabyte-scale file systems are often extremely large, containing gigabytes or terabytes of data that can be spread across hundreds or thousands of storage devices. Hence, the cost of security operations can be very high. Recent security proposals for large-scale file systems have been focussing on the use of hybrid symmetric and asymmetric key cryptographic techniques, in order to strive for a balance between security and performance. However, key management issues, such as distribution, renewal and revocation of keys, have not been explicitly addressed. In this paper, we first show that key management can be very challenging and costly in large-scale systems, and can have significant impact on the scalability of the systems. We then propose a file system security architecture which makes use of lightweight key management techniques. Our approach not only addresses essential key management concerns, it also improves existing proposals with stronger security and better usability.
+
+## TL;DR
+Research on key management for large-scale distributed storage systems providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -267,3 +272,13 @@ For future work, we intend to implement our proposal using a real distributed fi
 - 24. White, B.S., Walker, M., Humphrey, M., Grimshaw, A.S.: LegionFS: A secure and scalable file system supporting cross-domain high-performance applications. In: Proceedings of the ACM/IEEE Conference on Supercomputing (SC 2001), November 2001, p. 59. ACM Press, New York (2001)
 - <span id="page-14-5"></span>25. Wu, T.: The secure remote password protocol. In: Proceedings of Symposium on Network and Distributed System Security (NDSS 1998). The Internet Society (1998)
 - <span id="page-14-2"></span>26. Zhu, Y., Hu, Y.: SNARE: A strong security scheme for network-attached storage. In: Proceedings of the 22nd Symposium on Reliable Distributed Systems, pp. 250– 259. IEEE Computer Society Press, Los Alamitos (2003)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

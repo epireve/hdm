@@ -562,3 +562,20 @@ In this paper, we propose a novel TKG reasoning model, namely LogCL, which uses 
 - <span id="page-13-9"></span>[44] R. Goel, S. M. Kazemi, M. A. Brubaker, and P. Poupart, "Diachronic embedding for temporal knowledge graph completion," in *The Thirty-Fourth AAAI Conference on Artificial Intelligence, AAAI 2020, The Thirty-Second Innovative Applications of Artificial Intelligence Conference, IAAI 2020, The Tenth AAAI Symposium on Educational Advances in Artificial Intelligence, EAAI 2020, New York, NY, USA, February 7-12, 2020*. AAAI Press, 2020, pp. 3988–3995.
 - <span id="page-13-10"></span>[45] K. Liu, F. Zhao, G. Xu, X. Wang, and H. Jin, "Retia: relation-entity twin-interact aggregation for temporal knowledge graph extrapolation," in *IEEE International Conference on Data Engineering*. IEEE, 2023.
 - <span id="page-13-11"></span>[46] D. P. Kingma and J. Ba, "Adam: A method for stochastic optimization," in *3rd International Conference on Learning Representations, ICLR 2015, San Diego, CA, USA, May 7-9, 2015, Conference Track Proceedings*, 2015.
+
+
+## TL;DR
+Improves temporal knowledge graph reasoning through local-global history-aware
+
+## Key Insights
+Entity-aware attention mechanisms improve temporal reasoning; Contrastive learning enhances noise resistance in TKG; Historical information fusion is crucial for accurate future predictions
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to improve temporal knowledge graph (TKG) reasoning by addressing challenges in historical information encoding and noise resistance
+- **Methodology**: Proposed LogCL (Local-Global History-aware Contrastive Learning) model; Used entity-aware attention mechanism; Implemented four historical query contrast patterns
+- **Key Findings**: Demonstrated better and more robust performance than state-of-the-art baselines; Improved extrapolation of unknowable future facts in temporal knowledge graphs
+
+### Analysis
+- **Limitations**: Not explicitly detailed in the abstract
+- **Future Work**: Not specifically mentioned

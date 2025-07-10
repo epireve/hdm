@@ -523,3 +523,20 @@ Asma Ben Abacha, Wen-wai Yim, George Michalopoulos, and Thomas Lin. 2023. An inv
 - Shweta Yadav, Deepak Gupta, Asma Ben Abacha, and Dina Demner-Fushman. 2021. Reinforcement learning for abstractive question summarization with question-aware semantic rewards. *CoRR*, abs/2107.00176.
 - Michihiro Yasunaga, Antoine Bosselut, Hongyu Ren, Xikun Zhang, Christopher D Manning, Percy S Liang, and Jure Leskovec. 2022. Deep bidirectional language-knowledge graph pretraining. *Advances in Neural Information Processing Systems*, 35:37309–37323.
 - Huaixiu Steven Zheng, Swaroop Mishra, Xinyun Chen, Heng-Tze Cheng, Ed H Chi, Quoc V Le, and Denny Zhou. 2023. Take a step back: Evoking reasoning via abstraction in large language models. *arXiv preprint arXiv:2310.06117*.
+
+
+## TL;DR
+Large Language Models enhanced with medical knowledge graphs demonstrate robust diagnostic capabilities with 66% accuracy and exceptional reasoning performance exceeding 94% median scores through comprehensive human evaluation
+
+## Key Insights
+Novel graph-based knowledge grounding framework (DR.KNOWS) that integrates UMLS medical knowledge graphs with LLMs for EHR diagnosis prediction, achieving significant improvements in diagnostic reasoning and abstraction capabilities
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The study employs DR.KNOWS graph neural network architecture with trilinear and multi-head attention mechanisms, retrieval-augmented generation (RAG) framework, and comprehensive human evaluation based on SaferDX diagnostic safety instrument using ChatGPT-3.5-turbo on MIMIC-III and in-house EHR datasets
+- **Methodology**: DR.KNOWS achieved superior precision (19.10 vs 13.59) and F-scores (25.20 vs 21.13) compared to concept extraction baselines, with ChatGPT demonstrating 66% diagnostic accuracy and >94% reasoning scores in human evaluation, showing enhanced abstraction and rationale capabilities when augmented with knowledge graphs
+- **Key Findings**: The primary outcome is the DR.KNOWS framework that successfully integrates UMLS knowledge graphs with LLMs for medical diagnosis, achieving measurable improvements in diagnostic reasoning, abstraction capabilities, and the first comprehensive human evaluation framework for LLM diagnostic systems based on SaferDX principles
+
+### Analysis
+- **Limitations**: The integration of medical knowledge graphs with LLMs shows promising results for clinical diagnostic decision support, with DR.KNOWS demonstrating enhanced diagnostic reasoning and abstraction capabilities, while comprehensive human evaluation reveals both strengths and areas for improvement in knowledge-grounded medical AI systems
+- **Future Work**: Implementation insights include the importance of TF-IDF weighting for relevant CUIs, benefits of trilinear attention over multi-head attention for path ranking, necessity of comprehensive human evaluation frameworks for medical AI safety, potential for knowledge graph prompting to reduce hallucinations, and requirements for HIPAA-compliant local LLM deployment in healthcare settings

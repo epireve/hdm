@@ -391,3 +391,20 @@ behavior during activating," US2019371466-A1, Dec. 2019
 - [83] "How a virtual heart could save your real one Blog | Philips." https://www.philips.com/a-
 
 w/about/news/archive/blogs/innovationmatters/20181112-how-a-virtual-heart-could-saveyour-real-one.html (accessed Dec. 19, 2022).
+
+
+## TL;DR
+Research on a systematic review on human modeling: digging into human digital twin implementations providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

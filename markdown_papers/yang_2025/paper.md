@@ -743,3 +743,20 @@ Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
 <!-- Image Description: This word cloud visualizes the key terms and concepts within a research paper on natural language processing (NLP). Larger font sizes indicate higher frequency. Core themes include "neural network," "machine translation," "language model," "word embedding," "question answering," and various NLP tasks like sentiment analysis and entity recognition. The image serves to quickly summarize the paper's scope and technical focus. -->
 
 **Figure 10:** Word cloud visualization for extracted entities.
+
+
+## TL;DR
+Research on graphusion: a rag framework for scientific knowledge graph construction with a global perspective providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

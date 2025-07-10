@@ -1,4 +1,3 @@
----
 cite_key: schpfeld_2019
 title: Solving problems of research information heterogeneity during integration – using the European CERIF and German RCD standards as examples
 authors: Joachim Schöpfeld
@@ -76,6 +75,12 @@ Keywords: Research information management systems (RIMS), current research infor
 <span id="page-0-3"></span><sup>\*</sup>Corresponding author. E-mail: [azeroual@dzhw.eu](mailto:azeroual@dzhw.eu).
 
 This article is published online with Open Access and distributed under the terms of the Creative Commons Attribution Non-Commercial License (CC BY-NC 4.0).
+
+## TL;DR
+Research on solving problems of research information heterogeneity during integration – using the european cerif and german rcd standards as examples providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
 
 ## 1. Introduction
 
@@ -448,3 +453,13 @@ This work has been funded by the German Center for Higher Education Research and
 
 - [31] M. Stempfhuber, Information quality in the context of CRIS and CERIF, in: *CRIS2008: 9th International Conference on Current Research Information Systems, Maribor, Slovenia, 5–7 June, 2008*.
 - [32] S. Wu, B. Stvilia and D.J. Lee, Readers, personal record managers, and community members: An exploratory study of researchers' participation in online research information management systems, *J. Libr. Metadata.* **17**(2) (2017), 57–90.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

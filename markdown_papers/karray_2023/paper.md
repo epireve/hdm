@@ -557,3 +557,20 @@ He is currently a Lead Researcher with Technology Innovation Institute, Abu Dhab
 **Fakhri Karray** received the Ph.D. degree from the University of Illinois at Urbana–Champaign, Champaign, IL, USA.
 
 He is a Professor of Machine Learning with the Mohamed Bin Zayed University of Artificial Intelligence, Abu Dhabi, UAE.
+
+
+## TL;DR
+Research on secure federated learning with fully homomorphic encryption for iot communications providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

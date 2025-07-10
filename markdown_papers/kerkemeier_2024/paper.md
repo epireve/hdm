@@ -1,4 +1,3 @@
----
 cite_key: kerkemeier_2024
 title: nekCRF: A next generation high-order reactive low Mach flow solver for direct numerical simulations
 authors: Stefan Kerkemeier, Christos E. Frouzakis, Ananias G. Tomboulides, Paul Fischer, Mathis Bodee
@@ -59,6 +58,12 @@ Stefan Kerkemeier<sup>a</sup> , Christos E. Frouzakis<sup>b</sup> , Ananias G. T
 ## Abstract
 
 Exascale computing enables high-fidelity simulations of chemically reactive flows in practical geometries and conditions, and paves the way for valuable insights that can optimize combustion processes, ultimately reducing emissions and improving fuel combustion efficiency. However, this requires software that can fully leverage the capabilities of current high performance computing systems. The paper introduces nekCRF, a highorder reactive low Mach flow solver specifically designed for this purpose. Its capabilities and efficiency are showcased on the pre-exascale system JUWELS Booster, a GPU-based supercomputer at the J¨ulich Supercomputing Centre including a validation across diverse cases of varying complexity.
+
+## TL;DR
+Research on nekcrf: a next generation high-order reactive low mach flow solver for direct numerical simulations providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -347,3 +352,13 @@ processing units. Int. J. High Perf. Comput. Appl., 37(2):82–100, 2023.
 - <span id="page-9-3"></span>[32] K. Kim, O.H. D´ıaz-Ibarra, H.N. Najm, J. Z´ador, and C. Safta. TChem: A performance portable parallel software toolkit for complex kinetic mechanisms. Comput. Phys. Comm., 285:108628, 2023.
 - <span id="page-9-4"></span>[33] S. Barwey and V. Raman. A Neural Network-Inspired Matrix Formulation of Chemical Kinetics for Acceleration on GPUs. Energies, 14(9), 2021.
 - <span id="page-9-5"></span>[34] M.S. Day A.Nonaka and J.B. Bell. A conservative, thermodynamically consistent numerical approach for low Mach number combustion. Part I: Single-level integration. Combustion Theory and Modelling, 22(1):156–184, 2018.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

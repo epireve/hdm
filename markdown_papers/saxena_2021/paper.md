@@ -574,3 +574,20 @@ Tables [8](#page-12-0) to [12](#page-13-0) contain some example questions from t
 | CRONKGQA | Stephen Gyllenhaal, Antonia Fraser, Bruce Paltrow,<br>Naomi Foner Gyllenhaal, Wolfhard von Boeselager |
 
 **Table 12:** First/Last reasoning type question.
+
+
+## TL;DR
+Improved question answering in temporal knowledge graphs through novel dataset
+
+## Key Insights
+Temporal scoping is crucial for accurate knowledge representation; Transformer models can effectively handle complex temporal queries; Temporal KG embeddings significantly improve QA performance
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to effectively perform question answering over temporal knowledge graphs (Temporal KGQA)
+- **Methodology**: Presented CRONQUESTIONS dataset; Proposed CRONKGQA, a transformer-based solution; Exploited recent advances in Temporal KG embeddings
+- **Key Findings**: Expanded previous dataset by 340x; Achieved 120% accuracy increase over next best method; State-of-the-art KGQA methods performed poorly on new dataset
+
+### Analysis
+- **Limitations**: Not explicitly detailed in the abstract
+- **Future Work**: Not explicitly specified

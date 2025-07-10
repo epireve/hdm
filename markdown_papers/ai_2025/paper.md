@@ -1,33 +1,23 @@
----
+```yaml
 cite_key: ai_2025
 title: Zep: A Temporal Knowledge Graph Architecture for Agent Memory
 authors: Preston Rasmussen Zep AI
 year: 2025
 doi: 10.48550/arXiv.2501.13956
 url: https://arxiv.org/abs/2501.13956
-relevancy: High
+relevancy: HIGH
 relevancy_justification: Contains relevant concepts applicable to HDM systems
-tags:
-  - ai
-  - integration
-  - knowledge_graph
-  - llm
-  - machine_learning
-  - memory
-  - semantic
-  - survey
-  - temporal
+tags: 10.48550/arXiv.2501.13956
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: zep_temporal_kg_agent_memory_2025
 downloaded: Yes
 tldr: Temporal knowledge graph architecture that outperforms existing memory systems
-images_total: 0
-images_kept: 0
-images_removed: 0
 keywords: 
+standardization_date: 2025-07-10
+standardization_version: 1.0
+```
 ---
-
 # ZEP: A TEMPORAL KNOWLEDGE GRAPH ARCHITECTURE FOR AGENT MEMORY
 
 Preston Rasmussen Zep AI preston@getzep.com
@@ -43,6 +33,12 @@ Daniel Chalef Zep AI daniel@getzep.com
 ## ABSTRACT
 
 We introduce Zep, a novel memory layer service for AI agents that outperforms the current stateof-the-art system, MemGPT, in the Deep Memory Retrieval (DMR) benchmark. Additionally, Zep excels in more comprehensive and challenging evaluations than DMR that better reflect real-world enterprise use cases. While existing retrieval-augmented generation (RAG) frameworks for large language model (LLM)-based agents are limited to static document retrieval, enterprise applications demand dynamic knowledge integration from diverse sources including ongoing conversations and business data. Zep addresses this fundamental limitation through its core component Graphiti—a temporally-aware knowledge graph engine that dynamically synthesizes both unstructured conversational data and structured business data while maintaining historical relationships. In the DMR benchmark, which the MemGPT team established as their primary evaluation metric, Zep demonstrates superior performance (94.8% vs 93.4%). Beyond DMR, Zep's capabilities are further validated through the more challenging LongMemEval benchmark, which better reflects enterprise use cases through complex temporal reasoning tasks. In this evaluation, Zep achieves substantial results with accuracy improvements of up to 18.5% while simultaneously reducing response latency by 90% compared to baseline implementations. These results are particularly pronounced in enterprisecritical tasks such as cross-session information synthesis and long-term context maintenance, demonstrating Zep's effectiveness for deployment in real-world applications.
+
+## TL;DR
+Temporal knowledge graph architecture that outperforms existing memory systems
+
+## Key Insights
+Core component "Graphiti" - temporally-aware knowledge graph engine that dynamically synthesizes unstructured conversational and structured business data while maintaining historical relationships.
 
 ## 1 Introduction
 
@@ -340,3 +336,13 @@ Using Knowledge Graphs to power LLM-Agent Memory
 
 - <span id="page-11-0"></span>[27] Pranab Islam, Anand Kannappan, Douwe Kiela, Rebecca Qian, Nino Scherrer, and Bertie Vidgen. Financebench: A new benchmark for financial question answering, 2023.
 - <span id="page-11-1"></span>[28] Nandan Thakur, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. Beir: A heterogenous benchmark for zero-shot evaluation of information retrieval models, 2021.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can temporal knowledge graphs improve AI agent memory for enterprise applications requiring dynamic knowledge integration?
+- **Methodology**: Core component: "Graphiti" - temporally-aware knowledge graph engine; dynamically synthesizes unstructured conversational and structured business data; maintains historical relationships.
+- **Key Findings**: Outperforms MemGPT in Deep Memory Retrieval benchmark (94.8% vs 93.4%); 18.5% accuracy improvement in LongMemEval benchmark; 90% reduction in response latency.
+
+### Analysis
+- **Limitations**: Not explicitly stated in the abstract.
+- **Future Work**: Enhanced cross-session information synthesis, improved long-term context maintenance, effective for enterprise AI applications.

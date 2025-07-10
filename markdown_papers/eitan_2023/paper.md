@@ -426,3 +426,36 @@ baltimore longitudinal study of aging.*JAMA Neurol*2019;76:1340-51. [DOI](https:
 - <span id="page-17-16"></span>Bæk R, Søndergaard EK, Varming K, Jørgensen MM. The impact of various preanalytical treatments on the phenotype of small extracellular vesicles in blood analyzed by protein microarray.*J Immunol Methods*2016;438:11-20. [DOI](https://dx.doi.org/10.1016/j.jim.2016.08.007) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/27568281) 57.
 - Binderup HG, Madsen JS, Heegaard NHH, Houlind K, Andersen RF, Brasen CL. Quantification of microRNA levels in plasma Impact of preanalytical and analytical conditions.*PLoS One*2018;13:e0201069. [DOI](https://dx.doi.org/10.1371/journal.pone.0201069) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/30024941) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6053236) 58.
 - <span id="page-17-17"></span>Jamaly S, Ramberg C, Olsen R, et al. Impact of preanalytical conditions on plasma concentration and size distribution of extracellular vesicles using Nanoparticle Tracking Analysis.*Sci Rep* 2018;8:17216. [DOI](https://dx.doi.org/10.1038/s41598-018-35401-8) [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/30464183) [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6249294) 59.
+
+
+## TL;DR
+Novel methodology for isolating neuron-derived extracellular vesicles as Alzheimer's disease biomarkers.
+
+## Key Insights
+Developed minimally invasive method to isolate neuron-derived extracellular vesicles (NDEVs) from blood plasma; achieved 94.7% classification accuracy for AD patients using protein biomarker model.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Can neuron-derived extracellular vesicles provide novel, non-invasive biomarkers for early Alzheimer's disease detection?
+- **Methodology**: Used antibodies against GAP43 and NLGN3 to capture NDEVs, analyzed plasma samples from early AD patients and controls, measured multiple proteins and RNA markers, validated using electron microscopy and proteomics.
+- **Key Findings**: p181-Tau, Aβ42, and NRGN elevated in AD; proBDNF, GluR2, PSD95, GAP43, and Syntaxin-1 reduced; developed model correctly classifying 94.7% of AD participants.
+
+### Analysis
+- **Limitations**: Small sample size; requires validation in larger, more diverse populations; long-term stability of biomarkers not assessed.
+- **Future Work**: Scale up validation studies; integrate with digital health platforms; develop automated analysis pipelines.
+
+## TL;DR
+Novel methodology for isolating neuron-derived extracellular vesicles as Alzheimer's disease biomarkers.
+
+## Key Insights
+Developed minimally invasive method to isolate neuron-derived extracellular vesicles (NDEVs) from blood plasma; achieved 94.7% classification accuracy for AD patients using protein biomarker model.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Can neuron-derived extracellular vesicles provide novel, non-invasive biomarkers for early Alzheimer's disease detection?
+- **Methodology**: Used antibodies against GAP43 and NLGN3 to capture NDEVs, analyzed plasma samples from early AD patients and controls, measured multiple proteins and RNA markers, validated using electron microscopy and proteomics.
+- **Key Findings**: p181-Tau, Aβ42, and NRGN elevated in AD; proBDNF, GluR2, PSD95, GAP43, and Syntaxin-1 reduced; developed model correctly classifying 94.7% of AD participants.
+
+### Analysis
+- **Limitations**: Small sample size; requires validation in larger, more diverse populations; long-term stability of biomarkers not assessed.
+- **Future Work**: Scale up validation studies; integrate with digital health platforms; develop automated analysis pipelines.

@@ -429,3 +429,36 @@ The authors declare no competing interests.
 - 127. Cueva, C.J. et al. [\(2020\) Low-dimensional dynamics for working](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0635) memory and time encoding. [Proc. Natl. Acad. Sci. U. S. A.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0635) 117, 23021–[23032](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0635)
 - 128. Schacter, D.L. et al. [\(2007\) Remembering the past to imagine](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0640) [the future: the prospective brain.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0640) Nat. Rev. Neurosci. 8, 657–[661](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0640)
 - 129. Fusi, S. et al. [\(2016\) Why neurons mix: high dimensionality for](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0645) higher cognition. [Curr. Opin. Neurobiol.](http://refhub.elsevier.com/S1364-6613(25)00021-X/rf0645) 37, 66–74
+
+
+## TL;DR
+Research on exploring the role of dimensionality transformation in episodic memory providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 
+
+## TL;DR
+Research on exploring the role of dimensionality transformation in episodic memory providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

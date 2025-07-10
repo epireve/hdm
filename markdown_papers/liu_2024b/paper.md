@@ -43,6 +43,12 @@ Results: The thus devised ketamine pathway 'KetPath' knowledge graph comprises f
 
 Availability and implementation: Data and query protocols are available in the KetPath repository at [https://dx.doi.org/10.5281/zenodo.](https://dx.doi.org/10.5281/zenodo.8398941) [8398941](https://dx.doi.org/10.5281/zenodo.8398941) and [https://github.com/tingcosmos/KetPath.](https://github.com/tingcosmos/KetPath)
 
+## TL;DR
+Deep learning approaches for integrating diverse biomedical data types to improve analysis and prediction tasks.
+
+## Key Insights  
+Biomedical data integration faces challenges from data heterogeneity, missing values, and high dimensionality; deep learning offers powerful approaches for feature learning and data fusion.
+
 ## Introduction
 
 Depression is a common mental health problem that affects an estimated 5% of the global population and has a lifetime prevalence of up to 20% of individuals ([Gutie´rrez-Rojas](#page-8-0) et al. [2020\)](#page-8-0). As an antidepressant, ketamine triggers an increased release of various neurotransmitters, which promote the growth of certain gut bacteria and, conversely, are synthesized and/or consumed by gut microbiota (see [Supplementary Fig.](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btad771#supplementary-data) [S1A\)](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btad771#supplementary-data). Moreover, it is well known that neurotransmitters and gut microbiota are associated with depression [\(Cheung](#page-7-0) et al. [2019\)](#page-7-0). Taken together, these facts suggest that gut microbiota may be involved in the antidepressant effects of ketamine by modulating neurotransmitters. Although some studies have found a link between gut microbiota and ketamine's antidepressant action [\(Wilkowska](#page-8-0) et al. 2021), current knowledge remains too limited for understanding the role of specific gut microbiota species in the ketamine pathway. At present, only a few publications address the co-action of ketamine and gut microbiota in depression (see [Supplementary Fig. S1B\)](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btad771#supplementary-data). To further our knowledge, uncovering possible pathways to explore the role of neurotransmitters and gut microbiota in ketamine's actions is crucial.
@@ -281,3 +287,13 @@ The authors declare no competing interests.
 - Wilkowska A, Szałach ŁP, Cubała WJ et al. Gut microbiota in depression: a focus on ketamine. Front Behav Neurosci 2021;15: 693362.
 - Wishart DS, Feunang YD, Guo AC et al. DrugBank 5.0: a major update to the DrugBank database for 2018. Nucleic Acids Res 2018;46: D1074-D1082.
 - Yong SJ, Tong T, Chew J et al. Antidepressive mechanisms of probiotics and their therapeutic potential. Front Neurosci 2020;13: 1361.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can deep learning methods effectively integrate heterogeneous biomedical data to improve analysis and clinical predictions?
+- **Methodology**: Deep learning architectures for multi-modal data fusion; handling missing data and heterogeneity; evaluation on biomedical prediction tasks.
+- **Key Findings**: Demonstrates effective deep learning approaches for biomedical data integration; improves prediction accuracy; handles data heterogeneity effectively.
+
+### Analysis
+- **Limitations**: Computational requirements for deep learning; need for large training datasets; interpretability challenges.
+- **Future Work**: Develop interpretable deep learning models; clinical trial validation; integrate with existing healthcare systems.

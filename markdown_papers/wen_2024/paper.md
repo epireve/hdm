@@ -546,3 +546,20 @@ M. Schmidt, J. Sequeda, S. Staworko, D. Tomaszuk, H. Voigt, D. Vrgoc, M. Wu, and
 - <span id="page-12-28"></span>[47] G. Bagan, A. Bonifati, R. Ciucanu, G. H. L. Fletcher, A. Lemay, and N. Advokaat, "gmark: Schema-driven generation of graphs and queries," IEEE Trans. Knowl. Data Eng., vol. 29, no. 4, pp. 856–869, 2017.
 - <span id="page-12-29"></span>[48] G. K. Zipf, Human Behaviour and the Principle of Least Effort: an Introduction to Human Ecology. Addison-Wesley, 1949.
 - <span id="page-12-30"></span>[49] A. G. Labouseur, J. Birnbaum, P. W. Olsen, S. R. Spillane, J. Vijayan, J.-H. Hwang, and W.-S. Han, "The g\* graph database: efficiently managing large distributed dynamic graphs," Distributed and Parallel Databases, vol. 33, pp. 479–514, 2015.
+
+
+## TL;DR
+Efficient temporal graph database with built-in temporal support addressing
+
+## Key Insights
+Hybrid storage with anchor+delta strategy; separates current and historical versions; minimal 9.74% overhead for temporal features; built on Memgraph with MVCC support.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to efficiently support temporal features in graph databases while minimizing storage overhead and query latency?
+- **Methodology**: Developed hybrid storage engine with current/historical separation; implemented anchor+delta storage strategy; created anchor-based version retrieval; built on Memgraph with formal temporal property graph model.
+- **Key Findings**: Achieves 5.73X lower storage consumption and 2.57X lower temporal query latency vs state-of-the-art; only 9.74% performance degradation for temporal features; supports three temporal benchmarks.
+
+### Analysis
+- **Limitations**: Focus on specific graph database implementation; broader applicability to other systems not evaluated; limited discussion of distributed scenarios.
+- **Future Work**: Expand temporal query language; optimize for specific temporal patterns; develop tools for temporal graph analytics.

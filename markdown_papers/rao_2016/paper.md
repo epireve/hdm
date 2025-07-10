@@ -798,3 +798,20 @@ communications security, 2016, pp. 308–318.
 - 44. C. Fontaine and F. Galand, "A survey of homomorphic encryption for nonspecialists," EURASIP Journal on Information Security, vol. 2007, no. 1, pp. 1–10, 2007.
 - 45. C. Zhang, S. Li, J. Kang, X. Wang, F. Li, and Y. Liu, "BatchCrypt: Efficient homomorphic encryption for cross-silo federated learning," in USENIX Annual Technical Conference (USENIX ATC), 2020, pp. 493–506. [Online]. Available: https://www.usenix.org/conference/atc20/ presentation/zhang-chengliang
 - 46. A. Krizhevsky, "Learning multiple layers of features from tiny images," Technical Report, University of Toronto, 2009.
+
+
+## TL;DR
+Research on a selective homomorphic encryption approach for faster privacy-preserving federated learning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -1,4 +1,3 @@
----
 cite_key: "graph_2024"
 title: "Personalized Entity Resolution with Dynamic Heterogeneous Knowledge Graph Representations"
 authors: "merging the product knowledge graph, the customer-product graph, we obtain a more comprehensive graph (Figure [1\(](#page-1-0)c)) of higher connectivity. For example, in the original customer-product graph, Customer 1, Customer 2 are disconnected because they do not share any purchase. In the new graph, they have an indirect connection through Product 2, Product 3, which share the same flavor, ingredient."
@@ -34,6 +33,12 @@ Amazon Alexa AI
 ## Abstract
 
 The growing popularity of Virtual Assistants poses new challenges for Entity Resolution, the task of linking mentions in text to their referent entities in a knowledge base. Specifically, in the *shopping* domain, customers tend to use implicit utterances (e.g., "organic milk") rather than explicit names, leading to a large number of candidate products. Meanwhile, for the same query, different customers may expect different results. For example, with "add *milk* to my cart", a customer may refer to a certain organic product, while some customers may want to re-order products they regularly purchase. To address these issues, we propose a new framework that leverages personalized features to improve the accuracy of product ranking. We first build a cross-source heterogeneous knowledge graph from customer purchase history and product knowledge graph to jointly learn customer and product embeddings. After that, we incorporate product, customer, and history representations into a neural reranking model to predict which candidate is most likely to be purchased for a specific customer. Experiments show that our model substantially improves the accuracy of the top ranked candidates by 24.6% compared to the state-of-the-art product search model.
+
+## TL;DR
+Novel approach to entity resolution using dynamic heterogeneous knowledge graphs with personalization for improved accuracy.
+
+## Key Insights  
+Customers tend to use \"implicit utterances\" creating multiple product candidates. Framework builds \"cross-source heterogeneous knowledge graph\" from customer purchase history with personalized features.
 
 ## 1 Introduction
 
@@ -339,3 +344,13 @@ We propose a novel framework to jointly learn customer and product representatio
 - <span id="page-8-0"></span>Boliang Zhang, Ying Lin, Xiaoman Pan, Di Lu, Jonathan May, Kevin Knight, and Heng Ji. 2018a. ELISA-EDL: A cross-lingual entity extraction, linking and localization system. In *Proc. The 16th Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT2018)*.
 - <span id="page-8-5"></span>Zhen Zhang, Hongxia Yang, Jiajun Bu, Sheng Zhou, Pinggang Yu, Jianwei Zhang, Martin Ester, and Can Wang. 2018b. Anrl: Attributed network representation learning via deep neural networks. In *IJCAI*, volume 18.
 - <span id="page-8-12"></span>Zhi-Dan Zhao and Ming-Sheng Shang. 2010. Userbased collaborative-filtering recommendation algorithms on hadoop. In *2010 Third International Conference on Knowledge Discovery and Data Mining*, pages 478–481. IEEE.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can entity resolution accuracy be improved in shopping domains where customers use implicit utterances?
+- **Methodology**: Neural reranking model with cross-source heterogeneous knowledge graph construction; joint learning of customer and product embeddings.
+- **Key Findings**: 24.6% improvement in accuracy of top ranked candidates compared to state-of-the-art; personalized entity resolution through dynamic knowledge graphs.
+
+### Analysis
+- **Limitations**: Limited to shopping domain; evaluation primarily focused on product search scenarios.
+- **Future Work**: Extend to other domains; evaluate scalability; develop privacy-preserving methods.

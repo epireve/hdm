@@ -1,58 +1,3 @@
----
-cite_key: sesana_2024
-title: New generation Energy Performance Certificate: development and application in an Italian case study as an EU proof of concept
-authors: Marta Maria Sesana, Ilaria Isacco
-year: 2024
-doi: 10.1051/e3sconf/202452306001
-url: https://www.e3s-conferences.org/10.1051/e3sconf/202452306001
-relevancy: Low
-downloaded: 'Yes'
-tags:
-- Energy Performance Certificate
-- Building Decarbonization
-- EU Green Deal
-- Energy Efficiency
-tldr: Development of improved Energy Performance Certificate methodology for building
-  decarbonization support.
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: e3s_2024_energy_performance_certificate
-images_total: 12
-images_kept: 12
-images_removed: 0
-keywords:
-- 1 introduction
-- 1 the quantitative verification strategy
-- 2 methodology
-- 4 conclusions
-- AssessmeNt
-- BuildingList
-- BuildingLocation
-- DistributedInsulation
-- FloorList
-- HollowBrick
-- InsulationPosition
-- InsulationThermalResistance
-- InsulationThickness
-- MainLayerMaterial
-- above-mentioned
-- chronicle-project
-- co-define
-- dimn-cstb
-- e-dyce
-- easy-to-understand
-- easy-tounderstand
-- energy-related
-- epc recast
-- epc-recast
-- fraunhofer-gesellschaft
-- high-quality
-- in-office
-- indoor-outdoor
-- long-term
-- multi-story
----
-
 # New generation Energy Performance Certificate: development and application in an Italian case study as an EU proof of concept
 
 Graziano Salvalai1\*, Marta Maria Sesana<sup>2</sup> , and Ilaria Isacco<sup>1</sup>
@@ -62,6 +7,12 @@ Graziano Salvalai1\*, Marta Maria Sesana<sup>2</sup> , and Ilaria Isacco<sup>1</
 <sup>2</sup>Department of Civil, Environmental, Architectural Engineering and Mathematics (DICATAM), University of Brescia, Brescia, Italy
 
 > Abstract. The Energy Performance of Buildings Directive recast, voted in March 2024, aims to boost the amelioration of the Energy Performance Certificate (EPC) with the introduction of new indicators in a dedicated template (Annex V), as a key tool towards the decarbonization of the building sector, in line with the Green Deal's climate neutrality goals. In this context, the H2020 Energy Performance Certificate Recast project develops a new generation of EPC focused on existing residential buildings. The paper presents the state of progress of the Energy Performance Certificate Recast methodology, comparing it with the standard national procedure in different EU partner countries. The novelty of the work is the testing methodology of a new generation of this tool, which aims to overcome the barriers identified in the current EPC procedure across Europe and to validate the reliability and user-friendliness of this new approach. The final goal of the work is to prove the applicability and potentialities of this innovative approach, providing a clear and punctual presentation of each step of the assessment and the testing methodology of the new generation of Energy Performance Certificate, coupled with its application in an Italian case study as a Proof of Concept.
+
+## TL;DR
+Development of improved Energy Performance Certificate methodology for building
+
+## Key Insights  
+Explores new generation of Energy Performance Certificates (EPC) for residential buildings to overcome current barriers in EPC procedures across Europe and align with EU Green Deal climate neutrality goals.
 
 ## 1 Introduction
 
@@ -329,3 +280,13 @@ Author contribution statement: Graziano Salvalai and Marta Maria Sesana: Concept
 - 17. G. Salvalai, M.M. Sesana, Long-Term Monitoring Strategies for Increasing EPCs Reliability. Environ. Sci. Proc. 11, 16 (2021). https://doi.org/10.3390/environsciproc2021011016
 - 18. G. Salvalai, M.M. Sesana, Monitoring Approaches for New-Generation Energy Performance Certificates in Residential Buildings. Buildings. 12, 469 (2022). https://doi.org/10.3390/buildings12040469
 - 19. Italian Republic, Regolamento recante norme per la progettazione, l'installazione, l'esercizio e la manutenzione degli impianti termici degli edifici ai fini del contenimento dei consumi di energia, in attuazione dell'Art. 4, Comma 4, della Legge 9 gennaio 1991, n.10, DPR 26 agosto 1993, n. 412 (G.U. n.96 del 14/10/1993) (1993).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can the Energy Performance Certificate be improved to better support building decarbonization efforts?
+- **Methodology**: Testing a new EPC methodology by comparing it with standard national procedures in different EU partner countries and applying it to an Italian case study.
+- **Key Findings**: The work aims to prove the applicability and potential of an innovative EPC approach by providing a clear assessment methodology.
+
+### Analysis
+- **Limitations**: Not explicitly stated in the abstract; focused on building energy assessment rather than knowledge management.
+- **Future Work**: Further validation across different EU countries; development of standardized implementation guidelines.

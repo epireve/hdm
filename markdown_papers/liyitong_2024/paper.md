@@ -723,3 +723,19 @@ We also take a similar study on the interpolation reasoning, and Table [7](#page
 As discussed in Section [4.1,](#page-2-3) for extrapolation reasoning, our TPAR does not require strict chronological order between links in a path. Alternatively,
 
 methods like TLogic [\(Liu et al.,](#page-10-3) [2022\)](#page-10-3) demand that all links in a path be ordered chronologically. For example, given a path P = t1 r1 (e1, e2)∧ t2 r2 (e2, e3)∧ t3 r3 (e3, e4), TLogic requires t<sup>q</sup> > t<sup>1</sup> ≥ t<sup>2</sup> ≥ t3, while we simply require t<sup>q</sup> > t<sup>i</sup> for i = 1, 2, 3. We conduct an analysis on the chronological order of links in a path, and the results are shown in Table [8.](#page-15-3) The results indicate that when chronological order is relaxed, the performance of TLogic decreases, while that of our TPAR increases. We believe that by relaxing chronological order in paths, we can gather more paths, thereby providing more information for inference. Nonetheless, this may introduce noise and uncertainty into the process, which ultimately reduces the effectiveness of symbolic methods such as TLogic. On the other hand, our TPAR employs a neural-symbolic approach, which not only mitigates the impact of these challenges but also ensures excellent inference performance, showcasing its strong robustness.
+
+## TL;DR
+Novel unified approach to temporal knowledge graph reasoning that handles both interpolation (historical analysis) and extrapolation (future prediction) through neural-driven symbolic reasoning with enhanced robustness and interpretability.
+
+## Key Insights
+Proposes Temporal PAth-based Reasoning (TPAR) model that performs neural-driven symbolic reasoning robust to ambiguous and noisy temporal data while providing fine interpretability, outperforming SOTA methods in link prediction for both interpolation and extrapolation settings.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can we develop a unified reasoning model that effectively handles both interpolation and extrapolation in temporal knowledge graphs while maintaining robustness to noisy data and providing interpretable results?
+- **Methodology**: Developed Temporal PAth-based Reasoning (TPAR) model using neural-driven symbolic reasoning approach, designed for robustness to ambiguous and noisy temporal data, implemented pipeline experimental setting for unified evaluation, comprehensive experiments on link prediction tasks.
+- **Key Findings**: TPAR outperformed state-of-the-art methods in link prediction tasks for both interpolation and extrapolation settings, demonstrated effective integration of temporal reasoning capabilities, showed robustness to noisy temporal data with enhanced interpretability.
+
+### Analysis
+- **Limitations**: Previous methods de-emphasized temporal correlations, existing approaches ignored inferring clues from missing past facts, limited handling of temporal data complexity in unified frameworks.
+- **Future Work**: Further refinement of TPAR model capabilities, exploration of more diverse temporal reasoning scenarios, integration with real-world temporal knowledge systems.

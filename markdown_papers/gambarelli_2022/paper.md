@@ -456,3 +456,20 @@ The next step concerns the in-depth analysis of the PDCs that revealed a critica
 - <span id="page-18-16"></span>44. McCarthy, J. Generality in Artificial Intelligence. *Commun. ACM* **1987**, *30*, 1030–1035. [\[CrossRef\]](http://dx.doi.org/10.1145/33447.33448)
 - <span id="page-18-17"></span>45. Reforgiato Recupero, D.; Presutti, V.; Consoli, S.; Gangemi, A.; Nuzzolese, A. Sentilo: Frame-Based Sentiment Analysis. *Cogn. Comput.* **2014**, *7*, 211–225. [\[CrossRef\]](http://dx.doi.org/10.1007/s12559-014-9302-z)
 - <span id="page-18-18"></span>46. Andreas, B.; David, M.; Muiris, W. Protecting Personally Identifiable Information (PII) Using Tagging and Persistence of PII. US Patent 10,885,225, 5 January 2021.
+
+
+## TL;DR
+Frame-based knowledge graph for automatically identifying sensitive personal
+
+## Key Insights
+Addresses pervasiveness of dialogue systems and virtual conversation applications that raise potential for sharing sensitive information; uses Data Privacy Vocabulary (DPV) as reference taxonomy.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can sensitive personal information be automatically identified in text using semantic frames and knowledge graphs?
+- **Methodology**: Developed PRIVAFRAME using compositional frames from existing semantic frames, evaluated on manually labeled dataset (SPeDaC3), compared with RoBERTa transformer model.
+- **Key Findings**: Achieved 78% accuracy vs 66% for transformer model, provides granular context-aware approach to sensitive information detection, can identify specific text spans containing sensitive information.
+
+### Analysis
+- **Limitations**: Abstract only - evaluation limited to specific dataset, detailed methodology and broader applicability assessment not available.
+- **Future Work**: Explore hybrid logical-symbolic and neural approaches, expand evaluation to more diverse datasets, investigate real-world deployment scenarios.

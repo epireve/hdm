@@ -543,3 +543,20 @@ The Code Commentor analyzes code to provide detailed comments, enhancing code re
 | |
 
 **Figure 23:** By using Cypher queries, the specific implementation of the return function was obtained, and the return type was clarified.
+
+
+## TL;DR
+Research on codexgraph: bridging large language models and code repositories via code graph databases providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

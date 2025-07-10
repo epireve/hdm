@@ -394,3 +394,20 @@ highway concrete bridges," *Advances in Engineering Software*, vol. 36, no. 11-1
 - [47] Research Institute of Highway Ministry of Transport, *JTG 5220—2020 Inspection and Evaluation Quality Standards for Highway Maintenance Engineering Section 1 Civil Engineering*, China Communications Press, Beijing, China, 2020.
 - [48] Iso 4628-5:2016, *Paints and Varnishes Evaluation of Degradation of Coatings — Designation of Quantity and Size of Defects, and of Intensity of Uniform Changes in Appearance — Part 5: Assessment of Degree of Flaking*, International Organization for Standardization, Geneva, Switzerland, 2016.
 - [49] S. Z. R. Rizvi and P. W. L. Fong, "Efcient authorization of graph-database queries in an attribute-supporting ReBAC model," *ACM Transactions on Privacy and Security*, vol. 23, no. 4, pp. 1–33, 2020.
+
+
+## TL;DR
+Research on research article# building a knowledge base of bridge maintenance using knowledge graph providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -523,3 +523,20 @@ IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE
 - <span id="page-11-11"></span>[57] Konstantinos Tsiakas, Michalis Papakostas, Michail Theofanidis, Morris Bell, Rada Mihalcea, Shouyi Wang, Mihai Burzo, and Fillia Makedon. 2017. An interactive multisensing framework for personalized human robot collaboration and assistive training using reinforcement learning. In Proceedings of the 10th International Conference on PErvasive Technologies Related to Assistive Environments. 423–427.
 - <span id="page-11-6"></span>[58] Wayne Zachary, Matthew Johnson, R Hofman, Travis Thomas, Andrew Rosof, and Thomas Santarelli. 2015. A context-based approach to robot-human interaction. Procedia Manufacturing 3 (2015), 1052–1059.
 - <span id="page-11-7"></span>[59] W Zachary, A Rosof, L Miller, S Read, K Laskey, I Emmons, and P Costa. 2013. Context as cognitive process. In Proc. of.
+
+
+## TL;DR
+Research on paterns for representing knowledge graphs to communicate situational knowledge of service robots providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 
