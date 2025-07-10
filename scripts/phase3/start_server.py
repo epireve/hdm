@@ -10,21 +10,28 @@ import os
 import webbrowser
 from threading import Timer
 
-PORT = 8080
+PORT = 8000
+
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
         super().end_headers()
+
 
 def open_browser():
     """Open the visualization in the default browser."""
-    webbrowser.open(f'http://localhost:{PORT}/visualization/pkg_research_explorer/index.html')
+    webbrowser.open(
+        f"http://localhost:{PORT}/visualization/pkg_research_explorer/index.html"
+    )
+
 
 # Change to the project root directory
-project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+project_root = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+)
 os.chdir(project_root)
 
 print(f"Starting server on http://localhost:{PORT}")

@@ -4,14 +4,14 @@
     "total_edges": 10,
     "total_opportunities": 0,
     "categories": [
-      "methodologies",
-      "performance_metrics",
-      "architectures",
-      "data_integration",
-      "frameworks_tools",
       "knowledge_graph",
       "algorithms",
-      "hdm_specific"
+      "hdm_specific",
+      "frameworks_tools",
+      "architectures",
+      "performance_metrics",
+      "methodologies",
+      "data_integration"
     ],
     "domains": []
   },
@@ -23,7 +23,39 @@
         "frequency": 259,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 55.606816310155274
+        "size": 55.606816310155274,
+        "sample_papers": [
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          }
+        ]
       },
       {
         "id": 1,
@@ -31,7 +63,39 @@
         "frequency": 233,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 54.55321115357702
+        "size": 54.55321115357702,
+        "sample_papers": [
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "callahan_2024",
+            "title": "An open source knowledge graph ecosystem for the life sciences",
+            "year": "2024",
+            "authors": "Tifany J. Callahan, Ignacio J. Tripodi, Adrianne L. Stefanski, Luca Cappelletti, Sanya B. Taneja, Jordan M. Wyrwa, Elena Casiraghi, Nicolas A. Matentzoglu, Justin Reese, Jonathan C. Silverstein, Charles Tapley Hoyt, Richard D. Boyce, Scott A. Malec, Deepak R. Unni, Marcin P. Joachimiak, Peter N. Robinson, Christopher J. Mungall, Emanuele Cavalleri, Tommaso Fontana, Giorgio Valentini, Marco Mesiti, Lucas A. Gillenwater, Brook Santangelo, Nicole A. Vasilevsky, Robert Hoehndorf, Tellen D. Bennett, Patrick B. Ryan, George Hripcsak, Michael G. Kahn, Michael Bada, William A. Baumgartner Jr\u2709& Lawrence E. Hunter"
+          },
+          {
+            "id": "castilloescamilla_2024",
+            "title": "The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women",
+            "year": "2024",
+            "authors": "Joaqu\u00edn Castillo-Escamilla, Mar\u00eda del Mar Salvador-Vi\u00f1as, Jos\u00e9 Manuel Cimadevilla"
+          },
+          {
+            "id": "castro_2019",
+            "title": "Research Knowledge Graphs: the Shifting Paradigm of Scholarly Information Representation",
+            "year": "2019",
+            "authors": "Leyla Jael Castro, Benjamin Zapilko, Saurav Karmakar, Brigitte Mathiak, Markus Stocker, Wolfgang Otto"
+          },
+          {
+            "id": "chakraborty_2022",
+            "title": "Personal Research Knowledge Graphs",
+            "year": "2022",
+            "authors": "Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal"
+          }
+        ]
       },
       {
         "id": 2,
@@ -39,7 +103,39 @@
         "frequency": 113,
         "category": "algorithms",
         "type": "technical",
-        "size": 47.36198448394496
+        "size": 47.36198448394496,
+        "sample_papers": [
+          {
+            "id": "aho_2023",
+            "title": "A human digital twin for the M\u2011Machine",
+            "year": "2023",
+            "authors": "Pertti Saariluoma, Mari Myllyl\u00e4, Antero Karvonen, Mika Luimula, Jami Aho"
+          },
+          {
+            "id": "akroyd_2021",
+            "title": "Universal Digital Twin - A Dynamic Knowledge Graph",
+            "year": "2021",
+            "authors": "Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft"
+          },
+          {
+            "id": "akroyd_2021",
+            "title": "Universal Digital Twin - A Dynamic Knowledge Graph",
+            "year": "2021",
+            "authors": "Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft"
+          },
+          {
+            "id": "akroyd_2021",
+            "title": "Universal Digital Twin - A Dynamic Knowledge Graph",
+            "year": "2021",
+            "authors": "Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          }
+        ]
       },
       {
         "id": 3,
@@ -47,7 +143,39 @@
         "frequency": 91,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 45.217885770490405
+        "size": 45.217885770490405,
+        "sample_papers": [
+          {
+            "id": "aburasheed_2023b",
+            "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+            "year": "2023",
+            "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi"
+          },
+          {
+            "id": "abusalih_2024",
+            "title": "A systematic literature review of knowledge graph construction and application in education",
+            "year": "2024",
+            "authors": "Bilal Abu-Salih, Salihah Alotaibi"
+          },
+          {
+            "id": "abusalih_2024",
+            "title": "A systematic literature review of knowledge graph construction and application in education",
+            "year": "2024",
+            "authors": "Bilal Abu-Salih, Salihah Alotaibi"
+          },
+          {
+            "id": "alatrash_2024",
+            "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+            "year": "2024",
+            "authors": "Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder"
+          },
+          {
+            "id": "anderson_2016",
+            "title": "Mind the Gap: Two Dissociable Mechanisms of Temporal Processing in the Auditory System",
+            "year": "2016",
+            "authors": "Lucy A. Anderson, Jennifer F. Linden"
+          }
+        ]
       },
       {
         "id": 4,
@@ -55,7 +183,39 @@
         "frequency": 86,
         "category": "methodologies",
         "type": "technical",
-        "size": 44.65908118654583
+        "size": 44.65908118654583,
+        "sample_papers": [
+          {
+            "id": "abusalih_2024",
+            "title": "A systematic literature review of knowledge graph construction and application in education",
+            "year": "2024",
+            "authors": "Bilal Abu-Salih, Salihah Alotaibi"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bellomarini_2024a",
+            "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
+            "year": "2024",
+            "authors": "Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati"
+          },
+          {
+            "id": "bellomarini_2024a",
+            "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
+            "year": "2024",
+            "authors": "Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati"
+          }
+        ]
       },
       {
         "id": 5,
@@ -63,7 +223,39 @@
         "frequency": 80,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 43.94449154672439
+        "size": 43.94449154672439,
+        "sample_papers": [
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          }
+        ]
       },
       {
         "id": 6,
@@ -71,7 +263,39 @@
         "frequency": 75,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 43.30733340286331
+        "size": 43.30733340286331,
+        "sample_papers": [
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          }
+        ]
       },
       {
         "id": 7,
@@ -79,7 +303,39 @@
         "frequency": 72,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 42.90459441148391
+        "size": 42.90459441148391,
+        "sample_papers": [
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "caia_2024",
+            "title": "A Survey on Temporal Knowledge Graph: Representation Learning and Applications",
+            "year": "2024",
+            "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
+          }
+        ]
       },
       {
         "id": 8,
@@ -87,7 +343,39 @@
         "frequency": 67,
         "category": "algorithms",
         "type": "technical",
-        "size": 42.19507705176107
+        "size": 42.19507705176107,
+        "sample_papers": [
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          }
+        ]
       },
       {
         "id": 9,
@@ -95,7 +383,39 @@
         "frequency": 52,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 39.70291913552122
+        "size": 39.70291913552122,
+        "sample_papers": [
+          {
+            "id": "abusalih_2023",
+            "title": "Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities",
+            "year": "2023",
+            "authors": "Bilal Abu-Salih, Muhammad AL-Qurishi, Mohammed Alweshah, Mohammad AL-Smadi, Reem Alfayez, Heba Saadeh"
+          },
+          {
+            "id": "abusalih_2024",
+            "title": "A systematic literature review of knowledge graph construction and application in education",
+            "year": "2024",
+            "authors": "Bilal Abu-Salih, Salihah Alotaibi"
+          },
+          {
+            "id": "asprino_2023",
+            "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+            "year": "2023",
+            "authors": "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+          },
+          {
+            "id": "asprino_2023",
+            "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+            "year": "2023",
+            "authors": "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+          },
+          {
+            "id": "asprino_2023",
+            "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+            "year": "2023",
+            "authors": "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+          }
+        ]
       },
       {
         "id": 10,
@@ -103,7 +423,39 @@
         "frequency": 50,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 39.318256327243255
+        "size": 39.318256327243255,
+        "sample_papers": [
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "aburasheed_2023b",
+            "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+            "year": "2023",
+            "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi"
+          },
+          {
+            "id": "abusalih_2024",
+            "title": "A systematic literature review of knowledge graph construction and application in education",
+            "year": "2024",
+            "authors": "Bilal Abu-Salih, Salihah Alotaibi"
+          }
+        ]
       },
       {
         "id": 11,
@@ -111,7 +463,39 @@
         "frequency": 41,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 37.37669618283368
+        "size": 37.37669618283368,
+        "sample_papers": [
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "castilloescamilla_2024",
+            "title": "The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women",
+            "year": "2024",
+            "authors": "Joaqu\u00edn Castillo-Escamilla, Mar\u00eda del Mar Salvador-Vi\u00f1as, Jos\u00e9 Manuel Cimadevilla"
+          },
+          {
+            "id": "chu_2021",
+            "title": "TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models",
+            "year": "2021",
+            "authors": "Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Haotian Wang, Ming Liu, Bing Qin"
+          },
+          {
+            "id": "fafrowicz_2022",
+            "title": "Neural spatio\u2011temporal patterns of information processing related to cognitive conflict and correct or false recognitions",
+            "year": "2022",
+            "authors": "Magdalena Fafrowicz"
+          },
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          }
+        ]
       },
       {
         "id": 12,
@@ -119,7 +503,39 @@
         "frequency": 40,
         "category": "methodologies",
         "type": "technical",
-        "size": 37.13572066704308
+        "size": 37.13572066704308,
+        "sample_papers": [
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bellomarini_2024a",
+            "title": "Privacy-Preserving Synthetically Augmented Knowledge Graphs with Semantic Utility",
+            "year": "2024",
+            "authors": "Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati"
+          },
+          {
+            "id": "briggs_2021",
+            "title": "A Review of Privacy-preserving Federated Learning for the Internet-of-Things",
+            "year": "2021",
+            "authors": "Christopher Briggs, Zhong Fan, Peter Andras"
+          },
+          {
+            "id": "briggs_2021",
+            "title": "A Review of Privacy-preserving Federated Learning for the Internet-of-Things",
+            "year": "2021",
+            "authors": "Christopher Briggs, Zhong Fan, Peter Andras"
+          },
+          {
+            "id": "fu_2024",
+            "title": "Privacy-Preserving Graph Machine Learning from Data to Computation: A Survey",
+            "year": "2024",
+            "authors": "Dongqi Fu, Wenxuan Bao, Ross Maciejewski, Hanghang Tong, Jingrui He"
+          }
+        ]
       },
       {
         "id": 13,
@@ -127,7 +543,39 @@
         "frequency": 37,
         "category": "architectures",
         "type": "technical",
-        "size": 36.37586159726386
+        "size": 36.37586159726386,
+        "sample_papers": [
+          {
+            "id": "sharma_2025",
+            "title": "Temporal Reasoning in AI Systems",
+            "year": "2025",
+            "authors": "Abhishek Sharma"
+          },
+          {
+            "id": "castilloescamilla_2024",
+            "title": "The Role of Physical Activity on Spatial and Temporal Cognitive Processing in Young Women",
+            "year": "2024",
+            "authors": "Joaqu\u00edn Castillo-Escamilla, Mar\u00eda del Mar Salvador-Vi\u00f1as, Jos\u00e9 Manuel Cimadevilla"
+          },
+          {
+            "id": "chu_2021",
+            "title": "TIMEBENCH: A Comprehensive Evaluation of Temporal Reasoning Abilities in Large Language Models",
+            "year": "2021",
+            "authors": "Zheng Chu, Jingchang Chen, Qianglong Chen, Weijiang Yu, Haotian Wang, Ming Liu, Bing Qin"
+          },
+          {
+            "id": "fafrowicz_2022",
+            "title": "Neural spatio\u2011temporal patterns of information processing related to cognitive conflict and correct or false recognitions",
+            "year": "2022",
+            "authors": "Magdalena Fafrowicz"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          }
+        ]
       },
       {
         "id": 14,
@@ -135,7 +583,39 @@
         "frequency": 34,
         "category": "algorithms",
         "type": "technical",
-        "size": 35.553480614894134
+        "size": 35.553480614894134,
+        "sample_papers": [
+          {
+            "id": "alatrash_2024",
+            "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+            "year": "2024",
+            "authors": "Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          }
+        ]
       },
       {
         "id": 15,
@@ -143,7 +623,39 @@
         "frequency": 29,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 34.011973816621555
+        "size": 34.011973816621555,
+        "sample_papers": [
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          }
+        ]
       },
       {
         "id": 16,
@@ -151,7 +663,39 @@
         "frequency": 29,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 34.011973816621555
+        "size": 34.011973816621555,
+        "sample_papers": [
+          {
+            "id": "ammar_2021",
+            "title": "Using a Personal Health Library\u2013Enabled mHealth Recommender System for Self-Management of Diabetes Among Underserved Populations: Use Case for Knowledge Graphs and Linked Data",
+            "year": "2021",
+            "authors": "Nariman Ammar, James E Bailey, Robert L Davis, Arash Shaban-Nejad"
+          },
+          {
+            "id": "ammar_2021",
+            "title": "Using a Personal Health Library\u2013Enabled mHealth Recommender System for Self-Management of Diabetes Among Underserved Populations: Use Case for Knowledge Graphs and Linked Data",
+            "year": "2021",
+            "authors": "Nariman Ammar, James E Bailey, Robert L Davis, Arash Shaban-Nejad"
+          },
+          {
+            "id": "ammar_2021",
+            "title": "Using a Personal Health Library\u2013Enabled mHealth Recommender System for Self-Management of Diabetes Among Underserved Populations: Use Case for Knowledge Graphs and Linked Data",
+            "year": "2021",
+            "authors": "Nariman Ammar, James E Bailey, Robert L Davis, Arash Shaban-Nejad"
+          },
+          {
+            "id": "asprino_2023",
+            "title": "Knowledge Graph Construction with a Fa\u00e7ade: A Unified Method to Access Heterogeneous Data Sources on the Web",
+            "year": "2023",
+            "authors": "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
+          },
+          {
+            "id": "balog_2019",
+            "title": "Personal Knowledge Graphs: A Research Agenda",
+            "year": "2019",
+            "authors": "Krisztian Balog, Tom Kenter"
+          }
+        ]
       },
       {
         "id": 17,
@@ -159,7 +703,39 @@
         "frequency": 27,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 33.32204510175204
+        "size": 33.32204510175204,
+        "sample_papers": [
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "division_2021",
+            "title": "Data Integration Challenges for Machine Learning in Precision Medicine",
+            "year": "2021",
+            "authors": "Clinical Research Division, Mexico City, Computational Genomics Division"
+          },
+          {
+            "id": "division_2021",
+            "title": "Data Integration Challenges for Machine Learning in Precision Medicine",
+            "year": "2021",
+            "authors": "Clinical Research Division, Mexico City, Computational Genomics Division"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          }
+        ]
       },
       {
         "id": 18,
@@ -167,7 +743,39 @@
         "frequency": 27,
         "category": "algorithms",
         "type": "technical",
-        "size": 33.32204510175204
+        "size": 33.32204510175204,
+        "sample_papers": [
+          {
+            "id": "alatrash_2024",
+            "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+            "year": "2024",
+            "authors": "Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder"
+          },
+          {
+            "id": "alatrash_2024",
+            "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+            "year": "2024",
+            "authors": "Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder"
+          },
+          {
+            "id": "alatrash_2024",
+            "title": "Transparent Learner Knowledge State Modeling using Personal Knowledge Graphs and Graph Neural Networks",
+            "year": "2024",
+            "authors": "Rawaa Alatrash, Mohamed Amine Chatti, Qurat Ul Ain, Shoeb Joarder"
+          },
+          {
+            "id": "du_2024",
+            "title": "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction",
+            "year": "2024",
+            "authors": "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
+          },
+          {
+            "id": "du_2024",
+            "title": "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction",
+            "year": "2024",
+            "authors": "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
+          }
+        ]
       },
       {
         "id": 19,
@@ -175,7 +783,39 @@
         "frequency": 24,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 32.18875824868201
+        "size": 32.18875824868201,
+        "sample_papers": [
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "akroyd_2021",
+            "title": "Universal Digital Twin - A Dynamic Knowledge Graph",
+            "year": "2021",
+            "authors": "Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft"
+          },
+          {
+            "id": "akroyd_2021",
+            "title": "Universal Digital Twin - A Dynamic Knowledge Graph",
+            "year": "2021",
+            "authors": "Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          }
+        ]
       },
       {
         "id": 20,
@@ -183,7 +823,39 @@
         "frequency": 24,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 32.18875824868201
+        "size": 32.18875824868201,
+        "sample_papers": [
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "cai_2023",
+            "title": "Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space",
+            "year": "2023",
+            "authors": "Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan"
+          },
+          {
+            "id": "cai_2023",
+            "title": "Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space",
+            "year": "2023",
+            "authors": "Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan"
+          }
+        ]
       },
       {
         "id": 21,
@@ -191,7 +863,39 @@
         "frequency": 24,
         "category": "algorithms",
         "type": "technical",
-        "size": 32.18875824868201
+        "size": 32.18875824868201,
+        "sample_papers": [
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          },
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          },
+          {
+            "id": "lin_2024b",
+            "title": "LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated Denoising and Private Learning",
+            "year": "2024",
+            "authors": "Xi Lin"
+          }
+        ]
       },
       {
         "id": 22,
@@ -199,7 +903,39 @@
         "frequency": 23,
         "category": "algorithms",
         "type": "technical",
-        "size": 31.780538303479457
+        "size": 31.780538303479457,
+        "sample_papers": [
+          {
+            "id": "chang_2021",
+            "title": "Sequential Recommendation with Graph Neural Networks",
+            "year": "2021",
+            "authors": "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
+          },
+          {
+            "id": "du_2024",
+            "title": "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction",
+            "year": "2024",
+            "authors": "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
+          },
+          {
+            "id": "du_2024",
+            "title": "CTGNN: Crystal Transformer Graph Neural Network for Crystal Material Property Prediction",
+            "year": "2024",
+            "authors": "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
+          },
+          {
+            "id": "editor_2022",
+            "title": "Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data",
+            "year": "2022",
+            "authors": "Academic Editor"
+          },
+          {
+            "id": "editor_2022",
+            "title": "Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data",
+            "year": "2022",
+            "authors": "Academic Editor"
+          }
+        ]
       },
       {
         "id": 23,
@@ -207,7 +943,39 @@
         "frequency": 21,
         "category": "algorithms",
         "type": "technical",
-        "size": 30.91042453358316
+        "size": 30.91042453358316,
+        "sample_papers": [
+          {
+            "id": "clau_2024",
+            "title": "iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models",
+            "year": "2024",
+            "authors": "Pierre CL\u00c9AU"
+          },
+          {
+            "id": "graph_2024",
+            "title": "Personalized Entity Resolution with Dynamic Heterogeneous Knowledge Graph Representations",
+            "year": "2024",
+            "authors": "Ying Lin, Han Wang, Jiangning Chen, Tong Wang, Yue Liu, Heng Ji, Yang Liu, Premkumar Natarajan"
+          },
+          {
+            "id": "graph_2024",
+            "title": "Personalized Entity Resolution with Dynamic Heterogeneous Knowledge Graph Representations",
+            "year": "2024",
+            "authors": "Ying Lin, Han Wang, Jiangning Chen, Tong Wang, Yue Liu, Heng Ji, Yang Liu, Premkumar Natarajan"
+          },
+          {
+            "id": "graph_2024",
+            "title": "Personalized Entity Resolution with Dynamic Heterogeneous Knowledge Graph Representations",
+            "year": "2024",
+            "authors": "Ying Lin, Han Wang, Jiangning Chen, Tong Wang, Yue Liu, Heng Ji, Yang Liu, Premkumar Natarajan"
+          },
+          {
+            "id": "graph_2024",
+            "title": "Personalized Entity Resolution with Dynamic Heterogeneous Knowledge Graph Representations",
+            "year": "2024",
+            "authors": "Ying Lin, Han Wang, Jiangning Chen, Tong Wang, Yue Liu, Heng Ji, Yang Liu, Premkumar Natarajan"
+          }
+        ]
       },
       {
         "id": 24,
@@ -215,7 +983,39 @@
         "frequency": 18,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 29.444389791664403
+        "size": 29.444389791664403,
+        "sample_papers": [
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "liyitong_2024",
+            "title": "A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation",
+            "year": "2024",
+            "authors": "nudt.edu.cn liyitong"
+          }
+        ]
       },
       {
         "id": 25,
@@ -223,7 +1023,39 @@
         "frequency": 18,
         "category": "methodologies",
         "type": "technical",
-        "size": 29.444389791664403
+        "size": 29.444389791664403,
+        "sample_papers": [
+          {
+            "id": "caia_2024",
+            "title": "A Survey on Temporal Knowledge Graph: Representation Learning and Applications",
+            "year": "2024",
+            "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
+          },
+          {
+            "id": "fang_2020",
+            "title": "Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations",
+            "year": "2020",
+            "authors": "Hui Fang, Danning Zhang, Yiheng Shu, Guibing Guo"
+          },
+          {
+            "id": "fang_2020",
+            "title": "Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations",
+            "year": "2020",
+            "authors": "Hui Fang, Danning Zhang, Yiheng Shu, Guibing Guo"
+          },
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          },
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          }
+        ]
       },
       {
         "id": 26,
@@ -231,7 +1063,39 @@
         "frequency": 17,
         "category": "algorithms",
         "type": "technical",
-        "size": 28.903717578961647
+        "size": 28.903717578961647,
+        "sample_papers": [
+          {
+            "id": "anzia_2018",
+            "title": "Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs",
+            "year": "2018",
+            "authors": "Yen An-Zia, Huang Hen-Hsenb, Chen Hsin-Hsia"
+          },
+          {
+            "id": "asprino_2022",
+            "title": "Uncovering Values: Detecting Latent Moral Content from Natural Language with Explainable and Non-Trained Methods",
+            "year": "2022",
+            "authors": "Luigi Asprino, Luana Bulla, Stefano De Giorgis, Aldo Gangemi, Ludovica Marinucci, Misael Mongiovi"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          },
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          }
+        ]
       },
       {
         "id": 27,
@@ -239,7 +1103,39 @@
         "frequency": 15,
         "category": "methodologies",
         "type": "technical",
-        "size": 27.725887222397812
+        "size": 27.725887222397812,
+        "sample_papers": [
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          }
+        ]
       },
       {
         "id": 28,
@@ -247,7 +1143,39 @@
         "frequency": 15,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 27.725887222397812
+        "size": 27.725887222397812,
+        "sample_papers": [
+          {
+            "id": "chen_2023b",
+            "title": "Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
+            "year": "2023",
+            "authors": "Wei Chen, Huaiyu Wan, Yuting Wu \u2217, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          },
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          }
+        ]
       },
       {
         "id": 29,
@@ -255,7 +1183,39 @@
         "frequency": 13,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 26.390573296152585
+        "size": 26.390573296152585,
+        "sample_papers": [
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          },
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          },
+          {
+            "id": "gao_2025",
+            "title": "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models",
+            "year": "2025",
+            "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
+          },
+          {
+            "id": "gao_2025",
+            "title": "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models",
+            "year": "2025",
+            "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
+          }
+        ]
       },
       {
         "id": 30,
@@ -263,7 +1223,39 @@
         "frequency": 11,
         "category": "methodologies",
         "type": "technical",
-        "size": 24.849066497880003
+        "size": 24.849066497880003,
+        "sample_papers": [
+          {
+            "id": "briggs_2021",
+            "title": "A Review of Privacy-preserving Federated Learning for the Internet-of-Things",
+            "year": "2021",
+            "authors": "Christopher Briggs, Zhong Fan, Peter Andras"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          },
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          }
+        ]
       },
       {
         "id": 31,
@@ -271,7 +1263,39 @@
         "frequency": 10,
         "category": "methodologies",
         "type": "technical",
-        "size": 23.978952727983707
+        "size": 23.978952727983707,
+        "sample_papers": [
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "ai_2025",
+            "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+            "year": "2025",
+            "authors": "Preston Rasmussen Zep AI"
+          },
+          {
+            "id": "das_2025",
+            "title": "Detection-Fusion for Knowledge Graph Extraction from Videos",
+            "year": "2025",
+            "authors": "Taniya Das, Louis Mahon, Thomas Lukasiewicz"
+          },
+          {
+            "id": "das_2025",
+            "title": "Detection-Fusion for Knowledge Graph Extraction from Videos",
+            "year": "2025",
+            "authors": "Taniya Das, Louis Mahon, Thomas Lukasiewicz"
+          }
+        ]
       },
       {
         "id": 32,
@@ -279,7 +1303,39 @@
         "frequency": 10,
         "category": "methodologies",
         "type": "technical",
-        "size": 23.978952727983707
+        "size": 23.978952727983707,
+        "sample_papers": [
+          {
+            "id": "bai_2023",
+            "title": "Membership Inference Attacks and Defenses in Federated Learning: A Survey",
+            "year": "2023",
+            "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
+          },
+          {
+            "id": "beltran_2023",
+            "title": "ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study",
+            "year": "2023",
+            "authors": "Ruhi Kiran Bajaj, Rebecca Mary Meiring, Fernando Beltran"
+          },
+          {
+            "id": "beltran_2023",
+            "title": "ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study",
+            "year": "2023",
+            "authors": "Ruhi Kiran Bajaj, Rebecca Mary Meiring, Fernando Beltran"
+          },
+          {
+            "id": "xie_2024a",
+            "title": "Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion",
+            "year": "2024",
+            "authors": "Yuxia Xie, Kai Yang"
+          },
+          {
+            "id": "xie_2024a",
+            "title": "Log Anomaly Detection by Adversarial Autoencoders With Graph Feature Fusion",
+            "year": "2024",
+            "authors": "Yuxia Xie, Kai Yang"
+          }
+        ]
       },
       {
         "id": 33,
@@ -287,7 +1343,39 @@
         "frequency": 10,
         "category": "algorithms",
         "type": "technical",
-        "size": 23.978952727983707
+        "size": 23.978952727983707,
+        "sample_papers": [
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "gao_2025",
+            "title": "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models",
+            "year": "2025",
+            "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
+          },
+          {
+            "id": "hoang_2025",
+            "title": "Knowledge Graph Fusion with Large Language Models for Accurate, Explainable Manufacturing Process Planning",
+            "year": "2025",
+            "authors": "Danny Hoang, David Gorsich, Matthew P. Castanier, Farhad Imani"
+          },
+          {
+            "id": "pokrywka_2024",
+            "title": "Evaluating Transformer Models for Suicide Risk Detection on Social Media",
+            "year": "2024",
+            "authors": "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzela\u0144czyk"
+          },
+          {
+            "id": "pokrywka_2024",
+            "title": "Evaluating Transformer Models for Suicide Risk Detection on Social Media",
+            "year": "2024",
+            "authors": "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzela\u0144czyk"
+          }
+        ]
       },
       {
         "id": 34,
@@ -295,7 +1383,39 @@
         "frequency": 8,
         "category": "algorithms",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "pareja_2020",
+            "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+            "year": "2020",
+            "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+          }
+        ]
       },
       {
         "id": 35,
@@ -303,7 +1423,39 @@
         "frequency": 8,
         "category": "methodologies",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "akroyd_2021",
+            "title": "Universal Digital Twin - A Dynamic Knowledge Graph",
+            "year": "2021",
+            "authors": "Jethro Akroyd, Sebastian Mosbach, Amit Bhave, Markus Kraft"
+          },
+          {
+            "id": "doerr_2017",
+            "title": "A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research",
+            "year": "2017",
+            "authors": "Martin Doerr"
+          },
+          {
+            "id": "doerr_2017",
+            "title": "A Workflow Model for Holistic Data Management and Semantic Interoperability in Quantitative Archival Research",
+            "year": "2017",
+            "authors": "Martin Doerr"
+          },
+          {
+            "id": "farshidi_2021",
+            "title": "Knowledge sharing and discovery across heterogeneous research infrastructures",
+            "year": "2021",
+            "authors": "Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Markus Stocker, Keith Jeffery, Peter Thijsse, Christian Pichot, Andreas Petzold, Zhiming Zhao"
+          },
+          {
+            "id": "ferreira_2019",
+            "title": "A Survey on Semantic Modeling for Building Energy Management",
+            "year": "2019",
+            "authors": "Miracle Aniakor Vinicius V. Cogo Pedro M. Ferreira"
+          }
+        ]
       },
       {
         "id": 36,
@@ -311,7 +1463,39 @@
         "frequency": 8,
         "category": "algorithms",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "balog_2019",
+            "title": "Personal Knowledge Graphs: A Research Agenda",
+            "year": "2019",
+            "authors": "Krisztian Balog, Tom Kenter"
+          },
+          {
+            "id": "balog_2019",
+            "title": "Personal Knowledge Graphs: A Research Agenda",
+            "year": "2019",
+            "authors": "Krisztian Balog, Tom Kenter"
+          },
+          {
+            "id": "bernard_2024",
+            "title": "PKG API: A Tool for Personal Knowledge Graph Management",
+            "year": "2024",
+            "authors": "Nolwenn Bernard, Krisztian Balog, Ivica Kostric, Petra Galu\u0161\u010d\u00e1kov\u00e1, Martin G. Skj\u00e6veland, Weronika \u0141ajewska, Vinay Setty"
+          },
+          {
+            "id": "chen_2022",
+            "title": "Integrating Manifold Knowledge for Global Entity Linking with Heterogeneous Graphs",
+            "year": "2022",
+            "authors": "Zhibin Chen, Yuting Wu, Yansong Feng"
+          },
+          {
+            "id": "chen_2022",
+            "title": "Integrating Manifold Knowledge for Global Entity Linking with Heterogeneous Graphs",
+            "year": "2022",
+            "authors": "Zhibin Chen, Yuting Wu, Yansong Feng"
+          }
+        ]
       },
       {
         "id": 37,
@@ -319,7 +1503,39 @@
         "frequency": 8,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "bogachov_2018",
+            "title": "A Lightweight Multi-Expert Generative Language Model System for Engineering Information and Knowledge Extraction",
+            "year": "2018",
+            "authors": "Bogdan Bogachov, Yaoyao Fiona Zhao"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "prahlad_2025",
+            "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+            "year": "2025",
+            "authors": "Deeksha Prahlad"
+          },
+          {
+            "id": "prahlad_2025",
+            "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+            "year": "2025",
+            "authors": "Deeksha Prahlad"
+          },
+          {
+            "id": "prahlad_2025",
+            "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+            "year": "2025",
+            "authors": "Deeksha Prahlad"
+          }
+        ]
       },
       {
         "id": 38,
@@ -327,7 +1543,39 @@
         "frequency": 8,
         "category": "architectures",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          }
+        ]
       },
       {
         "id": 39,
@@ -335,7 +1583,39 @@
         "frequency": 8,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "huaman_2012",
+            "title": "Steps to Knowledge Graphs Quality Assessment",
+            "year": "2012",
+            "authors": "Elwin Huaman"
+          },
+          {
+            "id": "huaman_2012",
+            "title": "Steps to Knowledge Graphs Quality Assessment",
+            "year": "2012",
+            "authors": "Elwin Huaman"
+          },
+          {
+            "id": "huaman_2012",
+            "title": "Steps to Knowledge Graphs Quality Assessment",
+            "year": "2012",
+            "authors": "Elwin Huaman"
+          },
+          {
+            "id": "huaman_2012",
+            "title": "Steps to Knowledge Graphs Quality Assessment",
+            "year": "2012",
+            "authors": "Elwin Huaman"
+          },
+          {
+            "id": "storage_2023",
+            "title": "Blind Multimodal Quality Assessment of Low-Light Images",
+            "year": "2023",
+            "authors": "Storage, transmission"
+          }
+        ]
       },
       {
         "id": 40,
@@ -343,7 +1623,39 @@
         "frequency": 8,
         "category": "algorithms",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "qin_2024",
+            "title": "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning",
+            "year": "2024",
+            "authors": "Shuo Qin"
+          },
+          {
+            "id": "qin_2024",
+            "title": "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning",
+            "year": "2024",
+            "authors": "Shuo Qin"
+          },
+          {
+            "id": "qin_2024",
+            "title": "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning",
+            "year": "2024",
+            "authors": "Shuo Qin"
+          },
+          {
+            "id": "qin_2024",
+            "title": "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning",
+            "year": "2024",
+            "authors": "Shuo Qin"
+          },
+          {
+            "id": "qin_2024",
+            "title": "Multi-behavior Session-based Recommendation via Graph Reinforcement Learning",
+            "year": "2024",
+            "authors": "Shuo Qin"
+          }
+        ]
       },
       {
         "id": 41,
@@ -351,7 +1663,39 @@
         "frequency": 8,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 21.972245773362197
+        "size": 21.972245773362197,
+        "sample_papers": [
+          {
+            "id": "wang_2022a",
+            "title": "KSG: Knowledge and Skill Graph",
+            "year": "2022",
+            "authors": "Donglin Wang, Feng Zhao, Ziqi Zhang"
+          },
+          {
+            "id": "wang_2022a",
+            "title": "KSG: Knowledge and Skill Graph",
+            "year": "2022",
+            "authors": "Donglin Wang, Feng Zhao, Ziqi Zhang"
+          },
+          {
+            "id": "wang_2022a",
+            "title": "KSG: Knowledge and Skill Graph",
+            "year": "2022",
+            "authors": "Donglin Wang, Feng Zhao, Ziqi Zhang"
+          },
+          {
+            "id": "wang_2022a",
+            "title": "KSG: Knowledge and Skill Graph",
+            "year": "2022",
+            "authors": "Donglin Wang, Feng Zhao, Ziqi Zhang"
+          },
+          {
+            "id": "wang_2022a",
+            "title": "KSG: Knowledge and Skill Graph",
+            "year": "2022",
+            "authors": "Donglin Wang, Feng Zhao, Ziqi Zhang"
+          }
+        ]
       },
       {
         "id": 42,
@@ -359,7 +1703,39 @@
         "frequency": 7,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 20.79441541679836
+        "size": 20.79441541679836,
+        "sample_papers": [
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "ain_2024",
+            "title": "Learner Modeling and Recommendation of Learning Resources using Personal Knowledge Graphs",
+            "year": "2024",
+            "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
+          },
+          {
+            "id": "cai_2022",
+            "title": "Temporal Knowledge Graph Completion: A Survey",
+            "year": "2022",
+            "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
+          },
+          {
+            "id": "cai_2023",
+            "title": "Temporal Knowledge Graph Completion with Time-sensitive Relations in Hypercomplex Space",
+            "year": "2023",
+            "authors": "Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          }
+        ]
       },
       {
         "id": 43,
@@ -367,7 +1743,39 @@
         "frequency": 7,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 20.79441541679836
+        "size": 20.79441541679836,
+        "sample_papers": [
+          {
+            "id": "banking_2022",
+            "title": "Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on",
+            "year": "2022",
+            "authors": "Saravanan Krishnan, Alex Mathai, Amith Singhee, Atul Kumar, Shivali Agarwal, Keerthi Narayan Raghunath, David Wenk"
+          },
+          {
+            "id": "banking_2022",
+            "title": "Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on",
+            "year": "2022",
+            "authors": "Saravanan Krishnan, Alex Mathai, Amith Singhee, Atul Kumar, Shivali Agarwal, Keerthi Narayan Raghunath, David Wenk"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          }
+        ]
       },
       {
         "id": 44,
@@ -375,7 +1783,39 @@
         "frequency": 7,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 20.79441541679836
+        "size": 20.79441541679836,
+        "sample_papers": [
+          {
+            "id": "berlin_2014",
+            "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+            "year": "2014",
+            "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
+          },
+          {
+            "id": "berlin_2014",
+            "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+            "year": "2014",
+            "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
+          },
+          {
+            "id": "berlin_2014",
+            "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+            "year": "2014",
+            "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
+          },
+          {
+            "id": "berlin_2014",
+            "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+            "year": "2014",
+            "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
+          },
+          {
+            "id": "berlin_2014",
+            "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+            "year": "2014",
+            "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
+          }
+        ]
       },
       {
         "id": 45,
@@ -383,7 +1823,39 @@
         "frequency": 7,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 20.79441541679836
+        "size": 20.79441541679836,
+        "sample_papers": [
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          }
+        ]
       },
       {
         "id": 46,
@@ -391,7 +1863,39 @@
         "frequency": 6,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 19.45910149055313
+        "size": 19.45910149055313,
+        "sample_papers": [
+          {
+            "id": "berlin_2014",
+            "title": "Benchmarking Scalability and Elasticity of Distributed Database Systems",
+            "year": "2014",
+            "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
+          },
+          {
+            "id": "ghani_2020b",
+            "title": "Issues and challenges in Cloud Storage Architecture: A Survey",
+            "year": "2020",
+            "authors": "Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud"
+          },
+          {
+            "id": "ghani_2020b",
+            "title": "Issues and challenges in Cloud Storage Architecture: A Survey",
+            "year": "2020",
+            "authors": "Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud"
+          },
+          {
+            "id": "group_2009",
+            "title": "Consistency Rationing in the Cloud: Pay only when it matters",
+            "year": "2009",
+            "authors": "Tim Kraska, Martin Hentschel, Gustavo Alonso, Donald Kossmann"
+          },
+          {
+            "id": "joosse_2023",
+            "title": "Sustainable Development Goal indicator for measuring availability and affordability of medicines for children: a proof-of-concept study",
+            "year": "2023",
+            "authors": "Iris R Joosse, Fatima Suleman"
+          }
+        ]
       },
       {
         "id": 47,
@@ -399,7 +1903,39 @@
         "frequency": 6,
         "category": "data_integration",
         "type": "technical",
-        "size": 19.45910149055313
+        "size": 19.45910149055313,
+        "sample_papers": [
+          {
+            "id": "bianchini_2022",
+            "title": "A semantics-enabled approach for personalised Data Lake exploration",
+            "year": "2022",
+            "authors": "Devis Bianchini, Valeria De Antonellis, Massimiliano Garda"
+          },
+          {
+            "id": "bianchini_2022",
+            "title": "A semantics-enabled approach for personalised Data Lake exploration",
+            "year": "2022",
+            "authors": "Devis Bianchini, Valeria De Antonellis, Massimiliano Garda"
+          },
+          {
+            "id": "bianchini_2022",
+            "title": "A semantics-enabled approach for personalised Data Lake exploration",
+            "year": "2022",
+            "authors": "Devis Bianchini, Valeria De Antonellis, Massimiliano Garda"
+          },
+          {
+            "id": "bianchini_2022",
+            "title": "A semantics-enabled approach for personalised Data Lake exploration",
+            "year": "2022",
+            "authors": "Devis Bianchini, Valeria De Antonellis, Massimiliano Garda"
+          },
+          {
+            "id": "bianchini_2022",
+            "title": "A semantics-enabled approach for personalised Data Lake exploration",
+            "year": "2022",
+            "authors": "Devis Bianchini, Valeria De Antonellis, Massimiliano Garda"
+          }
+        ]
       },
       {
         "id": 48,
@@ -407,7 +1943,39 @@
         "frequency": 6,
         "category": "methodologies",
         "type": "technical",
-        "size": 19.45910149055313
+        "size": 19.45910149055313,
+        "sample_papers": [
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          },
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          },
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          },
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          },
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          }
+        ]
       },
       {
         "id": 49,
@@ -415,7 +1983,39 @@
         "frequency": 6,
         "category": "algorithms",
         "type": "technical",
-        "size": 19.45910149055313
+        "size": 19.45910149055313,
+        "sample_papers": [
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "farshidi_2021",
+            "title": "Knowledge sharing and discovery across heterogeneous research infrastructures",
+            "year": "2021",
+            "authors": "Siamak Farshidi, Xiaofeng Liao, Na Li, Doron Goldfarb, Barbara Magagna, Markus Stocker, Keith Jeffery, Peter Thijsse, Christian Pichot, Andreas Petzold, Zhiming Zhao"
+          },
+          {
+            "id": "pan_2024",
+            "title": "Unifying Large Language Models and Knowledge Graphs: A Roadmap",
+            "year": "2024",
+            "authors": "Shirui Pan, Senior Member, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, Xindong Wu"
+          },
+          {
+            "id": "pokrywka_2024",
+            "title": "Evaluating Transformer Models for Suicide Risk Detection on Social Media",
+            "year": "2024",
+            "authors": "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzela\u0144czyk"
+          },
+          {
+            "id": "pokrywka_2024",
+            "title": "Evaluating Transformer Models for Suicide Risk Detection on Social Media",
+            "year": "2024",
+            "authors": "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzela\u0144czyk"
+          }
+        ]
       },
       {
         "id": 50,
@@ -423,7 +2023,39 @@
         "frequency": 6,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 19.45910149055313
+        "size": 19.45910149055313,
+        "sample_papers": [
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          }
+        ]
       },
       {
         "id": 51,
@@ -431,7 +2063,39 @@
         "frequency": 5,
         "category": "methodologies",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "abdallah_2021",
+            "title": "Towards a GML-Enabled Knowledge Graph Platform",
+            "year": "2021",
+            "authors": "Hussein Abdallah, Essam Mansour"
+          },
+          {
+            "id": "azevedo_2023",
+            "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+            "year": "2023",
+            "authors": "Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno"
+          },
+          {
+            "id": "wen_2024",
+            "title": "AeonG: An Efficient Built-in Temporal Support in Graph Databases",
+            "year": "2024",
+            "authors": "Dong Wen, Jiamin Hou"
+          }
+        ]
       },
       {
         "id": 52,
@@ -439,7 +2103,39 @@
         "frequency": 5,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          }
+        ]
       },
       {
         "id": 53,
@@ -447,7 +2143,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "beltran_2023",
+            "title": "ArticleCo-Design, Development, and Evaluation of a Health Monitoring Tool Using Smartwatch Data: A Proof-of-Concept Study",
+            "year": "2023",
+            "authors": "Ruhi Kiran Bajaj, Rebecca Mary Meiring, Fernando Beltran"
+          },
+          {
+            "id": "chang_2021",
+            "title": "Sequential Recommendation with Graph Neural Networks",
+            "year": "2021",
+            "authors": "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
+          },
+          {
+            "id": "chang_2021",
+            "title": "Sequential Recommendation with Graph Neural Networks",
+            "year": "2021",
+            "authors": "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
+          },
+          {
+            "id": "chang_2021",
+            "title": "Sequential Recommendation with Graph Neural Networks",
+            "year": "2021",
+            "authors": "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
+          },
+          {
+            "id": "chang_2021",
+            "title": "Sequential Recommendation with Graph Neural Networks",
+            "year": "2021",
+            "authors": "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
+          }
+        ]
       },
       {
         "id": 54,
@@ -455,7 +2183,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "cao_2020",
+            "title": "Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media",
+            "year": "2020",
+            "authors": "Lei Cao, Huijun Zhang, Ling Feng"
+          },
+          {
+            "id": "cao_2020",
+            "title": "Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media",
+            "year": "2020",
+            "authors": "Lei Cao, Huijun Zhang, Ling Feng"
+          },
+          {
+            "id": "cao_2020",
+            "title": "Building and Using Personal Knowledge Graph to Improve Suicidal Ideation Detection on Social Media",
+            "year": "2020",
+            "authors": "Lei Cao, Huijun Zhang, Ling Feng"
+          },
+          {
+            "id": "chen_2023b",
+            "title": "Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
+            "year": "2023",
+            "authors": "Wei Chen, Huaiyu Wan, Yuting Wu \u2217, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
+          },
+          {
+            "id": "chen_2023b",
+            "title": "Local-Global History-aware Contrastive Learning for Temporal Knowledge Graph Reasoning",
+            "year": "2023",
+            "authors": "Wei Chen, Huaiyu Wan, Yuting Wu \u2217, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
+          }
+        ]
       },
       {
         "id": 55,
@@ -463,7 +2223,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "xu_2023a",
+            "title": "Adaptive Feature Fusion Networks for Origin-Destination Passenger Flow Prediction in Metro Systems",
+            "year": "2023",
+            "authors": "Yuhang Xu, Yan Lyu, Guangwei Xiong, Shuyu Wang, Weiwei Wu, Helei Cui, Junzhou Luo, Adaptive Feature, Fusion Network"
+          }
+        ]
       },
       {
         "id": 56,
@@ -471,7 +2263,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          }
+        ]
       },
       {
         "id": 57,
@@ -479,7 +2303,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "yc_2024",
+            "title": "A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion",
+            "year": "2024",
+            "authors": "yc, j.n"
+          },
+          {
+            "id": "yc_2024",
+            "title": "A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion",
+            "year": "2024",
+            "authors": "yc, j.n"
+          }
+        ]
       },
       {
         "id": 58,
@@ -487,7 +2343,39 @@
         "frequency": 5,
         "category": "methodologies",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "gyrarda_2024",
+            "title": "IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for Better Well-Being",
+            "year": "2024",
+            "authors": "Amelie Gyrarda, Seyedali Mohammadi, Manas Gaur, Antonio Kung"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hendler_2014",
+            "title": "Data Integration for Heterogeneous Datasets",
+            "year": "2014",
+            "authors": "James Hendler"
+          },
+          {
+            "id": "schatz_2023",
+            "title": "BUILD-KG: Integrating Heterogeneous Data Into Analytics-Enabling Knowledge Graphs",
+            "year": "2023",
+            "authors": "Kara Schatz, Pei-Yu Hou, Alexey V. Gulyuk, Yaroslava G. Yingling, Rada Chirkova"
+          },
+          {
+            "id": "xie_2022b",
+            "title": "PsyDT: Using LLMs to Construct the Digital Twin of Psychological Counselor with Personalized Counseling Style for Psychological Counseling",
+            "year": "2022",
+            "authors": "Haojie Xie, Yirong Chen, Xiaofen Xing, Jingkai Lin"
+          }
+        ]
       },
       {
         "id": 59,
@@ -495,7 +2383,39 @@
         "frequency": 5,
         "category": "methodologies",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          }
+        ]
       },
       {
         "id": 60,
@@ -503,7 +2423,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "kejriwal_2023",
+            "title": "Named Entity Resolution in Personal Knowledge Graphs",
+            "year": "2023",
+            "authors": "Mayank Kejriwal"
+          },
+          {
+            "id": "saharghassab_2023",
+            "title": "Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation",
+            "year": "2023",
+            "authors": "Iran sahar.ghassab, Iran behkama, Canada mostafa.milan"
+          },
+          {
+            "id": "saharghassab_2023",
+            "title": "Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation",
+            "year": "2023",
+            "authors": "Iran sahar.ghassab, Iran behkama, Canada mostafa.milan"
+          },
+          {
+            "id": "saharghassab_2023",
+            "title": "Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation",
+            "year": "2023",
+            "authors": "Iran sahar.ghassab, Iran behkama, Canada mostafa.milan"
+          },
+          {
+            "id": "saharghassab_2023",
+            "title": "Leveraging Knowledge Graphs for Matching Heterogeneous Entities and Explanation",
+            "year": "2023",
+            "authors": "Iran sahar.ghassab, Iran behkama, Canada mostafa.milan"
+          }
+        ]
       },
       {
         "id": 61,
@@ -511,7 +2463,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "li_2024",
+            "title": "Construction and Application Research of Intelligent Education Knowledge Graph Based on Multi-modal Learning",
+            "year": "2024",
+            "authors": "Haiping Li, Wenjing Duan"
+          },
+          {
+            "id": "li_2024",
+            "title": "Construction and Application Research of Intelligent Education Knowledge Graph Based on Multi-modal Learning",
+            "year": "2024",
+            "authors": "Haiping Li, Wenjing Duan"
+          },
+          {
+            "id": "li_2024",
+            "title": "Construction and Application Research of Intelligent Education Knowledge Graph Based on Multi-modal Learning",
+            "year": "2024",
+            "authors": "Haiping Li, Wenjing Duan"
+          },
+          {
+            "id": "yan_2024b",
+            "title": "Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration",
+            "year": "2024",
+            "authors": "Hongxi Yan, Dawei Weng, Dongguo Li, Yu Gu, Wenji Ma, Qingjie Liu"
+          },
+          {
+            "id": "yan_2024b",
+            "title": "Prior knowledge-guided multilevel graph neural network for tumor risk prediction and interpretation via multi-omics data integration",
+            "year": "2024",
+            "authors": "Hongxi Yan, Dawei Weng, Dongguo Li, Yu Gu, Wenji Ma, Qingjie Liu"
+          }
+        ]
       },
       {
         "id": 62,
@@ -519,7 +2503,39 @@
         "frequency": 5,
         "category": "algorithms",
         "type": "technical",
-        "size": 17.91759469228055
+        "size": 17.91759469228055,
+        "sample_papers": [
+          {
+            "id": "pareja_2020",
+            "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+            "year": "2020",
+            "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+          },
+          {
+            "id": "pareja_2020",
+            "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+            "year": "2020",
+            "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+          },
+          {
+            "id": "pareja_2020",
+            "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+            "year": "2020",
+            "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+          },
+          {
+            "id": "pareja_2020",
+            "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+            "year": "2020",
+            "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+          },
+          {
+            "id": "pareja_2020",
+            "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+            "year": "2020",
+            "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
+          }
+        ]
       },
       {
         "id": 63,
@@ -527,7 +2543,33 @@
         "frequency": 4,
         "category": "architectures",
         "type": "technical",
-        "size": 16.094379124341003
+        "size": 16.094379124341003,
+        "sample_papers": [
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          },
+          {
+            "id": "hbscher_2020",
+            "title": "Integration of Knowledge and Task Management in an Evolving, Communication-intensive Environment",
+            "year": "2020",
+            "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
+          }
+        ]
       },
       {
         "id": 64,
@@ -535,7 +2577,33 @@
         "frequency": 4,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 16.094379124341003
+        "size": 16.094379124341003,
+        "sample_papers": [
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          },
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          },
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          },
+          {
+            "id": "amofa_2024",
+            "title": "Blockchain-secure patient Digital Twin in healthcare using smart contracts",
+            "year": "2024",
+            "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
+          }
+        ]
       },
       {
         "id": 65,
@@ -543,7 +2611,33 @@
         "frequency": 4,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 16.094379124341003
+        "size": 16.094379124341003,
+        "sample_papers": [
+          {
+            "id": "anzia_2018",
+            "title": "Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs",
+            "year": "2018",
+            "authors": "Yen An-Zia, Huang Hen-Hsenb, Chen Hsin-Hsia"
+          },
+          {
+            "id": "anzia_2018",
+            "title": "Multimodal joint learning for personal knowledge base construction from Twitter-based lifelogs",
+            "year": "2018",
+            "authors": "Yen An-Zia, Huang Hen-Hsenb, Chen Hsin-Hsia"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          }
+        ]
       },
       {
         "id": 66,
@@ -551,7 +2645,33 @@
         "frequency": 4,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 16.094379124341003
+        "size": 16.094379124341003,
+        "sample_papers": [
+          {
+            "id": "azevedo_2023",
+            "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+            "year": "2023",
+            "authors": "Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno"
+          },
+          {
+            "id": "azevedo_2023",
+            "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+            "year": "2023",
+            "authors": "Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno"
+          },
+          {
+            "id": "azevedo_2023",
+            "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+            "year": "2023",
+            "authors": "Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno"
+          },
+          {
+            "id": "azevedo_2023",
+            "title": "A Polystore Architecture Using Knowledge Graphs to Support Queries on Heterogeneous Data Stores",
+            "year": "2023",
+            "authors": "Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno"
+          }
+        ]
       },
       {
         "id": 67,
@@ -559,7 +2679,33 @@
         "frequency": 4,
         "category": "architectures",
         "type": "technical",
-        "size": 16.094379124341003
+        "size": 16.094379124341003,
+        "sample_papers": [
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "discovery_2024",
+            "title": "Automated Monitoring Method for Enterprise Microservices Network Operation Status Based on Database Knowledge Graph",
+            "year": "2024",
+            "authors": "Service Discovery"
+          },
+          {
+            "id": "group_2009",
+            "title": "Consistency Rationing in the Cloud: Pay only when it matters",
+            "year": "2009",
+            "authors": "Tim Kraska, Martin Hentschel, Gustavo Alonso, Donald Kossmann"
+          }
+        ]
       },
       {
         "id": 68,
@@ -567,7 +2713,33 @@
         "frequency": 4,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 16.094379124341003
+        "size": 16.094379124341003,
+        "sample_papers": [
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          },
+          {
+            "id": "fabr_2024",
+            "title": "Privacy-Preserving Graph-Based Machine Learning with Fully Homomorphic Encryption for Collaborative Anti-Money Laundering",
+            "year": "2024",
+            "authors": "Singapore fabr, anupa"
+          }
+        ]
       },
       {
         "id": 69,
@@ -575,7 +2747,27 @@
         "frequency": 3,
         "category": "algorithms",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "aburasheed_2023b",
+            "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+            "year": "2023",
+            "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi"
+          },
+          {
+            "id": "aburasheed_2023b",
+            "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+            "year": "2023",
+            "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi"
+          },
+          {
+            "id": "aburasheed_2023b",
+            "title": "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion",
+            "year": "2023",
+            "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi"
+          }
+        ]
       },
       {
         "id": 70,
@@ -583,7 +2775,27 @@
         "frequency": 3,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "abusalih_2023",
+            "title": "Healthcare knowledge graph construction: A systematic review of the state-of-the-art, open issues, and opportunities",
+            "year": "2023",
+            "authors": "Bilal Abu-Salih, Muhammad AL-Qurishi, Mohammed Alweshah, Mohammad AL-Smadi, Reem Alfayez, Heba Saadeh"
+          },
+          {
+            "id": "chen_2023a",
+            "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+            "year": "2023",
+            "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
+          },
+          {
+            "id": "zha_2024",
+            "title": "Data-centric Artificial Intelligence: A Survey",
+            "year": "2024",
+            "authors": "Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, Xia Hu"
+          }
+        ]
       },
       {
         "id": 71,
@@ -591,7 +2803,27 @@
         "frequency": 3,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          },
+          {
+            "id": "aldughayfiq_2023",
+            "title": "Capturing Semantic Relationships in Electronic Health Records Using Knowledge Graphs: An Implementation Using MIMIC III Dataset and GraphDB",
+            "year": "2023",
+            "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
+          }
+        ]
       },
       {
         "id": 72,
@@ -599,7 +2831,27 @@
         "frequency": 3,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "caia_2024",
+            "title": "A Survey on Temporal Knowledge Graph: Representation Learning and Applications",
+            "year": "2024",
+            "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
+          },
+          {
+            "id": "caia_2024",
+            "title": "A Survey on Temporal Knowledge Graph: Representation Learning and Applications",
+            "year": "2024",
+            "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
+          },
+          {
+            "id": "caia_2024",
+            "title": "A Survey on Temporal Knowledge Graph: Representation Learning and Applications",
+            "year": "2024",
+            "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
+          }
+        ]
       },
       {
         "id": 73,
@@ -607,7 +2859,27 @@
         "frequency": 3,
         "category": "methodologies",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          },
+          {
+            "id": "chan_2024",
+            "title": "Multi-task Heterogeneous Graph Learning on Electronic Health Records",
+            "year": "2024",
+            "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
+          }
+        ]
       },
       {
         "id": 74,
@@ -615,7 +2887,27 @@
         "frequency": 3,
         "category": "algorithms",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "cudrmauroux_2020",
+            "title": "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline",
+            "year": "2020",
+            "authors": "Philippe Cudr\u00e9-Mauroux"
+          },
+          {
+            "id": "yc_2024",
+            "title": "A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion",
+            "year": "2024",
+            "authors": "yc, j.n"
+          },
+          {
+            "id": "yc_2024",
+            "title": "A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion",
+            "year": "2024",
+            "authors": "yc, j.n"
+          }
+        ]
       },
       {
         "id": 75,
@@ -623,7 +2915,27 @@
         "frequency": 3,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "cudrmauroux_2020",
+            "title": "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline",
+            "year": "2020",
+            "authors": "Philippe Cudr\u00e9-Mauroux"
+          },
+          {
+            "id": "seo_2020",
+            "title": "Structural Quality Metrics to Evaluate Knowledge Graph Quality",
+            "year": "2020",
+            "authors": "Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun"
+          },
+          {
+            "id": "seo_2020",
+            "title": "Structural Quality Metrics to Evaluate Knowledge Graph Quality",
+            "year": "2020",
+            "authors": "Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun"
+          }
+        ]
       },
       {
         "id": 76,
@@ -631,7 +2943,27 @@
         "frequency": 3,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "wang_2024",
+            "title": "Question answering over temporal knowledge graphs based on hierarchical semantic extraction",
+            "year": "2024",
+            "authors": "Jian Wang, Wenjuan Zhang, Qi He, Danfeng Zhao"
+          },
+          {
+            "id": "yc_2024",
+            "title": "A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion",
+            "year": "2024",
+            "authors": "yc, j.n"
+          },
+          {
+            "id": "yc_2024",
+            "title": "A Brief Survey on Deep Learning-Based Temporal Knowledge Graph Completion",
+            "year": "2024",
+            "authors": "yc, j.n"
+          }
+        ]
       },
       {
         "id": 77,
@@ -639,7 +2971,27 @@
         "frequency": 3,
         "category": "methodologies",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "das_2025",
+            "title": "Detection-Fusion for Knowledge Graph Extraction from Videos",
+            "year": "2025",
+            "authors": "Taniya Das, Louis Mahon, Thomas Lukasiewicz"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          },
+          {
+            "id": "yang_2024b",
+            "title": "SSTKG: Simple Spatio-Temporal Knowledge Graph for Intepretable and Versatile Dynamic Information Embedding",
+            "year": "2024",
+            "authors": "Ruiyi Yang"
+          }
+        ]
       },
       {
         "id": 78,
@@ -647,7 +2999,27 @@
         "frequency": 3,
         "category": "methodologies",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          },
+          {
+            "id": "lu_2024",
+            "title": "A Survey on Benchmarks of Multimodal Large Language Models",
+            "year": "2024",
+            "authors": "Weiheng Lu, Hao Fei, Meng Luo, Ming Dai, Min Xia, Yizhang Jin, Zhenye Gan, Ding Qi, Chaoyou Fu, Ying Tai, Wankou Yang, Yabiao Wang, Chengjie Wang"
+          },
+          {
+            "id": "yu_2016",
+            "title": "Knowledge-enhanced Multi-perspective Video Representation Learning for Scene Recognition",
+            "year": "2016",
+            "authors": "Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan Cheng, Qingpei Guo, Wei Chu"
+          }
+        ]
       },
       {
         "id": 79,
@@ -655,7 +3027,27 @@
         "frequency": 3,
         "category": "performance_metrics",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "prahlad_2025",
+            "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+            "year": "2025",
+            "authors": "Deeksha Prahlad"
+          },
+          {
+            "id": "prahlad_2025",
+            "title": "Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph",
+            "year": "2025",
+            "authors": "Deeksha Prahlad"
+          }
+        ]
       },
       {
         "id": 80,
@@ -663,7 +3055,27 @@
         "frequency": 3,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          },
+          {
+            "id": "ferdousi_2025",
+            "title": "RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being",
+            "year": "2025",
+            "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
+          }
+        ]
       },
       {
         "id": 81,
@@ -671,7 +3083,27 @@
         "frequency": 3,
         "category": "algorithms",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          },
+          {
+            "id": "oss_2024",
+            "title": "Graph Neural Networks for Heart Failure Prediction on an EHR-Based Patient Similarity Graph",
+            "year": "2024",
+            "authors": "Heloisa Oss, Ali Amirahmadi, Amira Soliman, Stefan Byttner, Mariana Recamonde"
+          },
+          {
+            "id": "oss_2024",
+            "title": "Graph Neural Networks for Heart Failure Prediction on an EHR-Based Patient Similarity Graph",
+            "year": "2024",
+            "authors": "Heloisa Oss, Ali Amirahmadi, Amira Soliman, Stefan Byttner, Mariana Recamonde"
+          }
+        ]
       },
       {
         "id": 82,
@@ -679,7 +3111,27 @@
         "frequency": 3,
         "category": "algorithms",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          },
+          {
+            "id": "lee_2024",
+            "title": "Multimodal Reasoning with Multimodal Knowledge Graph",
+            "year": "2024",
+            "authors": "Junlin Lee, Yequan Wang, Jing Li, Min Zhang"
+          },
+          {
+            "id": "lee_2024",
+            "title": "Multimodal Reasoning with Multimodal Knowledge Graph",
+            "year": "2024",
+            "authors": "Junlin Lee, Yequan Wang, Jing Li, Min Zhang"
+          }
+        ]
       },
       {
         "id": 83,
@@ -687,7 +3139,27 @@
         "frequency": 3,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "gao_2025",
+            "title": "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models",
+            "year": "2025",
+            "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
+          },
+          {
+            "id": "gao_2025",
+            "title": "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models",
+            "year": "2025",
+            "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
+          },
+          {
+            "id": "gao_2025",
+            "title": "HealthGenie: Empowering Users with Healthy Dietary Guidance through Knowledge Graph and Large Language Models",
+            "year": "2025",
+            "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
+          }
+        ]
       },
       {
         "id": 84,
@@ -695,7 +3167,27 @@
         "frequency": 3,
         "category": "algorithms",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          }
+        ]
       },
       {
         "id": 85,
@@ -703,7 +3195,27 @@
         "frequency": 3,
         "category": "algorithms",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          }
+        ]
       },
       {
         "id": 86,
@@ -711,7 +3223,27 @@
         "frequency": 3,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "li_2024",
+            "title": "Construction and Application Research of Intelligent Education Knowledge Graph Based on Multi-modal Learning",
+            "year": "2024",
+            "authors": "Haiping Li, Wenjing Duan"
+          },
+          {
+            "id": "mandal_2013",
+            "title": "LLMasMMKG: LLM Assisted Synthetic Multi-Modal Knowledge Graph Creation For Smart City Cognitive Digital Twins",
+            "year": "2013",
+            "authors": "Sukanya Mandal"
+          },
+          {
+            "id": "mandal_2013",
+            "title": "LLMasMMKG: LLM Assisted Synthetic Multi-Modal Knowledge Graph Creation For Smart City Cognitive Digital Twins",
+            "year": "2013",
+            "authors": "Sukanya Mandal"
+          }
+        ]
       },
       {
         "id": 87,
@@ -719,7 +3251,27 @@
         "frequency": 3,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 13.862943611198906
+        "size": 13.862943611198906,
+        "sample_papers": [
+          {
+            "id": "wang_2025",
+            "title": "An Adaptive Framework Embedded With LLM for Knowledge Graph Construction",
+            "year": "2025",
+            "authors": "Qingwang Wang, Senior Member, Chaohui Li, Yi Liu, Qiubai Zhu, Jian Song, Tao Shen, Large Language, Adaptive Construction, Knowledge Graph, Massive Multitask, Language Understanding"
+          },
+          {
+            "id": "zhu_2025",
+            "title": "A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models",
+            "year": "2025",
+            "authors": "Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen"
+          },
+          {
+            "id": "zhu_2025",
+            "title": "A Temporal Knowledge Graph Generation Dataset Supervised Distantly by Large Language Models",
+            "year": "2025",
+            "authors": "Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen"
+          }
+        ]
       },
       {
         "id": 88,
@@ -727,7 +3279,21 @@
         "frequency": 2,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          },
+          {
+            "id": "bloor_2018",
+            "title": "Towards a Personal Health Knowledge Graph Framework for Patient Monitoring",
+            "year": "2018",
+            "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
+          }
+        ]
       },
       {
         "id": 89,
@@ -735,7 +3301,21 @@
         "frequency": 2,
         "category": "frameworks_tools",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "carbonaro_2023",
+            "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
+            "year": "2023",
+            "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
+          },
+          {
+            "id": "carbonaro_2023",
+            "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
+            "year": "2023",
+            "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
+          }
+        ]
       },
       {
         "id": 90,
@@ -743,7 +3323,21 @@
         "frequency": 2,
         "category": "data_integration",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "carbonaro_2023",
+            "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
+            "year": "2023",
+            "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
+          },
+          {
+            "id": "carbonaro_2023",
+            "title": "CONNECTED: leveraging digital twins and personal knowledge graphs in healthcare digitalization",
+            "year": "2023",
+            "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
+          }
+        ]
       },
       {
         "id": 91,
@@ -751,7 +3345,21 @@
         "frequency": 2,
         "category": "algorithms",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          },
+          {
+            "id": "chen_2024a",
+            "title": "1 Temporal Knowledge Graph Reasoning Based on Dynamic Fusion Representation Learning",
+            "year": "2024",
+            "authors": "Hongwei Chen"
+          }
+        ]
       },
       {
         "id": 92,
@@ -759,7 +3367,21 @@
         "frequency": 2,
         "category": "algorithms",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "cudrmauroux_2020",
+            "title": "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline",
+            "year": "2020",
+            "authors": "Philippe Cudr\u00e9-Mauroux"
+          },
+          {
+            "id": "cudrmauroux_2020",
+            "title": "Leveraging Knowledge Graphs for Big Data Integration: the XI Pipeline",
+            "year": "2020",
+            "authors": "Philippe Cudr\u00e9-Mauroux"
+          }
+        ]
       },
       {
         "id": 93,
@@ -767,7 +3389,21 @@
         "frequency": 2,
         "category": "hdm_specific",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          },
+          {
+            "id": "feng_2024",
+            "title": "A contrastive learning framework with dual gates and noise awareness for temporal knowledge graph reasoning",
+            "year": "2024",
+            "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
+          }
+        ]
       },
       {
         "id": 94,
@@ -775,7 +3411,21 @@
         "frequency": 2,
         "category": "data_integration",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "gaffineta_2002",
+            "title": "Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0",
+            "year": "2023",
+            "authors": "Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet"
+          },
+          {
+            "id": "gaffineta_2002",
+            "title": "Human Digital Twin: Systematic Literature Review and Concept Disambiguation for Industry 5.0",
+            "year": "2023",
+            "authors": "Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet"
+          }
+        ]
       },
       {
         "id": 95,
@@ -783,7 +3433,21 @@
         "frequency": 2,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "galke_2021",
+            "title": "Lifelong Learning on Evolving Graphs Under the Constraints of Imbalanced Classes and New Classes",
+            "year": "2021",
+            "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
+          },
+          {
+            "id": "garg_2022",
+            "title": "Knowledge Graph Completion: A Bird's Eye View on Knowledge Graph Embeddings, Software Libraries, Applications and Challenges",
+            "year": "2022",
+            "authors": "Satvik Garg, Dwaipayan Roy"
+          }
+        ]
       },
       {
         "id": 96,
@@ -791,7 +3455,21 @@
         "frequency": 2,
         "category": "algorithms",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "gao_2024",
+            "title": "Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction",
+            "year": "2024",
+            "authors": "Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey, Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar, Public Health, Wisconsin Madison"
+          },
+          {
+            "id": "gao_2024",
+            "title": "Large Language Models and Medical Knowledge Grounding for Diagnosis Prediction",
+            "year": "2024",
+            "authors": "Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey, Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar, Public Health, Wisconsin Madison"
+          }
+        ]
       },
       {
         "id": 97,
@@ -799,7 +3477,21 @@
         "frequency": 2,
         "category": "data_integration",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "ghani_2020b",
+            "title": "Issues and challenges in Cloud Storage Architecture: A Survey",
+            "year": "2020",
+            "authors": "Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud"
+          },
+          {
+            "id": "ghani_2020b",
+            "title": "Issues and challenges in Cloud Storage Architecture: A Survey",
+            "year": "2020",
+            "authors": "Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud"
+          }
+        ]
       },
       {
         "id": 98,
@@ -807,7 +3499,21 @@
         "frequency": 2,
         "category": "algorithms",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "guan_2023",
+            "title": "Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments",
+            "year": "2023",
+            "authors": "Jie Guan, Alexis Morris"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          }
+        ]
       },
       {
         "id": 99,
@@ -815,7 +3521,21 @@
         "frequency": 2,
         "category": "knowledge_graph",
         "type": "technical",
-        "size": 10.986122886681098
+        "size": 10.986122886681098,
+        "sample_papers": [
+          {
+            "id": "gyrarda_2024",
+            "title": "IoT-Based Preventive Mental Health Using Knowledge Graphs and Standards for Better Well-Being",
+            "year": "2024",
+            "authors": "Amelie Gyrarda, Seyedali Mohammadi, Manas Gaur, Antonio Kung"
+          },
+          {
+            "id": "haindl_2022",
+            "title": "Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing",
+            "year": "2022",
+            "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
+          }
+        ]
       }
     ],
     "edges": [
