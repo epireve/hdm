@@ -200,6 +200,108 @@
             margin-right: 4px;
         }
         
+        /* University Ready Analysis Styles */
+        #university-ready-analysis {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        #university-ready-analysis h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        
+        .score-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .score-item {
+            text-align: center;
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .score-value.high {
+            color: #27ae60;
+        }
+        
+        .score-value.medium {
+            color: #f39c12;
+        }
+        
+        .score-value.low {
+            color: #e74c3c;
+        }
+        
+        .score-label {
+            font-size: 11px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .criteria-list {
+            margin-top: 15px;
+        }
+        
+        .criteria-item {
+            background: white;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+            font-size: 12px;
+        }
+        
+        .criteria-item.met {
+            border-left-color: #27ae60;
+            background: #d5f4e6;
+        }
+        
+        .criteria-item.not-met {
+            border-left-color: #e74c3c;
+            background: #fadbd8;
+        }
+        
+        .readiness-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+        
+        .readiness-badge.ready {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .readiness-badge.not-ready {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .readiness-badge.potential {
+            background: #f39c12;
+            color: white;
+        }
+        
         /* Header Styles */
         #header {
             background-color: #2c3e50;
@@ -382,6 +484,10 @@
                     <div id="concept-insights">
                         <h4>Research Insights</h4>
                         <div id="insights-content"></div>
+                    </div>
+                    <div id="university-ready-analysis" style="display: none;">
+                        <h4>🎓 University Ready Analysis</h4>
+                        <div id="university-analysis-content"></div>
                     </div>
                     <div id="related-papers">
                         <h4>Related Papers</h4>
@@ -796,7 +902,7 @@
         );
         
         highOpportunityList.innerHTML = highOpportunityNodes.map(node => `
-            <div class="opportunity-item" onclick="selectNode(${JSON.stringify(node).replace(/"/g, '&quot;')})">
+            <div class="opportunity-item" onclick="selectNodeAndShowAnalysis(${JSON.stringify(node).replace(/"/g, '&quot;')})">
                 <h5>${node.name} (${node.frequency} papers)</h5>
                 <p>High collaboration potential for university partnerships</p>
                 <div class="opportunity-tags">
@@ -812,7 +918,7 @@
         const emergingNodes = data.network.nodes.filter(node => node.frequency < 5).slice(0, 10);
         
         emergingList.innerHTML = emergingNodes.map(node => `
-            <div class="opportunity-item" onclick="selectNode(${JSON.stringify(node).replace(/"/g, '&quot;')})">
+            <div class="opportunity-item" onclick="selectNodeAndShowAnalysis(${JSON.stringify(node).replace(/"/g, '&quot;')})">
                 <h5>${node.name} (${node.frequency} papers)</h5>
                 <p>Emerging concept with high innovation potential</p>
                 <div class="opportunity-tags">
@@ -830,7 +936,7 @@
         ).slice(0, 10);
         
         crossDomainList.innerHTML = crossDomainNodes.map(node => `
-            <div class="opportunity-item" onclick="selectNode(${JSON.stringify(node).replace(/"/g, '&quot;')})">
+            <div class="opportunity-item" onclick="selectNodeAndShowAnalysis(${JSON.stringify(node).replace(/"/g, '&quot;')})">
                 <h5>${node.name} (${node.frequency} papers)</h5>
                 <p>Cross-domain potential across ${node.domains.length} domains</p>
                 <div class="opportunity-tags">
@@ -957,6 +1063,9 @@
         const insights = document.getElementById('insights-content');
         insights.innerHTML = generateInsights(node);
 
+        // Show University Ready Analysis
+        showUniversityReadyAnalysis(node);
+
         // Add related papers
         updateRelatedPapers(node);
 
@@ -1059,6 +1168,173 @@
         }
         
         return insights;
+    }
+
+    function showUniversityReadyAnalysis(node) {
+        const analysisSection = document.getElementById('university-ready-analysis');
+        const analysisContent = document.getElementById('university-analysis-content');
+        
+        // Calculate scores for this concept
+        const scores = calculateUniversityReadinessScores(node);
+        
+        // Determine readiness level
+        const isUniversityReady = scores.importance > 0.6 && scores.feasibility > 0.7;
+        const hasPotential = scores.importance > 0.4 || scores.feasibility > 0.5;
+        
+        let readinessClass, readinessText;
+        if (isUniversityReady) {
+            readinessClass = 'ready';
+            readinessText = 'University Ready';
+        } else if (hasPotential) {
+            readinessClass = 'potential';
+            readinessText = 'Has Potential';
+        } else {
+            readinessClass = 'not-ready';
+            readinessText = 'Not Ready';
+        }
+        
+        analysisContent.innerHTML = `
+            <div class="score-container">
+                <div class="score-item">
+                    <div class="score-value ${getScoreClass(scores.importance)}">${(scores.importance * 100).toFixed(0)}%</div>
+                    <div class="score-label">Importance</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value ${getScoreClass(scores.feasibility)}">${(scores.feasibility * 100).toFixed(0)}%</div>
+                    <div class="score-label">Feasibility</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value ${getScoreClass(scores.collaboration)}">${(scores.collaboration * 100).toFixed(0)}%</div>
+                    <div class="score-label">Collaboration</div>
+                </div>
+            </div>
+            
+            <div class="criteria-list">
+                <div class="criteria-item ${scores.importance > 0.6 ? 'met' : 'not-met'}">
+                    <strong>High Importance (>60%):</strong> ${scores.importance > 0.6 ? '✓' : '✗'} 
+                    Based on frequency (${node.frequency} papers) and research establishment
+                </div>
+                <div class="criteria-item ${scores.feasibility > 0.7 ? 'met' : 'not-met'}">
+                    <strong>High Feasibility (>70%):</strong> ${scores.feasibility > 0.7 ? '✓' : '✗'} 
+                    Technical achievability and resource requirements
+                </div>
+                <div class="criteria-item ${node.domains && node.domains.length > 1 ? 'met' : 'not-met'}">
+                    <strong>Cross-Domain Potential:</strong> ${node.domains && node.domains.length > 1 ? '✓' : '✗'} 
+                    ${node.domains ? `Applicable across ${node.domains.length} domains` : 'Single domain focus'}
+                </div>
+                <div class="criteria-item ${isHighOpportunity(node) ? 'met' : 'not-met'}">
+                    <strong>Research Gap Identified:</strong> ${isHighOpportunity(node) ? '✓' : '✗'} 
+                    ${isHighOpportunity(node) ? 'High collaboration potential identified' : 'No specific gaps identified'}
+                </div>
+            </div>
+            
+            <div class="readiness-badge ${readinessClass}">${readinessText}</div>
+            
+            <div style="margin-top: 15px; font-size: 12px; color: #7f8c8d;">
+                <strong>University Collaboration Types:</strong><br>
+                ${generateCollaborationSuggestions(node, scores)}
+            </div>
+        `;
+        
+        analysisSection.style.display = 'block';
+    }
+    
+    function calculateUniversityReadinessScores(node) {
+        // Importance score based on frequency and establishment
+        const maxFrequency = Math.max(...data.network.nodes.map(n => n.frequency));
+        const importanceScore = Math.min(1.0, node.frequency / maxFrequency + 0.2);
+        
+        // Feasibility score based on concept maturity and complexity
+        let feasibilityScore = 0.5; // Base score
+        
+        // Higher feasibility for established categories
+        if (['knowledge_graph', 'algorithms', 'methodologies'].includes(node.category)) {
+            feasibilityScore += 0.2;
+        }
+        
+        // Higher feasibility for moderate frequency (not too new, not too complex)
+        if (node.frequency >= 5 && node.frequency <= 50) {
+            feasibilityScore += 0.2;
+        }
+        
+        // Bonus for cross-domain potential
+        if (node.domains && node.domains.length > 2) {
+            feasibilityScore += 0.1;
+        }
+        
+        // Collaboration score based on domain diversity and research potential
+        let collaborationScore = 0.4; // Base score
+        
+        if (node.domains && node.domains.length > 1) {
+            collaborationScore += 0.3;
+        }
+        
+        if (isHighOpportunity(node)) {
+            collaborationScore += 0.3;
+        }
+        
+        return {
+            importance: Math.min(1.0, importanceScore),
+            feasibility: Math.min(1.0, feasibilityScore),
+            collaboration: Math.min(1.0, collaborationScore)
+        };
+    }
+    
+    function getScoreClass(score) {
+        if (score >= 0.7) return 'high';
+        if (score >= 0.5) return 'medium';
+        return 'low';
+    }
+    
+    function isHighOpportunity(node) {
+        if (!data.gap_analysis) return false;
+        return data.gap_analysis.high_opportunity_indicators.includes(node.name.toLowerCase());
+    }
+    
+    function generateCollaborationSuggestions(node, scores) {
+        const suggestions = [];
+        
+        if (scores.importance > 0.6 && scores.feasibility > 0.7) {
+            suggestions.push('• <strong>Joint Research Projects</strong> - Ready for immediate collaboration');
+        }
+        
+        if (node.domains && node.domains.length > 2) {
+            suggestions.push('• <strong>Cross-Departmental Studies</strong> - Multi-domain applications');
+        }
+        
+        if (node.frequency < 20) {
+            suggestions.push('• <strong>Graduate Student Projects</strong> - Emerging research area');
+        }
+        
+        if (isHighOpportunity(node)) {
+            suggestions.push('• <strong>Grant Applications</strong> - High funding potential (NSF/NIH)');
+        }
+        
+        if (node.category === 'data_integration' || node.category === 'hdm_specific') {
+            suggestions.push('• <strong>Industry Partnerships</strong> - Practical implementation opportunities');
+        }
+        
+        return suggestions.length > 0 ? suggestions.join('<br>') : '• Further analysis needed for collaboration potential';
+    }
+
+    function selectNodeAndShowAnalysis(node) {
+        // Switch to network view to show the selected node
+        if (currentView !== 'network') {
+            currentView = 'network';
+            document.getElementById('viewMode').value = 'network';
+            switchView();
+        }
+        
+        // Select the node and show detailed analysis
+        selectNode(node);
+        
+        // Scroll the side panel to show the university analysis
+        setTimeout(() => {
+            const analysisSection = document.getElementById('university-ready-analysis');
+            if (analysisSection) {
+                analysisSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 500);
     }
 
     function showTooltip(event, d) {
