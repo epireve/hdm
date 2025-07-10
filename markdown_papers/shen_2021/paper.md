@@ -1,4 +1,3 @@
----
 cite_key: shen_2021
 title: Deriving Design Knowledge Graph for Complex Sociotechnical Systems Using the AIA Design Thinking
 authors: Tao Shen, Chan Gao, Yukari Nagai, Wei Ou
@@ -72,6 +71,12 @@ Copyright © 2021 Tao Shen et al. \*is is an open access article distributed und
 
 \*e AIA design thinking has been validated in complex design tasks, which includes three overlapping design thinking fields and uses the knowledge field theory as a theoretical mechanism of knowledge flow among design thinking fields. Meanwhile, the design of complex sociotechnical systems highly relies on multidisciplinary knowledge and design methods. Despite the emergence of knowledge management techniques (ontology, expert system, text mining, etc.), designers continue to store knowledge in unstructured ways. To facilitate the integration of knowledge graph and design thinking, we introduce an integrated approach to structure design knowledge graph with the AIA design thinking, which organizes existing design knowledge through Agent (concept)-Interaction (relation)-Adaptation (concept) framework. \*e approach uses an optimized convolutional neural network to accomplish two tasks: building concept graph from text and stimulating design thinking information processing for complex sociotechnical system tasks. Based on our knowledge graph, the validation experiment demonstrates the advantages of promoting the designer's extension of idea space and idea quality.
 
+## TL;DR
+Research on deriving design knowledge graph for complex sociotechnical systems using the aia design thinking providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
 ## 1. Introduction
 
 With the development of communication technology and computer technology, human society has entered the information age. Since then, information data has exploded [\[1, 2](#page-8-0)]. \*e explosive growth of information has brought about a wealth of information experience to designers and caused designers to get lost in the massive amount of information related or unrelated to their needs [[3–5\]](#page-8-0). A semantic network [\[6](#page-8-0)] was proposed as a brand-new way of expressing knowledge and gradually developed into a knowledge graph [\[7–9](#page-8-0)] to solve information overload problems.
@@ -124,7 +129,7 @@ Taken together, prior research on knowledge graph construction technology and it
 
 Our approach builds a loop optimization iterative mechanism shown in Figure [2](#page-4-0) to support the design process for complex sociotechnical systems. Specifically, we first collect data to the data processing layer, where we use the optimized convolutional neural network to detect the relation between concept entities. \*en, we construct the design knowledge graph through Agent (concept)-Interaction (relation)-Adaptation (concept) framework based on AIA design thinking and generate new design knowledge through the designer's cognitive system. Finally, we collect new valuable design knowledge to achieve the purpose of loop iteration optimization.
 
-*3.1. Building Knowledge Graph.* We aim to build a concept graph from the text. \*e concept graph consists of many concepts, and the concepts related to each other are connected by directed edges. In other words, the graph can be viewed as a collection of triplets: *cp* � {*h*, *t*, *e*}, where *cp*denotes a concept pair,*h*the head concept,*t*the tail concept, and*e* the edge. \*ere exist possibilities that two pairs of concepts share common heads or tails; therefore these concept pairs are connected through their common concepts. \*erefore, there may exist paths between any two arbitrary concepts in the graph. \*e path distance between them in the graph can be viewed as their similarity: the shorter the distance is, the more similar the two concepts are.
+*3.1. Building Knowledge Graph.* We aim to build a concept graph from the text. \*e concept graph consists of many concepts, and the concepts related to each other are connected by directed edges. In other words, the graph can be viewed as a collection of triplets: *cp*  {*h*, *t*, *e*}, where *cp*denotes a concept pair,*h*the head concept,*t*the tail concept, and*e* the edge. \*ere exist possibilities that two pairs of concepts share common heads or tails; therefore these concept pairs are connected through their common concepts. \*erefore, there may exist paths between any two arbitrary concepts in the graph. \*e path distance between them in the graph can be viewed as their similarity: the shorter the distance is, the more similar the two concepts are.
 
 A pivotal problem in building the knowledge graph is detecting nouns related to design concepts from the freeform text and identifying the relations between the detected concepts. We treat detection of the concept as a name entity recognition task, which is a well-researched natural language processing task. In this research, we train supervised classifieds to detect concept entities. To prepare the training data, we extract sentences from text discussing design concepts and manually label each sentence in the following way. For each sentence, we label each word with "o" if the word is not related to the design concept, "b" if the word is the beginning of a concept, and "i" if the word is inside a concept. We prepare around 1000 such training sentences and use them for training an LSTM classifier. \*e classifier predicts one of the "iob" labels for each word in a sentence. We train the classifier by minimizing the errors between the ground-truth labels and the predictions. At test time, we use the substrings starting from the "b" labels and ending with the "o" labels as the predicted concept entities.
 
@@ -207,9 +212,9 @@ According to its understanding, the human brain converts knowledge or experience
 
 Every participant was asked to "think aloud" with an electronic video recorder recording during the design process. We analyzed the design ideas generated by the participants and their performance in the design process.
 
-*4.3. Data Collection and Analysis.* We collected data in two phases. In phase 1, we collected participants' utterances in the design process and interviews as the protocol data. We measured the conceptual distance of the new nouns from "community" and "sustainability" based on WordNet. \*en the extension of idea space is defined as *<sup>N</sup> i*�1 ������ *x*2 *<sup>i</sup>*+*y*<sup>2</sup> *i* /*N*(where*N* is the number of new nouns). Table [1](#page-6-0) shows each participant's extension of idea space.
+*4.3. Data Collection and Analysis.* We collected data in two phases. In phase 1, we collected participants' utterances in the design process and interviews as the protocol data. We measured the conceptual distance of the new nouns from "community" and "sustainability" based on WordNet. \*en the extension of idea space is defined as *<sup>N</sup> i*1  *x*2 *<sup>i</sup>*+*y*<sup>2</sup> *i* /*N*(where*N* is the number of new nouns). Table [1](#page-6-0) shows each participant's extension of idea space.
 
-\*en we analyzed these data using paired *t*-test. \*e results presented in Table [2](#page-6-0) show that the difference of participant's extension of idea space between Group A and Group B is significant (*p* � 0*.*001), and the average value of Group A (0.73) is significantly higher than the average value of Group B (0.64). \*erefore, it can be inferred that the knowledge graph using the AIA design thinking framework can promote participants' extension of idea space.
+\*en we analyzed these data using paired *t*-test. \*e results presented in Table [2](#page-6-0) show that the difference of participant's extension of idea space between Group A and Group B is significant (*p*  0*.*001), and the average value of Group A (0.73) is significantly higher than the average value of Group B (0.64). \*erefore, it can be inferred that the knowledge graph using the AIA design thinking framework can promote participants' extension of idea space.
 
 In phase 2, we measured each participant's idea quality and quantity using the method proposed by Shah et al. [[64](#page-10-0)]. In this method, the idea quality could be estimated sufficiently well even if the quantitative information was insufficient to perform a formal analysis in the concept stage. In addition, this method added all the quality scores for all the alternatives to achieve the total score for the set. As a result, the idea quality is denoted as
 
@@ -276,6 +281,8 @@ In this equation,*Sjk*is the score for function*j*at stage*k*; *m*is the total n
 | A13 | 5.29 | 2 | B13 | 4.49 | 1 |
 | A14 | 6.67 | 1 | B14 | 4.63 | 1 |
 
+**Table 3:** Each participant's idea quality and quantity.
+
 **Table 4:** Results of paired *t*-test analysis.
 
 | Items | | Paired (M ± SD) | | | |
@@ -286,7 +293,7 @@ In this equation,*Sjk*is the score for function*j*at stage*k*; *m*is the total n
 
 <sup>∗</sup>*p* < 0*.*05 and ∗∗*p* < 0*.*01.
 
-quality between Group A and Group B is significant (*p* � 0*.*002), and the average value of Group A (6.10) is significantly higher than the average value of Group B (4.90). \*erefore, it can be inferred that the knowledge graph using the AIA design thinking framework can promote participant's idea quality. However, the difference in idea quantity between Group A and Group B is insignificant (*p* � 0*.*336). \*us it cannot be inferred that the knowledge graph using the AIA design thinking framework can promote participant's idea quantity. \*ese analysis results also support our preliminary research [[19\]](#page-8-0).
+quality between Group A and Group B is significant (*p*  0*.*002), and the average value of Group A (6.10) is significantly higher than the average value of Group B (4.90). \*erefore, it can be inferred that the knowledge graph using the AIA design thinking framework can promote participant's idea quality. However, the difference in idea quantity between Group A and Group B is insignificant (*p*  0*.*336). \*us it cannot be inferred that the knowledge graph using the AIA design thinking framework can promote participant's idea quantity. \*ese analysis results also support our preliminary research [[19\]](#page-8-0).
 
 ## 5. Discussion
 
@@ -392,3 +399,13 @@ subject increasingly diversified. In this mechanism, designers have become an es
 - [64] J. J. Shah, S. M. Smith, and N. Vargas-Hernandez, "Metrics for measuring ideation effectiveness," *Design Studies*, vol. 24, no. 2, pp. 111–134, 2003.
 - [65] H. A. Simon, "\*e science of design: creating the artificial," *Design Issues*, vol. 4, pp. 67–82, 1988.
 - [66] Y. Lou, "\*e Expanding Scope and Paradigm Shift of Design," *Journal of Nanjing Art Institute*, vol. 1, pp. 11–15, 2017, Times Architecture.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

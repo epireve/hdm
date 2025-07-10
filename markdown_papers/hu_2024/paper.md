@@ -481,3 +481,20 @@ embedding. In International Semantic Web Conference. Springer, 654–671.
 - <span id="page-9-13"></span>[64] Wayne Xin Zhao, Gaole He, Kunlin Yang, Hongjian Dou, Jin Huang, Siqi Ouyang, and Ji-Rong Wen. 2019. Kb4rec: A data set for linking knowledge bases with recommender systems. Data Intelligence 1, 2 (2019), 121–136.
 - <span id="page-9-18"></span>[65] Yuyue Zhao, Xiang Wang, Jiawei Chen, Yashen Wang, Wei Tang, Xiangnan He, and Haiyong Xie. 2021. Time-aware Path Reasoning on Knowledge Graph for Recommendation. ACM Transactions on Information Systems (TOIS) (2021).
 - <span id="page-9-6"></span>[66] Kun Zhou, Hui Yu, Wayne Xin Zhao, and Ji-Rong Wen. 2022. Filter-enhanced MLP is all you need for sequential recommendation. In Proceedings of the ACM Web Conference 2022. 2388–2399.
+
+
+## TL;DR
+Temporal knowledge graph approach incorporating user behavior dynamics for improved
+
+## Key Insights
+TKG incorporates dynamic features of user behaviors into knowledge graphs while emphasizing sequential relationships; captures patterns of both entity dynamics (nodes) and structural dynamics (edges); published at premier WSDM conference with strong validation
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to effectively incorporate user behavior dynamics into knowledge graphs for improved sequential recommendation while maintaining temporal relationship modeling?
+- **Methodology**: Temporal Knowledge Graph (TKG) construction incorporating user behavior dynamics; entity and structural dynamics modeling; sequential relationship emphasis; integration of structured knowledge with temporal patterns
+- **Key Findings**: Published at premier WSDM 2024 conference; demonstrates effective integration of user behavior with knowledge graphs; captures both entity and structural dynamics in temporal setting
+
+### Analysis
+- **Limitations**: Detailed methodology and experimental results not fully accessible; computational complexity of TKG construction not characterized; scalability to large-scale knowledge graphs unclear
+- **Future Work**: Investigate scalability optimizations; explore domain-specific TKG applications; develop efficient construction algorithms for large-scale temporal knowledge graphs

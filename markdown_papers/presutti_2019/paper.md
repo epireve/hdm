@@ -1,4 +1,3 @@
----
 cite_key: presutti_2019
 title: Pattern-based Visualization of Knowledge Graphs
 authors: Valentina Presutti, Luigi Asprino, Christian Colonna, Misael Mongiovì, Margherita Porena
@@ -53,6 +52,12 @@ Luigi Asprino 1 , Christian Colonna 1 , Misael Mongiov`ı 2 , Margherita Porena 
 <sup>1</sup> University of Bologna, Bologna, Italy <sup>2</sup> STLab, ISTC-CNR, Rome, Italy {luigi.asprino,christian.colonna2,valentina.presutti }@unibo.it {misael.mongiovi,margherita.porena }@istc.cnr.it
 
 Abstract. We present a novel approach to knowledge graph visualization based on ontology design patterns. This approach relies on OPLa (Ontology Pattern Language) annotations and on a catalogue of visual frames, which are associated with foundational ontology design patterns. We demonstrate that this approach significantly reduces the cognitive load required to users for visualizing and interpreting a knowledge graph and guides the user in exploring it through meaningful thematic paths provided by ontology patterns.
+
+## TL;DR
+Research on pattern-based visualization of knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 Keywords: Knowledge Graphs · Information Visualization · Ontology Design Patterns · Exploratory Search.
 
@@ -301,3 +306,13 @@ frame to different KGs and implemented a tool for validating the concept. The re
 - <span id="page-15-13"></span>27. Troullinou, G., Kondylakis, H., Stefanidis, K., Plexousakis, D.: Exploring rdfs kbs using summaries. In: Proc of ISWC. pp. 268–284 (2018)
 - <span id="page-15-5"></span>28. Troullinou, G., Kondylakis, H., Stefanidis, K., Plexousakis, D.: Rdfdigest+: A summary-driven system for kbs exploration. In: Proc of ISWC (P&D/Industry/BlueSky) (2018)
 - <span id="page-15-7"></span>29. Wang, X., Xin, Y., Xu, Q.: Template-based sparql query and visualization on knowledge graphs. In: Proc of DASFAA. pp. 184–200 (2018)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

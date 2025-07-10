@@ -1,4 +1,3 @@
----
 cite_key: zhang_2024
 title: A framework towards digital twins for type 2 diabetes
 authors: Yue Zhang, Guangrong Qin, Boris Aguilar, Noa Rappaport, James T. Yurkovich, Lance Pflieger, Sui Huang, Leroy Hood, Ilya Shmulevich
@@ -54,6 +53,12 @@ Introduction: A digital twin is a virtual representation of a patient's disease,
 Methods: Here, we introduce a digital twin framework for type 2 diabetes (T2D) that integrates machine learning with multiomic data, knowledge graphs, and mechanistic models. By analyzing a substantial multiomic and clinical dataset, we constructed predictive machine learning models to forecast disease progression. Furthermore, knowledge graphs were employed to elucidate and contextualize multiomic–disease relationships.
 
 Results and discussion: Our findings not only reaffirm known targetable disease components but also spotlight novel ones, unveiled through this integrated approach. The versatile components presented in this study can be incorporated into a digital twin system, enhancing our grasp of diseases and propelling the advancement of precision medicine.
+
+## TL;DR
+Research on a framework towards digital twins for type 2 diabetes providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## KEYWORDS
 
@@ -345,3 +350,13 @@ All of the machine learning models used for predicting changes in clinical varia
 41. Palsson BO, Yurkovich JT. Is the kinetome conserved? Mol Syst Biol. (2022) 18 (2):e10782. [doi: 10.15252/msb.202110782](https://doi.org/10.15252/msb.202110782)
 
 42. Yurkovich JT, Evans SJ, Rappaport N, Boore JL, Lovejoy JC, Price ND, et al. The transition from genomics to phenomics in personalized population health. Nat Rev Gen. (2023). (In press). [doi: 10.1038/s41576-023-00674-x](https://doi.org/10.1038/s41576-023-00674-x)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

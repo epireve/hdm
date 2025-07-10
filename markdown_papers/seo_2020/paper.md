@@ -1,4 +1,3 @@
----
 cite_key: seo_2020
 title: Structural Quality Metrics to Evaluate Knowledge Graph Quality
 authors: Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun
@@ -32,6 +31,12 @@ sumin.seo@navercorp.com, heeseon.cheon@navercorp.com, kim.hh@navercorp.com, dust
 ## Abstract
 
 This work presents six structural quality metrics that can measure the quality of knowledge graphs and analyzes four cross-domain knowledge graphs on the web (Wikidata, DBpedia, YAGO, Freebase) and Google Knowledge Graph, as well as 'Raftel', Naver's integrated knowledge graph. The 'Good Knowledge Graph' should define detailed classes and properties in its ontology so that it can abundantly express knowledge in the real world. Also, instances and RDF triples should use the classes and properties actively. Therefore, we tried to examine the internal quality of knowledge graphs numerically by focusing on the structure of the ontology, which is the schema of knowledge graphs, and the degree of use thereof. As a result of the analysis, it was possible to find the characteristics of a knowledge graph that could not be known only by scale-related indicators such as the number of classes and properties.
+
+## TL;DR
+Research on structural quality metrics to evaluate knowledge graph quality providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -385,3 +390,13 @@ Structural quality metric sees 'structure' as an important factor in determining
 ## A.2.6 Subclass Property Instantiation
 
 **Figure 11:** Subclass Property Instantiation (target language: Korean)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

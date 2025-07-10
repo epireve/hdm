@@ -1,4 +1,3 @@
----
 cite_key: editor_2022
 title: Research Article Privacy-Preserving Federated Graph Neural Network Learning on Non-IID Graph Data
 authors: Academic Editor
@@ -68,6 +67,12 @@ Academic Editor: Yan Huo
 Copyright © 2023 Kainan Zhang et al. This is an open access article distributed under the [Creative Commons Attribution License](https://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
 
 Since the concept of federated learning (FL) was proposed by Google in 2017, many applications have been combined with FL technology due to its outstanding performance in data integration, computing performance, privacy protection, etc. However, most traditional federated learning-based applications focus on image processing and natural language processing with few achievements in graph neural networks due to the graph's nonindependent identically distributed (IID) nature. Representation learning on graph-structured data generates graph embedding, which helps machines understand graphs effectively. Meanwhile, privacy protection plays a more meaningful role in analyzing graph-structured data such as social networks. Hence, this paper proposes PPFL-GNN, a novel privacy-preserving federated graph neural network framework for node representation learning, which is a pioneer work for graph neural network-based federated learning. In PPFL-GNN, clients utilize a local graph dataset to generate graph embeddings and integrate information from other collaborative clients to utilize federated learning to produce more accurate representation results. More importantly, by integrating embedding alignment techniques in PPFL-GNN, we overcome the obstacles of federated learning on non-IID graph data and can further reduce privacy exposure by sharing preferred information.
+
+## TL;DR
+Research on research article privacy-preserving federated graph neural network learning on non-iid graph data providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## Introduction
 
@@ -354,3 +359,13 @@ in 2019 IEEE International Conference on Big Data (Big Data), pp. 2560–2568, L
 - [35] C. Thapa, P. C. M. Arachchige, S. Camtepe, and L. Sun, "Splitfed: when federated learning meets split learning," Proceedings of the AAAI Conference on Artificial Intelligence, vol. 36, pp. 8485 –8493, 2022.
 - [36] P. Sen, G. Namata, M. Bilgic, L. Getoor, B. Galligher, and T. EliassiRad, "Collective classi fication in network data, " AI Magazine, vol. 29, no. 3, pp. 93 –93, 2008.
 - [37] C. L. Giles, K. D. Bollacker, and S. Lawrence, "CiteSeer: an automatic citation indexing system, " in Proceedings of the third ACM conference on Digital libraries - DL '98, pp. 89 – 98, Pittsburgh, Pennsylvania, USA, 1998.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

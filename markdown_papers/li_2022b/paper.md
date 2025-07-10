@@ -442,3 +442,20 @@ Figure 16. Reconstruction of*in-the-wild*images: (1st row) images from*Google Im
 ## E. Recovering In-the-wild Data
 
 We target the practical scenario where the attacker can utilize all public-accessible data as prior information to launch the attack. Thus we chose to use CelebA and ImageNet for evaluation as they are all Internet-based datasets and are easy to access as an attacker. We also used the disjoint dataset so that the images used for testing haven't been used for GAN training. To investigate the performance of GGL under the scenario where the testing image is not from the GAN training distribution, we conducted additional experiments to recover*in-the-wild* images (i.e., arbitrary images from the search results in Google Images with appropriate cropping/resizing). From the results in Figure [16,](#page-12-4) we can see that GGL can still reveal a reasonable amount of visual information even if the testing images are not from the GAN training distribution.
+
+
+## TL;DR
+Educational knowledge graph construction from multiple heterogeneous data sources for computer networking courses using keyword and relationship extraction techniques.
+
+## Key Insights
+Addresses rapid knowledge updates in computer domains; integrates theoretical and practical learning; uses SmartKG tool for knowledge storage and visualization.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can knowledge graphs constructed from multi-source heterogeneous data improve computer science education by integrating theoretical and practical knowledge?
+- **Methodology**: Used data acquisition from multiple heterogeneous sources, keyword extraction techniques, relationship extraction, and SmartKG tool for knowledge storage and visualization.
+- **Key Findings**: Provides new ideas for teaching computer courses and helps cultivate high-quality skilled talents by integrating theoretical and practical knowledge more effectively.
+
+### Analysis
+- **Limitations**: Abstract only - detailed evaluation of educational effectiveness and scalability not available.
+- **Future Work**: Evaluate educational effectiveness, expand to other technical subjects, assess student learning outcomes.

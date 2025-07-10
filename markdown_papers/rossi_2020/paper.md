@@ -512,3 +512,20 @@ time embedding module, while for DyRep we augment the messages with the result o
 <!-- Image Description: The scatter plot displays the relationship between time per epoch (in seconds) and test average precision for two methods: "most\_recent" and "uniform". Each method is represented by an ellipse indicating the mean and variance of the test average precision. The plot visually compares the performance and efficiency of the two methods. "most\_recent" achieves higher precision but requires less time per epoch than "uniform". -->
 
 **Figure 5:** Comparison of two TGN-attn models using different neighbor sampling strategies (when sampling 10 neighbors). Sampling the most recent edges clearly outperforms uniform sampling. Means and standard deviations (visualized as ellipses) were computed over 10 runs.
+
+
+## TL;DR
+Generic temporal graph network framework combining memory modules and graph
+
+## Key Insights
+TGN framework generalizes Message Passing Neural Networks to temporal graphs; incorporates memory modules for compressed node state representation; achieves state-of-the-art performance on transductive and inductive tasks; more computationally efficient than existing methods
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to develop a generic, efficient framework for deep learning on dynamic graphs that can handle evolving features and connectivity over time?
+- **Methodology**: Memory modules for compressed node state representation; graph-based computational operators; sequences of timed events representation; generalization of Message Passing Neural Networks to temporal domain
+- **Key Findings**: Significantly outperforms previous temporal graph approaches; more computationally efficient than existing methods; state-of-the-art performance on transductive and inductive prediction tasks; generalizes multiple previous models as special cases
+
+### Analysis
+- **Limitations**: Framework complexity may require careful hyperparameter tuning; memory module design choices impact performance; evaluation primarily on recommendation and social network datasets
+- **Future Work**: Extend framework to larger-scale temporal graphs; investigate adaptive memory mechanisms; explore domain-specific temporal graph applications

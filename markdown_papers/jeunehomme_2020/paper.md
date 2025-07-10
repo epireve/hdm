@@ -1,4 +1,3 @@
----
 cite_key: jeunehomme_2020
 title: The temporal compression of events during episodic future thinking
 authors: Olivier Jeunehomme, Nathan Leroy, Arnaud D'Argembeau
@@ -68,6 +67,12 @@ Keywords: Episodic memory Episodic future thinking Temporal compression Time est
 ### ABSTRACT
 
 While the cognitive and neural mechanisms that underlie episodic future thinking are increasingly well understood, little is known about how the temporal unfolding of events is represented in future simulations. In this study, we leveraged wearable camera technology to examine whether real-world events are structured and compressed in the same way when imagining the future as when remembering the past. We found that future events were simulated at proportionally higher speed than past events and that the density of experience units representing the unfolding of events was lower for future than for past episodes. Despite these differences, the nature of events influenced compression rates in the same way for past and future events. Furthermore, the perceived duration of both types of events depended on the density of represented experience units. These results provide novel insight into the mechanisms that structure the unfolding of events during future simulations.
+
+## TL;DR
+Research on the temporal compression of events during episodic future thinking providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
 
 ### Introduction
 
@@ -245,3 +250,13 @@ Mechanisms and functions. [Current Opinion in Behavioral Sciences, 17](http://re
 - <span id="page-6-7"></span>[Taylor, S. E., Pham, L. B., Rivkin, I. D., & Armor, D. A. \(1998\). Harnessing the imagi](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0160)[nation: Mental simulation, self-regulation, and coping.](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0160) American Psychologist, 53(4), 429–[439](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0160).
 - <span id="page-6-3"></span>[Wang, Y., & Gennari, S. P. \(2019\). How language and event recall can shape memory for](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0165) time. [Cognitive Psychology, 108](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0165), 1–21.
 - <span id="page-6-4"></span>[Zacks, J. F. \(2020\). Event perception and memory.](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0170) Annual Review of Psychology, 71, 165–[191](http://refhub.elsevier.com/S0010-0277(20)30235-3/rf0170).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

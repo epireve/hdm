@@ -472,3 +472,20 @@ DISTRIBUTION STATEMENT A. Approved for public release; distribution is unlimited
 - <span id="page-19-2"></span>[38] A. Yang, B. Yang, B. Zhang, B. Hui, B. Zheng, B. Yu, C. Li, D. Liu, F. Huang, H. Wei, et al., Qwen2. 5 technical report, arXiv preprint arXiv:2412.15115 (2024).
 - <span id="page-19-3"></span>[39] Google DeepMind, Gemini 2.0 flash, 2025. URL: [https://deepmind.google/technologies/gemini/](https://deepmind.google/technologies/gemini/flash/) [flash/](https://deepmind.google/technologies/gemini/flash/).
 - <span id="page-19-4"></span>[40] Google DeepMind, Gemini flash lite, 2025. URL: [https://deepmind.google/technologies/gemini/](https://deepmind.google/technologies/gemini/flash-lite/) [flash-lite/](https://deepmind.google/technologies/gemini/flash-lite/).
+
+
+## TL;DR
+Combines knowledge graphs and LLMs to enhance manufacturing process planning
+
+## Key Insights
+ARKNESS framework demonstrates significant accuracy improvements (+25 percentage points) while providing explainability; lightweight LLM integration proves sufficient for complex reasoning tasks; knowledge graph augmentation addresses LLM hallucination problems
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to improve CNC machining process planning using knowledge graphs and LLMs to provide accurate, explainable, and context-aware manufacturing decisions?
+- **Methodology**: ARKNESS framework: zero-shot KG construction + retrieval-augmented generation; integration of heterogeneous machining documents; lightweight 3B-parameter Llama-3 model usage; CNC process planning optimization
+- **Key Findings**: Matches GPT-4o accuracy while achieving +25 percentage point gain in multiple-choice accuracy; provides verifiable, numerically exact CNC process planning answers; demonstrates significant improvement over traditional rule-based systems
+
+### Analysis
+- **Limitations**: Requires integration of heterogeneous machining documents; evaluation limited to CNC machining domain; computational requirements for real-time deployment not fully characterized
+- **Future Work**: Expand to more complex manufacturing scenarios; integrate with real-time shop floor systems; develop domain-adaptive frameworks

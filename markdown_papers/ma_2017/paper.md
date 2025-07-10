@@ -523,3 +523,20 @@ Fig. S6 UMAP Visualization of single-cell RNA-seq data from bone marrow mononucl
 <!-- Image Description: The image displays five network graphs, each representing a different cancer subtype (BRCA, KIRC, LUAD, SKCM, COAD). Nodes, color-coded by class, represent samples, and edges show relationships between them. The graphs visualize the clustering of cancer samples based on their subtype, illustrating distinct groupings and potential relationships within each cancer type. The purpose is to show the network structure of cancer subtypes, likely for analysis of similarities and differences. -->
 
 Fig. S7 UMAP plots displaying patient embeddings across five cancer types from the new patient classification experiments. Labels were derived via spectral clustering on the full integrated network, using the preselected number of clusters.
+
+
+## TL;DR
+Research on integrate any omics: towards genome-wide data integration for patient stratification providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

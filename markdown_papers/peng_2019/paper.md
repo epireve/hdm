@@ -571,3 +571,20 @@ Cong Peng <https://orcid.org/0000-0002-3127-7024>
 - 71. Snell JM and Prodromou E. Activity streams 2.0—W3C recommendation, 2017, [https://www.w3.org/](https://www.w3.org/TR/activitystreams-core/) [TR/activitystreams-core/](https://www.w3.org/TR/activitystreams-core/)
 - 72. Peng C, Goswami P and Bai G. An ontological approach to integrate health resources from different categories of services. In:*The third international conference on informatics and assistive technologies for health-care, medical support and wellbeing*, pp. 48–54. IARIA.
 - 73. Yeung CA, Liccardi I, Lu K, et al. Decentralization: the future of online social networking. In: *W3C Workshop on the future of social networking position papers*, [http://citeseerx.ist.psu.edu/viewdoc/summ](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.190.1487) [ary?doi=10.1.1.190.1487](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.190.1487)
+
+
+## TL;DR
+Research on a literature review of current technologies on health data integration for patient-centered health management providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -1,4 +1,3 @@
----
 cite_key: uzctegui_2024
 title: Corresponding author:
 authors: Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad de Ciencias de la Ingeniería, Universidad Austral de Chile
@@ -74,6 +73,12 @@ Luis Medina Uzcátegui, Instituto de Diseño y Métodos Industriales, Facultad d
 <sup>4</sup> Escuela de Ingeniería Civil Mecánica, Facultad de Ciencias de la Ingeniería, Universidad Austral de Chile, Valdivia, Chile
 
 that characteristics such as ideal team composition, leadership, and open communication were more prominent in those contexts. While team size may explain these differences, further research is necessary to establish definitive conclusions. The contributions of each student to the teamwork were characterized by independence and self-pacing, which played a crucial role in achieving the desired project outcomes. In conclusion, this case study emphasizes the importance of adapting to remote teamwork scenarios and provides strategies for effective project management. The findings highlight the significance of shared goals, commitment, feedback, and accountability in fostering effective teamwork. Moreover, the contributions of independence and self-pacing were instrumental in navigating the challenges posed by limited face-to-face interactions. Future research should investigate the impact of team size on team dynamics, the development of self-regulation skills in similar contexts, and the dynamics of teamwork when students lack experience in a PBL course. These investigations will contribute to a comprehensive understanding of effective teamwork strategies in diverse educational settings. The insights gained from this study contribute to the ongoing discussion on effective teamwork strategies in remote learning environments.
+
+## TL;DR
+Research on corresponding author: providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ### Keywords
 
@@ -268,3 +273,13 @@ Data sharing not applicable to this article as no datasets were generated or ana
 - 15. Bacon DR, Stewart KA and Stewart-Belle S. Exploring predictors of student team project performance. J Market Educ 1998; 20: 63–71.
 - 16. Bacon DR, Stewart KA and Silver WS. Lessons from the best and worst student team experiences: how a teacher can make the difference. J Manag Educ 1999; 23: 467–488.
 - 17. Bacon DR and Stewart KA. "Lessons from the best and worst team experiences: how a teacher can make the difference": reflections and recommendations for student teams researchers. J Manag Educ 2019; 43: 543–549.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

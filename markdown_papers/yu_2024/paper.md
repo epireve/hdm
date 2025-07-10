@@ -384,3 +384,20 @@ The following abbreviations are used in this manuscript:
 - <span id="page-15-5"></span>40. Beckett, D.; Berners-Lee, T.; Prud'hommeaux, E.; Carothers, G. RDF 1.1 Turtle. World Wide Web Consortium. 2014. pp. 18–31. Available online: <https://core.ac.uk/download/pdf/70283847.pdf> (accessed on 25 February 2024).
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+## TL;DR
+Research on ontology-driven architecture for managing environmental, social, and governance metrics providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -395,3 +395,20 @@ The authors acknowledge the support of the Natural Sciences and Engineering Rese
 - <span id="page-13-4"></span>[WZW∗18] WANG H., ZHANG F., WANG J., ZHAO M., L<sup>I</sup> W., XIE X., GUO M.: Ripplenet: Propagating user preferences on the knowledge graph for recommender systems. In *Proceedings of the 27th ACM International Conference on Information and Knowledge Management*(2018), pp. 417– 426. [10](#page-9-2)
 - <span id="page-13-0"></span>[XOW∗20] X<sup>U</sup> K., OTTLEY A., WALCHSHOFER C., STREIT M., CHANG R., WENSKOVITCH J.: Survey on the analysis of user interactions and visualization provenance.*Computer Graphics Forum 39*, 3 (2020), 757–783. URL: [https://onlinelibrary.](https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.14035) [wiley.com/doi/abs/10.1111/cgf.14035](https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.14035), [arXiv:https:](http://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/cgf.14035) [//onlinelibrary.wiley.com/doi/pdf/10.1111/cgf.14035](http://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/cgf.14035), [doi:https://doi.org/10.1111/cgf.14035](https://doi.org/https://doi.org/10.1111/cgf.14035). [2,](#page-1-1) [4,](#page-3-0) [5,](#page-4-1) [11](#page-10-1)
 - <span id="page-13-3"></span>[ZHL∗11] ZENG R., H<sup>E</sup> X., L<sup>I</sup> J., LIU Z., VAN DER AALST W. M.: A method to build and analyze scientific workflows from provenance through process mining. In *TaPP* (2011). [5](#page-4-1)
+
+
+## TL;DR
+Research on a theoretical approach for structuring and analysing knowledge provenance for visual analytics providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

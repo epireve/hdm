@@ -1,4 +1,3 @@
----
 cite_key: menschikov_2025
 title: PersonalAI: Towards digital twins in the graph form
 authors: Mikhail Menschikov, Dmitry Evseev, Ruslan Kostoev, Ilya Perepechkin, Ilnaz Salimov, Victoria Dochkina, Petr Anokhin, Evgeny Burnaev, Nikita Semenov
@@ -63,6 +62,12 @@ keywords:
 ### Abstract
 
 The challenge of personalizing language models, specifically the ability to account for a user's history during interactions, is of significant interest. Despite recent advancements in large language models (LLMs) and Retrieval Augmented Generation that have enhanced the factual base of LLMs, the task of retaining extensive personal information and using it to generate personalized responses remains pertinent. To address this, we propose utilizing external memory in the form of knowledge graphs, which are constructed and updated by the LLM itself. We have expanded upon ideas of AriGraph architecture and for the first time introduced a combined graph featuring both standard edges and two types of hyperedges. Experiments conducted on the TriviaQA, HotpotQA and DiaASQ benchmarks indicates that this approach aids in making the process of graph construction and knowledge extraction unified and robust. Furthermore, we augmented the DiaASQ benchmark by incorporating parameters such as time into dialogues and introducing contradictory statements made by the same speaker at different times. Despite these modifications, the performance of the question-answering system remained robust, demonstrating the proposed architecture's ability to maintain and utilize temporal dependencies.
+
+## TL;DR
+Novel framework for creating personal digital twins using knowledge graphs that
+
+## Key Insights  
+Utilizes external memory as knowledge graphs constructed and updated by LLM itself; introduces combined graph with standard and hyperedges; incorporates temporal dependencies in dialogue systems.
 
 ## 1 Introduction
 
@@ -472,9 +477,7 @@ Tables 11 and 12 present the LLM–prompts used by Memorize–pipeline to identi
 | | |
 | | |
 | | |
-| | |
 | User | |
-| | |
 | | |
 | | |
 | | |
@@ -550,3 +553,13 @@ Thus, evaluation sets for quality assessment of the proposed/implemented Memoriz
 | TriviaQA | 500 | 66 | 76.37 | 39.46 | 9 | 10.17 | 5.76 | 4925 | 807 | 765.11 | 196.32 |
 
 **Table 16:** Characteristics of the datasets used to evaluate the quality of the proposed Memorize– and QA–pipelines
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can language models retain and effectively utilize extensive personal information during interactions to generate personalized responses?
+- **Methodology**: Expanded AriGraph architecture with combined graph featuring standard edges and two types of hyperedges; experiments on TriviaQA, HotpotQA, and DiaASQ benchmarks; temporal parameter incorporation.
+- **Key Findings**: Demonstrated robust performance across benchmarks; unified graph construction and knowledge extraction approach; successful handling of temporal and contradictory information.
+
+### Analysis
+- **Limitations**: Technical details on hyperedge implementation not fully available from abstract; scalability considerations for large-scale personal data not extensively discussed.
+- **Future Work**: Extend to multi-modal personal data; develop privacy-preserving architectures; explore federated personal KG systems; optimize hyperedge representations.

@@ -413,3 +413,19 @@ Aukje K Mantel-Teeuwisse<http://orcid.org/0000-0002-8782-0698>
 - <span id="page-11-7"></span>56 Chen Z, Li S, Zeng L, *et al*. Accessibility of medicines for children: a systematic review. *[Front Pharmacol](http://dx.doi.org/10.3389/fphar.2021.691606)* 2021;12:691606.
 - <span id="page-11-10"></span>57 Niëns LM, Van de Poel E, Cameron A, *et al*. Practical measurement of affordability: an application to medicines. *[Bull World Health Organ](http://dx.doi.org/10.2471/BLT.10.084087)* 2012;90:219–27.
 - <span id="page-11-11"></span>58 Joosse IR, Mantel-Teeuwisse AK, Wirtz VJ, *et al*. Missing data on accessibility of children's medicines. *[Bull World Health Organ](http://dx.doi.org/10.2471/BLT.22.288137)* 2022;100:636–42.
+
+## TL;DR
+Not available
+
+## Key Insights
+Not available
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Not available
+- **Methodology**: Not available
+- **Key Findings**: Not available
+
+### Analysis
+- **Limitations**: Not available
+- **Future Work**: Not available

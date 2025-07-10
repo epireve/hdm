@@ -1,4 +1,3 @@
----
 cite_key: "llms_2024"
 title: "LLM4EduKG: LLM for Automatic Construction of Educational Knowledge Graph"
 authors: "means of the context understanding ability of LLMs, extracting EduTriples with the help of Prompt Tuning represents not only an important attempt for semi-automatic knowledge graph to highly automatic construction of EduKGs, but also offers a more user-oriented approach to addressing the challenges faced by traditional methods. It also greatly alleviates the cross-sentence problem commonly encountered in information extraction tasks."
@@ -31,6 +30,12 @@ Jianing Sun1, Zhichao Zhang<sup>2</sup> and Xueli He1∗,
 School of Computer Science, Shaanxi Normal University, Xi'an, China School of Information Science and Technology, Hainan Normal University, Hainan, China Email: {sunjianing, hxl}@snnu.edu.cn Email: zhangzhichao@hainnu.edu.cn
 
 **Abstract:** The field of education is undergoing a significant transformation towards digital and intelligent education, driven by advancements in artificial intelligence. Knowledge graphs (KGs), as a structured representation of knowledge and information, offering a powerful way to integrate diverse and multisourced heterogeneous data from across the Internet. The current methodologies for constructing educational knowledge graphs, however, are confronted with challenges including labor-intensive, time-consuming, and the necessity for substantial computational resources, which severely limit their practical application, especially in resource-constrained environments. In this paper, we proposed an LLM-based automatic construction method to alleviate the labor and time consumption in existing methods, and further explored LLM's capabilities in Chinese-speaking context. Specifically, we designed a structured prompt framework to automatically extract and evaluate educational triples generated from original text. The prompt encompasses both task and model dimensions, allowing for flexible adjustments to different tasks and models, thus significantly improved the transferability of our method. Comparative experimental results from two real-world Chinese-datasets, across four advanced LLMs, demonstrate the effectiveness of the proposed method. We believe that our work represents a significant attempt by the LLM in the field of education.
+
+## TL;DR
+Novel LLM-based framework for automatic educational knowledge graph construction that reduces manual effort and computational resource requirements
+
+## Key Insights  
+Proposes LLM-based automatic construction method with structured prompt framework to automatically extract and evaluate educational triples, addressing traditional labor-intensive and time-consuming knowledge graph construction challenges
 
 **Index Terms:** Large Language Model; Knowledge graph; Prompt tuning; Intelligent Education
 
@@ -262,3 +267,13 @@ This work was supported by the Fundamental Research Funds for the Central Univer
 - [31] T. Kojima, S. S. Gu, M. Reid, Y. Matsuo, and Y. Iwasawa, "Large language models are zero-shot reasoners," *Advances in neural information processing systems*, vol. 35, pp. 22 199–22 213, 2022.
 - [32] T. Brown, B. Mann, N. Ryder, M. Subbiah, J. D. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell *et al.*, "Language models are few-shot learners," *Advances in neural information processing systems*, vol. 33, pp. 1877–1901, 2020.
 - [33] J. Wei, X. Wang, D. Schuurmans, M. Bosma, F. Xia, E. Chi, Q. V. Le, D. Zhou *et al.*, "Chain-of-thought prompting elicits reasoning in large language models," *Advances in neural information processing systems*, vol. 35, pp. 24 824–24 837, 2022.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can large language models be effectively utilized to automatically construct educational knowledge graphs while reducing manual effort and computational resource requirements?
+- **Methodology**: LLM-based automatic construction methodology; structured prompt framework for educational triple extraction and evaluation; experimental validation using two Chinese datasets and four advanced LLMs; transferability assessment across different tasks and models
+- **Key Findings**: Demonstrated effectiveness of LLM-based knowledge graph construction; successful reduction of manual effort in knowledge graph creation; validated approach across multiple LLMs and Chinese-language datasets; improved transferability across different educational tasks
+
+### Analysis
+- **Limitations**: Resource constraints in traditional knowledge graph construction; limited evaluation to Chinese-language datasets; need for broader validation across diverse educational domains and languages
+- **Future Work**: Expand evaluation to multilingual educational datasets; optimize computational efficiency for real-time knowledge graph construction; investigate integration with existing educational platforms and systems

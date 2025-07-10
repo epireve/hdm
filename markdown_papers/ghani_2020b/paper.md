@@ -371,3 +371,20 @@ Finally, it can be concluded that cloud computing (along with the integrated tec
 - <span id="page-15-5"></span>[90] L. Mingyu, P. Li, and L. Shijun, "To transfer or not: An online cost optimization algorithm for using two-tier storage-as-a-service clouds," IEEE Access, vol. 7, pp. 94 263 – 94 275, 2019.
 - <span id="page-15-6"></span>[91] R. N. Ridwan, M. Rohit, and L. Palden, "Towards self-managing cloud storage with reinforcement learning," in IEEE International Conference on Cloud Engineering (IC2E). IEEE, 2019, pp. 1 – 6.
 - <span id="page-15-7"></span>[92] F. Majid, B. Hamideh, and M. Reza, "An efficient secret sharing-based storage system for cloud-based iots," in 16th International ISC (Iranian Society of Cryptology) Conference on Information Security and Cryptology (ISCISC), vol. 7, 2019, pp. 1–6.
+
+
+## TL;DR
+Comprehensive survey examining cloud storage architecture challenges and solutions for managing heterogeneous big data at massive scale.
+
+## Key Insights
+State-of-the-art review identifying security (confidentiality, integrity, access control, breaches) and management (dynamics, segregation, virtualization, backup) challenges in cloud storage; proposes systematic taxonomy of countermeasures including cryptographic solutions, attribute-based access control, and multi-tier architectures for heterogeneous big data environments
+
+## Metadata Summary
+### Research Context
+- **Research Question**: What are the issues and challenges involved in storing heterogeneous big data in cloud storage architectures, and what are their countermeasures and future opportunities?
+- **Methodology**: Comprehensive literature review and state-of-the-art analysis methodology examining 92 references; systematic taxonomy development for categorizing security and management challenges; comparative analysis of proposed solutions and countermeasures
+- **Key Findings**: Two main challenge categories identified: data security issues (confidentiality, integrity, access, authentication, breaches) and data management issues (dynamics, segregation, virtualization, backup, availability, locality); 175 ZB data processing expected by 2025; multi-tenancy creates data segregation challenges; attribute-based access control (ABAC) preferred for fine-grained access; cryptographic solutions essential for confidentiality; blockchain technology improving security and trust
+
+### Analysis
+- **Limitations**: Focus on general cloud storage rather than specialized knowledge graph architectures; limited discussion of temporal data management strategies; theoretical analysis without extensive empirical validation; concentration on infrastructure challenges rather than schema-level integration approaches
+- **Future Work**: Research on integrated privacy-security frameworks for heterogeneous data; development of temporal-aware cloud storage architectures; investigation of standardized multi-source data integration protocols; advancement of AI-driven automated security and management systems for diverse data types

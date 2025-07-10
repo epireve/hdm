@@ -1,4 +1,3 @@
----
 cite_key: zuo_2023
 title: KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enhancement for Medical Diagnosis
 authors: Kaiwen Zuo
@@ -61,6 +60,12 @@ Kaiwen.Zuo@warwick.ac.uk, yirui.jiang@cranfield.ac.uk, yirui.jiang@said.oxford.e
 ## Abstract
 
 Integrating Large Language Models (LLMs) in healthcare diagnosis demands systematic frameworks that can handle complex medical scenarios while maintaining specialized expertise. We present KG4Diagnosis, a novel hierarchical multi-agent framework that combines LLMs with automated knowledge graph construction, encompassing 362 common diseases across medical specialties. Our framework mirrors real-world medical systems through a two-tier architecture: a general practitioner (GP) agent for initial assessment and triage, coordinating with specialized agents for in-depth diagnosis in specific domains. The core innovation lies in our end-to-end knowledge graph generation methodology, incorporating: (1) semantic-driven entity and relation extraction optimized for medical terminology, (2) multi-dimensional decision relationship reconstruction from unstructured medical texts, and (3) human-guided reasoning for knowledge expansion. KG4Diagnosis serves as an extensible foundation for specialized medical diagnosis systems, with capabilities to incorporate new diseases and medical knowledge. The framework's modular design enables seamless integration of domain-specific enhancements, making it valuable for developing targeted medical diagnosis systems. We provide architectural guidelines and protocols to facilitate adoption across medical contexts.
+
+## TL;DR
+Research on kg4diagnosis: a hierarchical multi-agent llm framework with knowledge graph enhancement for medical diagnosis providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## Introduction
 
@@ -418,3 +423,13 @@ Zhou, J.; Cui, G.; Zhang, Z.; Yang, C.; Liu, Z.; Wang, L.; Li, C.; and Sun, M. 2
 Zuo, K.; and Jiang, Y. 2024. MedHallBench: A New Benchmark for Assessing Hallucination in Medical Large Language Models. *arXiv preprint arXiv:2412.18947*.
 
 Zuo, K.; Tang, J.; Qin, H.; Luo, B.; He, L.; and Tang, S. 2025. Satisfactory Medical Consultation based on Terminology-Enhanced Information Retrieval and Emotional In-Context Learning. arXiv:2503.17876.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

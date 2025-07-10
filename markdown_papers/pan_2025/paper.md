@@ -448,3 +448,20 @@ Our work on the SENATOR framework for detecting and repairing knowledge deficien
 We use 8 NVIDIA A100-40G GPUs to SFT Llama-3-8B and Qwen2-7B, and leverage 1-2 NVIDIA A100-40G GPUs for all the inference experiments.
 
 Taking Qwen2-7B as an example, when using synthetic data to SFT Qwen2-7B for knowledge repair, the training time is about 30h on 8 NVIDIA A100-40G GPUs, and a total of 3 epochs are performed. The inference time such as synthetic data generation stage and evaluation stage, measured in seconds per sample, is calculated on an NVIDIA A100 GPU with vllm acceleration (e.g. Qwen2-7B model, which demands at least two A100 GPUs for deployment)
+
+
+## TL;DR
+Research on structural entropy guided agent for detecting and repairing knowledge deficiencies in llms providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -1,4 +1,3 @@
----
 cite_key: clau_2024
 title: iText2KG: Incremental Knowledge Graphs Construction Using Large Language Models
 authors: Pierre CLÉAU
@@ -62,6 +61,12 @@ Yassir LAIRGI 1 ,2[0000 −0002 −7284 <sup>−</sup>5489], Ludovic MONCLA1[000
 1 INSA Lyon, CNRS, Universite Claude Bernard Lyon 1, LIRIS, UMR5205, 69621 Villeurbanne {ludovic.moncla, remy.cazabet, khalid.benabdeslem}@liris.cnrs.fr <sup>2</sup> GAUC, Lyon France {yassir.lairgi, pierre.cleau}@auvalie.com
 
 Abstract. Most available data is unstructured, making it challenging to access valuable information. Automatically building Knowledge Graphs (KGs) is crucial for structuring data and making it accessible, allowing users to search for information effectively. KGs also facilitate insights, inference, and reasoning. Traditional NLP methods, such as named entity recognition and relation extraction, are key in information retrieval but face limitations, including the use of predefined entity types and the need for supervised learning. Current research leverages large language models' capabilities, such as zero- or few-shot learning. However, unresolved and semantically duplicated entities and relations still pose challenges, leading to inconsistent graphs and requiring extensive post-processing. Additionally, most approaches are topic-dependent. In this paper, we propose iText2KG[3](#page-0-0) , a method for incremental, topic-independent KG construction without post-processing. This plug-and-play, zero-shot method is applicable across a wide range of KG construction scenarios and comprises four modules: Document Distiller, Incremental Entity Extractor, Incremental Relation Extractor, and Graph Integrator and Visualization. Our method demonstrates superior performance compared to baseline methods across three scenarios: converting scientific papers to graphs, websites to graphs, and CVs to graphs.
+
+## TL;DR
+Incremental, topic-independent knowledge graph construction method using large
+
+## Key Insights  
+Proposes iText2KG method comprising four modules (Documents Distiller, Incremental Entities Extractor, Incremental Relations Extractor, Graph Integrator) achieving superior performance across converting scientific papers, websites, and CVs to knowledge graphs through plug-and-play zero-shot approach.
 
 Keywords: Knowledge Graph Construction · Large Language Models · Natural Language Processing.
 
@@ -291,3 +296,13 @@ Future research will focus on enhancing metrics such as cosine similarity for ad
 - <span id="page-14-11"></span>12. Wornow, M., Lozano, A., Dash, D., Jindal, J., Mahaffey, K.W., Shah, N.H.: Zeroshot clinical trial patient matching with LLMs. arXiv preprint arXiv:2402.05125 (2024)
 - <span id="page-14-7"></span>13. Zhang, Y., Du, T., Ma, Y., Wang, X., Xie, Y., Yang, G., Lu, Y., Chang, E.C.: AttacKG+: Boosting attack knowledge graph construction with large language models. arXiv preprint arXiv:2405.04753 (2024)
 - <span id="page-14-6"></span>14. Zhu, Y., Wang, X., Chen, J., Qiao, S., Ou, Y., Yao, Y., Deng, S., Chen, H., Zhang, N.: LLMs for knowledge graph construction and reasoning: Recent capabilities and future opportunities. arXiv preprint arXiv:2305.13168 (2023)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can large language models be used to incrementally construct consistent knowledge graphs with resolved entities and relations from unstructured text without requiring supervised learning or extensive post-processing?
+- **Methodology**: Developed iText2KG framework with four modules: Documents Distiller, Incremental Entities Extractor, Incremental Relations Extractor, and Graph Integrator, implemented zero-shot learning approach, tested across three scenarios: converting scientific papers to graphs, websites to graphs, and CVs to graphs.
+- **Key Findings**: Demonstrated superior performance compared to baseline methods across all tested scenarios, achieved effective resolution of semantic entity and relation duplication challenges, provided flexible approach requiring no extensive post-processing or supervised training.
+
+### Analysis
+- **Limitations**: Evaluation limited to three specific scenarios, computational efficiency considerations for large-scale incremental updates not fully characterized, potential challenges in handling domain-specific terminology requiring further investigation.
+- **Future Work**: Expand evaluation to additional document types and specialized domains, optimize computational efficiency for large-scale incremental processing, develop integration capabilities with existing knowledge graph platforms.

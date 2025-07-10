@@ -500,3 +500,19 @@ In this paper, we present a review of the deep learning-based TKGC methods and s
 - <span id="page-17-1"></span>77. Wani, N.A.; Kumar, R.; Bedi, J. DeepXplainer: An interpretable deep learning based approach for lung cancer detection using explainable artificial intelligence. *Comput. Methods Programs Biomed.* **2024**, *243*, 107879. [\[CrossRef\]](http://dx.doi.org/10.1016/j.cmpb.2023.107879) [\[PubMed\]](http://www.ncbi.nlm.nih.gov/pubmed/37897989)
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+## TL;DR
+Comprehensive analysis of deep learning approaches to temporal knowledge graph completion with performance metrics.
+
+## Key Insights
+Deep learning methods achieve \"state-of-the-art performance\" in temporal knowledge graph completion. GNN-based methods achieved \"highest Hits@1 values (up to 66.7% in static filtered setting)\".
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can deep learning methods improve temporal knowledge graph completion performance?
+- **Methodology**: Survey of deep learning methods including LSTM, CNN, GNN, and attention mechanisms; performance analysis across different approaches.
+- **Key Findings**: GNN-based methods achieved highest Hits@1 values up to 66.7%; identification of temporal embedding techniques; analysis of temporal consistency constraints.
+
+### Analysis
+- **Limitations**: Most methods show Hits@1 values below 61.2%; significant room for improvement in temporal knowledge graph completion.
+- **Future Work**: Focus on few-shot learning, unified completion methods, and interpretable temporal knowledge graph completion.

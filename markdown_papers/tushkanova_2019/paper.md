@@ -254,3 +254,20 @@ Maksimov, NV, Golitsina, OL, Ganchenkova, MG, Sanatov, DV, Razumov, AV. (2018). 
 Renzo, A., Gutierrez, C. (2008). Survey of graph database models.*ACM Computing Surveys* , 40 (1), 1–39.
 
 Kudryavtsev, D., Gavrilova T., Leshcheva, I., Begler, A., Kubelskiy, M., Tushkanova, O. (2018). Mind Mapping and Spreadsheets in Collaborative Design of Knowledge Graphs. Joint Proceedings of the BIR 2018 Forum, Workshops and Doctoral Consortium, Sweden. pp. 82-93.
+
+
+## TL;DR
+Research on knowledge net: model and system for accumulation, representation, and use of knowledge providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

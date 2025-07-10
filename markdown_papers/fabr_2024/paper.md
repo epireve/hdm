@@ -598,3 +598,19 @@ Experiments varying n\_estimators, max\_depth, and n\_bits provided insights int
 | 3 | | | | | 0.5540 0.5540 0.6809 0.6809 0.055623 | 11766.27 | 211534.87x |
 | 4 | | | | | 0.6432 0.6432 0.7824 0.7824 0.055750 | 30344.95 | 544307.47x |
 | 8 | | | | | 0.6428 0.6428 0.7821 0.7821 0.023308 | 32139.84 | 1378944.61x |
+
+## TL;DR
+Privacy-preserving collaborative machine learning framework using fully homomorphic encryption to enable secure financial data analysis across institutions while maintaining computational accuracy on encrypted graph data.
+
+## Key Insights
+Achieved over 99% accuracy, F1-score, precision, and recall using XGBoost model in both unencrypted and FHE-encrypted inference settings, with graph-based features improving F1-score by 8% on imbalanced datasets while enabling computations directly on encrypted data.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can financial institutions collaborate on anti-money laundering detection while maintaining data privacy and regulatory compliance through cryptographic protection of sensitive financial data?
+- **Methodology**: Utilized Fully Homomorphic Encryption (FHE) with TFHE integration, developed privacy-preserving Graph Neural Network (GNN) pipeline with quantization and pruning for FHE compatibility, created privacy-preserving graph-based XGBoost pipeline with Graph Feature Preprocessor, employed Zama Concrete ML for implementation.
+- **Key Findings**: XGBoost model achieved over 99% accuracy, F1-score, precision, and recall on balanced AML dataset in both unencrypted and FHE-encrypted inference settings, graph-based features improved F1-score by 8% on imbalanced dataset, successfully performed computations on encrypted data.
+
+### Analysis
+- **Limitations**: Trade-off between privacy protection and computational efficiency, potential scalability challenges with larger datasets, computational overhead from homomorphic encryption operations.
+- **Future Work**: Further optimization of FHE computational efficiency for large-scale deployment, expansion of privacy-preserving techniques to other collaborative ML applications, integration with existing regulatory compliance frameworks.

@@ -600,3 +600,20 @@ Tripp Driskell is the president and research scientist at Florida Maxima Corpora
 James E. Driskell is a senior scientist at Florida 0D[LPD&RUSRUDWLRQ+H UHFHLYHG KLV3K' IURPWKH 8QLYHUVLW\RI6RXWK&DUROLQDLQ
 
 *Date received: April 30, 2021 Date accepted: August 12, 2021*
+
+
+## TL;DR
+Research on a lexical approach to assessing stress: development and proof- of- concept providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

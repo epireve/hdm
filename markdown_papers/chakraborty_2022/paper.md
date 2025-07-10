@@ -1,4 +1,3 @@
----
 cite_key: chakraborty_2022
 title: Personal Research Knowledge Graphs
 authors: Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal
@@ -34,6 +33,12 @@ Debarshi Kumar Sanyal Indian Association for the Cultivation of Science Kolkata,
 ## ABSTRACT
 
 Maintaining research-related information in an organized manner can be challenging for a researcher. In this paper, we envision personal research knowledge graphs (PRKGs) as a means to represent structured information about the research activities of a researcher. PRKGs can be used to power intelligent personal assistants, and personalize various applications. We explore what entities and relations could be potentially included in a PRKG, how to extract them from various sources, and how to share a PRKG within a research group.
+
+## TL;DR
+Research on personal research knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
 
 ### CCS CONCEPTS
 
@@ -223,3 +228,13 @@ We have further made sure that the collaborator is unable to make any kind of mo
 ### DENY WRITE {\*} ON GRAPH prkg TO collaborator
 
 One restriction for the collaborator that we will like to bring into effect as part of the RBAC implemented here, is the prevention of 'read' access of the papers that are currently being written by Sunita but have not been accepted or published yet. This can be distinguished using the node level property status that each paper node will be assigned. This property can take the value of 'published', 'accepted', 'underReview' or 'inProgress'. Presently Neo4j does not allow the implementation of property level RBAC on nodes and relationships, and so we will be trying to implement it as a future work.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

@@ -1,4 +1,3 @@
----
 cite_key: hendler_2014
 title: Data Integration for Heterogeneous Datasets
 authors: James Hendler
@@ -59,6 +58,12 @@ The Rensselaer Institute for Data Exploration and Applications, Rensselaer Polyt
 ## Abstract
 
 More and more, the needs of data analysts are requiring the use of data outside the control of their own organizations. The increasing amount of data available on the Web, the new technologies for linking data across datasets, and the increasing need to integrate structured and unstructured data are all driving this trend. In this article, we provide a technical overview of the emerging ''broad data'' area, in which the variety of heterogeneous data being used, rather than the scale of the data being analyzed, is the limiting factor in data analysis efforts. The article explores some of the emerging themes in data discovery, data integration, linked data, and the combination of structured and unstructured data.
+
+## TL;DR
+ integration techniques
+
+## Key Insights  
+ covering data discovery
 
 ## Introduction
 
@@ -351,3 +356,13 @@ This work is licensed under a Creative Commons Attribution 3.0 United States Lic
 
 ![](_page_10_Picture_33.jpeg)
 <!-- Image Description: The image contains text only. On the left, it shows a bullet point followed by "DECEMBER 2014 BIG DATA". On the right, it displays "BD215", likely an identifier or code. The text likely indicates the date and topic of a data set or project discussed in the paper, with BD215 serving as a reference code for that specific dataset. -->
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Linked data approach using URI-based unique naming enables cross-dataset integration; semantic data integration through RDF provides foundation for heterogeneous data fusion; broad data variety challenge more critical than volume/velocity for many applications
+- **Methodology**: Foundational framework for integrating heterogeneous datasets using linked data and semantic web technologies
+- **Key Findings**: This seminal work addresses the broad data challenge where data variety rather than volume is the limiting factor. Hendler introduces linked data approaches using URI-based unique naming to enable cross-dataset integration and demonstrates practical examples of integrating government datasets and explores semantic data integration through RDF frameworks for combining structured and unstructured data sources.
+
+### Analysis
+- **Limitations**: Technical overview with practical examples including US-China GDP comparison foreign aid analysis crime data integration and government open data exploration
+- **Future Work**: Focus on government open data examples; limited discussion of privacy and security; semantic integration complexity not fully addressed; validation techniques preliminary

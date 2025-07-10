@@ -467,3 +467,20 @@ Zhang, Q.; Ma, Z.; Zhang, P.; and Jenelius, E. 2023. Mobility knowledge graph: r
 Zhang, S.-F.; Zhai, J.-H.; Xie, B.-J.; Zhan, Y.; and Wang, X. 2019. Multimodal representation learning: Advances, trends and challenges. In *2019 International Conference on Machine Learning and Cybernetics (ICMLC)*, 1–6. IEEE.
 
 Zheng, X.; Lu, J.; and Kiritsis, D. 2022. The emergence of cognitive digital twin: vision, challenges and opportunities. *International Journal of Production Research*, 60(24): 7610– 7632.
+
+
+## TL;DR
+Research on llmasmmkg: llm assisted synthetic multi-modal knowledge graph creation for smart city cognitive digital twins providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

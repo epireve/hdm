@@ -1,4 +1,3 @@
----
 cite_key: "sun_2024a"
 title: "Knowledge Graph Tuning: Real-time Large Language Model Personalization"
 authors: "Jingwei Sun, Zhixu Du, Yiran Chen"
@@ -31,6 +30,12 @@ Jingwei Sun<sup>∗</sup> , Zhixu Du<sup>∗</sup> , Yiran Chen Department of El
 ## Abstract
 
 Large language models (LLMs) have demonstrated remarkable proficiency in a range of natural language processing tasks. Once deployed, LLMs encounter users with personalized factual knowledge, and such personalized knowledge is consistently reflected through users' interactions with the LLMs. To enhance user experience, real-time model personalization is essential, allowing LLMs to adapt user-specific knowledge based on user feedback during human-LLM interactions. Existing methods mostly require back-propagation to finetune the model parameters, which incurs high computational and memory costs. In addition, these methods suffer from low interpretability, which will cause unforeseen impacts on model performance during long-term use, where the user's personalized knowledge is accumulated extensively. To address these challenges, we propose Knowledge Graph Tuning (KGT), a novel approach that leverages knowledge graphs (KGs) to personalize LLMs. KGT extracts personalized factual knowledge triples from users' queries and feedback and optimizes KGs without modifying the LLM parameters. Our method improves computational and memory efficiency by avoiding back-propagation and ensures interpretability by making the KG adjustments comprehensible to humans. Experiments with state-of-the-art LLMs, including GPT-2, Llama2, and Llama3, show that KGT significantly improves personalization performance while reducing latency and GPU memory costs. Ultimately, KGT offers a promising solution of effective, efficient, and interpretable real-time LLM personalization during user interactions with the LLMs.
+
+## TL;DR
+Innovative approach that personalizes LLMs through knowledge graph optimization rather than model parameter modification, enabling efficient real-time adaptation.
+
+## Key Insights  
+"KGT offers effective, efficient, and interpretable real-time LLM personalization during user interactions" without requiring back-propagation, significantly reducing computational costs while maintaining performance.
 
 ## 1 Introduction
 
@@ -388,3 +393,13 @@ Ukraine and "
 33 ]
 34 },
 ```
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can LLMs be personalized in real-time based on user feedback without high computational costs of traditional fine-tuning approaches?
+- **Methodology**: Developed KGT framework that extracts personalized knowledge triples, optimizes knowledge graphs without back-propagation, tested with GPT-2, Llama2, and Llama3.
+- **Key Findings**: Demonstrated significant improvements in personalization performance with reduced latency and lower GPU memory consumption compared to traditional fine-tuning methods.
+
+### Analysis
+- **Limitations**: Traditional personalization methods require expensive back-propagation; need for more extensive evaluation across diverse domains.
+- **Future Work**: Extend approach to multi-modal knowledge graphs; develop adaptive knowledge extraction mechanisms; explore integration with federated learning.

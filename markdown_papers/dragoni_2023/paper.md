@@ -430,3 +430,20 @@ This work has been supported by the HORIZON 2020 HumanE-AI project (Grant 952026
 ![](_page_26_Picture_3.jpeg)
 <!-- Image Description: The image is a headshot photograph of a woman with shoulder-length blond hair wearing glasses. It's an author photo, likely included to identify the person contributing to or involved with the academic paper. There are no diagrams, charts, graphs, equations, or technical illustrations present; the image is purely a portrait. -->
 **Helena Lindgren** is Professor of Computer Science at Umeå University. Lindgren conducts interdisciplinary research in the intersection of Human-Centered Artificial Intelligence, Human-Computer Interaction and Medical Informatics with particular focus on decision support and behavior change systems for improving health. As a former Occupational Therapist and expert on adaptation of work places for people with various needs for cognitive, social, emotional and physical support, she takes particular interest in how AI can manifest similar capacities as humans, adapt, support and evolve over time as individuals and teams develop. She leads research projects on persuasive technology, clinical decision support, socially intelligent digital companions for managing stress-related exhaustion, and behavior change technology for improving health and emotional well-being. Lindgren is member of the board of the Swedish Artificial Intelligence Society (SAIS), and the program committees for the AI branch of the Wallenberg AI, Autonomous Systems and Software Program (WASP), the Wallenberg AI, Autonomous Systems and Software Program – Humanity and Society (WASP-HS), and the Wallenberg AI and Transformative Technologies Education Development Program (WASP-ED).
+
+
+## TL;DR
+Research on integrating functional status information into knowledge graphs to support self-health management providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

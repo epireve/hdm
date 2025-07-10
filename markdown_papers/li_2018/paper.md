@@ -1,4 +1,3 @@
----
 cite_key: li_2018
 title: AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation
 authors: Fengyu Li, Yilin Li, Junhao Zhu, Lu Chen, Yanfei Zhang, Jia Zhou
@@ -54,6 +53,12 @@ Huawei has always been committed to exploring the AI application in historical r
 ### ACM Reference Format:
 
 Fengyu Li† , Yilin Li† , Junhao Zhu† , Lu Chen† , Yanfei Zhang† , Jia Zhou† ,, Hui Zu† , Jingwen Zhao‡ , Yunjun Gao† . 2018. AIstorian lets AI be a historian: A KG-powered multi-agent system for accurate biography generation. In Proceedings of Make sure to enter the correct conference title from your rights confirmation email (Conference acronym 'XX). ACM, New York, NY, USA, [6](#page-5-0) pages.<https://doi.org/XXXXXXX.XXXXXXX>
+
+## TL;DR
+Research on aistorian lets ai be a historian: a kg-powered multi-agent system for accurate biography generation providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -298,3 +303,13 @@ Hu E, styled Zhuo'an. Born on the thirteenth day of the second month in the thir
 Table [4](#page-5-2) presents the time consumption for each stage of the compared methods. In offline training, our system takes 3168s, exceeding other methods due to the additional StylePO stage. Ablation studies (comparing "w/o. StylePO & Multi-agents" versus "w/o. Multi-agents" in Table [1\)](#page-3-0) reveal that StylePO enhances ROUGE scores and decreases atomic fact errors by 35%. This additional training time, as a one-time investment, is justified by the significant performance gains achieved. For index construction, which is critical as it scales with the corpus size, our approach completes in 422.65s, substantially outperforming GraphRAG (5279.65s). The NER baselines (CL-KL and BI-LSTM-CRF) demand more time for this stage (885.68s and 1037.31s respectively) as they necessitate model training (with labeling time not included in these measurements). While embedding-based RAG (TongGu) exhibits the lowest time consumption (26.69s), it delivers significantly inferior retrieval quality as demonstrated in Table [2.](#page-3-1)
 
 In online retrieval, our system achieves millisecond-level speed (0.00146s), significantly faster than TongGu (169.101s) and GraphRAG (1.68s). Our generation stage takes longer (1236s, 36.35s per biography) due to our error-aware generation with multi-agents approach. As evidenced in Table [1,](#page-3-0) this time investment significantly reduces hallucination rate and improves factual accuracy while maintaining high ROUGE scores.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

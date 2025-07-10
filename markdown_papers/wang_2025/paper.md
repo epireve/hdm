@@ -399,3 +399,19 @@ graphs.
 <!-- Image Description: That's not a technical image; it's a headshot photograph of a person, likely an author or contributor to the academic paper. It contains no diagrams, charts, graphs, equations, or other technical illustrations. The image's purpose is purely presentational, serving as an author portrait. -->
 
 **Tao Shen** (Senior Member, IEEE) received the Ph.D. degree from the Illinois Institute of Technology, Chicago, IL, USA, in 2013. He is currently a Professor and the Dean of the Graduate School, Kunming University of Science and Technology, Kunming, China. He has authored or coauthored more than 50 papers in first-class SCI/EI and other internationally famous journals, and top international conferences in relevant research fields. His research interests include artificial intelligence, blockchain technology, and the Industrial Internet.
+
+## TL;DR
+Framework for automatic knowledge graph construction using LLMs that eliminates need for retraining or fine-tuning internal models across different domains.
+
+## Key Insights
+LLMs provide effective way for automatic KG construction but face challenges with schema layer embedding and input length limitations; divides construction into triple extraction, relational semantic embedding, and normalization.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can Large Language Models be effectively used for automatic knowledge graph construction across different domains?
+- **Methodology**: Proposed ACKG-LLM framework with three-stage approach: triple extraction, relational semantic embedding, and KG normalization; evaluated on REBEL and WiKi-NRE datasets.
+- **Key Findings**: Framework eliminates need for retraining/fine-tuning, shows favorable performance on benchmark datasets, enables cross-domain KG construction.
+
+### Analysis
+- **Limitations**: Abstract only - evaluation limited to specific datasets, detailed performance metrics not available from abstract.
+- **Future Work**: Further evaluation across more domains, optimization of semantic embedding techniques, integration with domain-specific knowledge.

@@ -1,4 +1,3 @@
----
 cite_key: guan_2023
 title: Design Frameworks for Hyper-Connected Social XRI Immersive Metaverse Environments
 authors: Jie Guan, Canada {jie.guan
@@ -55,6 +54,12 @@ Full Citation: J. Guan and A. Morris, "Design Frameworks for Hyper-Connected Soc
 
 Jie Guan, Alexis Morris *Adaptive Context Environments Lab OCAD University*Toronto, Canada {jie.guan, amorris}@ocadu.ca
 **Abstract:** The metaverse refers to the merger of technologies for providing a digital twin of the real world and the underlying connectivity and interactions for the many kinds of agents within. As this set of technology paradigms — involving artificial intelligence, mixed reality, the internet-of-things and others gains in scale, maturity, and utility there are rapidly emerging design challenges and new research opportunities. In particular is the metaverse disconnect problem, the gap in task switching that inevitably occurs when a user engages with multiple virtual and physical environments simultaneously. Addressing this gap remains an open issue that affects the user experience and must be overcome to increase overall utility of the metaverse. This article presents design frameworks that consider how to address the metaverse as a hyper-connected meta-environment that connects and expands multiple user environments, modalities, contexts, and the many objects and relationships within them. This article contributes to i) a framing of the metaverse as a social XR-IoT (XRI) concept, ii) design Considerations for XRI metaverse experiences, iii) a design architecture for social multi-user XRI metaverse environments, and iv) descriptive exploration of social interaction scenarios within XRI multi-user metaverses. These contribute a new design framework for metaverse researchers and creators to consider the coming wave of interconnected and immersive smart environments.
+
+## TL;DR
+Proposes Social XRI metaverse framework combining extended reality and IoT for hyper-connected multi-user immersive experiences addressing metaverse disconnect challenges.
+
+## Key Insights  
+Framework for Social XRI metaverse that combines extended reality (XR) with Internet of Things (IoT) to create hyper-connected multi-user immersive environments, addressing disconnection between virtual and physical spaces through innovative interaction paradigms
 
 **Index Terms:** Metaverse, Multi-user, Augmented Reality, Mixed Reality, Extended Reality, Internet of Things, Human-Computer Interaction
 
@@ -299,3 +304,13 @@ This work was supported by funding from the Tri-council of Canada under the Cana
 Jie Guan is an MFA graduate of the Digital Futures program at OCAD University, with a background in Digital Painting and Expanded Animation from the same institution. With a focus on extending the Metaverse, he combines Internet of Things and Extended Reality to push the boundaries of immersive experiences.
 
 Alexis Morris is the Canada Research Chair (Tier II) in the Internet of Things, Director of the Adaptive Context Environments Lab, and Associate Professor at OCAD University. He is a Computer Scientist with a Ph.D., from the University of New Brunswick, specializing in Metaverse mixed reality adaptive interfaces and context-aware smart environments.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can metaverse systems address the disconnect problem between virtual and physical environments while supporting multi-user social interactions and IoT integration?
+- **Methodology**: Design framework methodology; Comparative analysis of existing metaverse platforms; Architectural design and system integration; Scenario-based design validation; Technology integration assessment
+- **Key Findings**: Framework successfully addresses metaverse disconnect through hyper-connectivity; Multi-user XRI architecture enables seamless physical-virtual transitions; IoT integration provides rich context-aware interactions; Design dimensions provide comprehensive development guidance; Technology integration demonstrates feasibility with existing platforms
+
+### Analysis
+- **Limitations**: Limited to conceptual framework without empirical user studies; Implementation complexity challenges not fully addressed; Scalability and performance considerations need more investigation; Privacy and security frameworks require deeper exploration
+- **Future Work**: Conduct user studies on metaverse disconnect mitigation; Develop scalable implementation architectures; Create privacy-preserving multi-user interaction protocols; Build comprehensive development toolchains; Establish interoperability standards for XRI systems

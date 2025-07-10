@@ -398,3 +398,20 @@ The Human-CENTRO's functionalities can be exploited in all the fields where reci
 - <span id="page-18-7"></span>56. Microsoft Azure 2022. Available online: <https://azure.microsoft.com/> (accessed on 28 April 2023).
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
+## TL;DR
+Research on a human digital-twin-based framework driving human centricity towards industry 5.0 providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

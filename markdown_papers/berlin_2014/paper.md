@@ -447,3 +447,20 @@ We thank Amazon Web Services for a generous research grant that enabled us to co
 - [13] A. Lakshman and P. Malik. Cassandra. ACM SIGOPS Operating Systems Review, 44(2):35–40, 2010.
 - [14] T. Rabl, M. Sadoghi, H.-A. Jacobsen, S. G´omez-Villamor, V. Munt´es-Mulero, and S. Mankowskii. Solving Big Data Challenges for Enterprise Application Performance Management. Proceedings of the VLDB Endowment, 5(12):1724–1735, 2012.
 - [15] M. Wasi-ur Rahman, J. Huang, J. Jose, X. Ouyang, H. Wang, N. S. Islam, H. Subramoni, C. Murthy, and D. K. Panda. Understanding the Communication Characteristics in HBase: What are the Fundamental Bottlenecks? In Proceedings of the IEEE International Symposium on Performance Analysis of Systems & Software.
+
+
+## TL;DR
+This paper reproduces and extends previous performance and scalability benchmarks for the distributed database systems HBase and Cassandra. It verifies that both systems scale nearly linearly but with different performance characteristics (Cassandra being better for reads, HBase for writes). The authors extend the original work by evaluating elasticity, measuring the trade-off between scaling speed and the performance impact on concurrent workloads.
+
+## Key Insights
+The key insight is the clear trade-off between scaling speed and performance stability in distributed databases. The paper demonstrates that while systems can be scaled quickly (e.g., by adding nodes without waiting for data re-distribution), this often comes at the cost of increased performance variability and potential data inconsistency. This highlights the need for careful consideration of scaling strategies based on the specific workload and availability requirements.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The authors reproduce experiments from prior research [14] using the YCSB benchmark on Amazon EC2 infrastructure. They compare the performance of HBase and Cassandra on various workloads (read-heavy, write-heavy, scan-heavy) and cluster sizes. They then extend these experiments to measure elasticity by observing the performance impact of adding or removing nodes during a running workload, testing different scaling strategies (e.g., varying data streaming throughput).
+- **Methodology**: The reproduced experiments confirm that both Cassandra and HBase scale nearly linearly, and that Cassandra generally has better read performance while HBase has better write performance. The new elasticity experiments quantify the trade-off between scaling speed and performance stability, showing that faster scaling often leads to higher performance variability during the scaling operation.
+- **Key Findings**: The primary outcome is a verified and extended set of benchmarks for HBase and Cassandra that not only cover performance and scalability but also elasticity. This provides a more complete picture for decision-makers choosing a distributed database.
+
+### Analysis
+- **Limitations**: The paper concludes that while general performance characteristics of distributed databases can be verified across different environments, absolute performance numbers are highly dependent on the underlying infrastructure. It also highlights that elasticity is a critical but often overlooked aspect of distributed systems, and that there is a clear trade-off between how fast a system can scale and how stable its performance remains during the scaling process.
+- **Future Work**: The paper provides a practical methodology for benchmarking the scalability and elasticity of distributed databases, which is a valuable process for the HDM project to adopt when selecting its own database technology. The detailed analysis of different EC2 instance types and storage configurations provides a good example of the factors to consider when deploying a database in the cloud. The distinction between horizontal and vertical scaling, and the analysis of their respective performance impacts, is also a key implementation consideration.

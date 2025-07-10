@@ -608,3 +608,20 @@ The data that support the findings of this study are available from the correspo
 <span id="page-18-16"></span>Zhang, J., S. Liang, Y. Sheng, and J. Shao. 2022. "Temporal Knowledge Graph Representation Learning With Local and Global Evolutions." *Knowledge-Based Systems*251: 109234.
 
 <span id="page-18-7"></span>Zhu, C., M. Chen, C. Fan, G. Cheng, and Y. Zhang. 2021. "Learning From History: Modeling Temporal Knowledge Graphs With Sequential Copy-Generation Networks." In*Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 35, 4732–4740.
+
+
+## TL;DR
+A novel dynamic fusion model (TD-RKG) for temporal knowledge graph reasoning, outperforming baselines on standard datasets.
+
+## Key Insights
+TD-RKG introduces a dynamic fusion approach for temporal knowledge graph reasoning, integrating local recurrent encoding, implicit encoding, and attention to improve entity/relation prediction.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can implicit correlations and time sensitivity in temporal knowledge graphs be effectively modeled for improved reasoning and prediction?
+- **Methodology**: Proposes TD-RKG: combines relation-aware GCN, GRU, implicit correlation encoder, attention, and Conv-TransE decoder; evaluated on three TKG datasets.
+- **Key Findings**: TD-RKG outperforms static and dynamic baselines on MRR and Hits@N; ablation shows all modules contribute; strong generalization and fast convergence.
+
+### Analysis
+- **Limitations**: Hits@3 on YAGO not SOTA due to new entity initialization; future work: meta-learning for new entities, multimodal data integration.
+- **Future Work**: TD-RKG's modular design (GCN, GRU, attention, MLP, Conv-TransE) can be adapted for other temporal reasoning tasks; PyTorch implementation; uses ICEWS14, ICEWS05-15, YAGO datasets.

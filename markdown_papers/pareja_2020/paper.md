@@ -1,4 +1,3 @@
----
 cite_key: pareja_2020
 title: EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs
 authors: Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson
@@ -48,6 +47,12 @@ Tengfei.Ma1@ibm.com, {tsuzumura, hirokik}@us.ibm.com, {tfk, neboat, cel}@mit.edu
 ## Abstract
 
 Graph representation learning resurges as a trending research subject owing to the widespread use of deep learning for Euclidean data, which inspire various creative designs of neural networks in the non-Euclidean domain, particularly graphs. With the success of these graph neural networks (GNN) in the static setting, we approach further practical scenarios where the graph dynamically evolves. Existing approaches typically resort to node embeddings and use a recurrent neural network (RNN, broadly speaking) to regulate the embeddings and learn the temporal dynamics. These methods require the knowledge of a node in the full time span (including both training and testing) and are less applicable to the frequent change of the node set. In some extreme scenarios, the node sets at different time steps may completely differ. To resolve this challenge, we propose EvolveGCN, which adapts the graph convolutional network (GCN) model along the temporal dimension without resorting to node embeddings. The proposed approach captures the dynamism of the graph sequence through using an RNN to evolve the GCN parameters. Two architectures are considered for the parameter evolution. We evaluate the proposed approach on tasks including link prediction, edge classification, and node classification. The experimental results indicate a generally higher performance of EvolveGCN compared with related approaches. The code is available at [https://github.com/IBM/EvolveGCN.](https://github.com/IBM/EvolveGCN)
+
+## TL;DR
+Temporal graph convolutional network that adapts parameters over time using
+
+## Key Insights  
+Novel approach using RNN to evolve GCN parameters rather than static node embeddings; handles completely different node sets across time steps; demonstrates superior performance on link prediction, edge classification, and node classification tasks
 
 ## 1 Introduction
 
@@ -418,3 +423,13 @@ A plethora of neural network architectures were proposed recently for graph stru
 - <span id="page-8-2"></span>[Yu, Yin, and Zhu 2018] Yu, B.; Yin, H.; and Zhu, Z. 2018. Spatio-temporal graph convolutional networks: A deep learning framework for traffic forecasting. In *IJCAI*.
 - <span id="page-8-0"></span>[Zhou et al. 2018] Zhou, L.; Yang, Y.; Ren, X.; Wu, F.; and Zhuang, Y. 2018. Dynamic network embedding by modeling triadic closure process. In *AAAI*.
 - <span id="page-8-1"></span>[Zuo et al. 2018] Zuo, Y.; Liu, G.; Lin, H.; Guo, J.; Hu, X.; and Wu, J. 2018. Embedding temporal network via neighborhood formation. In *KDD*.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to effectively model temporal dynamics in graphs where node sets change over time without requiring complete temporal node knowledge?
+- **Methodology**: RNN-based parameter evolution for GCNs; two architectural variants for parameter adaptation; dynamic graph representation without node embeddings; temporal modeling through weight evolution rather than feature evolution
+- **Key Findings**: Superior performance on link prediction, edge classification, and node classification; effective handling of evolving node sets; successful parameter evolution approach for temporal graphs; generally higher performance than related methods
+
+### Analysis
+- **Limitations**: Evaluation limited to specific temporal graph datasets; computational overhead of parameter evolution not fully characterized; scalability to very large dynamic graphs unclear
+- **Future Work**: Investigate scalability optimizations; explore parameter evolution for other graph neural architectures; evaluate on larger-scale industrial datasets

@@ -445,3 +445,20 @@ Proceedings of the 57th Conference of the Association for Computational Linguist
 - <span id="page-9-7"></span>[41] Jiasheng Zhang, Shuang Liang, Yongpan Sheng, and Jie Shao. 2022. Temporal knowledge graph representation learning with local and global evolutions. Knowl. Based Syst. 251 (2022), 109234.
 - <span id="page-9-2"></span>[42] Ying Zhou, Xuanang Chen, Ben He, Zheng Ye, and Le Sun. 2022. Re-thinking Knowledge Graph Completion Evaluation from an Information Retrieval Perspective. In SIGIR '22: The 45th International ACM SIGIR Conference on Research and Development in Information Retrieval. 916–926.
 - <span id="page-9-8"></span>[43] Cunchao Zhu, Muhao Chen, Changjun Fan, Guangquan Cheng, and Yan Zhang. 2021. Learning from History: Modeling Temporal Knowledge Graphs with Sequential Copy-Generation Networks. In Thirty-Fifth AAAI Conference on Artificial Intelligence, AAAI 2021. 4732–4740.
+
+
+## TL;DR
+Research on streame: lightweight updates of representations for temporal knowledge graphs in streaming scenarios providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

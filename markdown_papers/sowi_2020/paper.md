@@ -317,3 +317,20 @@ Disclosure of Interests. The authors have no competing interests to declare that
 - <span id="page-20-11"></span>76. Yu, D., Yang, B., Liu, D., Wang, H., Pan, S.: A survey on neural-symbolic learning systems. Neural Networks (2023)
 - <span id="page-20-9"></span>77. Zablith, F., Antoniou, G., d'Aquin, M., Flouris, G., Kondylakis, H., Motta, E., Plexousakis, D., Sabou, M.: Ontology evolution: a process-centric survey. The knowledge engineering review 30(1), 45–75 (2015)
 - <span id="page-20-10"></span>78. Zhong, L., Wu, J., Li, Q., Peng, H., Wu, X.: A comprehensive survey on automatic knowledge graph construction. ACM Computing Surveys 56(4), 1–62 (2023)
+
+
+## TL;DR
+Research on overview of current challenges in multi-architecture software engineering and a vision for the future providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

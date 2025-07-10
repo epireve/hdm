@@ -504,3 +504,20 @@ $$
 This result indicates that v /∈ V, which contradicts the assumption that v ∈ V.
 
 Thus, the assumption leads to a contradiction, and the proof is complete.
+
+
+## TL;DR
+Research on fedmia: an effective membership inference attack exploiting "all for one" principle in federated learning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

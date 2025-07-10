@@ -693,3 +693,20 @@ dynamic prompt generation, enhancing responsiveness to diverse user inputs.
 - [21] F. R. Shafi and M. A. Hossain, "Llm-therapist: A rag-based multimodal behavioral therapist as healthcare assistant," in *GLOBECOM 2024 - 2024 IEEE Global Communications Conference*, 2024, pp. 2129–2134.
 - [22] Y. Kim, X. Xu, D. McDuff, C. Breazeal, and H. W. Park, "Health-llm: Large language models for health prediction via wearable sensor data," *arXiv preprint arXiv:2401.06866*, 2024.
 - [23] H. Xie, Y. Chen, X. Xing, J. Lin, and X. Xu, "Psydt: Using llms to construct the digital twin of psychological counselor with personalized counseling style for psychological counseling," *arXiv preprint arXiv:2412.13660*, 2024.
+
+
+## TL;DR
+RHealthTwin presents a responsible AI framework for building multimodal digital twins in consumer health applications, addressing heterogeneous data integration challenges through a sophisticated Responsible Prompt Engine (RPE) that processes diverse data sources including EHR records, wearable sensors, user text/image inputs, and clinical knowledge bases using slot-based prompt engineering for dynamic schema harmonization and ethical AI governance.
+
+## Key Insights
+Responsible Prompt Engine (RPE) with four-module architecture enables ethical multimodal data fusion for bespoke PKG-like healthcare systems, demonstrating practical heterogeneous data integration with temporal adaptation through feedback loops and schema harmonization via slot-based prompt engineering
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Experimental evaluation using four healthcare datasets (MentalChat16k, MTS-Dialog, NutriBench, SensorQA) with synthetic prompt generation, automated GPT-based evaluation, and comparison across prompt strategies (zero-shot, few-shot, instruction-tuned, RPE) measuring both reference-based metrics and ethical compliance scores
+- **Methodology**: Responsible Prompt Engine (RPE) achieved superior performance with BLEU=0.41, ROUGE-L=0.63, BERTScore=0.89 on reference-based metrics and >90% ethical compliance (ICS>0.94, WRR>0.92) across all datasets, demonstrating effective heterogeneous data integration with WHO-aligned ethical safeguards and multimodal reasoning capabilities
+- **Key Findings**: RHealthTwin framework enabling responsible multimodal digital twins for healthcare through four-module RPE architecture: Context-Aware Task Personalization, Adaptive System Behavior Management, Filter Constraints, and Justification/Grounding modules with slot-based prompt engineering for dynamic schema harmonization
+
+### Analysis
+- **Limitations**: RHealthTwin demonstrates that responsible AI frameworks can successfully integrate heterogeneous healthcare data through sophisticated prompt engineering while maintaining ethical compliance, providing a practical foundation for bespoke PKG systems in consumer health applications with superior performance across multiple evaluation metrics
+- **Future Work**: Slot-based prompt engineering for dynamic schema harmonization in heterogeneous data environments; four-module RPE architecture as template for ethical AI governance in healthcare systems; multimodal data fusion strategies for temporal-aware digital twin development; practical implementation patterns for responsible AI deployment in consumer health applications

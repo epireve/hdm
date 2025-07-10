@@ -1,4 +1,3 @@
----
 cite_key: khan_2024
 title: Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs
 authors: Arijit Khan, Tianxing Wu, Xi Chen
@@ -60,6 +59,12 @@ Xi Chen Platform and Content Group, Tencent China jasonxchen@tencent.com
 ## ABSTRACT
 
 Large Language Models (LLMs), e.g., ChatGPT, PaLM, and LLaMA are transforming natural language processing (NLP) and artificial intelligence (AI). Recent LLMs browse Web knowledge and learn from external knowledge bases, unifying LLMs and knowledge graphs (KGs). The possibility of bridging KGs with LLMs has garnered attention in knowledge engineering. On the one hand, LLMs can be enhanced with KGs to provide answers with more contextualized facts. On the other hand, downstream tasks, e.g., KG curation, embedding, and search can also benefit by adopting LLMs. It remains an interesting direction to explore effective interactions between LLMs and KGs, where many recent advances arise from NLP, deep learning, information retrieval, and computer vision domains. The workshop, titled "LLM+KG: Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs", is targeted at data management researchers, aiming to discuss interesting opportunities, e.g., data cleaning, modeling, designing of algorithms and systems, scalability, fairness, privacy, usability, and explanation.
+
+## TL;DR
+Research on data management opportunities in unifying large language models+knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ### VLDB Workshop Reference Format:
 
@@ -243,7 +248,6 @@ Knowledge into Language Models through Soft Prompts. *CoRR*abs/2210.04726 (2022)
 - <span id="page-4-27"></span>[39] Justin Lovelace and Carolyn P. Rosé. 2022. A Framework for Adapting Pre-Trained Language Models to Knowledge Graph Completion. In*EMNLP*.
 - <span id="page-4-17"></span>[40] Roberto Navigli and Simone Paolo Ponzetto. 2010. BabelNet: Building a Very Large Multilingual Semantic Network. In *ACL*.
 - <span id="page-4-14"></span>[41] Natalya Fridman Noy, Yuqing Gao, Anshu Jain, Anant Narayanan, Alan Patterson, and Jamie Taylor. 2019. Industry-scale Knowledge Graphs: Lessons and Challenges. *Commun. ACM*62, 8 (2019), 36–43.
-
 - <span id="page-5-0"></span>[42] OpenAI. 2022. Introducing ChatGPT. [https://openai.com/blog/chatgpt.](https://openai.com/blog/chatgpt)
 - <span id="page-5-12"></span>[43] Jeff Z. Pan, Simon Razniewski, Jan-Christoph Kalo, Sneha Singhania, Jiaoyan Chen, Stefan Dietze, Hajira Jabeen, Janna Omeliyanenko, Wen Zhang, Matteo Lissandrini, Russa Biswas, Gerard de Melo, Angela Bonifati, Edlira Vakaj, Mauro Dragoni, and Damien Graux. 2023. Large Language Models and Knowledge Graphs: Opportunities and Challenges.*TGDK*1, 1 (2023), 2:1–2:38.
 - <span id="page-5-26"></span>[44] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying Large Language Models and Knowledge Graphs: A Roadmap.*IEEE Transactions on Knowledge and Data Engineering*36, 7 (2024), 3580– 3599.
@@ -269,7 +273,6 @@ Knowledge into Language Models through Soft Prompts. *CoRR*abs/2210.04726 (2022)
 - <span id="page-5-38"></span>[64] Liane Vogel, Benjamin Hilprecht, and Carsten Binnig. 2023. Towards Foundation Models for Relational Databases [Vision Paper].*CoRR*abs/2305.15321 (2023).
 - <span id="page-5-16"></span>[65] Denny Vrandecic and Markus Krötzsch. 2014. Wikidata: A Free Collaborative Knowledgebase.*Commun. ACM*57, 10 (2014), 78–85.
 - <span id="page-5-39"></span>[66] David Wadden, Ulme Wennberg, Yi Luan, and Hannaneh Hajishirzi. 2019. Entity, Relation, and Event Extraction with Contextualized Span Representations. In*EMNLP-IJCNLP*.
-
 - <span id="page-5-10"></span>[67] Chenguang Wang, Xiao Liu, and Dawn Song. 2020. Language Models are Open Knowledge Graphs. *CoRR*abs/2010.11967 (2020).
 - <span id="page-5-19"></span>[68] Meng Wang, Haofen Wang, Guilin Qi, and Qiushuo Zheng. 2020. Richpedia: A Large-Scale, Comprehensive Multi-Modal Knowledge Graph.*Big Data Res.*22 (2020), 100159.
 - <span id="page-5-30"></span>[69] Xiaozhi Wang, Tianyu Gao, Zhaocheng Zhu, Zhengyan Zhang, Zhiyuan Liu, Juanzi Li, and Jian Tang. 2021. KEPLER: A Unified Model for Knowledge Embedding and Pre-trained Language Representation.*Trans. Assoc. Comput. Linguistics*9 (2021), 176–194.
@@ -293,3 +296,13 @@ Knowledge into Language Models through Soft Prompts. *CoRR*abs/2210.04726 (2022)
 - <span id="page-5-17"></span>[87] Hongming Zhang, Daniel Khashabi, Yangqiu Song, and Dan Roth. 2020. TransOMCS: From Linguistic Graphs to Commonsense Knowledge. In *IJCAI*.
 - <span id="page-5-13"></span>[88] Haiyan Zhao, Hanjie Chen, Fan Yang, Ninghao Liu, Huiqi Deng, Hengyi Cai, Shuaiqiang Wang, Dawei Yin, and Mengnan Du. 2024. Explainability for Large Language Models: A Survey. *ACM Trans. Intell. Syst. Technol.*15, 2, Article 20 (2024), 38 pages.
 - <span id="page-5-8"></span>[89] Wayne Xin Zhao, Kun Zhou, Junyi Li, Tianyi Tang, Xiaolei Wang, Yupeng Hou, Yingqian Min, Beichen Zhang, Junjie Zhang, Zican Dong, Yifan Du, Chen Yang, Yushuo Chen, Zhipeng Chen, Jinhao Jiang, Ruiyang Ren, Yifan Li, Xinyu Tang, Zikang Liu, Peiyu Liu, Jian-Yun Nie, and Ji-Rong Wen. 2023. A Survey of Large Language Models.*CoRR* abs/2303.18223 (2023).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

@@ -1,4 +1,3 @@
----
 cite_key: yao_2024
 title: FEDRKG: A Privacy-preserving Federated Recommendation Framework via Knowledge Graph Enhancement
 authors: Dezhong Yao, Tongtong Liu, Qi Cao, Hai Jin
@@ -49,6 +48,12 @@ Dezhong Yao<sup>1</sup> Tongtong Liu<sup>1</sup> Qi Cao<sup>2</sup> Hai Jin<sup>
 ## Abstract
 
 **Federated Learning:** (FL) has emerged as a promising approach for preserving data privacy in recommendation systems by training models locally. Recently,*Graph Neural Networks*(GNN) have gained popularity in recommendation tasks due to their ability to capture high-order interactions between users and items. However, privacy concerns prevent the global sharing of the entire user-item graph. To address this limitation, some methods create pseudo-interacted items or users in the graph to compensate for missing information for each client. Unfortunately, these methods introduce random noise and raise privacy concerns. In this paper, we propose FEDRKG, a novel federated recommendation system, where a global*knowledge graph*(KG) is constructed and maintained on the server using publicly available item information, enabling higher-order user-item interactions. On the client side, a relation-aware GNN model leverages diverse KG relationships. To protect local interaction items and obscure gradients, we employ pseudo-labeling and*Local Differential Privacy*(LDP). Extensive experiments conducted on three real-world datasets demonstrate the competitive performance of our approach compared to centralized algorithms while ensuring privacy preservation. Moreover, FEDRKG achieves an average accuracy improvement of 4% compared to existing federated learning baselines.
+
+## TL;DR
+Privacy-preserving federated recommendation framework that leverages knowledge
+
+## Key Insights  
+Uses Local Differential Privacy (LDP) and pseudo-labeling to enable federated learning with knowledge graph enhancement while preventing global sharing of user-item interactions, achieving 4% accuracy improvement over baselines.
 
 ## 1 Introduction
 
@@ -341,3 +346,13 @@ This work is supported by the National Key Research and Development Program of C
 - <span id="page-12-2"></span>[25] Xiao Yu, Xiang Ren, Yizhou Sun, Quanquan Gu, Bradley Sturt, Urvashi Khandelwal, Brandon Norick, and Jiawei Han. Personalized entity recommendation: A heterogeneous information network approach. In *Proceedings of the 7th ACM International Conference on Web Search and Data Mining, WSDM*, pages 283–292, 2014.
 - <span id="page-12-3"></span>[26] Fuzheng Zhang, Nicholas Jing Yuan, Defu Lian, Xing Xie, and Wei-Ying Ma. Collaborative knowledge base embedding for recommender systems. In *Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD*, pages 353–362, 2016.
 - <span id="page-12-4"></span>[27] Hongwei Wang, Fuzheng Zhang, Jialin Wang, Miao Zhao, Wenjie Li, Xing Xie, and Minyi Guo. Ripplenet: Propagating user preferences on the knowledge graph for recommender systems. In *Proceedings of the 27th ACM International Conference on Information and Knowledge Management, CIKM*, pages 417–426, 2018.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can federated learning and knowledge graphs be combined to create privacy-preserving recommendation systems that maintain high accuracy while protecting user data?
+- **Methodology**: Federated learning framework with local differential privacy, relation-aware GNN model, experiments on three real-world datasets, comparison with centralized and federated baselines.
+- **Key Findings**: Achieved 4% average accuracy improvement over federated learning baselines while maintaining competitive performance with centralized algorithms, demonstrated effective privacy preservation through LDP and pseudo-labeling techniques.
+
+### Analysis
+- **Limitations**: Relies on publicly available item information for knowledge graph construction, potential computational overhead from privacy mechanisms, limited evaluation to specific recommendation datasets.
+- **Future Work**: Explore advanced privacy preservation methods, expand knowledge graph relationship types, evaluate scalability with larger user bases, investigate integration with additional data modalities.

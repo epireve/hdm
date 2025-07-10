@@ -498,3 +498,20 @@ izing large knowledge graphs: A performance analysis. *Future Generation Compute
 - <span id="page-10-11"></span>[58] J. Wei, S. Han, and L. Zou. Vision-kg: topic-centric visualization system for summarizing knowledge graph. In *Proceedings of the 13th International Conference on Web Search and Data Mining*, pp. 857–860, 2020. [2](#page-1-1)
 - <span id="page-10-8"></span>[59] C. Wise, V. N. Ioannidis, M. R. Calvo, X. Song, G. Price, N. Kulkarni, R. Brand, P. Bhatia, and G. Karypis. Covid-19 knowledge graph: accelerating information retrieval and discovery for scientific literature. *arXiv preprint arXiv:2007.12731*, 2020. [2](#page-1-1)
 - <span id="page-10-5"></span>[60] W. Yun, X. Zhang, Z. Li, H. Liu, and M. Han. Knowledge modeling: A survey of processes and techniques. *International Journal of Intelligent Systems*, 36(4):1686–1720, 2021. [2](#page-1-1)
+
+
+## TL;DR
+Research on skg: a versatile information retrieval and analysis framework for academic papers with semantic knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

@@ -340,3 +340,20 @@ Bordawekar et al. [\[48\]](#page-8-31) built a cognitive relation database engin
 - <span id="page-8-30"></span>[47] N. Makrynioti, R. Ley-Wild, and V. Vassalos, "sql4ml A declarative end-to-end workflow for machine learning," *CoRR*, vol. abs/1907.12415, 2019. [Online]. Available:<http://arxiv.org/abs/1907.12415>
 - <span id="page-8-31"></span>[48] R. Bordawekar, B. Bandyopadhyay, and O. Shmueli, "Cognitive database: A step towards endowing relational databases with artificial intelligence capabilities," vol. abs/1712.07199, 2017. [Online]. Available:<http://arxiv.org/abs/1712.07199>
 - <span id="page-8-32"></span>[49] C. Riccardo, P. Paolo, and T. Saravanan, "Creating embeddings of heterogeneous relational datasets for data integration tasks," in *ACM SIGMOD*, USA, 2020, p. 1335–1349. [Online]. Available: <https://doi.org/10.1145/3318464.3389742>
+
+
+## TL;DR
+This vision paper proposes KGNet, a platform that provides on-demand graph machine learning (GML) as a service on top of RDF engines. It aims to bridge the gap between GML frameworks and RDF data stores by automating the training of GML models on task-specific subgraphs of a knowledge graph. The platform introduces SPARQLML, a GML-enabled query language, to allow for querying and inferencing over KGs using the trained models, thereby improving scalability, accuracy, and accessibility of GML on knowledge graphs.
+
+## Key Insights
+The paper introduces KGNet, a platform that automates the training of GML models on knowledge graphs by using task-specific subgraphs. This approach improves scalability and accuracy for tasks like node classification and link prediction. It also proposes SPARQLML, a SPARQL-like query language that allows users to query and perform inference over KGs using the trained GML models.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: The paper proposes the KGNet platform, which consists of two main components: GML-as-a-service (GMLaaS) and SPARQLML as a Service. GMLaaS automates the GML training pipeline by using a meta-sampling approach to extract task-specific subgraphs, selecting the optimal GML method based on budget constraints, and managing the trained models. SPARQLML as a Service provides a query interface that allows users to train, delete, and query GML models using a SPARQL-like syntax.
+- **Methodology**: The experimental evaluation shows that training GML models on task-specific subgraphs identified by KGNet's meta-sampling approach significantly reduces training time and memory usage while maintaining comparable or even improved accuracy compared to training on the entire knowledge graph. For instance, on the DBLP dataset, KGNet achieved up to an 11% improvement in accuracy with at least a 22% reduction in memory and 27% reduction in training time.
+- **Key Findings**: The primary outcome is the proposal of the KGNet platform, a vision for a fully-fledged GML-enabled knowledge graph platform. The paper outlines the architecture, key components, and research challenges, and provides a proof-of-concept evaluation that demonstrates the feasibility and benefits of the proposed approach.
+
+### Analysis
+- **Limitations**: The integration of GML frameworks with RDF engines is a critical step towards building scalable and intelligent knowledge graph applications. By automating the GML pipeline and providing a high-level query language, platforms like KGNet can significantly lower the barrier for data scientists and developers to apply advanced machine learning techniques to knowledge graphs.
+- **Future Work**: The paper provides valuable insights into the architecture of a GML-enabled KG platform. The use of a meta-sampler to extract task-specific subgraphs is a key technique for improving scalability. The KGMeta graph, which stores metadata about trained models, is a clever way to enable seamless integration and query optimization. The proposed SPARQLML language provides a user-friendly interface for interacting with the system.

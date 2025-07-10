@@ -509,3 +509,36 @@ This work was supported in part by The National Key Research and Development Pro
 - <span id="page-9-1"></span>[23] Steffen Rendle, Christoph Freudenthaler, and Lars Schmidt-Thieme. 2010. Factorizing personalized markov chains for next-basket recommendation. In WWW. 811–820.
 - <span id="page-9-28"></span><span id="page-9-25"></span><span id="page-9-6"></span>[24] Jiaxi Tang and Ke Wang. 2018. Personalized top-n sequential recommendation via convolutional sequence embedding. In WWW. 565–573.
 - <span id="page-9-15"></span>[25] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. Attention is all
+
+
+## TL;DR
+Graph neural network approach for sequential recommendation that clusters user
+
+## Key Insights
+SURGE creates tight item-item interest graphs from loose sequences using metric learning; implements cluster-aware and query-aware graph propagation; successfully handles noisy preference signals and rapid preference changes; demonstrates significant performance gains
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to extract meaningful user interests from noisy behavioral sequences while handling rapidly changing user preferences in sequential recommendation?
+- **Methodology**: Metric learning for interest graph construction; cluster-aware and query-aware graph convolutional propagation; dense interest clustering; dynamic interest extraction from noisy sequences
+- **Key Findings**: Significant performance gains compared to state-of-the-art methods; effective handling of noisy preference signals; successful modeling of rapidly changing user preferences; validated on both public and industrial datasets
+
+### Analysis
+- **Limitations**: Framework complexity requires careful implementation; evaluation methodology details not fully specified; computational overhead of interest clustering not characterized
+- **Future Work**: Investigate real-time recommendation deployment; optimize interest clustering efficiency; explore domain-specific interest modeling approaches
+
+## TL;DR
+Graph neural network approach for sequential recommendation that clusters user
+
+## Key Insights
+SURGE creates tight item-item interest graphs from loose sequences using metric learning; implements cluster-aware and query-aware graph propagation; successfully handles noisy preference signals and rapid preference changes; demonstrates significant performance gains
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to extract meaningful user interests from noisy behavioral sequences while handling rapidly changing user preferences in sequential recommendation?
+- **Methodology**: Metric learning for interest graph construction; cluster-aware and query-aware graph convolutional propagation; dense interest clustering; dynamic interest extraction from noisy sequences
+- **Key Findings**: Significant performance gains compared to state-of-the-art methods; effective handling of noisy preference signals; successful modeling of rapidly changing user preferences; validated on both public and industrial datasets
+
+### Analysis
+- **Limitations**: Framework complexity requires careful implementation; evaluation methodology details not fully specified; computational overhead of interest clustering not characterized
+- **Future Work**: Investigate real-time recommendation deployment; optimize interest clustering efficiency; explore domain-specific interest modeling approaches

@@ -32,6 +32,12 @@ IRIT - Université de Toulouse name.surname@irit.fr
 
 Abstract. The notion of territory plays a major role in human and social sciences. Representation of this spatio-temporal object and computation of the changes occurring have been tackled in various ways. However, in an historical context, most approaches are irrelevant as they rely on geometric data, which is not available. In order to represent historical territories,we conceived the HHT ontology (Hierarchical Historical Territory) to represent hierarchical historical territorial divisions, without having to know their geometry. This approach relies on a notion of building blocks to replace polygonal geometry. This representation is further used to provide an algorithm to detect and characterize territorial changes in a knowledge graph. Said algorithm creates a knowledge graph of changes at multiple levels encompassing basic changes occurring in a single territory, and composite changes, which are the abstraction of several smaller changes into a large change. The approach was followed to produce 3 knowledge graphs available online. Each of these graphs allowed to set up an analysis of the evolution of the territories during the historical period they cover.
 
+## TL;DR
+Novel ontological approach for representing temporal evolution of historical territories without geometric constraints using hierarchical building blocks methodology
+
+## Key Insights  
+Introduces HHT ontology for hierarchical historical territorial divisions using building blocks approach, provides algorithm for detecting territorial changes creating knowledge graphs of changes at multiple levels including basic and composite changes
+
 Keywords: Territory Ontology · Evolution Representation · Change Detection Algorithm · Digital Humanities
 
 Resource Type: Ontology Resource Type: Software and datasets License: Creative Common 4.0 License: Creative Common 4.0 DOI: 10.5281/zenodo.7451702 DOI: 10.5281/zenodo.7451408 URL:https://w3id.org/HHT URL:https://github.com/Brainchain09/HHT-SHACL
@@ -328,3 +334,13 @@ Currently, the HHT approach allows to represent historical territories, by takin
 - 16. Plumejeaud, C., Mathian, H., Gensel, J., Grasland, C.: Spatio-temporal analysis of territorial changes from a multi-scale perspective. International Journal of Geographical Information Science 25(10), 1597–1612 (2011). https://doi.org/10.1080/13658816.2010.534658, https://hal.inria.fr/hal-00953145
 
 17. Welty, C., Fikes, R., Makarios, S.: A reusable ontology for fluents in owl. In: FOIS. vol. 150, pp. 226–236 (2006)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to represent and analyze temporal evolution of historical territories when geometric data is unavailable using ontological approaches?
+- **Methodology**: HHT ontology for hierarchical historical territorial divisions; building blocks approach replacing polygonal geometry; algorithm for detecting and characterizing territorial changes; knowledge graph construction at multiple levels
+- **Key Findings**: Produced three knowledge graphs demonstrating territorial evolution analysis; successful representation of territorial divisions without geometric data; effective detection of basic and composite territorial changes
+
+### Analysis
+- **Limitations**: Limited evaluation on diverse historical contexts; dependency on availability of historical territorial data; computational complexity for large-scale historical analysis not characterized
+- **Future Work**: Expand evaluation to more diverse historical periods and regions; investigate scalability for large-scale historical analysis; develop interactive visualization tools

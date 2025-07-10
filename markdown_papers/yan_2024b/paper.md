@@ -481,3 +481,19 @@ Our program is in <https://github.com/Y-Claw/Multilevel-GNN>. All the data comes
 - <span id="page-10-8"></span>[43.](#page-7-7) Hirtz A, Lebourdais N, Thomassin M, *et al.* Identification of gender-and subtype-specific gene expression associated with patient survival in low-grade and anaplastic glioma in connection with steroid signaling. *Cancer* 2022; **14**(17): 4114.
 - <span id="page-10-9"></span>[44.](#page-7-8) Ou A, Ott M, Fang D, Heimberger A. The role and therapeutic targeting of JAK/STAT signaling in glioblastoma. *Cancer* 2021; **13**(3): 437.
 - <span id="page-10-10"></span>[45.](#page-7-9) Alowaidi F, Hashimi SM, Alqurashi N, *et al.* Cripto-1 overexpression in U87 glioblastoma cells activates MAPK, focal adhesion and ErbB pathways. *Oncol Lett* 2019; **18**(3): 3399–406.
+
+## TL;DR
+Multilevel graph neural network leveraging prior knowledge for enhanced tumor risk prediction through multi-omics integration
+
+## Key Insights
+Hierarchical GNN design enables effective multi-level feature extraction; Prior knowledge integration improves prediction accuracy; Pathway-level aggregation enhances interpretability
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can prior knowledge such as gene regulatory networks and pathway information be effectively integrated with multi-omics data to improve tumor risk prediction accuracy and interpretability?
+- **Methodology**: Developed Multilevel-GNN with hierarchical design; Constructed guidance graphs for omics data associations; Implemented learnable linear layer for pathway-level aggregation; Applied GNN-Explainer and IGscore for interpretation
+- **Key Findings**: Achieved better accuracy compared with existing methods; Identified key genes (SEC61G, CYP27B1) and pathways associated with tumor pathogenesis; Enhanced model interpretability at gene and pathway levels
+
+### Analysis
+- **Limitations**: Not explicitly detailed in the available information
+- **Future Work**: Extend to other cancer types; Integrate additional omics modalities; Develop more advanced interpretation algorithms

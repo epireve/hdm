@@ -384,3 +384,20 @@ Engineering Conference, Parts A and B. ASMEDC; 2011:1223-1235. doi:10.1115/DETC2
 - 39. Shapes Constraint Language (SHACL). Accessed May 15, 2022. https://www.w3.org/TR/shacl/
 - 40. Rouse WB. AI as Systems Engineering Augmented Intelligence for Systems Engineers. INSIGHT. 2020;23(1):52-54. doi:https://doi.org/10.1002/inst.12286
 - 41. Austin M, Delgoshaei P, Coelho M, Heidarinejad M. Architecting Smart City Digital Twins: Combined Semantic Model and Machine Learning Approach. J Manag Eng. 2020;36(4):04020026. doi:10.1061/(ASCE)ME.1943-5479.0000774
+
+
+## TL;DR
+Research on driving digital engineering integration and interoperability through semantic integration of models with ontologies providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Demonstrates techniques for integrating diverse data sources and managing heterogeneous information, essential for building comprehensive PKG systems with multi-modal data fusion capabilities.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

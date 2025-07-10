@@ -1,4 +1,3 @@
----
 cite_key: nguyen_2022
 title: Multimodal Object Detection Using Depth and Image Data for Manufacturing Parts
 authors: Vinh Nguyen, Engineering Mechanics
@@ -57,6 +56,12 @@ keywords:
 *Manufacturing requires reliable object detection methods for precise picking and handling of diverse types of manufacturing parts and components. Traditional object detection methods utilize either only 2D images from cameras or 3D data from lidars or similar 3D sensors. However, each of these sensors have weaknesses and limitations. Cameras do not have depth perception and 3D sensors typically do not carry color information. These weaknesses can undermine the reliability and robustness of industrial manufacturing systems. To address these challenges, this work proposes a multi-sensor system combining an red-green-blue (RGB) camera and a 3D point cloud sensor. The two sensors are calibrated for precise alignment of the multimodal data captured from the two hardware devices. A novel multimodal object detection method is developed to process both RGB and depth data. This object detector is based on the Faster R-CNN baseline that was originally designed to process only camera images. The results show that the multimodal model significantly outperforms the depth-only and RGB-only baselines on established object detection metrics. More specifically, the multimodal model improves mAP by 13% and raises Mean Precision by 11.8% in comparison to the RGB-only baseline. Compared to the depth-only baseline, it improves mAP by 78% and raises Mean Precision by 57%. Hence, this method facilitates more reliable and robust object detection in service to smart manufacturing applications.*
 
 **Keywords: Computer Vision, Multimodal Object Detection, Early Fusion, Smart Manufacturing**
+
+## TL;DR
+Research on multimodal object detection using depth and image data for manufacturing parts providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1. INTRODUCTION
 
@@ -183,7 +188,7 @@ This section presents the evaluations results comparing the performance of the R
 |-------------------------------------------------------------|--|--|
 | variants over the test set. | | |
 
-The RGB-D model, which uses both images and depth, achieves a mean mAP of 0.480, outperforming the RGB-only model's mean mAP of 0.425, and the Depth-only model's mean mAP of 0.269. Similarly, the mean precision metric further demonstrates the RGB-D model's superior performance with a score of 0.474 in contrast to the RGB-only model's 0.424 and the Depth-only model's 0.301. These results are visually summarized in Figure [6,](#page-6-1) where the RGB-D model demonstrates a
+<span id="page-5-2"></span>The RGB-D model, which uses both images and depth, achieves a mean mAP of 0.480, outperforming the RGB-only model's mean mAP of 0.425, and the Depth-only model's mean mAP of 0.269. Similarly, the mean precision metric further demonstrates the RGB-D model's superior performance with a score of 0.474 in contrast to the RGB-only model's 0.424 and the Depth-only model's 0.301. These results are visually summarized in Figure [6,](#page-6-1) where the RGB-D model demonstrates a
 
 ![](_page_6_Figure_0.jpeg)
 <!-- Image Description: The bar chart displays the mean average precision (mAP) and mean precision of three models: Depth-Only, RGB-Only, and RGB-D. Results are shown for both mAP (light gray) and mean precision (dark gray) for each model, with error bars indicating variability. The chart compares model performance across different input modalities (depth only, RGB only, and both), illustrating the impact of data source on model accuracy. -->
@@ -241,3 +246,13 @@ Cyber-Physical System Architecture for Cloud-Based Construction Monitoring with 
 - <span id="page-8-21"></span>[31] He, Kaiming, Zhang, Xiangyu, Ren, Shaoqing and Sun, Jian. "Deep residual learning for image recognition."*Proceedings of the IEEE conference on computer vision and pattern recognition*: pp. 770–778. 2016.
 - <span id="page-8-22"></span>[32] Everingham, Mark, Van Gool, Luc, Williams, Christopher KI, Winn, John and Zisserman, Andrew. "The pascal visual object classes (voc) challenge." *International journal of computer vision*Vol. 88 (2010): pp. 303–338.
 - <span id="page-8-23"></span>[33] Mohammadi, Vahid, Shahbad, Ramin, Hosseini, Mojtaba, Gholampour, Mohammad Hossein, Shiry Ghidary, Saeed, Najafi, Farshid and Behboodi, Ahad. "Development of a Two-Finger Haptic Robotic Hand with Novel Stiffness Detection and Impedance Control."*Sensors* Vol. 24 No. 8 (2024). DOI [10.3390/s24082585.](https://doi.org/10.3390/s24082585) URL [https://www.mdpi.](https://www.mdpi.com/1424-8220/24/8/2585) [com/1424-8220/24/8/2585.](https://www.mdpi.com/1424-8220/24/8/2585)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

@@ -514,3 +514,20 @@ Average number of reasoning steps: ARI uses this metric to measure the reasoning
 Table [5](#page-14-1) presents a leaderboard featuring the top-2 TKGQA models across all mentioned datasets. For semantic parsing-based methods, the widely used metrics are Hits@1 and F1. For TKG embeddingbased methods, the commonly used metrics are Hits@1 and Hits@10.
 
 Based on Table [5,](#page-14-1) we have following observations: (1) Both SP-based and TKGE-based methods are developed to address the TKGQA task, with no clear indication of superiority. According to the Hits@1 result, TKGE-based methods perform better on CronQuestions and TimeQuestions, while SP-based methods excel on MultiTQ. (2) SP-based methods cover more benchmarks than TKGE-based methods. This may be attributed to the flexibility and expressiveness of the logical form, which allows SP-based methods to address a wider range of question types.
+
+
+## TL;DR
+A systematic survey exploring methodological approaches and taxonomies in Temporal Knowledge Graph Question Answering
+
+## Key Insights
+Ambiguities in temporal question definition need resolution; Systematic categorization of TKGQA methods reveals semantic parsing vs embedding approaches; Temporal dynamics crucial for evolving knowledge bases
+
+## Metadata Summary
+### Research Context
+- **Research Question**: Understanding and systematically categorizing approaches to answering temporal questions in knowledge graphs
+- **Methodology**: Established taxonomy of temporal questions; Comprehensive review of TKGQA techniques; Two primary method categories: semantic parsing-based and TKG embedding-based
+- **Key Findings**: Identified ambiguities in defining temporal questions; Lack of systematic categorization in existing TKGQA methods
+
+### Analysis
+- **Limitations**: Not explicitly stated in available metadata
+- **Future Work**: Outlined potential research directions to advance TKGQA field

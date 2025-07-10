@@ -716,3 +716,20 @@ In the future, we will extend this work in the following directions. Firstly, DH
 - [49] Daniel M. Dunlavy, Tamara G. Kolda, and Evrim Acar. 2011. Temporal link prediction using matrix and tensor factorizations. *ACM Transactions on Knowledge Discovery from Data* 5, 2 (2011), 1–27.
 
 Received 27 April 2023; revised 2 February 2024; accepted 6 March 2024
+
+
+## TL;DR
+Research on dhyper: a recurrent dual hypergraph neural network for event prediction in temporal knowledge graphs providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 

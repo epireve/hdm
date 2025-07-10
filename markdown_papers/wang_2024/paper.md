@@ -21,6 +21,8 @@ tags:
   - "Question Answering"
   - "Temporal Reasoning"
   - "Multi-granularity"
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Question answering over temporal knowledge graphs based on hierarchical semantic extraction
@@ -34,6 +36,12 @@ tags:
 4 th Danfeng Zhao<sup>B</sup> *School of Information Shanghai Ocean University* Shanghai, China dfzhao@shou.edu.cn
 
 **Abstract:** Temporal Knowledge Graph Question Answering (TKGQA) aims to address problems with temporal constraints using a Temporal Knowledge Graph (TKG). Existing models often overlook the structural information within problems, making it challenging to effectively manage complex temporal issues. To overcome these challenges, we propose the HSTQA model, which employs a hierarchical semantic extraction strategy to precisely capture semantic and implicit temporal information in queries. A multi-granularity fusion technique enhances the model's capability to tackle problems with varying temporal granularities. Additionally, HSTQA incorporates graph convolutional networks to efficiently identify and integrate implicit temporal features and relational patterns. Extensive testing on the MultiTQ dataset shows that HSTQA improves Hits@1 by 10.8% compared to traditional methods, demonstrating its effectiveness in addressing multi-granularity temporal problems and enhancing complex temporal reasoning.
+
+## TL;DR
+Novel model for temporal knowledge graph question answering using hierarchical semantic extraction and multi-granularity fusion techniques.
+
+## Key Insights
+Proposes HSTQA model using hierarchical semantic extraction to improve temporal reasoning in complex question-answering scenarios; focuses on capturing semantic and implicit temporal information.
 
 **Index Terms:** Temporal knowledge graph, Question answering, Temporal reasoning, Multi-granularity time question
 
@@ -373,3 +381,19 @@ National Key Research and Development Program of China (Grant No. 2021YFC3101601
 - [19] Victor Sanh, Lysandre Debut, Julien Chaumond, and Thomas Wolf. Distilbert, a distilled version of bert: smaller, faster, cheaper and lighter. *arXiv preprint arXiv:1910.01108*, 2019.
 - [20] Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, and Radu Soricut. Albert: A lite bert for self-supervised learning of language representations. *arXiv preprint arXiv:1909.11942*, 2019.
 - [21] Apoorv Saxena, Aditay Tripathi, and Partha Talukdar. Improving multi-hop question answering over knowledge graphs using knowledge base embeddings. In *Proceedings of the 58th annual meeting of the association for computational linguistics*, pages 4498–4507, 2020.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can temporal knowledge graphs better support question answering for complex temporal scenarios?
+- **Methodology**: Employed graph convolutional networks, used multi-granularity fusion technique, focused on capturing semantic and implicit temporal information.
+- **Key Findings**: HSTQA improves Hits@1 by 10.8% compared to traditional methods in handling multi-granularity temporal problems.
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: Abstract only - evaluation methodology and broader applicability details not available from abstract.
+- **Research Gaps**: 
+- **Future Work**: Expand evaluation to more temporal reasoning tasks, integrate with larger-scale temporal KGs, explore real-world application scenarios.
+- **Conclusion**: Demonstrates improved temporal reasoning capabilities for knowledge graph question answering systems.
+
+### Implementation Notes
+Provides approach for temporal reasoning in KG systems that could be relevant for time-based queries in HDM applications.

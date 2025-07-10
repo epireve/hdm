@@ -1,4 +1,3 @@
----
 cite_key: rad_2024
 title: Personalized Diabetes Management with Digital Twins: A Patient-Centric Knowledge Graph Approach
 authors: Fatemeh Sarani Rad, Rasha Hendawi, Xinyi Yang, Juan Li
@@ -61,6 +60,12 @@ keywords:
 **Fatemeh Sarani Rad [,](https://orcid.org/0000-0001-7088-2561) Rasha Hendawi [,](https://orcid.org/0000-0001-5828-2651) Xinyi Yang and Juan Li [\\*](https://orcid.org/0000-0002-7668-5996)**Computer Science Department, North Dakota State University, Fargo, ND 58105, USA; fatemeh.saranirad@ndsu.edu (F.S.R.); rasha.hendawi@ndsu.edu (R.H.); xinyi.yang@ndsu.edu (X.Y.)**\***Correspondence: j.li@ndsu.edu; Tel.: +1-701-2319662
 **Abstract:**Diabetes management requires constant monitoring and individualized adjustments. This study proposes a novel approach that leverages digital twins and personal health knowledge graphs (PHKGs) to revolutionize diabetes care. Our key contribution lies in developing a real-time, patientcentric digital twin framework built on PHKGs. This framework integrates data from diverse sources, adhering to HL7 standards and enabling seamless information access and exchange while ensuring high levels of accuracy in data representation and health insights. PHKGs offer a flexible and efficient format that supports various applications. As new knowledge about the patient becomes available, the PHKG can be easily extended to incorporate it, enhancing the precision and accuracy of the care provided. This dynamic approach fosters continuous improvement and facilitates the development of new applications. As a proof of concept, we have demonstrated the versatility of our digital twins by applying it to different use cases in diabetes management. These include predicting glucose levels, optimizing insulin dosage, providing personalized lifestyle recommendations, and visualizing health data. By enabling real-time, patient-specific care, this research paves the way for more precise and personalized healthcare interventions, potentially improving long-term diabetes management outcomes.
 **Keywords:**digital twins; personal health knowledge graph; data integration; ontology; diabetes management
+
+## TL;DR
+Research on personalized diabetes management with digital twins: a patient-centric knowledge graph approach providing insights for knowledge graph development and data integration.
+
+## Key Insights  
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
 
 ## 1. Introduction
 
@@ -256,3 +261,13 @@ We plan to explore further advanced machine learning algorithms, particularly th
 - <span id="page-12-1"></span>35. Amiri, M.; Li, J.; Hasan, W. Personalized Flexible Meal Planning for Individuals with Diet-Related Health Concerns: System Design and Feasibility Validation Study. *JMIR Form Res.* **2023**, *7*, e46434. [\[CrossRef\]](https://doi.org/10.2196/46434)
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**:

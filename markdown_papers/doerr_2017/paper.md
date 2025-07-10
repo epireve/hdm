@@ -514,3 +514,20 @@ This work has received funding from the European Union's Horizon 2020 research a
 - <span id="page-27-12"></span>Wang, R. Y. and Strong, D. M. (1996). Beyond accuracy: What data quality means to data consumers. Journal of management information systems, 12(4):5–33. Publisher: Taylor & Francis.
 - <span id="page-27-10"></span>Wu, X., Xiao, L., Sun, Y., Zhang, J., Ma, T., and He, L. (2022). A survey of human-in-the-loop for machine learning. Future Generation Computer Systems, 135:364–381.
 - <span id="page-27-13"></span>Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., and Auer, S. (2016). Quality assessment for linked data: A survey. Semantic Web, 7(1):63–93. Publisher: IOS Press.
+
+
+## TL;DR
+Research on a workflow model for holistic data management and semantic interoperability in quantitative archival research providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+
+### Analysis
+- **Limitations**: 
+- **Future Work**: 
