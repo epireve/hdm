@@ -163,6 +163,11 @@ header p {
     background-color: #f8f9fa;
     border-radius: 4px;
     border-left: 3px solid #3498db;
+    transition: background-color 0.2s;
+}
+
+#related-list li:hover {
+    background-color: #e9ecef;
 }
 
 /* Research Notes */
@@ -313,4 +318,68 @@ header p {
 
 .control-group button:active {
     animation: exportPulse 0.3s ease-in-out;
+}
+
+/* Research Insights */
+#concept-insights {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+#concept-insights h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+#insights-content {
+    color: #555;
+    font-size: 14px;
+}
+
+#insights-content ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#insights-content li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Concept Actions */
+#concept-actions {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    gap: 10px;
+}
+
+#concept-actions button {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+#add-to-notes {
+    background-color: #3498db;
+    color: white;
+}
+
+#add-to-notes:hover {
+    background-color: #2980b9;
+}
+
+#copy-details {
+    background-color: #95a5a6;
+    color: white;
+}
+
+#copy-details:hover {
+    background-color: #7f8c8d;
 }
