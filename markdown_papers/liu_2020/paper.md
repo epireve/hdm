@@ -7,9 +7,6 @@ doi: 10.1145/3397271.3401405
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_arxiv_2202.11311_Web_of_Scholars_A_Scholar_Knowledge_Graph
-images_total: 3
-images_kept: 2
-images_removed: 1
 tags:
 - Knowledge Graph
 - Machine Learning
@@ -20,6 +17,8 @@ keywords:
 - in-depth
 - knowledge graph
 - state-of-the-art
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Web of Scholars: A Scholar Knowledge Graph
@@ -35,6 +34,12 @@ UniSA STEM University of South Australia, Australia Ivan.Lee@unisa.edu.au
 ## ABSTRACT
 
 In this work, we demonstrate a novel system, namely Web of Scholars, which integrates state-of-the-art mining techniques to search, mine, and visualize complex networks behind scholars in the field of Computer Science. Relying on the knowledge graph, it provides services for fast, accurate, and intelligent semantic querying as well as powerful recommendations. In addition, in order to realize information sharing, it provides open API to be served as the underlying architecture for advanced functions. Web of Scholars takes advantage of knowledge graph, which means that it will be able to access more knowledge if more search exist. It can be served as a useful and interoperable tool for scholars to conduct in-depth analysis within Science of Science.
+
+## TL;DR
+Research on web of scholars: a scholar knowledge graph providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## CCS CONCEPTS
 
@@ -158,3 +163,18 @@ This work is partially supported by National Natural Science Foundation of China
 <span id="page-3-1"></span><span id="page-3-0"></span>
 
 **Figure 3:** Some Screen Shots of Web of Scholars.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+   
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+   
+### Implementation Notes

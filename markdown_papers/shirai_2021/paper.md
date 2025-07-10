@@ -22,11 +22,19 @@ tags:
   - "Healthcare AI"
   - "Knowledge Graphs"
   - "Personalized Healthcare"
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Applying Personal Knowledge Graphs to Health
 
 Sola Shirai, Oshani Seneviratne, and Deborah L. McGuinness Rensselaer Polytechnic Institute, Troy, New York, USA
+
+## TL;DR
+Short survey identifying challenges in personal health knowledge graph development and applications.
+
+## Key Insights
+"Personal health knowledge graphs (PHKG) can help enable personalized health care" but development of PHKGs remains "under-explored".
 
 ### 1 Introduction
 
@@ -81,3 +89,19 @@ This work is partially supported by IBM Research AI through the AI Horizons Netw
 - <span id="page-2-7"></span>[7] D. Riano, F. Real, J. A. L ˜ opez-Vallverd ´ u, F. Campana, S. Ercolani, P. Mecocci, R. Annic- ´ chiarico, and C. Caltagirone. An ontology-based personalization of health-care knowledge to support clinical decisions for chronically ill patients. *Journal of Biomedical Informatics*, 45(3):429 – 446, 2012.
 - <span id="page-2-2"></span>[8] T. Safavi, D. Mottin, and C. Belth. Personalized knowledge graph summarization : From the cloud to your pocket. In *ICDM*, 2019.
 - <span id="page-2-8"></span>[9] A. Sheth, U. Jaimini, K. Thirunarayan, and T. Banerjee. Augmented personalized health: How smart data with iots and ai is about to change healthcare. *RTSI*, 2017, 09 2017.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can personal health knowledge graphs enable personalized healthcare in knowledge-driven systems?
+- **Methodology**: Short survey of existing work on personal knowledge graphs in healthcare.
+- **Key Findings**: Challenges in collecting personal health knowledge, difficulties in linking and maintaining personal health information, limited exploration of PHKG paradigms.
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: "A range of challenges surrounding the collection, linkage, and maintenance of personal health knowledge remains to be addressed to fully realize PHKGs."
+- **Research Gaps**: 
+- **Future Work**: Develop more robust methods for personal health knowledge graph creation, address challenges in data integration and maintenance, explore personalization techniques in healthcare knowledge systems.
+- **Conclusion**: Emphasizes the potential of PHKGs for personalized healthcare while acknowledging significant development challenges.
+
+### Implementation Notes
+Provides roadmap for healthcare PKG development focusing on data collection, linkage, and maintenance challenges.

@@ -22,10 +22,9 @@ tags:
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: frontiers_connected_dt_pkg
-images_total: 2
-images_kept: 2
-images_removed: 0
 keywords: 
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 EDITED BY Lina F. Soualmia, Université de Rouen, France
@@ -51,6 +50,12 @@ Antonella Carbonaro1 \*, Alberto Marfoglia1 , Filippo Nardini2 and Sabato Mellon
 1 Department of Computer Science and Engineering, Università di Bologna, Cesena, Italy, <sup>2</sup> Department of Industrial Engineering, Università di Bologna, Bologna, Italy, <sup>3</sup> Department of Electrical, Electronic, and Information Engineering "Guglielmo Marconi", Università di Bologna, Cesena, Italy
 
 Healthcare has always been a strategic domain in which innovative technologies can be applied to increase the effectiveness of services and patient care quality. Recent advancements have been made in the adoption of Digital Twins (DTs) and Personal Knowledge Graphs (PKGs) in this field. Despite this, their introduction has been hindered by the complex nature of the context itself which leads to many challenges both technical and organizational. In this article, we reviewed the literature about these technologies and their integrations, identifying the most critical requirements for clinical platforms. These latter have been used to design CONNECTED (COmpreheNsive and staNdardized hEalth-Care plaTforms to collEct and harmonize clinical Data), a conceptual framework aimed at defining guidelines to overcome the crucial issues related to the development of healthcare applications. It is structured in a multi-layer shape, in which heterogeneous data sources are first integrated, then standardized, and finally used to realize general-purpose DTs of patients backed by PKGs and accessible through dedicated APIs. These DTs will be the foundation on which smart applications can be built.
+
+## TL;DR
+Multi-layer framework for healthcare digitalization that integrates digital twins and personal knowledge graphs to overcome technical and organizational barriers while ensuring interoperability and data standardization.
+
+## Key Insights
+Proposes CONNECTED framework with four-layer architecture (Source, Standard, Digital Twin, Application layers) using technologies like Eclipse Hono, Apache Kafka, and Stardog for creating general-purpose patient digital twins accessible through APIs with semantic reasoning capabilities.
 
 ## KEYWORDS
 
@@ -220,3 +225,19 @@ organizations, or those of the publisher, the editors and the reviewers. Any pro
 22. Malakuti S, Schmitt J, Platenius-Mohr M, Grüner S, Gitzel R, Bihani P. A fourlayer architecture pattern for constructing and managing digital twins. In: Bures T, Duchien L, Inverardi P, editors. Software architecture. Cham: Springer International Publishing (2019). p. 231–46. Lecture Notes in Computer Science. Available from: [https://doi.org/10.1007/978-3-030-29983-5\\_16](https://doi.org/10.1007/978-3-030-29983-5_16)
 
 23. Sahlab N, Kamm S, Müller T, Jazdi N, Weyrich M. Knowledge graphs as enhancers of intelligent digital twins. 2021 4th IEEE International Conference on Industrial Cyber-Physical Systems (ICPS). NJ: Institute of Electrical and Electronics Engineers (2021). p. 19–24. Available from: [https://doi.org/10.1109/ICPS49255.2021.](https://doi.org/10.1109/ICPS49255.2021.9468219) [9468219](https://doi.org/10.1109/ICPS49255.2021.9468219)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can digital twins and personal knowledge graphs be effectively integrated in healthcare digitalization to overcome technical and organizational barriers while ensuring interoperability and data standardization?
+- **Methodology**: Developed CONNECTED framework with four-layer architecture: Source Layer for data collection, Standard Layer for harmonization using FHIR, Digital Twin Layer for patient digital twins using PKGs, Application Layer for custom applications, implemented using Eclipse Hono, Apache Kafka, Stardog technologies.
+- **Key Findings**: Demonstrated framework capability through fall prediction use case in elderly patients with osteoporosis, showed effective integration of diverse data sources, provided semantic reasoning capabilities for deriving insights from patient data, established foundation for open-source prototype development.
+- **Primary Outcomes**: Multi-layer healthcare digitalization framework with comprehensive patient digital twin capabilities and standards-based interoperability for diverse healthcare applications.
+
+### Analysis
+- **Limitations**: Challenges in ensuring data integrity and reliability, complexity in managing privacy and access control, need for addressing legal and ethical considerations in healthcare data processing, requirements for extensive validation across diverse healthcare scenarios.
+- **Research Gaps**: Need for concrete implementation and extensive validation, investigation of computational model integration for enhanced capabilities, development of simulation capabilities in digital twins, broader assessment across diverse healthcare institutions.
+- **Future Work**: Develop concrete implementation with comprehensive validation studies, investigate computational model integration for enhanced digital twin capabilities, enable advanced simulation capabilities, assess scalability across diverse healthcare institutions.
+- **Conclusion**: Provides novel approach to healthcare digitalization creating flexible, standards-based framework for patient digital twins that enables comprehensive patient modeling while maintaining interoperability and compliance with healthcare standards.
+
+### Implementation Notes
+Offers architectural guidance for implementing digital twin and PKG integration in healthcare with focus on standards compliance, semantic reasoning, and interoperability essential for HDM healthcare digitalization applications.

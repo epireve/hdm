@@ -7,9 +7,8 @@ doi: 10.5281/zenodo.3431121.
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: 978-3-030-59833-4_8
-images_total: 2
-images_kept: 1
-images_removed: 1
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Cloud Computing
 - Data Integration
@@ -56,6 +55,12 @@ Mikko Koho1,2(B), Petri Leskinen<sup>1</sup>, and Eero Hyv¨onen1,2
 <sup>1</sup> Semantic Computing Research Group (SeCo), Aalto University, Espoo, Finland <sup>2</sup> HELDIG – Helsinki Centre for Digital Humanities, University of Helsinki, Helsinki, Finland mikko.koho@helsinki.fi
 
 **Abstract.**Semantic data integration from heterogeneous, distributed data silos enables Digital Humanities research and application development employing a larger, mutually enriched and interlinked knowledge graph. However, data integration is challenging, involving aligning the data models and reconciling the concepts and named entities, such as persons and places. This paper presents a record linkage process to reconcile person references in different military historical person registers with structured metadata. The information about persons is aggregated into a single knowledge graph. The process was applied to reconcile three person registers of the popular semantic portal "WarSampo – Finnish World War 2 on the Semantic Web". The registers contain detailed information about some 100 000 people and are individually maintained by domain experts. Thus, the integration process needs to be automatic and adaptable to changes in the registers. An evaluation of the record linkage results is promising and provides some insight into military person register reconciliation in general.
+
+## TL;DR
+Research on integrating historical person registers as linked open data in the warsampo knowledge graph providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -191,3 +196,18 @@ The images or other third party material in this chapter are included in the cha
 
 ![](_page_8_Picture_3.jpeg)
 <!-- Image Description: The image displays a Creative Commons (CC) license logo. Specifically, it shows the "CC BY" attribution license. The logo contains the CC initials in a circle, a person symbol within a circle, and the abbreviation "BY" indicating that the work must be attributed to the creator when shared or adapted. This signifies the copyright terms for the content within the academic paper. -->
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

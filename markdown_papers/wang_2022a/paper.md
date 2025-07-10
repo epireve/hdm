@@ -7,9 +7,8 @@ doi: 10.1145/3511808.3557623
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2209.05698_KSG_Knowledge_and_Skill_Graph
-images_total: 8
-images_kept: 8
-images_removed: 0
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Knowledge Graph
 - Machine Learning
@@ -39,6 +38,12 @@ Donglin Wang<sup>∗</sup> Westlake University Westlake Institute for Advanced S
 ## ABSTRACT
 
 The knowledge graph (KG) is an essential form of knowledge representation that has grown in prominence in recent years. Because it concentrates on nominal entities and their relationships, traditional knowledge graphs are static and encyclopedic in nature. On this basis, event knowledge graph (Event KG) models the temporal and spatial dynamics by text processing to facilitate downstream applications, such as question-answering, recommendation and intelligent search. Existing KG research, on the other hand, mostly focuses on text processing and static facts, ignoring the vast quantity of dynamic behavioral information included in photos, movies, and pre-trained neural networks. In addition, no effort has been done to include behavioral intelligence information into the knowledge graph for deep reinforcement learning (DRL) and robot learning. In this paper, we propose a novel dynamic knowledge and skill graph (KSG), and then we develop a basic and specific KSG based on CN-DBpedia. The nodes are divided into entity and attribute nodes, with entity nodes containing the agent, environment, and skill (DRL policy or policy representation), and attribute nodes containing the entity description, pre-train network, and offline dataset. KSG can search for different agents' skills in various environments and provide transferable information for acquiring new skills. This is the first study that we are aware of that looks into dynamic KSG for skill retrieval and learning. Extensive experimental results on new skill learning show that KSG boosts new skill learning efficiency.
+
+## TL;DR
+Collaborative framework for refining knowledge graphs using noisy corpus triples with mutual task assistance
+
+## Key Insights
+Collaborative framework enables mutual assistance between knowledge extraction and graph fusion tasks; open corpus exploitation addresses KG incompleteness; translated relation alignment improves triple integration
 
 ## CCS CONCEPTS
 
@@ -218,3 +223,19 @@ Although our KSG now is preliminary, it is very meaningful. In the future, we wi
 - <span id="page-4-14"></span>[40] Feng Zhao, Tiancheng Huang, and Donglin Wang. 2022. Graph Few-Shot Learning via Restructuring Task Graph. IEEE Transactions on Neural Networks and Learning Systems (2022).
 - [41] Feng Zhao and Donglin Wang. 2021. Multimodal Graph Meta Contrastive Learning. In Proceedings of the 30th ACM International Conference on Information & Knowledge Management. 3657–3661.
 - <span id="page-4-15"></span>[42] Feng Zhao, Donglin Wang, and Xintao Xiang. 2021. Multi-Initialization Graph Meta-Learning for Node Classification. In Proceedings of the 2021 International Conference on Multimedia Retrieval. 402–410.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to refine knowledge graphs using information from open corpus while handling noisy entities and relations effectively?
+- **Methodology**: Collaborative Knowledge Graph Fusion Framework with two sub-tasks: Join Event Extraction (JEE) and Knowledge Graph Fusion (KGF); explorer for supervised JEE; supervisor for triple evaluation; Translated Relation Alignment Scoring Mechanism
+- **Key Findings**: Proposed framework allows sub-tasks to mutually assist each other in alternating manner; improved performance in both join event extraction and knowledge graph fusion; verification of collaboration benefits
+- **Primary Outcomes**: Collaborative Knowledge Graph Fusion Framework; improved performance in both JEE and KGF tasks; Translated Relation Alignment Scoring Mechanism; enhanced KG representation quality
+
+### Analysis
+- **Limitations**: Potential noise in extracted triples from open corpus; computational complexity of collaborative framework; evaluation limited to specific datasets
+- **Research Gaps**: Limited exploration of noise handling in knowledge graph expansion; challenges in aligning extracted triples with existing KG schema; need for robust fusion mechanisms
+- **Future Work**: Develop more sophisticated noise filtering techniques; expand evaluation to larger datasets; investigate domain-specific fusion strategies
+- **Conclusion**: Collaborative approach can improve knowledge graph representation quality through mutual task assistance and effective noise handling
+
+### Implementation Notes
+Uses Translated Relation Alignment Scoring Mechanism for triple evaluation; demonstrates practical approach to KG enrichment from open sources; collaborative framework design applicable to other KG tasks

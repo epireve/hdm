@@ -1,14 +1,20 @@
+```yaml
 ---
 cite_key: seo_2022
-title: Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning
-authors: Seonghun Seo, Kyunghyun Park, Daesub Yoon, JaeJun Yoo, Yonghyun Kim, Yangkoo Lee, Jiwoo Han
+title: Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex
+  Positioning
+authors:
+- Seonghun Seo
+- Kyunghyun Park
+- Daesub Yoon
+- JaeJun Yoo
+- Yonghyun Kim
+- Yangkoo Lee
+- Jiwoo Han
 year: 2022
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Platform_Development_for_Proof-of-Concept_of_Smartphone-based_Continuous_Complex_Positioning
-images_total: 2
-images_kept: 2
-images_removed: 0
 tags:
 - IoT
 - Machine Learning
@@ -43,7 +49,10 @@ keywords:
 - radio-frequency
 - real-time
 - scalability
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
+```
 
 # Platform Development for Proof-of-Concept of Smartphone-based Continuous Complex Positioning
 
@@ -62,7 +71,15 @@ Yangkoo Lee*Mobility UX Research Section ETRI*Daejeon, Korea yk\_lee@etri.re.kr
 Jiwoo Han*Mobility UX Research Section ETRI*Daejeon, Korea chau@etri.re.kr
 **Abstract:** **—The rapid evolution and widespread adoption of Location-Based Services (LBS) have fueled an unprecedented demand for personal location data. This need spans both indoor and outdoor environments, with smartphones emerging as the primary tool for processing such information. However, significant disparities exist in the types and characteristics of sensors available for indoor versus outdoor use, as well as in the methodologies employed for sensor data processing. Furthermore, the inherent asynchronous architecture of smartphones poses substantial challenges in effectively processing and integrating diverse positioning data sources. This study proposes the development of a cutting-edge Proof of Concept (PoC) platform designed to enable seamless positioning technology on smartphones across both indoor and outdoor settings.**
 
-*Keywords—seamless positioning, smartphones, GNSS, Wi-Fi, BLE, IMU*## I. INTRODUCTION
+*Keywords—seamless positioning, smartphones, GNSS, Wi-Fi, BLE, IMU*
+
+## TL;DR
+Research on platform development for proof-of-concept of smartphone-based continuous complex positioning providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## I. INTRODUCTION
 
 The growing demand for precise positioning has catalyzed significant advancements in both indoor and outdoor localization technologies [1][2][3]. However, a substantial body of research is now focused on the seamless integration of these technologies to achieve uninterrupted positioning across diverse environments [4][5][6]. Continuous complex positioning systems increasingly leverage smartphones, capitalizing on their ability to harness data from a multitude of sensors and wireless signals. This paper presents the conceptualization and implementation of an innovative smartphone-based Proof of Concept (PoC) platform. This platform is designed to utilize an array of sensors and wireless signals, facilitating comprehensive research into continuous and complex positioning scenarios.
 
@@ -79,7 +96,7 @@ Building upon the findings from the aforementioned studies, we present the archi
 
 Figure 1. Continuous complex positioning system architecture.
 
-## *A. On-device positioning*Satellite navigation leveraging GNSS does not require prebuilt databases (DB). Moreover, methods with short measurement acquisition cycles, such as Pedestrian Dead-Reckoning (PDR) and Inertial Navigation Systems (INS) utilizing IMU, are sensitive to time delays, rendering ondevice processing essential. These positioning techniques have relatively low computing resource requirements, enabling their implementation without significantly impacting the asynchronous operation.
+### *A. On-device positioning*Satellite navigation leveraging GNSS does not require prebuilt databases (DB). Moreover, methods with short measurement acquisition cycles, such as Pedestrian Dead-Reckoning (PDR) and Inertial Navigation Systems (INS) utilizing IMU, are sensitive to time delays, rendering ondevice processing essential. These positioning techniques have relatively low computing resource requirements, enabling their implementation without significantly impacting the asynchronous operation.
 
 ### *B. Server-based positioning*Wireless signal positioning techniques, such as Wi-Fi and BLE, typically rely on pre-built DB. In the proposed architecture, the device requests refined data from the DB and performs positioning operations using real-time measurements. Depending on the specific techniques employed, the positioning process can be carried out either on the device or on the server.
 
@@ -116,3 +133,18 @@ This work is supported by the Korea Agency for Infrastructure Technology Advance
 - [5] H. Zou, H. Jiang, Y. Luo, J. Zhu, X. Lu, and L. Xie, "BlueDetect: An iBeacon-Enabled Scheme for Accurate and Energy-Efficient Indoor-Outdoor Detection and Seamless Location-Based Service," Sensors, vol. 16, no. 2, p. 268, Feb. 2016.
 - [6] L. Pei, R. Chen, Y. Chen, H. Leppäkoski, and A. Perttula, "Indoor/Outdoor Seamless Positioning Technologies Integrated on Smart Phone," in 2009 First International Conference on Advances in Satellite and Space Communications, Colmar, France, 2009, pp. 131- 135.
 - [7] C. Pan, Z. Li, Q. Zhang, B. Soja, and J. Gao, "Smartphone-based Vision/MEMS-IMU/GNSS tightly coupled seamless positioning using factor graph optimization," Measurement, vol. 229, pp. 114420, Mar. 2024.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

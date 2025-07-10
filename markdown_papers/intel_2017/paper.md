@@ -6,9 +6,6 @@ year: 2017
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: Large_Scale_Multimodal_Data_Capture_Evaluation_and_Maintenance_Framework_for_Autonomous_Driving_Datasets
-images_total: 13
-images_kept: 13
-images_removed: 0
 tags:
 - IoT
 - Machine Learning
@@ -23,6 +20,8 @@ keywords:
 - real-time
 - sensor-specific
 - well-defined
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Large Scale Multimodal Data Capture, Evaluation and Maintenance Framework for Autonomous Driving Datasets
@@ -33,7 +32,15 @@ nitheesh.k.l@intel.com
 
 ## Abstract
 
-*Autonomous driving (AD) programs today primarily depend on one or the other form of supervised Deep Learning (DL) models for their behavioral success. However, these DL models are only as good as the data on which they are trained, and their success depends immensely on their training data. Hence it is imperative that we create datasets of good quality. However, the process of collecting this realworld driving data and the infrastructure needed to evaluate and manage this large data is commonly unspoken and is challenging. To address this issue, we have developed an open-source framework and infrastructure to capture, evaluate, and maintain such multi-sensor data. In this paper, we discuss the motive for this framework, a process for evaluation and quality analysis, insights on data storage, distribution and management for large multimodal data and the key lessons learned collecting and maintaining huge volumes of data from long driving distances.*## Introduction
+*Autonomous driving (AD) programs today primarily depend on one or the other form of supervised Deep Learning (DL) models for their behavioral success. However, these DL models are only as good as the data on which they are trained, and their success depends immensely on their training data. Hence it is imperative that we create datasets of good quality. However, the process of collecting this realworld driving data and the infrastructure needed to evaluate and manage this large data is commonly unspoken and is challenging. To address this issue, we have developed an open-source framework and infrastructure to capture, evaluate, and maintain such multi-sensor data. In this paper, we discuss the motive for this framework, a process for evaluation and quality analysis, insights on data storage, distribution and management for large multimodal data and the key lessons learned collecting and maintaining huge volumes of data from long driving distances.*
+
+## TL;DR
+Research on large scale multimodal data capture, evaluation and maintenance framework for autonomous driving datasets providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+## Introduction
 
 Raw data collection for today's AD standards demands the use of multiple visual, positional, and laser sensors for the perception of the world around the vehicle. These sensors, when coupled together, produce large volumes of high-resolution data possibly in the order of few hundred Gigabytes (GB) per hour. Correspondingly, capturing this data in real-time requires high disk write speeds of several hundred Megabytes per second (MB/s). If data collection spans multiple hours or multiple days, managing the enormous amounts of data generated prove to be a complex challenge, pushing the boundaries of today's storage throughput limits. This captured data may have to be transferred, stored, and made accessible to multiple internal and external participants for various post-processing activities. The real-time nature of this data imposes strict requirements for data coherency at all times. Maintenance of such large-scale data soon becomes a technical and a logistical nightmare.
 
@@ -335,3 +342,18 @@ Our infrastructure and evaluation process enables the collection of large volume
 - [6] G. Neuhold, T. Ollmann, S. Rota Bulo, and P. Kontschieder. ` The mapillary vistas dataset for semantic understanding of street scenes. In *International Conference on Computer Vision (ICCV)*, 2017. 1
 - [7] G. Varma, A. Subramanian, A. M. Namboodiri, M. Chandraker, and C. V. Jawahar. IDD: A dataset for exploring problems of autonomous navigation in unconstrained environments. *CoRR*, abs/1811.10200, 2018. 1
 - [8] F. Yu, W. Xian, Y. Chen, F. Liu, M. Liao, V. Madhavan, and T. Darrell. BDD100K: A diverse driving video database with scalable annotation tooling. *CoRR*, abs/1805.04687, 2018. 1
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

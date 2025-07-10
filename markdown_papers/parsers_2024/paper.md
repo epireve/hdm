@@ -23,6 +23,8 @@ tags:
   - "Enterprise Data"
   - "Information Retrieval"
   - "Heterogeneous Documents"
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assisted by Large Language Models
@@ -60,6 +62,12 @@ In this research, we propose using Knowledge Graphs as a unified representation 
 ## ABSTRACT
 
 Even for a conservative estimate, 80% of enterprise data reside in unstructured files, stored in data lakes that accommodate heterogeneous formats. Classical search engines can no longer meet information seeking needs, especially when the task is to browse and explore for insight formulation. In other words, there are no obvious search keywords to use. Knowledge graphs, due to their natural visual appeals that reduce the human cognitive load, become the winning candidate for heterogeneous data integration and knowledge representation. In this paper, we introduce Docs2KG, a novel framework designed to extract multimodal information from diverse and heterogeneous unstructured documents, including emails, web pages, PDF files, and Excel files. Dynamically generates a unified knowledge graph that represents the extracted key information, Docs2KG enables efficient querying and exploration of document data lakes. Unlike existing approaches that focus on domain-specific data sources or pre-designed schemas, Docs2KG offers a flexible and extensible solution that can adapt to various document structures and content types. The proposed framework unifies data processing supporting a multitude of downstream tasks with improved domain interpretability. Docs2KG is publicly accessible at [https://docs2kg.ai4wa.com,](https://docs2kg.ai4wa.com) and a demonstration video is available at [https://docs2kg.ai4wa.com/Video.](https://docs2kg.ai4wa.com/Video)
+
+## TL;DR
+Framework for extracting multimodal information from diverse document types and dynamically generating unified knowledge graphs using LLMs.
+
+## Key Insights
+"80% of enterprise data reside in unstructured files"; classical search engines inadequate for complex information exploration; knowledge graphs reduce cognitive load in data integration.
 
 ## KEYWORDS
 
@@ -191,3 +199,19 @@ Docs2KG: Unified Knowledge Graph Construction from Heterogeneous Documents Assis
 - <span id="page-4-6"></span>[9] Anderson Rossanez and Júlio Cesar dos Reis. 2019. Generating Knowledge Graphs from Scientific Literature of Degenerative Diseases. In Proceedings of the 4th International Workshop on Semantics-Powered Data Mining and Analytics co-located with the 18th International Semantic Web Conference (ISWC 2019), Aukland, New Zealand, October 27, 2019 (CEUR Workshop Proceedings, Vol. 2427), Zhe He, Jiang Bian, Cui Tao, and Rui Zhang (Eds.). CEUR-WS.org, 12–23. [https://ceur-ws.org/Vol-2427/SEPDA\\_2019\\_paper\\_8.pdf](https://ceur-ws.org/Vol-2427/SEPDA_2019_paper_8.pdf)
 - <span id="page-4-10"></span>[10] Matthew Tretter. 2024. Markdownify: A library for converting HTML to Markdown.<https://github.com/matthewwithanm/python-markdownify> Accessed: 2024-05-18.
 - <span id="page-4-8"></span>[11] Haolin Wu, Tim French, Wei Liu, and Melinda Hodkiewicz. 2022. Automatic semantic knowledge extraction from electronic forms. Proceedings of the Institution of Mechanical Engineers, Part O: Journal of Risk and Reliability 0, 0 (2022), 1748006X221098272.<https://doi.org/10.1177/1748006X221098272> arXiv[:https://doi.org/10.1177/1748006X221098272](https://arxiv.org/abs/https://doi.org/10.1177/1748006X221098272)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How to efficiently extract and integrate knowledge from diverse, unstructured enterprise documents using knowledge graphs?
+- **Methodology**: Develop unified framework (Docs2KG) for extracting multimodal information; support heterogeneous document types: emails, web pages, PDFs, Excel files; dynamically generate knowledge graphs using large language models.
+- **Key Findings**: Flexible, extensible knowledge graph construction; supports multiple document structures and content types; improved domain interpretability; enables efficient querying of document data lakes.
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: Not explicitly stated in the abstract.
+- **Research Gaps**: 
+- **Future Work**: Potential for broader enterprise knowledge management; exploring more diverse document integration techniques.
+- **Conclusion**: Provides practical solution for enterprise knowledge management from unstructured documents.
+
+### Implementation Notes
+Demonstrates practical approach to heterogeneous document integration using LLMs for knowledge graph construction in enterprise environments.

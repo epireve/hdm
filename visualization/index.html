@@ -6,8 +6,85 @@
     <title>HDM Research Knowledge Graph</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Navigation Styles */
+        .nav-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <h2 class="nav-title">🕸️ Interactive Knowledge Graph</h2>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">🏠 Home</a>
+                <a href="../research_findings.html" class="nav-link">📊 Paper Browser</a>
+                <a href="index.html" class="nav-link active">🕸️ Knowledge Graph</a>
+                <a href="https://github.com/epireve/hdm" class="nav-link" target="_blank">📱 GitHub</a>
+            </div>
+        </div>
+    </nav>
+
     <div id="header">
         <h1>Human Digital Memory - Research Knowledge Graph</h1>
         <div id="stats">

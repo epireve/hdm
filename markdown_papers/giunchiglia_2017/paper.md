@@ -7,9 +7,8 @@ doi: 10.48550/ARXIV.2205.10123
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2206.10212_A_Context_Model_for_Personal_Data_Streams
-images_total: 1
-images_kept: 1
-images_removed: 0
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - IoT
 - Knowledge Graph
@@ -61,6 +60,12 @@ marcelo.rodasbritez }@unitn.it
 Abstract. We propose a model of the situational context of a person and show how it can be used to organize and, consequently, reason about massive streams of sensor data and annotations, as they can be collected from mobile devices, e.g. smartphones, smartwatches or fitness trackers. The proposed model is validated on a very large dataset about the everyday life of one hundred and fifty-eight people over four weeks, twenty-four hours a day.
 
 Keywords: Personal Situational Context · Data Streams.
+
+## TL;DR
+Framework for organizing heterogeneous personal data streams as temporal sequences of contexts
+
+## Key Insights
+Personal data streams organized as temporal sequences of situational contexts using Knowledge Graphs for heterogeneous data integration
 
 ## 1 Introduction
 
@@ -238,3 +243,19 @@ This paper proposes a model of the situational context of a person and it shows 
 - <span id="page-7-15"></span>18. Zeni, M., Zaihrayeu, I., Giunchiglia, F.: Multi-device activity logging. In: Proceedings of ACM - UBICOMP: Adjunct Publication. pp. 299–302 (2014)
 - <span id="page-7-17"></span>19. Zeni, M., Zhang, W., Bignotti, E., Passerini, A., Giunchiglia, F.: Fixing mislabeling by human annotators leveraging conflict resolution and prior knowledge. Proceedings of ACM - IMWUT 3(1), 1–23 (2019)
 - <span id="page-7-18"></span>20. Zhang, W., Shen, Q., Teso, S., Lepri, B., Passerini, A., Bison, I., Giunchiglia, F.: Putting human behavior predictability in context. EPJ Data Science 10(1), 42 (2021)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: \"Personal data streams organized as temporal sequences of situational contexts using Knowledge Graphs with Entity Type Graphs (ETGs) for schema definition; validated on Smart University dataset with 158 participants and 139
+- **Methodology**: 239 annotations over 4 weeks; demonstrates space-time localized scenario modeling for heterogeneous data integration\"
+- **Key Findings**: \"Proposes Entity Type Graph (ETG) framework for representing personal data streams as temporal sequences of situational contexts using Knowledge Graphs.\"
+- **Primary Outcomes**: \"This paper presents a comprehensive framework for organizing massive streams of heterogeneous personal data (sensor data
+
+### Analysis
+- **Limitations**:  annotations
+- **Research Gaps**:  populated by persons
+- **Future Work**:  objects
+- **Conclusion**:  user feedback) into temporal sequences of situational contexts represented as Knowledge Graphs. The core innovation is the Entity Type Graph (ETG) - an Enhanced Entity-Relationship model that provides schema-level organization for personal data streams. The framework models situational context as space-time localized scenarios defined by location L(C) and events E(L(C))
+
+### Implementation Notes
+- **functions**:

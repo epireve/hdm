@@ -7,9 +7,6 @@ doi: 10.1145/3510455.3512788
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_arxiv_2201.04876_Towards_a_Reference_Software_Architecture_for_Human-AI_Teaming_in_Smart_Manufact
-images_total: 1
-images_kept: 1
-images_removed: 0
 tags:
 - IoT
 - Knowledge Graph
@@ -23,6 +20,8 @@ keywords:
 - knowledge graphs
 - large-scale
 - machine learning
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Towards a Reference Software Architecture for Human-AI Teaming in Smart Manufacturing
@@ -34,6 +33,12 @@ Maqbool Khan maqbool.khan@fecid.paf-iast.edu.pk Pak-Austria Fachhochschule - Ins
 ## ABSTRACT
 
 With the proliferation of AI-enabled software systems in smart manufacturing, the role of such systems moves away from a reactive to a proactive role that provides context-specific support to manufacturing operators. In the frame of the EU funded Teaming.AI project, we identified the monitoring of teaming aspects in human-AI collaboration, the runtime monitoring and validation of ethical policies, and the support for experimentation with data and machine learning algorithms as the most relevant challenges for human-AI teaming in smart manufacturing. Based on these challenges, we developed a reference software architecture based on knowledge graphs, tracking and scene analysis, and components for relational machine learning with a particular focus on its scalability. Our approach uses knowledge graphs to capture productand process specific knowledge in the manufacturing process and to utilize it for relational machine learning. This allows for contextspecific recommendations for actions in the manufacturing process for the optimization of product quality and the prevention of physical harm. The empirical validation of this software architecture will be conducted in cooperation with three large-scale companies in the automotive, energy systems, and precision machining domain. In this paper we discuss the identified challenges for such a reference software architecture, present its preliminary status, and sketch our further research vision in this project.
+
+## TL;DR
+Reference software architecture for human-AI teaming in smart manufacturing using Lambda architecture pattern, knowledge graphs, and relational machine learning to enable context-specific recommendations and real-time collaboration.
+
+## Key Insights
+Lambda architecture pattern for manufacturing with knowledge graphs and relational machine learning that addresses different latency requirements for heterogeneous data processing; demonstrates practical implementation of temporal-first architecture principles with real-time IIoT data integration and context-specific decision support capabilities essential for bespoke PKG system development.
 
 ## CCS CONCEPTS
 
@@ -194,3 +199,19 @@ Knowledge Graphs via Event-Enhanced Embedding. In Proceedings of ISWC 2018 Poste
 - <span id="page-4-12"></span>[29] Ville Vakkuri, Kai-Kristian Kemell, and Pekka Abrahamsson. 2019. Ethically Aligned Design: An Empirical Evaluation of the RESOLVEDD-Strategy in Software and Systems Development Context. In 2019 45th Euromicro Conference on Software Engineering and Advanced Applications (SEAA). 46–50. [https:](https://doi.org/10.1109/SEAA.2019.00015) [//doi.org/10.1109/SEAA.2019.00015](https://doi.org/10.1109/SEAA.2019.00015)
 - <span id="page-4-13"></span>[30] Ville Vakkuri, Kai-Kristian Kemell, Marianna Jantunen, Erika Halme, and Pekka Abrahamsson. 2021. ECCOLA — A method for implementing ethically aligned AI systems. Journal of Systems and Software 182 (2021), 111067. [https://doi.org/](https://doi.org/10.1016/j.jss.2021.111067) [10.1016/j.jss.2021.111067](https://doi.org/10.1016/j.jss.2021.111067)
 - <span id="page-4-18"></span>[31] James Warren and Nathan Marz. 2015. Big Data: Principles and best practices of scalable realtime data systems (1st edition). Manning.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can software architecture effectively support human-AI teaming in smart manufacturing environments while addressing scalability, ethics, and real-time processing requirements?
+- **Methodology**: Reference architecture design methodology; Lambda architecture pattern implementation; Knowledge graph engineering with static/dynamic separation; Relational machine learning integration; Multi-domain validation planning across automotive, energy systems, and precision machining; Expert workshop analysis with researchers from software engineering, knowledge engineering, machine learning, computer vision, and human factors
+- **Key Findings**: Lambda architecture successfully addresses different latency requirements through three-layer organization; Knowledge graphs effectively capture manufacturing knowledge with separation of static models and dynamic operational data; Relational machine learning enables context-specific recommendations and safety warnings; Architecture demonstrates scalability potential for near-realtime IIoT data processing; Framework provides systematic approach to runtime ethical policy monitoring; Teaming engine successfully orchestrates human-AI interaction workflows
+- **Primary Outcomes**: Reference software architecture for human-AI teaming in smart manufacturing; Lambda architecture pattern implementation with batch/speed/serving layers; Knowledge graph framework with static/dynamic subgraph separation; Relational machine learning integration system; Teaming engine for orchestrating human-AI collaboration; Runtime ethical policy monitoring framework; Multi-domain validation methodology across three industrial sectors
+   
+### Analysis
+- **Limitations**: Preliminary status without comprehensive empirical validation; Implementation complexity may challenge practical deployment; Scalability claims require quantitative validation under heavy load; Limited exploration of cross-domain knowledge transfer; Ethical policy formalization methodology needs further development; Architecture framework remains technology-agnostic requiring domain-specific instantiation
+- **Research Gaps**: Need for comprehensive empirical validation across diverse manufacturing contexts; Limited quantitative analysis of scalability and consistency under heavy load; Insufficient exploration of cross-domain applicability and knowledge transfer; Missing detailed ethical policy formalization methodologies; Gap between reference architecture and concrete technology implementations
+- **Future Work**: Validate reference architecture with three industrial partners in automotive, energy systems, and precision machining; Conduct expert interviews with software architects and manufacturing operators; Perform quantitative validation using runtime probes for scalability assessment; Develop concrete technology implementations; Enhance ethical policy monitoring frameworks
+- **Conclusion**: Reference architecture provides viable framework for human-AI teaming in smart manufacturing; Lambda architecture pattern effectively addresses heterogeneous data processing requirements; Knowledge graph integration successfully captures manufacturing domain knowledge; Relational machine learning enables intelligent context-aware recommendations; Framework demonstrates potential for scalable real-time collaboration systems
+   
+### Implementation Notes
+Lambda architecture provides proven pattern for managing different latency requirements in heterogeneous data environments; Static/dynamic knowledge graph separation offers effective schema organization for temporal-first architectures; Relational machine learning integration demonstrates practical approach for context-aware PKG systems; Teaming engine concept applicable to human-AI collaboration in HDM interfaces; Runtime policy monitoring framework relevant for ethical AI governance in personal data systems; Multi-domain validation approach provides template for bespoke PKG system evaluation

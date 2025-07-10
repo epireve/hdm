@@ -1,0 +1,24 @@
+2025-07-10 19:42:25,960 - standardization - INFO - Kilocode configuration loaded successfully
+2025-07-10 19:42:25,967 - standardization - INFO - Loaded 358 papers from CSV
+2025-07-10 19:42:25,967 - standardization - INFO - Loaded existing state: 354 completed
+2025-07-10 19:42:25,967 - standardization - INFO - Resuming concurrent paper standardization
+2025-07-10 19:42:25,968 - standardization - INFO - Max workers: 2
+2025-07-10 19:42:25,970 - standardization - INFO - Total papers: 359, Completed: 354, To process: 5
+2025-07-10 19:42:25,970 - standardization - INFO - Backups will be saved to: paper_backups_20250710_194225
+2025-07-10 19:42:25,970 - standardization - INFO - Processing 5 papers...
+2025-07-10 19:45:26,759 - standardization - INFO - Kilocode configuration loaded successfully
+2025-07-10 19:45:26,766 - standardization - INFO - Loaded 358 papers from CSV
+2025-07-10 21:35:40,469 - standardization - INFO - Kilocode configuration loaded successfully
+2025-07-10 21:35:40,477 - standardization - INFO - Loaded 358 papers from CSV
+2025-07-10 21:35:40,477 - standardization - INFO - Resuming concurrent paper standardization
+2025-07-10 21:35:40,477 - standardization - INFO - Max workers: 4
+2025-07-10 21:35:40,482 - standardization - INFO - Total papers: 359, Completed: 0, To process: 359
+2025-07-10 21:35:40,482 - standardization - INFO - Backups will be saved to: paper_backups_20250710_213540
+2025-07-10 21:35:40,482 - standardization - INFO - Processing 359 papers...
+2025-07-10 21:37:56,902 - standardization - INFO - Kilocode configuration loaded successfully
+2025-07-10 21:37:56,911 - standardization - INFO - Loaded 358 papers from CSV
+2025-07-10 21:37:56,911 - standardization - INFO - Resuming concurrent paper standardization
+2025-07-10 21:37:56,911 - standardization - INFO - Max workers: 4
+2025-07-10 21:37:56,915 - standardization - INFO - Total papers: 359, Completed: 0, To process: 359
+2025-07-10 21:37:56,915 - standardization - INFO - Backups will be saved to: paper_backups_20250710_213756
+2025-07-10 21:37:56,915 - standardization - INFO - Processing 359 papers...

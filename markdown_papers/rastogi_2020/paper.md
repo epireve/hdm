@@ -23,6 +23,8 @@ tags:
   - "Data Integration"
   - "Patient Centered Care"
   - "AI"
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Personal Health Knowledge Graphs for Patients
@@ -32,6 +34,12 @@ Nidhi Rastogi, Ph.D.<sup>1</sup> , Mohammed J. Zaki, Ph.D.<sup>1</sup> <sup>1</s
 ## Abstract
 
 Existing patient data analytics platforms fail to incorporate information that has context, is personal, and topical to patients. For a recommendation system to give a suitable response to a query or to derive meaningful insights from patient data, it should consider personal information about the patient's health history, including but not limited to their preferences, locations, and life choices that are currently applicable to them. In this review paper, we critique existing literature in this space and also discuss the various research challenges that come with designing, building, and operationalizing a personal health knowledge graph (PHKG) for patients. Keywords : *Personal Health Knowledge Graphs, Knowledge Graphs, Diabetes.*
+
+## TL;DR
+Review of challenges in designing, building, and operationalizing personal health knowledge graphs for personalized healthcare.
+
+## Key Insights
+Existing patient data platforms \"fail to incorporate information that has context, is personal, and topical to patients\". Recommendation systems need to consider patient's health history, personal preferences, locations, and life choices.
 
 ### 1 Introduction
 
@@ -94,3 +102,19 @@ This figure "Charts2.jpeg" is available in "jpeg" format from:
 This figure "Charts3.jpeg" is available in "jpeg" format from:
 
 <http://arxiv.org/ps/2004.00071v2>
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can patient data analytics platforms incorporate contextual, personal, and topical health information more effectively?
+- **Methodology**: Review and critique of existing literature on personal health knowledge graphs (PHKG).
+- **Key Findings**: Identified research challenges in designing, building, and operationalizing PHKGs; highlighted need for more personalized health data integration.
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: Lack of contextual and personalized health data representation; limited approaches for integrating diverse patient information.
+- **Research Gaps**: 
+- **Future Work**: Develop more sophisticated PHKG architectures; improve data fusion techniques for heterogeneous health data.
+- **Conclusion**: Highlights critical need for more sophisticated health data modeling that incorporates personal context and preferences.
+
+### Implementation Notes
+Provides guidance for healthcare PKG implementation focusing on contextual, personal, and topical health information integration.

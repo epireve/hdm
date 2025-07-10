@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Digital Memory (HDM) Research</title>
+    <meta name="description" content="Academic literature review on Human Digital Memory systems focusing on heterogeneous data integration in Personal Knowledge Graph architectures">
+    <meta name="keywords" content="Human Digital Memory, HDM, Personal Knowledge Graph, PKG, heterogeneous data integration, temporal architecture, literature review">
+    <meta name="author" content="Firdaus Adib">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            font-size: 1em;
+            color: #34495e;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px 25px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            border: 2px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tools-section {
+            margin-top: 40px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tool-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .tool-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .tool-description {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .tool-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .tool-features li {
+            padding: 5px 0;
+            color: #95a5a6;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .tool-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .tool-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .tool-button:hover {
+            background: linear-gradient(135deg, #2980b9, #21618c);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);
+        }
+        
+        .tool-button.secondary {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .tool-button.secondary:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #7f8c8d;
+        }
+        
+        .github-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Human Digital Memory Research</h1>
+            <p class="subtitle">Literature Review: Heterogeneous Data Integration in Personal Knowledge Graph Architectures</p>
+            <p class="description">
+                This collection presents a systematic analysis of Human Digital Memory (HDM) systems, focusing on 
+                heterogeneous data integration within Personal Knowledge Graph architectures. The research examines 
+                temporal-first design principles and upstream data orchestration approaches across contemporary 
+                academic literature, with particular attention to bespoke system implementations for multi-source 
+                data environments.
+            </p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">358</span>
+                    <span class="stat-label">Research Papers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2020-2025</span>
+                    <span class="stat-label">Publication Period</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">21</span>
+                    <span class="stat-label">Analysis Fields</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Multiple</span>
+                    <span class="stat-label">Research Domains</span>
+                </div>
+            </div>
+        </header>
+        
+        <section class="tools-section">
+            <h2 class="section-title">Literature Analysis Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3 class="tool-title">Paper Browser</h3>
+                    <p class="tool-description">
+                        Systematic literature browser providing structured access to analyzed papers. Each entry 
+                        includes comprehensive metadata across 21 analytical dimensions including methodology, 
+                        findings, limitations, and implementation considerations.
+                    </p>
+                    <ul class="tool-features">
+                        <li>Filtering by relevancy, publication year, and research themes</li>
+                        <li>Detailed paper analysis with structured fields</li>
+                        <li>Direct access to paper sources and DOIs</li>
+                        <li>Search functionality across all fields</li>
+                    </ul>
+                    <a href="research_findings.html" class="tool-button">Browse Literature</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🕸️</div>
+                    <h3 class="tool-title">Knowledge Graph Visualization</h3>
+                    <p class="tool-description">
+                        Network visualization displaying relationships between papers, authors, and research themes. 
+                        Provides an interactive overview of the research landscape and conceptual connections 
+                        within the HDM domain.
+                    </p>
+                    <ul class="tool-features">
+                        <li>Interactive network visualization</li>
+                        <li>Author and paper relationship mapping</li>
+                        <li>Thematic clustering visualization</li>
+                        <li>Temporal publication analysis</li>
+                    </ul>
+                    <a href="visualization/index.html" class="tool-button secondary">View Knowledge Graph</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tools-section">
+            <h2 class="section-title">Key Research Areas</h2>
+            <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); margin-top: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4 style="color: #3498db; margin-bottom: 8px; font-size: 1em;">Heterogeneous Data Integration</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9em; line-height: 1.4;">Multi-modal data fusion approaches, schema harmonization techniques, and upstream data orchestration methodologies</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #e74c3c; margin-bottom: 8px; font-size: 1em;">Temporal-First Architecture</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9em; line-height: 1.4;">Time-centric modeling approaches for improved performance in multi-source query environments</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #f39c12; margin-bottom: 8px; font-size: 1em;">Domain-Specific Implementation</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9em; line-height: 1.4;">Specialized PKG architectures for healthcare, educational, and enterprise data integration contexts</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #27ae60; margin-bottom: 8px; font-size: 1em;">Adaptive Schema Design</h4>
+                        <p style="color: #7f8c8d; font-size: 0.9em; line-height: 1.4;">Dynamic schema evolution patterns for responsive data integration frameworks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Human Digital Memory Literature Review | <a href="https://github.com/epireve/hdm" class="github-link">GitHub Repository</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Compiled by <strong>Firdaus Adib</strong> • Systematic Literature Review • 2020-2025</p>
+        </footer>
+    </div>
+</body>
+</html>

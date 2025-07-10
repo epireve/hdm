@@ -6,9 +6,6 @@ year: 2013
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2308.06653_Smart_Knowledge_Transfer_using_Google-like_Search
-images_total: 2
-images_kept: 2
-images_removed: 0
 tags:
 - Machine Learning
 - Natural Language Processing
@@ -45,6 +42,8 @@ keywords:
 - free-form
 - neha
 - ontology
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Smart Knowledge Transfer using Google-like Search
@@ -55,6 +54,12 @@ Partha Pratim Das Department of Computer Science and Engineering Indian Institut
 
 **Abstract:** To address the issue of rising software maintenance cost due to program comprehension challenges, we propose SMARTKT (Smart Knowledge Transfer), a search framework, which extracts and integrates knowledge related to various aspects of an application in form of a semantic graph. This graph supports syntax and semantic queries and converts the process of program comprehension into a *google-like*search problem.
 **Index Terms:** Program Comprehension, Knowledge Transfer, Machine Learning, Natural Language Processing, Semantic Graph
+
+## TL;DR
+Research on smart knowledge transfer using google-like search providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 In the last three decades, software maintenance cost has risen to 90% of the total *Software Development Life Cycle*(SDLC) cost [\[9\]](#page-2-0), [\[10\]](#page-2-1), [\[15\]](#page-2-2). Surveys conducted in [\[14\]](#page-2-3), [\[30\]](#page-2-4) conclude that as 80% of the maintenance tasks are adaptive and perfective [\[27\]](#page-2-5), hence the absence of an integrated framework or assistance for knowledge transfer (KT) to lessen program comprehension challenges contributes primarily to this rising cost. To execute a maintenance task, developers spend the majority of their time to manually search and mine source files and other knowledge sources like design documents, defect and version trackers, emails and the like, taking mental notes or scribbling the mappings, in an attempt to infer an overall knowledge about the design, behaviour and evolution of the application [\[30\]](#page-2-4), [\[25\]](#page-2-6) so as to subsequently locate the relevant code sections and their dependencies. However, in most cases, documents are dated with missing information, tracker systems are not updated properly and help from earlier developers are scanty or not available. Due to these factors, coupled with frequent interruptions [\[14\]](#page-2-3) for attending calls or meetings, the developers get involved in a tedious and inefficient process of building, revalidating and rebuilding their understanding of the application and resort to quick fixes which introduces hidden errors that cannot be removed by re-running the golden test cases [\[30\]](#page-2-4).
 
@@ -158,3 +163,18 @@ A prototype of SMARTKT to extract software development and application oriented 
 - <span id="page-2-24"></span>[36] Ueli Wahli et al. Software configuration management a clear case for ibm rational clearcase and clearquest ucm, dec. 2004. *IBM,*.
 - <span id="page-2-35"></span>[37] Emo Welzl. Partition trees for triangle counting and other range searching problems. In *Annual symposium on Computational geometry*, pages 23–33. ACM, 1988.
 - <span id="page-2-34"></span>[38] Wenpu Xing and Ali Ghorbani. Weighted pagerank algorithm. In *Communication Networks and Services Research*, pages 305–314. IEEE, 2004.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

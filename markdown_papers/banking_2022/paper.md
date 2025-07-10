@@ -17,10 +17,9 @@ tags:
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_arxiv_2505.06885_Incremental_Analysis_of_Legacy_Applications_Using_Knowledge_Graphs_for_Applicati
-images_total: 7
-images_kept: 6
-images_removed: 1
 keywords: 
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Incremental Analysis of Legacy Applica4ons Using Knowledge Graphs for Applica4on Moderniza4on
@@ -36,6 +35,12 @@ Keerthi Narayan Raghunath David Wenk keerag09@in.ibm.com dwenk@us.ibm.com IBM Co
 Industries such as banking, telecom, and airlines - o6en have large so6ware systems that are several decades old. Many of these systems are wri=en in old programming languages such as COBOL, PL/1, Assembler, etc. In many cases, the documentaGon is not updated, and those who developed/designed these systems are no longer around. Understanding these systems for either modernizaGon or even regular maintenance has been a challenge. An extensive applicaGon may have *natural*boundaries based on its code dependencies and architecture. There are also other*logical*boundaries in an enterprise seLng driven by business funcGons, data domains, etc. Due to these complicaGons, the system architects generally plan their modernizaGon across these logical boundaries in*parts*, thereby adopGng an *incremental*approach for the modernizaGon journey of the enGre system.
 
 In this work, we present a so6ware system analysis tool that allows a subject ma=er expert (SME) or system architect to analyze a large so6ware system incrementally. We analyze the source code and other arGfacts (such as data schema) to create a knowledge graph using a customizable ontology/schema. EnGGes and relaGons in our ontology can be defined for any combinaGon of programming languages and plaVorms. Using this knowledge graph, the analyst can then define logical boundaries around dependent EnGGes (e.g. Programs, TransacGons, Database Tables etc.). Our tool then presents different views showcasing the dependencies from the newly defined boundary to/from the other logical groups of the system. This exercise is repeated interacGvely to 1) IdenGfy the EnGGes and groupings of interest for a modernizaGon task and 2) Understand how a change in one part of the system may affect the other parts. To validate the efficacy of our tool, we provide an iniGal study of our system on two client applicaGons.
+
+## TL;DR
+The paper presents a tool that uses a knowledge graph to analyze large legacy software systems, allowing experts to incrementally define and analyze parts of the system for modernization.
+
+## Key Insights
+The key insight is that a knowledge graph can serve as a powerful abstraction layer for understanding and analyzing large, complex legacy codebases. By representing code artifacts (programs, transactions, tables) and their dependencies as a KG, it becomes possible to perform incremental analysis, identify logical boundaries, and plan modernization efforts without getting lost in the low-level code details.
 
 2022 Copyright held by the owner/author(s).
 
@@ -183,3 +188,19 @@ System performance : An iniGal study of applying the above demo scenarios on Gen
 - [3] IBM. 2021. *IBM ApplicaAon Discovery and Delivery Intelligence - Overview*. Retrieved August 12, 2021 fro[m h\\_ps://www.ibm.com/in](https://www.ibm.com/in)[en/products/appdiscoveryand-delivery-intelligence](https://www.ibm.com/in-en/products/app-discovery-and-delivery-intelligence)
 - [4] Neo4j. 2020. *Neo4j Main page*. Retrieved August 12, 2021 from [h\\_ps://neo4j.com/](https://neo4j.com/)
 - [5] Amazon Web Services. 2020. *ApplicaAon MigraAon Strategies*. Retrieved August 12, 2021 fro[m h\\_ps://docs.aws.amazon.com/whitepapers/latest/aws-migrabon](https://docs.aws.amazon.com/whitepapers/latest/aws-migration-whitepaper/welcome.html)[whitepaper/welcome.html](https://docs.aws.amazon.com/whitepapers/latest/aws-migration-whitepaper/welcome.html)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can a large legacy software system be analyzed incrementally to support its modernization?
+- **Methodology**: The authors developed a software analysis tool that: 1) Uses a staGc analyzer (ADDI) to parse legacy source code. 2) Creates a knowledge graph in a Neo4j database using a custom, language-agnosGc ontology to represent code arGfacts and their relaGonships. 3) Allows a user (SME/architect) to interacGvely define "increments" (logical groups of arGfacts) and analyzes the dependencies (inside-out and outside-in edges) between the increment and the rest of the system.
+- **Key Findings**: The knowledge graph approach allows for an effective incremental analysis of complex legacy systems. It successfully abstracts away the complexity of the underlying code, enabling SMEs to identify logical boundaries and dependencies for modernization. The tool was validated on two client applications, showing a 20% increase in productivity.
+- **Primary Outcomes**: The primary outcome is the tool itself, which provides a practical solution for the incremental analysis of legacy applications using knowledge graphs.
+
+### Analysis
+- **Limitations**: The current tool relies on staGc analysis. The quality of the analysis depends on the completeness of the staGc analyzer and the richness of the ontology defined by SMEs.
+- **Research Gaps**: The paper suggests that future work should go beyond staGc analysis to include insights from data within the applicaGon (e.g., tables) and from operaGonal logs.
+- **Future Work**: Future work includes understanding the data of the applicaGon (e.g., tables) and extracGng insights from operaGonal logs to enrich the knowledge graph.
+- **Conclusion**: The paper concludes that using a knowledge graph for incremental analysis is a beneficial approach for modernizing legacy applications. It provides a structured way to understand complex dependencies and plan modernization efforts effectively.
+
+### Implementation Notes
+A key implementation insight is the use of a language-agnosGc ontology, which makes the approach extensible to different legacy systems. Using a graph database like Neo4j allows for efficient traversal and analysis of the complex dependencies within the software system. The concept of "increments" with "inside-out" and "outside-in" dependency analysis is a practical pa=ern for managing the complexity of modernizaGon projects.

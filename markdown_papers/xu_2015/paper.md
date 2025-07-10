@@ -1,3 +1,4 @@
+```
 ---
 cite_key: xu_2015
 title: Viewpoints Future Research Directions of Software Engineering and Knowledge Engineering¤
@@ -7,9 +8,8 @@ doi: 10.1142/S0218194015500035
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: xu2015
-images_total: 3
-images_kept: 2
-images_removed: 1
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Decision Support
 - Knowledge Graph
@@ -58,9 +58,15 @@ Computer and Information Science Department University of Massachusetts Dartmout
 
 > Received 18 July 2014 Accepted 22 November 2014
 
-Software Engineering (SE) and Knowledge Engineering (KE) are closely related disciplines with goals of turning the development process of software systems and knowledge-based systems, respectively, into engineering disciplines. In particular, they together can provide systematic approaches for engineering intelligent software systems more e±ciently and cost-e®ectively. As there is a large overlap between the two disciplines, the interplay is vital for both to be successful. In this paper, we divide the intersection of SE and KE into three subareas, namely Knowledge-Supported Software Engineering (KSSE), Engineering Knowledge as a Software (EKaaS), and Intelligent Software System Engineering (ISSE). For each subarea, we describe the challenges along with the current trends, and predict the future research directions that may have the most potential for success.
+> Software Engineering (SE) and Knowledge Engineering (KE) are closely related disciplines with goals of turning the development process of software systems and knowledge-based systems, respectively, into engineering disciplines. In particular, they together can provide systematic approaches for engineering intelligent software systems more e±ciently and cost-e®ectively. As there is a large overlap between the two disciplines, the interplay is vital for both to be successful. In this paper, we divide the intersection of SE and KE into three subareas, namely Knowledge-Supported Software Engineering (KSSE), Engineering Knowledge as a Software (EKaaS), and Intelligent Software System Engineering (ISSE). For each subarea, we describe the challenges along with the current trends, and predict the future research directions that may have the most potential for success.
 
-Keywords: Software engineering; knowledge engineering; knowledge-supported software engineering; intelligent software systems; knowledge as a software.
+> Keywords: Software engineering; knowledge engineering; knowledge-supported software engineering; intelligent software systems; knowledge as a software.
+
+## TL;DR
+Research on viewpoints future research directions of software engineering and knowledge engineering¤ providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## Introduction
 
@@ -127,3 +133,18 @@ The author appreciates the support and guidance from Dr. S. K. Chang, Editor-in-
 - 10. A. Birk and T. Dings*ø*yr, Trends in learning software organizations: Current needs and future solutions, Professional Knowledge Management, LNCS Vol. 3782 (Springer, 2005), pp. 70–75.
 - 11. P. Bourque and R. E. Fairley (eds.), Guide to the Software Engineering Body of Knowledge, Version 3.0, IEEE Computer Society, 2014.
 - 12. A. E. Hassan and T. Xie, Software intelligence: The future of mining software engineering data, in Proc. of the FSE/SDP Workshop on Future of Software Engineering Research (FoSER 2010), November 7–11, 2010, Santa Fe, NM, USA, pp. 161–166.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

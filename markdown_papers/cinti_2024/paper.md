@@ -7,9 +7,8 @@ doi: 10.3390/jpm14060546
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: connected_digital_twins_pkg_healthcare_2024
-images_total: 5
-images_kept: 1
-images_removed: 4
+standardization_date: 2025-07-10
+standardization_version: 1.0
 tags:
 - Biomedical
 - Cancer
@@ -59,6 +58,13 @@ keywords:
 -**\***Correspondence: caterina.cinti@cnr.it (C.C.); mariagiovanna.trivella@cnr.it (M.G.T.)
 - † Lead of ICPerMed WG2.
 **Abstract:**In 2019, the International Consortium for Personalised Medicine (ICPerMed) developed a vision on how the use of personalized medicine (PM) approaches will promote "next-generation" medicine in 2030 more firmly centered on the individual's personal characteristics, leading to improved health outcomes within sustainable healthcare systems through research, development, innovation, and implementation for the benefit of patients, citizens, and society. Nevertheless, there are significant hurdles that healthcare professionals, researchers, policy makers, and patients must overcome to implement PM. The ICPerMed aims to provide recommendations to increase stakeholders' awareness on actionable measures to be implemented for the realization of PM. Starting with best practice examples of PM together with consultation of experts and stakeholders, a careful analysis that underlined hurdles, opportunities, recommendations, and information, aiming at developing knowledge on the requirements for PM implementation in healthcare practices, has been provided. A pragmatic roadmap has been defined for PM integration into healthcare systems, suggesting actions to overcome existing barriers and harness the potential of PM for improved health outcomes. In fact, to facilitate the adoption of PM by diverse stakeholders, it is mandatory to have a comprehensive set of resources tailored to stakeholder needs in critical areas of PM. These include engagement strategies, collaboration frameworks, infrastructure development, education and training programs, ethical considerations, resource allocation guidelines, regulatory compliance, and data management and privacy.
+
+## TL;DR
+Research on the roadmap toward personalized medicine: challenges and opportunities providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
+
 **Keywords:**personalized medicine; ICPerMed; healthcare; health data; precision medicine
 
 ## 1. Introduction
@@ -142,7 +148,7 @@ Furthermore, some identified critical issues are represented in Table [1.](#page
 <span id="page-4-0"></span>**Table 1.**Critical issues for personalized medicine accessibility.
 
 | Critical Issues for Personalized Medicine<br>Accessibility | Underlying Healthcare Systems Challenges | Stakeholders |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Challenges created by the digital divide, in the<br>context of a progressively aging population | Health inequalities and digital health<br>integration | Home and community care services, patient<br>advocacy groups, public health authorities,<br>technology and telehealth providers |
 | Cultural differences | Health inequalities | Healthcare providers, policy makers,<br>healthcare regulators |
 | Public awareness and acceptance | People empowerment and self-management | Researchers, healthcare providers, patient<br>advocacy groups |
@@ -206,3 +212,18 @@ In conclusion, this ICPerMed document, "Challenges, Opportunities, and Facilitat
 - <span id="page-7-14"></span>18. Twilt, J.J.; van Leeuwen, K.G.; Huisman, H.J.; Fütterer, J.J.; de Rooij, M. Artificial Intelligence Based Algorithms for Prostate Cancer Classification and Detection on Magnetic Resonance Imaging: A Narrative Review. *Diagnostics* **2021**, *11*, 959. [\[CrossRef\]](https://doi.org/10.3390/diagnostics11060959) [\[PubMed\]](https://www.ncbi.nlm.nih.gov/pubmed/34073627)
 
 **Disclaimer/Publisher's Note:** The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

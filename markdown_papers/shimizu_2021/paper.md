@@ -7,9 +7,6 @@ doi: 10.1007/978-3-030-77385-4
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2305.02077_An_Ontology_Design_Pattern_for_Role-Dependent_Names
-images_total: 3
-images_kept: 3
-images_removed: 0
 tags:
 - Machine Learning
 - Semantic Web
@@ -38,6 +35,8 @@ keywords:
 - spray-on
 - template-based
 - template-based content
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # An Ontology Design Pattern for Role-Dependent Names
@@ -47,6 +46,12 @@ Rushrukh Rayan1, Cogan Shimizu<sup>2</sup> , and Pascal Hitzler<sup>1</sup>
 > <sup>1</sup> Kansas State University, USA <sup>2</sup> Wright State University, USA
 
 Abstract. We present an ontology design pattern for modeling Names as part of Roles, to capture scenarios where an Agent performs different Roles using different Names associated with the different Roles. Examples of an Agent performing a Role using different Names are rather ubiquitous, e.g., authors who write under different pseudonyms, or different legal names for citizens of more than one country. The proposed pattern is a modified merger of a standard Agent Role and a standard Name pattern stub.
+
+## TL;DR
+Research on an ontology design pattern for role-dependent names providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -171,3 +176,18 @@ Acknowledgement. The authors acknowledge funding under the National Science Foun
 - <span id="page-5-2"></span>4. Shimizu, C., Hammar, K., Hitzler, P.: Modular graphical ontology engineering evaluated. In: Harth, A., Kirrane, S., Ngomo, A.N., Paulheim, H., Rula, A., Gentile, A.L., Haase, P., Cochez, M. (eds.) The Semantic Web – 17th International Conference, ESWC 2020, Heraklion, Crete, Greece, May 31-June 4, 2020, Proceedings. Lecture Notes in Computer Science, vol. 12123, pp. 20–35. Springer (2020). [https://doi.org/10.1007/978-3-030-49461-2](https://doi.org/10.1007/978-3-030-49461-2_2) 2, [https://doi.org/10.1007/](https://doi.org/10.1007/978-3-030-49461-2_2) [978-3-030-49461-2\\_2](https://doi.org/10.1007/978-3-030-49461-2_2)
 - <span id="page-5-0"></span>5. Shimizu, C., Hammar, K., Hitzler, P.: Modular ontology modeling. Semantic Web 14(3), 459–489 (2023). [https://doi.org/10.3233/SW-222886,](https://doi.org/10.3233/SW-222886) [https://doi.org/10.](https://doi.org/10.3233/SW-222886) [3233/SW-222886](https://doi.org/10.3233/SW-222886)
 - <span id="page-5-1"></span>6. Shimizu, C., Hirt, Q., Hitzler, P.: MODL: A modular ontology design library. In: Janowicz, K., Krisnadhi, A.A., Poveda-Villal´on, M., Hammar, K., Shimizu, C. (eds.) Proceedings of the 10th Workshop on Ontology Design and Patterns (WOP 2019) co-located with 18th International Semantic Web Conference (ISWC 2019), Auckland, New Zealand, October 27, 2019. CEUR Workshop Proceedings, vol. 2459, pp. 47–58. CEUR-WS.org (2019), <https://ceur-ws.org/Vol-2459/paper4.pdf>
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

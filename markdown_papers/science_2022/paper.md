@@ -21,6 +21,8 @@ tags:
   - "Heterogeneous Data"
   - "Educational Technology"
   - "SmartKG"
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # *Knowledge graph construction for computer networking course group in secondary vocational school based on multi-source heterogeneous data*
@@ -32,6 +34,12 @@ tags:
 *e-mail: wanghong106@163.com*
 
 **Abstract:** **—Computer science major in secondary vocational schools focuses on cultivating students' ability to solve complex engineering problems. Thus both theoretical and practical teaching of professional courses are critically important. Due to the rapid update of knowledge in the computer domain, it is becoming challenging to better integrate theory and practice knowledge for teaching with advanced intelligent information technology. This paper constructs the knowledge graph for the computer networking course group in secondary vocational schools. We first propose methods for data acquisition, keyword extraction, relationship extraction, and knowledge storage. Then, we describe the complete process for constructing the knowledge graph. Finally, we visualize the relationship between knowledge points for theoretical and practical courses with the tool SmartKG. Our proposed method provides new ideas for teaching computer courses in secondary vocational schools, which helps cultivate highquality skilled talents.**
+
+## TL;DR
+Educational knowledge graph construction from multiple heterogeneous data sources for computer networking courses using keyword and relationship extraction techniques.
+
+## Key Insights
+Addresses rapid knowledge updates in computer domains; integrates theoretical and practical learning; uses SmartKG tool for knowledge storage and visualization.
 
 ## *Keywords-computer networking course group, knowledge graph, SmartKG, secondary vocational schools*
 
@@ -240,3 +248,19 @@ This work is supported by the Shandong Undergraduate Teaching Reform Research (k
 - [9] Yang Mengmeng, Huang Hao, Cheng LuHong, Ma Ping, Bao WuJie. "Short text classification based on LDA theme model," Computer engineering and design, vol. 37, Dec. 2016, pp. 3371-3377, doi:10.16208/j.issn1000-7024.2016.12.044.
 - [10] Wang Gensheng, Huang Xuejian. "Convolutional neural network text classification model based on word2vec and improved TF-IDF," Small microcomputer system, vol. 40, May. 2019, pp. 1120-1126, doi:10.3969/j.issn.1000-1220.2019.05.036.
 - [11] Liu Xiaojian, Xie Fei, Wu Xindong. "Keyword extraction algorithm based on graph and LDA topic model," Journal of information science, vol. 35, Jun. 2016, pp. 664-672, doi:10.3772/j.issn.1000- 0135.2016.006.010.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can knowledge graphs constructed from multi-source heterogeneous data improve computer science education by integrating theoretical and practical knowledge?
+- **Methodology**: Used data acquisition from multiple heterogeneous sources, keyword extraction techniques, relationship extraction, and SmartKG tool for knowledge storage and visualization.
+- **Key Findings**: Provides new ideas for teaching computer courses and helps cultivate high-quality skilled talents by integrating theoretical and practical knowledge more effectively.
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: Abstract only - detailed evaluation of educational effectiveness and scalability not available.
+- **Research Gaps**: 
+- **Future Work**: Evaluate educational effectiveness, expand to other technical subjects, assess student learning outcomes.
+- **Conclusion**: Demonstrates practical application of KG construction from heterogeneous data sources in educational domain.
+
+### Implementation Notes
+Provides practical example of heterogeneous data integration for knowledge graph construction relevant to HDM system design.

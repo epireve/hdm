@@ -6,9 +6,6 @@ year: 2023
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2307.04772_Digital_Twins_for_Patient_Care_via_Knowledge_Graph
-images_total: 0
-images_kept: 0
-images_removed: 0
 tags:
 - Biomedical
 - Decision Support
@@ -50,13 +47,27 @@ keywords:
 - deep learning
 - diagnosis
 - domain-specific
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
-# *Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*Logan Nye, MD1,2 <sup>1</sup>SORG Orthopaedic Research Group <sup>2</sup>Department of Orthopaedic Surgery Massachusetts General Hospital
+# *Digital Twins for Patient Care via Knowledge Graphs and Closed-Form Continuous-Time Liquid Neural Networks*
 
-**Abstract:** **— Digital twin technology has is anticipated to transform healthcare, enabling personalized medicines and support, earlier diagnoses, simulated treatment outcomes, and optimized surgical plans. Digital twins are readily gaining traction in industries like manufacturing, supply chain logistics, and civil infrastructure. Not in patient care, however. The challenge of modeling complex diseases with multimodal patient data and the computational complexities of analyzing it have stifled digital twin adoption in the biomedical vertical. Yet, these major obstacles can potentially be handled by approaching these models in a different way. This paper proposes a novel framework for addressing the barriers to clinical twinmodeling created by computational costs and modeling complexities.We propose structuring patient health data as a knowledge graph and using closed-form continuous-time "liquid" neural networks (CfCs) for real-time analytics. By synthesizing multimodal patient data and leveraging the flexibility and efficiency of CfCs and knowledge graph ontologies, our approach enables real-time insights, personalized medicine, early diagnosis and intervention, and optimal surgical planning. This novel approach provides a comprehensive and adaptable view of patient health along with real-time analytics, paving the way for digital twin simulations and other anticipated benefits in healthcare.**
+Logan Nye, MD<sup>1,2</sup> 
+<sup>1</sup>SORG Orthopaedic Research Group 
+<sup>2</sup>Department of Orthopaedic Surgery Massachusetts General Hospital
 
-*Keywords—informatics, artificial intelligence, deep learning, decision support, clinical model, precision medicine,*## I. INTRODUCTION
+**Abstract:** — Digital twin technology has is anticipated to transform healthcare, enabling personalized medicines and support, earlier diagnoses, simulated treatment outcomes, and optimized surgical plans. Digital twins are readily gaining traction in industries like manufacturing, supply chain logistics, and civil infrastructure. Not in patient care, however. The challenge of modeling complex diseases with multimodal patient data and the computational complexities of analyzing it have stifled digital twin adoption in the biomedical vertical. Yet, these major obstacles can potentially be handled by approaching these models in a different way. This paper proposes a novel framework for addressing the barriers to clinical twinmodeling created by computational costs and modeling complexities. We propose structuring patient health data as a knowledge graph and using closed-form continuous-time "liquid" neural networks (CfCs) for real-time analytics. By synthesizing multimodal patient data and leveraging the flexibility and efficiency of CfCs and knowledge graph ontologies, our approach enables real-time insights, personalized medicine, early diagnosis and intervention, and optimal surgical planning. This novel approach provides a comprehensive and adaptable view of patient health along with real-time analytics, paving the way for digital twin simulations and other anticipated benefits in healthcare.
+
+## TL;DR
+Research on digital twins for patient care via knowledge graphs and closed-form continuous-time liquid neural networks providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+
+*Keywords—informatics, artificial intelligence, deep learning, decision support, clinical model, precision medicine,*
+
+## I. INTRODUCTION
 
 Digital twins are an emerging technology poised to revolutionize every sector of industry.
 
@@ -64,23 +75,30 @@ These same principles can logically carry to healthcare as well. Digital twins a
 
 ## II. DIGITAL TWIN TECHNOLOGY
 
-## *A. What Are Digital Twins?*Digital twins are virtual representations of physical entities, processes, or systems that leverage real-time data and advanced analytics to optimize performance, enable predictive maintenance, and drive innovation. In the healthcare industry, digital twins can revolutionize patient care, clinical research, and healthcare infrastructure management. The concept of digital twins first arose at NASA and gained traction after Gartner named digital twins as one of its top 10 strategic technology trends for 2017 [1]. They estimated that by 2020, 21 billion connected sensors and endpoints would enable digital twins for billions of things [2].
+## *A. What Are Digital Twins?*
+Digital twins are virtual representations of physical entities, processes, or systems that leverage real-time data and advanced analytics to optimize performance, enable predictive maintenance, and drive innovation. In the healthcare industry, digital twins can revolutionize patient care, clinical research, and healthcare infrastructure management. The concept of digital twins first arose at NASA and gained traction after Gartner named digital twins as one of its top 10 strategic technology trends for 2017 [1]. They estimated that by 2020, 21 billion connected sensors and endpoints would enable digital twins for billions of things [2].
 
-## *B. Digital Twins in Healthcare*A digital twin's architecture comprises three core components: the physical entity, the virtual representation, and the data management system [3]. These components are interconnected through an IoT (Internet of Things) network, enabling real-time synchronization and communication. In healthcare, the physical entity can range from an individual patient to an entire hospital. Data is collected through sensors, wearables, or other IoT devices, capturing vital parameters such as heart rate, blood pressure, and body temperature [4]. The virtual representation is a data-driven model that mirrors the physical entity's behavior, state, and properties. It is created using a combination of mathematical models, machine learning algorithms, and simulation techniques [5].
+## *B. Digital Twins in Healthcare*
+A digital twin's architecture comprises three core components: the physical entity, the virtual representation, and the data management system [3]. These components are interconnected through an IoT (Internet of Things) network, enabling real-time synchronization and communication. In healthcare, the physical entity can range from an individual patient to an entire hospital. Data is collected through sensors, wearables, or other IoT devices, capturing vital parameters such as heart rate, blood pressure, and body temperature [4]. The virtual representation is a data-driven model that mirrors the physical entity's behavior, state, and properties. It is created using a combination of mathematical models, machine learning algorithms, and simulation techniques [5].
 
-## *C. Twins-enabled Healthcare Analytics*Mathematical models are utilized to represent complex biological systems, such as organ function, metabolic pathways, or disease progression [6]. These models can be deterministic (e.g., differential equations) or stochastic (e.g., Monte Carlo simulations). Advanced analytics techniques, such as predictive analytics, prescriptive analytics, and real-time analytics, are applied to derive insights and facilitate decision-making [7]. These techniques often involve the application of machine learning and artificial intelligence algorithms, including supervised, unsupervised, and reinforcement learning techniques, which are employed to analyze and predict patterns within the collected data [8]. Deep learning architectures, such as convolutional neural networks (CNNs) and recurrent neural networks (RNNs), have shown promising results in modeling patient-specific medical conditions [9]. In addition, simulation techniques, like agent-based modeling and discrete event simulation, can be used to recreate the dynamic behavior of healthcare processes or systems, allowing for the evaluation of various intervention strategies and resource allocation scenarios [10,11].
+## *C. Twins-enabled Healthcare Analytics*
+Mathematical models are utilized to represent complex biological systems, such as organ function, metabolic pathways, or disease progression [6]. These models can be deterministic (e.g., differential equations) or stochastic (e.g., Monte Carlo simulations). Advanced analytics techniques, such as predictive analytics, prescriptive analytics, and real-time analytics, are applied to derive insights and facilitate decision-making [7]. These techniques often involve the application of machine learning and artificial intelligence algorithms, including supervised, unsupervised, and reinforcement learning techniques, which are employed to analyze and predict patterns within the collected data [8]. Deep learning architectures, such as convolutional neural networks (CNNs) and recurrent neural networks (RNNs), have shown promising results in modeling patient-specific medical conditions [9]. In addition, simulation techniques, like agent-based modeling and discrete event simulation, can be used to recreate the dynamic behavior of healthcare processes or systems, allowing for the evaluation of various intervention strategies and resource allocation scenarios [10,11].
 
-## *D. A Valuable Clinical Tool*Healthcare digital twins require secure, scalable, and efficient storage solutions to handle vast amounts of structured and unstructured data [12]. Technologies like distributed file systems (e.g., Hadoop Distributed File System) and cloud-based storage services are commonly used. Data processing involves cleaning, transforming, and integrating data from multiple sources to ensure accuracy and consistency. Techniques like data wrangling, normalization, and feature extraction are employed in this stage [13]. Digital twins are valuable to healthcare because they facilitate personalized medicine [14], enable early diagnosis and intervention [15], enhance clinical trials [16], support remote patient monitoring [17], optimize healthcare facilities [18], enable predictive maintenance [19], and improve medical education and training [20]. These benefits contribute to improved patient outcomes, operational efficiency, and cost savings in the healthcare industry.
+## *D. A Valuable Clinical Tool*
+Healthcare digital twins require secure, scalable, and efficient storage solutions to handle vast amounts of structured and unstructured data [12]. Technologies like distributed file systems (e.g., Hadoop Distributed File System) and cloud-based storage services are commonly used. Data processing involves cleaning, transforming, and integrating data from multiple sources to ensure accuracy and consistency. Techniques like data wrangling, normalization, and feature extraction are employed in this stage [13]. Digital twins are valuable to healthcare because they facilitate personalized medicine [14], enable early diagnosis and intervention [15], enhance clinical trials [16], support remote patient monitoring [17], optimize healthcare facilities [18], enable predictive maintenance [19], and improve medical education and training [20]. These benefits contribute to improved patient outcomes, operational efficiency, and cost savings in the healthcare industry.
 
 ## III. KNOWLEDGE GRAPHS
 
-## *A. What are Knowledge Graphs?*Knowledge graphs are a graph-based data structure for representing structured and semi-structured data [4]. By encoding entities as nodes and relationships as edges, knowledge graphs allow for complex querying and reasoning over large datasets, making them a natural choice for representing patient health data [5]. Medical ontologies, such as the Systematized Nomenclature of Medicine - Clinical Terms (SNOMED CT) [6] and the Human Phenotype Ontology (HPO) [7], provide the foundation for our knowledge graph representation, ensuring accurate and consistent terminology.
+## *A. What are Knowledge Graphs?*
+Knowledge graphs are a graph-based data structure for representing structured and semi-structured data [4]. By encoding entities as nodes and relationships as edges, knowledge graphs allow for complex querying and reasoning over large datasets, making them a natural choice for representing patient health data [5]. Medical ontologies, such as the Systematized Nomenclature of Medicine - Clinical Terms (SNOMED CT) [6] and the Human Phenotype Ontology (HPO) [7], provide the foundation for our knowledge graph representation, ensuring accurate and consistent terminology.
 
-## *B. Problems Solved by Knowledge Graphs*Knowledge graph is a modern and effective method for harmonizing enterprise data, allowing representation and operationalization
+## *B. Problems Solved by Knowledge Graphs*
+Knowledge graph is a modern and effective method for harmonizing enterprise data, allowing representation and operationalization
 
 Knowledge graph is a modern and effective method for harmonizing enterprise data, allowing representation and operationalization of data, data sources, and databases of all types. As we progress further into the AI era, the increasing amount of data is being utilized for business benefits and advantages, steadily transforming data into knowledge [32]. In this context, knowledge graphs are gaining popularity in enterprises that seek to connect the dots between the data world and the business world more effectively.
 
-## *C. Ontologies and Formal Semantics*Ontologies represent the backbone of the formal semantics of a knowledge graph. As the data schema of the graph, they serve as a contract between the developers of the knowledge graph and its users regarding the meaning of the data in it. A user could be another human being or a software application that wants to interpret the data in a reliable and precise way. Ontologies ensure a shared understanding of the data and its meanings. When formal semantics are used to express and interpret the data of a knowledge graph, there are a number of representation and modeling instruments.
+## *C. Ontologies and Formal Semantics*
+Ontologies represent the backbone of the formal semantics of a knowledge graph. As the data schema of the graph, they serve as a contract between the developers of the knowledge graph and its users regarding the meaning of the data in it. A user could be another human being or a software application that wants to interpret the data in a reliable and precise way. Ontologies ensure a shared understanding of the data and its meanings. When formal semantics are used to express and interpret the data of a knowledge graph, there are a number of representation and modeling instruments.
 
 ## Classes
 
@@ -112,7 +130,8 @@ Key characteristics of knowledge graphs include combining features of several da
 
 ## IV. LIQUID NEURAL NETWORKS
 
-## *A. Closed-Form Continuous-Time Liquid Neural Networks (CfCs).*Continuous-depth neural models, where the derivative of the model's hidden state is defined by a neural network, have facilitated advanced sequential data processing capabilities [18]. However, these models rely on advanced numerical differential equation (DE) solvers, resulting in substantial overhead in terms of computational cost and model complexity. Closed-form Continuous-depth (CfC) networks offer a solution to these limitations [35].
+## *A. Closed-Form Continuous-Time Liquid Neural Networks (CfCs).*
+Continuous-depth neural models, where the derivative of the model's hidden state is defined by a neural network, have facilitated advanced sequential data processing capabilities [18]. However, these models rely on advanced numerical differential equation (DE) solvers, resulting in substantial overhead in terms of computational cost and model complexity. Closed-form Continuous-depth (CfC) networks offer a solution to these limitations [35].
 
 CfC networks are derived from the analytical closedform solution of an expressive subset of time-continuous models, eliminating the need for complex DE solvers altogether [35]. Experimental evaluations have demonstrated that CfC networks outperform advanced recurrent models over a diverse set of time-series prediction tasks, including those with long-term dependencies and irregularly sampled data [35]. These findings open new opportunities to train and deploy rich, continuous neural models in resource-constrained settings that demand both performance and efficiency.
 
@@ -132,15 +151,18 @@ Moreover, CfCs, derived from liquid networks, demonstrate excellent performance 
 
 ## V. METHODOLOGY & APPLICATION
 
-## *A. Knowledge Graph Construction.*Our approach to constructing the knowledge graph involves three main steps: data collection, entity extraction, and relationship modeling. We gather data from electronic health records, clinical trials, and genomic databases to ensure a comprehensive representation of patient health. Entities such as diseases, symptoms, and treatments are extracted using natural language processing techniques [11] and linked to their corresponding concepts in established medical ontologies, such as SNOMED CT [6] and HPO [7]. Relationships between entities are modeled using both domain-specific and general-purpose relationship types [12], facilitating the integration of diverse data sources and enabling complex querying recorded values of 0.7362 and 0.7373, respectively, representing a considerable improvement compared to reported accuracy and reliability studies of the past.
+## *A. Knowledge Graph Construction.*
+Our approach to constructing the knowledge graph involves three main steps: data collection, entity extraction, and relationship modeling. We gather data from electronic health records, clinical trials, and genomic databases to ensure a comprehensive representation of patient health. Entities such as diseases, symptoms, and treatments are extracted using natural language processing techniques [11] and linked to their corresponding concepts in established medical ontologies, such as SNOMED CT [6] and HPO [7]. Relationships between entities are modeled using both domain-specific and general-purpose relationship types [12], facilitating the integration of diverse data sources and enabling complex querying recorded values of 0.7362 and 0.7373, respectively, representing a considerable improvement compared to reported accuracy and reliability studies of the past.
 
-## *B. Closed-Form Continuous-Time Liquid Neural Network Integration.*To integrate CfCs with the knowledge graph, we employ a two-step process: feature extraction and network training. First, features are extracted from the knowledge graph using graph embedding techniques, such as node2vec [13] or GraphSAGE [14]. These embeddings capture the topological structure and semantic information of the graph, which are then used as inputs to the CfC model. Next, the CfC model is trained using a combination of supervised and unsupervised learning techniques to predict various patient health outcomes, such as disease progression, treatment response, and surgical outcomes.
+## *B. Closed-Form Continuous-Time Liquid Neural Network Integration.*
+To integrate CfCs with the knowledge graph, we employ a two-step process: feature extraction and network training. First, features are extracted from the knowledge graph using graph embedding techniques, such as node2vec [13] or GraphSAGE [14]. These embeddings capture the topological structure and semantic information of the graph, which are then used as inputs to the CfC model. Next, the CfC model is trained using a combination of supervised and unsupervised learning techniques to predict various patient health outcomes, such as disease progression, treatment response, and surgical outcomes.
 
 Our approach combines the versatile structure and potent semantic representations of knowledge graphs with the computational efficiency and plasticity of closed-form continuous-time liquid neural networks (CfCs) to create digital twins for patient care. The integration of these two technologies forms a more true-to-life model of patient health that enables real-time healthcare analytics.
 
 By integrating knowledge graphs with CfCs, we can build powerful predictive models and facilitate personalized care that leads to improved patient outcomes. This combination enables real-time analytics and adaptability, essential for early diagnosis and intervention, tailoring treatment plans to each patient's unique needs, and simulating surgical procedures and therapeutic strategies.
 
-## *C. Real-Time Analytics and Simulation.*To enable real-time analytics and simulation, our digital twin system continuously updates the knowledge graph and CfC model as new patient data becomes available. Incremental graph updates are achieved using efficient graph maintenance algorithms [15], while the CfC model is updated using online learning techniques [16]. This continuous updating process allows healthcare professionals to access up-to-date patient health information and model predictions, thereby enabling more informed and accurate decision-making.
+## *C. Real-Time Analytics and Simulation.*
+To enable real-time analytics and simulation, our digital twin system continuously updates the knowledge graph and CfC model as new patient data becomes available. Incremental graph updates are achieved using efficient graph maintenance algorithms [15], while the CfC model is updated using online learning techniques [16]. This continuous updating process allows healthcare professionals to access up-to-date patient health information and model predictions, thereby enabling more informed and accurate decision-making.
 
 ## *D. Surgical and Intervention Planning.*
 
@@ -207,3 +229,18 @@ Our approach to digital twin technology combines the flexible structure and powe
 - [44] [1] P. N. Mendes, H. Mühleisen, and C. Bizer, "Sieve: Linked Data Quality Assessment and Fusion," Proc. Joint EDBT/ICDT 2012 Workshops, pp. 116–123, 2012.
 - [45] M. Nickel, K. Murphy, V. Tresp, and E. Gabrilovich, "A Review of Relational Machine Learning for Knowledge Graphs," Proc. IEEE, vol. 104, no. 1, pp. 11–33, Jan. 2016.
 - [38] F. M. Suchanek, G. Kasneci, and G. Weikum, "Yago: A Core of Semantic Knowledge," Proc. 16th Int. Conf. World Wide Web, pp. 697–
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

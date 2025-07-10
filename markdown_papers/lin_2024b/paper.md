@@ -1,6 +1,7 @@
 ---
 cite_key: lin_2024b
-title: LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated Denoising and Private Learning
+title: LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated
+  Denoising and Private Learning
 authors: Xi Lin
 year: 2024
 doi: 10.1145/3589335.3651533
@@ -20,15 +21,14 @@ tldr: Dynamic privacy-preserving framework for graph neural networks that protec
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: '3589335.3651533'
-images_total: 4
-images_kept: 3
-images_removed: 1
 keywords:
 - gnn
 - neural networks
 - privacy-preserving
 - trade-off
 - under-denoising
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # LinkGuard: Link Locally Privacy-Preserving Graph Neural Networks with Integrated Denoising and Private Learning
@@ -48,6 +48,12 @@ Jianhua Li Shanghai Jiao Tong University Shanghai, China lijh888@sjtu.edu.cn
 ## ABSTRACT
 
 Recent studies have introduced privacy-preserving graph neural networks to safeguard the privacy of sensitive link information in graphs. However, existing link protection mechanisms in GNNs, particularly over decentralized nodes, struggle to strike an optimal balance between privacy and utility. We argue that a pivotal issue is the separation of noisy topology denoising and GNN private learning into distinct phases at the server side, leading to an under-denoising problem in the noisy topology. To address this, we propose a dynamic, adaptive Link LDP framework that performs noisy topology denoising on the server side in a dynamic manner. This approach aims to mitigate the impact of local noise on the GNN training process, reducing the uncertainty introduced by local noise. Furthermore, we integrate the noise generation and private training processes across all existing Link LDP GNNs into a unified framework. Experimental results demonstrate that our method surpasses existing approaches, obtaining around a 7% performance improvement under strong privacy strength and achieving a better trade-off between utility and privacy.
+
+## TL;DR
+Dynamic privacy-preserving framework for graph neural networks that protects
+
+## Key Insights
+Solves under-denoising problem in noisy topology through dynamic adaptive Link LDP framework that integrates denoising and private learning, achieving 7% performance improvement under strong privacy strength.
 
 ## CCS CONCEPTS
 
@@ -222,3 +228,19 @@ This work was supported in part by the National Natural Science Foundation of Ch
 - <span id="page-3-14"></span>[12] Zhilin Yang, William Cohen, and Ruslan Salakhudinov. 2016. Revisiting semisupervised learning with graph embeddings. In International conference on machine learning. PMLR, 40–48.
 - <span id="page-3-2"></span>[13] Zhikun Zhang, Min Chen, Michael Backes, Yun Shen, and Yang Zhang. 2022. Inference attacks against graph neural networks. In 31st USENIX Security Symposium (USENIX Security 22). 4543–4560.
 - <span id="page-3-13"></span>[14] Xiaochen Zhu, Vincent YF Tan, and Xiaokui Xiao. 2023. Blink: Link Local Differential Privacy in Graph Neural Networks via Bayesian Estimation. In Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security. 2651–2664.
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can graph neural networks effectively protect sensitive link information using Local Differential Privacy while maintaining model performance through integrated denoising and private learning?
+- **Methodology**: Dynamic adaptive Link LDP framework, unified noise generation and private training processes, server-side dynamic denoising, experimental evaluation on graph learning tasks with privacy strength analysis.
+- **Key Findings**: Achieved around 7% performance improvement under strong privacy strength, demonstrated better trade-off between utility and privacy, solved under-denoising problem in noisy graph topology, integrated approach reduces uncertainty from local noise.
+- **Primary Outcomes**: Dynamic privacy-preserving framework that unifies denoising and private learning for graph neural networks with improved privacy-utility balance.
+
+### Analysis
+- **Limitations**: Challenges in balancing privacy and utility in decentralized node environments, computational overhead from dynamic denoising processes, limited details on scalability with large-scale graphs.
+- **Research Gaps**: Need for evaluation on larger-scale graphs, broader assessment of different graph learning tasks, investigation of adaptive privacy parameter selection mechanisms.
+- **Future Work**: Extend framework to larger graph datasets, evaluate on diverse graph learning applications, develop adaptive privacy budget allocation strategies, investigate integration with federated graph learning.
+- **Conclusion**: Successfully demonstrates that dynamic integration of denoising and private learning can significantly improve privacy-preserving graph neural network performance while maintaining strong privacy guarantees.
+
+### Implementation Notes
+Provides practical approach for implementing privacy-preserving graph processing in HDM systems, particularly relevant for personal network analysis and sensitive relationship protection in personal knowledge graphs.

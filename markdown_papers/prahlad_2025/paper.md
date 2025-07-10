@@ -18,9 +18,6 @@ tldr: Novel approach to personalizing LLMs using knowledge graphs and retrieval 
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2505.09945_Personalizing_Large_Language_Models_using_Retrieval_Augmented_Generation_and_Knowledge_Graph
-images_total: 3
-images_kept: 3
-images_removed: 0
 keywords:
 - ' retrieval pipeline'
 - 1 introduction
@@ -52,6 +49,8 @@ keywords:
 - cloud-based llms
 - cloud-based state
 - conversation-calendar
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph
@@ -63,6 +62,12 @@ Chanhee Lee Arizona State University Tempe, AZ, United States chanheel@asu.edu
 ## Abstract
 
 The advent of large language models (LLMs) has allowed numerous applications, including the generation of queried responses, to be leveraged in chatbots and other conversational assistants. Being trained on a plethora of data, LLMs often undergo high levels of over-fitting, resulting in the generation of extra and incorrect data, thus causing hallucinations in output generation. One of the root causes of such problems is the lack of timely, factual, and personalized information fed to the LLM. In this paper, we propose an approach to address these problems by introducing retrieval augmented generation (RAG) using knowledge graphs (KGs) to assist the LLM in personalized response generation tailored to the users. KGs have the advantage of storing continuously updated factual information in a structured way. While our KGs can be used for a variety of frequently updated personal data, such as calendar, contact, and location data, we focus on calendar data in this paper. Our experimental results show that our approach works significantly better in understanding personal information and generating accurate responses compared to the baseline LLMs using personal data as text inputs, with a moderate reduction in response time.
+
+## TL;DR
+Novel approach to personalizing LLMs using knowledge graphs and retrieval augmented
+
+## Key Insights
+Achieves significant performance improvements with 35.15% increase in ROUGE-1, 65.57% in ROUGE-2, 35.82% in ROUGE-L, 61.11% in BLEU-1 scores, and 8.931% reduction in execution time through knowledge graph-based personalization approach
 
 ### CCS Concepts
 
@@ -289,7 +294,6 @@ This work was supported in part by the NSF I/UCRC for Intelligent, Distributed, 
 - <span id="page-4-27"></span>[9] Wenqi Fan, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, and Qing Li. 2024. A survey on RAG meeting LLMs: Towards retrieval-augmented large language models. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining. 6491–6501.
 - <span id="page-4-2"></span>[10] Boris Galitsky, Anton Chernyavskiy, and Dmitry Ilvovsky. 2024. Truth-o-meter: Handling multiple inconsistent sources repairing LLM hallucinations. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval. 2817–2821.
 - <span id="page-4-24"></span>[11] Aric Hagberg, Pieter J Swart, and Daniel A Schult. 2008. Exploring network structure, dynamics, and function using NetworkX. Technical Report. Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
-
 - <span id="page-4-8"></span>[12] Aidan Hogan et al. 2021. Knowledge Graphs. ACM Comput. Surv. 54, 4, Article 71 (July 2021), 37 pages.
 - <span id="page-4-7"></span>[13] Zhibo Hu et al. 2024. Prompt perturbation in retrieval-augmented generation based large language models. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining. 1119–1130.
 - <span id="page-4-3"></span>[14] Ziwei Ji, Tiezheng Yu, Yan Xu, Nayeon Lee, Etsuko Ishii, and Pascale Fung. 2023. Towards mitigating LLM hallucination via self reflection. In Findings of the Association for Computational Linguistics: EMNLP 2023. 1827–1843.
@@ -307,3 +311,19 @@ This work was supported in part by the NSF I/UCRC for Intelligent, Distributed, 
 - <span id="page-4-9"></span>[26] Denny Vrandečić and Markus Krötzsch. 2014. Wikidata: a free collaborative knowledgebase. Commun. ACM 57, 10 (Sept. 2014), 78–85. [https://doi.org/10.](https://doi.org/10.1145/2629489) [1145/2629489](https://doi.org/10.1145/2629489)
 - <span id="page-4-28"></span>[27] Zhentao Xu, Mark Jerome Cruz, Matthew Guevara, Tie Wang, Manasi Deshpande, Xiaofeng Wang, and Zheng Li. 2024. Retrieval-augmented generation with knowledge graphs for customer service question answering. In Proceedings of the 47th Int'l ACM SIGIR Conf. on Research and Development in Information Retrieval. 2905–2909.
 - <span id="page-4-15"></span>[28] Linyao Yang, Hongyang Chen, Zhao Li, Xiao Ding, and Xindong Wu. 2024. Give us the facts: Enhancing large language models with knowledge graphs for factaware language modeling. IEEE Transactions on Knowledge and Data Engineering (2024).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: How can retrieval augmented generation and knowledge graphs be combined to personalize large language models for on-device applications while protecting sensitive personal data?
+- **Methodology**: Personalized dataset generation using ChatGPT; knowledge graph creation from calendar and conversation data; embedding models for vector representation conversion; Llama-2-Chat model utilization for response generation; comprehensive evaluation across multiple metrics
+- **Key Findings**: Improved response accuracy across all evaluation metrics; average increases of 35.15% in ROUGE-1, 65.57% in ROUGE-2, 35.82% in ROUGE-L, 61.11% in BLEU-1; achieved 8.931% reduction in execution time; successful on-device LLM personalization
+- **Primary Outcomes**: On-device LLM personalization framework; knowledge graph-based personal information management; retrieval augmented generation system; private data protection mechanism through local processing
+
+### Analysis
+- **Limitations**: Currently focused on calendar data applications; requires generating custom datasets for domain adaptation; privacy protection limited to preventing data combination rather than comprehensive privacy preservation
+- **Research Gaps**: Limited scope to calendar data personalization; challenges in comprehensive privacy preservation; need for custom dataset generation for different domains
+- **Future Work**: Expand to additional personal data types beyond calendar information; develop comprehensive privacy preservation mechanisms; investigate automated dataset generation for diverse domains
+- **Conclusion**: Enables domain-specific LLM adaptation with on-device deployment supporting continuously updating knowledge while reducing risks of cloud-based sensitive data transmission
+
+### Implementation Notes
+Provides innovative framework for on-device LLM personalization using knowledge graphs essential for HDM systems requiring private data protection and continuous personal knowledge updates

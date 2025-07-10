@@ -7,9 +7,6 @@ doi: 10.1371/journal.pone.0021101.
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2103.01387_Insert_Your_Title_Here
-images_total: 2
-images_kept: 2
-images_removed: 0
 tags:
 - Cloud Computing
 - Machine Learning
@@ -22,6 +19,8 @@ keywords:
 - factor-centric
 - science-powered
 - well-known
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # On a Factorial Knowledge Architecture for Data Science-powered Software Engineering <sup>∗</sup>
@@ -31,6 +30,12 @@ Zheng Li Department of Computer Science University of Concepción Concepción, C
 ## ABSTRACT
 
 Given the data-intensive and collaborative trend in science, the software engineering community also pays increasing attention to obtaining valuable and useful insights from data repositories. Nevertheless, applying data science to software engineering (e.g., mining software repositories) can be blindfold and meaningless, if lacking a suitable knowledge architecture (KA). By observing that software engineering practices are generally recorded through a set of factors (e.g., programmer capacity, different environmental conditions, etc.) involved in various software project aspects, we propose a factor-based hierarchical KA of software engineering to help maximize the value of software repositories and inspire future software data-driven studies. In particular, it is the organized factors and their relationships that help guide software engineering knowledge mining, while the mined knowledge will in turn be indexed/managed through the relevant factors and their interactions. This paper explains our idea about the factorial KA and concisely demonstrates a KA component, i.e. the early-version KA of software product engineering. Once fully scoped, this proposed KA will supplement the well-known SWEBOK in terms of both the factor-centric knowledge management and the coverage/implication of potential software engineering knowledge.
+
+## TL;DR
+Research on on a factorial knowledge architecture for data science-powered software engineering providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ### CCS CONCEPTS
 
@@ -194,3 +199,18 @@ This work is supported in part by Chilean National Commission for Scientific and
 - [20] Wiggins, A. 2020. The twelve factor app. Retrieved August 9, 2020 from https://12factor.net/
 - [21] Li, Z., O'Brien, L., and Yang, Y. 2014. Impact of product complexity on actual effort in software developments: An empirical investigation. In*Proceedings of the 23rd Australasian Software Engineering Conference.* (Sydney, Australia, April 7-10 2014). ASWEC '14. IEEE Press, 170–179. DOI: https://doi.org/10.1109/ASWEC.2014.38.
 - [22] Jones, C. February 2014. Programming laws and reality: Do we know what we think we know? Retrieved August 9, 2020 from http://www.drdobbs.com/architecture-and-design/programming-laws-andreality-do-we-know/240166164?queryText=language%2Blaw
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

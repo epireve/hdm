@@ -6,9 +6,6 @@ year: 2022
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2206.07304_Knowledge_Management_System_with_NLP-Assisted_Anno
-images_total: 1
-images_kept: 1
-images_removed: 0
 tags:
 - Machine Learning
 - Natural Language Processing
@@ -19,6 +16,8 @@ keywords:
 - multi-directional
 - nlp-assisted
 - note-taking
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Knowledge Management System with NLP-Assisted Annotations: A Brief Survey and Outlook
@@ -28,6 +27,12 @@ Baihan Lin*<sup>1</sup>*,\*
 *<sup>1</sup>Columbia University, New York, NY 10027, USA*## Abstract
 
 Knowledge management systems (KMS) are in high demand for industrial researchers, chemical or research enterprises, or evidence-based decision making. However, existing systems have limitations in categorizing and organizing paper insights or relationships. Traditional databases are usually disjoint with logging systems, which limit its utility in generating concise, collated overviews. In this work, we briefly survey existing approaches of this problem space and propose a unified framework that utilizes relational databases to log hierarchical information to facilitate the research and writing process, or generate useful knowledge from references or insights from connected concepts. Our framework of bidirectional knowledge management system (BKMS) enables novel functionalities encompassing improved hierarchical note-taking, AI-assisted brainstorming, and multi-directional relationships. Potential applications include managing inventories and changes for manufacture or research enterprises, or generating analytic reports with evidence-based decision making.
+
+## TL;DR
+Research on knowledge management system with nlp-assisted annotations: a brief survey and outlook providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ### Keywords
 
@@ -50,7 +55,7 @@ Back to the example problem of reference management, our KMS would utilize relat
 
 <sup>\*</sup>Corresponding author.
 
-<sup>&</sup>quot; [baihan.lin@columbia.edu](mailto:baihan.lin@columbia.edu) (B. Lin)
+<sup>&quot;</sup> [baihan.lin@columbia.edu](mailto:baihan.lin@columbia.edu) (B. Lin)
 
 <sup>~</sup> <https://www.neuroinference.com/> (B. Lin)
 
@@ -178,4 +183,19 @@ arXiv:2204.10189 (2022).
 
 speech and language processing: Tutorial, review and outlook, arXiv preprint arXiv:2210.13623 (2022).
 
-<span id="page-5-16"></span>[34] B. Lin, Computational inference in cognitive science: Operational, societal and ethical considerations, arXiv preprint arXiv:2210.13526 (2022).
+- <span id="page-5-16"></span>[34] B. Lin, Computational inference in cognitive science: Operational, societal and ethical considerations, arXiv preprint arXiv:2210.13526 (2022).
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

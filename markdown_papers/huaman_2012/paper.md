@@ -7,9 +7,6 @@ doi: 10.3233/SW-170275
 date_processed: '2025-07-02'
 phase2_processed: true
 original_folder: arxiv_2208.07779_Steps_to_Knowledge_Graphs_Quality_Assessment
-images_total: 1
-images_kept: 1
-images_removed: 0
 tags:
 - Knowledge Graph
 - Machine Learning
@@ -45,6 +42,8 @@ keywords:
 - performance
 - rdf
 - sparql
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
 
 # Steps to Knowledge Graphs Quality Assessment
@@ -56,6 +55,12 @@ Semantic Technology Institute (STI) Innsbruck, Department of Computer Science, U
 Abstract. Knowledge Graphs (KGs) have been popularized during the last decade, for instance, they are used widely in the context of the web. In 2012 Google has presented the Google's Knowledge Graph that is used to improve their web search services. The web also hosts different KGs, such as DBpedia and Wikidata, which are used in various applications like personal assistants and question-answering systems. Various web applications rely on KGs to provide concise, complete, accurate, and fresh answer to users. However, what is the quality of those KGs? In which cases should a Knowledge Graph (KG) be used? How might they be evaluated? We reviewed the literature on quality assessment of data, information, linked data, and KGs. We extended the current stateof-the-art frameworks by adding various quality dimensions (QDs) and quality metrics (QMs) that are specific to KGs. Furthermore, we propose a general-purpose, customizable to a domain or task, and practical quality assessment framework for assessing the quality of KGs.
 
 Keywords: Knowledge Graph Assessment · Knowledge Graph Quality
+
+## TL;DR
+Research on steps to knowledge graphs quality assessment providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
@@ -286,3 +291,18 @@ Knowledge, Morgan & Claypool Publishers (2021), [https://doi.org/10.2200/](https
 - <span id="page-8-8"></span>12. Redman, T.C.: Data quality for the information age. Artech House (1996)
 - <span id="page-8-0"></span>13. Wang, R.Y., Strong, D.M.: Beyond accuracy: What data quality means to data consumers. J. Manag. Inf. Syst. 12(4), 5–33 (1996), [http://www.jmis-web.org/](http://www.jmis-web.org/articles/1002) [articles/1002](http://www.jmis-web.org/articles/1002)
 - <span id="page-8-2"></span>14. Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., Auer, S.: Quality assessment for linked data: A survey. Semantic Web 7(1), 63–93 (2016), [https:](https://doi.org/10.3233/SW-150175) [//doi.org/10.3233/SW-150175](https://doi.org/10.3233/SW-150175)
+
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
+
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
+
+### Implementation Notes

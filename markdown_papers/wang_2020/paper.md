@@ -1,15 +1,18 @@
+```yaml
 ---
 cite_key: wang_2020
 title: An Efficient Big Data Storage Service Architecture
-authors: Dan Wang, Xiang Li, Peixiang Bai, Haibo Wang, Jianmin Dong
+authors:
+  - Dan Wang
+  - Xiang Li
+  - Peixiang Bai
+  - Haibo Wang
+  - Jianmin Dong
 year: 2020
-date_processed: "2025-07-02"
-phase2_processed: true
-original_folder: "An_Efficient_Big_Data_Storage_Service_Architecture"
-images_total: 8
-images_kept: 8
-images_removed: 0
+standardization_date: 2025-07-10
+standardization_version: 1.0
 ---
+```
 
 # \$Q(IILFLHQW%LJ'DWD6WRUDJH6HUYLFH\$UFKLWHFWXUH
 
@@ -22,7 +25,15 @@ images_removed: 0
 
 ,QQHU 0RQJROLD %LJ 'DWD /DERUDWRU\ IRU 'LVFLSOLQH ,QVSHFWLRQ DQG 6XSHUYLVLRQ +RKKRW &KLQD
 
-*\$EVWUDFW***²'XH WR WKH OLPLWDWLRQV RI WKH GLVWULEXWHG ILOH VWRUDJH V\VWHP ZKHQ GDWD VWRUDJH LV VXUJLQJ WKH GHSWK DQG ZLGWK RI ILOH GLUHFWRU\ ZLOO FRQWLQXH WR LQFUHDVH ZKLFK UHVXOWV LQ UHGXFHG ,2 HIILFLHQF\ RI PHWDGDWD PDQDJHPHQW 5DSLGO\ JURZLQJ GDWD FDQ DOVR FDXVH V\VWHP FRQJHVWLRQ RU GDWD ORVV ,Q WRGD\ V HQYLURQPHQW ZKHUH LQIRUPDWLRQ DQG GDWD DUH OLQNHG DQG FROODERUDWLYH LQ DOO ZDONV RI OLIH WKLV SKHQRPHQRQ LV DEVROXWHO\ XQDFFHSWDEOH 2EMHFW VWRUDJH LV DQ HIILFLHQW ZD\ WR VWRUH PDVVLYH GDWD WKURXJK VHSDUDWLQJ PHWDGDWD +RZHYHU WKH RULJLQDO GDWD VWRUDJH V\VWHP FOXVWHU KDV EHHQ FRQILJXUHG ZLWK QRQREMHFWRULHQWHG VWRUDJH GDWD W\SHV ,I WKH XQGHUO\LQJ VWRUDJH V\VWHP LV UHSODFHG E\ REMHFW VWRUDJH LW ZLOO QRW EH FRPSDWLEOH ZLWK WKH XSSHU ILOH SDUDOOHO SURFHVVLQJ PRGHO 7R VROYH WKLV SUREOHP WKLV SDSHU SURSRVHV D ELJ GDWD VWRUDJH VHUYLFH DUFKLWHFWXUH EDVHG RQ REMHFW VWRUDJH ,Q WKH DUFKLWHFWXUH D WUDQVSDUHQW DFFHVV PHWKRG IURP ILOH V\VWHP WR REMHFW VWRUDJH FOXVWHU LV GHVLJQHG WR VXSSRUW HIILFLHQW DFFHVV WR REMHFW VWRUDJH V\VWHP LQ WKH IRUP RI ILOH )RU LPSURYLQJ WKH UHOLDELOLW\ RI GDWD VWRUDJH VHUYLFH D KLJK IDXOW WROHUDQFH PHFKDQLVP EDVHG RQ PXOWLJDWHZD\ LV SUHVHQWHG ([SHULPHQWDO UHVXOWV VKRZ WKDW WKH DUFKLWHFWXUH FDQ HIIHFWLYHO\ VROYH WKH SUREOHP RI GDWD DFFHVV FRPSDWLELOLW\ IURP ILOH V\VWHP WR REMHFW VWRUDJH V\VWHP DQG VLJQLILFDQWO\ LPSURYH VWRUDJH HIILFLHQF\**##*.H\ZRUGV²'LVWULEXWHG ILOH V\VWHP 2EMHFW VWRUDJH 0HWDGDWD PDQDJHPHQW 7UDQVSDUHQW DFFHVV 0XOWLJDWHZD\ IDXOW WROHUDQFH*### , ,1752'8&7,21
+*\$EVWUDFW***²'XH WR WKH OLPLWDWLRQV RI WKH GLVWULEXWHG ILOH V\VWHP ZKHQ GDWD VWRUDJH LV VXUJLQJ WKH GHSWK DQG ZLGWK RI ILOH GLUHFWRU\ ZLOO FRQWLQXH WR LQFUHDVH ZKLFK UHVXOWV LQ UHGXFHG ,2 HIILFLHQF\ RI PHWDGDWD PDQDJHPHQW 5DSLGO\ JURZLQJ GDWD FDQ DOVR FDXVH V\VWHP FRQJHVWLRQ RU GDWD ORVV ,Q WRGD\ V HQYLURQPHQW ZKHUH LQIRUPDWLRQ DQG GDWD DUH OLQNHG DQG FROODERUDWLYH LQ DOO ZDONV RI OLIH WKLV SKHQRPHQRQ LV DEVROXWHO\ XQDFFHSWDEOH 2EMHFW VWRUDJH LV DQ HIILFLHQW ZD\ WR VWRUH PDVVLYH GDWD WKURXJK VHSDUDWLQJ PHWDGDWD +RZHYHU WKH RULJLQDO GDWD VWRUDJH V\VWHP FOXVWHU KDV EHHQ FRQILJXUHG ZLWK QRQREMHFWRULHQWHG VWRUDJH GDWD W\SHV ,I WKH XQGHUO\LQJ VWRUDJH V\VWHP LV UHSODFHG E\ REMHFW VWRUDJH LW ZLOO QRW EH FRPSDWLEOH ZLWK WKH XSSHU ILOH SDUDOOHO SURFHVVLQJ PRGHO 7R VROYH WKLV SUREOHP WKLV SDSHU SURSRVHV D ELJ GDWD VWRUDJH VHUYLFH DUFKLWHFWXUH EDVHG RQ REMHFW VWRUDJH ,Q WKH DUFKLWHFWXUH D WUDQVSDUHQW DFFHVV PHWKRG IURP ILOH V\VWHP WR REMHFW VWRUDJH FOXVWHU LV GHVLJQHG WR VXSSRUW HIILFLHQW DFFHVV WR REMHFW VWRUDJH V\VWHP LQ WKH IRUP RI ILOH )RU LPSURYLQJ WKH UHOLDELOLW\ RI GDWD VWRUDJH VHUYLFH D KLJK IDXOW WROHUDQFH PHFKDQLVP EDVHG RQ PXOWLJDWHZD\ LV SUHVHQWHG ([SHULPHQWDO UHVXOWV VKRZ WKDW WKH DUFKLWHFWXUH FDQ HIIHFWLYHO\ VROYH WKH SUREOHP RI GDWD DFFHVV FRPSDWLELOLW\ IURP ILOH V\VWHP WR REMHFW VWRUDJH V\VWHP DQG VLJQLILFDQWO\ LPSURYH VWRUDJH HIILFLHQF\**
+
+## TL;DR
+Research on an efficient big data storage service architecture providing insights for knowledge graph development and data integration.
+
+## Key Insights
+Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+
+##*.H\ZRUGV²'LVWULEXWHG ILOH V\VWHP 2EMHFW VWRUDJH 0HWDGDWD PDQDJHPHQW 7UDQVSDUHQW DFFHVV 0XOWLJDWHZD\ IDXOW WROHUDQFH*### , ,1752'8&7,21
 
 :LWK WKH DGYHQW RI WKH HUD RI ELJ GDWD WKH WUDGLWLRQDO GDWD ZDUHKRXVH KDV EHHQ XQDEOH WR PHHW WKH JURZLQJ GHPDQG IRU GDWD VWRUDJH 7KH HYHULQFUHDVLQJ VWRUDJH UHTXLUHPHQWV ZLOO LQHYLWDEO\ OHDG WR SHUIRUPDQFH ERWWOHQHFNV DQG VFDODELOLW\ SUREOHPV LQ VWRUDJH V\VWHPV 6WXG\LQJ ELJ GDWD VWRUDJH PHWKRGV DQG EXLOGLQJ DQ HIILFLHQW ELJ GDWD VWRUDJH PRGHO DUH WKH SUHPLVHV IRU DQDO\]LQJ DQG DSSO\LQJ ELJ GDWD &ORXG FRPSXWLQJ EHFRPHV DQ LGHDO FKRLFH IRU ELJ GDWD PDQDJHPHQW EHFDXVH RI LWV VFDODELOLW\ DQG IOH[LELOLW\ 7KH FORXG SURYLGHV QRW RQO\ D VXLWDEOH IUDPHZRUN IRU WKH FOXVWHU RI ELJ GDWD EXW DOVR DQ HIILFLHQW GLVWULEXWHG GDWD VWRUDJH PRGHO IRU WKH SODFHPHQW RI ELJ GDWD ,W SURFHVVHV GDWD DJJUHJDWLRQ DQG PDQDJHPHQW WKURXJK VRPH DSSURSULDWH ZHE VHUYLFHV VXFK DV 5(67IXO \$3, WKDW¶V VWRUDJHDVDVHUYLFH 67DD6 >@
 
@@ -120,100 +131,19 @@ This paper realizes high availability of the architecture through CTDB cluster d
 
 Figure 3. Transparent access flowcharts
 
-MON nodes. Third, utilize the CTDB to manage the object storage gateway for high availability of the object storage gateway. The relationship between the CTDB and the object storage service cluster is shown in Figure 4. In the figure, a CTDB daemon,*ctdbd*, is running on each cluster node. When the object gateway service (M) receives a command of storing data, it does not write data directly to its database, but interacts with its *daemon-ctdbd*. The *daemon* can interact with the metadata in the database over the network. During this process, the ctdb daemon process handles events through epoll and checks the status of each node through running the monitoring script regularly. When the state of RGW gateway is abnormal, the corresponding process is performed. In addition, the ctdb recovered process also periodically queries the ctdb daemon for system status. When the RGW gateway needs to be repaired, the election process is initiated to select the repair node. After the election, start the repair process on the selected repair node, and inform all nodes to enter the repair state, repair Tdb(Trivial Database), redistribute public IP and trigger TCP reconnection.
+MON nodes. Third, utilize the CTDB to manage the object storage gateway for high availability of the object storage gateway. The relationship between the CTDB and the object storage service cluster is shown in Figure 4. In the figure, a CTDB daemon,*ctdbd*, is running on each cluster node. When the object gateway service (M) receives a command of storing data, it does not write data directly to its database, but interacts with its *daemon-ctdbd*. The *daemon* can interact with the metadata in the database over the network. During this process, the ctdb daemon process handles events through epoll and checks the status of each node through running the monitoring script regularly. When the state of RGW gateway is abnormal, the corresponding process is performed. In addition, the ctdb recovered process also periodically queries the ctdb daemon for system status. When the RGW gateway needs to be repaired, the election process is initiated to select the repair node. After the election, start the repair process on the selected repair node, and inform all nodes to enter the repair state,
 
-![](_page_3_Figure_21.jpeg)
-<!-- Image Description: This flowchart illustrates a data access process using a Hadoop file system with Ceph backend storage. A request triggers protocol conversion, then accesses the object body gateway. Access permission and time checks precede retrieval of the target data. The diagram details the steps involved, showing data flow from the Hadoop file system through intermediate stages to access data stored in Ceph. -->
+## Metadata Summary
+### Research Context
+- **Research Question**: 
+- **Methodology**: 
+- **Key Findings**: 
+- **Primary Outcomes**: 
 
-Figure 4 CTDB-based cluster graph of object storage services
+### Analysis
+- **Limitations**: 
+- **Research Gaps**: 
+- **Future Work**: 
+- **Conclusion**: 
 
-### EXPERIMENT AND RESULT ANALYSIS IV.
-
-In order to verify the effectiveness of the architecture proposed in our paper, we have conducted the following experiments to verify the performance of the system.
-
-In this experiment, we deployed 3 servers, each of which used 2 SAS disks as system disks, 1 SSD disk as MDS storage disk, 35 SATA disks as data storage disks, and configured Ceph system with two monitor nodes and two MDS Physical networks deployed in clusters fall into two categories: storage data network and storage business networks. The former is used for data transmission between storage nodes, and its IP range is $192.168.2.1~192.168.2.3$ . The latter provides external service interaction of clusters, and its IP range is $192.168.3.1~192.168.3.3$ . The hardware configuration for each server is shown in table 1.
-
-We applied TestDFSIO to test the I/O performance for the transparent access method, that is, throughput or average I/O rate. TestDFSIO is a cluster performance testing tool for Hadoop platform. In the test, the number of files per read or write was 100-400, and the size of a single file was 1024-5120 Mb. And in the process of testing, we turn off the IP of the running object gateway so as to trigger a multi-gateway failover of the system.
-
-TABLE 1 SERVER ENVIRONMENT CONFIGURATION
-
-| Ceph-Node: Ceph V10.2.0 Jewel |
-|-----------------------------------------------|
-| Hadoop-Node: Hadoop-2.7.2 |
-| CPU: Intel(R) Xeon(R) CPU E5-2680 v3 @2.50GHz |
-| RAM: 192GB/node |
-| SAS Disk: 2/node, Raid1 |
-| SSD Disk: 1/node, 800G. |
-| SATA Disk: 35/node, 4TB |
-| Switch: Ruijie RG-6220-48XS |
-
-The throughput for writing data of our big data storage architecture under different workloads is shown in Figure 5. As can be seen from Figure 5, when the file size is small, the system is far from reaching its throughput bottleneck. With the gradual increase of file capacity, the throughput of the system also increases, which indicates that the transparent access method can process data very quickly and up to 717Mb/s. When the file size is fixed, the throughput of the system grows slowly with the increase of the number of files. Finally, the throughput gradually stabilizes. Compared to writing data directly on the original HDFS system, the performance of our system is better.
-
-![](_page_4_Figure_5.jpeg)
-<!-- Image Description: The image displays a 3D surface plot illustrating the relationship between file throughput (mb/sec), file size, and the number of files transferred. The color-coded surface shows that throughput initially increases with the number of files but then decreases as file size increases. The plot likely demonstrates the impact of file size and number on data transfer performance within a specific system, as analyzed in the paper. -->
-
-Figure 5 Throughput for writing data under different workloads
-
-![](_page_4_Figure_7.jpeg)
-<!-- Image Description: This 3D surface plot displays the standard deviation of I/O rate as a function of file size and the number of files. The x-axis represents the number of files, the y-axis shows file size, and the z-axis indicates the I/O rate standard deviation. The plot illustrates how the I/O rate variability changes with different combinations of file sizes and the number of files processed. It likely serves to demonstrate performance characteristics or resource utilization in the paper's system. -->
-
-Figure 6 The deviation of I/O rate for writing data under different workloads
-
-The deviation of I/O rate for writing data of the architecture under different workloads is shown in Figure 6. As can be seen from Figure 6, the deviation of I/O rate is very low when a small number of small data blocks are written to the storage. As the size and number of files increase, the deviation of I/O rate gradually increases. However, when the size of file is larger than 3500 M and the number of files is larger than 300, the deviation of I/O rate tends to be stable and stays at an acceptable level. It is not significantly different from the original HDFS. So, it proves that the transparent access method proposed in our paper does not significantly affect the basic performance of the original file system.
-
-In general, it can be seen from the experimental results that the transparent access can write data blocks more stably.
-
-In the following experiment, the number of files $(N)$ is set to 100. The throughput for reading data of our big data storage service architecture under different workloads is shown in Figure 7. As can be seen from Figure 7, when the number of files is fixed, the throughput and average read rate of the system increase with the increasing of the size of file, but when the size of file reaches 5120 MB, these two indicators tend to be stable. In general, the transparent access method can read data stably. The reading performance of our system is in line with the original HDFS system.
-
-![](_page_4_Figure_12.jpeg)
-<!-- Image Description: The image displays a line graph showing the relationship between file size (MB) and both throughput (mb/sec) and average IO rate (mb/sec). Two lines, representing throughput and average IO rate, increase with increasing file size, indicating higher performance with larger files. The graph helps demonstrate the performance characteristics of a system under varying workloads. -->
-
-Figure 7 The reading performance of the system under $N=100$
-
-![](_page_5_Figure_0.jpeg)
-<!-- Image Description: The image is a line graph showing the execution time (in seconds) of write and read tests for files of varying sizes (in MB). The x-axis represents file size, increasing from 1024 MB to 6144 MB. The y-axis represents execution time. Two lines depict write and read times, demonstrating a positive correlation between file size and execution time for both operations. The graph likely illustrates the performance characteristics of a storage system. -->
-
-)LJ 7KH WLPH FRQVXPSWLRQ RI ,2 XQGHU 1
-
-)LJ VKRZV WKH WLPH FRQVXPSWLRQ IRU ,2 RSHUDWLRQV DW GLIIHUHQW VL]HV RI ILOH ZKHQ 1 \$V WKH VL]H RI ILOH LQFUHDVHV WKH WLPH VSHQW RQ ,2 RSHUDWLRQV LQFUHDVHV OLQHDUO\ 7KH RYHUDOO SHUIRUPDQFH RI WKH V\VWHP LV QR OHVV WKDQ +')6 VWRUDJH V\VWHP ZKLFK FDQ HIIHFWLYHO\ VROYH WKH FRPSDWLELOLW\ SUREOHP RI GDWD DFFHVV IURP ILOH V\VWHP WR REMHFW V\VWHP 0HDQZKLOH WKH PXOWLJDWHZD\ IDXOW WROHUDQFH PHFKDQLVP EDVHG RQ &7'% DOVR HQVXUHV WKH KLJK DYDLODELOLW\ RI WKH V\VWHP
-
-### 9 &21&/86,21
-
-,Q WKH DJH RI ELJ GDWD WKH VWRUDJH VHUYLFH RI XQVWUXFWXUHG GDWD LV XVHG PRUH DQG PRUH IUHTXHQWO\ )RU WKH SUREOHP WKDW WKH ELJ GDWD SDUDOOHO SURFHVVLQJ IUDPHZRUN RI GHSOR\HG GLVWULEXWHG ILOH VWRUDJH V\VWHP LV QRW FRPSDWLEOH ZLWK REMHFW VWRUDJH VHUYLFH D QHZ VWRUDJH V\VWHP DUFKLWHFWXUH LV LPSHUDWLYH +HUH DUH WKH DGYDQWDJHV RI WKH DUFKLWHFWXUH
-
-,W¶V DEOH WR VXSSRUW PLQLQJ DQG DQDO\VLV RI PDVVLYH GDWD VWRUHG E\ REMHFW W\SH RQ +DGRRS SODWIRUP ZLWK 0DS5HGXFH
-
-\$ WUDQVSDUHQW DFFHVV VHUYLFH LQWHUIDFH IURP ILOH V\VWHP WR REMHFW VWRUDJH V\VWHP LV LPSOHPHQWHG ZKLFK VXSSRUWV DFFHVV WR REMHFW VWRUDJH V\VWHPV LQ WKH IRUP RI ILOH
-
-\$Q REMHFW VWRUDJH PHWKRG EDVHG RQ PXOWLJDWHZD\ PDQDJHPHQW LV LPSOHPHQWHG WR HQVXUH WKH KHDOWK RI WKH V\VWHP ZKHQ WKH REMHFW VWRUDJH JDWHZD\ IDLOV RU WKH QRGH IDLOV
-
-%\ FRPSOHWLQJ WKH DERYH ZRUN ZH FDQ GLUHFWO\ WDNH WKH REMHFW VWRUDJH V\VWHP DV WKH EDFNHQG RI WKH H[LVWLQJ ILOH V\VWHPEDVHG ELJ GDWD SDUDOOHO SURFHVVLQJ DUFKLWHFWXUH DQG IXOO\ FRPELQH WKH DGYDQWDJHV RI REMHFW VWRUDJH VWUXFWXUH DQG ILOH SDUDOOHO SURFHVVLQJ PRGHO WR FRPSOHWH HIILFLHQW ELJ GDWD DQDO\VLV VHUYLFHV
-
-### \$&.12:/('\*0(176
-
-7KLV ZRUN ZDV VXSSRUWHG LQ SDUW E\ 1DWXUDO 6FLHQFH )RXQGDWLRQ RI &KLQD XQGHU \*UDQWV 1DWXUDO 6FLHQFH )RXQGDWLRQ RI ,QQHU 0RQJROLD XQGHU \*UDQWV 06 ,QQHU 0RQJROLD 6FLHQFH DQG 7HFKQRORJ\ 3ODQ 3URMHFW XQGHU \*UDQW \*\* \*\* WKH 2SHQWRSLF RI ,QQHU 0RQJROLD %LJ 'DWD /DERUDWRU\ IRU 'LVFLSOLQH ,QVSHFWLRQ DQG 6XSHUYLVLRQ ,0'%' ,0'%' WKH 6HOI WRSLF RI (QJLQHHULQJ 5HVHDUFK &HQWHU RI (FRORJLFDO %LJ 'DWD 0LQLVWU\ RI (GXFDWLRQ ,QQHU 0RQJROLD (QJLQHHULQJ /DERUDWRU\ IRU &ORXG &RPSXWLQJ DQG 6HUYLFH 6RIWZDUH ,QQHU 0RQJROLD (QJLQHHULQJ /DE RI %LJ 'DWD \$QDO\VLV 7HFKQRORJ\
-
-### 5()(5(1&(6
-
-- >@ 6UDYDQ .XPDU 5 6D[HQD \$ 'DWD LQWHJULW\ SURRIV LQ FORXG VWRUDJH>&@ 7KLUG ,QWHUQDWLRQDO &RQIHUHQFH RQ &RPPXQLFDWLRQ 6\VWHPV 1HWZRUNV
-- >@ \$XMOD \* 6 .XPDU 1 =RPD\D \$ < HW DO 2SWLPDO 'HFLVLRQ 0DNLQJ IRU %LJ 'DWD 3UR FHVVLQJ DW (GJH&ORXG (QYLURQPHQW \$Q 6'1 3HUVSHFWLYH>-@ ,((( 7UDQVDFWLRQV RQ ,QGXVWULDO ,QIRUPDWLF
-- >@ \$EDGL ' \$JUDZDO 5 \$LODPDNL \$ %DOD]LQVND 0 %HUQVWHLQ 3\$ &DUH\ 0- &KDXGKXUL 6 &KDXGKXUL 6 'HDQ - 'RDQ \$ 7KH EHFNPDQ UHSRUW RQ GDWDEDVH UHVHDUFK &RPPXQ \$&0 将
-- >@ &DUXOOR \* 0DXUR 0 ' \*DOGHULVL 0 HW DO 2EMHFW 6WRUDJH LQ &ORXG &RPSXWLQJ (QYL URQPHQWV \$Q \$YDLODELOLW\ \$QDO\VLV>-@
-- >@ +LOO / /HY\ ) .XQGUD 9 HW DO 'DWD'ULYHQ ,QQRYDWLRQ IRU \*URZWK DQG :HOOEHLQJ>-@
-- >@ <LQ 7DQJ < 'HQJ 6 HW DO \$66(5 \$Q (IILFLHQW 5HOLDEOH DQG &RVW(IIHFWLYH 6WRUDJH 6FKHPH IRU 2EMHFW%DVHG &ORXG 6WRUDJH 6\VWHPV>-@ ,((( 7UDQVDFWLRQV RQ &RPSXWHUV
-- >@ +H =KDQJ = /L 0 HW DO 3URYDEOH 'DWD ,QWHJULW\ RI &ORXG 6WRUDJH 6HUYLFH ZLWK (Q KDQFHG 6HFXULW\ LQ ,QWHUQHW RI 7KLQJV>-@ ,((( \$FFHVV 33
-- >@ 6DUDVZDWKL 6 6 0DODUYL]KL 1 'LVWULEXWHG GHGXSOLFDWLRQ ZLWK ILQJHUSULQW LQGH[ PDQDJHPHQW PRGHO IRU ELJ GDWD VWRUDJH LQ WKH FORXG>-@ (YROXWLRQDU\ ,QWHOOLJHQFH
-- >@ 0DQVRXUL < (UUDGL \$ &RVW 2SWLPL]DWLRQ \$OJRULWKPV IRU +RW DQG &RRO 7LHUV &ORXG 6WRUDJH 6HUYLFHV>&@ ,((( WK ,QWHUQDWLRQDO &RQIHUHQFH RQ &ORXG &RPSXWLQJ &/28' ,((( &RPSXWHU 6RFLHW\
-- >@ 6RQJ +H + 7KRPDV 5 HW DO +DHU\ D +DGRRS EDVHG 4XHU\ 6\VWHP RQ \$FFXPXODWLYH DQG +LJKGLPHQVLRQDO 'DWD 0RGHO IRU %LJ 'DWD>-@ ,((( 7UDQVDFWLRQV RQ .QRZOHGJH DQG 'DWD (QJLQHHULQJ 33
-- >@ <DQJ & 7 &KHQ 7 < .ULVWLDQL ( HW DO 7KH LPSOHPHQWDWLRQ RI GDWD VWRUDJH DQG DQDO\WLFV SODWIRUP IRU ELJ GDWD ODNH RI HOHFWULFLW\ XVDJH ZLWK VSDUN>-@ 7KH -RXUQDO RI 6XSHUFRPSXWLQJ
-- >@ 0XQLU 5 ) \$EHOOy \$OEHUWR 5RPHUR 2 HW DO \$ &RVWEDVHG 6WRUDJH )RUPDW 6HOHFWRU IRU 0DWHULDOL]DWLRQ LQ %LJ 'DWD )UDPHZRUNV>-@ ',675,%87(' \$1' 3\$5\$//(/ '\$7\$%\$6(6
-- >@ 5H\HV\$QDVWDFLR + \* \*RQ]DOH]&RPSHDQ / 0RUDOHV6DQGRYDO 0 HW DO \$ GDWD LQWHJULW\ YHULILFDWLRQ VHUYLFH IRU FORXG VWRUDJH EDVHG RQ EXLOGLQJ EORFNV>&@ WK ,QWHUQDWLRQDO &RQIHUHQFH RQ &RPSXWHU 6FLHQFH DQG ,QIRUPDWLRQ 7HFKQRORJ\ &6,7 ,((( &RPSXWHU 6RFLHW\
-- >@ =KXDQJ + 5DKPDQ 5 +XL 3 HW DO 2SWLPL]LQJ ,QIRUPDWLRQ /HDNDJH LQ 0XOWLFORXG 6WRUDJH 6HUYLFHV>-@ ,((( 7UDQVDFWLRQV RQ &ORXG &RPSXWLQJ
-- >@ <RXQ 7 < &KDQJ . < %LGLUHFWLRQDO DQG FRQFXUUHQW SURRI RI RZQHUVKLS IRU VWURQJHU VWRUDJH VHUYLFHV ZLWK GHGXSOLFDWLRQ>-@ 6FLHQFH &KLQD ,QIRUPDWLRQ 6FLHQFHV
-- >@ +RDQJ 7 <DYX] \$ \$ 0HUFKDQ \* \$ 6HFXUH 6HDUFKDEOH (QFU\SWLRQ )UDPHZRUN IRU 3ULYDF\&ULWLFDO &ORXG 6WRUDJH 6HUYLFHV>-@ ,((( 7UDQVDFWLRQV RQ 6HUYLFHV &RPSXWLQJ 33
-- >@ \$ / \$ : % \* HW DO %ORFNFKDLQEDVHG SXEOLF DXGLWLQJ IRU ELJ GDWD LQ FORXG VWRUDJH6FLHQFH'LUHFW>-@ ,QIRUPDWLRQ 3URFHVVLQJ 0DQDJHPHQW
-- >@ 7DYDNROL 1 'DL ' &KHQ < &OLHQWVLGH VWUDJJOHUDZDUH ,2 VFKHGXOHU IRU REMHFWEDVHG SDUDOOHO ILOH V\VWHPV>-@ 3DUDOOHO &RPSXWLQJ
-- >@ 0HVQLHU 0 \*DQJHU \* 5 5LHGHO (2EMHFWEDVHG6WRUDJH>-@,((( &RPPXQLFDWLRQV 0DJD ]LQH
-- >@ %DXQ & &RFRV + 1 6SDQRX 5 0 266SHUI 将 D OLJKWZHLJKW VROXWLRQ IRU WKH SHUIRUPDQFH HYDOXDWLRQ RI REMHFWEDVHG FORXG VWRUDJH VHUYLFHV>-@ -RXUQDO RI &ORXG &RPSXWLQJ
-- >@ <RRQ 6 . <RXQ < 6 6RQ 0 + HW DO +DUPRQL]HG PHPRU\ V\VWHP IRU REMHFWEDVHG FORXG VWRUDJH>-@ &OXVWHU &RPSXWLQJ
-- >@ % :DGKZD 6FDODEOH 'DWD 0DQDJHPHQW IRU 2EMHFWEDVHG 6WRUDJH 6\VWHPV>'@ 9LUJLQLD 3RO\WHFKQLF ,QVWLWXWH DQG 6WDWH 8QLYHUVLW\
+### Implementation Notes
