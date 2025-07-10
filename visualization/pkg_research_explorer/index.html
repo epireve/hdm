@@ -762,7 +762,7 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         document.getElementById('paper-content').innerHTML = '<div style="text-align: center; padding: 40px;"><div class="loading-spinner"></div><p style="color: #666; margin-top: 20px;">Loading paper content...</p></div>';
         
         // Fetch paper markdown
-        fetch(`/markdown_papers/${paperId}/paper.md`)
+        fetch(`markdown_papers/${paperId}/paper.md`)
             .then(response => {
                 if (!response.ok) throw new Error('Paper not found');
                 return response.text();
@@ -832,6 +832,11 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
     }
 
     function convertMarkdownToHtml(markdown, paperId) {
+        // Preprocess markdown to handle special citation format [\[number\]]
+        markdown = markdown.replace(/\[\\?\[(\d+)\\?\]\]/g, (match, num) => {
+            return `<sup>[${num}]</sup>`;
+        });
+        
         // Create a new renderer instance
         const renderer = new marked.Renderer();
         
@@ -842,8 +847,10 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
             
             // Check if it's a relative path
             if (href && !href.startsWith('http') && !href.startsWith('data:')) {
-                // Adjust path to point to the correct location
-                href = `/markdown_papers/${paperId}/${href}`;
+                // Adjust path to point to the correct location - use relative path from server root
+                const newHref = `markdown_papers/${paperId}/${href}`;
+                console.log('Image path transformation:', href, '->', newHref);
+                href = newHref;
             }
             
             // Add responsive image styling with error handling
@@ -878,6 +885,10 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         
         renderer.link = function(href, title, text) {
             href = String(href || '');
+            // Handle citation-style links that point to page anchors
+            if (href.startsWith('#page-')) {
+                return `<sup><a href="${href}" style="color: #3498db; text-decoration: none;">[${text}]</a></sup>`;
+            }
             return `<a href="${href}" title="${title || ''}" target="_blank" style="color: #3498db;">${text}</a>`;
         };
         
