@@ -1318,15 +1318,12 @@
     }
 
     function selectNodeAndShowAnalysis(node) {
-        // Switch to network view to show the selected node
-        if (currentView !== 'network') {
-            currentView = 'network';
-            document.getElementById('viewMode').value = 'network';
-            switchView();
-        }
+        // Don't switch views - just show the analysis in the sidebar
+        // Update the detail panel with node information
+        updateDetailPanel(node);
         
-        // Select the node and show detailed analysis
-        selectNode(node);
+        // Update current selected node for actions
+        window.currentSelectedNode = node;
         
         // Scroll the side panel to show the university analysis
         setTimeout(() => {
@@ -1334,7 +1331,7 @@
             if (analysisSection) {
                 analysisSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        }, 500);
+        }, 100);
     }
 
     function showTooltip(event, d) {
