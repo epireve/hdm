@@ -97,10 +97,40 @@
             border-bottom: 1px solid #ddd;
             padding: 20px;
             background-color: white;
+            transition: background-color 0.2s ease;
         }
         
         .paper:last-child {
             border-bottom: none;
+        }
+        
+        .paper:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .paper-header {
+            cursor: pointer;
+            position: relative;
+            padding-right: 30px;
+            user-select: none;
+        }
+        
+        .paper-header::after {
+            content: '▼';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 12px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+        
+        .paper-header.collapsed::after {
+            transform: rotate(-90deg);
+        }
+        
+        .paper-header:hover .paper-title {
+            color: #007bff;
         }
         
         .paper-title {
@@ -132,19 +162,26 @@
             margin-right: 10px;
         }
         
-        .relevancy.High {
+        .relevancy.SUPER {
+            background-color: #e3d4ff;
+            color: #4a148c;
+            border: 1px solid #b39ddb;
+            font-weight: bold;
+        }
+        
+        .relevancy.HIGH {
             background-color: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
         
-        .relevancy.Medium {
+        .relevancy.MEDIUM {
             background-color: #fff3cd;
             color: #856404;
             border: 1px solid #ffeaa7;
         }
         
-        .relevancy.Low {
+        .relevancy.LOW {
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
@@ -221,20 +258,66 @@
             font-size: 13px;
             margin-bottom: 5px;
         }
+        
+        .paper-details {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .paper-details.expanded {
+            display: block;
+        }
+        
+        .detail-section {
+            margin-bottom: 15px;
+        }
+        
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .detail-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .cite-key {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #495057;
+        }
+        
+        kbd {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px 5px;
+            font-family: monospace;
+            font-size: 11px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
     <h1>Human Digital Memory (HDM) Research Papers</h1>
-    <p class="subtitle">Academic Literature Review and Analysis</p>
+    <p class="subtitle">Complete Academic Literature Review with Personal Knowledge Graph Analysis</p>
     
     <div class="filters">
         <div class="filter-group">
             <label for="relevancy-filter">Relevancy:</label>
             <select id="relevancy-filter" class="relevancy-filter">
                 <option value="">All Relevancy Levels</option>
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
+                <option value="SUPER">Super (Most Relevant)</option>
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
             </select>
         </div>
         
@@ -256,6 +339,10 @@
         Loading papers...
     </div>
     
+    <div style="text-align: center; font-size: 13px; color: #666; margin-bottom: 10px; font-style: italic;">
+        Click on any paper to expand and see full analysis details • Press <kbd>Ctrl/Cmd + A</kbd> to expand/collapse all • <kbd>Esc</kbd> to clear filters
+    </div>
+    
     <div class="papers-container" id="papers-container">
         <div class="no-results">Loading research papers...</div>
     </div>
@@ -264,13 +351,34 @@
         let allPapers = [];
         let filteredPapers = [];
         
+        // Toggle paper details
+        function togglePaperDetails(index) {
+            const header = document.querySelector(`#paper-${index} .paper-header`);
+            const details = document.getElementById(`details-${index}`);
+            
+            if (header.classList.contains('collapsed')) {
+                // Expand
+                header.classList.remove('collapsed');
+                details.classList.add('expanded');
+            } else {
+                // Collapse
+                header.classList.add('collapsed');
+                details.classList.remove('expanded');
+            }
+        }
+        
         // Load CSV data
         async function loadPapers() {
             try {
-                // Try multiple possible paths for GitHub Pages
+                // Try multiple possible paths for GitHub Pages and local
                 const possiblePaths = [
+                    'hdm_research_papers_merged_20250710.csv',
+                    './hdm_research_papers_merged_20250710.csv',
+                    'hdm_research_papers_complete_20250710.csv',
+                    './hdm_research_papers_complete_20250710.csv',
                     'research_papers_complete.csv',
                     './research_papers_complete.csv',
+                    '/hdm/hdm_research_papers_merged_20250710.csv',
                     '/hdm/research_papers_complete.csv'
                 ];
                 
@@ -310,7 +418,7 @@
                 document.getElementById('papers-container').innerHTML = 
                     `<div class="no-results">
                         <p>Error loading research papers.</p>
-                        <p><strong>For GitHub Pages:</strong> Ensure research_papers_complete.csv is in the repository root.</p>
+                        <p><strong>For GitHub Pages:</strong> Ensure hdm_research_papers_merged_20250710.csv or hdm_research_papers_complete_20250710.csv is in the repository root.</p>
                         <p><strong>For local testing:</strong> Use a local server (e.g., <code>python3 -m http.server 8000</code>)</p>
                         <p><small>Error: ${error.message}</small></p>
                     </div>`;
@@ -394,8 +502,8 @@
             const tagFilter = document.getElementById('tag-filter').value.toLowerCase().trim();
             
             filteredPapers = allPapers.filter(paper => {
-                // Relevancy filter
-                if (relevancyFilter && paper.Relevancy !== relevancyFilter) {
+                // Relevancy filter (case-insensitive)
+                if (relevancyFilter && paper.Relevancy && paper.Relevancy.toUpperCase() !== relevancyFilter) {
                     return false;
                 }
                 
@@ -433,8 +541,8 @@
                 return;
             }
             
-            const papersHTML = filteredPapers.map(paper => {
-                const relevancyClass = paper.Relevancy || 'Unknown';
+            const papersHTML = filteredPapers.map((paper, index) => {
+                const relevancyClass = paper.Relevancy ? paper.Relevancy.toUpperCase() : 'Unknown';
                 const tags = paper.Tags ? paper.Tags.split(',').map(tag => 
                     `<span class="tag">${tag.trim()}</span>`).join('') : '';
                 
@@ -448,33 +556,110 @@
                 }
                 
                 return `
-                    <div class="paper">
-                        <div class="paper-title">${paper.title || 'Untitled'}</div>
-                        <div class="paper-authors">${paper.authors || 'Authors not specified'}</div>
-                        <div class="paper-meta">
-                            <span class="relevancy ${relevancyClass}">${relevancyClass}</span>
-                            ${paper.year ? `Year: ${paper.year}` : ''}
-                            ${paper.Downloaded === 'Yes' ? ' • Downloaded' : ''}
+                    <div class="paper" id="paper-${index}">
+                        <div class="paper-header collapsed" onclick="togglePaperDetails(${index})">
+                            <div class="paper-title">${paper.title || 'Untitled'}</div>
+                            <div class="paper-authors">${paper.authors || 'Authors not specified'}</div>
+                            <div class="paper-meta">
+                                <span class="relevancy ${relevancyClass}">${relevancyClass}</span>
+                                ${paper.cite_key ? `<span class="cite-key">${paper.cite_key}</span>` : ''}
+                                ${paper.year ? `Year: ${paper.year}` : ''}
+                                ${paper.Downloaded === 'Yes' ? ' • Downloaded' : ''}
+                            </div>
+                            
+                            ${paper.Insights ? `
+                                <div class="section-label">Key Insights:</div>
+                                <div class="paper-insights">${paper.Insights}</div>
+                            ` : ''}
+                            
+                            ${paper['TL;DR'] ? `
+                                <div class="section-label">TL;DR:</div>
+                                <div class="paper-summary">${paper['TL;DR']}</div>
+                            ` : ''}
                         </div>
                         
-                        ${paper.Insights ? `
-                            <div class="section-label">Key Insights:</div>
-                            <div class="paper-insights">${paper.Insights}</div>
-                        ` : ''}
-                        
-                        ${paper['TL;DR'] ? `
-                            <div class="section-label">TL;DR:</div>
-                            <div class="paper-summary">${paper['TL;DR']}</div>
-                        ` : ''}
-                        
-                        ${paper.Summary ? `
-                            <div class="section-label">Summary:</div>
-                            <div class="paper-summary">${paper.Summary}</div>
-                        ` : ''}
-                        
-                        ${tags ? `<div class="paper-tags">${tags}</div>` : ''}
-                        
-                        ${links.length > 0 ? `<div class="paper-links">${links.join('')}</div>` : ''}
+                        <div class="paper-details" id="details-${index}">
+                            ${paper['Relevancy Justification'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Relevancy Justification:</div>
+                                    <div class="detail-content">${paper['Relevancy Justification']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper.Summary ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Summary:</div>
+                                    <div class="detail-content">${paper.Summary}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper['Research Question'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Research Question:</div>
+                                    <div class="detail-content">${paper['Research Question']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper.Methodology ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Methodology:</div>
+                                    <div class="detail-content">${paper.Methodology}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper['Key Findings'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Key Findings:</div>
+                                    <div class="detail-content">${paper['Key Findings']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper['Primary Outcomes'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Primary Outcomes:</div>
+                                    <div class="detail-content">${paper['Primary Outcomes']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper.Limitations ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Limitations:</div>
+                                    <div class="detail-content">${paper.Limitations}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper.Conclusion ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Conclusion:</div>
+                                    <div class="detail-content">${paper.Conclusion}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper['Research Gaps'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Research Gaps:</div>
+                                    <div class="detail-content">${paper['Research Gaps']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper['Future Work'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Future Work:</div>
+                                    <div class="detail-content">${paper['Future Work']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${paper['Implementation Insights'] ? `
+                                <div class="detail-section">
+                                    <div class="section-label">Implementation Insights:</div>
+                                    <div class="detail-content">${paper['Implementation Insights']}</div>
+                                </div>
+                            ` : ''}
+                            
+                            ${tags ? `<div class="paper-tags">${tags}</div>` : ''}
+                            
+                            ${links.length > 0 ? `<div class="paper-links">${links.join('')}</div>` : ''}
+                        </div>
                     </div>
                 `;
             }).join('');
@@ -488,9 +673,10 @@
             const totalAll = allPapers.length;
             
             const relevancyStats = {
-                High: filteredPapers.filter(p => p.Relevancy === 'High').length,
-                Medium: filteredPapers.filter(p => p.Relevancy === 'Medium').length,
-                Low: filteredPapers.filter(p => p.Relevancy === 'Low').length
+                Super: filteredPapers.filter(p => p.Relevancy && p.Relevancy.toUpperCase() === 'SUPER').length,
+                High: filteredPapers.filter(p => p.Relevancy && p.Relevancy.toUpperCase() === 'HIGH').length,
+                Medium: filteredPapers.filter(p => p.Relevancy && p.Relevancy.toUpperCase() === 'MEDIUM').length,
+                Low: filteredPapers.filter(p => p.Relevancy && p.Relevancy.toUpperCase() === 'LOW').length
             };
             
             const downloaded = filteredPapers.filter(p => p.Downloaded === 'Yes').length;
@@ -502,7 +688,7 @@
             
             document.getElementById('stats').innerHTML = `
                 Showing ${total} of ${totalAll} papers | 
-                High: ${relevancyStats.High} | Medium: ${relevancyStats.Medium} | Low: ${relevancyStats.Low} | 
+                Super: ${relevancyStats.Super} | High: ${relevancyStats.High} | Medium: ${relevancyStats.Medium} | Low: ${relevancyStats.Low} | 
                 Downloaded: ${downloaded} | With DOI: ${withDOI} | With Tags: ${withTags} | 
                 Year Range: ${yearRange}
             `;
@@ -523,6 +709,34 @@
         
         // Load papers on page load
         loadPapers();
+        
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Escape key to clear filters
+            if (e.key === 'Escape') {
+                clearFilters();
+            }
+            
+            // Ctrl/Cmd + A to expand all
+            if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+                e.preventDefault();
+                const allHeaders = document.querySelectorAll('.paper-header');
+                const allDetails = document.querySelectorAll('.paper-details');
+                
+                // Check if any are collapsed
+                const hasCollapsed = Array.from(allHeaders).some(h => h.classList.contains('collapsed'));
+                
+                if (hasCollapsed) {
+                    // Expand all
+                    allHeaders.forEach(h => h.classList.remove('collapsed'));
+                    allDetails.forEach(d => d.classList.add('expanded'));
+                } else {
+                    // Collapse all
+                    allHeaders.forEach(h => h.classList.add('collapsed'));
+                    allDetails.forEach(d => d.classList.remove('expanded'));
+                }
+            }
+        });
     </script>
 </body>
 </html>
