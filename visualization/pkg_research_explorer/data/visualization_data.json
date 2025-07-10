@@ -2,7 +2,7 @@
   "metadata": {
     "total_concepts": 100,
     "total_edges": 10,
-    "total_opportunities": 0,
+    "total_opportunities": 926,
     "categories": [
       "knowledge_graph",
       "algorithms",
@@ -13,7 +13,26 @@
       "methodologies",
       "data_integration"
     ],
-    "domains": []
+    "domains": [
+      "education",
+      "healthcare",
+      "social",
+      "iot",
+      "enterprise",
+      "general"
+    ],
+    "high_opportunity_concepts": [
+      "pkg",
+      "heterogeneous data integration",
+      "temporal reasoning",
+      "privacy preserving"
+    ],
+    "research_gaps": {
+      "concept_intersections": 926,
+      "cross_domain_opportunities": 52,
+      "temporal_evolution_gaps": 0,
+      "university_collaboration_ready": 26
+    }
   },
   "network": {
     "nodes": [
@@ -55,6 +74,14 @@
             "year": "2024",
             "authors": "Qurat Ul Ain, Rawaa Alatrash, Mohamed Amine Chatti, Shoeb Joarder, Paul Arthur Meteng Kamdem, Clara Siepmann"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -95,6 +122,14 @@
             "year": "2022",
             "authors": "Prantika Chakraborty, Sudakshina Dutta, Debarshi Kumar Sanyal"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -135,6 +170,14 @@
             "year": "2023",
             "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -175,6 +218,14 @@
             "year": "2016",
             "authors": "Lucy A. Anderson, Jennifer F. Linden"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -215,6 +266,13 @@
             "year": "2024",
             "authors": "Luigi Bellomarini, Costanza Catalano, Andrea Coletta, Michela Iezzi, Pierangela Samarati"
           }
+        ],
+        "domains": [
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -255,6 +313,14 @@
             "year": "2025",
             "authors": "Preston Rasmussen Zep AI"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -295,6 +361,10 @@
             "year": "2022",
             "authors": "Borui Cai, Yong Xiang, Longxiang Gao, He Zhang, Yunfeng Li, Jianxin Li"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -335,6 +405,12 @@
             "year": "2024",
             "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -375,6 +451,11 @@
             "year": "2023",
             "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education"
         ]
       },
       {
@@ -415,6 +496,14 @@
             "year": "2023",
             "authors": "Luigi Asprino, Enrico Daga, Aldo Gangemi, Paul Mulholland"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -455,6 +544,12 @@
             "year": "2024",
             "authors": "Bilal Abu-Salih, Salihah Alotaibi"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -495,6 +590,12 @@
             "year": "2024",
             "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -535,6 +636,10 @@
             "year": "2024",
             "authors": "Dongqi Fu, Wenxuan Bao, Ross Maciejewski, Hanghang Tong, Jingrui He"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -575,6 +680,12 @@
             "year": "2022",
             "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -615,6 +726,11 @@
             "year": "2024",
             "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "social",
+          "education"
         ]
       },
       {
@@ -655,6 +771,12 @@
             "year": "2023",
             "authors": "Li Bai, Haibo Hu, Qingqing Ye, Haoyang Li, Leixia Wang, Jianliang Xu"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -695,6 +817,14 @@
             "year": "2019",
             "authors": "Krisztian Balog, Tom Kenter"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -735,6 +865,13 @@
             "year": "2024",
             "authors": "Singapore fabr, anupa"
           }
+        ],
+        "domains": [
+          "general",
+          "education",
+          "social",
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -775,6 +912,12 @@
             "year": "2024",
             "authors": "Zijian Du, Luozhijie Jin, Le Shu, Yan Cen, Yuanfeng Xu, Yongfeng Mei"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "social",
+          "education"
         ]
       },
       {
@@ -815,6 +958,11 @@
             "year": "2023",
             "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education"
         ]
       },
       {
@@ -855,6 +1003,11 @@
             "year": "2023",
             "authors": "Li Cai, Xin Mao, Zhihong Wang, Shangqing Zhao, Yuhao Zhou, Changxu Wu, Man Lan"
           }
+        ],
+        "domains": [
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -895,6 +1048,10 @@
             "year": "2024",
             "authors": "Xi Lin"
           }
+        ],
+        "domains": [
+          "social",
+          "education"
         ]
       },
       {
@@ -935,6 +1092,11 @@
             "year": "2022",
             "authors": "Academic Editor"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "social",
+          "education"
         ]
       },
       {
@@ -975,6 +1137,10 @@
             "year": "2024",
             "authors": "Ying Lin, Han Wang, Jiangning Chen, Tong Wang, Yue Liu, Heng Ji, Yang Liu, Premkumar Natarajan"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -1015,6 +1181,11 @@
             "year": "2024",
             "authors": "nudt.edu.cn liyitong"
           }
+        ],
+        "domains": [
+          "general",
+          "social",
+          "education"
         ]
       },
       {
@@ -1055,6 +1226,12 @@
             "year": "2024",
             "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "social",
+          "education"
         ]
       },
       {
@@ -1095,6 +1272,12 @@
             "year": "2023",
             "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "enterprise",
+          "general",
+          "education"
         ]
       },
       {
@@ -1135,6 +1318,9 @@
             "year": "2024",
             "authors": "Singapore fabr, anupa"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -1175,6 +1361,11 @@
             "year": "2024",
             "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
           }
+        ],
+        "domains": [
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -1215,6 +1406,11 @@
             "year": "2025",
             "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education"
         ]
       },
       {
@@ -1255,6 +1451,9 @@
             "year": "2021",
             "authors": "Lukas Galke, Iacopo Vagliano, Benedikt Franke, Tobias Zielke, Marcel Hoffmann, Ansgar Scherp"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -1295,6 +1494,12 @@
             "year": "2025",
             "authors": "Taniya Das, Louis Mahon, Thomas Lukasiewicz"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education",
+          "social"
         ]
       },
       {
@@ -1335,6 +1540,10 @@
             "year": "2024",
             "authors": "Yuxia Xie, Kai Yang"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "education"
         ]
       },
       {
@@ -1375,6 +1584,11 @@
             "year": "2024",
             "authors": "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzela\u0144czyk"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "social"
         ]
       },
       {
@@ -1415,6 +1629,10 @@
             "year": "2020",
             "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
           }
+        ],
+        "domains": [
+          "social",
+          "education"
         ]
       },
       {
@@ -1455,6 +1673,11 @@
             "year": "2019",
             "authors": "Miracle Aniakor Vinicius V. Cogo Pedro M. Ferreira"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "social"
         ]
       },
       {
@@ -1495,6 +1718,11 @@
             "year": "2022",
             "authors": "Zhibin Chen, Yuting Wu, Yansong Feng"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general",
+          "education"
         ]
       },
       {
@@ -1535,6 +1763,11 @@
             "year": "2025",
             "authors": "Deeksha Prahlad"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "iot"
         ]
       },
       {
@@ -1575,6 +1808,9 @@
             "year": "2022",
             "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -1615,6 +1851,9 @@
             "year": "2023",
             "authors": "Storage, transmission"
           }
+        ],
+        "domains": [
+          "general"
         ]
       },
       {
@@ -1655,6 +1894,9 @@
             "year": "2024",
             "authors": "Shuo Qin"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -1695,6 +1937,10 @@
             "year": "2022",
             "authors": "Donglin Wang, Feng Zhao, Ziqi Zhang"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -1735,6 +1981,10 @@
             "year": "2024",
             "authors": "Hongwei Chen"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -1775,6 +2025,11 @@
             "year": "2018",
             "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education"
         ]
       },
       {
@@ -1815,6 +2070,9 @@
             "year": "2014",
             "authors": "Jorn Kuhlenkamp, Markus Klems, Oliver Ross"
           }
+        ],
+        "domains": [
+          "general"
         ]
       },
       {
@@ -1855,6 +2113,9 @@
             "year": "2025",
             "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -1895,6 +2156,10 @@
             "year": "2023",
             "authors": "Iris R Joosse, Fatima Suleman"
           }
+        ],
+        "domains": [
+          "general",
+          "iot"
         ]
       },
       {
@@ -1935,6 +2200,9 @@
             "year": "2022",
             "authors": "Devis Bianchini, Valeria De Antonellis, Massimiliano Garda"
           }
+        ],
+        "domains": [
+          "general"
         ]
       },
       {
@@ -1975,6 +2243,9 @@
             "year": "2023",
             "authors": "Jiaoyan Chen, Hang Dong, Janna Hastings, Ernesto Jim\u00e9nez-Ruiz, Vanessa L\u00f3pez, Pierre Monnin, Catia Pesquita, Petr \u0160koda, Valentina Tamma"
           }
+        ],
+        "domains": [
+          "general"
         ]
       },
       {
@@ -2015,6 +2286,11 @@
             "year": "2024",
             "authors": "Jakub Pokrywka, Jeremi I. Kaczmarek, Edward J. Gorzela\u0144czyk"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "healthcare",
+          "general"
         ]
       },
       {
@@ -2055,6 +2331,11 @@
             "year": "2020",
             "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "social",
+          "education"
         ]
       },
       {
@@ -2095,6 +2376,10 @@
             "year": "2024",
             "authors": "Dong Wen, Jiamin Hou"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -2135,6 +2420,9 @@
             "year": "2023",
             "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -2175,6 +2463,10 @@
             "year": "2021",
             "authors": "Jianxin Chang, Chen Gao, Yu Zheng, Yiqun Hui, Yanan Niu, Yang Song, Depeng Jin, Yong Li"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "education"
         ]
       },
       {
@@ -2215,6 +2507,10 @@
             "year": "2023",
             "authors": "Wei Chen, Huaiyu Wan, Yuting Wu \u2217, Shuyuan Zhao, Jiayaqi Cheng, Yuxin Li, Youfang Lin"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "education"
         ]
       },
       {
@@ -2255,6 +2551,10 @@
             "year": "2023",
             "authors": "Yuhang Xu, Yan Lyu, Guangwei Xiong, Shuyu Wang, Weiwei Wu, Helei Cui, Junzhou Luo, Adaptive Feature, Fusion Network"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "social"
         ]
       },
       {
@@ -2295,6 +2595,10 @@
             "year": "2022",
             "authors": "Satvik Garg, Dwaipayan Roy"
           }
+        ],
+        "domains": [
+          "social",
+          "education"
         ]
       },
       {
@@ -2335,6 +2639,10 @@
             "year": "2024",
             "authors": "yc, j.n"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "education"
         ]
       },
       {
@@ -2375,6 +2683,11 @@
             "year": "2022",
             "authors": "Haojie Xie, Yirong Chen, Xiaofen Xing, Jingkai Lin"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "social"
         ]
       },
       {
@@ -2415,6 +2728,9 @@
             "year": "2020",
             "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
           }
+        ],
+        "domains": [
+          "social"
         ]
       },
       {
@@ -2455,6 +2771,9 @@
             "year": "2023",
             "authors": "Iran sahar.ghassab, Iran behkama, Canada mostafa.milan"
           }
+        ],
+        "domains": [
+          "general"
         ]
       },
       {
@@ -2495,6 +2814,10 @@
             "year": "2024",
             "authors": "Hongxi Yan, Dawei Weng, Dongguo Li, Yu Gu, Wenji Ma, Qingjie Liu"
           }
+        ],
+        "domains": [
+          "social",
+          "education"
         ]
       },
       {
@@ -2535,6 +2858,9 @@
             "year": "2020",
             "authors": "Aldo Pareja, Giacomo Domeniconi, Jie Chen, Tengfei Ma, Toyotaro Suzumura, Hiroki Kanezashi, Tim Kaler, Tao B. Schardl, Charles E. Leiserson"
           }
+        ],
+        "domains": [
+          "social"
         ]
       },
       {
@@ -2569,6 +2895,10 @@
             "year": "2020",
             "authors": "Gerd H\u00fcbscher, Daniel Steindl, Klaus-Dieter Schewe"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "social"
         ]
       },
       {
@@ -2603,6 +2933,9 @@
             "year": "2024",
             "authors": "Sandro Amofa, Qi Xia, Hu Xia, Isaac Amankona Obiri, Bonsu Adjei-Arthur, Jingcong Yang, Jianbin Gao"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -2637,6 +2970,9 @@
             "year": "2024",
             "authors": "Singapore fabr, anupa"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -2671,6 +3007,9 @@
             "year": "2023",
             "authors": "Leonardo Guerreiro Azevedo, Renan Francisco Santos Souza, Elton F. de S. Soares, Raphael M. Thiago, Julio Cesar Cardoso Tesolin, Anna C. Oliveira, Marcio Ferreira Moreno"
           }
+        ],
+        "domains": [
+          "general"
         ]
       },
       {
@@ -2705,6 +3044,10 @@
             "year": "2009",
             "authors": "Tim Kraska, Martin Hentschel, Gustavo Alonso, Donald Kossmann"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general"
         ]
       },
       {
@@ -2739,6 +3082,9 @@
             "year": "2024",
             "authors": "Singapore fabr, anupa"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -2767,6 +3113,9 @@
             "year": "2023",
             "authors": "Hasan Abu-Rasheed, Mareike Dornh\u00f6fer, Christian Weber, G\u00e1bor Kismih\u00f3k, Ulrike Buchmann, Madjid Fathi"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -2795,6 +3144,11 @@
             "year": "2024",
             "authors": "Daochen Zha, Zaid Pervaiz Bhat, Kwei-Herng Lai, Fan Yang, Zhimeng Jiang, Shaochen Zhong, Xia Hu"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "general",
+          "education"
         ]
       },
       {
@@ -2823,6 +3177,9 @@
             "year": "2023",
             "authors": "Bader Aldughayfiq, Farzeen Ashfaq, N. Z. Jhanjhi, Mamoona Humayun"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -2851,6 +3208,9 @@
             "year": "2024",
             "authors": "Li Caia, Xin Mao, Yuhao Zhou, Zhaoguang Long, Changxu Wu, Man Lana, North Zhongshan Road, Industrial Engineering"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -2879,6 +3239,9 @@
             "year": "2024",
             "authors": "Tsai Hor Chan, Guosheng Yin, Kyongtae Bae, Lequan Yua, Hong Kong, Pokfulam Road, Diagnostic Radiology"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -2907,6 +3270,10 @@
             "year": "2024",
             "authors": "yc, j.n"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "education"
         ]
       },
       {
@@ -2935,6 +3302,10 @@
             "year": "2020",
             "authors": "Sumin Seo, Heeseon Cheon, Hyunho Kim, Dongseok Hyun"
           }
+        ],
+        "domains": [
+          "enterprise",
+          "general"
         ]
       },
       {
@@ -2963,6 +3334,10 @@
             "year": "2024",
             "authors": "yc, j.n"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -2991,6 +3366,10 @@
             "year": "2024",
             "authors": "Ruiyi Yang"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -3019,6 +3398,10 @@
             "year": "2016",
             "authors": "Xuzheng Yu, Chen Jiang, Wei Zhang, Tian Gan, Linlin Chao, Jianan Zhao, Yuan Cheng, Qingpei Guo, Wei Chu"
           }
+        ],
+        "domains": [
+          "general",
+          "education"
         ]
       },
       {
@@ -3047,6 +3430,10 @@
             "year": "2025",
             "authors": "Deeksha Prahlad"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "iot"
         ]
       },
       {
@@ -3075,6 +3462,9 @@
             "year": "2025",
             "authors": "Rahatara Ferdousi, M. Anwar Hossain Senior Member"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3103,6 +3493,10 @@
             "year": "2024",
             "authors": "Heloisa Oss, Ali Amirahmadi, Amira Soliman, Stefan Byttner, Mariana Recamonde"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "education"
         ]
       },
       {
@@ -3131,6 +3525,10 @@
             "year": "2024",
             "authors": "Junlin Lee, Yequan Wang, Jing Li, Min Zhang"
           }
+        ],
+        "domains": [
+          "social",
+          "education"
         ]
       },
       {
@@ -3159,6 +3557,9 @@
             "year": "2025",
             "authors": "Fan Gao, Xinjie Zhao, Ding Xia, Zhongyi Zhou, Rui Yang, Jinghui Lu, Hang Jiang, Chanjun Park, Irene Li"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3187,6 +3588,9 @@
             "year": "2022",
             "authors": "Satvik Garg, Dwaipayan Roy"
           }
+        ],
+        "domains": [
+          "social"
         ]
       },
       {
@@ -3215,6 +3619,9 @@
             "year": "2022",
             "authors": "Satvik Garg, Dwaipayan Roy"
           }
+        ],
+        "domains": [
+          "social"
         ]
       },
       {
@@ -3243,6 +3650,10 @@
             "year": "2013",
             "authors": "Sukanya Mandal"
           }
+        ],
+        "domains": [
+          "iot",
+          "education"
         ]
       },
       {
@@ -3271,6 +3682,10 @@
             "year": "2025",
             "authors": "Jun Zhu, Yan Fu, Junlin Zhou, Duanbing Chen"
           }
+        ],
+        "domains": [
+          "general",
+          "iot"
         ]
       },
       {
@@ -3293,6 +3708,9 @@
             "year": "2018",
             "authors": "Daniel Bloor, Nnamdi Ugwuoke, David Taylor, Keir Lewis, Luis Mur, Chuan Lu"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3315,6 +3733,9 @@
             "year": "2023",
             "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3337,6 +3758,9 @@
             "year": "2023",
             "authors": "Antonella Carbonaro, Alberto Marfoglia, Filippo Nardini, Sabato Mellone"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3359,6 +3783,9 @@
             "year": "2024",
             "authors": "Hongwei Chen"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -3381,6 +3808,9 @@
             "year": "2020",
             "authors": "Philippe Cudr\u00e9-Mauroux"
           }
+        ],
+        "domains": [
+          "enterprise"
         ]
       },
       {
@@ -3403,6 +3833,9 @@
             "year": "2024",
             "authors": "Siling Feng, Bolin Chen, Qian Liu, Mengxing Huang"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -3425,6 +3858,9 @@
             "year": "2023",
             "authors": "Ben Gaffineta, Jana Al Haj Ali, Yannick Naudet"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3447,6 +3883,10 @@
             "year": "2022",
             "authors": "Satvik Garg, Dwaipayan Roy"
           }
+        ],
+        "domains": [
+          "social",
+          "education"
         ]
       },
       {
@@ -3469,6 +3909,9 @@
             "year": "2024",
             "authors": "Yanjun Gao, Ruizhe Li, Emma Croxford, Samuel Tesch, Daniel To, John Caskey, Brian W. Patterson, Matthew M. Churpek, Timothy Miller, Dmitriy Dligach, Majid Afshar, Public Health, Wisconsin Madison"
           }
+        ],
+        "domains": [
+          "healthcare"
         ]
       },
       {
@@ -3491,6 +3934,9 @@
             "year": "2020",
             "authors": "Anwar Ghani, Afzal Badshah, Saeed Ullah Jan, Abdulrahman A. Alshdadi, Ali Daud"
           }
+        ],
+        "domains": [
+          "iot"
         ]
       },
       {
@@ -3513,6 +3959,9 @@
             "year": "2022",
             "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
           }
+        ],
+        "domains": [
+          "education"
         ]
       },
       {
@@ -3535,6 +3984,10 @@
             "year": "2022",
             "authors": "Philipp Haindl, Maqbool Khan, Georg Buchgeher, Bernhard Moser"
           }
+        ],
+        "domains": [
+          "healthcare",
+          "education"
         ]
       }
     ],
@@ -4168,5 +4621,89 @@
       "established"
     ],
     "gap_types": []
+  },
+  "gap_analysis": {
+    "high_opportunity_indicators": [
+      "pkg",
+      "heterogeneous data integration",
+      "temporal reasoning",
+      "privacy preserving"
+    ],
+    "emerging_concepts": [
+      "layered architecture",
+      "data provenance",
+      "recall",
+      "postgresql",
+      "microservices",
+      "f1-score",
+      "text mining",
+      "reliability",
+      "mysql",
+      "graph representation learning",
+      "causal inference",
+      "cnn",
+      "knowledge graph quality",
+      "hits@1",
+      "real-time processing",
+      "gan",
+      "bleu",
+      "dynamic schema",
+      "graphsage",
+      "graph attention networks",
+      "knowledge graph visualization",
+      "transr",
+      "distmult",
+      "multi-modal knowledge graph",
+      "graph generation",
+      "mongodb",
+      "kafka",
+      "data standardization",
+      "gru",
+      "named entity recognition",
+      "upstream data orchestration",
+      "data synchronization",
+      "knowledge graph evolution",
+      "multi-head attention",
+      "data security",
+      "computer vision",
+      "knowledge graph integration"
+    ],
+    "cross_domain_potential": [
+      "pkg",
+      "heterogeneous data integration",
+      "complex",
+      "hdm",
+      "privacy-preserving",
+      "accuracy",
+      "temporal reasoning",
+      "federated learning",
+      "knowledge graph construction",
+      "scalability",
+      "temporal-first",
+      "temporal-first architecture",
+      "graph neural networks",
+      "inference",
+      "personal knowledge graph",
+      "precision",
+      "transformer",
+      "sparql",
+      "knowledge graph completion",
+      "graph neural network",
+      "link prediction",
+      "temporal modeling",
+      "nlp",
+      "knowledge graph reasoning",
+      "latency",
+      "knowledge integration",
+      "gpt",
+      "semantic interoperability",
+      "entity linking",
+      "rouge",
+      "neo4j",
+      "natural language processing",
+      "bespoke pkg",
+      "heterogeneous data fusion",
+      "reliability"
+    ]
   }
 }
