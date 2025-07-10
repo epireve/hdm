@@ -1,0 +1,96 @@
+=== Final Merge Report ===
+
+Processing time: 0.9 seconds
+
+Primary dataset: 358 papers
+Secondary dataset: 310 papers
+Matched: 277 papers
+Unmatched: 33 papers
+Match rate (from primary): 77.4%
+Match rate (from secondary): 89.4%
+
+Match types:
+  exact_title: 253
+  fuzzy_title: 24
+
+=== High Confidence Matches (score >= 0.9) ===
+
+1. Score: 1.000 (exact_title)
+   Primary: Multimodal Object Detection Using Depth and Image Data for Manufacturing Parts
+   Secondary: Multimodal Object Detection Using Depth and Image Data for Manufacturing Parts
+
+2. Score: 1.000 (exact_title)
+   Primary: A human digital twin for the M‑Machine
+   Secondary: A human digital twin for the M-Machine
+
+3. Score: 1.000 (exact_title)
+   Primary: KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enha
+   Secondary: KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enha
+
+4. Score: 1.000 (exact_title)
+   Primary: Personalizing Large Language Models using Retrieval Augmented Generation and Kno
+   Secondary: Personalizing Large Language Models using Retrieval Augmented Generation and Kno
+
+5. Score: 1.000 (exact_title)
+   Primary: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federa
+   Secondary: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federa
+
+6. Score: 1.000 (exact_title)
+   Primary: Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
+   Secondary: Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
+
+7. Score: 1.000 (exact_title)
+   Primary: Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficienci
+   Secondary: Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficienci
+
+8. Score: 1.000 (exact_title)
+   Primary: New generation Energy Performance Certificate: development and application in an
+   Secondary: New generation Energy Performance Certificate: Development and application in an
+
+9. Score: 1.000 (exact_title)
+   Primary: Unifying Large Language Models and Knowledge Graphs: A Roadmap
+   Secondary: Unifying Large Language Models and Knowledge Graphs: A Roadmap
+
+10. Score: 1.000 (exact_title)
+   Primary: Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) f
+   Secondary: Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) f
+
+11. Score: 1.000 (exact_title)
+   Primary: Affordable AI Assistants with Knowledge Graph of Thoughts
+   Secondary: Affordable AI Assistants with Knowledge Graph of Thoughts
+
+12. Score: 1.000 (exact_title)
+   Primary: KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language
+   Secondary: KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language
+
+13. Score: 1.000 (exact_title)
+   Primary: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-A
+   Secondary: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-A
+
+14. Score: 1.000 (exact_title)
+   Primary: TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Know
+   Secondary: TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Know
+
+15. Score: 1.000 (exact_title)
+   Primary: Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
+   Secondary: Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
+
+16. Score: 1.000 (exact_title)
+   Primary: Human Body Digital Twin: A Master Plan
+   Secondary: Human Body Digital Twin: A Master Plan
+
+17. Score: 1.000 (exact_title)
+   Primary: SENAI: Towards Software Engineering Native Generative Artificial Intelligence
+   Secondary: SENAI: Towards Software Engineering Native Generative Artificial Intelligence
+
+18. Score: 1.000 (exact_title)
+   Primary: A contrastive learning framework with dual gates and noise awareness for tempora
+   Secondary: A contrastive learning framework with dual gates and noise awareness for tempora
+
+19. Score: 1.000 (exact_title)
+   Primary: Advances in Privacy Preserving Federated Learning to Realize a Truly Learning He
+   Secondary: Advances in Privacy Preserving Federated Learning to Realize a Truly Learning He
+
+20. Score: 1.000 (exact_title)
+   Primary: MARK: Memory Augmented Refinement of Knowledge
+   Secondary: MARK: Memory Augmented Refinement of Knowledge

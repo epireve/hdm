@@ -1,0 +1,7 @@
+# Requirements for HDM Knowledge Graph Generation
+pandas>=1.5.0
+networkx>=2.8.0
+numpy>=1.23.0
+python-louvain>=0.16  # For community detection (optional but recommended)
+scipy>=1.9.0  # For similarity calculations
+scikit-learn>=1.1.0  # For text analysis and clustering

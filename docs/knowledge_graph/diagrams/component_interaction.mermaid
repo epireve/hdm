@@ -1,0 +1,66 @@
+```mermaid
+graph LR
+    subgraph "Python Components"
+        HKG[HDMKnowledgeGraphBuilder]
+        RE[RelationshipExtractor]
+        TC[ThemeClusterer]
+        PM[ProcessManager]
+    end
+    
+    subgraph "Data Structures"
+        DF[DataFrame<br/>pandas]
+        NX[NetworkX Graph]
+        SM[Similarity Matrix]
+        TM[Theme Model]
+    end
+    
+    subgraph "JavaScript Components"
+        GV[HDMGraph<br/>D3.js]
+        GI[GraphInteractions]
+        GF[GraphFilters]
+        MA[Main App]
+    end
+    
+    subgraph "Data Files"
+        CSV[CSV Input]
+        JSON[JSON Output]
+    end
+    
+    subgraph "UI Elements"
+        SV[SVG Canvas]
+        DP[Details Panel]
+        CF[Control Filters]
+        TT[Tooltips]
+    end
+    
+    CSV --> PM
+    PM --> HKG
+    PM --> RE
+    PM --> TC
+    
+    HKG --> DF
+    DF --> NX
+    RE --> SM
+    TC --> TM
+    
+    NX --> JSON
+    SM --> JSON
+    TM --> JSON
+    
+    JSON --> MA
+    MA --> GV
+    MA --> GI
+    MA --> GF
+    
+    GV --> SV
+    GI --> DP
+    GI --> TT
+    GF --> CF
+    
+    GI -.-> GV
+    GF -.-> GV
+    
+    style CSV fill:#faa,stroke:#333,stroke-width:2px
+    style JSON fill:#afa,stroke:#333,stroke-width:2px
+    style SV fill:#aaf,stroke:#333,stroke-width:2px
+```

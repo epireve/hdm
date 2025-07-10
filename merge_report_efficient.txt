@@ -1,0 +1,91 @@
+=== Merge Report ===
+
+Completed in: 0.1 seconds
+
+Primary papers: 358
+Secondary papers: 2764
+Matched: 312
+Unmatched: 2452
+Match rate: 11.3%
+
+=== Top Matches ===
+
+1. Score: 1.000
+   Primary: Multimodal Object Detection Using Depth and Image Data for Manufacturing Parts
+   Secondary: Multimodal Object Detection Using Depth and Image Data for Manufacturing Parts
+
+2. Score: 1.000
+   Primary: A human digital twin for the M‑Machine
+   Secondary: A human digital twin for the M-Machine
+
+3. Score: 1.000
+   Primary: KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enha
+   Secondary: KG4Diagnosis: A Hierarchical Multi-Agent LLM Framework with Knowledge Graph Enha
+
+4. Score: 1.000
+   Primary: Personalizing Large Language Models using Retrieval Augmented Generation and Kno
+   Secondary: Personalizing Large Language Models using Retrieval Augmented Generation and Kno
+
+5. Score: 1.000
+   Primary: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federa
+   Secondary: A Selective Homomorphic Encryption Approach for Faster Privacy-Preserving Federa
+
+6. Score: 1.000
+   Primary: Towards a Flexible System Architecture for Automated Knowledge Base Construction
+   Secondary: Towards a Flexible System Architecture for Automated Knowledge Base Construction
+
+7. Score: 1.000
+   Primary: Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
+   Secondary: Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs
+
+8. Score: 1.000
+   Primary: Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficienci
+   Secondary: Structural Entropy Guided Agent for Detecting and Repairing Knowledge Deficienci
+
+9. Score: 1.000
+   Primary: New generation Energy Performance Certificate: development and application in an
+   Secondary: New generation Energy Performance Certificate: Development and application in an
+
+10. Score: 1.000
+   Primary: Unifying Large Language Models and Knowledge Graphs: A Roadmap
+   Secondary: Unifying Large Language Models and Knowledge Graphs: A Roadmap
+
+11. Score: 1.000
+   Primary: Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) f
+   Secondary: Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) f
+
+12. Score: 1.000
+   Primary: Affordable AI Assistants with Knowledge Graph of Thoughts
+   Secondary: Affordable AI Assistants with Knowledge Graph of Thoughts
+
+13. Score: 1.000
+   Primary: KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language
+   Secondary: KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language
+
+14. Score: 1.000
+   Primary: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-A
+   Secondary: A Human Digital Twin Architecture for Knowledge-based Interactions and Context-A
+
+15. Score: 1.000
+   Primary: TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Know
+   Secondary: TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Know
+
+16. Score: 1.000
+   Primary: Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
+   Secondary: Auditing Privacy Defenses in Federated Learning via Generative Gradient Leakage
+
+17. Score: 1.000
+   Primary: Named Entity Resolution in Personal Knowledge Graphs
+   Secondary: Named Entity Resolution in Personal Knowledge Graphs
+
+18. Score: 1.000
+   Primary: Human Body Digital Twin: A Master Plan
+   Secondary: Human Body Digital Twin: A Master Plan
+
+19. Score: 1.000
+   Primary: Describe and query semantic building digital twin data in temporal Knowledge Gra
+   Secondary: Describe and query semantic building digital twin data in temporal Knowledge Gra
+
+20. Score: 1.000
+   Primary: SENAI: Towards Software Engineering Native Generative Artificial Intelligence
+   Secondary: SENAI: Towards Software Engineering Native Generative Artificial Intelligence
