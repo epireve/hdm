@@ -512,3 +512,115 @@ header p {
 #paper-content a:hover {
     text-decoration: underline;
 }
+
+/* Paper content tables */
+#paper-content table {
+    margin: 20px 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#paper-content table th,
+#paper-content table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+#paper-content table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+#paper-content table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#paper-content table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Paper content images */
+#paper-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Paper content lists */
+#paper-content ul,
+#paper-content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+    line-height: 1.8;
+}
+
+#paper-content li {
+    margin-bottom: 5px;
+}
+
+/* Paper content blockquotes */
+#paper-content blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    font-style: italic;
+}
+
+/* Paper content horizontal rules */
+#paper-content hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+}
+
+.loading-spinner:after {
+    content: " ";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 4px solid #3498db;
+    border-color: #3498db transparent #3498db transparent;
+    animation: loading-spinner 1.2s linear infinite;
+}
+
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scrollbar styling for modal */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

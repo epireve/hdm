@@ -6,6 +6,7 @@
     <title>PKG/HDM Research Explorer - Personal Research Tool</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -756,9 +757,9 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         modal.style.display = 'block';
         
         // Set loading state
-        document.getElementById('paper-title').textContent = 'Loading...';
+        document.getElementById('paper-title').textContent = 'Loading Paper...';
         document.getElementById('paper-metadata').innerHTML = '';
-        document.getElementById('paper-content').innerHTML = '<p>Loading paper content...</p>';
+        document.getElementById('paper-content').innerHTML = '<div style="text-align: center; padding: 40px;"><div class="loading-spinner"></div><p style="color: #666; margin-top: 20px;">Loading paper content...</p></div>';
         
         // Fetch paper markdown
         fetch(`/markdown_papers/${paperId}/paper.md`)
@@ -773,14 +774,31 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
                 let content = markdown;
                 
                 if (frontmatterMatch) {
-                    // Parse YAML frontmatter (simple parsing)
+                    // Parse YAML frontmatter (enhanced parsing)
                     const yamlContent = frontmatterMatch[1];
                     const lines = yamlContent.split('\n');
                     
+                    let currentKey = null;
                     lines.forEach(line => {
-                        const match = line.match(/^(\w+):\s*(.+)$/);
+                        // Handle key-value pairs
+                        const match = line.match(/^(\w+):\s*(.*)$/);
                         if (match) {
-                            metadata[match[1]] = match[2].trim();
+                            currentKey = match[1];
+                            const value = match[2].trim();
+                            
+                            // Remove quotes if present
+                            if ((value.startsWith('"') && value.endsWith('"')) || 
+                                (value.startsWith("'") && value.endsWith("'"))) {
+                                metadata[currentKey] = value.slice(1, -1);
+                            } else {
+                                metadata[currentKey] = value;
+                            }
+                        } else if (currentKey && line.trim().startsWith('- ')) {
+                            // Handle list items
+                            if (!Array.isArray(metadata[currentKey])) {
+                                metadata[currentKey] = [];
+                            }
+                            metadata[currentKey].push(line.trim().substring(2));
                         }
                     });
                     
@@ -800,8 +818,8 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
                     </div>
                 `;
                 
-                // Convert markdown to HTML (basic conversion)
-                const htmlContent = convertMarkdownToHtml(content);
+                // Convert markdown to HTML using marked library
+                const htmlContent = convertMarkdownToHtml(content, paperId);
                 document.getElementById('paper-content').innerHTML = htmlContent;
             })
             .catch(error => {
@@ -813,33 +831,83 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
             });
     }
 
-    function convertMarkdownToHtml(markdown) {
-        // Basic markdown to HTML conversion
-        let html = markdown
-            // Headers
-            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-            .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-            .replace(/^# (.+)$/gm, '<h1>$1</h1>')
-            // Bold
-            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-            // Italic
-            .replace(/\*(.+?)\*/g, '<em>$1</em>')
-            // Links
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
-            // Line breaks
-            .replace(/\n\n/g, '</p><p>')
-            // Code blocks
-            .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>')
-            // Inline code
-            .replace(/`([^`]+)`/g, '<code>$1</code>');
+    function convertMarkdownToHtml(markdown, paperId) {
+        // Configure marked options
+        marked.setOptions({
+            breaks: true,
+            gfm: true, // GitHub Flavored Markdown (supports tables)
+            headerIds: true,
+            mangle: false,
+            pedantic: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: true
+        });
         
-        // Wrap in paragraphs
-        html = '<p>' + html + '</p>';
+        // Custom renderer to handle image paths
+        const renderer = new marked.Renderer();
         
-        // Clean up empty paragraphs
-        html = html.replace(/<p>\s*<\/p>/g, '');
+        // Override image rendering to fix paths
+        renderer.image = function(href, title, text) {
+            // Check if it's a relative path
+            if (!href.startsWith('http') && !href.startsWith('data:')) {
+                // Adjust path to point to the correct location
+                href = `/markdown_papers/${paperId}/${href}`;
+            }
+            
+            // Add responsive image styling with error handling
+            return `<img src="${href}" alt="${text || ''}" title="${title || ''}" 
+                    style="max-width: 100%; height: auto; display: block; margin: 20px auto;"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPC9zdmc+'; this.alt='Image not found: ' + this.alt;">`;
+        };
         
-        return html;
+        // Override table rendering for better styling
+        renderer.table = function(header, body) {
+            return `<div style="overflow-x: auto; margin: 20px 0;">
+                <table style="border-collapse: collapse; width: 100%; min-width: 500px;">
+                    <thead style="background-color: #f8f9fa;">${header}</thead>
+                    <tbody>${body}</tbody>
+                </table>
+            </div>`;
+        };
+        
+        renderer.tablerow = function(content) {
+            return `<tr style="border-bottom: 1px solid #dee2e6;">${content}</tr>`;
+        };
+        
+        renderer.tablecell = function(content, flags) {
+            const type = flags.header ? 'th' : 'td';
+            const align = flags.align ? `text-align: ${flags.align};` : '';
+            const style = `padding: 12px; ${align} ${flags.header ? 'font-weight: bold;' : ''}`;
+            return `<${type} style="${style}">${content}</${type}>`;
+        };
+        
+        // Override code block rendering for better syntax highlighting
+        renderer.code = function(code, language) {
+            return `<pre style="background-color: #f5f5f5; padding: 15px; border-radius: 4px; overflow-x: auto;"><code class="language-${language || 'text'}">${escapeHtml(code)}</code></pre>`;
+        };
+        
+        // Override link rendering to open in new tab
+        renderer.link = function(href, title, text) {
+            return `<a href="${href}" title="${title || ''}" target="_blank" style="color: #3498db;">${text}</a>`;
+        };
+        
+        // Use the custom renderer
+        marked.use({ renderer });
+        
+        // Convert markdown to HTML
+        return marked.parse(markdown);
+    }
+    
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
     }
 
     // Modal close functionality
