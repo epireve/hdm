@@ -1513,11 +1513,14 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
                     <div style="font-size: 13px; color: #666;">
                         ${paper.authors || 'Authors not available'} (${paper.year || 'Year unknown'})
                     </div>
+                    <div style="font-size: 11px; color: #999; margin-top: 4px;">
+                        Click to view full paper • ID: ${paper.id || paper.cite_key || 'unknown'}
+                    </div>
                 `;
                 
                 li.onmouseover = () => li.style.backgroundColor = '#e9ecef';
                 li.onmouseout = () => li.style.backgroundColor = '#f8f9fa';
-                li.onclick = () => loadPaper(paper.id || paper.cite_key);
+                li.onclick = () => loadPaper(paper.id || paper.cite_key, paper);
                 
                 ul.appendChild(li);
             });
@@ -1528,7 +1531,7 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         }
     }
 
-    function loadPaper(paperId) {
+    function loadPaper(paperId, paperMetadata = null) {
         if (!paperId) {
             alert('Paper ID not available');
             return;
@@ -1543,12 +1546,20 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         document.getElementById('paper-metadata').innerHTML = '';
         document.getElementById('paper-content').innerHTML = '<div style="text-align: center; padding: 40px;"><div class="loading-spinner"></div><p style="color: #666; margin-top: 20px;">Loading paper content...</p></div>';
         
-        // Fetch paper markdown
-        console.log('Attempting to fetch paper:', `/markdown_papers/${paperId}/paper.md`);
-        fetch(`/markdown_papers/${paperId}/paper.md`)
+        // Try multiple possible paths for the paper
+        const possiblePaths = [
+            `/markdown_papers/${paperId}/paper.md`,
+            `/markdown_papers/${paperId.toLowerCase()}/paper.md`,
+            `/papers/${paperId}/paper.md`,
+            `/papers/${paperId.toLowerCase()}/paper.md`
+        ];
+        
+        console.log('Attempting to fetch paper:', paperId);
+        
+        // Try each path until one works
+        tryFetchPaper(possiblePaths, 0)
             .then(response => {
-                console.log('Paper fetch response:', response.status, response.statusText);
-                if (!response.ok) throw new Error(`Paper not found: ${response.status} ${response.statusText}`);
+                console.log('Paper fetch successful from:', response.url);
                 return response.text();
             })
             .then(markdown => {
@@ -1607,11 +1618,67 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
                 document.getElementById('paper-content').innerHTML = htmlContent;
             })
             .catch(error => {
-                document.getElementById('paper-title').textContent = 'Error Loading Paper';
+                document.getElementById('paper-title').textContent = paperMetadata?.title || 'Error Loading Paper';
+                
+                // Show metadata if available, even if markdown fails
+                if (paperMetadata) {
+                    document.getElementById('paper-metadata').innerHTML = `
+                        <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 4px;">
+                            <p><strong>Authors:</strong> ${paperMetadata.authors || 'Not available'}</p>
+                            <p><strong>Year:</strong> ${paperMetadata.year || 'Not available'}</p>
+                            <p><strong>Paper ID:</strong> ${paperId}</p>
+                        </div>
+                    `;
+                }
+                
                 document.getElementById('paper-content').innerHTML = `
-                    <p style="color: red;">Failed to load paper: ${error.message}</p>
-                    <p>Paper ID: ${paperId}</p>
+                    <div style="padding: 20px; text-align: center;">
+                        <p style="color: #e74c3c; font-weight: bold; margin-bottom: 15px;">❌ Failed to load paper: ${error.message}</p>
+                        <p><strong>Paper ID:</strong> ${paperId}</p>
+                        <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 4px; text-align: left;">
+                            <h4>📋 What we know about this paper:</h4>
+                            ${paperMetadata ? `
+                                <ul style="margin: 10px 0; color: #444;">
+                                    <li><strong>Title:</strong> ${paperMetadata.title || 'Not available'}</li>
+                                    <li><strong>Authors:</strong> ${paperMetadata.authors || 'Not available'}</li>
+                                    <li><strong>Year:</strong> ${paperMetadata.year || 'Not available'}</li>
+                                </ul>
+                            ` : '<p style="color: #666;">No metadata available</p>'}
+                            
+                            <h4 style="margin-top: 20px;">🔧 Troubleshooting:</h4>
+                            <ul style="margin: 10px 0; color: #666;">
+                                <li>Paper may not be available in markdown format</li>
+                                <li>Check if the paper exists in the papers directory</li>
+                                <li>Paper is referenced in concept analysis but not yet converted</li>
+                            </ul>
+                            <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                                <strong>Note:</strong> This paper is included in the research database but the full text may not be available for viewing yet.
+                            </p>
+                        </div>
+                    </div>
                 `;
+            });
+    }
+    
+    function tryFetchPaper(paths, index) {
+        if (index >= paths.length) {
+            return Promise.reject(new Error('Paper not found in any location'));
+        }
+        
+        const currentPath = paths[index];
+        console.log(`Trying path ${index + 1}/${paths.length}:`, currentPath);
+        
+        return fetch(currentPath)
+            .then(response => {
+                if (response.ok) {
+                    response.url = currentPath; // Store the successful path
+                    return response;
+                }
+                throw new Error(`HTTP ${response.status}`);
+            })
+            .catch(error => {
+                console.log(`Path ${index + 1} failed:`, error.message);
+                return tryFetchPaper(paths, index + 1);
             });
     }
 
