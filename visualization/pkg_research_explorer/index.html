@@ -7,14 +7,144 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Navigation Styles */
+        .nav-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 0;
+            width: 100%;
+        }
+        
+        .nav-container {
+            max-width: 100%;
+            margin: 0;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Header Styles */
+        #header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        #header h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        #stats {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <!-- Unified Navigation and Header -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <h2 class="nav-title">🔍 PKG Research Explorer</h2>
+            <div class="nav-links">
+                <a href="../../index.html" class="nav-link">🏠 Home</a>
+                <a href="../../research_findings.html" class="nav-link">📊 Paper Browser</a>
+                <a href="../index.html" class="nav-link">🕸️ Knowledge Graph</a>
+                <a href="index.html" class="nav-link active">🔍 PKG Explorer</a>
+                <a href="https://github.com/epireve/hdm" class="nav-link" target="_blank">📱 GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="header">
+        <h4>PKG/HDM Research Explorer</h4>
+        <div id="stats">
+            <span class="stat-item">
+                <span class="stat-label">Concepts:</span>
+                <span id="concept-count" class="stat-value">0</span>
+            </span>
+            <span class="stat-item">
+                <span class="stat-label">Papers:</span>
+                <span id="paper-count" class="stat-value">0</span>
+            </span>
+            <span class="stat-item">
+                <span class="stat-label">Categories:</span>
+                <span id="category-count" class="stat-value">0</span>
+            </span>
+        </div>
+    </div>
+    
     <div id="app">
-        <!-- Header -->
-        <header>
-            <h1>PKG/HDM Research Explorer</h1>
-            <p>Interactive visualization for exploring Personal Knowledge Graph research landscape</p>
-        </header>
 
         <!-- Control Panel -->
         <div id="controls">
@@ -43,49 +173,55 @@
             </div>
         </div>
 
-        <!-- Main Visualization Area -->
-        <div id="visualization-container">
-            <div id="network-view" class="view active">
-                <svg id="network-svg"></svg>
+        <!-- Main Content Area -->
+        <div id="main-content">
+            <!-- Main Visualization Area -->
+            <div id="visualization-container">
+                <div id="network-view" class="view active">
+                    <svg id="network-svg"></svg>
+                </div>
+                <div id="hierarchy-view" class="view">
+                    <svg id="hierarchy-svg"></svg>
+                </div>
+                <div id="matrix-view" class="view">
+                    <svg id="matrix-svg"></svg>
+                </div>
             </div>
-            <div id="hierarchy-view" class="view">
-                <svg id="hierarchy-svg"></svg>
-            </div>
-            <div id="matrix-view" class="view">
-                <svg id="matrix-svg"></svg>
-            </div>
-        </div>
 
-        <!-- Detail Panel -->
-        <div id="detail-panel">
-            <h3>Concept Details</h3>
-            <div id="concept-info">
-                <p>Click on a concept to see details</p>
-            </div>
-            <div id="related-concepts">
-                <h4>Related Concepts</h4>
-                <ul id="related-list"></ul>
-            </div>
-            <div id="concept-insights">
-                <h4>Research Insights</h4>
-                <div id="insights-content"></div>
-            </div>
-            <div id="related-papers">
-                <h4>Related Papers</h4>
-                <div id="papers-list"></div>
-            </div>
-            <div id="concept-actions">
-                <button id="add-to-notes">Add to Research Notes</button>
-                <button id="copy-details">Copy Details</button>
-            </div>
-        </div>
+            <!-- Side Panel -->
+            <div id="side-panel">
+                <!-- Detail Panel -->
+                <div id="detail-panel">
+                    <h3>Concept Details</h3>
+                    <div id="concept-info">
+                        <p>Click on a concept to see details</p>
+                    </div>
+                    <div id="related-concepts">
+                        <h4>Related Concepts</h4>
+                        <ul id="related-list"></ul>
+                    </div>
+                    <div id="concept-insights">
+                        <h4>Research Insights</h4>
+                        <div id="insights-content"></div>
+                    </div>
+                    <div id="related-papers">
+                        <h4>Related Papers</h4>
+                        <div id="papers-list"></div>
+                    </div>
+                    <div id="concept-actions">
+                        <button id="add-to-notes">Add to Research Notes</button>
+                        <button id="copy-details">Copy Details</button>
+                    </div>
+                </div>
 
-        <!-- Research Notes Section -->
-        <div id="research-notes">
-            <h3>Research Notes</h3>
-            <textarea id="notes-input" placeholder="Add your research notes here..."></textarea>
-            <button id="save-notes">Save Notes</button>
-            <div id="saved-notes"></div>
+                <!-- Research Notes Section -->
+                <div id="research-notes">
+                    <h3>Research Notes</h3>
+                    <textarea id="notes-input" placeholder="Add your research notes here..."></textarea>
+                    <button id="save-notes">Save Notes</button>
+                    <div id="saved-notes"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -113,9 +249,34 @@
     // Load visualization data
     d3.json('data/visualization_data.json').then(function(loadedData) {
         data = loadedData;
+        updateStats();
         initializeControls();
         renderVisualization();
     });
+
+    // Update statistics in header
+    function updateStats() {
+        if (!data) return;
+        
+        // Update concept count
+        const conceptCount = data.network.nodes.length;
+        document.getElementById('concept-count').textContent = conceptCount;
+        
+        // Update paper count (count unique papers from sample_papers)
+        const uniquePapers = new Set();
+        data.network.nodes.forEach(node => {
+            if (node.sample_papers) {
+                node.sample_papers.forEach(paper => {
+                    uniquePapers.add(paper.id);
+                });
+            }
+        });
+        document.getElementById('paper-count').textContent = uniquePapers.size;
+        
+        // Update category count
+        const categoryCount = data.filters.categories.length;
+        document.getElementById('category-count').textContent = categoryCount;
+    }
 
     // Initialize controls
     function initializeControls() {
