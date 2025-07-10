@@ -288,78 +288,203 @@
             background-color: #0056b3;
         }
         
-        /* Column Controls */
-        .column-controls {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 10px;
+        /* Table Controls */
+        .table-controls {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .controls-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .controls-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+            margin: 0;
+        }
+        
+        .controls-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        .toggle-switch input:checked + .toggle-slider {
+            background-color: #007bff;
+        }
+        
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            color: #6c757d;
+            margin-left: 10px;
+        }
+        
+        .collapse-btn {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
             border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .collapse-btn:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .collapse-btn.collapsed:after {
+            content: ' ▼';
+        }
+        
+        .collapse-btn:not(.collapsed):after {
+            content: ' ▲';
+        }
+        
+        .column-controls {
             display: none;
+            margin-top: 15px;
         }
         
         .column-controls.active {
             display: block;
         }
         
-        .column-controls h4 {
-            margin: 0 0 10px 0;
+        .column-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .column-group {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        
+        .column-group h5 {
+            margin: 0 0 12px 0;
             font-size: 14px;
+            font-weight: 600;
             color: #495057;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e9ecef;
         }
         
         .column-checkboxes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 8px;
         }
         
         .column-checkbox {
             display: flex;
             align-items: center;
-            font-size: 12px;
+            font-size: 13px;
+            color: #6c757d;
+            padding: 4px 0;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .column-checkbox:hover {
+            color: #495057;
         }
         
         .column-checkbox input {
-            margin-right: 6px;
+            margin-right: 8px;
+            cursor: pointer;
         }
         
-        .table-options {
+        .preset-buttons {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e9ecef;
             display: flex;
             gap: 10px;
-            align-items: center;
-            margin-bottom: 10px;
+            flex-wrap: wrap;
         }
         
-        .table-options button {
+        .preset-btn {
             background-color: #6c757d;
             color: white;
             border: none;
             padding: 6px 12px;
-            border-radius: 3px;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 12px;
+            transition: background-color 0.2s;
         }
         
-        .table-options button:hover {
+        .preset-btn:hover {
             background-color: #5a6268;
         }
         
-        .table-options button.active {
+        .preset-btn.primary {
             background-color: #007bff;
         }
         
-        .truncate-toggle {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 12px;
+        .preset-btn.primary:hover {
+            background-color: #0056b3;
         }
         
         /* Table View Styles */
         .table-container {
             display: none;
-            overflow-x: auto;
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -367,6 +492,73 @@
         
         .table-container.active {
             display: block;
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* Floating Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .scroll-to-top:hover {
+            background: linear-gradient(135deg, #0056b3, #003d82);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+        
+        .scroll-to-top.visible {
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .papers-container {
@@ -379,6 +571,7 @@
         
         .papers-table {
             width: 100%;
+            min-width: 1200px;
             border-collapse: collapse;
             font-size: 12px;
         }
@@ -396,10 +589,11 @@
             font-weight: bold;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
             cursor: pointer;
             user-select: none;
             transition: background-color 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .papers-table th:hover {
@@ -708,81 +902,120 @@
     </div>
     
     <div class="table-container" id="table-container">
-        <div class="table-options">
-            <button onclick="toggleColumnControls()">🔧 Show/Hide Columns</button>
-            <div class="truncate-toggle">
-                <input type="checkbox" id="truncate-toggle" checked onchange="toggleTruncation()">
-                <label for="truncate-toggle">Truncate Long Text</label>
+        <div class="table-controls">
+            <div class="controls-header">
+                <h3 class="controls-title">📊 Table Options</h3>
+                <div class="controls-actions">
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="truncate-toggle" checked onchange="toggleTruncation()">
+                        <span class="toggle-slider"></span>
+                    </div>
+                    <span class="toggle-label">Truncate Text</span>
+                    <button class="collapse-btn collapsed" onclick="toggleColumnControls()">
+                        Customize Columns
+                    </button>
+                </div>
+            </div>
+            
+            <div class="column-controls" id="column-controls">
+                <div class="column-groups">
+                    <div class="column-group">
+                        <h5>📋 Essential Info</h5>
+                        <div class="column-checkboxes">
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="0" checked onchange="toggleColumn(this)"> Title
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="1" checked onchange="toggleColumn(this)"> Authors
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="2" checked onchange="toggleColumn(this)"> Year
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="3" checked onchange="toggleColumn(this)"> Downloaded
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="4" checked onchange="toggleColumn(this)"> Relevancy
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="column-group">
+                        <h5>💡 Key Insights</h5>
+                        <div class="column-checkboxes">
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="6" onchange="toggleColumn(this)"> Insights
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="7" checked onchange="toggleColumn(this)"> TL;DR
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="8" checked onchange="toggleColumn(this)"> Summary
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="11" onchange="toggleColumn(this)"> Key Findings
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="12" onchange="toggleColumn(this)"> Primary Outcomes
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="column-group">
+                        <h5>🔬 Research Details</h5>
+                        <div class="column-checkboxes">
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="9" onchange="toggleColumn(this)"> Research Question
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="10" onchange="toggleColumn(this)"> Methodology
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="5" onchange="toggleColumn(this)"> Relevancy Justification
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="13" onchange="toggleColumn(this)"> Limitations
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="14" onchange="toggleColumn(this)"> Conclusion
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="column-group">
+                        <h5>🚀 Future Directions</h5>
+                        <div class="column-checkboxes">
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="15" onchange="toggleColumn(this)"> Research Gaps
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="16" onchange="toggleColumn(this)"> Future Work
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="17" onchange="toggleColumn(this)"> Implementation Insights
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="18" checked onchange="toggleColumn(this)"> Links
+                            </label>
+                            <label class="column-checkbox">
+                                <input type="checkbox" value="19" checked onchange="toggleColumn(this)"> Tags
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="preset-buttons">
+                    <button class="preset-btn primary" onclick="applyPreset('essential')">📋 Essential Only</button>
+                    <button class="preset-btn" onclick="applyPreset('research')">🔬 Research Focus</button>
+                    <button class="preset-btn" onclick="applyPreset('insights')">💡 Key Insights</button>
+                    <button class="preset-btn" onclick="applyPreset('complete')">📊 Complete View</button>
+                    <button class="preset-btn" onclick="resetSettings()" style="margin-left: auto;">🔄 Reset to Defaults</button>
+                </div>
             </div>
         </div>
         
-        <div class="column-controls" id="column-controls">
-            <h4>Select Columns to Display:</h4>
-            <div class="column-checkboxes" id="column-checkboxes">
-                <label class="column-checkbox">
-                    <input type="checkbox" value="0" checked onchange="toggleColumn(this)"> Title
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="1" checked onchange="toggleColumn(this)"> Authors
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="2" checked onchange="toggleColumn(this)"> Year
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="3" checked onchange="toggleColumn(this)"> Downloaded
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="4" checked onchange="toggleColumn(this)"> Relevancy
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="5" onchange="toggleColumn(this)"> Relevancy Justification
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="6" onchange="toggleColumn(this)"> Insights
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="7" checked onchange="toggleColumn(this)"> TL;DR
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="8" checked onchange="toggleColumn(this)"> Summary
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="9" onchange="toggleColumn(this)"> Research Question
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="10" onchange="toggleColumn(this)"> Methodology
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="11" onchange="toggleColumn(this)"> Key Findings
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="12" onchange="toggleColumn(this)"> Primary Outcomes
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="13" onchange="toggleColumn(this)"> Limitations
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="14" onchange="toggleColumn(this)"> Conclusion
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="15" onchange="toggleColumn(this)"> Research Gaps
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="16" onchange="toggleColumn(this)"> Future Work
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="17" onchange="toggleColumn(this)"> Implementation Insights
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="18" checked onchange="toggleColumn(this)"> Links
-                </label>
-                <label class="column-checkbox">
-                    <input type="checkbox" value="19" checked onchange="toggleColumn(this)"> Tags
-                </label>
-            </div>
-        </div>
-        
-        <table class="papers-table" id="papers-table">
+        <div class="table-wrapper">
+            <table class="papers-table" id="papers-table">
             <thead>
                 <tr>
                     <th onclick="sortTable(0)">Title</th>
@@ -813,7 +1046,13 @@
                 </tr>
             </tbody>
         </table>
+        </div>
     </div>
+
+    <!-- Floating Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()" title="Scroll to top">
+        ↑
+    </button>
 
     <script>
         let allPapers = [];
@@ -822,6 +1061,110 @@
         let sortDirection = {};
         let truncateText = true;
         let visibleColumns = [0, 1, 2, 3, 4, 7, 8, 18, 19]; // Default visible columns
+        
+        // LocalStorage keys
+        const STORAGE_KEYS = {
+            VISIBLE_COLUMNS: 'paperBrowser_visibleColumns',
+            TRUNCATE_TEXT: 'paperBrowser_truncateText',
+            CURRENT_VIEW: 'paperBrowser_currentView',
+            COLUMN_CONTROLS_EXPANDED: 'paperBrowser_columnControlsExpanded'
+        };
+        
+        // LocalStorage utility functions
+        function saveSettings() {
+            try {
+                localStorage.setItem(STORAGE_KEYS.VISIBLE_COLUMNS, JSON.stringify(visibleColumns));
+                localStorage.setItem(STORAGE_KEYS.TRUNCATE_TEXT, truncateText.toString());
+                localStorage.setItem(STORAGE_KEYS.CURRENT_VIEW, currentView);
+            } catch (error) {
+                console.warn('Unable to save settings to localStorage:', error);
+            }
+        }
+        
+        function loadSettings() {
+            try {
+                // Load visible columns
+                const savedColumns = localStorage.getItem(STORAGE_KEYS.VISIBLE_COLUMNS);
+                if (savedColumns) {
+                    visibleColumns = JSON.parse(savedColumns);
+                }
+                
+                // Load truncate text setting
+                const savedTruncate = localStorage.getItem(STORAGE_KEYS.TRUNCATE_TEXT);
+                if (savedTruncate !== null) {
+                    truncateText = savedTruncate === 'true';
+                }
+                
+                // Load current view
+                const savedView = localStorage.getItem(STORAGE_KEYS.CURRENT_VIEW);
+                if (savedView) {
+                    currentView = savedView;
+                }
+                
+                // Load column controls expanded state
+                const savedExpanded = localStorage.getItem(STORAGE_KEYS.COLUMN_CONTROLS_EXPANDED);
+                if (savedExpanded !== null) {
+                    const isExpanded = savedExpanded === 'true';
+                    const controls = document.getElementById('column-controls');
+                    const button = document.querySelector('.collapse-btn');
+                    if (controls && button) {
+                        if (isExpanded) {
+                            controls.classList.add('active');
+                            button.classList.remove('collapsed');
+                        } else {
+                            controls.classList.remove('active');
+                            button.classList.add('collapsed');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.warn('Unable to load settings from localStorage:', error);
+            }
+        }
+        
+        function updateUIFromSettings() {
+            // Update truncate toggle
+            const truncateToggle = document.getElementById('truncate-toggle');
+            if (truncateToggle) {
+                truncateToggle.checked = truncateText;
+            }
+            
+            // Update column checkboxes
+            const checkboxes = document.querySelectorAll('.column-checkbox input');
+            checkboxes.forEach(checkbox => {
+                const columnIndex = parseInt(checkbox.value);
+                checkbox.checked = visibleColumns.includes(columnIndex);
+            });
+            
+            // Update view buttons
+            const cardBtn = document.getElementById('card-view-btn');
+            const tableBtn = document.getElementById('table-view-btn');
+            if (currentView === 'table') {
+                cardBtn?.classList.remove('active');
+                tableBtn?.classList.add('active');
+            } else {
+                cardBtn?.classList.add('active');
+                tableBtn?.classList.remove('active');
+            }
+        }
+        
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show/hide scroll to top button based on scroll position
+        function toggleScrollToTopButton() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
         
         // Toggle paper details
         function togglePaperDetails(index) {
@@ -885,11 +1228,14 @@
                 
                 populateYearFilter();
                 filteredPapers = [...allPapers];
+                
+                // Apply saved view
                 if (currentView === 'card') {
-                    displayPapers();
+                    switchView('card');
                 } else {
-                    displayTable();
+                    switchView('table');
                 }
+                
                 updateStats();
                 updateHeaderStats();
                 
@@ -980,7 +1326,14 @@
         // Toggle column controls visibility
         function toggleColumnControls() {
             const controls = document.getElementById('column-controls');
+            const button = document.querySelector('.collapse-btn');
+            
             controls.classList.toggle('active');
+            button.classList.toggle('collapsed');
+            
+            // Save expanded state
+            const isExpanded = controls.classList.contains('active');
+            localStorage.setItem(STORAGE_KEYS.COLUMN_CONTROLS_EXPANDED, isExpanded.toString());
         }
         
         // Toggle text truncation
@@ -990,6 +1343,7 @@
             if (currentView === 'table') {
                 displayTable();
             }
+            saveSettings();
         }
         
         // Toggle column visibility
@@ -1017,6 +1371,7 @@
                     }
                 }
             }
+            saveSettings();
         }
         
         // Initialize column visibility
@@ -1034,6 +1389,63 @@
                     }
                 }
             });
+        }
+        
+        // Apply column presets
+        function applyPreset(presetType) {
+            const checkboxes = document.querySelectorAll('.column-checkbox input');
+            
+            // Define presets
+            const presets = {
+                'essential': [0, 1, 2, 3, 4], // Title, Authors, Year, Downloaded, Relevancy
+                'research': [0, 1, 2, 4, 9, 10, 11, 18], // + Research Question, Methodology, Key Findings, Links
+                'insights': [0, 1, 2, 4, 6, 7, 8, 11, 12, 19], // + Insights, TL;DR, Summary, Key Findings, Primary Outcomes, Tags
+                'complete': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] // All columns
+            };
+            
+            const selectedColumns = presets[presetType] || presets['essential'];
+            
+            // Update checkboxes
+            checkboxes.forEach(checkbox => {
+                const columnIndex = parseInt(checkbox.value);
+                const shouldBeChecked = selectedColumns.includes(columnIndex);
+                
+                if (checkbox.checked !== shouldBeChecked) {
+                    checkbox.checked = shouldBeChecked;
+                    toggleColumn(checkbox);
+                }
+            });
+            
+            // Update visual state
+            visibleColumns = [...selectedColumns];
+            saveSettings();
+        }
+        
+        // Reset settings to defaults
+        function resetSettings() {
+            // Clear localStorage
+            Object.values(STORAGE_KEYS).forEach(key => {
+                localStorage.removeItem(key);
+            });
+            
+            // Reset to defaults
+            visibleColumns = [0, 1, 2, 3, 4, 7, 8, 18, 19];
+            truncateText = true;
+            currentView = 'card';
+            
+            // Update UI
+            updateUIFromSettings();
+            
+            // Switch to card view
+            switchView('card');
+            
+            // Hide column controls
+            const controls = document.getElementById('column-controls');
+            const button = document.querySelector('.collapse-btn');
+            if (controls && button) {
+                controls.classList.remove('active');
+                button.classList.add('collapsed');
+            }
         }
         
         // Switch between card and table view
@@ -1067,6 +1479,7 @@
                     initializeColumnVisibility();
                 }, 100);
             }
+            saveSettings();
         }
         
         // Display papers in table format
@@ -1411,6 +1824,15 @@
         document.getElementById('relevancy-filter').addEventListener('change', filterPapers);
         document.getElementById('year-filter').addEventListener('change', filterPapers);
         document.getElementById('tag-filter').addEventListener('input', filterPapers);
+        
+        // Scroll event listener for floating button
+        window.addEventListener('scroll', toggleScrollToTopButton);
+        
+        // Initialize settings and load papers on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+            updateUIFromSettings();
+        });
         
         // Load papers on page load
         loadPapers();
