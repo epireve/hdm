@@ -554,6 +554,9 @@
                     const doiUrl = paper.DOI.startsWith('http') ? paper.DOI : `https://doi.org/${paper.DOI}`;
                     links.push(`<a href="${doiUrl}" target="_blank">DOI</a>`);
                 }
+                if (paper.cite_key) {
+                    links.push(`<a href="markdown_papers/${paper.cite_key}/paper.md" target="_blank">Markdown</a>`);
+                }
                 
                 return `
                     <div class="paper" id="paper-${index}">
