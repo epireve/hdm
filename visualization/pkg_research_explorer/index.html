@@ -69,6 +69,10 @@
                 <h4>Research Insights</h4>
                 <div id="insights-content"></div>
             </div>
+            <div id="related-papers">
+                <h4>Related Papers</h4>
+                <div id="papers-list"></div>
+            </div>
             <div id="concept-actions">
                 <button id="add-to-notes">Add to Research Notes</button>
                 <button id="copy-details">Copy Details</button>
@@ -81,6 +85,20 @@
             <textarea id="notes-input" placeholder="Add your research notes here..."></textarea>
             <button id="save-notes">Save Notes</button>
             <div id="saved-notes"></div>
+        </div>
+    </div>
+
+    <!-- Paper Viewer Modal -->
+    <div id="paper-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="paper-title">Paper Title</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="paper-metadata"></div>
+                <div id="paper-content"></div>
+            </div>
         </div>
     </div>
 
@@ -480,6 +498,9 @@
         const insights = document.getElementById('insights-content');
         insights.innerHTML = generateInsights(node);
 
+        // Add related papers
+        updateRelatedPapers(node);
+
         // Update current selected node for actions
         window.currentSelectedNode = node;
     }
@@ -683,6 +704,159 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
             }, 2000);
         });
     }
+
+    // Paper-related functions
+    function updateRelatedPapers(node) {
+        const papersList = document.getElementById('papers-list');
+        papersList.innerHTML = '';
+        
+        if (node.sample_papers && node.sample_papers.length > 0) {
+            const ul = document.createElement('ul');
+            ul.style.listStyle = 'none';
+            ul.style.padding = '0';
+            
+            node.sample_papers.forEach(paper => {
+                const li = document.createElement('li');
+                li.style.marginBottom = '15px';
+                li.style.padding = '12px';
+                li.style.backgroundColor = '#f8f9fa';
+                li.style.borderRadius = '4px';
+                li.style.borderLeft = '3px solid #3498db';
+                li.style.cursor = 'pointer';
+                li.style.transition = 'background-color 0.2s';
+                
+                li.innerHTML = `
+                    <div style="font-weight: 500; color: #2c3e50; margin-bottom: 5px;">${paper.title || 'Untitled'}</div>
+                    <div style="font-size: 13px; color: #666;">
+                        ${paper.authors || 'Authors not available'} (${paper.year || 'Year unknown'})
+                    </div>
+                `;
+                
+                li.onmouseover = () => li.style.backgroundColor = '#e9ecef';
+                li.onmouseout = () => li.style.backgroundColor = '#f8f9fa';
+                li.onclick = () => loadPaper(paper.id || paper.cite_key);
+                
+                ul.appendChild(li);
+            });
+            
+            papersList.appendChild(ul);
+        } else {
+            papersList.innerHTML = '<p style="color: #999; font-style: italic;">No sample papers available for this concept.</p>';
+        }
+    }
+
+    function loadPaper(paperId) {
+        if (!paperId) {
+            alert('Paper ID not available');
+            return;
+        }
+        
+        // Show modal
+        const modal = document.getElementById('paper-modal');
+        modal.style.display = 'block';
+        
+        // Set loading state
+        document.getElementById('paper-title').textContent = 'Loading...';
+        document.getElementById('paper-metadata').innerHTML = '';
+        document.getElementById('paper-content').innerHTML = '<p>Loading paper content...</p>';
+        
+        // Fetch paper markdown
+        fetch(`/markdown_papers/${paperId}/paper.md`)
+            .then(response => {
+                if (!response.ok) throw new Error('Paper not found');
+                return response.text();
+            })
+            .then(markdown => {
+                // Parse frontmatter
+                const frontmatterMatch = markdown.match(/^---\n([\s\S]*?)\n---/);
+                let metadata = {};
+                let content = markdown;
+                
+                if (frontmatterMatch) {
+                    // Parse YAML frontmatter (simple parsing)
+                    const yamlContent = frontmatterMatch[1];
+                    const lines = yamlContent.split('\n');
+                    
+                    lines.forEach(line => {
+                        const match = line.match(/^(\w+):\s*(.+)$/);
+                        if (match) {
+                            metadata[match[1]] = match[2].trim();
+                        }
+                    });
+                    
+                    // Remove frontmatter from content
+                    content = markdown.substring(frontmatterMatch[0].length);
+                }
+                
+                // Update modal
+                document.getElementById('paper-title').textContent = metadata.title || 'Untitled Paper';
+                
+                document.getElementById('paper-metadata').innerHTML = `
+                    <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 4px;">
+                        <p><strong>Authors:</strong> ${metadata.authors || 'Not available'}</p>
+                        <p><strong>Year:</strong> ${metadata.year || 'Not available'}</p>
+                        <p><strong>DOI:</strong> ${metadata.doi ? `<a href="https://doi.org/${metadata.doi}" target="_blank">${metadata.doi}</a>` : 'Not available'}</p>
+                        <p><strong>URL:</strong> ${metadata.url ? `<a href="${metadata.url}" target="_blank">View Original</a>` : 'Not available'}</p>
+                    </div>
+                `;
+                
+                // Convert markdown to HTML (basic conversion)
+                const htmlContent = convertMarkdownToHtml(content);
+                document.getElementById('paper-content').innerHTML = htmlContent;
+            })
+            .catch(error => {
+                document.getElementById('paper-title').textContent = 'Error Loading Paper';
+                document.getElementById('paper-content').innerHTML = `
+                    <p style="color: red;">Failed to load paper: ${error.message}</p>
+                    <p>Paper ID: ${paperId}</p>
+                `;
+            });
+    }
+
+    function convertMarkdownToHtml(markdown) {
+        // Basic markdown to HTML conversion
+        let html = markdown
+            // Headers
+            .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+            .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+            .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+            // Bold
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            // Italic
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            // Links
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+            // Line breaks
+            .replace(/\n\n/g, '</p><p>')
+            // Code blocks
+            .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>')
+            // Inline code
+            .replace(/`([^`]+)`/g, '<code>$1</code>');
+        
+        // Wrap in paragraphs
+        html = '<p>' + html + '</p>';
+        
+        // Clean up empty paragraphs
+        html = html.replace(/<p>\s*<\/p>/g, '');
+        
+        return html;
+    }
+
+    // Modal close functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('paper-modal');
+        const closeBtn = document.querySelector('.close');
+        
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    });
     </script>
 </body>
 </html>

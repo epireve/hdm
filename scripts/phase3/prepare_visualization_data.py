@@ -55,7 +55,8 @@ class VisualizationDataProcessor:
                             'frequency': freq,
                             'category': data.get('category', self._categorize_concept(concept)) if isinstance(data, dict) else self._categorize_concept(concept),
                             'type': 'technical',
-                            'size': math.log(freq + 1) * 10  # Logarithmic scaling for visual balance
+                            'size': math.log(freq + 1) * 10,  # Logarithmic scaling for visual balance
+                            'sample_papers': data.get('sample_papers', [])[:5] if isinstance(data, dict) else []  # Include up to 5 sample papers
                         }
                         nodes.append(node)
                         concept_to_id[concept] = node_id

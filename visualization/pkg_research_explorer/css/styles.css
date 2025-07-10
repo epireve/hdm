@@ -383,3 +383,132 @@ header p {
 #copy-details:hover {
     background-color: #7f8c8d;
 }
+
+/* Related Papers Section */
+#related-papers {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+#related-papers h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+#papers-list ul li {
+    transition: all 0.2s ease;
+}
+
+#papers-list ul li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#paper-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+#paper-content h1 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+#paper-content h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+#paper-content h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+#paper-content pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+#paper-content code {
+    background-color: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+#paper-content a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+#paper-content a:hover {
+    text-decoration: underline;
+}
