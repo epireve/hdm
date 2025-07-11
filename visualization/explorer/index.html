@@ -1548,10 +1548,14 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
         
         // Try multiple possible paths for the paper
         const possiblePaths = [
-            `/markdown_papers/${paperId}/paper.md`,
-            `/markdown_papers/${paperId.toLowerCase()}/paper.md`,
-            `/papers/${paperId}/paper.md`,
-            `/papers/${paperId.toLowerCase()}/paper.md`
+            `../../markdown_papers/${paperId}/paper.md`,
+            `../../markdown_papers/${paperId.toLowerCase()}/paper.md`,
+            `../../papers/${paperId}/paper.md`,
+            `../../papers/${paperId.toLowerCase()}/paper.md`,
+            `/hdm/markdown_papers/${paperId}/paper.md`,
+            `/hdm/markdown_papers/${paperId.toLowerCase()}/paper.md`,
+            `/hdm/papers/${paperId}/paper.md`,
+            `/hdm/papers/${paperId.toLowerCase()}/paper.md`
         ];
         
         console.log('Attempting to fetch paper:', paperId);
