@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HDM Paper Viewer</title>
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script>
+        // Fallback if CDN fails
+        if (typeof marked === 'undefined') {
+            console.warn('Primary CDN failed, trying fallback...');
+            document.write('<script src="https://unpkg.com/marked@4.3.0/marked.min.js"><\/script>');
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -323,7 +330,13 @@
         
         // Function to load and display paper
         async function loadPaper() {
+            console.log('loadPaper function called with paperId:', paperId);
             const container = document.getElementById('paper-container');
+            
+            if (!container) {
+                console.error('Paper container not found!');
+                return;
+            }
             
             if (!paperId) {
                 container.innerHTML = `
@@ -352,12 +365,16 @@
             let successfulPath = null;
             
             // Try each path
+            console.log('Trying to fetch paper from paths:', possiblePaths);
             for (const path of possiblePaths) {
                 try {
+                    console.log(`Attempting to fetch: ${path}`);
                     const response = await fetch(path);
+                    console.log(`Response status for ${path}:`, response.status);
                     if (response.ok) {
                         paperContent = await response.text();
                         successfulPath = path;
+                        console.log(`Successfully loaded paper from: ${path}`);
                         break;
                     }
                 } catch (error) {
@@ -409,6 +426,19 @@
                 
                 // Remove frontmatter from content
                 content = paperContent.substring(frontmatterMatch[0].length);
+            }
+            
+            // Check if marked is loaded
+            if (typeof marked === 'undefined') {
+                console.error('marked.js library not loaded!');
+                container.innerHTML = `
+                    <div class="error">
+                        <h2>Library Loading Error</h2>
+                        <p>The markdown parser library failed to load.</p>
+                        <p>Please refresh the page and try again.</p>
+                    </div>
+                `;
+                return;
             }
             
             // Configure marked options
@@ -515,7 +545,28 @@
         }
         
         // Load paper when page loads
-        loadPaper();
+        window.addEventListener('load', function() {
+            console.log('Window loaded, marked.js status:', typeof marked !== 'undefined' ? 'loaded' : 'not loaded');
+            
+            // Small delay to ensure marked.js is fully loaded
+            setTimeout(() => {
+                console.log('Attempting to load paper...');
+                loadPaper().catch(error => {
+                    console.error('Failed to load paper:', error);
+                    const container = document.getElementById('paper-container');
+                    container.innerHTML = `
+                        <div class="error">
+                            <h2>Error Loading Paper</h2>
+                            <p>An unexpected error occurred while loading the paper.</p>
+                            <div class="error-details">
+                                <p><strong>Error:</strong> ${error.message}</p>
+                                <p><strong>Paper ID:</strong> ${paperId || 'None specified'}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }, 100);
+        });
     </script>
 </body>
 </html>
