@@ -1506,6 +1506,7 @@
                 }
                 if (paper.cite_key) {
                     links.push(`<a href="markdown_papers/${paper.cite_key}/paper.md" target="_blank">MD</a>`);
+                    links.push(`<a href="paper_viewer.html?id=${paper.cite_key}" target="_blank">View</a>`);
                 }
                 
                 // Helper function to truncate text reasonably
@@ -1651,6 +1652,7 @@
                 }
                 if (paper.cite_key) {
                     links.push(`<a href="markdown_papers/${paper.cite_key}/paper.md" target="_blank">Markdown</a>`);
+                    links.push(`<a href="paper_viewer.html?id=${paper.cite_key}" target="_blank">View Paper</a>`);
                 }
                 
                 return `

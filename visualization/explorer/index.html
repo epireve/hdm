@@ -1736,8 +1736,10 @@ ${generateInsights(node).replace(/<[^>]*>/g, ' ').trim()}
             
             // Check if it's a relative path
             if (href && !href.startsWith('http') && !href.startsWith('data:')) {
-                // Adjust path to point to the correct location - use absolute path from server root
-                const newHref = `/markdown_papers/${paperId}/${href}`;
+                // Adjust path based on environment (local vs GitHub Pages)
+                const isGitHubPages = window.location.hostname.includes('github.io');
+                const basePath = isGitHubPages ? '/hdm' : '';
+                const newHref = `${basePath}/markdown_papers/${paperId}/${href}`;
                 console.log('Image path transformation:', href, '->', newHref);
                 href = newHref;
             }
