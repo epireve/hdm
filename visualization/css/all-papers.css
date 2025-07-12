@@ -89,7 +89,20 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
     align-items: flex-end;
+    justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.controls-left {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+}
+
+.controls-right {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
 }
 
 .control-group {
@@ -110,7 +123,12 @@ body {
     border-radius: 4px;
     font-size: 0.9rem;
     transition: all 0.2s;
-    width: 300px;
+    min-width: 300px;
+}
+
+.controls-left .control-group input[type="text"] {
+    width: 100%;
+    max-width: 500px;
 }
 
 .control-group input[type="text"]:focus {
@@ -490,6 +508,7 @@ th:hover .sort-arrow {
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-right: 0.5rem;
+    color: #333;
 }
 
 .dropdown-arrow {

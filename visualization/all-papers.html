@@ -44,57 +44,61 @@
     
     <!-- Controls -->
     <div id="controls" style="display: none;">
-        <div class="control-group" style="flex: 1;">
-            <label for="searchInput">Search</label>
-            <input type="text" id="searchInput" placeholder="Search papers, authors, abstracts...">
+        <div class="controls-left">
+            <div class="control-group">
+                <label for="searchInput">Search</label>
+                <input type="text" id="searchInput" placeholder="Search papers, authors, abstracts...">
+            </div>
         </div>
-        <div class="control-group">
-            <label for="yearFilter">Year</label>
-            <select id="yearFilter">
-                <option value="">All Years</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label for="openAccessFilter">Access Type</label>
-            <select id="openAccessFilter">
-                <option value="">All Papers</option>
-                <option value="true">Open Access Only</option>
-                <option value="false">Closed Access Only</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label for="fieldFilter">Field of Study</label>
-            <div class="multi-select-wrapper">
-                <button id="fieldFilterToggle" class="multi-select-toggle">
-                    <span id="fieldFilterText">All Fields</span>
-                    <span class="dropdown-arrow">▼</span>
-                </button>
-                <div id="fieldFilterDropdown" class="multi-select-dropdown" style="display: none;">
-                    <div class="multi-select-search">
-                        <input type="text" id="fieldSearchInput" placeholder="Search fields...">
-                    </div>
-                    <div id="fieldFilterList" class="multi-select-list"></div>
-                    <div class="multi-select-actions">
-                        <button id="fieldSelectAll" class="multi-select-action">Select All</button>
-                        <button id="fieldClearAll" class="multi-select-action">Clear All</button>
+        <div class="controls-right">
+            <div class="control-group">
+                <label for="yearFilter">Year</label>
+                <select id="yearFilter">
+                    <option value="">All Years</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="openAccessFilter">Access Type</label>
+                <select id="openAccessFilter">
+                    <option value="">All Papers</option>
+                    <option value="true">Open Access Only</option>
+                    <option value="false">Closed Access Only</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="fieldFilter">Field of Study</label>
+                <div class="multi-select-wrapper">
+                    <button id="fieldFilterToggle" class="multi-select-toggle">
+                        <span id="fieldFilterText">All Fields</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div id="fieldFilterDropdown" class="multi-select-dropdown" style="display: none;">
+                        <div class="multi-select-search">
+                            <input type="text" id="fieldSearchInput" placeholder="Search fields...">
+                        </div>
+                        <div id="fieldFilterList" class="multi-select-list"></div>
+                        <div class="multi-select-actions">
+                            <button id="fieldSelectAll" class="multi-select-action">Select All</button>
+                            <button id="fieldClearAll" class="multi-select-action">Clear All</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label for="pageSize">Papers per Page</label>
-            <select id="pageSize">
-                <option value="50">50</option>
-                <option value="100" selected>100</option>
-                <option value="200">200</option>
-                <option value="500">500</option>
-            </select>
-        </div>
-        <div class="control-group">
-            <label>Columns</label>
-            <button id="columnToggle" class="column-toggle-btn">
-                ⚙️ Customize
-            </button>
+            <div class="control-group">
+                <label for="pageSize">Papers per Page</label>
+                <select id="pageSize">
+                    <option value="50">50</option>
+                    <option value="100" selected>100</option>
+                    <option value="200">200</option>
+                    <option value="500">500</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Columns</label>
+                <button id="columnToggle" class="column-toggle-btn">
+                    ⚙️ Customize
+                </button>
+            </div>
         </div>
     </div>
     
