@@ -19,7 +19,7 @@ class ConversionResult:
     success: bool
     markdown_path: Optional[Path] = None
     error_message: str = ""
-    extracted_metadata: Dict[str, Any] = None
+    extracted_metadata: Optional[Dict[str, Any]] = None
     image_count: int = 0
     page_count: int = 0
 

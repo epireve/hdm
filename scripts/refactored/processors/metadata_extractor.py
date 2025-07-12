@@ -27,7 +27,7 @@ class PaperMetadata:
     tldr: str = ""
     insights: str = ""
     summary: str = ""
-    tags: List[str] = None
+    tags: Optional[List[str]] = None
     
     def __post_init__(self):
         if self.tags is None:
@@ -37,10 +37,10 @@ class PaperMetadata:
 class MetadataExtractorProcessor(BaseProcessor):
     """Extracts metadata and adds YAML frontmatter to markdown files."""
     
-    def __init__(self, config: Config, metadata_sources: List[str] = None):
+    def __init__(self, config: Config, metadata_sources: Optional[List[str]] = None):
         super().__init__(config, "MetadataExtractor")
         self.metadata_sources = metadata_sources or ["missing_papers.json", "research_papers_complete.csv"]
-        self._metadata_cache = {}
+        self._metadata_cache: Dict[str, Any] = {}
         self._load_metadata_sources()
     
     def _load_metadata_sources(self):

@@ -31,8 +31,8 @@ class DataStandardizerProcessor(BaseProcessor):
     def __init__(self, config: Config, rules_file: Optional[Path] = None):
         super().__init__(config, "DataStandardizer")
         self.rules = self._load_standardization_rules(rules_file)
-        self.known_authors = set()
-        self.known_venues = set()
+        self.known_authors: Set[str] = set()
+        self.known_venues: Set[str] = set()
         self._load_reference_data()
     
     def _load_standardization_rules(self, rules_file: Optional[Path] = None) -> List[StandardizationRule]:
@@ -326,7 +326,7 @@ class DataStandardizerProcessor(BaseProcessor):
         
         return changes
     
-    def standardize_csv_file(self, input_file: Path, output_file: Path = None) -> ProcessingResult:
+    def standardize_csv_file(self, input_file: Path, output_file: Optional[Path] = None) -> ProcessingResult:
         """Standardize data in a CSV file."""
         try:
             import pandas as pd
@@ -369,7 +369,7 @@ class DataStandardizerProcessor(BaseProcessor):
     
     def generate_cite_key_mapping(self, data_list: List[Dict[str, Any]]) -> Dict[str, str]:
         """Generate unique cite_keys for a list of papers."""
-        cite_key_counts = {}
+        cite_key_counts: Dict[str, int] = {}
         cite_key_mapping = {}
         
         for i, data in enumerate(data_list):

@@ -456,7 +456,7 @@ class DataValidatorProcessor(BaseProcessor):
     
     def _generate_validation_summary(self, all_issues: List[Dict], quality_scores: List[float]) -> Dict[str, Any]:
         """Generate validation summary report."""
-        issue_types = {}
+        issue_types: Dict[str, int] = {}
         severity_counts = {"error": 0, "warning": 0, "info": 0}
         
         for issue in all_issues:

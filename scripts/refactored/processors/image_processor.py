@@ -289,7 +289,7 @@ Format your response as JSON with fields: alt_text, detailed_description, image_
         # Process batch
         return self.process_batch(paper_dirs, **kwargs)
     
-    def generate_image_index(self, papers_dir: Path, output_file: Path = None) -> ProcessingResult:
+    def generate_image_index(self, papers_dir: Path, output_file: Optional[Path] = None) -> ProcessingResult:
         """Generate an index of all images across papers."""
         try:
             if output_file is None:
@@ -315,7 +315,7 @@ Format your response as JSON with fields: alt_text, detailed_description, image_
                         self.logger.warning(f"Failed to load descriptions from {descriptions_file}: {e}")
             
             # Create index
-            index = {
+            index: Dict[str, Any] = {
                 'total_images': len(all_images),
                 'papers_with_images': len(set(img['paper_dir'] for img in all_images)),
                 'image_types': {},
