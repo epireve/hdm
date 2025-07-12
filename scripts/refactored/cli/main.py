@@ -9,7 +9,12 @@ from pathlib import Path
 from typing import List, Optional
 
 from ..core import Config, setup_logger
-from ..pipelines import PaperProcessingPipeline, PipelineConfig
+from ..pipelines import (
+    PaperProcessingPipeline, PipelineConfig,
+    DataIntegrationPipeline, DataSource, MergeStrategy,
+    QualityAssurancePipeline,
+    DataFlowOrchestrator
+)
 from ..processors import (
     PDFConverterProcessor,
     MetadataExtractorProcessor,
@@ -69,10 +74,31 @@ Examples:
     # Subcommands
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
     
-    # Process papers command (full pipeline)
+    # Full data pipeline command
+    pipeline_parser = subparsers.add_parser(
+        'run-pipeline',
+        help='Run complete HDM data pipeline (all stages)'
+    )
+    pipeline_parser.add_argument(
+        '--trigger',
+        default='manual',
+        help='Pipeline trigger event (default: manual)'
+    )
+    pipeline_parser.add_argument(
+        '--stages',
+        nargs='+',
+        help='Specific stages to run (default: all enabled stages)'
+    )
+    pipeline_parser.add_argument(
+        '--config-file',
+        type=Path,
+        help='Pipeline configuration file'
+    )
+    
+    # Process papers command (single stage)
     process_parser = subparsers.add_parser(
         'process-papers',
-        help='Run complete paper processing pipeline'
+        help='Run paper processing pipeline (single stage)'
     )
     process_parser.add_argument(
         'input_dir',
@@ -218,6 +244,73 @@ Examples:
         help='Custom validation rules file (JSON)'
     )
     
+    # Data integration command
+    integrate_parser = subparsers.add_parser(
+        'integrate-data',
+        help='Integrate multiple data sources'
+    )
+    integrate_parser.add_argument(
+        '--sources',
+        nargs='+',
+        type=Path,
+        required=True,
+        help='Data source files to integrate'
+    )
+    integrate_parser.add_argument(
+        '--output', '-o',
+        type=Path,
+        required=True,
+        help='Output file for integrated data'
+    )
+    integrate_parser.add_argument(
+        '--strategy',
+        choices=['exact_match', 'fuzzy_match', 'append_only'],
+        default='fuzzy_match',
+        help='Merge strategy (default: fuzzy_match)'
+    )
+    integrate_parser.add_argument(
+        '--threshold',
+        type=float,
+        default=0.85,
+        help='Similarity threshold for fuzzy matching (default: 0.85)'
+    )
+    integrate_parser.add_argument(
+        '--key-field',
+        default='cite_key',
+        help='Field to use for matching records (default: cite_key)'
+    )
+    
+    # Quality assurance command
+    qa_parser = subparsers.add_parser(
+        'quality-assurance',
+        help='Run comprehensive quality assurance checks'
+    )
+    qa_parser.add_argument(
+        'input_file',
+        type=Path,
+        help='Data file to analyze'
+    )
+    qa_parser.add_argument(
+        '--report', '-r',
+        type=Path,
+        help='Output file for QA report'
+    )
+    qa_parser.add_argument(
+        '--checks',
+        nargs='+',
+        help='Specific quality checks to run'
+    )
+    
+    # Pipeline status command
+    status_parser = subparsers.add_parser(
+        'pipeline-status',
+        help='Check status of running pipelines'
+    )
+    status_parser.add_argument(
+        '--execution-id',
+        help='Specific execution ID to check'
+    )
+    
     return parser
 
 
@@ -241,7 +334,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             config.logging.level = log_level
         
         # Execute command
-        if args.command == 'process-papers':
+        if args.command == 'run-pipeline':
+            return cmd_run_pipeline(args, config, logger)
+        elif args.command == 'process-papers':
             return cmd_process_papers(args, config, logger)
         elif args.command == 'convert-pdf':
             return cmd_convert_pdf(args, config, logger)
@@ -253,6 +348,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             return cmd_standardize_data(args, config, logger)
         elif args.command == 'validate-data':
             return cmd_validate_data(args, config, logger)
+        elif args.command == 'integrate-data':
+            return cmd_integrate_data(args, config, logger)
+        elif args.command == 'quality-assurance':
+            return cmd_quality_assurance(args, config, logger)
+        elif args.command == 'pipeline-status':
+            return cmd_pipeline_status(args, config, logger)
         else:
             parser.print_help()
             return 1
@@ -426,6 +527,162 @@ def cmd_validate_data(args, config: Config, logger) -> int:
         logger.info(f"  Total issues: {summary.get('total_issues', 0)}")
     
     return 0 if result.status.value == 'completed' else 1
+
+
+def cmd_run_pipeline(args, config: Config, logger) -> int:
+    """Run complete HDM data pipeline."""
+    # Create orchestrator
+    orchestrator = DataFlowOrchestrator(config)
+    
+    logger.info("Starting complete HDM data pipeline")
+    
+    # Run pipeline
+    result = orchestrator.process_item(trigger_event=args.trigger)
+    
+    # Print results
+    if result.data:
+        execution_report = result.data.get('execution_report', {})
+        stages = execution_report.get('stages', {})
+        
+        logger.info(f"Pipeline execution completed:")
+        logger.info(f"  Execution ID: {result.data.get('execution_id', 'unknown')}")
+        logger.info(f"  Status: {result.status.value}")
+        logger.info(f"  Stages completed: {stages.get('completed', 0)}/{stages.get('total', 0)}")
+        logger.info(f"  Duration: {execution_report.get('duration_seconds', 0):.1f} seconds")
+        
+        if stages.get('failed', 0) > 0:
+            failed_stages = execution_report.get('stages', {}).get('failed_list', [])
+            logger.warning(f"  Failed stages: {', '.join(failed_stages)}")
+    
+    return 0 if result.status.value == 'completed' else 1
+
+
+def cmd_integrate_data(args, config: Config, logger) -> int:
+    """Integrate multiple data sources."""
+    # Create integration pipeline
+    pipeline = DataIntegrationPipeline(config)
+    
+    # Add data sources
+    for i, source_file in enumerate(args.sources):
+        if not source_file.exists():
+            logger.error(f"Source file not found: {source_file}")
+            return 1
+        
+        pipeline.add_data_source(DataSource(
+            name=f"source_{i+1}",
+            file_path=source_file,
+            file_type=source_file.suffix[1:],  # Remove dot
+            key_field=args.key_field,
+            priority=len(args.sources) - i  # First file has highest priority
+        ))
+    
+    # Configure merge strategy
+    merge_strategy = MergeStrategy(
+        strategy_type=args.strategy,
+        match_threshold=args.threshold,
+        conflict_resolution='merge',
+        duplicate_handling='keep_first'
+    )
+    
+    logger.info(f"Integrating {len(args.sources)} data sources using {args.strategy} strategy")
+    
+    # Run integration
+    result = pipeline.process_item(merge_strategy)
+    
+    if result.status.value == 'completed' and result.data:
+        # Export merged data
+        merged_data = result.data.get('merged_data', [])
+        export_result = pipeline.export_merged_data(merged_data, args.output)
+        
+        # Print summary
+        integration_report = result.data.get('integration_report', {})
+        summary = integration_report.get('integration_summary', {})
+        
+        logger.info(f"Data integration completed:")
+        logger.info(f"  Input records: {summary.get('total_input_records', 0)}")
+        logger.info(f"  Merged records: {summary.get('merged_records', 0)}")
+        logger.info(f"  Duplicates removed: {summary.get('duplicate_reduction', 0)}")
+        logger.info(f"  Output file: {args.output}")
+        
+        return 0
+    else:
+        logger.error(f"Data integration failed: {result.message}")
+        return 1
+
+
+def cmd_quality_assurance(args, config: Config, logger) -> int:
+    """Run quality assurance checks."""
+    if not args.input_file.exists():
+        logger.error(f"Input file not found: {args.input_file}")
+        return 1
+    
+    # Create QA pipeline
+    qa_pipeline = QualityAssurancePipeline(config)
+    
+    logger.info(f"Running quality assurance on {args.input_file}")
+    
+    # Run QA
+    result = qa_pipeline.process_item(args.input_file)
+    
+    # Export report if requested
+    if args.report and result.data:
+        quality_report = result.data.get('quality_report')
+        if quality_report:
+            qa_pipeline.export_quality_report(quality_report, args.report)
+            logger.info(f"QA report exported to {args.report}")
+    
+    # Print summary
+    if result.data:
+        quality_report = result.data.get('quality_report', {})
+        data_summary = result.data.get('data_summary', {})
+        alerts = result.data.get('alerts', [])
+        
+        logger.info(f"Quality assurance completed:")
+        logger.info(f"  Records analyzed: {data_summary.get('total_records', 0)}")
+        logger.info(f"  Quality score: {quality_report.get('quality_score', 0):.3f}")
+        logger.info(f"  Alerts generated: {len(alerts)}")
+        
+        # Show alerts by severity
+        error_alerts = [a for a in alerts if a.get('severity') == 'error']
+        warning_alerts = [a for a in alerts if a.get('severity') == 'warning']
+        
+        if error_alerts:
+            logger.error(f"  Error alerts: {len(error_alerts)}")
+        if warning_alerts:
+            logger.warning(f"  Warning alerts: {len(warning_alerts)}")
+    
+    return 0 if result.status.value == 'completed' else 1
+
+
+def cmd_pipeline_status(args, config: Config, logger) -> int:
+    """Check pipeline execution status."""
+    # Create orchestrator to check status
+    orchestrator = DataFlowOrchestrator(config)
+    
+    if args.execution_id:
+        # Check specific execution
+        status = orchestrator.get_execution_status(args.execution_id)
+        if status:
+            logger.info(f"Execution {args.execution_id}:")
+            logger.info(f"  Status: {status['status']}")
+            logger.info(f"  Current stage: {status.get('current_stage', 'None')}")
+            logger.info(f"  Completed stages: {', '.join(status['completed_stages'])}")
+            if status['failed_stages']:
+                logger.info(f"  Failed stages: {', '.join(status['failed_stages'])}")
+        else:
+            logger.error(f"Execution {args.execution_id} not found")
+            return 1
+    else:
+        # List all active executions
+        active_executions = orchestrator.list_active_executions()
+        if active_executions:
+            logger.info(f"Active pipeline executions: {len(active_executions)}")
+            for execution in active_executions:
+                logger.info(f"  {execution['execution_id']}: {execution['status']} ({execution.get('current_stage', 'unknown')})")
+        else:
+            logger.info("No active pipeline executions")
+    
+    return 0
 
 
 if __name__ == '__main__':
