@@ -7,7 +7,7 @@ import re
 import json
 import hashlib
 from pathlib import Path
-from typing import Dict, List, Tuple, Set
+from typing import Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass
 from collections import defaultdict
 
@@ -52,7 +52,7 @@ class CleanupHelper(BaseProcessor):
         else:
             return self.analyze_project()
         
-    def analyze_project(self, base_path: Path = None) -> ProcessingResult:
+    def analyze_project(self, base_path: Optional[Path] = None) -> ProcessingResult:
         """Analyze project for cleanup opportunities."""
         if base_path is None:
             base_path = self.config.paths.base_dir
@@ -369,7 +369,7 @@ class CleanupHelper(BaseProcessor):
                 self.logger.warning(f"Failed to archive {file_path}: {e}")
     
     def generate_cleanup_report(self, analysis_result: ProcessingResult, 
-                              output_file: Path = None) -> Path:
+                              output_file: Optional[Path] = None) -> Path:
         """Generate detailed cleanup report."""
         if output_file is None:
             output_file = self.config.paths.output_dir / "cleanup_report.json"
