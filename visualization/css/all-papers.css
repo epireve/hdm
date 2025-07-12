@@ -126,9 +126,18 @@ body {
     min-width: 300px;
 }
 
+.controls-left {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+}
+
+.controls-left .control-group {
+    flex: 1;
+}
+
 .controls-left .control-group input[type="text"] {
     width: 100%;
-    max-width: 500px;
 }
 
 .control-group input[type="text"]:focus {
@@ -512,7 +521,7 @@ th:hover .sort-arrow {
 }
 
 .dropdown-arrow {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #666;
     flex-shrink: 0;
 }
@@ -595,6 +604,7 @@ th:hover .sort-arrow {
     padding: 0.4rem;
     border: 1px solid #ddd;
     background: white;
+    color: #333;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.8rem;
