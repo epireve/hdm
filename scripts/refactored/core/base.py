@@ -211,7 +211,7 @@ class BaseProcessor(ABC, LoggerMixin):
         
         return errors
     
-    def create_backup(self, source_path: Path, backup_suffix: str = None) -> Optional[Path]:
+    def create_backup(self, source_path: Path, backup_suffix: Optional[str] = None) -> Optional[Path]:
         """Create a backup of a file or directory."""
         if not self.config.processing.backup_enabled:
             return None

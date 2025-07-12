@@ -219,7 +219,7 @@ class PaperProcessingPipeline(BaseProcessor):
         
         return results
     
-    def generate_pipeline_report(self, results: List[ProcessingResult], output_file: Path = None) -> Dict[str, Any]:
+    def generate_pipeline_report(self, results: List[ProcessingResult], output_file: Optional[Path] = None) -> Dict[str, Any]:
         """Generate comprehensive pipeline processing report."""
         try:
             # Calculate statistics
@@ -246,7 +246,7 @@ class PaperProcessingPipeline(BaseProcessor):
                 if result.data and 'errors' in result.data:
                     all_errors.extend(result.data['errors'])
             
-            error_counts = {}
+            error_counts: Dict[str, int] = {}
             for error in all_errors:
                 error_counts[error] = error_counts.get(error, 0) + 1
             
