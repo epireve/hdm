@@ -94,6 +94,7 @@ class AllPapersApp {
             
             // Show controls and hide loading
             this.elements.controls.style.display = 'flex';
+            this.elements.mainStats.style.display = 'block';
             this.elements.tableContainer.style.display = 'block';
             this.elements.pagination.style.display = 'flex';
             this.showLoading(false);
