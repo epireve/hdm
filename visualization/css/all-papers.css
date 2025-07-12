@@ -160,6 +160,38 @@ body {
     border-color: #3498db;
 }
 
+/* Year Range Inputs */
+.year-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.year-input {
+    width: 80px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.year-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.year-input::placeholder {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.year-separator {
+    color: #666;
+    font-weight: 500;
+}
+
 /* Main Content Area */
 .main-content {
     padding: 2rem;
@@ -411,6 +443,11 @@ th[data-sort]:after {
 
 /* Loading State */
 .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
     text-align: center;
     padding: 5rem;
     color: #666;
