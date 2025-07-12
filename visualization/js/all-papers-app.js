@@ -32,7 +32,10 @@ class AllPapersApp {
             columnToggle: document.getElementById('columnToggle'),
             columnSelector: document.getElementById('columnSelector'),
             columnList: document.getElementById('columnList'),
-            columnSelectorClose: document.getElementById('columnSelectorClose')
+            columnSelectorClose: document.getElementById('columnSelectorClose'),
+            pdfModal: document.getElementById('pdfModal'),
+            pdfFrame: document.getElementById('pdfFrame'),
+            pdfModalClose: document.getElementById('pdfModalClose')
         };
 
         this.init();
@@ -152,6 +155,28 @@ class AllPapersApp {
                 this.elements.columnSelector.style.display = 'none';
             }
         });
+        
+        // PDF modal handlers
+        document.addEventListener('show-pdf', (e) => {
+            this.showPdfModal(e.detail.url);
+        });
+        
+        this.elements.pdfModalClose.addEventListener('click', () => {
+            this.closePdfModal();
+        });
+        
+        this.elements.pdfModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.pdfModal) {
+                this.closePdfModal();
+            }
+        });
+        
+        // Escape key to close PDF modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.elements.pdfModal.style.display === 'block') {
+                this.closePdfModal();
+            }
+        });
     }
     
     setupColumnSelector() {
@@ -209,6 +234,18 @@ class AllPapersApp {
         if (message.includes('configuration')) {
             this.elements.helpBox.style.display = 'block';
         }
+    }
+    
+    showPdfModal(url) {
+        this.elements.pdfFrame.src = url;
+        this.elements.pdfModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    closePdfModal() {
+        this.elements.pdfModal.style.display = 'none';
+        this.elements.pdfFrame.src = '';
+        document.body.style.overflow = 'auto'; // Restore scrolling
     }
 }
 

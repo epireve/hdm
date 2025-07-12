@@ -131,6 +131,19 @@
         </div>
     </div>
     
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="pdf-modal" style="display: none;">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3>PDF Viewer</h3>
+                <button class="pdf-modal-close" id="pdfModalClose">&times;</button>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
     <!-- Load config if available -->
     <script src="js/config.js" onerror="console.log('No config.js found')"></script>
     
