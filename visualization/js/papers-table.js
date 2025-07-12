@@ -208,13 +208,9 @@ export class PapersTable {
     }
 
     createHeader(column, label, width) {
-        const isActive = this.sortBy === column;
-        const arrow = isActive && this.sortOrder === 'asc' ? '▲' : '▼';
-        const activeClass = isActive ? 'active' : '';
-        
         return `
             <th data-sort="${column}" style="width: ${width}; min-width: ${width};">
-                ${label} <span class="sort-arrow ${activeClass}">${arrow}</span>
+                ${label}
             </th>
         `;
     }
@@ -234,12 +230,12 @@ export class PapersTable {
     createCell(paper, columnKey) {
         switch (columnKey) {
             case 'year':
-                return `<td>${paper.year || 'N/A'}</td>`;
+                return `<td class="year-cell">${paper.year || 'N/A'}</td>`;
                 
             case 'title':
                 return `
-                    <td>
-                        <span class="paper-title paper-title-wrap" data-url="${paper.url || '#'}">
+                    <td class="title-cell">
+                        <span class="paper-title" data-url="${paper.url || '#'}">
                             ${this.escapeHtml(paper.title || 'Untitled')}
                         </span>
                     </td>
@@ -256,8 +252,8 @@ export class PapersTable {
                     authorsDisplay = paper.authors || '';
                 }
                 return `
-                    <td>
-                        <div class="authors authors-wrap">
+                    <td class="authors-cell">
+                        <div class="authors">
                             ${this.escapeHtml(authorsDisplay)}
                         </div>
                     </td>
