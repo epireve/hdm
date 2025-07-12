@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Papers - HDM Research Database</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all-papers.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <h2 class="nav-title">📚 All Papers Database</h2>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">🏠 Home</a>
+                <a href="../literature_review.html" class="nav-link">📊 Literature Review</a>
+                <a href="index.html" class="nav-link">🕸️ Knowledge Graph</a>
+                <a href="explorer/index.html" class="nav-link">🔍 PKG Explorer</a>
+                <a href="all-papers.html" class="nav-link active">📚 All Papers</a>
+                <a href="https://github.com/epireve/hdm" class="nav-link" target="_blank">📱 GitHub</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Header with statistics -->
+    <div id="header">
+        <div>
+            <h1>HDM Research Database</h1>
+            <h4>Complete collection of papers from Turso database</h4>
+        </div>
+        <div id="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Papers</div>
+                <div id="totalPapers" class="stat-value">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Open Access</div>
+                <div id="openAccessCount" class="stat-value">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Years</div>
+                <div id="yearRange" class="stat-value">-</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Controls -->
+    <div id="controls" style="display: none;">
+        <div class="control-group" style="flex: 1;">
+            <label for="searchInput">Search</label>
+            <input type="text" id="searchInput" placeholder="Search papers, authors, abstracts...">
+        </div>
+        <div class="control-group">
+            <label for="yearFilter">Year</label>
+            <select id="yearFilter">
+                <option value="">All Years</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label for="openAccessFilter">Access Type</label>
+            <select id="openAccessFilter">
+                <option value="">All Papers</option>
+                <option value="true">Open Access Only</option>
+                <option value="false">Closed Access Only</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label for="pageSize">Papers per Page</label>
+            <select id="pageSize">
+                <option value="50">50</option>
+                <option value="100" selected>100</option>
+                <option value="200">200</option>
+                <option value="500">500</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- Loading state -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading papers from database...</div>
+        </div>
+        
+        <!-- Error state -->
+        <div class="error" id="error" style="display: none;">
+            <h3>Connection Error</h3>
+            <p id="errorMessage"></p>
+            <div class="help-box" id="helpBox" style="display: none;">
+                <h4>Setup Instructions:</h4>
+                <p><strong>For GitHub Pages:</strong></p>
+                <ol>
+                    <li>Add TURSO_DATABASE_URL and TURSO_AUTH_TOKEN to repository secrets</li>
+                    <li>Check Actions tab to ensure "Deploy to GitHub Pages" workflow has run</li>
+                    <li>Wait 2-3 minutes for deployment to complete</li>
+                </ol>
+                <p><strong>For Local Testing:</strong></p>
+                <ol>
+                    <li>Copy <code>visualization/js/config.template.js</code> to <code>visualization/js/config.js</code></li>
+                    <li>Add your database credentials to config.js</li>
+                    <li>Refresh this page</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Table container -->
+        <div class="table-container" id="tableContainer" style="display: none;">
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prevPage">← Previous</button>
+            <span class="page-info">
+                Page <strong id="currentPage">1</strong> of <strong id="totalPages">1</strong>
+            </span>
+            <button id="nextPage">Next →</button>
+        </div>
+    </div>
+    
+    <!-- Load config if available -->
+    <script src="js/config.js" onerror="console.log('No config.js found')"></script>
+    
+    <!-- Main application script -->
+    <script type="module" src="js/all-papers-app.js"></script>
+</body>
+</html>
