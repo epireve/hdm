@@ -56,7 +56,8 @@ export class TursoClient {
                 last_updated,
                 enrichment_timestamp,
                 unpaywall_best_oa_pdf_url,
-                unpaywall_best_oa_url
+                unpaywall_best_oa_url,
+                unpaywall_doi
             FROM papers 
             ORDER BY year DESC
         `;
