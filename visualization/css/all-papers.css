@@ -63,30 +63,21 @@ body {
     font-weight: 500;
 }
 
-/* Header Section */
+/* Header Section - matching visualization page style */
 #header {
     background-color: #2c3e50;
     color: white;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-#header h1 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 0;
 }
 
 #header h4 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    opacity: 0.9;
-    margin-top: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
 }
 
 /* Controls Section */
@@ -448,25 +439,26 @@ th:hover .sort-arrow {
     font-size: 1.1rem;
 }
 
-/* Statistics Section */
-.stat-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+/* Statistics Section - matching visualization page style */
+#stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .stat-label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     opacity: 0.8;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .stat-value {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 0.2rem;
 }
 
 /* Responsive Design */
