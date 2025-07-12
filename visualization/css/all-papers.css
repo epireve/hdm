@@ -63,6 +63,18 @@ body {
     font-weight: 500;
 }
 
+.nav-link.github-icon {
+    border: none;
+    background: none;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.nav-link.github-icon:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-1px);
+}
+
 /* Header Section - matching visualization page style */
 #header {
     background-color: #2c3e50;
