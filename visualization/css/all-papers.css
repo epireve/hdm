@@ -907,7 +907,7 @@ th[data-sort]:after {
 
 /* Access Link Buttons */
 .pdf-btn, .oa-link-btn, .doi-link-btn {
-    color: #007bff;
+    color: #3498db;
     text-decoration: none;
     margin-right: 10px;
     font-size: 11px;
@@ -915,11 +915,9 @@ th[data-sort]:after {
     border: none;
     padding: 0;
     cursor: pointer;
-    transition: color 0.2s;
 }
 
 .pdf-btn:hover, .oa-link-btn:hover, .doi-link-btn:hover {
-    color: #0056b3;
     text-decoration: underline;
 }
 
