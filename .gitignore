@@ -1,5 +1,61 @@
+# Environment and secrets
 .env
 .claude/settings.local.json
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments  
+venv/
+env/
+ENV/
+.venv/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Output files
+output/
+reports/
+
+# Development
+current_requirements.txt
+
+# MyPy
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Project specific
+papers/*.pdf
+backups/
 backup_phase2/*
-__pycache__/markdown_standardizer_improved.cpython-313.pyc
 visualization/js/config.js
+cleanup_analysis_report.json
