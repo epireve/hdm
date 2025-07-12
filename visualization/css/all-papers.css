@@ -169,25 +169,19 @@ body {
 
 /* Table Container */
 .table-container {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #ddd;
+    background-color: #fafafa;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
+    margin-bottom: 1rem;
 }
 
-.table-container:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* Table Styles */
+/* Table Styles - Literature Review Design */
 table {
     width: 100%;
     min-width: 1200px;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 12px;
 }
 
 /* Custom scrollbar for table container */
@@ -209,155 +203,158 @@ table {
     background: #95a5a6;
 }
 
-thead {
-    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
 }
 
 th {
-    font-weight: 600;
-    text-align: left;
-    padding: 1.2rem 1rem;
+    background-color: #f8f9fa;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     cursor: pointer;
     user-select: none;
-    transition: all 0.2s;
-    border-bottom: 2px solid #dee2e6;
-    position: relative;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 th:hover {
-    background-color: rgba(52, 152, 219, 0.05);
+    background-color: #e9ecef;
 }
 
-td {
-    padding: 1rem;
-    border-bottom: 1px solid #f1f3f5;
-}
-
-tbody tr {
-    transition: background-color 0.2s;
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
 tbody tr:hover {
-    background-color: #f8f9fa;
+    background-color: #e9ecef;
+}
+
+/* Cell-specific styles */
+.title-cell {
+    max-width: 200px;
+}
+
+.authors-cell {
+    max-width: 150px;
+}
+
+.year-cell {
+    text-align: center;
+    min-width: 60px;
 }
 
 /* Paper Title Styling */
 .paper-title {
-    font-weight: 500;
-    color: #3498db;
+    font-weight: bold;
+    color: #007bff;
     cursor: pointer;
-    max-width: 400px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
-    transition: color 0.2s;
-}
-
-.paper-title-wrap {
+    word-wrap: break-word;
     white-space: normal;
     line-height: 1.4;
-    overflow: visible;
-    text-overflow: initial;
+    display: block;
+    transition: color 0.2s;
+    text-decoration: none;
 }
 
 .paper-title:hover {
-    color: #2980b9;
+    color: #0056b3;
     text-decoration: underline;
 }
 
 /* Authors Styling */
 .authors {
-    color: #666;
-    font-size: 0.85rem;
-    max-width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.authors-wrap {
+    font-style: italic;
+    color: #555;
+    word-wrap: break-word;
     white-space: normal;
     line-height: 1.4;
-    overflow: visible;
-    text-overflow: initial;
 }
 
-/* Venue Styling */
+/* Venue and Journal Styling */
 .venue {
-    color: #7f8c8d;
-    font-size: 0.85rem;
+    color: #444;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.4;
 }
 
 /* Citation Count */
 .citation-count {
-    font-weight: 600;
-    color: #2c3e50;
     text-align: center;
+    min-width: 60px;
+}
+
+/* Text cells with word wrapping */
+.text-cell {
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.text-cell.short {
+    max-width: 200px;
+}
+
+.text-cell.medium {
+    max-width: 250px;
+}
+
+.text-cell.long {
+    max-width: 400px;
 }
 
 /* Access Indicators */
 .access-badge {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
 }
 
 .open-access {
-    background-color: rgba(39, 174, 96, 0.1);
-    color: #27ae60;
-    border: 1px solid rgba(39, 174, 96, 0.2);
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
 .closed-access {
-    background-color: rgba(149, 165, 166, 0.1);
-    color: #7f8c8d;
-    border: 1px solid rgba(149, 165, 166, 0.2);
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 /* Field Tags */
 .tags {
     display: flex;
-    gap: 0.4rem;
+    gap: 3px;
     flex-wrap: wrap;
 }
 
 .tag {
     display: inline-block;
-    padding: 0.25rem 0.7rem;
-    background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
-    color: #2c3e50;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    transition: all 0.2s;
-}
-
-.tag:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 2px 6px;
+    margin: 2px 3px 2px 0;
+    border-radius: 3px;
+    font-size: 11px;
+    border: 1px solid #dee2e6;
 }
 
 /* Sort Arrows */
-.sort-arrow {
-    font-size: 0.7rem;
-    margin-left: 0.5rem;
-    color: #bdc3c7;
-    display: inline-block;
-    transition: all 0.2s;
-    vertical-align: middle;
-}
-
-.sort-arrow.active {
-    color: #3498db;
-    font-size: 0.8rem;
-}
-
-th:hover .sort-arrow {
-    color: #7f8c8d;
+th[data-sort]:after {
+    content: '↕';
+    margin-left: 5px;
+    color: #6c757d;
+    font-size: 10px;
 }
 
 /* Pagination */
@@ -615,24 +612,26 @@ th:hover .sort-arrow {
 /* Empty State */
 .empty-state {
     text-align: center;
-    padding: 5rem;
-    color: #7f8c8d;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
 }
 
 .empty-state-icon {
-    font-size: 4rem;
+    font-size: 3rem;
     color: #bdc3c7;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .empty-state h3 {
-    color: #34495e;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: normal;
 }
 
 .empty-state p {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* Statistics Section - matching visualization page style */
@@ -857,51 +856,22 @@ th:hover .sort-arrow {
 
 /* Access Link Buttons */
 .pdf-btn, .oa-link-btn, .doi-link-btn {
-    padding: 0.3rem 0.6rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
+    color: #007bff;
     text-decoration: none;
-    font-weight: 500;
+    margin-right: 10px;
+    font-size: 11px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-.pdf-btn {
-    background: #27ae60;
-    color: white;
-}
-
-.pdf-btn:hover {
-    background: #229954;
-    transform: translateY(-1px);
-}
-
-.oa-link-btn {
-    background: #3498db;
-    color: white;
-}
-
-.oa-link-btn:hover {
-    background: #2980b9;
-    transform: translateY(-1px);
-}
-
-.doi-link-btn {
-    background: #9b59b6;
-    color: white;
-}
-
-.doi-link-btn:hover {
-    background: #8e44ad;
-    transform: translateY(-1px);
+.pdf-btn:hover, .oa-link-btn:hover, .doi-link-btn:hover {
+    text-decoration: underline;
 }
 
 .access-links-cell {
-    white-space: nowrap;
+    min-width: 120px;
 }
 
 .link-url {
