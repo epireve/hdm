@@ -206,6 +206,13 @@ tbody tr:hover {
     transition: color 0.2s;
 }
 
+.paper-title-wrap {
+    white-space: normal;
+    line-height: 1.4;
+    overflow: visible;
+    text-overflow: initial;
+}
+
 .paper-title:hover {
     color: #2980b9;
     text-decoration: underline;

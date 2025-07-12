@@ -22,8 +22,7 @@ export class PapersTable {
             reference_count: { label: 'References', visible: false, sortable: true, width: '100px' },
             influential_citation_count: { label: 'Influential Citations', visible: false, sortable: true, width: '120px' },
             is_open_access: { label: 'Access', visible: true, sortable: true, width: '100px' },
-            access_links: { label: 'Access Links', visible: true, sortable: false, width: '150px' },
-            open_access_pdf: { label: 'Legacy PDF', visible: false, sortable: false, width: '80px' },
+            url_to_paper: { label: 'URL to Paper', visible: true, sortable: false, width: '150px' },
             fields_of_study: { label: 'Fields of Study', visible: true, sortable: false, width: '200px' },
             s2_fields_of_study: { label: 'S2 Fields', visible: false, sortable: false, width: '200px' },
             publication_types: { label: 'Pub Types', visible: false, sortable: false, width: '150px' },
@@ -36,7 +35,8 @@ export class PapersTable {
             last_updated: { label: 'Last Updated', visible: false, sortable: true, width: '150px' },
             enrichment_timestamp: { label: 'Enrichment Time', visible: false, sortable: true, width: '150px' },
             unpaywall_best_oa_pdf_url: { label: 'Unpaywall PDF URL', visible: false, sortable: false, width: '200px' },
-            unpaywall_best_oa_url: { label: 'Unpaywall OA URL', visible: false, sortable: false, width: '200px' }
+            unpaywall_best_oa_url: { label: 'Unpaywall OA URL', visible: false, sortable: false, width: '200px' },
+            unpaywall_doi: { label: 'Unpaywall DOI', visible: false, sortable: false, width: '150px' }
         };
         
         // Load saved column preferences
@@ -225,7 +225,7 @@ export class PapersTable {
             case 'title':
                 return `
                     <td>
-                        <span class="paper-title" data-url="${paper.url || '#'}" title="${this.escapeHtml(paper.title || '')}">
+                        <span class="paper-title paper-title-wrap" data-url="${paper.url || '#'}">
                             ${this.escapeHtml(paper.title || 'Untitled')}
                         </span>
                     </td>
@@ -296,7 +296,7 @@ export class PapersTable {
             case 'paper_id':
                 return `<td class="paper-id">${paper.paper_id}</td>`;
                 
-            case 'access_links':
+            case 'url_to_paper':
                 const buttons = [];
                 
                 // Primary: Unpaywall PDF URL
@@ -323,34 +323,34 @@ export class PapersTable {
                     }
                 }
                 
-                // Tertiary: DOI URL
-                if (paper.external_ids) {
+                // Tertiary: DOI URL - check both sources
+                let doi = null;
+                
+                // First try unpaywall_doi if available
+                if (paper.unpaywall_doi) {
+                    doi = paper.unpaywall_doi;
+                } else if (paper.external_ids) {
+                    // Fallback to external_ids
                     try {
                         const externalIds = JSON.parse(paper.external_ids);
                         if (externalIds.DOI) {
-                            const doiUrl = `https://doi.org/${externalIds.DOI}`;
-                            buttons.push(`
-                                <a href="${this.escapeHtml(doiUrl)}" target="_blank" class="doi-link-btn" title="DOI Link">
-                                    🔍 DOI
-                                </a>
-                            `);
+                            doi = externalIds.DOI;
                         }
                     } catch (e) {
                         // Handle parse error
                     }
                 }
                 
-                return `<td class="access-links-cell">${buttons.length > 0 ? buttons.join(' ') : '-'}</td>`;
-                
-            case 'open_access_pdf':
-                // Legacy column - hidden by default
-                if (paper.open_access_pdf) {
-                    let pdfUrl = paper.open_access_pdf.trim();
-                    if (pdfUrl && (pdfUrl.startsWith('http://') || pdfUrl.startsWith('https://'))) {
-                        return `<td><button class="pdf-btn" data-pdf-url="${this.escapeHtml(pdfUrl)}" title="Legacy PDF">📄 PDF</button></td>`;
-                    }
+                if (doi) {
+                    const doiUrl = `https://doi.org/${doi}`;
+                    buttons.push(`
+                        <a href="${this.escapeHtml(doiUrl)}" target="_blank" class="doi-link-btn" title="DOI Link">
+                            🔍 DOI
+                        </a>
+                    `);
                 }
-                return '<td>-</td>';
+                
+                return `<td class="access-links-cell">${buttons.length > 0 ? buttons.join(' ') : '-'}</td>`;
                 
             case 'abstract':
                 if (paper.abstract) {
@@ -423,6 +423,13 @@ export class PapersTable {
                 if (paper.unpaywall_best_oa_url) {
                     const url = paper.unpaywall_best_oa_url.trim();
                     return `<td><a href="${this.escapeHtml(url)}" target="_blank" class="link-url">${this.escapeHtml(url.substring(0, 50))}...</a></td>`;
+                }
+                return '<td>-</td>';
+                
+            case 'unpaywall_doi':
+                if (paper.unpaywall_doi) {
+                    const doiUrl = `https://doi.org/${paper.unpaywall_doi}`;
+                    return `<td><a href="${this.escapeHtml(doiUrl)}" target="_blank" class="link-url">${this.escapeHtml(paper.unpaywall_doi)}</a></td>`;
                 }
                 return '<td>-</td>';
                 
