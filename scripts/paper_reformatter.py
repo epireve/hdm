@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Paper Reformatter Script
+Paper Reformatter Script using KiloCode API
 Reformats all paper.md files to fix formatting issues, convert HTML to Markdown,
 fix references, and ensure proper cite_key conventions.
 """
 
 import os
+import sys
 import re
 import json
 import time
@@ -15,8 +16,20 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass
 from datetime import datetime
-import google.generativeai as genai
 import yaml
+
+# Add parent directory to path for imports
+sys.path.append(str(Path(__file__).parent.parent))
+
+# Import Kilocode configuration
+from lib.kilocode_config_simple import load_config, ConfigurationError
+
+# Try to import OpenAI client
+try:
+    from openai import OpenAI
+except ImportError:
+    print("Error: OpenAI library not installed. Please run: pip install openai")
+    sys.exit(1)
 
 
 @dataclass
@@ -32,7 +45,7 @@ class ReformattingResult:
 
 
 class PaperReformatter:
-    """Handles reformatting of academic papers using Gemini 2.5 Pro."""
+    """Handles reformatting of academic papers using Gemini 2.5 Pro via KiloCode."""
     
     REFORMATTING_PROMPT = """You are reformatting an academic paper from mixed HTML/Markdown to pure Markdown.
 
@@ -84,15 +97,37 @@ FIRST_AUTHOR_LASTNAME: [lastname]
 YEAR: [year]
 """
 
-    def __init__(self, api_key: str, backup_dir: Path = None):
-        """Initialize the reformatter with Gemini API."""
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
+    def __init__(self, backup_dir: Path = None, model: str = None):
+        """Initialize the reformatter with KiloCode API."""
+        # Load KiloCode configuration
+        try:
+            self.config = load_config()
+            self.logger = self._setup_logger()
+            self.logger.info("KiloCode configuration loaded successfully")
+        except ConfigurationError as e:
+            print(f"Failed to load KiloCode configuration: {e}")
+            sys.exit(1)
+        
+        # Use specified model or default to Gemini 2.5 Pro
+        self.model = model or "google/gemini-2.5-pro-preview"
+        
+        # Initialize OpenAI client with KiloCode
+        self.client = OpenAI(
+            base_url=self.config.openrouter_url,
+            api_key=self.config.token,
+            default_headers={
+                "HTTP-Referer": self.config.http_referer,
+                "X-Title": self.config.x_title,
+            }
+        )
+        
         self.backup_dir = backup_dir or Path("backups/paper_reformatter")
         self.backup_dir.mkdir(parents=True, exist_ok=True)
         self.checkpoint_file = Path("paper_reformatter_checkpoint.json")
         self.report_file = Path(f"reformatting_report_{datetime.now():%Y%m%d_%H%M%S}.json")
-        self.logger = self._setup_logger()
+        
+        self.logger.info(f"Using model: {self.model}")
+        self.logger.info(f"API endpoint: {self.config.openrouter_url}")
         
     def _setup_logger(self) -> logging.Logger:
         """Set up logging configuration."""
@@ -208,7 +243,7 @@ YEAR: [year]
         return f"{base_key}{suffix}"
         
     def extract_author_info_from_response(self, response_text: str) -> Tuple[Optional[str], Optional[str]]:
-        """Extract author lastname and year from Gemini response."""
+        """Extract author lastname and year from model response."""
         lines = response_text.strip().split('\n')
         
         lastname = None
@@ -224,7 +259,7 @@ YEAR: [year]
         return lastname, year
         
     def reformat_paper(self, paper_path: Path, existing_keys: set) -> ReformattingResult:
-        """Reformat a single paper using Gemini."""
+        """Reformat a single paper using KiloCode API."""
         self.logger.info(f"Processing: {paper_path}")
         
         try:
@@ -237,15 +272,26 @@ YEAR: [year]
             frontmatter, content = self.extract_frontmatter_and_content(paper_path)
             original_cite_key = frontmatter.get('cite_key', '')
             
-            # Send to Gemini for reformatting
+            # Send to KiloCode API for reformatting
             prompt = self.REFORMATTING_PROMPT.format(paper_content=content)
-            response = self.model.generate_content(prompt)
             
-            if not response.text:
-                raise Exception("Empty response from Gemini")
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": "You are an expert at reformatting academic papers."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.7,
+                max_tokens=8192
+            )
+            
+            if not response.choices[0].message.content:
+                raise Exception("Empty response from API")
                 
+            response_text = response.choices[0].message.content
+            
             # Extract reformatted content and author info
-            response_lines = response.text.strip().split('\n')
+            response_lines = response_text.strip().split('\n')
             
             # Find where the metadata starts (look for FIRST_AUTHOR_LASTNAME)
             metadata_start = -1
@@ -260,7 +306,7 @@ YEAR: [year]
                     '\n'.join(response_lines[metadata_start:])
                 )
             else:
-                reformatted_content = response.text
+                reformatted_content = response_text
                 extracted_lastname, extracted_year = None, None
                 
             changes_made = []
@@ -352,8 +398,8 @@ YEAR: [year]
             self.logger.info(f"Processing batch {i//batch_size + 1} ({len(batch)} papers)")
             
             for paper_path in batch:
-                # Rate limiting
-                time.sleep(2)  # Wait 2 seconds between API calls
+                # Rate limiting for KiloCode
+                time.sleep(1)  # Wait 1 second between API calls
                 
                 result = self.reformat_paper(paper_path, existing_keys)
                 results.append(result)
@@ -383,6 +429,8 @@ YEAR: [year]
             "failed": sum(1 for r in results if not r.success),
             "cite_keys_updated": sum(1 for r in results if r.new_cite_key),
             "folders_renamed": sum(1 for r in results if r.folder_renamed),
+            "model_used": self.model,
+            "api_endpoint": self.config.openrouter_url,
             "details": []
         }
         
@@ -421,9 +469,7 @@ def main():
     """Main entry point for the paper reformatter."""
     import argparse
     
-    parser = argparse.ArgumentParser(description="Reformat academic papers to fix formatting issues")
-    parser.add_argument("--api-key", help="Google API key for Gemini", 
-                       default=os.getenv("GOOGLE_API_KEY"))
+    parser = argparse.ArgumentParser(description="Reformat academic papers using KiloCode API")
     parser.add_argument("--markdown-dir", type=Path, 
                        default=Path("markdown_papers"),
                        help="Directory containing markdown papers")
@@ -431,15 +477,14 @@ def main():
                        help="Number of papers to process in each batch")
     parser.add_argument("--test", action="store_true",
                        help="Test mode - process only first 3 papers")
+    parser.add_argument("--model", type=str, 
+                       default="google/gemini-2.5-pro-preview",
+                       help="Model to use (default: google/gemini-2.5-pro-preview)")
     
     args = parser.parse_args()
     
-    if not args.api_key:
-        print("Error: Google API key required. Set GOOGLE_API_KEY env var or use --api-key")
-        return 1
-        
     # Initialize reformatter
-    reformatter = PaperReformatter(args.api_key)
+    reformatter = PaperReformatter(model=args.model)
     
     if args.test:
         # Test mode - process only a few papers
@@ -452,7 +497,7 @@ def main():
         for paper_path in test_papers:
             result = reformatter.reformat_paper(paper_path, existing_keys)
             results.append(result)
-            time.sleep(2)
+            time.sleep(1)
             
         reformatter.generate_report(results)
     else:

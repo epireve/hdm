@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test script for paper reformatter - processes a single paper for verification
+Test script for paper reformatter with KiloCode - processes a single paper for verification
 """
 
 import os
@@ -13,17 +13,18 @@ sys.path.append(str(Path(__file__).parent.parent))
 from scripts.paper_reformatter import PaperReformatter
 
 def test_single_paper():
-    """Test reformatting on a single paper."""
+    """Test reformatting on a single paper using KiloCode."""
     
-    # Get API key
-    api_key = os.getenv("GOOGLE_API_KEY")
-    if not api_key:
-        print("Error: GOOGLE_API_KEY environment variable not set")
+    # Initialize reformatter with KiloCode
+    try:
+        reformatter = PaperReformatter()
+        print(f"✓ KiloCode configuration loaded successfully")
+        print(f"  Using model: {reformatter.model}")
+        print(f"  API endpoint: {reformatter.config.openrouter_url}")
+    except Exception as e:
+        print(f"✗ Failed to initialize: {e}")
         return 1
         
-    # Initialize reformatter
-    reformatter = PaperReformatter(api_key)
-    
     # Find a test paper with known issues
     test_paper = Path("markdown_papers/ho_2024/paper.md")
     
@@ -36,7 +37,7 @@ def test_single_paper():
             print("No papers found to test")
             return 1
             
-    print(f"Testing on: {test_paper}")
+    print(f"\nTesting on: {test_paper}")
     
     # Extract current content for comparison
     frontmatter, content = reformatter.extract_frontmatter_and_content(test_paper)
@@ -49,25 +50,57 @@ def test_single_paper():
     print(f"Has HTML tags: {has_html}")
     print(f"Has broken references: {has_broken_refs}")
     
+    # Show sample of content with issues
+    if has_html or has_broken_refs:
+        print("\nSample of issues found:")
+        lines = content.split('\n')
+        issue_count = 0
+        for i, line in enumerate(lines):
+            if issue_count >= 3:  # Show max 3 examples
+                break
+            if '<sup>' in line or '<span' in line or '[[' in line or '#page-' in line:
+                print(f"  Line {i+1}: {line[:100]}...")
+                issue_count += 1
+    
+    print("\n" + "="*60)
+    print("Processing paper...")
+    print("="*60 + "\n")
+    
     # Process the paper
     result = reformatter.reformat_paper(test_paper, set())
     
     if result.success:
-        print("\nReformatting successful!")
-        print(f"Original cite_key: {result.original_cite_key}")
+        print("✓ Reformatting successful!")
+        print(f"  Original cite_key: {result.original_cite_key}")
         if result.new_cite_key:
-            print(f"New cite_key: {result.new_cite_key}")
+            print(f"  New cite_key: {result.new_cite_key}")
         if result.folder_renamed:
-            print(f"Folder renamed: Yes")
+            print(f"  Folder renamed: Yes")
         if result.changes_made:
-            print("Changes made:")
+            print("  Changes made:")
             for change in result.changes_made:
-                print(f"  - {change}")
+                print(f"    - {change}")
+                
+        # Verify changes
+        print("\nVerifying changes...")
+        new_frontmatter, new_content = reformatter.extract_frontmatter_and_content(result.paper_path)
+        
+        still_has_html = '<sup>' in new_content or '<sub>' in new_content or '<span' in new_content
+        still_has_broken_refs = '[[' in new_content or '\\[' in new_content or '#page-' in new_content
+        
+        print(f"  Still has HTML tags: {still_has_html}")
+        print(f"  Still has broken references: {still_has_broken_refs}")
+        
+        if not still_has_html and not still_has_broken_refs:
+            print("\n✓ All issues successfully resolved!")
+        else:
+            print("\n⚠ Some issues may still remain - manual review recommended")
+            
     else:
-        print("\nReformatting failed!")
-        print("Errors:")
+        print("✗ Reformatting failed!")
+        print("  Errors:")
         for error in result.errors:
-            print(f"  - {error}")
+            print(f"    - {error}")
             
     return 0 if result.success else 1
 

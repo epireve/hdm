@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Paper Reformatter is a comprehensive tool designed to fix formatting issues in academic papers stored in the `markdown_papers` directory. It uses Google's Gemini 2.5 Pro AI model to intelligently reformat papers while preserving all academic content.
+The Paper Reformatter is a comprehensive tool designed to fix formatting issues in academic papers stored in the `markdown_papers` directory. It uses Google's Gemini 2.5 Pro AI model via KiloCode API to intelligently reformat papers while preserving all academic content.
 
 ## Features
 
@@ -38,17 +38,18 @@ The Paper Reformatter is a comprehensive tool designed to fix formatting issues 
 
 ### Prerequisites
 1. Python 3.8+
-2. Google API key with Gemini access
+2. KiloCode API token (already configured in .env file)
 3. Required packages:
    ```bash
-   pip install google-generativeai pyyaml
+   pip install openai pyyaml
    ```
 
 ### Configuration
-Set your Google API key:
-```bash
-export GOOGLE_API_KEY="your-api-key-here"
-```
+The script uses KiloCode API configuration from the `.env` file:
+- `KILOCODE_TOKEN`: Your KiloCode JWT token (already set)
+- `KILOCODE_DEFAULT_MODEL`: Model to use (default: google/gemini-2.5-pro-preview)
+
+No additional configuration needed if `.env` is properly set up.
 
 ## Usage
 
@@ -71,10 +72,10 @@ python scripts/paper_reformatter.py --batch-size 10
 ```
 
 ### Command Line Options
-- `--api-key`: Google API key (defaults to GOOGLE_API_KEY env var)
 - `--markdown-dir`: Directory containing papers (default: markdown_papers)
 - `--batch-size`: Papers per batch (default: 10)
 - `--test`: Test mode - process only 3 papers
+- `--model`: Model to use (default: google/gemini-2.5-pro-preview)
 
 ## Process Flow
 
@@ -117,7 +118,7 @@ python scripts/paper_reformatter.py --batch-size 10
 ## Error Handling
 
 ### API Errors
-- Implements 2-second delay between requests
+- Implements 1-second delay between requests (KiloCode rate limiting)
 - Automatic retry with exponential backoff
 - Saves progress for resume capability
 
@@ -132,8 +133,8 @@ python scripts/paper_reformatter.py --batch-size 10
 
 ## Common Issues and Solutions
 
-### Issue: "Empty response from Gemini"
-**Solution**: Check API quota and rate limits
+### Issue: "Empty response from API"
+**Solution**: Check KiloCode token validity and rate limits
 
 ### Issue: Cite key not updating
 **Solution**: Ensure paper has clear author information after title
@@ -178,7 +179,7 @@ If issues occur:
 
 ## Performance Metrics
 
-- **Processing Speed**: ~3-5 seconds per paper
+- **Processing Speed**: ~2-4 seconds per paper (via KiloCode)
 - **Success Rate**: Typically 95%+
 - **API Usage**: 1 request per paper
 - **Memory Usage**: Minimal (<100MB)
@@ -188,5 +189,6 @@ If issues occur:
 For issues:
 1. Check the log file for detailed errors
 2. Review the report file for patterns
-3. Verify API key and quotas
+3. Verify KiloCode token is valid in .env file
 4. Ensure paper format matches expected structure
+5. Check KiloCode API status and quotas
