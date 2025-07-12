@@ -24,7 +24,7 @@ jobs:
       - name: Create Turso config from secrets
         run: |
           mkdir -p visualization/js
-          cat > visualization/js/config.js << EOF
+          cat > visualization/js/config.js << 'EOF'
           // Auto-generated config from GitHub secrets
           window.TURSO_CONFIG = {
               DATABASE_URL: '${{ secrets.TURSO_DATABASE_URL }}',
