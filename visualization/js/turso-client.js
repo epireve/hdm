@@ -44,10 +44,17 @@ export class TursoClient {
                 url,
                 authors,
                 fields_of_study,
+                s2_fields_of_study,
+                publication_types,
                 journal,
                 open_access_pdf,
                 publication_date,
-                external_ids
+                external_ids,
+                corpus_id,
+                tldr,
+                first_seen,
+                last_updated,
+                enrichment_timestamp
             FROM papers 
             ORDER BY year DESC
         `;

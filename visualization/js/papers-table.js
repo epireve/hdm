@@ -22,10 +22,17 @@ export class PapersTable {
             reference_count: { label: 'References', visible: false, sortable: true, width: '100px' },
             influential_citation_count: { label: 'Influential Citations', visible: false, sortable: true, width: '120px' },
             is_open_access: { label: 'Access', visible: true, sortable: true, width: '100px' },
+            open_access_pdf: { label: 'PDF', visible: true, sortable: false, width: '80px' },
             fields_of_study: { label: 'Fields of Study', visible: true, sortable: false, width: '200px' },
+            s2_fields_of_study: { label: 'S2 Fields', visible: false, sortable: false, width: '200px' },
+            publication_types: { label: 'Pub Types', visible: false, sortable: false, width: '150px' },
             publication_date: { label: 'Pub Date', visible: false, sortable: true, width: '120px' },
             corpus_id: { label: 'Corpus ID', visible: false, sortable: true, width: '100px' },
-            paper_id: { label: 'Paper ID', visible: false, sortable: false, width: '150px' }
+            paper_id: { label: 'Paper ID', visible: false, sortable: false, width: '150px' },
+            abstract: { label: 'Abstract', visible: false, sortable: false, width: '400px' },
+            tldr: { label: 'TL;DR', visible: false, sortable: false, width: '300px' },
+            first_seen: { label: 'First Seen', visible: false, sortable: true, width: '150px' },
+            last_updated: { label: 'Last Updated', visible: false, sortable: true, width: '150px' }
         };
         
         // Load saved column preferences
@@ -285,6 +292,77 @@ export class PapersTable {
             case 'paper_id':
                 return `<td class="paper-id">${paper.paper_id}</td>`;
                 
+            case 'open_access_pdf':
+                if (paper.open_access_pdf) {
+                    return `
+                        <td>
+                            <button class="pdf-btn" data-pdf-url="${paper.open_access_pdf}" title="View PDF">
+                                📄 PDF
+                            </button>
+                        </td>
+                    `;
+                }
+                return '<td>-</td>';
+                
+            case 'abstract':
+                if (paper.abstract) {
+                    const truncated = paper.abstract.length > 100 
+                        ? paper.abstract.substring(0, 100) + '...' 
+                        : paper.abstract;
+                    return `
+                        <td>
+                            <div class="abstract" title="${this.escapeHtml(paper.abstract)}">
+                                ${this.escapeHtml(truncated)}
+                            </div>
+                        </td>
+                    `;
+                }
+                return '<td>-</td>';
+                
+            case 'tldr':
+                if (paper.tldr) {
+                    try {
+                        const tldrObj = JSON.parse(paper.tldr);
+                        const tldrText = tldrObj.text || tldrObj;
+                        return `<td class="tldr">${this.escapeHtml(tldrText)}</td>`;
+                    } catch (e) {
+                        return `<td class="tldr">${this.escapeHtml(paper.tldr)}</td>`;
+                    }
+                }
+                return '<td>-</td>';
+                
+            case 's2_fields_of_study':
+                let s2Fields = '';
+                try {
+                    if (paper.s2_fields_of_study) {
+                        const fields = JSON.parse(paper.s2_fields_of_study);
+                        s2Fields = fields.slice(0, 2).map(field => 
+                            `<span class="tag">${this.escapeHtml(field.category)}</span>`
+                        ).join('');
+                    }
+                } catch (e) {}
+                return `<td><div class="tags">${s2Fields || '-'}</div></td>`;
+                
+            case 'publication_types':
+                let pubTypes = '';
+                try {
+                    if (paper.publication_types) {
+                        const types = JSON.parse(paper.publication_types);
+                        pubTypes = types.map(type => 
+                            `<span class="tag">${this.escapeHtml(type)}</span>`
+                        ).join('');
+                    }
+                } catch (e) {}
+                return `<td><div class="tags">${pubTypes || '-'}</div></td>`;
+                
+            case 'first_seen':
+            case 'last_updated':
+                if (paper[columnKey]) {
+                    const date = new Date(paper[columnKey]);
+                    return `<td>${date.toLocaleDateString()}</td>`;
+                }
+                return '<td>-</td>';
+                
             default:
                 return `<td>${paper[columnKey] || 'N/A'}</td>`;
         }
@@ -318,6 +396,25 @@ export class PapersTable {
                 }
             });
         });
+        
+        // PDF buttons
+        this.container.querySelectorAll('.pdf-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const pdfUrl = btn.getAttribute('data-pdf-url');
+                if (pdfUrl) {
+                    this.showPdfModal(pdfUrl);
+                }
+            });
+        });
+    }
+    
+    showPdfModal(pdfUrl) {
+        // Dispatch event for the app to handle
+        const event = new CustomEvent('show-pdf', {
+            detail: { url: pdfUrl }
+        });
+        document.dispatchEvent(event);
     }
 
     updatePagination(totalPages) {
