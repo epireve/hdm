@@ -496,15 +496,19 @@
         
         // Connect to database
         async function connectToDatabase() {
-            // Check if config is available from GitHub secrets
-            if (!window.TURSO_CONFIG || !window.TURSO_CONFIG.DATABASE_URL || !window.TURSO_CONFIG.AUTH_TOKEN) {
-                showError('Database configuration not found. Please ensure GitHub secrets are properly configured.');
+            let url, authToken;
+            
+            // Check if config is available from GitHub Actions build
+            if (window.TURSO_CONFIG && window.TURSO_CONFIG.DATABASE_URL && window.TURSO_CONFIG.AUTH_TOKEN) {
+                url = window.TURSO_CONFIG.DATABASE_URL;
+                authToken = window.TURSO_CONFIG.AUTH_TOKEN;
+            } else {
+                // For local development, check if config.js was loaded
+                console.log('No TURSO_CONFIG found. Make sure GitHub Actions has run or create a local config.js file.');
+                showError('Waiting for GitHub Actions to deploy with database configuration...');
                 showLoading(false);
                 return;
             }
-            
-            const url = window.TURSO_CONFIG.DATABASE_URL;
-            const authToken = window.TURSO_CONFIG.AUTH_TOKEN;
             
             try {
                 showLoading(true);
