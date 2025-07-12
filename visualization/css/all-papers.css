@@ -372,11 +372,7 @@ th:hover .sort-arrow {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.pagination-top {
-    margin-bottom: 1rem;
-}
-
-.pagination-bottom {
+.pagination {
     margin-top: 1rem;
 }
 
