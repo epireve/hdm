@@ -257,14 +257,24 @@ export class PapersTable {
                 }
                 return `
                     <td>
-                        <div class="authors" title="${this.escapeHtml(authorsDisplay)}">
+                        <div class="authors authors-wrap">
                             ${this.escapeHtml(authorsDisplay)}
                         </div>
                     </td>
                 `;
                 
             case 'venue':
-                return `<td class="venue">${this.escapeHtml(paper.venue || 'N/A')}</td>`;
+                let venueDisplay = paper.venue || 'N/A';
+                // Check if venue is JSON string
+                try {
+                    if (paper.venue && paper.venue.startsWith('{')) {
+                        const venueObj = JSON.parse(paper.venue);
+                        venueDisplay = venueObj.name || paper.venue;
+                    }
+                } catch {
+                    // Use original value if not valid JSON
+                }
+                return `<td class="venue">${this.escapeHtml(venueDisplay)}</td>`;
                 
             case 'journal':
                 return `<td class="venue">${this.escapeHtml(paper.journal || 'N/A')}</td>`;
@@ -529,8 +539,8 @@ export class PapersTable {
                         this.availableColumns[key].visible = preferences[key];
                     }
                 });
-            } catch (e) {
-                console.error('Failed to load column preferences:', e);
+            } catch {
+                console.error('Failed to load column preferences');
             }
         }
     }
