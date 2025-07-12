@@ -345,6 +345,14 @@ th:hover .sort-arrow {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+.pagination-top {
+    margin-bottom: 1rem;
+}
+
+.pagination-bottom {
+    margin-top: 1rem;
+}
+
 .pagination button {
     padding: 0.6rem 1.8rem;
     border: 2px solid #e1e4e8;
