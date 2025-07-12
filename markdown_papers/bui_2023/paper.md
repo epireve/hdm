@@ -1,6 +1,9 @@
 ---
-cite_key: "bui_2023"
+cite_key: bui_2023
+relevancy: Medium
+date_processed: 2025-07-13
 ---
+
 
 # Cross-Data Knowledge Graph Construction for LLM-enabled Educational Question-Answering System: A Case Study at HCMUT
 

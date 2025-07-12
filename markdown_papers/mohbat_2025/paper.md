@@ -3,13 +3,23 @@ cite_key: mohbat_2025
 title: KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language Models
 authors: Fnu Mohbat, Mohammed J. Zaki
 year: 2025
-date_processed: '2025-07-02'
-phase2_processed: 'true'
+relevancy: MEDIUM
+relevancy_justification: While not directly focused on heterogeneous data integration, this paper offers supporting concepts and techniques relevant to knowledge graph development and data management that may inform PKG system design.
+tldr: Research on kerl: knowledge-enhanced personalized recipe recommendation using large language models providing insights for knowledge graph development and data integration.
+insights: Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
+summary: This 2025 paper by Fnu Mohbat, Mohammed J. Zaki explores kerl: knowledge-enhanced personalized recipe recommendation using large language models. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
+  - personal-knowledge
+date_processed: 2025-07-02
+phase2_processed: true
 original_folder: arxiv_arxiv_2505.14629_KERL_Knowledge-Enhanced_Personalized_Recipe_Recommendation_using_Large_Language_
-images_total: '4'
-images_kept: '4'
-images_removed: '0'
+images_total: 4
+images_kept: 4
+images_removed: 0
 ---
+
 
 # KERL: *K*nowledge-*E*nhanced Personalized Recipe *R*ecommendation using *L*arge Language Models \*
 

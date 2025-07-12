@@ -1,48 +1,35 @@
 ---
-
 cite_key: su_2024
 title: Temporal Knowledge Graph Question Answering: A Survey
 authors: Miao Su, Zixuan Li, Zhuo Chen, Long Bai, Xiaolong Jin, Jiafeng Guo
 year: 2024
-doi: https://doi.org/10.48550/arXiv.2406.14191
-url: "https://arxiv.org/abs/2406.14191"
-relevancy: "High"
-downloaded: "Yes"
+doi: [DOI](https://doi.org/10.48550/arXiv.2406.14191)
+url: [Link](https://arxiv.org/abs/2406.14191)
+relevancy: High
+relevancy_justification: Comprehensive survey of TKGQA methods providing taxonomy and systematic categorization essential for understanding temporal aspects of PKG/HDM systems
+downloaded: Yes
+tldr: A systematic survey exploring methodological approaches and taxonomies in Temporal Knowledge Graph Question Answering
+insights: Ambiguities in temporal question definition need resolution; Systematic categorization of TKGQA methods reveals semantic parsing vs embedding approaches; Temporal dynamics crucial for evolving knowledge bases
+summary: The paper addresses the emerging field of Temporal Knowledge Graph Question Answering (TKGQA), which focuses on answering questions within evolving knowledge bases. By establishing a comprehensive taxonomy of temporal questions and reviewing existing methodological approaches, the research aims to provide clarity and structure to this nascent domain. The survey critically examines two primary m...
+research_question: Understanding and systematically categorizing approaches to answering temporal questions in knowledge graphs
+methodology: Established taxonomy of temporal questions; Comprehensive review of TKGQA techniques; Two primary method categories: semantic parsing-based and TKG embedding-based
+key_findings: Identified ambiguities in defining temporal questions; Lack of systematic categorization in existing TKGQA methods
+primary_outcomes: Detailed taxonomy of temporal questions; Comprehensive review of TKGQA techniques; Potential research directions for advancing TKGQA
+limitations: Not explicitly stated in available metadata
+conclusion: Aims to serve as a comprehensive reference for TKGQA and to stimulate further research
+research_gaps: Ambiguities in temporal question definition; Lack of systematic method categorization
+future_work: Outlined potential research directions to advance TKGQA field
+implementation_insights: Need for systematic approaches to temporal question handling; Importance of capturing temporal dynamics in knowledge representation
 tags: 
-  - "TKGQA survey"
-  - "temporal questions"
-  - "semantic parsing"
-  - "TKG embeddings"
-  - "taxonomy"
-keywords: 
-  - temporal knowledge graph
-  - question answering
-  - temporal constraints
-  - temporal expressions
-  - semantic parsing
-  - tkg embeddings
-  - temporal reasoning
-  - knowledge base
-  - temporal questions
-  - compound value types
-  - temporal granularity
-  - explicit temporal expression
-  - implicit temporal expression
-  - temporal facts
-  - tkgqa methods
-  - knowledge graph completion
-  - n-array tuples
-  - temporal relations
-  - time-aware reasoning
-  - kbqa
-tldr: "A systematic survey exploring methodological approaches and taxonomies in Temporal Knowledge Graph Question Answering"
-date_processed: "2025-07-02"
+date_processed: 2025-07-02
 phase2_processed: true
-original_folder: "arxiv_arxiv_2406.14191_Temporal_Knowledge_Graph_Question_Answering_A_Survey"
+keywords: 
+original_folder: arxiv_arxiv_2406.14191_Temporal_Knowledge_Graph_Question_Answering_A_Survey
 images_total: 4
 images_kept: 4
 images_removed: 0
 ---
+
 
 # Temporal Knowledge Graph Question Answering: A Survey
 

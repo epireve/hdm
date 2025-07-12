@@ -1,3 +1,20 @@
+---
+cite_key: zhang_2024
+title: A framework towards digital twins for type 2 diabetes
+authors: Yue Zhang, Guangrong Qin, Boris Aguilar, Noa Rappaport, James T. Yurkovich, Lance Pflieger, Sui Huang, Leroy Hood, Ilya Shmulevich
+year: 2024
+doi: [10.3389/fdgth.2024.1336050](https://doi.org/10.3389/fdgth.2024.1336050)
+relevancy: HIGH
+relevancy_justification: This work provides significant contributions to knowledge graph construction and data integration methodologies, offering valuable approaches that can be adapted for heterogeneous data fusion in PKG systems.
+tldr: Research on a framework towards digital twins for type 2 diabetes providing insights for knowledge graph development and data integration.
+insights: Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+summary: This 2024 paper by Yue Zhang, Guangrong Qin, Boris Aguilar, Noa Rappaport, James T. Yurkovich, Lance Pflieger, Sui Huang, Leroy Hood, Ilya Shmulevich explores a framework towards digital twins for type 2 diabetes. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
+date_processed: 2025-07-13
+---
+
 cite_key: zhang_2024
 title: A framework towards digital twins for type 2 diabetes
 authors: Yue Zhang, Guangrong Qin, Boris Aguilar, Noa Rappaport, James T. Yurkovich, Lance Pflieger, Sui Huang, Leroy Hood, Ilya Shmulevich

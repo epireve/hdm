@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-07-13T06:07:52.714959",
+  "total_processed": 1,
+  "successful": 1,
+  "failed": 0,
+  "cite_keys_updated": 1,
+  "folders_renamed": 1,
+  "model_used": "google/gemini-2.5-flash",
+  "api_endpoint": "https://kilocode.ai/api/openrouter",
+  "output_directory": "test_speed_benchmark",
+  "details": [
+    {
+      "paper": "markdown_papers/abdallah_2021/paper.md",
+      "output": "test_speed_benchmark/abdallah_2023/paper.md",
+      "success": true,
+      "original_cite_key": "abdallah_2021",
+      "new_cite_key": "abdallah_2023",
+      "folder_renamed": true,
+      "changes": [
+        "Converted HTML tags to Markdown",
+        "Fixed broken references",
+        "Updated cite_key: abdallah_2021 \u2192 abdallah_2023"
+      ]
+    }
+  ]
+}

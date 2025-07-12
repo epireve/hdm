@@ -57,19 +57,22 @@ REQUIREMENTS:
    - <span id="page-x-y"> → remove entirely
    - &lt;, &gt;, &amp; → <, >, &
 
-2. Fix ALL broken references:
-   - [[1]](#page-x-y) → [1]
-   - [\[1\]](#page-x-y) → [1]
-   - [\\[1\\]](#page-x-y) → [1]
+2. Fix ALL broken references and make them clickable:
+   - [[1]](#page-x-y) → [[1]](#ref-1)
+   - [\[1\]](#page-x-y) → [[1]](#ref-1)
+   - [\\[1\\]](#page-x-y) → [[1]](#ref-1)
    - Remove all #page-x-y anchors
-   - Ensure consistent [N] format for all citations
+   - Make all citations clickable: [N] → [[N]](#ref-N)
+   - Add anchors to references: "N. Author..." → "<a id="ref-N"></a>N. Author..."
 
 3. Standardize formatting:
    - Use proper Markdown headers (# ## ###)
-   - Fix broken italic/bold formatting
+   - Fix broken italic/bold formatting (*italic*, **bold**)
    - Ensure consistent list formatting
    - Preserve mathematical notation
-   - Clean up any \\n\\n\\n patterns to just \\n\\n
+   - Clean up excessive line breaks (\\n\\n\\n → \\n\\n)
+   - Ensure proper spacing around headers and sections
+   - Format author affiliations consistently with superscripts
 
 4. Remove logo references:
    - Remove any image descriptions mentioning logos
@@ -88,6 +91,20 @@ IMPORTANT:
 - Preserve tables and figures
 - Do not add any new content
 - Return ONLY the reformatted content, no explanations
+
+REFERENCE LINKING:
+- In the main text: Convert [1] to [[1]](#ref-1), [23] to [[23]](#ref-23), etc.
+- In the References section: Add anchor before each reference
+  Example: "1. Smith, J..." becomes "<a id="ref-1"></a>1. Smith, J..."
+- This creates clickable links from citations to their references
+
+ADDITIONAL IMPROVEMENTS:
+- Format tables properly with markdown table syntax
+- Add proper figure captions: **Figure N:** Caption text
+- Add proper table captions: **Table N:** Caption text
+- Ensure images have alt text in markdown: ![Description](image.jpg)
+- Add horizontal rules (---) between major sections if appropriate
+- Format equations properly (preserve LaTeX if present)
 
 Paper content to reformat:
 {paper_content}

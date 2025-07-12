@@ -4,6 +4,13 @@ title: Neural spatio‑temporal patterns of information processing related to co
 authors: Magdalena Fafrowicz
 year: 2022
 doi: 10.3758/s13423-019-01668-9
+relevancy: LOW
+relevancy_justification: Low relevance for HDM heterogeneous data integration objectives. This neuroscience study investigates cognitive conflict and false memory recognition using fMRI analysis during visual short-term memory tasks with the Deese-Roediger-McDermott paradigm. While the paper employs machine learning classifiers and analyzes spatio-temporal patterns, these methods are specifically applied to brain activation data rather than heterogeneous data integration. The temporal analysis refers to neural response patterns over time, not temporal-first PKG architectures or chronological data modeling. The surface-based cortical data representation and GLM analysis methods are domain-specific to neuroscience rather than applicable to multi-source data fusion or schema harmonization. The study provides no insights into heterogeneous data integration, upstream data orchestration, PKG systems, or bespoke system designs. The machine learning approaches (AUC classifiers, Shapley values) are purely for distinguishing neural response patterns, not for data integration challenges. Despite sophisticated analytical methods, the research focus on cognitive neuroscience places it outside HDM's core objectives of developing temporal-first architectures for heterogeneous data fusion across multi-modal sources.
+tldr: Research on neural spatio‑temporal patterns of information processing related to cognitive conflict and correct or false recognitions providing insights for knowledge graph development and data integration.
+insights: Provides approaches for temporal data modeling and time-based analysis in knowledge systems, contributing to temporal-first architecture design patterns for PKG implementations.
+summary: This 2022 paper by Magdalena Fafrowicz explores neural spatio‑temporal patterns of information processing related to cognitive conflict and correct or false recognitions. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - 103758s13423-019-01668-9
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: s41598-022-09141-9
@@ -11,6 +18,7 @@ images_total: 7
 images_kept: 7
 images_removed: 0
 ---
+
 
 # OPEN
 

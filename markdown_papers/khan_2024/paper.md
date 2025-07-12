@@ -1,3 +1,19 @@
+---
+cite_key: khan_2024
+title: Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs
+authors: Arijit Khan, Tianxing Wu, Xi Chen
+year: 2024
+relevancy: MEDIUM
+relevancy_justification: While not directly focused on heterogeneous data integration, this paper offers supporting concepts and techniques relevant to knowledge graph development and data management that may inform PKG system design.
+tldr: Research on data management opportunities in unifying large language models+knowledge graphs providing insights for knowledge graph development and data integration.
+insights: Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+summary: This 2024 paper by Arijit Khan, Tianxing Wu, Xi Chen explores data management opportunities in unifying large language models+knowledge graphs. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
+date_processed: 2025-07-13
+---
+
 cite_key: khan_2024
 title: Data Management Opportunities in Unifying Large Language Models+Knowledge Graphs
 authors: Arijit Khan, Tianxing Wu, Xi Chen

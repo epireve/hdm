@@ -1,30 +1,30 @@
 ---
-cite_key: "aburasheed_2023b"
-title: "Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion"
-authors: "Hasan Abu-Rasheed, Mareike Dornhöfer, Christian Weber, Gábor Kismihók, Ulrike Buchmann, Madjid Fathi"
+cite_key: aburasheed_2023b
+title: Building Contextual Knowledge Graphs for Personalized Learning Recommendations Using Text Mining and Semantic Graph Completion
+authors: Hasan Abu-Rasheed, Mareike Dornhöfer, Christian Weber, Gábor Kismihók, Ulrike Buchmann, Madjid Fathi
 year: 2023
-doi: "10.1109/ICALT58122.2023.00040"
-url: "https://ieeexplore.ieee.org/document/10260850/"
-relevancy: "High"
-tldr: "Novel approach for transforming hierarchical learning data into contextual knowledge graphs to enable sophisticated context-aware personalized learning recommendations"
-insights: "Transforms hierarchical learning object data models into knowledge graphs using custom text mining pipelines to extract semantic relations, achieving semantically comparable results to domain expert definitions with improved graph communities and betweenness centrality"
-summary: "This paper addresses the transformation of hierarchical learning object (LO) data models into knowledge graphs to enable more sophisticated, context-aware learning recommendations. The research uses custom text mining pipelines to extract semantic relations between learning object elements and transforms hierarchical data models into knowledge graph models. The approach enables progression from basic \"remembering-level\" learning objectives to higher-order application and analysis objectives by representing learning contexts more comprehensively through knowledge graphs, addressing limitations in traditional hierarchical learning models."
-research_question: "How can hierarchical learning object data models be transformed into contextual knowledge graphs to enable more sophisticated context-aware personalized learning recommendations?"
-methodology: "Custom text mining pipelines for semantic relation extraction; transformation from hierarchical data models to knowledge graph models; quality-control metrics and semantic similarity comparisons for evaluation; graph structure analysis using communities and betweenness centrality"
-key_findings: "Knowledge graph relations semantically comparable to domain expert definitions; improved representation of learning object contexts; increased graph communities and betweenness centrality; successful transformation from hierarchical to graph-based learning models"
-limitations: "Limited evaluation on specific learning domains; dependency on quality of input hierarchical data models; computational complexity considerations for large-scale learning object datasets"
-conclusion: "Successfully demonstrates transformation of hierarchical learning models into contextual knowledge graphs that enable progression from basic to higher-order learning objectives"
-future_work: "Expand evaluation to diverse educational domains and learning contexts; investigate scalability for large learning object repositories; develop adaptive context modeling for dynamic learning environments"
-implementation_insights: "Provides practical framework for implementing context-aware educational recommendation systems using knowledge graphs; demonstrates effective transformation from hierarchical to semantic learning models for HDM educational applications"
-tags:
-  - "Contextual Knowledge Graphs"
-  - "Personalized Learning"
-  - "Educational Technology"
-  - "Semantic Graph Completion"
-  - "Learning Object Modeling"
+doi: [Contextual Knowledge Graphs, Personalized Learning, Educational Technology, Semantic Graph Completion, Learning Object Modeling](https://doi.org/Contextual Knowledge Graphs, Personalized Learning, Educational Technology, Semantic Graph Completion, Learning Object Modeling)
+url: [Link](10.1109/ICALT58122.2023.00040)
+relevancy: High
+relevancy_justification: This paper is highly relevant as it directly addresses the transformation of hierarchical learning object data models into knowledge graphs using text mining and semantic graph completion. This aligns with the HDM project's focus on heterogeneous data integration and building schemas for diverse data, as it demonstrates a method for converting structured but inflexible data into a semantically rich knowledge graph. The emphasis on personalized recommendations also aligns with the HDM's goal of user-centric systems.
+tldr: Novel approach for transforming hierarchical learning data into contextual knowledge graphs to enable sophisticated context-aware personalized learning recommendations
+insights: Transforms hierarchical learning object data models into knowledge graphs using custom text mining pipelines to extract semantic relations, achieving semantically comparable results to domain expert definitions with improved graph communities and betweenness centrality
+summary: This paper addresses the transformation of hierarchical learning object (LO) data models into knowledge graphs to enable more sophisticated, context-aware learning recommendations. The research uses custom text mining pipelines to extract semantic relations between learning object elements and transforms hierarchical data models into knowledge graph models. The approach enables progression from basic \"remembering-level\" learning objectives to higher-order application and analysis objectives by representing learning contexts more comprehensively through knowledge graphs, addressing limitations in traditional hierarchical learning models.
+research_question: How can hierarchical learning object data models be transformed into contextual knowledge graphs to enable more sophisticated context-aware personalized learning recommendations?
+methodology: Custom text mining pipelines for semantic relation extraction; transformation from hierarchical data models to knowledge graph models; quality-control metrics and semantic similarity comparisons for evaluation; graph structure analysis using communities and betweenness centrality
+key_findings: Knowledge graph relations semantically comparable to domain expert definitions; improved representation of learning object contexts; increased graph communities and betweenness centrality; successful transformation from hierarchical to graph-based learning models
+primary_outcomes: Limited evaluation on specific learning domains; dependency on quality of input hierarchical data models; computational complexity considerations for large-scale learning object datasets.
+limitations: Limited evaluation on specific learning domains; dependency on quality of input hierarchical data models; computational complexity considerations for large-scale learning object datasets
+conclusion: Successfully demonstrates transformation of hierarchical learning models into contextual knowledge graphs that enable progression from basic to higher-order learning objectives
+research_gaps: Future work includes expanding evaluation to diverse educational domains and learning contexts, investigating scalability for large learning object repositories, and developing adaptive context modeling for dynamic learning environments.
+future_work: Expand evaluation to diverse educational domains and learning contexts; investigate scalability for large learning object repositories; develop adaptive context modeling for dynamic learning environments
+implementation_insights: Provides practical framework for implementing context-aware educational recommendation systems using knowledge graphs; demonstrates effective transformation from hierarchical to semantic learning models for HDM educational applications
+tags: 
+date_processed: 2025-07-13
 standardization_date: 2025-07-10
 standardization_version: 1.0
 ---
+
 
 # Building Contextual Knowledge Graphs for Personalized Learning Recommendations using Text Mining and Semantic Graph Completion
 
