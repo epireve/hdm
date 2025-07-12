@@ -28,7 +28,11 @@ class AllPapersApp {
             prevPage: document.getElementById('prevPage'),
             nextPage: document.getElementById('nextPage'),
             currentPage: document.getElementById('currentPage'),
-            totalPages: document.getElementById('totalPages')
+            totalPages: document.getElementById('totalPages'),
+            columnToggle: document.getElementById('columnToggle'),
+            columnSelector: document.getElementById('columnSelector'),
+            columnList: document.getElementById('columnList'),
+            columnSelectorClose: document.getElementById('columnSelectorClose')
         };
 
         this.init();
@@ -63,6 +67,9 @@ class AllPapersApp {
             
             // Populate filters
             this.populateFilters();
+            
+            // Setup column selector
+            this.setupColumnSelector();
             
             // Setup event listeners
             this.setupEventListeners();
@@ -125,6 +132,46 @@ class AllPapersApp {
         // Listen for pagination updates
         document.addEventListener('pagination-update', (e) => {
             this.updatePagination(e.detail);
+        });
+        
+        // Column selector toggle
+        this.elements.columnToggle.addEventListener('click', () => {
+            const isVisible = this.elements.columnSelector.style.display === 'block';
+            this.elements.columnSelector.style.display = isVisible ? 'none' : 'block';
+        });
+        
+        // Close column selector
+        this.elements.columnSelectorClose.addEventListener('click', () => {
+            this.elements.columnSelector.style.display = 'none';
+        });
+        
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (!this.elements.columnSelector.contains(e.target) && 
+                !this.elements.columnToggle.contains(e.target)) {
+                this.elements.columnSelector.style.display = 'none';
+            }
+        });
+    }
+    
+    setupColumnSelector() {
+        const columns = this.papersTable.getAvailableColumns();
+        
+        this.elements.columnList.innerHTML = columns.map(col => `
+            <div class="column-item">
+                <input type="checkbox" 
+                       id="col-${col.key}" 
+                       value="${col.key}" 
+                       ${col.visible ? 'checked' : ''}>
+                <label for="col-${col.key}">${col.label}</label>
+            </div>
+        `).join('');
+        
+        // Add change listeners
+        this.elements.columnList.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                this.papersTable.toggleColumn(e.target.value);
+            });
         });
     }
 
