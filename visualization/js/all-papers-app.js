@@ -38,11 +38,6 @@ class AllPapersApp {
             nextPage: document.getElementById('nextPage'),
             currentPage: document.getElementById('currentPage'),
             totalPages: document.getElementById('totalPages'),
-            paginationTop: document.getElementById('paginationTop'),
-            prevPageTop: document.getElementById('prevPageTop'),
-            nextPageTop: document.getElementById('nextPageTop'),
-            currentPageTop: document.getElementById('currentPageTop'),
-            totalPagesTop: document.getElementById('totalPagesTop'),
             columnToggle: document.getElementById('columnToggle'),
             columnSelector: document.getElementById('columnSelector'),
             columnList: document.getElementById('columnList'),
@@ -99,7 +94,6 @@ class AllPapersApp {
             this.elements.controls.style.display = 'flex';
             this.elements.tableContainer.style.display = 'block';
             this.elements.pagination.style.display = 'flex';
-            this.elements.paginationTop.style.display = 'flex';
             this.showLoading(false);
             
         } catch (error) {
@@ -287,16 +281,6 @@ class AllPapersApp {
             this.papersTable.setPage(currentPage + 1);
         });
         
-        // Pagination - Top
-        this.elements.prevPageTop.addEventListener('click', () => {
-            const currentPage = this.papersTable.currentPage;
-            this.papersTable.setPage(currentPage - 1);
-        });
-
-        this.elements.nextPageTop.addEventListener('click', () => {
-            const currentPage = this.papersTable.currentPage;
-            this.papersTable.setPage(currentPage + 1);
-        });
 
         // Listen for pagination updates
         document.addEventListener('pagination-update', (e) => {
@@ -387,15 +371,8 @@ class AllPapersApp {
         this.elements.prevPage.disabled = detail.currentPage === 1;
         this.elements.nextPage.disabled = detail.currentPage === detail.totalPages;
         
-        // Update top pagination
-        this.elements.currentPageTop.textContent = detail.currentPage;
-        this.elements.totalPagesTop.textContent = detail.totalPages;
-        this.elements.prevPageTop.disabled = detail.currentPage === 1;
-        this.elements.nextPageTop.disabled = detail.currentPage === detail.totalPages;
-        
         // Always show pagination
         this.elements.pagination.style.display = 'flex';
-        this.elements.paginationTop.style.display = 'flex';
         
         // Update page info to include result count
         const startIndex = (detail.currentPage - 1) * this.papersTable.pageSize + 1;
@@ -406,9 +383,8 @@ class AllPapersApp {
             Page <strong>${detail.currentPage}</strong> of <strong>${detail.totalPages}</strong>
         `;
         
-        // Update both paginations
+        // Update pagination
         this.elements.pagination.querySelector('.page-info').innerHTML = pageInfoHTML;
-        this.elements.paginationTop.querySelector('.page-info').innerHTML = pageInfoHTML;
     }
 
     handlePaperClick(paper) {
