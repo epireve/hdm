@@ -22,6 +22,7 @@ from ..processors import (
     DataValidatorProcessor,
     ImageProcessor
 )
+from ..utils import CleanupHelper
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -311,6 +312,28 @@ Examples:
         help='Specific execution ID to check'
     )
     
+    # Cleanup command
+    cleanup_parser = subparsers.add_parser(
+        'cleanup',
+        help='Analyze and clean up redundant files'
+    )
+    cleanup_parser.add_argument(
+        '--analyze-only',
+        action='store_true',
+        help='Only analyze, do not execute cleanup'
+    )
+    cleanup_parser.add_argument(
+        '--risk-level',
+        choices=['low', 'medium', 'high'],
+        default='low',
+        help='Maximum risk level for cleanup execution (default: low)'
+    )
+    cleanup_parser.add_argument(
+        '--report',
+        type=Path,
+        help='Output file for cleanup report'
+    )
+    
     return parser
 
 
@@ -321,7 +344,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     
     # Setup logging
     log_level = 'ERROR' if args.quiet else args.log_level
-    logger = setup_logger(__name__, level=log_level)
+    logger = setup_logger(__name__)
     
     try:
         # Load configuration
@@ -354,6 +377,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             return cmd_quality_assurance(args, config, logger)
         elif args.command == 'pipeline-status':
             return cmd_pipeline_status(args, config, logger)
+        elif args.command == 'cleanup':
+            return cmd_cleanup(args, config, logger)
         else:
             parser.print_help()
             return 1
@@ -681,6 +706,60 @@ def cmd_pipeline_status(args, config: Config, logger) -> int:
                 logger.info(f"  {execution['execution_id']}: {execution['status']} ({execution.get('current_stage', 'unknown')})")
         else:
             logger.info("No active pipeline executions")
+    
+    return 0
+
+
+def cmd_cleanup(args, config: Config, logger) -> int:
+    """Analyze and clean up redundant files."""
+    # Create cleanup helper
+    cleanup_helper = CleanupHelper(config)
+    
+    logger.info("Analyzing project for cleanup opportunities...")
+    
+    # Run analysis
+    analysis_result = cleanup_helper.analyze_project()
+    
+    if analysis_result.status.value != 'completed':
+        logger.error(f"Analysis failed: {analysis_result.message}")
+        return 1
+    
+    # Print analysis results
+    data = analysis_result.data
+    logger.info(f"Analysis completed:")
+    logger.info(f"  Files scanned: {data.get('total_files_scanned', 0)}")
+    logger.info(f"  Duplicate groups: {data.get('duplicate_groups', 0)}")
+    logger.info(f"  Large files: {data.get('large_files', 0)}")
+    logger.info(f"  Redundant scripts: {data.get('redundant_scripts', 0)}")
+    logger.info(f"  Temp files: {data.get('temp_files', 0)}")
+    logger.info(f"  Potential space saved: {data.get('potential_space_saved_mb', 0):.1f}MB")
+    logger.info(f"  Cleanup suggestions: {len(data.get('cleanup_suggestions', []))}")
+    
+    # Generate report if requested
+    if args.report:
+        cleanup_helper.generate_cleanup_report(analysis_result, args.report)
+        logger.info(f"Detailed report saved to {args.report}")
+    
+    # Execute cleanup if not analyze-only
+    if not args.analyze_only:
+        suggestions = [
+            type('Suggestion', (), s) for s in data.get('cleanup_suggestions', [])
+        ]
+        
+        if suggestions:
+            logger.info(f"Executing cleanup with risk level: {args.risk_level}")
+            cleanup_result = cleanup_helper.execute_cleanup(suggestions, args.risk_level)
+            
+            if cleanup_result.status.value == 'completed':
+                cleanup_data = cleanup_result.data
+                logger.info(f"Cleanup completed:")
+                logger.info(f"  Executed suggestions: {cleanup_data.get('executed_suggestions', 0)}")
+                logger.info(f"  Space saved: {cleanup_data.get('space_saved_mb', 0):.1f}MB")
+            else:
+                logger.error(f"Cleanup failed: {cleanup_result.message}")
+                return 1
+        else:
+            logger.info("No cleanup suggestions to execute")
     
     return 0
 
