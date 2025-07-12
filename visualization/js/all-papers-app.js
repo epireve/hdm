@@ -35,7 +35,8 @@ class AllPapersApp {
             columnSelectorClose: document.getElementById('columnSelectorClose'),
             pdfModal: document.getElementById('pdfModal'),
             pdfFrame: document.getElementById('pdfFrame'),
-            pdfModalClose: document.getElementById('pdfModalClose')
+            pdfModalClose: document.getElementById('pdfModalClose'),
+            pdfOpenExternal: document.getElementById('pdfOpenExternal')
         };
 
         this.init();
@@ -182,6 +183,9 @@ class AllPapersApp {
     setupColumnSelector() {
         const columns = this.papersTable.getAvailableColumns();
         
+        // Update the header to show column count
+        document.querySelector('#columnSelector h4').textContent = `Show/Hide Columns (${columns.length} total)`;
+        
         this.elements.columnList.innerHTML = columns.map(col => `
             <div class="column-item">
                 <input type="checkbox" 
@@ -198,6 +202,8 @@ class AllPapersApp {
                 this.papersTable.toggleColumn(e.target.value);
             });
         });
+        
+        console.log(`Column selector setup with ${columns.length} columns:`, columns.map(c => c.label));
     }
 
     applyFilters() {
@@ -237,9 +243,30 @@ class AllPapersApp {
     }
     
     showPdfModal(url) {
-        this.elements.pdfFrame.src = url;
+        // Clean up the URL
+        const cleanUrl = url.trim();
+        
+        console.log('Opening PDF:', cleanUrl);
+        
+        // Update the external link
+        this.elements.pdfOpenExternal.href = cleanUrl;
+        
+        // Always show the modal for PDF viewing attempt
         this.elements.pdfModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
+        
+        // Set the iframe source
+        this.elements.pdfFrame.src = cleanUrl;
+        
+        // Add error handling for iframe
+        this.elements.pdfFrame.onerror = () => {
+            console.error('Failed to load PDF:', cleanUrl);
+        };
+        
+        // Add load handler to check if PDF loaded
+        this.elements.pdfFrame.onload = () => {
+            console.log('PDF loaded successfully:', cleanUrl);
+        };
     }
     
     closePdfModal() {

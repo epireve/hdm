@@ -136,10 +136,16 @@
         <div class="pdf-modal-content">
             <div class="pdf-modal-header">
                 <h3>PDF Viewer</h3>
-                <button class="pdf-modal-close" id="pdfModalClose">&times;</button>
+                <div class="pdf-modal-actions">
+                    <a id="pdfOpenExternal" href="#" target="_blank" class="pdf-external-link">Open in new tab ↗</a>
+                    <button class="pdf-modal-close" id="pdfModalClose">&times;</button>
+                </div>
             </div>
             <div class="pdf-modal-body">
                 <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+                <div class="pdf-loading-note">
+                    Note: If PDF doesn't load, try the "Open in new tab" link above
+                </div>
             </div>
         </div>
     </div>
