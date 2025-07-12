@@ -22,7 +22,8 @@ export class PapersTable {
             reference_count: { label: 'References', visible: false, sortable: true, width: '100px' },
             influential_citation_count: { label: 'Influential Citations', visible: false, sortable: true, width: '120px' },
             is_open_access: { label: 'Access', visible: true, sortable: true, width: '100px' },
-            open_access_pdf: { label: 'PDF', visible: true, sortable: false, width: '80px' },
+            access_links: { label: 'Access Links', visible: true, sortable: false, width: '150px' },
+            open_access_pdf: { label: 'Legacy PDF', visible: false, sortable: false, width: '80px' },
             fields_of_study: { label: 'Fields of Study', visible: true, sortable: false, width: '200px' },
             s2_fields_of_study: { label: 'S2 Fields', visible: false, sortable: false, width: '200px' },
             publication_types: { label: 'Pub Types', visible: false, sortable: false, width: '150px' },
@@ -33,7 +34,9 @@ export class PapersTable {
             tldr: { label: 'TL;DR', visible: false, sortable: false, width: '300px' },
             first_seen: { label: 'First Seen', visible: false, sortable: true, width: '150px' },
             last_updated: { label: 'Last Updated', visible: false, sortable: true, width: '150px' },
-            enrichment_timestamp: { label: 'Enrichment Time', visible: false, sortable: true, width: '150px' }
+            enrichment_timestamp: { label: 'Enrichment Time', visible: false, sortable: true, width: '150px' },
+            unpaywall_best_oa_pdf_url: { label: 'Unpaywall PDF URL', visible: false, sortable: false, width: '200px' },
+            unpaywall_best_oa_url: { label: 'Unpaywall OA URL', visible: false, sortable: false, width: '200px' }
         };
         
         // Load saved column preferences
@@ -293,41 +296,58 @@ export class PapersTable {
             case 'paper_id':
                 return `<td class="paper-id">${paper.paper_id}</td>`;
                 
-            case 'open_access_pdf':
-                if (paper.open_access_pdf) {
-                    // Extract actual URL from the field
-                    let pdfUrl = paper.open_access_pdf.trim();
-                    
-                    // Handle various URL formats and clean up
-                    if (pdfUrl) {
-                        // Extract URL from text that might contain extra content
-                        // Look for URLs starting with http:// or https://
-                        const urlMatches = pdfUrl.match(/(https?:\/\/[^\s\[\]"'<>]+)/g);
-                        
-                        if (urlMatches && urlMatches.length > 0) {
-                            // Take the first valid URL found
-                            pdfUrl = urlMatches[0];
-                            
-                            // Clean up common URL issues
-                            // Remove trailing punctuation that might have been included
-                            pdfUrl = pdfUrl.replace(/[,;.!?]$/, '');
-                            
-                            // Remove any trailing parentheses or brackets if not balanced
-                            if (pdfUrl.endsWith(')') && !pdfUrl.includes('(')) {
-                                pdfUrl = pdfUrl.slice(0, -1);
-                            }
-                            if (pdfUrl.endsWith(']') && !pdfUrl.includes('[')) {
-                                pdfUrl = pdfUrl.slice(0, -1);
-                            }
-                            
-                            return `
-                                <td>
-                                    <button class="pdf-btn" data-pdf-url="${this.escapeHtml(pdfUrl)}" title="View PDF">
-                                        📄 PDF
-                                    </button>
-                                </td>
-                            `;
+            case 'access_links':
+                const buttons = [];
+                
+                // Primary: Unpaywall PDF URL
+                if (paper.unpaywall_best_oa_pdf_url) {
+                    const pdfUrl = paper.unpaywall_best_oa_pdf_url.trim();
+                    if (pdfUrl && (pdfUrl.startsWith('http://') || pdfUrl.startsWith('https://'))) {
+                        buttons.push(`
+                            <button class="pdf-btn" data-pdf-url="${this.escapeHtml(pdfUrl)}" title="Direct PDF (Unpaywall)">
+                                📄 PDF
+                            </button>
+                        `);
+                    }
+                }
+                
+                // Secondary: Unpaywall OA URL
+                if (paper.unpaywall_best_oa_url) {
+                    const oaUrl = paper.unpaywall_best_oa_url.trim();
+                    if (oaUrl && (oaUrl.startsWith('http://') || oaUrl.startsWith('https://'))) {
+                        buttons.push(`
+                            <a href="${this.escapeHtml(oaUrl)}" target="_blank" class="oa-link-btn" title="Open Access Page (Unpaywall)">
+                                🔗 OA
+                            </a>
+                        `);
+                    }
+                }
+                
+                // Tertiary: DOI URL
+                if (paper.external_ids) {
+                    try {
+                        const externalIds = JSON.parse(paper.external_ids);
+                        if (externalIds.DOI) {
+                            const doiUrl = `https://doi.org/${externalIds.DOI}`;
+                            buttons.push(`
+                                <a href="${this.escapeHtml(doiUrl)}" target="_blank" class="doi-link-btn" title="DOI Link">
+                                    🔍 DOI
+                                </a>
+                            `);
                         }
+                    } catch (e) {
+                        // Handle parse error
+                    }
+                }
+                
+                return `<td class="access-links-cell">${buttons.length > 0 ? buttons.join(' ') : '-'}</td>`;
+                
+            case 'open_access_pdf':
+                // Legacy column - hidden by default
+                if (paper.open_access_pdf) {
+                    let pdfUrl = paper.open_access_pdf.trim();
+                    if (pdfUrl && (pdfUrl.startsWith('http://') || pdfUrl.startsWith('https://'))) {
+                        return `<td><button class="pdf-btn" data-pdf-url="${this.escapeHtml(pdfUrl)}" title="Legacy PDF">📄 PDF</button></td>`;
                     }
                 }
                 return '<td>-</td>';
@@ -389,6 +409,20 @@ export class PapersTable {
                 if (paper[columnKey]) {
                     const date = new Date(paper[columnKey]);
                     return `<td>${date.toLocaleDateString()}</td>`;
+                }
+                return '<td>-</td>';
+                
+            case 'unpaywall_best_oa_pdf_url':
+                if (paper.unpaywall_best_oa_pdf_url) {
+                    const url = paper.unpaywall_best_oa_pdf_url.trim();
+                    return `<td><a href="${this.escapeHtml(url)}" target="_blank" class="link-url">${this.escapeHtml(url.substring(0, 50))}...</a></td>`;
+                }
+                return '<td>-</td>';
+                
+            case 'unpaywall_best_oa_url':
+                if (paper.unpaywall_best_oa_url) {
+                    const url = paper.unpaywall_best_oa_url.trim();
+                    return `<td><a href="${this.escapeHtml(url)}" target="_blank" class="link-url">${this.escapeHtml(url.substring(0, 50))}...</a></td>`;
                 }
                 return '<td>-</td>';
                 

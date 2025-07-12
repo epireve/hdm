@@ -659,24 +659,63 @@ th:hover .sort-arrow {
     color: #666;
 }
 
-/* PDF Button */
-.pdf-btn {
-    padding: 0.3rem 0.8rem;
-    background: #27ae60;
-    color: white;
+/* Access Link Buttons */
+.pdf-btn, .oa-link-btn, .doi-link-btn {
+    padding: 0.3rem 0.6rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     transition: all 0.2s;
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.2rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.pdf-btn {
+    background: #27ae60;
+    color: white;
 }
 
 .pdf-btn:hover {
     background: #229954;
     transform: translateY(-1px);
+}
+
+.oa-link-btn {
+    background: #3498db;
+    color: white;
+}
+
+.oa-link-btn:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.doi-link-btn {
+    background: #9b59b6;
+    color: white;
+}
+
+.doi-link-btn:hover {
+    background: #8e44ad;
+    transform: translateY(-1px);
+}
+
+.access-links-cell {
+    white-space: nowrap;
+}
+
+.link-url {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.link-url:hover {
+    text-decoration: underline;
 }
 
 /* PDF Modal */

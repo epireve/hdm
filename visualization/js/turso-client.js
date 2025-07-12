@@ -54,7 +54,9 @@ export class TursoClient {
                 tldr,
                 first_seen,
                 last_updated,
-                enrichment_timestamp
+                enrichment_timestamp,
+                unpaywall_best_oa_pdf_url,
+                unpaywall_best_oa_url
             FROM papers 
             ORDER BY year DESC
         `;
