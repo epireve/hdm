@@ -63,6 +63,25 @@
             </select>
         </div>
         <div class="control-group">
+            <label for="fieldFilter">Field of Study</label>
+            <div class="multi-select-wrapper">
+                <button id="fieldFilterToggle" class="multi-select-toggle">
+                    <span id="fieldFilterText">All Fields</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div id="fieldFilterDropdown" class="multi-select-dropdown" style="display: none;">
+                    <div class="multi-select-search">
+                        <input type="text" id="fieldSearchInput" placeholder="Search fields...">
+                    </div>
+                    <div id="fieldFilterList" class="multi-select-list"></div>
+                    <div class="multi-select-actions">
+                        <button id="fieldSelectAll" class="multi-select-action">Select All</button>
+                        <button id="fieldClearAll" class="multi-select-action">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
             <label for="pageSize">Papers per Page</label>
             <select id="pageSize">
                 <option value="50">50</option>

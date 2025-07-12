@@ -80,7 +80,7 @@ export class TursoClient {
                     const authors = JSON.parse(paper.authors);
                     authors.forEach(a => authorSet.add(a.name));
                 }
-            } catch (e) {
+            } catch {
                 // Handle parse error silently
             }
         });
