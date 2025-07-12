@@ -49,7 +49,7 @@ export class PapersTable {
         this.render();
     }
 
-    filter(searchTerm, yearFilter, openAccessFilter, fieldFilter = null) {
+    filter(searchTerm, yearRange, openAccessFilter, fieldFilter = null) {
         this.filteredPapers = this.papers.filter(paper => {
             // Search filter
             if (searchTerm) {
@@ -65,8 +65,12 @@ export class PapersTable {
                 if (!searchIn.includes(search)) return false;
             }
             
-            // Year filter
-            if (yearFilter && paper.year != yearFilter) return false;
+            // Year range filter
+            if (yearRange && (yearRange.min || yearRange.max)) {
+                const paperYear = parseInt(paper.year);
+                if (yearRange.min && paperYear < yearRange.min) return false;
+                if (yearRange.max && paperYear > yearRange.max) return false;
+            }
             
             // Open access filter
             if (openAccessFilter !== '') {
@@ -348,7 +352,7 @@ export class PapersTable {
                     if (pdfUrl && (pdfUrl.startsWith('http://') || pdfUrl.startsWith('https://'))) {
                         buttons.push(`
                             <button class="pdf-btn" data-pdf-url="${this.escapeHtml(pdfUrl)}" title="Direct PDF (Unpaywall)">
-                                📄 PDF
+                                PDF
                             </button>
                         `);
                     }
@@ -360,7 +364,7 @@ export class PapersTable {
                     if (oaUrl && (oaUrl.startsWith('http://') || oaUrl.startsWith('https://'))) {
                         buttons.push(`
                             <a href="${this.escapeHtml(oaUrl)}" target="_blank" class="oa-link-btn" title="Open Access Page (Unpaywall)">
-                                🔗 OA
+                                OA
                             </a>
                         `);
                     }
@@ -388,7 +392,7 @@ export class PapersTable {
                     const doiUrl = `https://doi.org/${doi}`;
                     buttons.push(`
                         <a href="${this.escapeHtml(doiUrl)}" target="_blank" class="doi-link-btn" title="DOI Link">
-                            🔍 DOI
+                            DOI
                         </a>
                     `);
                 }

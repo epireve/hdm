@@ -24,7 +24,8 @@ class AllPapersApp {
             openAccessCount: document.getElementById('openAccessCount'),
             yearRange: document.getElementById('yearRange'),
             searchInput: document.getElementById('searchInput'),
-            yearFilter: document.getElementById('yearFilter'),
+            yearMin: document.getElementById('yearMin'),
+            yearMax: document.getElementById('yearMax'),
             openAccessFilter: document.getElementById('openAccessFilter'),
             fieldFilterToggle: document.getElementById('fieldFilterToggle'),
             fieldFilterText: document.getElementById('fieldFilterText'),
@@ -109,13 +110,16 @@ class AllPapersApp {
     }
 
     populateFilters() {
-        // Populate year filter
-        this.statistics.years.forEach(year => {
-            const option = document.createElement('option');
-            option.value = year;
-            option.textContent = year;
-            this.elements.yearFilter.appendChild(option);
-        });
+        // Set default year range values
+        if (this.statistics.years.length > 0) {
+            const minYear = Math.min(...this.statistics.years);
+            const maxYear = Math.max(...this.statistics.years);
+            this.elements.yearMin.placeholder = minYear.toString();
+            this.elements.yearMax.placeholder = maxYear.toString();
+            // Set min/max attributes based on data
+            this.elements.yearMin.min = minYear.toString();
+            this.elements.yearMax.max = maxYear.toString();
+        }
     }
     
     setupFieldFilter() {
@@ -217,7 +221,15 @@ class AllPapersApp {
         });
 
         // Filter changes
-        this.elements.yearFilter.addEventListener('change', () => this.applyFilters());
+        let yearTimeout;
+        this.elements.yearMin.addEventListener('input', () => {
+            clearTimeout(yearTimeout);
+            yearTimeout = setTimeout(() => this.applyFilters(), 300);
+        });
+        this.elements.yearMax.addEventListener('input', () => {
+            clearTimeout(yearTimeout);
+            yearTimeout = setTimeout(() => this.applyFilters(), 300);
+        });
         this.elements.openAccessFilter.addEventListener('change', () => this.applyFilters());
         
         // Field filter controls
@@ -357,11 +369,12 @@ class AllPapersApp {
 
     applyFilters() {
         const searchTerm = this.elements.searchInput.value;
-        const yearFilter = this.elements.yearFilter.value;
+        const yearMin = this.elements.yearMin.value ? parseInt(this.elements.yearMin.value) : null;
+        const yearMax = this.elements.yearMax.value ? parseInt(this.elements.yearMax.value) : null;
         const openAccessFilter = this.elements.openAccessFilter.value;
         const fieldFilter = Array.from(this.selectedFields);
         
-        this.papersTable.filter(searchTerm, yearFilter, openAccessFilter, fieldFilter);
+        this.papersTable.filter(searchTerm, { min: yearMin, max: yearMax }, openAccessFilter, fieldFilter);
     }
 
     updatePagination(detail) {

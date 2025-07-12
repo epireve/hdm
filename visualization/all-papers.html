@@ -52,10 +52,12 @@
         </div>
         <div class="controls-right">
             <div class="control-group">
-                <label for="yearFilter">Year</label>
-                <select id="yearFilter">
-                    <option value="">All Years</option>
-                </select>
+                <label>Year Range</label>
+                <div class="year-range-inputs">
+                    <input type="number" id="yearMin" placeholder="From" min="1900" max="2100" class="year-input">
+                    <span class="year-separator">–</span>
+                    <input type="number" id="yearMax" placeholder="To" min="1900" max="2100" class="year-input">
+                </div>
             </div>
             <div class="control-group">
                 <label for="openAccessFilter">Access Type</label>
