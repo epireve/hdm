@@ -32,7 +32,8 @@ export class PapersTable {
             abstract: { label: 'Abstract', visible: false, sortable: false, width: '400px' },
             tldr: { label: 'TL;DR', visible: false, sortable: false, width: '300px' },
             first_seen: { label: 'First Seen', visible: false, sortable: true, width: '150px' },
-            last_updated: { label: 'Last Updated', visible: false, sortable: true, width: '150px' }
+            last_updated: { label: 'Last Updated', visible: false, sortable: true, width: '150px' },
+            enrichment_timestamp: { label: 'Enrichment Time', visible: false, sortable: true, width: '150px' }
         };
         
         // Load saved column preferences
@@ -294,13 +295,40 @@ export class PapersTable {
                 
             case 'open_access_pdf':
                 if (paper.open_access_pdf) {
-                    return `
-                        <td>
-                            <button class="pdf-btn" data-pdf-url="${paper.open_access_pdf}" title="View PDF">
-                                📄 PDF
-                            </button>
-                        </td>
-                    `;
+                    // Extract actual URL from the field
+                    let pdfUrl = paper.open_access_pdf.trim();
+                    
+                    // Handle various URL formats and clean up
+                    if (pdfUrl) {
+                        // Extract URL from text that might contain extra content
+                        // Look for URLs starting with http:// or https://
+                        const urlMatches = pdfUrl.match(/(https?:\/\/[^\s\[\]"'<>]+)/g);
+                        
+                        if (urlMatches && urlMatches.length > 0) {
+                            // Take the first valid URL found
+                            pdfUrl = urlMatches[0];
+                            
+                            // Clean up common URL issues
+                            // Remove trailing punctuation that might have been included
+                            pdfUrl = pdfUrl.replace(/[,;.!?]$/, '');
+                            
+                            // Remove any trailing parentheses or brackets if not balanced
+                            if (pdfUrl.endsWith(')') && !pdfUrl.includes('(')) {
+                                pdfUrl = pdfUrl.slice(0, -1);
+                            }
+                            if (pdfUrl.endsWith(']') && !pdfUrl.includes('[')) {
+                                pdfUrl = pdfUrl.slice(0, -1);
+                            }
+                            
+                            return `
+                                <td>
+                                    <button class="pdf-btn" data-pdf-url="${this.escapeHtml(pdfUrl)}" title="View PDF">
+                                        📄 PDF
+                                    </button>
+                                </td>
+                            `;
+                        }
+                    }
                 }
                 return '<td>-</td>';
                 
@@ -357,6 +385,7 @@ export class PapersTable {
                 
             case 'first_seen':
             case 'last_updated':
+            case 'enrichment_timestamp':
                 if (paper[columnKey]) {
                     const date = new Date(paper[columnKey]);
                     return `<td>${date.toLocaleDateString()}</td>`;

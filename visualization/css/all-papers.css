@@ -572,8 +572,8 @@ th:hover .sort-arrow {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     z-index: 1000;
-    min-width: 250px;
-    max-height: 400px;
+    min-width: 300px;
+    max-height: 600px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -721,6 +721,27 @@ th:hover .sort-arrow {
     font-size: 1.2rem;
 }
 
+.pdf-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pdf-external-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.pdf-external-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
 .pdf-modal-close {
     background: none;
     border: none;
@@ -745,11 +766,27 @@ th:hover .sort-arrow {
 .pdf-modal-body {
     flex: 1;
     overflow: hidden;
+    position: relative;
 }
 
 .pdf-modal-body iframe {
     width: 100%;
     height: 100%;
+}
+
+.pdf-loading-note {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeIn 0.5s ease-out 1s both;
 }
 
 @keyframes slideUp {
