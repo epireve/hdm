@@ -282,7 +282,20 @@ export class PapersTable {
                 try {
                     if (paper.journal && paper.journal.startsWith('{')) {
                         const journalObj = JSON.parse(paper.journal);
-                        journalDisplay = journalObj.name || paper.journal;
+                        // Handle different JSON formats
+                        if (journalObj.name) {
+                            journalDisplay = journalObj.name;
+                            // Add pages if available
+                            if (journalObj.pages) {
+                                journalDisplay += ` (pp. ${journalObj.pages})`;
+                            }
+                        } else if (journalObj.pages) {
+                            // If only pages exist, just show as N/A
+                            journalDisplay = 'N/A';
+                        } else {
+                            // For other cases, show N/A
+                            journalDisplay = 'N/A';
+                        }
                     }
                 } catch {
                     // Use original value if not valid JSON
