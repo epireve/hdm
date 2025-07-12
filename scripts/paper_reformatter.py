@@ -47,7 +47,7 @@ class ReformattingResult:
 class PaperReformatter:
     """Handles reformatting of academic papers using Gemini 2.5 Pro via KiloCode."""
     
-    REFORMATTING_PROMPT = """You are reformatting an academic paper from mixed HTML/Markdown to pure Markdown.
+    REFORMATTING_PROMPT = r"""You are reformatting an academic paper from mixed HTML/Markdown to pure Markdown.
 
 REQUIREMENTS:
 1. Convert ALL HTML tags to Markdown equivalents:
@@ -176,7 +176,13 @@ YEAR: [year]
                 end_match = re.search(r'\n---\n', content[3:])
                 if end_match:
                     yaml_content = content[3:end_match.start() + 3]
-                    frontmatter = yaml.safe_load(yaml_content)
+                    # Handle empty frontmatter
+                    if yaml_content.strip():
+                        frontmatter = yaml.safe_load(yaml_content)
+                        if frontmatter is None:
+                            frontmatter = {}
+                    else:
+                        frontmatter = {}
                     main_content = content[end_match.end() + 3:]
                     return frontmatter, main_content
             except Exception as e:
@@ -194,16 +200,28 @@ YEAR: [year]
         
         for field in ordered_fields:
             if field in frontmatter:
-                if isinstance(frontmatter[field], list):
+                value = frontmatter[field]
+                # Convert datetime objects to string
+                if hasattr(value, 'isoformat'):
+                    value = value.isoformat()
+                    
+                if isinstance(value, list):
                     yaml_lines.append(f"{field}:")
-                    for item in frontmatter[field]:
+                    for item in value:
+                        # Convert datetime in list items
+                        if hasattr(item, 'isoformat'):
+                            item = item.isoformat()
                         yaml_lines.append(f"  - {json.dumps(item)}")
                 else:
-                    yaml_lines.append(f"{field}: {json.dumps(frontmatter[field])}")
+                    yaml_lines.append(f"{field}: {json.dumps(value)}")
                     
         # Add any remaining fields
         for key, value in frontmatter.items():
             if key not in ordered_fields:
+                # Convert datetime objects to string
+                if hasattr(value, 'isoformat'):
+                    value = value.isoformat()
+                    
                 if key == "tags" and isinstance(value, list):
                     yaml_lines.append(f"{key}:")
                     for tag in value:
@@ -211,6 +229,9 @@ YEAR: [year]
                 elif isinstance(value, list):
                     yaml_lines.append(f"{key}:")
                     for item in value:
+                        # Convert datetime in list items
+                        if hasattr(item, 'isoformat'):
+                            item = item.isoformat()
                         yaml_lines.append(f"  - {json.dumps(item)}")
                 else:
                     yaml_lines.append(f"{key}: {json.dumps(value)}")
@@ -270,6 +291,8 @@ YEAR: [year]
             
             # Extract frontmatter and content
             frontmatter, content = self.extract_frontmatter_and_content(paper_path)
+            if frontmatter is None:
+                frontmatter = {}
             original_cite_key = frontmatter.get('cite_key', '')
             
             # Send to KiloCode API for reformatting
@@ -361,7 +384,7 @@ YEAR: [year]
             return ReformattingResult(
                 success=False,
                 paper_path=paper_path,
-                original_cite_key=frontmatter.get('cite_key', 'unknown'),
+                original_cite_key=frontmatter.get('cite_key', 'unknown') if frontmatter else 'unknown',
                 errors=[str(e)]
             )
             
