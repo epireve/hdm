@@ -1,13 +1,15 @@
 ---
-cite_key: joosse_2023
+cite_key: e065929_full
 title: Sustainable Development Goal indicator for measuring availability and affordability of medicines for children: a proof-of-concept study
 authors: Iris R Joosse, Aukje K Mantel-Teeuwisse, Fatima Suleman, Hendrika A van den Ham
 year: 2023
 doi: 10.1136/bmjopen-2022-065929
-date_processed: '2025-07-02'
+relevancy: Medium
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: e065929_full
 ---
+
 
 **To cite:** Joosse IR, Mantel-Teeuwisse AK, Suleman F, *et al*. Sustainable Development Goal indicator for measuring availability and affordability of medicines for children: a proofof-concept study. *BMJ Open* 2023;13:e065929. doi:10.1136/ bmjopen-2022-065929 ► Prepublication history and
 

@@ -1,3 +1,33 @@
+---
+cite_key: das_2025
+title: Detection-Fusion for Knowledge Graph Extraction from Videos
+authors: Taniya Das, Louis Mahon, Thomas Lukasiewicz
+year: 2025
+doi: [10.48550/arXiv.2501.00136](https://doi.org/10.48550/arXiv.2501.00136)
+url: [Link](https://arxiv.org/abs/2501.00136)
+relevancy: HIGH
+relevancy_justification: Directly addresses knowledge graph extraction from multimodal video data, highly relevant to HDM systems requiring personal data integration from diverse multimedia sources
+tldr: Novel deep learning approach for extracting semantic knowledge graphs from videos
+insights: Two-stage detection-fusion approach overcomes language model limitations in video understanding; structured knowledge representations more computer-processable than natural language; background knowledge integration improves extraction accuracy
+summary: This paper addresses challenges in extracting semantic content from video inputs by proposing knowledge graph annotation as an alternative to natural language descriptions. Current systems relying on language models have major shortcomings: over-reliance on statistical regularities rather than visual content, difficult computer processing of natural language output, and evaluation challenges. T...
+research_question: How to extract semantic content from video inputs more effectively than current language model approaches while providing computer-processable structured representations?
+methodology: Deep learning model with two-stage process: 1) detection module identifies objects, actions, events; 2) fusion module combines visual information with language understanding; incorporation of background knowledge from Visual Genome dataset
+key_findings: Current language model approaches have significant limitations in video understanding; knowledge graphs provide more computationally processable video semantic representations; first work to include background knowledge in video KG extraction
+primary_outcomes: Knowledge graph annotation method for videos; improved accuracy in identifying objects and relationships; enhanced computer-processable semantic representations; background knowledge integration
+limitations: Computational complexity of two-stage approach; evaluation methodology details not fully specified; generalization across video domains not demonstrated
+conclusion: Knowledge graphs provide more computationally processable and evaluation-friendly video semantic representations compared to traditional natural language descriptions
+research_gaps: Overreliance on language models for video semantic interpretation; lack of structured, computer-processable video understanding; limited background knowledge integration
+future_work: Extend to larger-scale video datasets; investigate domain-specific background knowledge; optimize computational efficiency for real-time processing
+implementation_insights: First approach to predict pairs of individuals then relations between them; incorporates background knowledge for improved accuracy; demonstrates practical structured video understanding
+tags:
+  - computer-vision
+  - deep-learning
+  - knowledge-graph
+  - multimodal-ai
+  - video-understanding
+date_processed: 2025-07-13
+---
+
 cite_key: das_2025
 title: Detection-Fusion for Knowledge Graph Extraction from Videos
 authors: Taniya Das, Louis Mahon, Thomas Lukasiewicz

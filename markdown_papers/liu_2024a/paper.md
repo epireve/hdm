@@ -1,3 +1,21 @@
+---
+cite_key: liu_2024a
+title: Personalized and Privacy-Preserving Federated Graph Neural Network
+authors: Yanjun Liu, Hongwei Li, Meng Hao
+year: 2024
+doi: [10.3389/fphy.2024.1383276](https://doi.org/10.3389/fphy.2024.1383276)
+relevancy: MEDIUM
+relevancy_justification: While not directly focused on heterogeneous data integration, this paper offers supporting concepts and techniques relevant to knowledge graph development and data management that may inform PKG system design.
+tldr: Research on personalized and privacy-preserving federated graph neural network providing insights for knowledge graph development and data integration.
+insights: Explores user-centric knowledge modeling and personalization strategies that can inform the design of personal knowledge graph systems focused on individual data management.
+summary: This 2024 paper by Yanjun Liu, Hongwei Li, Meng Hao explores personalized and privacy-preserving federated graph neural network. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
+  - personal-knowledge
+date_processed: 2025-07-13
+---
+
 cite_key: liu_2024a
 title: Personalized and Privacy-Preserving Federated Graph Neural Network
 authors: Yanjun Liu, Hongwei Li, Meng Hao

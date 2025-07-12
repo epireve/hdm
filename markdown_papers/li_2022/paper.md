@@ -1,11 +1,21 @@
 ---
 cite_key: li_2022
-title: "Microservice extraction based on knowledge graph from monolithic applications"
+title: Microservice extraction based on knowledge graph from monolithic applications
 authors: Zhiding Li, Chenqi Shang, Jianjie Wu, Yuan Li
 year: 2022
-doi: 10.1016/j.infsof.2022.106992
-url: https://doi.org/10.1016/j.infsof.2022.106992
+doi: [10.1016/j.infsof.2022.106992](https://doi.org/10.1016/j.infsof.2022.106992)
+url: [Link](https://doi.org/10.1016/j.infsof.2022.106992)
+relevancy: LOW
+relevancy_justification: This paper has limited direct relevance to heterogeneous data integration in PKG architectures, though it may provide general background on knowledge representation or data management concepts.
+tldr: Research on microservice extraction based on knowledge graph from monolithic applications providing insights for knowledge graph development and data integration.
+insights: Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+summary: This 2022 paper by Zhiding Li, Chenqi Shang, Jianjie Wu, Yuan Li explores microservice extraction based on knowledge graph from monolithic applications. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
+date_processed: 2025-07-13
 ---
+
 
 ![](_page_0_Picture_1.jpeg)
 <!-- Image Description: That's not a technical image; it's the Elsevier logo. It's an artistic rendering of a tree with a person beneath it, possibly allegorical. There are no diagrams, charts, graphs, equations, or technical illustrations present. The image is purely symbolic and serves as a publisher's identifier. -->

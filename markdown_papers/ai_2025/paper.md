@@ -1,3 +1,37 @@
+---
+cite_key: ai_2025
+title: Zep: A Temporal Knowledge Graph Architecture for Agent Memory
+authors: Preston Rasmussen Zep AI
+year: 2025
+doi: [10.48550/arXiv.2501.13956](https://doi.org/10.48550/arXiv.2501.13956)
+url: [Link](https://arxiv.org/abs/2501.13956)
+relevancy: HIGH
+relevancy_justification: Contains relevant concepts applicable to HDM systems
+tldr: Temporal knowledge graph architecture that outperforms existing memory systems
+insights: Core component "Graphiti" - temporally-aware knowledge graph engine that dynamically synthesizes unstructured conversational and structured business data while maintaining historical relationships.
+summary: This paper presents Zep, a temporal knowledge graph architecture for AI agent memory that addresses limitations of static document retrieval in RAG frameworks by enabling dynamic knowledge integration from diverse sources including ongoing conversations and business data.
+research_question: How can temporal knowledge graphs improve AI agent memory for enterprise applications requiring dynamic knowledge integration?
+methodology: Core component: "Graphiti" - temporally-aware knowledge graph engine; dynamically synthesizes unstructured conversational and structured business data; maintains historical relationships.
+key_findings: Outperforms MemGPT in Deep Memory Retrieval benchmark (94.8% vs 93.4%); 18.5% accuracy improvement in LongMemEval benchmark; 90% reduction in response latency.
+primary_outcomes: Enhanced cross-session information synthesis, improved long-term context maintenance, effective for enterprise AI applications.
+limitations: Not explicitly stated in the abstract.
+conclusion: Demonstrates significant advancement in temporal knowledge graph applications for AI agent memory and enterprise knowledge integration.
+research_gaps: Limitations of static document retrieval in RAG frameworks; need for dynamic knowledge integration in enterprise AI.
+future_work: Enhanced cross-session information synthesis, improved long-term context maintenance, effective for enterprise AI applications.
+implementation_insights: Provides practical implementation of temporal knowledge graphs for AI agent memory with focus on dynamic data synthesis and historical relationship maintenance.
+tags:
+  - ai
+  - integration
+  - knowledge-graph
+  - llm
+  - machine-learning
+  - memory
+  - semantic
+  - survey
+  - temporal
+date_processed: 2025-07-13
+---
+
 ```yaml
 cite_key: ai_2025
 title: Zep: A Temporal Knowledge Graph Architecture for Agent Memory

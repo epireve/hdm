@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-07-13T06:49:49.566599",
+  "restored": [
+    "das_2024",
+    "bui_2024",
+    "e065929_full",
+    "fafrowicz_2022",
+    "li_2022",
+    "mohbat_2025",
+    "pascual_2022",
+    "plailly_2019",
+    "bui_2023"
+  ],
+  "fixed": [
+    "aburasheed_2023b",
+    "liu_2024a",
+    "su_2024",
+    "wu_2021",
+    "yang_2024a",
+    "zhang_2024"
+  ],
+  "created": [
+    "ai_2025",
+    "bernard_2024",
+    "bontempelli_2017",
+    "khan_2024",
+    "qin_2024",
+    "das_2025"
+  ],
+  "errors": [],
+  "skipped": [
+    "hu_2021: Already has frontmatter",
+    "jiang_2024: Already has frontmatter",
+    "liu_2024b: Already has frontmatter",
+    "pan_2021: Already has frontmatter",
+    "wang_2024a: Already has frontmatter",
+    "wu_2024: Already has frontmatter",
+    "yu_2024: Already has frontmatter",
+    "zhao_2024: Already has frontmatter"
+  ]
+}

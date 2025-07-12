@@ -2,15 +2,24 @@
 cite_key: pascual_2022
 title: A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations
 authors: Heribert Pascual, Xavi Masip-Bruin, Albert Alonso, Judit Cerdá
-year: '2022'
-doi: 10.1109/ACCESS.2019.2953499
-date_processed: '2025-07-02'
-phase2_processed: 'true'
+year: 2022
+doi: [10.1109/ACCESS.2019.2953499](https://doi.org/10.1109/ACCESS.2019.2953499)
+relevancy: MEDIUM
+relevancy_justification: While not directly focused on heterogeneous data integration, this paper offers supporting concepts and techniques relevant to knowledge graph development and data management that may inform PKG system design.
+tldr: Research on a systematic review on human modeling: digging into human digital twin implementations providing insights for knowledge graph development and data integration.
+insights: Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+summary: This 2022 paper by Heribert Pascual, Xavi Masip-Bruin, Albert Alonso, Judit Cerdá explores a systematic review on human modeling: digging into human digital twin implementations. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
+date_processed: 2025-07-02
+phase2_processed: true
 original_folder: arxiv_2302.03593_A_Systematic_Review_on_Human_Modeling_Digging_int
-images_total: '5'
-images_kept: '5'
-images_removed: '0'
+images_total: 5
+images_kept: 5
+images_removed: 0
 ---
+
 
 # A Systematic Review on Human Modeling: Digging into Human Digital Twin Implementations
 

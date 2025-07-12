@@ -3,29 +3,21 @@ cite_key: wu_2021
 title: A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation
 authors: Le Wu, Xiangnan He, Xiang Wang, Kun Zhang, Meng Wang
 year: 2021
-date_processed: '2025-07-02'
+relevancy: LOW
+relevancy_justification: This paper has limited direct relevance to heterogeneous data integration in PKG architectures, though it may provide general background on knowledge representation or data management concepts.
+tldr: Research on a survey on accuracy-oriented neural recommendation: from collaborative filtering to information-rich recommendation providing insights for knowledge graph development and data integration.
+insights: Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+summary: This 2021 paper by Le Wu, Xiangnan He, Xiang Wang, Kun Zhang, Meng Wang explores a survey on accuracy-oriented neural recommendation: from collaborative filtering to information-rich recommendation. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags: 
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2021_survey_accuracy_neural_recommendation
 images_total: 8
 images_kept: 8
 images_removed: 0
-tags:
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Recommendation System
-- Semantic Web
-- Temporal
-keywords:
-- accuracy-oriented
-- collaborative filtering
-- deep learning
-- information-rich
-- knowledge graph
-- neural networks
-- recommender systems
-- user-item
+keywords: 
 ---
+
 
 # A Survey on Accuracy-oriented Neural Recommendation: From Collaborative Filtering to Information-rich Recommendation
 

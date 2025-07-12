@@ -3,7 +3,15 @@ cite_key: plailly_2019
 title: Incorporation of fragmented visuoolfactory episodic memory into dreams and its association with memory performance
 authors: J. Plailly, M.Villalba, R.Vallat, A. Nicolas & P. Ruby
 year: 2019
-doi: 10.1038/s41598-019-51497-y
+doi: [10.1038/s41598-019-51497-y](https://doi.org/10.1038/s41598-019-51497-y)
+relevancy: LOW
+relevancy_justification: This paper has limited direct relevance to heterogeneous data integration in PKG architectures, though it may provide general background on knowledge representation or data management concepts.
+tldr: Research on incorporation of fragmented visuoolfactory episodic memory into dreams and its association with memory performance providing insights for knowledge graph development and data integration.
+insights: Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
+summary: This 2019 paper by J. Plailly, M.Villalba, R.Vallat, A. Nicolas & P. Ruby explores incorporation of fragmented visuoolfactory episodic memory into dreams and its association with memory performance. The work contributes to the field of knowledge graphs and data management, offering perspectives relevant to heterogeneous data integration challenges in modern information systems.
+tags:
+  - data-integration
+  - knowledge-graph
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: s41598-019-51497-y
@@ -11,6 +19,7 @@ images_total: 8
 images_kept: 8
 images_removed: 0
 ---
+
 
 # OPEN
 
