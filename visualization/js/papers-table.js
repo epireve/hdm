@@ -49,7 +49,7 @@ export class PapersTable {
         this.render();
     }
 
-    filter(searchTerm, yearFilter, openAccessFilter) {
+    filter(searchTerm, yearFilter, openAccessFilter, fieldFilter = null) {
         this.filteredPapers = this.papers.filter(paper => {
             // Search filter
             if (searchTerm) {
@@ -73,6 +73,20 @@ export class PapersTable {
                 const isOpenAccess = paper.is_open_access === 1;
                 if (openAccessFilter === 'true' && !isOpenAccess) return false;
                 if (openAccessFilter === 'false' && isOpenAccess) return false;
+            }
+            
+            // Field of study filter
+            if (fieldFilter && fieldFilter.length > 0) {
+                if (!paper.fields_of_study) return false;
+                
+                try {
+                    const paperFields = JSON.parse(paper.fields_of_study);
+                    // Check if paper has at least one of the selected fields
+                    const hasSelectedField = paperFields.some(field => fieldFilter.includes(field));
+                    if (!hasSelectedField) return false;
+                } catch {
+                    return false;
+                }
             }
             
             return true;
@@ -151,9 +165,9 @@ export class PapersTable {
         // Add headers for visible columns
         visibleColumns.forEach(col => {
             if (col.sortable) {
-                html += this.createHeader(col.key, col.label);
+                html += this.createHeader(col.key, col.label, col.width);
             } else {
-                html += `<th>${col.label}</th>`;
+                html += `<th style="width: ${col.width}; min-width: ${col.width};">${col.label}</th>`;
             }
         });
         
@@ -193,13 +207,13 @@ export class PapersTable {
         this.updatePagination(totalPages);
     }
 
-    createHeader(column, label) {
+    createHeader(column, label, width) {
         const isActive = this.sortBy === column;
         const arrow = isActive && this.sortOrder === 'asc' ? '▲' : '▼';
         const activeClass = isActive ? 'active' : '';
         
         return `
-            <th data-sort="${column}">
+            <th data-sort="${column}" style="width: ${width}; min-width: ${width};">
                 ${label} <span class="sort-arrow ${activeClass}">${arrow}</span>
             </th>
         `;
@@ -238,7 +252,7 @@ export class PapersTable {
                         const authors = JSON.parse(paper.authors);
                         authorsDisplay = authors.map(a => a.name).join(', ');
                     }
-                } catch (e) {
+                } catch {
                     authorsDisplay = paper.authors || '';
                 }
                 return `
@@ -266,7 +280,7 @@ export class PapersTable {
                 
             case 'is_open_access':
                 const accessBadge = paper.is_open_access 
-                    ? '<span class="access-badge open-access">✓ Open Access</span>' 
+                    ? '<span class="access-badge open-access">Open Access</span>' 
                     : '<span class="access-badge closed-access">Closed</span>';
                 return `<td>${accessBadge}</td>`;
                 
@@ -282,7 +296,7 @@ export class PapersTable {
                             fieldsOfStudy += ` <span class="tag">+${fields.length - 3}</span>`;
                         }
                     }
-                } catch (e) {
+                } catch {
                     // Handle parse error
                 }
                 return `<td><div class="tags">${fieldsOfStudy}</div></td>`;
@@ -336,7 +350,7 @@ export class PapersTable {
                         if (externalIds.DOI) {
                             doi = externalIds.DOI;
                         }
-                    } catch (e) {
+                    } catch {
                         // Handle parse error
                     }
                 }
@@ -373,7 +387,7 @@ export class PapersTable {
                         const tldrObj = JSON.parse(paper.tldr);
                         const tldrText = tldrObj.text || tldrObj;
                         return `<td class="tldr">${this.escapeHtml(tldrText)}</td>`;
-                    } catch (e) {
+                    } catch {
                         return `<td class="tldr">${this.escapeHtml(paper.tldr)}</td>`;
                     }
                 }
@@ -388,7 +402,7 @@ export class PapersTable {
                             `<span class="tag">${this.escapeHtml(field.category)}</span>`
                         ).join('');
                     }
-                } catch (e) {}
+                } catch {}
                 return `<td><div class="tags">${s2Fields || '-'}</div></td>`;
                 
             case 'publication_types':
@@ -400,7 +414,7 @@ export class PapersTable {
                             `<span class="tag">${this.escapeHtml(type)}</span>`
                         ).join('');
                     }
-                } catch (e) {}
+                } catch {}
                 return `<td><div class="tags">${pubTypes || '-'}</div></td>`;
                 
             case 'first_seen':
@@ -539,7 +553,7 @@ export class PapersTable {
     
     getVisibleColumns() {
         return Object.entries(this.availableColumns)
-            .filter(([key, config]) => config.visible)
+            .filter(([, config]) => config.visible)
             .map(([key, config]) => ({ key, ...config }));
     }
     
