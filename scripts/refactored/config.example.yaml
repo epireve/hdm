@@ -1,0 +1,42 @@
+# HDM Processing Pipeline Configuration
+# Copy this file to config.yaml and customize for your environment
+
+# Database configuration
+database:
+  url: ""  # Set via TURSO_DATABASE_URL environment variable
+  auth_token: ""  # Set via TURSO_AUTH_TOKEN environment variable
+  timeout: 30
+
+# API configuration for external services
+api:
+  kilocode_token: ""  # Set via KILOCODE_API_TOKEN environment variable
+  gemini_api_key: ""  # Set via GOOGLE_API_KEY environment variable
+  timeout: 60
+  max_retries: 3
+  retry_delay: 1.0
+
+# File and directory paths
+paths:
+  base_dir: "/Users/invoture/dev.local/hdm"  # Adjust to your project root
+  papers_dir: "papers"  # Relative to base_dir
+  markdown_dir: "markdown_papers"
+  output_dir: "output" 
+  backup_dir: "backups"
+  logs_dir: "logs"
+
+# Processing behavior
+processing:
+  batch_size: 10
+  max_workers: 4
+  test_mode: false
+  test_papers_count: 5
+  dry_run: false
+  backup_enabled: true
+  checkpoint_enabled: true
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_enabled: true
+  console_enabled: true
