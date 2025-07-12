@@ -110,47 +110,6 @@
             margin: 0 auto;
         }
         
-        /* Configuration section */
-        .config-section {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .config-section h3 {
-            margin-top: 0;
-            color: #856404;
-            font-size: 1.2rem;
-        }
-        
-        .config-section input {
-            width: 100%;
-            padding: 0.5rem 1rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .config-section button {
-            background: #f39c12;
-            border: none;
-            padding: 0.6rem 1.5rem;
-            color: white;
-            font-weight: 500;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-        
-        .config-section button:hover {
-            background: #e67e22;
-        }
-        
         /* Table container */
         .table-container {
             background: white;
@@ -457,17 +416,8 @@
     
     <!-- Main content -->
     <div class="main-content">
-        <!-- Configuration section -->
-        <div class="config-section" id="configSection">
-            <h3>Database Configuration</h3>
-            <p>Enter your Turso database credentials to connect:</p>
-            <input type="text" id="dbUrl" placeholder="Database URL (e.g., libsql://your-db.turso.io)">
-            <input type="password" id="authToken" placeholder="Authentication Token">
-            <button id="connectBtn">Connect to Database</button>
-        </div>
-        
         <!-- Loading state -->
-        <div class="loading" id="loading" style="display: none;">
+        <div class="loading" id="loading">
             <div>Loading papers from database...</div>
         </div>
         
@@ -520,7 +470,6 @@
         
         // DOM Elements
         const elements = {
-            configSection: document.getElementById('configSection'),
             controls: document.getElementById('controls'),
             loading: document.getElementById('loading'),
             error: document.getElementById('error'),
@@ -537,44 +486,25 @@
             prevPage: document.getElementById('prevPage'),
             nextPage: document.getElementById('nextPage'),
             currentPage: document.getElementById('currentPage'),
-            totalPages: document.getElementById('totalPages'),
-            dbUrl: document.getElementById('dbUrl'),
-            authToken: document.getElementById('authToken')
+            totalPages: document.getElementById('totalPages')
         };
         
-        // Check for stored credentials
+        // Auto-connect on page load
         window.addEventListener('DOMContentLoaded', () => {
-            // First check if config is available
-            if (window.TURSO_CONFIG && window.TURSO_CONFIG.DATABASE_URL && window.TURSO_CONFIG.AUTH_TOKEN) {
-                elements.dbUrl.value = window.TURSO_CONFIG.DATABASE_URL;
-                elements.authToken.value = window.TURSO_CONFIG.AUTH_TOKEN;
-                connectToDatabase();
-                return;
-            }
-            
-            // Otherwise check localStorage
-            const storedUrl = localStorage.getItem('tursoDbUrl');
-            const storedToken = localStorage.getItem('tursoAuthToken');
-            
-            if (storedUrl) elements.dbUrl.value = storedUrl;
-            if (storedToken) {
-                elements.authToken.value = storedToken;
-                connectToDatabase();
-            }
-            
-            // Set up connect button
-            document.getElementById('connectBtn').addEventListener('click', connectToDatabase);
+            connectToDatabase();
         });
         
         // Connect to database
         async function connectToDatabase() {
-            const url = elements.dbUrl.value.trim();
-            const authToken = elements.authToken.value.trim();
-            
-            if (!url || !authToken) {
-                showError('Please provide both database URL and authentication token');
+            // Check if config is available from GitHub secrets
+            if (!window.TURSO_CONFIG || !window.TURSO_CONFIG.DATABASE_URL || !window.TURSO_CONFIG.AUTH_TOKEN) {
+                showError('Database configuration not found. Please ensure GitHub secrets are properly configured.');
+                showLoading(false);
                 return;
             }
+            
+            const url = window.TURSO_CONFIG.DATABASE_URL;
+            const authToken = window.TURSO_CONFIG.AUTH_TOKEN;
             
             try {
                 showLoading(true);
@@ -589,19 +519,14 @@
                 // Test connection and fetch data
                 await fetchAllPapers();
                 
-                // Store credentials
-                localStorage.setItem('tursoDbUrl', url);
-                localStorage.setItem('tursoAuthToken', authToken);
-                
-                // Update UI
-                elements.configSection.style.display = 'none';
+                // Show controls after successful connection
                 elements.controls.style.display = 'flex';
                 
                 setupEventListeners();
                 
             } catch (error) {
                 console.error('Connection error:', error);
-                showError('Failed to connect to database: ' + error.message);
+                showError('Failed to connect to database. Please check your connection and try again.');
                 showLoading(false);
             }
         }
