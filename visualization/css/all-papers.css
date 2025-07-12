@@ -693,6 +693,18 @@ th[data-sort]:after {
     font-weight: bold;
 }
 
+/* Main stats section - like literature review */
+.main-stats {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {

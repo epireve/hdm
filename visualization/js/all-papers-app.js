@@ -23,6 +23,7 @@ class AllPapersApp {
             totalPapers: document.getElementById('totalPapers'),
             openAccessCount: document.getElementById('openAccessCount'),
             yearRange: document.getElementById('yearRange'),
+            mainStats: document.getElementById('main-stats'),
             searchInput: document.getElementById('searchInput'),
             yearMin: document.getElementById('yearMin'),
             yearMax: document.getElementById('yearMax'),
@@ -107,6 +108,44 @@ class AllPapersApp {
         this.elements.totalPapers.textContent = this.statistics.totalPapers.toLocaleString();
         this.elements.openAccessCount.textContent = this.statistics.openAccessCount.toLocaleString();
         this.elements.yearRange.textContent = this.statistics.yearRange;
+        
+        // Initial main stats display
+        this.updateMainStats();
+    }
+    
+    updateMainStats() {
+        if (!this.papersTable) return;
+        
+        const filteredCount = this.papersTable.filteredPapers.length;
+        const totalCount = this.allPapers.length;
+        const filteredOpenAccess = this.papersTable.filteredPapers.filter(p => p.is_open_access === 1).length;
+        
+        // Calculate year range from filtered papers
+        const years = this.papersTable.filteredPapers
+            .map(p => parseInt(p.year))
+            .filter(year => !isNaN(year));
+        const yearRange = years.length > 0 ? 
+            `${Math.min(...years)}-${Math.max(...years)}` : 'N/A';
+        
+        // Get access type filter
+        const accessFilter = this.elements.openAccessFilter.value;
+        const accessText = accessFilter === 'true' ? 'Open Access Only' : 
+                          accessFilter === 'false' ? 'Closed Access Only' : 'All Access Types';
+        
+        // Get field filter info
+        const selectedFieldsCount = this.selectedFields.size;
+        const totalFieldsCount = this.allFields.length;
+        const fieldText = selectedFieldsCount === totalFieldsCount ? 'All Fields' :
+                         selectedFieldsCount === 0 ? 'No Fields' :
+                         `${selectedFieldsCount} Fields`;
+        
+        this.elements.mainStats.innerHTML = `
+            Showing ${filteredCount.toLocaleString()} of ${totalCount.toLocaleString()} papers | 
+            Open Access: ${filteredOpenAccess.toLocaleString()} | 
+            Year Range: ${yearRange} | 
+            Access: ${accessText} | 
+            Fields: ${fieldText}
+        `;
     }
 
     populateFilters() {
@@ -375,6 +414,9 @@ class AllPapersApp {
         const fieldFilter = Array.from(this.selectedFields);
         
         this.papersTable.filter(searchTerm, { min: yearMin, max: yearMax }, openAccessFilter, fieldFilter);
+        
+        // Update the main stats display
+        this.updateMainStats();
     }
 
     updatePagination(detail) {
