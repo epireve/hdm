@@ -277,7 +277,17 @@ export class PapersTable {
                 return `<td class="venue">${this.escapeHtml(venueDisplay)}</td>`;
                 
             case 'journal':
-                return `<td class="venue">${this.escapeHtml(paper.journal || 'N/A')}</td>`;
+                let journalDisplay = paper.journal || 'N/A';
+                // Check if journal is JSON string
+                try {
+                    if (paper.journal && paper.journal.startsWith('{')) {
+                        const journalObj = JSON.parse(paper.journal);
+                        journalDisplay = journalObj.name || paper.journal;
+                    }
+                } catch {
+                    // Use original value if not valid JSON
+                }
+                return `<td class="venue">${this.escapeHtml(journalDisplay)}</td>`;
                 
             case 'citation_count':
                 return `<td class="citation-count">${paper.citation_count || 0}</td>`;
@@ -474,7 +484,7 @@ export class PapersTable {
 
         // Paper titles
         this.container.querySelectorAll('.paper-title').forEach(title => {
-            title.addEventListener('click', (e) => {
+            title.addEventListener('click', () => {
                 const url = title.getAttribute('data-url');
                 if (url && url !== '#') {
                     window.open(url, '_blank');
