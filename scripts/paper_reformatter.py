@@ -108,8 +108,8 @@ YEAR: [year]
             print(f"Failed to load KiloCode configuration: {e}")
             sys.exit(1)
         
-        # Use specified model or default to Gemini 2.5 Pro
-        self.model = model or "google/gemini-2.5-pro-preview"
+        # Use specified model or default to Gemini 2.5 Flash
+        self.model = model or "google/gemini-2.5-flash"
         
         # Initialize OpenAI client with KiloCode
         self.client = OpenAI(
@@ -305,7 +305,8 @@ YEAR: [year]
                     {"role": "user", "content": prompt}
                 ],
                 temperature=0.7,
-                max_tokens=500000  # Support very long papers
+                max_tokens=500000,  # Support very long papers
+                timeout=600  # 10 minute timeout
             )
             
             if not response.choices[0].message.content:
@@ -501,8 +502,8 @@ def main():
     parser.add_argument("--test", action="store_true",
                        help="Test mode - process only first 3 papers")
     parser.add_argument("--model", type=str, 
-                       default="google/gemini-2.5-pro-preview",
-                       help="Model to use (default: google/gemini-2.5-pro-preview)")
+                       default="google/gemini-2.5-flash",
+                       help="Model to use (default: google/gemini-2.5-flash)")
     
     args = parser.parse_args()
     
