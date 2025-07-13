@@ -41,3 +41,46 @@ production_final_reformatted_*/
 
 # Logs
 *.log
+
+
+# Test and temporary directories
+test_*/
+production_*/
+enhanced_*/
+backups/
+paper_backups/
+output/
+inbox/
+
+# Log files
+*.log
+
+# Database backups
+*_backup_*.db
+
+# Sensitive files
+.env
+.claude/
+
+# Cache directories
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary processing files
+*_reformatted_*/
+*_checkpoint.json
+reformatter_log_*.log
+yaml_to_database_extraction.log
+yaml_frontmatter_analysis_report.md
+
+# Large Excel files
+*.xlsx
