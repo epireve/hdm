@@ -1,61 +1,43 @@
-# Environment and secrets
-.env
-.claude/settings.local.json
-
-# Python cache files
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-
-# Virtual environments  
-venv/
+.Python
 env/
+venv/
 ENV/
-.venv/
 
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-.tox/
+# Data files
+data/intermediate/
+data/logs/
+*.db-journal
+*.db-wal
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
+*.sublime-*
 
-# OS
-.DS_Store
-Thumbs.db
+# Exports (keep current versions only)
+exports/*_2*.csv
+exports/*_2*.json
+exports/*_2*.db
+exports/*_2*.md
+!exports/*_current.*
+
+# Large data files
+papers/
+new_papers/
+markdown_papers/
+production_final_reformatted_*/
 
 # Logs
 *.log
-logs/
-
-# Temporary files
-*.tmp
-*.temp
-temp/
-tmp/
-
-# Output files
-output/
-reports/
-
-# Development
-current_requirements.txt
-
-# MyPy
-.mypy_cache/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Project specific
-papers/*.pdf
-backups/
-backup_phase2/*
-visualization/js/config.js
-cleanup_analysis_report.json

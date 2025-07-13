@@ -1,0 +1,99 @@
+{
+  "timestamp": "20250714_071058",
+  "date": "2025-07-14T07:10:58.180941",
+  "exports": {
+    "csv": "exports/hdm_papers_current.csv",
+    "json": "exports/hdm_papers_current.json",
+    "markdown": "exports/hdm_papers_current.md",
+    "sqlite": "exports/hdm_papers_current.db"
+  },
+  "statistics": {
+    "total_papers": 358,
+    "min_year": 2001,
+    "max_year": 2025,
+    "papers_with_doi": 292,
+    "doi_percentage": 81.56424581005587,
+    "high_relevancy": 156,
+    "medium_relevancy": 101,
+    "low_relevancy": 80,
+    "super_relevancy": 21,
+    "year_distribution": [
+      [
+        2025,
+        31
+      ],
+      [
+        2024,
+        109
+      ],
+      [
+        2023,
+        55
+      ],
+      [
+        2022,
+        48
+      ],
+      [
+        2021,
+        38
+      ],
+      [
+        2020,
+        31
+      ],
+      [
+        2019,
+        21
+      ],
+      [
+        2018,
+        6
+      ],
+      [
+        2017,
+        1
+      ],
+      [
+        2016,
+        4
+      ],
+      [
+        2015,
+        1
+      ],
+      [
+        2014,
+        4
+      ],
+      [
+        2011,
+        1
+      ],
+      [
+        2009,
+        3
+      ],
+      [
+        2008,
+        1
+      ],
+      [
+        2006,
+        1
+      ],
+      [
+        2005,
+        1
+      ],
+      [
+        2002,
+        1
+      ],
+      [
+        2001,
+        1
+      ]
+    ]
+  }
+}
