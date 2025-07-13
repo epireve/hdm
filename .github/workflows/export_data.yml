@@ -1,0 +1,67 @@
+name: Export HDM Data
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'hdm_papers.db'
+      - 'scripts/export_data.py'
+      - '.github/workflows/export_data.yml'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Add any additional dependencies if needed
+        
+    - name: Run export script
+      run: |
+        python scripts/export_data.py
+        
+    - name: Upload exports as artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: hdm-exports-${{ github.run_number }}
+        path: exports/
+        retention-days: 90
+        
+    - name: Commit and push exports
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add exports/
+        git diff --staged --quiet || git commit -m "Auto-update data exports [skip ci]"
+        git push || echo "No changes to push"
+        
+    - name: Create Release (on version tags)
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          exports/hdm_papers_current.csv
+          exports/hdm_papers_current.json
+          exports/hdm_papers_current.db
+          exports/hdm_papers_current.md
+        body: |
+          ## HDM Papers Database Export
+          
+          This release contains the latest export of the HDM papers database in multiple formats:
+          - CSV for spreadsheet analysis
+          - JSON for programmatic access
+          - SQLite for complex queries
+          - Markdown for documentation
+          
+          Generated on: ${{ github.event.head_commit.timestamp }}
