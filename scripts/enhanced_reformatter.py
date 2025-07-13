@@ -493,6 +493,15 @@ PAPER CONTENT TO REFORMAT:
         self.logger.info(f"📚 Found {len(paper_files)} papers to process")
         
         # Process papers
+        self._process_paper_list(paper_files, max_workers)
+    
+    def process_papers_from_list(self, paper_files: List[Path], max_workers: int = 1):
+        """Process a specific list of paper files"""
+        self.logger.info(f"📚 Processing {len(paper_files)} specific papers")
+        self._process_paper_list(paper_files, max_workers)
+    
+    def _process_paper_list(self, paper_files: List[Path], max_workers: int):
+        """Internal method to process a list of papers"""
         results = []
         start_time = time.time()
         

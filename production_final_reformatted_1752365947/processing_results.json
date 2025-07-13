@@ -1,0 +1,4054 @@
+[
+  {
+    "success": true,
+    "original_cite_key": "das_2025",
+    "correct_cite_key": "das_2025",
+    "processing_time": 48.4399139881134,
+    "chars_per_sec": 860.4061520469937,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "wang_2022a"
+  },
+  {
+    "success": true,
+    "original_cite_key": "engineering_2020",
+    "correct_cite_key": "humana_2023",
+    "processing_time": 75.6622428894043,
+    "chars_per_sec": 1043.572024628117,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "pan_2021",
+    "correct_cite_key": "pan_2024",
+    "processing_time": 95.2493691444397,
+    "chars_per_sec": 688.2250306623342,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhang_2021a",
+    "correct_cite_key": "zhang_2020",
+    "processing_time": 95.08688402175903,
+    "chars_per_sec": 805.0006137805922,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "hbscher_2020",
+    "correct_cite_key": "h\u00fcbscher_2020",
+    "processing_time": 67.05479502677917,
+    "chars_per_sec": 965.3895739170878,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "gao_2024",
+    "correct_cite_key": "gao_2024",
+    "processing_time": 114.54663491249084,
+    "chars_per_sec": 785.3482563562444,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "kim_2023",
+    "correct_cite_key": "kim_2023",
+    "processing_time": 51.49555277824402,
+    "chars_per_sec": 885.4745223603924,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "huang_2021",
+    "correct_cite_key": "huang_2021",
+    "processing_time": 110.42620491981506,
+    "chars_per_sec": 913.8501144114933,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "kim_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "berlin_2014",
+    "correct_cite_key": "kuhlenkamp_2014",
+    "processing_time": 71.65022587776184,
+    "chars_per_sec": 947.1149486084466,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "kumar_2021",
+    "correct_cite_key": "kumar_2021",
+    "processing_time": 155.91252899169922,
+    "chars_per_sec": 786.6975206753923,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "fu_2024",
+    "correct_cite_key": "fu_2022",
+    "processing_time": 141.28477597236633,
+    "chars_per_sec": 857.8702069337329,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "liao_2023",
+    "correct_cite_key": "liao_2023",
+    "processing_time": 94.16767430305481,
+    "chars_per_sec": 861.32529660838,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "liu_2024a",
+    "correct_cite_key": "liu_2024",
+    "processing_time": 63.68826603889465,
+    "chars_per_sec": 859.2791640233796,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "lin_2024a",
+    "correct_cite_key": "lin_2022",
+    "processing_time": 141.8466169834137,
+    "chars_per_sec": 887.6841949267172,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "du_2024",
+    "correct_cite_key": "du_2024",
+    "processing_time": 37.684754848480225,
+    "chars_per_sec": 777.8742390089395,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "chan_2024",
+    "correct_cite_key": "chan_2024",
+    "processing_time": 98.0160231590271,
+    "chars_per_sec": 825.6405166398231,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "castro_2019",
+    "correct_cite_key": "zloch_2019",
+    "processing_time": 58.02607727050781,
+    "chars_per_sec": 859.613510792188,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wickramarachchi_2021",
+    "correct_cite_key": "mohamed_2023",
+    "processing_time": 120.84494280815125,
+    "chars_per_sec": 1040.0104222774528,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "gao_2025",
+    "correct_cite_key": "gao_2025",
+    "processing_time": 101.37474203109741,
+    "chars_per_sec": 1001.7978637010655,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "bui_2023",
+    "correct_cite_key": "bui_2023",
+    "processing_time": 8.528754949569702,
+    "chars_per_sec": 1011.4020218666506,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "seneviratne_2021",
+    "correct_cite_key": "seneviratne_2021",
+    "processing_time": 37.50998020172119,
+    "chars_per_sec": 897.8410497389344,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "bikakis_2021",
+    "correct_cite_key": "carriero_2021",
+    "processing_time": 229.0445532798767,
+    "chars_per_sec": 935.774271558855,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "chen_2023b",
+    "correct_cite_key": "chen_2023",
+    "processing_time": 109.6730260848999,
+    "chars_per_sec": 790.185181294381,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "tu_2020",
+    "correct_cite_key": "tu_2022",
+    "processing_time": 93.26756882667542,
+    "chars_per_sec": 955.7555870857526,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "leskinen_2015",
+    "correct_cite_key": "koho_2020",
+    "processing_time": 26.93570113182068,
+    "chars_per_sec": 996.1129234650963,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "castilloescamilla_2025",
+    "correct_cite_key": "castillo-escamilla_2025",
+    "processing_time": 98.55199480056763,
+    "chars_per_sec": 765.7176311114644,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "aburasheed_2023b",
+    "correct_cite_key": "abu-rasheed_2023",
+    "processing_time": 44.524702072143555,
+    "chars_per_sec": 844.5199686922851,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "bui_2024",
+    "correct_cite_key": "bui_2024",
+    "processing_time": 51.96113109588623,
+    "chars_per_sec": 904.2143427035546,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "das_2025_corrected",
+    "correct_cite_key": "das_2024",
+    "processing_time": 47.81991982460022,
+    "chars_per_sec": 859.5790237785837,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "brennan_2016",
+    "correct_cite_key": "solanki_2018",
+    "processing_time": 56.57418513298035,
+    "chars_per_sec": 1120.8645754410256,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "jeunehomme_2020",
+    "correct_cite_key": "jeunehomme_2020",
+    "processing_time": 42.520227909088135,
+    "chars_per_sec": 1048.1599509600508,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "rao_2016"
+  },
+  {
+    "success": true,
+    "original_cite_key": "nguyen_2022",
+    "correct_cite_key": "mahjourian_2022",
+    "processing_time": 49.291638135910034,
+    "chars_per_sec": 995.4426725423357,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "kimmathematics_2016",
+    "correct_cite_key": "kim_2016",
+    "processing_time": 44.94479179382324,
+    "chars_per_sec": 1004.1207935065395,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "storage_2023",
+    "correct_cite_key": "wang_2024",
+    "processing_time": 157.67869901657104,
+    "chars_per_sec": 762.8360758313905,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2024b",
+    "correct_cite_key": "wang_2024",
+    "processing_time": 126.56959295272827,
+    "chars_per_sec": 839.0798889561473,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "science_2022"
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhu_2019",
+    "correct_cite_key": "zhu_2024",
+    "processing_time": 118.61525821685791,
+    "chars_per_sec": 891.7992641942091,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "seo_2022"
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "xie_2022a"
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "ferdousi_2025"
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "guan_2023"
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2022a",
+    "correct_cite_key": "sun_2022",
+    "processing_time": 60.35841703414917,
+    "chars_per_sec": 750.5001328045274,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "xu_2023b",
+    "correct_cite_key": "xu_2022",
+    "processing_time": 35.43424415588379,
+    "chars_per_sec": 870.5138414777807,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "software_2023",
+    "correct_cite_key": "tama\u0161auskait_2023",
+    "processing_time": 141.40002298355103,
+    "chars_per_sec": 971.760803857751,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "mandreoli_2010",
+    "correct_cite_key": "mandreoli_2017",
+    "processing_time": 116.16308927536011,
+    "chars_per_sec": 870.4313963303603,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "mohbat_2025",
+    "correct_cite_key": "mohbat_2025",
+    "processing_time": 106.54871988296509,
+    "chars_per_sec": 782.2055496447574,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "pokrywka_2024",
+    "correct_cite_key": "pokrywka_2024",
+    "processing_time": 55.517621994018555,
+    "chars_per_sec": 973.0604096447125,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "karray_2023",
+    "correct_cite_key": "hijazi_2023",
+    "processing_time": 96.51379299163818,
+    "chars_per_sec": 828.8038167449321,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "anderson_2016",
+    "correct_cite_key": "anderson_2016",
+    "processing_time": 143.42277193069458,
+    "chars_per_sec": 873.9964952049086,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "shirai_2021",
+    "correct_cite_key": "shirai_2019",
+    "processing_time": 12.102280139923096,
+    "chars_per_sec": 991.9618337372486,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "sun_2024a",
+    "correct_cite_key": "sun_2024",
+    "processing_time": 72.76677799224854,
+    "chars_per_sec": 762.1609961335358,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ma_2017",
+    "correct_cite_key": "ma_2023",
+    "processing_time": 94.44667482376099,
+    "chars_per_sec": 855.2868605563394,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "xie_2024c",
+    "correct_cite_key": "xie_2024",
+    "processing_time": 108.33387804031372,
+    "chars_per_sec": 955.1398128800924,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "xua_2020",
+    "correct_cite_key": "xu_2020",
+    "processing_time": 80.99417781829834,
+    "chars_per_sec": 905.0280152783956,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "xiao_2022",
+    "correct_cite_key": "qiu_2022",
+    "processing_time": 49.04625487327576,
+    "chars_per_sec": 784.6266773973103,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "lin_2022",
+    "correct_cite_key": "lin_2022",
+    "processing_time": 29.9447820186615,
+    "chars_per_sec": 1008.6231377866628,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "olusanya_2023",
+    "correct_cite_key": "ammar_2023",
+    "processing_time": 68.714439868927,
+    "chars_per_sec": 786.1957414343918,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "truong_2021",
+    "correct_cite_key": "truong_2021",
+    "processing_time": 170.6438069343567,
+    "chars_per_sec": 1080.3556443798639,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "shaik_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "hoang_2025",
+    "correct_cite_key": "hoang_2024",
+    "processing_time": 109.51850700378418,
+    "chars_per_sec": 895.0268103692562,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "briggs_2021",
+    "correct_cite_key": "briggs_2020",
+    "processing_time": 110.96134972572327,
+    "chars_per_sec": 897.9432950868473,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "mandal_2013",
+    "correct_cite_key": "mandal_2024",
+    "processing_time": 71.48922181129456,
+    "chars_per_sec": 946.6182213961149,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "teraoka_2011",
+    "correct_cite_key": "teraoka_2011",
+    "processing_time": 28.355654001235962,
+    "chars_per_sec": 908.3197304804661,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "pascual_2022",
+    "correct_cite_key": "pascual_2022",
+    "processing_time": 108.62968301773071,
+    "chars_per_sec": 844.6402258673987,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "prahlad_2025",
+    "correct_cite_key": "prahlad_2025",
+    "processing_time": 42.90821981430054,
+    "chars_per_sec": 805.3701633290033,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "chang_2021",
+    "correct_cite_key": "chang_2021",
+    "processing_time": 81.72821497917175,
+    "chars_per_sec": 856.4484128013602,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "parsers_2024",
+    "correct_cite_key": "sun_2024",
+    "processing_time": 29.085307121276855,
+    "chars_per_sec": 925.1062705924342,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "berkeley_2017",
+    "correct_cite_key": "rao_2019",
+    "processing_time": 48.738786935806274,
+    "chars_per_sec": 867.1738189887064,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "yu_2024",
+    "correct_cite_key": "yu_2024",
+    "processing_time": 74.10487508773804,
+    "chars_per_sec": 936.8749345815702,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "peng_2025",
+    "correct_cite_key": "peng_2025",
+    "processing_time": 45.059762954711914,
+    "chars_per_sec": 945.3889059029195,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "khan_2024",
+    "correct_cite_key": "khan_2024",
+    "processing_time": 65.09764218330383,
+    "chars_per_sec": 781.0574745062067,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "bellomarini_2024a",
+    "correct_cite_key": "bellomarini_2024",
+    "processing_time": 137.25771498680115,
+    "chars_per_sec": 778.346047872597,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "jiang_2024",
+    "correct_cite_key": "su_2024",
+    "processing_time": 65.98243880271912,
+    "chars_per_sec": 1028.6676459919352,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "rastogi_2020"
+  },
+  {
+    "success": true,
+    "original_cite_key": "gupta_2021",
+    "correct_cite_key": "gupta_2024",
+    "processing_time": 96.10581874847412,
+    "chars_per_sec": 1026.7328376677158,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "leixiawan_2024",
+    "correct_cite_key": "wang_2024",
+    "processing_time": 173.26426911354065,
+    "chars_per_sec": 755.3605868630414,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "cai_2023",
+    "correct_cite_key": "cai_2023",
+    "processing_time": 90.20007085800171,
+    "chars_per_sec": 700.6535515863575,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "abusalih_2024",
+    "correct_cite_key": "abu-salih_2024",
+    "processing_time": 144.80265998840332,
+    "chars_per_sec": 1009.9331049009173,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wilkins_2022",
+    "correct_cite_key": "o'neil_2023",
+    "processing_time": 137.27825093269348,
+    "chars_per_sec": 961.2083422063382,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "joosse_2023",
+    "correct_cite_key": "joosse_2023",
+    "processing_time": 79.19811797142029,
+    "chars_per_sec": 872.7353852643636,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "korobko_2019",
+    "correct_cite_key": "korobko_2019",
+    "processing_time": 46.607425928115845,
+    "chars_per_sec": 781.9140249497415,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "bendiken_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "xie_2024b",
+    "correct_cite_key": "yuan_2024",
+    "processing_time": 98.29928302764893,
+    "chars_per_sec": 812.1524139453271,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "abusalih_2023",
+    "correct_cite_key": "abu-salih_2023",
+    "processing_time": 131.05377793312073,
+    "chars_per_sec": 909.3747763671363,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "oss_2024",
+    "correct_cite_key": "oss_2024",
+    "processing_time": 47.660171031951904,
+    "chars_per_sec": 1006.6686493389841,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhou_2018",
+    "correct_cite_key": "zhou_2018",
+    "processing_time": 30.1110782623291,
+    "chars_per_sec": 908.1375220697545,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "chen_2022"
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "kerkemeier_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "amofa_2024",
+    "correct_cite_key": "amofa_2024",
+    "processing_time": 111.07578706741333,
+    "chars_per_sec": 804.4507480804011,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "menschikov_2025",
+    "correct_cite_key": "menschikov_2025",
+    "processing_time": 67.8398118019104,
+    "chars_per_sec": 855.7806759476464,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "xiong_2024",
+    "correct_cite_key": "xiong_2024",
+    "processing_time": 111.82777214050293,
+    "chars_per_sec": 776.0415712383493,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "kaplan_2021",
+    "correct_cite_key": "kaplan_2021",
+    "processing_time": 48.875791788101196,
+    "chars_per_sec": 953.6827598023217,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "kalmuk_2024",
+    "correct_cite_key": "kalmuk_2024",
+    "processing_time": 80.99968814849854,
+    "chars_per_sec": 1037.806464709929,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "isws_2019",
+    "correct_cite_key": "isws_2019",
+    "processing_time": 299.8214819431305,
+    "chars_per_sec": 1029.5826636550073,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "sandovalarrayga_2024",
+    "correct_cite_key": "sandoval-arrayga_2024",
+    "processing_time": 76.91044783592224,
+    "chars_per_sec": 935.5685999060362,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "shen_2021",
+    "correct_cite_key": "shen_2021",
+    "processing_time": 62.45974278450012,
+    "chars_per_sec": 846.7213863250823,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "chavesfraga_2024",
+    "correct_cite_key": "chaves-fraga_2024",
+    "processing_time": 244.27928185462952,
+    "chars_per_sec": 968.7559182396341,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zuo_2023",
+    "correct_cite_key": "zuo_2023",
+    "processing_time": 48.86272692680359,
+    "chars_per_sec": 957.2326994779886,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "mishra_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "wu_2021",
+    "correct_cite_key": "wu_2021",
+    "processing_time": 196.55985713005066,
+    "chars_per_sec": 778.6940946885727,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "garg_2022",
+    "correct_cite_key": "garg_2021",
+    "processing_time": 251.58030724525452,
+    "chars_per_sec": 896.0240269531354,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "saad_2025",
+    "correct_cite_key": "saad_2025",
+    "processing_time": 39.81404209136963,
+    "chars_per_sec": 937.0814426322054,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "asprino_2023",
+    "correct_cite_key": "asprino_2023",
+    "processing_time": 147.68818306922913,
+    "chars_per_sec": 883.4626934156178,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "ilievski_2018",
+    "correct_cite_key": "allen_2018",
+    "processing_time": 106.48776078224182,
+    "chars_per_sec": 1070.263842180499,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "cognitiveyunp_2023",
+    "correct_cite_key": "ding_2022",
+    "processing_time": 145.4273669719696,
+    "chars_per_sec": 758.78428041174,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "graph_2024",
+    "correct_cite_key": "lin_2024",
+    "processing_time": 50.535454988479614,
+    "chars_per_sec": 945.4946039546386,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "yang_2022",
+    "correct_cite_key": "yang_2023",
+    "processing_time": 164.19287109375,
+    "chars_per_sec": 813.0377348951874,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "lim_2010",
+    "correct_cite_key": "lim_2010",
+    "processing_time": 51.38026666641235,
+    "chars_per_sec": 911.0696194693105,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "yang_2025",
+    "correct_cite_key": "yang_2025",
+    "processing_time": 108.2367799282074,
+    "chars_per_sec": 844.5280805714182,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "mahmud_2025",
+    "correct_cite_key": "li_2025",
+    "processing_time": 98.19752597808838,
+    "chars_per_sec": 842.271729111134,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "gyrarda_2024",
+    "correct_cite_key": "gyrard_2024",
+    "processing_time": 99.2853889465332,
+    "chars_per_sec": 768.37086311947,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "yang_2024a",
+    "correct_cite_key": "yang_2024",
+    "processing_time": 101.92717695236206,
+    "chars_per_sec": 883.8565208384522,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "yao_2024",
+    "correct_cite_key": "yao_2024",
+    "processing_time": 60.093218088150024,
+    "chars_per_sec": 819.1606568280462,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "memoro_2024",
+    "correct_cite_key": "zulfikar_2024",
+    "processing_time": 127.44288802146912,
+    "chars_per_sec": 888.9785986403134,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "vassiliou_2023",
+    "correct_cite_key": "vassiliou_2023",
+    "processing_time": 57.88354992866516,
+    "chars_per_sec": 865.064427833283,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "models_2018",
+    "correct_cite_key": "besta_2025",
+    "processing_time": 203.89561891555786,
+    "chars_per_sec": 792.9253255164659,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "mao_2024",
+    "correct_cite_key": "liu_2024",
+    "processing_time": 30.418201684951782,
+    "chars_per_sec": 964.028061346799,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "models_2016",
+    "correct_cite_key": "liu_2025",
+    "processing_time": 138.0062460899353,
+    "chars_per_sec": 883.2861080835529,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2020",
+    "correct_cite_key": "wang_2020",
+    "processing_time": 32.44775080680847,
+    "chars_per_sec": 722.2380416914033,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "leroy_2024",
+    "correct_cite_key": "leroy_2024",
+    "processing_time": 181.44872188568115,
+    "chars_per_sec": 711.3249333402185,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "xie_2022",
+    "correct_cite_key": "xie_2022",
+    "processing_time": 36.62076997756958,
+    "chars_per_sec": 1037.9355765397977,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "asprino_2022",
+    "correct_cite_key": "asprino_2022",
+    "processing_time": 57.26445174217224,
+    "chars_per_sec": 784.2037884548255,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zafeiropoulos_2024",
+    "correct_cite_key": "zafeiropoulos_2024",
+    "processing_time": 145.45531129837036,
+    "chars_per_sec": 1011.2659255066199,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "group_2009",
+    "correct_cite_key": "kraska_2009",
+    "processing_time": 87.40581512451172,
+    "chars_per_sec": 977.8639999895256,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2023b",
+    "correct_cite_key": "li_2023",
+    "processing_time": 109.94824600219727,
+    "chars_per_sec": 877.1035783333258,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wan_2024",
+    "correct_cite_key": "wan_2024",
+    "processing_time": 210.65662503242493,
+    "chars_per_sec": 1102.6854719819303,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "majumdar_2013",
+    "correct_cite_key": "majumdar_2022",
+    "processing_time": 26.34992218017578,
+    "chars_per_sec": 818.104882913783,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "abdallah_2021",
+    "correct_cite_key": "abdallah_2023",
+    "processing_time": 75.55444717407227,
+    "chars_per_sec": 831.863673824462,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "liu_2020",
+    "correct_cite_key": "liu_2020",
+    "processing_time": 16.892807960510254,
+    "chars_per_sec": 1099.1067940512582,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "martinez_2022",
+    "correct_cite_key": "martinez-maldonado_2023",
+    "processing_time": 190.26790809631348,
+    "chars_per_sec": 895.5793002871701,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "giunchiglia_2017",
+    "correct_cite_key": "giunchiglia_2022",
+    "processing_time": 41.006349086761475,
+    "chars_per_sec": 696.8676957692267,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "shen_2020"
+  },
+  {
+    "success": true,
+    "original_cite_key": "yan_2024a",
+    "correct_cite_key": "yan_2024",
+    "processing_time": 97.54771590232849,
+    "chars_per_sec": 771.0482947167051,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ghani_2020b",
+    "correct_cite_key": "ghani_2020",
+    "processing_time": 83.22888088226318,
+    "chars_per_sec": 893.9805415052309,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "sowi_2020",
+    "correct_cite_key": "sowi\u0144ski_2024",
+    "processing_time": 74.96907687187195,
+    "chars_per_sec": 925.8750793828043,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "division_2021",
+    "correct_cite_key": "mart\u00ednez-garc\u00eda_2022",
+    "processing_time": 244.5194969177246,
+    "chars_per_sec": 690.861064779799,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "hofer_2023",
+    "correct_cite_key": "hofer_2023",
+    "processing_time": 303.4207410812378,
+    "chars_per_sec": 935.1832672639467,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "xu_2015",
+    "correct_cite_key": "xu_2015",
+    "processing_time": 20.388694047927856,
+    "chars_per_sec": 987.7042616197708,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "wen_2024",
+    "correct_cite_key": "hou_2024",
+    "processing_time": 100.81566786766052,
+    "chars_per_sec": 886.7272507419087,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "huaman_2012",
+    "correct_cite_key": "huaman_2021",
+    "processing_time": 33.47454595565796,
+    "chars_per_sec": 803.5956644679534,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "up_2024",
+    "correct_cite_key": "papachristou_2024",
+    "processing_time": 95.84805107116699,
+    "chars_per_sec": 952.3198331098695,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "schmitt_2020a",
+    "correct_cite_key": "schmitt_2020",
+    "processing_time": 121.8842523097992,
+    "chars_per_sec": 913.1368317960465,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "eitan_2023",
+    "correct_cite_key": "eitan_2023",
+    "processing_time": 117.3662006855011,
+    "chars_per_sec": 730.235787640927,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "khatib_2024",
+    "correct_cite_key": "al khatib_2024",
+    "processing_time": 184.23477482795715,
+    "chars_per_sec": 843.2284303822197,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhang_2019",
+    "correct_cite_key": "zhang_2019",
+    "processing_time": 69.20464897155762,
+    "chars_per_sec": 688.4797583408306,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "maoa_2023",
+    "correct_cite_key": "maoa_2023",
+    "processing_time": 310.96558022499084,
+    "chars_per_sec": 1775.4955374820897,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "beltran_2023",
+    "correct_cite_key": "bajaj_2023",
+    "processing_time": 68.00563788414001,
+    "chars_per_sec": 987.035811859569,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "presutti_2019",
+    "correct_cite_key": "presutti_2019",
+    "processing_time": 51.43593692779541,
+    "chars_per_sec": 978.5376335353803,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "feng_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "hu_2021",
+    "correct_cite_key": "liu_2024",
+    "processing_time": 86.01469612121582,
+    "chars_per_sec": 859.8181861361974,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhou_2024b",
+    "correct_cite_key": "zhou_2024",
+    "processing_time": 151.61137795448303,
+    "chars_per_sec": 899.2333018761321,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "xu_2025"
+  },
+  {
+    "success": true,
+    "original_cite_key": "chen_2024b",
+    "correct_cite_key": "chen_2024b",
+    "processing_time": 300.2970550060272,
+    "chars_per_sec": 938.8869963920929,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "messner_2015",
+    "correct_cite_key": "messner_2015",
+    "processing_time": 71.75331020355225,
+    "chars_per_sec": 690.365362371082,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "vol_2019",
+    "correct_cite_key": "schmitt_2020",
+    "processing_time": 107.21076130867004,
+    "chars_per_sec": 909.5262342112887,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "modoni_2023",
+    "correct_cite_key": "modoni_2023",
+    "processing_time": 91.04775500297546,
+    "chars_per_sec": 1005.153833798639,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "szekely_2014",
+    "correct_cite_key": "szekely_2014",
+    "processing_time": 46.740288972854614,
+    "chars_per_sec": 982.6212248425257,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "luo_2024",
+    "correct_cite_key": "luo_2023",
+    "processing_time": 114.76213884353638,
+    "chars_per_sec": 624.5613816741525,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "liu_2021",
+    "correct_cite_key": "liu_2021",
+    "processing_time": 319.84289288520813,
+    "chars_per_sec": 1079.1235562138147,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2023b",
+    "correct_cite_key": "wang_2023",
+    "processing_time": 84.91533184051514,
+    "chars_per_sec": 805.1785056721416,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "turki_2013"
+  },
+  {
+    "success": true,
+    "original_cite_key": "xiang_2023",
+    "correct_cite_key": "xiang_2024",
+    "processing_time": 161.84946489334106,
+    "chars_per_sec": 908.5850243428899,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "naudet_2023",
+    "correct_cite_key": "naudet_2023",
+    "processing_time": 41.21917128562927,
+    "chars_per_sec": 883.1084872560481,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "tushkanova_2019",
+    "correct_cite_key": "tushkanova_2019",
+    "processing_time": 36.657655000686646,
+    "chars_per_sec": 1724.1146494181405,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "clark_2001",
+    "correct_cite_key": "clark_2001",
+    "processing_time": 51.534623861312866,
+    "chars_per_sec": 919.4789143609527,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "schultes_2022",
+    "correct_cite_key": "schultes_2022",
+    "processing_time": 92.05949902534485,
+    "chars_per_sec": 928.2040517782398,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "editor_2022",
+    "correct_cite_key": "zhang_2022",
+    "processing_time": 66.43422484397888,
+    "chars_per_sec": 781.8861456123068,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "tehran_2020",
+    "correct_cite_key": "asadi_2021",
+    "processing_time": 31.534836053848267,
+    "chars_per_sec": 871.1318477473947,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "haindl_2022"
+  },
+  {
+    "success": true,
+    "original_cite_key": "pareja_2020",
+    "correct_cite_key": "pareja_2020",
+    "processing_time": 60.207478046417236,
+    "chars_per_sec": 782.477551437706,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2025",
+    "correct_cite_key": "li_2025",
+    "processing_time": 116.98989272117615,
+    "chars_per_sec": 741.5255966321383,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "rakuten_2020"
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2022",
+    "correct_cite_key": "li_2022",
+    "processing_time": 124.77881813049316,
+    "chars_per_sec": 901.1625665696276,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "christino_2022",
+    "correct_cite_key": "christino_2023",
+    "processing_time": 123.06566405296326,
+    "chars_per_sec": 794.055764879668,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "dunbar_2022",
+    "correct_cite_key": "dunbar_2022",
+    "processing_time": 65.90294218063354,
+    "chars_per_sec": 909.3068991631462,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "wisconsinmadison_2023",
+    "correct_cite_key": "alhanahnah_2023",
+    "processing_time": 50.16962718963623,
+    "chars_per_sec": 954.6812022134001,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "liu_2024b"
+  },
+  {
+    "success": true,
+    "original_cite_key": "tang_2023",
+    "correct_cite_key": "tang_2023",
+    "processing_time": 32.32662773132324,
+    "chars_per_sec": 929.9145042237753,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "lin_2024b",
+    "correct_cite_key": "qi_2024",
+    "processing_time": 35.04480218887329,
+    "chars_per_sec": 817.6390851222334,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ren_2025",
+    "correct_cite_key": "yang_2025",
+    "processing_time": 82.22173690795898,
+    "chars_per_sec": 946.5136948775247,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "tang_2024",
+    "correct_cite_key": "tang_2024",
+    "processing_time": 128.9682002067566,
+    "chars_per_sec": 699.9399840835399,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "kejriwal_2023",
+    "correct_cite_key": "kejriwal_2023",
+    "processing_time": 126.3164427280426,
+    "chars_per_sec": 829.2032116951548,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "majesty_2024",
+    "correct_cite_key": "posillico_2024",
+    "processing_time": 133.40886306762695,
+    "chars_per_sec": 742.3719663197762,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "bloor_2018",
+    "correct_cite_key": "bloor_2018",
+    "processing_time": 25.185569047927856,
+    "chars_per_sec": 1001.5656168815208,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "hendler_2014",
+    "correct_cite_key": "hendler_2014",
+    "processing_time": 42.96481680870056,
+    "chars_per_sec": 1165.9772744534393,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2022b",
+    "correct_cite_key": "wang_2020",
+    "processing_time": 109.21121001243591,
+    "chars_per_sec": 876.1737919495991,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "banking_2022"
+  },
+  {
+    "success": true,
+    "original_cite_key": "mohammadi_2024",
+    "correct_cite_key": "mohammadi_2024",
+    "processing_time": 203.04406309127808,
+    "chars_per_sec": 1184.7723904729796,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "pan_2025",
+    "correct_cite_key": "wei_2025",
+    "processing_time": 90.9270281791687,
+    "chars_per_sec": 838.0016539180884,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "sciences_2019",
+    "correct_cite_key": "ma_2022",
+    "processing_time": 177.27679109573364,
+    "chars_per_sec": 906.6781895504888,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "callahan_2024",
+    "correct_cite_key": "callahan_2024",
+    "processing_time": 144.6380741596222,
+    "chars_per_sec": 854.9685186179128,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "sesana_2024",
+    "correct_cite_key": "salvalai_2024",
+    "processing_time": 53.00038504600525,
+    "chars_per_sec": 913.502797347115,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "chu_2021",
+    "correct_cite_key": "chu_2024",
+    "processing_time": 179.26419615745544,
+    "chars_per_sec": 699.1914876850728,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "herath_2024",
+    "correct_cite_key": "herath_2024",
+    "processing_time": 39.55749297142029,
+    "chars_per_sec": 1091.8538247912948,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "rashahendaw_2024",
+    "correct_cite_key": "hendawi_2024",
+    "processing_time": 49.20056176185608,
+    "chars_per_sec": 1006.3706231579438,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "zhang_2021b"
+  },
+  {
+    "success": true,
+    "original_cite_key": "piechocki_2022",
+    "correct_cite_key": "piechocki_2022",
+    "processing_time": 62.52506899833679,
+    "chars_per_sec": 833.5216711457979,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "koutsoubisa_2017",
+    "correct_cite_key": "koutsoubis_2024",
+    "processing_time": 135.69641494750977,
+    "chars_per_sec": 940.8796838839626,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "skipped": true,
+    "cite_key": "budhdeo_2021"
+  },
+  {
+    "success": true,
+    "original_cite_key": "discovery_2024",
+    "correct_cite_key": "hu_2024",
+    "processing_time": 33.49762272834778,
+    "chars_per_sec": 1041.9545375816447,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "nath_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "sun_2025",
+    "correct_cite_key": "sun_2024",
+    "processing_time": 32.79631209373474,
+    "chars_per_sec": 845.7353351415006,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "carbonaro_2023"
+  },
+  {
+    "success": true,
+    "original_cite_key": "skjveland_2024",
+    "correct_cite_key": "skj\u00e6veland_2024",
+    "processing_time": 129.5557508468628,
+    "chars_per_sec": 901.5964110930742,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ren_2023",
+    "correct_cite_key": "ren_2023",
+    "processing_time": 33.463342905044556,
+    "chars_per_sec": 791.1941157561033,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "gambarelli_2022",
+    "correct_cite_key": "gambarelli_2022",
+    "processing_time": 88.78156685829163,
+    "chars_per_sec": 921.4975911675891,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "yutongchen_2024",
+    "correct_cite_key": "cheng_2024",
+    "processing_time": 108.12912583351135,
+    "chars_per_sec": 897.2235672133106,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "plailly_2019",
+    "correct_cite_key": "plailly_2019",
+    "processing_time": 98.72339105606079,
+    "chars_per_sec": 841.8369660013599,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhu_2025",
+    "correct_cite_key": "zhu_2025",
+    "processing_time": 78.17725706100464,
+    "chars_per_sec": 863.2561762474907,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhu_2022",
+    "correct_cite_key": "zhu_2024",
+    "processing_time": 83.2978003025055,
+    "chars_per_sec": 764.0537897623891,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2024a",
+    "correct_cite_key": "liu_2024",
+    "processing_time": 144.70429611206055,
+    "chars_per_sec": 945.2794676812599,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "jinheonbae_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "universit_2024",
+    "correct_cite_key": "khorashadizadeh_2024",
+    "processing_time": 78.26070189476013,
+    "chars_per_sec": 856.5729462808246,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "hewasinghage_2016"
+  },
+  {
+    "success": true,
+    "original_cite_key": "fang_2020",
+    "correct_cite_key": "fang_2020",
+    "processing_time": 204.31995511054993,
+    "chars_per_sec": 822.0978705144935,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "gaffineta_2002"
+  },
+  {
+    "success": true,
+    "skipped": true,
+    "cite_key": "driskell_2021"
+  },
+  {
+    "success": true,
+    "original_cite_key": "hur_2023",
+    "correct_cite_key": "hur_2023",
+    "processing_time": 134.99574303627014,
+    "chars_per_sec": 900.6802530605147,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "mazzuto_2023"
+  },
+  {
+    "success": true,
+    "original_cite_key": "galkin_2024",
+    "correct_cite_key": "gastinger_2024",
+    "processing_time": 144.97137212753296,
+    "chars_per_sec": 832.9989447417603,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "pan_2024",
+    "correct_cite_key": "pan_2023",
+    "processing_time": 232.1888382434845,
+    "chars_per_sec": 839.6742990528784,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "chen_2023a",
+    "correct_cite_key": "chen_2023",
+    "processing_time": 229.02366185188293,
+    "chars_per_sec": 769.6148012601121,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "bai_2023",
+    "correct_cite_key": "bai_2023",
+    "processing_time": 183.31285285949707,
+    "chars_per_sec": 850.6550280984363,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "words_2021",
+    "correct_cite_key": "kessel_2024",
+    "processing_time": 86.94636416435242,
+    "chars_per_sec": 872.5839283697788,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "aldughayfiq_2023",
+    "correct_cite_key": "aldughayfiq_2023",
+    "processing_time": 138.48879170417786,
+    "chars_per_sec": 783.680748921762,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "bernard_2024",
+    "correct_cite_key": "bernard_2024",
+    "processing_time": 38.02422499656677,
+    "chars_per_sec": 847.801631799483,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "yue_2023"
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "chen_2020"
+  },
+  {
+    "success": true,
+    "original_cite_key": "yxyan_2025",
+    "correct_cite_key": "yang_2025",
+    "processing_time": 101.61463499069214,
+    "chars_per_sec": 955.4922871975439,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ain_2024",
+    "correct_cite_key": "ain_2024",
+    "processing_time": 76.9701840877533,
+    "chars_per_sec": 989.1492517829877,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "xie_2022b"
+  },
+  {
+    "success": true,
+    "original_cite_key": "farshidi_2021",
+    "correct_cite_key": "farshidi_2021",
+    "processing_time": 133.45339584350586,
+    "chars_per_sec": 938.177700227421,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "xu_2023a",
+    "correct_cite_key": "xu_2023",
+    "processing_time": 140.20322918891907,
+    "chars_per_sec": 772.9208565801327,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "cudrmauroux_2020",
+    "correct_cite_key": "cudr\u00e9-mauroux_2020",
+    "processing_time": 36.4642059803009,
+    "chars_per_sec": 761.18481820212,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "pugliese_2024",
+    "correct_cite_key": "pugliese_2025",
+    "processing_time": 109.84389805793762,
+    "chars_per_sec": 1090.584020760208,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "clau_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "chakraborty_2022",
+    "correct_cite_key": "chakraborty_2022",
+    "processing_time": 47.96281695365906,
+    "chars_per_sec": 845.4257396761709,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "ilkou_2022a",
+    "correct_cite_key": "ilkou_2022",
+    "processing_time": 37.18879985809326,
+    "chars_per_sec": 946.9517740389267,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2022b",
+    "correct_cite_key": "li_2021",
+    "processing_time": 91.01719999313354,
+    "chars_per_sec": 878.0098707280472,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "anokhin_2024",
+    "correct_cite_key": "anokhin_2024",
+    "processing_time": 93.23921608924866,
+    "chars_per_sec": 903.8471528903981,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "song_2019",
+    "correct_cite_key": "song_2024",
+    "processing_time": 95.26369190216064,
+    "chars_per_sec": 869.964184099822,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "vaikunth_2024",
+    "correct_cite_key": "srinivas_2025",
+    "processing_time": 83.68972873687744,
+    "chars_per_sec": 843.3053979884756,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zha_2024",
+    "correct_cite_key": "zha_2023",
+    "processing_time": 218.18606686592102,
+    "chars_per_sec": 772.2124626021031,
+    "issues_fixed": [
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "lee_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "xie_2024a",
+    "correct_cite_key": "xie_2023",
+    "processing_time": 109.23094582557678,
+    "chars_per_sec": 698.8312645565882,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "anzia_2018",
+    "correct_cite_key": "yen_2020",
+    "processing_time": 128.79923796653748,
+    "chars_per_sec": 825.9520916392257,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "yu_2016",
+    "correct_cite_key": "yu_2016",
+    "processing_time": 59.58400893211365,
+    "chars_per_sec": 870.787329182811,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "seo_2020",
+    "correct_cite_key": "seo_2020",
+    "processing_time": 58.988327980041504,
+    "chars_per_sec": 914.1639006659984,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "skipped": true,
+    "cite_key": "peng_2019"
+  },
+  {
+    "success": true,
+    "original_cite_key": "fafrowicz_2022",
+    "correct_cite_key": "janik_2022",
+    "processing_time": 135.11785316467285,
+    "chars_per_sec": 812.5499142307648,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "peng_2021"
+  },
+  {
+    "success": true,
+    "original_cite_key": "cinti_2024",
+    "correct_cite_key": "cinti_2024",
+    "processing_time": 37.70082902908325,
+    "chars_per_sec": 1018.1208474325521,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "updates_2014",
+    "correct_cite_key": "buzi_2024",
+    "processing_time": 205.88280177116394,
+    "chars_per_sec": 673.0625327025663,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "esposito_2025",
+    "correct_cite_key": "esposito_2025",
+    "processing_time": 162.5612509250641,
+    "chars_per_sec": 822.9267383139587,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "azevedo_2023",
+    "correct_cite_key": "azevedo_2024",
+    "processing_time": 128.0773720741272,
+    "chars_per_sec": 792.122748593578,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "wu_2022"
+  },
+  {
+    "success": true,
+    "original_cite_key": "qin_2024",
+    "correct_cite_key": "qin_2024",
+    "processing_time": 63.88545799255371,
+    "chars_per_sec": 790.7120272329873,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhao_2023",
+    "correct_cite_key": "zhao_2023",
+    "processing_time": 30.73414397239685,
+    "chars_per_sec": 902.6768412654253,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "liang_2021",
+    "correct_cite_key": "liang_2021",
+    "processing_time": 120.52198028564453,
+    "chars_per_sec": 796.6015806615118,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "noise_2024",
+    "correct_cite_key": "fu_2023",
+    "processing_time": 126.13462400436401,
+    "chars_per_sec": 757.9837872009841,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "reyna_2022",
+    "correct_cite_key": "reyna_2022",
+    "processing_time": 49.68719005584717,
+    "chars_per_sec": 924.8460206413357,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "ammar_2021",
+    "correct_cite_key": "ammar_2021",
+    "processing_time": 94.23307085037231,
+    "chars_per_sec": 965.7968182370915,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "zhong_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "caia_2024",
+    "correct_cite_key": "cai_2024",
+    "processing_time": 151.54249596595764,
+    "chars_per_sec": 774.7331812878002,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2025",
+    "correct_cite_key": "wang_2025",
+    "processing_time": 81.00189781188965,
+    "chars_per_sec": 860.2020678800997,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": false,
+    "error": "API call failed",
+    "cite_key": "yc_2024"
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhao_2024",
+    "correct_cite_key": "zhao_2024",
+    "processing_time": 90.35079383850098,
+    "chars_per_sec": 1071.4128331072789,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "mia_2020",
+    "correct_cite_key": "mia_2024",
+    "processing_time": 101.10926795005798,
+    "chars_per_sec": 869.1290302230856,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "rilling_2008",
+    "correct_cite_key": "rilling_2008",
+    "processing_time": 111.79565095901489,
+    "chars_per_sec": 931.7804324802323,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "dragoni_2023",
+    "correct_cite_key": "dragoni_2023",
+    "processing_time": 85.06476187705994,
+    "chars_per_sec": 978.4192439201431,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "rushangeng_2014",
+    "correct_cite_key": "geng_2014",
+    "processing_time": 66.68812394142151,
+    "chars_per_sec": 803.6963230076665,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "din_2019",
+    "correct_cite_key": "din_2019",
+    "processing_time": 38.551037311553955,
+    "chars_per_sec": 930.9217728687205,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "aho_2023",
+    "correct_cite_key": "saariluoma_2024",
+    "processing_time": 75.19255590438843,
+    "chars_per_sec": 948.8173282833731,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "galke_2021",
+    "correct_cite_key": "galke_2023",
+    "processing_time": 193.229083776474,
+    "chars_per_sec": 779.892949108667,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "schpfeld_2019",
+    "correct_cite_key": "azeroual_2019",
+    "processing_time": 59.892335176467896,
+    "chars_per_sec": 940.0702082179262,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "uzctegui_2024",
+    "correct_cite_key": "uzc\u00e1tegui_2024",
+    "processing_time": 35.76281213760376,
+    "chars_per_sec": 1157.599123936619,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ferreira_2019",
+    "correct_cite_key": "aniakor_2024",
+    "processing_time": 184.22563672065735,
+    "chars_per_sec": 919.0143294590421,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "e065929_full",
+    "correct_cite_key": "joosse_2023",
+    "processing_time": 80.17273497581482,
+    "chars_per_sec": 860.4171982009763,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2024",
+    "correct_cite_key": "wang_2023",
+    "processing_time": 47.81278610229492,
+    "chars_per_sec": 815.9742023091895,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "maack_2025",
+    "correct_cite_key": "maack_2025",
+    "processing_time": 128.0515899658203,
+    "chars_per_sec": 840.8485988244265,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "shao_2023",
+    "correct_cite_key": "zhang_2023",
+    "processing_time": 79.60812091827393,
+    "chars_per_sec": 848.1169913470671,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "namesurnam_2023",
+    "correct_cite_key": "charles_2022",
+    "processing_time": 51.31647515296936,
+    "chars_per_sec": 931.6306285162623,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "schjetnan_2021",
+    "correct_cite_key": "zheng_2021",
+    "processing_time": 150.27506709098816,
+    "chars_per_sec": 809.968029668571,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhong_2022",
+    "correct_cite_key": "zhong_2022",
+    "processing_time": 271.05510902404785,
+    "chars_per_sec": 827.3225352860059,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "updates_2006",
+    "correct_cite_key": "chang_2025",
+    "processing_time": 91.96842694282532,
+    "chars_per_sec": 838.6900000796124,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhao_2022",
+    "correct_cite_key": "zhao_2022",
+    "processing_time": 63.72232007980347,
+    "chars_per_sec": 818.9281233741442,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2023a",
+    "correct_cite_key": "li_2023",
+    "processing_time": 49.29578185081482,
+    "chars_per_sec": 945.7198618146962,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "bontempelli_2017",
+    "correct_cite_key": "bontempelli_2017",
+    "processing_time": 34.573318004608154,
+    "chars_per_sec": 1021.2499707229119,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "wu_2024",
+    "correct_cite_key": "ding_2024",
+    "processing_time": 151.66292095184326,
+    "chars_per_sec": 711.894504750324,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "hohenfellner_2025",
+    "correct_cite_key": "hohenfellner_2025",
+    "processing_time": 43.0318489074707,
+    "chars_per_sec": 956.8029504967891,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "ramonell_2023",
+    "correct_cite_key": "ramonell_2023",
+    "processing_time": 119.7854871749878,
+    "chars_per_sec": 865.7893576748361,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "spens_2023",
+    "correct_cite_key": "spens_2024",
+    "processing_time": 156.87312483787537,
+    "chars_per_sec": 847.0603243055772,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "lu_2024",
+    "correct_cite_key": "li_2024",
+    "processing_time": 194.9818251132965,
+    "chars_per_sec": 770.7128595841224,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "hildebrandt_2014",
+    "correct_cite_key": "liu_2022",
+    "processing_time": 87.09961891174316,
+    "chars_per_sec": 727.936594811573,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "ai_2025",
+    "correct_cite_key": "rasmussen_2025",
+    "processing_time": 50.2876992225647,
+    "chars_per_sec": 916.6058641099465,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "reznik_2021",
+    "correct_cite_key": "reznik_2021",
+    "processing_time": 83.05426001548767,
+    "chars_per_sec": 1072.6963310898975,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "chami_2003",
+    "correct_cite_key": "chami_2009",
+    "processing_time": 35.59732103347778,
+    "chars_per_sec": 938.8066020072363,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "doerr_2017",
+    "correct_cite_key": "fafalios_2021",
+    "processing_time": 97.33456707000732,
+    "chars_per_sec": 896.300282891816,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "valle_2023",
+    "correct_cite_key": "vall\u00e9e_2023",
+    "processing_time": 47.89330792427063,
+    "chars_per_sec": 820.970647134493,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "dengel_2023",
+    "correct_cite_key": "jilek_2023",
+    "processing_time": 288.2056579589844,
+    "chars_per_sec": 771.9071220720457,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "skipped": true,
+    "cite_key": "longo_2019"
+  },
+  {
+    "success": true,
+    "original_cite_key": "bianchini_2022",
+    "correct_cite_key": "bianchini_2023",
+    "processing_time": 117.98095703125,
+    "chars_per_sec": 1026.7504438696326,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhou_2025",
+    "correct_cite_key": "zhou_2025",
+    "processing_time": 102.57610511779785,
+    "chars_per_sec": 880.0197657762064,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2018",
+    "correct_cite_key": "li_2018",
+    "processing_time": 51.82839107513428,
+    "chars_per_sec": 827.3264732034498,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "saxena_2021",
+    "correct_cite_key": "saxena_2020",
+    "processing_time": 81.88171172142029,
+    "chars_per_sec": 773.3472917058557,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "karras_2020",
+    "correct_cite_key": "karras_2023",
+    "processing_time": 117.69176697731018,
+    "chars_per_sec": 772.5604121274622,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "cao_2020",
+    "correct_cite_key": "cao_2020",
+    "processing_time": 127.19006490707397,
+    "chars_per_sec": 791.870025961425,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhang_2022",
+    "correct_cite_key": "zhang_2023",
+    "processing_time": 67.29702401161194,
+    "chars_per_sec": 907.1574991111961,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "schmitt_2020b",
+    "correct_cite_key": "schmitt_2021",
+    "processing_time": 104.61577796936035,
+    "chars_per_sec": 937.4207400027389,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "m_2024",
+    "correct_cite_key": "sameera_2023",
+    "processing_time": 217.47619199752808,
+    "chars_per_sec": 946.604766752307,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2020",
+    "correct_cite_key": "li_2020",
+    "processing_time": 30.9561710357666,
+    "chars_per_sec": 901.1127367066896,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "janakiramal_2024",
+    "correct_cite_key": "ramal_2024",
+    "processing_time": 38.0606632232666,
+    "chars_per_sec": 968.8217933485407,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "schatz_2023",
+    "correct_cite_key": "schatz_2023",
+    "processing_time": 70.84786009788513,
+    "chars_per_sec": 914.7206409687244,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "yan_2024b",
+    "correct_cite_key": "yan_2024",
+    "processing_time": 72.67240381240845,
+    "chars_per_sec": 826.2558667386127,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "malec_2022",
+    "correct_cite_key": "malec_2022",
+    "processing_time": 288.2529263496399,
+    "chars_per_sec": 874.5513989829263,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "rad_2024",
+    "correct_cite_key": "rad_2024",
+    "processing_time": 48.23900628089905,
+    "chars_per_sec": 1139.9695856043058,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhanga_2024",
+    "correct_cite_key": "zhanga_2024",
+    "processing_time": 287.82570219039917,
+    "chars_per_sec": 814.8160439294601,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "liyitong_2024",
+    "correct_cite_key": "chen_2023",
+    "processing_time": 138.59343099594116,
+    "chars_per_sec": 642.8587513834567,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "general_2023",
+    "correct_cite_key": "chen_2023",
+    "processing_time": 200.47717118263245,
+    "chars_per_sec": 829.780263850866,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "hu_2024",
+    "correct_cite_key": "hu_2024",
+    "processing_time": 88.14733099937439,
+    "chars_per_sec": 849.9746861369149,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "intel_2017",
+    "correct_cite_key": "lakshminarayana_2019",
+    "processing_time": 41.94406700134277,
+    "chars_per_sec": 905.4677506304804,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "su_2024",
+    "correct_cite_key": "su_2024",
+    "processing_time": 118.8222861289978,
+    "chars_per_sec": 739.8527907850604,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "fabr_2024",
+    "correct_cite_key": "effendi_2024",
+    "processing_time": 80.84286999702454,
+    "chars_per_sec": 923.6930851508416,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "akroyd_2021",
+    "correct_cite_key": "akroyd_2021",
+    "processing_time": 113.48184394836426,
+    "chars_per_sec": 933.8145760851244,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "balog_2019",
+    "correct_cite_key": "balog_2019",
+    "processing_time": 29.850849151611328,
+    "chars_per_sec": 949.1187287873403,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "rossi_2020",
+    "correct_cite_key": "rossi_2020",
+    "processing_time": 95.51255798339844,
+    "chars_per_sec": 703.0070329774961,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "ganguli_2025",
+    "correct_cite_key": "ganguli_2024",
+    "processing_time": 56.1899950504303,
+    "chars_per_sec": 924.274863405639,
+    "issues_fixed": [
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "wang_2023a",
+    "correct_cite_key": "wang_2023",
+    "processing_time": 161.50693798065186,
+    "chars_per_sec": 847.0843526015552,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "li_2021",
+    "correct_cite_key": "li_2021",
+    "processing_time": 98.03374600410461,
+    "chars_per_sec": 701.8909590287309,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "sharma_2025",
+    "correct_cite_key": "sharma_2019",
+    "processing_time": 41.465697050094604,
+    "chars_per_sec": 840.7431317959832,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhang_2024",
+    "correct_cite_key": "zhang_2024",
+    "processing_time": 65.15447092056274,
+    "chars_per_sec": 794.7420839796571,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "hoseini_2024",
+    "correct_cite_key": "hoseini_2024",
+    "processing_time": 222.43531799316406,
+    "chars_per_sec": 810.7390572100702,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "graphs_2018",
+    "correct_cite_key": "vogt_2023",
+    "processing_time": 273.40286111831665,
+    "chars_per_sec": 1070.79713358708,
+    "issues_fixed": [
+      "Contains HTML tags"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "kimura_2025",
+    "correct_cite_key": "kimura_2025",
+    "processing_time": 111.43954920768738,
+    "chars_per_sec": 778.4399759041365,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "lyu_2021",
+    "correct_cite_key": "ma_2021",
+    "processing_time": 78.93218111991882,
+    "chars_per_sec": 887.9774890993419,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "shimizu_2021",
+    "correct_cite_key": "rayan_2023",
+    "processing_time": 19.682533979415894,
+    "chars_per_sec": 814.0212036090423,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "liu_2022",
+    "correct_cite_key": "liu_2022",
+    "processing_time": 28.136889934539795,
+    "chars_per_sec": 878.4908373848776,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "chen_2024a",
+    "correct_cite_key": "chen_2024",
+    "processing_time": 101.54807901382446,
+    "chars_per_sec": 902.2622671919447,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "boyd_2025",
+    "correct_cite_key": "boyd_2025",
+    "processing_time": 93.76277780532837,
+    "chars_per_sec": 1043.8150648992203,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "liu_2025",
+    "correct_cite_key": "liu_2025",
+    "processing_time": 92.89706587791443,
+    "chars_per_sec": 734.9747740120212,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": false
+  },
+  {
+    "success": true,
+    "original_cite_key": "nye_2023",
+    "correct_cite_key": "nye_2021",
+    "processing_time": 38.97714114189148,
+    "chars_per_sec": 810.0388862554692,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  },
+  {
+    "success": true,
+    "original_cite_key": "zhou_2024a",
+    "correct_cite_key": "shang_2024",
+    "processing_time": 114.26799321174622,
+    "chars_per_sec": 891.9733088436062,
+    "issues_fixed": [
+      "Contains HTML tags",
+      "Has broken references",
+      "Has non-clickable references"
+    ],
+    "cite_key_corrected": true
+  }
+]
