@@ -1,0 +1,93 @@
+{
+  "papers_count": 312,
+  "years": [
+    2025,
+    2024,
+    2023,
+    2022,
+    2021,
+    2020,
+    2019,
+    2018,
+    2017,
+    2016,
+    2015,
+    2014,
+    2013,
+    2012,
+    2011,
+    2010,
+    2009,
+    2008,
+    2006,
+    2005,
+    2003
+  ],
+  "relevancy_levels": [
+    {
+      "relevancy": "HIGH",
+      "count": 134
+    },
+    {
+      "relevancy": "MEDIUM",
+      "count": 88
+    },
+    {
+      "relevancy": "LOW",
+      "count": 71
+    },
+    {
+      "relevancy": "SUPER",
+      "count": 19
+    }
+  ],
+  "top_tags": [
+    [
+      "data-integration",
+      180
+    ],
+    [
+      "knowledge-graph",
+      179
+    ],
+    [
+      "temporal-data",
+      28
+    ],
+    [
+      "healthcare",
+      24
+    ],
+    [
+      "educational-technology",
+      24
+    ],
+    [
+      "Knowledge Graphs",
+      20
+    ],
+    [
+      "ai",
+      16
+    ],
+    [
+      "Graph Neural Networks",
+      15
+    ],
+    [
+      "knowledge_graph",
+      14
+    ],
+    [
+      "machine_learning",
+      14
+    ]
+  ],
+  "files": {
+    "papers": "papers.json",
+    "statistics": "statistics.json",
+    "years": "years.json",
+    "relevancy": "relevancy.json"
+  },
+  "generated": "2025-07-14T03:16:37.713001"
+}
