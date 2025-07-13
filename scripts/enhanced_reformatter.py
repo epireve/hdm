@@ -97,11 +97,16 @@ PAPER CONTENT TO REFORMAT:
         self.logger = self._setup_logger()
         self.progress_lock = Lock()
         
-        # Track cite key corrections
+        # Track cite key corrections and uniqueness
         self.cite_key_corrections = {}
+        self.used_cite_keys = set()
+        
+        # Pre-populate used cite keys from existing output directory
+        self._populate_existing_cite_keys()
         
         self.logger.info(f"📁 Output directory: {self.output_dir}")
         self.logger.info(f"🤖 Using model: {self.model}")
+        self.logger.info(f"🔑 Pre-loaded {len(self.used_cite_keys)} existing cite keys")
         
     def _setup_logger(self) -> logging.Logger:
         """Set up logging configuration."""
@@ -117,6 +122,20 @@ PAPER CONTENT TO REFORMAT:
             logger.addHandler(console_handler)
         
         return logger
+    
+    def _populate_existing_cite_keys(self):
+        """Pre-populate used cite keys from existing output directory and markdown_papers"""
+        # Check existing output directory
+        if self.output_dir.exists():
+            for folder in self.output_dir.iterdir():
+                if folder.is_dir():
+                    self.used_cite_keys.add(folder.name)
+        
+        # Also check original markdown_papers directory to avoid conflicts
+        if self.markdown_dir.exists():
+            for folder in self.markdown_dir.iterdir():
+                if folder.is_dir():
+                    self.used_cite_keys.add(folder.name)
     
     def extract_authors_from_content(self, content: str) -> List[str]:
         """Extract author names from paper content using multiple patterns"""
@@ -201,22 +220,41 @@ PAPER CONTENT TO REFORMAT:
         return None
     
     def generate_cite_key(self, authors: List[str], year: int) -> str:
-        """Generate proper cite key from authors and year"""
+        """Generate proper cite key from authors and year with uniqueness handling"""
         if not authors:
-            return f"unknown_{year}"
-        
-        first_author = authors[0]
-        name_parts = first_author.split()
-        
-        if len(name_parts) >= 2:
-            last_name = name_parts[-1].lower()
+            base_key = f"unknown_{year}"
         else:
-            last_name = first_author.lower()
+            first_author = authors[0]
+            name_parts = first_author.split()
+            
+            if len(name_parts) >= 2:
+                last_name = name_parts[-1].lower()
+            else:
+                last_name = first_author.lower()
+            
+            # Clean last name
+            last_name = re.sub(r'[^a-z]', '', last_name)
+            base_key = f"{last_name}_{year}"
         
-        # Clean last name
-        last_name = re.sub(r'[^a-z]', '', last_name)
+        # Ensure uniqueness by appending letters (a, b, c, etc.)
+        cite_key = base_key
+        suffix = ""
+        counter = 0
         
-        return f"{last_name}_{year}"
+        while cite_key in self.used_cite_keys:
+            counter += 1
+            suffix = chr(ord('a') + counter - 1)  # a, b, c, d, etc.
+            cite_key = f"{base_key}{suffix}"
+            
+            # Safety check to prevent infinite loop
+            if counter > 25:  # z is the 26th letter
+                cite_key = f"{base_key}_{counter}"
+                break
+        
+        # Add to used set
+        self.used_cite_keys.add(cite_key)
+        
+        return cite_key
     
     def needs_reformatting(self, paper_path: Path) -> Tuple[bool, List[str]]:
         """Check if a paper needs reformatting"""
