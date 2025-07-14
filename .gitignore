@@ -84,3 +84,4 @@ yaml_frontmatter_analysis_report.md
 
 # Large Excel files
 *.xlsx
+.venv/
