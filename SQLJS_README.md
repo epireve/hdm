@@ -4,7 +4,7 @@ This solution allows you to use SQLite databases directly on GitHub Pages withou
 
 ## How It Works
 
-The `literature_review_sqljs.html` page uses **sql.js**, a JavaScript implementation of SQLite compiled to WebAssembly. This allows the browser to read and query SQLite database files directly.
+The `literature_review.html` page uses **sql.js**, a JavaScript implementation of SQLite compiled to WebAssembly. This allows the browser to read and query SQLite database files directly.
 
 ## Features
 
@@ -16,7 +16,7 @@ The `literature_review_sqljs.html` page uses **sql.js**, a JavaScript implementa
 
 ## Files
 
-- `literature_review_sqljs.html` - The main page that loads and queries the SQLite database
+- `literature_review.html` - The main page that loads and queries the SQLite database
 - `hdm_papers.db` - Your SQLite database file (served as static file)
 - Uses sql.js from CDN (no local dependencies needed)
 
@@ -24,7 +24,7 @@ The `literature_review_sqljs.html` page uses **sql.js**, a JavaScript implementa
 
 1. **Access the page**:
    ```
-   http://localhost:8080/literature_review_sqljs.html
+   http://localhost:8080/literature_review.html
    ```
 
 2. **How it works**:
