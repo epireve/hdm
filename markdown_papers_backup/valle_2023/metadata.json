@@ -1,0 +1,616 @@
+{
+  "table_of_contents": [
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.890625,
+          157.566650390625
+        ],
+        [
+          96.7626953125,
+          157.566650390625
+        ],
+        [
+          96.7626953125,
+          167.022705078125
+        ],
+        [
+          48.890625,
+          167.022705078125
+        ]
+      ]
+    },
+    {
+      "title": "COPYRIGHT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          49.363525390625,
+          394.07080078125
+        ],
+        [
+          82.06640625,
+          394.07080078125
+        ],
+        [
+          82.06640625,
+          402.29345703125
+        ],
+        [
+          49.363525390625,
+          402.29345703125
+        ]
+      ]
+    },
+    {
+      "title": "Digital twin for healthcare systems",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          212.2958984375,
+          124.059326171875
+        ],
+        [
+          547.69140625,
+          124.059326171875
+        ],
+        [
+          547.69140625,
+          146.877197265625
+        ],
+        [
+          212.2958984375,
+          146.877197265625
+        ]
+      ]
+    },
+    {
+      "title": "Alexandre Vall\u00e9e*",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          212.732421875,
+          159.005615234375
+        ],
+        [
+          303.1286315917969,
+          159.005615234375
+        ],
+        [
+          303.1286315917969,
+          172.0872802734375
+        ],
+        [
+          212.732421875,
+          172.0872802734375
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          214.0157012939453,
+          399.2099609375
+        ],
+        [
+          246.19921875,
+          399.2099609375
+        ],
+        [
+          246.19921875,
+          408.2548828125
+        ],
+        [
+          214.0157012939453,
+          408.2548828125
+        ]
+      ]
+    },
+    {
+      "title": "Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          214.0157012939453,
+          440.734375
+        ],
+        [
+          292.470703125,
+          440.734375
+        ],
+        [
+          292.470703125,
+          456.1816711425781
+        ],
+        [
+          214.0157012939453,
+          456.1816711425781
+        ]
+      ]
+    },
+    {
+      "title": "Search strategy",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          48.81787109375,
+          81.4556884765625
+        ],
+        [
+          134.95849609375,
+          81.4556884765625
+        ],
+        [
+          134.95849609375,
+          93.91033935546875
+        ],
+        [
+          48.81787109375,
+          93.91033935546875
+        ]
+      ]
+    },
+    {
+      "title": "Digital twin",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          49.10888671875,
+          204.36700439453125
+        ],
+        [
+          112.84130859375,
+          204.36700439453125
+        ],
+        [
+          112.84130859375,
+          216.46142578125
+        ],
+        [
+          49.10888671875,
+          216.46142578125
+        ]
+      ]
+    },
+    {
+      "title": "Enhanced patient care through digital twin\ntechnology",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          303.23828125,
+          253.87451171875
+        ],
+        [
+          545.9453125,
+          253.87451171875
+        ],
+        [
+          545.9453125,
+          278.84283447265625
+        ],
+        [
+          303.23828125,
+          278.84283447265625
+        ]
+      ]
+    },
+    {
+      "title": "Predictive analytics and preventive\ninterventions through digital twin\ntechnology",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          49.0361328125,
+          378.44775390625
+        ],
+        [
+          243.2890625,
+          378.44775390625
+        ],
+        [
+          243.2890625,
+          418.32763671875
+        ],
+        [
+          49.0361328125,
+          418.32763671875
+        ]
+      ]
+    },
+    {
+      "title": "Optimization of clinical operations through\ndigital twin technology",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          303.8203125,
+          504.32916259765625
+        ],
+        [
+          546.52734375,
+          504.32916259765625
+        ],
+        [
+          546.52734375,
+          529.1279296875
+        ],
+        [
+          303.8203125,
+          529.1279296875
+        ]
+      ]
+    },
+    {
+      "title": "Training and simulation through digital twin\ntechnology",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          48.52685546875,
+          716.8708648681641
+        ],
+        [
+          291.015625,
+          716.8708648681641
+        ],
+        [
+          291.015625,
+          741.68359375
+        ],
+        [
+          48.52685546875,
+          741.68359375
+        ]
+      ]
+    },
+    {
+      "title": "Conclusion",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          49.47265625,
+          264.97509765625
+        ],
+        [
+          120.6259765625,
+          264.97509765625
+        ],
+        [
+          120.6259765625,
+          279.18646240234375
+        ],
+        [
+          49.47265625,
+          279.18646240234375
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          48.890625,
+          524.1943359375
+        ],
+        [
+          119.1708984375,
+          524.1943359375
+        ],
+        [
+          119.1708984375,
+          538.1728515625
+        ],
+        [
+          48.890625,
+          538.1728515625
+        ]
+      ]
+    },
+    {
+      "title": "Author contributions",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.111328125,
+          206.491455078125
+        ],
+        [
+          435.650390625,
+          206.491455078125
+        ],
+        [
+          435.650390625,
+          220.8494873046875
+        ],
+        [
+          304.111328125,
+          220.8494873046875
+        ]
+      ]
+    },
+    {
+      "title": "Conflict of interest",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.111328125,
+          295.9268798828125
+        ],
+        [
+          424.591796875,
+          295.9268798828125
+        ],
+        [
+          424.591796875,
+          312.8720703125
+        ],
+        [
+          304.111328125,
+          312.8720703125
+        ]
+      ]
+    },
+    {
+      "title": "Publisher's note",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          304.72430419921875,
+          389.7750244140625
+        ],
+        [
+          406.83984375,
+          389.7750244140625
+        ],
+        [
+          406.83984375,
+          404.19427490234375
+        ],
+        [
+          304.72430419921875,
+          404.19427490234375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          79
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          322
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          294
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          293
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          337
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          25
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          331
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "Text",
+          30
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/frontiers_dt_healthcare_systems"
+}

@@ -1,0 +1,498 @@
+{
+  "table_of_contents": [
+    {
+      "title": "and Use of Knowledge\nKnowledge Net: Model and System for Accumulation, Representation,\nand Use of Knowledge\nand Use of Knowledge\nOlga Tushkanova*, Vladimir Samoylov**\nand Use of Knowledge\nOlga Tushkanova*, Vladimir Samoylov**\nKnowledge Net: Model and System for Accumulation, Representation,\nand Use of Knowledge\nKnowledge Net: Model and System for Accumulation, Representation,\nand Use of Knowledge",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          86.2861328125,
+          85.38427734375
+        ],
+        [
+          509.859375,
+          85.38427734375
+        ],
+        [
+          509.859375,
+          130.92755126953125
+        ],
+        [
+          86.2861328125,
+          130.92755126953125
+        ]
+      ]
+    },
+    {
+      "title": "1. INTRODUCTION\n1. INTRODUCTION\n1. INTRODUCTION\n1. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          122.517578125,
+          379.4958190917969
+        ],
+        [
+          211.27734375,
+          379.4958190917969
+        ],
+        [
+          211.27734375,
+          406.5836486816406
+        ],
+        [
+          122.517578125,
+          406.5836486816406
+        ]
+      ]
+    },
+    {
+      "title": "2. KEY FEATURES OF KNOWLEDGE NET MODEL",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          51.3642578125,
+          223.50634765624997
+        ],
+        [
+          279.8115234375,
+          223.50634765624997
+        ],
+        [
+          279.8115234375,
+          235.12445068359375
+        ],
+        [
+          51.3642578125,
+          235.12445068359375
+        ]
+      ]
+    },
+    {
+      "title": "3. RELATED WORKS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          381.578369140625,
+          170.295166015625
+        ],
+        [
+          477.265625,
+          170.295166015625
+        ],
+        [
+          477.265625,
+          182.08599853515625
+        ],
+        [
+          381.578369140625,
+          182.08599853515625
+        ]
+      ]
+    },
+    {
+      "title": "4. BACKGROUND",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          124.91845703125,
+          467.2357482910156
+        ],
+        [
+          206.71348571777344,
+          467.2357482910156
+        ],
+        [
+          206.71348571777344,
+          477.3157653808594
+        ],
+        [
+          124.91845703125,
+          477.3157653808594
+        ]
+      ]
+    },
+    {
+      "title": "5. KNOWLEDGE NET MODEL \nAND ITS IMPLEMENTATION METHODS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          334.958984375,
+          645.1581268310547
+        ],
+        [
+          521.791015625,
+          645.1581268310547
+        ],
+        [
+          521.791015625,
+          666.7596130371094
+        ],
+        [
+          334.958984375,
+          666.7596130371094
+        ]
+      ]
+    },
+    {
+      "title": "6. THE SOFTWARE SUPPORTING \nKNOWLEDGE NET MODEL",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          351.546875,
+          531.34814453125
+        ],
+        [
+          506.3114013671875,
+          531.34814453125
+        ],
+        [
+          506.3114013671875,
+          552.9496154785156
+        ],
+        [
+          351.546875,
+          552.9496154785156
+        ]
+      ]
+    },
+    {
+      "title": "7. USE CASE",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          400.2798156738281,
+          103.999267578125
+        ],
+        [
+          458.05859375,
+          103.999267578125
+        ],
+        [
+          458.05859375,
+          114.92279052734375
+        ],
+        [
+          400.2798156738281,
+          114.92279052734375
+        ]
+      ]
+    },
+    {
+      "title": "that the prototype needs to be improved, including its user ex-\nperience and performance issues.",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          41.10595703125,
+          62.75817871093749
+        ],
+        [
+          290.724609375,
+          62.75817871093749
+        ],
+        [
+          290.724609375,
+          85.123046875
+        ],
+        [
+          41.10595703125,
+          85.123046875
+        ]
+      ]
+    },
+    {
+      "title": "8. CONCLUSION",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          129.12771606445312,
+          253.74658203124997
+        ],
+        [
+          205.748046875,
+          253.74658203124997
+        ],
+        [
+          205.748046875,
+          266.0792236328125
+        ],
+        [
+          129.12771606445312,
+          266.0792236328125
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          397.1348571777344,
+          170.682861328125
+        ],
+        [
+          460.38671875,
+          170.682861328125
+        ],
+        [
+          460.38671875,
+          182.84893798828125
+        ],
+        [
+          397.1348571777344,
+          182.84893798828125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1491
+        ],
+        [
+          "Line",
+          494
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "Picture",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          315
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          348
+        ],
+        [
+          "Line",
+          117
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          357
+        ],
+        [
+          "Line",
+          98
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          299
+        ],
+        [
+          "Line",
+          87
+        ],
+        [
+          "TableCell",
+          50
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          351
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "ListItem",
+          12
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/1-s2.0-S2405896319313291-main"
+}

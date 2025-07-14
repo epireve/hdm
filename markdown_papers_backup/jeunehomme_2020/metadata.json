@@ -1,0 +1,849 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Cognition",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          269.0077819824219,
+          85.6322021484375
+        ],
+        [
+          332.048828125,
+          85.6322021484375
+        ],
+        [
+          332.048828125,
+          101.40435791015625
+        ],
+        [
+          269.0077819824219,
+          101.40435791015625
+        ]
+      ]
+    },
+    {
+      "title": "Brief article",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          32.9757080078125,
+          145.676513671875
+        ],
+        [
+          87.76067352294922,
+          145.676513671875
+        ],
+        [
+          87.76067352294922,
+          156.725830078125
+        ],
+        [
+          32.9757080078125,
+          156.725830078125
+        ]
+      ]
+    },
+    {
+      "title": "The temporal compression of events during episodic future thinking",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          36.958984375,
+          165.5458984375
+        ],
+        [
+          447.0843200683594,
+          165.5458984375
+        ],
+        [
+          447.0843200683594,
+          179.29571533203125
+        ],
+        [
+          36.958984375,
+          179.29571533203125
+        ]
+      ]
+    },
+    {
+      "title": "ARTICLE INFO",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          37.58740234375,
+          239.59570312499997
+        ],
+        [
+          111.84512329101562,
+          239.59570312499997
+        ],
+        [
+          111.84512329101562,
+          248.51269531249997
+        ],
+        [
+          37.58740234375,
+          248.51269531249997
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          203.13059997558594,
+          239.98339843749997
+        ],
+        [
+          261.33203125,
+          239.98339843749997
+        ],
+        [
+          261.33203125,
+          248.90039062499997
+        ],
+        [
+          203.13059997558594,
+          248.90039062499997
+        ]
+      ]
+    },
+    {
+      "title": "1. Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          36.486083984375,
+          379.35986328125
+        ],
+        [
+          97.0537109375,
+          379.35986328125
+        ],
+        [
+          97.0537109375,
+          388.2679443359375
+        ],
+        [
+          36.486083984375,
+          388.2679443359375
+        ]
+      ]
+    },
+    {
+      "title": "2. Method",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          37.2318115234375,
+          498.18847656249994
+        ],
+        [
+          78.21044921875,
+          498.18847656249994
+        ],
+        [
+          78.21044921875,
+          506.6363830566406
+        ],
+        [
+          37.2318115234375,
+          506.6363830566406
+        ]
+      ]
+    },
+    {
+      "title": "2.1. Participants",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          36.9771728515625,
+          519.5870971679688
+        ],
+        [
+          94.7255859375,
+          519.5870971679688
+        ],
+        [
+          94.7255859375,
+          527.6533203125
+        ],
+        [
+          36.9771728515625,
+          527.6533203125
+        ]
+      ]
+    },
+    {
+      "title": "2.2. Materials and procedure",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          37.1044921875,
+          582.3452453613281
+        ],
+        [
+          136.65847778320312,
+          582.3452453613281
+        ],
+        [
+          136.65847778320312,
+          590.4599609375
+        ],
+        [
+          37.1044921875,
+          590.4599609375
+        ]
+      ]
+    },
+    {
+      "title": "2.3. Scoring of verbal reports",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          305.56640625,
+          153.042724609375
+        ],
+        [
+          405.95648193359375,
+          153.042724609375
+        ],
+        [
+          405.95648193359375,
+          161.43988037109375
+        ],
+        [
+          305.56640625,
+          161.43988037109375
+        ]
+      ]
+    },
+    {
+      "title": "2.4. Statistical analyses",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.59283447265625,
+          258.01123046875
+        ],
+        [
+          386.9101257324219,
+          258.01123046875
+        ],
+        [
+          386.9101257324219,
+          266.03680419921875
+        ],
+        [
+          306.59283447265625,
+          266.03680419921875
+        ]
+      ]
+    },
+    {
+      "title": "3. Results",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          305.56640625,
+          351.6396484375
+        ],
+        [
+          345.7265625,
+          351.6396484375
+        ],
+        [
+          345.7265625,
+          360.2007751464844
+        ],
+        [
+          305.56640625,
+          360.2007751464844
+        ]
+      ]
+    },
+    {
+      "title": "3.1. Temporal compression of events",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.439453125,
+          373.1514892578125
+        ],
+        [
+          432.740234375,
+          373.1514892578125
+        ],
+        [
+          432.740234375,
+          381.1217041015625
+        ],
+        [
+          306.439453125,
+          381.1217041015625
+        ]
+      ]
+    },
+    {
+      "title": "3.2. Density of experience units",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.1484375,
+          550.9150390625
+        ],
+        [
+          413.82421875,
+          550.9150390625
+        ],
+        [
+          413.82421875,
+          558.9646759033203
+        ],
+        [
+          306.1484375,
+          558.9646759033203
+        ]
+      ]
+    },
+    {
+      "title": "3.3. Duration judgments",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          36.74072265625,
+          436.54492187499994
+        ],
+        [
+          120.24954986572266,
+          436.54492187499994
+        ],
+        [
+          120.24954986572266,
+          444.7340393066406
+        ],
+        [
+          36.74072265625,
+          444.7340393066406
+        ]
+      ]
+    },
+    {
+      "title": "4. Discussion",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          305.857421875,
+          447.01269531249994
+        ],
+        [
+          358.240234375,
+          447.01269531249994
+        ],
+        [
+          358.240234375,
+          455.22216796875
+        ],
+        [
+          305.857421875,
+          455.22216796875
+        ]
+      ]
+    },
+    {
+      "title": "5. Conclusions",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          36.849853515625,
+          571.8505859375
+        ],
+        [
+          94.46122741699219,
+          571.8505859375
+        ],
+        [
+          94.46122741699219,
+          579.8825225830078
+        ],
+        [
+          36.849853515625,
+          579.8825225830078
+        ]
+      ]
+    },
+    {
+      "title": "CRediT authorship contribution statement",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          37.58985137939453,
+          718.3481063842773
+        ],
+        [
+          200.80078125,
+          718.3481063842773
+        ],
+        [
+          200.80078125,
+          726.3183059692383
+        ],
+        [
+          37.58985137939453,
+          726.3183059692383
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgements",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.439453125,
+          101.19561767578125
+        ],
+        [
+          380.3608093261719,
+          101.19561767578125
+        ],
+        [
+          380.3608093261719,
+          109.16583251953125
+        ],
+        [
+          306.439453125,
+          109.16583251953125
+        ]
+      ]
+    },
+    {
+      "title": "Funding",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.1484375,
+          173.88134765625
+        ],
+        [
+          338.7421875,
+          173.88134765625
+        ],
+        [
+          338.7421875,
+          182.35540771484375
+        ],
+        [
+          306.1484375,
+          182.35540771484375
+        ]
+      ]
+    },
+    {
+      "title": "Appendix A. Supplementary material",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          305.857421875,
+          226.60791015624997
+        ],
+        [
+          450.201171875,
+          226.60791015624997
+        ],
+        [
+          450.201171875,
+          234.6822509765625
+        ],
+        [
+          305.857421875,
+          234.6822509765625
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          305.56640625,
+          278.94677734375
+        ],
+        [
+          348.63671875,
+          278.94677734375
+        ],
+        [
+          348.63671875,
+          286.9524230957031
+        ],
+        [
+          305.56640625,
+          286.9524230957031
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          36.631591796875,
+          35.9102783203125
+        ],
+        [
+          96.908203125,
+          35.9102783203125
+        ],
+        [
+          96.908203125,
+          43.712646484375
+        ],
+        [
+          36.631591796875,
+          43.712646484375
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          224
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          391
+        ],
+        [
+          "Line",
+          120
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          8
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          60
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          268
+        ],
+        [
+          "Line",
+          61
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          144
+        ],
+        [
+          "Line",
+          57
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          441
+        ],
+        [
+          "Line",
+          135
+        ],
+        [
+          "ListItem",
+          24
+        ],
+        [
+          "Reference",
+          24
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          102
+        ],
+        [
+          "Line",
+          25
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Reference",
+          8
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/1-s2.0-S0010027720302353-main"
+}

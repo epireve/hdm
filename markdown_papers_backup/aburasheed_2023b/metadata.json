@@ -1,0 +1,590 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Building Contextual Knowledge Graphs for\nPersonalized Learning Recommendations using Text\nMining and Semantic Graph Completion",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          63.052734375,
+          78.890625
+        ],
+        [
+          545.958984375,
+          78.890625
+        ],
+        [
+          545.958984375,
+          152.560546875
+        ],
+        [
+          63.052734375,
+          152.560546875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          140.25,
+          546.0
+        ],
+        [
+          212.3173828125,
+          546.0
+        ],
+        [
+          212.3173828125,
+          555.328125
+        ],
+        [
+          140.25,
+          555.328125
+        ]
+      ]
+    },
+    {
+      "title": "II. BACKGROUND",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          140.25,
+          346.5
+        ],
+        [
+          211.5,
+          346.5
+        ],
+        [
+          211.5,
+          356.25
+        ],
+        [
+          140.25,
+          356.25
+        ]
+      ]
+    },
+    {
+      "title": "III. CONTEXTUAL KNOWLEDGE GRAPH CONSTRUCTION",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          324.0,
+          111.0
+        ],
+        [
+          534.0,
+          111.0
+        ],
+        [
+          534.0,
+          120.3662109375
+        ],
+        [
+          324.0,
+          120.3662109375
+        ]
+      ]
+    },
+    {
+      "title": "A. Text Mining for Semantic Relation Extraction",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          311.25,
+          285.0
+        ],
+        [
+          500.25,
+          285.0
+        ],
+        [
+          500.25,
+          294.486328125
+        ],
+        [
+          311.25,
+          294.486328125
+        ]
+      ]
+    },
+    {
+      "title": "B. Knowledge Graph Construction",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          58.5,
+          253.5
+        ],
+        [
+          194.537109375,
+          253.5
+        ],
+        [
+          194.537109375,
+          262.58203125
+        ],
+        [
+          58.5,
+          262.58203125
+        ]
+      ]
+    },
+    {
+      "title": "IV. EVALUATION AND RESULTS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          112.95703125,
+          581.25
+        ],
+        [
+          235.5,
+          581.25
+        ],
+        [
+          235.5,
+          590.51953125
+        ],
+        [
+          112.95703125,
+          590.51953125
+        ]
+      ]
+    },
+    {
+      "title": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          312.0,
+          262.5
+        ],
+        [
+          401.25,
+          262.5
+        ],
+        [
+          401.25,
+          271.669921875
+        ],
+        [
+          312.0,
+          271.669921875
+        ]
+      ]
+    },
+    {
+      "title": "B. Evaluation of the Semantic Relation Extraction",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          312.75,
+          374.25
+        ],
+        [
+          505.5,
+          374.25
+        ],
+        [
+          505.5,
+          383.25
+        ],
+        [
+          312.75,
+          383.25
+        ]
+      ]
+    },
+    {
+      "title": "C. KG Evaluation Metrics",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          58.5,
+          199.5
+        ],
+        [
+          162.0,
+          199.5
+        ],
+        [
+          162.0,
+          208.634765625
+        ],
+        [
+          58.5,
+          208.634765625
+        ]
+      ]
+    },
+    {
+      "title": "1) Average Degree Centrality (ADC):",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          72.75,
+          321.75
+        ],
+        [
+          218.25,
+          321.75
+        ],
+        [
+          218.25,
+          331.03125
+        ],
+        [
+          72.75,
+          331.03125
+        ]
+      ]
+    },
+    {
+      "title": "Clustering Coefficient (CC):\n2)",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          68.020751953125,
+          462.0
+        ],
+        [
+          193.5,
+          462.0
+        ],
+        [
+          193.5,
+          471.0234375
+        ],
+        [
+          68.020751953125,
+          471.0234375
+        ]
+      ]
+    },
+    {
+      "title": "3) Weakly Connected Components (WCC):",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          67.90869140625,
+          602.25
+        ],
+        [
+          237.75,
+          602.25
+        ],
+        [
+          237.75,
+          611.40234375
+        ],
+        [
+          67.90869140625,
+          611.40234375
+        ]
+      ]
+    },
+    {
+      "title": "D. Oualitative expert-evaluation",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          313.5,
+          283.5
+        ],
+        [
+          438.75,
+          283.5
+        ],
+        [
+          438.75,
+          292.359375
+        ],
+        [
+          313.5,
+          292.359375
+        ]
+      ]
+    },
+    {
+      "title": "V. CONCLUSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          396.24609375,
+          550.5
+        ],
+        [
+          463.5,
+          550.5
+        ],
+        [
+          463.5,
+          560.35546875
+        ],
+        [
+          396.24609375,
+          560.35546875
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          152.25,
+          213.0
+        ],
+        [
+          202.7548828125,
+          213.0
+        ],
+        [
+          202.7548828125,
+          221.9765625
+        ],
+        [
+          152.25,
+          221.9765625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          116
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          126
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          115
+        ],
+        [
+          "Span",
+          112
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Line",
+          116
+        ],
+        [
+          "Span",
+          103
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "ListItem",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "surya",
+      "block_counts": [
+        [
+          "Span",
+          150
+        ],
+        [
+          "Line",
+          148
+        ],
+        [
+          "ListItem",
+          30
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Building_Contextual_Knowledge_Graphs_for_Personalized_Learning_Recommendations_Using_Text_Mining_and_Semantic_Graph_Completion"
+}

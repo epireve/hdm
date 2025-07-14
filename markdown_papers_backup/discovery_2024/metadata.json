@@ -1,0 +1,713 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Automated Monitoring Method for Enterprise\nMicroservices Network Operation Status Based on\nDatabase Knowledge Graph",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          60.47999954223633,
+          91.1988525390625
+        ],
+        [
+          536.6328125,
+          91.1988525390625
+        ],
+        [
+          536.6328125,
+          168.076904296875
+        ],
+        [
+          60.47999954223633,
+          168.076904296875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          127.46484375,
+          575.133056640625
+        ],
+        [
+          198.763671875,
+          575.133056640625
+        ],
+        [
+          198.763671875,
+          584.9440612792969
+        ],
+        [
+          127.46484375,
+          584.9440612792969
+        ]
+      ]
+    },
+    {
+      "title": "II. FUNDAMENTALS OF MICROSERVICES ARCHITECTURE AND\nKNOWLEDGE GRAPHS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          43.5068359375,
+          171.9443359375
+        ],
+        [
+          281.5576171875,
+          171.9443359375
+        ],
+        [
+          281.5576171875,
+          192.793212890625
+        ],
+        [
+          43.5068359375,
+          192.793212890625
+        ]
+      ]
+    },
+    {
+      "title": "A. Architecture Design",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          42.815673828125,
+          200.02899169921875
+        ],
+        [
+          134.5947265625,
+          200.02899169921875
+        ],
+        [
+          134.5947265625,
+          209.986083984375
+        ],
+        [
+          42.815673828125,
+          209.986083984375
+        ]
+      ]
+    },
+    {
+      "title": "B. Automated Operational Management",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          305.56640625,
+          523.5487976074219
+        ],
+        [
+          463.1093444824219,
+          523.5487976074219
+        ],
+        [
+          463.1093444824219,
+          533.35400390625
+        ],
+        [
+          305.56640625,
+          533.35400390625
+        ]
+      ]
+    },
+    {
+      "title": "(1) Continuous Integration and Deployment (CI/CD)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          320.1171875,
+          606.8241271972656
+        ],
+        [
+          527.90234375,
+          606.8241271972656
+        ],
+        [
+          527.90234375,
+          616.69921875
+        ],
+        [
+          320.1171875,
+          616.69921875
+        ]
+      ]
+    },
+    {
+      "title": "(2) Monitoring and Logging",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          57.11899948120117,
+          116.0233154296875
+        ],
+        [
+          167.5398406982422,
+          116.0233154296875
+        ],
+        [
+          167.5398406982422,
+          126.01220703125
+        ],
+        [
+          57.11899948120117,
+          126.01220703125
+        ]
+      ]
+    },
+    {
+      "title": "(3) Automated Scaling and Resource Management",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          56.3115234375,
+          234.102294921875
+        ],
+        [
+          254.7841796875,
+          234.102294921875
+        ],
+        [
+          254.7841796875,
+          244.212890625
+        ],
+        [
+          56.3115234375,
+          244.212890625
+        ]
+      ]
+    },
+    {
+      "title": "III. ONSTRUCTION AND APPLICATION OF KNOWLEDGE GRAPH",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          42.197265625,
+          365.1402587890625
+        ],
+        [
+          281.5495300292969,
+          365.1402587890625
+        ],
+        [
+          281.5495300292969,
+          374.9512634277344
+        ],
+        [
+          42.197265625,
+          374.9512634277344
+        ]
+      ]
+    },
+    {
+      "title": "A. Knowledge Graph Construction Process",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          42.6337890625,
+          588.0991973876953
+        ],
+        [
+          213.314453125,
+          588.0991973876953
+        ],
+        [
+          213.314453125,
+          597.9101867675781
+        ],
+        [
+          42.6337890625,
+          597.9101867675781
+        ]
+      ]
+    },
+    {
+      "title": "B. Knowledge Graph Applications in Microservice Network\nOperations Automation",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          306.1484375,
+          463.0633239746094
+        ],
+        [
+          540.70703125,
+          463.0633239746094
+        ],
+        [
+          540.70703125,
+          484.1533203125
+        ],
+        [
+          306.1484375,
+          484.1533203125
+        ]
+      ]
+    },
+    {
+      "title": "(1) Fault prediction and diagnosis",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          320.408203125,
+          557.6202697753906
+        ],
+        [
+          451.0533447265625,
+          557.6202697753906
+        ],
+        [
+          451.0533447265625,
+          567.4312744140625
+        ],
+        [
+          320.408203125,
+          567.4312744140625
+        ]
+      ]
+    },
+    {
+      "title": "(2) Configuration management and optimization",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          319.53515625,
+          654.3392944335938
+        ],
+        [
+          508.6953125,
+          654.3392944335938
+        ],
+        [
+          508.6953125,
+          664.1502838134766
+        ],
+        [
+          319.53515625,
+          664.1502838134766
+        ]
+      ]
+    },
+    {
+      "title": "(3) Performance management",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          56.52978515625,
+          126.82232666015625
+        ],
+        [
+          172.572265625,
+          126.82232666015625
+        ],
+        [
+          172.572265625,
+          137.318359375
+        ],
+        [
+          56.52978515625,
+          137.318359375
+        ]
+      ]
+    },
+    {
+      "title": "(4) Automated maintenance",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          56.275146484375,
+          266.02227783203125
+        ],
+        [
+          165.296875,
+          266.02227783203125
+        ],
+        [
+          165.296875,
+          275.8701171875
+        ],
+        [
+          56.275146484375,
+          275.8701171875
+        ]
+      ]
+    },
+    {
+      "title": "IV. TEST AND ANALYSIS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          114.8056640625,
+          460.9021911621094
+        ],
+        [
+          210.8408203125,
+          460.9021911621094
+        ],
+        [
+          210.8408203125,
+          470.7470703125
+        ],
+        [
+          114.8056640625,
+          470.7470703125
+        ]
+      ]
+    },
+    {
+      "title": "A. Integration of Knowledge Graphs with Monitoring Tools",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          42.6337890625,
+          477.9411926269531
+        ],
+        [
+          277.1923828125,
+          477.9411926269531
+        ],
+        [
+          277.1923828125,
+          488.0146484375
+        ],
+        [
+          42.6337890625,
+          488.0146484375
+        ]
+      ]
+    },
+    {
+      "title": "B. Application of Knowledge Graphs for Real-time Monitoring",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          42.9248046875,
+          624.0992126464844
+        ],
+        [
+          288.2509765625,
+          624.0992126464844
+        ],
+        [
+          288.2509765625,
+          633.966796875
+        ],
+        [
+          42.9248046875,
+          633.966796875
+        ]
+      ]
+    },
+    {
+      "title": "V. CONCLUSION",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          131.27999877929688,
+          89.38330078125
+        ],
+        [
+          196.14453125,
+          89.38330078125
+        ],
+        [
+          196.14453125,
+          99.1943359375
+        ],
+        [
+          131.27999877929688,
+          99.1943359375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          140.1240234375,
+          250.66326904296875
+        ],
+        [
+          191.0001220703125,
+          250.66326904296875
+        ],
+        [
+          191.0001220703125,
+          260.47430419921875
+        ],
+        [
+          140.1240234375,
+          260.47430419921875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          217
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          234
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          323
+        ],
+        [
+          "Line",
+          148
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          246
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          233
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "TableCell",
+          24
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          191
+        ],
+        [
+          "Line",
+          75
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Automated_Monitoring_Method_for_Enterprise_Microservices_Network_Operation_Status_Based_on_Database_Knowledge_Graph"
+}

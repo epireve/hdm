@@ -1,0 +1,1162 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Log Anomaly Detection by Adversarial\nAutoencoders With Graph Feature Fusion",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          94.87890625,
+          59.4127197265625
+        ],
+        [
+          497.70703125,
+          59.4127197265625
+        ],
+        [
+          497.70703125,
+          111.22393798828125
+        ],
+        [
+          94.87890625,
+          111.22393798828125
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          127.50299835205078,
+          428.570068359375
+        ],
+        [
+          199.33612060546875,
+          428.570068359375
+        ],
+        [
+          199.33612060546875,
+          438.5390625
+        ],
+        [
+          127.50299835205078,
+          438.5390625
+        ]
+      ]
+    },
+    {
+      "title": "II. RELATED WORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          127.3271484375,
+          562.0310821533203
+        ],
+        [
+          207.63587951660156,
+          562.0310821533203
+        ],
+        [
+          207.63587951660156,
+          571.9956817626953
+        ],
+        [
+          127.3271484375,
+          571.9956817626953
+        ]
+      ]
+    },
+    {
+      "title": "A. Machine Learning-Based Methods",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          42.120399475097656,
+          681.606071472168
+        ],
+        [
+          194.36483764648438,
+          681.606071472168
+        ],
+        [
+          194.36483764648438,
+          691.83984375
+        ],
+        [
+          42.120399475097656,
+          691.83984375
+        ]
+      ]
+    },
+    {
+      "title": "B. Statistics-Based Methods",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          300.48046875,
+          101.77105712890625
+        ],
+        [
+          415.4122009277344,
+          101.77105712890625
+        ],
+        [
+          415.4122009277344,
+          111.733642578125
+        ],
+        [
+          300.48046875,
+          111.733642578125
+        ]
+      ]
+    },
+    {
+      "title": "C. Graph-Based Methods",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          300.92498779296875,
+          478.3680419921875
+        ],
+        [
+          405.8600769042969,
+          478.3680419921875
+        ],
+        [
+          405.8600769042969,
+          489.19921875
+        ],
+        [
+          300.92498779296875,
+          489.19921875
+        ]
+      ]
+    },
+    {
+      "title": "III. GAE-LOG: LOG ANOMALY DETECTION BY ADVERSARIAL\nAUTOENCODERS WITH GRAPH FEATURE FUSION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          307.14239501953125,
+          633.7880706787109
+        ],
+        [
+          555.134765625,
+          633.7880706787109
+        ],
+        [
+          555.134765625,
+          655.875
+        ],
+        [
+          307.14239501953125,
+          655.875
+        ]
+      ]
+    },
+    {
+      "title": "A. Event Graph",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          37.342529296875,
+          562.0600891113281
+        ],
+        [
+          103.5439453125,
+          562.0600891113281
+        ],
+        [
+          103.5439453125,
+          572.0226898193359
+        ],
+        [
+          37.342529296875,
+          572.0226898193359
+        ]
+      ]
+    },
+    {
+      "title": "B. Knowledge Graph",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          299.900390625,
+          621.8360748291016
+        ],
+        [
+          388.0578918457031,
+          621.8360748291016
+        ],
+        [
+          388.0578918457031,
+          632.28515625
+        ],
+        [
+          299.900390625,
+          632.28515625
+        ]
+      ]
+    },
+    {
+      "title": "C. Graph Feature Fusion",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          304.2509765625,
+          502.28192138671875
+        ],
+        [
+          408.68701171875,
+          502.28192138671875
+        ],
+        [
+          408.68701171875,
+          512.2445373535156
+        ],
+        [
+          304.2509765625,
+          512.2445373535156
+        ]
+      ]
+    },
+    {
+      "title": "D. Anomaly Detection",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          37.487548828125,
+          310.99407958984375
+        ],
+        [
+          129.70529174804688,
+          310.99407958984375
+        ],
+        [
+          129.70529174804688,
+          320.9765625
+        ],
+        [
+          37.487548828125,
+          320.9765625
+        ]
+      ]
+    },
+    {
+      "title": "IV. PERFORMANCE EVALUATION",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          98.21701049804688,
+          271.46600341796875
+        ],
+        [
+          228.6181182861328,
+          271.46600341796875
+        ],
+        [
+          228.6181182861328,
+          281.53125
+        ],
+        [
+          98.21701049804688,
+          281.53125
+        ]
+      ]
+    },
+    {
+      "title": "A. Dataset Description",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          37.2337646484375,
+          386.87298583984375
+        ],
+        [
+          132.4843292236328,
+          386.87298583984375
+        ],
+        [
+          132.4843292236328,
+          397.16015625
+        ],
+        [
+          37.2337646484375,
+          397.16015625
+        ]
+      ]
+    },
+    {
+      "title": "B. Baselines",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          37.487548828125,
+          705.5201110839844
+        ],
+        [
+          90.1363296508789,
+          705.5201110839844
+        ],
+        [
+          90.1363296508789,
+          715.4827041625977
+        ],
+        [
+          37.487548828125,
+          715.4827041625977
+        ]
+      ]
+    },
+    {
+      "title": "C. Evaluation Metrics",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          300.1904296875,
+          469.2049865722656
+        ],
+        [
+          392.1814270019531,
+          469.2049865722656
+        ],
+        [
+          392.1814270019531,
+          479.1676025390625
+        ],
+        [
+          300.1904296875,
+          479.1676025390625
+        ]
+      ]
+    },
+    {
+      "title": "D. Experimental Results",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          298.4501953125,
+          633.7880096435547
+        ],
+        [
+          401.0481262207031,
+          633.7880096435547
+        ],
+        [
+          401.0481262207031,
+          643.88671875
+        ],
+        [
+          298.4501953125,
+          643.88671875
+        ]
+      ]
+    },
+    {
+      "title": "E. Ablation Study",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          304.2509765625,
+          562.0660858154297
+        ],
+        [
+          378.1260070800781,
+          562.0660858154297
+        ],
+        [
+          378.1260070800781,
+          572.34375
+        ],
+        [
+          304.2509765625,
+          572.34375
+        ]
+      ]
+    },
+    {
+      "title": "F. Complexity Analysis",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          41.185546875,
+          421.1821594238281
+        ],
+        [
+          136.26058959960938,
+          420.75
+        ],
+        [
+          136.26058959960938,
+          431.144775390625
+        ],
+        [
+          41.185546875,
+          431.578125
+        ]
+      ]
+    },
+    {
+      "title": "V. CONCLUSION",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          134.3500213623047,
+          645.7422027587891
+        ],
+        [
+          200.9025421142578,
+          645.7422027587891
+        ],
+        [
+          200.9025421142578,
+          655.7048034667969
+        ],
+        [
+          134.3500213623047,
+          656.6484375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          414.0889892578125,
+          169.79620361328125
+        ],
+        [
+          465.4538879394531,
+          169.79620361328125
+        ],
+        [
+          465.4538879394531,
+          179.7587890625
+        ],
+        [
+          414.0889892578125,
+          179.7587890625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          286
+        ],
+        [
+          "Line",
+          105
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          314
+        ],
+        [
+          "Line",
+          116
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          290
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          34
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          266
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "TableCell",
+          26
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          374
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "TableCell",
+          25
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          573
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Equation",
+          7
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          591
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "Equation",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          350
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "TableCell",
+          18
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          239
+        ],
+        [
+          "Line",
+          78
+        ],
+        [
+          "TableCell",
+          66
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          68
+        ],
+        [
+          "Line",
+          18
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          330
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "ListItem",
+          23
+        ],
+        [
+          "TableCell",
+          23
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          401
+        ],
+        [
+          "Line",
+          149
+        ],
+        [
+          "ListItem",
+          38
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Log_Anomaly_Detection_by_Adversarial_Autoencoders_With_Graph_Feature_Fusion"
+}

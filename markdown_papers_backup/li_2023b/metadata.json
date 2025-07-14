@@ -1,0 +1,1363 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Knowledge Graphs in Practice: Characterizing their\nUsers, Challenges, and Visualization Opportunities",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          113.5546875,
+          58.1044921875
+        ],
+        [
+          506.21484375,
+          58.1044921875
+        ],
+        [
+          506.21484375,
+          98.00616455078125
+        ],
+        [
+          113.5546875,
+          98.00616455078125
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          54.224002838134766,
+          292.74609375
+        ],
+        [
+          129.2431640625,
+          292.74609375
+        ],
+        [
+          129.2431640625,
+          301.9441223144531
+        ],
+        [
+          54.224002838134766,
+          301.9441223144531
+        ]
+      ]
+    },
+    {
+      "title": "2 BACKGROUND & RELATED WORK",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          44.3759765625,
+          241.69921875
+        ],
+        [
+          194.87908935546875,
+          241.69921875
+        ],
+        [
+          194.87908935546875,
+          251.0111083984375
+        ],
+        [
+          44.3759765625,
+          251.0111083984375
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          43.815673828125,
+          292.77471923828125
+        ],
+        [
+          148.81640625,
+          292.77471923828125
+        ],
+        [
+          148.81640625,
+          301.7411193847656
+        ],
+        [
+          43.815673828125,
+          301.7411193847656
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Studies in Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          43.927734375,
+          622.6171875
+        ],
+        [
+          193.939453125,
+          622.6171875
+        ],
+        [
+          193.939453125,
+          631.5961303710938
+        ],
+        [
+          43.927734375,
+          631.5961303710938
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Visualization Solutions for Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          305.8505859375,
+          215.40234375
+        ],
+        [
+          525.6290283203125,
+          215.40234375
+        ],
+        [
+          525.6290283203125,
+          224.4300537109375
+        ],
+        [
+          305.8505859375,
+          224.4300537109375
+        ]
+      ]
+    },
+    {
+      "title": "2.4 Knowledge Graph Solutions for Visual Analysis",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          307.6199951171875,
+          462.1167297363281
+        ],
+        [
+          531.484130859375,
+          462.1167297363281
+        ],
+        [
+          531.484130859375,
+          471.0831298828125
+        ],
+        [
+          307.6199951171875,
+          471.0831298828125
+        ]
+      ]
+    },
+    {
+      "title": "3 METHODOLOGY",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          307.843994140625,
+          680.7117080688477
+        ],
+        [
+          385.787109375,
+          680.7117080688477
+        ],
+        [
+          385.787109375,
+          689.90625
+        ],
+        [
+          307.843994140625,
+          689.90625
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Participant Recruitment",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.56494140625,
+          293.90625
+        ],
+        [
+          176.48101806640625,
+          293.90625
+        ],
+        [
+          176.48101806640625,
+          303.4601135253906
+        ],
+        [
+          53.56494140625,
+          303.4601135253906
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Protocol",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.452880859375,
+          551.84765625
+        ],
+        [
+          111.61810302734375,
+          551.84765625
+        ],
+        [
+          111.61810302734375,
+          561.4950866699219
+        ],
+        [
+          53.452880859375,
+          561.4950866699219
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Interviews",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          315.5625,
+          294.29296875
+        ],
+        [
+          382.5,
+          294.29296875
+        ],
+        [
+          382.5,
+          303.4600830078125
+        ],
+        [
+          315.5625,
+          303.4600830078125
+        ]
+      ]
+    },
+    {
+      "title": "3.4 Analysis",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.16015625,
+          612.3996887207031
+        ],
+        [
+          375.328125,
+          612.3996887207031
+        ],
+        [
+          375.328125,
+          621.45703125
+        ],
+        [
+          316.16015625,
+          621.45703125
+        ]
+      ]
+    },
+    {
+      "title": "4 KNOWLEDGE GRAPH USERS & CURRENT PRACTICES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          44.00244140625,
+          209.6015625
+        ],
+        [
+          275.220703125,
+          209.6015625
+        ],
+        [
+          275.220703125,
+          219.82806396484375
+        ],
+        [
+          44.00244140625,
+          219.82806396484375
+        ]
+      ]
+    },
+    {
+      "title": "4.1 KG Personas",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          44.263916015625,
+          261.615234375
+        ],
+        [
+          122.3701171875,
+          261.615234375
+        ],
+        [
+          122.3701171875,
+          271.283203125
+        ],
+        [
+          44.263916015625,
+          271.283203125
+        ]
+      ]
+    },
+    {
+      "title": "4.2 KG Use Cases",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          44.786865234375,
+          627.64453125
+        ],
+        [
+          127.72400665283203,
+          627.64453125
+        ],
+        [
+          127.72400665283203,
+          637.2391052246094
+        ],
+        [
+          44.786865234375,
+          637.2391052246094
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Benefits & Affordances of Using KGs",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          305.2529296875,
+          356.5177001953125
+        ],
+        [
+          487.1183776855469,
+          356.5177001953125
+        ],
+        [
+          487.1183776855469,
+          366.22265625
+        ],
+        [
+          305.2529296875,
+          366.22265625
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Usage of Existing KG Tools",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          307.6199951171875,
+          655.48828125
+        ],
+        [
+          446.150390625,
+          655.48828125
+        ],
+        [
+          446.150390625,
+          665.3271102905273
+        ],
+        [
+          307.6199951171875,
+          665.3271102905273
+        ]
+      ]
+    },
+    {
+      "title": "5 KNOWLEDGE GRAPH CHALLENGES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.56494140625,
+          449.3671875
+        ],
+        [
+          210.97265625,
+          449.3671875
+        ],
+        [
+          210.97265625,
+          460.1953125
+        ],
+        [
+          53.56494140625,
+          460.1953125
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Data Quality",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.0419921875,
+          519.75
+        ],
+        [
+          129.2431640625,
+          519.75
+        ],
+        [
+          129.2431640625,
+          530.578125
+        ],
+        [
+          53.0419921875,
+          530.578125
+        ]
+      ]
+    },
+    {
+      "title": "5.2 Querying",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          44.60009765625,
+          51.5302734375
+        ],
+        [
+          105.88185119628906,
+          51.5302734375
+        ],
+        [
+          105.88185119628906,
+          61.681640625
+        ],
+        [
+          44.60009765625,
+          61.681640625
+        ]
+      ]
+    },
+    {
+      "title": "5.3 Socio-Technical Problems",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          44.114501953125,
+          392.712890625
+        ],
+        [
+          177.64892578125,
+          392.712890625
+        ],
+        [
+          177.64892578125,
+          402.2851257324219
+        ],
+        [
+          44.114501953125,
+          402.2851257324219
+        ]
+      ]
+    },
+    {
+      "title": "5.4 Current KG Visualization Designs",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.298828125,
+          238.412109375
+        ],
+        [
+          472.0458679199219,
+          238.412109375
+        ],
+        [
+          472.0458679199219,
+          248.466796875
+        ],
+        [
+          306.298828125,
+          248.466796875
+        ]
+      ]
+    },
+    {
+      "title": "6 VISUALIZATION OPPORTUNITIES FOR KNOWLEDGE GRAPHS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          53.3408203125,
+          81.2786865234375
+        ],
+        [
+          304.2049255371094,
+          81.2786865234375
+        ],
+        [
+          304.2049255371094,
+          90.87890625
+        ],
+        [
+          53.3408203125,
+          90.87890625
+        ]
+      ]
+    },
+    {
+      "title": "6.1 Graph-Abstracted Visualizations",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          53.26611328125,
+          141.5390625
+        ],
+        [
+          214.857421875,
+          141.5390625
+        ],
+        [
+          214.857421875,
+          151.52001953125
+        ],
+        [
+          53.26611328125,
+          151.52001953125
+        ]
+      ]
+    },
+    {
+      "title": "6.2 Balancing Digestibility and Discoverability",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          53.999996185302734,
+          590.90625
+        ],
+        [
+          256.21923828125,
+          590.90625
+        ],
+        [
+          256.21923828125,
+          601.1861114501953
+        ],
+        [
+          53.999996185302734,
+          601.1861114501953
+        ]
+      ]
+    },
+    {
+      "title": "6.3 KG-Based Interfaces that Support Organic Discovery",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          316.458984375,
+          635.37890625
+        ],
+        [
+          564.486328125,
+          635.37890625
+        ],
+        [
+          564.486328125,
+          644.9241027832031
+        ],
+        [
+          316.458984375,
+          644.9241027832031
+        ]
+      ]
+    },
+    {
+      "title": "6.4 KGs for Explainability",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          43.666259765625,
+          489.5859375
+        ],
+        [
+          159.42919921875,
+          489.5859375
+        ],
+        [
+          159.42919921875,
+          498.9180908203125
+        ],
+        [
+          43.666259765625,
+          498.9180908203125
+        ]
+      ]
+    },
+    {
+      "title": "6.5 KG Timelines: Tracking Evolutions Over Time",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          306.896484375,
+          279.404296875
+        ],
+        [
+          523.845703125,
+          279.404296875
+        ],
+        [
+          523.845703125,
+          288.7181396484375
+        ],
+        [
+          306.896484375,
+          288.7181396484375
+        ]
+      ]
+    },
+    {
+      "title": "6.6 Mapping Dynamic Data onto Static Views",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          307.1953125,
+          582.3984375
+        ],
+        [
+          504.2980041503906,
+          582.3984375
+        ],
+        [
+          504.2980041503906,
+          591.8561096191406
+        ],
+        [
+          307.1953125,
+          591.8561096191406
+        ]
+      ]
+    },
+    {
+      "title": "6.7 KG Schema Creator and Enforcer",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          53.56494140625,
+          135.6416015625
+        ],
+        [
+          217.48439025878906,
+          135.6416015625
+        ],
+        [
+          217.48439025878906,
+          145.2430419921875
+        ],
+        [
+          53.56494140625,
+          145.2430419921875
+        ]
+      ]
+    },
+    {
+      "title": "7 DISCUSSION",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          53.6396484375,
+          451.6875
+        ],
+        [
+          119.232421875,
+          451.6875
+        ],
+        [
+          119.232421875,
+          461.8191223144531
+        ],
+        [
+          53.6396484375,
+          461.8191223144531
+        ]
+      ]
+    },
+    {
+      "title": "7.1 Domain-Specific KG Visualization Designs",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          53.490234375,
+          465.609375
+        ],
+        [
+          256.2999267578125,
+          465.609375
+        ],
+        [
+          256.2999267578125,
+          475.4521179199219
+        ],
+        [
+          53.490234375,
+          475.4521179199219
+        ]
+      ]
+    },
+    {
+      "title": "7.2 What Defines a Knowledge Graph?",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          53.26611328125,
+          648.52734375
+        ],
+        [
+          225.615234375,
+          648.52734375
+        ],
+        [
+          225.615234375,
+          657.9661102294922
+        ],
+        [
+          53.26611328125,
+          657.9661102294922
+        ]
+      ]
+    },
+    {
+      "title": "7.3 Limitations & Future Work",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          315.861328125,
+          149.3701171875
+        ],
+        [
+          449.6006774902344,
+          149.3701171875
+        ],
+        [
+          449.6006774902344,
+          158.8447265625
+        ],
+        [
+          315.861328125,
+          158.8447265625
+        ]
+      ]
+    },
+    {
+      "title": "8 CONCLUSION",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          316.843994140625,
+          580.46484375
+        ],
+        [
+          385.48828125,
+          580.46484375
+        ],
+        [
+          385.48828125,
+          589.7951049804688
+        ],
+        [
+          316.843994140625,
+          589.7951049804688
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          43.890380859375,
+          52.56866455078125
+        ],
+        [
+          130.14608764648438,
+          52.56866455078125
+        ],
+        [
+          130.14608764648438,
+          61.5350341796875
+        ],
+        [
+          43.890380859375,
+          61.5350341796875
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          45.010986328125,
+          192.634765625
+        ],
+        [
+          99.531494140625,
+          192.634765625
+        ],
+        [
+          99.531494140625,
+          201.60113525390625
+        ],
+        [
+          45.010986328125,
+          201.60113525390625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          294
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          397
+        ],
+        [
+          "Line",
+          128
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          667
+        ],
+        [
+          "TableCell",
+          220
+        ],
+        [
+          "Line",
+          119
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          323
+        ],
+        [
+          "Line",
+          127
+        ],
+        [
+          "TableCell",
+          26
+        ],
+        [
+          "Text",
+          20
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Reference",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          340
+        ],
+        [
+          "Line",
+          123
+        ],
+        [
+          "Text",
+          22
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          287
+        ],
+        [
+          "Line",
+          124
+        ],
+        [
+          "Text",
+          28
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          319
+        ],
+        [
+          "Line",
+          125
+        ],
+        [
+          "Text",
+          21
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          332
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "Text",
+          22
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          338
+        ],
+        [
+          "Line",
+          130
+        ],
+        [
+          "Text",
+          19
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          545
+        ],
+        [
+          "Line",
+          144
+        ],
+        [
+          "ListItem",
+          37
+        ],
+        [
+          "Reference",
+          37
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          638
+        ],
+        [
+          "Line",
+          149
+        ],
+        [
+          "ListItem",
+          44
+        ],
+        [
+          "Reference",
+          44
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2304.01311_Knowledge_Graphs_in_Practice_Characterizing_their"
+}

@@ -1,0 +1,2104 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Bring Privacy To The Table: Interactive Negotiation for Privacy\nSetings of Shared Sensing Devices",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          60.111995697021484,
+          81.404296875
+        ],
+        [
+          552.83203125,
+          81.404296875
+        ],
+        [
+          552.83203125,
+          119.9027099609375
+        ],
+        [
+          60.111995697021484,
+          119.9027099609375
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.79800033569336,
+          186.3984375
+        ],
+        [
+          111.94349670410156,
+          186.3984375
+        ],
+        [
+          111.94349670410156,
+          197.8846435546875
+        ],
+        [
+          53.79800033569336,
+          197.8846435546875
+        ]
+      ]
+    },
+    {
+      "title": "CCS CONCEPTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.3408203125,
+          407.98828125
+        ],
+        [
+          134.8198699951172,
+          407.98828125
+        ],
+        [
+          134.8198699951172,
+          419.4836730957031
+        ],
+        [
+          53.3408203125,
+          419.4836730957031
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.71435546875,
+          454.0078125
+        ],
+        [
+          115.66350555419922,
+          454.0078125
+        ],
+        [
+          115.66350555419922,
+          465.74066162109375
+        ],
+        [
+          53.71435546875,
+          465.74066162109375
+        ]
+      ]
+    },
+    {
+      "title": "ACM Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.452880859375,
+          495.38671875
+        ],
+        [
+          140.49664306640625,
+          495.38671875
+        ],
+        [
+          140.49664306640625,
+          504.66796875
+        ],
+        [
+          53.452880859375,
+          504.66796875
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          52.855224609375,
+          565.76953125
+        ],
+        [
+          156.5290069580078,
+          565.76953125
+        ],
+        [
+          156.5290069580078,
+          577.107666015625
+        ],
+        [
+          52.855224609375,
+          577.107666015625
+        ]
+      ]
+    },
+    {
+      "title": "2 RELATED WORKS AND INITIAL DESIGN\nCONSIDERATIONS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.19140625,
+          481.42156982421875
+        ],
+        [
+          278.806640625,
+          481.42156982421875
+        ],
+        [
+          278.806640625,
+          505.2797546386719
+        ],
+        [
+          53.19140625,
+          505.2797546386719
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Privacy Challenges of Incidental Users",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.41552734375,
+          510.0579528808594
+        ],
+        [
+          269.4599914550781,
+          510.0579528808594
+        ],
+        [
+          269.4599914550781,
+          520.967041015625
+        ],
+        [
+          53.41552734375,
+          520.967041015625
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Multi-User IoT Systems",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          317.654296875,
+          219.652587890625
+        ],
+        [
+          458.6496276855469,
+          219.652587890625
+        ],
+        [
+          458.6496276855469,
+          230.56170654296875
+        ],
+        [
+          317.654296875,
+          230.56170654296875
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Negotiation for Privacy Preference",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          317.35546875,
+          521.0225524902344
+        ],
+        [
+          516.375,
+          521.0225524902344
+        ],
+        [
+          516.375,
+          532.125
+        ],
+        [
+          317.35546875,
+          532.125
+        ]
+      ]
+    },
+    {
+      "title": "2.4 Social, Psychological, and Political Views on\nNegotiation",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.7890625,
+          420.4006042480469
+        ],
+        [
+          294.046875,
+          420.4006042480469
+        ],
+        [
+          294.046875,
+          444.2606506347656
+        ],
+        [
+          53.7890625,
+          444.2606506347656
+        ]
+      ]
+    },
+    {
+      "title": "2.5 Summary of Initial Design Implications",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.953125,
+          360.923583984375
+        ],
+        [
+          539.3442993164062,
+          360.923583984375
+        ],
+        [
+          539.3442993164062,
+          371.8326721191406
+        ],
+        [
+          317.953125,
+          371.8326721191406
+        ]
+      ]
+    },
+    {
+      "title": "3 METHODOLOGY",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.7578125,
+          519.528564453125
+        ],
+        [
+          419.9332580566406,
+          519.528564453125
+        ],
+        [
+          419.9332580566406,
+          530.578125
+        ],
+        [
+          316.7578125,
+          530.578125
+        ]
+      ]
+    },
+    {
+      "title": "4 STUDY 1: OBSERVATION OF VERBAL\nPRIVACY NEGOTIATIONS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.26611328125,
+          580.9595794677734
+        ],
+        [
+          258.5727233886719,
+          580.9595794677734
+        ],
+        [
+          258.5727233886719,
+          604.8177795410156
+        ],
+        [
+          53.26611328125,
+          604.8177795410156
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Study Design",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.6396484375,
+          652.5295715332031
+        ],
+        [
+          143.3616943359375,
+          652.5295715332031
+        ],
+        [
+          143.3616943359375,
+          663.4386749267578
+        ],
+        [
+          53.6396484375,
+          663.4386749267578
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Participants",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          316.7578125,
+          431.80059814453125
+        ],
+        [
+          402.6750183105469,
+          431.80059814453125
+        ],
+        [
+          402.6750183105469,
+          442.7096862792969
+        ],
+        [
+          316.7578125,
+          442.7096862792969
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Findings",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          317.953125,
+          500.216552734375
+        ],
+        [
+          386.0859375,
+          500.216552734375
+        ],
+        [
+          386.0859375,
+          511.1256408691406
+        ],
+        [
+          317.953125,
+          511.1256408691406
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Observations and Discussion",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.6396484375,
+          394.49755859375
+        ],
+        [
+          220.4344940185547,
+          394.49755859375
+        ],
+        [
+          220.4344940185547,
+          405.4066467285156
+        ],
+        [
+          53.6396484375,
+          405.4066467285156
+        ]
+      ]
+    },
+    {
+      "title": "4.5 Summary of Additional Design Implications",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          317.056640625,
+          369.4925537109375
+        ],
+        [
+          558.2058715820312,
+          369.4925537109375
+        ],
+        [
+          558.2058715820312,
+          380.53125
+        ],
+        [
+          317.056640625,
+          380.53125
+        ]
+      ]
+    },
+    {
+      "title": "5 THINGPOLL SYSTEM DESIGN IDEATION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          317.35546875,
+          505.3315734863281
+        ],
+        [
+          540.762451171875,
+          505.3315734863281
+        ],
+        [
+          540.762451171875,
+          516.26953125
+        ],
+        [
+          317.35546875,
+          516.26953125
+        ]
+      ]
+    },
+    {
+      "title": "5.1 System-Mediated Negotiation",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          315.861328125,
+          521.0188598632812
+        ],
+        [
+          488.7260437011719,
+          521.0188598632812
+        ],
+        [
+          488.7260437011719,
+          532.125
+        ],
+        [
+          315.861328125,
+          532.125
+        ]
+      ]
+    },
+    {
+      "title": "5.2 Structured User-System Interaction",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.19140625,
+          85.4066162109375
+        ],
+        [
+          253.705078125,
+          85.4066162109375
+        ],
+        [
+          253.705078125,
+          96.31573486328125
+        ],
+        [
+          53.19140625,
+          96.31573486328125
+        ]
+      ]
+    },
+    {
+      "title": "5.3 Assumptions",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.228759765625,
+          280.4935607910156
+        ],
+        [
+          143.38352966308594,
+          280.4935607910156
+        ],
+        [
+          143.38352966308594,
+          291.40264892578125
+        ],
+        [
+          53.228759765625,
+          291.40264892578125
+        ]
+      ]
+    },
+    {
+      "title": "5.4 Summary of Design Goals",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.490234375,
+          398.86859130859375
+        ],
+        [
+          206.88540649414062,
+          398.86859130859375
+        ],
+        [
+          206.88540649414062,
+          409.7776794433594
+        ],
+        [
+          53.490234375,
+          409.7776794433594
+        ]
+      ]
+    },
+    {
+      "title": "6 THINGPOLL SYSTEM IMPLEMENTATION",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.11669921875,
+          556.0725555419922
+        ],
+        [
+          279.9654541015625,
+          556.0725555419922
+        ],
+        [
+          279.9654541015625,
+          566.9816589355469
+        ],
+        [
+          53.11669921875,
+          566.9816589355469
+        ]
+      ]
+    },
+    {
+      "title": "6.1 Negotiation Workfow Overview",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.26611328125,
+          652.5295715332031
+        ],
+        [
+          238.70724487304688,
+          652.5295715332031
+        ],
+        [
+          238.70724487304688,
+          663.4386749267578
+        ],
+        [
+          53.26611328125,
+          663.4386749267578
+        ]
+      ]
+    },
+    {
+      "title": "6.2 Profle Modeling in Shared Sensing Space",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          317.953125,
+          663.4885711669922
+        ],
+        [
+          547.453125,
+          663.4885711669922
+        ],
+        [
+          547.453125,
+          674.4375
+        ],
+        [
+          317.953125,
+          674.4375
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          429.416015625,
+          61.53662109375
+        ],
+        [
+          558.509765625,
+          61.53662109375
+        ],
+        [
+          558.509765625,
+          68.98095703125
+        ],
+        [
+          429.416015625,
+          68.98095703125
+        ]
+      ]
+    },
+    {
+      "title": "6.3 System-Mediated Negotiation Modeling",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          53.56494140625,
+          480.83856201171875
+        ],
+        [
+          274.623046875,
+          480.83856201171875
+        ],
+        [
+          274.623046875,
+          491.7476501464844
+        ],
+        [
+          53.56494140625,
+          491.7476501464844
+        ]
+      ]
+    },
+    {
+      "title": "(accept ) =  (prefer ) + (concede  \u2227\u00ac prefer ) (1)",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          321.240234375,
+          517.1369323730469
+        ],
+        [
+          558.7396850585938,
+          517.1369323730469
+        ],
+        [
+          558.7396850585938,
+          528.2578125
+        ],
+        [
+          321.240234375,
+          528.2578125
+        ]
+      ]
+    },
+    {
+      "title": "7 STUDY 2: EVALUATION OF PRACTICALITY\nAND EFFICIENCY OF THINGPOLL",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          53.26611328125,
+          508.402587890625
+        ],
+        [
+          291.955078125,
+          508.402587890625
+        ],
+        [
+          291.955078125,
+          532.2607727050781
+        ],
+        [
+          53.26611328125,
+          532.2607727050781
+        ]
+      ]
+    },
+    {
+      "title": "7.1 Study Procedure",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          53.303466796875,
+          537.0389709472656
+        ],
+        [
+          159.75807189941406,
+          537.0389709472656
+        ],
+        [
+          159.75807189941406,
+          547.9480743408203
+        ],
+        [
+          53.303466796875,
+          547.9480743408203
+        ]
+      ]
+    },
+    {
+      "title": "7.2 Negotiation Workload",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          53.19140625,
+          314.09857177734375
+        ],
+        [
+          189.6064453125,
+          314.09857177734375
+        ],
+        [
+          189.6064453125,
+          325.0076599121094
+        ],
+        [
+          53.19140625,
+          325.0076599121094
+        ]
+      ]
+    },
+    {
+      "title": "7.3 Negotiation Outcomes using ThingPoll",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          316.7578125,
+          314.09857177734375
+        ],
+        [
+          535.03515625,
+          314.09857177734375
+        ],
+        [
+          535.03515625,
+          325.0076599121094
+        ],
+        [
+          316.7578125,
+          325.0076599121094
+        ]
+      ]
+    },
+    {
+      "title": "7.4 Negotiation Experience using ThingPoll",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          52.7431640625,
+          641.570556640625
+        ],
+        [
+          276.6927490234375,
+          641.570556640625
+        ],
+        [
+          276.6927490234375,
+          652.4796600341797
+        ],
+        [
+          52.7431640625,
+          652.4796600341797
+        ]
+      ]
+    },
+    {
+      "title": "8 DISCUSSION",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          53.527587890625,
+          354.3975830078125
+        ],
+        [
+          135.0703125,
+          354.3975830078125
+        ],
+        [
+          135.0703125,
+          365.3066711425781
+        ],
+        [
+          53.527587890625,
+          365.3066711425781
+        ]
+      ]
+    },
+    {
+      "title": "8.1 Variability in Opinions and Behaviors",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          53.19140625,
+          417.9095764160156
+        ],
+        [
+          266.5546875,
+          417.9095764160156
+        ],
+        [
+          266.5546875,
+          428.81866455078125
+        ],
+        [
+          53.19140625,
+          428.81866455078125
+        ]
+      ]
+    },
+    {
+      "title": "8.2 Acceptability and Practicality of Negotiation",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          317.056640625,
+          85.4066162109375
+        ],
+        [
+          558.509765625,
+          85.4066162109375
+        ],
+        [
+          558.509765625,
+          96.31573486328125
+        ],
+        [
+          317.056640625,
+          96.31573486328125
+        ]
+      ]
+    },
+    {
+      "title": "8.3 Future Directions for Negotiation Systems",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          316.7578125,
+          496.1165466308594
+        ],
+        [
+          551.0390625,
+          496.1165466308594
+        ],
+        [
+          551.0390625,
+          507.025634765625
+        ],
+        [
+          316.7578125,
+          507.025634765625
+        ]
+      ]
+    },
+    {
+      "title": "8.4 Assumptions and Limitations",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          53.490234375,
+          395.9915466308594
+        ],
+        [
+          224.62359619140625,
+          395.9915466308594
+        ],
+        [
+          224.62359619140625,
+          406.900634765625
+        ],
+        [
+          53.490234375,
+          406.900634765625
+        ]
+      ]
+    },
+    {
+      "title": "9 CONCLUSION",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          316.458984375,
+          394.82958984375
+        ],
+        [
+          405.7296142578125,
+          394.82958984375
+        ],
+        [
+          405.7296142578125,
+          405.7386779785156
+        ],
+        [
+          316.458984375,
+          405.7386779785156
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          317.35546875,
+          572.34375
+        ],
+        [
+          436.88671875,
+          572.34375
+        ],
+        [
+          436.88671875,
+          583.4056701660156
+        ],
+        [
+          317.35546875,
+          583.4056701660156
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          317.056640625,
+          640.5745544433594
+        ],
+        [
+          387.3695983886719,
+          640.5745544433594
+        ],
+        [
+          387.3695983886719,
+          651.4836578369141
+        ],
+        [
+          317.056640625,
+          651.4836578369141
+        ]
+      ]
+    },
+    {
+      "title": "A PROFILE AND NEGOTIATION MODELING",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          317.654296875,
+          268.8975830078125
+        ],
+        [
+          550.740234375,
+          268.8975830078125
+        ],
+        [
+          550.740234375,
+          279.80670166015625
+        ],
+        [
+          317.654296875,
+          279.80670166015625
+        ]
+      ]
+    },
+    {
+      "title": "A.1 Profle Model",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          315.5625,
+          284.5848693847656
+        ],
+        [
+          411.991455078125,
+          284.5848693847656
+        ],
+        [
+          411.991455078125,
+          295.49395751953125
+        ],
+        [
+          315.5625,
+          295.49395751953125
+        ]
+      ]
+    },
+    {
+      "title": "A.2 Negotiation Model",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          316.16015625,
+          440.9015808105469
+        ],
+        [
+          438.08203125,
+          440.9015808105469
+        ],
+        [
+          438.08203125,
+          452.07421875
+        ],
+        [
+          316.16015625,
+          452.07421875
+        ]
+      ]
+    },
+    {
+      "title": "Table 8: Variables and Levels used in the Bayesian Network profle model",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          155.689453125,
+          84.58245849609375
+        ],
+        [
+          453.90142822265625,
+          84.58245849609375
+        ],
+        [
+          453.90142822265625,
+          94.11767578125
+        ],
+        [
+          155.689453125,
+          94.11767578125
+        ]
+      ]
+    },
+    {
+      "title": "Algorithm 1 Negotiation Algorithm\nRequire: All users  with initial preference",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          317.62298583984375,
+          86.09326171875
+        ],
+        [
+          489.05157470703125,
+          86.09326171875
+        ],
+        [
+          489.05157470703125,
+          109.58355712890625
+        ],
+        [
+          317.62298583984375,
+          109.58355712890625
+        ]
+      ]
+    },
+    {
+      "title": "B POST-STUDY QUESTIONNAIRE",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          52.51904296875,
+          358.382568359375
+        ],
+        [
+          230.39450073242188,
+          358.382568359375
+        ],
+        [
+          230.39450073242188,
+          369.31640625
+        ],
+        [
+          52.51904296875,
+          369.31640625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1608
+        ],
+        [
+          "Line",
+          95
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Picture",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1997
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1611
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1733
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "TableCell",
+          17
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1693
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "TableCell",
+          39
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "TableGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1887
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          939
+        ],
+        [
+          "Line",
+          74
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1762
+        ],
+        [
+          "Line",
+          85
+        ],
+        [
+          "TableCell",
+          30
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1511
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          934
+        ],
+        [
+          "Line",
+          177
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1828
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "TableCell",
+          27
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1452
+        ],
+        [
+          "Line",
+          72
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1444
+        ],
+        [
+          "Line",
+          157
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1968
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2014
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          3064
+        ],
+        [
+          "Line",
+          157
+        ],
+        [
+          "ListItem",
+          41
+        ],
+        [
+          "Reference",
+          41
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2986
+        ],
+        [
+          "Line",
+          156
+        ],
+        [
+          "ListItem",
+          46
+        ],
+        [
+          "Reference",
+          46
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          2663
+        ],
+        [
+          "Line",
+          137
+        ],
+        [
+          "Reference",
+          30
+        ],
+        [
+          "ListItem",
+          28
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          979
+        ],
+        [
+          "Line",
+          69
+        ],
+        [
+          "TableCell",
+          68
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1653
+        ],
+        [
+          "Line",
+          125
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Equation",
+          8
+        ],
+        [
+          "Reference",
+          6
+        ],
+        [
+          "TextInlineMath",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1663
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "ListItem",
+          31
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          518
+        ],
+        [
+          "Line",
+          34
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/3613904.3642897"
+}

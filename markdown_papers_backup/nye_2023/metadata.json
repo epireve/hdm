@@ -1,0 +1,729 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Digital Twins for Patient Care via Knowledge Graphs and\nClosed-Form Continuous-Time Liquid Neural Networks",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          68.5810546875,
+          56.69329833984375
+        ],
+        [
+          543.8671875,
+          56.69329833984375
+        ],
+        [
+          543.8671875,
+          99.966796875
+        ],
+        [
+          68.5810546875,
+          99.966796875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          128.42138671875,
+          611.5773162841797
+        ],
+        [
+          212.16796875,
+          611.5773162841797
+        ],
+        [
+          212.16796875,
+          622.3773193359375
+        ],
+        [
+          128.42138671875,
+          622.3773193359375
+        ]
+      ]
+    },
+    {
+      "title": "II. DIGITAL TWIN TECHNOLOGY",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          362.1796875,
+          430.8373107910156
+        ],
+        [
+          511.59375,
+          430.8373107910156
+        ],
+        [
+          511.59375,
+          441.6373291015625
+        ],
+        [
+          362.1796875,
+          441.6373291015625
+        ]
+      ]
+    },
+    {
+      "title": "A. What Are Digital Twins?",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.29998779296875,
+          449.45733642578125
+        ],
+        [
+          439.6300048828125,
+          449.45733642578125
+        ],
+        [
+          439.6300048828125,
+          460.2573547363281
+        ],
+        [
+          315.29998779296875,
+          460.2573547363281
+        ]
+      ]
+    },
+    {
+      "title": "B. Digital Twins in Healthcare",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          315.263671875,
+          615.7773132324219
+        ],
+        [
+          452.724609375,
+          615.7773132324219
+        ],
+        [
+          452.724609375,
+          626.5773162841797
+        ],
+        [
+          315.263671875,
+          626.5773162841797
+        ]
+      ]
+    },
+    {
+      "title": "C. Twins-enabled Healthcare Analytics",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          44.45068359375,
+          157.39453125
+        ],
+        [
+          220.833984375,
+          157.39453125
+        ],
+        [
+          220.833984375,
+          168.802734375
+        ],
+        [
+          44.45068359375,
+          168.802734375
+        ]
+      ]
+    },
+    {
+      "title": "D. A Valuable Clinical Tool",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          44.6748046875,
+          444.05731201171875
+        ],
+        [
+          170.033203125,
+          444.05731201171875
+        ],
+        [
+          170.033203125,
+          455.16796875
+        ],
+        [
+          44.6748046875,
+          455.16796875
+        ]
+      ]
+    },
+    {
+      "title": "III. KNOWLEDGE GRAPHS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          380.70703125,
+          55.55731201171875
+        ],
+        [
+          496.65234375,
+          55.55731201171875
+        ],
+        [
+          496.65234375,
+          66.8056640625
+        ],
+        [
+          380.70703125,
+          66.8056640625
+        ]
+      ]
+    },
+    {
+      "title": "A. What are Knowledge Graphs?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.29998779296875,
+          74.17730712890625
+        ],
+        [
+          462.8940124511719,
+          74.17730712890625
+        ],
+        [
+          462.8940124511719,
+          84.977294921875
+        ],
+        [
+          315.29998779296875,
+          84.977294921875
+        ]
+      ]
+    },
+    {
+      "title": "B. Problems Solved by Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          314.96484375,
+          227.88726806640625
+        ],
+        [
+          506.8125,
+          227.88726806640625
+        ],
+        [
+          506.8125,
+          238.687255859375
+        ],
+        [
+          314.96484375,
+          238.687255859375
+        ]
+      ]
+    },
+    {
+      "title": "C. Ontologies and Formal Semantics",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          315.29998779296875,
+          412.2273254394531
+        ],
+        [
+          481.11328125,
+          412.2273254394531
+        ],
+        [
+          481.11328125,
+          423.02734375
+        ],
+        [
+          315.29998779296875,
+          423.02734375
+        ]
+      ]
+    },
+    {
+      "title": "Classes",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          326.91796875,
+          565.3573150634766
+        ],
+        [
+          362.1084289550781,
+          565.3573150634766
+        ],
+        [
+          362.1084289550781,
+          576.2109375
+        ],
+        [
+          326.91796875,
+          576.2109375
+        ]
+      ]
+    },
+    {
+      "title": "Relationship Types",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          327.814453125,
+          698.0573196411133
+        ],
+        [
+          415.4820251464844,
+          698.0573196411133
+        ],
+        [
+          415.4820251464844,
+          708.8573150634766
+        ],
+        [
+          327.814453125,
+          708.8573150634766
+        ]
+      ]
+    },
+    {
+      "title": "Categories",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          58.383544921875,
+          157.02728271484375
+        ],
+        [
+          106.82479858398438,
+          157.02728271484375
+        ],
+        [
+          106.82479858398438,
+          168.22265625
+        ],
+        [
+          58.383544921875,
+          168.22265625
+        ]
+      ]
+    },
+    {
+      "title": "IV. LIQUID NEURAL NETWORKS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          365.75,
+          519.36328125
+        ],
+        [
+          512.7890625,
+          519.36328125
+        ],
+        [
+          512.7890625,
+          531.1073303222656
+        ],
+        [
+          365.75,
+          531.1073303222656
+        ]
+      ]
+    },
+    {
+      "title": "A. Closed-Form Continuous-Time Liquid Neural \nNetworks (CfCs).",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          314.3671875,
+          538.9273071289062
+        ],
+        [
+          534.7272338867188,
+          538.9273071289062
+        ],
+        [
+          534.7272338867188,
+          562.3273162841797
+        ],
+        [
+          314.3671875,
+          562.3273162841797
+        ]
+      ]
+    },
+    {
+      "title": "V. METHODOLOGY & APPLICATION",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          353.513671875,
+          351.720703125
+        ],
+        [
+          520.259765625,
+          351.720703125
+        ],
+        [
+          520.259765625,
+          362.9773254394531
+        ],
+        [
+          353.513671875,
+          362.9773254394531
+        ]
+      ]
+    },
+    {
+      "title": "A. Knowledge Graph Construction.",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          313.76953125,
+          370.669921875
+        ],
+        [
+          472.3700256347656,
+          370.669921875
+        ],
+        [
+          472.3700256347656,
+          381.884765625
+        ],
+        [
+          313.76953125,
+          381.884765625
+        ]
+      ]
+    },
+    {
+      "title": "B. Closed-Form Continuous-Time Liquid Neural \nNetwork Integration.",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          315.29998779296875,
+          585.1573028564453
+        ],
+        [
+          534.7272338867188,
+          585.1573028564453
+        ],
+        [
+          534.7272338867188,
+          608.5773162841797
+        ],
+        [
+          315.29998779296875,
+          608.5773162841797
+        ]
+      ]
+    },
+    {
+      "title": "C. Real-Time Analytics and Simulation.",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          44.74951171875,
+          277.7373046875
+        ],
+        [
+          221.3300018310547,
+          277.7373046875
+        ],
+        [
+          221.3300018310547,
+          288.5373229980469
+        ],
+        [
+          44.74951171875,
+          288.5373229980469
+        ]
+      ]
+    },
+    {
+      "title": "D. Surgical and Intervention Planning.",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          44.45068359375,
+          420.03729248046875
+        ],
+        [
+          218.7421875,
+          420.03729248046875
+        ],
+        [
+          218.7421875,
+          431.19140625
+        ],
+        [
+          44.45068359375,
+          431.19140625
+        ]
+      ]
+    },
+    {
+      "title": "IV. EVALUATION AND VALIDATION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          91.44140625,
+          551.5273132324219
+        ],
+        [
+          251.912109375,
+          551.5273132324219
+        ],
+        [
+          251.912109375,
+          562.3273162841797
+        ],
+        [
+          91.44140625,
+          562.3273162841797
+        ]
+      ]
+    },
+    {
+      "title": "V. CONCLUSION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          404.79998779296875,
+          55.55731201171875
+        ],
+        [
+          477.826171875,
+          55.55731201171875
+        ],
+        [
+          477.826171875,
+          66.66064453125
+        ],
+        [
+          404.79998779296875,
+          66.66064453125
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          410.291015625,
+          266.30731201171875
+        ],
+        [
+          470.056640625,
+          266.30731201171875
+        ],
+        [
+          470.056640625,
+          277.1072998046875
+        ],
+        [
+          410.291015625,
+          277.1072998046875
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          272
+        ],
+        [
+          "Line",
+          80
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          5
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          264
+        ],
+        [
+          "Line",
+          100
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          8
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          239
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          227
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "SectionHeader",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          256
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "ListItem",
+          14
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          277
+        ],
+        [
+          "Line",
+          106
+        ],
+        [
+          "ListItem",
+          35
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2307.04772_Digital_Twins_for_Patient_Care_via_Knowledge_Graph"
+}

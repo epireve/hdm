@@ -1,0 +1,713 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Personal Knowledge Graphs: Use Cases in e-learning Platforms",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          58.4208984375,
+          82.22607421875
+        ],
+        [
+          552.55908203125,
+          82.22607421875
+        ],
+        [
+          552.55908203125,
+          100.546875
+        ],
+        [
+          58.4208984375,
+          100.546875
+        ]
+      ]
+    },
+    {
+      "title": "ABSTRACT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          52.892578125,
+          180.791015625
+        ],
+        [
+          111.94353485107422,
+          180.791015625
+        ],
+        [
+          111.94353485107422,
+          191.85272216796875
+        ],
+        [
+          52.892578125,
+          191.85272216796875
+        ]
+      ]
+    },
+    {
+      "title": "CCS CONCEPTS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.3408203125,
+          381.69140625
+        ],
+        [
+          134.81988525390625,
+          381.69140625
+        ],
+        [
+          134.81988525390625,
+          392.7036437988281
+        ],
+        [
+          53.3408203125,
+          392.7036437988281
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.41552734375,
+          451.1385803222656
+        ],
+        [
+          115.66349029541016,
+          451.1385803222656
+        ],
+        [
+          115.66349029541016,
+          462.04766845703125
+        ],
+        [
+          53.41552734375,
+          462.04766845703125
+        ]
+      ]
+    },
+    {
+      "title": "ACM Reference Format:",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.228759765625,
+          493.83984375
+        ],
+        [
+          140.49664306640625,
+          493.83984375
+        ],
+        [
+          140.49664306640625,
+          503.12109375
+        ],
+        [
+          53.228759765625,
+          503.12109375
+        ]
+      ]
+    },
+    {
+      "title": "1 INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          53.41552734375,
+          569.25
+        ],
+        [
+          156.5859375,
+          569.25
+        ],
+        [
+          156.5859375,
+          580.1686706542969
+        ],
+        [
+          53.41552734375,
+          580.1686706542969
+        ]
+      ]
+    },
+    {
+      "title": "2 RESEARCH PROBLEM",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          316.16015625,
+          663.4885711669922
+        ],
+        [
+          448.64599609375,
+          663.4885711669922
+        ],
+        [
+          448.64599609375,
+          674.3976745605469
+        ],
+        [
+          316.16015625,
+          674.3976745605469
+        ]
+      ]
+    },
+    {
+      "title": "3 STATE OF THE ART",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.452880859375,
+          382.68157958984375
+        ],
+        [
+          171.2889862060547,
+          382.68157958984375
+        ],
+        [
+          171.2889862060547,
+          393.5906677246094
+        ],
+        [
+          53.452880859375,
+          393.5906677246094
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Personal Knowledge Graphs",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.3408203125,
+          398.3203125
+        ],
+        [
+          218.37266540527344,
+          398.3203125
+        ],
+        [
+          218.37266540527344,
+          409.28167724609375
+        ],
+        [
+          53.3408203125,
+          409.28167724609375
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Personalisation in e-learning",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.3408203125,
+          652.5295715332031
+        ],
+        [
+          222.21267700195312,
+          652.5295715332031
+        ],
+        [
+          222.21267700195312,
+          663.4386749267578
+        ],
+        [
+          53.3408203125,
+          663.4386749267578
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Collaborative Search and Learning",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          317.953125,
+          510.0635681152344
+        ],
+        [
+          514.58203125,
+          510.0635681152344
+        ],
+        [
+          514.58203125,
+          520.97265625
+        ],
+        [
+          317.953125,
+          520.97265625
+        ]
+      ]
+    },
+    {
+      "title": "Figure 1: The overall architecture that includes the input\nstream, intelligence computation and back end creation of\na personal knowledge graph (PKG).",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          52.96728515625,
+          234.931640625
+        ],
+        [
+          294.943359375,
+          234.931640625
+        ],
+        [
+          294.943359375,
+          266.50677490234375
+        ],
+        [
+          52.96728515625,
+          266.50677490234375
+        ]
+      ]
+    },
+    {
+      "title": "4 PROPOSED APPROACH",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.41552734375,
+          408.375
+        ],
+        [
+          191.5690155029297,
+          408.375
+        ],
+        [
+          191.5690155029297,
+          419.4546203613281
+        ],
+        [
+          53.41552734375,
+          419.4546203613281
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Use case 1: Collaborative search",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          53.41552734375,
+          630.611572265625
+        ],
+        [
+          235.16177368164062,
+          630.611572265625
+        ],
+        [
+          235.16177368164062,
+          641.56640625
+        ],
+        [
+          53.41552734375,
+          641.56640625
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Use case 2: e-Learning",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.953125,
+          247.05059814453125
+        ],
+        [
+          452.42578125,
+          247.05059814453125
+        ],
+        [
+          452.42578125,
+          257.959716796875
+        ],
+        [
+          317.953125,
+          257.959716796875
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Opportunities and Challenges",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          316.7578125,
+          389.51556396484375
+        ],
+        [
+          490.820556640625,
+          389.51556396484375
+        ],
+        [
+          490.820556640625,
+          400.4246520996094
+        ],
+        [
+          316.7578125,
+          400.4246520996094
+        ]
+      ]
+    },
+    {
+      "title": "5 METHODOLOGY",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.79800033569336,
+          241.570556640625
+        ],
+        [
+          156.5859375,
+          241.570556640625
+        ],
+        [
+          156.5859375,
+          252.47967529296875
+        ],
+        [
+          53.79800033569336,
+          252.47967529296875
+        ]
+      ]
+    },
+    {
+      "title": "6 RESULTS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          53.19140625,
+          674.4475784301758
+        ],
+        [
+          117.15805053710938,
+          674.4475784301758
+        ],
+        [
+          117.15805053710938,
+          685.3566818237305
+        ],
+        [
+          53.19140625,
+          685.3566818237305
+        ]
+      ]
+    },
+    {
+      "title": "7 CONCLUSIONS AND FUTURE WORK",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.6396484375,
+          260.99749755859375
+        ],
+        [
+          259.2333984375,
+          260.99749755859375
+        ],
+        [
+          259.2333984375,
+          271.9066162109375
+        ],
+        [
+          53.6396484375,
+          271.9066162109375
+        ]
+      ]
+    },
+    {
+      "title": "ACKNOWLEDGMENTS",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.751708984375,
+          614.6715698242188
+        ],
+        [
+          171.3544464111328,
+          614.6715698242188
+        ],
+        [
+          171.3544464111328,
+          625.5806732177734
+        ],
+        [
+          53.751708984375,
+          625.5806732177734
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          53.490234375,
+          672.4545745849609
+        ],
+        [
+          123.21260070800781,
+          672.4545745849609
+        ],
+        [
+          123.21260070800781,
+          683.3636779785156
+        ],
+        [
+          53.490234375,
+          683.3636779785156
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          228
+        ],
+        [
+          "Line",
+          99
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          241
+        ],
+        [
+          "Line",
+          111
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          192
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          262
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          395
+        ],
+        [
+          "Line",
+          134
+        ],
+        [
+          "Reference",
+          28
+        ],
+        [
+          "ListItem",
+          27
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/Ilkou-2022-Personal-knowledge-graphs-use-cases"
+}

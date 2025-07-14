@@ -1,0 +1,527 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Cognitive Ledger Project: Towards Building Personal \nDigital Twins Through Cognitive Blockchain",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          49.47265625,
+          29.962890625
+        ],
+        [
+          551.134033203125,
+          29.962890625
+        ],
+        [
+          551.134033203125,
+          80.068115234375
+        ],
+        [
+          49.47265625,
+          80.068115234375
+        ]
+      ]
+    },
+    {
+      "title": "Keywords\u2014 Cognitive Computing, Knowledge Management, \nArtificial Intelligence, Blockchain, Tokenomics",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          45.2529296875,
+          335.0732421875
+        ],
+        [
+          290.76495361328125,
+          335.0732421875
+        ],
+        [
+          290.76495361328125,
+          355.8561096191406
+        ],
+        [
+          45.2529296875,
+          355.8561096191406
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          127.0283203125,
+          365.0512390136719
+        ],
+        [
+          205.3115234375,
+          365.0512390136719
+        ],
+        [
+          205.3115234375,
+          375.15869140625
+        ],
+        [
+          127.0283203125,
+          375.15869140625
+        ]
+      ]
+    },
+    {
+      "title": "II. PCDT 1.0 COGNITIVE ARCHITECTURE",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          341.943359375,
+          527.4833984375
+        ],
+        [
+          512.478515625,
+          527.4833984375
+        ],
+        [
+          512.478515625,
+          537.6012573242188
+        ],
+        [
+          341.943359375,
+          537.6012573242188
+        ]
+      ]
+    },
+    {
+      "title": "III. COGNITIVE LEDGER ARCHITECTURE (MENTAL LAYER)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          308.185546875,
+          566.1212463378906
+        ],
+        [
+          543.326171875,
+          566.1212463378906
+        ],
+        [
+          543.326171875,
+          576.1212463378906
+        ],
+        [
+          308.185546875,
+          576.1212463378906
+        ]
+      ]
+    },
+    {
+      "title": "A. Memory Pool",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          44.998291015625,
+          111.4169921875
+        ],
+        [
+          115.82421875,
+          111.4169921875
+        ],
+        [
+          115.82421875,
+          121.48974609375
+        ],
+        [
+          44.998291015625,
+          121.48974609375
+        ]
+      ]
+    },
+    {
+      "title": "B. Personality Trait Badges",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          44.780029296875,
+          263.02117919921875
+        ],
+        [
+          160.931640625,
+          263.02117919921875
+        ],
+        [
+          160.931640625,
+          273.4033203125
+        ],
+        [
+          44.780029296875,
+          273.4033203125
+        ]
+      ]
+    },
+    {
+      "title": "C. Knowledge Objects",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          44.9619140625,
+          360.0512390136719
+        ],
+        [
+          137.94140625,
+          360.0512390136719
+        ],
+        [
+          137.94140625,
+          370.22509765625
+        ],
+        [
+          44.9619140625,
+          370.22509765625
+        ]
+      ]
+    },
+    {
+      "title": "D. Personal ML Models",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          45.107421875,
+          489.8512268066406
+        ],
+        [
+          144.15501403808594,
+          489.8512268066406
+        ],
+        [
+          144.15501403808594,
+          499.8512268066406
+        ],
+        [
+          45.107421875,
+          499.8512268066406
+        ]
+      ]
+    },
+    {
+      "title": "IV. LEARNING LAYERS & SHELLS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          95.55000305175781,
+          605.8712158203125
+        ],
+        [
+          231.939453125,
+          605.8712158203125
+        ],
+        [
+          231.939453125,
+          616.2880859375
+        ],
+        [
+          95.55000305175781,
+          616.2880859375
+        ]
+      ]
+    },
+    {
+      "title": "V. ON-GOING WORK AND NEXT STEPS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          84.9765625,
+          269.03118896484375
+        ],
+        [
+          245.326171875,
+          269.03118896484375
+        ],
+        [
+          245.326171875,
+          279.1591796875
+        ],
+        [
+          84.9765625,
+          279.1591796875
+        ]
+      ]
+    },
+    {
+      "title": "VI. PRIVACY CONCERNS AND RELATED WORKS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          329.6499938964844,
+          84.981201171875
+        ],
+        [
+          521.208984375,
+          84.981201171875
+        ],
+        [
+          521.208984375,
+          95.1258544921875
+        ],
+        [
+          329.6499938964844,
+          95.1258544921875
+        ]
+      ]
+    },
+    {
+      "title": "VII. CONCLUDING REMARKS",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          366.6499938964844,
+          289.55120849609375
+        ],
+        [
+          483.0859375,
+          289.55120849609375
+        ],
+        [
+          483.0859375,
+          299.55120849609375
+        ],
+        [
+          366.6499938964844,
+          299.55120849609375
+        ]
+      ]
+    },
+    {
+      "title": "WEBSITE",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          409.75,
+          526.6012573242188
+        ],
+        [
+          448.1640625,
+          526.6012573242188
+        ],
+        [
+          448.1640625,
+          536.6012573242188
+        ],
+        [
+          409.75,
+          536.6012573242188
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          402.6700134277344,
+          560.8712463378906
+        ],
+        [
+          456.603515625,
+          560.8712463378906
+        ],
+        [
+          456.603515625,
+          570.8712463378906
+        ],
+        [
+          402.6700134277344,
+          570.8712463378906
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          230
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          4
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          172
+        ],
+        [
+          "Line",
+          72
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "FigureGroup",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          197
+        ],
+        [
+          "Line",
+          88
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Figure",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          307
+        ],
+        [
+          "Line",
+          121
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          216
+        ],
+        [
+          "Line",
+          65
+        ],
+        [
+          "ListItem",
+          21
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_2201.08163_Cognitive_Ledger_Project_Towards_Building_Persona"
+}

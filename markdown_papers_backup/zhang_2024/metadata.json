@@ -1,0 +1,1176 @@
+{
+  "table_of_contents": [
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          50.454833984375,
+          128.47900390625
+        ],
+        [
+          124.9912109375,
+          128.47900390625
+        ],
+        [
+          124.9912109375,
+          137.7294921875
+        ],
+        [
+          50.454833984375,
+          137.7294921875
+        ]
+      ]
+    },
+    {
+      "title": "",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.52685546875,
+          157.977783203125
+        ],
+        [
+          97.0537109375,
+          157.977783203125
+        ],
+        [
+          97.0537109375,
+          167.022705078125
+        ],
+        [
+          48.52685546875,
+          167.022705078125
+        ]
+      ]
+    },
+    {
+      "title": "REVIEWED BY",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          48.81787109375,
+          217.69482421875
+        ],
+        [
+          85.72930908203125,
+          217.69482421875
+        ],
+        [
+          85.72930908203125,
+          225.52960205078125
+        ],
+        [
+          48.81787109375,
+          225.52960205078125
+        ]
+      ]
+    },
+    {
+      "title": "CITATION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          49.25439453125,
+          340.41796875
+        ],
+        [
+          75.5185546875,
+          340.41796875
+        ],
+        [
+          75.5185546875,
+          347.818359375
+        ],
+        [
+          49.25439453125,
+          347.818359375
+        ]
+      ]
+    },
+    {
+      "title": "COPYRIGHT",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          49.181640625,
+          413.39404296875
+        ],
+        [
+          82.5029296875,
+          413.39404296875
+        ],
+        [
+          82.5029296875,
+          421.57366943359375
+        ],
+        [
+          49.181640625,
+          421.57366943359375
+        ]
+      ]
+    },
+    {
+      "title": "A framework towards digital\ntwins for type 2 diabetes",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          220.7353515625,
+          124.470458984375
+        ],
+        [
+          499.3828125,
+          124.470458984375
+        ],
+        [
+          499.3828125,
+          171.750732421875
+        ],
+        [
+          220.7353515625,
+          171.750732421875
+        ]
+      ]
+    },
+    {
+      "title": "KEYWORDS",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          221.3173828125,
+          469.513671875
+        ],
+        [
+          252.07760620117188,
+          469.513671875
+        ],
+        [
+          252.07760620117188,
+          477.736328125
+        ],
+        [
+          221.3173828125,
+          477.736328125
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          221.171875,
+          512.1871948242188
+        ],
+        [
+          310.513671875,
+          512.1871948242188
+        ],
+        [
+          310.513671875,
+          526.25
+        ],
+        [
+          221.171875,
+          526.25
+        ]
+      ]
+    },
+    {
+      "title": "2 Materials and methods",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          304.40234375,
+          266.4140625
+        ],
+        [
+          460.38671875,
+          266.4140625
+        ],
+        [
+          460.38671875,
+          280.20684814453125
+        ],
+        [
+          304.40234375,
+          280.20684814453125
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Dataset description and processing",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          304.72430419921875,
+          291.8441162109375
+        ],
+        [
+          520.91796875,
+          291.8441162109375
+        ],
+        [
+          520.91796875,
+          303.84405517578125
+        ],
+        [
+          304.72430419921875,
+          303.84405517578125
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Machine learning models",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          49.181640625,
+          728.9384765625
+        ],
+        [
+          211.1318359375,
+          728.9384765625
+        ],
+        [
+          211.1318359375,
+          741.34326171875
+        ],
+        [
+          49.181640625,
+          741.34326171875
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Graph analysis",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          304.72430419921875,
+          691.525390625
+        ],
+        [
+          407.130859375,
+          691.525390625
+        ],
+        [
+          407.130859375,
+          703.8691558837891
+        ],
+        [
+          304.72430419921875,
+          703.8691558837891
+        ]
+      ]
+    },
+    {
+      "title": "3 Results",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          49.39990234375,
+          504.87109375
+        ],
+        [
+          106.58447265625,
+          504.87109375
+        ],
+        [
+          106.58447265625,
+          518.849609375
+        ],
+        [
+          49.39990234375,
+          518.849609375
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Predicting clinical trajectories",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          49.39990234375,
+          529.9501953125
+        ],
+        [
+          234.55859375,
+          529.9501953125
+        ],
+        [
+          234.55859375,
+          542.2944641113281
+        ],
+        [
+          49.39990234375,
+          542.2944641113281
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Exploring predictive models using\nknowledge graphs",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          48.96337890625,
+          142.354736328125
+        ],
+        [
+          260.16796875,
+          142.354736328125
+        ],
+        [
+          260.16796875,
+          167.228271484375
+        ],
+        [
+          48.96337890625,
+          167.228271484375
+        ]
+      ]
+    },
+    {
+      "title": "(A,C) show the top 10 highest weighted protein predictors for dHbA1c and deGFR, respectively, at 6 months, using L1-regularized logistic regression.\nThe bars indicate the range that the coefficients take over the 10 cross-validation runs. (B,D) Show the approximate Steiner subgraph on SPOKE using\nthe top 10 highest weighted proteins. A node outlined in red is part of the input set. Blue nodes are proteins, while orange nodes are diseases, and\npurple nodes are compounds. Light blue edges represent protein-protein interactions, while gray edges represent all other types of connections, and\nare labeled with the edge type. (E,F) Show the shortest paths from each of the top 10 proteins to the nodes for T2D and CKD.",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          53.6923828125,
+          719.0712890625
+        ],
+        [
+          532.910888671875,
+          717.4267578125
+        ],
+        [
+          532.910888671875,
+          764.4679489135742
+        ],
+        [
+          53.6923828125,
+          764.4679489135742
+        ]
+      ]
+    },
+    {
+      "title": "4 Discussion",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          302.947265625,
+          303.21044921875
+        ],
+        [
+          385.013671875,
+          303.21044921875
+        ],
+        [
+          385.013671875,
+          316.7738037109375
+        ],
+        [
+          302.947265625,
+          316.7738037109375
+        ]
+      ]
+    },
+    {
+      "title": "FIGURE 4",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          58.71240234375,
+          729.349609375
+        ],
+        [
+          87.00099182128906,
+          729.349609375
+        ],
+        [
+          87.00099182128906,
+          737.1263580322266
+        ],
+        [
+          58.71240234375,
+          737.1263580322266
+        ]
+      ]
+    },
+    {
+      "title": "Data availability statement",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          304.72430419921875,
+          181.32733154296875
+        ],
+        [
+          470.572265625,
+          181.32733154296875
+        ],
+        [
+          470.572265625,
+          195.390869140625
+        ],
+        [
+          304.72430419921875,
+          195.390869140625
+        ]
+      ]
+    },
+    {
+      "title": "Ethics statement",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          304.72430419921875,
+          333.22314453125
+        ],
+        [
+          410.041015625,
+          333.22314453125
+        ],
+        [
+          410.041015625,
+          347.9549560546875
+        ],
+        [
+          304.72430419921875,
+          347.9549560546875
+        ]
+      ]
+    },
+    {
+      "title": "Author contributions",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          303.529296875,
+          486.78125
+        ],
+        [
+          435.650390625,
+          486.78125
+        ],
+        [
+          435.650390625,
+          501.08245849609375
+        ],
+        [
+          303.529296875,
+          501.08245849609375
+        ]
+      ]
+    },
+    {
+      "title": "Funding",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          304.72430419921875,
+          677.546875
+        ],
+        [
+          357.076171875,
+          677.546875
+        ],
+        [
+          357.076171875,
+          691.6839904785156
+        ],
+        [
+          304.72430419921875,
+          691.6839904785156
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgments",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          49.145263671875,
+          81.6612548828125
+        ],
+        [
+          167.625,
+          81.6612548828125
+        ],
+        [
+          167.625,
+          95.5369873046875
+        ],
+        [
+          49.145263671875,
+          95.5369873046875
+        ]
+      ]
+    },
+    {
+      "title": "Conflict of interest",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          49.145263671875,
+          151.18988037109375
+        ],
+        [
+          168.9345703125,
+          151.18988037109375
+        ],
+        [
+          168.9345703125,
+          167.78485107421875
+        ],
+        [
+          49.145263671875,
+          167.78485107421875
+        ]
+      ]
+    },
+    {
+      "title": "Publisher's note",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          49.3271484375,
+          289.3719482421875
+        ],
+        [
+          150.6005859375,
+          289.3719482421875
+        ],
+        [
+          150.6005859375,
+          303.79119873046875
+        ],
+        [
+          49.3271484375,
+          303.79119873046875
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          48.96337890625,
+          436.2753601074219
+        ],
+        [
+          119.53466796875,
+          436.2753601074219
+        ],
+        [
+          119.53466796875,
+          449.779296875
+        ],
+        [
+          48.96337890625,
+          449.779296875
+        ]
+      ]
+    },
+    {
+      "title": "Supplementary material",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          302.947265625,
+          81.60986328125
+        ],
+        [
+          454.275390625,
+          81.60986328125
+        ],
+        [
+          454.275390625,
+          95.58837890625
+        ],
+        [
+          302.947265625,
+          95.58837890625
+        ]
+      ]
+    },
+    {
+      "title": "SUPPLEMENTARY FIGURE 1",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          304.72430419921875,
+          162.80859375
+        ],
+        [
+          376.0198974609375,
+          162.80859375
+        ],
+        [
+          376.0198974609375,
+          170.934326171875
+        ],
+        [
+          304.72430419921875,
+          170.934326171875
+        ]
+      ]
+    },
+    {
+      "title": "SUPPLEMENTARY FIGURE 2",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          304.72430419921875,
+          208.341552734375
+        ],
+        [
+          378.029296875,
+          208.341552734375
+        ],
+        [
+          378.029296875,
+          215.8447265625
+        ],
+        [
+          304.72430419921875,
+          215.8447265625
+        ]
+      ]
+    },
+    {
+      "title": "SUPPLEMENTARY FIGURE 3",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          304.72430419921875,
+          252.64111328125
+        ],
+        [
+          377.447265625,
+          252.64111328125
+        ],
+        [
+          377.447265625,
+          260.04150390625
+        ],
+        [
+          304.72430419921875,
+          260.04150390625
+        ]
+      ]
+    },
+    {
+      "title": "SUPPLEMENTARY TABLE 1",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          304.40234375,
+          288.2041015625
+        ],
+        [
+          372.7798156738281,
+          288.2041015625
+        ],
+        [
+          372.7798156738281,
+          295.43194580078125
+        ],
+        [
+          304.40234375,
+          295.43194580078125
+        ]
+      ]
+    },
+    {
+      "title": "SUPPLEMENTARY TABLE 2",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          304.72430419921875,
+          315.13330078125
+        ],
+        [
+          374.828125,
+          315.13330078125
+        ],
+        [
+          374.828125,
+          322.53369140625
+        ],
+        [
+          304.72430419921875,
+          322.53369140625
+        ]
+      ]
+    },
+    {
+      "title": "SUPPLEMENTARY TABLE 3\nAn overview of the nodes and edges of the SPOKE knowledge graph.",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          304.693359375,
+          351.9538879394531
+        ],
+        [
+          527.1720581054688,
+          351.9538879394531
+        ],
+        [
+          527.1720581054688,
+          370.01953125
+        ],
+        [
+          304.693359375,
+          370.01953125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          259
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          8
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          329
+        ],
+        [
+          "Line",
+          110
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          137
+        ],
+        [
+          "TableCell",
+          56
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          89
+        ],
+        [
+          "Line",
+          28
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          337
+        ],
+        [
+          "TableCell",
+          113
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Table",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          125
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          184
+        ],
+        [
+          "Line",
+          67
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          302
+        ],
+        [
+          "Line",
+          101
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          376
+        ],
+        [
+          "Line",
+          114
+        ],
+        [
+          "Text",
+          35
+        ],
+        [
+          "SectionHeader",
+          11
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          233
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Text",
+          19
+        ],
+        [
+          "PageFooter",
+          3
+        ],
+        [
+          "PageHeader",
+          2
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/frontiers_dt_diabetes"
+}

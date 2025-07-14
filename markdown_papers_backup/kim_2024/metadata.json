@@ -1,0 +1,870 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Leveraging Knowledge Graph-Based Human-Like Memory Systems to Solve\nPartially Observable Markov Decision Processes",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.328125,
+          97.873046875
+        ],
+        [
+          542.373046875,
+          97.873046875
+        ],
+        [
+          542.373046875,
+          128.16021728515625
+        ],
+        [
+          69.328125,
+          128.16021728515625
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          154.494140625,
+          218.31646728515625
+        ],
+        [
+          193.939453125,
+          218.31646728515625
+        ],
+        [
+          193.939453125,
+          228.279052734375
+        ],
+        [
+          154.494140625,
+          228.279052734375
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          131.0361328125,
+          417.57623291015625
+        ],
+        [
+          215.6044921875,
+          417.57623291015625
+        ],
+        [
+          215.6044921875,
+          429.53143310546875
+        ],
+        [
+          131.0361328125,
+          429.53143310546875
+        ]
+      ]
+    },
+    {
+      "title": "2 Background",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          396.544921875,
+          488.2218933105469
+        ],
+        [
+          480.216796875,
+          488.2218933105469
+        ],
+        [
+          480.216796875,
+          500.1770935058594
+        ],
+        [
+          396.544921875,
+          500.1770935058594
+        ]
+      ]
+    },
+    {
+      "title": "2.1 A Machine With Human-Like Memory\nSystems",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          319.5,
+          503.65478515625
+        ],
+        [
+          526.761962890625,
+          503.65478515625
+        ],
+        [
+          526.761962890625,
+          526.5188903808594
+        ],
+        [
+          319.5,
+          526.5188903808594
+        ]
+      ]
+    },
+    {
+      "title": "2.2 Reinforcement Learning (RL) in Partially\nObservable Markov Decision Process\n(POMDP)",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          53.490234375,
+          240.66583251953125
+        ],
+        [
+          273.427734375,
+          240.66583251953125
+        ],
+        [
+          273.427734375,
+          275.48590087890625
+        ],
+        [
+          53.490234375,
+          275.48590087890625
+        ]
+      ]
+    },
+    {
+      "title": "3 Methodology",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          393.2578125,
+          255.6044921875
+        ],
+        [
+          481.7109375,
+          255.6044921875
+        ],
+        [
+          481.7109375,
+          267.5596923828125
+        ],
+        [
+          393.2578125,
+          267.5596923828125
+        ]
+      ]
+    },
+    {
+      "title": "3.1 The Rooms Environment",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          319.1484375,
+          271.30938720703125
+        ],
+        [
+          460.9910583496094,
+          271.30938720703125
+        ],
+        [
+          460.9910583496094,
+          282.2184753417969
+        ],
+        [
+          319.1484375,
+          282.2184753417969
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Agents and Their Learning Objectives",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          317.654296875,
+          88.22021484375
+        ],
+        [
+          525.041015625,
+          88.22021484375
+        ],
+        [
+          525.041015625,
+          100.30352783203125
+        ],
+        [
+          317.654296875,
+          100.30352783203125
+        ]
+      ]
+    },
+    {
+      "title": "3.3 The Learning Algorithm",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          318.55078125,
+          624.4401397705078
+        ],
+        [
+          459.038330078125,
+          624.4401397705078
+        ],
+        [
+          459.038330078125,
+          635.3492279052734
+        ],
+        [
+          318.55078125,
+          635.3492279052734
+        ]
+      ]
+    },
+    {
+      "title": "4 Experiments",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          395.05078125,
+          558.401123046875
+        ],
+        [
+          480.515625,
+          558.401123046875
+        ],
+        [
+          480.515625,
+          570.3563232421875
+        ],
+        [
+          395.05078125,
+          570.3563232421875
+        ]
+      ]
+    },
+    {
+      "title": "5 Related Work",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          393.556640625,
+          370.81072998046875
+        ],
+        [
+          483.802734375,
+          370.81072998046875
+        ],
+        [
+          483.802734375,
+          382.76593017578125
+        ],
+        [
+          393.556640625,
+          382.76593017578125
+        ]
+      ]
+    },
+    {
+      "title": "6 Conclusion",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          401.21697998046875,
+          366.96484375
+        ],
+        [
+          476.630859375,
+          366.96484375
+        ],
+        [
+          476.630859375,
+          378.9200439453125
+        ],
+        [
+          401.21697998046875,
+          378.9200439453125
+        ]
+      ]
+    },
+    {
+      "title": "7 Acknowledgments",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          383.0209655761719,
+          571.9757537841797
+        ],
+        [
+          494.47930908203125,
+          571.9757537841797
+        ],
+        [
+          494.47930908203125,
+          583.9309539794922
+        ],
+        [
+          383.0209655761719,
+          583.9309539794922
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          410.888671875,
+          655.9197540283203
+        ],
+        [
+          466.5218200683594,
+          655.9197540283203
+        ],
+        [
+          466.5218200683594,
+          667.8749465942383
+        ],
+        [
+          410.888671875,
+          667.8749465942383
+        ]
+      ]
+    },
+    {
+      "title": "Algorithm 1: A forward pass to compute the Q-values",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          52.7431640625,
+          55.6875
+        ],
+        [
+          268.9231262207031,
+          55.6875
+        ],
+        [
+          268.9231262207031,
+          65.99102783203125
+        ],
+        [
+          52.7431640625,
+          65.99102783203125
+        ]
+      ]
+    },
+    {
+      "title": "1: Step 1: Convert Memory System to KGE",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          55.4326171875,
+          125.7802734375
+        ],
+        [
+          244.75335693359375,
+          125.7802734375
+        ],
+        [
+          244.75335693359375,
+          136.0631103515625
+        ],
+        [
+          55.4326171875,
+          136.0631103515625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          195
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          759
+        ],
+        [
+          "Line",
+          147
+        ],
+        [
+          "TextInlineMath",
+          8
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Equation",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          536
+        ],
+        [
+          "Line",
+          157
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          366
+        ],
+        [
+          "Line",
+          120
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          765
+        ],
+        [
+          "Line",
+          274
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "Equation",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          190
+        ],
+        [
+          "Line",
+          66
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          205
+        ],
+        [
+          "Line",
+          86
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          253
+        ],
+        [
+          "Line",
+          97
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          643
+        ],
+        [
+          "Line",
+          145
+        ],
+        [
+          "TableCell",
+          51
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "Reference",
+          13
+        ],
+        [
+          "TextInlineMath",
+          3
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          273
+        ],
+        [
+          "Line",
+          112
+        ],
+        [
+          "Text",
+          29
+        ],
+        [
+          "Reference",
+          28
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          45
+        ],
+        [
+          "Line",
+          16
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          4
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          343
+        ],
+        [
+          "Line",
+          163
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/kg_human_memory_systems_pomdp_2024"
+}

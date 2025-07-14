@@ -1,0 +1,651 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Towards a Flexible System Architecture for\nAutomated Knowledge Base Construction\nFrameworks",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          89.947265625,
+          53.09869384765625
+        ],
+        [
+          521.75390625,
+          53.09869384765625
+        ],
+        [
+          521.75390625,
+          132.79998779296875
+        ],
+        [
+          89.947265625,
+          132.79998779296875
+        ]
+      ]
+    },
+    {
+      "title": "I. INTRODUCTION",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          134.9208984375,
+          612.9146881103516
+        ],
+        [
+          213.37185668945312,
+          612.9146881103516
+        ],
+        [
+          213.37185668945312,
+          622.8772888183594
+        ],
+        [
+          134.9208984375,
+          622.8772888183594
+        ]
+      ]
+    },
+    {
+      "title": "II. BACKGROUND",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          136.1719970703125,
+          387.4921875
+        ],
+        [
+          213.36328125,
+          387.4921875
+        ],
+        [
+          213.36328125,
+          397.5741882324219
+        ],
+        [
+          136.1719970703125,
+          397.5741882324219
+        ]
+      ]
+    },
+    {
+      "title": "A. Knowledge Bases in Relevant Domains",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          47.8125,
+          403.6521301269531
+        ],
+        [
+          223.3740234375,
+          403.6521301269531
+        ],
+        [
+          223.3740234375,
+          413.6147155761719
+        ],
+        [
+          47.8125,
+          413.6147155761719
+        ]
+      ]
+    },
+    {
+      "title": "B. Automated Knowledge Base Construction",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          310.78125,
+          191.9091796875
+        ],
+        [
+          495.45703125,
+          191.9091796875
+        ],
+        [
+          495.45703125,
+          202.03765869140625
+        ],
+        [
+          310.78125,
+          202.03765869140625
+        ]
+      ]
+    },
+    {
+      "title": "III. ARCHITECTURE REQUIREMENTS",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          356.203125,
+          669.5054168701172
+        ],
+        [
+          518.16796875,
+          669.5054168701172
+        ],
+        [
+          518.16796875,
+          679.468017578125
+        ],
+        [
+          356.203125,
+          679.468017578125
+        ]
+      ]
+    },
+    {
+      "title": "A. Functional Requirements",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          47.513671875,
+          51.177978515625
+        ],
+        [
+          164.15158081054688,
+          51.177978515625
+        ],
+        [
+          164.15158081054688,
+          61.5849609375
+        ],
+        [
+          47.513671875,
+          61.5849609375
+        ]
+      ]
+    },
+    {
+      "title": "B. Non-functional Requirements",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          48.96400833129883,
+          303.1875
+        ],
+        [
+          181.986328125,
+          303.1875
+        ],
+        [
+          181.986328125,
+          314.1287536621094
+        ],
+        [
+          48.96400833129883,
+          314.1287536621094
+        ]
+      ]
+    },
+    {
+      "title": "IV. STATE-OF-THE-ART OVERVIEW AND LIMITATIONS",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          58.19677734375,
+          595.546875
+        ],
+        [
+          290.162109375,
+          595.546875
+        ],
+        [
+          290.162109375,
+          605.9230346679688
+        ],
+        [
+          58.19677734375,
+          605.9230346679688
+        ]
+      ]
+    },
+    {
+      "title": "A. Overview",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          311.97802734375,
+          51.17889404296875
+        ],
+        [
+          363.5643615722656,
+          51.17889404296875
+        ],
+        [
+          363.5643615722656,
+          61.681640625
+        ],
+        [
+          311.97802734375,
+          61.681640625
+        ]
+      ]
+    },
+    {
+      "title": "B. Missing Features",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          311.37890625,
+          376.083984375
+        ],
+        [
+          395.6484375,
+          376.083984375
+        ],
+        [
+          395.6484375,
+          386.30157470703125
+        ],
+        [
+          311.37890625,
+          386.30157470703125
+        ]
+      ]
+    },
+    {
+      "title": "V. SYSTEM ARCHITECTURE",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          114.55400085449219,
+          431.7904052734375
+        ],
+        [
+          234.87890625,
+          431.7904052734375
+        ],
+        [
+          234.87890625,
+          442.01953125
+        ],
+        [
+          114.55400085449219,
+          442.01953125
+        ]
+      ]
+    },
+    {
+      "title": "A. Design Principles",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          47.700439453125,
+          548.5068664550781
+        ],
+        [
+          135.1903076171875,
+          548.5068664550781
+        ],
+        [
+          135.1903076171875,
+          558.80859375
+        ],
+        [
+          47.700439453125,
+          558.80859375
+        ]
+      ]
+    },
+    {
+      "title": "B. Architecture",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          309.884765625,
+          456.328125
+        ],
+        [
+          375.029296875,
+          456.328125
+        ],
+        [
+          375.029296875,
+          466.3828125
+        ],
+        [
+          309.884765625,
+          466.3828125
+        ]
+      ]
+    },
+    {
+      "title": "C. Architectural Extensions to Fonduer",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          48.03662109375,
+          308.21484375
+        ],
+        [
+          210.18873596191406,
+          308.21484375
+        ],
+        [
+          210.18873596191406,
+          318.65625
+        ],
+        [
+          48.03662109375,
+          318.65625
+        ]
+      ]
+    },
+    {
+      "title": "VI. RELATED WORK",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          392.6210021972656,
+          559.58203125
+        ],
+        [
+          483.205078125,
+          559.58203125
+        ],
+        [
+          483.205078125,
+          570.6736297607422
+        ],
+        [
+          392.6210021972656,
+          570.6736297607422
+        ]
+      ]
+    },
+    {
+      "title": "VII. CONCLUSIONS AND FUTURE WORK",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          84.8671875,
+          250.62762451171875
+        ],
+        [
+          262.669921875,
+          250.62762451171875
+        ],
+        [
+          262.669921875,
+          260.5902099609375
+        ],
+        [
+          84.8671875,
+          260.5902099609375
+        ]
+      ]
+    },
+    {
+      "title": "REFERENCES",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          145.45458984375,
+          585.4774322509766
+        ],
+        [
+          202.60546875,
+          585.4774322509766
+        ],
+        [
+          202.60546875,
+          595.4400329589844
+        ],
+        [
+          145.45458984375,
+          595.4400329589844
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          188
+        ],
+        [
+          "Line",
+          94
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          249
+        ],
+        [
+          "Line",
+          108
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          261
+        ],
+        [
+          "Line",
+          107
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListGroup",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          252
+        ],
+        [
+          "Line",
+          103
+        ],
+        [
+          "TableCell",
+          40
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          175
+        ],
+        [
+          "Line",
+          75
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          388
+        ],
+        [
+          "Line",
+          129
+        ],
+        [
+          "ListItem",
+          22
+        ],
+        [
+          "Reference",
+          22
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/arxiv_arxiv_2102.02922_"
+}

@@ -1,0 +1,1716 @@
+{
+  "table_of_contents": [
+    {
+      "title": "A Unified Temporal Knowledge Graph Reasoning Model Towards\nInterpolation and Extrapolation",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          94.4345703125,
+          78.85003662109375
+        ],
+        [
+          501.12890625,
+          78.85003662109375
+        ],
+        [
+          501.12890625,
+          109.13623046875
+        ],
+        [
+          94.4345703125,
+          109.13623046875
+        ]
+      ]
+    },
+    {
+      "title": "Abstract",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          155.5478515625,
+          214.4921875
+        ],
+        [
+          202.6923828125,
+          214.4921875
+        ],
+        [
+          202.6923828125,
+          226.4473876953125
+        ],
+        [
+          155.5478515625,
+          226.4473876953125
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          69.84375,
+          591.3411560058594
+        ],
+        [
+          153.67967224121094,
+          591.3411560058594
+        ],
+        [
+          153.67967224121094,
+          603.2963562011719
+        ],
+        [
+          69.84375,
+          603.2963562011719
+        ]
+      ]
+    },
+    {
+      "title": "2 Related Work",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.1419982910156,
+          232.90673828125
+        ],
+        [
+          396.072265625,
+          232.90673828125
+        ],
+        [
+          396.072265625,
+          244.88134765625
+        ],
+        [
+          306.1419982910156,
+          244.88134765625
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Static KG Reasoning",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.1419982910156,
+          255.93017578125
+        ],
+        [
+          429.830078125,
+          255.93017578125
+        ],
+        [
+          429.830078125,
+          267.37408447265625
+        ],
+        [
+          306.1419982910156,
+          267.37408447265625
+        ]
+      ]
+    },
+    {
+      "title": "2.2 TKG Reasoning",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          306.14202880859375,
+          408.46044921875
+        ],
+        [
+          408.294921875,
+          408.46044921875
+        ],
+        [
+          408.294921875,
+          419.6401672363281
+        ],
+        [
+          306.14202880859375,
+          419.6401672363281
+        ]
+      ]
+    },
+    {
+      "title": "2.3 Neural-Symbolic Reasoning",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          69.91650390625,
+          116.864501953125
+        ],
+        [
+          225.828125,
+          116.864501953125
+        ],
+        [
+          225.828125,
+          128.03515625
+        ],
+        [
+          69.91650390625,
+          128.03515625
+        ]
+      ]
+    },
+    {
+      "title": "3 Preliminaries",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.316650390625,
+          440.5511474609375
+        ],
+        [
+          157.6488037109375,
+          440.5511474609375
+        ],
+        [
+          157.6488037109375,
+          452.50634765625
+        ],
+        [
+          70.316650390625,
+          452.50634765625
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Problem Definition of TKG Reasoning",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          70.20751953125,
+          467.72503662109375
+        ],
+        [
+          274.0152587890625,
+          467.72503662109375
+        ],
+        [
+          274.0152587890625,
+          478.6341552734375
+        ],
+        [
+          70.20751953125,
+          478.6341552734375
+        ]
+      ]
+    },
+    {
+      "title": "3.2 Bellman-Fold Based Recursive Encoding",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          305.56640625,
+          73.5413818359375
+        ],
+        [
+          521.5,
+          73.5413818359375
+        ],
+        [
+          521.5,
+          84.47119140625
+        ],
+        [
+          305.56640625,
+          84.47119140625
+        ]
+      ]
+    },
+    {
+      "title": "4 Methodology",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          305.56640625,
+          538.2081298828125
+        ],
+        [
+          391.15545654296875,
+          538.2081298828125
+        ],
+        [
+          391.15545654296875,
+          550.163330078125
+        ],
+        [
+          305.56640625,
+          550.163330078125
+        ]
+      ]
+    },
+    {
+      "title": "4.1 Temporal Path in TKGs",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          305.275390625,
+          626.2110595703125
+        ],
+        [
+          443.798828125,
+          626.2110595703125
+        ],
+        [
+          443.798828125,
+          637.1201477050781
+        ],
+        [
+          305.275390625,
+          637.1201477050781
+        ]
+      ]
+    },
+    {
+      "title": "4.2 Relative Time Encoding on Temporal\nLinks",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          69.9892578125,
+          580.8040466308594
+        ],
+        [
+          269.9169921875,
+          580.8040466308594
+        ],
+        [
+          269.9169921875,
+          605.2621307373047
+        ],
+        [
+          69.9892578125,
+          605.2621307373047
+        ]
+      ]
+    },
+    {
+      "title": "4.3 Recursive Encoding on Temporal Paths",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          306.14202880859375,
+          462.5244140625
+        ],
+        [
+          515.6796875,
+          462.5244140625
+        ],
+        [
+          515.6796875,
+          473.7001647949219
+        ],
+        [
+          306.14202880859375,
+          473.7001647949219
+        ]
+      ]
+    },
+    {
+      "title": "4.4 Reasoning on Temporal Paths",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          305.857421875,
+          499.5263671875
+        ],
+        [
+          470.572265625,
+          499.5263671875
+        ],
+        [
+          470.572265625,
+          510.5361633300781
+        ],
+        [
+          305.857421875,
+          510.5361633300781
+        ]
+      ]
+    },
+    {
+      "title": "5 Experiments",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.462158203125,
+          695.6901550292969
+        ],
+        [
+          153.947265625,
+          695.6901550292969
+        ],
+        [
+          153.947265625,
+          707.6453552246094
+        ],
+        [
+          70.462158203125,
+          707.6453552246094
+        ]
+      ]
+    },
+    {
+      "title": "5.1 Evaluation Protocol",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          70.134765625,
+          717.8390426635742
+        ],
+        [
+          188.287109375,
+          717.8390426635742
+        ],
+        [
+          188.287109375,
+          728.9384765625
+        ],
+        [
+          70.134765625,
+          728.9384765625
+        ]
+      ]
+    },
+    {
+      "title": "5.2 Main Results",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.14202880859375,
+          409.48828125
+        ],
+        [
+          394.03515625,
+          409.48828125
+        ],
+        [
+          394.03515625,
+          420.5251770019531
+        ],
+        [
+          306.14202880859375,
+          420.5251770019531
+        ]
+      ]
+    },
+    {
+      "title": "5.2.1 Interpolation Reasoning",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.14202880859375,
+          427.998046875
+        ],
+        [
+          451.8003234863281,
+          427.998046875
+        ],
+        [
+          451.8003234863281,
+          439.08984375
+        ],
+        [
+          306.14202880859375,
+          439.08984375
+        ]
+      ]
+    },
+    {
+      "title": "5.2.2 Extrapolation Reasoning",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          306.14202880859375,
+          697.7380523681641
+        ],
+        [
+          456.3125,
+          697.7380523681641
+        ],
+        [
+          456.3125,
+          708.79296875
+        ],
+        [
+          306.14202880859375,
+          708.79296875
+        ]
+      ]
+    },
+    {
+      "title": "5.3 Analysis on Pipeline Setting",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          69.77099609375,
+          492.537109375
+        ],
+        [
+          225.537109375,
+          492.537109375
+        ],
+        [
+          225.537109375,
+          504.048828125
+        ],
+        [
+          69.77099609375,
+          504.048828125
+        ]
+      ]
+    },
+    {
+      "title": "5.4 Case Study: Path Interpretations",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          70.5712890625,
+          494.0310363769531
+        ],
+        [
+          249.8843231201172,
+          494.0310363769531
+        ],
+        [
+          249.8843231201172,
+          504.9401550292969
+        ],
+        [
+          70.5712890625,
+          504.9401550292969
+        ]
+      ]
+    },
+    {
+      "title": "5.5 Robustness Analysis",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          306.14202880859375,
+          414.13104248046875
+        ],
+        [
+          426.046875,
+          414.13104248046875
+        ],
+        [
+          426.046875,
+          425.0401611328125
+        ],
+        [
+          306.14202880859375,
+          425.0401611328125
+        ]
+      ]
+    },
+    {
+      "title": "6 Conclusion",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          306.14202880859375,
+          645.6621551513672
+        ],
+        [
+          381.521484375,
+          645.6621551513672
+        ],
+        [
+          381.521484375,
+          657.6173553466797
+        ],
+        [
+          306.14202880859375,
+          657.6173553466797
+        ]
+      ]
+    },
+    {
+      "title": "7 Limitations",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.025634765625,
+          150.474609375
+        ],
+        [
+          148.126953125,
+          150.474609375
+        ],
+        [
+          148.126953125,
+          162.77435302734375
+        ],
+        [
+          70.025634765625,
+          162.77435302734375
+        ]
+      ]
+    },
+    {
+      "title": "Acknowledgements",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.20751953125,
+          412.4511413574219
+        ],
+        [
+          169.6996307373047,
+          412.4511413574219
+        ],
+        [
+          169.6996307373047,
+          424.4063415527344
+        ],
+        [
+          70.20751953125,
+          424.4063415527344
+        ]
+      ]
+    },
+    {
+      "title": "References",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          69.9892578125,
+          510.626953125
+        ],
+        [
+          126.591796875,
+          510.626953125
+        ],
+        [
+          126.591796875,
+          522.59033203125
+        ],
+        [
+          69.9892578125,
+          522.59033203125
+        ]
+      ]
+    },
+    {
+      "title": "A Bellman-Ford Shortest Path Algorithm",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          70.2802734375,
+          72.7591552734375
+        ],
+        [
+          291.1611328125,
+          72.7591552734375
+        ],
+        [
+          291.1611328125,
+          84.71435546875
+        ],
+        [
+          70.2802734375,
+          84.71435546875
+        ]
+      ]
+    },
+    {
+      "title": "B An Illustration of Temporal Paths and\nTemporal Links",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          69.91650390625,
+          505.89715576171875
+        ],
+        [
+          287.232421875,
+          505.89715576171875
+        ],
+        [
+          287.232421875,
+          532.005859375
+        ],
+        [
+          69.91650390625,
+          532.005859375
+        ]
+      ]
+    },
+    {
+      "title": "C Benchmark Datasets",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          306.14202880859375,
+          114.82415771484375
+        ],
+        [
+          434.1953125,
+          114.82415771484375
+        ],
+        [
+          434.1953125,
+          126.77935791015625
+        ],
+        [
+          306.14202880859375,
+          126.77935791015625
+        ]
+      ]
+    },
+    {
+      "title": "C.1 Interpolation datasets",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          305.56640625,
+          137.21209716796875
+        ],
+        [
+          435.94140625,
+          137.21209716796875
+        ],
+        [
+          435.94140625,
+          148.12115478515625
+        ],
+        [
+          305.56640625,
+          148.12115478515625
+        ]
+      ]
+    },
+    {
+      "title": "C.2 Extrapolation datasets",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          305.857421875,
+          490.4560546875
+        ],
+        [
+          439.142578125,
+          490.4560546875
+        ],
+        [
+          439.142578125,
+          501.36517333984375
+        ],
+        [
+          305.857421875,
+          501.36517333984375
+        ]
+      ]
+    },
+    {
+      "title": "D Experimental Details for Interpolation\nReasoning",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          69.91650390625,
+          459.4041748046875
+        ],
+        [
+          288.396484375,
+          459.4041748046875
+        ],
+        [
+          288.396484375,
+          485.307373046875
+        ],
+        [
+          69.91650390625,
+          485.307373046875
+        ]
+      ]
+    },
+    {
+      "title": "D.1 Setup",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          69.77099609375,
+          501.9931640625
+        ],
+        [
+          124.28785705566406,
+          501.9931640625
+        ],
+        [
+          124.28785705566406,
+          513.5991516113281
+        ],
+        [
+          69.77099609375,
+          513.5991516113281
+        ]
+      ]
+    },
+    {
+      "title": "D.2 Baselines",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          304.693359375,
+          205.36083984375
+        ],
+        [
+          376.283203125,
+          205.36083984375
+        ],
+        [
+          376.283203125,
+          217.28369140625
+        ],
+        [
+          304.693359375,
+          217.28369140625
+        ]
+      ]
+    },
+    {
+      "title": "D.3 Hyperparameter",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          304.693359375,
+          341.240234375
+        ],
+        [
+          412.369140625,
+          341.240234375
+        ],
+        [
+          412.369140625,
+          352.751953125
+        ],
+        [
+          304.693359375,
+          352.751953125
+        ]
+      ]
+    },
+    {
+      "title": "E Experimental Details for Extrapolation\nReasoning",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          305.56640625,
+          627.388671875
+        ],
+        [
+          525.57421875,
+          627.388671875
+        ],
+        [
+          525.57421875,
+          653.701171875
+        ],
+        [
+          305.56640625,
+          653.701171875
+        ]
+      ]
+    },
+    {
+      "title": "E.1 Setup",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          305.857421875,
+          663.1572265625
+        ],
+        [
+          359.404296875,
+          663.1572265625
+        ],
+        [
+          359.404296875,
+          674.6689453125
+        ],
+        [
+          305.857421875,
+          674.6689453125
+        ]
+      ]
+    },
+    {
+      "title": "E.2 Baselines",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          70.06201171875,
+          205.9775390625
+        ],
+        [
+          140.48779296875,
+          205.9775390625
+        ],
+        [
+          140.48779296875,
+          217.4892578125
+        ],
+        [
+          70.06201171875,
+          217.4892578125
+        ]
+      ]
+    },
+    {
+      "title": "E.3 Hyperparameter",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          70.35302734375,
+          329.93408203125
+        ],
+        [
+          175.88790893554688,
+          329.93408203125
+        ],
+        [
+          175.88790893554688,
+          341.44580078125
+        ],
+        [
+          70.35302734375,
+          341.44580078125
+        ]
+      ]
+    },
+    {
+      "title": "F Details of the Pipeline Setting",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          69.91650390625,
+          535.7060546875
+        ],
+        [
+          240.223388671875,
+          535.7060546875
+        ],
+        [
+          240.223388671875,
+          548.04931640625
+        ],
+        [
+          69.91650390625,
+          548.04931640625
+        ]
+      ]
+    },
+    {
+      "title": "G Analysis on Path Length",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          306.14202880859375,
+          353.4891357421875
+        ],
+        [
+          453.40234375,
+          353.4891357421875
+        ],
+        [
+          453.40234375,
+          365.908203125
+        ],
+        [
+          306.14202880859375,
+          365.908203125
+        ]
+      ]
+    },
+    {
+      "title": "H Analysis on Chronological Order",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          69.84375,
+          541.05078125
+        ],
+        [
+          260.95367431640625,
+          541.05078125
+        ],
+        [
+          260.95367431640625,
+          553.3523559570312
+        ],
+        [
+          69.84375,
+          553.3523559570312
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          284
+        ],
+        [
+          "Line",
+          96
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          323
+        ],
+        [
+          "Line",
+          98
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          529
+        ],
+        [
+          "Line",
+          102
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "TextInlineMath",
+          5
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          811
+        ],
+        [
+          "Line",
+          158
+        ],
+        [
+          "TextInlineMath",
+          9
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Footnote",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          1177
+        ],
+        [
+          "Line",
+          248
+        ],
+        [
+          "TextInlineMath",
+          12
+        ],
+        [
+          "Equation",
+          8
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Reference",
+          6
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          673
+        ],
+        [
+          "Line",
+          161
+        ],
+        [
+          "TextInlineMath",
+          7
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Equation",
+          3
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          466
+        ],
+        [
+          "TableCell",
+          463
+        ],
+        [
+          "Line",
+          92
+        ],
+        [
+          "Reference",
+          7
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "Footnote",
+          3
+        ],
+        [
+          "TableGroup",
+          3
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          246
+        ],
+        [
+          "Line",
+          71
+        ],
+        [
+          "TableCell",
+          36
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Caption",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          230
+        ],
+        [
+          "Line",
+          104
+        ],
+        [
+          "Reference",
+          14
+        ],
+        [
+          "ListItem",
+          13
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          285
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Reference",
+          17
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Text",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          296
+        ],
+        [
+          "Line",
+          113
+        ],
+        [
+          "ListItem",
+          19
+        ],
+        [
+          "Reference",
+          19
+        ],
+        [
+          "ListGroup",
+          2
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          135
+        ],
+        [
+          "Line",
+          55
+        ],
+        [
+          "ListItem",
+          9
+        ],
+        [
+          "Reference",
+          9
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          547
+        ],
+        [
+          "Line",
+          115
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "Reference",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "TextInlineMath",
+          2
+        ],
+        [
+          "Footnote",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          475
+        ],
+        [
+          "Line",
+          88
+        ],
+        [
+          "TableCell",
+          68
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          608
+        ],
+        [
+          "TableCell",
+          133
+        ],
+        [
+          "Line",
+          89
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Caption",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ],
+        [
+          "FigureGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          364
+        ],
+        [
+          "TableCell",
+          87
+        ],
+        [
+          "Line",
+          81
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Table",
+          3
+        ],
+        [
+          "Caption",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TextInlineMath",
+          1
+        ],
+        [
+          "TableGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/2405.18106v1"
+}
